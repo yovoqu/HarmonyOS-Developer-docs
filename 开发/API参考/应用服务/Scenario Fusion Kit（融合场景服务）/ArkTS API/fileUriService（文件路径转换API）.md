@@ -14,7 +14,7 @@
 **起始版本：** 5.0.2(14)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Tablet
 
@@ -24,7 +24,7 @@ import { fileUriService } from '@kit.ScenarioFusionKit';
  
   
 
-##### FileUriResult
+#### FileUriResult
 
 **支持设备：** Phone | Tablet
 
@@ -45,7 +45,7 @@ import { fileUriService } from '@kit.ScenarioFusionKit';
  
   
 
-##### TargetType
+#### TargetType
 
 **支持设备：** Phone | Tablet
 
@@ -66,7 +66,7 @@ import { fileUriService } from '@kit.ScenarioFusionKit';
  
   
 
-##### convertFileUris
+#### convertFileUris
 
 **支持设备：** Phone | Tablet
 

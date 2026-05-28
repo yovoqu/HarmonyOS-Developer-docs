@@ -7,13 +7,13 @@
 OHAVSession系统提供的通过使用C API实现媒体会话提供方，从而在媒体会话控制方（例如播控中心）中展示媒体相关信息，及响应媒体会话控制方下发的播控命令。
 
 
-##### 使用入门
+#### 使用入门
 
 开发者使用[native_avsession.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avsession-h)实现媒体会话，需要添加对应的头文件。
 
 
 
-##### 在 CMake 脚本中链接动态库
+#### 在 CMake 脚本中链接动态库
 
 ```text
 target_link_libraries(entry PUBLIC libohavsession.so)
@@ -21,7 +21,7 @@ target_link_libraries(entry PUBLIC libohavsession.so)
 
 
 
-##### 添加头文件
+#### 添加头文件
 
 ```cpp
 #include <multimedia/av_session/native_avmetadata.h>
@@ -31,7 +31,7 @@ target_link_libraries(entry PUBLIC libohavsession.so)
 
 
 
-##### 开发步骤及注意事项
+#### 开发步骤及注意事项
 
 开发者可以通过以下几个步骤在NDK接入本地会话。
 1. 创建会话并激活媒体，需要传入会话类型AVSession_Type，自定义的TAG，以及应用的包名、ability名字。

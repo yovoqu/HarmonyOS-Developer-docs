@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { displaySync } from '@kit.ArkGraphics2D';
 
 
 
-##### displaySync.create
+#### displaySync.create
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -47,7 +47,7 @@ let backDisplaySync: displaySync.DisplaySync = displaySync.create();
 
 
 
-##### IntervalInfo
+#### IntervalInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -63,7 +63,7 @@ let backDisplaySync: displaySync.DisplaySync = displaySync.create();
 
 
 
-##### DisplaySync
+#### DisplaySync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -73,7 +73,7 @@ let backDisplaySync: displaySync.DisplaySync = displaySync.create();
 
 
 
-##### setExpectedFrameRateRange
+#### setExpectedFrameRateRange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -114,7 +114,7 @@ backDisplaySync?.setExpectedFrameRateRange(range)
 
 
 
-##### on('frame')
+#### on('frame')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -145,7 +145,7 @@ backDisplaySync?.on("frame", callback)
 
 
 
-##### off('frame')
+#### off('frame')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -178,7 +178,7 @@ backDisplaySync?.off("frame", callback)
 
 
 
-##### start
+#### start
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -243,7 +243,7 @@ struct Index {
 
 
 
-##### stop
+#### stop
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -17,7 +17,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -27,7 +27,7 @@ import { collections } from '@kit.ArkTS';
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -42,7 +42,7 @@ import { collections } from '@kit.ArkTS';
 
 
 
-##### [index: number]
+#### [index: number]
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -85,7 +85,7 @@ console.info("Element at index 1: ", concatArray[1]);
 
 
 
-##### join
+#### join
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -129,7 +129,7 @@ let joinedString = concatArray.join('-'); // 返回 "a-b-c"
 
 
 
-##### slice
+#### slice
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

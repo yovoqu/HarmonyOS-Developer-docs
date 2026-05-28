@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-mediakeysystem-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -25,13 +25,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -64,13 +64,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### MediaKeySystem_Callback()
+#### MediaKeySystem_Callback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -103,7 +103,7 @@ MediaKeySystem事件触发时将调用的回调函数，不返回MediaKeySystem�
  
   
 
-##### OH_MediaKeySystem_Callback()
+#### OH_MediaKeySystem_Callback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -137,7 +137,7 @@ MediaKeySystem事件触发时将调用的回调函数，返回MediaKeySystem实�
  
   
 
-##### OH_MediaKeySystem_SetCallback()
+#### OH_MediaKeySystem_SetCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -168,7 +168,7 @@ Drm_ErrCode OH_MediaKeySystem_SetCallback(MediaKeySystem *mediaKeySystem, OH_Med
  
   
 
-##### OH_MediaKeySystem_GetMediaKeySystems()
+#### OH_MediaKeySystem_GetMediaKeySystems()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -199,7 +199,7 @@ Drm_ErrCode OH_MediaKeySystem_GetMediaKeySystems(DRM_MediaKeySystemDescription *
  
   
 
-##### OH_MediaKeySystem_IsSupported()
+#### OH_MediaKeySystem_IsSupported()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -229,7 +229,7 @@ bool OH_MediaKeySystem_IsSupported(const char *name)
  
   
 
-##### OH_MediaKeySystem_IsSupported2()
+#### OH_MediaKeySystem_IsSupported2()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -260,7 +260,7 @@ bool OH_MediaKeySystem_IsSupported2(const char *name, const char *mimeType)
  
   
 
-##### OH_MediaKeySystem_IsSupported3()
+#### OH_MediaKeySystem_IsSupported3()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -292,7 +292,7 @@ bool OH_MediaKeySystem_IsSupported3(const char *name, const char *mimeType,DRM_C
  
   
 
-##### OH_MediaKeySystem_Create()
+#### OH_MediaKeySystem_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -323,7 +323,7 @@ Drm_ErrCode OH_MediaKeySystem_Create(const char *name, MediaKeySystem **mediaKey
  
   
 
-##### OH_MediaKeySystem_SetConfigurationString()
+#### OH_MediaKeySystem_SetConfigurationString()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -355,7 +355,7 @@ Drm_ErrCode OH_MediaKeySystem_SetConfigurationString(MediaKeySystem *mediaKeySys
  
   
 
-##### OH_MediaKeySystem_GetConfigurationString()
+#### OH_MediaKeySystem_GetConfigurationString()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -388,7 +388,7 @@ Drm_ErrCode OH_MediaKeySystem_GetConfigurationString(MediaKeySystem *mediaKeySys
  
   
 
-##### OH_MediaKeySystem_SetConfigurationByteArray()
+#### OH_MediaKeySystem_SetConfigurationByteArray()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -421,7 +421,7 @@ Drm_ErrCode OH_MediaKeySystem_SetConfigurationByteArray(MediaKeySystem *mediaKey
  
   
 
-##### OH_MediaKeySystem_GetConfigurationByteArray()
+#### OH_MediaKeySystem_GetConfigurationByteArray()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -454,7 +454,7 @@ Drm_ErrCode OH_MediaKeySystem_GetConfigurationByteArray(MediaKeySystem *mediaKey
  
   
 
-##### OH_MediaKeySystem_GetStatistics()
+#### OH_MediaKeySystem_GetStatistics()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -485,7 +485,7 @@ Drm_ErrCode OH_MediaKeySystem_GetStatistics(MediaKeySystem *mediaKeySystem, DRM_
  
   
 
-##### OH_MediaKeySystem_GetMaxContentProtectionLevel()
+#### OH_MediaKeySystem_GetMaxContentProtectionLevel()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -516,7 +516,7 @@ Drm_ErrCode OH_MediaKeySystem_GetMaxContentProtectionLevel(MediaKeySystem *media
  
   
 
-##### OH_MediaKeySystem_SetMediaKeySystemCallback()
+#### OH_MediaKeySystem_SetMediaKeySystemCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -547,7 +547,7 @@ Drm_ErrCode OH_MediaKeySystem_SetMediaKeySystemCallback(MediaKeySystem *mediaKey
  
   
 
-##### OH_MediaKeySystem_CreateMediaKeySession()
+#### OH_MediaKeySystem_CreateMediaKeySession()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -579,7 +579,7 @@ Drm_ErrCode OH_MediaKeySystem_CreateMediaKeySession(MediaKeySystem *mediaKeySyst
  
   
 
-##### OH_MediaKeySystem_GenerateKeySystemRequest()
+#### OH_MediaKeySystem_GenerateKeySystemRequest()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -613,7 +613,7 @@ Drm_ErrCode OH_MediaKeySystem_GenerateKeySystemRequest(MediaKeySystem *mediaKeyS
  
   
 
-##### OH_MediaKeySystem_ProcessKeySystemResponse()
+#### OH_MediaKeySystem_ProcessKeySystemResponse()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -645,7 +645,7 @@ Drm_ErrCode OH_MediaKeySystem_ProcessKeySystemResponse(MediaKeySystem *mediaKeyS
  
   
 
-##### OH_MediaKeySystem_GetOfflineMediaKeyIds()
+#### OH_MediaKeySystem_GetOfflineMediaKeyIds()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -676,7 +676,7 @@ Drm_ErrCode OH_MediaKeySystem_GetOfflineMediaKeyIds(MediaKeySystem *mediaKeySyst
  
   
 
-##### OH_MediaKeySystem_GetOfflineMediaKeyStatus()
+#### OH_MediaKeySystem_GetOfflineMediaKeyStatus()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -709,7 +709,7 @@ Drm_ErrCode OH_MediaKeySystem_GetOfflineMediaKeyStatus(MediaKeySystem *mediaKeyS
  
   
 
-##### OH_MediaKeySystem_ClearOfflineMediaKeys()
+#### OH_MediaKeySystem_ClearOfflineMediaKeys()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -741,7 +741,7 @@ Drm_ErrCode OH_MediaKeySystem_ClearOfflineMediaKeys(MediaKeySystem *mediaKeySyst
  
   
 
-##### OH_MediaKeySystem_GetCertificateStatus()
+#### OH_MediaKeySystem_GetCertificateStatus()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -772,7 +772,7 @@ Drm_ErrCode OH_MediaKeySystem_GetCertificateStatus(MediaKeySystem *mediaKeySyste
  
   
 
-##### OH_MediaKeySystem_Destroy()
+#### OH_MediaKeySystem_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

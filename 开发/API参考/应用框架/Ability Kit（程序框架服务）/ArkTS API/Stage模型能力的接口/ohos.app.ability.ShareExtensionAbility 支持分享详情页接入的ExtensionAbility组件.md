@@ -16,7 +16,7 @@ ShareExtensionAbility继承自[UIExtensionAbility](https://developer.huawei.com/
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -26,7 +26,7 @@ import { ShareExtensionAbility } from '@kit.AbilityKit';
  
   
 
-##### ShareExtensionAbility
+#### ShareExtensionAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

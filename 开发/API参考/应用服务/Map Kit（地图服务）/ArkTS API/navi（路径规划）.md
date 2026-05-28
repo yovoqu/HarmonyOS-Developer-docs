@@ -10,7 +10,7 @@
 **起始版本：** 4.1.0(11)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -20,7 +20,7 @@ import { navi } from '@kit.MapKit';
  
   
 
-##### getDrivingRoutes
+#### getDrivingRoutes
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -106,7 +106,7 @@ console.info("Succeeded in getting driving routes.");
  
   
 
-##### getDrivingRoutes
+#### getDrivingRoutes
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -192,7 +192,7 @@ console.info("Succeeded in getting driving routes.");
  
   
 
-##### getWalkingRoutes
+#### getWalkingRoutes
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -272,7 +272,7 @@ console.info("Succeeded in getting walking routes.");
  
   
 
-##### getWalkingRoutes
+#### getWalkingRoutes
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -358,7 +358,7 @@ console.info("Succeeded in getting walking routes.");
  
   
 
-##### getCyclingRoutes
+#### getCyclingRoutes
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -438,7 +438,7 @@ console.info("Succeeded in getting cycling routes.");
  
   
 
-##### getCyclingRoutes
+#### getCyclingRoutes
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -519,7 +519,7 @@ console.info("Succeeded in getting cycling routes.");
  
   
 
-##### getTransitRoutes
+#### getTransitRoutes
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -592,7 +592,7 @@ console.info("Succeeded in getting transit routes.");
  
   
 
-##### getDrivingMatrix
+#### getDrivingMatrix
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -681,7 +681,7 @@ console.info("Succeeded in getting driving matrix.");
  
   
 
-##### getDrivingMatrix
+#### getDrivingMatrix
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -771,7 +771,7 @@ console.info("Succeeded in getting driving matrix.");
  
   
 
-##### getWalkingMatrix
+#### getWalkingMatrix
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -859,7 +859,7 @@ console.info("Succeeded in getting walking matrix.");
  
   
 
-##### getWalkingMatrix
+#### getWalkingMatrix
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -948,7 +948,7 @@ console.info("Succeeded in getting walking matrix.");
  
   
 
-##### getCyclingMatrix
+#### getCyclingMatrix
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1036,7 +1036,7 @@ console.info("Succeeded in getting cycling matrix.");
  
   
 
-##### getCyclingMatrix
+#### getCyclingMatrix
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1125,7 +1125,7 @@ console.info("Succeeded in getting cycling matrix.");
  
   
 
-##### snapToRoads
+#### snapToRoads
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1200,7 +1200,7 @@ console.info("Succeeded in snapping to roads.");
  
   
 
-##### snapToRoads
+#### snapToRoads
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1276,7 +1276,7 @@ console.info("Succeeded in snapping to roads.");
  
   
 
-##### RouteCoordinate
+#### RouteCoordinate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1304,7 +1304,7 @@ console.info("Succeeded in snapping to roads.");
  
   
 
-##### RouteParams
+#### RouteParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1329,7 +1329,7 @@ console.info("Succeeded in snapping to roads.");
  
   
 
-##### RouteResult
+#### RouteResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1350,7 +1350,7 @@ console.info("Succeeded in snapping to roads.");
  
   
 
-##### DrivingRouteParams
+#### DrivingRouteParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1376,7 +1376,7 @@ console.info("Succeeded in snapping to roads.");
  
   
 
-##### Route
+#### Route
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1410,7 +1410,7 @@ console.info("Succeeded in snapping to roads.");
  
   
 
-##### RouteStep
+#### RouteStep
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1442,7 +1442,7 @@ console.info("Succeeded in snapping to roads.");
  
   
 
-##### RouteRoad
+#### RouteRoad
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1474,7 +1474,7 @@ console.info("Succeeded in snapping to roads.");
  
   
 
-##### CoordinateBound
+#### CoordinateBound
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1496,7 +1496,7 @@ console.info("Succeeded in snapping to roads.");
  
   
 
-##### Waypoint
+#### Waypoint
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1518,7 +1518,7 @@ console.info("Succeeded in snapping to roads.");
  
   
 
-##### TrafficSegment
+#### TrafficSegment
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1541,7 +1541,7 @@ console.info("Succeeded in snapping to roads.");
  
   
 
-##### MatrixParams
+#### MatrixParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1565,7 +1565,7 @@ console.info("Succeeded in snapping to roads.");
  
   
 
-##### TransitRouteParams
+#### TransitRouteParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1589,7 +1589,7 @@ console.info("Succeeded in snapping to roads.");
  
   
 
-##### TransitRouteResult
+#### TransitRouteResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1610,7 +1610,7 @@ console.info("Succeeded in snapping to roads.");
  
   
 
-##### TransitRoute
+#### TransitRoute
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1633,7 +1633,7 @@ console.info("Succeeded in snapping to roads.");
  
   
 
-##### BusSortInfo
+#### BusSortInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1662,7 +1662,7 @@ console.info("Succeeded in snapping to roads.");
  
   
 
-##### TransitRouteSection
+#### TransitRouteSection
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1685,7 +1685,7 @@ console.info("Succeeded in snapping to roads.");
  
   
 
-##### PedestrianSection
+#### PedestrianSection
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1713,7 +1713,7 @@ console.info("Succeeded in snapping to roads.");
  
   
 
-##### PedestrianDepartureArrival
+#### PedestrianDepartureArrival
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1735,7 +1735,7 @@ console.info("Succeeded in snapping to roads.");
  
   
 
-##### Passthrough
+#### Passthrough
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1757,7 +1757,7 @@ console.info("Succeeded in snapping to roads.");
  
   
 
-##### Place
+#### Place
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1780,7 +1780,7 @@ console.info("Succeeded in snapping to roads.");
  
   
 
-##### BaseSummary
+#### BaseSummary
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1803,7 +1803,7 @@ console.info("Succeeded in snapping to roads.");
  
   
 
-##### TransitSection
+#### TransitSection
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1838,7 +1838,7 @@ console.info("Succeeded in snapping to roads.");
  
   
 
-##### TransitArrival
+#### TransitArrival
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1862,7 +1862,7 @@ console.info("Succeeded in snapping to roads.");
  
   
 
-##### TransitDeparture
+#### TransitDeparture
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1886,7 +1886,7 @@ console.info("Succeeded in snapping to roads.");
  
   
 
-##### TransitEntranceExit
+#### TransitEntranceExit
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1908,7 +1908,7 @@ console.info("Succeeded in snapping to roads.");
  
   
 
-##### TransitStop
+#### TransitStop
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1930,7 +1930,7 @@ console.info("Succeeded in snapping to roads.");
  
   
 
-##### TransitTransport
+#### TransitTransport
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1956,7 +1956,7 @@ console.info("Succeeded in snapping to roads.");
  
   
 
-##### ExtraTransitSection
+#### ExtraTransitSection
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1983,7 +1983,7 @@ console.info("Succeeded in snapping to roads.");
  
   
 
-##### TransitMode
+#### TransitMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2005,7 +2005,7 @@ console.info("Succeeded in snapping to roads.");
  
   
 
-##### MatrixResult
+#### MatrixResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2028,7 +2028,7 @@ console.info("Succeeded in snapping to roads.");
  
   
 
-##### DrivingMatrixParams
+#### DrivingMatrixParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2050,7 +2050,7 @@ console.info("Succeeded in snapping to roads.");
  
   
 
-##### MatrixRow
+#### MatrixRow
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2071,7 +2071,7 @@ console.info("Succeeded in snapping to roads.");
  
   
 
-##### MatrixCell
+#### MatrixCell
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2095,7 +2095,7 @@ console.info("Succeeded in snapping to roads.");
  
   
 
-##### SnapToRoadsParams
+#### SnapToRoadsParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2116,7 +2116,7 @@ console.info("Succeeded in snapping to roads.");
  
   
 
-##### SnapToRoadsResult
+#### SnapToRoadsResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2138,7 +2138,7 @@ console.info("Succeeded in snapping to roads.");
  
   
 
-##### SnappedPoint
+#### SnappedPoint
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

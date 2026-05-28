@@ -28,7 +28,7 @@ keyframeAnimateTo(param: KeyframeAnimateParam, keyframes: Array&lt;KeyframeState
  
   
 
-##### KeyframeAnimateParam对象说明
+#### KeyframeAnimateParam对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -46,7 +46,7 @@ keyframeAnimateTo(param: KeyframeAnimateParam, keyframes: Array&lt;KeyframeState
  
   
 
-##### KeyframeState对象说明
+#### KeyframeState对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -65,7 +65,7 @@ keyframeAnimateTo(param: KeyframeAnimateParam, keyframes: Array&lt;KeyframeState
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -130,4 +130,4 @@ struct KeyframeDemo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/6tRMFr3qTB-ha5eizTBUGg/zh-cn_image_0000002611835991.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024159Z&HW-CC-Expire=86400&HW-CC-Sign=9D3B486F7BB1C757743CF524D58ABC9D5942C3515561EB467D21CFF369A9FCE3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/6tRMFr3qTB-ha5eizTBUGg/zh-cn_image_0000002611835991.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025532Z&HW-CC-Expire=86400&HW-CC-Sign=3A8EAD94DC13DF93C9059E8E23A15C92CC60EA5402BD02E9A85AC8683E77D9B7)

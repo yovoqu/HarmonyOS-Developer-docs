@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2___public_key_credential_descriptor_array
 
-##### 概述
+#### 概述
 
 PublicKey凭证描述符数组。
  
@@ -14,11 +14,11 @@ PublicKey凭证描述符数组。
  
   
 
-##### 汇总
+#### 汇总
 
   
 
-##### 成员变量
+#### 成员变量
  
 | 名称 | 描述 |
 | --- | --- |
@@ -28,11 +28,11 @@ PublicKey凭证描述符数组。
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
   
 
-##### allowCredentiallNum
+#### allowCredentiallNum
 
 ```text
 uint32_t FIDO2_PublicKeyCredentialDescriptorArray::allowCredentiallNum
@@ -44,7 +44,7 @@ uint32_t FIDO2_PublicKeyCredentialDescriptorArray::allowCredentiallNum
  
   
 
-##### allowCredentials
+#### allowCredentials
 
 ```text
 FIDO2_PublicKeyCredentialDescriptor* FIDO2_PublicKeyCredentialDescriptorArray::allowCredentials

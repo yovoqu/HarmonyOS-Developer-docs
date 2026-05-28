@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-timezone-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -45,7 +45,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -57,7 +57,7 @@
  
   
 
-##### 宏定义
+#### 宏定义
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -68,7 +68,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -89,13 +89,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### DateRuleType
+#### DateRuleType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -121,7 +121,7 @@ enum DateRuleType
  
   
 
-##### TimeRuleType
+#### TimeRuleType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -146,13 +146,13 @@ enum TimeRuleType
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_i18n_GetTimeZoneRules()
+#### OH_i18n_GetTimeZoneRules()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -185,7 +185,7 @@ I18n_ErrorCode OH_i18n_GetTimeZoneRules(const char* timeZoneID, TimeZoneRules* r
  
   
 
-##### OH_i18n_GetFirstStartFromTimeArrayTimeZoneRule()
+#### OH_i18n_GetFirstStartFromTimeArrayTimeZoneRule()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -218,7 +218,7 @@ I18n_ErrorCode OH_i18n_GetFirstStartFromTimeArrayTimeZoneRule(TimeArrayTimeZoneR
  
   
 
-##### OH_i18n_GetFirstStartFromAnnualTimeZoneRule()
+#### OH_i18n_GetFirstStartFromAnnualTimeZoneRule()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -251,7 +251,7 @@ I18n_ErrorCode OH_i18n_GetFirstStartFromAnnualTimeZoneRule(AnnualTimeZoneRule* r
  
   
 
-##### OH_i18n_GetFinalStartFromTimeArrayTimeZoneRule()
+#### OH_i18n_GetFinalStartFromTimeArrayTimeZoneRule()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -284,7 +284,7 @@ I18n_ErrorCode OH_i18n_GetFinalStartFromTimeArrayTimeZoneRule(TimeArrayTimeZoneR
  
   
 
-##### OH_i18n_GetFinalStartFromAnnualTimeZoneRule()
+#### OH_i18n_GetFinalStartFromAnnualTimeZoneRule()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -317,7 +317,7 @@ I18n_ErrorCode OH_i18n_GetFinalStartFromAnnualTimeZoneRule(AnnualTimeZoneRule* r
  
   
 
-##### OH_i18n_GetNextStartFromTimeArrayTimeZoneRule()
+#### OH_i18n_GetNextStartFromTimeArrayTimeZoneRule()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -350,7 +350,7 @@ I18n_ErrorCode OH_i18n_GetNextStartFromTimeArrayTimeZoneRule(TimeArrayTimeZoneRu
  
   
 
-##### OH_i18n_GetNextStartFromAnnualTimeZoneRule()
+#### OH_i18n_GetNextStartFromAnnualTimeZoneRule()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -383,7 +383,7 @@ I18n_ErrorCode OH_i18n_GetNextStartFromAnnualTimeZoneRule(AnnualTimeZoneRule* ru
  
   
 
-##### OH_i18n_GetPrevStartFromTimeArrayTimeZoneRule()
+#### OH_i18n_GetPrevStartFromTimeArrayTimeZoneRule()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -416,7 +416,7 @@ I18n_ErrorCode OH_i18n_GetPrevStartFromTimeArrayTimeZoneRule(TimeArrayTimeZoneRu
  
   
 
-##### OH_i18n_GetPrevStartFromAnnualTimeZoneRule()
+#### OH_i18n_GetPrevStartFromAnnualTimeZoneRule()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -449,7 +449,7 @@ I18n_ErrorCode OH_i18n_GetPrevStartFromAnnualTimeZoneRule(AnnualTimeZoneRule* ru
  
   
 
-##### OH_i18n_GetStartTimeAt()
+#### OH_i18n_GetStartTimeAt()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -483,7 +483,7 @@ I18n_ErrorCode OH_i18n_GetStartTimeAt(TimeArrayTimeZoneRule* rule, int32_t index
  
   
 
-##### OH_i18n_GetStartInYear()
+#### OH_i18n_GetStartInYear()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-tensor-setdatatype
 
-##### 函数功能
+#### 函数功能
 
 设置Tensor的Datatype。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 graphStatus SetDataType(const ge::DataType &dtype);
@@ -18,7 +18,7 @@ graphStatus SetDataType(const ge::DataType &dtype);
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数名 | 输入/输出 | 描述 |
 | --- | --- | --- |
@@ -27,7 +27,7 @@ graphStatus SetDataType(const ge::DataType &dtype);
  
   
 
-##### 返回值
+#### 返回值
  
 | 类型 | 描述 |
 | --- | --- |
@@ -36,12 +36,12 @@ graphStatus SetDataType(const ge::DataType &dtype);
  
   
 
-##### 异常处理
+#### 异常处理
 
 无
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

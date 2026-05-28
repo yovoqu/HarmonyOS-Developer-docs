@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { componentUtils } from '@kit.ArkUI';
 
 
 
-##### componentUtils.getRectangleById(deprecated)
+#### componentUtils.getRectangleById(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -70,7 +70,7 @@ let modePosition:componentUtils.ComponentInfo = componentUtils.getRectangleById(
 
 
 
-##### ComponentInfo
+#### ComponentInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -94,7 +94,7 @@ let modePosition:componentUtils.ComponentInfo = componentUtils.getRectangleById(
 
 
 
-##### Size
+#### Size
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -110,7 +110,7 @@ let modePosition:componentUtils.ComponentInfo = componentUtils.getRectangleById(
 
 
 
-##### Offset
+#### Offset
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -126,7 +126,7 @@ let modePosition:componentUtils.ComponentInfo = componentUtils.getRectangleById(
 
 
 
-##### TranslateResult
+#### TranslateResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -143,7 +143,7 @@ let modePosition:componentUtils.ComponentInfo = componentUtils.getRectangleById(
 
 
 
-##### ScaleResult
+#### ScaleResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -162,7 +162,7 @@ let modePosition:componentUtils.ComponentInfo = componentUtils.getRectangleById(
 
 
 
-##### RotateResult
+#### RotateResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -182,7 +182,7 @@ let modePosition:componentUtils.ComponentInfo = componentUtils.getRectangleById(
 
 
 
-##### Matrix4Result
+#### Matrix4Result
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -221,13 +221,13 @@ type Matrix4Result = [number,number,number,number,number,number,number,number,nu
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1（获取ComponentUtils对象）
+#### 示例1（获取ComponentUtils对象）
 
 推荐通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getComponentUtils](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getcomponentutils)方法获取当前UI上下文关联的ComponentUtils对象。
 
@@ -278,4 +278,4 @@ struct Utils {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/PuCzIxpEQ3G6fnuJVZJRig/zh-cn_image_0000002611755465.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024114Z&HW-CC-Expire=86400&HW-CC-Sign=42761A1CDFA7BDF24EAAD3C1572450275B900B23EA2F7E3E564912BCEC06FEE3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/PuCzIxpEQ3G6fnuJVZJRig/zh-cn_image_0000002611755465.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025448Z&HW-CC-Expire=86400&HW-CC-Sign=2917F735E20F348FEBB6C7E5453E02BF0CDF66CEAC6CF31814C71ABBF69F6668)

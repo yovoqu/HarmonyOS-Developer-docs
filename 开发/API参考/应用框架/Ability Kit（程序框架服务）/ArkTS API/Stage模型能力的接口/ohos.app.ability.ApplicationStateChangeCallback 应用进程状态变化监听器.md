@@ -14,7 +14,7 @@
 
   
 
-##### 约束限制
+#### 约束限制
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -26,7 +26,7 @@
  
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -36,7 +36,7 @@ import { ApplicationStateChangeCallback } from '@kit.AbilityKit';
  
   
 
-##### ApplicationStateChangeCallback.onApplicationForeground
+#### ApplicationStateChangeCallback.onApplicationForeground
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -54,7 +54,7 @@ onApplicationForeground(): void
  
   
 
-##### ApplicationStateChangeCallback.onApplicationBackground
+#### ApplicationStateChangeCallback.onApplicationBackground
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

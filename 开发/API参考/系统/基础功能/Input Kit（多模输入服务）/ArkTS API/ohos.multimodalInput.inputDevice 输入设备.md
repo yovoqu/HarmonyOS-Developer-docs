@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { inputDevice } from '@kit.InputKit';
 
 
 
-##### inputDevice.getDeviceList9+
+#### inputDevice.getDeviceList9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -80,7 +80,7 @@ struct Index {
 
 
 
-##### inputDevice.getDeviceList9+
+#### inputDevice.getDeviceList9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -127,7 +127,7 @@ struct Index {
 
 
 
-##### inputDevice.getDeviceInfo9+
+#### inputDevice.getDeviceInfo9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -187,7 +187,7 @@ struct Index {
 
 
 
-##### inputDevice.getDeviceInfo9+
+#### inputDevice.getDeviceInfo9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -251,7 +251,7 @@ struct Index {
 
 
 
-##### inputDevice.getDeviceInfoSync10+
+#### inputDevice.getDeviceInfoSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -311,7 +311,7 @@ struct Index {
 
 
 
-##### inputDevice.on('change')9+
+#### inputDevice.on('change')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -405,7 +405,7 @@ struct Index {
 
 
 
-##### inputDevice.off('change')9+
+#### inputDevice.off('change')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -475,7 +475,7 @@ struct Index {
 
 
 
-##### inputDevice.getDeviceIds(deprecated)
+#### inputDevice.getDeviceIds(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -524,7 +524,7 @@ struct Index {
 
 
 
-##### inputDevice.getDeviceIds(deprecated)
+#### inputDevice.getDeviceIds(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -571,7 +571,7 @@ struct Index {
 
 
 
-##### inputDevice.getDevice(deprecated)
+#### inputDevice.getDevice(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -622,7 +622,7 @@ struct Index {
 
 
 
-##### inputDevice.getDevice(deprecated)
+#### inputDevice.getDevice(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -677,7 +677,7 @@ struct Index {
 
 
 
-##### inputDevice.supportKeys9+
+#### inputDevice.supportKeys9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -734,7 +734,7 @@ struct Index {
 
 
 
-##### inputDevice.supportKeys9+
+#### inputDevice.supportKeys9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -799,7 +799,7 @@ struct Index {
 
 
 
-##### inputDevice.supportKeysSync10+
+#### inputDevice.supportKeysSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -860,7 +860,7 @@ struct Index {
 
 
 
-##### inputDevice.getKeyboardType9+
+#### inputDevice.getKeyboardType9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -920,7 +920,7 @@ struct Index {
 
 
 
-##### inputDevice.getKeyboardType9+
+#### inputDevice.getKeyboardType9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -984,7 +984,7 @@ struct Index {
 
 
 
-##### inputDevice.getKeyboardTypeSync10+
+#### inputDevice.getKeyboardTypeSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1044,7 +1044,7 @@ struct Index {
 
 
 
-##### inputDevice.isFunctionKeyEnabled15+
+#### inputDevice.isFunctionKeyEnabled15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1108,7 +1108,7 @@ struct Index {
 
 
 
-##### inputDevice.setFunctionKeyEnabled15+
+#### inputDevice.setFunctionKeyEnabled15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1177,7 +1177,7 @@ struct Index {
 
 
 
-##### inputDevice.getIntervalSinceLastInput14+
+#### inputDevice.getIntervalSinceLastInput14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1220,7 +1220,7 @@ struct Index {
 
 
 
-##### DeviceListener9+
+#### DeviceListener9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1236,7 +1236,7 @@ struct Index {
 
 
 
-##### InputDeviceData
+#### InputDeviceData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1262,7 +1262,7 @@ struct Index {
 
 
 
-##### AxisType9+
+#### AxisType9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1287,7 +1287,7 @@ type AxisType = 'touchmajor' | 'touchminor' | 'orientation' | 'x' | 'y' | 'press
 
 
 
-##### AxisRange
+#### AxisRange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1308,7 +1308,7 @@ type AxisType = 'touchmajor' | 'touchminor' | 'orientation' | 'x' | 'y' | 'press
 
 
 
-##### SourceType9+
+#### SourceType9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1330,7 +1330,7 @@ type SourceType = 'keyboard' | 'mouse' | 'touchpad' | 'touchscreen' | 'joystick'
 
 
 
-##### ChangedType9+
+#### ChangedType9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1348,7 +1348,7 @@ type ChangedType = 'add' | 'remove'
 
 
 
-##### KeyboardType9+
+#### KeyboardType9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1368,7 +1368,7 @@ type ChangedType = 'add' | 'remove'
 
 
 
-##### FunctionKey15+
+#### FunctionKey15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -12,7 +12,7 @@ IFAA提供移动端免密身份认证能力，实现接入IIFAA（互联网可�
 **起始版本：** 4.1.0(11)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { ifaa } from '@kit.OnlineAuthenticationKit';
  
   
 
-##### getVersionSync
+#### getVersionSync
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -62,7 +62,7 @@ console.info('Succeeded in doing getVersionSync. version:', result);
  
   
 
-##### getAnonymousIdSync
+#### getAnonymousIdSync
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -114,7 +114,7 @@ console.info('Succeeded in doing getAnonymousIdSync. anonymousId:', result);
  
   
 
-##### getAnonymousId
+#### getAnonymousId
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -172,7 +172,7 @@ getAnonIdPromise.then(result => {
  
   
 
-##### getAnonymousId
+#### getAnonymousId
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -226,7 +226,7 @@ ifaa.getAnonymousId(arg,
  
   
 
-##### queryStatusSync
+#### queryStatusSync
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -281,7 +281,7 @@ if (status) {
  
   
 
-##### queryStatus
+#### queryStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -339,7 +339,7 @@ promise.then(result => {
  
   
 
-##### queryStatus
+#### queryStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -393,7 +393,7 @@ ifaa.queryStatus(arg,
  
   
 
-##### register
+#### register
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -451,7 +451,7 @@ registerPromise.then(registerResult => {
  
   
 
-##### register
+#### register
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -504,7 +504,7 @@ ifaa.register(arg, (err: BusinessError, registerResult: Uint8Array) => {
  
   
 
-##### preAuthSync
+#### preAuthSync
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -546,7 +546,7 @@ console.info('Succeeded in doing preAuthSync. preAuthResult:', preAuthResult);
  
   
 
-##### preAuth
+#### preAuth
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -594,7 +594,7 @@ preAuthPromise.then(preAuthResult => {
  
   
 
-##### preAuth
+#### preAuth
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -645,7 +645,7 @@ ifaa.preAuth(
  
   
 
-##### authSync
+#### authSync
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -700,7 +700,7 @@ console.info('Succeeded in doing authSync. authResult:', authResult);
  
   
 
-##### auth
+#### auth
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -761,7 +761,7 @@ authPromise.then(authResult => {
  
   
 
-##### auth
+#### auth
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -818,7 +818,7 @@ ifaa.auth(token, arg,
  
   
 
-##### deregisterSync
+#### deregisterSync
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -861,7 +861,7 @@ ifaa.deregisterSync(arg);
  
   
 
-##### deregister
+#### deregister
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -918,7 +918,7 @@ promise.then(()=> {
  
   
 
-##### deregister
+#### deregister
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -971,7 +971,7 @@ ifaa.deregister(arg,
  
   
 
-##### getProtocolVersionSync
+#### getProtocolVersionSync
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1011,7 +1011,7 @@ let res: Uint8Array = ifaa.getProtocolVersionSync();
  
   
 
-##### getProtocolVersion
+#### getProtocolVersion
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1059,7 +1059,7 @@ promise.then(result => {
  
   
 
-##### getProtocolVersion
+#### getProtocolVersion
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1110,7 +1110,7 @@ ifaa.getProtocolVersion(
  
   
 
-##### getSupportedCertTypesSync
+#### getSupportedCertTypesSync
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1152,7 +1152,7 @@ console.info('Succeeded in doing getSupportedCertTypesSync. supportedCertTypes:'
  
   
 
-##### getSupportedCertTypes
+#### getSupportedCertTypes
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1200,7 +1200,7 @@ promise.then(result => {
  
   
 
-##### getSupportedCertTypes
+#### getSupportedCertTypes
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

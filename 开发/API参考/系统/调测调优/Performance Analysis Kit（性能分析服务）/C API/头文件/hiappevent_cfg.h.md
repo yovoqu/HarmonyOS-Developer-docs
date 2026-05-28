@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hiappevent-cfg-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 宏定义
+#### 宏定义
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -41,13 +41,13 @@
  
   
 
-##### 宏定义说明
+#### 宏定义说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### DISABLE
+#### DISABLE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -63,7 +63,7 @@
  
   
 
-##### MAX_STORAGE
+#### MAX_STORAGE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

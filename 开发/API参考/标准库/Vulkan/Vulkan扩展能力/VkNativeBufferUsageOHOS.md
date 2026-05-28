@@ -9,7 +9,7 @@ typedef struct VkNativeBufferUsageOHOS {...} VkNativeBufferUsageOHOS
 ```
   
 
-##### 概述
+#### 概述
 
 提供HarmonyOS NativeBuffer用途的说明。
  
@@ -21,11 +21,11 @@ typedef struct VkNativeBufferUsageOHOS {...} VkNativeBufferUsageOHOS
  
   
 
-##### 汇总
+#### 汇总
 
   
 
-##### 成员变量
+#### 成员变量
  
 | 名称 | 描述 |
 | --- | --- |

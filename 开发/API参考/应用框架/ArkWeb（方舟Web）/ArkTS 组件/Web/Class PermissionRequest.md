@@ -12,7 +12,7 @@ Web组件返回授权或拒绝权限功能的对象。示例代码参考[onPermi
 
   
 
-##### constructor9+
+#### constructor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ PermissionRequest的构造函数。
  
   
 
-##### deny9+
+#### deny9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -36,7 +36,7 @@ deny(): void
  
   
 
-##### getOrigin9+
+#### getOrigin9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -55,7 +55,7 @@ getOrigin(): string
  
   
 
-##### getAccessibleResource9+
+#### getAccessibleResource9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -74,7 +74,7 @@ getAccessibleResource(): Array&lt;string&gt;
  
   
 
-##### grant9+
+#### grant9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

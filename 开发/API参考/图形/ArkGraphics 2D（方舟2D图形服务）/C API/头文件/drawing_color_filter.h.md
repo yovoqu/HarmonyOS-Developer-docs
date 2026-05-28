@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-color-filter-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -47,13 +47,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Drawing_ColorFilterCreateBlendMode()
+#### OH_Drawing_ColorFilterCreateBlendMode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -86,7 +86,7 @@ OH_Drawing_ColorFilter* OH_Drawing_ColorFilterCreateBlendMode(uint32_t color, OH
  
   
 
-##### OH_Drawing_ColorFilterCreateCompose()
+#### OH_Drawing_ColorFilterCreateCompose()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -123,7 +123,7 @@ outerColorFilter、innerColorFilter任意一个为NULL时返回OH_DRAWING_ERROR_
  
   
 
-##### OH_Drawing_ColorFilterCreateMatrix()
+#### OH_Drawing_ColorFilterCreateMatrix()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -159,7 +159,7 @@ matrix为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
  
   
 
-##### OH_Drawing_ColorFilterCreateLinearToSrgbGamma()
+#### OH_Drawing_ColorFilterCreateLinearToSrgbGamma()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -184,7 +184,7 @@ OH_Drawing_ColorFilter* OH_Drawing_ColorFilterCreateLinearToSrgbGamma(void)
  
   
 
-##### OH_Drawing_ColorFilterCreateSrgbGammaToLinear()
+#### OH_Drawing_ColorFilterCreateSrgbGammaToLinear()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -209,7 +209,7 @@ OH_Drawing_ColorFilter* OH_Drawing_ColorFilterCreateSrgbGammaToLinear(void)
  
   
 
-##### OH_Drawing_ColorFilterCreateLuma()
+#### OH_Drawing_ColorFilterCreateLuma()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -234,7 +234,7 @@ OH_Drawing_ColorFilter* OH_Drawing_ColorFilterCreateLuma(void)
  
   
 
-##### OH_Drawing_ColorFilterCreateLighting()
+#### OH_Drawing_ColorFilterCreateLighting()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -267,7 +267,7 @@ OH_Drawing_ColorFilter* OH_Drawing_ColorFilterCreateLighting(uint32_t mulColor, 
  
   
 
-##### OH_Drawing_ColorFilterDestroy()
+#### OH_Drawing_ColorFilterDestroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

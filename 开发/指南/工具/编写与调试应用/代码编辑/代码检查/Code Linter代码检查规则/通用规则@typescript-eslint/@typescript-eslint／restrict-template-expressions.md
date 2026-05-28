@@ -7,7 +7,7 @@
 要求模板表达式中的变量为“string”类型。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/restrict-template-expressions选项](https://typescript-eslint.nodejs.cn/rules/restrict-template-expressions/#options)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 const arg: string | undefined = 'foo';
@@ -36,7 +36,7 @@ export const msg2 = `arg = ${arg || 'default'}`;
  
  
 
-##### 反例
+#### 反例
 
 ```text
 const arg1 = ['1', '2'];
@@ -52,7 +52,7 @@ export const msg2 = `arg2 = ${arg2 || null}`;
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

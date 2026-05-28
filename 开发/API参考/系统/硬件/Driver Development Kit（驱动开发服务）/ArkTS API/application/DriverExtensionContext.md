@@ -14,7 +14,7 @@ DriverExtensionContext模块提供DriverExtensionAbility实现中需要主动发
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** PC/2in1
 
@@ -24,7 +24,7 @@ import { common } from '@kit.AbilityKit';
  
   
 
-##### 使用说明
+#### 使用说明
 
 **支持设备：** PC/2in1
 
@@ -43,7 +43,7 @@ import { DriverExtensionAbility, DriverExtensionContext } from '@kit.DriverDevel
  
   
 
-##### DriverExtensionContext.updateDriverState
+#### DriverExtensionContext.updateDriverState
 
 **支持设备：** PC/2in1
 

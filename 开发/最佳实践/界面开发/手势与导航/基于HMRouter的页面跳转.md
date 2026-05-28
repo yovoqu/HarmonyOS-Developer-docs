@@ -7,7 +7,7 @@
 **   
 
 
-##### 概述
+#### 概述
 
 HMRouter是HarmonyOS上页面跳转的场景解决方案，主要解决页面间相互跳转的问题，开发者可以参考[HMRouter使用说明](https://gitcode.com/harmonyos_samples/HMRouter#hmrouter使用说明)进行安装配置与快速上手，本文主要以实际开发中的各项场景为例，介绍HMRouter路由框架的使用。HMRouter路由框架提供了下列功能特性：
  
@@ -22,11 +22,11 @@ HMRouter是HarmonyOS上页面跳转的场景解决方案，主要解决页面间
  
  
 
-##### 页面跳转场景
+#### 页面跳转场景
 
  
 
-##### 页面跳转与返回
+#### 页面跳转与返回
 
 HMRouter提供了基于自定义注解的页面跳转与返回功能，使用步骤如下：
  1. 为需要跳转的页面添加@HMRouter注解，并配置其中的pageUrl参数，例如此处配置为ProductContent。
@@ -81,7 +81,7 @@ HMRouterMgr.pop({ navigationId: 'mainNavigationId', param: this.param })
  
  
 
-##### 多次页面跳转，返回指定页面
+#### 多次页面跳转，返回指定页面
 
 当页面跳转路径如HomePage->PageA->PageB->PageC，开发者希望在PageC的页面逻辑中直接返回到HomePage并携带参数，开发者仅需使用HMRouterMgr提供的to方法，并传入需要返回的目标页面的地址以及携带的参数，即可直接带参返回到指定页面。
  
@@ -98,7 +98,7 @@ HMRouterMgr.to('MainPage')
 
  
 
-##### 应用未登录，点击跳转登录页的校验场景
+#### 应用未登录，点击跳转登录页的校验场景
 
 应用中经常会有当用户未登录应用时，点击某些应用内容会自动跳转到登录页面的场景，在使用HMRouter对此场景进行实现时，可以采用以下步骤：
  1. 定义拦截器类LoginCheckInterceptor实现IHMInterceptor接口。
@@ -140,7 +140,7 @@ export class LoginCheckInterceptor implements IHMInterceptor {
  
  
 
-##### 实现单例页面的跳转
+#### 实现单例页面的跳转
 
 当应用中存在初始化加载资源消耗大且有复用需求的页面时，就可以使用单例页面。典型的业务场景如视频类应用中的视频播放页面，此类页面通常需要加载视频解码器资源并对其初始化，且该页面在视频类应用中会频繁出现。实现上开发者只需要配置@HMRouter注解参数中的singleton参数为true即可。
  
@@ -159,11 +159,11 @@ export struct LiveHome {
  
  
 
-##### 弹窗提示场景
+#### 弹窗提示场景
 
  
 
-##### 实现弹窗类型的页面
+#### 实现弹窗类型的页面
 
 在HMRouter路由框架中，开发者只需要设置@HMRouter注解的dialog配置为true即可将当前页面作为弹窗使用。
  
@@ -181,7 +181,7 @@ export struct PrivacyDialogDetail {
  
  
 
-##### 返回时弹窗，提示用户是否确认返回
+#### 返回时弹窗，提示用户是否确认返回
 
 当从某些页面返回时，应用希望通过弹窗方式让用户确认是否要执行返回操作，例如在订单支付页面中用户执行返回操作时，通常会弹窗提示用户是否确认退出，当用户点击确认后才会执行页面退出逻辑，此场景下就可以考虑使用弹窗类型页面加上自定义生命周期来实现。操作步骤如下：1. 开发者首先需要根据自己的业务需求，来进行自定义弹窗的开发。
 ```ArkTS
@@ -261,7 +261,7 @@ export struct PayDialogContent {
 
  
 
-##### 首页两次返回退出应用
+#### 首页两次返回退出应用
 
 该场景下用户第一次触发应用返回退出时向用户提示“再次返回退出”，第二次用户触发返回操作时应用真正退出。实现上可参考以下步骤：
  1. 定义一个生命周期类ExitAppLifecycle实现IHMLifecycle接口。
@@ -304,11 +304,11 @@ export class ExitAppLifecycle implements IHMLifecycle {
 
  
 
-##### 转场动效场景
+#### 转场动效场景
 
  
 
-##### 全局自定义转场动效
+#### 全局自定义转场动效
 
 - 定义全局页面转场效果。开发者只需要创建出IHMAnimator.Effect实例，在参数中按照业务需求对动画方向direction，透明度opacity，横纵方向页面缩放效果scale进行配置即可。
 ```ArkTS
@@ -352,7 +352,7 @@ HMNavigation({
  
  
 
-##### 特定页面设置自定义转场
+#### 特定页面设置自定义转场
 
 开发者可以自定义动画类并实现IHMAnimator接口中的effect方法，该方法会将页面进出场的效果对象enterHandle与exitHandle作为参数传入，可通过参数对象上的start、finish方法，设置对应效果的起止状态，支持设置的常用属性还有：
  
@@ -405,7 +405,7 @@ HMRouterMgr.to('ProductContent')
 
  
 
-##### 根据条件呈现不同转场动效
+#### 根据条件呈现不同转场动效
 
 相同的页面可能在不同情况下出现不同的转场效果，常见的有短视频播放时的评论页面弹出时的转场：
  
@@ -508,7 +508,7 @@ export struct CommentInput {
 
  
 
-##### 交互式转场
+#### 交互式转场
 
 当应用中有页面的进出场效果与用户手势操作同步的诉求时，即当用户手指在屏幕上移动时，页面跟随用户手势移动，可以参考以下实现，通过IHMAnimator的interactive函数控制动画播放进度，在actionStart中判断向右移动执行页面返回操作，在updateProgress更新动画进度，在actionEnd中获取到动画的最终状态，根据最终状态判断是继续执行动画与页面返回还是关闭动画取消页面返回。
  
@@ -571,11 +571,11 @@ export class LiveInteractiveAnimator implements IHMAnimator {
 
  
 
-##### 数据加载场景
+#### 数据加载场景
 
  
 
-##### 数据请求预加载，与页面跳转并行化
+#### 数据请求预加载，与页面跳转并行化
 
 该场景下，开发者希望提前网络请求的位置并在其他线程中执行网络请求而不阻塞主线程，代码实现参考如下步骤。
  1. 定义网络请求函数，可使用[TaskPool简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/taskpool-introduction)在其他线程执行网络请求并返回请求结果。
@@ -612,7 +612,7 @@ export class ExampleLifecycle implements IHMLifecycle {
 
  
 
-##### 页面重开数据恢复
+#### 页面重开数据恢复
 
 该场景下当页面关闭时，之前浏览的相关记录依然存在，典型的场景例如短视频评论，当用户打开评论区页进行翻阅后停留在某处，此时关闭评论区再打开，评论内容会仍然停留在上一次浏览的位置。实现上可以参考如下步骤。
  1. 使用[BuilderNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-arktsnode-buildernode)构造出评论区组件，在makeNode函数中，若评论区不存在则创建，存在便直接返回。
@@ -686,11 +686,11 @@ export struct CommentInput {
 
  
 
-##### 维测场景
+#### 维测场景
 
  
 
-##### 页面埋点开发
+#### 页面埋点开发
 
 当需要统计类似于页面加载耗时等数据，或者有其他自定义打点数据需要统计时，可以使用生命周期回调，在对应的位置进行打点，以下示例为页面停留时长的数据打点统计，实现上参考以下步骤：
  1. 定义一个类PageDurationLifecycle实现IHMLifecycle接口。
@@ -721,6 +721,6 @@ export class PageDurationLifecycle implements IHMLifecycle {
  
  
 
-##### 示例代码
+#### 示例代码
 
 - [HMRouter](https://gitcode.com/harmonyos_samples/HMRouter)

@@ -7,11 +7,11 @@
 [Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)作为一个容器组件，提供了两种布局样式：单栏布局、分栏布局。分栏布局一般适用于宽屏设备，在分栏布局下，导航栏（navBar）会固定显示， 子页面（NavDestination）通过导航控制器（NavPathStack）切换显示， 在导航栏和子页面之间有一条分割线， 可以通过分割线拖拽控制左右显示的比例。架构图详见[Navigation基础架构介绍](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-architecture)。
 
 
-##### 分栏相关接口介绍
+#### 分栏相关接口介绍
 
 
 
-##### mode
+#### mode
 
 [mode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#mode9)属性用于控制Navigation的显示模式，有四种模式：单栏，分栏，自适应，根据高宽比自适应。
 
@@ -41,7 +41,7 @@
 
 
 
-##### navBarPosition
+#### navBarPosition
 
 [navBarPosition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navbarposition9)用于控制导航栏显示的位置，用navBarPosition控制导航栏显示位置时，会被系统语言所影响。比如，在以汉语、英语为代表的LTR语言体系下，NavBarPosition.Start指代的是导航栏出现在左侧，而在以阿拉伯语为代表的RTL语言体系下，NavBarPosition.Start则指代导航栏出现在右侧。类似的效果也出现在NavBarPosition.End上。
 
@@ -75,7 +75,7 @@
 
 
 
-##### enableDragBar
+#### enableDragBar
 
 [enableDragBar](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#enabledragbar14)用于控制是否显示分栏的拖动按钮。
 
@@ -93,37 +93,37 @@
 
 
 
-##### navBarWidth
+#### navBarWidth
 
 [navBarWidth](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navbarwidth9)用于控制导航栏的宽度。
 
 
 
-##### navBarWidthRange
+#### navBarWidthRange
 
 [navBarWidthRange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navbarwidthrange10)用于设置导航栏宽度可调整的范围。
 
 
 
-##### minContentWidth
+#### minContentWidth
 
 [minContentWidth](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#mincontentwidth10)用于控制分栏子页的最小宽度；分栏模式导航栏和子页中间会有一个分割线，在可调范围内，用户可以通过拖动分割线来调整导航栏和子页的显示大小。
 
 
 
-##### hideNavBar
+#### hideNavBar
 
 [hideNavBar](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#hidenavbar9)用于控制导航栏的显示状态，默认值为false。如果同时将mode配置为NavigationMode.Split且hideNavBar设置为true，则实际效果会显示为单栏。
 
 
 
-##### enableModeChangeAnimation
+#### enableModeChangeAnimation
 
 [enableModeChangeAnimation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#enablemodechangeanimation15)用于控制是否开启单双栏切换的动画，默认开启。
 
 
 
-##### splitPlaceholder
+#### splitPlaceholder
 
 [splitPlaceholder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#splitplaceholder20)用于设置分栏模式下内容区的默认占位页。分栏模式在默认情况下，栈中没有页面时内容区展示空白，可使用此接口设置此区域的UI布局。
 
@@ -131,7 +131,7 @@
 
 
 
-##### 分栏开发示例
+#### 分栏开发示例
 
 以开发一个新闻app的demo来演示如何使用Navigation分栏相关接口。
 1. 新闻主页内容会放到左侧NavBar中，其中内容是一个新闻列表，用户点击每一条新闻标题时，右边会push一个详情页，用来展示新闻的信息。
@@ -269,4 +269,4 @@ struct Index {
 **图10** 运行效果
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/q0aJSgrhQhGzaOrnt-aNFA/zh-cn_image_0000002611753683.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014814Z&HW-CC-Expire=86400&HW-CC-Sign=924217BFF5E8E2694EEA02D39B796DC4935CAFC2895A563465525CA84DD913AD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/q0aJSgrhQhGzaOrnt-aNFA/zh-cn_image_0000002611753683.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030445Z&HW-CC-Expire=86400&HW-CC-Sign=CB3AC07F3FF1284032AB2C6D853CFD9BF5FAA601DF9FC584FF34CB02A04E5177)

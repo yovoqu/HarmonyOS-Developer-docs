@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-photo-native-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -40,7 +40,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -53,13 +53,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_PhotoNative_GetMainImage()
+#### OH_PhotoNative_GetMainImage()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -90,7 +90,7 @@ Camera_ErrorCode OH_PhotoNative_GetMainImage(OH_PhotoNative* photo, OH_ImageNati
  
   
 
-##### OH_PhotoNative_GetUncompressedImage()
+#### OH_PhotoNative_GetUncompressedImage()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -121,7 +121,7 @@ Camera_ErrorCode OH_PhotoNative_GetUncompressedImage(OH_PhotoNative* photo, OH_P
  
   
 
-##### OH_PhotoNative_Release()
+#### OH_PhotoNative_Release()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

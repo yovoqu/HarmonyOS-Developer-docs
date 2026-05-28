@@ -15,23 +15,23 @@
 [稳定性相关问题汇总](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/napi-faq-about-stability)
  
 
-##### 案例1：空指针解引用问题
+#### 案例1：空指针解引用问题
 
  
 
-##### 概述
+#### 概述
 
  
 智能指针使用之前未判空，造成进程运行时发生空指针解引用崩溃问题。
  
 
-##### 问题现象
+#### 问题现象
 
  
 进程发生崩溃，影响稳定运行，导致非预期退出。
  
 
-##### 分析步骤
+#### 分析步骤
 
 ```text
 Timestamp:1970-12-07 10:27:48.228
@@ -57,29 +57,29 @@ Tid:27270, Name:xxx
 空指针类型崩溃可以从故障原因得到提示信息。通过llvm-addr2line解析行号发现业务代码中在使用智能指针之前未对智能指针判空，对空地址进行访问导致崩溃产生。
  
 
-##### 修复方法
+#### 修复方法
 
  
 对所有使用该指针的地方进行保护性判空。
  
 
-##### 建议与总结
+#### 建议与总结
 
  
 指针在使用之前应该要进行判空处理，防止访问空指针造成进程崩溃退出。
  
 
-##### 案例2：多线程竞争问题
+#### 案例2：多线程竞争问题
 
  
 
-##### 概述
+#### 概述
 
  
 napi_env释放后仍被使用。
  
 
-##### 问题现象
+#### 问题现象
 
  
 核心崩溃栈如下：
@@ -89,7 +89,7 @@ napi_env释放后仍被使用。
 
  
 
-##### 分析步骤
+#### 分析步骤
 
  
 napi接口的env（JavaScript环境）指向非法内存，崩溃栈直接挂在NativeEngineInterface::ClearLastError()中，增加维测打印后结合HiLog梳理崩溃前的业务流程，根据打印的env地址0000007F01338CC0定位，发现是env被释放后仍然被使用。
@@ -108,23 +108,23 @@ ipc在线程2中使用先前保存的env,出现崩溃
 由于JavaScript本身是单线程执行的，对env的任何操作都必须在创建该JS线程的原始线程上进行，如果违反该规则可能会出现意想不到的问题。
  
 
-##### 修复方法
+#### 修复方法
 
  
 一个线程创建的env，不要传递给其他线程使用。
  
 
-##### 建议与总结
+#### 建议与总结
 
  
 对于栈顶崩溃在libace_napi.z.so、libark_jsruntime.so等库操作env的问题，并且出现概率相对较高，在CppCrash日志的调用栈难以直接分析出崩溃原因情况下，可以考虑开启[多线程检测](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-multi-thread-check)帮助开发者快速定位问题。此外，在多线程操作STL容器（如vector、map、set等）的场景中，由于STL容器是非线程安全的，如果多线程进行添加和删除操作，容易出现SIGSEGV类崩溃，如果崩溃现场代码与STL容器相关，也可以考虑是多线程竞争问题。
  
 
-##### 案例3：内存访问类崩溃问题
+#### 案例3：内存访问类崩溃问题
 
  
 
-##### 概述
+#### 概述
 
  
 每次崩溃地址都在libace_napi_ark.z.so的可读可执行段上。崩溃原因是需要对地址进行写操作，而对应的maps段只有可读、可执行权限没有写权限，当进程试图访问不被允许访问的内存区域时，进程发生内存访问类崩溃。
@@ -137,7 +137,7 @@ ipc在线程2中使用先前保存的env,出现崩溃
 ```
  
 
-##### 问题现象
+#### 问题现象
 
  
 崩溃调用栈如下图。
@@ -147,7 +147,7 @@ ipc在线程2中使用先前保存的env,出现崩溃
 
  
 
-##### 分析步骤
+#### 分析步骤
 
  
 根据业务逻辑分析，node应该保存在堆上，node地址不可能落在libace_napi_ark.z.so的代码段。从问题的现象分析，大概率是踩内存问题。踩内存问题可使用[HWASan工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hwasan)排查问题。于是后续使用ASan版本进行压测复现，也找到了稳定必现的场景。ASan版本检测出来的问题也和上面崩溃栈反映的问题一致。ASan日志显示的踩内存类型是heap-use-after-free，根据日志信息弄清从内存申请、内存释放到使用已被释放的内存整个过程。经过分析后发现业务代码对同一个地址（0x003a375eb724）进行重复释放，在重复释放内存操作时，使用该地址去访问了其对象成员，因此报出了use-after-free（使用已经释放的内存）问题。
@@ -222,29 +222,29 @@ previously allocated by thread T0 (thread name) here: <- 内存申请的现场
 
  
 
-##### 修复方法
+#### 修复方法
 
  
 JsiWeak调用SetWeakCallback，传入callback，在GC过程中IterateWeakEcmaGlobalStorage释放WeakNode时，通知JsiWeak对其保存的CopyableGlobal进行重置，确保同一个地址不被重复释放。
  
 
-##### 建议与总结
+#### 建议与总结
 
  
 使用内存时应考虑是否存在重复释放或者未释放的可能，另外定位内存访问类崩溃问题（一般是SIGSEGV类型问题）时，如果根据调用栈继续分析问题无头绪时，应优先考虑使能HWASan版本复现问题。
  
 
-##### 案例4：生命周期类问题
+#### 案例4：生命周期类问题
 
  
 
-##### 概述
+#### 概述
 
  
 生命周期类问题是指在对象生命周期外访问其内存产生崩溃的问题，通常是由于不恰当使用裸指针造成。裸指针是指不具有封装或自动内存管理特性的指针。它只是一个简单的指针，指向内存地址，没有保护或管理指针指向的内存。裸指针可以直接访问内存，但容易导致内存泄漏和空指针引用等问题。使用裸指针时需要特别小心，以避免潜在的安全问题。推荐使用智能指针来管理内存。
  
 
-##### 问题现象
+#### 问题现象
 
  
 开发者在写native代码创建napi_value时，需要配合napi_handle_scope一起使用。napi_handle_scope的作用是管理napi_value的生命周期，napi_value只能在napi_handle_scope的作用域范围内进行使用，离开napi_handle_scope作用域范围后，napi_value及它所持有的JS对象的生命周期不再得到保护，一旦引用计数为0，就会被GC回收掉，此时再去使用napi_value就会访问已释放的内存，产生问题。
@@ -252,7 +252,7 @@ JsiWeak调用SetWeakCallback，传入callback，在GC过程中IterateWeakEcmaGlo
 napi_value其实是个裸指针（结构体指针），其作用是持有JS对象，用于保持JS对象的生命周期，保证JS对象不被GC当成垃圾对象回收。离开napi_handle_scope作用域之后，napi_value由GC回收，napi_value不再持有JS对象（不再保护JS对象生命周期）。
  
 
-##### 分析步骤
+#### 分析步骤
 
  
 根据调用栈定位到行号找到出现问题的napi接口的上层接口，在上层接口内找到出问题的napi_value，检查napi_value的使用范围是否超出了napi_handle_scope的作用域范围。
@@ -298,13 +298,13 @@ static napi_value Get(napi_env env, napi_callback_info info)
 JS侧通过Add接口添加数据，native侧以napi_value保存到vector，JS侧通过get接口获取添加的数据，native侧将保存的napi_value以数组形式返回回去，然后JS侧读取数据的属性。出现报错：Can not get Prototype on non ECMA Object。跨napi的napi_value未使用napi_ref保存，导致napi_value失效。
  
 
-##### 建议与总结
+#### 建议与总结
 
 开发者可以通过napi_handle_scope来管理napi_value的生命周期，进入native方法前开始作用域，从native方法出来后结束作用域，详细使用请参考[使用Node-API接口进行生命周期相关开发](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-life-cycle)。
  
  
 
-##### 案例5：SIGABRT类崩溃问题
+#### 案例5：SIGABRT类崩溃问题
 
  
 SIGABRT进程异常终止，通常为进程自身调用标准函数库的abort()函数，崩溃原因在调用abort()函数的代码。由程序检测到异常时触发，如线程创建失败，文件描述符使用异常等，大多数情况是各基础库（C库等）进行校验操作，校验失败会主动终止进程。
@@ -342,7 +342,7 @@ static napi_value TriggerCrash(napi_env env, napi_callback_info info)
 
  
 
-##### 案例6：通过反汇编分析CppCrash问题
+#### 案例6：通过反汇编分析CppCrash问题
 
  
 **llvm-objdump工具使用方法**
@@ -473,17 +473,17 @@ static int xxxFunc(const uint8_t *buf, uint32_t bufSize)
 
   
 
-  ##### 案例7：ILL_ILLPACCFI类崩溃问题
+  #### 案例7：ILL_ILLPACCFI类崩溃问题
 
   
 
-  ##### 概述
+  #### 概述
 
   ILL_ILLPACCFI类崩溃问题仅在开启指针校验功能后，在校验指针时发现异常产生崩溃。因此该类问题需要分析是什么原因造成指针异常，导致校验指针失败。
 
   
 
-  ##### 问题现象
+  #### 问题现象
 
   进程发生崩溃后生成的cppcrash中Reason字段是ILL_ILLPACCFI，崩溃日志核心内容如下：
 
@@ -519,7 +519,7 @@ lr:0000005615e4499c sp:0000007fc581cac0 pc:0000005615e449a8
 
   
 
-  ##### 分析步骤
+  #### 分析步骤
 
   根据CppCrash日志提供的堆栈信息，找到异常发生位置为fpac10二进制中的0x19a8处。
 
@@ -592,7 +592,7 @@ int main()
 
  
 
-##### 修复方法
+#### 修复方法
 
  
 在使用memcpy函数拷贝内存时要注意拷贝内存的大小不能超过目的缓冲区大小，建议使用memcpy_s安全函数代替memcpy。

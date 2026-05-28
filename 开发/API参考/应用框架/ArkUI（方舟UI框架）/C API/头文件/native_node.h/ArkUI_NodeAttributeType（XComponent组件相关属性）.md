@@ -9,7 +9,7 @@ enum ArkUI_NodeAttributeType
 ```
   
 
-##### 概述
+#### 概述
 
 定义ArkUI在Native侧可以设置的XComponent组件相关属性集合。
  
@@ -21,7 +21,7 @@ enum ArkUI_NodeAttributeType
  
   
 
-##### NODE_XCOMPONENT_ID
+#### NODE_XCOMPONENT_ID
 
 ```text
 NODE_XCOMPONENT_ID = MAX_NODE_SCOPE_NUM * ARKUI_NODE_XCOMPONENT = 12000
@@ -49,7 +49,7 @@ XComponent组件ID属性，支持属性设置和属性获取接口。
  
   
 
-##### NODE_XCOMPONENT_TYPE
+#### NODE_XCOMPONENT_TYPE
 
 ```text
 NODE_XCOMPONENT_TYPE = 12001
@@ -74,7 +74,7 @@ XComponent组件的类型需要在组件创建时通过[ArkUI_NodeType](https://
  
   
 
-##### NODE_XCOMPONENT_SURFACE_SIZE
+#### NODE_XCOMPONENT_SURFACE_SIZE
 
 ```text
 NODE_XCOMPONENT_SURFACE_SIZE = 12002
@@ -98,7 +98,7 @@ XComponent组件的宽高，仅支持属性获取接口。
  
   
 
-##### NODE_XCOMPONENT_SURFACE_RECT
+#### NODE_XCOMPONENT_SURFACE_RECT
 
 ```text
 NODE_XCOMPONENT_SURFACE_RECT = 12003
@@ -132,7 +132,7 @@ NODE_XCOMPONENT_SURFACE_RECT = 12003
  
   
 
-##### NODE_XCOMPONENT_ENABLE_ANALYZER
+#### NODE_XCOMPONENT_ENABLE_ANALYZER
 
 ```text
 NODE_XCOMPONENT_ENABLE_ANALYZER = 12004

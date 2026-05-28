@@ -16,7 +16,7 @@
 在参考以下示例前，建议开发者查看[相机开发指导(ArkTS)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-device-management)的具体章节，了解[相机管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-device-management)、[设备输入](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-device-input)、[会话管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-session-management)等单个操作。
 
 
-##### 开发流程
+#### 开发流程
 
 相机应用从后台切换至前台启动恢复的调用流程建议如下：
 
@@ -26,7 +26,7 @@
 
 
 
-##### 完整示例
+#### 完整示例
 
 Context获取方式请参考：[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 

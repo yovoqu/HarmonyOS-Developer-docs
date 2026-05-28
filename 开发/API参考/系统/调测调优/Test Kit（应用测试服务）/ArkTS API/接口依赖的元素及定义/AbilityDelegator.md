@@ -14,7 +14,7 @@ AbilityDelegator可以通过[getAbilityDelegator](https://developer.huawei.com/c
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,13 +24,13 @@ import { abilityDelegatorRegistry } from '@kit.TestKit';
 
 
 
-##### AbilityDelegator
+#### AbilityDelegator
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### addAbilityMonitor9+
+#### addAbilityMonitor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -85,7 +85,7 @@ abilityDelegator.addAbilityMonitor(monitor, (error: BusinessError) => {
 
 
 
-##### addAbilityMonitor9+
+#### addAbilityMonitor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -144,7 +144,7 @@ abilityDelegator.addAbilityMonitor(monitor).then(() => {
 
 
 
-##### addAbilityMonitorSync10+
+#### addAbilityMonitorSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -196,7 +196,7 @@ abilityDelegator.addAbilityMonitorSync(monitor);
 
 
 
-##### removeAbilityMonitor9+
+#### removeAbilityMonitor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -252,7 +252,7 @@ abilityDelegator.removeAbilityMonitor(monitor, (error: BusinessError) => {
 
 
 
-##### removeAbilityMonitor9+
+#### removeAbilityMonitor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -313,7 +313,7 @@ abilityDelegator.removeAbilityMonitor(monitor).then(() => {
 
 
 
-##### removeAbilityMonitorSync10+
+#### removeAbilityMonitorSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -364,7 +364,7 @@ abilityDelegator.removeAbilityMonitorSync(monitor);
 
 
 
-##### waitAbilityMonitor9+
+#### waitAbilityMonitor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -423,7 +423,7 @@ abilityDelegator.waitAbilityMonitor(monitor, (error: BusinessError, data: UIAbil
 
 
 
-##### waitAbilityMonitor9+
+#### waitAbilityMonitor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -484,7 +484,7 @@ abilityDelegator.waitAbilityMonitor(monitor, timeout, (error: BusinessError, dat
 
 
 
-##### waitAbilityMonitor9+
+#### waitAbilityMonitor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -545,7 +545,7 @@ abilityDelegator.waitAbilityMonitor(monitor).then((data: UIAbility) => {
 
 
 
-##### getAppContext9+
+#### getAppContext9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -578,7 +578,7 @@ let context = abilityDelegator.getAppContext();
 
 
 
-##### getAbilityState9+
+#### getAbilityState9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -634,7 +634,7 @@ abilityDelegator.getCurrentTopAbility((err: BusinessError, data: UIAbility) => {
 
 
 
-##### getCurrentTopAbility9+
+#### getCurrentTopAbility9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -682,7 +682,7 @@ abilityDelegator.getCurrentTopAbility((err: BusinessError, data: UIAbility) => {
 
 
 
-##### getCurrentTopAbility9+
+#### getCurrentTopAbility9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -728,7 +728,7 @@ abilityDelegator.getCurrentTopAbility().then((data: UIAbility) => {
 
 
 
-##### startAbility9+
+#### startAbility9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -793,7 +793,7 @@ abilityDelegator.startAbility(want, (err: BusinessError, data: void) => {
 
 
 
-##### startAbility9+
+#### startAbility9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -863,7 +863,7 @@ abilityDelegator.startAbility(want).then((data: void) => {
 
 
 
-##### doAbilityForeground9+
+#### doAbilityForeground9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -915,7 +915,7 @@ abilityDelegator.getCurrentTopAbility((err: BusinessError, data: UIAbility) => {
 
 
 
-##### doAbilityForeground9+
+#### doAbilityForeground9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -973,7 +973,7 @@ abilityDelegator.getCurrentTopAbility((err: BusinessError, data: UIAbility) => {
 
 
 
-##### doAbilityBackground9+
+#### doAbilityBackground9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1025,7 +1025,7 @@ abilityDelegator.getCurrentTopAbility((err: BusinessError, data: UIAbility) => {
 
 
 
-##### doAbilityBackground9+
+#### doAbilityBackground9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1083,7 +1083,7 @@ abilityDelegator.getCurrentTopAbility((err: BusinessError, data: UIAbility) => {
 
 
 
-##### printSync9+
+#### printSync9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1125,7 +1125,7 @@ abilityDelegator.printSync(msg);
 
 
 
-##### print
+#### print
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1162,7 +1162,7 @@ abilityDelegator.print(msg, (err: BusinessError) => {
 
 
 
-##### print
+#### print
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1204,7 +1204,7 @@ abilityDelegator.print(msg).then(() => {
 
 
 
-##### executeShellCommand
+#### executeShellCommand
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1243,7 +1243,7 @@ abilityDelegator.executeShellCommand(cmd, (err: BusinessError, data: abilityDele
 
 
 
-##### executeShellCommand
+#### executeShellCommand
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1284,7 +1284,7 @@ abilityDelegator.executeShellCommand(cmd, timeout, (err: BusinessError, data: ab
 
 
 
-##### executeShellCommand
+#### executeShellCommand
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1330,7 +1330,7 @@ abilityDelegator.executeShellCommand(cmd, timeout).then((data) => {
 
 
 
-##### finishTest9+
+#### finishTest9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1378,7 +1378,7 @@ abilityDelegator.finishTest(msg, 0, (err: BusinessError) => {
 
 
 
-##### finishTest9+
+#### finishTest9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1431,7 +1431,7 @@ abilityDelegator.finishTest(msg, 0).then(() => {
 
 
 
-##### addAbilityStageMonitor9+
+#### addAbilityStageMonitor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1480,7 +1480,7 @@ abilityDelegator.addAbilityStageMonitor({
 
 
 
-##### addAbilityStageMonitor9+
+#### addAbilityStageMonitor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1534,7 +1534,7 @@ abilityDelegator.addAbilityStageMonitor({
 
 
 
-##### addAbilityStageMonitorSync10+
+#### addAbilityStageMonitorSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1579,7 +1579,7 @@ abilityDelegator.addAbilityStageMonitorSync({
 
 
 
-##### removeAbilityStageMonitor9+
+#### removeAbilityStageMonitor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1628,7 +1628,7 @@ abilityDelegator.removeAbilityStageMonitor({
 
 
 
-##### removeAbilityStageMonitor9+
+#### removeAbilityStageMonitor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1682,7 +1682,7 @@ abilityDelegator.removeAbilityStageMonitor({
 
 
 
-##### removeAbilityStageMonitorSync10+
+#### removeAbilityStageMonitorSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1727,7 +1727,7 @@ abilityDelegator.removeAbilityStageMonitorSync({
 
 
 
-##### waitAbilityStageMonitor9+
+#### waitAbilityStageMonitor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1777,7 +1777,7 @@ abilityDelegator.waitAbilityStageMonitor({
 
 
 
-##### waitAbilityStageMonitor9+
+#### waitAbilityStageMonitor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1833,7 +1833,7 @@ abilityDelegator.waitAbilityStageMonitor({
 
 
 
-##### waitAbilityStageMonitor9+
+#### waitAbilityStageMonitor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1885,7 +1885,7 @@ abilityDelegator.waitAbilityStageMonitor({
 
 
 
-##### setMockList11+
+#### setMockList11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

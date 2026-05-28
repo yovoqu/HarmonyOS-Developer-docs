@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/speech-aicaption-guide
 
-##### 适用场景
+#### 适用场景
 
 AI字幕控件应用广泛，例如在用户不熟悉音频源语言或者静音的时候，为用户提供字幕服务。
 
@@ -16,7 +16,7 @@ AI字幕控件应用广泛，例如在用户不熟悉音频源语言或者静音
 
 
 
-##### 接口说明
+#### 接口说明
 
 AI字幕功能主要由[AICaptionComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-aicaptioncomponent)提供，更多接口及使用方法请参见[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-aicaptioncomponent)。
 
@@ -29,7 +29,7 @@ AI字幕功能主要由[AICaptionComponent](https://developer.huawei.com/consume
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 从项目根目录进入/src/main/ets/pages/Index.ets文件，在使用AI字幕控件前，将实现AI字幕控件和其他相关的类添加至工程。
 
   
@@ -115,7 +115,7 @@ struct Index {
 
 
 
-##### 开发实例
+#### 开发实例
 
 Index.ets
 

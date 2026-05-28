@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-batteryinfo
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -17,7 +17,7 @@
  
   
 
-##### 文件汇总
+#### 文件汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
  

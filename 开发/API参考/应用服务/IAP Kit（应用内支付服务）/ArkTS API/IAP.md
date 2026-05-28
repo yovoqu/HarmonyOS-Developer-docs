@@ -12,7 +12,7 @@
 **起始版本：** 4.0.0(10)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { iap } from '@kit.IAPKit';
 
 
 
-##### ProductType
+#### ProductType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -46,7 +46,7 @@ import { iap } from '@kit.IAPKit';
 
 
 
-##### PurchaseQueryType
+#### PurchaseQueryType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -69,7 +69,7 @@ import { iap } from '@kit.IAPKit';
 
 
 
-##### PeriodUnit
+#### PeriodUnit
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -94,7 +94,7 @@ import { iap } from '@kit.IAPKit';
 
 
 
-##### OfferPaymentMode
+#### OfferPaymentMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -118,7 +118,7 @@ import { iap } from '@kit.IAPKit';
 
 
 
-##### OfferType
+#### OfferType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -140,7 +140,7 @@ import { iap } from '@kit.IAPKit';
 
 
 
-##### IAPErrorCode
+#### IAPErrorCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -181,7 +181,7 @@ import { iap } from '@kit.IAPKit';
 
 
 
-##### WindowScreenMode
+#### WindowScreenMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -203,7 +203,7 @@ import { iap } from '@kit.IAPKit';
 
 
 
-##### ProductStatus
+#### ProductStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -226,7 +226,7 @@ import { iap } from '@kit.IAPKit';
 
 
 
-##### iap.queryEnvironmentStatus
+#### iap.queryEnvironmentStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -301,7 +301,7 @@ struct Index {
 
 
 
-##### iap.queryEnvironmentStatus
+#### iap.queryEnvironmentStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -369,7 +369,7 @@ struct Index {
 
 
 
-##### iap.queryProducts
+#### iap.queryProducts
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -453,7 +453,7 @@ struct Index {
 
 
 
-##### iap.queryProducts
+#### iap.queryProducts
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -531,7 +531,7 @@ struct Index {
 
 
 
-##### iap.queryProducts
+#### iap.queryProducts
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -607,7 +607,7 @@ struct Index {
 
 
 
-##### iap.purchase(deprecated)
+#### iap.purchase(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -695,7 +695,7 @@ struct Index {
 
 
 
-##### iap.purchase(deprecated)
+#### iap.purchase(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -779,7 +779,7 @@ struct Index {
 
 
 
-##### iap.createPurchase
+#### iap.createPurchase
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -870,7 +870,7 @@ struct Index {
 
 
 
-##### iap.createPurchase
+#### iap.createPurchase
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -955,7 +955,7 @@ struct Index {
 
 
 
-##### iap.consumePurchase(deprecated)
+#### iap.consumePurchase(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1036,7 +1036,7 @@ struct Index {
 
 
 
-##### iap.consumePurchase(deprecated)
+#### iap.consumePurchase(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1113,7 +1113,7 @@ struct Index {
 
 
 
-##### iap.finishPurchase
+#### iap.finishPurchase
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1197,7 +1197,7 @@ struct Index {
 
 
 
-##### iap.finishPurchase
+#### iap.finishPurchase
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1275,7 +1275,7 @@ struct Index {
 
 
 
-##### iap.queryOwnedPurchases(deprecated)
+#### iap.queryOwnedPurchases(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1361,7 +1361,7 @@ struct Index {
 
 
 
-##### iap.queryOwnedPurchases(deprecated)
+#### iap.queryOwnedPurchases(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1443,7 +1443,7 @@ struct Index {
 
 
 
-##### iap.queryPurchaseRecords(deprecated)
+#### iap.queryPurchaseRecords(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1519,7 +1519,7 @@ struct Index {
 
 
 
-##### iap.queryPurchaseRecords(deprecated)
+#### iap.queryPurchaseRecords(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1591,7 +1591,7 @@ struct Index {
 
 
 
-##### iap.queryPurchases
+#### iap.queryPurchases
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1674,7 +1674,7 @@ struct Index {
 
 
 
-##### iap.queryPurchases
+#### iap.queryPurchases
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1751,7 +1751,7 @@ struct Index {
 
 
 
-##### iap.showManagedSubscriptions
+#### iap.showManagedSubscriptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1831,7 +1831,7 @@ struct Index {
 
 
 
-##### iap.isSandboxActivated
+#### iap.isSandboxActivated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1905,7 +1905,7 @@ struct Index {
 
 
 
-##### iap.createRefundRequest
+#### iap.createRefundRequest
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1990,7 +1990,7 @@ struct IapTest {
 
 
 
-##### iap.showManagedInvoices
+#### iap.showManagedInvoices
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2072,7 +2072,7 @@ struct IapTest {
 
 
 
-##### QueryProductsParameter
+#### QueryProductsParameter
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2094,7 +2094,7 @@ struct IapTest {
 
 
 
-##### Product
+#### Product
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2126,7 +2126,7 @@ struct IapTest {
 
 
 
-##### PromotionalOffer
+#### PromotionalOffer
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2152,7 +2152,7 @@ struct IapTest {
 
 
 
-##### SubscriptionInfo
+#### SubscriptionInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2178,7 +2178,7 @@ struct IapTest {
 
 
 
-##### SubscriptionOffer
+#### SubscriptionOffer
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2204,7 +2204,7 @@ struct IapTest {
 
 
 
-##### PurchaseParameter
+#### PurchaseParameter
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2232,7 +2232,7 @@ struct IapTest {
 
 
 
-##### PurchaseResult(deprecated)
+#### PurchaseResult(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2255,7 +2255,7 @@ struct IapTest {
 
 
 
-##### CreatePurchaseResult
+#### CreatePurchaseResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2276,7 +2276,7 @@ struct IapTest {
 
 
 
-##### ConsumePurchaseParameter(deprecated)
+#### ConsumePurchaseParameter(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2298,7 +2298,7 @@ struct IapTest {
 
 
 
-##### ConsumeResult(deprecated)
+#### ConsumeResult(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2321,7 +2321,7 @@ struct IapTest {
 
 
 
-##### FinishPurchaseParameter
+#### FinishPurchaseParameter
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2344,7 +2344,7 @@ struct IapTest {
 
 
 
-##### QueryPurchasesParameter
+#### QueryPurchasesParameter
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2367,7 +2367,7 @@ struct IapTest {
 
 
 
-##### QueryPurchasesResult(deprecated)
+#### QueryPurchasesResult(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2392,7 +2392,7 @@ struct IapTest {
 
 
 
-##### QueryPurchaseResult
+#### QueryPurchaseResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2414,7 +2414,7 @@ struct IapTest {
 
 
 
-##### UIWindowParameter
+#### UIWindowParameter
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

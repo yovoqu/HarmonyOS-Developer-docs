@@ -12,7 +12,7 @@
 
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
  
@@ -50,7 +50,7 @@
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -70,7 +70,7 @@ type=time：
  
   
 
-##### 样式
+#### 样式
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
  
@@ -98,7 +98,7 @@ type=time：
  
   
 
-##### 方法
+#### 方法
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
  
@@ -109,7 +109,7 @@ type=time：
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -180,4 +180,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/PxoFpq4cRAqF7grMo3Qhiw/zh-cn_image_0000002581276636.png?HW-CC-KV=V1&HW-CC-Date=20260528T024058Z&HW-CC-Expire=86400&HW-CC-Sign=8C3CBA75175D5335C1FE3748C5E111B97BFC292FC7A99423A082609E077C2D88)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/PxoFpq4cRAqF7grMo3Qhiw/zh-cn_image_0000002581276636.png?HW-CC-KV=V1&HW-CC-Date=20260528T025432Z&HW-CC-Expire=86400&HW-CC-Sign=59BF38FB6795A6B6720EE87877DABF1D3DD72F6919A270DE09D3361B1665A154)

@@ -4,11 +4,11 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/changelogs-targeting-api12-b035
 
-##### ArkTS
+#### ArkTS
 
  
 
-##### JSON.parse解析非法字符串行为变更
+#### JSON.parse解析非法字符串行为变更
 
 **变更原因**
  
@@ -42,7 +42,7 @@ JSON.parse/ASON.parse/util.json.parse
  
  
 
-##### JSON.parse解析浮点数下溢或-0行为变更
+#### JSON.parse解析浮点数下溢或-0行为变更
 
 **变更原因**
  
@@ -78,7 +78,7 @@ JSON.parse/ASON.parse/util.json.parse
  
  
 
-##### Sendable及共享模块语法规则编译检查完善
+#### Sendable及共享模块语法规则编译检查完善
 
 **变更原因**
  
@@ -202,11 +202,11 @@ ArkTS Sendable语法检查从API 12起启用。
  
  
 
-##### ArkUI
+#### ArkUI
 
  
 
-##### 命令式渲染节点RenderNode属性clipToFrame行为变更
+#### 命令式渲染节点RenderNode属性clipToFrame行为变更
 
 **变更原因**
  
@@ -279,7 +279,7 @@ struct Index {
  
  
 
-##### 使用局部@Builder方法引用传参时，使用bind(this)后，状态管理的父子关系和组件的父子关系不一致，比如使用@ohos.arkui.advanced.ChipGroup高级组件崩溃解决方法
+#### 使用局部@Builder方法引用传参时，使用bind(this)后，状态管理的父子关系和组件的父子关系不一致，比如使用@ohos.arkui.advanced.ChipGroup高级组件崩溃解决方法
 
 **变更原因**
  
@@ -396,7 +396,7 @@ struct Index {
  
  
 
-##### RichEditor设置预设样式的接口传入默认值时，文本样式效果变更
+#### RichEditor设置预设样式的接口传入默认值时，文本样式效果变更
 
 **变更原因**
  
@@ -465,7 +465,7 @@ struct Index {
  
  
 
-##### RichEditor占位文本接口中文本样式属性传入异常值/默认值时，占位文本样式的效果变更
+#### RichEditor占位文本接口中文本样式属性传入异常值/默认值时，占位文本样式的效果变更
 
 **变更原因**
  1. RichEditor设置占位文本的接口placeholder，其占位文本样式属性PlaceHolderStyle为异常值"{}"时，组件未将占位文本样式属性设置为默认效果。
@@ -540,7 +540,7 @@ struct Index {
  
  
 
-##### 自定义MenuItem的onChange触发逻辑变更
+#### 自定义MenuItem的onChange触发逻辑变更
 
 **变更原因**
  
@@ -568,7 +568,7 @@ MenuItem组件。
  
  
 
-##### Repeat设置totalCount属性行为变更
+#### Repeat设置totalCount属性行为变更
 
 **变更原因**
  
@@ -651,7 +651,7 @@ struct TestPage {
  
  
 
-##### Refresh组件promptText参数设置为undefined时清空文本内容
+#### Refresh组件promptText参数设置为undefined时清空文本内容
 
 **变更原因**
  
@@ -718,11 +718,11 @@ struct RefreshExample {
  
  
 
-##### ArkWeb
+#### ArkWeb
 
  
 
-##### onBeforeUnload接口行为变更
+#### onBeforeUnload接口行为变更
 
 **变更原因**
  

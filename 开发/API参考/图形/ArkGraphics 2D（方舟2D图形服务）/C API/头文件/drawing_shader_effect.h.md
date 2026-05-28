@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-shader-effect-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -40,7 +40,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -62,13 +62,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Drawing_TileMode
+#### OH_Drawing_TileMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -92,13 +92,13 @@ enum OH_Drawing_TileMode
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Drawing_ShaderEffectCreatePixelMapShader()
+#### OH_Drawing_ShaderEffectCreatePixelMapShader()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -134,7 +134,7 @@ OH_Drawing_ShaderEffect* OH_Drawing_ShaderEffectCreatePixelMapShader(OH_Drawing_
  
   
 
-##### OH_Drawing_ShaderEffectCreateColorShader()
+#### OH_Drawing_ShaderEffectCreateColorShader()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -166,7 +166,7 @@ OH_Drawing_ShaderEffect* OH_Drawing_ShaderEffectCreateColorShader(const uint32_t
  
   
 
-##### OH_Drawing_ShaderEffectCreateLinearGradient()
+#### OH_Drawing_ShaderEffectCreateLinearGradient()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -209,7 +209,7 @@ tileMode不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。
  
   
 
-##### OH_Drawing_ShaderEffectCreateLinearGradientWithLocalMatrix()
+#### OH_Drawing_ShaderEffectCreateLinearGradientWithLocalMatrix()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -253,7 +253,7 @@ tileMode不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。
  
   
 
-##### OH_Drawing_ShaderEffectCreateRadialGradient()
+#### OH_Drawing_ShaderEffectCreateRadialGradient()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -298,7 +298,7 @@ tileMode不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。
  
   
 
-##### OH_Drawing_ShaderEffectCreateRadialGradientWithLocalMatrix()
+#### OH_Drawing_ShaderEffectCreateRadialGradientWithLocalMatrix()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -344,7 +344,7 @@ tileMode不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。
  
   
 
-##### OH_Drawing_ShaderEffectCreateSweepGradientWithLocalMatrix()
+#### OH_Drawing_ShaderEffectCreateSweepGradientWithLocalMatrix()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -383,7 +383,7 @@ OH_Drawing_ShaderEffect* OH_Drawing_ShaderEffectCreateSweepGradientWithLocalMatr
  
   
 
-##### OH_Drawing_ShaderEffectCreateSweepGradient()
+#### OH_Drawing_ShaderEffectCreateSweepGradient()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -427,7 +427,7 @@ tileMode不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。
  
   
 
-##### OH_Drawing_ShaderEffectCreateImageShader()
+#### OH_Drawing_ShaderEffectCreateImageShader()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -469,7 +469,7 @@ tileX、tileY任意一个不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETE
  
   
 
-##### OH_Drawing_ShaderEffectCreateTwoPointConicalGradient()
+#### OH_Drawing_ShaderEffectCreateTwoPointConicalGradient()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -515,7 +515,7 @@ tileMode不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。
  
   
 
-##### OH_Drawing_ShaderEffectCreateCompose()
+#### OH_Drawing_ShaderEffectCreateCompose()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -549,7 +549,7 @@ OH_Drawing_ShaderEffect* OH_Drawing_ShaderEffectCreateCompose(OH_Drawing_ShaderE
  
   
 
-##### OH_Drawing_ShaderEffectDestroy()
+#### OH_Drawing_ShaderEffectDestroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

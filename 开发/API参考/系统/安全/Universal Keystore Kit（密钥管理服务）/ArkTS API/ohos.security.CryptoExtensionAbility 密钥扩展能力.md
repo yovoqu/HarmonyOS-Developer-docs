@@ -24,7 +24,7 @@ init操作，初始化密钥会话，并返回会话句柄信息。
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -34,7 +34,7 @@ import { huks, huksExternalCrypto, CryptoExtensionAbility } from '@kit.Universal
 
 
 
-##### HuksCryptoExtensionResultCode
+#### HuksCryptoExtensionResultCode
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -58,7 +58,7 @@ import { huks, huksExternalCrypto, CryptoExtensionAbility } from '@kit.Universal
 
 
 
-##### HuksCryptoExtensionCertInfo
+#### HuksCryptoExtensionCertInfo
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -75,7 +75,7 @@ import { huks, huksExternalCrypto, CryptoExtensionAbility } from '@kit.Universal
 
 
 
-##### HuksCryptoExtensionResult
+#### HuksCryptoExtensionResult
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -96,7 +96,7 @@ import { huks, huksExternalCrypto, CryptoExtensionAbility } from '@kit.Universal
 
 
 
-##### CryptoExtensionAbility.onOpenResource
+#### CryptoExtensionAbility.onOpenResource
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -142,7 +142,7 @@ export default class CryptoExtension extends CryptoExtensionAbility {
 
 
 
-##### CryptoExtensionAbility.onCloseResource
+#### CryptoExtensionAbility.onCloseResource
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -187,7 +187,7 @@ export default class CryptoExtension extends CryptoExtensionAbility {
 
 
 
-##### CryptoExtensionAbility.onGetProperty
+#### CryptoExtensionAbility.onGetProperty
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -235,7 +235,7 @@ export default class CryptoExtension extends CryptoExtensionAbility {
 
 
 
-##### CryptoExtensionAbility.onAuthUkeyPin
+#### CryptoExtensionAbility.onAuthUkeyPin
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -281,7 +281,7 @@ export default class CryptoExtension extends CryptoExtensionAbility {
 
 
 
-##### CryptoExtensionAbility.onGetUkeyPinAuthState
+#### CryptoExtensionAbility.onGetUkeyPinAuthState
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -327,7 +327,7 @@ export default class CryptoExtension extends CryptoExtensionAbility {
 
 
 
-##### CryptoExtensionAbility.onClearUkeyPinAuthState
+#### CryptoExtensionAbility.onClearUkeyPinAuthState
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -371,7 +371,7 @@ export default class CryptoExtension extends CryptoExtensionAbility {
 
 
 
-##### CryptoExtensionAbility.onInitSession
+#### CryptoExtensionAbility.onInitSession
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -416,7 +416,7 @@ export default class CryptoExtension extends CryptoExtensionAbility {
 
 
 
-##### CryptoExtensionAbility.onUpdateSession
+#### CryptoExtensionAbility.onUpdateSession
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -462,7 +462,7 @@ export default class CryptoExtension extends CryptoExtensionAbility {
 
 
 
-##### CryptoExtensionAbility.onFinishSession
+#### CryptoExtensionAbility.onFinishSession
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -508,7 +508,7 @@ export default class CryptoExtension extends CryptoExtensionAbility {
 
 
 
-##### CryptoExtensionAbility.onExportCertificate
+#### CryptoExtensionAbility.onExportCertificate
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -555,7 +555,7 @@ export default class CryptoExtension extends CryptoExtensionAbility {
 
 
 
-##### CryptoExtensionAbility.onEnumCertificates
+#### CryptoExtensionAbility.onEnumCertificates
 
 **支持设备：** PC/2in1 | Tablet
 

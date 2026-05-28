@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-relative-layout
 
-##### 概述
+#### 概述
 
 在应用的开发过程中，经常需要设计复杂界面，此时涉及到多个相同或不同组件之间的嵌套。如果布局组件嵌套深度过深，或者嵌套组件数过多，会带来额外的开销。如果在布局的方式上进行优化，就可以有效的提升性能，减少时间开销。
 
@@ -20,7 +20,7 @@ RelativeContainer是一种采用相对布局的容器，支持容器内部的子
 
 
 
-##### 基本概念
+#### 基本概念
 
  - 参考边界：设置当前组件的哪个边界对齐到锚点。
  - 锚点：通过锚点设置当前元素基于哪个元素确定位置。
@@ -32,11 +32,11 @@ RelativeContainer是一种采用相对布局的容器，支持容器内部的子
 
 
 
-##### 设置依赖关系
+#### 设置依赖关系
 
 
 
-##### 设置参考边界
+#### 设置参考边界
 
 设置当前组件的哪个边界对齐到锚点。容器内子组件的参考边界区分水平方向和垂直方向。
 
@@ -54,7 +54,7 @@ RelativeContainer是一种采用相对布局的容器，支持容器内部的子
 
 
 
-##### 设置锚点
+#### 设置锚点
 
 锚点设置涉及子元素相对于其父元素或兄弟元素的位置依赖关系。具体而言，子元素可以将其位置锚定到相对布局容器（RelativeContainer）、辅助线（guideline）、屏障（barrier）或其他子元素上。
 
@@ -236,7 +236,7 @@ struct ChildRefRelativeContainer {
 
 
 
-##### 设置相对于锚点的对齐位置
+#### 设置相对于锚点的对齐位置
 
 设置了锚点之后，可以通过[alignRules](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-location#alignrules9)属性的align设置相对于锚点的对齐位置。
 
@@ -254,7 +254,7 @@ struct ChildRefRelativeContainer {
 
 
 
-##### 子组件位置偏移
+#### 子组件位置偏移
 
 子组件经过相对位置对齐后，可能尚未达到目标位置。开发者可根据需要设置额外偏移（offset）。当使用offset调整位置的组件作为锚点时，对齐位置为设置offset之前的位置。从API Version 11开始，新增了[Bias](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#bias对象说明)对象，建议API Version 11及以后的版本使用bias来设置额外偏移。使用bias的示例可以参考[示例4（设置偏移）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-relativecontainer#示例4设置偏移)。
 
@@ -380,7 +380,7 @@ struct ChildComponentOffsetExample {
 
 
 
-##### 多种组件的对齐布局
+#### 多种组件的对齐布局
 
 [Row](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-row)、[Column](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-column)、[Flex](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flex)、[Stack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-stack)等多种布局组件，可按照RelativeContainer组件规则进行对齐排布。
 
@@ -461,7 +461,7 @@ struct RelativeContainerExample {
 
 
 
-##### 组件尺寸
+#### 组件尺寸
 
 当同时存在前端页面设置的子组件尺寸和相对布局规则时，子组件的绘制尺寸依据约束规则确定。从API Version 11开始，此规则有所变化，子组件自身设置的尺寸优先级高于相对布局规则中的对齐锚点尺寸。因此，若要使子组件与锚点严格对齐，应仅使用alignRules，避免使用[尺寸设置](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size)。
 
@@ -569,7 +569,7 @@ struct RelativeAlignRulesExample {
 
 
 
-##### 多个组件形成链
+#### 多个组件形成链
 
 链的形成依赖于组件之间的关联关系。以组件A和组件B构成的最简水平链为例，其依赖关系为：锚点1 <-- 组件A <---> 组件B --> 锚点2，即A具有left锚点，B具有right锚点，同时A的right锚点与B的[HorizontalAlign](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#horizontalalign).Start对齐，B的left锚点与A的[HorizontalAlign](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#horizontalalign).End对齐。
 
@@ -730,7 +730,7 @@ struct RelativeChainModeExample {
 
 
 
-##### 使用辅助线辅助定位子组件
+#### 使用辅助线辅助定位子组件
 
 辅助线（guideLine）是在容器内虚拟出的额外水平或垂直锚点，便于统一对齐到特定偏移位置，从而避免为每个组件单独编写重复的偏移设置。
 
@@ -772,12 +772,12 @@ struct RelativeGuideLineExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/1VOZ4hwdQwqeHGqMCUVasw/zh-cn_image_0000002611753731.png?HW-CC-KV=V1&HW-CC-Date=20260528T014825Z&HW-CC-Expire=86400&HW-CC-Sign=8D446FB4ADA4E853ADAB4EC74B1EA8E30347F7CF8D259360A80BC091AD19CD92)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/1VOZ4hwdQwqeHGqMCUVasw/zh-cn_image_0000002611753731.png?HW-CC-KV=V1&HW-CC-Date=20260528T030455Z&HW-CC-Expire=86400&HW-CC-Sign=18787B8B3A46032BD7D7A95764E2390B7521C169E25EDADF9ABD4CB9135D353F)
 
 
 
 
-##### 多个组件的屏障
+#### 多个组件的屏障
 
 屏障（barrier）是容器的一种动态参考边界，它基于一组指定组件的实际位置，计算出它们在特定方向上的公共最远边界。当需要让某个组件参照多个组件的集体边界时使用，例如实现“位于这些组件右侧”或“不与其他任何组件重叠”等效果。
 
@@ -904,4 +904,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/2xBPlxE5Rn6Fp2oTTyFBlA/zh-cn_image_0000002581433796.png?HW-CC-KV=V1&HW-CC-Date=20260528T014825Z&HW-CC-Expire=86400&HW-CC-Sign=5523376917A87EEC259F68F0458518BFDC882F1958E989463E43A9B9F46E4175)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/2xBPlxE5Rn6Fp2oTTyFBlA/zh-cn_image_0000002581433796.png?HW-CC-KV=V1&HW-CC-Date=20260528T030455Z&HW-CC-Expire=86400&HW-CC-Sign=16EB67FF84E10E5C1DF4CDC51460E98B7FA50A3D2A3E4F5CE4519E12DFF37C2F)

@@ -10,7 +10,7 @@
 **起始版本：** 6.0.0(20)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -20,7 +20,7 @@ import { trustedAuthentication } from '@kit.DeviceSecurityKit';
  
   
 
-##### enableTrustedAuthentication
+#### enableTrustedAuthentication
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -103,7 +103,7 @@ try {
  
   
 
-##### modifyTrustedAuthenticationPwd
+#### modifyTrustedAuthenticationPwd
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -192,7 +192,7 @@ try {
  
   
 
-##### disableTrustedAuthentication
+#### disableTrustedAuthentication
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -275,7 +275,7 @@ try {
  
   
 
-##### trustedAuthentication
+#### trustedAuthentication
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -355,7 +355,7 @@ try {
  
   
 
-##### procContentAuthentication
+#### procContentAuthentication
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -440,7 +440,7 @@ try {
  
   
 
-##### getBiometricAuthToken
+#### getBiometricAuthToken
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -553,7 +553,7 @@ try {
  
   
 
-##### importData
+#### importData
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -617,7 +617,7 @@ try {
  
   
 
-##### exportData
+#### exportData
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -689,7 +689,7 @@ try {
  
   
 
-##### checkConfirmUITextFormat
+#### checkConfirmUITextFormat
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -753,7 +753,7 @@ try {
  
   
 
-##### getRemainAuthTimes
+#### getRemainAuthTimes
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -813,7 +813,7 @@ try {
  
   
 
-##### disableTrustedBioAuthentication
+#### disableTrustedBioAuthentication
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -875,7 +875,7 @@ try {
  
   
 
-##### PasswordInfo
+#### PasswordInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -895,7 +895,7 @@ try {
  
   
 
-##### TUILable
+#### TUILable
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -913,7 +913,7 @@ TUI页面下的定制信息，包括定制图像logo和页面标题。
  
   
 
-##### AuthInfo
+#### AuthInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -931,7 +931,7 @@ TUI页面下的定制信息，包括定制图像logo和页面标题。
  
   
 
-##### AuthToken
+#### AuthToken
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -948,7 +948,7 @@ TUI页面下的定制信息，包括定制图像logo和页面标题。
  
   
 
-##### AuthType
+#### AuthType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -967,7 +967,7 @@ TUI页面下的定制信息，包括定制图像logo和页面标题。
  
   
 
-##### PasswordType
+#### PasswordType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -985,7 +985,7 @@ TUI页面下的定制信息，包括定制图像logo和页面标题。
  
   
 
-##### OperateType
+#### OperateType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1003,7 +1003,7 @@ TUI页面下的定制信息，包括定制图像logo和页面标题。
  
   
 
-##### AuthReqParams
+#### AuthReqParams
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1021,7 +1021,7 @@ TUI页面下的定制信息，包括定制图像logo和页面标题。
  
   
 
-##### TextCheckResult
+#### TextCheckResult
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1039,7 +1039,7 @@ TUI界面文本信息是否可以单行显示的检查结果。
  
   
 
-##### TrustedAuthErrorCode
+#### TrustedAuthErrorCode
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

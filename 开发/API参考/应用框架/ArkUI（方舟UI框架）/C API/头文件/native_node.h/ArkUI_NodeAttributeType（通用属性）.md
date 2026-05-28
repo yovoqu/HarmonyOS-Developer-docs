@@ -9,7 +9,7 @@ enum ArkUI_NodeAttributeType
 ```
 
 
-##### 概述
+#### 概述
 
 定义ArkUI在Native侧可以设置的通用属性样式集合。
 
@@ -21,7 +21,7 @@ enum ArkUI_NodeAttributeType
 
 
 
-##### NODE_WIDTH
+#### NODE_WIDTH
 
 ```text
 NODE_WIDTH = 0
@@ -49,7 +49,7 @@ NODE_WIDTH = 0
 
 
 
-##### NODE_HEIGHT
+#### NODE_HEIGHT
 
 ```text
 NODE_HEIGHT = 1
@@ -77,7 +77,7 @@ NODE_HEIGHT = 1
 
 
 
-##### NODE_BACKGROUND_COLOR
+#### NODE_BACKGROUND_COLOR
 
 ```text
 NODE_BACKGROUND_COLOR = 2
@@ -105,7 +105,7 @@ NODE_BACKGROUND_COLOR = 2
 
 
 
-##### NODE_BACKGROUND_IMAGE
+#### NODE_BACKGROUND_IMAGE
 
 ```text
 NODE_BACKGROUND_IMAGE = 3

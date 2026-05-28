@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { PiPWindow } from '@kit.ArkUI';
 
 
 
-##### PiPWindow.isPiPEnabled
+#### PiPWindow.isPiPEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -50,7 +50,7 @@ console.info('isPipEnabled:' + enable);
 
 
 
-##### PiPWindow.create
+#### PiPWindow.create
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -191,7 +191,7 @@ struct Index {
 
 
 
-##### PiPWindow.create12+
+#### PiPWindow.create12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -280,7 +280,7 @@ struct Index {
 
 
 
-##### PiPConfiguration
+#### PiPConfiguration
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -306,7 +306,7 @@ struct Index {
 
 
 
-##### PiPWindowSize15+
+#### PiPWindowSize15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -325,7 +325,7 @@ struct Index {
 
 
 
-##### PiPWindowInfo15+
+#### PiPWindowInfo15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -343,7 +343,7 @@ struct Index {
 
 
 
-##### PiPTemplateType
+#### PiPTemplateType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -363,7 +363,7 @@ struct Index {
 
 
 
-##### PiPState
+#### PiPState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -385,7 +385,7 @@ struct Index {
 
 
 
-##### PiPControlGroup12+
+#### PiPControlGroup12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -407,7 +407,7 @@ type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeet
 
 
 
-##### VideoPlayControlGroup12+
+#### VideoPlayControlGroup12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -425,7 +425,7 @@ type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeet
 
 
 
-##### VideoCallControlGroup12+
+#### VideoCallControlGroup12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -445,7 +445,7 @@ type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeet
 
 
 
-##### VideoMeetingControlGroup12+
+#### VideoMeetingControlGroup12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -465,7 +465,7 @@ type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeet
 
 
 
-##### VideoLiveControlGroup12+
+#### VideoLiveControlGroup12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -483,7 +483,7 @@ type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeet
 
 
 
-##### PiPActionEventType
+#### PiPActionEventType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -505,7 +505,7 @@ type PiPActionEventType = PiPVideoActionEvent | PiPCallActionEvent | PiPMeetingA
 
 
 
-##### PiPVideoActionEvent
+#### PiPVideoActionEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -528,7 +528,7 @@ type PiPVideoActionEvent = 'playbackStateChanged' | 'nextVideo' | 'previousVideo
 
 
 
-##### PiPCallActionEvent
+#### PiPCallActionEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -550,7 +550,7 @@ type PiPCallActionEvent = 'hangUp' | 'micStateChanged' | 'videoStateChanged' | '
 
 
 
-##### PiPMeetingActionEvent
+#### PiPMeetingActionEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -572,7 +572,7 @@ type PiPMeetingActionEvent = 'hangUp' | 'voiceStateChanged' | 'videoStateChanged
 
 
 
-##### PiPLiveActionEvent
+#### PiPLiveActionEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -592,7 +592,7 @@ type PiPLiveActionEvent = 'playbackStateChanged' | 'voiceStateChanged'
 
 
 
-##### PiPControlStatus12+
+#### PiPControlStatus12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -612,7 +612,7 @@ type PiPLiveActionEvent = 'playbackStateChanged' | 'voiceStateChanged'
 
 
 
-##### PiPControlType12+
+#### PiPControlType12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -637,7 +637,7 @@ type PiPLiveActionEvent = 'playbackStateChanged' | 'voiceStateChanged'
 
 
 
-##### ControlPanelActionEventCallback12+
+#### ControlPanelActionEventCallback12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -659,7 +659,7 @@ type ControlPanelActionEventCallback = (event: PiPActionEventType, status?: numb
 
 
 
-##### ControlEventParam12+
+#### ControlEventParam12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -677,7 +677,7 @@ type ControlPanelActionEventCallback = (event: PiPActionEventType, status?: numb
 
 
 
-##### PiPController
+#### PiPController
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -689,7 +689,7 @@ type ControlPanelActionEventCallback = (event: PiPActionEventType, status?: numb
 
 
 
-##### startPiP
+#### startPiP
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -734,7 +734,7 @@ promise.then(() => {
 
 
 
-##### stopPiP
+#### stopPiP
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -777,7 +777,7 @@ promise.then(() => {
 
 
 
-##### setAutoStartEnabled
+#### setAutoStartEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -807,7 +807,7 @@ this.pipController.setAutoStartEnabled(enable);
 
 
 
-##### updateContentSize
+#### updateContentSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -846,7 +846,7 @@ this.pipController.updateContentSize(width, height);
 
 
 
-##### updatePiPControlStatus12+
+#### updatePiPControlStatus12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -885,7 +885,7 @@ this.pipController.updatePiPControlStatus(controlType, status);
 
 
 
-##### updateContentNode18+
+#### updateContentNode18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -939,7 +939,7 @@ try {
 
 
 
-##### setPiPControlEnabled12+
+#### setPiPControlEnabled12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -978,7 +978,7 @@ this.pipController.setPiPControlEnabled(controlType, enabled);
 
 
 
-##### getPiPWindowInfo15+
+#### getPiPWindowInfo15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1026,7 +1026,7 @@ try {
 
 
 
-##### getPiPSettingSwitch20+
+#### getPiPSettingSwitch20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1076,7 +1076,7 @@ try {
 
 
 
-##### isPiPActive23+
+#### isPiPActive23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1123,7 +1123,7 @@ try {
 
 
 
-##### on('stateChange')
+#### on('stateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1176,7 +1176,7 @@ this.pipController.on('stateChange', (state: PiPWindow.PiPState, reason: string)
 
 
 
-##### off('stateChange')
+#### off('stateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1203,7 +1203,7 @@ this.pipController.off('stateChange');
 
 
 
-##### on('controlPanelActionEvent')
+#### on('controlPanelActionEvent')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1256,7 +1256,7 @@ this.pipController.on('controlPanelActionEvent', (event: PiPWindow.PiPActionEven
 
 
 
-##### on('controlEvent')12+
+#### on('controlEvent')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1309,7 +1309,7 @@ this.pipController.on('controlEvent', (control) => {
 
 
 
-##### off('controlPanelActionEvent')
+#### off('controlPanelActionEvent')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1336,7 +1336,7 @@ this.pipController.off('controlPanelActionEvent');
 
 
 
-##### off('controlEvent')12+
+#### off('controlEvent')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1367,7 +1367,7 @@ this.pipController.off('controlEvent', callbackFunc);
 
 
 
-##### on('pipWindowSizeChange')15+
+#### on('pipWindowSizeChange')15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1412,7 +1412,7 @@ try {
 
 
 
-##### off('pipWindowSizeChange')15+
+#### off('pipWindowSizeChange')15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1467,7 +1467,7 @@ try {
 
 
 
-##### on('activeStatusChange')22+
+#### on('activeStatusChange')22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1498,7 +1498,7 @@ this.pipController.on('activeStatusChange', callback);
 
 
 
-##### off('activeStatusChange')22+
+#### off('activeStatusChange')22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -16,7 +16,7 @@ VideoSession继承自[Session](https://developer.huawei.com/consumer/cn/doc/harm
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -26,7 +26,7 @@ import { camera } from '@kit.CameraKit';
 
 
 
-##### canPreconfig12+
+#### canPreconfig12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -81,7 +81,7 @@ function testCanPreconfig(videoSession: camera.VideoSession, preconfigType: came
 
 
 
-##### preconfig12+
+#### preconfig12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -129,7 +129,7 @@ function testPreconfig(videoSession: camera.VideoSession, preconfigType: camera.
 
 
 
-##### on('error')11+
+#### on('error')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -169,7 +169,7 @@ function registerSessionError(videoSession: camera.VideoSession): void {
 
 
 
-##### off('error')11+
+#### off('error')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -199,7 +199,7 @@ function unregisterSessionError(videoSession: camera.VideoSession): void {
 
 
 
-##### on('focusStateChange')11+
+#### on('focusStateChange')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -243,7 +243,7 @@ function registerFocusStateChange(videoSession: camera.VideoSession): void {
 
 
 
-##### off('focusStateChange')11+
+#### off('focusStateChange')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -273,7 +273,7 @@ function unregisterFocusStateChange(videoSession: camera.VideoSession): void {
 
 
 
-##### on('smoothZoomInfoAvailable')11+
+#### on('smoothZoomInfoAvailable')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -317,7 +317,7 @@ function registerSmoothZoomInfo(videoSession: camera.VideoSession): void {
 
 
 
-##### off('smoothZoomInfoAvailable')11+
+#### off('smoothZoomInfoAvailable')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -347,7 +347,7 @@ function unregisterSmoothZoomInfo(videoSession: camera.VideoSession): void {
 
 
 
-##### on('autoDeviceSwitchStatusChange')13+
+#### on('autoDeviceSwitchStatusChange')13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -391,7 +391,7 @@ function registerAutoDeviceSwitchStatus(videoSession: camera.VideoSession): void
 
 
 
-##### off('autoDeviceSwitchStatusChange')13+
+#### off('autoDeviceSwitchStatusChange')13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -421,7 +421,7 @@ function unregisterSmoothZoomInfo(videoSession: camera.VideoSession): void {
 
 
 
-##### setQualityPrioritization14+
+#### setQualityPrioritization14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -472,7 +472,7 @@ function setQualityPrioritization(videoSession: camera.VideoSession): void {
 
 
 
-##### on('systemPressureLevelChange')20+
+#### on('systemPressureLevelChange')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -516,7 +516,7 @@ function registerSystemPressureLevelChangeCallback(videoSession: camera.VideoSes
 
 
 
-##### off('systemPressureLevelChange')20+
+#### off('systemPressureLevelChange')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -546,7 +546,7 @@ function unregisterSystemPressureLevelChangeCallback(videoSession: camera.VideoS
 
 
 
-##### on('controlCenterEffectStatusChange')20+
+#### on('controlCenterEffectStatusChange')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -590,7 +590,7 @@ function registerControlCenterEffectStatusChangeCallback(videoSession: camera.Vi
 
 
 
-##### off('controlCenterEffectStatusChange')20+
+#### off('controlCenterEffectStatusChange')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -620,7 +620,7 @@ function unregisterControlCenterEffectStatusChange(videoSession: camera.VideoSes
 
 
 
-##### on('macroStatusChanged')20+
+#### on('macroStatusChanged')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -660,7 +660,7 @@ function registerMacroStatusChanged(videoSession: camera.VideoSession): void {
 
 
 
-##### off('macroStatusChanged')20+
+#### off('macroStatusChanged')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -690,7 +690,7 @@ function unregisterMacroStatusChanged(videoSession: camera.VideoSession): void {
 
 
 
-##### onIsoInfoChange22+
+#### onIsoInfoChange22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -725,7 +725,7 @@ function registerIsoInfoChanged(videoSession: camera.VideoSession): void {
 
 
 
-##### offIsoInfoChange22+
+#### offIsoInfoChange22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

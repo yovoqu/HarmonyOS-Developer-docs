@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-base-h
 **支持设备：** Phone | PC/2in1 | Tablet
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -50,7 +50,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -74,7 +74,7 @@
  
   
 
-##### 宏定义
+#### 宏定义
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -86,7 +86,7 @@
  
   
 
-##### 变量
+#### 变量
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -105,13 +105,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### OH_AudioNode_Type
+#### OH_AudioNode_Type
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -144,7 +144,7 @@ enum OH_AudioNode_Type
  
   
 
-##### OH_AudioSuite_PipelineWorkMode
+#### OH_AudioSuite_PipelineWorkMode
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -166,7 +166,7 @@ enum OH_AudioSuite_PipelineWorkMode
  
   
 
-##### OH_AudioSuite_PipelineState
+#### OH_AudioSuite_PipelineState
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -188,7 +188,7 @@ enum OH_AudioSuite_PipelineState
  
   
 
-##### OH_AudioSuite_Result
+#### OH_AudioSuite_Result
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -222,7 +222,7 @@ enum OH_AudioSuite_Result
  
   
 
-##### OH_Audio_SampleFormat
+#### OH_Audio_SampleFormat
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -247,7 +247,7 @@ enum OH_Audio_SampleFormat
  
   
 
-##### OH_Audio_EncodingType
+#### OH_Audio_EncodingType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -268,7 +268,7 @@ enum OH_Audio_EncodingType
  
   
 
-##### OH_Audio_SampleRate
+#### OH_Audio_SampleRate
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -302,7 +302,7 @@ enum OH_Audio_SampleRate
  
   
 
-##### OH_SoundFieldType
+#### OH_SoundFieldType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -326,7 +326,7 @@ enum OH_SoundFieldType
  
   
 
-##### OH_EnvironmentType
+#### OH_EnvironmentType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -350,7 +350,7 @@ enum OH_EnvironmentType
  
   
 
-##### OH_VoiceBeautifierType
+#### OH_VoiceBeautifierType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -374,7 +374,7 @@ enum OH_VoiceBeautifierType
  
   
 
-##### OH_AudioSuite_SurroundDirection
+#### OH_AudioSuite_SurroundDirection
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -396,7 +396,7 @@ enum OH_AudioSuite_SurroundDirection
  
   
 
-##### OH_AudioSuite_PureVoiceChangeGenderOption
+#### OH_AudioSuite_PureVoiceChangeGenderOption
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -418,7 +418,7 @@ enum OH_AudioSuite_PureVoiceChangeGenderOption
  
   
 
-##### OH_AudioSuite_PureVoiceChangeType
+#### OH_AudioSuite_PureVoiceChangeType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -445,7 +445,7 @@ enum OH_AudioSuite_PureVoiceChangeType
  
   
 
-##### OH_AudioSuite_GeneralVoiceChangeType
+#### OH_AudioSuite_GeneralVoiceChangeType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

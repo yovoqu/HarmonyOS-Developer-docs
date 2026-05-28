@@ -10,7 +10,7 @@
 **起始版本：** 5.0.0(12)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -24,7 +24,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 

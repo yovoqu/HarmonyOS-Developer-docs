@@ -9,7 +9,7 @@
 相机应用可通过调用和控制相机设备，完成预览、拍照和录像等基础操作。
 
 
-##### 开发步骤
+#### 开发步骤
 
 详细的API说明请参考[@ohos.multimedia.camera (相机管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera)。
 1. 导入camera接口，接口中提供了相机相关的属性和方法，导入方法如下。

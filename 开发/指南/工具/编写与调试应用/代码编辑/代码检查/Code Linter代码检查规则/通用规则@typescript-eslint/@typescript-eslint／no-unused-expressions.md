@@ -9,7 +9,7 @@
 
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -22,13 +22,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/no-unused-expressions选项](https://eslint.nodejs.cn/docs/rules/no-unused-expressions#选项)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 export const v1 = Number.MAX_VALUE;
@@ -45,7 +45,7 @@ if ('hello'.length === v1) {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 Number.MAX_VALUE;
@@ -57,7 +57,7 @@ if ('0') '0';
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

@@ -12,7 +12,7 @@
 
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -32,7 +32,7 @@ ContainerSpan()
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -40,7 +40,7 @@ ContainerSpan()
  
   
 
-##### textBackgroundStyle
+#### textBackgroundStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -65,7 +65,7 @@ textBackgroundStyle(style: TextBackgroundStyle)
  
   
 
-##### attributeModifier12+
+#### attributeModifier12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -86,7 +86,7 @@ attributeModifier(modifier: AttributeModifier&lt;ContainerSpanAttribute&gt;)
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -94,13 +94,13 @@ attributeModifier(modifier: AttributeModifier&lt;ContainerSpanAttribute&gt;)
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 示例1（设置背景样式）
+#### 示例1（设置背景样式）
 
 从API version 11开始，该示例通过[textBackgroundStyle](#textbackgroundstyle)属性展示了文本设置背景样式的效果。
  
@@ -136,12 +136,12 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2/v3/tKWMt-fXRbatk9ftAkH8PA/zh-cn_image_0000002581435948.png?HW-CC-KV=V1&HW-CC-Date=20260528T024228Z&HW-CC-Expire=86400&HW-CC-Sign=B9A04ED7DFFD25FBB0F09F681B7572DB5AE6E45C2471868BFD8975D36A0C918D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2/v3/tKWMt-fXRbatk9ftAkH8PA/zh-cn_image_0000002581435948.png?HW-CC-KV=V1&HW-CC-Date=20260528T025601Z&HW-CC-Expire=86400&HW-CC-Sign=BACEE7383204D48F70254C370BB7B2567B0CD476777D76AF1AAF03A7325B6DBA)
 
  
   
 
-##### 示例2（通过attributeModifier设置背景样式）
+#### 示例2（通过attributeModifier设置背景样式）
 
 从API version 12开始，该示例通过[attributeModifier](#attributemodifier12)属性展示了文本设置背景样式的效果。
  
@@ -178,4 +178,4 @@ struct ContainerSpanModifierExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/EupByy8lS2S7xUm-xgXjFw/zh-cn_image_0000002611835779.png?HW-CC-KV=V1&HW-CC-Date=20260528T024228Z&HW-CC-Expire=86400&HW-CC-Sign=F8DFBC74219FAEB86616E42A75752DB3BBA021346FE9BEF2C23A1949F473DF99)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/EupByy8lS2S7xUm-xgXjFw/zh-cn_image_0000002611835779.png?HW-CC-KV=V1&HW-CC-Date=20260528T025601Z&HW-CC-Expire=86400&HW-CC-Sign=A0B6B78C5148842DC95DD1AD41B18028AFC4F82555643D71840D99748E22C547)

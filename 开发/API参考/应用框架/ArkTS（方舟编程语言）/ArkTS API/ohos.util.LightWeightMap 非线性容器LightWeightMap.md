@@ -26,7 +26,7 @@ LightWeightMap和[HashMap](https://developer.huawei.com/consumer/cn/doc/harmonyo
 
 
 
-##### 规格限制
+#### 规格限制
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -46,7 +46,7 @@ console.info("result:", mp.hasKey(key));  // result: true
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -56,13 +56,13 @@ import { LightWeightMap } from '@kit.ArkTS';
 
 
 
-##### LightWeightMap
+#### LightWeightMap
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -77,7 +77,7 @@ import { LightWeightMap } from '@kit.ArkTS';
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -106,7 +106,7 @@ let lightWeightMap = new LightWeightMap<string, number>();
 
 
 
-##### isEmpty
+#### isEmpty
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -144,7 +144,7 @@ console.info("result:", result);  // result: true
 
 
 
-##### hasAll
+#### hasAll
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -194,7 +194,7 @@ console.info("result = ", result); // result = true
 
 
 
-##### hasKey
+#### hasKey
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -240,7 +240,7 @@ console.info("result:", result);  // result: true
 
 
 
-##### hasValue
+#### hasValue
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -286,7 +286,7 @@ console.info("result:", result);  // result: true
 
 
 
-##### increaseCapacityTo
+#### increaseCapacityTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -324,7 +324,7 @@ lightWeightMap.increaseCapacityTo(10);
 
 
 
-##### get
+#### get
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -371,7 +371,7 @@ console.info("result:", result);  // result: 356
 
 
 
-##### getIndexOfKey
+#### getIndexOfKey
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -418,7 +418,7 @@ console.info("result:", result);  // result: 0
 
 
 
-##### getIndexOfValue
+#### getIndexOfValue
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -465,7 +465,7 @@ console.info("result:", result);  // result: 1
 
 
 
-##### getKeyAt
+#### getKeyAt
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -514,7 +514,7 @@ console.info("result:", result);  // result: squirrel
 
 
 
-##### setAll
+#### setAll
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -557,7 +557,7 @@ console.info("result:", result);  // result: 356
 
 
 
-##### set
+#### set
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -603,7 +603,7 @@ console.info("result:", result);  // result: squirrel:123
 
 
 
-##### remove
+#### remove
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -649,7 +649,7 @@ console.info("result:", result);  // result: 356
 
 
 
-##### removeAt
+#### removeAt
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -697,7 +697,7 @@ console.info("result:", result);  // result: true
 
 
 
-##### setValueAt
+#### setValueAt
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -747,7 +747,7 @@ console.info("result:", lightWeightMap.get("squirrel"));  // result: 3546
 
 
 
-##### getValueAt
+#### getValueAt
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -796,7 +796,7 @@ console.info("result:", result);  // result: 123
 
 
 
-##### clear
+#### clear
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -830,7 +830,7 @@ console.info("result:", result);  // result: true
 
 
 
-##### keys
+#### keys
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -874,7 +874,7 @@ for (let key of keys) {
 
 
 
-##### values
+#### values
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -918,7 +918,7 @@ for (let value of values) {
 
 
 
-##### forEach
+#### forEach
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -983,7 +983,7 @@ for(let i = 0; i < 10; i++) {
 
 
 
-##### entries
+#### entries
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1039,7 +1039,7 @@ for(let i = 0; i < 10; i++) {
 
 
 
-##### toString
+#### toString
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1079,7 +1079,7 @@ console.info("result:", result);  // result: sparrow:356,squirrel:123
 
 
 
-##### [Symbol.iterator]
+#### [Symbol.iterator]
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

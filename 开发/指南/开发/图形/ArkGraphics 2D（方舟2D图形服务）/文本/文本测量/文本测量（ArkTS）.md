@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/text-measure-arkts
 
-##### 场景介绍
+#### 场景介绍
 
 文本测量指的是在图形绘制中，对文本的尺寸和布局进行评估，计算文本在给定字体和样式下占用的空间（例如宽度、高度和其他相关信息）的过程。文本测量用于文本排版、布局、渲染以及调整文本显示的位置和大小等场景，便于更精准地控制与调整界面的布局和呈现，以达到设计预期。
 
@@ -18,7 +18,7 @@
 
 
 
-##### 接口说明
+#### 接口说明
 
 文本测量中常用接口如下表所示，详细接口说明参考[@ohos.graphics.text (文本模块)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text#paragraph)。
 
@@ -33,7 +33,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 导入依赖的相关模块。
 
   

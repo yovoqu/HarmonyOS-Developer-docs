@@ -10,7 +10,7 @@
 
 
 
-##### 16600001 系统服务工作异常
+#### 16600001 系统服务工作异常
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -35,7 +35,7 @@ The system ability works abnormally.
 
 
 
-##### 16600002 指定的token或callback未注册
+#### 16600002 指定的token或callback未注册
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -57,7 +57,7 @@ The specified token or callback is not registered.
 
 
 
-##### 16600003 应用注册token已达到最大次数限制
+#### 16600003 应用注册token已达到最大次数限制
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -79,7 +79,7 @@ The number of token registration times has reached the upper limit.
 
 
 
-##### 16600004 指定的callback已注册
+#### 16600004 指定的callback已注册
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -101,7 +101,7 @@ The specified callback has been registered.
 
 
 
-##### 16300501 系统服务工作异常
+#### 16300501 系统服务工作异常
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -126,7 +126,7 @@ The system ability works abnormally.
 
 
 
-##### 16300502 获取指定的missionId的missionInfo失败
+#### 16300502 获取指定的missionId的missionInfo失败
 
 **错误信息**
 
@@ -148,7 +148,7 @@ Failed to get the missionInfo of the specified missionId.
 
 
 
-##### 16300503 远端未安装应用且不支持免安装
+#### 16300503 远端未安装应用且不支持免安装
 
 **错误信息**
 
@@ -168,7 +168,7 @@ The application is not installed on the remote end and installation-free is not 
 
 
 
-##### 16300504 远端未安装应用但支持免安装，需使用免安装标识重试
+#### 16300504 远端未安装应用但支持免安装，需使用免安装标识重试
 
 **错误信息**
 
@@ -188,7 +188,7 @@ The application is not installed on the remote end and installation-free is supp
 
 
 
-##### 16300505 操作设备必须是迁移的应用所在的设备或需迁移到的目标设备
+#### 16300505 操作设备必须是迁移的应用所在的设备或需迁移到的目标设备
 
 **错误信息**
 
@@ -208,7 +208,7 @@ The operation device must be the device where the application to be continued is
 
 
 
-##### 16300506 本地迁移任务已在进行中
+#### 16300506 本地迁移任务已在进行中
 
 **错误信息**
 
@@ -228,7 +228,7 @@ The local continuation task is already in progress.
 
 
 
-##### 16300507 获取指定的bundleName的missionInfo失败
+#### 16300507 获取指定的bundleName的missionInfo失败
 
 **错误信息**
 
@@ -250,7 +250,7 @@ Failed to get the missionInfo of the specified bundle name.
 
 
 
-##### 29360207 注册超出最大次数
+#### 29360207 注册超出最大次数
 
 **错误信息**
 
@@ -270,7 +270,7 @@ The number of registrations has reached the upper limit.
 
 
 
-##### 29360208 token未注册
+#### 29360208 token未注册
 
 **错误信息**
 
@@ -290,7 +290,7 @@ The token is not registered.
 
 
 
-##### 29360209 callback已注册
+#### 29360209 callback已注册
 
 **错误信息**
 
@@ -310,7 +310,7 @@ The callback has been registered.
 
 
 
-##### 29360210 callback未注册
+#### 29360210 callback未注册
 
 **错误信息**
 
@@ -330,7 +330,7 @@ The callback is not registered.
 
 
 
-##### 29360211 连接ability失败
+#### 29360211 连接ability失败
 
 **错误信息**
 
@@ -350,7 +350,7 @@ Failed to connect to the ability.
 
 
 
-##### 29360214 callback类型错误
+#### 29360214 callback类型错误
 
 **错误信息**
 
@@ -370,7 +370,7 @@ The type of callback is not supported.
 
 
 
-##### 29360215 无效的连接状态
+#### 29360215 无效的连接状态
 
 **错误信息**
 
@@ -390,7 +390,7 @@ Invalid connection state.
 
 
 
-##### 29360216 无效的流转模式
+#### 29360216 无效的流转模式
 
 **错误信息**
 

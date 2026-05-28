@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/openfileboost_preview
 **支持设备：** PC/2in1
 
-##### 概述
+#### 概述
 
 **支持设备：** PC/2in1
 
@@ -23,13 +23,13 @@ Preview Kit（文件预览服务）为应用提供便捷的文件快速预览服
 
 
 
-##### 汇总
+#### 汇总
 
 **支持设备：** PC/2in1
 
 
 
-##### 文件
+#### 文件
 
 **支持设备：** PC/2in1
 
@@ -42,7 +42,7 @@ Preview Kit（文件预览服务）为应用提供便捷的文件快速预览服
 
 
 
-##### 宏定义
+#### 宏定义
 
 **支持设备：** PC/2in1
 
@@ -53,7 +53,7 @@ Preview Kit（文件预览服务）为应用提供便捷的文件快速预览服
 
 
 
-##### 类型定义
+#### 类型定义
 
 **支持设备：** PC/2in1
 
@@ -70,7 +70,7 @@ Preview Kit（文件预览服务）为应用提供便捷的文件快速预览服
 
 
 
-##### 枚举
+#### 枚举
 
 **支持设备：** PC/2in1
 
@@ -85,7 +85,7 @@ Preview Kit（文件预览服务）为应用提供便捷的文件快速预览服
 
 
 
-##### 函数
+#### 函数
 
 **支持设备：** PC/2in1
 
@@ -109,13 +109,13 @@ Preview Kit（文件预览服务）为应用提供便捷的文件快速预览服
 
 
 
-##### 宏定义说明
+#### 宏定义说明
 
 **支持设备：** PC/2in1
 
 
 
-##### MAX_BUFFER_LENGTH
+#### MAX_BUFFER_LENGTH
 
 **支持设备：** PC/2in1
 
@@ -131,13 +131,13 @@ Preview Kit（文件预览服务）为应用提供便捷的文件快速预览服
 
 
 
-##### 类型定义说明
+#### 类型定义说明
 
 **支持设备：** PC/2in1
 
 
 
-##### HMS_OpenFileBoost_OnFilePreload
+#### HMS_OpenFileBoost_OnFilePreload
 
 **支持设备：** PC/2in1
 
@@ -164,7 +164,7 @@ typedef OpenFileBoost_CbErrCode(*HMS_OpenFileBoost_OnFilePreload) (void *fileInf
 
 
 
-##### HMS_OpenFileBoost_QueryAppState
+#### HMS_OpenFileBoost_QueryAppState
 
 **支持设备：** PC/2in1
 
@@ -184,7 +184,7 @@ typedef OpenFileBoost_AppState(*HMS_OpenFileBoost_QueryAppState) (void)
 
 
 
-##### CacheKey
+#### CacheKey
 
 **支持设备：** PC/2in1
 
@@ -200,7 +200,7 @@ typedef struct CacheKey CacheKey
 
 
 
-##### SerializeFunc
+#### SerializeFunc
 
 **支持设备：** PC/2in1
 
@@ -229,7 +229,7 @@ typedef FileCacheBoost_CbErrCode(*SerializeFunc) (const void *object, WriteFunc 
 
 
 
-##### WriteFunc
+#### WriteFunc
 
 **支持设备：** PC/2in1
 
@@ -258,7 +258,7 @@ typedef FileCacheBoost_ErrCode(*WriteFunc) (const void *buffer, size_t bufferLen
 
 
 
-##### DeserializeFunc
+#### DeserializeFunc
 
 **支持设备：** PC/2in1
 
@@ -287,7 +287,7 @@ typedef FileCacheBoost_CbErrCode(*DeserializeFunc) (void **object, ReadFunc read
 
 
 
-##### ReadFunc
+#### ReadFunc
 
 **支持设备：** PC/2in1
 
@@ -316,13 +316,13 @@ typedef FileCacheBoost_ErrCode(*ReadFunc) (void *buffer, size_t *bufferLen, stru
 
 
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** PC/2in1
 
 
 
-##### OpenFileBoost_AppState
+#### OpenFileBoost_AppState
 
 **支持设备：** PC/2in1
 
@@ -345,7 +345,7 @@ app状态，用于指示app当前是否允许系统推荐预加载文件。
 
 
 
-##### OpenFileBoost_CbErrCode
+#### OpenFileBoost_CbErrCode
 
 **支持设备：** PC/2in1
 
@@ -367,7 +367,7 @@ enum OpenFileBoost_CbErrCode
 
 
 
-##### OpenFileBoost_ErrCode
+#### OpenFileBoost_ErrCode
 
 **支持设备：** PC/2in1
 
@@ -394,7 +394,7 @@ enum OpenFileBoost_ErrCode
 
 
 
-##### FileCacheBoost_CbErrCode
+#### FileCacheBoost_CbErrCode
 
 **支持设备：** PC/2in1
 
@@ -417,7 +417,7 @@ enum FileCacheBoost_CbErrCode
 
 
 
-##### FileCacheBoost_ErrCode
+#### FileCacheBoost_ErrCode
 
 **支持设备：** PC/2in1
 
@@ -450,13 +450,13 @@ enum FileCacheBoost_ErrCode
 
 
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** PC/2in1
 
 
 
-##### HMS_OpenFileBoost_GetFdFromPreloadFileInfo()
+#### HMS_OpenFileBoost_GetFdFromPreloadFileInfo()
 
 **支持设备：** PC/2in1
 
@@ -484,7 +484,7 @@ OpenFileBoost_ErrCode HMS_OpenFileBoost_GetFdFromPreloadFileInfo (void * fileInf
 
 
 
-##### HMS_OpenFileBoost_GetSandboxPathFromPreloadFileInfo()
+#### HMS_OpenFileBoost_GetSandboxPathFromPreloadFileInfo()
 
 **支持设备：** PC/2in1
 
@@ -513,7 +513,7 @@ OpenFileBoost_ErrCode HMS_OpenFileBoost_GetSandboxPathFromPreloadFileInfo (void 
 
 
 
-##### HMS_OpenFileBoost_NotifyPreloadHit()
+#### HMS_OpenFileBoost_NotifyPreloadHit()
 
 **支持设备：** PC/2in1
 
@@ -542,7 +542,7 @@ OpenFileBoost_ErrCode HMS_OpenFileBoost_NotifyPreloadHit (int32_t fd, char * san
 
 
 
-##### HMS_OpenFileBoost_RegisterFilePreload()
+#### HMS_OpenFileBoost_RegisterFilePreload()
 
 **支持设备：** PC/2in1
 
@@ -575,7 +575,7 @@ OpenFileBoost_ErrCode HMS_OpenFileBoost_RegisterFilePreload (HMS_OpenFileBoost_Q
 
 
 
-##### HMS_OpenFileBoost_UnregisterFilePreload()
+#### HMS_OpenFileBoost_UnregisterFilePreload()
 
 **支持设备：** PC/2in1
 
@@ -595,7 +595,7 @@ OpenFileBoost_ErrCode HMS_OpenFileBoost_UnregisterFilePreload (void)
 
 
 
-##### HMS_FileCacheBoost_Init()
+#### HMS_FileCacheBoost_Init()
 
 **支持设备：** PC/2in1
 
@@ -634,7 +634,7 @@ FILE_CACHE_BOOST_ERROR_INVALID_PARAM：传入的参数无效。
 
 
 
-##### HMS_FileCacheBoost_AddObjectByKey()
+#### HMS_FileCacheBoost_AddObjectByKey()
 
 **支持设备：** PC/2in1
 
@@ -685,7 +685,7 @@ FILE_CACHE_BOOST_ERROR_INVALID_PARAM：传入的参数无效。
 
 
 
-##### HMS_FileCacheBoost_GetObjectByKey()
+#### HMS_FileCacheBoost_GetObjectByKey()
 
 **支持设备：** PC/2in1
 
@@ -729,7 +729,7 @@ FILE_CACHE_BOOST_ERROR_INVALID_PARAM：传入的参数无效。
 
 
 
-##### HMS_FileCacheBoost_FreeObject()
+#### HMS_FileCacheBoost_FreeObject()
 
 **支持设备：** PC/2in1
 
@@ -752,7 +752,7 @@ void HMS_FileCacheBoost_FreeObject (uint8_t * data)
 
 
 
-##### HMS_FileCacheBoost_AddSerialObjectByKey()
+#### HMS_FileCacheBoost_AddSerialObjectByKey()
 
 **支持设备：** PC/2in1
 
@@ -801,7 +801,7 @@ FILE_CACHE_BOOST_ERROR_INVALID_PARAM：传入的参数无效。
 
 
 
-##### HMS_FileCacheBoost_GetSerialObjectByKey()
+#### HMS_FileCacheBoost_GetSerialObjectByKey()
 
 **支持设备：** PC/2in1
 
@@ -845,7 +845,7 @@ FILE_CACHE_BOOST_ERROR_INVALID_PARAM：传入的参数无效。
 
 
 
-##### HMS_FileCacheBoost_CancelOngoingIOByKey()
+#### HMS_FileCacheBoost_CancelOngoingIOByKey()
 
 **支持设备：** PC/2in1
 
@@ -885,7 +885,7 @@ FILE_CACHE_BOOST_ERROR_INVALID_PARAM：传入的参数无效。
 
 
 
-##### HMS_FileCacheBoost_RemoveObjectByKey()
+#### HMS_FileCacheBoost_RemoveObjectByKey()
 
 **支持设备：** PC/2in1
 
@@ -923,7 +923,7 @@ FILE_CACHE_BOOST_ERROR_INVALID_PARAM：传入参数无效。
 
 
 
-##### HMS_FileCacheBoost_ClearAllCache()
+#### HMS_FileCacheBoost_ClearAllCache()
 
 **支持设备：** PC/2in1
 

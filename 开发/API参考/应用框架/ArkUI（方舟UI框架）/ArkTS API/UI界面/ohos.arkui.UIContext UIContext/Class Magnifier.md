@@ -12,7 +12,7 @@
 
   
 
-##### bind
+#### bind
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -73,12 +73,12 @@ struct MagnifierExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/hh0lQHhfQ6KvZq-nWkxEEg/zh-cn_image_0000002581275618.png?HW-CC-KV=V1&HW-CC-Date=20260528T024120Z&HW-CC-Expire=86400&HW-CC-Sign=261A80E3F89D99A0F224C87EEC071875607D9D44D8426E6FF8A4895D04F78B1A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/hh0lQHhfQ6KvZq-nWkxEEg/zh-cn_image_0000002581275618.png?HW-CC-KV=V1&HW-CC-Date=20260528T025454Z&HW-CC-Expire=86400&HW-CC-Sign=9F9BD6D685C88FA0AEF30B4C4AFD8E07C360D23746D1A633CCE007303A5D6627)
 
  
   
 
-##### show
+#### show
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -108,7 +108,7 @@ show(x: number, y: number): void
  
   
 
-##### unbind
+#### unbind
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

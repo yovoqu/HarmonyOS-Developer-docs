@@ -10,7 +10,7 @@
 **起始版本：** 5.0.3(15)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Tablet
 
@@ -20,7 +20,7 @@ import {antifraudPicker} from '@kit.DeviceSecurityKit';
  
   
 
-##### AntifraudMessageOptions
+#### AntifraudMessageOptions
 
 **支持设备：** Phone | Tablet
 
@@ -37,7 +37,7 @@ import {antifraudPicker} from '@kit.DeviceSecurityKit';
  
   
 
-##### SingleAntifraudMessageInfo
+#### SingleAntifraudMessageInfo
 
 **支持设备：** Phone | Tablet
 
@@ -61,7 +61,7 @@ import {antifraudPicker} from '@kit.DeviceSecurityKit';
  
   
 
-##### MmsAttachmentInfo
+#### MmsAttachmentInfo
 
 **支持设备：** Phone | Tablet
 
@@ -79,7 +79,7 @@ import {antifraudPicker} from '@kit.DeviceSecurityKit';
  
   
 
-##### AntifraudMessageResult
+#### AntifraudMessageResult
 
 **支持设备：** Phone | Tablet
 
@@ -96,7 +96,7 @@ import {antifraudPicker} from '@kit.DeviceSecurityKit';
  
   
 
-##### SingleAntifraudCallLogInfo
+#### SingleAntifraudCallLogInfo
 
 **支持设备：** Phone | Tablet
 
@@ -117,7 +117,7 @@ import {antifraudPicker} from '@kit.DeviceSecurityKit';
  
   
 
-##### AntifraudCallLogResult
+#### AntifraudCallLogResult
 
 **支持设备：** Phone | Tablet
 
@@ -134,7 +134,7 @@ import {antifraudPicker} from '@kit.DeviceSecurityKit';
  
   
 
-##### AntifraudCallLogOptions
+#### AntifraudCallLogOptions
 
 **支持设备：** Phone | Tablet
 
@@ -151,7 +151,7 @@ import {antifraudPicker} from '@kit.DeviceSecurityKit';
  
   
 
-##### selectFraudMessage
+#### selectFraudMessage
 
 **支持设备：** Phone | Tablet
 
@@ -218,7 +218,7 @@ try {
  
   
 
-##### selectFraudCallLog
+#### selectFraudCallLog
 
 **支持设备：** Phone | Tablet
 
@@ -285,7 +285,7 @@ try {
  
   
 
-##### AntifraudAppOptions
+#### AntifraudAppOptions
 
 **支持设备：** Phone | Tablet
 
@@ -302,7 +302,7 @@ try {
  
   
 
-##### AntifraudAppResult
+#### AntifraudAppResult
 
 **支持设备：** Phone | Tablet
 
@@ -319,7 +319,7 @@ try {
  
   
 
-##### SingleAntifraudAppInfo
+#### SingleAntifraudAppInfo
 
 **支持设备：** Phone | Tablet
 
@@ -343,7 +343,7 @@ try {
  
   
 
-##### selectFraudApp
+#### selectFraudApp
 
 **支持设备：** Phone | Tablet
 

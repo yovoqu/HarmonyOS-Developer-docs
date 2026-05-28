@@ -12,7 +12,7 @@ Ability信息，可以通过[bundleManager.getBundleInfoForSelf](https://develop
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 
-##### AbilityInfo
+#### AbilityInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -62,7 +62,7 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 
-##### WindowSize
+#### WindowSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

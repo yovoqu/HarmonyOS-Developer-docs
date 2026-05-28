@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getplacement
 
-##### 函数功能
+#### 函数功能
 
 获取tensor的placement，tensor数据所在的设备位置。
  
@@ -20,7 +20,7 @@ enum TensorPlacement {
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 TensorPlacement GetPlacement() const
@@ -28,13 +28,13 @@ TensorPlacement GetPlacement() const
  
   
 
-##### 参数说明
+#### 参数说明
 
 无
  
   
 
-##### 返回值
+#### 返回值
 
 tensor的placement。
  
@@ -42,13 +42,13 @@ tensor的placement。
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 std::vector<int> a = {10};

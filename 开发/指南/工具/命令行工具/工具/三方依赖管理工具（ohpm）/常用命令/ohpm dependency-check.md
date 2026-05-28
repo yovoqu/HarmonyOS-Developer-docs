@@ -7,7 +7,7 @@
 从ohpm 6.1.1.830版本开始，ohpm命令支持查询三方库的版本更新信息。
  
 
-##### 命令格式
+#### 命令格式
 
 ```text
 ohpm dependency-check [options] [<@group>/<pkg>]
@@ -19,17 +19,17 @@ ohpm dependency-check [options] [<@group>/<pkg>]
  
  
 
-##### 功能描述
+#### 功能描述
 
 用于检查当前引入的三方库版本的更新信息。
  
  
 
-##### Options
+#### Options
 
  
 
-##### registry
+#### registry
 
 - 默认值：""
 - 类型：URL
@@ -39,7 +39,7 @@ ohpm dependency-check [options] [<@group>/<pkg>]
  
  
 
-##### fetch_timeout
+#### fetch_timeout
 
 - 默认值：60000
 - 类型： Number
@@ -50,7 +50,7 @@ ohpm dependency-check [options] [<@group>/<pkg>]
  
  
 
-##### strict_ssl
+#### strict_ssl
 
 - 默认值：true
 - 类型： Boolean
@@ -60,7 +60,7 @@ ohpm dependency-check [options] [<@group>/<pkg>]
  
  
 
-##### retry_times
+#### retry_times
 
 - 默认值：1
 - 类型： Number
@@ -71,7 +71,7 @@ ohpm dependency-check [options] [<@group>/<pkg>]
  
  
 
-##### retry_interval
+#### retry_interval
 
 - 默认值：1000
 - 类型： Number
@@ -82,7 +82,7 @@ ohpm dependency-check [options] [<@group>/<pkg>]
  
  
 
-##### all-modules
+#### all-modules
 
 - 默认值：true
 - 类型： Boolean
@@ -93,7 +93,7 @@ ohpm dependency-check [options] [<@group>/<pkg>]
  
  
 
-##### modules
+#### modules
 
 - 默认值：""
 - 类型： String
@@ -104,7 +104,7 @@ ohpm dependency-check [options] [<@group>/<pkg>]
  
  
 
-##### project
+#### project
 
 - 默认值：true
 - 类型： Boolean
@@ -115,7 +115,7 @@ ohpm dependency-check [options] [<@group>/<pkg>]
  
  
 
-##### dev
+#### dev
 
 - 默认值：true
 - 类型： Boolean
@@ -126,7 +126,7 @@ ohpm dependency-check [options] [<@group>/<pkg>]
  
  
 
-##### json
+#### json
 
 - 默认值：true
 - 类型： Boolean
@@ -137,7 +137,7 @@ ohpm dependency-check [options] [<@group>/<pkg>]
  
  
 
-##### long
+#### long
 
 - 默认值：true
 - 类型： Boolean
@@ -148,7 +148,7 @@ ohpm dependency-check [options] [<@group>/<pkg>]
  
  
 
-##### console
+#### console
 
 - 默认值：true
 - 类型： Boolean
@@ -163,11 +163,11 @@ ohpm dependency-check [options] [<@group>/<pkg>]
  
  
 
-##### 示例
+#### 示例
 
  
 
-##### 示例1
+#### 示例1
 
 查询三方库的版本详细更新信息，执行一下命令。
  
@@ -201,7 +201,7 @@ test-check-update@3.8.9-beta, virusxxx
  
  
 
-##### 示例2
+#### 示例2
 
 查询三方库的版本简要更新信息，执行一下命令。
  

@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___ip_and_port
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -19,13 +19,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -37,13 +37,13 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### ip
+#### ip
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -57,7 +57,7 @@ IPv4或IPv6地址。
  
   
 
-##### port
+#### port
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

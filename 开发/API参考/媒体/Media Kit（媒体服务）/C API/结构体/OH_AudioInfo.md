@@ -10,7 +10,7 @@ typedef struct OH_AudioInfo {...} OH_AudioInfo
 ```
   
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -26,13 +26,13 @@ typedef struct OH_AudioInfo {...} OH_AudioInfo
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  

@@ -7,7 +7,7 @@
 允许或禁止使用尾随逗号。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/comma-dangle选项](https://eslint.nodejs.cn/docs/rules/comma-dangle#选项)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 // 默认不允许尾随逗号
@@ -47,7 +47,7 @@ export { foo, arr };
  
  
 
-##### 反例
+#### 反例
 
 ```text
 interface MyType {
@@ -67,7 +67,7 @@ export { foo, arr, };
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

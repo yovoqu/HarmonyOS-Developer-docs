@@ -7,13 +7,13 @@
 Push Kit（推送服务）是华为提供的消息推送平台，建立了从云端到终端的消息推送通道。所有HarmonyOS应用可通过集成Push Kit，实现向应用实时推送消息，使消息易见，构筑良好的用户关系，提升用户的感知度和活跃度。
 
 
-##### 快速入门
+#### 快速入门
 
 请参考[使用入门](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-gettingstart)章节快速了解接入Push Kit的必要步骤。
 
 
 
-##### 产品优势
+#### 产品优势
 
  - **稳定的消息发送通道**
 
@@ -28,7 +28,7 @@ Push Kit（推送服务）是华为提供的消息推送平台，建立了从云
 
 
 
-##### 推送消息提示场景
+#### 推送消息提示场景
 
 推送消息指的是应用**通过Push Kit发送的**，在华为终端设备上显示的通知消息。显示场景主要包括通知中心、锁屏、横幅、桌面图标角标与通知图标。
 
@@ -40,7 +40,7 @@ Push Kit（推送服务）是华为提供的消息推送平台，建立了从云
 
 
 
-##### 推送消息类型
+#### 推送消息类型
 
 Push Kit支持以下消息类型：
 
@@ -56,7 +56,7 @@ Push Kit支持以下消息类型：
 
 
 
-##### 业务流程
+#### 业务流程
 
 
 ![](assets/Push%20Kit简介/file-20260514132116092-1.png)
@@ -71,11 +71,11 @@ Push Kit支持以下消息类型：
 
 
 
-##### 约束和限制
+#### 约束和限制
 
 
 
-##### 影响送达率的因素说明
+#### 影响送达率的因素说明
 
 Push Kit致力于提供安全可靠的系统级消息发送通道，保障消息成功送达。影响消息送达率的因素如下：
 
@@ -87,7 +87,7 @@ Push Kit致力于提供安全可靠的系统级消息发送通道，保障消息
 
 
 
-##### 推送消息的及时性
+#### 推送消息的及时性
 
 在终端设备网络条件良好且不拥堵情况下，Push Kit将使用智能推送策略以减少推送消息的时延。
 
@@ -97,7 +97,7 @@ Push Kit致力于提供安全可靠的系统级消息发送通道，保障消息
 
 
 
-##### 推送消息长度与数量限制
+#### 推送消息长度与数量限制
 
  - 消息体最大不能超过4096Bytes（不包括Token），若超过请求会返回错误码[80300008](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scenariozed-api-response#section80300008-消息体大小超过4096bytes不包括push-token)。
  - 每个项目每日全网最多可推送1000条测试消息，正式消息区分场景有不同的配额，参考[消息频控](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-msg-freq-control)说明。
@@ -105,7 +105,7 @@ Push Kit致力于提供安全可靠的系统级消息发送通道，保障消息
 
 
 
-##### 网络受限说明
+#### 网络受限说明
 
 如果终端设备连接的网络配置了防火墙或处于受限的网络下，将会影响消息的送达率，请检查以下端口号是否被禁用。
 
@@ -121,13 +121,13 @@ Push Kit致力于提供安全可靠的系统级消息发送通道，保障消息
 
 
 
-##### 支持的国家/地区
+#### 支持的国家/地区
 
 Push Kit当前[支持的设备](#支持的设备)中Wearable设备支持的国家请参见[支持的国家/地区](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-country)，其他设备仅支持中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）。
 
 
 
-##### 支持的设备
+#### 支持的设备
 
 Push Kit相关能力支持Phone、Tablet、PC/2in1、Wearable、TV设备。
 
@@ -137,13 +137,13 @@ Push Kit相关能力支持Phone、Tablet、PC/2in1、Wearable、TV设备。
 
 
 
-##### 云真机说明
+#### 云真机说明
 
 Push Kit不支持云真机调试。
 
 
 
-##### 模拟器支持情况
+#### 模拟器支持情况
 
 Push Kit支持模拟器，但与真机存在部分能力差异，具体差异如下。
 
@@ -153,7 +153,7 @@ Push Kit支持模拟器，但与真机存在部分能力差异，具体差异如
 
 
 
-##### 与相关Kit的关系
+#### 与相关Kit的关系
 
  - Push Kit建立了从云端到终端的消息推送通道，支持开发者从云侧实时推送消息。如果开发者希望从本地推送通知，可通过[Notification Kit（用户通知服务）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/notification-overview)创建本地通知。
  - 开发者[推送卡片刷新消息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-form-update)时，需要通过[Form Kit（卡片开发服务）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/formkit-overview)提前创建应用的服务卡片。
@@ -163,6 +163,6 @@ Push Kit支持模拟器，但与真机存在部分能力差异，具体差异如
 
 
 
-##### 示例代码
+#### 示例代码
 
 Push Kit示例代码，请参考[示例代码](https://gitcode.com/harmonyos_samples/push-kit-sample-code-clientdemo-arkts)。

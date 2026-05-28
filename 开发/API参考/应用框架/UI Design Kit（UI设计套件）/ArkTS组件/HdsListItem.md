@@ -10,7 +10,7 @@
 **起始版本：** 6.0.0(20)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -20,7 +20,7 @@ import { HdsListItem } from '@kit.UIDesignKit';
  
   
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -55,7 +55,7 @@ HdsListItem({customItemBuilder?: CustomBuilder, hdsListItemCard?: HdsListItemCar
  
   
 
-##### HdsSwipeActionOptions
+#### HdsSwipeActionOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -78,7 +78,7 @@ HdsListItem({customItemBuilder?: CustomBuilder, hdsListItemCard?: HdsListItemCar
  
   
 
-##### IconOptions
+#### IconOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -101,7 +101,7 @@ HdsListItem({customItemBuilder?: CustomBuilder, hdsListItemCard?: HdsListItemCar
  
   
 
-##### SwipeIconConfigurations
+#### SwipeIconConfigurations
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -123,7 +123,7 @@ HdsListItem({customItemBuilder?: CustomBuilder, hdsListItemCard?: HdsListItemCar
  
   
 
-##### DeleteIconOptions
+#### DeleteIconOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -145,7 +145,7 @@ HdsListItem({customItemBuilder?: CustomBuilder, hdsListItemCard?: HdsListItemCar
  
   
 
-##### FullDeleteOptions
+#### FullDeleteOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -168,7 +168,7 @@ HdsListItem({customItemBuilder?: CustomBuilder, hdsListItemCard?: HdsListItemCar
  
   
 
-##### SwipeIconType
+#### SwipeIconType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -192,7 +192,7 @@ type SwipeIconType = SymbolGlyphModifier | ImageOptions
  
   
 
-##### MenuStyle
+#### MenuStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -212,7 +212,7 @@ type SwipeIconType = SymbolGlyphModifier | ImageOptions
  
   
 
-##### SwipeActionCallback
+#### SwipeActionCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -228,7 +228,7 @@ type SwipeActionCallback = () => void
  
   
 
-##### OnStateChangeCallback
+#### OnStateChangeCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -251,7 +251,7 @@ type OnStateChangeCallback = (state: SwipeActionState) => void
  
   
 
-##### SwipeDeleteTriggerType
+#### SwipeDeleteTriggerType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -272,7 +272,7 @@ type OnStateChangeCallback = (state: SwipeActionState) => void
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -437,4 +437,4 @@ export class LazyDataSource<T> implements IDataSource {
 效果图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/QwHzwcduSFe0sZ9Z9tjJxQ/zh-cn_image_0000002611836503.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024033Z&HW-CC-Expire=86400&HW-CC-Sign=3BD4BAB8615BD800CED9D5C78164F7261C1C6C75810E651B52593927CAB18D65)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/QwHzwcduSFe0sZ9Z9tjJxQ/zh-cn_image_0000002611836503.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025407Z&HW-CC-Expire=86400&HW-CC-Sign=739BE6C900CD9269A2E17F827EF8C64BAEF97DC593762600AF7E6ACA7A9E7CB3)

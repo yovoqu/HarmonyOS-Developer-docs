@@ -9,7 +9,7 @@
 该规则仅支持对.js/.ts文件进行检查。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -22,13 +22,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/no-explicit-any选项](https://typescript-eslint.nodejs.cn/rules/no-explicit-any#options)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 export const age1 = 17;
@@ -58,7 +58,7 @@ export function greet6(param: readonly string[]): string[] {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 export const age1: any = 17;
@@ -88,7 +88,7 @@ export function greet6(param: readonly any[]): any[] {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/recommended</span>

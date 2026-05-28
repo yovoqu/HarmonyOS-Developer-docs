@@ -9,13 +9,13 @@
 
 
 
-##### 场景介绍
+#### 场景介绍
 
 该接口可为上位机和下位机配置HDC鉴权密钥，确保仅在双方均为企业设备的特定场景下才允许连接和调试，从而有效保障企业资产不被篡改和泄露。
 
 
 
-##### 接口说明
+#### 接口说明
 
 详细接口说明可参考[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard)。
 
@@ -26,7 +26,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 应用需要通过OpenSSL在本地生成一个3072位的RSA密钥对。
 
   通过OpenSSL生成私钥：

@@ -10,7 +10,7 @@
 
   
 
-##### 1003700001 数据记录超过上限
+#### 1003700001 数据记录超过上限
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -32,7 +32,7 @@ The number of records exceeds the maximum.
  
   
 
-##### 1003702001 数据记录格式非法/类型不支持
+#### 1003702001 数据记录格式非法/类型不支持
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -56,7 +56,7 @@ Record types are not support.(The batch and multiple selection modes support { @
  
   
 
-##### 1003702002 跨进程传输数据量超过上限
+#### 1003702002 跨进程传输数据量超过上限
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -78,7 +78,7 @@ IPC data is oversized.
  
   
 
-##### 1003703001 数据解析失败
+#### 1003703001 数据解析失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

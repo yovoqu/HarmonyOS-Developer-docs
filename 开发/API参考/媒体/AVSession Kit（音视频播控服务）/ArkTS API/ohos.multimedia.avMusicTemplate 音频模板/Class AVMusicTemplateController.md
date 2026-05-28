@@ -11,7 +11,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 ```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
@@ -19,7 +19,7 @@ import { avMusicTemplate } from '@kit.AVSessionKit';
 
 
 
-##### 属性
+#### 属性
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -33,7 +33,7 @@ import { avMusicTemplate } from '@kit.AVSessionKit';
 
 
 
-##### queryMainTabs
+#### queryMainTabs
 
 queryMainTabs(): Promise<MediaTab[]>
 
@@ -94,7 +94,7 @@ export class ControllerManager {
 
 
 
-##### queryMediaTabContent
+#### queryMediaTabContent
 
 queryMediaTabContent(tabId: string): Promise&lt;MediaTabContent&gt;
 
@@ -164,7 +164,7 @@ export class ControllerManager {
 
 
 
-##### queryMediaEntity
+#### queryMediaEntity
 
 queryMediaEntity(params: QueryMediaEntityParam): Promise&lt;PageMediaEntity&gt;
 
@@ -241,7 +241,7 @@ export class ControllerManager {
 
 
 
-##### queryCompilation
+#### queryCompilation
 
 queryCompilation(compilationId: string, pageIndex: number): Promise&lt;PageMediaEntity&gt;
 
@@ -315,7 +315,7 @@ export class ControllerManager {
 
 
 
-##### queryPlaylist
+#### queryPlaylist
 
 queryPlaylist(pageIndex: number, sort: Sort): Promise&lt;PageMediaEntity&gt;
 
@@ -389,7 +389,7 @@ export class ControllerManager {
 
 
 
-##### queryCurrentSingle
+#### queryCurrentSingle
 
 queryCurrentSingle(): Promise&lt;Single&gt;
 
@@ -452,7 +452,7 @@ export class ControllerManager {
 
 
 
-##### queryCompilationByKeyword
+#### queryCompilationByKeyword
 
 queryCompilationByKeyword(keyword: string): Promise<Compilation[]>
 
@@ -523,7 +523,7 @@ export class ControllerManager {
 
 
 
-##### queryMediaEntityByKeyword
+#### queryMediaEntityByKeyword
 
 queryMediaEntityByKeyword(keyword: string, searchType: EntityType, pageIndex: number): Promise&lt;PageMediaEntity&gt;
 
@@ -599,7 +599,7 @@ export class ControllerManager {
 
 
 
-##### queryRecommendMediaEntityList
+#### queryRecommendMediaEntityList
 
 queryRecommendMediaEntityList(): Promise<MediaEntity[]>
 
@@ -662,7 +662,7 @@ export class ControllerManager {
 
 
 
-##### queryHotWords
+#### queryHotWords
 
 queryHotWords(): Promise<string[]>
 
@@ -725,7 +725,7 @@ export class ControllerManager {
 
 
 
-##### querySearchHistory
+#### querySearchHistory
 
 querySearchHistory(): Promise<string[]>
 
@@ -788,7 +788,7 @@ export class ControllerManager {
 
 
 
-##### clearSearchHistory
+#### clearSearchHistory
 
 clearSearchHistory(): Promise&lt;OperResult&gt;
 
@@ -851,7 +851,7 @@ export class ControllerManager {
 
 
 
-##### updateSettings
+#### updateSettings
 
 updateSettings(settingItem: SettingItem): Promise&lt;SettingItem&gt;
 
@@ -929,7 +929,7 @@ export class ControllerManager {
 
 
 
-##### reportProblemAndAdvice
+#### reportProblemAndAdvice
 
 reportProblemAndAdvice(advice: string): Promise&lt;OperResult&gt;
 
@@ -1000,7 +1000,7 @@ export class ControllerManager {
 
 
 
-##### login
+#### login
 
 login(controlType: LoginType, id?: string): Promise<QrCodeInfo[]>
 
@@ -1074,7 +1074,7 @@ export class ControllerManager {
 
 
 
-##### requestDialogInfo
+#### requestDialogInfo
 
 requestDialogInfo(actionType: DialogActionType, actionInfo?: DialogActionInfo): Promise&lt;DialogInfo&gt;
 
@@ -1153,7 +1153,7 @@ export class ControllerManager {
 
 
 
-##### handleMemberPurchase
+#### handleMemberPurchase
 
 handleMemberPurchase(info: MemberPurchaseInfo): Promise&lt;DialogInfo&gt;
 
@@ -1230,7 +1230,7 @@ export class ControllerManager {
 
 
 
-##### queryMemberPurchase
+#### queryMemberPurchase
 
 queryMemberPurchase(memberPurchaseType: MemberPurchaseType): Promise<MemberPurchaseInfo[]>
 
@@ -1301,7 +1301,7 @@ export class ControllerManager {
 
 
 
-##### queryCustomContent
+#### queryCustomContent
 
 queryCustomContent(queryType: CustomType[]): Promise&lt;CustomElement&gt;
 
@@ -1373,7 +1373,7 @@ export class ControllerManager {
 
 
 
-##### downloadMediaEntity
+#### downloadMediaEntity
 
 downloadMediaEntity(controlType: DownloadControlType, mediaEntity: MediaEntity): Promise&lt;OperResult&gt;
 
@@ -1455,7 +1455,7 @@ export class ControllerManager {
 
 
 
-##### playForSearch
+#### playForSearch
 
 playForSearch(command: SearchPlayInfoType, args: SearchPlayInfo): Promise&lt;OperResult&gt;
 
@@ -1540,7 +1540,7 @@ export class ControllerManager {
 
 
 
-##### executeAction
+#### executeAction
 
 executeAction(actionType: string, params: string): Promise&lt;string&gt;
 
@@ -1613,7 +1613,7 @@ export class ControllerManager {
 
 
 
-##### playMediaEntity
+#### playMediaEntity
 
 playMediaEntity(mediaEntity: MediaEntity): Promise&lt;void&gt;
 
@@ -1677,7 +1677,7 @@ export class ControllerManager {
 
 
 
-##### favoriteMediaEntity
+#### favoriteMediaEntity
 
 favoriteMediaEntity(actionType: MediaFavoriteType, mediaEntity: MediaEntity): Promise&lt;OperResult&gt;
 
@@ -1759,7 +1759,7 @@ export class ControllerManager {
 
 
 
-##### onUserInfoChange
+#### onUserInfoChange
 
 onUserInfoChange(callback: Callback&lt;UserInfo&gt;): void
 
@@ -1809,7 +1809,7 @@ export class ControllerManager {
 
 
 
-##### offUserInfoChange
+#### offUserInfoChange
 
 offUserInfoChange(callback?: Callback&lt;UserInfo&gt;): void
 
@@ -1857,7 +1857,7 @@ export class ControllerManager {
 
 
 
-##### onDialogCommandChange
+#### onDialogCommandChange
 
 onDialogCommandChange(callback: ReportDialogCommandEvent): void
 
@@ -1908,7 +1908,7 @@ export class ControllerManager {
 
 
 
-##### offDialogCommandChange
+#### offDialogCommandChange
 
 offDialogCommandChange(callback?: ReportDialogCommandEvent): void
 
@@ -1956,7 +1956,7 @@ export class ControllerManager {
 
 
 
-##### onCurrentSingleChange
+#### onCurrentSingleChange
 
 onCurrentSingleChange(callback: Callback&lt;Single&gt;): void
 
@@ -2006,7 +2006,7 @@ export class ControllerManager {
 
 
 
-##### offCurrentSingleChange
+#### offCurrentSingleChange
 
 offCurrentSingleChange(callback?: Callback&lt;Single&gt;): void
 
@@ -2054,7 +2054,7 @@ export class ControllerManager {
 
 
 
-##### onMediaEntitiesChange
+#### onMediaEntitiesChange
 
 onMediaEntitiesChange(callback: Callback<MediaEntity[]>): void
 
@@ -2105,7 +2105,7 @@ export class ControllerManager {
 
 
 
-##### offMediaEntitiesChange
+#### offMediaEntitiesChange
 
 offMediaEntitiesChange(callback?: Callback<MediaEntity[]>): void
 
@@ -2153,7 +2153,7 @@ export class ControllerManager {
 
 
 
-##### onTabContentChange
+#### onTabContentChange
 
 onTabContentChange(callback: ReportTabContentEvent): void
 
@@ -2204,7 +2204,7 @@ export class ControllerManager {
 
 
 
-##### offTabContentChange
+#### offTabContentChange
 
 offTabContentChange(callback?: ReportTabContentEvent): void
 
@@ -2252,7 +2252,7 @@ export class ControllerManager {
 
 
 
-##### onPlaylistChange
+#### onPlaylistChange
 
 onPlaylistChange(callback: Callback&lt;PageMediaEntity&gt;): void
 
@@ -2303,7 +2303,7 @@ export class ControllerManager {
 
 
 
-##### offPlaylistChange
+#### offPlaylistChange
 
 offPlaylistChange(callback?: Callback&lt;PageMediaEntity&gt;): void
 
@@ -2351,7 +2351,7 @@ export class ControllerManager {
 
 
 
-##### onDownloadMediaEntityStatusChange
+#### onDownloadMediaEntityStatusChange
 
 onDownloadMediaEntityStatusChange(callback: Callback&lt;MediaEntity&gt;): void
 
@@ -2402,7 +2402,7 @@ export class ControllerManager {
 
 
 
-##### offDownloadMediaEntityStatusChange
+#### offDownloadMediaEntityStatusChange
 
 offDownloadMediaEntityStatusChange(callback?: Callback&lt;MediaEntity&gt;): void
 
@@ -2450,7 +2450,7 @@ export class ControllerManager {
 
 
 
-##### onCustomElementsChange
+#### onCustomElementsChange
 
 onCustomElementsChange(callback: ReportCustomElementsChangeEvent): void
 
@@ -2502,7 +2502,7 @@ export class ControllerManager {
 
 
 
-##### offCustomElementsChange
+#### offCustomElementsChange
 
 offCustomElementsChange(callback?: ReportCustomElementsChangeEvent): void
 
@@ -2550,7 +2550,7 @@ export class ControllerManager {
 
 
 
-##### onSettingsChange
+#### onSettingsChange
 
 onSettingsChange(callback: Callback<SettingItem[]>): void
 
@@ -2601,7 +2601,7 @@ export class ControllerManager {
 
 
 
-##### offSettingsChange
+#### offSettingsChange
 
 offSettingsChange(callback?: Callback<SettingItem[]>): void
 
@@ -2649,7 +2649,7 @@ export class ControllerManager {
 
 
 
-##### onReportExecuteAction
+#### onReportExecuteAction
 
 onReportExecuteAction(callback: ReportExecuteActionEvent): void
 
@@ -2700,7 +2700,7 @@ export class ControllerManager {
 
 
 
-##### offReportExecuteAction
+#### offReportExecuteAction
 
 offReportExecuteAction(callback?: ReportExecuteActionEvent): void
 
@@ -2748,7 +2748,7 @@ export class ControllerManager {
 
 
 
-##### onExtensionAbilityChange
+#### onExtensionAbilityChange
 
 onExtensionAbilityChange(callback: ReportExecuteAbilityEvent): void
 
@@ -2799,7 +2799,7 @@ export class ControllerManager {
 
 
 
-##### offExtensionAbilityChange
+#### offExtensionAbilityChange
 
 offExtensionAbilityChange(callback?: ReportExecuteAbilityEvent): void
 
@@ -2847,7 +2847,7 @@ export class ControllerManager {
 
 
 
-##### destroy
+#### destroy
 
 destroy(): Promise&lt;void&gt;
 

@@ -10,7 +10,7 @@
 **起始版本：** 5.0.0(12)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -20,7 +20,7 @@ import { faceComparator } from '@kit.CoreVisionKit';
 
 
 
-##### VisionInfo
+#### VisionInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -37,7 +37,7 @@ import { faceComparator } from '@kit.CoreVisionKit';
 
 
 
-##### FaceCompareResult
+#### FaceCompareResult
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -55,7 +55,7 @@ import { faceComparator } from '@kit.CoreVisionKit';
 
 
 
-##### faceComparator.init
+#### faceComparator.init
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -115,7 +115,7 @@ struct Page {
 
 
 
-##### faceComparator.release
+#### faceComparator.release
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -175,7 +175,7 @@ struct Page {
 
 
 
-##### faceComparator.compareFaces
+#### faceComparator.compareFaces
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

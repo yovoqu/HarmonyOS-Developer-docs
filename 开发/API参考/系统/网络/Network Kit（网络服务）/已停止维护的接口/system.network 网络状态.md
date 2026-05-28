@@ -10,7 +10,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@ import network from '@system.network';
  
   
 
-##### 权限列表
+#### 权限列表
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -30,7 +30,7 @@ ohos.permission.GET_NETWORK_INFO
  
   
 
-##### network.getType3+
+#### network.getType3+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -80,7 +80,7 @@ export default class Network {
  
   
 
-##### network.subscribe3+
+#### network.subscribe3+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -128,7 +128,7 @@ export default class Network {
  
   
 
-##### network.unsubscribe3+
+#### network.unsubscribe3+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -148,7 +148,7 @@ network.unsubscribe();
  
   
 
-##### NetworkResponse3+
+#### NetworkResponse3+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

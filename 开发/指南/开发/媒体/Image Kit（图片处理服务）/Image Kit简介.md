@@ -7,7 +7,7 @@
 开发者通过调用Image Kit（图片处理服务）提供的接口，可以实现图片的解码、编码、编辑、元数据处理和图片接收等功能。
 
 
-##### 亮点/特征
+#### 亮点/特征
 
  - 编解码支持HEIF、JPEG、PNG、WebP等主流图片格式。
  - 支持HDR图片编解码，给用户带来更高质量的色彩体验，还可以使用AI能力将SDR图片转换成HDR图片。
@@ -17,7 +17,7 @@
 
 
 
-##### 基础概念
+#### 基础概念
 
 在开发前，需要了解以下基础概念：
 
@@ -40,7 +40,7 @@
 
 
 
-##### 使用方式
+#### 使用方式
 
 Image Kit提供了丰富的图片处理能力，开发者可按需灵活使用。既可以完整调用图片解码、编辑处理、编码的全流程；也可以图片解码后不做处理，直接将解码得到的PixelMap传给[Image组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-graphics-display)显示。解码、编码过程中均提供了丰富的选项参数，可以满足各种实际开发场景的需求。
 
@@ -66,7 +66,7 @@ Image Kit还提供了读取和[编辑图片EXIF信息](https://developer.huawei.
 
 
 
-##### 约束与限制
+#### 约束与限制
 
  - **读写权限限制：**
 
@@ -95,12 +95,12 @@ Image Kit还提供了读取和[编辑图片EXIF信息](https://developer.huawei.
 
 
 
-##### 模拟器支持情况
+#### 模拟器支持情况
 
 本Kit暂不支持模拟器。
 
 
 
-##### 与相关Kit的关系
+#### 与相关Kit的关系
 
 Image Kit提供图片编解码、图片接收、图片编辑和处理等能力，为Image组件、图库以及其他有图片相关需求的应用提供支撑。图片解码得到的PixelMap可以传给[Image组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-graphics-display)显示。通过[ImageReceiver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagereceiver)（图片接收）可以实现[相机预览流二次处理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-preview-imagereceiver)。

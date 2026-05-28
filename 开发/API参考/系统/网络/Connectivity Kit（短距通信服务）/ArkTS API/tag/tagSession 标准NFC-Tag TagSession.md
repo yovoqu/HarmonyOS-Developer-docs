@@ -12,7 +12,7 @@
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/cKXLSDsKRfqVvjV3-pLRvg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023852Z&HW-CC-Expire=86400&HW-CC-Sign=AF9B0A14FA2EB390C26B96FC2CC6C2FC643CEA6BA8FC72E94F292037F0F641EE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/cKXLSDsKRfqVvjV3-pLRvg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025227Z&HW-CC-Expire=86400&HW-CC-Sign=5001AAEA4E9FD5ED48A0A660AFA7CE76D6D3AB496D9B1D81BBBDF28B1E9FB878)
  
  
 导入tag模块编辑器报错，在某个具体设备型号上能力可能超出工程默认设备定义的能力集范围，如需要使用此部分能力需额外配置自定义syscap，参考[syscap开发指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap)。
@@ -20,7 +20,7 @@
 
   
 
-##### **导入模块**
+#### **导入模块**
 
 **支持设备：** Phone | Wearable
 
@@ -30,7 +30,7 @@ import { tag } from '@kit.ConnectivityKit';
  
   
 
-##### TagSession
+#### TagSession
 
 **支持设备：** Phone | Wearable
 
@@ -42,7 +42,7 @@ TagSession是所有[nfcTag技术类型](https://developer.huawei.com/consumer/cn
  
   
 
-##### getTagInfo(deprecated)
+#### getTagInfo(deprecated)
 
 **支持设备：** Phone | Wearable
 
@@ -79,7 +79,7 @@ console.info("tag tagInfo: " + tagInfo);
  
   
 
-##### connectTag(deprecated)
+#### connectTag(deprecated)
 
 **支持设备：** Phone | Wearable
 
@@ -116,7 +116,7 @@ console.info("connectStatus: " + connectStatus);
  
   
 
-##### connect9+
+#### connect9+
 
 **支持设备：** Phone | Wearable
 
@@ -159,7 +159,7 @@ try {
  
   
 
-##### reset()(deprecated)
+#### reset()(deprecated)
 
 **支持设备：** Phone | Wearable
 
@@ -188,7 +188,7 @@ tag.getIsoDep(tagInfo).reset();
  
   
 
-##### resetConnection()9+
+#### resetConnection()9+
 
 **支持设备：** Phone | Wearable
 
@@ -231,7 +231,7 @@ try {
  
   
 
-##### isTagConnected(deprecated)
+#### isTagConnected(deprecated)
 
 **支持设备：** Phone | Wearable
 
@@ -266,7 +266,7 @@ console.info("isTagConnected: " + isTagConnected);
  
   
 
-##### isConnected9+
+#### isConnected9+
 
 **支持设备：** Phone | Wearable
 
@@ -312,7 +312,7 @@ try {
  
   
 
-##### getMaxSendLength(deprecated)
+#### getMaxSendLength(deprecated)
 
 **支持设备：** Phone | Wearable
 
@@ -349,7 +349,7 @@ console.info("tag maxSendLen: " + maxSendLen);
  
   
 
-##### getMaxTransmitSize9+
+#### getMaxTransmitSize9+
 
 **支持设备：** Phone | Wearable
 
@@ -399,7 +399,7 @@ try {
  
   
 
-##### getSendDataTimeout(deprecated)
+#### getSendDataTimeout(deprecated)
 
 **支持设备：** Phone | Wearable
 
@@ -436,7 +436,7 @@ console.info("tag sendDataTimeout: " + sendDataTimeout);
  
   
 
-##### getTimeout9+
+#### getTimeout9+
 
 **支持设备：** Phone | Wearable
 
@@ -486,7 +486,7 @@ try {
  
   
 
-##### setSendDataTimeout(deprecated)
+#### setSendDataTimeout(deprecated)
 
 **支持设备：** Phone | Wearable
 
@@ -531,7 +531,7 @@ console.info("tag setSendDataTimeout setStatus: " + setStatus);
  
   
 
-##### setTimeout9+
+#### setTimeout9+
 
 **支持设备：** Phone | Wearable
 
@@ -583,7 +583,7 @@ try {
  
   
 
-##### sendData(deprecated)
+#### sendData(deprecated)
 
 **支持设备：** Phone | Wearable
 
@@ -642,7 +642,7 @@ function tagSessionDemo() {
  
   
 
-##### sendData(deprecated)
+#### sendData(deprecated)
 
 **支持设备：** Phone | Wearable
 
@@ -696,7 +696,7 @@ function tagSessionDemo() {
  
   
 
-##### transmit9+
+#### transmit9+
 
 **支持设备：** Phone | Wearable
 
@@ -773,7 +773,7 @@ function tagSessionDemo() {
  
   
 
-##### transmit9+
+#### transmit9+
 
 **支持设备：** Phone | Wearable
 

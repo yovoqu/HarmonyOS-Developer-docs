@@ -14,7 +14,7 @@ AutoExposure继承自[AutoExposureQuery](https://developer.huawei.com/consumer/c
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { camera } from '@kit.CameraKit';
  
   
 
-##### getExposureMode11+
+#### getExposureMode11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -76,7 +76,7 @@ function getExposureMode(photoSession: camera.PhotoSession): camera.ExposureMode
  
   
 
-##### setExposureMode11+
+#### setExposureMode11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -123,7 +123,7 @@ function setExposureMode(photoSession: camera.PhotoSession): void {
  
   
 
-##### getMeteringPoint11+
+#### getMeteringPoint11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -171,7 +171,7 @@ function getMeteringPoint(photoSession: camera.PhotoSession): camera.Point | und
  
   
 
-##### setMeteringPoint11+
+#### setMeteringPoint11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -220,7 +220,7 @@ function setMeteringPoint(photoSession: camera.PhotoSession): void {
  
   
 
-##### setExposureBias11+
+#### setExposureBias11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -272,7 +272,7 @@ function setExposureBias(photoSession: camera.PhotoSession, biasRangeArray: Arra
  
   
 
-##### getExposureValue11+
+#### getExposureValue11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -321,7 +321,7 @@ function getExposureValue(photoSession: camera.PhotoSession): number {
  
   
 
-##### getExposureMeteringMode24+
+#### getExposureMeteringMode24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -370,7 +370,7 @@ function getExposureMeteringMode(photoSession: camera.PhotoSession): camera.Expo
  
   
 
-##### setExposureMeteringMode24+
+#### setExposureMeteringMode24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

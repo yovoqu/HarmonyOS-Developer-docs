@@ -7,7 +7,7 @@
 以3DES和HMAC为例，根据指定的对称密钥二进制数据生成密钥（OH_CryptoSymKey），将外部或存储的二进制数据转换为算法库的密钥对象，该对象可用于后续的加解密操作。
 
 
-##### 在CMake脚本中链接相关动态库
+#### 在CMake脚本中链接相关动态库
 
 ```text
 target_link_libraries(entry PUBLIC libohcrypto.so)
@@ -15,7 +15,7 @@ target_link_libraries(entry PUBLIC libohcrypto.so)
 
 
 
-##### 指定二进制数据转换3DES密钥
+#### 指定二进制数据转换3DES密钥
 
 查看[对称密钥生成和转换规格：3DES](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sym-key-generation-conversion-spec#section3des)。
 1. 获取3DES二进制密钥数据，封装成[Crypto_DataBlob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-cryptocommonapi-crypto-datablob)。
@@ -62,7 +62,7 @@ OH_Crypto_ErrCode doTestDataCovertSymKey()
 
 
 
-##### 指定二进制数据转换HMAC密钥
+#### 指定二进制数据转换HMAC密钥
 
 查看[对称密钥生成和转换规格：HMAC](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sym-key-generation-conversion-spec#hmac)。
 1. 获取HMAC二进制密钥，封装成[Crypto_DataBlob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-cryptocommonapi-crypto-datablob)。

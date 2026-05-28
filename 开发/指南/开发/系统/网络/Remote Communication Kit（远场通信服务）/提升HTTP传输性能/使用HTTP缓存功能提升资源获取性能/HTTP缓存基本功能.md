@@ -9,13 +9,13 @@
 HTTP 缓存是一种在客户端存储网络资源副本的机制，当后续请求相同资源时，可直接从缓存中获取，无需再次向服务器发起完整请求。HTTP 缓存适用于静态资源（如图片、CSS）和高访问量内容，能有效提升网络资源获取性能。Remote Communication Kit模块提供HTTP缓存功能，遵循[RFC 9111](https://www.rfc-editor.org/rfc/rfc9111.html)协议，支持独立配置缓存策略与持久化存储路径，实现内存、磁盘双重缓存管理，并提供自定义缓存拦截器能力。
 
 
-##### 约束与限制
+#### 约束与限制
 
 HTTP缓存基本功能能力支持Phone、2in1、Tablet、Wearable、TV设备。
 
 
 
-##### 使用HTTP缓存
+#### 使用HTTP缓存
 
 在需要频繁获取网络热点数据的场景下，网络请求耗时在总时长中占比较大。开发者可以通过创建[ResponseCache](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#responsecache)实例，并将其配置到Session中，即可使用HTTP缓存功能，提升资源加载性能。
 1. 导入模块。
@@ -71,7 +71,7 @@ console.info(`The current cache hit count is: ${cacheState.hitCount}`);
 
 
 
-##### 配置缓存过期策略
+#### 配置缓存过期策略
 
 Remote Communication Kit提供了丰富的缓存过期策略配置项供开发者使用，包括永不过期、绝对时间、相对时间以及滑动时间过期策略，具体API说明详见[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#expirationpolicy)。开发者可以根据业务特性选择不同的缓存过期策略，灵活调整缓存生命周期。下面以相对时间过期策略配置为例，讲述如何配置缓存过期策略，并体会对应的缓存逻辑。
 1. 导入模块。

@@ -9,7 +9,7 @@
 
 
 
-##### MediaTab
+#### MediaTab
 
 媒体标签页的定义。
 
@@ -27,7 +27,7 @@
 
 
 
-##### OperResult
+#### OperResult
 
 操作结果的定义。
 
@@ -43,7 +43,7 @@
 
 
 
-##### MediaTabContent
+#### MediaTabContent
 
 媒体标签页内容的定义。继承自[OperResult](#operresult)。
 
@@ -59,7 +59,7 @@
 
 
 
-##### Compilation
+#### Compilation
 
 合集的定义。继承自[OperResult](#operresult)。
 
@@ -79,7 +79,7 @@
 
 
 
-##### Banner
+#### Banner
 
 海报的定义。继承自[MediaEntity](#mediaentity)。
 
@@ -94,7 +94,7 @@
 
 
 
-##### Album
+#### Album
 
 专辑的定义。继承自[MediaEntity](#mediaentity)。
 
@@ -112,7 +112,7 @@
 
 
 
-##### Ranking
+#### Ranking
 
 排行榜的定义。继承自[MediaEntity](#mediaentity)。
 
@@ -127,7 +127,7 @@
 
 
 
-##### MediaEntity
+#### MediaEntity
 
 媒体实例的定义。继承自[OperResult](#operresult)。
 
@@ -149,7 +149,7 @@
 
 
 
-##### QueryMediaEntityParam
+#### QueryMediaEntityParam
 
 查询媒体实例参数的定义。
 
@@ -169,7 +169,7 @@
 
 
 
-##### EpisodeRange
+#### EpisodeRange
 
 剧集的范围的定义。
 
@@ -185,7 +185,7 @@
 
 
 
-##### PageMediaEntity
+#### PageMediaEntity
 
 标签页媒体的定义。继承自[OperResult](#operresult)。
 
@@ -207,7 +207,7 @@
 
 
 
-##### Single
+#### Single
 
 单曲的定义。继承自[MediaEntity](#mediaentity)。
 
@@ -229,7 +229,7 @@
 
 
 
-##### PlayInfo
+#### PlayInfo
 
 播放信息的定义。
 
@@ -261,7 +261,7 @@
 
 
 
-##### FavoriteData
+#### FavoriteData
 
 收藏/订阅的定义。
 
@@ -278,7 +278,7 @@
 
 
 
-##### SettingItem
+#### SettingItem
 
 设置项的定义。
 
@@ -298,7 +298,7 @@
 
 
 
-##### SettingContent
+#### SettingContent
 
 设置内容的定义（音频模板里有定义设置页面，设置内容用于设置页的填充）。
 
@@ -316,7 +316,7 @@
 
 
 
-##### QrCodeInfo
+#### QrCodeInfo
 
 二维码信息的定义。
 
@@ -339,7 +339,7 @@
 
 
 
-##### DialogActionInfo
+#### DialogActionInfo
 
 对话框动作信息的定义。
 
@@ -356,7 +356,7 @@
 
 
 
-##### DialogInfo
+#### DialogInfo
 
 对话框信息的定义。
 
@@ -377,7 +377,7 @@
 
 
 
-##### DialogButtonInfo
+#### DialogButtonInfo
 
 对话框按钮信息的定义。
 
@@ -394,7 +394,7 @@
 
 
 
-##### MemberPurchaseInfo
+#### MemberPurchaseInfo
 
 会员购买信息的定义。
 
@@ -413,7 +413,7 @@
 
 
 
-##### CustomElement
+#### CustomElement
 
 “我的主页”自定义元素的定义。继承自[OperResult](#operresult)。
 
@@ -431,7 +431,7 @@
 
 
 
-##### UserInfo
+#### UserInfo
 
 用户信息的定义。
 
@@ -451,7 +451,7 @@
 
 
 
-##### SearchPlayInfo
+#### SearchPlayInfo
 
 搜播信息的定义。
 
@@ -467,7 +467,7 @@
 
 
 
-##### SearchPlayMusicInfo
+#### SearchPlayMusicInfo
 
 搜播的音频信息的定义。
 
@@ -486,7 +486,7 @@
 
 
 
-##### SearchPlayMusicItem
+#### SearchPlayMusicItem
 
 搜播的音频项目的定义。
 
@@ -502,7 +502,7 @@
 
 
 
-##### SearchPlayVideoInfo
+#### SearchPlayVideoInfo
 
 搜播的视频信息的定义。
 

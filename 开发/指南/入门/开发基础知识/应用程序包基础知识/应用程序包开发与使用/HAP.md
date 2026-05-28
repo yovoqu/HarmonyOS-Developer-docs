@@ -13,7 +13,7 @@ HAP（Harmony Ability Package）是应用安装和运行的基本单元。HAP包
 应用程序包可以只包含一个基础的entry包，也可以包含一个基础的entry包和多个功能性的feature包。
 
 
-##### 使用场景
+#### 使用场景
 
  - 单HAP场景：如果只包含UIAbility组件，无需使用ExtensionAbility组件，优先采用单HAP（即一个entry包）来实现应用开发。虽然一个HAP中可以包含一个或多个UIAbility组件，为了避免不必要的资源加载，推荐采用“一个UIAbility+多个页面”的方式。
  - 多HAP场景：如果应用的功能比较复杂，需要使用ExtensionAbility组件，可以采用多HAP（即一个entry包+多个feature包）来实现应用开发，每个HAP中包含一个UIAbility组件或者一个ExtensionAbility组件。在这种场景下，多个HAP引用相同的库文件，可能导致重复打包的问题。
@@ -21,7 +21,7 @@ HAP（Harmony Ability Package）是应用安装和运行的基本单元。HAP包
 
 
 
-##### 约束限制
+#### 约束限制
 
  - 不支持导出接口和ArkUI组件，给其他模块使用。
  - 多HAP场景下，App Pack包中同一设备类型的所有HAP中最多只能包含一个Entry类型的HAP，也可以不包含；可以包含一个或者多个Feature类型的HAP，也可以不包含。
@@ -31,7 +31,7 @@ HAP（Harmony Ability Package）是应用安装和运行的基本单元。HAP包
 
 
 
-##### 创建
+#### 创建
 
 下面简要介绍如何通过DevEco Studio新建一个HAP模块。
 1. 创建工程，构建第一个ArkTS应用。
@@ -42,7 +42,7 @@ HAP（Harmony Ability Package）是应用安装和运行的基本单元。HAP包
 
 
 
-##### 开发
+#### 开发
 
  - HAP中支持添加UIAbility组件或ExtensionAbility组件，以及pages页面。具体操作可参考[在模块中添加Ability](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-add-new-ability)和[添加Page](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-add-page)。
  - HAP中支持引用HAR或HSP共享包，详见[HAR的使用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/har-package#使用)、[HSP的使用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/in-app-hsp#使用)。
@@ -50,7 +50,7 @@ HAP（Harmony Ability Package）是应用安装和运行的基本单元。HAP包
 
 
 
-##### 调试
+#### 调试
 
 通过DevEco Studio编译打包，生成单个或者多个HAP，即可基于HAP进行调试。如需根据不同的部署环境、目标人群、运行环境等，将同一个HAP定制编译为不同版本，请参见[定制编译指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-customized-multi-targets-and-products-guides#section1011341611469)。
 
@@ -103,6 +103,6 @@ uninstall bundle successfully.
 
 
 
-##### 示例代码
+#### 示例代码
 
  - [多HAP](https://gitcode.com/HarmonyOS_Samples/multi-hap)

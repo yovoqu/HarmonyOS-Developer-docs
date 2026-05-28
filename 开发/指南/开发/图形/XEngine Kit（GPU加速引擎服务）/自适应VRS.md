@@ -7,7 +7,7 @@
 XEngine Kit提供自适应VRS功能，其通过合理分配画面的计算资源，视觉无损降低渲染频次，使不同的渲染图像使用不同的渲染速率，能够有效提高渲染性能。
 
 
-##### 约束与限制
+#### 约束与限制
 
  - 支持的设备类型：Phone，从5.0.2(14)版本开始，新增支持Tablet、PC/2in1设备，从5.1.1(19)版本开始新增支持TV设备。
  - 可通过以下方式查询相关扩展特性是否支持：
@@ -17,7 +17,7 @@ XEngine Kit提供自适应VRS功能，其通过合理分配画面的计算资源
 
 
 
-##### 接口说明
+#### 接口说明
 
 以下接口为自适应VRS设置接口，如需使用更丰富的设置和查询接口，具体API说明详见[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine)。
 
@@ -35,7 +35,7 @@ XEngine Kit提供自适应VRS功能，其通过合理分配画面的计算资源
 
 
 
-##### 业务流程
+#### 业务流程
 
  - 下面是基于GLES图形API平台集成自适应VRS的主要业务流程
 
@@ -70,13 +70,13 @@ XEngine Kit提供自适应VRS功能，其通过合理分配画面的计算资源
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 本章以OpenGL ES和Vulkan图像API集成为例，说明XEngine集成操作过程。
 
 
 
-##### 配置项目
+#### 配置项目
 
 编译HAP时，Native层so编译需要依赖NDK中的libxengine.so。
 
@@ -155,7 +155,7 @@ ${Vulkan-lib} ${xengine-lib})
 
 
 
-##### 集成自适应VRS功能（OpenGL ES）
+#### 集成自适应VRS功能（OpenGL ES）
 
 自适应VRS功能OpenGL ES版本的着色率纹理创建和绑定由特性提供的接口实现。
 
@@ -221,7 +221,7 @@ HMS_XEG_ApplyAdaptiveVRS(outputShadingRateImage);
 
 
 
-##### 集成自适应VRS功能（Vulkan）
+#### 集成自适应VRS功能（Vulkan）
 
 在调用XEngine Kit能力前，需要先通过[Syscap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap#什么是systemcapabilitysyscap)查询您的目标设备是否支持SystemCapability.Graphic.XEngine系统能力。
 1. 调用[HMS_XEG_EnumerateDeviceExtensionProperties](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_enumeratedeviceextensionproperties)接口，获取XEngine支持的扩展信息，只有在支持[XEG_ADAPTIVE_VRS_EXTENSION_NAME](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_adaptive_vrs_extension_name)扩展时才可以使用自适应VRS的相关接口。

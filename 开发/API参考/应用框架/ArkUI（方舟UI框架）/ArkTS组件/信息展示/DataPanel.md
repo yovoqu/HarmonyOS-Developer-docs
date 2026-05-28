@@ -12,7 +12,7 @@
 
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -43,7 +43,7 @@ DataPanel(options: DataPanelOptions)
  
   
 
-##### DataPanelOptions对象说明
+#### DataPanelOptions对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -64,7 +64,7 @@ DataPanel(options: DataPanelOptions)
  
   
 
-##### DataPanelType8+枚举说明
+#### DataPanelType8+枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -84,7 +84,7 @@ DataPanel(options: DataPanelOptions)
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -92,7 +92,7 @@ DataPanel(options: DataPanelOptions)
  
   
 
-##### closeEffect
+#### closeEffect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -115,7 +115,7 @@ closeEffect(value: boolean)
  
   
 
-##### valueColors10+
+#### valueColors10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -136,7 +136,7 @@ valueColors(value: Array<ResourceColor | LinearGradient>)
  
   
 
-##### trackBackgroundColor10+
+#### trackBackgroundColor10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -157,7 +157,7 @@ trackBackgroundColor(value: ResourceColor)
  
   
 
-##### strokeWidth10+
+#### strokeWidth10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -178,7 +178,7 @@ strokeWidth(value: Length)
  
   
 
-##### trackShadow10+
+#### trackShadow10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -199,7 +199,7 @@ trackShadow(value: DataPanelShadowOptions)
  
   
 
-##### contentModifier12+
+#### contentModifier12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -220,7 +220,7 @@ contentModifier(modifier: ContentModifier&lt;DataPanelConfiguration&gt;)
  
   
 
-##### DataPanelShadowOptions10+对象说明
+#### DataPanelShadowOptions10+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -237,13 +237,13 @@ DataPanelShadowOptions继承自[MultiShadowOptions](https://developer.huawei.com
  
   
 
-##### LinearGradient10+
+#### LinearGradient10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -264,7 +264,7 @@ constructor(colorStops: ColorStop[])
  
   
 
-##### ColorStop10+
+#### ColorStop10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -282,7 +282,7 @@ constructor(colorStops: ColorStop[])
  
   
 
-##### DataPanelConfiguration12+对象说明
+#### DataPanelConfiguration12+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -300,13 +300,13 @@ constructor(colorStops: ColorStop[])
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 示例1（设置数据面板类型）
+#### 示例1（设置数据面板类型）
 
 该示例通过[DataPanelOptions](#datapaneloptions对象说明)的type属性，实现了设置数据面板的类型的功能。
  
@@ -366,7 +366,7 @@ struct DataPanelExample {
  
   
 
-##### 示例2（设置渐变色和阴影）
+#### 示例2（设置渐变色和阴影）
 
 该示例通过[valueColors](#valuecolors10)和[trackShadow](#trackshadow10)接口设置[LinearGradient](#lineargradient10)颜色，实现了设置渐变色效果和阴影效果。
  
@@ -429,7 +429,7 @@ struct LinearGradientDataPanelExample {
  
   
 
-##### 示例3（设置关闭动画和阴影）
+#### 示例3（设置关闭动画和阴影）
 
 该示例通过[closeEffect](#closeeffect)接口，实现了关闭数据面板动画和阴影的功能。
  
@@ -487,7 +487,7 @@ struct LinearGradientDataPanelExample {
  
   
 
-##### 示例4（设置定制内容区）
+#### 示例4（设置定制内容区）
 
 该示例通过[contentModifier](#contentmodifier12)接口，实现了定制数据面板内容区的功能。
  

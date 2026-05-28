@@ -10,7 +10,7 @@
 **起始版本：** 5.0.0(12)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -20,7 +20,7 @@ import { netHandover } from '@kit.NetworkBoostKit';
  
   
 
-##### netHandover.on( 'handoverChange')
+#### netHandover.on( 'handoverChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -75,7 +75,7 @@ try {
  
   
 
-##### netHandover.off( 'handoverChange')
+#### netHandover.off( 'handoverChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -122,7 +122,7 @@ try {
  
   
 
-##### netHandover.setHandoverMode
+#### netHandover.setHandoverMode
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -170,7 +170,7 @@ try {
  
   
 
-##### netHandover.getMultiPathQuotaStats
+#### netHandover.getMultiPathQuotaStats
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -220,7 +220,7 @@ try {
  
   
 
-##### netHandover.requestMultiPath
+#### netHandover.requestMultiPath
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -278,7 +278,7 @@ try {
  
   
 
-##### netHandover.releaseMultiPath
+#### netHandover.releaseMultiPath
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -319,7 +319,7 @@ try {
  
   
 
-##### netHandover.on('multiPathStateChange')
+#### netHandover.on('multiPathStateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -369,7 +369,7 @@ try {
  
   
 
-##### netHandover.off('multiPathStateChange')
+#### netHandover.off('multiPathStateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -416,7 +416,7 @@ try {
  
   
 
-##### netHandover.on('multiPathRecommendation')
+#### netHandover.on('multiPathRecommendation')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -466,7 +466,7 @@ try {
  
   
 
-##### netHandover.off('multiPathRecommendation')
+#### netHandover.off('multiPathRecommendation')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -513,7 +513,7 @@ try {
  
   
 
-##### HandoverInfo
+#### HandoverInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -531,7 +531,7 @@ try {
  
   
 
-##### HandoverStart
+#### HandoverStart
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -549,7 +549,7 @@ try {
  
   
 
-##### HandoverComplete
+#### HandoverComplete
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -573,7 +573,7 @@ try {
  
   
 
-##### DataSpeedAction
+#### DataSpeedAction
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -592,7 +592,7 @@ try {
  
   
 
-##### MultiPathStateInfo
+#### MultiPathStateInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -613,7 +613,7 @@ try {
  
   
 
-##### MultiPathRecommendationInfo
+#### MultiPathRecommendationInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -630,7 +630,7 @@ try {
  
   
 
-##### MultiPathQuota
+#### MultiPathQuota
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -648,7 +648,7 @@ try {
  
   
 
-##### MultiPathQuotaInfo
+#### MultiPathQuotaInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -666,7 +666,7 @@ try {
  
   
 
-##### MultiPathRequestResult
+#### MultiPathRequestResult
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -683,7 +683,7 @@ try {
  
   
 
-##### MultiPathAction
+#### MultiPathAction
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -701,7 +701,7 @@ try {
  
   
 
-##### MultiPathErrorResult
+#### MultiPathErrorResult
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -721,7 +721,7 @@ try {
  
   
 
-##### MultiPathState
+#### MultiPathState
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -741,7 +741,7 @@ try {
  
   
 
-##### PathState
+#### PathState
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -760,7 +760,7 @@ try {
  
   
 
-##### MultiPathChangeCause
+#### MultiPathChangeCause
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -789,7 +789,7 @@ try {
  
   
 
-##### HandoverMode
+#### HandoverMode
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -807,7 +807,7 @@ try {
  
   
 
-##### ReEstAction
+#### ReEstAction
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -828,7 +828,7 @@ try {
  
   
 
-##### ErrorResult
+#### ErrorResult
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

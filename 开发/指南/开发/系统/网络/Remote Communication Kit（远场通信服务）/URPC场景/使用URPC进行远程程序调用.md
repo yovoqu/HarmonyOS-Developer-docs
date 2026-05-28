@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-urpccall
 
-##### 场景介绍
+#### 场景介绍
 
 发送一个URPC请求，可以设置优先级等参数，返回来自远程服务器的URPC响应。当发起请求后，可以选择取消指定或正在进行的URPC请求。当完成请求后，需要关闭请求来释放与此URPC关联的资源。
 
 
 
-##### 约束与限制
+#### 约束与限制
 
  - 使用URPC进行远程程序调用能力支持Phone、2in1、Tablet、Wearable设备。并且从5.1.1(19)开始，新增支持TV设备。
  - 此功能需要配合部署远程服务器。如有需要，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)的方式与我们联系。
@@ -18,7 +18,7 @@
 
 
 
-##### 接口说明
+#### 接口说明
 
 具体API说明详见[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-urpcapi)。
 
@@ -31,11 +31,11 @@
 
 
 
-##### 使用示例
+#### 使用示例
 
 
 
-##### 创建urpcStub
+#### 创建urpcStub
 1. 导入模块
 
   
@@ -119,7 +119,7 @@ let urpcStub = urpc.urpcStubCreate(config, funcList);
 
 
 
-##### 使用call收发网络请求
+#### 使用call收发网络请求
 
 ```text
 urpcStub.then(async (stub: urpc.UrpcStub) =>{
@@ -139,7 +139,7 @@ urpcStub.then(async (stub: urpc.UrpcStub) =>{
 
 
 
-##### （可选）使用cancel取消网络请求
+#### （可选）使用cancel取消网络请求
 
 当调用call发起一次urpc收发请求后，根据业务需要，不用接收响应时，可调用cancel取消指定callingId的请求；若不指定callingId，则取消UrpcStub发起的全部请求。
 
@@ -157,7 +157,7 @@ urpcStub.then(async (stub: urpc.UrpcStub) =>{
 
 
 
-##### 使用destroy关闭URPC
+#### 使用destroy关闭URPC
 
 当完成所有urpc收发网络请求后，需调用destroy释放并销毁UrpcStub相关的资源。
 

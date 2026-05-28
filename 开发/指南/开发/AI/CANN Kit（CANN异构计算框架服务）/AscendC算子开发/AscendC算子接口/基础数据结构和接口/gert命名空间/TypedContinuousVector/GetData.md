@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-typedcontinuousvector-getdata
 
-##### 函数功能
+#### 函数功能
 
 获取首个元素的指针地址，[GetData(), reinterpret_cast<T *>(GetData()) + GetSize()]中的数据即为当前容器中保存的数据。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 const T *GetData() const
@@ -18,25 +18,25 @@ const T *GetData() const
  
   
 
-##### 参数说明
+#### 参数说明
 
 无
  
   
 
-##### 返回值
+#### 返回值
 
 首个元素的指针地址。
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 size_t capacity = 100U;

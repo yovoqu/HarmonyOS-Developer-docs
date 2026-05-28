@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-cipher-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -41,7 +41,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -52,7 +52,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -71,13 +71,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### CryptoSm2CiphertextSpec_item
+#### CryptoSm2CiphertextSpec_item
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -101,13 +101,13 @@ enum CryptoSm2CiphertextSpec_item
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_CryptoAsymCipher_Create()
+#### OH_CryptoAsymCipher_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -140,7 +140,7 @@ OH_Crypto_ErrCode OH_CryptoAsymCipher_Create(const char *algoName, OH_CryptoAsym
  
   
 
-##### OH_CryptoAsymCipher_Init()
+#### OH_CryptoAsymCipher_Init()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -176,7 +176,7 @@ OH_Crypto_ErrCode OH_CryptoAsymCipher_Init(OH_CryptoAsymCipher *ctx, Crypto_Ciph
  
   
 
-##### OH_CryptoAsymCipher_Final()
+#### OH_CryptoAsymCipher_Final()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -214,7 +214,7 @@ OH_Crypto_ErrCode OH_CryptoAsymCipher_Final(OH_CryptoAsymCipher *ctx, const Cryp
  
   
 
-##### OH_CryptoAsymCipher_Destroy()
+#### OH_CryptoAsymCipher_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -235,7 +235,7 @@ void OH_CryptoAsymCipher_Destroy(OH_CryptoAsymCipher *ctx)
  
   
 
-##### OH_CryptoSm2CiphertextSpec_Create()
+#### OH_CryptoSm2CiphertextSpec_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -268,7 +268,7 @@ OH_Crypto_ErrCode OH_CryptoSm2CiphertextSpec_Create(Crypto_DataBlob *sm2Cipherte
  
   
 
-##### OH_CryptoSm2CiphertextSpec_GetItem()
+#### OH_CryptoSm2CiphertextSpec_GetItem()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -302,7 +302,7 @@ OH_Crypto_ErrCode OH_CryptoSm2CiphertextSpec_GetItem(OH_CryptoSm2CiphertextSpec 
  
   
 
-##### OH_CryptoSm2CiphertextSpec_SetItem()
+#### OH_CryptoSm2CiphertextSpec_SetItem()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -334,7 +334,7 @@ OH_Crypto_ErrCode OH_CryptoSm2CiphertextSpec_SetItem(OH_CryptoSm2CiphertextSpec 
  
   
 
-##### OH_CryptoSm2CiphertextSpec_Encode()
+#### OH_CryptoSm2CiphertextSpec_Encode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -367,7 +367,7 @@ OH_Crypto_ErrCode OH_CryptoSm2CiphertextSpec_Encode(OH_CryptoSm2CiphertextSpec *
  
   
 
-##### OH_CryptoSm2CiphertextSpec_Destroy()
+#### OH_CryptoSm2CiphertextSpec_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-rtshadowaodescription
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -19,13 +19,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  
@@ -51,13 +51,13 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### accelerationStructure
+#### accelerationStructure
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -71,7 +71,7 @@ VkAccelerationStructureKHR XEG_RTShadowAODescription::accelerationStructure
  
   
 
-##### inputDepthImage
+#### inputDepthImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -85,7 +85,7 @@ VkImageView XEG_RTShadowAODescription::inputDepthImage
  
   
 
-##### inputMotionVectorImage
+#### inputMotionVectorImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -99,7 +99,7 @@ VkImageView XEG_RTShadowAODescription::inputMotionVectorImage
  
   
 
-##### inputNormalImage
+#### inputNormalImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -113,7 +113,7 @@ VkImageView XEG_RTShadowAODescription::inputNormalImage
  
   
 
-##### outputShadowAOImage
+#### outputShadowAOImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -127,7 +127,7 @@ VkImageView XEG_RTShadowAODescription::outputShadowAOImage
  
   
 
-##### pNext
+#### pNext
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -141,7 +141,7 @@ const void* XEG_RTShadowAODescription::pNext
  
   
 
-##### projectionMatrix
+#### projectionMatrix
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -155,7 +155,7 @@ float XEG_RTShadowAODescription::projectionMatrix[16]
  
   
 
-##### pRtAOParameters
+#### pRtAOParameters
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -169,7 +169,7 @@ const XEG_RTAOParameters* XEG_RTShadowAODescription::pRtAOParameters
  
   
 
-##### pRtShadowAODenoiserParameters
+#### pRtShadowAODenoiserParameters
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -183,7 +183,7 @@ const XEG_RTShadowAODenoiserParameters* XEG_RTShadowAODescription::pRtShadowAODe
  
   
 
-##### pRtShadowParameters
+#### pRtShadowParameters
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -197,7 +197,7 @@ const XEG_RTShadowParameters* XEG_RTShadowAODescription::pRtShadowParameters
  
   
 
-##### sType
+#### sType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -211,7 +211,7 @@ XEG_StructureType XEG_RTShadowAODescription::sType
  
   
 
-##### viewMatrix
+#### viewMatrix
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -225,7 +225,7 @@ float XEG_RTShadowAODescription::viewMatrix[16]
  
   
 
-##### worldCameraOrigin
+#### worldCameraOrigin
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -239,7 +239,7 @@ float XEG_RTShadowAODescription::worldCameraOrigin[3]
  
   
 
-##### isAsInTranslatedSpace
+#### isAsInTranslatedSpace
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -253,7 +253,7 @@ bool XEG_RTShadowAODescription::isAsInTranslatedSpace = false;
  
   
 
-##### translatedViewMatrix
+#### translatedViewMatrix
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -267,7 +267,7 @@ float XEG_RTShadowAODescription::translatedViewMatrix[16];
  
   
 
-##### ndcFlipY
+#### ndcFlipY
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

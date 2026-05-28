@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { Rotate, Pinch, ThreeFingersSwipe, FourFingersSwipe, ActionType } from '
  
   
 
-##### Pinch
+#### Pinch
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -38,7 +38,7 @@ import { Rotate, Pinch, ThreeFingersSwipe, FourFingersSwipe, ActionType } from '
  
   
 
-##### Rotate11+
+#### Rotate11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -54,7 +54,7 @@ import { Rotate, Pinch, ThreeFingersSwipe, FourFingersSwipe, ActionType } from '
  
   
 
-##### ThreeFingersSwipe
+#### ThreeFingersSwipe
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -71,7 +71,7 @@ import { Rotate, Pinch, ThreeFingersSwipe, FourFingersSwipe, ActionType } from '
  
   
 
-##### FourFingersSwipe
+#### FourFingersSwipe
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -88,7 +88,7 @@ import { Rotate, Pinch, ThreeFingersSwipe, FourFingersSwipe, ActionType } from '
  
   
 
-##### ThreeFingersTap11+
+#### ThreeFingersTap11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -103,7 +103,7 @@ import { Rotate, Pinch, ThreeFingersSwipe, FourFingersSwipe, ActionType } from '
  
   
 
-##### ActionType
+#### ActionType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

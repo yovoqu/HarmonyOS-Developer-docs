@@ -11,7 +11,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 详细的API说明请参考[Camera](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera)。
 

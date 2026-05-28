@@ -10,7 +10,7 @@
 **起始版本：** 4.0.0(10)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@ import { scanCore } from '@kit.ScanKit';
  
   
 
-##### ScanType
+#### ScanType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -56,7 +56,7 @@ import { scanCore } from '@kit.ScanKit';
  
   
 
-##### ScanErrorCode
+#### ScanErrorCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -74,7 +74,7 @@ import { scanCore } from '@kit.ScanKit';
  
   
 
-##### ScanSource
+#### ScanSource
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -12,7 +12,7 @@
 状态按钮用于从一组选项中进行选择，并可能在界面上实时显示选择后的结果。通常这一组选项都是由状态按钮构成。
   
 
-##### 权限列表
+#### 权限列表
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -28,7 +28,7 @@
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -42,7 +42,7 @@
  
   
 
-##### 样式
+#### 样式
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -60,7 +60,7 @@
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -73,7 +73,7 @@
  
   
 
-##### 方法
+#### 方法
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -81,7 +81,7 @@
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -159,4 +159,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/lVyqq_gAQxub7GFyImbKug/zh-cn_image_0000002581276426.png?HW-CC-KV=V1&HW-CC-Date=20260528T024103Z&HW-CC-Expire=86400&HW-CC-Sign=95C54C5CD278A6AD64FD4DA88CF71D602098D64B632723E2DEEE30A737C2DB22)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/lVyqq_gAQxub7GFyImbKug/zh-cn_image_0000002581276426.png?HW-CC-KV=V1&HW-CC-Date=20260528T025437Z&HW-CC-Expire=86400&HW-CC-Sign=96B85795DA3B2B87749414CA05DF41F737C5BC9E5B62FBDD2F7819FB8D5D2BCB)

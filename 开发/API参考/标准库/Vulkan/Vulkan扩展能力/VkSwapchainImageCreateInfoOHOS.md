@@ -9,7 +9,7 @@ typedef struct VkSwapchainImageCreateInfoOHOS {...} VkSwapchainImageCreateInfoOH
 ```
   
 
-##### 概述
+#### 概述
 
 包含创建Image时必要的参数。
  
@@ -21,11 +21,11 @@ typedef struct VkSwapchainImageCreateInfoOHOS {...} VkSwapchainImageCreateInfoOH
  
   
 
-##### 汇总
+#### 汇总
 
   
 
-##### 成员变量
+#### 成员变量
  
 | 名称 | 描述 |
 | --- | --- |

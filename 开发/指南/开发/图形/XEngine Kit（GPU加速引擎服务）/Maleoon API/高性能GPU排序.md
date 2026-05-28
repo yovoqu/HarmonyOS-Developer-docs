@@ -9,7 +9,7 @@
 XEngine Kit HPS(High Performance Sorting)特性提供高性能GPU排序能力。相比于其它排序能力，该能力依托于华为Maleoon GPU的软硬结合优化，效率更高。
 
 
-##### 约束与限制
+#### 约束与限制
 
 可通过以下方式查询相关扩展特性是否支持：
 
@@ -17,7 +17,7 @@ XEngine Kit HPS(High Performance Sorting)特性提供高性能GPU排序能力。
 
 
 
-##### 接口说明
+#### 接口说明
 
 以下接口为使用高性能GPU排序所需要使用的接口，关于这些接口的详细说明见[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine)。
 
@@ -30,13 +30,13 @@ XEngine Kit HPS(High Performance Sorting)特性提供高性能GPU排序能力。
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 本章以在Vulkan应用程序渲染为例，说明使用高性能GPU排序的开发步骤。
 
 
 
-##### 配置项目
+#### 配置项目
 
 编译HAP时，Native层so需要依赖NDK中的XEngine相关库和头文件。
 
@@ -74,7 +74,7 @@ target_link_libraries(nativerender PUBLIC
 
 
 
-##### 集成高性能GPU排序（Vulkan）
+#### 集成高性能GPU排序（Vulkan）
 
 XEngine 高性能GPU排序可以独立使用。相关代码在Native层实现。
 

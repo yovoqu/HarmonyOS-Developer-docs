@@ -28,7 +28,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -38,7 +38,7 @@ import { taskpool } from '@kit.ArkTS';
 
 
 
-##### taskpool.execute
+#### taskpool.execute
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -92,7 +92,7 @@ taskpool.execute(printArgs, 100).then((value: Object) => { // 100: test number
 
 
 
-##### taskpool.execute13+
+#### taskpool.execute13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -164,7 +164,7 @@ taskpool.execute<[[number, string]], string>(testWithArray, [100, "test"]).then(
 
 
 
-##### taskpool.execute
+#### taskpool.execute
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -229,7 +229,7 @@ taskpool.execute(task3, taskpool.Priority.HIGH).then((value: Object) => {
 
 
 
-##### taskpool.execute24+
+#### taskpool.execute24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -301,7 +301,7 @@ try {
 
 
 
-##### taskpool.execute13+
+#### taskpool.execute13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -368,7 +368,7 @@ taskpool.execute<[number], number>(task3, taskpool.Priority.HIGH).then((value: n
 
 
 
-##### taskpool.execute24+
+#### taskpool.execute24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -442,7 +442,7 @@ try {
 
 
 
-##### taskpool.execute10+
+#### taskpool.execute10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -510,7 +510,7 @@ taskpool.execute(taskGroup2).then((res: Array<Object>) => {
 
 
 
-##### taskpool.execute24+
+#### taskpool.execute24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -583,7 +583,7 @@ try {
 
 
 
-##### taskpool.executeDelayed11+
+#### taskpool.executeDelayed11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -648,7 +648,7 @@ taskpool.executeDelayed(1000, task).then(() => { // 1000: delayTime is 1000ms
 
 
 
-##### taskpool.executeDelayed13+
+#### taskpool.executeDelayed13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -712,7 +712,7 @@ taskpool.executeDelayed<[number], string>(1000, task).then((res: string) => { //
 
 
 
-##### taskpool.executePeriodically12+
+#### taskpool.executePeriodically12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -790,7 +790,7 @@ taskpoolTest();
 
 
 
-##### taskpool.executePeriodically13+
+#### taskpool.executePeriodically13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -870,7 +870,7 @@ taskpoolTest();
 
 
 
-##### taskpool.cancel
+#### taskpool.cancel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -960,7 +960,7 @@ concurrentFunc();
 
 
 
-##### taskpool.cancel10+
+#### taskpool.cancel10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1033,7 +1033,7 @@ concurrentFunc();
 
 
 
-##### taskpool.cancel18+
+#### taskpool.cancel18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1108,7 +1108,7 @@ concurrentFunc();
 
 
 
-##### taskpool.terminateTask12+
+#### taskpool.terminateTask12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1162,7 +1162,7 @@ concurrentFunc();
 
 
 
-##### taskpool.isConcurrent12+
+#### taskpool.isConcurrent12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1209,7 +1209,7 @@ console.info("result is: " + result);
 
 
 
-##### taskpool.getTaskPoolInfo10+
+#### taskpool.getTaskPoolInfo10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1236,7 +1236,7 @@ let taskpoolInfo: taskpool.TaskPoolInfo = taskpool.getTaskPoolInfo();
 
 
 
-##### taskpool.getTask22+
+#### taskpool.getTask22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1306,7 +1306,7 @@ function dealTask() {
 
 
 
-##### Priority
+#### Priority
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1360,7 +1360,7 @@ for (let i: number = 0; i < taskArray.length; i+=4) { // 4: 每次执行4个任�
 
 
 
-##### Task
+#### Task
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1368,7 +1368,7 @@ for (let i: number = 0; i < taskArray.length; i+=4) { // 4: 每次执行4个任�
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1387,7 +1387,7 @@ for (let i: number = 0; i < taskArray.length; i+=4) { // 4: 每次执行4个任�
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1431,7 +1431,7 @@ let task: taskpool.Task = new taskpool.Task(printArgs, "this is my first Task");
 
 
 
-##### constructor11+
+#### constructor11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1478,7 +1478,7 @@ let name: string = task.name;
 
 
 
-##### isCanceled10+
+#### isCanceled10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1553,7 +1553,7 @@ taskpool.execute(task).then((res: Object) => {
 
 
 
-##### setTransferList10+
+#### setTransferList10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1623,7 +1623,7 @@ console.info("testTransfer view3 byteLength: " + view1.byteLength);
 
 
 
-##### setCloneList11+
+#### setCloneList11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1787,7 +1787,7 @@ struct Index {
 
 
 
-##### sendData11+
+#### sendData11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1882,7 +1882,7 @@ taskpoolTest();
 
 
 
-##### onReceiveData11+
+#### onReceiveData11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1943,7 +1943,7 @@ testFunc();
 
 
 
-##### addDependency11+
+#### addDependency11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2009,7 +2009,7 @@ taskpool.execute(task3).then(() => {
 
 
 
-##### removeDependency11+
+#### removeDependency11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2079,7 +2079,7 @@ taskpool.execute(task3).then(() => {
 
 
 
-##### onEnqueued12+
+#### onEnqueued12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2133,7 +2133,7 @@ taskpool.execute(task).then(() => {
 
 
 
-##### onStartExecution12+
+#### onStartExecution12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2187,7 +2187,7 @@ taskpool.execute(task).then(() => {
 
 
 
-##### onExecutionFailed12+
+#### onExecutionFailed12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2247,7 +2247,7 @@ taskpool.execute(task2).then(() => {
 
 
 
-##### onExecutionSucceeded12+
+#### onExecutionSucceeded12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2301,7 +2301,7 @@ taskpool.execute(task).then(() => {
 
 
 
-##### isDone12+
+#### isDone12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2355,7 +2355,7 @@ taskpoolCancel();
 
 
 
-##### CallbackFunction12+
+#### CallbackFunction12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2369,7 +2369,7 @@ type CallbackFunction = () => void
 
 
 
-##### CallbackFunctionWithError12+
+#### CallbackFunctionWithError12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2390,7 +2390,7 @@ type CallbackFunctionWithError = (e: Error) => void
 
 
 
-##### LongTask12+
+#### LongTask12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2418,7 +2418,7 @@ let task: taskpool.LongTask = new taskpool.LongTask(printArgs, "this is my first
 
 
 
-##### GenericsTask13+
+#### GenericsTask13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2430,7 +2430,7 @@ let task: taskpool.LongTask = new taskpool.LongTask(printArgs, "this is my first
 
 
 
-##### constructor13+
+#### constructor13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2488,7 +2488,7 @@ let task3: taskpool.Task = new taskpool.GenericsTask<[[number, string]], string>
 
 
 
-##### constructor13+
+#### constructor13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2535,7 +2535,7 @@ let name: string = task.name;
 
 
 
-##### TaskGroup10+
+#### TaskGroup10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2543,7 +2543,7 @@ let name: string = task.name;
 
 
 
-##### constructor10+
+#### constructor10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2563,7 +2563,7 @@ let taskGroup = new taskpool.TaskGroup();
 
 
 
-##### constructor11+
+#### constructor11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2601,7 +2601,7 @@ let name: string = taskGroup.name;
 
 
 
-##### addTask10+
+#### addTask10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2646,7 +2646,7 @@ taskGroup.addTask(printArgs, 100); // 100: test number
 
 
 
-##### addTask10+
+#### addTask10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2693,7 +2693,7 @@ taskGroup.addTask(task);
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2708,7 +2708,7 @@ taskGroup.addTask(task);
 
 
 
-##### SequenceRunner 11+
+#### SequenceRunner 11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2716,7 +2716,7 @@ taskGroup.addTask(task);
 
 
 
-##### constructor11+
+#### constructor11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2752,7 +2752,7 @@ let runner: taskpool.SequenceRunner = new taskpool.SequenceRunner();
 
 
 
-##### constructor12+
+#### constructor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2793,7 +2793,7 @@ let runner:taskpool.SequenceRunner = new taskpool.SequenceRunner("runner1", task
 
 
 
-##### execute11+
+#### execute11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2877,7 +2877,7 @@ async function seqRunner() {
 
 
 
-##### AsyncRunner18+
+#### AsyncRunner18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2885,7 +2885,7 @@ async function seqRunner() {
 
 
 
-##### constructor18+
+#### constructor18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2922,7 +2922,7 @@ let runner: taskpool.AsyncRunner = new taskpool.AsyncRunner(5);
 
 
 
-##### constructor18+
+#### constructor18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2964,7 +2964,7 @@ let runner:taskpool.AsyncRunner = new taskpool.AsyncRunner("runner1", 5, 5);
 
 
 
-##### execute18+
+#### execute18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3046,7 +3046,7 @@ async function asyRunner2() {
 
 
 
-##### State10+
+#### State10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3065,7 +3065,7 @@ async function asyRunner2() {
 
 
 
-##### TaskInfo10+
+#### TaskInfo10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3075,7 +3075,7 @@ async function asyRunner2() {
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3091,7 +3091,7 @@ async function asyRunner2() {
 
 
 
-##### ThreadInfo10+
+#### ThreadInfo10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3101,7 +3101,7 @@ async function asyRunner2() {
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3118,7 +3118,7 @@ async function asyRunner2() {
 
 
 
-##### TaskPoolInfo10+
+#### TaskPoolInfo10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3128,7 +3128,7 @@ async function asyRunner2() {
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3144,7 +3144,7 @@ async function asyRunner2() {
 
 
 
-##### TaskResult20+
+#### TaskResult20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3154,7 +3154,7 @@ async function asyRunner2() {
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3245,7 +3245,7 @@ function runningCancelError() {
 
 
 
-##### Configs24+
+#### Configs24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3263,19 +3263,19 @@ function runningCancelError() {
 
 
 
-##### 其他说明
+#### 其他说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 序列化支持类型
+#### 序列化支持类型
 
 序列化支持类型参考[线程间通信对象概述](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/serializable-overview)里的介绍。
 
 
 
-##### 简单使用
+#### 简单使用
 
 **示例一**
 

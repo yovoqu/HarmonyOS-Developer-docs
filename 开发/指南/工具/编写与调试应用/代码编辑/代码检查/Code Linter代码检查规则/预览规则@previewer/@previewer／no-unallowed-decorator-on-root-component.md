@@ -9,7 +9,7 @@
 建议使用一个定义了完整的、合法的、不依赖运行时的默认值的父组件，并预览此父组件来查看子组件的预览效果。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -22,13 +22,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 <span style="color: rgb(65,97,0);">@</span><span style="color: rgb(65,97,0);">Entry</span>
@@ -54,7 +54,7 @@
  
  
 
-##### 反例
+#### 反例
 
 ```text
 <span style="color: rgb(65,97,0);">@</span><span style="color: rgb(65,97,0);">Preview</span>
@@ -71,7 +71,7 @@
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(106,135,89);">plugin:@previewer/recommended</span>

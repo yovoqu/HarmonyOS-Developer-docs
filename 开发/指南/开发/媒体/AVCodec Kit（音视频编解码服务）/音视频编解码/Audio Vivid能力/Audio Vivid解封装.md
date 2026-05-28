@@ -7,7 +7,7 @@
 获取到Audio Vivid封装的mp4文件后，先调用解封装相关接口，选中音频轨，读取每一帧Audio Vivid，送入解码器中（可参考[Audio Vivid解码](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audiovivid-audiodecoder)）。详细的API请参考[AVDemuxer模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avdemuxer)。
   
 
-##### 在CMake脚本中链接到动态库
+#### 在CMake脚本中链接到动态库
 
 ```text
 target_link_libraries(sample PUBLIC
@@ -18,7 +18,7 @@ libnative_media_acodec.so libnative_media_avdemuxer.so libnative_media_avsource.
  
   
 
-##### 添加头文件
+#### 添加头文件
 
 ```text
 //解封装头文件
@@ -41,7 +41,7 @@ AudioSampleInfo  info;
  
   
 
-##### 开发步骤
+#### 开发步骤
 1. 创建解封装实例。
 
   

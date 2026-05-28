@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-routing-manager-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -25,13 +25,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -42,7 +42,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -64,13 +64,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_AudioRoutingManager_OnDeviceChangedCallback()
+#### OH_AudioRoutingManager_OnDeviceChangedCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -95,7 +95,7 @@ typedef int32_t (*OH_AudioRoutingManager_OnDeviceChangedCallback)(OH_AudioDevice
  
   
 
-##### OH_AudioManager_GetAudioRoutingManager()
+#### OH_AudioManager_GetAudioRoutingManager()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -125,7 +125,7 @@ OH_AudioCommon_Result OH_AudioManager_GetAudioRoutingManager(OH_AudioRoutingMana
  
   
 
-##### OH_AudioRoutingManager_GetDevices()
+#### OH_AudioRoutingManager_GetDevices()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -157,7 +157,7 @@ OH_AudioCommon_Result OH_AudioRoutingManager_GetDevices(OH_AudioRoutingManager *
  
   
 
-##### OH_AudioRoutingManager_GetAvailableDevices()
+#### OH_AudioRoutingManager_GetAvailableDevices()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -189,7 +189,7 @@ OH_AudioCommon_Result OH_AudioRoutingManager_GetAvailableDevices(OH_AudioRouting
  
   
 
-##### OH_AudioRoutingManager_GetPreferredOutputDevice()
+#### OH_AudioRoutingManager_GetPreferredOutputDevice()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -221,7 +221,7 @@ OH_AudioCommon_Result OH_AudioRoutingManager_GetPreferredOutputDevice(OH_AudioRo
  
   
 
-##### OH_AudioRoutingManager_GetPreferredInputDevice()
+#### OH_AudioRoutingManager_GetPreferredInputDevice()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -253,7 +253,7 @@ OH_AudioCommon_Result OH_AudioRoutingManager_GetPreferredInputDevice(OH_AudioRou
  
   
 
-##### OH_AudioRoutingManager_RegisterDeviceChangeCallback()
+#### OH_AudioRoutingManager_RegisterDeviceChangeCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -285,7 +285,7 @@ OH_AudioCommon_Result OH_AudioRoutingManager_RegisterDeviceChangeCallback(OH_Aud
  
   
 
-##### OH_AudioRoutingManager_UnregisterDeviceChangeCallback()
+#### OH_AudioRoutingManager_UnregisterDeviceChangeCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -316,7 +316,7 @@ OH_AudioCommon_Result OH_AudioRoutingManager_UnregisterDeviceChangeCallback(OH_A
  
   
 
-##### OH_AudioRoutingManager_ReleaseDevices()
+#### OH_AudioRoutingManager_ReleaseDevices()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -347,7 +347,7 @@ OH_AudioCommon_Result OH_AudioRoutingManager_ReleaseDevices(OH_AudioRoutingManag
  
   
 
-##### OH_AudioRoutingManager_OnDeviceBlockStatusCallback()
+#### OH_AudioRoutingManager_OnDeviceBlockStatusCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -372,7 +372,7 @@ typedef void (*OH_AudioRoutingManager_OnDeviceBlockStatusCallback)(OH_AudioDevic
  
   
 
-##### OH_AudioRoutingManager_IsMicBlockDetectionSupported()
+#### OH_AudioRoutingManager_IsMicBlockDetectionSupported()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -403,7 +403,7 @@ OH_AudioCommon_Result OH_AudioRoutingManager_IsMicBlockDetectionSupported(OH_Aud
  
   
 
-##### OH_AudioRoutingManager_SetMicBlockStatusCallback()
+#### OH_AudioRoutingManager_SetMicBlockStatusCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

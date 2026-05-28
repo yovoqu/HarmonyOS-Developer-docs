@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/network-boost-c-struct-net_handle
 **支持设备：** Phone | PC/2in1 | Tablet
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -19,13 +19,13 @@ NetHandle信息。
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -36,13 +36,13 @@ NetHandle信息。
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### netId
+#### netId
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

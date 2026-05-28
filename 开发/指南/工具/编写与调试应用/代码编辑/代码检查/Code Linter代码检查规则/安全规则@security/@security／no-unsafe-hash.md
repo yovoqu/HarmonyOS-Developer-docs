@@ -7,7 +7,7 @@
 该规则禁止不安全的哈希算法，例如MD5、SHA1。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 //正例1
@@ -43,7 +43,7 @@ CryptoJS.SHA256('Message').toString();
  
  
 
-##### 反例
+#### 反例
 
 ```text
 //反例1.1
@@ -65,7 +65,7 @@ CryptoJS.SHA1('Message').toString();
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@security/recommended</span>

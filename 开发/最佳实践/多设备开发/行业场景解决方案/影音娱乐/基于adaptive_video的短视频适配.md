@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-short-video-base-adaptivevideo
 
-##### 概述
+#### 概述
 
 短视频是一种时长较短、内容直观的视频内容形式，单条视频通常为数秒至数分钟。为提升用户的观感体验，短视频页面常采用沉浸式模式展示视频内容，并支持根据用户持握设备的方向自动旋转屏幕页面。然而，由于设备本身、设备屏幕尺寸的差异，不同设备短视频页面的沉浸效果、旋转属性可能会有所不同，这通常需要开发者额外适配。
  
@@ -12,11 +12,11 @@
  
  
 
-##### 短视频自适应沉浸
+#### 短视频自适应沉浸
 
  
 
-##### 场景描述
+#### 场景描述
 
 短视频沉浸是一种通过全屏展示、弱化界面干扰，让用户专注于视频内容的呈现模式。在开发过程中，通常结合屏幕适配、视频裁剪等技术，以增强视觉沉浸感。在当前主流的沉浸式策略中，短视频的呈现方式会根据设备屏幕尺寸进行调整：大屏设备通常会完整呈现视频内容，而小屏设备则根据窗口比例对视频进行适当裁剪，以提升用户的沉浸体验。
   
@@ -32,7 +32,7 @@
  
  
 
-##### 规则描述
+#### 规则描述
 
 adaptive_video提供短视频自适应沉浸的能力，以降低开发者在多端设备上实现短视频沉浸布局的工作量。为确保短视频滑动播放页面在不同设备上均能呈现最佳视觉效果，adaptive_video将综合考虑页面窗口尺寸、视频比例、Tab导航栏高度等信息，根据沉浸规则计算沉浸式布局方案，并依此生成视频播放组件的尺寸与位置建议，同时提供状态栏和Tab导航栏的沉浸建议。
  
@@ -67,7 +67,7 @@ adaptive_video提供短视频自适应沉浸的能力，以降低开发者在多
  
  
 
-##### 开发步骤
+#### 开发步骤
 
 > [!NOTE]
 > adaptive_video三方库中的视频自适应沉浸组件支持网络视频链接，因此三方库使用了以下权限。权限设置详情参考 声明权限 。 ohos.permission.INTERNET：允许应用访问互联网。 以下代码默认应用已经安装并导入了adaptive_video三方库，详细的三方库安装教程可以参考 如何使用ohpm引入三四方库 。
@@ -162,11 +162,11 @@ private async changePortraitVideo() {
  
  
 
-##### 短视频自适应旋转
+#### 短视频自适应旋转
 
  
 
-##### 场景描述
+#### 场景描述
 
 短视频页面旋转是指当用户改变设备的持握方向（如从竖屏切换为横屏）时，视频内容和页面布局能自动适应方向变化，从而实现视频连续旋转播放的特性。这一功能通常需要结合重力感应与屏幕方向监听来实现，根据监听结果动态调整页面内容与界面元素，保证用户在不同持握姿势下都能获得流畅的观感体验。
   
@@ -180,7 +180,7 @@ private async changePortraitVideo() {
  
  
 
-##### 规则描述
+#### 规则描述
 
 adaptive_video提供短视频自适应旋转的能力，降低开发者在多端设备上适配短视频页面旋转的工作量，确保短视频页面的旋转属性与当前主流应用的旋转属性相符合。总的来说，adaptive_video综合考虑设备类型、屏幕区间、视频类型、屏幕方向等因素，根据旋转规则自动设置屏幕旋转属性，并提供页面布局变化的监听功能。
  
@@ -188,7 +188,7 @@ adaptive_video提供短视频自适应旋转的能力，降低开发者在多端
  
 - 设备类型：2in1/PC、车机、TV不支持旋转，其他类型设备支持旋转。
 - 屏幕区间：根据应用窗口宽高计算设备所在的屏幕区间。计算规则如下图，屏幕区间由应用窗口宽（图中横轴，单位为vp）和窗口宽高比（图中纵轴）计算得到，例如，设备Mate60（竖向）的屏幕区间为：Small_Portrait。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/SC8ZCL74RyG1L9rz7qa9_Q/zh-cn_image_0000002358013417.png?HW-CC-KV=V1&HW-CC-Date=20260528T013051Z&HW-CC-Expire=86400&HW-CC-Sign=9FA7B5EDE6E94BE97F28ED5380D81D9553F4566F4E5420CF0C1D3EC04ECF6084)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/SC8ZCL74RyG1L9rz7qa9_Q/zh-cn_image_0000002358013417.png?HW-CC-KV=V1&HW-CC-Date=20260528T024734Z&HW-CC-Expire=86400&HW-CC-Sign=A75527F9F392648621F542162AD50D68EE32873B895D44CAC3E4C308A084303B)
 
 - 视频类型：根据视频宽高判定：横向视频（宽>高）、竖向视频（宽≤高）。
 - 屏幕方向：根据[GRAVITY](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sensor#gravity9)判定：0：竖屏，1：反向横屏，2：反向竖屏， 3：横屏。
@@ -214,7 +214,7 @@ adaptive_video提供短视频自适应旋转的能力，降低开发者在多端
  
  
 
-##### 开发步骤
+#### 开发步骤
 
 - 从adaptive_video三方库导入AdaptiveRotation自适应旋转工具、ScreenModeNotifier页面布局变换工具并初始化。导入后开发者可直接通过调用AdaptiveRotation的接口设置视频页面旋转属性，并通过ScreenModeNotifier监听页面布局变换通知。
 ```ArkTS
@@ -328,11 +328,11 @@ screenModeNotifier.offScreenModeChange(this.onScreenModeChange);
  
  
 
-##### 视频自适应沉浸高阶组件
+#### 视频自适应沉浸高阶组件
 
  
 
-##### 场景描述
+#### 场景描述
 
 视频播放页面通常包含以下核心元素：视频播放组件、沉浸式页面布局、视频加载与预加载、视频播放状态管理、视频旋转方向适配，以及与用户交互相关的事件。整体设计需兼顾流畅性、响应性与沉浸体验，确保用户在滑动浏览时能享受连续且一致的视觉感受。基于上述要素，adaptive_video提供了视频自适应沉浸高阶组件AdaptiveVideoComponent，帮助开发者高效构建视频播放场景。
   
@@ -348,13 +348,13 @@ screenModeNotifier.offScreenModeChange(this.onScreenModeChange);
  
  
 
-##### 实现原理
+#### 实现原理
 
 AdaptiveVideoComponent基于[AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer)和[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent#xcomponent12)实现，内部封装了自适应沉浸工具，无需开发者实现沉浸式布局。AdaptiveVideoComponent对外提供了视频播放控制器、播放过程事件监听接口，支持自定义默认组件（如播放图标、进度条）的样式与交互事件回调，开发者可根据实际需求灵活调整组件样式与交互行为。关于AdaptiveVideoComponent的使用，详情可参考[adaptive_video使用说明](https://gitcode.com/openharmony-sig/hadss_adaptive/tree/master/adaptive_video)。
  
  
 
-##### 开发步骤
+#### 开发步骤
 
 基于AdaptiveVideoComponent组件实现视频播放页面。使用该组件时，需提供视频源，同时指定视频控制器和播放监听器，以实现对视频状态的控制与逻辑处理。
  
@@ -423,7 +423,7 @@ private adaptiveVideoSetting?: AdaptiveVideoSetting = {
  
  
 
-##### 常见问题
+#### 常见问题
 
  
 - 调用接口后未达到预期效果，如无法实现预期的沉浸式布局，视频页面无法根据旋转属性进行旋转
@@ -442,6 +442,6 @@ private adaptiveVideoSetting?: AdaptiveVideoSetting = {
 可能是因为非全屏页面未设置初始旋转属性，建议在进入视频滑动页面或视频切换时主动调用一次AdaptiveRotation的setOrientationNotFullScreen()方法。
  
 
-##### 示例代码
+#### 示例代码
 
 - [实现短视频沉浸和旋转播放功能](https://gitcode.com/harmonyos_samples/AdaptiveVideo)

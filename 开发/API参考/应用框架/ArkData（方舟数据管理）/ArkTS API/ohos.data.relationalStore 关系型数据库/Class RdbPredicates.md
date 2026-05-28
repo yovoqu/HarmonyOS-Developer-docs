@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { relationalStore } from '@kit.ArkData';
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -56,7 +56,7 @@ let predicates = new relationalStore.RdbPredicates("EMPLOYEE");
 
 
 
-##### inDevices
+#### inDevices
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -120,7 +120,7 @@ predicates.inDevices(deviceIds);
 
 
 
-##### inAllDevices
+#### inAllDevices
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -146,7 +146,7 @@ predicates.inAllDevices();
 
 
 
-##### equalTo
+#### equalTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -190,7 +190,7 @@ predicates.equalTo("NAME", "Lisa");
 
 
 
-##### notEqualTo
+#### notEqualTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -234,7 +234,7 @@ predicates.notEqualTo("NAME", "Lisa");
 
 
 
-##### beginWrap
+#### beginWrap
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -265,7 +265,7 @@ predicates.equalTo("NAME", "Lisa")
 
 
 
-##### endWrap
+#### endWrap
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -296,7 +296,7 @@ predicates.equalTo("NAME", "Lisa")
 
 
 
-##### or
+#### or
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -325,7 +325,7 @@ predicates.equalTo("NAME", "Lisa")
 
 
 
-##### and
+#### and
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -354,7 +354,7 @@ predicates.equalTo("NAME", "Lisa")
 
 
 
-##### contains
+#### contains
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -398,7 +398,7 @@ predicates.contains("NAME", "os");
 
 
 
-##### beginsWith
+#### beginsWith
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -442,7 +442,7 @@ predicates.beginsWith("NAME", "Li");
 
 
 
-##### endsWith
+#### endsWith
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -486,7 +486,7 @@ predicates.endsWith("NAME", "se");
 
 
 
-##### isNull
+#### isNull
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -528,7 +528,7 @@ predicates.isNull("NAME");
 
 
 
-##### isNotNull
+#### isNotNull
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -570,7 +570,7 @@ predicates.isNotNull("NAME");
 
 
 
-##### like
+#### like
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -614,7 +614,7 @@ predicates.like("NAME", "%os%");
 
 
 
-##### glob
+#### glob
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -658,7 +658,7 @@ predicates.glob("NAME", "?h*g");
 
 
 
-##### between
+#### between
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -703,7 +703,7 @@ predicates.between("AGE", 10, 50);
 
 
 
-##### notBetween
+#### notBetween
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -748,7 +748,7 @@ predicates.notBetween("AGE", 10, 50);
 
 
 
-##### greaterThan
+#### greaterThan
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -792,7 +792,7 @@ predicates.greaterThan("AGE", 18);
 
 
 
-##### lessThan
+#### lessThan
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -836,7 +836,7 @@ predicates.lessThan("AGE", 20);
 
 
 
-##### greaterThanOrEqualTo
+#### greaterThanOrEqualTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -880,7 +880,7 @@ predicates.greaterThanOrEqualTo("AGE", 18);
 
 
 
-##### lessThanOrEqualTo
+#### lessThanOrEqualTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -924,7 +924,7 @@ predicates.lessThanOrEqualTo("AGE", 20);
 
 
 
-##### orderByAsc
+#### orderByAsc
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -966,7 +966,7 @@ predicates.orderByAsc("NAME");
 
 
 
-##### orderByDesc
+#### orderByDesc
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1008,7 +1008,7 @@ predicates.orderByDesc("AGE");
 
 
 
-##### distinct
+#### distinct
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1034,7 +1034,7 @@ predicates.equalTo("NAME", "Rose").distinct(); // 对NAME列值为Rose的结果�
 
 
 
-##### limitAs
+#### limitAs
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1076,7 +1076,7 @@ predicates.equalTo("NAME", "Rose").limitAs(3);
 
 
 
-##### offsetAs
+#### offsetAs
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1118,7 +1118,7 @@ predicates.equalTo("NAME", "Rose").limitAs(-1).offsetAs(3);
 
 
 
-##### groupBy
+#### groupBy
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1160,7 +1160,7 @@ predicates.groupBy(["AGE", "NAME"]);
 
 
 
-##### indexedBy
+#### indexedBy
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1202,7 +1202,7 @@ predicates.indexedBy("SALARY");
 
 
 
-##### in
+#### in
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1250,7 +1250,7 @@ predicates.in("AGE", [18, 20]);
 
 
 
-##### notIn
+#### notIn
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1294,7 +1294,7 @@ predicates.notIn("NAME", ["Lisa", "Rose"]);
 
 
 
-##### notContains12+
+#### notContains12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1338,7 +1338,7 @@ predicates.notContains("NAME", "os");
 
 
 
-##### notLike12+
+#### notLike12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1382,7 +1382,7 @@ predicates.notLike("NAME", "%os%");
 
 
 
-##### having20+
+#### having20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

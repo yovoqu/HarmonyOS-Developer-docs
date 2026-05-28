@@ -4,21 +4,21 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/nearlink-terminology
 
-##### D
+#### D
 
   
 
-##### Data Transfer
+#### Data Transfer
 
 基于应用交互端口信息管理协议，提供基于交互端口的数据传输能力。
  
   
 
-##### S
+#### S
 
   
 
-##### SSAP
+#### SSAP
 
 SparkLink Service Access Protocol，即星闪服务交互协议。定义了服务结构的发现过程和访问过程，以及过程中需要使用的信令。通过服务管理，星闪设备之间能够实现服务层面的互联互通。
  

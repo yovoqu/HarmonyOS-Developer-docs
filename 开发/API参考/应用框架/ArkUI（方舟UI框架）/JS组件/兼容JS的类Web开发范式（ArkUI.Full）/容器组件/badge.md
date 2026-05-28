@@ -12,7 +12,7 @@
 应用中如果有需用户关注的新事件提醒，可以采用新事件标记来标识。
   
 
-##### 权限列表
+#### 权限列表
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -32,7 +32,7 @@
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -60,7 +60,7 @@
  
   
 
-##### 样式
+#### 样式
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -72,7 +72,7 @@
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -80,7 +80,7 @@
  
   
 
-##### 方法
+#### 方法
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -88,7 +88,7 @@
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -138,4 +138,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/BxNS2JnHQhKMRD3sacdnCQ/zh-cn_image_0000002611756257.png?HW-CC-KV=V1&HW-CC-Date=20260528T024110Z&HW-CC-Expire=86400&HW-CC-Sign=55673A8FB2274B8564D701CF246E6AA0C68FE77C43D7CE10876833E2A01BADD9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/BxNS2JnHQhKMRD3sacdnCQ/zh-cn_image_0000002611756257.png?HW-CC-KV=V1&HW-CC-Date=20260528T025444Z&HW-CC-Expire=86400&HW-CC-Sign=A41FF6365313836A3B74BD88DB5CC3E89A2AB8D6E86A8898AB1C6E94D328201E)

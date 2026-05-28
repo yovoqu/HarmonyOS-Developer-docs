@@ -4,11 +4,11 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-arkweb-component-security
 
-##### 概述
+#### 概述
 
  
 
-##### 目标
+#### 目标
 
 本文旨在指导应用开发者在Hybrid混合应用开发模式下安全地使用ArkWeb组件。Hybrid混合开发指，开发者通过Web H5技术构建可动态加载与渲染的页面（如商品推广、隐私政策等），并通过应用内置的ArkWeb组件进行展示。同时，开发者可依托[JSBridge](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkweb-ndk-jsbridge)的能力，让Web页面能够方便地使用应用原生功能，例如获取地理位置、调用摄像头甚至移动支付等功能。
  
@@ -18,7 +18,7 @@
  
  
 
-##### 适用范围
+#### 适用范围
 
 本文适用于采用ArkWeb组件进行混合开发的应用，包括加载动态H5页面、JSBridge调用原生能力等场景。
  
@@ -26,13 +26,13 @@
  
  
 
-##### 安全的Web资源访问
+#### 安全的Web资源访问
 
  
 遵循以下最佳实践使用ArkWeb进行Web资源访问，能够提升Web运行环境的可信度，保护应用的关键业务和数据。
  
 
-##### 设置允许加载白名单来限制ArkWeb组件加载的网页内容
+#### 设置允许加载白名单来限制ArkWeb组件加载的网页内容
 
 **【描述】**
  
@@ -95,7 +95,7 @@ struct WebComponent {
  
  
 
-##### 避免将不可信域名配置到允许加载白名单
+#### 避免将不可信域名配置到允许加载白名单
 
 **【描述】**
  
@@ -140,7 +140,7 @@ struct WebComponent {
  
  
 
-##### 加载外部来源的脚本或资源时，务必对不可信内容进行安全校验或过滤
+#### 加载外部来源的脚本或资源时，务必对不可信内容进行安全校验或过滤
 
 **【描述】**
  
@@ -225,7 +225,7 @@ Web({ src: $rawfile('index.html'), controller: this.controller })
  
  
 
-##### 若要在onInterceptRequest中加载本地文件，务必校验文件URL，以防止本地数据被窃取
+#### 若要在onInterceptRequest中加载本地文件，务必校验文件URL，以防止本地数据被窃取
 
 **【描述】**
  
@@ -306,7 +306,7 @@ struct WebComponent {
  
  
 
-##### 避免在允许跨域访问的本地文件目录中包含敏感资源
+#### 避免在允许跨域访问的本地文件目录中包含敏感资源
 
 **【描述】**
  
@@ -320,7 +320,7 @@ ArkWeb默认不允许跨域访问本地文件资源，除非使用[setPathAllowi
  
  
 
-##### 避免HTTP与HTTPS混合内容加载
+#### 避免HTTP与HTTPS混合内容加载
 
 **【描述】**
  
@@ -346,7 +346,7 @@ Web({ src: 'www.huawei.com', controller: this.controller })
  
  
 
-##### 避免在SSL校验出错时继续加载页面
+#### 避免在SSL校验出错时继续加载页面
 
 **【描述】**
  
@@ -428,7 +428,7 @@ struct WebComponent {
  
  
 
-##### 正式Release版本务必关闭ArkWeb的网页调试功能
+#### 正式Release版本务必关闭ArkWeb的网页调试功能
 
 **【描述】**
  
@@ -450,13 +450,13 @@ try {
  
  
 
-##### 恰当的权限管控
+#### 恰当的权限管控
 
  
 遵循以下最佳实践，确保ArkWeb运行时满足最小特权原则，仅授予受信任的Web页面所需权限。
  
 
-##### 注册JavaScriptProxy接口时，务必同时设置允许调用白名单检查调用接口的页面身份
+#### 注册JavaScriptProxy接口时，务必同时设置允许调用白名单检查调用接口的页面身份
 
 **【描述】**
  
@@ -476,7 +476,7 @@ try {
  
  
 
-##### 注册JavaScriptProxy接口时遵循最小必要原则
+#### 注册JavaScriptProxy接口时遵循最小必要原则
 
 **【描述】**
  
@@ -522,7 +522,7 @@ struct WebComponent {
  
  
 
-##### 避免在onOverrideUrlLoading中进行页面加载
+#### 避免在onOverrideUrlLoading中进行页面加载
 
 **【描述】**
  
@@ -564,7 +564,7 @@ struct WebComponent {
  
  
 
-##### 避免使用getUrl/getOriginalUrl函数获取URL进行调用白名单校验
+#### 避免使用getUrl/getOriginalUrl函数获取URL进行调用白名单校验
 
 **【描述】**
  
@@ -602,7 +602,7 @@ if (url === 'https://www.huawei.com') {
  
  
 
-##### 避免在JavaScriptProxy中提供页面加载功能
+#### 避免在JavaScriptProxy中提供页面加载功能
 
 **【描述】**
  
@@ -657,7 +657,7 @@ struct WebComponent {
  
  
 
-##### 避免在JavaScriptProxy中提供脚本执行功能
+#### 避免在JavaScriptProxy中提供脚本执行功能
 
 **【描述】**
  
@@ -716,7 +716,7 @@ struct WebComponent {
  
  
 
-##### 务必在onPermissionRequest函数中显式通知用户进行授权
+#### 务必在onPermissionRequest函数中显式通知用户进行授权
 
 **【描述】**
  
@@ -859,7 +859,7 @@ struct WebComponent {
  
  
 
-##### 务必在onGeolocationShow函数中显式通知用户进行授权
+#### 务必在onGeolocationShow函数中显式通知用户进行授权
 
 **【描述】**
  
@@ -929,7 +929,7 @@ struct WebComponent {
  
  
 
-##### 避免未经检查拼接和执行Web侧传递的JavaScript内容
+#### 避免未经检查拼接和执行Web侧传递的JavaScript内容
 
 **【描述】**
  
@@ -1030,13 +1030,13 @@ Hello world!
 ```
  
 
-##### 确保敏感数据的传输安全
+#### 确保敏感数据的传输安全
 
  
 遵循以下最佳实践，确保应用与Web网页安全地进行数据传递，提升应用安全性，同时为用户提供隐私安全保障。
  
 
-##### 避免直接向Web页面追加认证Cookie
+#### 避免直接向Web页面追加认证Cookie
 
 **【描述】**
  
@@ -1123,7 +1123,7 @@ struct WebComponent {
  
  
 
-##### 避免将用户敏感信息直接拼接到URL中进行加载
+#### 避免将用户敏感信息直接拼接到URL中进行加载
 
 **【描述】**
  
@@ -1156,7 +1156,7 @@ struct WebComponent {
  
  
 
-##### 应用通过postMessage接口向网页传送敏感数据时，务必指定接收该消息的URI
+#### 应用通过postMessage接口向网页传送敏感数据时，务必指定接收该消息的URI
 
 **【描述】**
  

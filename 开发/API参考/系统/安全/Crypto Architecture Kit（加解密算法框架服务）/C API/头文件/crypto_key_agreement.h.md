@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-key-agreement-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -40,7 +40,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -53,13 +53,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_CryptoKeyAgreement_Create()
+#### OH_CryptoKeyAgreement_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -92,7 +92,7 @@ OH_Crypto_ErrCode OH_CryptoKeyAgreement_Create(const char *algoName, OH_CryptoKe
  
   
 
-##### OH_CryptoKeyAgreement_GenerateSecret()
+#### OH_CryptoKeyAgreement_GenerateSecret()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -127,7 +127,7 @@ OH_Crypto_ErrCode OH_CryptoKeyAgreement_GenerateSecret(OH_CryptoKeyAgreement *ct
  
   
 
-##### OH_CryptoKeyAgreement_Destroy()
+#### OH_CryptoKeyAgreement_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

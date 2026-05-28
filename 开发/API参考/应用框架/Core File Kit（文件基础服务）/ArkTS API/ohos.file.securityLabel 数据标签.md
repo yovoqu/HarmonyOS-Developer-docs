@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { securityLabel } from '@kit.CoreFileKit';
 
 
 
-##### 使用说明
+#### 使用说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -44,7 +44,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### DataLevel
+#### DataLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -67,7 +67,7 @@ type DataLevel = 's0' | 's1' | 's2' | 's3' | 's4'
 
 
 
-##### securityLabel.setSecurityLabel
+#### securityLabel.setSecurityLabel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -122,7 +122,7 @@ securityLabel.setSecurityLabel(filePath, "s0").then(() => {
 
 
 
-##### securityLabel.setSecurityLabel
+#### securityLabel.setSecurityLabel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -173,7 +173,7 @@ securityLabel.setSecurityLabel(filePath, "s0", (err: BusinessError) => {
 
 
 
-##### securityLabel.setSecurityLabelSync
+#### securityLabel.setSecurityLabelSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -216,7 +216,7 @@ securityLabel.setSecurityLabelSync(filePath, "s0");
 
 
 
-##### securityLabel.getSecurityLabel
+#### securityLabel.getSecurityLabel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -270,7 +270,7 @@ securityLabel.getSecurityLabel(filePath).then((type: string) => {
 
 
 
-##### securityLabel.getSecurityLabel
+#### securityLabel.getSecurityLabel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -320,7 +320,7 @@ securityLabel.getSecurityLabel(filePath, (err: BusinessError, type: string) => {
 
 
 
-##### securityLabel.getSecurityLabelSync
+#### securityLabel.getSecurityLabelSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { restrictions } from '@kit.MDMKit';
 
 
 
-##### restrictions.setDisallowedPolicy
+#### restrictions.setDisallowedPolicy
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -130,7 +130,7 @@ try {
 
 
 
-##### restrictions.getDisallowedPolicy
+#### restrictions.getDisallowedPolicy
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -241,7 +241,7 @@ try {
 
 
 
-##### restrictions.setDisallowedPolicyForAccount14+
+#### restrictions.setDisallowedPolicyForAccount14+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -302,7 +302,7 @@ try {
 
 
 
-##### restrictions.getDisallowedPolicyForAccount14+
+#### restrictions.getDisallowedPolicyForAccount14+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -366,7 +366,7 @@ try {
 
 
 
-##### restrictions.addDisallowedListForAccount14+
+#### restrictions.addDisallowedListForAccount14+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -428,7 +428,7 @@ try {
 
 
 
-##### restrictions.removeDisallowedListForAccount14+
+#### restrictions.removeDisallowedListForAccount14+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -490,7 +490,7 @@ try {
 
 
 
-##### restrictions.getDisallowedListForAccount14+
+#### restrictions.getDisallowedListForAccount14+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -555,7 +555,7 @@ try {
 
 
 
-##### restrictions.setUserRestriction20+
+#### restrictions.setUserRestriction20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -614,7 +614,7 @@ try {
 
 
 
-##### restrictions.getUserRestricted20+
+#### restrictions.getUserRestricted20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -677,7 +677,7 @@ try {
 
 
 
-##### restrictions.setUserRestrictionForAccount23+
+#### restrictions.setUserRestrictionForAccount23+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -739,7 +739,7 @@ try {
 
 
 
-##### restrictions.getUserRestrictedForAccount23+
+#### restrictions.getUserRestrictedForAccount23+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -806,7 +806,7 @@ try {
 
 
 
-##### restrictions.setDisallowedPolicy24+
+#### restrictions.setDisallowedPolicy24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -867,7 +867,7 @@ try {
 
 
 
-##### restrictions.getDisallowedPolicy24+
+#### restrictions.getDisallowedPolicy24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -930,7 +930,7 @@ try {
 
 
 
-##### FeatureForDevice24+
+#### FeatureForDevice24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

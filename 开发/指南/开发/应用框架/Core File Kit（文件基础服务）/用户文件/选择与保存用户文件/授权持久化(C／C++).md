@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-fileshare-guidelines
 
-##### 场景介绍
+#### 场景介绍
 
 应用通过Picker获取临时授权，临时授权在应用退出后或者设备重启后会清除。如果应用重启或者设备重启后需要直接访问之前已访问过的文件，则对文件进行[持久化授权](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/file-persistpermission#场景介绍)。FileShare提供了支持基于uri的文件及目录授予持久化权限、权限激活、权限查询等方法。
 
 
 
-##### 接口说明
+#### 接口说明
 
 接口的详细介绍请参见[oh_file_uri.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-file-share-h)。
 
@@ -26,7 +26,7 @@
 
 
 
-##### 约束与限制
+#### 约束与限制
 
  - 使用文件分享的相关接口，需确认设备具有以下系统能力：SystemCapability.FileManagement.AppFileService.FolderAuthorization。
  - 在调用文件分享的相关接口前，需要申请权限："[ohos.permission.FILE_ACCESS_PERSIST](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/restricted-permissions#ohospermissionfile_access_persist)"，申请方式请参考[选择申请权限的方式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/determine-application-mode)。
@@ -34,7 +34,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 以下步骤描述了如何使用FileShare提供的Native API接口。
 

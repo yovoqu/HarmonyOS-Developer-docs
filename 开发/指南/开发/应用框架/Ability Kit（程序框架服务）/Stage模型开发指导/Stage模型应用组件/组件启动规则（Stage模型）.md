@@ -11,7 +11,7 @@
 
 
 
-##### 组件启动总体规则
+#### 组件启动总体规则
 
 为了保证用户具有更好的使用体验，对以下几种易影响用户体验与系统安全的行为做了限制：
 
@@ -38,7 +38,7 @@
 
 
 
-##### 同设备组件启动规则
+#### 同设备组件启动规则
 
 设备内启动组件，不同场景下的规则不同，可分为如下三种场景：
 
@@ -52,12 +52,12 @@
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/S896r33mTviR-lvgfpUWIA/zh-cn_image_0000002581273622.png?HW-CC-KV=V1&HW-CC-Date=20260528T014844Z&HW-CC-Expire=86400&HW-CC-Sign=9220D8B413438002244028EDA90CE82F4C7CFB0FC5DD94471A52F75A68979C30)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/S896r33mTviR-lvgfpUWIA/zh-cn_image_0000002581273622.png?HW-CC-KV=V1&HW-CC-Date=20260528T030511Z&HW-CC-Expire=86400&HW-CC-Sign=BADD9AE2FD8E0CC84D32BA3CB90DC4755161A233B5AD133941309AF5DFA3E3CD)
 
 
 
 
-##### 分布式跨设备组件启动规则
+#### 分布式跨设备组件启动规则
 
 跨设备启动组件，不同场景下的规则不同，可分为如下三种场景：
 
@@ -71,4 +71,4 @@
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/VmL-e6n-T3-f2B-HZs5J4Q/zh-cn_image_0000002611753477.png?HW-CC-KV=V1&HW-CC-Date=20260528T014844Z&HW-CC-Expire=86400&HW-CC-Sign=2C00A6A1E158D11B670ADB302BF986B9895AA8F03CC8B16FBA0710376BA6FD8E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/VmL-e6n-T3-f2B-HZs5J4Q/zh-cn_image_0000002611753477.png?HW-CC-KV=V1&HW-CC-Date=20260528T030511Z&HW-CC-Expire=86400&HW-CC-Sign=A65329A280C0A614B31270601986B01221247E19049B73CBE61D2F947A066C29)

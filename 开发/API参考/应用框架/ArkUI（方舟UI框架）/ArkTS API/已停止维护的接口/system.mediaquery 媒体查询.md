@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import mediaquery from '@system.mediaquery';
  
   
 
-##### MediaQuery
+#### MediaQuery
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -34,7 +34,7 @@ import mediaquery from '@system.mediaquery';
  
   
 
-##### matchMedia
+#### matchMedia
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -68,7 +68,7 @@ let mMediaQueryList = mediaquery.matchMedia('(max-width: 466)');
  
   
 
-##### MediaQueryEvent
+#### MediaQueryEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -85,7 +85,7 @@ let mMediaQueryList = mediaquery.matchMedia('(max-width: 466)');
  
   
 
-##### MediaQueryList
+#### MediaQueryList
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -93,7 +93,7 @@ let mMediaQueryList = mediaquery.matchMedia('(max-width: 466)');
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -110,7 +110,7 @@ let mMediaQueryList = mediaquery.matchMedia('(max-width: 466)');
  
   
 
-##### MediaQueryList.addListener
+#### MediaQueryList.addListener
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -145,7 +145,7 @@ mMediaQueryList.addListener(maxWidthMatch);
  
   
 
-##### MediaQueryList.removeListener
+#### MediaQueryList.removeListener
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { rpc } from '@kit.IPCKit';
 
 
 
-##### ErrorCode9+
+#### ErrorCode9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -50,7 +50,7 @@ import { rpc } from '@kit.IPCKit';
 
 
 
-##### TypeCode12+
+#### TypeCode12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -74,7 +74,7 @@ import { rpc } from '@kit.IPCKit';
 
 
 
-##### MessageSequence9+
+#### MessageSequence9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -82,7 +82,7 @@ import { rpc } from '@kit.IPCKit';
 
 
 
-##### create9+
+#### create9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -121,7 +121,7 @@ try {
 
 
 
-##### reclaim9+
+#### reclaim9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -150,7 +150,7 @@ try {
 
 
 
-##### writeRemoteObject9+
+#### writeRemoteObject9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -209,7 +209,7 @@ try {
 
 
 
-##### readRemoteObject9+
+#### readRemoteObject9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -269,7 +269,7 @@ try {
 
 
 
-##### writeInterfaceToken9+
+#### writeInterfaceToken9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -315,7 +315,7 @@ try {
 
 
 
-##### readInterfaceToken9+
+#### readInterfaceToken9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -362,7 +362,7 @@ try {
 
 
 
-##### getSize9+
+#### getSize9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -399,7 +399,7 @@ try {
 
 
 
-##### getCapacity9+
+#### getCapacity9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -436,7 +436,7 @@ try {
 
 
 
-##### setSize9+
+#### setSize9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -483,7 +483,7 @@ try {
 
 
 
-##### setCapacity9+
+#### setCapacity9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -530,7 +530,7 @@ try {
 
 
 
-##### getWritableBytes9+
+#### getWritableBytes9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -568,7 +568,7 @@ try {
 
 
 
-##### getReadableBytes9+
+#### getReadableBytes9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -606,7 +606,7 @@ try {
 
 
 
-##### getReadPosition9+
+#### getReadPosition9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -644,7 +644,7 @@ try {
 
 
 
-##### getWritePosition9+
+#### getWritePosition9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -682,7 +682,7 @@ try {
 
 
 
-##### rewindRead9+
+#### rewindRead9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -734,7 +734,7 @@ try {
 
 
 
-##### rewindWrite9+
+#### rewindWrite9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -784,7 +784,7 @@ try {
 
 
 
-##### writeByte9+
+#### writeByte9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -830,7 +830,7 @@ try {
 
 
 
-##### readByte9+
+#### readByte9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -877,7 +877,7 @@ try {
 
 
 
-##### writeShort9+
+#### writeShort9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -923,7 +923,7 @@ try {
 
 
 
-##### readShort9+
+#### readShort9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -970,7 +970,7 @@ try {
 
 
 
-##### writeInt9+
+#### writeInt9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1016,7 +1016,7 @@ try {
 
 
 
-##### readInt9+
+#### readInt9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1063,7 +1063,7 @@ try {
 
 
 
-##### writeLong9+
+#### writeLong9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1109,7 +1109,7 @@ try {
 
 
 
-##### readLong9+
+#### readLong9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1156,7 +1156,7 @@ try {
 
 
 
-##### writeFloat9+
+#### writeFloat9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1202,7 +1202,7 @@ try {
 
 
 
-##### readFloat9+
+#### readFloat9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1249,7 +1249,7 @@ try {
 
 
 
-##### writeDouble9+
+#### writeDouble9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1295,7 +1295,7 @@ try {
 
 
 
-##### readDouble9+
+#### readDouble9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1342,7 +1342,7 @@ try {
 
 
 
-##### writeBoolean9+
+#### writeBoolean9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1388,7 +1388,7 @@ try {
 
 
 
-##### readBoolean9+
+#### readBoolean9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1435,7 +1435,7 @@ try {
 
 
 
-##### writeChar9+
+#### writeChar9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1481,7 +1481,7 @@ try {
 
 
 
-##### readChar9+
+#### readChar9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1528,7 +1528,7 @@ try {
 
 
 
-##### writeString9+
+#### writeString9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1574,7 +1574,7 @@ try {
 
 
 
-##### readString9+
+#### readString9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1621,7 +1621,7 @@ try {
 
 
 
-##### writeParcelable9+
+#### writeParcelable9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1687,7 +1687,7 @@ try {
 
 
 
-##### readParcelable9+
+#### readParcelable9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1756,7 +1756,7 @@ try {
 
 
 
-##### writeByteArray9+
+#### writeByteArray9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1803,7 +1803,7 @@ try {
 
 
 
-##### readByteArray9+
+#### readByteArray9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1853,7 +1853,7 @@ try {
 
 
 
-##### readByteArray9+
+#### readByteArray9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1901,7 +1901,7 @@ try {
 
 
 
-##### writeShortArray9+
+#### writeShortArray9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1947,7 +1947,7 @@ try {
 
 
 
-##### readShortArray9+
+#### readShortArray9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1996,7 +1996,7 @@ try {
 
 
 
-##### readShortArray9+
+#### readShortArray9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2043,7 +2043,7 @@ try {
 
 
 
-##### writeIntArray9+
+#### writeIntArray9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2089,7 +2089,7 @@ try {
 
 
 
-##### readIntArray9+
+#### readIntArray9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2138,7 +2138,7 @@ try {
 
 
 
-##### readIntArray9+
+#### readIntArray9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2185,7 +2185,7 @@ try {
 
 
 
-##### writeLongArray9+
+#### writeLongArray9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2231,7 +2231,7 @@ try {
 
 
 
-##### readLongArray9+
+#### readLongArray9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2280,7 +2280,7 @@ try {
 
 
 
-##### readLongArray9+
+#### readLongArray9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2327,7 +2327,7 @@ try {
 
 
 
-##### writeFloatArray9+
+#### writeFloatArray9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2373,7 +2373,7 @@ try {
 
 
 
-##### readFloatArray9+
+#### readFloatArray9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2422,7 +2422,7 @@ try {
 
 
 
-##### readFloatArray9+
+#### readFloatArray9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2469,7 +2469,7 @@ try {
 
 
 
-##### writeDoubleArray9+
+#### writeDoubleArray9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2515,7 +2515,7 @@ try {
 
 
 
-##### readDoubleArray9+
+#### readDoubleArray9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2564,7 +2564,7 @@ try {
 
 
 
-##### readDoubleArray9+
+#### readDoubleArray9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2611,7 +2611,7 @@ try {
 
 
 
-##### writeBooleanArray9+
+#### writeBooleanArray9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2657,7 +2657,7 @@ try {
 
 
 
-##### readBooleanArray9+
+#### readBooleanArray9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2706,7 +2706,7 @@ try {
 
 
 
-##### readBooleanArray9+
+#### readBooleanArray9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2753,7 +2753,7 @@ try {
 
 
 
-##### writeCharArray9+
+#### writeCharArray9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2799,7 +2799,7 @@ try {
 
 
 
-##### readCharArray9+
+#### readCharArray9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2848,7 +2848,7 @@ try {
 
 
 
-##### readCharArray9+
+#### readCharArray9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2895,7 +2895,7 @@ try {
 
 
 
-##### writeStringArray9+
+#### writeStringArray9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2941,7 +2941,7 @@ try {
 
 
 
-##### readStringArray9+
+#### readStringArray9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2990,7 +2990,7 @@ try {
 
 
 
-##### readStringArray9+
+#### readStringArray9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3037,7 +3037,7 @@ try {
 
 
 
-##### writeNoException9+
+#### writeNoException9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3089,7 +3089,7 @@ class TestRemoteObject extends rpc.RemoteObject {
 
 
 
-##### readException9+
+#### readException9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3190,7 +3190,7 @@ try {
 
 
 
-##### writeParcelableArray9+
+#### writeParcelableArray9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3259,7 +3259,7 @@ try {
 
 
 
-##### readParcelableArray9+
+#### readParcelableArray9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3330,7 +3330,7 @@ try {
 
 
 
-##### writeRemoteObjectArray9+
+#### writeRemoteObjectArray9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3388,7 +3388,7 @@ try {
 
 
 
-##### readRemoteObjectArray9+
+#### readRemoteObjectArray9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3449,7 +3449,7 @@ try {
 
 
 
-##### readRemoteObjectArray9+
+#### readRemoteObjectArray9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3507,7 +3507,7 @@ try {
 
 
 
-##### closeFileDescriptor9+
+#### closeFileDescriptor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3554,7 +3554,7 @@ try {
 
 
 
-##### dupFileDescriptor9+
+#### dupFileDescriptor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3609,7 +3609,7 @@ try {
 
 
 
-##### containFileDescriptors9+
+#### containFileDescriptors9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3649,7 +3649,7 @@ try {
 
 
 
-##### writeFileDescriptor9+
+#### writeFileDescriptor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3698,7 +3698,7 @@ try {
 
 
 
-##### readFileDescriptor9+
+#### readFileDescriptor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3748,7 +3748,7 @@ try {
 
 
 
-##### writeAshmem9+
+#### writeAshmem9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3807,7 +3807,7 @@ try {
 
 
 
-##### readAshmem9+
+#### readAshmem9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3875,7 +3875,7 @@ try {
 
 
 
-##### getRawDataCapacity9+
+#### getRawDataCapacity9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3912,7 +3912,7 @@ try {
 
 
 
-##### writeRawData(deprecated)
+#### writeRawData(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3964,7 +3964,7 @@ try {
 
 
 
-##### writeRawDataBuffer11+
+#### writeRawDataBuffer11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4021,7 +4021,7 @@ try {
 
 
 
-##### readRawData(deprecated)
+#### readRawData(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4082,7 +4082,7 @@ try {
 
 
 
-##### readRawDataBuffer11+
+#### readRawDataBuffer11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4144,7 +4144,7 @@ try {
 
 
 
-##### writeArrayBuffer12+
+#### writeArrayBuffer12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4197,7 +4197,7 @@ try {
 
 
 
-##### readArrayBuffer12+
+#### readArrayBuffer12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4259,7 +4259,7 @@ try {
 
 
 
-##### MessageParcel(deprecated)
+#### MessageParcel(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4273,7 +4273,7 @@ try {
 
 
 
-##### create(deprecated)
+#### create(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4313,7 +4313,7 @@ try {
 
 
 
-##### reclaim(deprecated)
+#### reclaim(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4343,7 +4343,7 @@ try {
 
 
 
-##### writeRemoteObject(deprecated)
+#### writeRemoteObject(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4398,7 +4398,7 @@ try {
 
 
 
-##### readRemoteObject(deprecated)
+#### readRemoteObject(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4449,7 +4449,7 @@ try {
 
 
 
-##### writeInterfaceToken(deprecated)
+#### writeInterfaceToken(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4494,7 +4494,7 @@ try {
 
 
 
-##### readInterfaceToken(deprecated)
+#### readInterfaceToken(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4533,7 +4533,7 @@ try {
 
 
 
-##### getSize(deprecated)
+#### getSize(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4572,7 +4572,7 @@ try {
 
 
 
-##### getCapacity(deprecated)
+#### getCapacity(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4610,7 +4610,7 @@ try {
 
 
 
-##### setSize(deprecated)
+#### setSize(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4655,7 +4655,7 @@ try {
 
 
 
-##### setCapacity(deprecated)
+#### setCapacity(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4700,7 +4700,7 @@ try {
 
 
 
-##### getWritableBytes(deprecated)
+#### getWritableBytes(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4739,7 +4739,7 @@ try {
 
 
 
-##### getReadableBytes(deprecated)
+#### getReadableBytes(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4778,7 +4778,7 @@ try {
 
 
 
-##### getReadPosition(deprecated)
+#### getReadPosition(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4816,7 +4816,7 @@ try {
 
 
 
-##### getWritePosition(deprecated)
+#### getWritePosition(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4855,7 +4855,7 @@ try {
 
 
 
-##### rewindRead(deprecated)
+#### rewindRead(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4905,7 +4905,7 @@ try {
 
 
 
-##### rewindWrite(deprecated)
+#### rewindWrite(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4953,7 +4953,7 @@ try {
 
 
 
-##### writeByte(deprecated)
+#### writeByte(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4998,7 +4998,7 @@ try {
 
 
 
-##### readByte(deprecated)
+#### readByte(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5038,7 +5038,7 @@ try {
 
 
 
-##### writeShort(deprecated)
+#### writeShort(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5083,7 +5083,7 @@ try {
 
 
 
-##### readShort(deprecated)
+#### readShort(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5123,7 +5123,7 @@ try {
 
 
 
-##### writeInt(deprecated)
+#### writeInt(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5168,7 +5168,7 @@ try {
 
 
 
-##### readInt(deprecated)
+#### readInt(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5208,7 +5208,7 @@ try {
 
 
 
-##### writeLong(deprecated)
+#### writeLong(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5253,7 +5253,7 @@ try {
 
 
 
-##### readLong(deprecated)
+#### readLong(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5293,7 +5293,7 @@ try {
 
 
 
-##### writeFloat(deprecated)
+#### writeFloat(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5338,7 +5338,7 @@ try {
 
 
 
-##### readFloat(deprecated)
+#### readFloat(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5378,7 +5378,7 @@ try {
 
 
 
-##### writeDouble(deprecated)
+#### writeDouble(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5423,7 +5423,7 @@ try {
 
 
 
-##### readDouble(deprecated)
+#### readDouble(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5463,7 +5463,7 @@ try {
 
 
 
-##### writeBoolean(deprecated)
+#### writeBoolean(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5508,7 +5508,7 @@ try {
 
 
 
-##### readBoolean(deprecated)
+#### readBoolean(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5548,7 +5548,7 @@ try {
 
 
 
-##### writeChar(deprecated)
+#### writeChar(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5593,7 +5593,7 @@ try {
 
 
 
-##### readChar(deprecated)
+#### readChar(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5633,7 +5633,7 @@ try {
 
 
 
-##### writeString(deprecated)
+#### writeString(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5678,7 +5678,7 @@ try {
 
 
 
-##### readString(deprecated)
+#### readString(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5718,7 +5718,7 @@ try {
 
 
 
-##### writeSequenceable(deprecated)
+#### writeSequenceable(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5783,7 +5783,7 @@ try {
 
 
 
-##### readSequenceable(deprecated)
+#### readSequenceable(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5851,7 +5851,7 @@ try {
 
 
 
-##### writeByteArray(deprecated)
+#### writeByteArray(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5897,7 +5897,7 @@ try {
 
 
 
-##### readByteArray(deprecated)
+#### readByteArray(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5938,7 +5938,7 @@ try {
 
 
 
-##### readByteArray(deprecated)
+#### readByteArray(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5979,7 +5979,7 @@ try {
 
 
 
-##### writeShortArray(deprecated)
+#### writeShortArray(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6024,7 +6024,7 @@ try {
 
 
 
-##### readShortArray(deprecated)
+#### readShortArray(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6065,7 +6065,7 @@ try {
 
 
 
-##### readShortArray(deprecated)
+#### readShortArray(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6105,7 +6105,7 @@ try {
 
 
 
-##### writeIntArray(deprecated)
+#### writeIntArray(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6150,7 +6150,7 @@ try {
 
 
 
-##### readIntArray(deprecated)
+#### readIntArray(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6191,7 +6191,7 @@ try {
 
 
 
-##### readIntArray(deprecated)
+#### readIntArray(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6231,7 +6231,7 @@ try {
 
 
 
-##### writeLongArray(deprecated)
+#### writeLongArray(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6276,7 +6276,7 @@ try {
 
 
 
-##### readLongArray(deprecated)
+#### readLongArray(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6317,7 +6317,7 @@ try {
 
 
 
-##### readLongArray(deprecated)
+#### readLongArray(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6357,7 +6357,7 @@ try {
 
 
 
-##### writeFloatArray(deprecated)
+#### writeFloatArray(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6402,7 +6402,7 @@ try {
 
 
 
-##### readFloatArray(deprecated)
+#### readFloatArray(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6443,7 +6443,7 @@ try {
 
 
 
-##### readFloatArray(deprecated)
+#### readFloatArray(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6483,7 +6483,7 @@ try {
 
 
 
-##### writeDoubleArray(deprecated)
+#### writeDoubleArray(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6528,7 +6528,7 @@ try {
 
 
 
-##### readDoubleArray(deprecated)
+#### readDoubleArray(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6569,7 +6569,7 @@ try {
 
 
 
-##### readDoubleArray(deprecated)
+#### readDoubleArray(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6609,7 +6609,7 @@ try {
 
 
 
-##### writeBooleanArray(deprecated)
+#### writeBooleanArray(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6654,7 +6654,7 @@ try {
 
 
 
-##### readBooleanArray(deprecated)
+#### readBooleanArray(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6695,7 +6695,7 @@ try {
 
 
 
-##### readBooleanArray(deprecated)
+#### readBooleanArray(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6735,7 +6735,7 @@ try {
 
 
 
-##### writeCharArray(deprecated)
+#### writeCharArray(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6780,7 +6780,7 @@ try {
 
 
 
-##### readCharArray(deprecated)
+#### readCharArray(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6821,7 +6821,7 @@ try {
 
 
 
-##### readCharArray(deprecated)
+#### readCharArray(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6861,7 +6861,7 @@ try {
 
 
 
-##### writeStringArray(deprecated)
+#### writeStringArray(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6906,7 +6906,7 @@ try {
 
 
 
-##### readStringArray(deprecated)
+#### readStringArray(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6947,7 +6947,7 @@ try {
 
 
 
-##### readStringArray(deprecated)
+#### readStringArray(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6987,7 +6987,7 @@ try {
 
 
 
-##### writeNoException(deprecated)
+#### writeNoException(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7032,7 +7032,7 @@ onRemoteRequest(code: number, data: rpc.MessageParcel, reply: rpc.MessageParcel,
 
 
 
-##### readException(deprecated)
+#### readException(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7126,7 +7126,7 @@ try {
 
 
 
-##### writeSequenceableArray(deprecated)
+#### writeSequenceableArray(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7194,7 +7194,7 @@ try {
 
 
 
-##### readSequenceableArray(deprecated)
+#### readSequenceableArray(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7257,7 +7257,7 @@ try {
 
 
 
-##### writeRemoteObjectArray(deprecated)
+#### writeRemoteObjectArray(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7314,7 +7314,7 @@ try {
 
 
 
-##### readRemoteObjectArray(deprecated)
+#### readRemoteObjectArray(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7367,7 +7367,7 @@ try {
 
 
 
-##### readRemoteObjectArray(deprecated)
+#### readRemoteObjectArray(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7420,7 +7420,7 @@ try {
 
 
 
-##### closeFileDescriptor(deprecated)
+#### closeFileDescriptor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7459,7 +7459,7 @@ try {
 
 
 
-##### dupFileDescriptor(deprecated)
+#### dupFileDescriptor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7505,7 +7505,7 @@ try {
 
 
 
-##### containFileDescriptors(deprecated)
+#### containFileDescriptors(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7548,7 +7548,7 @@ try {
 
 
 
-##### writeFileDescriptor(deprecated)
+#### writeFileDescriptor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7596,7 +7596,7 @@ try {
 
 
 
-##### readFileDescriptor(deprecated)
+#### readFileDescriptor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7638,7 +7638,7 @@ try {
 
 
 
-##### writeAshmem(deprecated)
+#### writeAshmem(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7684,7 +7684,7 @@ try {
 
 
 
-##### readAshmem(deprecated)
+#### readAshmem(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7725,7 +7725,7 @@ try {
 
 
 
-##### getRawDataCapacity(deprecated)
+#### getRawDataCapacity(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7763,7 +7763,7 @@ try {
 
 
 
-##### writeRawData(deprecated)
+#### writeRawData(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7810,7 +7810,7 @@ try {
 
 
 
-##### readRawData(deprecated)
+#### readRawData(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7858,7 +7858,7 @@ try {
 
 
 
-##### Parcelable9+
+#### Parcelable9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7868,7 +7868,7 @@ try {
 
 
 
-##### marshalling9+
+#### marshalling9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7931,7 +7931,7 @@ try {
 
 
 
-##### unmarshalling9+
+#### unmarshalling9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7994,7 +7994,7 @@ try {
 
 
 
-##### Sequenceable(deprecated)
+#### Sequenceable(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8008,7 +8008,7 @@ try {
 
 
 
-##### marshalling(deprecated)
+#### marshalling(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8076,7 +8076,7 @@ try {
 
 
 
-##### unmarshalling(deprecated)
+#### unmarshalling(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8144,7 +8144,7 @@ try {
 
 
 
-##### IRemoteBroker
+#### IRemoteBroker
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8154,7 +8154,7 @@ try {
 
 
 
-##### asObject
+#### asObject
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8246,7 +8246,7 @@ if (proxy != undefined) {
 
 
 
-##### DeathRecipient
+#### DeathRecipient
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8256,7 +8256,7 @@ if (proxy != undefined) {
 
 
 
-##### onRemoteDied
+#### onRemoteDied
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8281,7 +8281,7 @@ class MyDeathRecipient implements rpc.DeathRecipient {
 
 
 
-##### RequestResult9+
+#### RequestResult9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8299,7 +8299,7 @@ class MyDeathRecipient implements rpc.DeathRecipient {
 
 
 
-##### SendRequestResult(deprecated)
+#### SendRequestResult(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8321,7 +8321,7 @@ class MyDeathRecipient implements rpc.DeathRecipient {
 
 
 
-##### CallingInfo23+
+#### CallingInfo23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8341,7 +8341,7 @@ IPC上下文信息，包括PID和UID、本端和对端设备ID、检查接口调
 
 
 
-##### IRemoteObject
+#### IRemoteObject
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8351,7 +8351,7 @@ IPC上下文信息，包括PID和UID、本端和对端设备ID、检查接口调
 
 
 
-##### getLocalInterface9+
+#### getLocalInterface9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8386,7 +8386,7 @@ getLocalInterface(descriptor: string): IRemoteBroker
 
 
 
-##### queryLocalInterface(deprecated)
+#### queryLocalInterface(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8416,7 +8416,7 @@ queryLocalInterface(descriptor: string): IRemoteBroker
 
 
 
-##### sendRequest(deprecated)
+#### sendRequest(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8449,7 +8449,7 @@ sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: Me
 
 
 
-##### sendMessageRequest9+
+#### sendMessageRequest9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8487,7 +8487,7 @@ sendMessageRequest(code: number, data: MessageSequence, reply: MessageSequence, 
 
 
 
-##### sendRequest(deprecated)
+#### sendRequest(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8520,7 +8520,7 @@ sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: Me
 
 
 
-##### sendMessageRequest9+
+#### sendMessageRequest9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8552,7 +8552,7 @@ sendMessageRequest(code: number, data: MessageSequence, reply: MessageSequence, 
 
 
 
-##### sendRequest(deprecated)
+#### sendRequest(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8579,7 +8579,7 @@ sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: Me
 
 
 
-##### registerDeathRecipient9+
+#### registerDeathRecipient9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8610,7 +8610,7 @@ registerDeathRecipient(recipient: DeathRecipient, flags: number): void
 
 
 
-##### addDeathRecipient(deprecated)
+#### addDeathRecipient(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8641,7 +8641,7 @@ addDeathRecipient(recipient: DeathRecipient, flags: number): boolean
 
 
 
-##### unregisterDeathRecipient9+
+#### unregisterDeathRecipient9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8672,7 +8672,7 @@ unregisterDeathRecipient(recipient: DeathRecipient, flags: number): void
 
 
 
-##### removeDeathRecipient(deprecated)
+#### removeDeathRecipient(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8703,7 +8703,7 @@ removeDeathRecipient(recipient: DeathRecipient, flags: number): boolean
 
 
 
-##### getDescriptor9+
+#### getDescriptor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8731,7 +8731,7 @@ getDescriptor(): string
 
 
 
-##### getInterfaceDescriptor(deprecated)
+#### getInterfaceDescriptor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8754,7 +8754,7 @@ getInterfaceDescriptor(): string
 
 
 
-##### isObjectDead
+#### isObjectDead
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8773,7 +8773,7 @@ isObjectDead(): boolean
 
 
 
-##### RemoteProxy
+#### RemoteProxy
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8783,7 +8783,7 @@ isObjectDead(): boolean
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8800,7 +8800,7 @@ isObjectDead(): boolean
 
 
 
-##### sendRequest(deprecated)
+#### sendRequest(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8904,7 +8904,7 @@ try {
 
 
 
-##### sendMessageRequest9+
+#### sendMessageRequest9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9020,7 +9020,7 @@ try {
 
 
 
-##### sendRequest(deprecated)
+#### sendRequest(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9132,7 +9132,7 @@ try {
 
 
 
-##### sendMessageRequest9+
+#### sendMessageRequest9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9164,7 +9164,7 @@ sendMessageRequest(code: number, data: MessageSequence, reply: MessageSequence, 
 
 
 
-##### sendRequest(deprecated)
+#### sendRequest(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9191,7 +9191,7 @@ sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: Me
 
 
 
-##### getLocalInterface9+
+#### getLocalInterface9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9287,7 +9287,7 @@ if (proxy != undefined) {
 
 
 
-##### queryLocalInterface(deprecated)
+#### queryLocalInterface(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9370,7 +9370,7 @@ if (proxy != undefined) {
 
 
 
-##### registerDeathRecipient9+
+#### registerDeathRecipient9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9465,7 +9465,7 @@ if (proxy != undefined) {
 
 
 
-##### addDeathRecipient(deprecated)
+#### addDeathRecipient(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9554,7 +9554,7 @@ if (proxy != undefined) {
 
 
 
-##### unregisterDeathRecipient9+
+#### unregisterDeathRecipient9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9650,7 +9650,7 @@ if (proxy != undefined) {
 
 
 
-##### removeDeathRecipient(deprecated)
+#### removeDeathRecipient(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9740,7 +9740,7 @@ if (proxy != undefined) {
 
 
 
-##### getDescriptor9+
+#### getDescriptor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9829,7 +9829,7 @@ if (proxy != undefined) {
 
 
 
-##### getInterfaceDescriptor(deprecated)
+#### getInterfaceDescriptor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9905,7 +9905,7 @@ if (proxy != undefined) {
 
 
 
-##### isObjectDead
+#### isObjectDead
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9977,7 +9977,7 @@ if (proxy != undefined) {
 
 
 
-##### MessageOption
+#### MessageOption
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9987,7 +9987,7 @@ if (proxy != undefined) {
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10003,7 +10003,7 @@ if (proxy != undefined) {
 
 
 
-##### constructor9+
+#### constructor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10034,7 +10034,7 @@ class TestRemoteObject extends rpc.MessageOption {
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10066,7 +10066,7 @@ class TestRemoteObject extends rpc.MessageOption {
 
 
 
-##### isAsync9+
+#### isAsync9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10099,7 +10099,7 @@ try {
 
 
 
-##### setAsync9+
+#### setAsync9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10132,7 +10132,7 @@ try {
 
 
 
-##### getFlags
+#### getFlags
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10171,7 +10171,7 @@ try {
 
 
 
-##### setFlags
+#### setFlags
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10207,7 +10207,7 @@ try {
 
 
 
-##### getWaitTime
+#### getWaitTime
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10244,7 +10244,7 @@ try {
 
 
 
-##### setWaitTime
+#### setWaitTime
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10279,7 +10279,7 @@ try {
 
 
 
-##### IPCSkeleton
+#### IPCSkeleton
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10289,7 +10289,7 @@ try {
 
 
 
-##### getContextObject
+#### getContextObject
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10322,7 +10322,7 @@ try {
 
 
 
-##### getCallingPid
+#### getCallingPid
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10361,7 +10361,7 @@ class Stub extends rpc.RemoteObject {
 
 
 
-##### getCallingUid
+#### getCallingUid
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10400,7 +10400,7 @@ class Stub extends rpc.RemoteObject {
 
 
 
-##### getCallingTokenId8+
+#### getCallingTokenId8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10439,7 +10439,7 @@ class Stub extends rpc.RemoteObject {
 
 
 
-##### getCallingDeviceID
+#### getCallingDeviceID
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10478,7 +10478,7 @@ class Stub extends rpc.RemoteObject {
 
 
 
-##### getLocalDeviceID
+#### getLocalDeviceID
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10517,7 +10517,7 @@ class Stub extends rpc.RemoteObject {
 
 
 
-##### isLocalCalling
+#### isLocalCalling
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10556,7 +10556,7 @@ class Stub extends rpc.RemoteObject {
 
 
 
-##### flushCmdBuffer9+
+#### flushCmdBuffer9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10611,7 +10611,7 @@ try {
 
 
 
-##### flushCommands(deprecated)
+#### flushCommands(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10668,7 +10668,7 @@ try {
 
 
 
-##### resetCallingIdentity
+#### resetCallingIdentity
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10707,7 +10707,7 @@ class Stub extends rpc.RemoteObject {
 
 
 
-##### restoreCallingIdentity9+
+#### restoreCallingIdentity9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10756,7 +10756,7 @@ class Stub extends rpc.RemoteObject {
 
 
 
-##### setCallingIdentity(deprecated)
+#### setCallingIdentity(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10808,7 +10808,7 @@ class Stub extends rpc.RemoteObject {
 
 
 
-##### RemoteObject
+#### RemoteObject
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10818,7 +10818,7 @@ class Stub extends rpc.RemoteObject {
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10849,7 +10849,7 @@ class TestRemoteObject extends rpc.RemoteObject {
 
 
 
-##### sendRequest(deprecated)
+#### sendRequest(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10918,7 +10918,7 @@ try {
 
 
 
-##### sendMessageRequest9+
+#### sendMessageRequest9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11002,7 +11002,7 @@ try {
 
 
 
-##### sendRequest(deprecated)
+#### sendRequest(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11081,7 +11081,7 @@ try {
 
 
 
-##### sendMessageRequest9+
+#### sendMessageRequest9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11113,7 +11113,7 @@ sendMessageRequest(code: number, data: MessageSequence, reply: MessageSequence, 
 
 
 
-##### sendRequest(deprecated)
+#### sendRequest(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11140,7 +11140,7 @@ sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: Me
 
 
 
-##### onRemoteMessageRequest23+
+#### onRemoteMessageRequest23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11265,7 +11265,7 @@ class TestRemoteObject extends rpc.RemoteObject {
 
 
 
-##### onRemoteMessageRequest9+
+#### onRemoteMessageRequest9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11386,7 +11386,7 @@ class TestRemoteObject extends rpc.RemoteObject {
 
 
 
-##### onRemoteRequest(deprecated)
+#### onRemoteRequest(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11441,7 +11441,7 @@ class TestRemoteObject extends rpc.RemoteObject {
 
 
 
-##### getCallingUid
+#### getCallingUid
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11484,7 +11484,7 @@ try {
 
 
 
-##### getCallingPid
+#### getCallingPid
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11527,7 +11527,7 @@ try {
 
 
 
-##### getLocalInterface9+
+#### getLocalInterface9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11589,7 +11589,7 @@ try {
 
 
 
-##### queryLocalInterface(deprecated)
+#### queryLocalInterface(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11643,7 +11643,7 @@ try {
 
 
 
-##### getDescriptor9+
+#### getDescriptor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11699,7 +11699,7 @@ try {
 
 
 
-##### getInterfaceDescriptor(deprecated)
+#### getInterfaceDescriptor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11748,7 +11748,7 @@ try {
 
 
 
-##### modifyLocalInterface9+
+#### modifyLocalInterface9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11810,7 +11810,7 @@ let testRemoteObject = new TestRemoteObject("testObject");
 
 
 
-##### attachLocalInterface(deprecated)
+#### attachLocalInterface(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11862,7 +11862,7 @@ let testRemoteObject = new TestRemoteObject("testObject");
 
 
 
-##### Ashmem8+
+#### Ashmem8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11874,7 +11874,7 @@ let testRemoteObject = new TestRemoteObject("testObject");
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11890,7 +11890,7 @@ let testRemoteObject = new TestRemoteObject("testObject");
 
 
 
-##### create9+
+#### create9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11945,7 +11945,7 @@ try {
 
 
 
-##### createAshmem(deprecated)
+#### createAshmem(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11992,7 +11992,7 @@ try {
 
 
 
-##### create9+
+#### create9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -12046,7 +12046,7 @@ try {
 
 
 
-##### createAshmemFromExisting(deprecated)
+#### createAshmemFromExisting(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -12092,7 +12092,7 @@ try {
 
 
 
-##### closeAshmem8+
+#### closeAshmem8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -12122,7 +12122,7 @@ try {
 
 
 
-##### unmapAshmem8+
+#### unmapAshmem8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -12148,7 +12148,7 @@ try {
 
 
 
-##### getAshmemSize8+
+#### getAshmemSize8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -12182,7 +12182,7 @@ try {
 
 
 
-##### mapTypedAshmem9+
+#### mapTypedAshmem9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -12228,7 +12228,7 @@ try {
 
 
 
-##### mapAshmem(deprecated)
+#### mapAshmem(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -12273,7 +12273,7 @@ try {
 
 
 
-##### mapReadWriteAshmem9+
+#### mapReadWriteAshmem9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -12311,7 +12311,7 @@ try {
 
 
 
-##### mapReadAndWriteAshmem(deprecated)
+#### mapReadAndWriteAshmem(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -12349,7 +12349,7 @@ try {
 
 
 
-##### mapReadonlyAshmem9+
+#### mapReadonlyAshmem9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -12387,7 +12387,7 @@ try {
 
 
 
-##### mapReadOnlyAshmem(deprecated)
+#### mapReadOnlyAshmem(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -12425,7 +12425,7 @@ try {
 
 
 
-##### setProtectionType9+
+#### setProtectionType9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -12471,7 +12471,7 @@ try {
 
 
 
-##### setProtection(deprecated)
+#### setProtection(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -12517,7 +12517,7 @@ try {
 
 
 
-##### writeDataToAshmem11+
+#### writeDataToAshmem11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -12576,7 +12576,7 @@ try {
 
 
 
-##### writeAshmem(deprecated)
+#### writeAshmem(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -12630,7 +12630,7 @@ try {
 
 
 
-##### writeToAshmem(deprecated)
+#### writeToAshmem(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -12680,7 +12680,7 @@ try {
 
 
 
-##### readDataFromAshmem11+
+#### readDataFromAshmem11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -12748,7 +12748,7 @@ try {
 
 
 
-##### readAshmem(deprecated)
+#### readAshmem(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -12810,7 +12810,7 @@ try {
 
 
 
-##### readFromAshmem(deprecated)
+#### readFromAshmem(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

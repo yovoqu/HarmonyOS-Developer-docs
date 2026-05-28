@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-bubble
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -16,7 +16,7 @@ import { image } from '@kit.ImageKit';
  
   
 
-##### Bubble
+#### Bubble
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -57,7 +57,7 @@ let bubble: map.Bubble = await this.mapController.addBubble(bubbleOptions);
  
   
 
-##### setIcons
+#### setIcons
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -102,7 +102,7 @@ await bubble.setIcons(icons);
  
   
 
-##### setPositions
+#### setPositions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

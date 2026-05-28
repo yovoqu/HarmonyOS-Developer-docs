@@ -10,7 +10,7 @@ typedef struct {...} ArkWeb_CookieManagerAPI
 ```
   
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,13 +24,13 @@ typedef struct {...} ArkWeb_CookieManagerAPI
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -41,7 +41,7 @@ typedef struct {...} ArkWeb_CookieManagerAPI
  
   
 
-##### 成员函数
+#### 成员函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -56,13 +56,13 @@ typedef struct {...} ArkWeb_CookieManagerAPI
  
   
 
-##### 成员函数说明
+#### 成员函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### fetchCookieSync()
+#### fetchCookieSync()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -93,7 +93,7 @@ ArkWeb_ErrorCode (*fetchCookieSync)(const char* url, bool incognito, bool includ
  
   
 
-##### configCookieSync()
+#### configCookieSync()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -124,7 +124,7 @@ ArkWeb_ErrorCode (*configCookieSync)(const char* url,const char* cookieValue, bo
  
   
 
-##### existCookies()
+#### existCookies()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -152,7 +152,7 @@ bool (*existCookies)(bool incognito)
  
   
 
-##### clearAllCookiesSync()
+#### clearAllCookiesSync()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -173,7 +173,7 @@ void (*clearAllCookiesSync)(bool incognito)
  
   
 
-##### clearSessionCookiesSync()
+#### clearSessionCookiesSync()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

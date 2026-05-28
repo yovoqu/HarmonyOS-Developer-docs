@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getprimaryformat
 
-##### 函数功能
+#### 函数功能
 
 从实际format中解析出主format信息。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 inline int32_t GetPrimaryFormat(int32_t format)
@@ -18,7 +18,7 @@ inline int32_t GetPrimaryFormat(int32_t format)
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -27,18 +27,18 @@ inline int32_t GetPrimaryFormat(int32_t format)
  
   
 
-##### 返回值
+#### 返回值
 
 实际format中包含的主format。
  
   
 
-##### 异常处理
+#### 异常处理
 
 无
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

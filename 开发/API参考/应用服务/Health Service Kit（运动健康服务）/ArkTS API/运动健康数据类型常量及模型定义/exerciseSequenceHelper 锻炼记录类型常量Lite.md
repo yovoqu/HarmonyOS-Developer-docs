@@ -10,7 +10,7 @@
 **起始版本：** 6.1.1(24)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** lite_wearable
 
@@ -24,7 +24,7 @@ import healthStore from '@hms.health.store';
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** lite_wearable
 
@@ -41,7 +41,7 @@ import healthStore from '@hms.health.store';
  
   
 
-##### badminton
+#### badminton
 
 **支持设备：** lite_wearable
 
@@ -55,7 +55,7 @@ import healthStore from '@hms.health.store';
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** lite_wearable
 
@@ -72,7 +72,7 @@ import healthStore from '@hms.health.store';
  
   
 
-##### SummaryFields
+#### SummaryFields
 
 **支持设备：** lite_wearable
 
@@ -93,7 +93,7 @@ type SummaryFields = healthFields.BadmintonSummary
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** lite_wearable
 
@@ -114,7 +114,7 @@ type DetailFields = healthFields.BadmintonDetail
  
   
 
-##### tennis
+#### tennis
 
 **支持设备：** lite_wearable
 
@@ -128,7 +128,7 @@ type DetailFields = healthFields.BadmintonDetail
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** lite_wearable
 
@@ -145,7 +145,7 @@ type DetailFields = healthFields.BadmintonDetail
  
   
 
-##### SummaryFields
+#### SummaryFields
 
 **支持设备：** lite_wearable
 
@@ -166,7 +166,7 @@ type SummaryFields = healthFields.TennisSummary
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** lite_wearable
 
@@ -187,7 +187,7 @@ type DetailFields = healthFields.TennisDetail
  
   
 
-##### stairClimb
+#### stairClimb
 
 **支持设备：** lite_wearable
 
@@ -201,7 +201,7 @@ type DetailFields = healthFields.TennisDetail
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** lite_wearable
 
@@ -218,7 +218,7 @@ type DetailFields = healthFields.TennisDetail
  
   
 
-##### SummaryFields
+#### SummaryFields
 
 **支持设备：** lite_wearable
 
@@ -239,7 +239,7 @@ type SummaryFields = healthFields.StairClimbSummary
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** lite_wearable
 
@@ -260,7 +260,7 @@ type DetailFields = healthFields.StairClimbDetail
  
   
 
-##### soccer
+#### soccer
 
 **支持设备：** lite_wearable
 
@@ -274,7 +274,7 @@ type DetailFields = healthFields.StairClimbDetail
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** lite_wearable
 
@@ -291,7 +291,7 @@ type DetailFields = healthFields.StairClimbDetail
  
   
 
-##### SummaryFields
+#### SummaryFields
 
 **支持设备：** lite_wearable
 
@@ -312,7 +312,7 @@ type SummaryFields = healthFields.SoccerSummary
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** lite_wearable
 
@@ -333,7 +333,7 @@ type DetailFields = healthFields.SoccerDetail
  
   
 
-##### pickleBall
+#### pickleBall
 
 **支持设备：** lite_wearable
 
@@ -347,7 +347,7 @@ type DetailFields = healthFields.SoccerDetail
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** lite_wearable
 
@@ -364,7 +364,7 @@ type DetailFields = healthFields.SoccerDetail
  
   
 
-##### SummaryFields
+#### SummaryFields
 
 **支持设备：** lite_wearable
 
@@ -385,7 +385,7 @@ type SummaryFields = healthFields.PickleBallSummary
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** lite_wearable
 
@@ -406,7 +406,7 @@ type DetailFields = healthFields.PickleBallDetail
  
   
 
-##### strengthTraining
+#### strengthTraining
 
 **支持设备：** lite_wearable
 
@@ -420,7 +420,7 @@ type DetailFields = healthFields.PickleBallDetail
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** lite_wearable
 
@@ -437,7 +437,7 @@ type DetailFields = healthFields.PickleBallDetail
  
   
 
-##### SummaryFields
+#### SummaryFields
 
 **支持设备：** lite_wearable
 
@@ -458,7 +458,7 @@ type SummaryFields = healthFields.StrengthTrainingSummary
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** lite_wearable
 

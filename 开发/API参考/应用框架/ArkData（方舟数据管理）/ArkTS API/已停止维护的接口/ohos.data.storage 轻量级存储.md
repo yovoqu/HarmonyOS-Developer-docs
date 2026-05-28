@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import data_storage from '@ohos.data.storage';
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -36,7 +36,7 @@ import data_storage from '@ohos.data.storage';
  
   
 
-##### data_storage.getStorageSync
+#### data_storage.getStorageSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -79,7 +79,7 @@ context.getFilesDir().then((filePath) => {
  
   
 
-##### data_storage.getStorage
+#### data_storage.getStorage
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -121,7 +121,7 @@ context.getFilesDir().then((filePath) => {
  
   
 
-##### data_storage.getStorage
+#### data_storage.getStorage
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -168,7 +168,7 @@ context.getFilesDir().then((filePath) => {
  
   
 
-##### data_storage.deleteStorageSync
+#### data_storage.deleteStorageSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -202,7 +202,7 @@ context.getFilesDir().then((filePath) => {
  
   
 
-##### data_storage.deleteStorage
+#### data_storage.deleteStorage
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -243,7 +243,7 @@ context.getFilesDir().then((filePath) => {
  
   
 
-##### data_storage.deleteStorage
+#### data_storage.deleteStorage
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -289,7 +289,7 @@ context.getFilesDir().then((filePath) => {
  
   
 
-##### data_storage.removeStorageFromCacheSync
+#### data_storage.removeStorageFromCacheSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -323,7 +323,7 @@ context.getFilesDir().then((filePath) => {
  
   
 
-##### data_storage.removeStorageFromCache
+#### data_storage.removeStorageFromCache
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -364,7 +364,7 @@ context.getFilesDir().then((filePath) => {
  
   
 
-##### data_storage.removeStorageFromCache
+#### data_storage.removeStorageFromCache
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -410,7 +410,7 @@ context.getFilesDir().then((filePath) => {
  
   
 
-##### Storage
+#### Storage
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -420,7 +420,7 @@ context.getFilesDir().then((filePath) => {
  
   
 
-##### getSync
+#### getSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -454,7 +454,7 @@ console.info("The value of startup is " + value);
  
   
 
-##### get
+#### get
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -487,7 +487,7 @@ storage.get('startup', 'default', function(err, value) {
  
   
 
-##### get
+#### get
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -525,7 +525,7 @@ promiseget.then((value) => {
  
   
 
-##### putSync
+#### putSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -551,7 +551,7 @@ storage.putSync('startup', 'auto');
  
   
 
-##### put
+#### put
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -584,7 +584,7 @@ storage.put('startup', 'auto', function (err) {
  
   
 
-##### put
+#### put
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -622,7 +622,7 @@ promiseput.then(() => {
  
   
 
-##### hasSync
+#### hasSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -657,7 +657,7 @@ if (isExist) {
  
   
 
-##### has
+#### has
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -698,7 +698,7 @@ storage.has('startup', function (err, isExist) {
  
   
 
-##### has
+#### has
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -737,7 +737,7 @@ promisehas.then((isExist) => {
  
   
 
-##### deleteSync
+#### deleteSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -762,7 +762,7 @@ storage.deleteSync('startup');
  
   
 
-##### delete
+#### delete
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -794,7 +794,7 @@ storage.delete('startup', function (err) {
  
   
 
-##### delete
+#### delete
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -831,7 +831,7 @@ promisedel.then(() => {
  
   
 
-##### flushSync
+#### flushSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -849,7 +849,7 @@ storage.flushSync();
  
   
 
-##### flush
+#### flush
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -880,7 +880,7 @@ storage.flush(function (err) {
  
   
 
-##### flush
+#### flush
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -910,7 +910,7 @@ promiseflush.then(() => {
  
   
 
-##### clearSync
+#### clearSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -928,7 +928,7 @@ storage.clearSync();
  
   
 
-##### clear
+#### clear
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -959,7 +959,7 @@ storage.clear(function (err) {
  
   
 
-##### clear
+#### clear
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -989,7 +989,7 @@ promiseclear.then(() => {
  
   
 
-##### on('change')
+#### on('change')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1020,7 +1020,7 @@ storage.flushSync();  // observer will be called.
  
   
 
-##### off('change')
+#### off('change')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1049,7 +1049,7 @@ storage.off('change', observer);
  
   
 
-##### StorageObserver
+#### StorageObserver
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1062,7 +1062,7 @@ storage.off('change', observer);
  
   
 
-##### ValueType
+#### ValueType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

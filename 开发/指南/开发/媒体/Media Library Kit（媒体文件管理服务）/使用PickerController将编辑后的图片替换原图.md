@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/medialibrary-pickercontroller
 
-##### 替换PhotoPicker中显示的图片/视频
+#### 替换PhotoPicker中显示的图片/视频
 
 应用可获得用户从Picker选择的图片、视频的访问权限，读取图片、视频后进行编辑、修改。完成编辑修改后的图片/视频缓存到应用沙箱后，可调用本API，将编辑结果文件发送给PhotoPicker，并指定替换显示的原图。Picker根据指定将接收的编辑结果文件替换原图片进行显示。
  
@@ -16,7 +16,7 @@
  
   
 
-##### 开发步骤
+#### 开发步骤
 1. 导入选择器模块和文件管理模块。
 
   
@@ -46,7 +46,7 @@ this.pickerController.replacePhotoPickerPreview(this.originUrl, this.replaceUrl,
  
   
 
-##### 将Picker上替换显示的图片/视频保存到图库
+#### 将Picker上替换显示的图片/视频保存到图库
 
 应用指定保存的文件，需在替换显示的范围内。应用调用API后，PhotoPicker将在Picker上成功替换显示的图片、视频保存到图库。确保保存的内容与替换显示的图片、视频一致。
  
@@ -58,7 +58,7 @@ this.pickerController.replacePhotoPickerPreview(this.originUrl, this.replaceUrl,
  
   
 
-##### 开发步骤
+#### 开发步骤
 1. 导入选择器模块和文件管理模块。
 
   
@@ -89,7 +89,7 @@ this.pickerController.saveTrustedPhotoAssets(this.replaceUris, (a, b) => {
  
   
 
-##### 完整示例
+#### 完整示例
 
 ```json
 import {

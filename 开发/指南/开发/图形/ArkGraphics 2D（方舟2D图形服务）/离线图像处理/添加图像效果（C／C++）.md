@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/effectkit-filter-c
 
-##### 场景介绍
+#### 场景介绍
 
 在离线处理图像时，可以进行一些图像效果的设置以获取视觉上的不同呈现，比如设置图像模糊程度、调节图像亮度和灰度、设置图像反色等。
 
@@ -12,7 +12,7 @@
 
 
 
-##### 接口说明
+#### 接口说明
 
 使用滤镜（Filter）设置图像效果的常用接口如下表所示，详细使用和参数请见[effect_filter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-effect-filter-h)。
 
@@ -29,7 +29,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 在Native工程的src/main/cpp/CMakeLists.txt中添加如下链接库：
 
   

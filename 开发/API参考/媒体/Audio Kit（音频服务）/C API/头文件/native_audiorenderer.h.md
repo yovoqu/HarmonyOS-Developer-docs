@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiorenderer-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -80,13 +80,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_AudioRenderer_Release()
+#### OH_AudioRenderer_Release()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -116,7 +116,7 @@ OH_AudioStream_Result OH_AudioRenderer_Release(OH_AudioRenderer* renderer)
  
   
 
-##### OH_AudioRenderer_Start()
+#### OH_AudioRenderer_Start()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -146,7 +146,7 @@ OH_AudioStream_Result OH_AudioRenderer_Start(OH_AudioRenderer* renderer)
  
   
 
-##### OH_AudioRenderer_Pause()
+#### OH_AudioRenderer_Pause()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -176,7 +176,7 @@ OH_AudioStream_Result OH_AudioRenderer_Pause(OH_AudioRenderer* renderer)
  
   
 
-##### OH_AudioRenderer_Stop()
+#### OH_AudioRenderer_Stop()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -206,7 +206,7 @@ OH_AudioStream_Result OH_AudioRenderer_Stop(OH_AudioRenderer* renderer)
  
   
 
-##### OH_AudioRenderer_Flush()
+#### OH_AudioRenderer_Flush()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -236,7 +236,7 @@ OH_AudioStream_Result OH_AudioRenderer_Flush(OH_AudioRenderer* renderer)
  
   
 
-##### OH_AudioRenderer_GetCurrentState()
+#### OH_AudioRenderer_GetCurrentState()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -267,7 +267,7 @@ OH_AudioStream_Result OH_AudioRenderer_GetCurrentState(OH_AudioRenderer* rendere
  
   
 
-##### OH_AudioRenderer_GetSamplingRate()
+#### OH_AudioRenderer_GetSamplingRate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -298,7 +298,7 @@ OH_AudioStream_Result OH_AudioRenderer_GetSamplingRate(OH_AudioRenderer* rendere
  
   
 
-##### OH_AudioRenderer_GetStreamId()
+#### OH_AudioRenderer_GetStreamId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -329,7 +329,7 @@ OH_AudioStream_Result OH_AudioRenderer_GetStreamId(OH_AudioRenderer* renderer, u
  
   
 
-##### OH_AudioRenderer_GetChannelCount()
+#### OH_AudioRenderer_GetChannelCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -360,7 +360,7 @@ OH_AudioStream_Result OH_AudioRenderer_GetChannelCount(OH_AudioRenderer* rendere
  
   
 
-##### OH_AudioRenderer_GetSampleFormat()
+#### OH_AudioRenderer_GetSampleFormat()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -391,7 +391,7 @@ OH_AudioStream_Result OH_AudioRenderer_GetSampleFormat(OH_AudioRenderer* rendere
  
   
 
-##### OH_AudioRenderer_GetLatencyMode()
+#### OH_AudioRenderer_GetLatencyMode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -422,7 +422,7 @@ OH_AudioStream_Result OH_AudioRenderer_GetLatencyMode(OH_AudioRenderer* renderer
  
   
 
-##### OH_AudioRenderer_GetRendererInfo()
+#### OH_AudioRenderer_GetRendererInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -453,7 +453,7 @@ OH_AudioStream_Result OH_AudioRenderer_GetRendererInfo(OH_AudioRenderer* rendere
  
   
 
-##### OH_AudioRenderer_GetEncodingType()
+#### OH_AudioRenderer_GetEncodingType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -484,7 +484,7 @@ OH_AudioStream_Result OH_AudioRenderer_GetEncodingType(OH_AudioRenderer* rendere
  
   
 
-##### OH_AudioRenderer_GetFramesWritten()
+#### OH_AudioRenderer_GetFramesWritten()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -515,7 +515,7 @@ OH_AudioStream_Result OH_AudioRenderer_GetFramesWritten(OH_AudioRenderer* render
  
   
 
-##### OH_AudioRenderer_GetTimestamp()
+#### OH_AudioRenderer_GetTimestamp()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -560,7 +560,7 @@ OH_AudioStream_Result OH_AudioRenderer_GetTimestamp(OH_AudioRenderer* renderer, 
  
   
 
-##### OH_AudioRenderer_GetAudioTimestampInfo()
+#### OH_AudioRenderer_GetAudioTimestampInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -598,7 +598,7 @@ OH_AudioStream_Result OH_AudioRenderer_GetAudioTimestampInfo(OH_AudioRenderer* r
  
   
 
-##### OH_AudioRenderer_GetFrameSizeInCallback()
+#### OH_AudioRenderer_GetFrameSizeInCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -629,7 +629,7 @@ OH_AudioStream_Result OH_AudioRenderer_GetFrameSizeInCallback(OH_AudioRenderer* 
  
   
 
-##### OH_AudioRenderer_GetSpeed()
+#### OH_AudioRenderer_GetSpeed()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -660,7 +660,7 @@ OH_AudioStream_Result OH_AudioRenderer_GetSpeed(OH_AudioRenderer* renderer, floa
  
   
 
-##### OH_AudioRenderer_SetSpeed()
+#### OH_AudioRenderer_SetSpeed()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -691,7 +691,7 @@ OH_AudioStream_Result OH_AudioRenderer_SetSpeed(OH_AudioRenderer* renderer, floa
  
   
 
-##### OH_AudioRenderer_SetMarkPosition()
+#### OH_AudioRenderer_SetMarkPosition()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -724,7 +724,7 @@ OH_AudioStream_Result OH_AudioRenderer_SetMarkPosition(OH_AudioRenderer* rendere
  
   
 
-##### OH_AudioRenderer_CancelMark()
+#### OH_AudioRenderer_CancelMark()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -754,7 +754,7 @@ OH_AudioStream_Result OH_AudioRenderer_CancelMark(OH_AudioRenderer* renderer)
  
   
 
-##### OH_AudioRenderer_SetVolume()
+#### OH_AudioRenderer_SetVolume()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -785,7 +785,7 @@ OH_AudioStream_Result OH_AudioRenderer_SetVolume(OH_AudioRenderer* renderer, flo
  
   
 
-##### OH_AudioRenderer_SetVolumeWithRamp()
+#### OH_AudioRenderer_SetVolumeWithRamp()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -817,7 +817,7 @@ OH_AudioStream_Result OH_AudioRenderer_SetVolumeWithRamp(OH_AudioRenderer* rende
  
   
 
-##### OH_AudioRenderer_GetVolume()
+#### OH_AudioRenderer_GetVolume()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -848,7 +848,7 @@ OH_AudioStream_Result OH_AudioRenderer_GetVolume(OH_AudioRenderer* renderer, flo
  
   
 
-##### OH_AudioRenderer_GetUnderflowCount()
+#### OH_AudioRenderer_GetUnderflowCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -879,7 +879,7 @@ OH_AudioStream_Result OH_AudioRenderer_GetUnderflowCount(OH_AudioRenderer* rende
  
   
 
-##### OH_AudioRenderer_GetChannelLayout()
+#### OH_AudioRenderer_GetChannelLayout()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -910,7 +910,7 @@ OH_AudioStream_Result OH_AudioRenderer_GetChannelLayout(OH_AudioRenderer* render
  
   
 
-##### OH_AudioRenderer_GetEffectMode()
+#### OH_AudioRenderer_GetEffectMode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -941,7 +941,7 @@ OH_AudioStream_Result OH_AudioRenderer_GetEffectMode(OH_AudioRenderer* renderer,
  
   
 
-##### OH_AudioRenderer_SetEffectMode()
+#### OH_AudioRenderer_SetEffectMode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -972,7 +972,7 @@ OH_AudioStream_Result OH_AudioRenderer_SetEffectMode(OH_AudioRenderer* renderer,
  
   
 
-##### OH_AudioRenderer_GetRendererPrivacy()
+#### OH_AudioRenderer_GetRendererPrivacy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1003,7 +1003,7 @@ OH_AudioStream_Result OH_AudioRenderer_GetRendererPrivacy(OH_AudioRenderer* rend
  
   
 
-##### OH_AudioRenderer_SetSilentModeAndMixWithOthers()
+#### OH_AudioRenderer_SetSilentModeAndMixWithOthers()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1036,7 +1036,7 @@ OH_AudioStream_Result OH_AudioRenderer_SetSilentModeAndMixWithOthers(OH_AudioRen
  
   
 
-##### OH_AudioRenderer_GetSilentModeAndMixWithOthers()
+#### OH_AudioRenderer_GetSilentModeAndMixWithOthers()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1067,7 +1067,7 @@ OH_AudioStream_Result OH_AudioRenderer_GetSilentModeAndMixWithOthers(OH_AudioRen
  
   
 
-##### OH_AudioRenderer_SetDefaultOutputDevice()
+#### OH_AudioRenderer_SetDefaultOutputDevice()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1104,7 +1104,7 @@ OH_AudioStream_Result OH_AudioRenderer_SetDefaultOutputDevice(OH_AudioRenderer* 
  
   
 
-##### OH_AudioRenderer_OnInterruptCallback()
+#### OH_AudioRenderer_OnInterruptCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1130,7 +1130,7 @@ typedef void (*OH_AudioRenderer_OnInterruptCallback)(OH_AudioRenderer* renderer,
  
   
 
-##### OH_AudioRenderer_OnErrorCallback()
+#### OH_AudioRenderer_OnErrorCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1155,7 +1155,7 @@ typedef void (*OH_AudioRenderer_OnErrorCallback)(OH_AudioRenderer* renderer, voi
  
   
 
-##### OH_AudioRenderer_GetFastStatus()
+#### OH_AudioRenderer_GetFastStatus()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1186,7 +1186,7 @@ OH_AudioStream_Result OH_AudioRenderer_GetFastStatus(OH_AudioRenderer* renderer,
  
   
 
-##### OH_AudioRenderer_OnFastStatusChange()
+#### OH_AudioRenderer_OnFastStatusChange()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1212,7 +1212,7 @@ typedef void (*OH_AudioRenderer_OnFastStatusChange)(OH_AudioRenderer* renderer, 
  
   
 
-##### OH_AudioRenderer_SetLoudnessGain()
+#### OH_AudioRenderer_SetLoudnessGain()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1255,7 +1255,7 @@ OH_AudioStream_Result OH_AudioRenderer_SetLoudnessGain(OH_AudioRenderer* rendere
  
   
 
-##### OH_AudioRenderer_GetLoudnessGain()
+#### OH_AudioRenderer_GetLoudnessGain()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1286,7 +1286,7 @@ OH_AudioStream_Result OH_AudioRenderer_GetLoudnessGain(OH_AudioRenderer* rendere
  
   
 
-##### OH_AudioRenderer_OnWriteDataCallbackAdvanced()
+#### OH_AudioRenderer_OnWriteDataCallbackAdvanced()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1325,7 +1325,7 @@ typedef int32_t (*OH_AudioRenderer_OnWriteDataCallbackAdvanced)(OH_AudioRenderer
  
   
 
-##### OH_AudioRenderer_GetLatency()
+#### OH_AudioRenderer_GetLatency()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1361,7 +1361,7 @@ OH_AudioStream_Result OH_AudioRenderer_GetLatency(OH_AudioRenderer* renderer, OH
  
   
 
-##### OH_AudioRenderer_SetIndependentAudioSessionStrategy()
+#### OH_AudioRenderer_SetIndependentAudioSessionStrategy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -10,7 +10,7 @@
 **起始版本：** 5.0.0(12)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -20,7 +20,7 @@ import { minorsProtection } from '@kit.AccountKit';
  
   
 
-##### MinorsProtectionInfo
+#### MinorsProtectionInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -42,7 +42,7 @@ import { minorsProtection } from '@kit.AccountKit';
  
   
 
-##### AgeGroup
+#### AgeGroup
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -64,7 +64,7 @@ import { minorsProtection } from '@kit.AccountKit';
  
   
 
-##### MinorsModeErrorCode
+#### MinorsModeErrorCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -90,7 +90,7 @@ import { minorsProtection } from '@kit.AccountKit';
  
   
 
-##### supportMinorsMode
+#### supportMinorsMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -144,7 +144,7 @@ if (canIUse('SystemCapability.AuthenticationServices.HuaweiID.MinorsProtection')
  
   
 
-##### getMinorsProtectionInfoSync
+#### getMinorsProtectionInfoSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -221,7 +221,7 @@ if (canIUse('SystemCapability.AuthenticationServices.HuaweiID.MinorsProtection')
  
   
 
-##### getMinorsProtectionInfo
+#### getMinorsProtectionInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -306,7 +306,7 @@ function dealGetMinorsInfoAllError(error: BusinessError<Object>): void {
  
   
 
-##### verifyMinorsProtectionCredential
+#### verifyMinorsProtectionCredential
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -387,7 +387,7 @@ function dealVerifyAllError(error: BusinessError<Object>): void {
  
   
 
-##### leadToTurnOnMinorsMode
+#### leadToTurnOnMinorsMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -470,7 +470,7 @@ function dealTurnOnAllError(error: BusinessError<Object>): void {
  
   
 
-##### leadToTurnOffMinorsMode
+#### leadToTurnOffMinorsMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

@@ -10,7 +10,7 @@
 **起始版本：** 5.0.0(12)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Tablet
 
@@ -20,7 +20,7 @@ import { smartMobilityCommon } from '@kit.CarKit';
  
   
 
-##### SmartMobilityEvent
+#### SmartMobilityEvent
 
 **支持设备：** Phone | Tablet
 
@@ -39,7 +39,7 @@ import { smartMobilityCommon } from '@kit.CarKit';
  
   
 
-##### SmartMobilityInfo
+#### SmartMobilityInfo
 
 **支持设备：** Phone | Tablet
 
@@ -58,7 +58,7 @@ import { smartMobilityCommon } from '@kit.CarKit';
  
   
 
-##### SmartMobilityStatus
+#### SmartMobilityStatus
 
 **支持设备：** Phone | Tablet
 
@@ -76,7 +76,7 @@ import { smartMobilityCommon } from '@kit.CarKit';
  
   
 
-##### SmartMobilityType
+#### SmartMobilityType
 
 **支持设备：** Phone | Tablet
 
@@ -95,7 +95,7 @@ import { smartMobilityCommon } from '@kit.CarKit';
  
   
 
-##### getSmartMobilityAwareness
+#### getSmartMobilityAwareness
 
 **支持设备：** Phone | Tablet
 
@@ -138,7 +138,7 @@ let awareness: smartMobilityCommon.SmartMobilityAwareness = smartMobilityCommon.
  
   
 
-##### SmartMobilityAwareness
+#### SmartMobilityAwareness
 
 **支持设备：** Phone | Tablet
 
@@ -150,7 +150,7 @@ let awareness: smartMobilityCommon.SmartMobilityAwareness = smartMobilityCommon.
  
   
 
-##### on('smartMobilityEvent')
+#### on('smartMobilityEvent')
 
 **支持设备：** Phone | Tablet
 
@@ -211,7 +211,7 @@ try {
  
   
 
-##### off('smartMobilityEvent')
+#### off('smartMobilityEvent')
 
 **支持设备：** Phone | Tablet
 
@@ -273,7 +273,7 @@ try {
  
   
 
-##### getSmartMobilityEvent
+#### getSmartMobilityEvent
 
 **支持设备：** Phone | Tablet
 
@@ -339,7 +339,7 @@ try {
  
   
 
-##### on('smartMobilityStatus')
+#### on('smartMobilityStatus')
 
 **支持设备：** Phone | Tablet
 
@@ -400,7 +400,7 @@ try {
  
   
 
-##### off('smartMobilityStatus')
+#### off('smartMobilityStatus')
 
 **支持设备：** Phone | Tablet
 
@@ -461,7 +461,7 @@ try {
  
   
 
-##### getSmartMobilityStatus
+#### getSmartMobilityStatus
 
 **支持设备：** Phone | Tablet
 

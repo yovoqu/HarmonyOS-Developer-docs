@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-build-on-multi-thread
 
-##### 概述
+#### 概述
 
 在API version 22之前，UI组件的创建与属性设置等操作必须在应用的UI线程中执行。这导致开发者在使用NDK接口时，需将组件创建与属性设置等操作通过任务队列提交至UI线程执行，限制了组件创建过程的灵活性及应用的性能。
 
@@ -21,7 +21,7 @@
 
 
 
-##### 多线程NDK接口使用方式
+#### 多线程NDK接口使用方式
 
  - 在使用多线程NDK接口前，建议开发者先阅读[NDK接口概述](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-build-ui-overview)，掌握使用NDK接口必备的基本概念和基础知识。
  - 为降低开发者适配多线程NDK接口的成本，多线程NDK接口的获取和使用方式与现有NDK接口保持一致。只需要调用[OH_ArkUI_GetModuleInterface](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-interface-h#oh_arkui_getmoduleinterface)接口，入参传入[ARKUI_MULTI_THREAD_NATIVE_NODE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-interface-h#arkui_nativeapivariantkind)即可获取多线程NDK接口集合。例如：
@@ -52,14 +52,14 @@ auto node = multiThreadNodeAPI->createNode(ARKUI_NODE_COLUMN);
 
 
 
-##### 多线程NDK接口适配说明
+#### 多线程NDK接口适配说明
 1. 多线程NDK接口适用于页面跳转和列表滑动等高负载且性能敏感的场景，此类场景下UI线程需要执行耗时从几ms到几十ms的组件创建任务，开发者可以将组件创建任务拆分成多个子任务，分派给多个线程并发执行，以降低UI线程负载，提高页面启动与更新流畅度。
 2. 当开发者在自己创建的线程中创建UI组件时，基于设备CPU核数等客观条件，建议并行的线程数量不要超过4个，以避免线程调度带来的性能开销。
 3. 开发者可以在非UI线程预创建常用组件树，为性能敏感场景提供更好的用户体验。
 
 
 
-##### 多线程NDK接口调用规范
+#### 多线程NDK接口调用规范
 
 框架将UI组件划分为Free（游离）和Attached（已挂载）两种状态。
 
@@ -85,7 +85,7 @@ auto node = multiThreadNodeAPI->createNode(ARKUI_NODE_COLUMN);
 
 
 
-##### 多线程NDK接口的错误与异常
+#### 多线程NDK接口的错误与异常
 
 多线程NDK接口调用规范请参考[多线程NDK接口集合规格](#多线程ndk接口集合规格)。调用多线程NDK接口时必须检查接口返回值，如下两种情况接口会返回错误码[ARKUI_ERROR_CODE_NODE_ON_INVALID_THREAD](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode)。
 
@@ -97,7 +97,7 @@ auto node = multiThreadNodeAPI->createNode(ARKUI_NODE_COLUMN);
 
 
 
-##### 多线程NDK接口集合规格
+#### 多线程NDK接口集合规格
 
 集合中支持多线程调用的接口包括：[组件创建销毁](#组件创建销毁)，[组件属性读写](#组件属性读写)，[组件事件注册解注册](#组件事件注册解注册)，[组件树操作](#组件树操作)和[组件自定义数据读写](#组件自定义数据读写)。
 
@@ -105,7 +105,7 @@ auto node = multiThreadNodeAPI->createNode(ARKUI_NODE_COLUMN);
 
 
 
-##### 组件创建销毁
+#### 组件创建销毁
 
 | 接口名 | 描述 | 非UI线程调用 | 多线程规格 |
 | --- | --- | --- | --- |
@@ -115,7 +115,7 @@ auto node = multiThreadNodeAPI->createNode(ARKUI_NODE_COLUMN);
 
 
 
-##### 组件属性读写
+#### 组件属性读写
 
 | 接口名 | 描述 | 非UI线程调用 | 多线程规格 |
 | --- | --- | --- | --- |
@@ -127,7 +127,7 @@ auto node = multiThreadNodeAPI->createNode(ARKUI_NODE_COLUMN);
 
 
 
-##### 组件事件注册解注册
+#### 组件事件注册解注册
 
 | 接口名 | 描述 | 非UI线程调用 | 多线程规格 |
 | --- | --- | --- | --- |
@@ -143,7 +143,7 @@ auto node = multiThreadNodeAPI->createNode(ARKUI_NODE_COLUMN);
 
 
 
-##### 组件树操作
+#### 组件树操作
 
 | 接口名 | 描述 | 非UI线程调用 | 多线程规格 |
 | --- | --- | --- | --- |
@@ -164,7 +164,7 @@ auto node = multiThreadNodeAPI->createNode(ARKUI_NODE_COLUMN);
 
 
 
-##### 组件自定义数据读写
+#### 组件自定义数据读写
 
 | 接口名 | 描述 | 非UI线程调用 | 多线程规格 |
 | --- | --- | --- | --- |
@@ -174,7 +174,7 @@ auto node = multiThreadNodeAPI->createNode(ARKUI_NODE_COLUMN);
 
 
 
-##### 全局事件注册解注册
+#### 全局事件注册解注册
 
 | 接口名 | 描述 | 非UI线程调用 | 多线程规格 |
 | --- | --- | --- | --- |
@@ -186,7 +186,7 @@ auto node = multiThreadNodeAPI->createNode(ARKUI_NODE_COLUMN);
 
 
 
-##### 组件测算布局
+#### 组件测算布局
 
 | 接口名 | 描述 | 非UI线程调用 | 多线程规格 |
 | --- | --- | --- | --- |
@@ -201,14 +201,14 @@ auto node = multiThreadNodeAPI->createNode(ARKUI_NODE_COLUMN);
 
 
 
-##### 多线程NDK接口使用示例
+#### 多线程NDK接口使用示例
 
 此示例构造了一个多线程创建UI组件的场景，页面显示的Button组件在非UI线程被并行创建。
 
 点击CreateNodeTree按钮触发在多个非UI线程并行创建Button组件，之后在UI线程将创建完成的Button组件挂载到UI主树上，使组件显示在页面上。点击DisposeNodeTree按钮将已创建的组件从UI主树上卸载并销毁，清空页面。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/kr7bjgvvTzC25NupI4JLAw/zh-cn_image_0000002611754077.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014759Z&HW-CC-Expire=86400&HW-CC-Sign=DA9C899F5DAE2A07DA14D84D8C914AE02F7AEC69CE2B45CD02A376BF6ED47289)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/kr7bjgvvTzC25NupI4JLAw/zh-cn_image_0000002611754077.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030431Z&HW-CC-Expire=86400&HW-CC-Sign=465139F361DFBAF67A1554EFEF4A7AC83324D3BF7E03204940AB1263D5DFCC56)
 
 
 示例主要展示了如何获取和使用多线程NDK接口，并使用[OH_ArkUI_PostAsyncUITask](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#oh_arkui_postasyncuitask)、[OH_ArkUI_PostUITask](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#oh_arkui_postuitask)和[OH_ArkUI_PostUITaskAndWait](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#oh_arkui_postuitaskandwait)等接口将组件创建和属性设置等任务分发到多线程并行执行。
@@ -661,7 +661,7 @@ extern "C" __attribute__((constructor)) void RegisterEntryModule(void) { napi_mo
 
 
 
-##### 示例代码
+#### 示例代码
 
 如下实例展示了在高负载组件创建场景下如何使用多线程NDK接口，将组件创建任务拆分成多个子任务，分派给多个线程并发执行来优化页面跳转场景的响应时延和完成时延。
 

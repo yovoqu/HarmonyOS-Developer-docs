@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -22,7 +22,7 @@ import { AVCastPicker } from '@kit.AVSessionKit';
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -30,7 +30,7 @@ import { AVCastPicker } from '@kit.AVSessionKit';
 
 
 
-##### AVCastPicker
+#### AVCastPicker
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -69,7 +69,7 @@ AVCastPicker({
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -77,7 +77,7 @@ AVCastPicker({
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

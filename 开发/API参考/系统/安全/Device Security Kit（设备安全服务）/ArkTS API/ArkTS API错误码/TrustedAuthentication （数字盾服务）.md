@@ -10,7 +10,7 @@
 
   
 
-##### 1019100001 权限校验失败
+#### 1019100001 权限校验失败
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -32,7 +32,7 @@ permission denied.
  
   
 
-##### 1019100002 参数检查失败
+#### 1019100002 参数检查失败
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -54,7 +54,7 @@ argument is invalid.
  
   
 
-##### 1019100003 密码认证连续失败次数达到要求的最大次数
+#### 1019100003 密码认证连续失败次数达到要求的最大次数
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -76,7 +76,7 @@ The number of consecutive authentication failures exceeds the maximum.
  
   
 
-##### 1019100004 删除密码失败
+#### 1019100004 删除密码失败
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -98,7 +98,7 @@ delete trusted authentication password failed.
  
   
 
-##### 1019100005 密码认证失败
+#### 1019100005 密码认证失败
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -120,7 +120,7 @@ trusted authentication verify failed.
  
   
 
-##### 1019100006 输入文本信息检查失败
+#### 1019100006 输入文本信息检查失败
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -142,7 +142,7 @@ Check input confirm text failed.
  
   
 
-##### 1019100007 不支持的图片格式
+#### 1019100007 不支持的图片格式
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -164,7 +164,7 @@ Unsupported custom image.
  
   
 
-##### 1019100008 用户取消操作
+#### 1019100008 用户取消操作
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -186,7 +186,7 @@ The user canceled the operation.
  
   
 
-##### 1019100009 备份数据导出失败
+#### 1019100009 备份数据导出失败
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -208,7 +208,7 @@ Failed to export data.
  
   
 
-##### 1019100010 备份数据导入失败
+#### 1019100010 备份数据导入失败
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -230,7 +230,7 @@ Failed to import data.
  
   
 
-##### 1019100011 不合法的TUI认证信息
+#### 1019100011 不合法的TUI认证信息
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -252,7 +252,7 @@ The text content cannot be displayed.
  
   
 
-##### 1019100012 无效的authID
+#### 1019100012 无效的authID
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -274,7 +274,7 @@ Invalid authentication ID.
  
   
 
-##### 1019100013 创建密码失败
+#### 1019100013 创建密码失败
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -296,7 +296,7 @@ Set trusted authentication password failed.
  
   
 
-##### 1019100014 修改密码失败
+#### 1019100014 修改密码失败
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -318,7 +318,7 @@ Modify trusted authentication password failed.
  
   
 
-##### 1019100015 生物认证authToken签发失败
+#### 1019100015 生物认证authToken签发失败
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -340,7 +340,7 @@ Get biometric authToken failed.
  
   
 
-##### 1019100016 数字盾服务未使能
+#### 1019100016 数字盾服务未使能
 
 **错误信息**
  
@@ -360,7 +360,7 @@ The trusted authentication feature is not enabled.
  
   
 
-##### 1019100017 获取剩余认证次数失败
+#### 1019100017 获取剩余认证次数失败
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -382,7 +382,7 @@ Failed to get the remaining number of authentication attempts.
  
   
 
-##### 1019100018 关闭对应生物特征认证能力失败
+#### 1019100018 关闭对应生物特征认证能力失败
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -404,7 +404,7 @@ Failed to unbind the corresponding biometric data.
  
   
 
-##### 1019100019 与绑定的生物特征不匹配
+#### 1019100019 与绑定的生物特征不匹配
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -426,7 +426,7 @@ The biometric data for authentication does not match the bound biometric feature
  
   
 
-##### 1019100020 已绑定对应生物特征
+#### 1019100020 已绑定对应生物特征
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -448,7 +448,7 @@ The biometric data has already been bound.
  
   
 
-##### 1019100021 未绑定对应生物特征
+#### 1019100021 未绑定对应生物特征
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -470,7 +470,7 @@ The corresponding biometric data has not been bound.
  
   
 
-##### 1019100025 TUI界面被其他应用占用
+#### 1019100025 TUI界面被其他应用占用
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

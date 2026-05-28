@@ -9,7 +9,7 @@
 DRM Kit提供MediaKeySystem实现DRM证书管理、DRM许可证管理功能，并管理MediaKeySession实例；MediaKeySession实现DRM节目授权，并可支持Media Kit或Media Kit/AVCodec Kit实现DRM节目解密以实现DRM节目播放。
 
 
-##### 开发步骤
+#### 开发步骤
 
 详细的API说明请参考[@ohos.multimedia.drm(数字版权保护)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-drm)。
 1. 导入DRM Kit接口。

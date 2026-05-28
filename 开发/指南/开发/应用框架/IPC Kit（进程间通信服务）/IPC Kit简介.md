@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ipc-rpc-overview
 
-##### 基本概念
+#### 基本概念
 
 | 缩写 | 全称 | 中文描述 | 说明 |
 | --- | --- | --- | --- |
@@ -20,7 +20,7 @@
 
 
 
-##### 实现原理
+#### 实现原理
 
 IPC和RPC用于实现跨进程通信。IPC使用Binder驱动，适用于设备内的跨进程通信；RPC使用软总线驱动，适用于跨设备的跨进程通信。每个进程拥有独立的资源和内存空间，其他进程无法直接访问，因此需要使用IPC和RPC实现跨进程通信。
 
@@ -28,7 +28,7 @@ IPC和RPC采用客户端-服务端（Client-Server）模型。在使用时，Cli
 
 
 
-##### 约束与限制
+#### 约束与限制
 
  - 单个设备上跨进程通信时，传输的数据量最大为200KB。超过200KB的数据量传输可以使用[匿名共享内存](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-rpc#ashmem8)。
  - 不支持在RPC中订阅匿名Stub对象（没有向SAMgr注册的Stub对象）的[死亡通知](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/subscribe-remote-state)。
@@ -38,7 +38,7 @@ IPC和RPC采用客户端-服务端（Client-Server）模型。在使用时，Cli
 
 
 
-##### 模拟器支持情况
+#### 模拟器支持情况
 
 本Kit支持模拟器。
 

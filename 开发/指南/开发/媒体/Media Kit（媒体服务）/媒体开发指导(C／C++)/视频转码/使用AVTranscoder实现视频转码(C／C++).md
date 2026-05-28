@@ -19,7 +19,7 @@
 状态的详细说明请参考[OH_AVTranscoder_State](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avtranscoder-base-h#oh_avtranscoder_state)。
 
 
-##### 开发步骤及注意事项
+#### 开发步骤及注意事项
 
 在CMake脚本中链接动态库。
 
@@ -313,7 +313,7 @@ errCode = OH_AVTranscoder_Release(transcoder); // 释放转码实例
 
 
 
-##### 运行完整示例
+#### 运行完整示例
 1. 新建工程，下载[示例工程](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/Media/AVTranscoder/AVTranscoderNDK)，并将示例工程的以下资源复制到对应目录。
 
   

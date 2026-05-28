@@ -7,7 +7,7 @@
 SVG（Scalable Vector Graphics）是可缩放矢量图形，它是一种基于XML（可扩展标记语言）的图形格式，用于描述二维图形和图像。[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image)组件支持的SVG范围，为SVG1.1规范的部分功能。支持的标签以及属性如下：
   
 
-##### 基础形状
+#### 基础形状
 
 基础形状标签包括：&lt;rect&gt;、&lt;circle&gt;、&lt;ellipse&gt;、&lt;line&gt;、&lt;polyline&gt;、&lt;polygon&gt;和&lt;path&gt;。
  
@@ -120,16 +120,16 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/rQ7reU1eR9Gt9TY-2JS25w/zh-cn_image_0000002581435982.png?HW-CC-KV=V1&HW-CC-Date=20260528T024202Z&HW-CC-Expire=86400&HW-CC-Sign=8471ED5FFDE91F94E77710E3BAF9B840E111833EFB9D5B0E0CAC42FBC36DB3BF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/rQ7reU1eR9Gt9TY-2JS25w/zh-cn_image_0000002581435982.png?HW-CC-KV=V1&HW-CC-Date=20260528T025535Z&HW-CC-Expire=86400&HW-CC-Sign=D902F4E2EA33F3975FC54438C11C1E9AF7BC7EE618C98BCCF0EAFA47A55692E1)
 
  
   
 
-##### 图形效果
+#### 图形效果
 
   
 
-##### 滤镜
+#### 滤镜
 
 滤镜标签包括：&lt;filter&gt;、&lt;feOffset&gt;、&lt;feGaussianBlur&gt;、&lt;feBlend&gt;、&lt;feComposite&gt;、&lt;feColorMatrix&gt;、&lt;feFlood&gt;。其中，&lt;filter&gt;定义滤镜范围，其它标签定义滤镜效果。
   
@@ -146,7 +146,7 @@ struct Index {
  
   
 
-##### 遮罩
+#### 遮罩
 
 遮罩标签：&lt;mask&gt;
   
@@ -157,7 +157,7 @@ struct Index {
  
   
 
-##### 裁剪
+#### 裁剪
 
 裁剪标签：&lt;clippath&gt;
   
@@ -168,7 +168,7 @@ struct Index {
  
   
 
-##### 图案
+#### 图案
 
 图案标签：&lt;pattern&gt;
   
@@ -179,7 +179,7 @@ struct Index {
  
   
 
-##### 渐变色
+#### 渐变色
 
 渐变色相关的标签包括：&lt;linearGradient&gt;、&lt;radialGradient&gt;、&lt;stop&gt;
   
@@ -192,7 +192,7 @@ struct Index {
  
   
 
-##### 静态图片
+#### 静态图片
 
 图片标签：&lt;image&gt;
   
@@ -203,7 +203,7 @@ struct Index {
  
   
 
-##### 动画
+#### 动画
 
 动画标签：&lt;animate&gt;、&lt;animateTransform&gt;
  
@@ -219,7 +219,7 @@ struct Index {
  
   
 
-##### 其它
+#### 其它
 
 除了标识图形图像效果的标签，还支持分组等标签，分别有&lt;svg&gt;、&lt;g&gt;、&lt;use&gt;和&lt;defs&gt;。
  

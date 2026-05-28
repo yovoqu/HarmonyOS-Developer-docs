@@ -4,20 +4,20 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-ukey-best-dev
 
-##### 开发模式选择
+#### 开发模式选择
 
 当前针对双向SSL认证场景，通常有以下两种开发模式。
 
 
 
-##### 浏览器使用系统ArkWeb能力并自定义客户端
+#### 浏览器使用系统ArkWeb能力并自定义客户端
 1. 端侧应用调用证书管理能力，拉起证书选择弹框，等待用户选择证书，获得[keyUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certreference22)作为resourceId。
 2. 端侧应用监听PIN认证回调，处理事件，调用证书管理能力拉起PIN认证弹窗。
 3. 此时证书管理会返回认证结果给端侧应用，端侧应用将结果返回给ArkWeb组件。
 
 
 
-##### 浏览器使用自定义Web组件并自定义客户端
+#### 浏览器使用自定义Web组件并自定义客户端
 1. 端侧应用调用证书管理能力，拉起证书选择弹框，等待用户选择证书，将[keyUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certreference22)作为resourceId，透传到Web组件。
 2. Web组件通过证书管理获取对应证书的数据，并且通过[keyUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certreference22)作为resourceId调用HUKS的打开资源接口，并查询PIN认证状态。
 3. 根据认证结果，进行处理：
@@ -36,7 +36,7 @@
 
 
 
-##### 实践举例
+#### 实践举例
 
 以下是浏览器使用系统能力进行双向SSL认证开发举例。
 1. 端侧应用调用证书管理的能力，拉起证书选择弹框[certificateManagerDialog.openAuthorizeDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certificatemanagerdialogopenauthorizedialog22)，等待用户选择证书。

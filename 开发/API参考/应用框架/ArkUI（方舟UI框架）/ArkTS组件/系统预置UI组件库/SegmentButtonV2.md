@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { TabSegmentButtonV2, CapsuleSegmentButtonV2, MultiCapsuleSegmentButtonV2
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -30,7 +30,7 @@ import { TabSegmentButtonV2, CapsuleSegmentButtonV2, MultiCapsuleSegmentButtonV2
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -38,7 +38,7 @@ import { TabSegmentButtonV2, CapsuleSegmentButtonV2, MultiCapsuleSegmentButtonV2
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -46,7 +46,7 @@ import { TabSegmentButtonV2, CapsuleSegmentButtonV2, MultiCapsuleSegmentButtonV2
  
   
 
-##### TabSegmentButtonV2
+#### TabSegmentButtonV2
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -133,7 +133,7 @@ TabSegmentButtonV2({
  
   
 
-##### CapsuleSegmentButtonV2
+#### CapsuleSegmentButtonV2
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -220,7 +220,7 @@ CapsuleSegmentButtonV2({
  
   
 
-##### MultiCapsuleSegmentButtonV2
+#### MultiCapsuleSegmentButtonV2
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -299,7 +299,7 @@ MultiCapsuleSegmentButtonV2({
  
   
 
-##### SegmentButtonV2Items
+#### SegmentButtonV2Items
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -311,7 +311,7 @@ MultiCapsuleSegmentButtonV2({
  
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -334,7 +334,7 @@ constructor(items: SegmentButtonV2ItemOptions[])
  
   
 
-##### hasHybrid
+#### hasHybrid
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -357,7 +357,7 @@ get hasHybrid():boolean
  
   
 
-##### SegmentButtonV2Item
+#### SegmentButtonV2Item
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -365,7 +365,7 @@ get hasHybrid():boolean
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -395,7 +395,7 @@ get hasHybrid():boolean
  
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -418,7 +418,7 @@ constructor(options: SegmentButtonV2ItemOptions)
  
   
 
-##### isHybrid
+#### isHybrid
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -441,7 +441,7 @@ get isHybrid():boolean
  
   
 
-##### SegmentButtonV2ItemOptions
+#### SegmentButtonV2ItemOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -473,7 +473,7 @@ get isHybrid():boolean
  
   
 
-##### OnSelectedIndexChange
+#### OnSelectedIndexChange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -496,7 +496,7 @@ type OnSelectedIndexChange = (selectedIndex: number) => void
  
   
 
-##### OnSelectedIndexesChange
+#### OnSelectedIndexesChange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -519,13 +519,13 @@ type OnSelectedIndexesChange = (selectedIndexes: number[]) => void
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 示例 1（页签型分段按钮）
+#### 示例 1（页签型分段按钮）
 
 此示例说明页签型分段按钮的基本用法。
  
@@ -667,7 +667,7 @@ export struct VCard {
  
   
 
-##### 示例 2（单选的胶囊型分段按钮）
+#### 示例 2（单选的胶囊型分段按钮）
 
 该示例介绍单选胶囊型分段按钮的基本用法。
  
@@ -801,7 +801,7 @@ export struct VCard {
  
   
 
-##### 示例 3（多选的胶囊型分段按钮）
+#### 示例 3（多选的胶囊型分段按钮）
 
 该示例介绍多选胶囊型分段按钮的基本用法。
  
@@ -930,12 +930,12 @@ export struct VCard {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/QJo5dENtT_a1-G7qabQf-w/zh-cn_image_0000002581276348.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024154Z&HW-CC-Expire=86400&HW-CC-Sign=55332C5DD1A852D1FA3E2EF4FBD5F4B9A7DCD50D4F453B37EAD9FB186D572E34)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/QJo5dENtT_a1-G7qabQf-w/zh-cn_image_0000002581276348.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025527Z&HW-CC-Expire=86400&HW-CC-Sign=D191CD2A3252FD00AE056A342218ABFE7E1EED9B090A9BF2354CE1A87C0259C8)
 
  
   
 
-##### 示例4（分段按钮Modifier的基本用法）
+#### 示例4（分段按钮Modifier的基本用法）
 
 该示例介绍页签型分段按钮，单选的胶囊型分段按钮，多选的胶囊型分段按钮Modifier的基本用法。
  
@@ -1029,12 +1029,12 @@ export struct VCard {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/hflpXYlvSkCUV5sA4Cy0hw/zh-cn_image_0000002611756205.png?HW-CC-KV=V1&HW-CC-Date=20260528T024154Z&HW-CC-Expire=86400&HW-CC-Sign=27FEB0F5B6F95493CF0548CD58D2337BE1C36D50DA58CDF500EE524114A1AB5E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/hflpXYlvSkCUV5sA4Cy0hw/zh-cn_image_0000002611756205.png?HW-CC-KV=V1&HW-CC-Date=20260528T025527Z&HW-CC-Expire=86400&HW-CC-Sign=0ED7B01B687E0B96E2F8555B74704680DCEFAFC1083182C6AC99379D9CBE088D)
 
  
   
 
-##### 示例5（开启SegmentButtonV2的属性动画）
+#### 示例5（开启SegmentButtonV2的属性动画）
 
  此示例展示了SegmentButtonV2开启enableStateAnimation后，在通过状态变量修改selectedIndexes的值时，按钮切换也具有动画效果。
  
@@ -1128,4 +1128,4 @@ export struct VCard {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/apeUz4WDReGT58VMyCc5iw/zh-cn_image_0000002581436264.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024154Z&HW-CC-Expire=86400&HW-CC-Sign=7721D1C4E3CE2C0293E95442E97528E487797FA95E74D64AE886FC76B8F12CE8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/apeUz4WDReGT58VMyCc5iw/zh-cn_image_0000002581436264.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025527Z&HW-CC-Expire=86400&HW-CC-Sign=6886AA01708A91C5F48BA215B34230DCD22314416715BD61033959D74B84B3FD)

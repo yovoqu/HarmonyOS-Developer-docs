@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/js-framework-js-file
 
-##### 应用生命周期
+#### 应用生命周期
 
 每个应用可以在app.js自定义应用级[生命周期](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/js-framework-lifecycle)的实现逻辑，以下示例仅在生命周期函数中打印对应日志：
  
@@ -23,7 +23,7 @@ export default {
  
   
 
-##### 应用对象6+
+#### 应用对象6+
  
 | 属性 | 类型 | 描述 |
 | --- | --- | --- |

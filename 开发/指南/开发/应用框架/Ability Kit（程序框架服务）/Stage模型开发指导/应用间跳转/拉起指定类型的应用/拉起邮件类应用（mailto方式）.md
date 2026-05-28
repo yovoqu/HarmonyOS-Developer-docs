@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/start-email-apps-by-mailto
 
-##### 使用场景
+#### 使用场景
 
 通过mailto电子邮件协议，可以创建指向电子邮件地址的超链接，方便用户通过网页或应用中的超链接直接跳转电子邮件应用。同时，支持在mailto:的相关字段中定义邮件的收件人、主题、正文内容等，节省用户编辑邮件的时间。
 
@@ -25,7 +25,7 @@
 
 
 
-##### mailto协议格式
+#### mailto协议格式
 
 mailto协议标准格式如下：
 
@@ -64,11 +64,11 @@ mailto:someone@example.com?key1=value1&key2=value2
 
 
 
-##### 拉起方开发步骤
+#### 拉起方开发步骤
 
 
 
-##### 从网页拉起
+#### 从网页拉起
 
 网页中的超链接需要满足mailto协议。示例如下：
 
@@ -86,7 +86,7 @@ mailto:someone@example.com?key1=value1&key2=value2
 
 
 
-##### 从应用拉起
+#### 从应用拉起
 
 保证mailto字符串传入uri参数即可，在应用中page页面可通过 getHostContext() 获取context，在ability中可通过this.context获取context。
 
@@ -114,12 +114,12 @@ struct Index {
 实现效果如下：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/Qunxxx7hTmeQset6yW1XjQ/zh-cn_image_0000002611753487.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014843Z&HW-CC-Expire=86400&HW-CC-Sign=39DC27C6756C25388F2DA8B896645A105D828FA7CD58299FB25BCB209097AA46)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/Qunxxx7hTmeQset6yW1XjQ/zh-cn_image_0000002611753487.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030510Z&HW-CC-Expire=86400&HW-CC-Sign=22604A6CFDCE8E9A98989CF38D6E9860984D8C004378DAB310D95E0A42AFE749)
 
 
 
 
-##### 目标方开发步骤
+#### 目标方开发步骤
 1. 为了能够支持被其他应用通过mailto协议拉起，目标应用需要在[module.json5配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)中声明mailto。
 
   

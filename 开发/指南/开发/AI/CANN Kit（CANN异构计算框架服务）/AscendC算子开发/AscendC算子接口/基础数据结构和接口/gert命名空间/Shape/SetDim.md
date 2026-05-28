@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-setdim
 
-##### 函数功能
+#### 函数功能
 
 设置dim值。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 void SetDim(size_t idx, const int64_t dim_value)
@@ -18,7 +18,7 @@ void SetDim(size_t idx, const int64_t dim_value)
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -28,19 +28,19 @@ void SetDim(size_t idx, const int64_t dim_value)
  
   
 
-##### 返回值
+#### 返回值
 
 无
  
   
 
-##### 约束说明
+#### 约束说明
 
 调用者需要保证index合法。
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 Shape shape0({3, 256, 256});

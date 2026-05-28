@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/custom-font-c
 
-##### 场景介绍
+#### 场景介绍
 
 自定义字体是指开发者根据应用需求创建或选择的字体，通常用于实现特定的文字风格或满足独特的设计要求。当应用需要使用特定的文本样式和字符集时，可以注册并使用自定义字体进行文本渲染。
 
 
 
-##### 实现流程
+#### 实现流程
 
 **自定义字体的注册**是指将字体文件（如ttf、otf文件等）从应用资源注册到系统中，使得应用能够使用这些字体进行文本渲染。注册过程通常指将字体文件通过字体管理接口注册到系统字体库中，以便在应用中进行调用。
 
@@ -18,7 +18,7 @@
 
 
 
-##### 接口说明
+#### 接口说明
 
 注册使用自定义字体的相关接口如下所示，详细接口说明请参考[Drawing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing)。
 
@@ -33,7 +33,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 在工程的src/main/cpp/CMakeLists.txt文件中添加以下lib。
 
   

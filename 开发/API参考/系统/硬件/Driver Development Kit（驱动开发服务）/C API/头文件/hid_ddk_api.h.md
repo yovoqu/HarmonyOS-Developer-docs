@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hid-ddk-api-h
 **支持设备：** PC/2in1
 
-##### 概述
+#### 概述
 
 **支持设备：** PC/2in1
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** PC/2in1
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** PC/2in1
  
@@ -57,13 +57,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** PC/2in1
 
   
 
-##### OH_Hid_CreateDevice()
+#### OH_Hid_CreateDevice()
 
 **支持设备：** PC/2in1
 
@@ -96,7 +96,7 @@ int32_t OH_Hid_CreateDevice(Hid_Device *hidDevice, Hid_EventProperties *hidEvent
  
   
 
-##### OH_Hid_EmitEvent()
+#### OH_Hid_EmitEvent()
 
 **支持设备：** PC/2in1
 
@@ -130,7 +130,7 @@ int32_t OH_Hid_EmitEvent(int32_t deviceId, const Hid_EmitItem items[], uint16_t 
  
   
 
-##### OH_Hid_DestroyDevice()
+#### OH_Hid_DestroyDevice()
 
 **支持设备：** PC/2in1
 
@@ -162,7 +162,7 @@ int32_t OH_Hid_DestroyDevice(int32_t deviceId)
  
   
 
-##### OH_Hid_Init()
+#### OH_Hid_Init()
 
 **支持设备：** PC/2in1
 
@@ -187,7 +187,7 @@ int32_t OH_Hid_Init(void)
  
   
 
-##### OH_Hid_Release()
+#### OH_Hid_Release()
 
 **支持设备：** PC/2in1
 
@@ -212,7 +212,7 @@ int32_t OH_Hid_Release(void)
  
   
 
-##### OH_Hid_Open()
+#### OH_Hid_Open()
 
 **支持设备：** PC/2in1
 
@@ -246,7 +246,7 @@ int32_t OH_Hid_Open(uint64_t deviceId, uint8_t interfaceIndex, Hid_DeviceHandle 
  
   
 
-##### OH_Hid_Close()
+#### OH_Hid_Close()
 
 **支持设备：** PC/2in1
 
@@ -278,7 +278,7 @@ int32_t OH_Hid_Close(Hid_DeviceHandle **dev)
  
   
 
-##### OH_Hid_Write()
+#### OH_Hid_Write()
 
 **支持设备：** PC/2in1
 
@@ -313,7 +313,7 @@ int32_t OH_Hid_Write(Hid_DeviceHandle *dev, uint8_t *data, uint32_t length, uint
  
   
 
-##### OH_Hid_ReadTimeout()
+#### OH_Hid_ReadTimeout()
 
 **支持设备：** PC/2in1
 
@@ -349,7 +349,7 @@ int32_t OH_Hid_ReadTimeout(Hid_DeviceHandle *dev, uint8_t *data, uint32_t bufSiz
  
   
 
-##### OH_Hid_Read()
+#### OH_Hid_Read()
 
 **支持设备：** PC/2in1
 
@@ -384,7 +384,7 @@ int32_t OH_Hid_Read(Hid_DeviceHandle *dev, uint8_t *data, uint32_t bufSize, uint
  
   
 
-##### OH_Hid_SetNonBlocking()
+#### OH_Hid_SetNonBlocking()
 
 **支持设备：** PC/2in1
 
@@ -417,7 +417,7 @@ int32_t OH_Hid_SetNonBlocking(Hid_DeviceHandle *dev, int nonBlock)
  
   
 
-##### OH_Hid_GetRawInfo()
+#### OH_Hid_GetRawInfo()
 
 **支持设备：** PC/2in1
 
@@ -450,7 +450,7 @@ int32_t OH_Hid_GetRawInfo(Hid_DeviceHandle *dev, Hid_RawDevInfo *rawDevInfo)
  
   
 
-##### OH_Hid_GetRawName()
+#### OH_Hid_GetRawName()
 
 **支持设备：** PC/2in1
 
@@ -484,7 +484,7 @@ int32_t OH_Hid_GetRawName(Hid_DeviceHandle *dev, char *data, uint32_t bufSize)
  
   
 
-##### OH_Hid_GetPhysicalAddress()
+#### OH_Hid_GetPhysicalAddress()
 
 **支持设备：** PC/2in1
 
@@ -518,7 +518,7 @@ int32_t OH_Hid_GetPhysicalAddress(Hid_DeviceHandle *dev, char *data, uint32_t bu
  
   
 
-##### OH_Hid_GetRawUniqueId()
+#### OH_Hid_GetRawUniqueId()
 
 **支持设备：** PC/2in1
 
@@ -552,7 +552,7 @@ int32_t OH_Hid_GetRawUniqueId(Hid_DeviceHandle *dev, uint8_t *data, uint32_t buf
  
   
 
-##### OH_Hid_SendReport()
+#### OH_Hid_SendReport()
 
 **支持设备：** PC/2in1
 
@@ -587,7 +587,7 @@ int32_t OH_Hid_SendReport(Hid_DeviceHandle *dev, Hid_ReportType reportType, cons
  
   
 
-##### OH_Hid_GetReport()
+#### OH_Hid_GetReport()
 
 **支持设备：** PC/2in1
 
@@ -622,7 +622,7 @@ int32_t OH_Hid_GetReport(Hid_DeviceHandle *dev, Hid_ReportType reportType, uint8
  
   
 
-##### OH_Hid_GetReportDescriptor()
+#### OH_Hid_GetReportDescriptor()
 
 **支持设备：** PC/2in1
 

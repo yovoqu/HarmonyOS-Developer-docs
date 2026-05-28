@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { constant } from '@kit.ConnectivityKit';
 
 
 
-##### ProfileId
+#### ProfileId
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -40,7 +40,7 @@ import { constant } from '@kit.ConnectivityKit';
 
 
 
-##### ProfileConnectionState
+#### ProfileConnectionState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -60,7 +60,7 @@ import { constant } from '@kit.ConnectivityKit';
 
 
 
-##### MajorClass
+#### MajorClass
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -85,7 +85,7 @@ import { constant } from '@kit.ConnectivityKit';
 
 
 
-##### MajorMinorClass
+#### MajorMinorClass
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -185,7 +185,7 @@ import { constant } from '@kit.ConnectivityKit';
 
 
 
-##### ProfileUuids12+
+#### ProfileUuids12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

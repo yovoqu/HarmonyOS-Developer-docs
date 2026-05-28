@@ -14,7 +14,7 @@ AgentCard相当于Agent(智能体)的"名片"，用于描述Agent的能力和技
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { common } from '@kit.AbilityKit';
 
 
 
-##### AgentCard
+#### AgentCard
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -56,7 +56,7 @@ import { common } from '@kit.AbilityKit';
 
 
 
-##### AgentProvider
+#### AgentProvider
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -76,7 +76,7 @@ import { common } from '@kit.AbilityKit';
 
 
 
-##### AgentCapabilities
+#### AgentCapabilities
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -99,7 +99,7 @@ import { common } from '@kit.AbilityKit';
 
 
 
-##### AgentSkill
+#### AgentSkill
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -125,7 +125,7 @@ import { common } from '@kit.AbilityKit';
 
 
 
-##### AgentAppInfo
+#### AgentAppInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

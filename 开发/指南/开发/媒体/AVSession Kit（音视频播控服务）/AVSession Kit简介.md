@@ -7,7 +7,7 @@
 AVSession Kit（Audio & Video Session Kit，音视频播控服务）是系统提供的音视频管控服务，用于统一管理系统中所有音视频行为，帮助开发者快速构建音视频统一展示和控制能力。
 
 
-##### 能力范围
+#### 能力范围
 
  - 提供音视频统一管控能力，音视频类应用接入AVSession后，可以发送应用的数据（比如正在播放的歌曲、歌曲的播放状态等），用户可以通过系统播控中心、语音助手等应用切换多个应用、多个设备播放。
  - 提供音频后台约束能力，音频接入AVSession后，可以进行后台音频播放。此功能需要同时申请[长时任务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/continuous-task)。
@@ -15,7 +15,7 @@ AVSession Kit（Audio & Video Session Kit，音视频播控服务）是系统提
 
 
 
-##### 亮点/特征
+#### 亮点/特征
 
  - **投播体验一致**
 
@@ -31,7 +31,7 @@ AVSession Kit（Audio & Video Session Kit，音视频播控服务）是系统提
 
 
 
-##### 基础概念
+#### 基础概念
 
 在开发前，需要先了解以下基础概念：
 
@@ -54,7 +54,7 @@ AVSession Kit（Audio & Video Session Kit，音视频播控服务）是系统提
 
 
 
-##### 媒体会话交互过程
+#### 媒体会话交互过程
 
 媒体会话分为本地和分布式两种场景。
 
@@ -72,19 +72,19 @@ AVSession Kit（Audio & Video Session Kit，音视频播控服务）是系统提
 
 
 
-##### 约束和限制
+#### 约束和限制
 
 所有需要进行后台播放的音视频应用，都需要同时接入AVSession和后台任务管理，未接入的应用在退到后台时，将会被强制暂停音频播放。
 
 
 
-##### 与相关Kit的关系
+#### 与相关Kit的关系
 
 应用实现后台播放时，需要使用[Background Tasks Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/background-task-overview)（后台任务管理）的能力，申请对应的长时任务，避免进入挂起（Suspend）状态。
 
 
 
-##### 模拟器支持情况
+#### 模拟器支持情况
 
 本Kit支持模拟器，但与真机存在部分能力差异，具体差异如下：
 

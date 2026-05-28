@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { mediaquery } from '@kit.ArkUI';
 
 
 
-##### mediaquery.matchMediaSync(deprecated)
+#### mediaquery.matchMediaSync(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -64,7 +64,7 @@ let listener: mediaquery.MediaQueryListener = mediaquery.matchMediaSync('(orient
 
 
 
-##### MediaQueryListener
+#### MediaQueryListener
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -80,7 +80,7 @@ let listener: mediaquery.MediaQueryListener = mediaquery.matchMediaSync('(orient
 
 
 
-##### on('change')
+#### on('change')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -112,7 +112,7 @@ on(type: 'change', callback: Callback&lt;MediaQueryResult&gt;): void
 
 
 
-##### off('change')
+#### off('change')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -153,7 +153,7 @@ listener.off('change', onPortrait) // 注销回调
 
 
 
-##### MediaQueryResult
+#### MediaQueryResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -167,7 +167,7 @@ listener.off('change', onPortrait) // 注销回调
 
 
 
-##### 属性
+#### 属性
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -177,7 +177,7 @@ listener.off('change', onPortrait) // 注销回调
 
 
 
-##### 示例
+#### 示例
 
 > [!NOTE]
 > 推荐通过使用 UIContext 中的 getMediaQuery 方法获取当前UI上下文关联的 MediaQuery 对象。
@@ -224,4 +224,4 @@ struct MediaQueryExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/fOUYHbrvR2m7TFrbxXKcsg/zh-cn_image_0000002581435550.png?HW-CC-KV=V1&HW-CC-Date=20260528T024114Z&HW-CC-Expire=86400&HW-CC-Sign=8DC90555B2CD518069E825BBAE851F3BEB498E00766ACCF2C3FB0EA04761D036)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/fOUYHbrvR2m7TFrbxXKcsg/zh-cn_image_0000002581435550.png?HW-CC-KV=V1&HW-CC-Date=20260528T025448Z&HW-CC-Expire=86400&HW-CC-Sign=82D9F4A58455ECF3F73782C65C98C2B75A64806329F7451A4D400DC5EA58A417)

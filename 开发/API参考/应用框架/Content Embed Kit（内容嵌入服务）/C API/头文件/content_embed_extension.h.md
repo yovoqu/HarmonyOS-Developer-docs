@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-content-embed-extension-h
 **支持设备：** Phone | PC/2in1 | Tablet
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -23,13 +23,13 @@
 
 
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
 
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -46,7 +46,7 @@
 
 
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -88,13 +88,13 @@
 
 
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
 
 
-##### OH_ContentEmbed_Extension_GetContentEmbedContext()
+#### OH_ContentEmbed_Extension_GetContentEmbedContext()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -125,7 +125,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Extension_GetContentEmbedContext(ContentE
 
 
 
-##### OH_ContentEmbed_Extension_GetContext()
+#### OH_ContentEmbed_Extension_GetContext()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -156,7 +156,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Extension_GetContext(ContentEmbed_Extensi
 
 
 
-##### OH_ContentEmbed_Extension_GetExtensionInstance()
+#### OH_ContentEmbed_Extension_GetExtensionInstance()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -187,7 +187,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Extension_GetExtensionInstance(AbilityRun
 
 
 
-##### OH_ContentEmbed_Extension_OnCreateFunc()
+#### OH_ContentEmbed_Extension_OnCreateFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -213,7 +213,7 @@ OE Extension实例创建时的生命周期函数类型。
 
 
 
-##### OH_ContentEmbed_Extension_OnDestroyFunc()
+#### OH_ContentEmbed_Extension_OnDestroyFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -238,7 +238,7 @@ OE Extension实例销毁时的生命周期函数类型。
 
 
 
-##### OH_ContentEmbed_Extension_OnObjectAttachFunc()
+#### OH_ContentEmbed_Extension_OnObjectAttachFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -264,7 +264,7 @@ typedef void (*OH_ContentEmbed_Extension_OnObjectAttachFunc)(ContentEmbed_Extens
 
 
 
-##### OH_ContentEmbed_Extension_OnObjectDetachFunc()
+#### OH_ContentEmbed_Extension_OnObjectDetachFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -290,7 +290,7 @@ typedef void (*OH_ContentEmbed_Extension_OnObjectDetachFunc)(ContentEmbed_Extens
 
 
 
-##### OH_ContentEmbed_Extension_OnWriteToDataStreamFunc()
+#### OH_ContentEmbed_Extension_OnWriteToDataStreamFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -315,7 +315,7 @@ typedef void (*OH_ContentEmbed_Extension_OnWriteToDataStreamFunc)(ContentEmbed_O
 
 
 
-##### OH_ContentEmbed_Extension_OnGetSnapshotFunc()
+#### OH_ContentEmbed_Extension_OnGetSnapshotFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -340,7 +340,7 @@ typedef void (*OH_ContentEmbed_Extension_OnGetSnapshotFunc)(ContentEmbed_ObjectH
 
 
 
-##### OH_ContentEmbed_Extension_OnDoEditFunc()
+#### OH_ContentEmbed_Extension_OnDoEditFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -365,7 +365,7 @@ typedef void (*OH_ContentEmbed_Extension_OnDoEditFunc)(ContentEmbed_ObjectHandle
 
 
 
-##### OH_ContentEmbed_Extension_OnGetEditStatusFunc()
+#### OH_ContentEmbed_Extension_OnGetEditStatusFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -392,7 +392,7 @@ typedef void (*OH_ContentEmbed_Extension_OnGetEditStatusFunc)(ContentEmbed_Objec
 
 
 
-##### OH_ContentEmbed_Extension_OnGetCapabilityFunc()
+#### OH_ContentEmbed_Extension_OnGetCapabilityFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -418,7 +418,7 @@ typedef void (*OH_ContentEmbed_Extension_OnGetCapabilityFunc)(ContentEmbed_Objec
 
 
 
-##### OH_ContentEmbed_Extension_RegisterOnCreateFunc()
+#### OH_ContentEmbed_Extension_RegisterOnCreateFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -449,7 +449,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Extension_RegisterOnCreateFunc(ContentEmb
 
 
 
-##### OH_ContentEmbed_Extension_RegisterOnDestroyFunc()
+#### OH_ContentEmbed_Extension_RegisterOnDestroyFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -480,7 +480,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Extension_RegisterOnDestroyFunc(ContentEm
 
 
 
-##### OH_ContentEmbed_Extension_RegisterOnObjectAttachFunc()
+#### OH_ContentEmbed_Extension_RegisterOnObjectAttachFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -513,7 +513,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Extension_RegisterOnObjectAttachFunc(Cont
 
 
 
-##### OH_ContentEmbed_Extension_UnRegisterOnObjectAttachFunc()
+#### OH_ContentEmbed_Extension_UnRegisterOnObjectAttachFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -543,7 +543,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Extension_UnRegisterOnObjectAttachFunc(Co
 
 
 
-##### OH_ContentEmbed_Extension_RegisterOnObjectDetachFunc()
+#### OH_ContentEmbed_Extension_RegisterOnObjectDetachFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -576,7 +576,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Extension_RegisterOnObjectDetachFunc(Cont
 
 
 
-##### OH_ContentEmbed_Extension_UnRegisterOnObjectDetachFunc()
+#### OH_ContentEmbed_Extension_UnRegisterOnObjectDetachFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -606,7 +606,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Extension_UnRegisterOnObjectDetachFunc(Co
 
 
 
-##### OH_ContentEmbed_Extension_RegisterOnWriteToDataStreamFunc()
+#### OH_ContentEmbed_Extension_RegisterOnWriteToDataStreamFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -637,7 +637,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Extension_RegisterOnWriteToDataStreamFunc
 
 
 
-##### OH_ContentEmbed_Extension_RegisterOnGetSnapshotFunc()
+#### OH_ContentEmbed_Extension_RegisterOnGetSnapshotFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -668,7 +668,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Extension_RegisterOnGetSnapshotFunc(Conte
 
 
 
-##### OH_ContentEmbed_Extension_RegisterOnDoEditFunc()
+#### OH_ContentEmbed_Extension_RegisterOnDoEditFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -699,7 +699,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Extension_RegisterOnDoEditFunc(ContentEmb
 
 
 
-##### OH_ContentEmbed_Extension_RegisterOnGetEditStatusFunc()
+#### OH_ContentEmbed_Extension_RegisterOnGetEditStatusFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -730,7 +730,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Extension_RegisterOnGetEditStatusFunc(Con
 
 
 
-##### OH_ContentEmbed_Extension_RegisterOnGetCapabilityFunc()
+#### OH_ContentEmbed_Extension_RegisterOnGetCapabilityFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -761,7 +761,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Extension_RegisterOnGetCapabilityFunc(Con
 
 
 
-##### OH_ContentEmbed_Extension_GetContentEmbedDocument()
+#### OH_ContentEmbed_Extension_GetContentEmbedDocument()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -792,7 +792,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Extension_GetContentEmbedDocument(Content
 
 
 
-##### OH_ContentEmbed_Extension_CallbackToOnUpdate()
+#### OH_ContentEmbed_Extension_CallbackToOnUpdate()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -822,7 +822,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Extension_CallbackToOnUpdate(ContentEmbed
 
 
 
-##### OH_ContentEmbed_Extension_CallbackToOnError()
+#### OH_ContentEmbed_Extension_CallbackToOnError()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -853,7 +853,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Extension_CallbackToOnError(ContentEmbed_
 
 
 
-##### OH_ContentEmbed_Extension_CallbackToOnEditingFinished()
+#### OH_ContentEmbed_Extension_CallbackToOnEditingFinished()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -884,7 +884,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Extension_CallbackToOnEditingFinished(Con
 
 
 
-##### OH_ContentEmbed_Extension_CallbackToOnExtensionStopped()
+#### OH_ContentEmbed_Extension_CallbackToOnExtensionStopped()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -914,7 +914,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Extension_CallbackToOnExtensionStopped(Co
 
 
 
-##### OH_ContentEmbed_Extension_SetSnapshot()
+#### OH_ContentEmbed_Extension_SetSnapshot()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -945,7 +945,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Extension_SetSnapshot(ContentEmbed_Object
 
 
 
-##### OH_ContentEmbed_Extension_ContextStartSelfUIAbility()
+#### OH_ContentEmbed_Extension_ContextStartSelfUIAbility()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -976,7 +976,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Extension_ContextStartSelfUIAbility(Conte
 
 
 
-##### OH_ContentEmbed_Extension_ContextStartSelfUIAbilityWithStartOptions()
+#### OH_ContentEmbed_Extension_ContextStartSelfUIAbilityWithStartOptions()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1008,7 +1008,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Extension_ContextStartSelfUIAbilityWithSt
 
 
 
-##### OH_ContentEmbed_Extension_ContextTerminateAbility()
+#### OH_ContentEmbed_Extension_ContextTerminateAbility()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

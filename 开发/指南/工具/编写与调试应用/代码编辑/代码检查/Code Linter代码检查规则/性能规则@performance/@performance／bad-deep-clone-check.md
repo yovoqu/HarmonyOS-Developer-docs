@@ -7,7 +7,7 @@
 避免使用不合理深拷贝，如JSON.parse(JSON.stringify(foo))和_.cloneDeep(foo)。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,7 +20,7 @@
  
  
 
-##### 选项
+#### 选项
 
 ```text
 "@performance/bad-deep-clone-check": [
@@ -35,7 +35,7 @@
  
  
 
-##### 正例
+#### 正例
 
 > [!NOTE]
 > 正例的深拷贝实现仅作为示例，开发者需根据业务实际情况确认是否使用该实现。 该示例实现不支持函数和文档对象模型（Document Object Model）元素的拷贝。函数通常不需要深拷贝。 对于复杂的对象结构，使用该示例性能可能受到影响。 对于大型的自定义对象结构，可以使用结构化克隆算法（Structured Clone）或Web Worker。
@@ -128,7 +128,7 @@ const cloned = deepClone(obj);
  
  
 
-##### 反例
+#### 反例
 
 ```json
 import _ from 'lodash';
@@ -151,7 +151,7 @@ const clone2:Foo = _.cloneDeep(foo);
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(80,160,79);">plugin:@performance/</span><span style="color: rgb(0,0,255);">recommended</span>

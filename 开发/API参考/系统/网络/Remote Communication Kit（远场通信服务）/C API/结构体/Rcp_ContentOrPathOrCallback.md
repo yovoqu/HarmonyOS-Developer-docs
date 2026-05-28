@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___content_or_path_or_callback
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -19,13 +19,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -37,13 +37,13 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### callback
+#### callback
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -57,7 +57,7 @@ Rcp_GetDataCallback Rcp_ContentOrPathOrCallback::callback
  
   
 
-##### content
+#### content
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -71,7 +71,7 @@ Rcp_Buffer Rcp_ContentOrPathOrCallback::content
  
   
 
-##### path
+#### path
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -85,7 +85,7 @@ char Rcp_ContentOrPathOrCallback::path[RCP_MAX_PATH_LEN]
  
   
 
-##### type
+#### type
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

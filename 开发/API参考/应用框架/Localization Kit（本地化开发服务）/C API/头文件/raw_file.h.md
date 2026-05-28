@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-raw-file-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -43,7 +43,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -71,13 +71,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_ResourceManager_ReadRawFile()
+#### OH_ResourceManager_ReadRawFile()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -109,7 +109,7 @@ int OH_ResourceManager_ReadRawFile(const RawFile *rawFile, void *buf, size_t len
  
   
 
-##### OH_ResourceManager_SeekRawFile()
+#### OH_ResourceManager_SeekRawFile()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -141,7 +141,7 @@ int OH_ResourceManager_SeekRawFile(const RawFile *rawFile, long offset, int when
  
   
 
-##### OH_ResourceManager_GetRawFileSize()
+#### OH_ResourceManager_GetRawFileSize()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -171,7 +171,7 @@ long OH_ResourceManager_GetRawFileSize(RawFile *rawFile)
  
   
 
-##### OH_ResourceManager_GetRawFileRemainingLength()
+#### OH_ResourceManager_GetRawFileRemainingLength()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -201,7 +201,7 @@ long OH_ResourceManager_GetRawFileRemainingLength(const RawFile *rawFile)
  
   
 
-##### OH_ResourceManager_CloseRawFile()
+#### OH_ResourceManager_CloseRawFile()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -228,7 +228,7 @@ void OH_ResourceManager_CloseRawFile(RawFile *rawFile)
  
   
 
-##### OH_ResourceManager_GetRawFileOffset()
+#### OH_ResourceManager_GetRawFileOffset()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -258,7 +258,7 @@ long OH_ResourceManager_GetRawFileOffset(const RawFile *rawFile)
  
   
 
-##### OH_ResourceManager_GetRawFileDescriptor()
+#### OH_ResourceManager_GetRawFileDescriptor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -293,7 +293,7 @@ bool OH_ResourceManager_GetRawFileDescriptor(const RawFile *rawFile, RawFileDesc
  
   
 
-##### OH_ResourceManager_GetRawFileDescriptorData()
+#### OH_ResourceManager_GetRawFileDescriptorData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -324,7 +324,7 @@ bool OH_ResourceManager_GetRawFileDescriptorData(const RawFile *rawFile, RawFile
  
   
 
-##### OH_ResourceManager_ReleaseRawFileDescriptor()
+#### OH_ResourceManager_ReleaseRawFileDescriptor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -358,7 +358,7 @@ bool OH_ResourceManager_ReleaseRawFileDescriptor(const RawFileDescriptor &descri
  
   
 
-##### OH_ResourceManager_ReleaseRawFileDescriptorData()
+#### OH_ResourceManager_ReleaseRawFileDescriptorData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -388,7 +388,7 @@ bool OH_ResourceManager_ReleaseRawFileDescriptorData(const RawFileDescriptor *de
  
   
 
-##### OH_ResourceManager_ReadRawFile64()
+#### OH_ResourceManager_ReadRawFile64()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -420,7 +420,7 @@ int64_t OH_ResourceManager_ReadRawFile64(const RawFile64 *rawFile, void *buf, in
  
   
 
-##### OH_ResourceManager_SeekRawFile64()
+#### OH_ResourceManager_SeekRawFile64()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -452,7 +452,7 @@ int OH_ResourceManager_SeekRawFile64(const RawFile64 *rawFile, int64_t offset, i
  
   
 
-##### OH_ResourceManager_GetRawFileSize64()
+#### OH_ResourceManager_GetRawFileSize64()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -482,7 +482,7 @@ int64_t OH_ResourceManager_GetRawFileSize64(RawFile64 *rawFile)
  
   
 
-##### OH_ResourceManager_GetRawFileRemainingLength64()
+#### OH_ResourceManager_GetRawFileRemainingLength64()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -512,7 +512,7 @@ int64_t OH_ResourceManager_GetRawFileRemainingLength64(const RawFile64 *rawFile)
  
   
 
-##### OH_ResourceManager_CloseRawFile64()
+#### OH_ResourceManager_CloseRawFile64()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -539,7 +539,7 @@ void OH_ResourceManager_CloseRawFile64(RawFile64 *rawFile)
  
   
 
-##### OH_ResourceManager_GetRawFileOffset64()
+#### OH_ResourceManager_GetRawFileOffset64()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -569,7 +569,7 @@ int64_t OH_ResourceManager_GetRawFileOffset64(const RawFile64 *rawFile)
  
   
 
-##### OH_ResourceManager_GetRawFileDescriptor64()
+#### OH_ResourceManager_GetRawFileDescriptor64()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -600,7 +600,7 @@ bool OH_ResourceManager_GetRawFileDescriptor64(const RawFile64 *rawFile, RawFile
  
   
 
-##### OH_ResourceManager_ReleaseRawFileDescriptor64()
+#### OH_ResourceManager_ReleaseRawFileDescriptor64()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

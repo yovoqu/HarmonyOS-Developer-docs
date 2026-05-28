@@ -10,7 +10,7 @@ typedef struct OH_NativeBuffer_Planes {...} OH_NativeBuffer_Planes
 ```
   
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,13 +24,13 @@ OH_NativeBuffer的图像平面格式信息。
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  

@@ -10,7 +10,7 @@ ringtone提供铃声设置的功能。
 **起始版本：** 5.0.0(12)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Tablet
 
@@ -20,7 +20,7 @@ import { ringtone } from '@kit.RingtoneKit'
  
   
 
-##### RingtoneType
+#### RingtoneType
 
 **支持设备：** Phone | Tablet
 
@@ -40,7 +40,7 @@ import { ringtone } from '@kit.RingtoneKit'
  
   
 
-##### RingtoneErrors
+#### RingtoneErrors
 
 **支持设备：** Phone | Tablet
 
@@ -62,7 +62,7 @@ import { ringtone } from '@kit.RingtoneKit'
  
   
 
-##### ringtone.getSupportedRingtoneTypes
+#### ringtone.getSupportedRingtoneTypes
 
 **支持设备：** Phone | Tablet
 
@@ -117,7 +117,7 @@ struct Index {
  
   
 
-##### ringtone.getSupportedDataTypes
+#### ringtone.getSupportedDataTypes
 
 **支持设备：** Phone | Tablet
 
@@ -197,7 +197,7 @@ struct Index {
  
   
 
-##### ringtone.getSupportedMaxDuration
+#### ringtone.getSupportedMaxDuration
 
 **支持设备：** Phone | Tablet
 
@@ -278,7 +278,7 @@ struct Index {
  
   
 
-##### ringtone.startRingtoneSetting
+#### ringtone.startRingtoneSetting
 
 **支持设备：** Phone | Tablet
 
@@ -365,7 +365,7 @@ struct Index {
  
   
 
-##### ringtone.startRingtoneSetting
+#### ringtone.startRingtoneSetting
 
 **支持设备：** Phone | Tablet
 

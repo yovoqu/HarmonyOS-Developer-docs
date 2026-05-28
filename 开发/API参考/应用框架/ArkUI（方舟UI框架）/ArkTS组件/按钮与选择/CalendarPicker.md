@@ -12,7 +12,7 @@
 
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -43,7 +43,7 @@ CalendarPicker(options?: CalendarOptions)
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -51,7 +51,7 @@ CalendarPicker(options?: CalendarOptions)
  
   
 
-##### edgeAlign
+#### edgeAlign
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -75,7 +75,7 @@ edgeAlign(alignType: CalendarAlign, offset?: Offset)
  
   
 
-##### edgeAlign18+
+#### edgeAlign18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -99,7 +99,7 @@ edgeAlign(alignType: Optional&lt;CalendarAlign&gt;, offset?: Offset)
  
   
 
-##### textStyle
+#### textStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -122,7 +122,7 @@ textStyle(value: PickerTextStyle)
  
   
 
-##### textStyle18+
+#### textStyle18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -145,7 +145,7 @@ textStyle(style: Optional&lt;PickerTextStyle&gt;)
  
   
 
-##### markToday19+
+#### markToday19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -168,7 +168,7 @@ markToday(enabled: boolean)
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -176,7 +176,7 @@ markToday(enabled: boolean)
  
   
 
-##### onChange
+#### onChange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -199,7 +199,7 @@ onChange(callback: Callback&lt;Date&gt;)
  
   
 
-##### onChange18+
+#### onChange18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -226,7 +226,7 @@ onChange(callback: Optional<Callback&lt;Date&gt;>)
  
   
 
-##### CalendarOptions对象说明
+#### CalendarOptions对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -259,7 +259,7 @@ onChange(callback: Optional<Callback&lt;Date&gt;>)
  
   
 
-##### CalendarAlign枚举说明
+#### CalendarAlign枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -280,13 +280,13 @@ onChange(callback: Optional<Callback&lt;Date&gt;>)
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 示例1（设置下拉日历弹窗）
+#### 示例1（设置下拉日历弹窗）
 
 该示例通过calendarPicker实现了日历选择器组件，提供下拉日历弹窗。
  
@@ -321,7 +321,7 @@ struct CalendarPickerExample {
  
   
 
-##### 示例2（设置开始日期和结束日期）
+#### 示例2（设置开始日期和结束日期）
 
 该示例通过start和end设置日历选择器的开始日期和结束日期。
  
@@ -353,12 +353,12 @@ struct CalendarPickerExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/BlCdMwv9TB20R78ekx8viA/zh-cn_image_0000002611835669.png?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=7E3C2C6F9EE04213A499DECFD3E112270CBE1ADE22D6DF9934D24C7D62C27F9D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/BlCdMwv9TB20R78ekx8viA/zh-cn_image_0000002611835669.png?HW-CC-KV=V1&HW-CC-Date=20260528T025554Z&HW-CC-Expire=86400&HW-CC-Sign=1E4EB982E2BCDCE1E97B18776CFDEFB60D760F3000DF866EAAD0788A6FFAB38C)
 
  
   
 
-##### 示例3（设置日历选择器在系统当前日期时，保持高亮显示和禁用日期区间）
+#### 示例3（设置日历选择器在系统当前日期时，保持高亮显示和禁用日期区间）
 
 该示例通过markToday设置日历选择器在系统当前日期时，开启保持高亮显示，同时，通过disabledDateRange设置日历选择器的禁用日期区间。
  
@@ -391,4 +391,4 @@ struct CalendarPickerExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/IQ03usffRVOhKoTgTtkEKg/zh-cn_image_0000002581275920.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=CE50CD8CC9D22029005AD9BE8253853B88A7527AD9C0D7111E51F47BE0A3105C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/IQ03usffRVOhKoTgTtkEKg/zh-cn_image_0000002581275920.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025554Z&HW-CC-Expire=86400&HW-CC-Sign=368CEFAA1F4D3B6953156CB56853FEF1BA3511A7010254DC81EBE8C44CF586A3)

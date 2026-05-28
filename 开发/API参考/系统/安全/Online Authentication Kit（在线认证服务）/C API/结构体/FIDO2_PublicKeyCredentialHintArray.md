@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2___public_key_credential_hint_array
 
-##### 概述
+#### 概述
 
 认证方式指示数组。
  
@@ -14,11 +14,11 @@
  
   
 
-##### 汇总
+#### 汇总
 
   
 
-##### 成员变量
+#### 成员变量
  
 | 名称 | 描述 |
 | --- | --- |
@@ -28,11 +28,11 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
   
 
-##### hintNum
+#### hintNum
 
 ```text
 uint32_t FIDO2_PublicKeyCredentialHintArray::hintNum
@@ -44,7 +44,7 @@ uint32_t FIDO2_PublicKeyCredentialHintArray::hintNum
  
   
 
-##### hints
+#### hints
 
 ```text
 FIDO2_PublicKeyCredentialHint* FIDO2_PublicKeyCredentialHintArray::hints

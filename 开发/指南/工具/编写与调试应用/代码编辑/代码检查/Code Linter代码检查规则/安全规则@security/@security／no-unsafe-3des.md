@@ -7,7 +7,7 @@
 该规则禁止使用不安全的3DES加密模式，例如3DES|ECB。建议使用安全的3DES加密模式，例如3DES|CBC。详情参考[3DES加密模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sym-encrypt-decrypt-spec#section3des)。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 import cryptoFramework from '@ohos.security.cryptoFramework';
@@ -35,7 +35,7 @@ cryptoFramework.createCipher('3DES|CBC');
  
  
 
-##### 反例
+#### 反例
 
 ```text
 import cryptoFramework from '@ohos.security.cryptoFramework';
@@ -44,7 +44,7 @@ cryptoFramework.createCipher('3DES|ECB');
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@security/recommended</span>

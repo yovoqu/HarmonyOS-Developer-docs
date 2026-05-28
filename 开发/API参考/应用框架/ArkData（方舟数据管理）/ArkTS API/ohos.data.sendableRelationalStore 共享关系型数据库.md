@@ -12,7 +12,7 @@
 
 
 
-##### 使用场景
+#### 使用场景
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -32,7 +32,7 @@ import { sendableRelationalStore } from '@kit.ArkData';
 
 
 
-##### sendableRelationalStore.toSendableValuesBucket
+#### sendableRelationalStore.toSendableValuesBucket
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -102,7 +102,7 @@ const sendableValuesBucket = sendableRelationalStore.toSendableValuesBucket(valu
 
 
 
-##### sendableRelationalStore.fromSendableValuesBucket
+#### sendableRelationalStore.fromSendableValuesBucket
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -172,7 +172,7 @@ const nonSendableBucket = sendableRelationalStore.fromSendableValuesBucket(senda
 
 
 
-##### sendableRelationalStore.toSendableAsset
+#### sendableRelationalStore.toSendableAsset
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -222,7 +222,7 @@ const sendableAsset = sendableRelationalStore.toSendableAsset(asset1);
 
 
 
-##### sendableRelationalStore.fromSendableAsset
+#### sendableRelationalStore.fromSendableAsset
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -273,7 +273,7 @@ const normalAsset = sendableRelationalStore.fromSendableAsset(sendableAsset);
 
 
 
-##### sendableRelationalStore.fromSendableValues20+
+#### sendableRelationalStore.fromSendableValues20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -321,7 +321,7 @@ const values = sendableRelationalStore.fromSendableValues(array);
 
 
 
-##### sendableRelationalStore.toSendableValues20+
+#### sendableRelationalStore.toSendableValues20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -367,7 +367,7 @@ const values = sendableRelationalStore.toSendableValues(array);
 
 
 
-##### Asset
+#### Asset
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -388,7 +388,7 @@ const values = sendableRelationalStore.toSendableValues(array);
 
 
 
-##### Assets
+#### Assets
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -405,7 +405,7 @@ type Assets = collections.Array&lt;Asset&gt;
 
 
 
-##### ValueType
+#### ValueType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -430,7 +430,7 @@ type ValueType = null | number | string | boolean | collections.Uint8Array | Ass
 
 
 
-##### ValuesBucket
+#### ValuesBucket
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -447,7 +447,7 @@ type ValuesBucket = collections.Map<string, ValueType>
 
 
 
-##### NonSendableBucket
+#### NonSendableBucket
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -464,7 +464,7 @@ type NonSendableBucket = relationalStore.ValuesBucket
 
 
 
-##### NonSendableValues20+
+#### NonSendableValues20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -481,7 +481,7 @@ type NonSendableValues = Array<relationalStore.ValueType>
 
 
 
-##### NonSendableAsset
+#### NonSendableAsset
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -498,7 +498,7 @@ type NonSendableAsset = relationalStore.Asset
 
 
 
-##### 跨线程传递使用示例
+#### 跨线程传递使用示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

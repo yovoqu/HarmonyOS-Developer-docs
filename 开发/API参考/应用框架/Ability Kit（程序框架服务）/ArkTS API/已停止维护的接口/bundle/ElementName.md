@@ -12,7 +12,7 @@ ElementName信息，通过接口[Context.getElementName](https://developer.huawe
 
   
 
-##### ElementName(deprecated)
+#### ElementName(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

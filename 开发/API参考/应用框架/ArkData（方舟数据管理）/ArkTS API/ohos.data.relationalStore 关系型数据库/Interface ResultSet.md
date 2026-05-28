@@ -16,7 +16,7 @@ ResultSet实例不会实时刷新。使用结果集后，如果数据库中的�
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -26,7 +26,7 @@ import { relationalStore } from '@kit.ArkData';
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -47,7 +47,7 @@ import { relationalStore } from '@kit.ArkData';
 
 
 
-##### getColumnNames23+
+#### getColumnNames23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -100,7 +100,7 @@ try {
 
 
 
-##### getColumnIndex
+#### getColumnIndex
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -165,7 +165,7 @@ if (resultSet != undefined) {
 
 
 
-##### getColumnName
+#### getColumnName
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -229,7 +229,7 @@ if (resultSet != undefined) {
 
 
 
-##### getColumnType18+
+#### getColumnType18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -300,7 +300,7 @@ if (resultSet != undefined) {
 
 
 
-##### getColumnTypeSync18+
+#### getColumnTypeSync18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -371,7 +371,7 @@ if (resultSet != undefined) {
 
 
 
-##### goTo
+#### goTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -433,7 +433,7 @@ if (resultSet != undefined) {
 
 
 
-##### goToRow
+#### goToRow
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -495,7 +495,7 @@ if (resultSet != undefined) {
 
 
 
-##### goToFirstRow
+#### goToFirstRow
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -549,7 +549,7 @@ if (resultSet != undefined) {
 
 
 
-##### goToLastRow
+#### goToLastRow
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -603,7 +603,7 @@ if (resultSet != undefined) {
 
 
 
-##### goToNextRow
+#### goToNextRow
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -657,7 +657,7 @@ if (resultSet != undefined) {
 
 
 
-##### goToPreviousRow
+#### goToPreviousRow
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -711,7 +711,7 @@ if (resultSet != undefined) {
 
 
 
-##### getValue12+
+#### getValue12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -779,7 +779,7 @@ if (resultSet !== undefined) {
 
 
 
-##### getBlob
+#### getBlob
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -841,7 +841,7 @@ if (resultSet != undefined) {
 
 
 
-##### getString
+#### getString
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -903,7 +903,7 @@ if (resultSet != undefined) {
 
 
 
-##### getLong
+#### getLong
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -971,7 +971,7 @@ if (resultSet !== undefined) {
 
 
 
-##### getDouble
+#### getDouble
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1039,7 +1039,7 @@ if (resultSet !== undefined) {
 
 
 
-##### getAsset10+
+#### getAsset10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1101,7 +1101,7 @@ if (resultSet != undefined) {
 
 
 
-##### getAssets10+
+#### getAssets10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1163,7 +1163,7 @@ if (resultSet != undefined) {
 
 
 
-##### getRow11+
+#### getRow11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1217,7 +1217,7 @@ if (resultSet != undefined) {
 
 
 
-##### getRows18+
+#### getRows18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1298,7 +1298,7 @@ async function processRows(resultSet: relationalStore.ResultSet) {
 
 
 
-##### getCurrentRowData23+
+#### getCurrentRowData23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1351,7 +1351,7 @@ try {
 
 
 
-##### getRowsData23+
+#### getRowsData23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1439,7 +1439,7 @@ try {
 
 
 
-##### getSendableRow12+
+#### getSendableRow12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1532,7 +1532,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### isColumnNull
+#### isColumnNull
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1600,7 +1600,7 @@ if (resultSet !== undefined) {
 
 
 
-##### close
+#### close
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/design-guides/ux-guidelines-foldable-screen-0000001807866557
 
-##### 基础体验
+#### 基础体验
 
  
 4.1 开合连续性

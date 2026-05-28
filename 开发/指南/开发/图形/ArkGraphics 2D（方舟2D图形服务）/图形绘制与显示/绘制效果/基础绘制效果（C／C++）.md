@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/basic-drawing-effect-c
 
-##### 场景介绍
+#### 场景介绍
 
 在进行绘制时，可以进行一些基础效果的设置，比如设置填充颜色、设置抗锯齿、设置图形描边、设置图形线条连接样式等。
 
@@ -12,13 +12,13 @@
 
 
 
-##### 填充效果
+#### 填充效果
 
 可以通过画刷设置基础的填充颜色，还可以通过画刷使用混合模式、着色器效果、滤波器效果等实现更多复杂绘制效果，具体可见[复杂绘制效果](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/complex-drawing-effect-c)。
 
 
 
-##### 接口说明
+#### 接口说明
 
 使用画刷（Brush）设置绘制效果的常用接口如下表所示，详细的使用和参数请见[drawing_brush](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-brush-h)。
 
@@ -34,7 +34,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 使用OH_Drawing_BrushCreate()接口创建画刷Brush对象。
 
   
@@ -96,13 +96,13 @@ OH_Drawing_BrushDestroy(brush);
 
   
 
-  ##### 描边效果
+  #### 描边效果
 
   可以通过画笔设置基础的描边颜色，还可以通过画笔使用混合模式、路径效果、着色器效果、滤波器效果等实现更多复杂绘制效果，具体可见[复杂绘制效果](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/complex-drawing-effect-c)。
 
   
 
-  ##### 接口说明
+  #### 接口说明
 
   使用画笔（Pen）设置绘制效果的常用接口如下表所示，详细的使用和参数请见[drawing_pen](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-pen-h)。
 
@@ -130,7 +130,7 @@ OH_Drawing_BrushDestroy(brush);
 
   
 
-  ##### 开发步骤
+  #### 开发步骤
 
 1. 使用OH_Drawing_PenCreate()接口创建画笔Pen对象。
 
@@ -242,7 +242,7 @@ OH_Drawing_PenDestroy(pen);
 
   
 
-  ##### 示例代码
+  #### 示例代码
 
   
 [图形绘制（C/C++）](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/ArkGraphics2D/Drawing/NDKGraphicsDraw)

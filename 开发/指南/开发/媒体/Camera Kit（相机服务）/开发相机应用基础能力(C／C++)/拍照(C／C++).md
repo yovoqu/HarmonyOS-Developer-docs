@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-shooting
 
-##### 概述
+#### 概述
 
 拍照是相机的重要功能之一，拍照模块基于相机复杂的逻辑，为了保证用户拍出的照片质量，在中间步骤可以设置分辨率、闪光灯、焦距、照片质量及旋转角度等信息。
 
@@ -16,7 +16,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 详细的API说明请参考[OH_Camera](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera)。
 1. 导入NDK接口，接口中提供了相机相关的属性和方法，导入方法如下。
@@ -503,7 +503,7 @@ Camera_ErrorCode NDKCamera::TakePicture(int32_t degree)
 
   
 
-  ##### 高性能拍照
+  #### 高性能拍照
 
   从API version 21开始支持高性能拍照功能，即在进行单段式拍照时设置明确的[画质优先策略](#画质优先策略)。
 
@@ -517,7 +517,7 @@ Camera_ErrorCode NDKCamera::TakePicture(int32_t degree)
 
   
 
-  ##### 画质优先策略
+  #### 画质优先策略
 
   在使用单段式拍照时，支持设置速度优先和画质优先两种画质优先策略类型，并且分别对应着不同的[Camera_PhotoQualityPrioritization](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h#camera_photoqualityprioritization)枚举类型。
 
@@ -528,7 +528,7 @@ Camera_ErrorCode NDKCamera::TakePicture(int32_t degree)
 
 
 
-##### 如何正确设置画质优先策略
+#### 如何正确设置画质优先策略
 
 为了正确的在单段式拍照中设置画质优先策略，高性能拍照功能提供了如下两个接口：
 
@@ -538,7 +538,7 @@ Camera_ErrorCode NDKCamera::TakePicture(int32_t degree)
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 高性能拍照相关接口需要在[会话管理(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-session-management)流程的使能步骤中进行调用。
 
@@ -671,7 +671,7 @@ void SetHighQualityPhotoQualityPrioritization(Camera_PhotoOutput* photoOutput)
 
 
 
-##### 状态监听
+#### 状态监听
 
 在相机应用开发过程中，可以随时监听拍照输出流状态，包括拍照流开始、拍照帧的开始与结束、拍照输出流的错误。
 

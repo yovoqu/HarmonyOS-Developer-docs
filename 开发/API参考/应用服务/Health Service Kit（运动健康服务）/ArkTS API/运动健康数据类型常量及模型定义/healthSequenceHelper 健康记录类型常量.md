@@ -10,7 +10,7 @@
 **起始版本：** 5.0.0(12)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -24,7 +24,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### sleepRecord
+#### sleepRecord
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -36,7 +36,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -51,7 +51,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -70,7 +70,7 @@ type Model = healthModels.SleepRecord
  
   
 
-##### Fields
+#### Fields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -89,7 +89,7 @@ type Fields = healthFields.Sleep
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -108,7 +108,7 @@ type DetailFields = healthFields.SleepDetail
  
   
 
-##### sleepNapRecord
+#### sleepNapRecord
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -120,7 +120,7 @@ type DetailFields = healthFields.SleepDetail
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -135,7 +135,7 @@ type DetailFields = healthFields.SleepDetail
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -154,7 +154,7 @@ type Model = healthModels.SleepNapRecord
  
   
 
-##### Fields
+#### Fields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -173,7 +173,7 @@ type Fields = healthFields.SleepNap
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -192,7 +192,7 @@ type DetailFields = healthFields.SleepDetail
  
   
 
-##### menstrualCycle
+#### menstrualCycle
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -206,7 +206,7 @@ type DetailFields = healthFields.SleepDetail
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -223,7 +223,7 @@ type DetailFields = healthFields.SleepDetail
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -244,7 +244,7 @@ type Model = healthModels.MenstrualCycle
  
   
 
-##### Fields
+#### Fields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -265,7 +265,7 @@ type Fields = healthFields.MenstrualCycle
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** Phone | Tablet | Wearable
 

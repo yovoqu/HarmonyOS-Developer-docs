@@ -7,7 +7,7 @@
 要求异步函数返回“await”。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/return-await选项](https://typescript-eslint.nodejs.cn/rules/return-await/#options)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 export async function validInTryCatch1() {
@@ -40,7 +40,7 @@ export async function validInTryCatch1() {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 export async function validInTryCatch1() {
@@ -54,7 +54,7 @@ export async function validInTryCatch1() {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

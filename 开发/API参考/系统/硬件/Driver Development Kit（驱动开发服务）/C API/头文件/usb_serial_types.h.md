@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-usb-serial-types-h
 **支持设备：** PC/2in1
 
-##### 概述
+#### 概述
 
 **支持设备：** PC/2in1
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** PC/2in1
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** PC/2in1
  
@@ -41,7 +41,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** PC/2in1
  
@@ -54,13 +54,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** PC/2in1
 
   
 
-##### UsbSerial_DdkRetCode
+#### UsbSerial_DdkRetCode
 
 **支持设备：** PC/2in1
 
@@ -89,7 +89,7 @@ enum UsbSerial_DdkRetCode
  
   
 
-##### UsbSerial_FlowControl
+#### UsbSerial_FlowControl
 
 **支持设备：** PC/2in1
 
@@ -112,7 +112,7 @@ enum UsbSerial_FlowControl
  
   
 
-##### UsbSerial_Parity
+#### UsbSerial_Parity
 
 **支持设备：** PC/2in1
 

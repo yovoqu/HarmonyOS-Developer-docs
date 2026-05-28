@@ -16,7 +16,7 @@
 **起始版本：** 5.1.0(18)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -26,7 +26,7 @@ import { functionalInputComponentManager } from '@kit.ScenarioFusionKit';
  
   
 
-##### InputType
+#### InputType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -47,7 +47,7 @@ import { functionalInputComponentManager } from '@kit.ScenarioFusionKit';
  
   
 
-##### FunctionalInputParams
+#### FunctionalInputParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -73,7 +73,7 @@ import { functionalInputComponentManager } from '@kit.ScenarioFusionKit';
  
   
 
-##### DistrictSelectResult
+#### DistrictSelectResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -97,7 +97,7 @@ import { functionalInputComponentManager } from '@kit.ScenarioFusionKit';
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -105,7 +105,7 @@ import { functionalInputComponentManager } from '@kit.ScenarioFusionKit';
  
   
 
-##### FunctionalInputController
+#### FunctionalInputController
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -121,7 +121,7 @@ FunctionalInput组件控制器，用来回调组件内部的点击事件。
  
   
 
-##### onSelectDistrict
+#### onSelectDistrict
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

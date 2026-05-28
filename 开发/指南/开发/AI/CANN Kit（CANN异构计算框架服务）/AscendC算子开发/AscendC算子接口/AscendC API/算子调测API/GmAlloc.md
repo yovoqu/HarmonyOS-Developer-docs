@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-gmalloc
 
-##### 函数功能
+#### 函数功能
 
 进行核函数的CPU侧运行验证时，用于创建共享内存：在/tmp目录下创建一个共享文件，并返回该文件的映射指针。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 void *GmAlloc(size_t size)
@@ -18,7 +18,7 @@ void *GmAlloc(size_t size)
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数名 | 输入/输出 | 描述 |
 | --- | --- | --- |
@@ -27,13 +27,13 @@ void *GmAlloc(size_t size)
  
   
 
-##### 返回值
+#### 返回值
 
 返回一个void*指针，该指针表示该共享内存空间的首地址。
  
   
 
-##### 支持的型号
+#### 支持的型号
 
 Kirin9020系列处理器
  
@@ -41,13 +41,13 @@ KirinX90系列处理器
  
   
 
-##### 约束说明
+#### 约束说明
 
 该接口在系统的/tmp目录下生成临时文件，故需要磁盘空间足够才可以正常生成共享内存。
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 constexpr int32_t len = 8 * 32 * 1024 * 8;

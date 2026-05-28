@@ -10,7 +10,7 @@
 **起始版本：** 5.0.1(13)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@ import { manager } from '@kit.NearLinkKit';
  
   
 
-##### PairingState
+#### PairingState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -39,7 +39,7 @@ type PairingState = constant.PairingState
  
   
 
-##### ConnectionState
+#### ConnectionState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -58,7 +58,7 @@ type ConnectionState = constant.ConnectionState
  
   
 
-##### AcbState
+#### AcbState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -77,7 +77,7 @@ type AcbState = constant.AcbState
  
   
 
-##### getState
+#### getState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -122,7 +122,7 @@ try {
  
   
 
-##### isNearLinkSupported
+#### isNearLinkSupported
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -161,7 +161,7 @@ try {
  
   
 
-##### getLocalName
+#### getLocalName
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -210,7 +210,7 @@ try {
  
   
 
-##### getPairedDevices
+#### getPairedDevices
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -263,7 +263,7 @@ try {
  
   
 
-##### on( 'stateChange')
+#### on( 'stateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -321,7 +321,7 @@ try {
  
   
 
-##### off( 'stateChange')
+#### off( 'stateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -367,7 +367,7 @@ try {
  
   
 
-##### on( 'pairingStateChange')
+#### on( 'pairingStateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -419,7 +419,7 @@ try {
  
   
 
-##### off( 'pairingStateChange')
+#### off( 'pairingStateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -468,7 +468,7 @@ try {
  
   
 
-##### on( 'connectionStateChange')
+#### on( 'connectionStateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -521,7 +521,7 @@ try {
  
   
 
-##### off( 'connectionStateChange')
+#### off( 'connectionStateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -570,7 +570,7 @@ try {
  
   
 
-##### on('acbStateChange')
+#### on('acbStateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -623,7 +623,7 @@ try {
  
   
 
-##### off( 'acbStateChange')
+#### off( 'acbStateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -672,7 +672,7 @@ try {
  
   
 
-##### PairingStateParam
+#### PairingStateParam
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -692,7 +692,7 @@ try {
  
   
 
-##### PairingRequestParam
+#### PairingRequestParam
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -711,7 +711,7 @@ try {
  
   
 
-##### ConnectionStateParam
+#### ConnectionStateParam
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -731,7 +731,7 @@ try {
  
   
 
-##### NearlinkState
+#### NearlinkState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -751,7 +751,7 @@ try {
  
   
 
-##### PairingReason
+#### PairingReason
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -773,7 +773,7 @@ try {
  
   
 
-##### PairingType
+#### PairingType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -792,7 +792,7 @@ try {
  
   
 
-##### ConnectionReason
+#### ConnectionReason
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -810,7 +810,7 @@ try {
  
   
 
-##### AcbStateParam
+#### AcbStateParam
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -12,7 +12,7 @@
 
   
 
-##### setVisible11+
+#### setVisible11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -62,7 +62,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### setBackgroundColor11+
+#### setBackgroundColor11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -112,7 +112,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### setTitleContent11+
+#### setTitleContent11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -162,7 +162,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### setTitleFontStyle11+
+#### setTitleFontStyle11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -212,7 +212,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### setIconColor11+
+#### setIconColor11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -262,7 +262,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### getBarRect15+
+#### getBarRect15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

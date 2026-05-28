@@ -12,7 +12,7 @@ CompletionHandlerForAbilityStartCallback作为[AbilityStartCallback](https://dev
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { CompletionHandlerForAbilityStartCallback } from '@kit.AbilityKit';
  
   
 
-##### CompletionHandlerForAbilityStartCallback
+#### CompletionHandlerForAbilityStartCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -30,7 +30,7 @@ CompletionHandlerForAbilityStartCallback提供了onRequestSuccess和onRequestFai
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -44,7 +44,7 @@ CompletionHandlerForAbilityStartCallback提供了onRequestSuccess和onRequestFai
  
   
 
-##### OnRequestSuccessFn
+#### OnRequestSuccessFn
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -69,7 +69,7 @@ type OnRequestSuccessFn = (name: string) => void
  
   
 
-##### OnRequestFailureFn
+#### OnRequestFailureFn
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -146,7 +146,7 @@ struct Index {
  
   
 
-##### AbilityStartFailureCode
+#### AbilityStartFailureCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

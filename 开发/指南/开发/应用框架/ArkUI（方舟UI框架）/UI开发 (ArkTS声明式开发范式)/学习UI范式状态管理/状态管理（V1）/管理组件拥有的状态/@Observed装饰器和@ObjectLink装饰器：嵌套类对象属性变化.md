@@ -13,7 +13,7 @@
 
 
 
-##### 概述
+#### 概述
 
 @ObjectLink和@Observed类装饰器配合使用，可实现嵌套对象或数组的双向数据同步，使用方式如下：
 
@@ -26,7 +26,7 @@
 
 
 
-##### 装饰器说明
+#### 装饰器说明
 
 | @Observed类装饰器 | 说明 |
 | --- | --- |
@@ -56,7 +56,7 @@ this.objLink= ...
 
 
 
-##### 变量的传递/访问规则说明
+#### 变量的传递/访问规则说明
 
 | @ObjectLink传递/访问 | 说明 |
 | --- | --- |
@@ -73,11 +73,11 @@ this.objLink= ...
 
 
 
-##### 观察变化和行为表现
+#### 观察变化和行为表现
 
 
 
-##### 观察变化
+#### 观察变化
 
 API version 19之前，如果需要观察嵌套场景的变化，如嵌套类，二维数组，对象数组等，那么内层的数据类型也需要被@Observed装饰。API version 19及以后，也可以通过使用[makeV1Observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#makev1observed19)来使内层数据可观察。内层数据需要传递给@ObjectLink，使其在UI上可观察。示例请参考[嵌套对象](#嵌套对象)。
 
@@ -159,7 +159,7 @@ struct Parent {
 
 
 
-##### 框架行为
+#### 框架行为
 1. 初始渲染：
 
   a. @Observed装饰的class的实例会被代理对象包装，代理了class上的属性的setter和getter方法。
@@ -169,7 +169,7 @@ struct Parent {
 
 
 
-##### 限制条件
+#### 限制条件
 1. 使用@Observed装饰class会改变class原始的原型链，@Observed和其他类装饰器装饰同一个class可能会带来问题。
 2. @ObjectLink装饰器不建议在[@Entry](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#entry)装饰的自定义组件中使用，编译时会产生告警。
 3. @ObjectLink装饰的类型必须是复杂类型，否则会有编译时报错。
@@ -321,11 +321,11 @@ struct Parent {
 
 
 
-##### 使用场景
+#### 使用场景
 
 
 
-##### 对象类型
+#### 对象类型
 
 该场景包含built-in类型（Array、Map、Set和Date）和普通class。从API version 19开始，@ObjectLink接收@State传递built-in类型和普通class对象，可以观察其API调用和第一层变化，无需额外添加@Observed装饰。因为@State等状态变量装饰器，会给对象（外层对象）添加一层“代理”包装，其功能等同于添加@Observed装饰。
 
@@ -374,7 +374,7 @@ struct Index {
 
 
 
-##### 嵌套对象
+#### 嵌套对象
 
 ```ArkTS
 @Observed
@@ -454,7 +454,7 @@ struct Index {
 
 
 
-##### 对象数组
+#### 对象数组
 
 对象数组是一种常用的数据结构。以下示例展示了对象数组的用法。
 
@@ -574,7 +574,7 @@ struct Parent {
 
 
 
-##### 二维数组
+#### 二维数组
 
 使用@Observed观察二维数组的变化。可以声明一个被@Observed装饰的继承Array的子类。
 
@@ -725,7 +725,7 @@ struct IndexPage {
 
 
 
-##### 继承Map类
+#### 继承Map类
 
 > [!NOTE]
 > 从API version 11开始，@ObjectLink支持@Observed装饰Map类型和继承Map类的类型。
@@ -825,7 +825,7 @@ struct MapSampleNestedChild {
 
 
 
-##### 继承Set类
+#### 继承Set类
 
 > [!NOTE]
 > 从API version 11开始，@ObjectLink支持@Observed装饰Set类型和继承Set类的类型。
@@ -917,7 +917,7 @@ struct SetSampleNestedChild {
 
 
 
-##### ObjectLink支持联合类型
+#### ObjectLink支持联合类型
 
 @ObjectLink支持@Observed装饰类和undefined或null组成的联合类型，在下面的示例中，count类型为Source | Data | undefined，点击父组件Parent中的Button改变count的属性或者类型，Child组件中对应的Text组件刷新。
 
@@ -1015,11 +1015,11 @@ struct Child {
 
 
 
-##### 常见问题
+#### 常见问题
 
 
 
-##### 基础嵌套对象属性更改失效
+#### 基础嵌套对象属性更改失效
 
 在应用开发中，有很多嵌套对象场景，例如，开发者更新了某个属性，但UI没有进行对应的更新。
 
@@ -1239,7 +1239,7 @@ struct MyView {
 
 
 
-##### 复杂嵌套对象属性更改失效
+#### 复杂嵌套对象属性更改失效
 
 【反例】
 
@@ -1532,7 +1532,7 @@ struct ParentComp {
 
 
 
-##### @Prop与@ObjectLink的差异
+#### @Prop与@ObjectLink的差异
 
 @Prop和@ObjectLink都可以接收@Observed装饰的类对象实例。@Prop对对象进行深拷贝，修改深拷贝后的对象不会影响原对象及其关联的组件。@ObjectLink获取对象的引用，修改引用对象会影响原对象及其关联的组件。
 
@@ -1596,7 +1596,7 @@ struct UserChild {
 
 
 
-##### 在@Observed装饰类的构造函数中延时更改成员变量
+#### 在@Observed装饰类的构造函数中延时更改成员变量
 
 在状态管理中，使用@Observed装饰类后，会给该类使用一层“代理”进行包装。当在组件中改变该类的成员变量时，会被该代理进行拦截，在更改数据源中值的同时，也会将变化通知给绑定的组件，从而实现观测变化与触发刷新。
 
@@ -1698,7 +1698,7 @@ struct DelayedChangeIndex {
 
 
 
-##### @ObjectLink数据源更新时机
+#### @ObjectLink数据源更新时机
 
 ```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -1811,7 +1811,7 @@ Child({
 
 
 
-##### @Observed装饰的类，在构造函数中使用this赋值属性，不触发UI更新
+#### @Observed装饰的类，在构造函数中使用this赋值属性，不触发UI更新
 
 @Observed类的构造函数中对成员变量进行赋值或者修改时，此修改不会经过代理，无法被观测到。
 
@@ -1883,7 +1883,7 @@ struct Index {
 
 
 
-##### LazyForEach和@ObjectLink一起使用时，替换数组数据后UI不刷新
+#### LazyForEach和@ObjectLink一起使用时，替换数组数据后UI不刷新
 
 @Observed装饰的类的数组，用[LazyForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-lazyforeach)展开显示的时候，可能会出现替换数组数据后，修改数组数据不刷新UI的问题。改变数组数据后，需要调用onDataChange通知LazyForEach组件重新绑定状态变量，否则就会出现上述问题。
 

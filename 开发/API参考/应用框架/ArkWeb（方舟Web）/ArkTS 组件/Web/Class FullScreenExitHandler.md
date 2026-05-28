@@ -12,7 +12,7 @@
 
   
 
-##### constructor9+
+#### constructor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ FullScreenExitHandler的构造函数。
  
   
 
-##### exitFullScreen9+
+#### exitFullScreen9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

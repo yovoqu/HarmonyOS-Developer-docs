@@ -11,7 +11,7 @@
 
  
 
-##### 定位能耗问题
+#### 定位能耗问题
 
 1. 创建Energy模板任务并录制相关数据，操作方法可参考[性能问题定位：深度录制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/deep-recording)，或在会话区选择**Open File**，导入历史数据。
 2. 录制结束等待处理数据完成。默认包含Energy Anomaly、Temperature以及Energy三条能耗相关泳道：
@@ -43,9 +43,9 @@ Energy Anomaly泳道：展示能耗相关的异常帧信息。该泳道暂不支
 8. 点击对应的异常类型数据（RS Empty Run、UI Empty Run和GPU Consumption），右侧More区域展示该异常帧信息，包括帧编号、RS VsyncId、帧持续时间。点击右侧跳转按钮可以跳转到Frame泳道中对应的具体帧，可以根据[查看指定Frame页面布局信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-insight-session-frame#section58691959194312)详细查看页面组件的布局情况，以及识别存在能耗问题的组件。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/ARku-oxpQO-SqZ-oFpf6Cg/zh-cn_image_0000002571386998.png?HW-CC-KV=V1&HW-CC-Date=20260528T015025Z&HW-CC-Expire=86400&HW-CC-Sign=AFB7E015E99BA4EB4D1FD7CA86B932F5BC609663F5240D84C365E9A076E7C393)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/xnjZW52pQ1iWfT5D4HmYvQ/zh-cn_image_0000002571386998.png?HW-CC-KV=V1&HW-CC-Date=20260528T030655Z&HW-CC-Expire=86400&HW-CC-Sign=C85B09785B87AEA147639F0C773815D8E99D78DF03A106A010036EF4D9E815F2)
 
 9. 点击CPU高负载异常数据，右侧More区域展示该异常帧信息，包括进程ID、线程ID、负载值。点击右侧跳转按钮可以跳转到对应线程调用栈。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/Cv8RMhPXQ4GTP3Zf5U6cBg/zh-cn_image_0000002602066113.png?HW-CC-KV=V1&HW-CC-Date=20260528T015025Z&HW-CC-Expire=86400&HW-CC-Sign=B6EF1B03C279E081B11A89273E73B7775031793D02ECEDF0888B579C828AFFCC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/InyY9JitTkaGsa2MhR0uNA/zh-cn_image_0000002602066113.png?HW-CC-KV=V1&HW-CC-Date=20260528T030655Z&HW-CC-Expire=86400&HW-CC-Sign=34ACAE77746931F0D4137D5E634F68AF3124AD5D82B89EC185429182F3489FC2)

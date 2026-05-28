@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-globaltensor
 
-##### 功能说明
+#### 功能说明
 
 GlobalTensor用来存放Global Memory（外部存储）的全局数据。
  
   
 
-##### 定义原型
+#### 定义原型
 
 ```text
 template <typename T> class GlobalTensor : public BaseGlobalTensor<T> {
@@ -36,7 +36,7 @@ public:
  
   
 
-##### 函数说明
+#### 函数说明
 
 类型T支持基础数据类型，但需要遵循使用此GlobalTensor的指令的数据类型支持情况。
  
@@ -56,7 +56,7 @@ public:
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 void Init(__gm__ uint8_t *src_gm, __gm__ uint8_t *dst_gm)

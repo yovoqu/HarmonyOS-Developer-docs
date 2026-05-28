@@ -13,7 +13,7 @@
 此处以在ArkTS/JS侧调用callNative()接口、在Native侧实现加法操作的CallNative()接口，从而实现跨语言交互为例，呈现使用Node-API进行跨语言交互的流程。
 
 
-##### 创建Native C++工程
+#### 创建Native C++工程
 
  - 在DevEco Studio中**New > Create Project**，选择**Native C++模板，点击**Next，选择API版本，设置好工程名称，点击**Finish**，创建得到新工程。
  - 创建工程后工程结构可以分两部分，cpp部分和ets部分，工程结构具体介绍可见[C++工程目录结构](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-project-structure)。
@@ -21,7 +21,7 @@
 
 
 
-##### Native侧方法的实现
+#### Native侧方法的实现
 
  - 设置模块注册信息
 
@@ -168,7 +168,7 @@ static napi_value NativeCallArkTS(napi_env env, napi_callback_info info)
 
 
 
-##### ArkTS侧调用C/C++方法实现
+#### ArkTS侧调用C/C++方法实现
 
 ArkTS侧通过import引入Native侧包含处理逻辑的so来使用C/C++的方法。
 
@@ -211,17 +211,17 @@ struct Index {
 
 
 
-##### Node-API的约束限制
+#### Node-API的约束限制
 
 
 
-##### SO命名规则
+#### SO命名规则
 
 导入使用的模块名和注册时的模块名大小写保持一致，如模块名为entry，则so的名字为libentry.so，napi_module中nm_modname字段应为entry，ArkTS侧使用时写作：import xxx from 'libentry.so'。
 
 
 
-##### 注册建议
+#### 注册建议
 
  - nm_register_func对应的函数（如上述Init函数）需要加上static，防止与其他so里的符号冲突。
  - 模块注册的入口，即使用__attribute__((constructor))修饰的函数的函数名（如上述RegisterDemoModule函数）需要确保不与其它模块重复。
@@ -229,7 +229,7 @@ struct Index {
 
 
 
-##### 多线程限制
+#### 多线程限制
 
 每个引擎实例对应一个ArkTS线程，实例上的对象不能跨线程操作，否则会引起应用crash。使用时需要遵循如下原则：
 
@@ -240,7 +240,7 @@ struct Index {
 
 
 
-##### 代码调试设备选择
+#### 代码调试设备选择
 
 建议开发者优先使用真机进行代码调试，若无真机或者真机无权限则可使用模拟器进行调试，模拟器调试中遇到的问题详见[bm工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/bm-tool#bm工具错误码)
 

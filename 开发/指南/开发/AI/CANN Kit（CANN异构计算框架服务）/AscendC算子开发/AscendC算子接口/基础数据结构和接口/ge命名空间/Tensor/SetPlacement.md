@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-tensor-setplacement
 
-##### 函数功能
+#### 函数功能
 
 设置Tensor的数据存放的位置。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 graphStatus SetPlacement(const ge::Placement &placement);
@@ -18,7 +18,7 @@ graphStatus SetPlacement(const ge::Placement &placement);
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数名 | 输入/输出 | 描述 |
 | --- | --- | --- |
@@ -27,7 +27,7 @@ graphStatus SetPlacement(const ge::Placement &placement);
  
   
 
-##### 返回值
+#### 返回值
  
 | 类型 | 描述 |
 | --- | --- |
@@ -36,12 +36,12 @@ graphStatus SetPlacement(const ge::Placement &placement);
  
   
 
-##### 异常处理
+#### 异常处理
 
 无
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

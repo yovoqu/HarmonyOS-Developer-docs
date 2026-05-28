@@ -9,7 +9,7 @@
 
 
 
-##### 场景说明
+#### 场景说明
 
 典型场景。
 
@@ -25,7 +25,7 @@
 
 
 
-##### 接口说明
+#### 接口说明
 
 详细接口说明可参考[@ohos.security.certManager (证书管理模块)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanager)。
 
@@ -43,7 +43,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 权限申请和声明。
 
   使用安装和删除接口需要申请权限：ohos.permission.ACCESS_ENTERPRISE_USER_TRUSTED_CERT或ohos.permission.ACCESS_USER_TRUSTED_CERT

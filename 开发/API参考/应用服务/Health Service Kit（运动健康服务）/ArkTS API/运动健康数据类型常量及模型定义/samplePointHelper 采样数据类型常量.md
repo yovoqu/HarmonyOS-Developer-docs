@@ -10,7 +10,7 @@
 **起始版本：** 5.0.0(12)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -24,7 +24,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### bloodOxygenSaturation
+#### bloodOxygenSaturation
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -36,7 +36,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -51,7 +51,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -70,7 +70,7 @@ type Model = healthModels.BloodOxygenSaturation
  
   
 
-##### Fields
+#### Fields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -89,7 +89,7 @@ type Fields = healthFields.BloodOxygenSaturation
  
   
 
-##### AggregateResult
+#### AggregateResult
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -108,7 +108,7 @@ type AggregateResult = healthModels.BloodOxygenSaturationAggregateResult
  
   
 
-##### AggregateRequest
+#### AggregateRequest
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -127,7 +127,7 @@ type AggregateRequest = healthModels.BloodOxygenSaturationAggregateRequest
  
   
 
-##### AggregateFields
+#### AggregateFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -146,7 +146,7 @@ type AggregateFields = healthFields.BloodOxygenSaturationAggregation
  
   
 
-##### bloodPressure
+#### bloodPressure
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -158,7 +158,7 @@ type AggregateFields = healthFields.BloodOxygenSaturationAggregation
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -173,7 +173,7 @@ type AggregateFields = healthFields.BloodOxygenSaturationAggregation
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -192,7 +192,7 @@ type Model = healthModels.BloodPressure
  
   
 
-##### Fields
+#### Fields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -211,7 +211,7 @@ type Fields = healthFields.BloodPressure
  
   
 
-##### bodyTemperature
+#### bodyTemperature
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -223,7 +223,7 @@ type Fields = healthFields.BloodPressure
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -238,7 +238,7 @@ type Fields = healthFields.BloodPressure
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -257,7 +257,7 @@ type Model = healthModels.BodyTemperature
  
   
 
-##### Fields
+#### Fields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -276,7 +276,7 @@ type Fields = healthFields.BodyTemperature
  
   
 
-##### AggregateResult
+#### AggregateResult
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -295,7 +295,7 @@ type AggregateResult = healthModels.BodyTemperatureAggregateResult
  
   
 
-##### AggregateRequest
+#### AggregateRequest
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -314,7 +314,7 @@ type AggregateRequest = healthModels.BodyTemperatureAggregateRequest
  
   
 
-##### AggregateFields
+#### AggregateFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -333,7 +333,7 @@ type AggregateFields = healthFields.BodyTemperatureAggregation
  
   
 
-##### dailyActivities
+#### dailyActivities
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -347,7 +347,7 @@ type AggregateFields = healthFields.BodyTemperatureAggregation
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -364,7 +364,7 @@ type AggregateFields = healthFields.BodyTemperatureAggregation
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -383,7 +383,7 @@ type Model = healthModels.DailyActivities
  
   
 
-##### Fields
+#### Fields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -402,7 +402,7 @@ type Fields = healthFields.DailyActivities
  
   
 
-##### AggregateResult
+#### AggregateResult
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -423,7 +423,7 @@ type AggregateResult = healthModels.DailyActivitiesAggregateResult
  
   
 
-##### AggregateRequest
+#### AggregateRequest
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -444,7 +444,7 @@ type AggregateRequest = healthModels.DailyActivitiesAggregateRequest
  
   
 
-##### AggregateFields
+#### AggregateFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -465,7 +465,7 @@ type AggregateFields = healthFields.DailyActivitiesAggregation
  
   
 
-##### emotion
+#### emotion
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -477,7 +477,7 @@ type AggregateFields = healthFields.DailyActivitiesAggregation
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -492,7 +492,7 @@ type AggregateFields = healthFields.DailyActivitiesAggregation
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -511,7 +511,7 @@ type Model = healthModels.Emotion
  
   
 
-##### Fields
+#### Fields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -530,7 +530,7 @@ type Fields = healthFields.Emotion
  
   
 
-##### heartRate
+#### heartRate
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -542,7 +542,7 @@ type Fields = healthFields.Emotion
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -557,7 +557,7 @@ type Fields = healthFields.Emotion
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -576,7 +576,7 @@ type Model = healthModels.HeartRate
  
   
 
-##### Fields
+#### Fields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -595,7 +595,7 @@ type Fields = healthFields.HeartRate
  
   
 
-##### AggregateResult
+#### AggregateResult
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -614,7 +614,7 @@ type AggregateResult = healthModels.HeartRateAggregateResult
  
   
 
-##### AggregateRequest
+#### AggregateRequest
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -633,7 +633,7 @@ type AggregateRequest = healthModels.HeartRateAggregateRequest
  
   
 
-##### AggregateFields
+#### AggregateFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -652,7 +652,7 @@ type AggregateFields = healthFields.HeartRateAggregation
  
   
 
-##### heartRateVariability
+#### heartRateVariability
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -664,7 +664,7 @@ type AggregateFields = healthFields.HeartRateAggregation
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -679,7 +679,7 @@ type AggregateFields = healthFields.HeartRateAggregation
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -698,7 +698,7 @@ type Model = healthModels.HeartRateVariability
  
   
 
-##### Fields
+#### Fields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -717,7 +717,7 @@ type Fields = healthFields.HeartRateVariability
  
   
 
-##### height
+#### height
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -729,7 +729,7 @@ type Fields = healthFields.HeartRateVariability
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -744,7 +744,7 @@ type Fields = healthFields.HeartRateVariability
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -763,7 +763,7 @@ type Model = healthModels.Height
  
   
 
-##### Fields
+#### Fields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -782,7 +782,7 @@ type Fields = healthFields.Height
  
   
 
-##### restingHeartRate
+#### restingHeartRate
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -794,7 +794,7 @@ type Fields = healthFields.Height
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -809,7 +809,7 @@ type Fields = healthFields.Height
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -828,7 +828,7 @@ type Model = healthModels.RestingHeartRate
  
   
 
-##### Fields
+#### Fields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -847,7 +847,7 @@ type Fields = healthFields.RestingHeartRate
  
   
 
-##### AggregateResult
+#### AggregateResult
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -866,7 +866,7 @@ type AggregateResult = healthModels.RestingHeartRateAggregateResult
  
   
 
-##### AggregateRequest
+#### AggregateRequest
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -885,7 +885,7 @@ type AggregateRequest = healthModels.RestingHeartRateAggregateRequest
  
   
 
-##### AggregateFields
+#### AggregateFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -904,7 +904,7 @@ type AggregateFields = healthFields.RestingHeartRateAggregation
  
   
 
-##### skinTemperature
+#### skinTemperature
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -916,7 +916,7 @@ type AggregateFields = healthFields.RestingHeartRateAggregation
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -931,7 +931,7 @@ type AggregateFields = healthFields.RestingHeartRateAggregation
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -950,7 +950,7 @@ type Model = healthModels.SkinTemperature
  
   
 
-##### Fields
+#### Fields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -969,7 +969,7 @@ type Fields = healthFields.SkinTemperature
  
   
 
-##### AggregateResult
+#### AggregateResult
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -988,7 +988,7 @@ type AggregateResult = healthModels.SkinTemperatureAggregateResult
  
   
 
-##### AggregateRequest
+#### AggregateRequest
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1007,7 +1007,7 @@ type AggregateRequest = healthModels.SkinTemperatureAggregateRequest
  
   
 
-##### AggregateFields
+#### AggregateFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1026,7 +1026,7 @@ type AggregateFields = healthFields.SkinTemperatureAggregation
  
   
 
-##### stress
+#### stress
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1038,7 +1038,7 @@ type AggregateFields = healthFields.SkinTemperatureAggregation
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1053,7 +1053,7 @@ type AggregateFields = healthFields.SkinTemperatureAggregation
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1072,7 +1072,7 @@ type Model = healthModels.Stress
  
   
 
-##### Fields
+#### Fields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1091,7 +1091,7 @@ type Fields = healthFields.Stress
  
   
 
-##### AggregateResult
+#### AggregateResult
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1110,7 +1110,7 @@ type AggregateResult = healthModels.StressAggregateResult
  
   
 
-##### AggregateRequest
+#### AggregateRequest
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1129,7 +1129,7 @@ type AggregateRequest = healthModels.StressAggregateRequest
  
   
 
-##### AggregateFields
+#### AggregateFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1148,7 +1148,7 @@ type AggregateFields = healthFields.StressAggregation
  
   
 
-##### weight
+#### weight
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1160,7 +1160,7 @@ type AggregateFields = healthFields.StressAggregation
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1175,7 +1175,7 @@ type AggregateFields = healthFields.StressAggregation
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1194,7 +1194,7 @@ type Model = healthModels.Weight
  
   
 
-##### Fields
+#### Fields
 
 **支持设备：** Phone | Tablet | Wearable
 

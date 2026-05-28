@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -45,7 +45,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -58,7 +58,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -74,7 +74,7 @@
  
   
 
-##### 变量
+#### 变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -328,13 +328,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### Image_ErrorCode
+#### Image_ErrorCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -388,7 +388,7 @@ enum Image_ErrorCode
  
   
 
-##### Image_MetadataType
+#### Image_MetadataType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -411,7 +411,7 @@ enum Image_MetadataType
  
   
 
-##### IMAGE_ALLOCATOR_MODE
+#### IMAGE_ALLOCATOR_MODE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -434,13 +434,13 @@ pixelmap内存分配类型。
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_PictureMetadata_Create()
+#### OH_PictureMetadata_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -471,7 +471,7 @@ Image_ErrorCode OH_PictureMetadata_Create(Image_MetadataType metadataType, OH_Pi
  
   
 
-##### OH_PictureMetadata_GetProperty()
+#### OH_PictureMetadata_GetProperty()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -503,7 +503,7 @@ Image_ErrorCode OH_PictureMetadata_GetProperty(OH_PictureMetadata *metadata, Ima
  
   
 
-##### OH_PictureMetadata_SetProperty()
+#### OH_PictureMetadata_SetProperty()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -535,7 +535,7 @@ Image_ErrorCode OH_PictureMetadata_SetProperty(OH_PictureMetadata *metadata, Ima
  
   
 
-##### OH_PictureMetadata_GetPropertyWithNull()
+#### OH_PictureMetadata_GetPropertyWithNull()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -567,7 +567,7 @@ Image_ErrorCode OH_PictureMetadata_GetPropertyWithNull(OH_PictureMetadata *metad
  
   
 
-##### OH_PictureMetadata_Release()
+#### OH_PictureMetadata_Release()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -597,7 +597,7 @@ Image_ErrorCode OH_PictureMetadata_Release(OH_PictureMetadata *metadata)
  
   
 
-##### OH_PictureMetadata_Clone()
+#### OH_PictureMetadata_Clone()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

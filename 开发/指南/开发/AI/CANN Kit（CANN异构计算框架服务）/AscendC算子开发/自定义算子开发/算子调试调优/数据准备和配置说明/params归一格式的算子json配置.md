@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-operator-json-configuration
 
-##### json配置说明
+#### json配置说明
 
 为了支持输入/输出参数交叉配置的场景，params归一配置格式应运而生，所有输入/输出参数均放在“params”配置项中。该算子json配置文件中参数可以按**输入/输出规则排布**，也可以按**输入/输出交叉排布**，只要保证参数顺序与Kernel入口函数的参数顺序保持一致即可。
  
@@ -69,7 +69,7 @@
  
   
 
-##### 特殊格式输入
+#### 特殊格式输入
 
 - **场景1：支持Scalar格式的输入。**
 

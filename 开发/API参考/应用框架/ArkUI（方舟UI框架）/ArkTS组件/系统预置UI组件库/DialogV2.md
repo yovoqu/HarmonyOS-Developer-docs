@@ -14,7 +14,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { TipsDialogV2, SelectDialogV2, ConfirmDialogV2, AlertDialogV2, LoadingDi
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -32,7 +32,7 @@ import { TipsDialogV2, SelectDialogV2, ConfirmDialogV2, AlertDialogV2, LoadingDi
 
 
 
-##### TipsDialogV2
+#### TipsDialogV2
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -63,7 +63,7 @@ TipsDialogV2({imageRes: ResourceStr | PixelMap, imageSize?: SizeOptions, imageBo
 
 
 
-##### AdvancedDialogV2OnCheckedChange
+#### AdvancedDialogV2OnCheckedChange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -84,7 +84,7 @@ type AdvancedDialogV2OnCheckedChange = (checked: boolean) => void
 
 
 
-##### SelectDialogV2
+#### SelectDialogV2
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -109,7 +109,7 @@ SelectDialogV2({title: ResourceStr, content?: ResourceStr, selectedIndex?: numbe
 
 
 
-##### ConfirmDialogV2
+#### ConfirmDialogV2
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -136,7 +136,7 @@ ConfirmDialogV2({title: ResourceStr, content?: ResourceStr, checkTips?: Resource
 
 
 
-##### AlertDialogV2
+#### AlertDialogV2
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -161,7 +161,7 @@ AlertDialogV2({primaryTitle?: ResourceStr, secondaryTitle?: ResourceStr, content
 
 
 
-##### LoadingDialogV2
+#### LoadingDialogV2
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -182,7 +182,7 @@ LoadingDialogV2({content?: ResourceStr})
 
 
 
-##### CustomContentDialogV2
+#### CustomContentDialogV2
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -207,7 +207,7 @@ CustomContentDialogV2({contentBuilder: () => void, primaryTitle?: ResourceStr, s
 
 
 
-##### PopoverDialogV2OnVisibleChange
+#### PopoverDialogV2OnVisibleChange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -228,7 +228,7 @@ type PopoverDialogV2OnVisibleChange = (visible: boolean) => void
 
 
 
-##### PopoverDialogV2
+#### PopoverDialogV2
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -252,7 +252,7 @@ PopoverDialogV2({visible: boolean, $visible: PopoverDialogV2OnVisibleChange, pop
 
 
 
-##### PopoverDialogV2Options
+#### PopoverDialogV2Options
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -270,7 +270,7 @@ PopoverDialogV2({visible: boolean, $visible: PopoverDialogV2OnVisibleChange, pop
 
 
 
-##### AdvancedDialogV2ButtonAction
+#### AdvancedDialogV2ButtonAction
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -284,7 +284,7 @@ type AdvancedDialogV2ButtonAction = () => void
 
 
 
-##### AdvancedDialogV2Button
+#### AdvancedDialogV2Button
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -313,7 +313,7 @@ type AdvancedDialogV2ButtonAction = () => void
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -334,7 +334,7 @@ AdvancedDialogV2Button的构造函数。
 
 
 
-##### AdvancedDialogV2ButtonOptions
+#### AdvancedDialogV2ButtonOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -357,13 +357,13 @@ AdvancedDialogV2Button的构造函数。
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1（上图下文弹出框）
+#### 示例1（上图下文弹出框）
 
 上图下文弹出框，包含imageRes、content等内容。
 
@@ -434,7 +434,7 @@ struct Index {
 
 
 
-##### 示例2（纯列表弹出框）
+#### 示例2（纯列表弹出框）
 
 纯列表弹出框，包含selectedIndex、radioContent等内容。
 
@@ -507,7 +507,7 @@ struct Index {
 
 
 
-##### 示例3（文本与勾选弹出框）
+#### 示例3（文本与勾选弹出框）
 
 文本与勾选弹出框，包含content、checkTips等内容。
 
@@ -578,7 +578,7 @@ struct Index {
 
 
 
-##### 示例4（纯文本弹出框）
+#### 示例4（纯文本弹出框）
 
 纯文本弹出框，包含primaryTitle、secondaryTitle、content等内容。
 
@@ -641,7 +641,7 @@ struct Index {
 
 
 
-##### 示例5（进度加载类弹出框）
+#### 示例5（进度加载类弹出框）
 
 进度加载类弹出框，包含content等内容。
 
@@ -689,7 +689,7 @@ struct Index {
 
 
 
-##### 示例6（自定义主题风格弹出框）
+#### 示例6（自定义主题风格弹出框）
 
 自定义主题风格弹出框，包含content、theme等内容。
 
@@ -747,12 +747,12 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/c_WeIwWkSsinXi_9rlNhGQ/zh-cn_image_0000002581276324.png?HW-CC-KV=V1&HW-CC-Date=20260528T024157Z&HW-CC-Expire=86400&HW-CC-Sign=AFAF565E16EB74433174DCAAFE1634D12FB1408620E83FC58801632D650FA396)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/c_WeIwWkSsinXi_9rlNhGQ/zh-cn_image_0000002581276324.png?HW-CC-KV=V1&HW-CC-Date=20260528T025530Z&HW-CC-Expire=86400&HW-CC-Sign=0128F973F7AE129BDDA4EB817A1B0964776AF1F7BF81B7E4F6E6C08758B710D8)
 
 
 
 
-##### 示例7（自定义内容弹出框）
+#### 示例7（自定义内容弹出框）
 
 支持自定义内容弹出框，包含contentBuilder、buttons等内容。
 
@@ -811,12 +811,12 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/nBjTgBGAQEm1_VEkxKiPJA/zh-cn_image_0000002611756179.png?HW-CC-KV=V1&HW-CC-Date=20260528T024157Z&HW-CC-Expire=86400&HW-CC-Sign=B1139B9E829E6E4C3FFF120B126895A03D5B394DAE5946D1763C9C8A03841BF1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/nBjTgBGAQEm1_VEkxKiPJA/zh-cn_image_0000002611756179.png?HW-CC-KV=V1&HW-CC-Date=20260528T025530Z&HW-CC-Expire=86400&HW-CC-Sign=1AF0EB8F2BACF4E3FC2DFAE8CB7765BD4FF4754346FAC24D83118ECCCF5A2EB9)
 
 
 
 
-##### 示例8（跟手弹出框）
+#### 示例8（跟手弹出框）
 
 跟手弹出框（警告弹出框为例），包含visible、popover、targetBuilder等内容。
 
@@ -872,4 +872,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/RIrbfSMtSgOc7ybEk4-LZw/zh-cn_image_0000002581436240.png?HW-CC-KV=V1&HW-CC-Date=20260528T024157Z&HW-CC-Expire=86400&HW-CC-Sign=E6EEA6142A3E38FB387C6C59CDD479D2D98D74F224B75AFFE19A7C7A4A3F6C60)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/RIrbfSMtSgOc7ybEk4-LZw/zh-cn_image_0000002581436240.png?HW-CC-KV=V1&HW-CC-Date=20260528T025530Z&HW-CC-Expire=86400&HW-CC-Sign=C7D749926863700B9FFFC0594CA1EC669D0B2F4F6B64EFF11F15E87D196B07BD)

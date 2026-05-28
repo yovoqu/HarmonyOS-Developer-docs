@@ -23,11 +23,11 @@ FaultLog由系统自动从设备进行收集，包括如下几类故障信息：
 
  
 
-##### 查看FaultLog日志
+#### 查看FaultLog日志
 
  
 
-##### 查看设备历史抛出的FaultLog日志
+#### 查看设备历史抛出的FaultLog日志
 
 打开FaultLog窗口，将显示当前选中设备抛出的所有FaultLog日志。
  
@@ -39,7 +39,7 @@ FaultLog故障信息左侧按照**应用/元服务包名 > 故障类型 > 故障
  
  
 
-##### 查看设备实时抛出的FaultLog日志
+#### 查看设备实时抛出的FaultLog日志
 
 当设备抛出FaultLog日志时，DevEco Studio将会弹出消息提示框，开发者点击**Jump to Log**即可跳转至FaultLog窗口查看日志信息。
  
@@ -49,7 +49,7 @@ FaultLog故障信息左侧按照**应用/元服务包名 > 故障类型 > 故障
  
  
 
-##### 跳转至引起错误的代码行
+#### 跳转至引起错误的代码行
 
 若抛出的FaultLog中的堆栈信息中的链接或偏移地址指向的是当前工程中的某行代码，该段信息将会被转换为超链接形式，点击后可跳转至对应代码行。
  
@@ -59,7 +59,7 @@ FaultLog故障信息左侧按照**应用/元服务包名 > 故障类型 > 故障
  
  
 
-##### 导出日志
+#### 导出日志
 
 开发者可将当前显示的日志信息保存到本地，以便后续的进一步分析。开发者可根据需要选择保存当前选中节点的日志或保存所有日志。
  
@@ -74,5 +74,5 @@ FaultLog故障信息左侧按照**应用/元服务包名 > 故障类型 > 故障
 
 
  - 保存所有日志：点击Export FaultLog按钮
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/XSF0D0a-RguHXUyqHCVyFQ/zh-cn_image_0000002602186557.png?HW-CC-KV=V1&HW-CC-Date=20260528T014920Z&HW-CC-Expire=86400&HW-CC-Sign=533E58C12F63E7CD308FB045D0D800B46325A071C1AC3A9D99ED0683B74416FA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/kVMVkoToSZmartMnG5a5ww/zh-cn_image_0000002602186557.png?HW-CC-KV=V1&HW-CC-Date=20260528T030548Z&HW-CC-Expire=86400&HW-CC-Sign=C47320F3B9612946D1F8A8528FC1A157AE3C5AD8D63FA77747B02C952B1308B4)
 ，弹出子选项后进一步点击**Export All FaultLog**。

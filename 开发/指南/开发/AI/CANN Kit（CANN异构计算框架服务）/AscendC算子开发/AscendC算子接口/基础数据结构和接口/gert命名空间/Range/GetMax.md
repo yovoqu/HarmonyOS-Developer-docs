@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getmax
 
-##### 函数功能
+#### 函数功能
 
 获取最大的T对象指针。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 const T *GetMax() const;
@@ -19,25 +19,25 @@ T *GetMax();
  
   
 
-##### 参数说明
+#### 参数说明
 
 无
  
   
 
-##### 返回值
+#### 返回值
 
 返回最大的T对象指针。
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 int min = -1;

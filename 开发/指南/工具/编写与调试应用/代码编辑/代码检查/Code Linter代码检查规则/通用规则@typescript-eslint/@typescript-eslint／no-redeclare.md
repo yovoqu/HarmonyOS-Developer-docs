@@ -7,7 +7,7 @@
 禁止变量重复声明。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/no-redeclare选项](https://eslint.nodejs.cn/docs/rules/no-redeclare#选项)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 let a = '3';
@@ -50,7 +50,7 @@ export class C {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 // 不允许重复声明变量a
@@ -74,7 +74,7 @@ export class C {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

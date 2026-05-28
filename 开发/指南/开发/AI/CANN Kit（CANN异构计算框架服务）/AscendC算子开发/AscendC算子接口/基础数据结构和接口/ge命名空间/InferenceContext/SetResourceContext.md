@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-setresourcecontext
 
-##### 函数功能
+#### 函数功能
 
 为标识为key的资源，设置资源上下文对象，并交由资源上下文管理器管理。
  
@@ -12,7 +12,7 @@
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 graphStatus SetResourceContext(const ge::AscendString &key, ResourceContext *resource_context)
@@ -20,7 +20,7 @@ graphStatus SetResourceContext(const ge::AscendString &key, ResourceContext *res
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数名 | 输入/输出 | 描述 |
 | --- | --- | --- |
@@ -30,12 +30,12 @@ graphStatus SetResourceContext(const ge::AscendString &key, ResourceContext *res
  
   
 
-##### 返回值
+#### 返回值
 
 graphStatus：GRAPH_SUCCESS，代表成功；GRAPH_FAILED，代表失败。
  
   
 
-##### 约束说明
+#### 约束说明
 
 若使用[Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-create)接口创建InferenceContext时未传入resource context管理器指针，则该接口返回失败。

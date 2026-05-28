@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-common-event-subscription
 
-##### 场景介绍
+#### 场景介绍
 
 通过[OH_CommonEvent_CreateSubscriber](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-commonevent-h#oh_commonevent_createsubscriber)创建的订阅者可以对某个公共事件进行订阅，如果有订阅的事件发布那么订阅了这个事件的订阅者将会收到该事件及其传递的参数，也可以通过订阅者对象进一步处理有序公共事件。
 
 
 
-##### 接口说明
+#### 接口说明
 
 详细的API说明请参考[oh_commonevent.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-commonevent-h)。
 
@@ -28,7 +28,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 引用头文件。
 
   

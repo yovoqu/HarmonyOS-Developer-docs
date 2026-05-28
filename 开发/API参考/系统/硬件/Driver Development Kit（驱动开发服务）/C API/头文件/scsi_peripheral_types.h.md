@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-scsi-peripheral-types-h
 **支持设备：** PC/2in1
 
-##### 概述
+#### 概述
 
 **支持设备：** PC/2in1
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** PC/2in1
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** PC/2in1
  
@@ -52,7 +52,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** PC/2in1
  
@@ -64,13 +64,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** PC/2in1
 
   
 
-##### ScsiPeripheral_DdkErrCode
+#### ScsiPeripheral_DdkErrCode
 
 **支持设备：** PC/2in1
 
@@ -100,7 +100,7 @@ SCSI Peripheral DDK错误码。
  
   
 
-##### ScsiPeripheral_Status
+#### ScsiPeripheral_Status
 
 **支持设备：** PC/2in1
 
@@ -128,7 +128,7 @@ enum ScsiPeripheral_Status
  
   
 
-##### SCSIPERIPHERAL_MIN_DESCRIPTOR_FORMAT_SENSE
+#### SCSIPERIPHERAL_MIN_DESCRIPTOR_FORMAT_SENSE
 
 **支持设备：** PC/2in1
 
@@ -144,7 +144,7 @@ SCSIPERIPHERAL_MIN_DESCRIPTOR_FORMAT_SENSE 8
  
   
 
-##### SCSIPERIPHERAL_MIN_FIXED_FORMAT_SENSE
+#### SCSIPERIPHERAL_MIN_FIXED_FORMAT_SENSE
 
 **支持设备：** PC/2in1
 
@@ -160,7 +160,7 @@ SCSIPERIPHERAL_MIN_FIXED_FORMAT_SENSE 18
  
   
 
-##### SCSIPERIPHERAL_MAX_CMD_DESC_BLOCK_LEN
+#### SCSIPERIPHERAL_MAX_CMD_DESC_BLOCK_LEN
 
 **支持设备：** PC/2in1
 
@@ -176,7 +176,7 @@ SCSIPERIPHERAL_MAX_CMD_DESC_BLOCK_LEN 16
  
   
 
-##### SCSIPERIPHERAL_MAX_SENSE_DATA_LEN
+#### SCSIPERIPHERAL_MAX_SENSE_DATA_LEN
 
 **支持设备：** PC/2in1
 
@@ -192,7 +192,7 @@ SCSIPERIPHERAL_MAX_SENSE_DATA_LEN 252
  
   
 
-##### SCSIPERIPHERAL_VENDOR_ID_LEN
+#### SCSIPERIPHERAL_VENDOR_ID_LEN
 
 **支持设备：** PC/2in1
 
@@ -208,7 +208,7 @@ SCSIPERIPHERAL_VENDOR_ID_LEN 8
  
   
 
-##### SCSIPERIPHERAL_PRODUCT_ID_LEN
+#### SCSIPERIPHERAL_PRODUCT_ID_LEN
 
 **支持设备：** PC/2in1
 
@@ -224,7 +224,7 @@ SCSIPERIPHERAL_PRODUCT_ID_LEN 16
  
   
 
-##### SCSIPERIPHERAL_PRODUCT_REV_LEN
+#### SCSIPERIPHERAL_PRODUCT_REV_LEN
 
 **支持设备：** PC/2in1
 

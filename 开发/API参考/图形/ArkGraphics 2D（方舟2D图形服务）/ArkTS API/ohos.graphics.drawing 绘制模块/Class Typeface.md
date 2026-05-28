@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { drawing } from '@kit.ArkGraphics2D';
 
 
 
-##### getFamilyName
+#### getFamilyName
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -51,7 +51,7 @@ let familyName = typeface.getFamilyName();
 
 
 
-##### makeFromCurrent20+
+#### makeFromCurrent20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -98,7 +98,7 @@ class TextRenderNode extends RenderNode {
 
 
 
-##### makeFromFile12+
+#### makeFromFile12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -154,7 +154,7 @@ class TextRenderNode extends RenderNode {
 
 
 
-##### makeFromRawFile18+
+#### makeFromRawFile18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -200,7 +200,7 @@ class TextRenderNode extends RenderNode {
 
 
 
-##### makeFromFileWithArguments20+
+#### makeFromFileWithArguments20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -249,7 +249,7 @@ class TextRenderNode extends RenderNode {
 
 
 
-##### makeFromRawFileWithArguments20+
+#### makeFromRawFileWithArguments20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -297,7 +297,7 @@ class TextRenderNode extends RenderNode {
 
 
 
-##### isBold23+
+#### isBold23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -326,7 +326,7 @@ let result = typeface.isBold();
 
 
 
-##### isItalic23+
+#### isItalic23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

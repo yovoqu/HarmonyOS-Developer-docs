@@ -19,7 +19,7 @@
 这种场景开发者可以使用如下方式进行兼容处理：
  
 
-##### 基于C/ArkTS语言API接口兼容低版本行为
+#### 基于C/ArkTS语言API接口兼容低版本行为
 
 - 针对HarmonyOS设备独有特性接口，即接口标记为since M.F.S(N)（文档中标记“起始版本：M.F.S(N)”, SDK物理包中hms路径下所包含的接口），使用distributionOSApiVersion接口进行兼容性判断保护。
 

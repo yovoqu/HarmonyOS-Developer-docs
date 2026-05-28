@@ -7,7 +7,7 @@
 tag可标记一个三方库的某个版本，在install时可用tag代替版本号安装包。
  
 
-##### 命令格式
+#### 命令格式
 
 ```text
 <span style="color: rgb(106,135,89);">ohpm dist-tags [subcommand] [</span><span style="color: rgb(106,135,89);"><</span><span style="color: rgb(106,135,89);">@group</span><span style="color: rgb(106,135,89);">></span><span style="color: rgb(106,135,89);">/]</span><span style="color: rgb(106,135,89);"><</span><span style="color: rgb(106,135,89);">pkg</span><span style="color: rgb(106,135,89);">></span><span style="color: rgb(106,135,89);">[@</span><span style="color: rgb(106,135,89);"><</span><span style="color: rgb(106,135,89);">version</span><span style="color: rgb(106,135,89);">></span><span style="color: rgb(106,135,89);">] </span><span style="color: rgb(106,135,89);"><</span><span style="color: rgb(106,135,89);">tag</span><span style="color: rgb(106,135,89);">></span>
@@ -20,7 +20,7 @@ alias: dist-tags
 
  
 
-##### 功能描述
+#### 功能描述
 
 操作tag。分为查看三方库的所有tag，给三方库的某个版本添加tag，修改tag到三方库的另一个版本，删除三方库的某个tag。
  
@@ -30,11 +30,11 @@ alias: dist-tags
  
  
 
-##### 子命令
+#### 子命令
 
  
 
-##### list
+#### list
 
 ```text
 ohpm dist-tags list [<@group>/]<pkg>
@@ -45,7 +45,7 @@ alias: ls
  
  
 
-##### add
+#### add
 
 ```text
 ohpm dist-tags add [<@group>/]<pkg>[@<version>] <tag>
@@ -55,7 +55,7 @@ ohpm dist-tags add [<@group>/]<pkg>[@<version>] <tag>
  
  
 
-##### update
+#### update
 
 ```text
 ohpm dist-tags update [<@group>/]<pkg>[@<version>] <tag>
@@ -66,7 +66,7 @@ alias: up
  
  
 
-##### remove
+#### remove
 
 ```text
 ohpm dist-tags remove [<@group>/]<pkg> <tag>
@@ -77,11 +77,11 @@ alias: rm
 删除指定包的一个标签。如果该标签并未存在于包中，则删除操作将会失败。
  
 
-##### Options
+#### Options
 
  
 
-##### publish_id
+#### publish_id
 
 - 默认值：""
 - 类型：String
@@ -91,7 +91,7 @@ alias: rm
  
  
 
-##### key_path
+#### key_path
 
 - 默认值：""
 - 类型：String
@@ -101,7 +101,7 @@ alias: rm
  
  
 
-##### registry
+#### registry
 
 - 默认值：无
 - 类型：URL
@@ -111,7 +111,7 @@ alias: rm
  
  
 
-##### publish_registry
+#### publish_registry
 
 - 默认值：""
 - 类型：URL
@@ -121,7 +121,7 @@ alias: rm
  
  
 
-##### fetch_timeout
+#### fetch_timeout
 
 - 默认值：60000
 - 类型： Number
@@ -132,7 +132,7 @@ alias: rm
  
  
 
-##### strict_ssl
+#### strict_ssl
 
 - 默认值：true
 - 类型： Boolean
@@ -142,7 +142,7 @@ alias: rm
  
  
 
-##### log_level
+#### log_level
 
 - 默认值：无
 - 类型： String
@@ -152,7 +152,7 @@ alias: rm
  
  
 
-##### debug
+#### debug
 
 - 默认值：false
 - 类型： Boolean
@@ -162,7 +162,7 @@ alias: rm
  
  
 
-##### 示例
+#### 示例
 
 如果想要通过使用tag，在oh-package.json5文件中引入包@ohos/axios的1.0.0版本，步骤如下：
  

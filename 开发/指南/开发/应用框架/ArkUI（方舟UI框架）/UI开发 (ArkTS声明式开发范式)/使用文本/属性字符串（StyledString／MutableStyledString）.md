@@ -9,7 +9,7 @@
 属性字符串提供多种类型样式对象，涵盖各种常见的文本样式格式，例如文本装饰线样式、文本行高样式、文本阴影样式等。也可以自行创建[CustomSpan](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#customspan)，以应用自定义样式。
 
 
-##### 创建并应用StyledString和MutableStyledString
+#### 创建并应用StyledString和MutableStyledString
 
 可以通过[TextController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#textcontroller11)提供的[setStyledString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#setstyledstring12)方法，将属性字符串附加到文本组件，并推荐在[onPageShow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#onpageshow)或者文本组件的[onAppear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-show-hide#onappear)回调中触发绑定。
 
@@ -56,7 +56,7 @@ struct styled_string_demo1 {
 
 
 
-##### 设置文本样式
+#### 设置文本样式
 
 属性字符串目前提供了多种Style对象，包括[TextStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#textstyle)、[TextShadowStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#textshadowstyle)、[DecorationStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#decorationstyle)、[BaselineOffsetStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#baselineoffsetstyle)、[LineHeightStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#lineheightstyle)、[LetterSpacingStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#letterspacingstyle)，用于设置文本的各类样式。
 
@@ -343,7 +343,7 @@ struct styled_string_demo7 {
 
 
 
-##### 设置段落样式
+#### 设置段落样式
 
 可通过[ParagraphStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#paragraphstyle)设置段落样式布局。下图显示了如何分割文本中的段落，段落以换行符 \n 结尾。
 
@@ -513,7 +513,7 @@ struct Index {
 
 
 
-##### 支持将属性字符串转换成Paragraph
+#### 支持将属性字符串转换成Paragraph
 
 可通过[getParagraphs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-measureutils#getparagraphs20)将属性字符串根据文本布局选项转换成对应的[Paragraph](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text#paragraph)数组。
 
@@ -734,7 +734,7 @@ struct Index {
 
 
 
-##### 使用图片
+#### 使用图片
 
 可通过[ImageAttachment](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#imageattachment)来添加图片。
 
@@ -918,7 +918,7 @@ export struct StyledStringImageAttachment {
 
 
 
-##### 设置事件
+#### 设置事件
 
 可通过[GestureStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#gesturestyle)设置onClick、onLongPress事件来使文本响应点击长按事件。
 
@@ -1081,7 +1081,7 @@ export struct StyledStringGestureStyle {
 
 
 
-##### 格式转换
+#### 格式转换
 
 可以通过[toHtml](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#tohtml14)、[fromHtml](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#fromhtml)接口实现属性字符串与HTML格式字符串的相关转换，当前支持转换的HTML标签范围：&lt;p&gt;、&lt;span&gt;、&lt;img&gt;、&lt;br&gt;、&lt;strong&gt;、&lt;b&gt;、&lt;a&gt;、&lt;i&gt;、&lt;em&gt;、&lt;s&gt;、&lt;u&gt;、&lt;del&gt;、&lt;sup&gt;、&lt;sub&gt;。
 
@@ -1246,13 +1246,13 @@ struct HtmlSpanStringDemo {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/IbV0F73XRqqB2HKv3stPHQ/zh-cn_image_0000002611753849.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014807Z&HW-CC-Expire=86400&HW-CC-Sign=C34C85C5FAB1F3174475739B32E04EF4FDDFD00270AAF7383A924E26ECF0D984)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/IbV0F73XRqqB2HKv3stPHQ/zh-cn_image_0000002611753849.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030438Z&HW-CC-Expire=86400&HW-CC-Sign=A63F009F6911BB45723B4F3375F0D2B40B0125E6CB2BFB8AC797A8F69D9C1F3F)
 
 
 
 
 
-##### 场景示例
+#### 场景示例
 
 该示例通过[ParagraphStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#paragraphstyle)、[LineHeightStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#lineheightstyle)、[TextStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#textstyle)对象展示了会员过期提示的效果。
 
@@ -1420,4 +1420,4 @@ export struct StyledStringSceneExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/dhuLOyySRK-rpwMzZPysUA/zh-cn_image_0000002581433914.png?HW-CC-KV=V1&HW-CC-Date=20260528T014807Z&HW-CC-Expire=86400&HW-CC-Sign=A8F004CDDA509B0CB50713B6BDCF41A09ED9AE7A8D4173CBA11B82194BFB983D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/dhuLOyySRK-rpwMzZPysUA/zh-cn_image_0000002581433914.png?HW-CC-KV=V1&HW-CC-Date=20260528T030438Z&HW-CC-Expire=86400&HW-CC-Sign=54D69EAA3F7DE7B90448B62BE0AE8F983DB6E32A28D68E9003A8C5D674D4AFD0)

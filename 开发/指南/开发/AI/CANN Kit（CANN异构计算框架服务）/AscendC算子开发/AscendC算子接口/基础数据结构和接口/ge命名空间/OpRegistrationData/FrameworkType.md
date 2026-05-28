@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-frameworktype
 
-##### 函数功能
+#### 函数功能
 
 设置原始模型的框架类型。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 OpRegistrationData &FrameworkType(const domi::FrameworkType &fmk_type)
@@ -18,7 +18,7 @@ OpRegistrationData &FrameworkType(const domi::FrameworkType &fmk_type)
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |

@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine
 **支持设备：** Phone | Tablet | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | Tablet | TV
 
@@ -15,13 +15,13 @@
 
 
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | Tablet | TV
 
 
 
-##### 文件
+#### 文件
 
 **支持设备：** Phone | Tablet | TV
 
@@ -32,7 +32,7 @@
 
 
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | Tablet | TV
 
@@ -46,7 +46,7 @@
 
 
 
-##### 宏定义
+#### 宏定义
 
 **支持设备：** Phone | Tablet | TV
 
@@ -60,7 +60,7 @@
 
 
 
-##### 类型定义
+#### 类型定义
 
 **支持设备：** Phone | Tablet | TV
 
@@ -97,7 +97,7 @@
 
 
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | Tablet | TV
 
@@ -138,7 +138,7 @@
 
 
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | Tablet | TV
 
@@ -344,13 +344,13 @@
 
 
 
-##### 宏定义说明
+#### 宏定义说明
 
 **支持设备：** Phone | Tablet | TV
 
 
 
-##### ARENGINE_AABB_POINT_SIZE
+#### ARENGINE_AABB_POINT_SIZE
 
 **支持设备：** Phone | Tablet | TV
 
@@ -366,7 +366,7 @@ const static int32_t ARENGINE_AABB_POINT_SIZE = 6
 
 
 
-##### ARENGINE_DISTORTION_COUNT
+#### ARENGINE_DISTORTION_COUNT
 
 **支持设备：** Phone | Tablet | TV
 
@@ -382,7 +382,7 @@ const static int32_t ARENGINE_DISTORTION_COUNT = 5
 
 
 
-##### ARENGINE_POSE_RAW_SIZE
+#### ARENGINE_POSE_RAW_SIZE
 
 **支持设备：** Phone | Tablet | TV
 
@@ -398,7 +398,7 @@ const static int32_t ARENGINE_POSE_RAW_SIZE = 7
 
 
 
-##### ARENGINE_VIEW_MATRIX_SIZE
+#### ARENGINE_VIEW_MATRIX_SIZE
 
 **支持设备：** Phone | Tablet | TV
 
@@ -414,13 +414,13 @@ const static int32_t ARENGINE_VIEW_MATRIX_SIZE = 16
 
 
 
-##### 类型定义说明
+#### 类型定义说明
 
 **支持设备：** Phone | Tablet | TV
 
 
 
-##### AREngine_ARAnchor
+#### AREngine_ARAnchor
 
 **支持设备：** Phone | Tablet | TV
 
@@ -438,7 +438,7 @@ typedef struct AREngine_ARAnchor AREngine_ARAnchor
 
 
 
-##### AREngine_ARAnchorList
+#### AREngine_ARAnchorList
 
 **支持设备：** Phone | Tablet | TV
 
@@ -456,7 +456,7 @@ typedef struct AREngine_ARAnchorList AREngine_ARAnchorList
 
 
 
-##### AREngine_ARAugmentedImage
+#### AREngine_ARAugmentedImage
 
 **支持设备：** Phone | Tablet | TV
 
@@ -472,7 +472,7 @@ typedef struct AREngine_ARAugmentedImage AREngine_ARAugmentedImage
 
 
 
-##### AREngine_ARAugmentedImageDatabase
+#### AREngine_ARAugmentedImageDatabase
 
 **支持设备：** Phone | Tablet | TV
 
@@ -488,7 +488,7 @@ typedef struct AREngine_ARAugmentedImageDatabase AREngine_ARAugmentedImageDataba
 
 
 
-##### AREngine_ARCamera
+#### AREngine_ARCamera
 
 **支持设备：** Phone | Tablet | TV
 
@@ -504,7 +504,7 @@ typedef struct AREngine_ARCamera AREngine_ARCamera
 
 
 
-##### AREngine_ARCameraConfig
+#### AREngine_ARCameraConfig
 
 **支持设备：** Phone | Tablet | TV
 
@@ -522,7 +522,7 @@ typedef struct AREngine_ARCameraConfig AREngine_ARCameraConfig
 
 
 
-##### AREngine_ARCameraIntrinsics
+#### AREngine_ARCameraIntrinsics
 
 **支持设备：** Phone | Tablet | TV
 
@@ -540,7 +540,7 @@ typedef struct AREngine_ARCameraIntrinsics AREngine_ARCameraIntrinsics
 
 
 
-##### AREngine_ARConfig
+#### AREngine_ARConfig
 
 **支持设备：** Phone | Tablet | TV
 
@@ -556,7 +556,7 @@ typedef struct AREngine_ARConfig AREngine_ARConfig
 
 
 
-##### AREngine_ARFace
+#### AREngine_ARFace
 
 **支持设备：** Phone | Tablet | TV
 
@@ -572,7 +572,7 @@ typedef struct AREngine_ARFace AREngine_ARFace
 
 
 
-##### AREngine_ARFaceGeometry
+#### AREngine_ARFaceGeometry
 
 **支持设备：** Phone | Tablet | TV
 
@@ -588,7 +588,7 @@ typedef struct AREngine_ARFaceGeometry AREngine_ARFaceGeometry
 
 
 
-##### AREngine_ARFaceBlendShapes
+#### AREngine_ARFaceBlendShapes
 
 **支持设备：** Phone | Tablet | TV
 
@@ -604,7 +604,7 @@ typedef struct AREngine_ARFaceBlendShapes AREngine_ARFaceBlendShapes
 
 
 
-##### AREngine_ARFaceLandmark
+#### AREngine_ARFaceLandmark
 
 **支持设备：** Phone | Tablet | TV
 
@@ -620,7 +620,7 @@ typedef struct AREngine_ARFaceLandmark AREngine_ARFaceLandmark
 
 
 
-##### AREngine_ARFrame
+#### AREngine_ARFrame
 
 **支持设备：** Phone | Tablet | TV
 
@@ -636,7 +636,7 @@ AR Engine处理的一帧数据。
 
 
 
-##### AREngine_ARHitResult
+#### AREngine_ARHitResult
 
 **支持设备：** Phone | Tablet | TV
 
@@ -654,7 +654,7 @@ typedef struct AREngine_ARHitResult AREngine_ARHitResult
 
 
 
-##### AREngine_ARHitResultList
+#### AREngine_ARHitResultList
 
 **支持设备：** Phone | Tablet | TV
 
@@ -672,7 +672,7 @@ typedef struct AREngine_ARHitResultList AREngine_ARHitResultList
 
 
 
-##### AREngine_ARImage
+#### AREngine_ARImage
 
 **支持设备：** Phone | Tablet | TV
 
@@ -688,7 +688,7 @@ typedef struct AREngine_ARImage AREngine_ARImage
 
 
 
-##### AREngine_ARPlane
+#### AREngine_ARPlane
 
 **支持设备：** Phone | Tablet | TV
 
@@ -706,7 +706,7 @@ typedef struct AREngine_ARPlane AREngine_ARPlane
 
 
 
-##### AREngine_ARPoint
+#### AREngine_ARPoint
 
 **支持设备：** Phone | Tablet | TV
 
@@ -724,7 +724,7 @@ typedef struct AREngine_ARPoint AREngine_ARPoint
 
 
 
-##### AREngine_ARPointCloud
+#### AREngine_ARPointCloud
 
 **支持设备：** Phone | Tablet | TV
 
@@ -740,7 +740,7 @@ typedef struct AREngine_ARPointCloud AREngine_ARPointCloud
 
 
 
-##### AREngine_ARPose
+#### AREngine_ARPose
 
 **支持设备：** Phone | Tablet | TV
 
@@ -760,7 +760,7 @@ typedef struct AREngine_ARPose AREngine_ARPose
 
 
 
-##### AREngine_ARSceneMesh
+#### AREngine_ARSceneMesh
 
 **支持设备：** Phone | Tablet | TV
 
@@ -776,7 +776,7 @@ typedef struct AREngine_ARSceneMesh AREngine_ARSceneMesh
 
 
 
-##### AREngine_ARSemanticDenseData
+#### AREngine_ARSemanticDenseData
 
 **支持设备：** Phone | Tablet | TV
 
@@ -792,7 +792,7 @@ typedef struct AREngine_ARSemanticDenseData AREngine_ARSemanticDenseData
 
 
 
-##### AREngine_ARSession
+#### AREngine_ARSession
 
 **支持设备：** Phone | Tablet | TV
 
@@ -808,7 +808,7 @@ typedef struct AREngine_ARSession AREngine_ARSession
 
 
 
-##### AREngine_ARTarget
+#### AREngine_ARTarget
 
 **支持设备：** Phone | Tablet | TV
 
@@ -826,7 +826,7 @@ typedef struct AREngine_ARTarget AREngine_ARTarget
 
 
 
-##### AREngine_ARTrackable
+#### AREngine_ARTrackable
 
 **支持设备：** Phone | Tablet | TV
 
@@ -844,7 +844,7 @@ typedef struct AREngine_ARTrackable AREngine_ARTrackable
 
 
 
-##### AREngine_ARTrackableList
+#### AREngine_ARTrackableList
 
 **支持设备：** Phone | Tablet | TV
 
@@ -860,7 +860,7 @@ typedef struct AREngine_ARTrackableList AREngine_ARTrackableList
 
 
 
-##### HMS_AREngine_PhotoAvailableCallback
+#### HMS_AREngine_PhotoAvailableCallback
 
 **支持设备：** Phone | Tablet | TV
 
@@ -876,7 +876,7 @@ typedef void (*HMS_AREngine_PhotoAvailableCallback)(OH_NativeBuffer *photoBuffer
 
 
 
-##### AREngine_ARBody
+#### AREngine_ARBody
 
 **支持设备：** Phone | Tablet | TV
 
@@ -892,13 +892,13 @@ typedef struct AREngine_ARBody AREngine_ARBody
 
 
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | Tablet | TV
 
 
 
-##### AREngine_FeatureType
+#### AREngine_FeatureType
 
 **支持设备：** Phone | Tablet | TV
 
@@ -926,7 +926,7 @@ AR特性类别。
 
 
 
-##### AREngine_ARAddAugmentedImageReason
+#### AREngine_ARAddAugmentedImageReason
 
 **支持设备：** Phone | Tablet | TV
 
@@ -991,7 +991,7 @@ enum AREngine_ARAddAugmentedImageReason
 
 
 
-##### AREngine_ARAnimojiBlendShape
+#### AREngine_ARAnimojiBlendShape
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1075,7 +1075,7 @@ enum AREngine_ARAnimojiBlendShape
 
 
 
-##### AREngine_ARAnimojiTriangleLabel
+#### AREngine_ARAnimojiTriangleLabel
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1105,7 +1105,7 @@ enum AREngine_ARAnimojiTriangleLabel
 
 
 
-##### AREngine_ARCameraLensFacing
+#### AREngine_ARCameraLensFacing
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1127,7 +1127,7 @@ enum AREngine_ARCameraLensFacing
 
 
 
-##### AREngine_ARConfidenceLevel
+#### AREngine_ARConfidenceLevel
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1150,7 +1150,7 @@ enum AREngine_ARConfidenceLevel
 
 
 
-##### AREngine_ARDepthMode
+#### AREngine_ARDepthMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1172,7 +1172,7 @@ enum AREngine_ARDepthMode
 
 
 
-##### AREngine_ARFocusMode
+#### AREngine_ARFocusMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1194,7 +1194,7 @@ enum AREngine_ARFocusMode
 
 
 
-##### AREngine_ARImageDatabaseMode
+#### AREngine_ARImageDatabaseMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1216,7 +1216,7 @@ enum AREngine_ARImageDatabaseMode
 
 
 
-##### AREngine_ARImageFormat
+#### AREngine_ARImageFormat
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1240,7 +1240,7 @@ enum AREngine_ARImageFormat
 
 
 
-##### AREngine_ARImageStreamMode
+#### AREngine_ARImageStreamMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1262,7 +1262,7 @@ enum AREngine_ARImageStreamMode
 
 
 
-##### AREngine_ARMeshMode
+#### AREngine_ARMeshMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1284,7 +1284,7 @@ Mesh启用模式。
 
 
 
-##### AREngine_ARMultiFaceMode
+#### AREngine_ARMultiFaceMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1306,7 +1306,7 @@ enum AREngine_ARMultiFaceMode
 
 
 
-##### AREngine_ARPlaneFindingMode
+#### AREngine_ARPlaneFindingMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1330,7 +1330,7 @@ enum AREngine_ARPlaneFindingMode
 
 
 
-##### AREngine_ARPlaneType
+#### AREngine_ARPlaneType
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1354,7 +1354,7 @@ enum AREngine_ARPlaneType
 
 
 
-##### AREngine_ARPointOrientationMode
+#### AREngine_ARPointOrientationMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1376,7 +1376,7 @@ enum AREngine_ARPointOrientationMode
 
 
 
-##### AREngine_ARPoseMode
+#### AREngine_ARPoseMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1398,7 +1398,7 @@ AR Engine输出的相机位姿对齐格式。
 
 
 
-##### AREngine_ARPoseType
+#### AREngine_ARPoseType
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1422,7 +1422,7 @@ enum AREngine_ARPoseType
 
 
 
-##### AREngine_ARPowerMode
+#### AREngine_ARPowerMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1447,7 +1447,7 @@ enum AREngine_ARPowerMode
 
 
 
-##### AREngine_ARPreviewMode
+#### AREngine_ARPreviewMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1469,7 +1469,7 @@ enum AREngine_ARPreviewMode
 
 
 
-##### AREngine_ARSemanticDenseMode
+#### AREngine_ARSemanticDenseMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1493,7 +1493,7 @@ enum AREngine_ARSemanticDenseMode
 
 
 
-##### AREngine_ARSemanticMode
+#### AREngine_ARSemanticMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1516,7 +1516,7 @@ enum AREngine_ARSemanticMode
 
 
 
-##### AREngine_ARSemanticPlaneLabel
+#### AREngine_ARSemanticPlaneLabel
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1548,7 +1548,7 @@ enum AREngine_ARSemanticPlaneLabel
 
 
 
-##### AREngine_ARStatus
+#### AREngine_ARStatus
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1591,7 +1591,7 @@ enum AREngine_ARStatus
 
 
 
-##### AREngine_ARTargetShapeLabel
+#### AREngine_ARTargetShapeLabel
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1615,7 +1615,7 @@ enum AREngine_ARTargetShapeLabel
 
 
 
-##### AREngine_ARTrackableType
+#### AREngine_ARTrackableType
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1643,7 +1643,7 @@ enum AREngine_ARTrackableType
 
 
 
-##### AREngine_ARTrackingState
+#### AREngine_ARTrackingState
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1666,7 +1666,7 @@ enum AREngine_ARTrackingState
 
 
 
-##### AREngine_ARTrackingStateReason
+#### AREngine_ARTrackingStateReason
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1689,7 +1689,7 @@ enum AREngine_ARTrackingStateReason
 
 
 
-##### AREngine_ARType
+#### AREngine_ARType
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1713,7 +1713,7 @@ AR能力类型。
 
 
 
-##### AREngine_ARUpdateMode
+#### AREngine_ARUpdateMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1735,7 +1735,7 @@ enum AREngine_ARUpdateMode
 
 
 
-##### AREngine_ARBodySkeletonType
+#### AREngine_ARBodySkeletonType
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1775,13 +1775,13 @@ enum AREngine_ARBodySkeletonType
 
 
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | Tablet | TV
 
 
 
-##### HMS_AREngine_CheckSupported
+#### HMS_AREngine_CheckSupported
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1815,7 +1815,7 @@ AREngine_ARStatus HMS_AREngine_CheckSupported(AREngine_FeatureType type)
 
 
 
-##### HMS_AREngine_ARAnchor_Detach
+#### HMS_AREngine_ARAnchor_Detach
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1852,7 +1852,7 @@ AREngine_ARStatus HMS_AREngine_ARAnchor_Detach(AREngine_ARSession *session, AREn
 
 
 
-##### HMS_AREngine_ARAnchor_GetPose
+#### HMS_AREngine_ARAnchor_GetPose
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1892,7 +1892,7 @@ AREngine_ARStatus HMS_AREngine_ARAnchor_GetPose(const AREngine_ARSession *sessio
 
 
 
-##### HMS_AREngine_ARAnchor_GetTrackingState
+#### HMS_AREngine_ARAnchor_GetTrackingState
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1930,7 +1930,7 @@ AREngine_ARStatus HMS_AREngine_ARAnchor_GetTrackingState(const AREngine_ARSessio
 
 
 
-##### HMS_AREngine_ARAnchor_Release
+#### HMS_AREngine_ARAnchor_Release
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1957,7 +1957,7 @@ void HMS_AREngine_ARAnchor_Release(AREngine_ARAnchor *anchor)
 
 
 
-##### HMS_AREngine_ARAnchorList_AcquireItem
+#### HMS_AREngine_ARAnchorList_AcquireItem
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1995,7 +1995,7 @@ AREngine_ARStatus HMS_AREngine_ARAnchorList_AcquireItem(const AREngine_ARSession
 
 
 
-##### HMS_AREngine_ARAnchorList_Create
+#### HMS_AREngine_ARAnchorList_Create
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2032,7 +2032,7 @@ AREngine_ARStatus HMS_AREngine_ARAnchorList_Create(const AREngine_ARSession *ses
 
 
 
-##### HMS_AREngine_ARAnchorList_Destroy
+#### HMS_AREngine_ARAnchorList_Destroy
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2057,7 +2057,7 @@ void HMS_AREngine_ARAnchorList_Destroy(AREngine_ARAnchorList *anchorList)
 
 
 
-##### HMS_AREngine_ARAnchorList_GetSize
+#### HMS_AREngine_ARAnchorList_GetSize
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2094,7 +2094,7 @@ AREngine_ARStatus HMS_AREngine_ARAnchorList_GetSize(const AREngine_ARSession *se
 
 
 
-##### HMS_AREngine_ARAugmentedImage_AcquireName
+#### HMS_AREngine_ARAugmentedImage_AcquireName
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2132,7 +2132,7 @@ AREngine_ARStatus HMS_AREngine_ARAugmentedImage_AcquireName(const AREngine_ARSes
 
 
 
-##### HMS_AREngine_ARAugmentedImage_GetCenterPose
+#### HMS_AREngine_ARAugmentedImage_GetCenterPose
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2169,7 +2169,7 @@ AREngine_ARStatus HMS_AREngine_ARAugmentedImage_GetCenterPose(const AREngine_ARS
 
 
 
-##### HMS_AREngine_ARAugmentedImage_GetExtendX
+#### HMS_AREngine_ARAugmentedImage_GetExtendX
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2208,7 +2208,7 @@ AREngine_ARStatus HMS_AREngine_ARAugmentedImage_GetExtendX(const AREngine_ARSess
 
 
 
-##### HMS_AREngine_ARAugmentedImage_GetExtendZ
+#### HMS_AREngine_ARAugmentedImage_GetExtendZ
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2247,7 +2247,7 @@ AREngine_ARStatus HMS_AREngine_ARAugmentedImage_GetExtendZ(const AREngine_ARSess
 
 
 
-##### HMS_AREngine_ARAugmentedImage_GetIndex
+#### HMS_AREngine_ARAugmentedImage_GetIndex
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2284,7 +2284,7 @@ AREngine_ARStatus HMS_AREngine_ARAugmentedImage_GetIndex(const AREngine_ARSessio
 
 
 
-##### HMS_AREngine_ARAugmentedImageDatabase_AddImage
+#### HMS_AREngine_ARAugmentedImageDatabase_AddImage
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2324,7 +2324,7 @@ AREngine_ARStatus HMS_AREngine_ARAugmentedImageDatabase_AddImage(AREngine_ARAugm
 
 
 
-##### HMS_AREngine_ARAugmentedImageDatabase_Create
+#### HMS_AREngine_ARAugmentedImageDatabase_Create
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2359,7 +2359,7 @@ AREngine_ARStatus HMS_AREngine_ARAugmentedImageDatabase_Create(AREngine_ARAugmen
 
 
 
-##### HMS_AREngine_ARAugmentedImageDatabase_Deserialize
+#### HMS_AREngine_ARAugmentedImageDatabase_Deserialize
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2398,7 +2398,7 @@ AREngine_ARStatus HMS_AREngine_ARAugmentedImageDatabase_Deserialize(const uint8_
 
 
 
-##### HMS_AREngine_ARAugmentedImageDatabase_Destroy
+#### HMS_AREngine_ARAugmentedImageDatabase_Destroy
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2431,7 +2431,7 @@ AREngine_ARStatus HMS_AREngine_ARAugmentedImageDatabase_Destroy(AREngine_ARAugme
 
 
 
-##### HMS_AREngine_ARAugmentedImageDatabase_GetAddMode
+#### HMS_AREngine_ARAugmentedImageDatabase_GetAddMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2465,7 +2465,7 @@ AREngine_ARStatus HMS_AREngine_ARAugmentedImageDatabase_GetAddMode(const AREngin
 
 
 
-##### HMS_AREngine_ARAugmentedImageDatabase_SetAddMode
+#### HMS_AREngine_ARAugmentedImageDatabase_SetAddMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2499,7 +2499,7 @@ AREngine_ARStatus HMS_AREngine_ARAugmentedImageDatabase_SetAddMode(const AREngin
 
 
 
-##### HMS_AREngine_ARAugmentedImageDatabase_GetCapacity
+#### HMS_AREngine_ARAugmentedImageDatabase_GetCapacity
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2533,7 +2533,7 @@ AREngine_ARStatus HMS_AREngine_ARAugmentedImageDatabase_GetCapacity(const AREngi
 
 
 
-##### HMS_AREngine_ARAugmentedImageDatabase_GetImageCount
+#### HMS_AREngine_ARAugmentedImageDatabase_GetImageCount
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2568,7 +2568,7 @@ AREngine_ARStatus HMS_AREngine_ARAugmentedImageDatabase_GetImageCount(const AREn
 
 
 
-##### HMS_AREngine_ARAugmentedImageDatabase_Serialize
+#### HMS_AREngine_ARAugmentedImageDatabase_Serialize
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2606,7 +2606,7 @@ AREngine_ARStatus HMS_AREngine_ARAugmentedImageDatabase_Serialize(const AREngine
 
 
 
-##### HMS_AREngine_ARCamera_GetDisplayOrientedPose
+#### HMS_AREngine_ARCamera_GetDisplayOrientedPose
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2647,7 +2647,7 @@ AREngine_ARStatus HMS_AREngine_ARCamera_GetDisplayOrientedPose(const AREngine_AR
 
 
 
-##### HMS_AREngine_ARCamera_GetImageIntrinsics
+#### HMS_AREngine_ARCamera_GetImageIntrinsics
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2685,7 +2685,7 @@ AREngine_ARStatus HMS_AREngine_ARCamera_GetImageIntrinsics(const AREngine_ARSess
 
 
 
-##### HMS_AREngine_ARCamera_GetPose
+#### HMS_AREngine_ARCamera_GetPose
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2726,7 +2726,7 @@ AREngine_ARStatus HMS_AREngine_ARCamera_GetPose(const AREngine_ARSession *sessio
 
 
 
-##### HMS_AREngine_ARCamera_GetProjectionMatrix
+#### HMS_AREngine_ARCamera_GetProjectionMatrix
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2766,7 +2766,7 @@ AREngine_ARStatus HMS_AREngine_ARCamera_GetProjectionMatrix(const AREngine_ARSes
 
 
 
-##### HMS_AREngine_ARCamera_GetTrackingState
+#### HMS_AREngine_ARCamera_GetTrackingState
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2805,7 +2805,7 @@ AREngine_ARStatus HMS_AREngine_ARCamera_GetTrackingState(const AREngine_ARSessio
 
 
 
-##### HMS_AREngine_ARCamera_GetTrackingStateReason
+#### HMS_AREngine_ARCamera_GetTrackingStateReason
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2844,7 +2844,7 @@ AREngine_ARStatus HMS_AREngine_ARCamera_GetTrackingStateReason(const AREngine_AR
 
 
 
-##### HMS_AREngine_ARCamera_GetViewMatrix
+#### HMS_AREngine_ARCamera_GetViewMatrix
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2884,7 +2884,7 @@ AREngine_ARStatus HMS_AREngine_ARCamera_GetViewMatrix(const AREngine_ARSession *
 
 
 
-##### HMS_AREngine_ARCamera_Release
+#### HMS_AREngine_ARCamera_Release
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2913,7 +2913,7 @@ void HMS_AREngine_ARCamera_Release(AREngine_ARCamera *camera)
 
 
 
-##### HMS_AREngine_ARCameraConfig_Create
+#### HMS_AREngine_ARCameraConfig_Create
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2950,7 +2950,7 @@ AREngine_ARStatus HMS_AREngine_ARCameraConfig_Create(const AREngine_ARSession *s
 
 
 
-##### HMS_AREngine_ARConfig_GetCameraLensFacing
+#### HMS_AREngine_ARConfig_GetCameraLensFacing
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2987,7 +2987,7 @@ AREngine_ARStatus HMS_AREngine_ARConfig_GetCameraLensFacing(const AREngine_ARSes
 
 
 
-##### HMS_AREngine_ARConfig_GetMultiFaceMode
+#### HMS_AREngine_ARConfig_GetMultiFaceMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3024,7 +3024,7 @@ AREngine_ARStatus HMS_AREngine_ARConfig_GetMultiFaceMode(const AREngine_ARSessio
 
 
 
-##### HMS_AREngine_ARConfig_SetCameraLensFacing
+#### HMS_AREngine_ARConfig_SetCameraLensFacing
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3061,7 +3061,7 @@ AREngine_ARStatus HMS_AREngine_ARConfig_SetCameraLensFacing(const AREngine_ARSes
 
 
 
-##### HMS_AREngine_ARConfig_SetMultiFaceMode
+#### HMS_AREngine_ARConfig_SetMultiFaceMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3098,7 +3098,7 @@ AREngine_ARStatus HMS_AREngine_ARConfig_SetMultiFaceMode(const AREngine_ARSessio
 
 
 
-##### HMS_AREngine_ARCameraConfig_Destroy
+#### HMS_AREngine_ARCameraConfig_Destroy
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3123,7 +3123,7 @@ void HMS_AREngine_ARCameraConfig_Destroy(AREngine_ARCameraConfig *cameraConfig)
 
 
 
-##### HMS_AREngine_ARCameraConfig_GetImageDimensions
+#### HMS_AREngine_ARCameraConfig_GetImageDimensions
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3161,7 +3161,7 @@ AREngine_ARStatus HMS_AREngine_ARCameraConfig_GetImageDimensions(const AREngine_
 
 
 
-##### HMS_AREngine_ARCameraConfig_GetTextureDimensions
+#### HMS_AREngine_ARCameraConfig_GetTextureDimensions
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3199,7 +3199,7 @@ AREngine_ARStatus HMS_AREngine_ARCameraConfig_GetTextureDimensions(const AREngin
 
 
 
-##### HMS_AREngine_ARCameraIntrinsics_Create
+#### HMS_AREngine_ARCameraIntrinsics_Create
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3236,7 +3236,7 @@ AREngine_ARStatus HMS_AREngine_ARCameraIntrinsics_Create(const AREngine_ARSessio
 
 
 
-##### HMS_AREngine_ARCameraIntrinsics_Destroy
+#### HMS_AREngine_ARCameraIntrinsics_Destroy
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3261,7 +3261,7 @@ void HMS_AREngine_ARCameraIntrinsics_Destroy(AREngine_ARCameraIntrinsics *intrin
 
 
 
-##### HMS_AREngine_ARCameraIntrinsics_GetDistortion
+#### HMS_AREngine_ARCameraIntrinsics_GetDistortion
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3301,7 +3301,7 @@ AREngine_ARStatus HMS_AREngine_ARCameraIntrinsics_GetDistortion(const AREngine_A
 
 
 
-##### HMS_AREngine_ARCameraIntrinsics_GetFocalLength
+#### HMS_AREngine_ARCameraIntrinsics_GetFocalLength
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3339,7 +3339,7 @@ AREngine_ARStatus HMS_AREngine_ARCameraIntrinsics_GetFocalLength(const AREngine_
 
 
 
-##### HMS_AREngine_ARCameraIntrinsics_GetImageDimensions
+#### HMS_AREngine_ARCameraIntrinsics_GetImageDimensions
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3377,7 +3377,7 @@ AREngine_ARStatus HMS_AREngine_ARCameraIntrinsics_GetImageDimensions(const AREng
 
 
 
-##### HMS_AREngine_ARCameraIntrinsics_GetPrincipalPoint
+#### HMS_AREngine_ARCameraIntrinsics_GetPrincipalPoint
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3415,7 +3415,7 @@ AREngine_ARStatus HMS_AREngine_ARCameraIntrinsics_GetPrincipalPoint(const AREngi
 
 
 
-##### HMS_AREngine_ARConfig_Create
+#### HMS_AREngine_ARConfig_Create
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3452,7 +3452,7 @@ AREngine_ARStatus HMS_AREngine_ARConfig_Create(const AREngine_ARSession *session
 
 
 
-##### HMS_AREngine_ARConfig_Destroy
+#### HMS_AREngine_ARConfig_Destroy
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3477,7 +3477,7 @@ void HMS_AREngine_ARConfig_Destroy(AREngine_ARConfig *config)
 
 
 
-##### HMS_AREngine_ARConfig_GetARType
+#### HMS_AREngine_ARConfig_GetARType
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3514,7 +3514,7 @@ AREngine_ARStatus HMS_AREngine_ARConfig_GetARType(const AREngine_ARSession *sess
 
 
 
-##### HMS_AREngine_ARConfig_GetCameraPreviewMode
+#### HMS_AREngine_ARConfig_GetCameraPreviewMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3551,7 +3551,7 @@ AREngine_ARStatus HMS_AREngine_ARConfig_GetCameraPreviewMode(const AREngine_ARSe
 
 
 
-##### HMS_AREngine_ARConfig_GetDepthMode
+#### HMS_AREngine_ARConfig_GetDepthMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3588,7 +3588,7 @@ AREngine_ARStatus HMS_AREngine_ARConfig_GetDepthMode(const AREngine_ARSession *s
 
 
 
-##### HMS_AREngine_ARConfig_GetFocusMode
+#### HMS_AREngine_ARConfig_GetFocusMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3625,7 +3625,7 @@ AREngine_ARStatus HMS_AREngine_ARConfig_GetFocusMode(const AREngine_ARSession *s
 
 
 
-##### HMS_AREngine_ARConfig_GetMaxMapSize
+#### HMS_AREngine_ARConfig_GetMaxMapSize
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3664,7 +3664,7 @@ AREngine_ARStatus HMS_AREngine_ARConfig_GetMaxMapSize(const AREngine_ARSession *
 
 
 
-##### HMS_AREngine_ARConfig_GetMeshMode
+#### HMS_AREngine_ARConfig_GetMeshMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3701,7 +3701,7 @@ AREngine_ARStatus HMS_AREngine_ARConfig_GetMeshMode(const AREngine_ARSession *se
 
 
 
-##### HMS_AREngine_ARConfig_GetPlaneFindingMode
+#### HMS_AREngine_ARConfig_GetPlaneFindingMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3738,7 +3738,7 @@ AREngine_ARStatus HMS_AREngine_ARConfig_GetPlaneFindingMode(const AREngine_ARSes
 
 
 
-##### HMS_AREngine_ARConfig_GetPoseMode
+#### HMS_AREngine_ARConfig_GetPoseMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3775,7 +3775,7 @@ AREngine_ARStatus HMS_AREngine_ARConfig_GetPoseMode(const AREngine_ARSession *se
 
 
 
-##### HMS_AREngine_ARConfig_GetPowerMode
+#### HMS_AREngine_ARConfig_GetPowerMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3812,7 +3812,7 @@ AREngine_ARStatus HMS_AREngine_ARConfig_GetPowerMode(const AREngine_ARSession *s
 
 
 
-##### HMS_AREngine_ARConfig_GetSemanticDenseMode
+#### HMS_AREngine_ARConfig_GetSemanticDenseMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3849,7 +3849,7 @@ AREngine_ARStatus HMS_AREngine_ARConfig_GetSemanticDenseMode(const AREngine_ARSe
 
 
 
-##### HMS_AREngine_ARConfig_GetSemanticMode
+#### HMS_AREngine_ARConfig_GetSemanticMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3888,7 +3888,7 @@ AREngine_ARStatus HMS_AREngine_ARConfig_GetSemanticMode(const AREngine_ARSession
 
 
 
-##### HMS_AREngine_ARConfig_GetUpdateMode
+#### HMS_AREngine_ARConfig_GetUpdateMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3925,7 +3925,7 @@ AREngine_ARStatus HMS_AREngine_ARConfig_GetUpdateMode(const AREngine_ARSession *
 
 
 
-##### HMS_AREngine_ARConfig_SetARType
+#### HMS_AREngine_ARConfig_SetARType
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3963,7 +3963,7 @@ AREngine_ARStatus HMS_AREngine_ARConfig_SetARType(const AREngine_ARSession *sess
 
 
 
-##### HMS_AREngine_ARConfig_SetCameraPreviewMode
+#### HMS_AREngine_ARConfig_SetCameraPreviewMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4000,7 +4000,7 @@ AREngine_ARStatus HMS_AREngine_ARConfig_SetCameraPreviewMode(const AREngine_ARSe
 
 
 
-##### HMS_AREngine_ARConfig_SetDepthMode
+#### HMS_AREngine_ARConfig_SetDepthMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4037,7 +4037,7 @@ AREngine_ARStatus HMS_AREngine_ARConfig_SetDepthMode(const AREngine_ARSession *s
 
 
 
-##### HMS_AREngine_ARConfig_SetFocusMode
+#### HMS_AREngine_ARConfig_SetFocusMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4074,7 +4074,7 @@ AREngine_ARStatus HMS_AREngine_ARConfig_SetFocusMode(const AREngine_ARSession *s
 
 
 
-##### HMS_AREngine_ARConfig_SetMaxMapSize
+#### HMS_AREngine_ARConfig_SetMaxMapSize
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4113,7 +4113,7 @@ AREngine_ARStatus HMS_AREngine_ARConfig_SetMaxMapSize(const AREngine_ARSession *
 
 
 
-##### HMS_AREngine_ARConfig_SetMeshMode
+#### HMS_AREngine_ARConfig_SetMeshMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4150,7 +4150,7 @@ AREngine_ARStatus HMS_AREngine_ARConfig_SetMeshMode(const AREngine_ARSession *se
 
 
 
-##### HMS_AREngine_ARConfig_SetPlaneFindingMode
+#### HMS_AREngine_ARConfig_SetPlaneFindingMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4187,7 +4187,7 @@ AREngine_ARStatus HMS_AREngine_ARConfig_SetPlaneFindingMode(const AREngine_ARSes
 
 
 
-##### HMS_AREngine_ARConfig_SetPoseMode
+#### HMS_AREngine_ARConfig_SetPoseMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4224,7 +4224,7 @@ AREngine_ARStatus HMS_AREngine_ARConfig_SetPoseMode(const AREngine_ARSession *se
 
 
 
-##### HMS_AREngine_ARConfig_SetPowerMode
+#### HMS_AREngine_ARConfig_SetPowerMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4261,7 +4261,7 @@ AREngine_ARStatus HMS_AREngine_ARConfig_SetPowerMode(const AREngine_ARSession *s
 
 
 
-##### HMS_AREngine_ARConfig_SetPreviewSize
+#### HMS_AREngine_ARConfig_SetPreviewSize
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4299,7 +4299,7 @@ AREngine_ARStatus HMS_AREngine_ARConfig_SetPreviewSize(const AREngine_ARSession 
 
 
 
-##### HMS_AREngine_ARConfig_SetSemanticDenseMode
+#### HMS_AREngine_ARConfig_SetSemanticDenseMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4336,7 +4336,7 @@ AREngine_ARStatus HMS_AREngine_ARConfig_SetSemanticDenseMode(const AREngine_ARSe
 
 
 
-##### HMS_AREngine_ARConfig_SetSemanticMode
+#### HMS_AREngine_ARConfig_SetSemanticMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4373,7 +4373,7 @@ AREngine_ARStatus HMS_AREngine_ARConfig_SetSemanticMode(const AREngine_ARSession
 
 
 
-##### HMS_AREngine_ARConfig_SetUpdateMode
+#### HMS_AREngine_ARConfig_SetUpdateMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4410,7 +4410,7 @@ AREngine_ARStatus HMS_AREngine_ARConfig_SetUpdateMode(const AREngine_ARSession *
 
 
 
-##### HMS_AREngine_ARConfig_SetPhotoStreamSize
+#### HMS_AREngine_ARConfig_SetPhotoStreamSize
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4448,7 +4448,7 @@ AREngine_ARStatus HMS_AREngine_ARConfig_SetPhotoStreamSize(const AREngine_ARSess
 
 
 
-##### HMS_AREngine_ARConfig_SetImageStreamMode
+#### HMS_AREngine_ARConfig_SetImageStreamMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4485,7 +4485,7 @@ AREngine_ARStatus HMS_AREngine_ARConfig_SetImageStreamMode(const AREngine_ARSess
 
 
 
-##### HMS_AREngine_ARConfig_GetImageStreamMode
+#### HMS_AREngine_ARConfig_GetImageStreamMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4522,7 +4522,7 @@ AREngine_ARStatus HMS_AREngine_ARConfig_GetImageStreamMode(const AREngine_ARSess
 
 
 
-##### HMS_AREngine_ARFace_AcquireBlendShapes
+#### HMS_AREngine_ARFace_AcquireBlendShapes
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4560,7 +4560,7 @@ AREngine_ARStatus HMS_AREngine_ARFace_AcquireBlendShapes(const AREngine_ARSessio
 
 
 
-##### HMS_AREngine_ARFace_AcquireGeometry
+#### HMS_AREngine_ARFace_AcquireGeometry
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4598,7 +4598,7 @@ AREngine_ARStatus HMS_AREngine_ARFace_AcquireGeometry(const AREngine_ARSession *
 
 
 
-##### HMS_AREngine_ARFace_AcquireLandmark
+#### HMS_AREngine_ARFace_AcquireLandmark
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4636,7 +4636,7 @@ AREngine_ARStatus HMS_AREngine_ARFace_AcquireLandmark(const AREngine_ARSession *
 
 
 
-##### HMS_AREngine_ARFace_AcquireViewMatrix
+#### HMS_AREngine_ARFace_AcquireViewMatrix
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4674,7 +4674,7 @@ AREngine_ARStatus HMS_AREngine_ARFace_AcquireViewMatrix(const AREngine_ARSession
 
 
 
-##### HMS_AREngine_ARFace_GetCenterPose
+#### HMS_AREngine_ARFace_GetCenterPose
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4711,7 +4711,7 @@ AREngine_ARStatus HMS_AREngine_ARFace_GetCenterPose(const AREngine_ARSession *se
 
 
 
-##### HMS_AREngine_ARFaceBlendShapes_AcquireData
+#### HMS_AREngine_ARFaceBlendShapes_AcquireData
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4748,7 +4748,7 @@ AREngine_ARStatus HMS_AREngine_ARFaceBlendShapes_AcquireData(const AREngine_ARSe
 
 
 
-##### HMS_AREngine_ARFaceBlendShapes_AcquireTypes
+#### HMS_AREngine_ARFaceBlendShapes_AcquireTypes
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4785,7 +4785,7 @@ AREngine_ARStatus HMS_AREngine_ARFaceBlendShapes_AcquireTypes(const AREngine_ARS
 
 
 
-##### HMS_AREngine_ARFaceBlendShapes_GetCount
+#### HMS_AREngine_ARFaceBlendShapes_GetCount
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4822,7 +4822,7 @@ AREngine_ARStatus HMS_AREngine_ARFaceBlendShapes_GetCount(const AREngine_ARSessi
 
 
 
-##### HMS_AREngine_ARFaceBlendShapes_Release
+#### HMS_AREngine_ARFaceBlendShapes_Release
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4847,7 +4847,7 @@ void HMS_AREngine_ARFaceBlendShapes_Release(AREngine_ARFaceBlendShapes *blendSha
 
 
 
-##### HMS_AREngine_ARFaceGeometry_AcquireIndices
+#### HMS_AREngine_ARFaceGeometry_AcquireIndices
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4884,7 +4884,7 @@ AREngine_ARStatus HMS_AREngine_ARFaceGeometry_AcquireIndices(const AREngine_ARSe
 
 
 
-##### HMS_AREngine_ARFaceGeometry_AcquireTexCoord
+#### HMS_AREngine_ARFaceGeometry_AcquireTexCoord
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4921,7 +4921,7 @@ AREngine_ARStatus HMS_AREngine_ARFaceGeometry_AcquireTexCoord(const AREngine_ARS
 
 
 
-##### HMS_AREngine_ARFaceGeometry_AcquireTriangleLabels
+#### HMS_AREngine_ARFaceGeometry_AcquireTriangleLabels
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4958,7 +4958,7 @@ AREngine_ARStatus HMS_AREngine_ARFaceGeometry_AcquireTriangleLabels(const AREngi
 
 
 
-##### HMS_AREngine_ARFaceGeometry_AcquireVertices
+#### HMS_AREngine_ARFaceGeometry_AcquireVertices
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4995,7 +4995,7 @@ AREngine_ARStatus HMS_AREngine_ARFaceGeometry_AcquireVertices(const AREngine_ARS
 
 
 
-##### HMS_AREngine_ARFaceGeometry_GetIndicesSize
+#### HMS_AREngine_ARFaceGeometry_GetIndicesSize
 
 **支持设备：** Phone | Tablet | TV
 
@@ -5032,7 +5032,7 @@ AREngine_ARStatus HMS_AREngine_ARFaceGeometry_GetIndicesSize(const AREngine_ARSe
 
 
 
-##### HMS_AREngine_ARFaceGeometry_GetTexCoordSize
+#### HMS_AREngine_ARFaceGeometry_GetTexCoordSize
 
 **支持设备：** Phone | Tablet | TV
 
@@ -5069,7 +5069,7 @@ AREngine_ARStatus HMS_AREngine_ARFaceGeometry_GetTexCoordSize(const AREngine_ARS
 
 
 
-##### HMS_AREngine_ARFaceGeometry_GetTriangleCount
+#### HMS_AREngine_ARFaceGeometry_GetTriangleCount
 
 **支持设备：** Phone | Tablet | TV
 
@@ -5106,7 +5106,7 @@ AREngine_ARStatus HMS_AREngine_ARFaceGeometry_GetTriangleCount(const AREngine_AR
 
 
 
-##### HMS_AREngine_ARFaceGeometry_GetTriangleLabelsSize
+#### HMS_AREngine_ARFaceGeometry_GetTriangleLabelsSize
 
 **支持设备：** Phone | Tablet | TV
 
@@ -5143,7 +5143,7 @@ AREngine_ARStatus HMS_AREngine_ARFaceGeometry_GetTriangleLabelsSize(const AREngi
 
 
 
-##### HMS_AREngine_ARFaceGeometry_GetVerticesSize
+#### HMS_AREngine_ARFaceGeometry_GetVerticesSize
 
 **支持设备：** Phone | Tablet | TV
 
@@ -5180,7 +5180,7 @@ AREngine_ARStatus HMS_AREngine_ARFaceGeometry_GetVerticesSize(const AREngine_ARS
 
 
 
-##### HMS_AREngine_ARFaceGeometry_Release
+#### HMS_AREngine_ARFaceGeometry_Release
 
 **支持设备：** Phone | Tablet | TV
 
@@ -5205,7 +5205,7 @@ void HMS_AREngine_ARFaceGeometry_Release(AREngine_ARFaceGeometry *geometry)
 
 
 
-##### HMS_AREngine_ARFaceLandmark_AcquireVertices2D
+#### HMS_AREngine_ARFaceLandmark_AcquireVertices2D
 
 **支持设备：** Phone | Tablet | TV
 
@@ -5232,7 +5232,7 @@ AREngine_ARStatus HMS_AREngine_ARFaceLandmark_AcquireVertices2D(const AREngine_A
 
 
 
-##### HMS_AREngine_ARFaceLandmark_AcquireVertices3D
+#### HMS_AREngine_ARFaceLandmark_AcquireVertices3D
 
 **支持设备：** Phone | Tablet | TV
 
@@ -5269,7 +5269,7 @@ AREngine_ARStatus HMS_AREngine_ARFaceLandmark_AcquireVertices3D(const AREngine_A
 
 
 
-##### HMS_AREngine_ARFaceLandmark_GetCount
+#### HMS_AREngine_ARFaceLandmark_GetCount
 
 **支持设备：** Phone | Tablet | TV
 
@@ -5306,7 +5306,7 @@ AREngine_ARStatus HMS_AREngine_ARFaceLandmark_GetCount(const AREngine_ARSession 
 
 
 
-##### HMS_AREngine_ARFaceLandmark_Release
+#### HMS_AREngine_ARFaceLandmark_Release
 
 **支持设备：** Phone | Tablet | TV
 
@@ -5331,7 +5331,7 @@ void HMS_AREngine_ARFaceLandmark_Release(AREngine_ARFaceLandmark *landmark)
 
 
 
-##### HMS_AREngine_ARFrame_AcquireCamera
+#### HMS_AREngine_ARFrame_AcquireCamera
 
 **支持设备：** Phone | Tablet | TV
 
@@ -5369,7 +5369,7 @@ AREngine_ARStatus HMS_AREngine_ARFrame_AcquireCamera(const AREngine_ARSession *s
 
 
 
-##### HMS_AREngine_ARFrame_AcquireCameraImage
+#### HMS_AREngine_ARFrame_AcquireCameraImage
 
 **支持设备：** Phone | Tablet | TV
 
@@ -5407,7 +5407,7 @@ AREngine_ARStatus HMS_AREngine_ARFrame_AcquireCameraImage(const AREngine_ARSessi
 
 
 
-##### HMS_AREngine_ARFrame_AcquireCameraPhotoImage
+#### HMS_AREngine_ARFrame_AcquireCameraPhotoImage
 
 **支持设备：** Phone | Tablet | TV
 
@@ -5448,7 +5448,7 @@ AREngine_ARStatus HMS_AREngine_ARFrame_AcquireCameraPhotoImage(const AREngine_AR
 
 
 
-##### HMS_AREngine_ARFrame_AcquireDepthConfidenceImage
+#### HMS_AREngine_ARFrame_AcquireDepthConfidenceImage
 
 **支持设备：** Phone | Tablet | TV
 
@@ -5485,7 +5485,7 @@ AREngine_ARStatus HMS_AREngine_ARFrame_AcquireDepthConfidenceImage(const AREngin
 
 
 
-##### HMS_AREngine_ARFrame_AcquireDepthImage16Bits
+#### HMS_AREngine_ARFrame_AcquireDepthImage16Bits
 
 **支持设备：** Phone | Tablet | TV
 
@@ -5522,7 +5522,7 @@ AREngine_ARStatus HMS_AREngine_ARFrame_AcquireDepthImage16Bits(const AREngine_AR
 
 
 
-##### HMS_AREngine_ARFrame_AcquirePointCloud
+#### HMS_AREngine_ARFrame_AcquirePointCloud
 
 **支持设备：** Phone | Tablet | TV
 
@@ -5560,7 +5560,7 @@ AREngine_ARStatus HMS_AREngine_ARFrame_AcquirePointCloud(const AREngine_ARSessio
 
 
 
-##### HMS_AREngine_ARFrame_AcquireSceneMesh
+#### HMS_AREngine_ARFrame_AcquireSceneMesh
 
 **支持设备：** Phone | Tablet | TV
 
@@ -5598,7 +5598,7 @@ AREngine_ARStatus HMS_AREngine_ARFrame_AcquireSceneMesh(const AREngine_ARSession
 
 
 
-##### HMS_AREngine_ARFrame_AcquireSemanticDenseData
+#### HMS_AREngine_ARFrame_AcquireSemanticDenseData
 
 **支持设备：** Phone | Tablet | TV
 
@@ -5636,7 +5636,7 @@ AREngine_ARStatus HMS_AREngine_ARFrame_AcquireSemanticDenseData(const AREngine_A
 
 
 
-##### HMS_AREngine_ARFrame_Create
+#### HMS_AREngine_ARFrame_Create
 
 **支持设备：** Phone | Tablet | TV
 
@@ -5673,7 +5673,7 @@ AREngine_ARStatus HMS_AREngine_ARFrame_Create(const AREngine_ARSession *session,
 
 
 
-##### HMS_AREngine_ARFrame_Destroy
+#### HMS_AREngine_ARFrame_Destroy
 
 **支持设备：** Phone | Tablet | TV
 
@@ -5698,7 +5698,7 @@ void HMS_AREngine_ARFrame_Destroy(AREngine_ARFrame *frame)
 
 
 
-##### HMS_AREngine_ARFrame_GetDisplayGeometryChanged
+#### HMS_AREngine_ARFrame_GetDisplayGeometryChanged
 
 **支持设备：** Phone | Tablet | TV
 
@@ -5737,7 +5737,7 @@ AREngine_ARStatus HMS_AREngine_ARFrame_GetDisplayGeometryChanged(const AREngine_
 
 
 
-##### HMS_AREngine_ARFrame_GetTimestamp
+#### HMS_AREngine_ARFrame_GetTimestamp
 
 **支持设备：** Phone | Tablet | TV
 
@@ -5774,7 +5774,7 @@ AREngine_ARStatus HMS_AREngine_ARFrame_GetTimestamp(const AREngine_ARSession *se
 
 
 
-##### HMS_AREngine_ARFrame_GetUpdatedTrackables
+#### HMS_AREngine_ARFrame_GetUpdatedTrackables
 
 **支持设备：** Phone | Tablet | TV
 
@@ -5814,7 +5814,7 @@ AREngine_ARStatus HMS_AREngine_ARFrame_GetUpdatedTrackables(const AREngine_ARSes
 
 
 
-##### HMS_AREngine_ARFrame_HitTest
+#### HMS_AREngine_ARFrame_HitTest
 
 **支持设备：** Phone | Tablet | TV
 
@@ -5856,7 +5856,7 @@ AREngine_ARStatus HMS_AREngine_ARFrame_HitTest(const AREngine_ARSession *session
 
 
 
-##### HMS_AREngine_ARFrame_TransformDisplayUvCoords
+#### HMS_AREngine_ARFrame_TransformDisplayUvCoords
 
 **支持设备：** Phone | Tablet | TV
 
@@ -5898,7 +5898,7 @@ AREngine_ARStatus HMS_AREngine_ARFrame_TransformDisplayUvCoords(const AREngine_A
 
 
 
-##### HMS_AREngine_ARHitResult_AcquireNewAnchor
+#### HMS_AREngine_ARHitResult_AcquireNewAnchor
 
 **支持设备：** Phone | Tablet | TV
 
@@ -5936,7 +5936,7 @@ AREngine_ARStatus HMS_AREngine_ARHitResult_AcquireNewAnchor(AREngine_ARSession *
 
 
 
-##### HMS_AREngine_ARHitResult_AcquireTrackable
+#### HMS_AREngine_ARHitResult_AcquireTrackable
 
 **支持设备：** Phone | Tablet | TV
 
@@ -5973,7 +5973,7 @@ AREngine_ARStatus HMS_AREngine_ARHitResult_AcquireTrackable(const AREngine_ARSes
 
 
 
-##### HMS_AREngine_ARHitResult_Create
+#### HMS_AREngine_ARHitResult_Create
 
 **支持设备：** Phone | Tablet | TV
 
@@ -6010,7 +6010,7 @@ AREngine_ARStatus HMS_AREngine_ARHitResult_Create(const AREngine_ARSession *sess
 
 
 
-##### HMS_AREngine_ARHitResult_Destroy
+#### HMS_AREngine_ARHitResult_Destroy
 
 **支持设备：** Phone | Tablet | TV
 
@@ -6035,7 +6035,7 @@ void HMS_AREngine_ARHitResult_Destroy(AREngine_ARHitResult *hitResult)
 
 
 
-##### HMS_AREngine_ARHitResult_GetDistance
+#### HMS_AREngine_ARHitResult_GetDistance
 
 **支持设备：** Phone | Tablet | TV
 
@@ -6072,7 +6072,7 @@ AREngine_ARStatus HMS_AREngine_ARHitResult_GetDistance(const AREngine_ARSession 
 
 
 
-##### HMS_AREngine_ARHitResult_GetHitPose
+#### HMS_AREngine_ARHitResult_GetHitPose
 
 **支持设备：** Phone | Tablet | TV
 
@@ -6119,7 +6119,7 @@ AREngine_ARStatus HMS_AREngine_ARHitResult_GetHitPose(const AREngine_ARSession *
 
 
 
-##### HMS_AREngine_ARHitResultList_Create
+#### HMS_AREngine_ARHitResultList_Create
 
 **支持设备：** Phone | Tablet | TV
 
@@ -6156,7 +6156,7 @@ AREngine_ARStatus HMS_AREngine_ARHitResultList_Create(const AREngine_ARSession *
 
 
 
-##### HMS_AREngine_ARHitResultList_Destroy
+#### HMS_AREngine_ARHitResultList_Destroy
 
 **支持设备：** Phone | Tablet | TV
 
@@ -6181,7 +6181,7 @@ void HMS_AREngine_ARHitResultList_Destroy(AREngine_ARHitResultList *hitResultLis
 
 
 
-##### HMS_AREngine_ARHitResultList_GetItem
+#### HMS_AREngine_ARHitResultList_GetItem
 
 **支持设备：** Phone | Tablet | TV
 
@@ -6220,7 +6220,7 @@ AREngine_ARStatus HMS_AREngine_ARHitResultList_GetItem(const AREngine_ARSession 
 
 
 
-##### HMS_AREngine_ARHitResultList_GetSize
+#### HMS_AREngine_ARHitResultList_GetSize
 
 **支持设备：** Phone | Tablet | TV
 
@@ -6257,7 +6257,7 @@ AREngine_ARStatus HMS_AREngine_ARHitResultList_GetSize(const AREngine_ARSession 
 
 
 
-##### HMS_AREngine_ARImage_GetFormat
+#### HMS_AREngine_ARImage_GetFormat
 
 **支持设备：** Phone | Tablet | TV
 
@@ -6295,7 +6295,7 @@ AREngine_ARStatus HMS_AREngine_ARImage_GetFormat(const AREngine_ARSession *sessi
 
 
 
-##### HMS_AREngine_ARImage_GetHeight
+#### HMS_AREngine_ARImage_GetHeight
 
 **支持设备：** Phone | Tablet | TV
 
@@ -6333,7 +6333,7 @@ AREngine_ARStatus HMS_AREngine_ARImage_GetHeight(const AREngine_ARSession *sessi
 
 
 
-##### HMS_AREngine_ARImage_GetNativeBuffer
+#### HMS_AREngine_ARImage_GetNativeBuffer
 
 **支持设备：** Phone | Tablet | TV
 
@@ -6373,7 +6373,7 @@ AREngine_ARStatus HMS_AREngine_ARImage_GetNativeBuffer(const AREngine_ARSession 
 
 
 
-##### HMS_AREngine_ARImage_GetPlaneCount
+#### HMS_AREngine_ARImage_GetPlaneCount
 
 **支持设备：** Phone | Tablet | TV
 
@@ -6411,7 +6411,7 @@ AREngine_ARStatus HMS_AREngine_ARImage_GetPlaneCount(const AREngine_ARSession *s
 
 
 
-##### HMS_AREngine_ARImage_GetPlaneData
+#### HMS_AREngine_ARImage_GetPlaneData
 
 **支持设备：** Phone | Tablet | TV
 
@@ -6451,7 +6451,7 @@ AREngine_ARStatus HMS_AREngine_ARImage_GetPlaneData(const AREngine_ARSession *se
 
 
 
-##### HMS_AREngine_ARImage_GetPlanePixelStride
+#### HMS_AREngine_ARImage_GetPlanePixelStride
 
 **支持设备：** Phone | Tablet | TV
 
@@ -6490,7 +6490,7 @@ AREngine_ARStatus HMS_AREngine_ARImage_GetPlanePixelStride(const AREngine_ARSess
 
 
 
-##### HMS_AREngine_ARImage_GetPlaneRowStride
+#### HMS_AREngine_ARImage_GetPlaneRowStride
 
 **支持设备：** Phone | Tablet | TV
 
@@ -6529,7 +6529,7 @@ AREngine_ARStatus HMS_AREngine_ARImage_GetPlaneRowStride(const AREngine_ARSessio
 
 
 
-##### HMS_AREngine_ARImage_GetTimestamp
+#### HMS_AREngine_ARImage_GetTimestamp
 
 **支持设备：** Phone | Tablet | TV
 
@@ -6569,7 +6569,7 @@ AREngine_ARStatus HMS_AREngine_ARImage_GetTimestamp(const AREngine_ARSession *se
 
 
 
-##### HMS_AREngine_ARImage_GetWidth
+#### HMS_AREngine_ARImage_GetWidth
 
 **支持设备：** Phone | Tablet | TV
 
@@ -6607,7 +6607,7 @@ AREngine_ARStatus HMS_AREngine_ARImage_GetWidth(const AREngine_ARSession *sessio
 
 
 
-##### HMS_AREngine_ARImage_Release
+#### HMS_AREngine_ARImage_Release
 
 **支持设备：** Phone | Tablet | TV
 
@@ -6632,7 +6632,7 @@ void HMS_AREngine_ARImage_Release(AREngine_ARImage *image)
 
 
 
-##### HMS_AREngine_ARPlane_AcquireSubsumedBy
+#### HMS_AREngine_ARPlane_AcquireSubsumedBy
 
 **支持设备：** Phone | Tablet | TV
 
@@ -6669,7 +6669,7 @@ AREngine_ARStatus HMS_AREngine_ARPlane_AcquireSubsumedBy(const AREngine_ARSessio
 
 
 
-##### HMS_AREngine_ARPlane_GetCenterPose
+#### HMS_AREngine_ARPlane_GetCenterPose
 
 **支持设备：** Phone | Tablet | TV
 
@@ -6708,7 +6708,7 @@ AREngine_ARStatus HMS_AREngine_ARPlane_GetCenterPose(const AREngine_ARSession *s
 
 
 
-##### HMS_AREngine_ARPlane_GetExtentX
+#### HMS_AREngine_ARPlane_GetExtentX
 
 **支持设备：** Phone | Tablet | TV
 
@@ -6745,7 +6745,7 @@ AREngine_ARStatus HMS_AREngine_ARPlane_GetExtentX(const AREngine_ARSession *sess
 
 
 
-##### HMS_AREngine_ARPlane_GetExtentZ
+#### HMS_AREngine_ARPlane_GetExtentZ
 
 **支持设备：** Phone | Tablet | TV
 
@@ -6782,7 +6782,7 @@ AREngine_ARStatus HMS_AREngine_ARPlane_GetExtentZ(const AREngine_ARSession *sess
 
 
 
-##### HMS_AREngine_ARPlane_GetLabel
+#### HMS_AREngine_ARPlane_GetLabel
 
 **支持设备：** Phone | Tablet | TV
 
@@ -6821,7 +6821,7 @@ AREngine_ARStatus HMS_AREngine_ARPlane_GetLabel(const AREngine_ARSession *sessio
 
 
 
-##### HMS_AREngine_ARPlane_GetPolygon
+#### HMS_AREngine_ARPlane_GetPolygon
 
 **支持设备：** Phone | Tablet | TV
 
@@ -6863,7 +6863,7 @@ AREngine_ARStatus HMS_AREngine_ARPlane_GetPolygon(const AREngine_ARSession *sess
 
 
 
-##### HMS_AREngine_ARPlane_GetPolygonSize
+#### HMS_AREngine_ARPlane_GetPolygonSize
 
 **支持设备：** Phone | Tablet | TV
 
@@ -6902,7 +6902,7 @@ AREngine_ARStatus HMS_AREngine_ARPlane_GetPolygonSize(const AREngine_ARSession *
 
 
 
-##### HMS_AREngine_ARPlane_GetType
+#### HMS_AREngine_ARPlane_GetType
 
 **支持设备：** Phone | Tablet | TV
 
@@ -6939,7 +6939,7 @@ AREngine_ARStatus HMS_AREngine_ARPlane_GetType(const AREngine_ARSession *session
 
 
 
-##### HMS_AREngine_ARPlane_IsPoseInExtents
+#### HMS_AREngine_ARPlane_IsPoseInExtents
 
 **支持设备：** Phone | Tablet | TV
 
@@ -6979,7 +6979,7 @@ AREngine_ARStatus HMS_AREngine_ARPlane_IsPoseInExtents(const AREngine_ARSession 
 
 
 
-##### HMS_AREngine_ARPlane_IsPoseInPolygon
+#### HMS_AREngine_ARPlane_IsPoseInPolygon
 
 **支持设备：** Phone | Tablet | TV
 
@@ -7017,7 +7017,7 @@ AREngine_ARStatus HMS_AREngine_ARPlane_IsPoseInPolygon(const AREngine_ARSession 
 
 
 
-##### HMS_AREngine_ARPoint_GetOrientationMode
+#### HMS_AREngine_ARPoint_GetOrientationMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -7054,7 +7054,7 @@ AREngine_ARStatus HMS_AREngine_ARPoint_GetOrientationMode(const AREngine_ARSessi
 
 
 
-##### HMS_AREngine_ARPoint_GetPose
+#### HMS_AREngine_ARPoint_GetPose
 
 **支持设备：** Phone | Tablet | TV
 
@@ -7091,7 +7091,7 @@ AREngine_ARStatus HMS_AREngine_ARPoint_GetPose(const AREngine_ARSession *session
 
 
 
-##### HMS_AREngine_ARPointCloud_GetData
+#### HMS_AREngine_ARPointCloud_GetData
 
 **支持设备：** Phone | Tablet | TV
 
@@ -7130,7 +7130,7 @@ AREngine_ARStatus HMS_AREngine_ARPointCloud_GetData(const AREngine_ARSession *se
 
 
 
-##### HMS_AREngine_ARPointCloud_GetNumberOfPoints
+#### HMS_AREngine_ARPointCloud_GetNumberOfPoints
 
 **支持设备：** Phone | Tablet | TV
 
@@ -7169,7 +7169,7 @@ AREngine_ARStatus HMS_AREngine_ARPointCloud_GetNumberOfPoints(const AREngine_ARS
 
 
 
-##### HMS_AREngine_ARPointCloud_GetTimestamp
+#### HMS_AREngine_ARPointCloud_GetTimestamp
 
 **支持设备：** Phone | Tablet | TV
 
@@ -7206,7 +7206,7 @@ AREngine_ARStatus HMS_AREngine_ARPointCloud_GetTimestamp(const AREngine_ARSessio
 
 
 
-##### HMS_AREngine_ARPointCloud_Release
+#### HMS_AREngine_ARPointCloud_Release
 
 **支持设备：** Phone | Tablet | TV
 
@@ -7231,7 +7231,7 @@ void HMS_AREngine_ARPointCloud_Release(AREngine_ARPointCloud *pointCloud)
 
 
 
-##### HMS_AREngine_ARPose_Create
+#### HMS_AREngine_ARPose_Create
 
 **支持设备：** Phone | Tablet | TV
 
@@ -7271,7 +7271,7 @@ AREngine_ARStatus HMS_AREngine_ARPose_Create(const AREngine_ARSession *session, 
 
 
 
-##### HMS_AREngine_ARPose_Destroy
+#### HMS_AREngine_ARPose_Destroy
 
 **支持设备：** Phone | Tablet | TV
 
@@ -7296,7 +7296,7 @@ void HMS_AREngine_ARPose_Destroy(AREngine_ARPose *pose)
 
 
 
-##### HMS_AREngine_ARPose_GetMatrix
+#### HMS_AREngine_ARPose_GetMatrix
 
 **支持设备：** Phone | Tablet | TV
 
@@ -7337,7 +7337,7 @@ outMatrixColMajor4x4为存放数组，其中的数据按照列优先存储，该
 
 
 
-##### HMS_AREngine_ARPose_GetPoseRaw
+#### HMS_AREngine_ARPose_GetPoseRaw
 
 **支持设备：** Phone | Tablet | TV
 
@@ -7377,7 +7377,7 @@ AREngine_ARStatus HMS_AREngine_ARPose_GetPoseRaw(const AREngine_ARSession *sessi
 
 
 
-##### HMS_AREngine_ARSceneMesh_AcquireIndexList
+#### HMS_AREngine_ARSceneMesh_AcquireIndexList
 
 **支持设备：** Phone | Tablet | TV
 
@@ -7415,7 +7415,7 @@ AREngine_ARStatus HMS_AREngine_ARSceneMesh_AcquireIndexList(const AREngine_ARSes
 
 
 
-##### HMS_AREngine_ARSceneMesh_AcquireIndexListSize
+#### HMS_AREngine_ARSceneMesh_AcquireIndexListSize
 
 **支持设备：** Phone | Tablet | TV
 
@@ -7452,7 +7452,7 @@ AREngine_ARStatus HMS_AREngine_ARSceneMesh_AcquireIndexListSize(const AREngine_A
 
 
 
-##### HMS_AREngine_ARSceneMesh_AcquireVertexList
+#### HMS_AREngine_ARSceneMesh_AcquireVertexList
 
 **支持设备：** Phone | Tablet | TV
 
@@ -7490,7 +7490,7 @@ AREngine_ARStatus HMS_AREngine_ARSceneMesh_AcquireVertexList(const AREngine_ARSe
 
 
 
-##### HMS_AREngine_ARSceneMesh_AcquireVertexNormalList
+#### HMS_AREngine_ARSceneMesh_AcquireVertexNormalList
 
 **支持设备：** Phone | Tablet | TV
 
@@ -7528,7 +7528,7 @@ AREngine_ARStatus HMS_AREngine_ARSceneMesh_AcquireVertexNormalList(const AREngin
 
 
 
-##### HMS_AREngine_ARSceneMesh_AcquireVerticesSize
+#### HMS_AREngine_ARSceneMesh_AcquireVerticesSize
 
 **支持设备：** Phone | Tablet | TV
 
@@ -7565,7 +7565,7 @@ AREngine_ARStatus HMS_AREngine_ARSceneMesh_AcquireVerticesSize(const AREngine_AR
 
 
 
-##### HMS_AREngine_ARSceneMesh_Release
+#### HMS_AREngine_ARSceneMesh_Release
 
 **支持设备：** Phone | Tablet | TV
 
@@ -7590,7 +7590,7 @@ void HMS_AREngine_ARSceneMesh_Release(AREngine_ARSceneMesh *sceneMesh)
 
 
 
-##### HMS_AREngine_ARSemanticDense_AcquireCubeData
+#### HMS_AREngine_ARSemanticDense_AcquireCubeData
 
 **支持设备：** Phone | Tablet | TV
 
@@ -7627,7 +7627,7 @@ AREngine_ARStatus HMS_AREngine_ARSemanticDense_AcquireCubeData(const AREngine_AR
 
 
 
-##### HMS_AREngine_ARSemanticDense_AcquireCubeDataSize
+#### HMS_AREngine_ARSemanticDense_AcquireCubeDataSize
 
 **支持设备：** Phone | Tablet | TV
 
@@ -7664,7 +7664,7 @@ AREngine_ARStatus HMS_AREngine_ARSemanticDense_AcquireCubeDataSize(const AREngin
 
 
 
-##### HMS_AREngine_ARSemanticDense_AcquirePointData
+#### HMS_AREngine_ARSemanticDense_AcquirePointData
 
 **支持设备：** Phone | Tablet | TV
 
@@ -7701,7 +7701,7 @@ AREngine_ARStatus HMS_AREngine_ARSemanticDense_AcquirePointData(const AREngine_A
 
 
 
-##### HMS_AREngine_ARSemanticDense_AcquirePointDataSize
+#### HMS_AREngine_ARSemanticDense_AcquirePointDataSize
 
 **支持设备：** Phone | Tablet | TV
 
@@ -7738,7 +7738,7 @@ AREngine_ARStatus HMS_AREngine_ARSemanticDense_AcquirePointDataSize(const AREngi
 
 
 
-##### HMS_AREngine_ARSemanticDense_Release
+#### HMS_AREngine_ARSemanticDense_Release
 
 **支持设备：** Phone | Tablet | TV
 
@@ -7761,7 +7761,7 @@ void HMS_AREngine_ARSemanticDense_Release(AREngine_ARSemanticDenseData *semantic
 
 
 
-##### HMS_AREngine_ARSession_AcquireNewAnchor
+#### HMS_AREngine_ARSession_AcquireNewAnchor
 
 **支持设备：** Phone | Tablet | TV
 
@@ -7800,7 +7800,7 @@ AREngine_ARStatus HMS_AREngine_ARSession_AcquireNewAnchor(AREngine_ARSession *se
 
 
 
-##### HMS_AREngine_ARSession_Configure
+#### HMS_AREngine_ARSession_Configure
 
 **支持设备：** Phone | Tablet | TV
 
@@ -7838,7 +7838,7 @@ AREngine_ARStatus HMS_AREngine_ARSession_Configure(AREngine_ARSession *session, 
 
 
 
-##### HMS_AREngine_ARSession_Create
+#### HMS_AREngine_ARSession_Create
 
 **支持设备：** Phone | Tablet | TV
 
@@ -7880,7 +7880,7 @@ AREngine_ARStatus HMS_AREngine_ARSession_Create(void *env, void *applicationCont
 
 
 
-##### HMS_AREngine_ARSession_Create_Human_Perception
+#### HMS_AREngine_ARSession_Create_Human_Perception
 
 **支持设备：** Phone | Tablet | TV
 
@@ -7922,7 +7922,7 @@ AREngine_ARStatus HMS_AREngine_ARSession_Create_Human_Perception(void *env, void
 
 
 
-##### HMS_AREngine_ARSession_Destroy
+#### HMS_AREngine_ARSession_Destroy
 
 **支持设备：** Phone | Tablet | TV
 
@@ -7947,7 +7947,7 @@ void HMS_AREngine_ARSession_Destroy(AREngine_ARSession *session)
 
 
 
-##### HMS_AREngine_ARSession_GetAllAnchors
+#### HMS_AREngine_ARSession_GetAllAnchors
 
 **支持设备：** Phone | Tablet | TV
 
@@ -7985,7 +7985,7 @@ AREngine_ARStatus HMS_AREngine_ARSession_GetAllAnchors(const AREngine_ARSession 
 
 
 
-##### HMS_AREngine_ARSession_GetAllTrackables
+#### HMS_AREngine_ARSession_GetAllTrackables
 
 **支持设备：** Phone | Tablet | TV
 
@@ -8022,7 +8022,7 @@ AREngine_ARStatus HMS_AREngine_ARSession_GetAllTrackables(const AREngine_ARSessi
 
 
 
-##### HMS_AREngine_ARSession_GetCameraConfig
+#### HMS_AREngine_ARSession_GetCameraConfig
 
 **支持设备：** Phone | Tablet | TV
 
@@ -8058,7 +8058,7 @@ AREngine_ARStatus HMS_AREngine_ARSession_GetCameraConfig(const AREngine_ARSessio
 
 
 
-##### HMS_AREngine_ARSession_Pause
+#### HMS_AREngine_ARSession_Pause
 
 **支持设备：** Phone | Tablet | TV
 
@@ -8094,7 +8094,7 @@ AREngine_ARStatus HMS_AREngine_ARSession_Pause(AREngine_ARSession *session)
 
 
 
-##### HMS_AREngine_ARSession_Resume
+#### HMS_AREngine_ARSession_Resume
 
 **支持设备：** Phone | Tablet | TV
 
@@ -8131,7 +8131,7 @@ AREngine_ARStatus HMS_AREngine_ARSession_Resume(AREngine_ARSession *session)
 
 
 
-##### HMS_AREngine_ARSession_SetCameraGLTexture
+#### HMS_AREngine_ARSession_SetCameraGLTexture
 
 **支持设备：** Phone | Tablet | TV
 
@@ -8171,7 +8171,7 @@ AREngine_ARStatus HMS_AREngine_ARSession_SetCameraGLTexture(AREngine_ARSession *
 
 
 
-##### HMS_AREngine_ARSession_SetDisplayGeometry
+#### HMS_AREngine_ARSession_SetDisplayGeometry
 
 **支持设备：** Phone | Tablet | TV
 
@@ -8211,7 +8211,7 @@ AREngine_ARStatus HMS_AREngine_ARSession_SetDisplayGeometry(AREngine_ARSession *
 
 
 
-##### HMS_AREngine_ARSession_Stop
+#### HMS_AREngine_ARSession_Stop
 
 **支持设备：** Phone | Tablet | TV
 
@@ -8249,7 +8249,7 @@ AREngine_ARStatus HMS_AREngine_ARSession_Stop(AREngine_ARSession *session)
 
 
 
-##### HMS_AREngine_ARSession_Update
+#### HMS_AREngine_ARSession_Update
 
 **支持设备：** Phone | Tablet | TV
 
@@ -8294,7 +8294,7 @@ AREngine_ARStatus HMS_AREngine_ARSession_Update(AREngine_ARSession *session, ARE
 
 
 
-##### HMS_AREngine_ARTarget_GetAxisAlignedBoundingBox
+#### HMS_AREngine_ARTarget_GetAxisAlignedBoundingBox
 
 **支持设备：** Phone | Tablet | TV
 
@@ -8332,7 +8332,7 @@ AREngine_ARStatus HMS_AREngine_ARTarget_GetAxisAlignedBoundingBox(const AREngine
 
 
 
-##### HMS_AREngine_ARTarget_GetCenterPose
+#### HMS_AREngine_ARTarget_GetCenterPose
 
 **支持设备：** Phone | Tablet | TV
 
@@ -8369,7 +8369,7 @@ AREngine_ARStatus HMS_AREngine_ARTarget_GetCenterPose(const AREngine_ARSession *
 
 
 
-##### HMS_AREngine_ARTarget_GetRadius
+#### HMS_AREngine_ARTarget_GetRadius
 
 **支持设备：** Phone | Tablet | TV
 
@@ -8406,7 +8406,7 @@ AREngine_ARStatus HMS_AREngine_ARTarget_GetRadius(const AREngine_ARSession *sess
 
 
 
-##### HMS_AREngine_ARTarget_GetShapeType
+#### HMS_AREngine_ARTarget_GetShapeType
 
 **支持设备：** Phone | Tablet | TV
 
@@ -8443,7 +8443,7 @@ AREngine_ARStatus HMS_AREngine_ARTarget_GetShapeType(const AREngine_ARSession *s
 
 
 
-##### HMS_AREngine_ARTrackable_AcquireNewAnchor
+#### HMS_AREngine_ARTrackable_AcquireNewAnchor
 
 **支持设备：** Phone | Tablet | TV
 
@@ -8483,7 +8483,7 @@ AREngine_ARStatus HMS_AREngine_ARTrackable_AcquireNewAnchor(AREngine_ARSession *
 
 
 
-##### HMS_AREngine_ARTrackable_GetAnchors
+#### HMS_AREngine_ARTrackable_GetAnchors
 
 **支持设备：** Phone | Tablet | TV
 
@@ -8520,7 +8520,7 @@ AREngine_ARStatus HMS_AREngine_ARTrackable_GetAnchors(AREngine_ARSession *sessio
 
 
 
-##### HMS_AREngine_ARTrackable_GetTrackingState
+#### HMS_AREngine_ARTrackable_GetTrackingState
 
 **支持设备：** Phone | Tablet | TV
 
@@ -8557,7 +8557,7 @@ AREngine_ARStatus HMS_AREngine_ARTrackable_GetTrackingState(const AREngine_ARSes
 
 
 
-##### HMS_AREngine_ARTrackable_GetType
+#### HMS_AREngine_ARTrackable_GetType
 
 **支持设备：** Phone | Tablet | TV
 
@@ -8594,7 +8594,7 @@ AREngine_ARStatus HMS_AREngine_ARTrackable_GetType(const AREngine_ARSession *ses
 
 
 
-##### HMS_AREngine_ARTrackable_Release
+#### HMS_AREngine_ARTrackable_Release
 
 **支持设备：** Phone | Tablet | TV
 
@@ -8619,7 +8619,7 @@ void HMS_AREngine_ARTrackable_Release(AREngine_ARTrackable *trackable)
 
 
 
-##### HMS_AREngine_ARTrackableList_AcquireItem
+#### HMS_AREngine_ARTrackableList_AcquireItem
 
 **支持设备：** Phone | Tablet | TV
 
@@ -8657,7 +8657,7 @@ AREngine_ARStatus HMS_AREngine_ARTrackableList_AcquireItem(const AREngine_ARSess
 
 
 
-##### HMS_AREngine_ARTrackableList_Create
+#### HMS_AREngine_ARTrackableList_Create
 
 **支持设备：** Phone | Tablet | TV
 
@@ -8694,7 +8694,7 @@ AREngine_ARStatus HMS_AREngine_ARTrackableList_Create(const AREngine_ARSession *
 
 
 
-##### HMS_AREngine_ARTrackableList_Destroy
+#### HMS_AREngine_ARTrackableList_Destroy
 
 **支持设备：** Phone | Tablet | TV
 
@@ -8719,7 +8719,7 @@ void HMS_AREngine_ARTrackableList_Destroy(AREngine_ARTrackableList *trackableLis
 
 
 
-##### HMS_AREngine_ARTrackableList_GetSize
+#### HMS_AREngine_ARTrackableList_GetSize
 
 **支持设备：** Phone | Tablet | TV
 
@@ -8756,7 +8756,7 @@ AREngine_ARStatus HMS_AREngine_ARTrackableList_GetSize(const AREngine_ARSession 
 
 
 
-##### HMS_AREngine_ARBody_GetSkeletonConfidence
+#### HMS_AREngine_ARBody_GetSkeletonConfidence
 
 **支持设备：** Phone | Tablet | TV
 
@@ -8793,7 +8793,7 @@ AREngine_ARStatus HMS_AREngine_ARBody_GetSkeletonConfidence(const AREngine_ARSes
 
 
 
-##### HMS_AREngine_ARBody_GetSkeletonConnection
+#### HMS_AREngine_ARBody_GetSkeletonConnection
 
 **支持设备：** Phone | Tablet | TV
 
@@ -8830,7 +8830,7 @@ AREngine_ARStatus HMS_AREngine_ARBody_GetSkeletonConnection(const AREngine_ARSes
 
 
 
-##### HMS_AREngine_ARBody_GetSkeletonConnectionSize
+#### HMS_AREngine_ARBody_GetSkeletonConnectionSize
 
 **支持设备：** Phone | Tablet | TV
 
@@ -8867,7 +8867,7 @@ AREngine_ARStatus HMS_AREngine_ARBody_GetSkeletonConnectionSize(const AREngine_A
 
 
 
-##### HMS_AREngine_ARBody_GetSkeletonTypes
+#### HMS_AREngine_ARBody_GetSkeletonTypes
 
 **支持设备：** Phone | Tablet | TV
 
@@ -8904,7 +8904,7 @@ AREngine_ARStatus HMS_AREngine_ARBody_GetSkeletonTypes(const AREngine_ARSession 
 
 
 
-##### HMS_AREngine_ARBody_GetSkeletonPointCount
+#### HMS_AREngine_ARBody_GetSkeletonPointCount
 
 **支持设备：** Phone | Tablet | TV
 
@@ -8941,7 +8941,7 @@ AREngine_ARStatus HMS_AREngine_ARBody_GetSkeletonPointCount(const AREngine_ARSes
 
 
 
-##### HMS_AREngine_ARBody_GetSkeletonPointData2D
+#### HMS_AREngine_ARBody_GetSkeletonPointData2D
 
 **支持设备：** Phone | Tablet | TV
 
@@ -8978,7 +8978,7 @@ AREngine_ARStatus HMS_AREngine_ARBody_GetSkeletonPointData2D(const AREngine_ARSe
 
 
 
-##### HMS_AREngine_ARBody_GetSkeletonPointIsValid
+#### HMS_AREngine_ARBody_GetSkeletonPointIsValid
 
 **支持设备：** Phone | Tablet | TV
 
@@ -9015,7 +9015,7 @@ AREngine_ARStatus HMS_AREngine_ARBody_GetSkeletonPointIsValid(const AREngine_ARS
 
 
 
-##### HMS_AREngine_ARBody_GetBodyTrackId
+#### HMS_AREngine_ARBody_GetBodyTrackId
 
 **支持设备：** Phone | Tablet | TV
 
@@ -9052,7 +9052,7 @@ AREngine_ARStatus HMS_AREngine_ARBody_GetBodyTrackId(const AREngine_ARSession *s
 
 
 
-##### HMS_AREngine_ARBody_GetBodyTimeStamp
+#### HMS_AREngine_ARBody_GetBodyTimeStamp
 
 **支持设备：** Phone | Tablet | TV
 
@@ -9089,7 +9089,7 @@ AREngine_ARStatus HMS_AREngine_ARBody_GetBodyTimeStamp(const AREngine_ARSession 
 
 
 
-##### HMS_AREngine_ARConfig_SetBodyDetectedNum
+#### HMS_AREngine_ARConfig_SetBodyDetectedNum
 
 **支持设备：** Phone | Tablet | TV
 

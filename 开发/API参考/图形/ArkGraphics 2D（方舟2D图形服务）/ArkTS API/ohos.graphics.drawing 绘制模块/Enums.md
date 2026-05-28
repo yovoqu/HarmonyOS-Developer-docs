@@ -10,7 +10,7 @@
 
   
 
-##### BlendMode
+#### BlendMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -63,7 +63,7 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
  
   
 
-##### PathMeasureMatrixFlags12+
+#### PathMeasureMatrixFlags12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -80,7 +80,7 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
  
   
 
-##### SrcRectConstraint12+
+#### SrcRectConstraint12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -96,7 +96,7 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
  
   
 
-##### ShadowFlag12+
+#### ShadowFlag12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -114,7 +114,7 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
  
   
 
-##### PathOp12+
+#### PathOp12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -133,7 +133,7 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
  
   
 
-##### PathIteratorVerb18+
+#### PathIteratorVerb18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -154,7 +154,7 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
  
   
 
-##### TextEncoding
+#### TextEncoding
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -174,7 +174,7 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
  
   
 
-##### ClipOp12+
+#### ClipOp12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -194,7 +194,7 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
  
   
 
-##### FilterMode12+
+#### FilterMode12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -210,7 +210,7 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
  
   
 
-##### PathDirection12+
+#### PathDirection12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -226,7 +226,7 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
  
   
 
-##### PathFillType12+
+#### PathFillType12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -248,7 +248,7 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
  
   
 
-##### PointMode12+
+#### PointMode12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -265,7 +265,7 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
  
   
 
-##### FontEdging12+
+#### FontEdging12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -288,7 +288,7 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
  
   
 
-##### FontHinting12+
+#### FontHinting12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -308,7 +308,7 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
  
   
 
-##### FontMetricsFlags12+
+#### FontMetricsFlags12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -329,7 +329,7 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
  
   
 
-##### RectType12+
+#### RectType12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -346,7 +346,7 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
  
   
 
-##### PathDashStyle18+
+#### PathDashStyle18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -363,7 +363,7 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
  
   
 
-##### TileMode12+
+#### TileMode12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -381,7 +381,7 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
  
   
 
-##### JoinStyle12+
+#### JoinStyle12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -398,7 +398,7 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
  
   
 
-##### CapStyle12+
+#### CapStyle12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -415,7 +415,7 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
  
   
 
-##### BlurType12+
+#### BlurType12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -433,7 +433,7 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
  
   
 
-##### ScaleToFit12+
+#### ScaleToFit12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -451,7 +451,7 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
  
   
 
-##### RegionOp12+
+#### RegionOp12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -475,7 +475,7 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
  
   
 
-##### CornerPos12+
+#### CornerPos12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -493,7 +493,7 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
  
   
 
-##### VertexMode23+
+#### VertexMode23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

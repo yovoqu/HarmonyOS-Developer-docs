@@ -12,7 +12,7 @@
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -39,7 +39,7 @@ Component3D(sceneOptions?: SceneOptions)
 
 
 
-##### SceneOptions对象说明
+#### SceneOptions对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -57,7 +57,7 @@ Component3D组件配置选项。
 
 
 
-##### ModelType枚举说明
+#### ModelType枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -75,7 +75,7 @@ Component3D组件配置选项。
 
 
 
-##### Scene12+
+#### Scene12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -94,7 +94,7 @@ type Scene = Scene
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -102,7 +102,7 @@ type Scene = Scene
 
 
 
-##### environment
+#### environment
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -123,7 +123,7 @@ environment(uri: ResourceStr)
 
 
 
-##### customRender
+#### customRender
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -145,7 +145,7 @@ customRender(uri: ResourceStr, selfRenderUpdate: boolean)
 
 
 
-##### shader
+#### shader
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -166,7 +166,7 @@ shader(uri: ResourceStr)
 
 
 
-##### shaderImageTexture
+#### shaderImageTexture
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -187,7 +187,7 @@ shaderImageTexture(uri: ResourceStr)
 
 
 
-##### shaderInputBuffer
+#### shaderInputBuffer
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -208,7 +208,7 @@ shaderInputBuffer(buffer: Array&lt;number&gt;)
 
 
 
-##### renderWidth
+#### renderWidth
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -233,7 +233,7 @@ renderWidth(value: Dimension)
 
 
 
-##### renderHeight
+#### renderHeight
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -258,7 +258,7 @@ renderHeight(value: Dimension)
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -266,7 +266,7 @@ renderHeight(value: Dimension)
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

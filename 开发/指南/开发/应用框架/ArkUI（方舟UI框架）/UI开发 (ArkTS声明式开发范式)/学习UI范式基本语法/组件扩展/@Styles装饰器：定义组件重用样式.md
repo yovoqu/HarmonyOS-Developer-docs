@@ -13,7 +13,7 @@
 
 
 
-##### 装饰器使用说明
+#### 装饰器使用说明
 
  - 当前@Styles仅支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)和[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
  - @Styles可以定义在组件内或全局，在全局定义时需在方法名前面添加function关键字，组件内定义时则不需要添加function关键字。请参考用例[组件内styles和全局styles的用法](#组件内styles和全局styles的用法)。
@@ -53,12 +53,12 @@ struct FancyUse {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/7DEwwX7XSpK3XNTPAJ7xDA/zh-cn_image_0000002581433640.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014802Z&HW-CC-Expire=86400&HW-CC-Sign=0687E24576FB1FD0C696250A07A6BCE28BD13EE0D727B77FA0ACF16712A9392A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/7DEwwX7XSpK3XNTPAJ7xDA/zh-cn_image_0000002581433640.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030434Z&HW-CC-Expire=86400&HW-CC-Sign=1F94ACB3D2CF0AC6FD9B5C89144A208333A017513CFB032E41F8095C5C6800E8)
 
 
 
 
-##### 限制条件
+#### 限制条件
 
  - @Styles方法不支持传入参数，编译期会报错。
 
@@ -102,11 +102,11 @@ struct FancyUse {
 
 
 
-##### 使用场景
+#### 使用场景
 
 
 
-##### 组件内@Styles和全局@Styles的用法
+#### 组件内@Styles和全局@Styles的用法
 
 ```ArkTS
 // 定义在全局的@Styles封装的样式
@@ -150,4 +150,4 @@ struct GlobalFancy {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/GEXz7LqwQJWTYJ1ZKBonAQ/zh-cn_image_0000002611833469.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014802Z&HW-CC-Expire=86400&HW-CC-Sign=A726F8B712AD14F7924AAD3380DC9893A38811A1D4F1F6DD84D5775EC5C644CB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/GEXz7LqwQJWTYJ1ZKBonAQ/zh-cn_image_0000002611833469.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030434Z&HW-CC-Expire=86400&HW-CC-Sign=329105B01408CAE811218259D3786F873A60F0C5598E948E6359E7BAC892F513)

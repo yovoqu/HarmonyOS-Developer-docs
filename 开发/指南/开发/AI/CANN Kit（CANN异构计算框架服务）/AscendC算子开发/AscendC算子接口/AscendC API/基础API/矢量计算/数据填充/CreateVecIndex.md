@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-data-createvecindex
 
-##### 功能说明
+#### 功能说明
 
 以firstValue为起始值创建向量索引。
  
   
 
-##### 函数原型
+#### 函数原型
 
 tensor前n个数据计算：
  
@@ -21,7 +21,7 @@ __aicore__ inline void CreateVecIndex(LocalTensor<T> dstLocal, const T &firstVal
  
   
 
-##### 参数说明
+#### 参数说明
 
 **表1** 参数说明
   
@@ -34,7 +34,7 @@ __aicore__ inline void CreateVecIndex(LocalTensor<T> dstLocal, const T &firstVal
  
   
 
-##### 支持的型号
+#### 支持的型号
 
 Kirin9020系列处理器
  
@@ -42,7 +42,7 @@ KirinX90系列处理器
  
   
 
-##### 注意事项
+#### 注意事项
 
 - 操作数地址偏移对齐要求请参见[通用约束](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-general-constraints)。
 - firstValue需保证不超出dstLocal中元素数据类型对应的大小范围。
@@ -50,13 +50,13 @@ KirinX90系列处理器
  
   
 
-##### 返回值
+#### 返回值
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 本样例中只展示Compute流程中的部分代码。如果开发者需要运行样例代码，请将该代码段拷贝并替换[样例模板](#样例模板)中Compute函数相关代码片段即可。
  
@@ -75,7 +75,7 @@ AscendC::CreateVecIndex(dstLocal, (T)0, 128);
  
   
 
-##### 样例模板
+#### 样例模板
 
 ```text
 #include "kernel_operator.h"

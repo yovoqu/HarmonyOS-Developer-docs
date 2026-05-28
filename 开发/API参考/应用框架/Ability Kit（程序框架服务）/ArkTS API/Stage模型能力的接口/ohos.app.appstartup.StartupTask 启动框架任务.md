@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { StartupTask } from '@kit.AbilityKit';
 
 
 
-##### StartupTask
+#### StartupTask
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -32,7 +32,7 @@ import { StartupTask } from '@kit.AbilityKit';
 
 
 
-##### onDependencyCompleted
+#### onDependencyCompleted
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -76,7 +76,7 @@ export default class StartupTask_001 extends StartupTask {
 
 
 
-##### init
+#### init
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

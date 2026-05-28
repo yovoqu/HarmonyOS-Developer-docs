@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-window-event-filter-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
 
 
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -48,13 +48,13 @@
 
 
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### OH_NativeWindowManager_KeyEventFilter()
+#### OH_NativeWindowManager_KeyEventFilter()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -84,7 +84,7 @@ typedef bool (*OH_NativeWindowManager_KeyEventFilter)(Input_KeyEvent* keyEvent)
 
 
 
-##### OH_NativeWindowManager_RegisterKeyEventFilter()
+#### OH_NativeWindowManager_RegisterKeyEventFilter()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -115,7 +115,7 @@ WindowManager_ErrorCode OH_NativeWindowManager_RegisterKeyEventFilter(int32_t wi
 
 
 
-##### OH_NativeWindowManager_UnregisterKeyEventFilter()
+#### OH_NativeWindowManager_UnregisterKeyEventFilter()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -145,7 +145,7 @@ WindowManager_ErrorCode OH_NativeWindowManager_UnregisterKeyEventFilter(int32_t 
 
 
 
-##### OH_NativeWindowManager_MouseEventFilter()
+#### OH_NativeWindowManager_MouseEventFilter()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -175,7 +175,7 @@ typedef bool (*OH_NativeWindowManager_MouseEventFilter)(Input_MouseEvent* mouseE
 
 
 
-##### OH_NativeWindowManager_RegisterMouseEventFilter()
+#### OH_NativeWindowManager_RegisterMouseEventFilter()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -206,7 +206,7 @@ WindowManager_ErrorCode OH_NativeWindowManager_RegisterMouseEventFilter(int32_t 
 
 
 
-##### OH_NativeWindowManager_UnregisterMouseEventFilter()
+#### OH_NativeWindowManager_UnregisterMouseEventFilter()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -236,7 +236,7 @@ WindowManager_ErrorCode OH_NativeWindowManager_UnregisterMouseEventFilter(int32_
 
 
 
-##### OH_NativeWindowManager_TouchEventFilter()
+#### OH_NativeWindowManager_TouchEventFilter()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -266,7 +266,7 @@ typedef bool (*OH_NativeWindowManager_TouchEventFilter)(Input_TouchEvent* touchE
 
 
 
-##### OH_NativeWindowManager_RegisterTouchEventFilter()
+#### OH_NativeWindowManager_RegisterTouchEventFilter()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -297,7 +297,7 @@ WindowManager_ErrorCode OH_NativeWindowManager_RegisterTouchEventFilter(int32_t 
 
 
 
-##### OH_NativeWindowManager_UnregisterTouchEventFilter()
+#### OH_NativeWindowManager_UnregisterTouchEventFilter()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

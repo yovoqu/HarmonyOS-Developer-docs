@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { networkSecurity } from '@kit.NetworkKit';
 
 
 
-##### 完整示例
+#### 完整示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -51,7 +51,7 @@ networkSecurity.certVerification(cert, caCert)
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/Vf8ui1P0Ro-oHyQhcVDtXw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023838Z&HW-CC-Expire=86400&HW-CC-Sign=7BF4B2A046BC6242441AB68367842E8E441509DF4391ED351F4CA5BEE5A8D943)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/Vf8ui1P0Ro-oHyQhcVDtXw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025213Z&HW-CC-Expire=86400&HW-CC-Sign=D7152C0AEF3CD3939791372E43AEA45E83461F408BF023004A6BCCF14F540666)
 
 
 请务必将示例中的证书数据替换为实际的证书内容。
@@ -60,7 +60,7 @@ networkSecurity.certVerification(cert, caCert)
 
 
 
-##### CertType
+#### CertType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -76,7 +76,7 @@ networkSecurity.certVerification(cert, caCert)
 
 
 
-##### CertBlob
+#### CertBlob
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -92,7 +92,7 @@ networkSecurity.certVerification(cert, caCert)
 
 
 
-##### networkSecurity.certVerification
+#### networkSecurity.certVerification
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -174,7 +174,7 @@ networkSecurity.certVerification(cert, caCert)
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/GBU5UxlES_m6NyTXpl3pww/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023838Z&HW-CC-Expire=86400&HW-CC-Sign=68BC7664E7AC12ABB98F4D977508785E928C8AB4D36F37A3DF21251E4B2E592B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/GBU5UxlES_m6NyTXpl3pww/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025213Z&HW-CC-Expire=86400&HW-CC-Sign=11259983F154888FB1C3EE175064C30E058FF9D46667911FA8C5CE68E1B9855F)
 
 
 请务必将示例中的证书数据替换为实际的证书内容。
@@ -183,7 +183,7 @@ networkSecurity.certVerification(cert, caCert)
 
 
 
-##### networkSecurity.certVerificationSync
+#### networkSecurity.certVerificationSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -269,7 +269,7 @@ console.info('Synchronous Verification Result:', resultSync);
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7/v3/JFcuPj8PQ0e3DFUW9SRO2Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023838Z&HW-CC-Expire=86400&HW-CC-Sign=943568905E1E87215EA990223E3B2EF8B75F03CCBAEB8A1145E7C8815C0E2D61)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7/v3/JFcuPj8PQ0e3DFUW9SRO2Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025213Z&HW-CC-Expire=86400&HW-CC-Sign=45F4C040C61ADBB2AD1A440B64069AB1ABAF781142DA41DD9775F7666774C0A1)
 
 
 请务必将示例中的证书数据替换为实际的证书内容。
@@ -278,7 +278,7 @@ console.info('Synchronous Verification Result:', resultSync);
 
 
 
-##### networkSecurity.isCleartextPermitted18+
+#### networkSecurity.isCleartextPermitted18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -321,7 +321,7 @@ try {
 
 
 
-##### networkSecurity.isCleartextPermittedByHostName18+
+#### networkSecurity.isCleartextPermittedByHostName18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

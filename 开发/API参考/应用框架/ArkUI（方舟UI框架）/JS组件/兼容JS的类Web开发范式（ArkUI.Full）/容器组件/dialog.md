@@ -12,7 +12,7 @@
 自定义弹窗容器。
   
 
-##### 权限列表
+#### 权限列表
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -28,7 +28,7 @@
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -45,7 +45,7 @@
  
   
 
-##### 样式
+#### 样式
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -53,7 +53,7 @@
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -68,7 +68,7 @@
  
   
 
-##### 方法
+#### 方法
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -86,7 +86,7 @@
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -192,4 +192,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/i7ox3dIAQvWQIlF16K5GNg/zh-cn_image_0000002581436318.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024109Z&HW-CC-Expire=86400&HW-CC-Sign=16AC308B6DE45E7FFBA26A4BDD6F556A292F2858BE6D2129E234CD0B71A0304A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/i7ox3dIAQvWQIlF16K5GNg/zh-cn_image_0000002581436318.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025443Z&HW-CC-Expire=86400&HW-CC-Sign=49F317611A2529A7401B7E444C53D655075EBCBC2A70E2934F67DCC194DABF20)

@@ -13,13 +13,13 @@
 
 
 
-##### 概述
+#### 概述
 
 @Type标记类属性，使得类属性序列化时不丢失类型信息，便于类的反序列化。
 
 
 
-##### 装饰器说明
+#### 装饰器说明
 
 | @Type装饰器 | 说明 |
 | --- | --- |
@@ -29,7 +29,7 @@
 
 
 
-##### 使用限制
+#### 使用限制
 1. 只能用在[@ObservedV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)装饰的类中，不能用在自定义组件中。
 
   
@@ -66,11 +66,11 @@ class Info {
 
 
 
-##### 使用场景
+#### 使用场景
 
 
 
-##### 持久化数据
+#### 持久化数据
 
 ```ArkTS
 import { PersistenceV2, Type } from '@kit.ArkUI';

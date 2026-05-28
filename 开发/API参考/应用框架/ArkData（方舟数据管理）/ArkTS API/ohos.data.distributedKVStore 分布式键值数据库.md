@@ -21,7 +21,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -31,7 +31,7 @@ import { distributedKVStore } from '@kit.ArkData';
 
 
 
-##### KVManagerConfig
+#### KVManagerConfig
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -47,7 +47,7 @@ import { distributedKVStore } from '@kit.ArkData';
 
 
 
-##### Constants
+#### Constants
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -67,7 +67,7 @@ import { distributedKVStore } from '@kit.ArkData';
 
 
 
-##### ValueType
+#### ValueType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -87,7 +87,7 @@ import { distributedKVStore } from '@kit.ArkData';
 
 
 
-##### Value
+#### Value
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -103,7 +103,7 @@ import { distributedKVStore } from '@kit.ArkData';
 
 
 
-##### Entry
+#### Entry
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -119,7 +119,7 @@ import { distributedKVStore } from '@kit.ArkData';
 
 
 
-##### ChangeNotification
+#### ChangeNotification
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -137,7 +137,7 @@ import { distributedKVStore } from '@kit.ArkData';
 
 
 
-##### SyncMode
+#### SyncMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -154,7 +154,7 @@ import { distributedKVStore } from '@kit.ArkData';
 
 
 
-##### SubscribeType
+#### SubscribeType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -171,7 +171,7 @@ import { distributedKVStore } from '@kit.ArkData';
 
 
 
-##### KVStoreType
+#### KVStoreType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -185,7 +185,7 @@ import { distributedKVStore } from '@kit.ArkData';
 
 
 
-##### SecurityLevel
+#### SecurityLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -207,7 +207,7 @@ import { distributedKVStore } from '@kit.ArkData';
 
 
 
-##### Options
+#### Options
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -227,7 +227,7 @@ import { distributedKVStore } from '@kit.ArkData';
 
 
 
-##### BackupConfig24+
+#### BackupConfig24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -243,7 +243,7 @@ import { distributedKVStore } from '@kit.ArkData';
 
 
 
-##### Schema
+#### Schema
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -265,7 +265,7 @@ COMPATIBLE：选择为COMPATIBLE模式时，数据库在检查Value格式时较�
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -297,7 +297,7 @@ schema.skip = 0;
 
 
 
-##### FieldNode
+#### FieldNode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -314,7 +314,7 @@ schema.skip = 0;
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -342,7 +342,7 @@ constructor(name: string)
 
 
 
-##### appendChild
+#### appendChild
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -398,7 +398,7 @@ try {
 
 
 
-##### distributedKVStore.createKVManager
+#### distributedKVStore.createKVManager
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -494,7 +494,7 @@ if (kvManager !== undefined) {
 
 
 
-##### KVManager
+#### KVManager
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -502,7 +502,7 @@ if (kvManager !== undefined) {
 
 
 
-##### getKVStore
+#### getKVStore
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -571,7 +571,7 @@ try {
 
 
 
-##### getKVStore
+#### getKVStore
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -642,7 +642,7 @@ try {
 
 
 
-##### closeKVStore
+#### closeKVStore
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -714,7 +714,7 @@ try {
 
 
 
-##### closeKVStore
+#### closeKVStore
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -792,7 +792,7 @@ try {
 
 
 
-##### deleteKVStore
+#### deleteKVStore
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -866,7 +866,7 @@ try {
 
 
 
-##### deleteKVStore
+#### deleteKVStore
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -945,7 +945,7 @@ try {
 
 
 
-##### getAllKVStoreId
+#### getAllKVStoreId
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -995,7 +995,7 @@ try {
 
 
 
-##### getAllKVStoreId
+#### getAllKVStoreId
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1050,7 +1050,7 @@ try {
 
 
 
-##### on('distributedDataServiceDie')
+#### on('distributedDataServiceDie')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1096,7 +1096,7 @@ try {
 
 
 
-##### off('distributedDataServiceDie')
+#### off('distributedDataServiceDie')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1142,7 +1142,7 @@ try {
 
 
 
-##### KVStoreResultSet
+#### KVStoreResultSet
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1158,7 +1158,7 @@ KVStoreResultSet实例不会实时刷新。使用结果集后，如果数据库�
 
 
 
-##### getCount
+#### getCount
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1198,7 +1198,7 @@ try {
 
 
 
-##### getPosition
+#### getPosition
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1238,7 +1238,7 @@ try {
 
 
 
-##### moveToFirst
+#### moveToFirst
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1278,7 +1278,7 @@ try {
 
 
 
-##### moveToLast
+#### moveToLast
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1318,7 +1318,7 @@ try {
 
 
 
-##### moveToNext
+#### moveToNext
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1360,7 +1360,7 @@ try {
 
 
 
-##### moveToPrevious
+#### moveToPrevious
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1401,7 +1401,7 @@ try {
 
 
 
-##### move
+#### move
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1458,7 +1458,7 @@ try {
 
 
 
-##### moveToPosition
+#### moveToPosition
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1515,7 +1515,7 @@ try {
 
 
 
-##### isFirst
+#### isFirst
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1555,7 +1555,7 @@ try {
 
 
 
-##### isLast
+#### isLast
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1595,7 +1595,7 @@ try {
 
 
 
-##### isBeforeFirst
+#### isBeforeFirst
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1634,7 +1634,7 @@ try {
 
 
 
-##### isAfterLast
+#### isAfterLast
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1673,7 +1673,7 @@ try {
 
 
 
-##### getEntry
+#### getEntry
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1712,7 +1712,7 @@ try {
 
 
 
-##### Query
+#### Query
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1722,7 +1722,7 @@ try {
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1734,7 +1734,7 @@ constructor()
 
 
 
-##### reset
+#### reset
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1772,7 +1772,7 @@ try {
 
 
 
-##### equalTo
+#### equalTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1830,7 +1830,7 @@ try {
 
 
 
-##### notEqualTo
+#### notEqualTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1888,7 +1888,7 @@ try {
 
 
 
-##### greaterThan
+#### greaterThan
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1946,7 +1946,7 @@ try {
 
 
 
-##### lessThan
+#### lessThan
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2004,7 +2004,7 @@ try {
 
 
 
-##### greaterThanOrEqualTo
+#### greaterThanOrEqualTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2062,7 +2062,7 @@ try {
 
 
 
-##### lessThanOrEqualTo
+#### lessThanOrEqualTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2120,7 +2120,7 @@ try {
 
 
 
-##### isNull
+#### isNull
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2177,7 +2177,7 @@ try {
 
 
 
-##### inNumber
+#### inNumber
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2235,7 +2235,7 @@ try {
 
 
 
-##### inString
+#### inString
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2293,7 +2293,7 @@ try {
 
 
 
-##### notInNumber
+#### notInNumber
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2351,7 +2351,7 @@ try {
 
 
 
-##### notInString
+#### notInString
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2409,7 +2409,7 @@ try {
 
 
 
-##### like
+#### like
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2467,7 +2467,7 @@ try {
 
 
 
-##### unlike
+#### unlike
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2525,7 +2525,7 @@ try {
 
 
 
-##### and
+#### and
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2563,7 +2563,7 @@ try {
 
 
 
-##### or
+#### or
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2601,7 +2601,7 @@ try {
 
 
 
-##### orderByAsc
+#### orderByAsc
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2659,7 +2659,7 @@ try {
 
 
 
-##### orderByDesc
+#### orderByDesc
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2717,7 +2717,7 @@ try {
 
 
 
-##### limit
+#### limit
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2774,7 +2774,7 @@ try {
 
 
 
-##### isNotNull
+#### isNotNull
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2831,7 +2831,7 @@ try {
 
 
 
-##### beginGroup
+#### beginGroup
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2869,7 +2869,7 @@ try {
 
 
 
-##### endGroup
+#### endGroup
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2907,7 +2907,7 @@ try {
 
 
 
-##### prefixKey
+#### prefixKey
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2961,7 +2961,7 @@ try {
 
 
 
-##### setSuggestIndex
+#### setSuggestIndex
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3015,7 +3015,7 @@ try {
 
 
 
-##### deviceId
+#### deviceId
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3071,7 +3071,7 @@ try {
 
 
 
-##### getSqlLike
+#### getSqlLike
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3106,7 +3106,7 @@ try {
 
 
 
-##### SingleKVStore
+#### SingleKVStore
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3116,7 +3116,7 @@ SingleKVStore数据库实例，提供增加数据、删除数据和订阅数据�
 
 
 
-##### put
+#### put
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3176,7 +3176,7 @@ try {
 
 
 
-##### put
+#### put
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3240,7 +3240,7 @@ try {
 
 
 
-##### putBatch
+#### putBatch
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3322,7 +3322,7 @@ try {
 
 
 
-##### putBatch
+#### putBatch
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3404,7 +3404,7 @@ try {
 
 
 
-##### delete
+#### delete
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3472,7 +3472,7 @@ try {
 
 
 
-##### delete
+#### delete
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3542,7 +3542,7 @@ try {
 
 
 
-##### deleteBatch
+#### deleteBatch
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3623,7 +3623,7 @@ try {
 
 
 
-##### deleteBatch
+#### deleteBatch
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3706,7 +3706,7 @@ try {
 
 
 
-##### removeDeviceData
+#### removeDeviceData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3780,7 +3780,7 @@ try {
 
 
 
-##### removeDeviceData
+#### removeDeviceData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3850,7 +3850,7 @@ try {
 
 
 
-##### get
+#### get
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3913,7 +3913,7 @@ try {
 
 
 
-##### get
+#### get
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3978,7 +3978,7 @@ try {
 
 
 
-##### getEntries
+#### getEntries
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4052,7 +4052,7 @@ try {
 
 
 
-##### getEntries
+#### getEntries
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4128,7 +4128,7 @@ try {
 
 
 
-##### getEntries
+#### getEntries
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4201,7 +4201,7 @@ try {
 
 
 
-##### getEntries
+#### getEntries
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4279,7 +4279,7 @@ try {
 
 
 
-##### getResultSet
+#### getResultSet
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4362,7 +4362,7 @@ try {
 
 
 
-##### getResultSet
+#### getResultSet
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4443,7 +4443,7 @@ try {
 
 
 
-##### getResultSet
+#### getResultSet
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4518,7 +4518,7 @@ try {
 
 
 
-##### getResultSet
+#### getResultSet
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4594,7 +4594,7 @@ try {
 
 
 
-##### closeResultSet
+#### closeResultSet
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4653,7 +4653,7 @@ try {
 
 
 
-##### closeResultSet
+#### closeResultSet
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4715,7 +4715,7 @@ try {
 
 
 
-##### getResultSize
+#### getResultSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4785,7 +4785,7 @@ try {
 
 
 
-##### getResultSize
+#### getResultSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4859,7 +4859,7 @@ try {
 
 
 
-##### backup
+#### backup
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4909,7 +4909,7 @@ try {
 
 
 
-##### backup
+#### backup
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4963,7 +4963,7 @@ try {
 
 
 
-##### backupEx24+
+#### backupEx24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5020,7 +5020,7 @@ try {
 
 
 
-##### restore
+#### restore
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5070,7 +5070,7 @@ try {
 
 
 
-##### restore
+#### restore
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5124,7 +5124,7 @@ try {
 
 
 
-##### restoreEx24+
+#### restoreEx24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5181,7 +5181,7 @@ try {
 
 
 
-##### deleteBackup
+#### deleteBackup
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5230,7 +5230,7 @@ try {
 
 
 
-##### deleteBackup
+#### deleteBackup
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5283,7 +5283,7 @@ try {
 
 
 
-##### deleteBackupEx24+
+#### deleteBackupEx24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5339,7 +5339,7 @@ try {
 
 
 
-##### startTransaction
+#### startTransaction
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5424,7 +5424,7 @@ try {
 
 
 
-##### startTransaction
+#### startTransaction
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5481,7 +5481,7 @@ try {
 
 
 
-##### commit
+#### commit
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5528,7 +5528,7 @@ try {
 
 
 
-##### commit
+#### commit
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5573,7 +5573,7 @@ try {
 
 
 
-##### rollback
+#### rollback
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5620,7 +5620,7 @@ try {
 
 
 
-##### rollback
+#### rollback
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5665,7 +5665,7 @@ try {
 
 
 
-##### enableSync
+#### enableSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5713,7 +5713,7 @@ try {
 
 
 
-##### enableSync
+#### enableSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5765,7 +5765,7 @@ try {
 
 
 
-##### setSyncRange
+#### setSyncRange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5816,7 +5816,7 @@ try {
 
 
 
-##### setSyncRange
+#### setSyncRange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5871,7 +5871,7 @@ try {
 
 
 
-##### setSyncParam
+#### setSyncParam
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5924,7 +5924,7 @@ try {
 
 
 
-##### setSyncParam
+#### setSyncParam
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5981,7 +5981,7 @@ try {
 
 
 
-##### sync
+#### sync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6074,7 +6074,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### sync
+#### sync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6170,7 +6170,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### on('dataChange')
+#### on('dataChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6217,7 +6217,7 @@ try {
 
 
 
-##### on('syncComplete')
+#### on('syncComplete')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6269,7 +6269,7 @@ try {
 
 
 
-##### off('dataChange')
+#### off('dataChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6333,7 +6333,7 @@ class KvstoreModel {
 
 
 
-##### off('syncComplete')
+#### off('syncComplete')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6396,7 +6396,7 @@ class KvstoreModel {
 
 
 
-##### getSecurityLevel
+#### getSecurityLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6443,7 +6443,7 @@ try {
 
 
 
-##### getSecurityLevel
+#### getSecurityLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6488,7 +6488,7 @@ try {
 
 
 
-##### DeviceKVStore
+#### DeviceKVStore
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6502,7 +6502,7 @@ try {
 
 
 
-##### get
+#### get
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6564,7 +6564,7 @@ try {
 
 
 
-##### get
+#### get
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6628,7 +6628,7 @@ try {
 
 
 
-##### get
+#### get
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6695,7 +6695,7 @@ try {
 
 
 
-##### get
+#### get
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6764,7 +6764,7 @@ try {
 
 
 
-##### getEntries
+#### getEntries
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6838,7 +6838,7 @@ try {
 
 
 
-##### getEntries
+#### getEntries
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6913,7 +6913,7 @@ try {
 
 
 
-##### getEntries
+#### getEntries
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6992,7 +6992,7 @@ try {
 
 
 
-##### getEntries
+#### getEntries
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7075,7 +7075,7 @@ try {
 
 
 
-##### getEntries
+#### getEntries
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7148,7 +7148,7 @@ try {
 
 
 
-##### getEntries
+#### getEntries
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7226,7 +7226,7 @@ try {
 
 
 
-##### getEntries
+#### getEntries
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7310,7 +7310,7 @@ try {
 
 
 
-##### getEntries
+#### getEntries
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7394,7 +7394,7 @@ try {
 
 
 
-##### getResultSet
+#### getResultSet
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7477,7 +7477,7 @@ try {
 
 
 
-##### getResultSet
+#### getResultSet
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7558,7 +7558,7 @@ try {
 
 
 
-##### getResultSet
+#### getResultSet
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7625,7 +7625,7 @@ try {
 
 
 
-##### getResultSet
+#### getResultSet
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7694,7 +7694,7 @@ try {
 
 
 
-##### getResultSet
+#### getResultSet
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7784,7 +7784,7 @@ try {
 
 
 
-##### getResultSet
+#### getResultSet
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7877,7 +7877,7 @@ try {
 
 
 
-##### getResultSet
+#### getResultSet
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7953,7 +7953,7 @@ try {
 
 
 
-##### getResultSet
+#### getResultSet
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8042,7 +8042,7 @@ try {
 
 
 
-##### getResultSize
+#### getResultSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8112,7 +8112,7 @@ try {
 
 
 
-##### getResultSize
+#### getResultSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8186,7 +8186,7 @@ try {
 
 
 
-##### getResultSize
+#### getResultSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8265,7 +8265,7 @@ try {
 
 
 
-##### getResultSize
+#### getResultSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

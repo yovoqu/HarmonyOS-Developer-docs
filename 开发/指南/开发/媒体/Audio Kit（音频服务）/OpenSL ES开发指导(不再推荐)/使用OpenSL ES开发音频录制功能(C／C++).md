@@ -7,7 +7,7 @@
 OpenSL ES全称为Open Sound Library for Embedded Systems，是一个嵌入式、跨平台、免费的音频处理库。为嵌入式移动多媒体设备上的应用开发者提供标准化、高性能、低延迟的API。HarmonyOS的Native API基于[Khronos Group](https://www.khronos.org/)开发的[OpenSL ES](https://www.khronos.org/opensles/) 1.0.1 API 规范实现，开发者可以通过<OpenSLES.h>和<OpenSLES_OpenHarmony.h>在HarmonyOS上使用相关API。
   
 
-##### 使用OHAudio替代OpenSL ES
+#### 使用OHAudio替代OpenSL ES
 
 HarmonyOS上的OpenSL ES接口，是早期SDK8版本开始提供，用于支持应用Native层音频开发的接口。但随着版本演进，接口定义的可扩展性不足，不再能满足音频系统的能力拓展，因此当前已不再推荐应用开发者继续使用此接口进行音频功能开发，会存在一些接口能力不足的缺陷。
  
@@ -19,7 +19,7 @@ OHAudio的开发指南请参考：[推荐使用OHAudio开发音频录制功能(C
  
   
 
-##### HarmonyOS上的OpenSL ES
+#### HarmonyOS上的OpenSL ES
 
 OpenSL ES中提供了以下的接口，HarmonyOS当前仅实现了部分[接口](https://gitcode.com/openharmony/third_party_opensles/blob/master/api/1.0.1/OpenSLES.h)，可以实现音频录制的基础功能。
  
@@ -80,11 +80,11 @@ SLresult (*SetRecordState) (SLRecordItf self, SLuint32 state)
  
   
 
-##### 完整示例
+#### 完整示例
 
   
 
-##### 在 CMake 脚本中链接动态库
+#### 在 CMake 脚本中链接动态库
 
 ```text
 target_link_libraries(sample PUBLIC libOpenSLES.so)

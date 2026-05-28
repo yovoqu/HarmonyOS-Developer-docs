@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import commonEvent from '@ohos.commonEvent';
  
   
 
-##### Support
+#### Support
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -32,7 +32,7 @@ import commonEvent from '@ohos.commonEvent';
  
   
 
-##### commonEvent.publish(deprecated)
+#### commonEvent.publish(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -74,7 +74,7 @@ commonEvent.publish("event", publishCB);
  
   
 
-##### commonEvent.publish(deprecated)
+#### commonEvent.publish(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -125,7 +125,7 @@ commonEvent.publish("event", options, publishCB);
  
   
 
-##### commonEvent.createSubscriber(deprecated)
+#### commonEvent.createSubscriber(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -176,7 +176,7 @@ commonEvent.createSubscriber(subscribeInfo, createCB);
  
   
 
-##### commonEvent.createSubscriber(deprecated)
+#### commonEvent.createSubscriber(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -228,7 +228,7 @@ commonEvent.createSubscriber(subscribeInfo).then((commonEventSubscriber:CommonEv
  
   
 
-##### commonEvent.subscribe(deprecated)
+#### commonEvent.subscribe(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -290,7 +290,7 @@ commonEvent.createSubscriber(subscribeInfo, createCB);
  
   
 
-##### commonEvent.unsubscribe(deprecated)
+#### commonEvent.unsubscribe(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

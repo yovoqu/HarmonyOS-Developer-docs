@@ -4,19 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-about-debug-option
 
-##### 简介
+#### 简介
 
 JSVM-API中提供接口，可以启用/禁用特定JSVM_Env下的指定debug选项。目前支持的debug选项有JSVM_SCOPE_CHECK。  
  
   
 
-##### debug选项介绍
+#### debug选项介绍
 
 debug选项皆为JSVM_DebugOption类型。  
  
   
 
-##### JSVM_SCOPE_CHECK
+#### JSVM_SCOPE_CHECK
 
 - 开发者在开发时，可能会出现在HandleScope结束后，调用上一次HandleScope内的JSVM_Value类型变量，导致程序崩溃。JSVM_SCOPE_CHECK为scope校验手段，校验当前调用的JSVM_Value类型变量是否超出HandleScope作用域，如果超出，则抛出错误“Run in wrong HandleScope”。
 - 开启该debug选项后，若JSVM-API创建了JSVM_Value，则在hilog中有“ADD_VAL_TO_SCOPE_CHECK in function: [函数名]”输出，例如“ADD_VAL_TO_SCOPE_CHECK in function: OH_JSVM_GetBoolean”。若JSVM-API使用了JSVM_Value，则在hilog中有“CHECK_SCOPE in function: [函数名]”输出，表示对使用的JSVM_Value进行了HandleScope校验，例如“CHECK_SCOPE in function: OH_JSVM_IsBoolean”。
@@ -26,7 +26,7 @@ debug选项皆为JSVM_DebugOption类型。
  
   
 
-##### 接口说明
+#### 接口说明
  
 | 接口 | 功能说明 |
 | --- | --- |
@@ -37,13 +37,13 @@ debug选项皆为JSVM_DebugOption类型。
  
   
 
-##### 使用示例
+#### 使用示例
 
 JSVM-API接口开发流程参考[使用JSVM-API实现JS与C/C++语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-process)，本文仅对接口对应C++相关代码进行展示。
  
   
 
-##### JSVM_DebugOption
+#### JSVM_DebugOption
 
 仅需替换[使用JSVM-API实现JS与C/C++语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-process)示例代码中的“TestJSVM()”函数即可运行。
  

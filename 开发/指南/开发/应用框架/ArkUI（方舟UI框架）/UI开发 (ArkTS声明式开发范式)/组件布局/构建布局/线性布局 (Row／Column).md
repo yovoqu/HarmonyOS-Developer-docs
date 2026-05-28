@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-linear
 
-##### 概述
+#### 概述
 
 线性布局（LinearLayout）是开发中最常用的布局，通过线性容器[Row](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-row)和[Column](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-column)构建。线性布局是其他布局的基础，其子元素在线性方向上（水平方向和垂直方向）依次排列。线性布局的排列方向由所选容器组件决定，Row容器内子元素按照水平方向排列，Column容器内子元素按照垂直方向排列。根据不同的排列方向，开发者可选择使用Row或Column容器创建线性布局。
 
@@ -26,7 +26,7 @@
 
 
 
-##### 基本概念
+#### 基本概念
 
  - 布局容器：具有布局能力的容器组件，可以承载其他元素作为其子元素，布局容器会对其子元素进行尺寸计算和布局排列。
  - 布局子元素：布局容器内部的元素。
@@ -37,13 +37,13 @@
 
 
 
-##### 布局子元素在排列方向上的间距
+#### 布局子元素在排列方向上的间距
 
 在布局容器内，可以通过[Row](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-row)组件的[space](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-row#rowoptions18对象说明)属性或[Column](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-column)组件的[space](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-column#columnoptions18对象说明)属性设置排列方向上子元素的间距，使各子元素在排列方向上有等间距效果。
 
 
 
-##### Column容器内排列方向上的间距
+#### Column容器内排列方向上的间距
 
 **图3** Column容器内排列方向的间距图
 
@@ -66,7 +66,7 @@ Column({ space: 20 }) {
 
 
 
-##### Row容器内排列方向上的间距
+#### Row容器内排列方向上的间距
 
 **图4** Row容器内排列方向的间距图
 
@@ -89,13 +89,13 @@ Row({ space: 35 }) {
 
 
 
-##### 布局子元素在主轴上的排列方式
+#### 布局子元素在主轴上的排列方式
 
 在布局容器内，可以通过[justifyContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-column#justifycontent8)属性设置子元素在容器主轴上的排列方式。可以从主轴起始位置开始排布，也可以从主轴结束位置开始排布，或者均匀分割主轴的空间。
 
 
 
-##### Column容器内子元素在垂直方向上的排列
+#### Column容器内子元素在垂直方向上的排列
 
 **图5** Column容器内子元素在垂直方向上的排列图
 
@@ -215,7 +215,7 @@ Column({}) {
 
 
 
-##### Row容器内子元素在水平方向上的排列
+#### Row容器内子元素在水平方向上的排列
 
 **图6** Row容器内子元素在水平方向上的排列图
 
@@ -335,7 +335,7 @@ Row({}) {
 
 
 
-##### 布局子元素在交叉轴上的对齐方式
+#### 布局子元素在交叉轴上的对齐方式
 
 在布局容器内，可以通过[alignItems](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-column#alignitems)属性设置子元素在交叉轴（排列方向的垂直方向）上的对齐方式，且在各类尺寸屏幕中表现一致。其中，交叉轴为垂直方向时，取值为[VerticalAlign](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#verticalalign)类型，水平方向取值为[HorizontalAlign](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#horizontalalign)类型。
 
@@ -343,7 +343,7 @@ Row({}) {
 
 
 
-##### Column容器内子元素在水平方向上的排列
+#### Column容器内子元素在水平方向上的排列
 
 **图7** Column容器内子元素在水平方向上的排列图
 
@@ -409,7 +409,7 @@ Column({}) {
 
 
 
-##### Row容器内子元素在垂直方向上的排列
+#### Row容器内子元素在垂直方向上的排列
 
 **图8** Row容器内子元素在垂直方向上的排列图
 
@@ -475,7 +475,7 @@ Row({}) {
 
 
 
-##### 自适应拉伸
+#### 自适应拉伸
 
 在线性布局下，常用空白填充组件[Blank](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-blank)，在容器主轴方向自动填充空白空间，达到自适应拉伸效果。Row和Column作为容器，只需要添加宽高为百分比，当屏幕宽高发生变化时，会产生自适应效果。
 
@@ -509,7 +509,7 @@ struct BlankExample {
 
 
 
-##### 自适应缩放
+#### 自适应缩放
 
 自适应缩放是指子元素随容器尺寸的变化而按照预设的比例自动调整尺寸，适应各种不同大小的设备。在线性布局中，可以使用以下两种方法实现自适应缩放。
 
@@ -617,7 +617,7 @@ struct WidthExample {
 
 
 
-##### 自适应延伸
+#### 自适应延伸
 
 自适应延伸是指在不同尺寸设备下，当页面的内容超出屏幕大小而无法完全显示时，可以通过滚动条进行拖动展示。对于线性布局，这种方法适用于容器中内容无法一屏展示的场景。通常有以下两种实现方式。
 

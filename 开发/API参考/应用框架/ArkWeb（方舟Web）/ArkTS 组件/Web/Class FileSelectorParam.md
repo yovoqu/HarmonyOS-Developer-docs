@@ -12,7 +12,7 @@ Web组件获取文件对象。示例代码参考[onShowFileSelector](https://dev
 
 
 
-##### constructor9+
+#### constructor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ FileSelectorParam的构造函数。
 
 
 
-##### getTitle9+
+#### getTitle9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -43,7 +43,7 @@ getTitle(): string
 
 
 
-##### getMode9+
+#### getMode9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -62,7 +62,7 @@ getMode(): FileSelectorMode
 
 
 
-##### getAcceptType9+
+#### getAcceptType9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -81,7 +81,7 @@ getAcceptType(): Array&lt;string&gt;
 
 
 
-##### isCapture9+
+#### isCapture9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -100,7 +100,7 @@ isCapture(): boolean
 
 
 
-##### getMimeTypes18+
+#### getMimeTypes18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -119,7 +119,7 @@ getMimeTypes(): Array&lt;string&gt;
 
 
 
-##### getSuggestedName23+
+#### getSuggestedName23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -138,7 +138,7 @@ getSuggestedName(): string
 
 
 
-##### getDefaultPath23+
+#### getDefaultPath23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -157,7 +157,7 @@ getDefaultPath(): string
 
 
 
-##### getDescriptions23+
+#### getDescriptions23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -176,7 +176,7 @@ getDescriptions(): Array&lt;string&gt;
 
 
 
-##### isAcceptAllOptionExcluded23+
+#### isAcceptAllOptionExcluded23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -195,7 +195,7 @@ isAcceptAllOptionExcluded(): boolean
 
 
 
-##### getAcceptableFileTypes23+
+#### getAcceptableFileTypes23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

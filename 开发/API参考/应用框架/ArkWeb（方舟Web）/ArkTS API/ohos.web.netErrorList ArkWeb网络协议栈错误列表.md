@@ -14,7 +14,7 @@ ArkWeb网络协议栈错误码直接映射Chromium错误码[net_error_list.h](ht
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { WebNetErrorList } from '@kit.ArkWeb';
  
   
 
-##### WebNetErrorList
+#### WebNetErrorList
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -12,7 +12,7 @@
 嵌入页面的滑动选择器。
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -33,7 +33,7 @@
  
   
 
-##### 文本选择器
+#### 文本选择器
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -47,7 +47,7 @@
  
   
 
-##### 时间选择器
+#### 时间选择器
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -60,7 +60,7 @@
  
   
 
-##### 日期选择器
+#### 日期选择器
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -75,7 +75,7 @@
  
   
 
-##### 日期时间选择器
+#### 日期时间选择器
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -89,7 +89,7 @@
  
   
 
-##### 多列文本选择器
+#### 多列文本选择器
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -102,7 +102,7 @@
  
   
 
-##### 样式
+#### 样式
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -121,7 +121,7 @@
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -129,7 +129,7 @@
  
   
 
-##### 文本选择器
+#### 文本选择器
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -140,7 +140,7 @@
  
   
 
-##### 时间选择器
+#### 时间选择器
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -151,7 +151,7 @@
  
   
 
-##### 日期选择器
+#### 日期选择器
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -162,7 +162,7 @@
  
   
 
-##### 日期时间选择器
+#### 日期时间选择器
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -173,7 +173,7 @@
  
   
 
-##### 多列文本选择器
+#### 多列文本选择器
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -184,7 +184,7 @@
  
   
 
-##### 方法
+#### 方法
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -192,13 +192,13 @@
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 文本选择器
+#### 文本选择器
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -249,7 +249,7 @@ export default {
  
   
 
-##### 时间选择器
+#### 时间选择器
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -313,7 +313,7 @@ export default {
  
   
 
-##### 日期选择器
+#### 日期选择器
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -361,7 +361,7 @@ export default {
  
   
 
-##### 日期时间选择器
+#### 日期时间选择器
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -409,7 +409,7 @@ export default {
  
   
 
-##### 多列文本选择器
+#### 多列文本选择器
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -457,4 +457,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/nAuQ0GZbQjySB7QofKGAqw/zh-cn_image_0000002611836165.png?HW-CC-KV=V1&HW-CC-Date=20260528T024102Z&HW-CC-Expire=86400&HW-CC-Sign=6B6AB3A0B0D8C7CC98770DD1C22C4171189105A46ABA6D0ADD5949E24E5B4788)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/nAuQ0GZbQjySB7QofKGAqw/zh-cn_image_0000002611836165.png?HW-CC-KV=V1&HW-CC-Date=20260528T025436Z&HW-CC-Expire=86400&HW-CC-Sign=BB54880329961668649AD9A4B1B546C1FAC80B6DB64AA148B63E7F34DAF94FE4)

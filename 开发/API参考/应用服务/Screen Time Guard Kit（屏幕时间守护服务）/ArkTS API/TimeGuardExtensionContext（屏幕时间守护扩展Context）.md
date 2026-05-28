@@ -14,7 +14,7 @@ TimeGuardExtensionContext是TimeGuardExtensionAbility的上下文环境，继承
 **起始版本：** 6.0.0(20)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Tablet
 
@@ -24,7 +24,7 @@ import { TimeGuardExtensionContext } from '@kit.ScreenTimeGuardKit';
  
   
 
-##### TimeGuardExtensionContext
+#### TimeGuardExtensionContext
 
 **支持设备：** Phone | Tablet
 

@@ -12,7 +12,7 @@
 
 
 
-##### matchMediaSync
+#### matchMediaSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

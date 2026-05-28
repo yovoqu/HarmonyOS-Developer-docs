@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avsource
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -17,7 +17,7 @@ AVSource模块提供用于构造媒体资源对象功能的函数。
  
   
 
-##### 文件汇总
+#### 文件汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  

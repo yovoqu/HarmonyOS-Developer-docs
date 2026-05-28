@@ -14,7 +14,7 @@ SystemSoundPlayer需要和[@ohos.multimedia.systemSoundManager](https://develope
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { systemSoundManager } from '@kit.AudioKit';
  
   
 
-##### SystemSoundPlayer
+#### SystemSoundPlayer
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -32,7 +32,7 @@ import { systemSoundManager } from '@kit.AudioKit';
  
   
 
-##### load
+#### load
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -83,7 +83,7 @@ systemSoundPlayer?.load(systemSoundManager.SystemSoundType.PHOTO_SHUTTER).then((
  
   
 
-##### play
+#### play
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -134,7 +134,7 @@ systemSoundPlayer?.play(systemSoundManager.SystemSoundType.PHOTO_SHUTTER).then((
  
   
 
-##### unload
+#### unload
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -184,7 +184,7 @@ systemSoundPlayer?.unload(systemSoundManager.SystemSoundType.PHOTO_SHUTTER).then
  
   
 
-##### release
+#### release
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -7,7 +7,7 @@
 本指导主要介绍如何解决因使用无效的[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)导致文本显示异常的问题。当开发者使用了已失效的UIContext对象（通常是因为对应的UI实例已被销毁），可能导致后续UI操作无效。此类问题常见于多窗口场景。从API version 12开始，该问题也见于调用[setSupportedProcessCache](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext#applicationcontextsetsupportedprocesscache12)打开进程缓存后快速启动的情形。
 
 
-##### 定位UIContext错误问题
+#### 定位UIContext错误问题
 
 出现以下异常或系统日志时，可能存在UIContext无效的问题：
 
@@ -67,7 +67,7 @@
 
 
 
-##### 实例详细信息
+#### 实例详细信息
 
 某些实例相关接口的报错信息会包含对应实例的信息，仅有缓存列表中的实例会输出详细信息。缓存列表仅保存被销毁的实例的信息。
 
@@ -77,7 +77,7 @@
 
 
 
-##### 缓存命中
+#### 缓存命中
 
 异常实例命中缓存时，详细信息的输出格式如下：
 
@@ -85,7 +85,7 @@ DestroyedUIContextCacheInfo: instanceInfo: [instanceId:&lt;instanceId_&gt;, crea
 
 
 
-##### 缓存未命中
+#### 缓存未命中
 
 当请求的实例在缓存中不存在（从未被缓存、或已因超出缓存大小被移除）时，详细信息的输出格式如下：
 
@@ -93,7 +93,7 @@ InstanceId not found in destroyed cache.
 
 
 
-##### 完整消息示例
+#### 完整消息示例
 
 被缓存的已销毁的实例详细信息按照如下格式进行输出，包括实例ID、创建时间、销毁时间、窗口ID、窗口名称字段：
 
@@ -139,7 +139,7 @@ DestroyedUIContextCacheInfo: instanceInfo: [instanceId:100001, createTime:2026-0
 
 
 
-##### 解决UIContext错误导致的显示异常问题
+#### 解决UIContext错误导致的显示异常问题
 
 **问题现象**
 

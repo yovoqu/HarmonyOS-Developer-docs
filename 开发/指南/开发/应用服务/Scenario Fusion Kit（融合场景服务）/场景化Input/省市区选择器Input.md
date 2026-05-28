@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-input-zone-selectors
 
-##### 场景介绍
+#### 场景介绍
 
 从5.1.0(18)开始，支持省市区选择器Input功能。
 
@@ -18,13 +18,13 @@
 
 
 
-##### 前提条件
+#### 前提条件
 
 参见[开发准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-config-agc)。
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 导入Scenario Fusion Kit模块以及相关公共模块。
 
   

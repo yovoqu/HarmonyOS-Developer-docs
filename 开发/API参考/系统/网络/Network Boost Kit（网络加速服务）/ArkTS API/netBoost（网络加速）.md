@@ -10,7 +10,7 @@
 **起始版本：** 6.0.0(20)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -20,7 +20,7 @@ import { netBoost } from '@kit.NetworkBoostKit';
  
   
 
-##### netBoost.setSceneDesc
+#### netBoost.setSceneDesc
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -70,7 +70,7 @@ try {
  
   
 
-##### netBoost.setLowPowerMode
+#### netBoost.setLowPowerMode
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -119,7 +119,7 @@ try {
  
   
 
-##### SceneDesc
+#### SceneDesc
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -141,7 +141,7 @@ try {
  
   
 
-##### SceneEvent
+#### SceneEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

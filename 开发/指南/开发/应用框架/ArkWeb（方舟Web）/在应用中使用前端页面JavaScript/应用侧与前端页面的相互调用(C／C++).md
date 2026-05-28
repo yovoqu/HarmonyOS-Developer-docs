@@ -9,7 +9,7 @@
 针对JSBridge进行性能优化可参考[JSBridge优化解决方案](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-web-develop-optimization#section58781855115017)
 
 
-##### 适用的应用架构
+#### 适用的应用架构
 
 应用使用ArkTS、C++语言混合开发，或本身应用架构较贴近于小程序架构，自带C++侧环境，推荐使用ArkWeb在Native侧提供的[ArkWeb_ControllerAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-controllerapi)、[ArkWeb_ComponentAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-componentapi)实现JSBridge功能。
 
@@ -29,7 +29,7 @@ Native JSBridge方案解决了ArkTS环境的冗余切换，同时允许回调在
 
 
 
-##### 使用Native接口实现JSBridge通信（推荐）
+#### 使用Native接口实现JSBridge通信（推荐）
 
 原先，Native同步接口不支持返回值，其返回类型固定为void。然而，为满足业务扩展需求，自API version 18起，引入了替代接口，支持bool、string类型的返回值。
 
@@ -37,7 +37,7 @@ Native JSBridge方案解决了ArkTS环境的冗余切换，同时允许回调在
 
 
 
-##### 接口替代关系
+#### 接口替代关系
 
 | 不推荐的接口 | 替代接口 | 说明 |
 | --- | --- | --- |
@@ -50,7 +50,7 @@ Native JSBridge方案解决了ArkTS环境的冗余切换，同时允许回调在
 
 
 
-##### 使用Native接口绑定ArkWeb
+#### 使用Native接口绑定ArkWeb
 
  - ArkWeb组件声明在ArkTS侧，需要用户自定义一个标识webTag，并将webTag通过Node-API传至应用Native侧，后续ArkWeb Native接口使用，均需webTag作为对应组件的唯一标识。
  - ArkTS侧
@@ -100,7 +100,7 @@ static napi_value NativeWebInit(napi_env env, napi_callback_info info)
 
 
 
-##### 使用Native接口获取API结构体
+#### 使用Native接口获取API结构体
 
 在ArkWeb Native侧，需要先获取API结构体，才能调用结构体里的Native API。ArkWeb Native侧API通过函数[OH_ArkWeb_GetNativeAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkweb-interface-h#oh_arkweb_getnativeapi)获取，根据入参type不同，可分别获取[ArkWeb_ControllerAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-controllerapi)、[ArkWeb_ComponentAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-componentapi)结构体。其中，[ArkWeb_ControllerAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-controllerapi)对应ArkTS侧[web_webview.WebviewController API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller)，[ArkWeb_ComponentAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-componentapi)对应ArkTS侧[ArkWeb组件API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web)。
 
@@ -114,7 +114,7 @@ component = reinterpret_cast<ArkWeb_ComponentAPI *>(OH_ArkWeb_GetNativeAPI(ARKWE
 
 
 
-##### Native侧注册组件生命周期回调
+#### Native侧注册组件生命周期回调
 
 通过[ArkWeb_ComponentAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-componentapi)注册组件生命周期回调，调用接口前，建议通过[ARKWEB_MEMBER_MISSING](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkweb-type-h#宏定义)校验该函数结构体中是否存在对应函数指针，以避免SDK与设备ROM不匹配导致crash问题。
 
@@ -147,7 +147,7 @@ if (!ARKWEB_MEMBER_MISSING(component, onDestroy)) {
 
 
 
-##### 前端页面调用应用侧函数
+#### 前端页面调用应用侧函数
 
 通过[registerJavaScriptProxyEx](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-controllerapi#registerjavascriptproxyex)将应用侧函数注册至前端页面，注册后在下次加载或者重新加载后生效。
 
@@ -228,7 +228,7 @@ controller->registerJavaScriptProxyEx(webTag, &proxyObject, "");
 
 
 
-##### 应用侧调用前端页面函数
+#### 应用侧调用前端页面函数
 
 使用[runJavaScript](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-controllerapi#runjavascript)调用前端页面函数。
 
@@ -243,7 +243,7 @@ controller->runJavaScript(webTagValue, &object);
 
 
 
-##### 完整示例
+#### 完整示例
 
  - 前端页面代码
 
@@ -789,11 +789,11 @@ void JSBridgeObject::SaySomething(const char *say) {
 
 
 
-##### 使用Native接口实现JSBridge通信
+#### 使用Native接口实现JSBridge通信
 
 
 
-##### 使用Native接口绑定ArkWeb
+#### 使用Native接口绑定ArkWeb
 
  - ArkWeb组件声明在ArkTS侧，需要用户自定义一个标识webTag，并将webTag通过Node-API传至应用Native侧，后续ArkWeb Native接口使用，均需webTag作为对应组件的唯一标识。
  - ArkTS侧
@@ -841,7 +841,7 @@ static napi_value NativeWebInit(napi_env env, napi_callback_info info) {
 
 
 
-##### 使用Native接口获取API结构体
+#### 使用Native接口获取API结构体
 
 ArkWeb Native侧需要先获取API结构体，才能调用结构体里的Native API。ArkWeb Native侧API通过函数[OH_ArkWeb_GetNativeAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkweb-interface-h#oh_arkweb_getnativeapi)获取，根据入参type不同，可分别获取[ArkWeb_ControllerAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-controllerapi)、[ArkWeb_ComponentAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-componentapi)函数指针结构体。其中，[ArkWeb_ControllerAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-controllerapi)对应ArkTS侧[web_webview.WebviewController API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller)，[ArkWeb_ComponentAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-componentapi)对应ArkTS侧[ArkWeb组件API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web)。
 
@@ -855,7 +855,7 @@ component = reinterpret_cast<ArkWeb_ComponentAPI *>(OH_ArkWeb_GetNativeAPI(ARKWE
 
 
 
-##### Native侧注册组件生命周期回调
+#### Native侧注册组件生命周期回调
 
 通过[ArkWeb_ComponentAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-componentapi)注册组件生命周期回调，在调用接口前建议通过[ARKWEB_MEMBER_MISSING](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkweb-type-h#宏定义)校验该函数结构体是否有对应函数指针，避免SDK与设备ROM不匹配导致crash问题。
 
@@ -891,7 +891,7 @@ if (!ARKWEB_MEMBER_MISSING(component, onDestroy)) {
 
 
 
-##### 前端页面调用应用侧函数
+#### 前端页面调用应用侧函数
 
 通过[registerJavaScriptProxy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-controllerapi#registerjavascriptproxy)将应用侧函数注册至前端页面，注册后在下次加载或者重新加载后生效。
 
@@ -909,7 +909,7 @@ controller->registerJavaScriptProxy(webTag, &proxyObject);
 
 
 
-##### 应用侧调用前端页面函数
+#### 应用侧调用前端页面函数
 
 通过[runJavaScript](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-controllerapi#runjavascript)调用前端页面函数。
 
@@ -924,7 +924,7 @@ controller->runJavaScript(webTagValue, &object);
 
 
 
-##### 完整示例
+#### 完整示例
 
  - 前端页面代码
 

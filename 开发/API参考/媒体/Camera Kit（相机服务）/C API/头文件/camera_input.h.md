@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-input-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -41,7 +41,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -65,13 +65,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_CameraInput_OnError()
+#### OH_CameraInput_OnError()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -105,7 +105,7 @@ typedef void (*OH_CameraInput_OnError)(const Camera_Input* cameraInput, Camera_E
  
   
 
-##### OH_CameraInput_RegisterCallback()
+#### OH_CameraInput_RegisterCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -136,7 +136,7 @@ Camera_ErrorCode OH_CameraInput_RegisterCallback(Camera_Input* cameraInput, Came
  
   
 
-##### OH_CameraInput_UnregisterCallback()
+#### OH_CameraInput_UnregisterCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -167,7 +167,7 @@ Camera_ErrorCode OH_CameraInput_UnregisterCallback(Camera_Input* cameraInput, Ca
  
   
 
-##### OH_CameraInput_Open()
+#### OH_CameraInput_Open()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -197,7 +197,7 @@ Camera_ErrorCode OH_CameraInput_Open(Camera_Input* cameraInput)
  
   
 
-##### OH_CameraInput_OpenSecureCamera()
+#### OH_CameraInput_OpenSecureCamera()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -228,7 +228,7 @@ Camera_ErrorCode OH_CameraInput_OpenSecureCamera(Camera_Input* cameraInput, uint
  
   
 
-##### OH_CameraInput_OpenConcurrentCameras()
+#### OH_CameraInput_OpenConcurrentCameras()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -259,7 +259,7 @@ Camera_ErrorCode OH_CameraInput_OpenConcurrentCameras(Camera_Input* cameraInput,
  
   
 
-##### OH_CameraInput_Close()
+#### OH_CameraInput_Close()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -289,7 +289,7 @@ Camera_ErrorCode OH_CameraInput_Close(Camera_Input* cameraInput)
  
   
 
-##### OH_CameraInput_Release()
+#### OH_CameraInput_Release()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -321,7 +321,7 @@ Camera_ErrorCode OH_CameraInput_Release(Camera_Input* cameraInput)
  
   
 
-##### OH_CameraInput_IsPhysicalCameraOrientationVariable()
+#### OH_CameraInput_IsPhysicalCameraOrientationVariable()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -352,7 +352,7 @@ Camera_ErrorCode OH_CameraInput_IsPhysicalCameraOrientationVariable(Camera_Input
  
   
 
-##### OH_CameraInput_GetPhysicalCameraOrientation()
+#### OH_CameraInput_GetPhysicalCameraOrientation()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -383,7 +383,7 @@ Camera_ErrorCode OH_CameraInput_GetPhysicalCameraOrientation(Camera_Input* camer
  
   
 
-##### OH_CameraInput_UsePhysicalCameraOrientation()
+#### OH_CameraInput_UsePhysicalCameraOrientation()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -414,7 +414,7 @@ Camera_ErrorCode OH_CameraInput_UsePhysicalCameraOrientation(Camera_Input* camer
  
   
 
-##### OH_CameraInput_OnOcclusionDetectionCallback()
+#### OH_CameraInput_OnOcclusionDetectionCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -438,7 +438,7 @@ typedef void (*OH_CameraInput_OnOcclusionDetectionCallback)(const Camera_Input* 
  
   
 
-##### OH_CameraInput_RegisterOcclusionDetectionCallback()
+#### OH_CameraInput_RegisterOcclusionDetectionCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -469,7 +469,7 @@ Camera_ErrorCode OH_CameraInput_RegisterOcclusionDetectionCallback(Camera_Input*
  
   
 
-##### OH_CameraInput_UnregisterOcclusionDetectionCallback()
+#### OH_CameraInput_UnregisterOcclusionDetectionCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -10,7 +10,7 @@
 
 
 
-##### 12000001 该子功能不支持（特性）
+#### 12000001 该子功能不支持（特性）
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -32,7 +32,7 @@ The ${messageInfo} is not supported.
 
 
 
-##### 12000002 缺少密钥算法参数
+#### 12000002 缺少密钥算法参数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -54,7 +54,7 @@ Failed to obtain the ${messageInfo}. It is not set in ParamSet.
 
 
 
-##### 12000003 无效的密钥算法参数
+#### 12000003 无效的密钥算法参数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -76,7 +76,7 @@ Invalid ${messageInfo}.
 
 
 
-##### 12000004 文件错误
+#### 12000004 文件错误
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -108,7 +108,7 @@ Invalid ${messageInfo}.
 
 
 
-##### 12000005 进程通信错误
+#### 12000005 进程通信错误
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -138,7 +138,7 @@ Invalid ${messageInfo}.
 
 
 
-##### 12000006 算法库操作失败
+#### 12000006 算法库操作失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -162,7 +162,7 @@ Crypto engine error or Ukey driver error.
 
 
 
-##### 12000007 密钥访问失败 - 密钥已失效
+#### 12000007 密钥访问失败 - 密钥已失效
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -186,7 +186,7 @@ This credential is invalidated permanently.
 
 
 
-##### 12000008 密钥访问失败 - 密钥认证失败
+#### 12000008 密钥访问失败 - 密钥认证失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -208,7 +208,7 @@ The authentication token verification failed.
 
 
 
-##### 12000009 密钥访问失败 - 密钥访问超时
+#### 12000009 密钥访问失败 - 密钥访问超时
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -230,7 +230,7 @@ This authentication token timed out.
 
 
 
-##### 12000010 密钥操作会话数已达上限
+#### 12000010 密钥操作会话数已达上限
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -252,7 +252,7 @@ The number of key operation sessions has reached the limit.
 
 
 
-##### 12000011 目标对象不存在
+#### 12000011 目标对象不存在
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -274,7 +274,7 @@ Queried entity does not exist.
 
 
 
-##### 12000012 外部错误
+#### 12000012 外部错误
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -296,7 +296,7 @@ Device environment or input parameter abnormal.
 
 
 
-##### 12000013 密钥设置生物访问控制时，待绑定的凭据不存在
+#### 12000013 密钥设置生物访问控制时，待绑定的凭据不存在
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -318,7 +318,7 @@ The credential does not exist.
 
 
 
-##### 12000014 内存不足
+#### 12000014 内存不足
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -348,7 +348,7 @@ The credential does not exist.
 
 
 
-##### 12000015 调用其他系统服务失败
+#### 12000015 调用其他系统服务失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -370,7 +370,7 @@ Failed to obtain the ${messageInfo} information via UserIAM.
 
 
 
-##### 12000017 同名密钥已存在
+#### 12000017 同名密钥已存在
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -392,7 +392,7 @@ The key with same alias is already exist.
 
 
 
-##### 12000018 输入参数非法
+#### 12000018 输入参数非法
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -416,7 +416,7 @@ The input parameter is invalid.
 
 
 
-##### 12000019 同名provider已注册
+#### 12000019 同名provider已注册
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -438,7 +438,7 @@ The provider is already registered.
 
 
 
-##### 12000020 依赖的模块报错
+#### 12000020 依赖的模块报错
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -460,7 +460,7 @@ The provider operation failed.
 
 
 
-##### 12000021 Ukey PIN码被锁
+#### 12000021 Ukey PIN码被锁
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -482,7 +482,7 @@ PIN码输入错误次数过多导致被锁。
 
 
 
-##### 12000022 Ukey PIN码错误
+#### 12000022 Ukey PIN码错误
 
 **错误信息**
 
@@ -502,7 +502,7 @@ PIN码输入错误。
 
 
 
-##### 12000023 Ukey PIN码未认证
+#### 12000023 Ukey PIN码未认证
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -524,7 +524,7 @@ Ukey PIN码未认证。
 
 
 
-##### 12000024 设备或资源繁忙
+#### 12000024 设备或资源繁忙
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -546,7 +546,7 @@ The provider or Ukey is busy.
 
 
 
-##### 12000025 资源超过限制
+#### 12000025 资源超过限制
 
 **支持设备：** PC/2in1 | Tablet
 

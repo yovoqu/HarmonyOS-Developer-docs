@@ -12,7 +12,7 @@
 
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,13 +20,13 @@
  
   
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### Canvas23+
+#### Canvas23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -53,7 +53,7 @@ Canvas(params: CanvasParams)
  
   
 
-##### Canvas
+#### Canvas
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -76,7 +76,7 @@ Canvas(context?: CanvasRenderingContext2D | DrawingRenderingContext)
  
   
 
-##### Canvas12+
+#### Canvas12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -98,7 +98,7 @@ Canvas(context: CanvasRenderingContext2D | DrawingRenderingContext, imageAIOptio
  
   
 
-##### CanvasParams23+
+#### CanvasParams23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -118,7 +118,7 @@ Canvas(context: CanvasRenderingContext2D | DrawingRenderingContext, imageAIOptio
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -126,7 +126,7 @@ Canvas(context: CanvasRenderingContext2D | DrawingRenderingContext, imageAIOptio
  
   
 
-##### enableAnalyzer12+
+#### enableAnalyzer12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -153,7 +153,7 @@ Canvas(context: CanvasRenderingContext2D | DrawingRenderingContext, imageAIOptio
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -161,7 +161,7 @@ Canvas(context: CanvasRenderingContext2D | DrawingRenderingContext, imageAIOptio
  
   
 
-##### onReady
+#### onReady
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -186,7 +186,7 @@ Canvas组件初始化完成或者发生大小变化时的事件回调，支持[a
  
   
 
-##### onReady23+
+#### onReady23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -213,13 +213,13 @@ Canvas组件初始化完成或者发生大小变化时的事件回调，支持[a
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 示例1（使用CanvasRenderingContext2D中的方法）
+#### 示例1（使用CanvasRenderingContext2D中的方法）
 
 该示例实现了如何在Canvas组件使用[CanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d)中的方法进行绘制。
  
@@ -253,7 +253,7 @@ struct CanvasExample {
  
   
 
-##### 示例2（使用DrawingRenderingContext中的方法）
+#### 示例2（使用DrawingRenderingContext中的方法）
 
 该示例实现了如何在Canvas组件使用[DrawingRenderingContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawingrenderingcontext)中的方法进行绘制。
  
@@ -282,12 +282,12 @@ struct CanvasExample {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/BPrlHrgWRHWrIbw9k-PVvg/zh-cn_image_0000002611755999.png?HW-CC-KV=V1&HW-CC-Date=20260528T024207Z&HW-CC-Expire=86400&HW-CC-Sign=8D11F53A1C0D5140210569FB5C36F5DB9D03796C1176584509183F2A7A41A8A5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/BPrlHrgWRHWrIbw9k-PVvg/zh-cn_image_0000002611755999.png?HW-CC-KV=V1&HW-CC-Date=20260528T025540Z&HW-CC-Expire=86400&HW-CC-Sign=6E6160B282D87F125F0AF794EDFE5F49B35BB8F097C6BEE32E90111BC7769604)
 
  
   
 
-##### 示例3（使用attributeModifier动态设置Canvas组件的属性及方法）
+#### 示例3（使用attributeModifier动态设置Canvas组件的属性及方法）
 
 该示例展示了如何使用[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置Canvas组件的[enableAnalyzer](#enableanalyzer12)属性和[onReady](#onready)方法。
  
@@ -375,12 +375,12 @@ struct attributeDemo {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/k3VJStLMRi67GvUt45akeQ/zh-cn_image_0000002581436060.png?HW-CC-KV=V1&HW-CC-Date=20260528T024207Z&HW-CC-Expire=86400&HW-CC-Sign=20505CA7248EF8E48C2C834A3A4603B681D078926C129AF9ADF04CF97D4A914B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/k3VJStLMRi67GvUt45akeQ/zh-cn_image_0000002581436060.png?HW-CC-KV=V1&HW-CC-Date=20260528T025540Z&HW-CC-Expire=86400&HW-CC-Sign=D719765A637E4B4335B1717E42CEA2FF0A43E812B142FC46EFC931BC95D42A32)
 
  
   
 
-##### 示例4（创建不缓存指令Canvas并进行绘制）
+#### 示例4（创建不缓存指令Canvas并进行绘制）
 
 该示例介绍了如何使用[CanvasParams](#canvasparams23)创建不缓存指令的Canvas组件并进行绘制。
  
@@ -427,4 +427,4 @@ struct CanvasExample {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/JeiMo9oxRg295kMJpb0yaA/zh-cn_image_0000002611835891.png?HW-CC-KV=V1&HW-CC-Date=20260528T024207Z&HW-CC-Expire=86400&HW-CC-Sign=72CEDC6F86722D9BBF2A4E36DAE4D3857DA7FC79EC7F7D99073D1143F244EEA2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/JeiMo9oxRg295kMJpb0yaA/zh-cn_image_0000002611835891.png?HW-CC-KV=V1&HW-CC-Date=20260528T025540Z&HW-CC-Expire=86400&HW-CC-Sign=2FDF635EBA433BA71BBFED69ADBABCF57B43794BB99097A5159C723643083216)

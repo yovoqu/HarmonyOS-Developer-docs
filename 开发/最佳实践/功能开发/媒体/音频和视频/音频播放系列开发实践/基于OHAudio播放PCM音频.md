@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-playing-pcm-audio-based-ohaudio
 
-##### 概述
+#### 概述
 
 OHAudio是用于音频播放的Native API，仅支持PCM格式的音频。指导开发者使用OHAudio接口实现播放PCM音频的功能，主要涉及基本播控、精准跳转、静音播放、倍速播放、音量控制、焦点管理、后台播放与接入播控中心、冷启动等开发场景。
  
@@ -20,7 +20,7 @@ OHAudio是用于音频播放的Native API，仅支持PCM格式的音频。指导
  
  
 
-##### 场景分析
+#### 场景分析
  
 | 场景名称 | 描述 | 实现方案 |
 | --- | --- | --- |
@@ -38,11 +38,11 @@ OHAudio是用于音频播放的Native API，仅支持PCM格式的音频。指导
  
  
 
-##### 基础播控
+#### 基础播控
 
  
 
-##### 场景描述
+#### 场景描述
 
 通过[OHAudio](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio)接口实现核心音频播放控制能力，包括音频资源加载、播放、暂停、停止及退出等操作。
  
@@ -52,13 +52,13 @@ OHAudio是用于音频播放的Native API，仅支持PCM格式的音频。指导
  
  
 
-##### 实现原理
+#### 实现原理
 
 开发者可以通过[OH_AudioStreamBuilder_Create()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostreambuilder-h#oh_audiostreambuilder_create)的接口，创建音频流构造器实例，调用[OH_AudioStreamBuilder_SetRendererWriteDataCallback()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostreambuilder-h#oh_audiostreambuilder_setrendererwritedatacallback)接口设置写入音频数据的回调函数，将获取的音频数据写入回调函数中，实现资源加载。通过[OH_AudioRenderer_Start()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiorenderer-h#oh_audiorenderer_start)、[OH_AudioRenderer_Pause()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiorenderer-h#oh_audiorenderer_pause)、[OH_AudioRenderer_Stop()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiorenderer-h#oh_audiorenderer_stop)、[OH_AudioRenderer_Release()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiorenderer-h#oh_audiorenderer_release)接口实现音频的播放、暂停、停止和退出操作。OHAudio的不同接口调用和其状态的变化关系参考[OHAudio音频播放状态变化示意图](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-ohaudio-for-playback)。
  
  
 
-##### 开发步骤
+#### 开发步骤
 
 1. 创建音频流构造器实例。
  
@@ -262,11 +262,11 @@ void OHAudioPlayer::ReleasePlayer() {
  
  
 
-##### 跳转播放
+#### 跳转播放
 
  
 
-##### 场景描述
+#### 场景描述
 
 通过点击或拖动进度条精准跳转到指定时间进行播放。
  
@@ -276,7 +276,7 @@ void OHAudioPlayer::ReleasePlayer() {
  
  
 
-##### 实现原理
+#### 实现原理
 
 在[基于AudioRender播放PCM音频](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-playing-pcm-audio-based-audiorenderer)中[跳转播放](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-playing-pcm-audio-based-audiorenderer#section16920851193717)的[实现原理](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-playing-pcm-audio-based-audiorenderer#section5752111843915)一节中，介绍了通过每1s走过的字节数来判断对应资源起始位置的方法来实现seek，本章节将介绍另一种实现方法，通过计算目标时间和歌曲总时长的比例，来计算目标时间对应的音频帧的起始位置。音频本质的是连续的采样流，无论采集、编码、播放、网络传输等都不可能一个字节一个字节处理，必须按音频帧分块处理。
  
@@ -296,7 +296,7 @@ void OHAudioPlayer::ReleasePlayer() {
  
  
 
-##### 开发步骤
+#### 开发步骤
 
 1. 根据配置信息，计算每1秒PCM对应的字节数。
  
@@ -392,11 +392,11 @@ static OH_AudioData_Callback_Result OnAudioRendererWriteDataEvent([[maybe_unused
  
  
 
-##### 静音播放
+#### 静音播放
 
  
 
-##### 场景描述
+#### 场景描述
 
 通过界面按钮切换音频播放静音状态，实现一键开启或关闭静音。
  
@@ -406,13 +406,13 @@ static OH_AudioData_Callback_Result OnAudioRendererWriteDataEvent([[maybe_unused
  
  
 
-##### 实现原理
+#### 实现原理
 
 使用[OH_AudioRenderer_SetSilentModeAndMixWithOthers()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiorenderer-h#oh_audiorenderer_setsilentmodeandmixwithothers)方法控制静音状态。
  
  
 
-##### 开发步骤
+#### 开发步骤
 
 调用[OH_AudioRenderer_SetSilentModeAndMixWithOthers()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiorenderer-h#oh_audiorenderer_setsilentmodeandmixwithothers)接口，第二个入参中传入true，即可设置成静音播放模式。
  
@@ -435,11 +435,11 @@ void OHAudioPlayer::SetSilentMode(bool isSilentMode) {
  
  
 
-##### 切换歌曲播放
+#### 切换歌曲播放
 
  
 
-##### 场景描述
+#### 场景描述
 
 点击上一首、下一首或歌单列表中的其他歌曲来进行切换歌曲播放。
  
@@ -449,13 +449,13 @@ void OHAudioPlayer::SetSilentMode(bool isSilentMode) {
  
  
 
-##### 实现原理
+#### 实现原理
 
 通过加载不同的资源文件，并在[OH_AudioStreamBuilder_SetRendererWriteDataCallback()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostreambuilder-h#oh_audiostreambuilder_setrendererwritedatacallback)接口的回调中，读取资源数据，从而完成歌曲切换场景。
  
  
 
-##### 开发步骤
+#### 开发步骤
 
 1. 停止当前播放的歌曲，并且清空缓存，防止杂音。
  
@@ -542,11 +542,11 @@ static OH_AudioData_Callback_Result OnAudioRendererWriteDataEvent([[maybe_unused
  
  
 
-##### 倍速设置
+#### 倍速设置
 
  
 
-##### 场景描述
+#### 场景描述
 
 滑动倍速调节面板调节播放速度。
  
@@ -556,13 +556,13 @@ static OH_AudioData_Callback_Result OnAudioRendererWriteDataEvent([[maybe_unused
  
  
 
-##### 实现原理
+#### 实现原理
 
 通过调节面板获取目标速度值，输入到[OH_AudioRenderer_SetSpeed()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiorenderer-h#oh_audiorenderer_setspeed)接口中，实现设置播放倍速的功能。
  
  
 
-##### 开发步骤
+#### 开发步骤
 
 1. 通过调节面板获取速度值，传入[OH_AudioRenderer_SetSpeed()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiorenderer-h#oh_audiorenderer_setspeed)接口中。
  
@@ -604,11 +604,11 @@ void OHAudioPlayer::SetPlayingSpeed(float speed) {
  
  
 
-##### 音量设置
+#### 音量设置
 
  
 
-##### 场景描述
+#### 场景描述
 
 滑动音量调节面板调节播放音量。
  
@@ -618,13 +618,13 @@ void OHAudioPlayer::SetPlayingSpeed(float speed) {
  
  
 
-##### 实现原理
+#### 实现原理
 
 通过调节面板获取目标音量值，输入到[OH_AudioRenderer_SetVolume()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiorenderer-h#oh_audiorenderer_setvolume)接口中，实现设置播放音量的功能。
  
  
 
-##### 开发步骤
+#### 开发步骤
 
 1. 通过调节面板获取音量值，传入[setVolume()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#setvolume9)接口中。
  
@@ -665,6 +665,6 @@ void OHAudioPlayer::SetPlayingVolume(float volume) {
  
  
 
-##### 示例代码
+#### 示例代码
 
 - [基于OHAudio播放PCM音频](https://gitcode.com/HarmonyOS_Samples/ohaudio-play-pcm)

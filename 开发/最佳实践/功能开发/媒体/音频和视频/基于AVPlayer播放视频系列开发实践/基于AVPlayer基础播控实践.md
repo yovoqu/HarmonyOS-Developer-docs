@@ -7,7 +7,7 @@
 **   
 
 
-##### 概述
+#### 概述
 
 本文适用于视频播放类应用的开发，针对市场上主流视频播放类应用的常见场景，介绍了如何基于AVPlayer系统播放器实现视频播放应用。
  
@@ -19,7 +19,7 @@
  
  
 
-##### 场景分析
+#### 场景分析
 
   
 | 场景名称 | 描述 | 实现方案 |
@@ -35,17 +35,17 @@
  
  
 
-##### 基础播控
+#### 基础播控
 
  
 
-##### 场景描述
+#### 场景描述
 
 通过[AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-playback)实现核心视频播放控制能力，包括视频资源加载、播放、暂停、停止及退出等操作。
  
  
 
-##### 实现原理
+#### 实现原理
 
  
 本开发指导将介绍如何使用AVPlayer开发视频播放功能，以完整地播放一个视频作为示例，实现端到端播放原始媒体资源。
@@ -55,7 +55,7 @@
 原理详情可查看[《使用AVPlayer播放视频(ArkTS)》](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-playback)。
  
 
-##### 开发步骤
+#### 开发步骤
 1. 创建实例：调用createAVPlayer()接口创建AVPlayer实例，初始化进入idle状态。
 2. 设置视频资源：设置AVPlayer实例的url或者fdSrc属性值，进入initialized状态。
 3. 准备播放：调用prepare()接口，进入prepared状态。
@@ -66,11 +66,11 @@
  
  
 
-##### 跳转播放
+#### 跳转播放
 
  
 
-##### 场景描述
+#### 场景描述
 
 进度条是视频应用的一个基础能力，可以通过点击或拖动进度条精准跳转到指定时间进行播放。
  
@@ -80,13 +80,13 @@
  
  
 
-##### 实现原理
+#### 实现原理
 
 基于[Slider组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-slider)和视频播放器AVPlayer的[seek()方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#seek9)实现跳转播放。
  
  
 
-##### 开发步骤
+#### 开发步骤
 
 采用[Slider组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-slider)实现进度条功能，根据Slider组件属性设置进度条样式，并在其onChange()事件中触发视频播放器AVPlayer的[seek()方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#seek9)跳转到指定播放位置，实现视频进度的控制。
  
@@ -122,11 +122,11 @@ Slider({
  
  
 
-##### 静音播放
+#### 静音播放
 
  
 
-##### 场景描述
+#### 场景描述
 
 通过界面按钮快捷切换视频播放静音状态，实现一键开启或关闭静音，提升媒体播放的交互便捷性。
  
@@ -136,13 +136,13 @@ Slider({
  
  
 
-##### 实现原理
+#### 实现原理
 
 通过视频播放器AVPlayer的[setMediaMuted()方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#setmediamuted12)，实现控制视频静音状态。
  
  
 
-##### 开发步骤
+#### 开发步骤
 1. 在底部操作栏添加[Button组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button)，按钮显示为icon图标；根据Button组件属性设置按钮样式，并在其onClick()事件中触发视频管理接口AvPlayerController.ets文件中封装的videoMuted()方法。
 
   
@@ -193,17 +193,17 @@ async videoMuted(isMuted: boolean): Promise<void> {
  
  
 
-##### 循环播放
+#### 循环播放
 
  
 
-##### 场景描述
+#### 场景描述
 
 本功能可以用于在视频播放结束后自动将播放器重置至初始状态，使用户能够立即重新开始播放视频内容，实现无缝循环观看体验。
  
  
 
-##### 开发步骤
+#### 开发步骤
 
 在视频prepared状态下，设置视频播放器AVPlayer的[loop属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#属性)值为true，实现视频循环播放。
 ```ArkTS
@@ -227,11 +227,11 @@ this.avPlayer.on('stateChange', async (state) => {
  
  
 
-##### 窗口缩放模式设置
+#### 窗口缩放模式设置
 
  
 
-##### 场景描述
+#### 场景描述
 
 通过窗口缩放模式设置功能，用户可根据实际观看需求灵活调整视频内容的显示方式。该功能在未设置视频固定宽高时，在窗口尺寸频繁调整、不同宽高比视频源适配、全屏/窗口模式切换及多屏协作等场景下较为重要。
  
@@ -248,7 +248,7 @@ this.avPlayer.on('stateChange', async (state) => {
  
  
 
-##### 实现原理
+#### 实现原理
 
 通过设置视频播放器AVPlayer的[videoScaleType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-e#videoscaletype9)属性值，实现窗口缩放模式的切换。由于VIDEO_SCALE_TYPE_SCALED_ASPECT（缩放至长边填满窗口）属性值从APIversion20开始才支持在元服务中使用，因此在这之前的版本中可根据屏幕大小为视频设置固定宽高来实现。
  
@@ -258,7 +258,7 @@ this.avPlayer.on('stateChange', async (state) => {
  
  
 
-##### 开发步骤
+#### 开发步骤
 1. 可选择拉伸至与窗口等大/缩放至最短边填满窗口模式，选择后调用封装的videoScaleFit()/videoScaleFitCrop()方法。
 
   
@@ -332,11 +332,11 @@ videoScaleFitCrop(): void {
  
  
 
-##### 点击按钮选择倍速
+#### 点击按钮选择倍速
 
  
 
-##### 场景描述
+#### 场景描述
 
 通过点击按钮选择预设倍速实现倍速设置，为用户提供灵活的视频播放速率控制。
  
@@ -346,13 +346,13 @@ videoScaleFitCrop(): void {
  
  
 
-##### 实现原理
+#### 实现原理
 
 根据选择的倍速调用视频播放器AVPlayer的[setSpeed()方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#setspeed9)设置对应值，实现视频播放倍速设置。
  
  
 
-##### 开发步骤
+#### 开发步骤
 1. 可选择1.0X、1.25X、1.75X、2.0X，选择后调用对应的设置倍速方法。
 
   
@@ -417,23 +417,23 @@ videoSpeed(speed: number): void {
  
  
 
-##### 长按手势调节倍速
+#### 长按手势调节倍速
 
  
 
-##### 场景描述
+#### 场景描述
 
 通过长按手势实现长按屏幕时2倍速播放，长按结束时恢复1倍速播放。
  
  
 
-##### 实现原理
+#### 实现原理
 
 通过为元素绑定[长按手势](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-longpressgesture)事件，在长按手势开始时调用视频播放器AVPlayer的[setSpeed()方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#setspeed9)设置值为media.[PlaybackSpeed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-e#playbackspeed8).SPEED_FORWARD_2_00_X，实现长按时2倍速播放；长按结束后调用视频播放器AVPlayer的setSpeed()方法设置值为media.PlaybackSpeed.SPEED_FORWARD_1_00_X，恢复播放速度为1倍速。
  
  
 
-##### 开发步骤
+#### 开发步骤
 1. 为元素绑定[长按手势LongPressGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-longpressgesture)事件，并调用封装的videoSpeed()方法，长按手势开始时传递参数为media.PlaybackSpeed.SPEED_FORWARD_2_00_X，设置播放速度为2倍速；长按手势结束时传递参数为media.PlaybackSpeed.SPEED_FORWARD_1_00_X，恢复播放速度为1倍速。
 
   
@@ -470,27 +470,27 @@ videoSpeed(speed: number): void {
  
  
 
-##### 音量设置
+#### 音量设置
 
  
 
-##### 场景描述
+#### 场景描述
 
 滑动调节音量是一项非常实用的功能，它允许用户在不离开视频播放界面的情况下快速调整音量，以获得更好的观看体验。该功能位于窗口左侧，通过上下滑动手势即可调整音量。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/5fIHAUruSByrJAv8-kG88A/zh-cn_image_0000002486107329.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013104Z&HW-CC-Expire=86400&HW-CC-Sign=C8D4A056BC30D63FBEF5BCCE4B914E7FD9DA5C89F1525EE33012BDF1064B7D42)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/5fIHAUruSByrJAv8-kG88A/zh-cn_image_0000002486107329.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024746Z&HW-CC-Expire=86400&HW-CC-Sign=3C01F6CFBDA1D6A5880E9278D182D850F0BC50802273A308AD1197CF3004B1EB)
 
  
  
 
-##### 实现原理
+#### 实现原理
 
 用[AVVolumePanel组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-multimedia-avvolumepanel)显示系统音量面板，为元素绑定[PanGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture)滑动手势事件，设置滑动方向为竖直方向，当手势在移动时，上滑增加音量，下滑减少音量，实现控制系统音量功能。
  
  
 
-##### 开发步骤
+#### 开发步骤
 
 1. 添加[AVVolumePanel组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-multimedia-avvolumepanel)显示系统音量面板。
 
@@ -545,21 +545,21 @@ export struct SetVolume {
 
  
 
-##### 字幕挂载与切换
+#### 字幕挂载与切换
 
  
 
-##### 场景描述
+#### 场景描述
 
 在视频播放前，用户可设置外挂字幕文件，字幕将精准同步显示于视频画面下方，并可以通过按钮切换字幕语言，提升观看体验。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/qP1yO_-PTKeJETs7_z4GXQ/zh-cn_image_0000002452907974.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013104Z&HW-CC-Expire=86400&HW-CC-Sign=D16A7A22284B64741F3B4A893668C7411F6BF64EFB72161F3D09E50172A8EB3E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/qP1yO_-PTKeJETs7_z4GXQ/zh-cn_image_0000002452907974.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024746Z&HW-CC-Expire=86400&HW-CC-Sign=FC7070C2E17902BDDE24780730A375B0BA0E55E404B06EB470B60C60ACD27FAA)
 
  
  
 
-##### 实现原理
+#### 实现原理
 
 通过AVPlayer视频播放器的[addSubtitleFromFd()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#addsubtitlefromfd12)方法加载外挂字幕，并使用[on('subtitleUpdate')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#onsubtitleupdate12)方法注册字幕回调函数。在回调函数中获取字幕文本，通过状态变量刷新[Text组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text)显示内容。使用Text组件显示字幕并设置字体格式。
  
@@ -567,7 +567,7 @@ export struct SetVolume {
  
  
 
-##### 开发步骤
+#### 开发步骤
 
 1. 使用AVPlayer实例的[addSubtitleFromFd()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#addsubtitlefromfd12)方法为视频添加外挂字幕资源。
 
@@ -636,6 +636,6 @@ async languageChange(languageSelect: number = 0): Promise<void> {
 
  
 
-##### 示例代码
+#### 示例代码
 
 - [基于AVPlayer实现视频基础播控功能](https://gitcode.com/harmonyos_samples/avplayer-basic-control)

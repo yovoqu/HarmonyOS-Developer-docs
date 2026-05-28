@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-about-version
 
-##### 简介
+#### 简介
 
 用于获取当前JSVM API的版本信息。
  
   
 
-##### 接口说明
+#### 接口说明
  
 | 接口 | 功能说明 |
 | --- | --- |
@@ -20,13 +20,13 @@
  
   
 
-##### 使用示例
+#### 使用示例
 
 JSVM-API接口开发流程参考[使用JSVM-API实现JS与C/C++语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-process)，本文仅对接口对应C++相关代码进行展示。
  
   
 
-##### OH_JSVM_GetVersion && OH_JSVM_GetVMInfo
+#### OH_JSVM_GetVersion && OH_JSVM_GetVMInfo
 
 获取当前环境支持的JSVM API的最高版本号和当前虚拟机的信息。
  

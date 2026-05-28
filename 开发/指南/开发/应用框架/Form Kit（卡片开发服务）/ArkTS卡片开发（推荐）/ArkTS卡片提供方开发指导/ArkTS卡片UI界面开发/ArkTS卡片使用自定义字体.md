@@ -7,7 +7,7 @@
 API version 22开始新增了[ohos.graphics.text.FontCollection.getLocalInstance](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text#getlocalinstance22)接口获取本地字体集实例，应用可以通过这个本地实例为卡片加载自定义字体。
 
 
-##### 开发步骤
+#### 开发步骤
 1. 创建动态卡片：按照[创建ArkTS卡片](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-creation)里的描述创建动态卡片。
 2. 在项目entry\src\main\resources\rawfile目录下添加自定义字体文件xxx.ttf。
 3. 页面布局代码实现entry/src/main/ets/widget/pages/WidgetCard.ets。
@@ -53,7 +53,7 @@ struct loadFontSyncCard {
 
 
 
-##### 运行结果
+#### 运行结果
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/PVGNFIPQTk2xEZ3AI_iNog/zh-cn_image_0000002581274452.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014731Z&HW-CC-Expire=86400&HW-CC-Sign=7A7F1FE5C018A4E0E44EEC7BB71086460BE87C045895A032AD6E704018EB4964)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/PVGNFIPQTk2xEZ3AI_iNog/zh-cn_image_0000002581274452.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030401Z&HW-CC-Expire=86400&HW-CC-Sign=0C7CC81CAC616D0AD0151BDC7F08F05E0EA71BE3F9B0FA9AD76E638518FC1C44)

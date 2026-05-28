@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { avSession } from '@kit.AVSessionKit';
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -44,7 +44,7 @@ let sessionType: avSession.AVSessionType = currentAVSession.sessionType;
 
 
 
-##### setAVMetadata10+
+#### setAVMetadata10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -112,7 +112,7 @@ currentAVSession.setAVMetadata(metadata).then(() => {
 
 
 
-##### setAVMetadata10+
+#### setAVMetadata10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -178,7 +178,7 @@ currentAVSession.setAVMetadata(metadata, (err: BusinessError) => {
 
 
 
-##### setCallMetadata11+
+#### setCallMetadata11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -261,7 +261,7 @@ class CallManager {
 
 
 
-##### setCallMetadata11+
+#### setCallMetadata11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -337,7 +337,7 @@ class CallManager {
 
 
 
-##### setAVCallState11+
+#### setAVCallState11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -386,7 +386,7 @@ currentAVSession.setAVCallState(calldata).then(() => {
 
 
 
-##### setAVCallState11+
+#### setAVCallState11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -435,7 +435,7 @@ currentAVSession.setAVCallState(avcalldata, (err: BusinessError) => {
 
 
 
-##### setAVPlaybackState10+
+#### setAVPlaybackState10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -490,7 +490,7 @@ currentAVSession.setAVPlaybackState(playbackState).then(() => {
 
 
 
-##### setAVPlaybackState10+
+#### setAVPlaybackState10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -543,7 +543,7 @@ currentAVSession.setAVPlaybackState(PlaybackState, (err: BusinessError) => {
 
 
 
-##### setLaunchAbility10+
+#### setLaunchAbility10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -624,7 +624,7 @@ wantAgent.getWantAgent(wantAgentInfo).then((agent) => {
 
 
 
-##### setLaunchAbility10+
+#### setLaunchAbility10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -702,7 +702,7 @@ wantAgent.getWantAgent(wantAgentInfo).then((agent) => {
 
 
 
-##### dispatchSessionEvent10+
+#### dispatchSessionEvent10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -755,7 +755,7 @@ currentAVSession.dispatchSessionEvent(eventName, {lyric : "This is lyric"}).then
 
 
 
-##### dispatchSessionEvent10+
+#### dispatchSessionEvent10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -808,7 +808,7 @@ currentAVSession.dispatchSessionEvent(eventName, {lyric : "This is lyric"}, (err
 
 
 
-##### setAVQueueItems10+
+#### setAVQueueItems10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -887,7 +887,7 @@ currentAVSession.setAVQueueItems(queueItemsArray).then(() => {
 
 
 
-##### setAVQueueItems10+
+#### setAVQueueItems10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -963,7 +963,7 @@ currentAVSession.setAVQueueItems(queueItemsArray, (err: BusinessError) => {
 
 
 
-##### setAVQueueTitle10+
+#### setAVQueueTitle10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1011,7 +1011,7 @@ currentAVSession.setAVQueueTitle(queueTitle).then(() => {
 
 
 
-##### setAVQueueTitle10+
+#### setAVQueueTitle10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1057,7 +1057,7 @@ currentAVSession.setAVQueueTitle(queueTitle, (err: BusinessError) => {
 
 
 
-##### setExtras10+
+#### setExtras10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1104,7 +1104,7 @@ currentAVSession.setExtras({extras : "This is custom media packet"}).then(() => 
 
 
 
-##### setExtras10+
+#### setExtras10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1149,7 +1149,7 @@ currentAVSession.setExtras({extras : "This is custom media packet"}, (err: Busin
 
 
 
-##### sendCustomData20+
+#### sendCustomData20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1195,7 +1195,7 @@ currentAVSession.sendCustomData({customData : "This is custom data"}).then(() =>
 
 
 
-##### enableDesktopLyric23+
+#### enableDesktopLyric23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1244,7 +1244,7 @@ if (currentAVSession !== undefined) {
 
 
 
-##### setDesktopLyricVisible23+
+#### setDesktopLyricVisible23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1292,7 +1292,7 @@ currentAVSession.setDesktopLyricVisible(true).then(() => {
 
 
 
-##### isDesktopLyricVisible23+
+#### isDesktopLyricVisible23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1335,7 +1335,7 @@ if (currentAVSession !== undefined) {
 
 
 
-##### onDesktopLyricVisibilityChanged23+
+#### onDesktopLyricVisibilityChanged23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1376,7 +1376,7 @@ if (currentAVSession !== undefined) {
 
 
 
-##### offDesktopLyricVisibilityChanged23+
+#### offDesktopLyricVisibilityChanged23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1415,7 +1415,7 @@ if (currentAVSession !== undefined) {
 
 
 
-##### setDesktopLyricState23+
+#### setDesktopLyricState23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1466,7 +1466,7 @@ currentAVSession.setDesktopLyricState(state).then(() => {
 
 
 
-##### getDesktopLyricState23+
+#### getDesktopLyricState23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1510,7 +1510,7 @@ if (currentAVSession !== undefined) {
 
 
 
-##### onDesktopLyricStateChanged23+
+#### onDesktopLyricStateChanged23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1551,7 +1551,7 @@ if (currentAVSession !== undefined) {
 
 
 
-##### offDesktopLyricStateChanged23+
+#### offDesktopLyricStateChanged23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1590,7 +1590,7 @@ if (currentAVSession !== undefined) {
 
 
 
-##### setBackgroundPlayMode24+
+#### setBackgroundPlayMode24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1640,7 +1640,7 @@ try {
 
 
 
-##### getController10+
+#### getController10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1679,7 +1679,7 @@ currentAVSession.getController().then((avcontroller: avSession.AVSessionControll
 
 
 
-##### getController10+
+#### getController10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1720,7 +1720,7 @@ currentAVSession.getController((err: BusinessError, avcontroller: avSession.AVSe
 
 
 
-##### getAVCastController10+
+#### getAVCastController10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1761,7 +1761,7 @@ currentAVSession.getAVCastController().then((avcontroller: avSession.AVCastContr
 
 
 
-##### getAVCastController10+
+#### getAVCastController10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1806,7 +1806,7 @@ currentAVSession.getAVCastController((err: BusinessError, avcontroller: avSessio
 
 
 
-##### getOutputDevice10+
+#### getOutputDevice10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1845,7 +1845,7 @@ currentAVSession.getOutputDevice().then((outputDeviceInfo: avSession.OutputDevic
 
 
 
-##### getOutputDevice10+
+#### getOutputDevice10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1888,7 +1888,7 @@ currentAVSession.getOutputDevice((err: BusinessError, outputDeviceInfo: avSessio
 
 
 
-##### activate10+
+#### activate10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1927,7 +1927,7 @@ currentAVSession.activate().then(() => {
 
 
 
-##### activate10+
+#### activate10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1970,7 +1970,7 @@ currentAVSession.activate((err: BusinessError) => {
 
 
 
-##### deactivate10+
+#### deactivate10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2009,7 +2009,7 @@ currentAVSession.deactivate().then(() => {
 
 
 
-##### deactivate10+
+#### deactivate10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2054,7 +2054,7 @@ currentAVSession.deactivate((err: BusinessError) => {
 
 
 
-##### destroy10+
+#### destroy10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2093,7 +2093,7 @@ currentAVSession.destroy().then(() => {
 
 
 
-##### destroy10+
+#### destroy10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2136,7 +2136,7 @@ currentAVSession.destroy((err: BusinessError) => {
 
 
 
-##### on('play')10+
+#### on('play')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2179,7 +2179,7 @@ currentAVSession.on('play', () => {
 
 
 
-##### onPlay22+
+#### onPlay22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2218,7 +2218,7 @@ currentAVSession.onPlay((info: avSession.CommandInfo) => {
 
 
 
-##### on('pause')10+
+#### on('pause')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2261,7 +2261,7 @@ currentAVSession.on('pause', () => {
 
 
 
-##### on('stop')10+
+#### on('stop')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2304,7 +2304,7 @@ currentAVSession.on('stop', () => {
 
 
 
-##### on('playNext')10+
+#### on('playNext')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2347,7 +2347,7 @@ currentAVSession.on('playNext', () => {
 
 
 
-##### onPlayNext22+
+#### onPlayNext22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2386,7 +2386,7 @@ currentAVSession.onPlayNext((info: avSession.CommandInfo) => {
 
 
 
-##### on('playPrevious')10+
+#### on('playPrevious')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2429,7 +2429,7 @@ currentAVSession.on('playPrevious', () => {
 
 
 
-##### onPlayPrevious22+
+#### onPlayPrevious22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2470,7 +2470,7 @@ currentAVSession.onPlayPrevious((info: avSession.CommandInfo) => {
 
 
 
-##### on('fastForward')10+
+#### on('fastForward')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2513,7 +2513,7 @@ currentAVSession.on('fastForward', (time?: number) => {
 
 
 
-##### onFastForward22+
+#### onFastForward22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2552,7 +2552,7 @@ currentAVSession.onFastForward((time: number, info: avSession.CommandInfo) => {
 
 
 
-##### on('rewind')10+
+#### on('rewind')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2595,7 +2595,7 @@ currentAVSession.on('rewind', (time?: number) => {
 
 
 
-##### onRewind22+
+#### onRewind22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2634,7 +2634,7 @@ currentAVSession.onRewind((time: number, info: avSession.CommandInfo) => {
 
 
 
-##### on('playWithAssetId')20+
+#### on('playWithAssetId')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2677,7 +2677,7 @@ currentAVSession.on('playWithAssetId', playWithAssetIdCallback);
 
 
 
-##### off('playWithAssetId')20+
+#### off('playWithAssetId')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2715,7 +2715,7 @@ currentAVSession.off('playWithAssetId');
 
 
 
-##### on('seek')10+
+#### on('seek')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2758,7 +2758,7 @@ currentAVSession.on('seek', (time: number) => {
 
 
 
-##### on('setSpeed')10+
+#### on('setSpeed')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2801,7 +2801,7 @@ currentAVSession.on('setSpeed', (speed: number) => {
 
 
 
-##### on('setLoopMode')10+
+#### on('setLoopMode')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2844,7 +2844,7 @@ currentAVSession.on('setLoopMode', (mode: avSession.LoopMode) => {
 
 
 
-##### on('setTargetLoopMode')18+
+#### on('setTargetLoopMode')18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2886,7 +2886,7 @@ currentAVSession.on('setTargetLoopMode', (mode: avSession.LoopMode) => {
 
 
 
-##### on('toggleFavorite')10+
+#### on('toggleFavorite')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2929,7 +2929,7 @@ currentAVSession.on('toggleFavorite', (assetId: string) => {
 
 
 
-##### on('skipToQueueItem')10+
+#### on('skipToQueueItem')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2972,7 +2972,7 @@ currentAVSession.on('skipToQueueItem', (itemId: number) => {
 
 
 
-##### on('handleKeyEvent')10+
+#### on('handleKeyEvent')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3017,7 +3017,7 @@ currentAVSession.on('handleKeyEvent', (event: KeyEvent) => {
 
 
 
-##### on('outputDeviceChange')10+
+#### on('outputDeviceChange')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3060,7 +3060,7 @@ currentAVSession.on('outputDeviceChange', (state: avSession.ConnectionState, dev
 
 
 
-##### on('commonCommand')10+
+#### on('commonCommand')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3103,7 +3103,7 @@ currentAVSession.on('commonCommand', (commonCommand, args) => {
 
 
 
-##### off('play')10+
+#### off('play')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3142,7 +3142,7 @@ currentAVSession.off('play');
 
 
 
-##### offPlay22+
+#### offPlay22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3179,7 +3179,7 @@ currentAVSession.offPlay();
 
 
 
-##### off('pause')10+
+#### off('pause')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3218,7 +3218,7 @@ currentAVSession.off('pause');
 
 
 
-##### off('stop')10+
+#### off('stop')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3257,7 +3257,7 @@ currentAVSession.off('stop');
 
 
 
-##### off('playNext')10+
+#### off('playNext')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3296,7 +3296,7 @@ currentAVSession.off('playNext');
 
 
 
-##### offPlayNext22+
+#### offPlayNext22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3333,7 +3333,7 @@ currentAVSession.offPlayNext();
 
 
 
-##### off('playPrevious')10+
+#### off('playPrevious')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3372,7 +3372,7 @@ currentAVSession.off('playPrevious');
 
 
 
-##### offPlayPrevious22+
+#### offPlayPrevious22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3409,7 +3409,7 @@ currentAVSession.offPlayPrevious();
 
 
 
-##### off('fastForward')10+
+#### off('fastForward')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3448,7 +3448,7 @@ currentAVSession.off('fastForward');
 
 
 
-##### offFastForward22+
+#### offFastForward22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3485,7 +3485,7 @@ currentAVSession.offFastForward();
 
 
 
-##### off('rewind')10+
+#### off('rewind')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3524,7 +3524,7 @@ currentAVSession.off('rewind');
 
 
 
-##### offRewind22+
+#### offRewind22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3561,7 +3561,7 @@ currentAVSession.offRewind();
 
 
 
-##### off('seek')10+
+#### off('seek')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3600,7 +3600,7 @@ currentAVSession.off('seek');
 
 
 
-##### off('setSpeed')10+
+#### off('setSpeed')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3639,7 +3639,7 @@ currentAVSession.off('setSpeed');
 
 
 
-##### off('setLoopMode')10+
+#### off('setLoopMode')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3678,7 +3678,7 @@ currentAVSession.off('setLoopMode');
 
 
 
-##### off('setTargetLoopMode')18+
+#### off('setTargetLoopMode')18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3716,7 +3716,7 @@ currentAVSession.off('setTargetLoopMode');
 
 
 
-##### off('toggleFavorite')10+
+#### off('toggleFavorite')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3755,7 +3755,7 @@ currentAVSession.off('toggleFavorite');
 
 
 
-##### off('skipToQueueItem')10+
+#### off('skipToQueueItem')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3794,7 +3794,7 @@ currentAVSession.off('skipToQueueItem');
 
 
 
-##### off('handleKeyEvent')10+
+#### off('handleKeyEvent')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3833,7 +3833,7 @@ currentAVSession.off('handleKeyEvent');
 
 
 
-##### off('outputDeviceChange')10+
+#### off('outputDeviceChange')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3872,7 +3872,7 @@ currentAVSession.off('outputDeviceChange');
 
 
 
-##### off('commonCommand')10+
+#### off('commonCommand')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3911,7 +3911,7 @@ currentAVSession.off('commonCommand');
 
 
 
-##### on('answer')11+
+#### on('answer')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3954,7 +3954,7 @@ currentAVSession.on('answer', () => {
 
 
 
-##### off('answer')11+
+#### off('answer')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3993,7 +3993,7 @@ currentAVSession.off('answer');
 
 
 
-##### on('hangUp')11+
+#### on('hangUp')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4036,7 +4036,7 @@ currentAVSession.on('hangUp', () => {
 
 
 
-##### off('hangUp')11+
+#### off('hangUp')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4075,7 +4075,7 @@ currentAVSession.off('hangUp');
 
 
 
-##### on('toggleCallMute')11+
+#### on('toggleCallMute')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4118,7 +4118,7 @@ currentAVSession.on('toggleCallMute', () => {
 
 
 
-##### off('toggleCallMute')11+
+#### off('toggleCallMute')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4157,7 +4157,7 @@ currentAVSession.off('toggleCallMute');
 
 
 
-##### on('castDisplayChange')12+
+#### on('castDisplayChange')12+
 
 **支持设备：** Phone | Tablet
 
@@ -4206,7 +4206,7 @@ currentAVSession.on('castDisplayChange', (display: avSession.CastDisplayInfo) =>
 
 
 
-##### off('castDisplayChange')12+
+#### off('castDisplayChange')12+
 
 **支持设备：** Phone | Tablet
 
@@ -4245,7 +4245,7 @@ currentAVSession.off('castDisplayChange');
 
 
 
-##### stopCasting10+
+#### stopCasting10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -4281,7 +4281,7 @@ currentAVSession.stopCasting(() => {
 
 
 
-##### stopCasting10+
+#### stopCasting10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -4319,7 +4319,7 @@ currentAVSession.stopCasting().then(() => {
 
 
 
-##### getOutputDeviceSync10+
+#### getOutputDeviceSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4356,7 +4356,7 @@ let currentOutputDevice: avSession.OutputDeviceInfo = currentAVSession.getOutput
 
 
 
-##### getAllCastDisplays12+
+#### getAllCastDisplays12+
 
 **支持设备：** Phone | Tablet
 
@@ -4398,7 +4398,7 @@ currentAVSession.getAllCastDisplays().then((data: Array< avSession.CastDisplayIn
 
 
 
-##### on('playFromAssetId')(deprecated)
+#### on('playFromAssetId')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4443,7 +4443,7 @@ currentAVSession.on('playFromAssetId', (assetId: number) => {
 
 
 
-##### off('playFromAssetId')(deprecated)
+#### off('playFromAssetId')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4486,7 +4486,7 @@ currentAVSession.off('playFromAssetId');
 
 
 
-##### on('customDataChange')20+
+#### on('customDataChange')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -4526,7 +4526,7 @@ currentAVSession.on('customDataChange', (callback) => {
 
 
 
-##### off('customDataChange')20+
+#### off('customDataChange')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

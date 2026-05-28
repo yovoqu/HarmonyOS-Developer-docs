@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-ssl-c-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -46,13 +46,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_NetStack_CertVerification()
+#### OH_NetStack_CertVerification()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -85,7 +85,7 @@ uint32_t OH_NetStack_CertVerification(const struct NetStack_CertBlob *cert, cons
  
   
 
-##### OH_NetStack_GetPinSetForHostName()
+#### OH_NetStack_GetPinSetForHostName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -118,7 +118,7 @@ int32_t OH_NetStack_GetPinSetForHostName(const char *hostname, NetStack_Certific
  
   
 
-##### OH_NetStack_GetCertificatesForHostName()
+#### OH_NetStack_GetCertificatesForHostName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -151,7 +151,7 @@ int32_t OH_NetStack_GetCertificatesForHostName(const char *hostname, NetStack_Ce
  
   
 
-##### OH_Netstack_DestroyCertificatesContent()
+#### OH_Netstack_DestroyCertificatesContent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -176,7 +176,7 @@ void OH_Netstack_DestroyCertificatesContent(NetStack_Certificates *certs)
  
   
 
-##### OH_Netstack_IsCleartextPermitted()
+#### OH_Netstack_IsCleartextPermitted()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -208,7 +208,7 @@ int32_t OH_Netstack_IsCleartextPermitted(bool *isCleartextPermitted)
  
   
 
-##### OH_Netstack_IsCleartextPermittedByHostName()
+#### OH_Netstack_IsCleartextPermittedByHostName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -241,7 +241,7 @@ int32_t OH_Netstack_IsCleartextPermittedByHostName(const char *hostname, bool *i
  
   
 
-##### OH_Netstack_IsCleartextCfgByComponent()
+#### OH_Netstack_IsCleartextCfgByComponent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

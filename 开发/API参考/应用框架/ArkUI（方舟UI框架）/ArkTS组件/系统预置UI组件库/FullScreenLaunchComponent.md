@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { FullScreenLaunchComponent } from '@kit.ArkUI';
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -30,7 +30,7 @@ import { FullScreenLaunchComponent } from '@kit.ArkUI';
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -38,7 +38,7 @@ import { FullScreenLaunchComponent } from '@kit.ArkUI';
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -46,7 +46,7 @@ import { FullScreenLaunchComponent } from '@kit.ArkUI';
 
 
 
-##### FullScreenLaunchComponent
+#### FullScreenLaunchComponent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -72,7 +72,7 @@ FullScreenLaunchComponent({ content: Callback&lt;void&gt;, appId: string, option
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -269,4 +269,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/1Wn1MargQPagqYD4Tkfjuw/zh-cn_image_0000002581276340.png?HW-CC-KV=V1&HW-CC-Date=20260528T024155Z&HW-CC-Expire=86400&HW-CC-Sign=C8B9178E9DD796EF977FFD34A5934E8A0CEB7DC98C043D5A801C1E8CBFE59934)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/1Wn1MargQPagqYD4Tkfjuw/zh-cn_image_0000002581276340.png?HW-CC-KV=V1&HW-CC-Date=20260528T025527Z&HW-CC-Expire=86400&HW-CC-Sign=DCB7A1F1ABD243FE221D466D03A5607ADE717043CF2237FBA45ACB4758F50081)

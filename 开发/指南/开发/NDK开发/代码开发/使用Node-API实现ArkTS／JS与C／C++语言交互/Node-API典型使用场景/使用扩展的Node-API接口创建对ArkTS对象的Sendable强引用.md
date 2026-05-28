@@ -7,13 +7,13 @@
 HarmonyOS的API提供进程内跨ArkTS线程共享的强引用能力。相较于napi_ref，napi_sendable_ref支持跨ArkTS线程操作，但同时也存在一些限制。
 
 
-##### 场景介绍
+#### 场景介绍
 
 开发者可使用[napi_create_strong_sendable_reference](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/napi#napi_create_strong_sendable_reference)接口创建指向Sendable ArkTS对象的Sendable强引用，使用[napi_get_strong_sendable_reference_value](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/napi#napi_get_strong_sendable_reference_value)获取被引用的ArkTS对象，使用[napi_delete_strong_sendable_reference](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/napi#napi_delete_strong_sendable_reference)删除Sendable强引用。这些操作既可以在同一ArkTS线程进行，也可在不同ArkTS线程进行。
 
 
 
-##### Sendable强引用对象关联接口
+#### Sendable强引用对象关联接口
 
 | 接口 | 描述 |
 | --- | --- |
@@ -24,7 +24,7 @@ HarmonyOS的API提供进程内跨ArkTS线程共享的强引用能力。相较于
 
 
 
-##### 示例代码
+#### 示例代码
 
  - 模块注册
 
@@ -328,7 +328,7 @@ workerPort.onerror = (event: ErrorEvent) => {
 
 
 
-##### 注意事项
+#### 注意事项
 1. 只能为[Sendable对象](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable#sendable支持的数据类型)创建napi_sendable_ref。
 2. napi_sendable_ref可跨ArkTS线程使用，在多线程操作时，调用者需自己保证释放时机，防止出现释放后使用的问题。
 3. 同一进程内，同时存活的napi_sendable_ref最大数量为51200个。

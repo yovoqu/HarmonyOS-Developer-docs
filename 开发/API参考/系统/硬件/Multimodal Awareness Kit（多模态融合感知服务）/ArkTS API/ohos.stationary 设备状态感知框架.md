@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { stationary } from '@kit.MultimodalAwarenessKit';
  
   
 
-##### ActivityResponse
+#### ActivityResponse
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -37,7 +37,7 @@ import { stationary } from '@kit.MultimodalAwarenessKit';
  
   
 
-##### ActivityType
+#### ActivityType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -55,7 +55,7 @@ type ActivityType = 'still' | 'relativeStill'
  
   
 
-##### ActivityEvent
+#### ActivityEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -72,7 +72,7 @@ type ActivityType = 'still' | 'relativeStill'
  
   
 
-##### ActivityState
+#### ActivityState
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -88,7 +88,7 @@ type ActivityType = 'still' | 'relativeStill'
  
   
 
-##### stationary.on
+#### stationary.on
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -119,7 +119,7 @@ stationary.on('still', stationary.ActivityEvent.ENTER, reportLatencyNs, (data) =
  
   
 
-##### stationary.once
+#### stationary.once
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -147,7 +147,7 @@ stationary.once('still', (data) => {
  
   
 
-##### stationary.off
+#### stationary.off
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

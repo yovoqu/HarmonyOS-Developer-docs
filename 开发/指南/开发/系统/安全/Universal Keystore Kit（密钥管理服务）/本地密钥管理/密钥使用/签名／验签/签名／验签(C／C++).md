@@ -17,7 +17,7 @@
 具体的场景介绍及支持的算法规格，请参考[签名/验签支持的算法](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-signing-signature-verification-overview#支持的算法)。
 
 
-##### 在CMake脚本中链接相关动态库
+#### 在CMake脚本中链接相关动态库
 
 ```text
 target_link_libraries(entry PUBLIC libhuks_ndk.z.so)
@@ -25,7 +25,7 @@ target_link_libraries(entry PUBLIC libhuks_ndk.z.so)
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 **生成密钥**
 1. 指定密钥别名，密钥别名命名规范参考[密钥生成介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。
@@ -55,11 +55,11 @@ target_link_libraries(entry PUBLIC libhuks_ndk.z.so)
 
 
 
-##### 开发案例
+#### 开发案例
 
 
 
-##### ECC256/SHA256
+#### ECC256/SHA256
 
 ```cpp
 #include "huks/native_huks_api.h"
@@ -232,7 +232,7 @@ napi_value SignVerifyKeyECC(napi_env env, napi_callback_info info)
 
 
 
-##### SM2/SM3
+#### SM2/SM3
 
 ```cpp
 #include "huks/native_huks_api.h"
@@ -408,7 +408,7 @@ napi_value SignVerifyKeySM2SM3(napi_env env, napi_callback_info info)
 
 
 
-##### SM2/NoDigest
+#### SM2/NoDigest
 
 ```cpp
 #include "huks/native_huks_api.h"
@@ -575,7 +575,7 @@ napi_value SignVerifyKeySM2NoDigest(napi_env env, napi_callback_info info)
 
 
 
-##### RSA/SHA256/PSS
+#### RSA/SHA256/PSS
 
 ```cpp
 #include "huks/native_huks_api.h"
@@ -749,7 +749,7 @@ napi_value SignVerifyKeyRsaSha256Pss(napi_env env, napi_callback_info info)
 
 
 
-##### RSA/SHA256/PKCS1_V1_5
+#### RSA/SHA256/PKCS1_V1_5
 
 ```cpp
 #include "huks/native_huks_api.h"
@@ -923,7 +923,7 @@ napi_value SignVerifyKeyRsaSha256Pkcs1V15(napi_env env, napi_callback_info info)
 
 
 
-##### RSA/SHA384/PSS
+#### RSA/SHA384/PSS
 
 ```cpp
 #include "huks/native_huks_api.h"

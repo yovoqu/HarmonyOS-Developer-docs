@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/rawfile-guidelines
 
-##### 场景介绍
+#### 场景介绍
 
 开发者可以通过本指导了解在HarmonyOS应用中，如何使用Native Rawfile接口操作Rawfile目录和文件。功能包括文件列表遍历、文件打开、搜索、读取和关闭Rawfile。
 
@@ -12,7 +12,7 @@
 
 
 
-##### 接口说明
+#### 接口说明
 
 | 接口名 | 描述 |
 | --- | --- |
@@ -34,7 +34,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 以ArkTS侧获取rawfile文件列表、获取rawfile文件内容、获取rawfile描述符（fd, offset, length）、判断是否是rawfile下的目录四种调用方式为例。
 

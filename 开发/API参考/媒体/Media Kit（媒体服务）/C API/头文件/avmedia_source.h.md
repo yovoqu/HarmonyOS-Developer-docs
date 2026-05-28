@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avmedia-source-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -43,7 +43,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -54,7 +54,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -88,13 +88,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### AVLoadingRequestError
+#### AVLoadingRequestError
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -121,13 +121,13 @@ enum AVLoadingRequestError
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_AVHttpHeader_Create()
+#### OH_AVHttpHeader_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -150,7 +150,7 @@ OH_AVHttpHeader *OH_AVHttpHeader_Create(void)
  
   
 
-##### OH_AVHttpHeader_Destroy()
+#### OH_AVHttpHeader_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -180,7 +180,7 @@ OH_AVErrCode OH_AVHttpHeader_Destroy(OH_AVHttpHeader *header)
  
   
 
-##### OH_AVHttpHeader_GetCount()
+#### OH_AVHttpHeader_GetCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -211,7 +211,7 @@ OH_AVErrCode OH_AVHttpHeader_GetCount(OH_AVHttpHeader *header, uint32_t *count)
  
   
 
-##### OH_AVHttpHeader_AddRecord()
+#### OH_AVHttpHeader_AddRecord()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -243,7 +243,7 @@ OH_AVErrCode OH_AVHttpHeader_AddRecord(OH_AVHttpHeader *header, const char *key,
  
   
 
-##### OH_AVHttpHeader_GetRecord()
+#### OH_AVHttpHeader_GetRecord()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -276,7 +276,7 @@ OH_AVErrCode OH_AVHttpHeader_GetRecord(OH_AVHttpHeader *header, uint32_t index, 
  
   
 
-##### OH_AVMediaSource_CreateWithUrl()
+#### OH_AVMediaSource_CreateWithUrl()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -307,7 +307,7 @@ OH_AVMediaSource *OH_AVMediaSource_CreateWithUrl(const char *url, OH_AVHttpHeade
  
   
 
-##### OH_AVMediaSource_CreateWithDataSource()
+#### OH_AVMediaSource_CreateWithDataSource()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -337,7 +337,7 @@ OH_AVMediaSource *OH_AVMediaSource_CreateWithDataSource(OH_AVDataSource *dataSou
  
   
 
-##### OH_AVMediaSource_CreateWithFd()
+#### OH_AVMediaSource_CreateWithFd()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -369,7 +369,7 @@ OH_AVMediaSource *OH_AVMediaSource_CreateWithFd(int32_t fd, int64_t offset, int6
  
   
 
-##### OH_AVMediaSource_Destroy()
+#### OH_AVMediaSource_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -399,7 +399,7 @@ OH_AVErrCode OH_AVMediaSource_Destroy(OH_AVMediaSource *source)
  
   
 
-##### OH_AVMediaSource_SetMimeType()
+#### OH_AVMediaSource_SetMimeType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -430,7 +430,7 @@ OH_AVErrCode OH_AVMediaSource_SetMimeType(OH_AVMediaSource *source, const char *
  
   
 
-##### OH_AVMediaSourceLoadingRequest_GetUrl()
+#### OH_AVMediaSourceLoadingRequest_GetUrl()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -461,7 +461,7 @@ OH_AVErrCode OH_AVMediaSourceLoadingRequest_GetUrl(OH_AVMediaSourceLoadingReques
  
   
 
-##### OH_AVMediaSourceLoadingRequest_GetHttpHeader()
+#### OH_AVMediaSourceLoadingRequest_GetHttpHeader()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -492,7 +492,7 @@ OH_AVErrCode OH_AVMediaSourceLoadingRequest_GetHttpHeader(OH_AVMediaSourceLoadin
  
   
 
-##### OH_AVMediaSourceLoadingRequest_RespondData()
+#### OH_AVMediaSourceLoadingRequest_RespondData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -526,7 +526,7 @@ int32_t OH_AVMediaSourceLoadingRequest_RespondData(OH_AVMediaSourceLoadingReques
  
   
 
-##### OH_AVMediaSourceLoadingRequest_RespondHeader()
+#### OH_AVMediaSourceLoadingRequest_RespondHeader()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -552,7 +552,7 @@ void OH_AVMediaSourceLoadingRequest_RespondHeader(OH_AVMediaSourceLoadingRequest
  
   
 
-##### OH_AVMediaSourceLoadingRequest_FinishLoading()
+#### OH_AVMediaSourceLoadingRequest_FinishLoading()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -577,7 +577,7 @@ void OH_AVMediaSourceLoadingRequest_FinishLoading(OH_AVMediaSourceLoadingRequest
  
   
 
-##### OH_AVMediaSourceLoader_Create()
+#### OH_AVMediaSourceLoader_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -593,7 +593,7 @@ OH_AVMediaSourceLoader *OH_AVMediaSourceLoader_Create(void)
  
   
 
-##### OH_AVMediaSourceLoader_Destroy()
+#### OH_AVMediaSourceLoader_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -623,7 +623,7 @@ OH_AVErrCode OH_AVMediaSourceLoader_Destroy(OH_AVMediaSourceLoader *loader)
  
   
 
-##### OH_AVMediaSource_SetMediaSourceLoader()
+#### OH_AVMediaSource_SetMediaSourceLoader()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -654,7 +654,7 @@ OH_AVErrCode OH_AVMediaSource_SetMediaSourceLoader(OH_AVMediaSource *source, OH_
  
   
 
-##### OH_AVMediaSourceLoaderOnSourceOpenedCallback()
+#### OH_AVMediaSourceLoaderOnSourceOpenedCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -685,7 +685,7 @@ typedef int64_t (*OH_AVMediaSourceLoaderOnSourceOpenedCallback)(OH_AVMediaSource
  
   
 
-##### OH_AVMediaSourceLoaderOnSourceReadCallback()
+#### OH_AVMediaSourceLoaderOnSourceReadCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -711,7 +711,7 @@ typedef void (*OH_AVMediaSourceLoaderOnSourceReadCallback)(int64_t uuid, int64_t
  
   
 
-##### OH_AVMediaSourceLoaderOnSourceClosedCallback()
+#### OH_AVMediaSourceLoaderOnSourceClosedCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -735,7 +735,7 @@ typedef void (*OH_AVMediaSourceLoaderOnSourceClosedCallback)(int64_t uuid, void 
  
   
 
-##### OH_AVMediaSourceLoader_SetSourceOpenCallback()
+#### OH_AVMediaSourceLoader_SetSourceOpenCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -767,7 +767,7 @@ OH_AVErrCode OH_AVMediaSourceLoader_SetSourceOpenCallback(OH_AVMediaSourceLoader
  
   
 
-##### OH_AVMediaSourceLoader_SetSourceReadCallback()
+#### OH_AVMediaSourceLoader_SetSourceReadCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -799,7 +799,7 @@ OH_AVErrCode OH_AVMediaSourceLoader_SetSourceReadCallback(OH_AVMediaSourceLoader
  
   
 
-##### OH_AVMediaSourceLoader_SetSourceCloseCallback()
+#### OH_AVMediaSourceLoader_SetSourceCloseCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

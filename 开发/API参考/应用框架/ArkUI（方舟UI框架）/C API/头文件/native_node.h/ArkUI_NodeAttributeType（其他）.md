@@ -9,7 +9,7 @@ enum ArkUI_NodeAttributeType
 ```
   
 
-##### 概述
+#### 概述
 
 定义ArkUI在Native侧可以设置的其他属性样式集合，包含组件交互、获焦、离屏渲染和点击距离等属性设置。
  
@@ -21,7 +21,7 @@ enum ArkUI_NodeAttributeType
  
   
 
-##### NODE_ENABLED
+#### NODE_ENABLED
 
 ```text
 NODE_ENABLED = 6
@@ -49,7 +49,7 @@ NODE_ENABLED = 6
  
   
 
-##### NODE_FOCUSABLE
+#### NODE_FOCUSABLE
 
 ```text
 NODE_FOCUSABLE = 39
@@ -77,7 +77,7 @@ NODE_FOCUSABLE = 39
  
   
 
-##### NODE_RENDER_GROUP
+#### NODE_RENDER_GROUP
 
 ```text
 NODE_RENDER_GROUP = 80
@@ -105,7 +105,7 @@ NODE_RENDER_GROUP = 80
  
   
 
-##### NODE_CLICK_DISTANCE
+#### NODE_CLICK_DISTANCE
 
 ```text
 NODE_CLICK_DISTANCE = 97
@@ -126,7 +126,7 @@ NODE_CLICK_DISTANCE = 97
  
   
 
-##### NODE_ALLOW_FORCE_DARK
+#### NODE_ALLOW_FORCE_DARK
 
 ```text
 NODE_ALLOW_FORCE_DARK = 108

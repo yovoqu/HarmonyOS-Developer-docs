@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/graphics-accelerate-fg-extrapolation-vulkan
 
-##### 业务流程
+#### 业务流程
 
 基于Vulkan图形API平台，超帧外插模式的主要业务流程如下：
 
@@ -25,7 +25,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 本节阐述基于Vulkan图形API平台的超帧调用示例。详细代码请参考[图形开发Sample（超帧Vulkan）](https://gitcode.com/harmonyos_samples/frame-generation-vulkan-samplecode-clientdemo-cpp)。
 1. 引用Graphics Accelerate Kit超帧头文件：frame_generation_vk.h。

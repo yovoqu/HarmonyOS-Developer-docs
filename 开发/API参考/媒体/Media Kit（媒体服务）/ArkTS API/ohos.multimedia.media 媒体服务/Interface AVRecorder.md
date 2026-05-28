@@ -14,7 +14,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { media } from '@kit.MediaKit';
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -37,7 +37,7 @@ import { media } from '@kit.MediaKit';
 
 
 
-##### prepare9+
+#### prepare9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -112,7 +112,7 @@ avRecorder.prepare(avRecorderConfig, (err: BusinessError) => {
 
 
 
-##### prepare9+
+#### prepare9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -194,7 +194,7 @@ avRecorder.prepare(avRecorderConfig).then(() => {
 
 
 
-##### getInputSurface9+
+#### getInputSurface9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -247,7 +247,7 @@ avRecorder.getInputSurface((err: BusinessError, surfaceId: string) => {
 
 
 
-##### getInputSurface9+
+#### getInputSurface9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -299,7 +299,7 @@ avRecorder.getInputSurface().then((surfaceId: string) => {
 
 
 
-##### updateRotation12+
+#### updateRotation12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -354,7 +354,7 @@ avRecorder.updateRotation(rotation).then(() => {
 
 
 
-##### setWillMuteWhenInterrupted20+
+#### setWillMuteWhenInterrupted20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -403,7 +403,7 @@ avRecorder.setWillMuteWhenInterrupted(true).then(() => {
 
 
 
-##### start9+
+#### start9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -449,7 +449,7 @@ avRecorder.start((err: BusinessError) => {
 
 
 
-##### start9+
+#### start9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -496,7 +496,7 @@ avRecorder.start().then(() => {
 
 
 
-##### pause9+
+#### pause9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -542,7 +542,7 @@ avRecorder.pause((err: BusinessError) => {
 
 
 
-##### pause9+
+#### pause9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -589,7 +589,7 @@ avRecorder.pause().then(() => {
 
 
 
-##### resume9+
+#### resume9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -635,7 +635,7 @@ avRecorder.resume((err: BusinessError) => {
 
 
 
-##### resume9+
+#### resume9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -682,7 +682,7 @@ avRecorder.resume().then(() => {
 
 
 
-##### stop9+
+#### stop9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -730,7 +730,7 @@ avRecorder.stop((err: BusinessError) => {
 
 
 
-##### stop9+
+#### stop9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -779,7 +779,7 @@ avRecorder.stop().then(() => {
 
 
 
-##### reset9+
+#### reset9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -824,7 +824,7 @@ avRecorder.reset((err: BusinessError) => {
 
 
 
-##### reset9+
+#### reset9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -868,7 +868,7 @@ avRecorder.reset().then(() => {
 
 
 
-##### release9+
+#### release9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -912,7 +912,7 @@ avRecorder.release((err: BusinessError) => {
 
 
 
-##### release9+
+#### release9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -957,7 +957,7 @@ avRecorder.release().then(() => {
 
 
 
-##### getCurrentAudioCapturerInfo11+
+#### getCurrentAudioCapturerInfo11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1007,7 +1007,7 @@ avRecorder.getCurrentAudioCapturerInfo((err: BusinessError, capturerInfo: audio.
 
 
 
-##### getCurrentAudioCapturerInfo11+
+#### getCurrentAudioCapturerInfo11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1056,7 +1056,7 @@ avRecorder.getCurrentAudioCapturerInfo().then((capturerInfo: audio.AudioCapturer
 
 
 
-##### getAudioCapturerMaxAmplitude11+
+#### getAudioCapturerMaxAmplitude11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1106,7 +1106,7 @@ avRecorder.getAudioCapturerMaxAmplitude((err: BusinessError, amplitude: number) 
 
 
 
-##### getAudioCapturerMaxAmplitude11+
+#### getAudioCapturerMaxAmplitude11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1155,7 +1155,7 @@ avRecorder.getAudioCapturerMaxAmplitude().then((amplitude: number) => {
 
 
 
-##### getAvailableEncoder11+
+#### getAvailableEncoder11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1205,7 +1205,7 @@ avRecorder.getAvailableEncoder((err: BusinessError, info: media.EncoderInfo[]) =
 
 
 
-##### getAvailableEncoder11+
+#### getAvailableEncoder11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1254,7 +1254,7 @@ avRecorder.getAvailableEncoder().then((info: media.EncoderInfo[]) => {
 
 
 
-##### getAVRecorderConfig11+
+#### getAVRecorderConfig11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1303,7 +1303,7 @@ avRecorder.getAVRecorderConfig((err: BusinessError, config: media.AVRecorderConf
 
 
 
-##### getAVRecorderConfig11+
+#### getAVRecorderConfig11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1351,7 +1351,7 @@ avRecorder.getAVRecorderConfig().then((config: media.AVRecorderConfig) => {
 
 
 
-##### on('stateChange')9+
+#### on('stateChange')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1391,7 +1391,7 @@ avRecorder.on('stateChange', async (state: media.AVRecorderState, reason: media.
 
 
 
-##### off('stateChange')9+
+#### off('stateChange')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1419,7 +1419,7 @@ avRecorder.off('stateChange');
 
 
 
-##### on('error')9+
+#### on('error')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1471,7 +1471,7 @@ avRecorder.on('error', (err: BusinessError) => {
 
 
 
-##### off('error')9+
+#### off('error')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1499,7 +1499,7 @@ avRecorder.off('error');
 
 
 
-##### on('audioCapturerChange')11+
+#### on('audioCapturerChange')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1543,7 +1543,7 @@ avRecorder.on('audioCapturerChange',  (audioCapturerChangeInfo: audio.AudioCaptu
 
 
 
-##### off('audioCapturerChange')11+
+#### off('audioCapturerChange')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1569,7 +1569,7 @@ avRecorder.off('audioCapturerChange');
 
 
 
-##### on('photoAssetAvailable')12+
+#### on('photoAssetAvailable')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1633,7 +1633,7 @@ avRecorder.on('photoAssetAvailable', (asset: photoAccessHelper.PhotoAsset) => {
 
 
 
-##### off('photoAssetAvailable')12+
+#### off('photoAssetAvailable')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

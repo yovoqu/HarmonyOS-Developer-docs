@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-vibrator-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -42,13 +42,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Vibrator_PlayVibration()
+#### OH_Vibrator_PlayVibration()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -81,7 +81,7 @@ int32_t OH_Vibrator_PlayVibration(int32_t duration, Vibrator_Attribute attribute
  
   
 
-##### OH_Vibrator_PlayVibrationCustom()
+#### OH_Vibrator_PlayVibrationCustom()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -114,7 +114,7 @@ int32_t OH_Vibrator_PlayVibrationCustom(Vibrator_FileDescription fileDescription
  
   
 
-##### OH_Vibrator_Cancel()
+#### OH_Vibrator_Cancel()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

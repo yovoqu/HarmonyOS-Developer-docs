@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { Action,ToolType,SourceType,Touch,TouchEvent } from '@kit.InputKit';
  
   
 
-##### Action
+#### Action
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -40,7 +40,7 @@ import { Action,ToolType,SourceType,Touch,TouchEvent } from '@kit.InputKit';
  
   
 
-##### ToolType
+#### ToolType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -62,7 +62,7 @@ import { Action,ToolType,SourceType,Touch,TouchEvent } from '@kit.InputKit';
  
   
 
-##### SourceType
+#### SourceType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -79,7 +79,7 @@ import { Action,ToolType,SourceType,Touch,TouchEvent } from '@kit.InputKit';
  
   
 
-##### Touch
+#### Touch
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -113,7 +113,7 @@ import { Action,ToolType,SourceType,Touch,TouchEvent } from '@kit.InputKit';
  
   
 
-##### TouchEvent
+#### TouchEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

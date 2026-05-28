@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-serialstringtoformat
 
-##### 函数功能
+#### 函数功能
 
 将字符串转化为Format类型值。
  
@@ -18,7 +18,7 @@
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 Format SerialStringToFormat(const std::string &str);
@@ -26,7 +26,7 @@ Format SerialStringToFormat(const std::string &str);
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -35,19 +35,19 @@ Format SerialStringToFormat(const std::string &str);
  
   
 
-##### 返回值
+#### 返回值
 
 输入合法时，返回转换后的Format enum值，枚举定义请参考[Format](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-ge-format)；输入不合法时，返回FORMAT_RESERVED，并打印报错信息。
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 std::string format_str = "NHWC";

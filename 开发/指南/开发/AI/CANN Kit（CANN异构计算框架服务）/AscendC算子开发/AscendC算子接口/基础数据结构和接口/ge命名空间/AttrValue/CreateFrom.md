@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-createfrom
 
-##### 函数功能
+#### 函数功能
 
 将传入的DT类型（支持int64_t、float、std::string类型）的参数转换为对应T类型（支持INT、FLOAT、STR类型）的参数。
  
@@ -15,7 +15,7 @@
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 template<typename T, typename DT>
@@ -24,7 +24,7 @@ static T CreateFrom(DT &&val)
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数名 | 输入/输出 | 描述 |
 | --- | --- | --- |
@@ -33,7 +33,7 @@ static T CreateFrom(DT &&val)
  
   
 
-##### 返回值
+#### 返回值
  
 | 类型 | 描述 |
 | --- | --- |
@@ -42,12 +42,12 @@ static T CreateFrom(DT &&val)
  
   
 
-##### 异常处理
+#### 异常处理
 
 无
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

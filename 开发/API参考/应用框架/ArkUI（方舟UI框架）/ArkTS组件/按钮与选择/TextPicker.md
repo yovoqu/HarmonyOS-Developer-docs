@@ -12,7 +12,7 @@
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@ TextPicker(options?: TextPickerOptions)
 
 
 
-##### TextPickerOptions对象说明
+#### TextPickerOptions对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -59,7 +59,7 @@ TextPicker(options?: TextPickerOptions)
 
 
 
-##### TextPickerRangeContent10+对象说明
+#### TextPickerRangeContent10+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -77,7 +77,7 @@ TextPicker(options?: TextPickerOptions)
 
 
 
-##### TextCascadePickerRangeContent10+对象说明
+#### TextCascadePickerRangeContent10+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -95,7 +95,7 @@ TextPicker(options?: TextPickerOptions)
 
 
 
-##### DividerOptions12+对象说明
+#### DividerOptions12+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -115,7 +115,7 @@ TextPicker(options?: TextPickerOptions)
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -123,7 +123,7 @@ TextPicker(options?: TextPickerOptions)
 
 
 
-##### defaultPickerItemHeight
+#### defaultPickerItemHeight
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -144,7 +144,7 @@ defaultPickerItemHeight(value: number | string)
 
 
 
-##### defaultPickerItemHeight18+
+#### defaultPickerItemHeight18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -165,7 +165,7 @@ defaultPickerItemHeight(height: Optional<number | string>)
 
 
 
-##### disappearTextStyle10+
+#### disappearTextStyle10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -190,7 +190,7 @@ disappearTextStyle(value: PickerTextStyle)
 
 
 
-##### disappearTextStyle18+
+#### disappearTextStyle18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -215,7 +215,7 @@ disappearTextStyle(style: Optional&lt;PickerTextStyle&gt;)
 
 
 
-##### disappearTextStyle20+
+#### disappearTextStyle20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -240,7 +240,7 @@ disappearTextStyle(style: Optional<PickerTextStyle|TextPickerTextStyle>)
 
 
 
-##### textStyle10+
+#### textStyle10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -265,7 +265,7 @@ textStyle(value: PickerTextStyle)
 
 
 
-##### textStyle18+
+#### textStyle18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -290,7 +290,7 @@ textStyle(style: Optional&lt;PickerTextStyle&gt;)
 
 
 
-##### textStyle20+
+#### textStyle20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -315,7 +315,7 @@ textStyle(style: Optional<PickerTextStyle|TextPickerTextStyle>)
 
 
 
-##### selectedTextStyle10+
+#### selectedTextStyle10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -338,7 +338,7 @@ selectedTextStyle(value: PickerTextStyle)
 
 
 
-##### selectedTextStyle18+
+#### selectedTextStyle18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -361,7 +361,7 @@ selectedTextStyle(style: Optional&lt;PickerTextStyle&gt;)
 
 
 
-##### selectedTextStyle20+
+#### selectedTextStyle20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -384,7 +384,7 @@ selectedTextStyle(style: Optional<PickerTextStyle|TextPickerTextStyle>)
 
 
 
-##### selectedIndex10+
+#### selectedIndex10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -405,7 +405,7 @@ selectedIndex(value: number | number[])
 
 
 
-##### selectedIndex18+
+#### selectedIndex18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -426,7 +426,7 @@ selectedIndex(index: Optional<number | number[]>)
 
 
 
-##### canLoop10+
+#### canLoop10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -447,7 +447,7 @@ canLoop(value: boolean)
 
 
 
-##### canLoop18+
+#### canLoop18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -468,7 +468,7 @@ canLoop(isLoop: Optional&lt;boolean&gt;)
 
 
 
-##### divider12+
+#### divider12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -491,7 +491,7 @@ divider(value: DividerOptions | null)
 
 
 
-##### divider18+
+#### divider18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -514,7 +514,7 @@ divider(textDivider: Optional<DividerOptions | null>)
 
 
 
-##### gradientHeight12+
+#### gradientHeight12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -535,7 +535,7 @@ gradientHeight(value: Dimension)
 
 
 
-##### gradientHeight18+
+#### gradientHeight18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -556,7 +556,7 @@ gradientHeight(height: Optional&lt;Dimension&gt;)
 
 
 
-##### disableTextStyleAnimation15+
+#### disableTextStyleAnimation15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -577,7 +577,7 @@ disableTextStyleAnimation(disabled: boolean)
 
 
 
-##### defaultTextStyle15+
+#### defaultTextStyle15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -608,7 +608,7 @@ defaultTextStyle(style: TextPickerTextStyle)
 
 
 
-##### enableHapticFeedback18+
+#### enableHapticFeedback18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -639,7 +639,7 @@ enableHapticFeedback(enable: Optional&lt;boolean&gt;)
 
 
 
-##### digitalCrownSensitivity18+
+#### digitalCrownSensitivity18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -664,7 +664,7 @@ digitalCrownSensitivity(sensitivity: Optional&lt;CrownSensitivity&gt;)
 
 
 
-##### selectedBackgroundStyle20+
+#### selectedBackgroundStyle20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -685,7 +685,7 @@ selectedBackgroundStyle(style: Optional&lt;PickerBackgroundStyle&gt;)
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -693,7 +693,7 @@ selectedBackgroundStyle(style: Optional&lt;PickerBackgroundStyle&gt;)
 
 
 
-##### onChange
+#### onChange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -717,7 +717,7 @@ onChange(callback: (value: string | string[], index: number | number[]) => void)
 
 
 
-##### onChange18+
+#### onChange18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -740,7 +740,7 @@ onChange(callback: Optional&lt;OnTextPickerChangeCallback&gt;)
 
 
 
-##### onScrollStop14+
+#### onScrollStop14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -767,7 +767,7 @@ onScrollStop(callback: TextPickerScrollStopCallback)
 
 
 
-##### onScrollStop18+
+#### onScrollStop18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -794,7 +794,7 @@ onScrollStop(callback: Optional&lt;TextPickerScrollStopCallback&gt;)
 
 
 
-##### onEnterSelectedArea18+
+#### onEnterSelectedArea18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -819,7 +819,7 @@ onEnterSelectedArea(callback: TextPickerEnterSelectedAreaCallback)
 
 
 
-##### onAccept(deprecated) 
+#### onAccept(deprecated) 
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -841,7 +841,7 @@ onAccept(callback: (value: string, index: number) => void)
 
 
 
-##### onCancel(deprecated) 
+#### onCancel(deprecated) 
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -862,7 +862,7 @@ onCancel(callback: () => void)
 
 
 
-##### TextPickerTextStyle15+类型说明
+#### TextPickerTextStyle15+类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -881,7 +881,7 @@ onCancel(callback: () => void)
 
 
 
-##### OnTextPickerChangeCallback18+
+#### OnTextPickerChangeCallback18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -903,7 +903,7 @@ type OnTextPickerChangeCallback = (selectItem: string | string[], index: number 
 
 
 
-##### TextPickerScrollStopCallback14+
+#### TextPickerScrollStopCallback14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -925,7 +925,7 @@ type TextPickerScrollStopCallback = (value: string | string[], index: number | n
 
 
 
-##### TextPickerEnterSelectedAreaCallback18+
+#### TextPickerEnterSelectedAreaCallback18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -947,7 +947,7 @@ type TextPickerEnterSelectedAreaCallback = (value: string | string[], index: num
 
 
 
-##### PickerBackgroundStyle20+
+#### PickerBackgroundStyle20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -965,13 +965,13 @@ type TextPickerEnterSelectedAreaCallback = (value: string | string[], index: num
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1（设置选择器列数）
+#### 示例1（设置选择器列数）
 
 该示例通过配置range实现单列数据选择器和多列数据选择器，并使用columnWidths调整每一列的宽度。
 
@@ -1067,12 +1067,12 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/4cgiGm4BT12XR4JCcW6Zjg/zh-cn_image_0000002611755779.png?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=1C3DFC38A0362168C2708B1B0644FA479402AE90F0A452E2B619BBB7142B395F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/4cgiGm4BT12XR4JCcW6Zjg/zh-cn_image_0000002611755779.png?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=25DAD8C07FA22F0F1818F51037479A1338E8FA94E7F32A9004DD81D9474AAC0E)
 
 
 
 
-##### 示例2（设置文本样式）
+#### 示例2（设置文本样式）
 
 该示例使用[disappearTextStyle](#disappeartextstyle10)、[textStyle](#textstyle10)、[selectedTextStyle](#selectedtextstyle10)设置文本选择器中的文本样式。
 
@@ -1109,12 +1109,12 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/0-TKpboxQxO63M6R7YNhAg/zh-cn_image_0000002581435842.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=2288C8FD7D09B86194EF70CC0FAEC89D4C17F3FE2D3E27712EEA82BBEA0D36EE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/0-TKpboxQxO63M6R7YNhAg/zh-cn_image_0000002581435842.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=9C90761DCE4C6790E943F3394037BCBB4375100BEA060EABEE12C8434DAB5667)
 
 
 
 
-##### 示例3（设置无分割线样式）
+#### 示例3（设置无分割线样式）
 
 该示例通过配置[divider](#divider12)为null实现无分割线样式的文本选择器。
 
@@ -1145,12 +1145,12 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/aWbQFarvTLiM1Jw24Nhiug/zh-cn_image_0000002611835673.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=7C4E344A2C077AB91FD5423CCC8BA8C1FD678FC0F190BA02DCCEFFDCA789B5CB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/aWbQFarvTLiM1Jw24Nhiug/zh-cn_image_0000002611835673.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=92A852904E78863887192A3CC328F7B2F7E7809660932B670CF10C6512149FB2)
 
 
 
 
-##### 示例4（设置分割线样式）
+#### 示例4（设置分割线样式）
 
 该示例通过配置divider的DividerOptions设置文本选择器的分割线样式。
 
@@ -1186,12 +1186,12 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/oda7csD2RLGMFhi3rRJk5Q/zh-cn_image_0000002581275924.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=F73986553FD1D4D878C0050A74E03A18C214368B77B82CC200FFF4AF81422DD9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/oda7csD2RLGMFhi3rRJk5Q/zh-cn_image_0000002581275924.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=BC915EF1BA46B0CB1899585B866DC8DA4862369DFC9CC45EC0B49ECE3E3BFB32)
 
 
 
 
-##### 示例5（设置渐隐效果）
+#### 示例5（设置渐隐效果）
 
 该示例通过配置[gradientHeight](#gradientheight12)设置文本选择器的渐隐效果高度。
 
@@ -1222,12 +1222,12 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/M4oDmbruRHuivkl7XXBNhg/zh-cn_image_0000002611755781.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=F8F2636D2E183E5119FE02E8BBCAB535C69DFEF48B5A84E395D5ECFE23D1EE2E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/M4oDmbruRHuivkl7XXBNhg/zh-cn_image_0000002611755781.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=D7319634C064F5456EEC102D90786696EC4B8055098273DE2FD1DFF3B31E207D)
 
 
 
 
-##### 示例6（设置选择项高度）
+#### 示例6（设置选择项高度）
 
 该示例通过配置[defaultPickerItemHeight](#defaultpickeritemheight)设置选择项的高度。
 
@@ -1255,12 +1255,12 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/rmaP29RMSYibleeeQX1Z2w/zh-cn_image_0000002581435844.png?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=1855AF024A6422D4F14AD953B09C35F59FAAB94994B983C75EECD693E749AAFF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/rmaP29RMSYibleeeQX1Z2w/zh-cn_image_0000002581435844.png?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=173D14721F457BDD896904A555958410B4897455DE9D9C22F1DCB2B2FD9BA105)
 
 
 
 
-##### 示例7（设置循环滚动）
+#### 示例7（设置循环滚动）
 
 该示例通过配置[canLoop](#canloop10)设置文本选择器是否循环滚动。
 
@@ -1299,12 +1299,12 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/EENMH4jySD61vwYNsB3SUw/zh-cn_image_0000002611835675.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=06073B07C0929E321C4190C24CF721BA68A4B59967294E1065EC04CB6378FEBF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/EENMH4jySD61vwYNsB3SUw/zh-cn_image_0000002611835675.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=2D09BC50DF25F3A064815E233383D470606CD1C0A9C83576EC1B03076D9A0B69)
 
 
 
 
-##### 示例8（设置选中项索引值）
+#### 示例8（设置选中项索引值）
 
 该示例通过配置[selectedIndex](#selectedindex10)设置默认选中项的索引值。
 
@@ -1331,12 +1331,12 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/iJK-pwrfT8yN5BRQLujqTg/zh-cn_image_0000002581275926.png?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=52258AFFDF918EBE8E363D2816C9FB91A71C6E4320A43C43A670F5918BEDD552)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/iJK-pwrfT8yN5BRQLujqTg/zh-cn_image_0000002581275926.png?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=6C8D18E457EC64B55C36EEDFA92E889C8157214098849CE7CA1A9817EB6D1F4C)
 
 
 
 
-##### 示例9（设置关闭文本样式变化动效与对应文本样式）
+#### 示例9（设置关闭文本样式变化动效与对应文本样式）
 
 该示例通过配置[disableTextStyleAnimation](#disabletextstyleanimation15)、[defaultTextStyle](#defaulttextstyle15)实现关闭文本选择器文本样式变化的动效，并设置文本样式。
 
@@ -1372,12 +1372,12 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/tdfShiqlT3KRgNZaEJENXQ/zh-cn_image_0000002611755783.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=B34F1A1C5CE18035607389F6C1AB5BC146EC7F3C87D6ABB83CE181C6465D6A69)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/tdfShiqlT3KRgNZaEJENXQ/zh-cn_image_0000002611755783.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=1FFDF79245CDFEFB563661DE2B7A13C1330ED9D71901059A638E37CA655A8743)
 
 
 
 
-##### 示例10（设置选中项背景样式）
+#### 示例10（设置选中项背景样式）
 
 该示例通过配置[selectedBackgroundStyle](#selectedbackgroundstyle20)实现文本选择器选中项的背景样式。
 
@@ -1438,12 +1438,12 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/3iAOIuP4QmiMl5isLkOnXg/zh-cn_image_0000002581435846.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=F5EC8B1DF3A4E04A6E84581B5C865D17BB6381A817A9D91D1EF7814F86A31E97)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/3iAOIuP4QmiMl5isLkOnXg/zh-cn_image_0000002581435846.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=DE0FFF4E0A8ECA4B290D9438DD9E815E4B3BB4EC60EF7A90BDD1C2099F9DAAB0)
 
 
 
 
-##### 示例11（设置文本的最大字号、最小字号、超长文本截断方式）
+#### 示例11（设置文本的最大字号、最小字号、超长文本截断方式）
 
 该示例通过配置[disappearTextStyle](#disappeartextstyle20)、[textStyle](#textstyle20)和[selectedTextStyle](#selectedtextstyle20)，设置文本的颜色、最大字号、最小字号、超长文本截断方式。
 
@@ -1490,4 +1490,4 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/_vujWthvTsS0RPW6t59tRw/zh-cn_image_0000002611835677.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=257981564B6F71950D9D85976B52F268EFEB88153C340B6E6D01A8A4D0FC8B06)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/_vujWthvTsS0RPW6t59tRw/zh-cn_image_0000002611835677.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=5A5FBE3D7224C7B85F5005A5CC38B72B6F300CFBDA32C15780921EAFF3AC107E)

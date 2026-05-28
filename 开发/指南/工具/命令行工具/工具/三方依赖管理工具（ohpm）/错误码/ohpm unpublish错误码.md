@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-unpublish-errorcode
 
-##### 00610001 执行下架命令时未指定版本号
+#### 00610001 执行下架命令时未指定版本号
 
 **错误信息**
  

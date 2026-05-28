@@ -10,7 +10,7 @@
 
 
 
-##### SpecificSystemBar11+
+#### SpecificSystemBar11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -31,7 +31,7 @@ type SpecificSystemBar = 'status' | 'navigation' | 'navigationIndicator'
 
 
 
-##### WindowAnimationCurveParam20+
+#### WindowAnimationCurveParam20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -76,7 +76,7 @@ type WindowAnimationCurveParam = Array&lt;number&gt;
 
 
 
-##### RotationChangeCallback19+
+#### RotationChangeCallback19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

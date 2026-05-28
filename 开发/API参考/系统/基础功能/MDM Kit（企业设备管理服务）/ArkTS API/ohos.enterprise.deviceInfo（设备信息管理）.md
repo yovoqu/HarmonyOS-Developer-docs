@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { deviceInfo } from '@kit.MDMKit';
 
 
 
-##### deviceInfo.getDeviceInfo
+#### deviceInfo.getDeviceInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

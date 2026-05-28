@@ -24,7 +24,7 @@ HashMap和[TreeMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-refer
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -34,13 +34,13 @@ import { HashMap } from '@kit.ArkTS';
 
 
 
-##### HashMap
+#### HashMap
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -55,7 +55,7 @@ import { HashMap } from '@kit.ArkTS';
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -84,7 +84,7 @@ let hashMap = new HashMap<string, number>();
 
 
 
-##### isEmpty
+#### isEmpty
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -122,7 +122,7 @@ console.info("result = ", result) // result = true
 
 
 
-##### hasKey
+#### hasKey
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -168,7 +168,7 @@ console.info("result:", result);  // result: true
 
 
 
-##### hasValue
+#### hasValue
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -214,7 +214,7 @@ console.info("result:", result);  // result: true
 
 
 
-##### get
+#### get
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -261,7 +261,7 @@ console.info("result:", result);  // result: 356
 
 
 
-##### setAll
+#### setAll
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -305,7 +305,7 @@ console.info("result:", result);  // result: true
 
 
 
-##### set
+#### set
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -352,7 +352,7 @@ console.info("result:", hashMap.get("squirrel"));  // result: 123
 
 
 
-##### remove
+#### remove
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -399,7 +399,7 @@ console.info("result:", result);  // result: 356
 
 
 
-##### clear
+#### clear
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -433,7 +433,7 @@ console.info("result:", result);  // result: true
 
 
 
-##### keys
+#### keys
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -477,7 +477,7 @@ for (let key of keys) {
 
 
 
-##### values
+#### values
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -521,7 +521,7 @@ for (let value of values) {
 
 
 
-##### replace
+#### replace
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -568,7 +568,7 @@ console.info("result:", result);  // result: true
 
 
 
-##### forEach
+#### forEach
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -634,7 +634,7 @@ for(let i = 0; i < 10; i++) {
 
 
 
-##### entries
+#### entries
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -691,7 +691,7 @@ for(let i = 0; i < 10; i++) {
 
 
 
-##### [Symbol.iterator]
+#### [Symbol.iterator]
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

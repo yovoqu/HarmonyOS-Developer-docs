@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-telephony-radio-type-h
 **支持设备：** Phone | Tablet | Wearable
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | Tablet | Wearable
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | Tablet | Wearable
  
@@ -40,7 +40,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | Tablet | Wearable
  
@@ -54,7 +54,7 @@
  
   
 
-##### 宏定义
+#### 宏定义
 
 **支持设备：** Phone | Tablet | Wearable
  
@@ -66,13 +66,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | Tablet | Wearable
 
   
 
-##### Telephony_RadioResult
+#### Telephony_RadioResult
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -98,7 +98,7 @@ enum Telephony_RadioResult
  
   
 
-##### Telephony_RegState
+#### Telephony_RegState
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -122,7 +122,7 @@ enum Telephony_RegState
  
   
 
-##### Telephony_RadioTechnology
+#### Telephony_RadioTechnology
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -155,7 +155,7 @@ enum Telephony_RadioTechnology
  
   
 
-##### Telephony_NsaState
+#### Telephony_NsaState
 
 **支持设备：** Phone | Tablet | Wearable
 

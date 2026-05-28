@@ -12,7 +12,7 @@
 提供分隔器组件，分隔不同内容块/内容元素。可用于列表或界面布局。
   
 
-##### 权限列表
+#### 权限列表
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -28,7 +28,7 @@
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -45,7 +45,7 @@
  
   
 
-##### 样式
+#### 样式
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -68,7 +68,7 @@
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -76,7 +76,7 @@
  
   
 
-##### 方法
+#### 方法
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -84,7 +84,7 @@
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -123,4 +123,4 @@
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/zzZ0YC8eSP2lQQ5fH5f_fg/zh-cn_image_0000002581276412.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T024102Z&HW-CC-Expire=86400&HW-CC-Sign=17214AC1209E879834845BA8360D7D99594916AFE2BD359CD283F3277896533C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/zzZ0YC8eSP2lQQ5fH5f_fg/zh-cn_image_0000002581276412.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T025436Z&HW-CC-Expire=86400&HW-CC-Sign=A3C20C27A264A34F9856D6B1DED64DFB66D5CA01DFD6AEC163E64DDEF44BA469)

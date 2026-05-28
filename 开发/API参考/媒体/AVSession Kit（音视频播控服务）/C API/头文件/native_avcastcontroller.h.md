@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcastcontroller-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -40,7 +40,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -81,13 +81,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_AVCastControllerCallback_PlaybackStateChanged()
+#### OH_AVCastControllerCallback_PlaybackStateChanged()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -103,7 +103,7 @@ typedef AVSessionCallback_Result(*OH_AVCastControllerCallback_PlaybackStateChang
  
   
 
-##### OH_AVCastControllerCallback_MediaItemChange()
+#### OH_AVCastControllerCallback_MediaItemChange()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -119,7 +119,7 @@ typedef AVSessionCallback_Result(*OH_AVCastControllerCallback_MediaItemChange)(O
  
   
 
-##### OH_AVCastControllerCallback_PlayNext()
+#### OH_AVCastControllerCallback_PlayNext()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -135,7 +135,7 @@ typedef AVSessionCallback_Result(*OH_AVCastControllerCallback_PlayNext)(OH_AVCas
  
   
 
-##### OH_AVCastControllerCallback_PlayPrevious()
+#### OH_AVCastControllerCallback_PlayPrevious()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -151,7 +151,7 @@ typedef AVSessionCallback_Result(*OH_AVCastControllerCallback_PlayPrevious)(OH_A
  
   
 
-##### OH_AVCastControllerCallback_SeekDone()
+#### OH_AVCastControllerCallback_SeekDone()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -167,7 +167,7 @@ typedef AVSessionCallback_Result(*OH_AVCastControllerCallback_SeekDone)(OH_AVCas
  
   
 
-##### OH_AVCastControllerCallback_EndOfStream()
+#### OH_AVCastControllerCallback_EndOfStream()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -183,7 +183,7 @@ typedef AVSessionCallback_Result(*OH_AVCastControllerCallback_EndOfStream)(OH_AV
  
   
 
-##### OH_AVCastControllerCallback_Error()
+#### OH_AVCastControllerCallback_Error()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -199,7 +199,7 @@ typedef AVSessionCallback_Result(*OH_AVCastControllerCallback_Error)(OH_AVCastCo
  
   
 
-##### OH_AVCastController_Destroy()
+#### OH_AVCastController_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -229,7 +229,7 @@ AVSession_ErrCode OH_AVCastController_Destroy(OH_AVCastController* avcastcontrol
  
   
 
-##### OH_AVCastController_GetPlaybackState()
+#### OH_AVCastController_GetPlaybackState()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -260,7 +260,7 @@ AVSession_ErrCode OH_AVCastController_GetPlaybackState(OH_AVCastController* avca
  
   
 
-##### OH_AVCastController_RegisterPlaybackStateChangedCallback()
+#### OH_AVCastController_RegisterPlaybackStateChangedCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -293,7 +293,7 @@ AVSession_ErrCode OH_AVCastController_RegisterPlaybackStateChangedCallback(OH_AV
  
   
 
-##### OH_AVCastController_UnregisterPlaybackStateChangedCallback()
+#### OH_AVCastController_UnregisterPlaybackStateChangedCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -324,7 +324,7 @@ AVSession_ErrCode OH_AVCastController_UnregisterPlaybackStateChangedCallback(OH_
  
   
 
-##### OH_AVCastController_RegisterMediaItemChangedCallback()
+#### OH_AVCastController_RegisterMediaItemChangedCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -356,7 +356,7 @@ AVSession_ErrCode OH_AVCastController_RegisterMediaItemChangedCallback(OH_AVCast
  
   
 
-##### OH_AVCastController_UnregisterMediaItemChangedCallback()
+#### OH_AVCastController_UnregisterMediaItemChangedCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -387,7 +387,7 @@ AVSession_ErrCode OH_AVCastController_UnregisterMediaItemChangedCallback(OH_AVCa
  
   
 
-##### OH_AVCastController_RegisterPlayNextCallback()
+#### OH_AVCastController_RegisterPlayNextCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -419,7 +419,7 @@ AVSession_ErrCode OH_AVCastController_RegisterPlayNextCallback(OH_AVCastControll
  
   
 
-##### OH_AVCastController_UnregisterPlayNextCallback()
+#### OH_AVCastController_UnregisterPlayNextCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -450,7 +450,7 @@ AVSession_ErrCode OH_AVCastController_UnregisterPlayNextCallback(OH_AVCastContro
  
   
 
-##### OH_AVCastController_RegisterPlayPreviousCallback()
+#### OH_AVCastController_RegisterPlayPreviousCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -482,7 +482,7 @@ AVSession_ErrCode OH_AVCastController_RegisterPlayPreviousCallback(OH_AVCastCont
  
   
 
-##### OH_AVCastController_UnregisterPlayPreviousCallback()
+#### OH_AVCastController_UnregisterPlayPreviousCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -513,7 +513,7 @@ AVSession_ErrCode OH_AVCastController_UnregisterPlayPreviousCallback(OH_AVCastCo
  
   
 
-##### OH_AVCastController_RegisterSeekDoneCallback()
+#### OH_AVCastController_RegisterSeekDoneCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -545,7 +545,7 @@ AVSession_ErrCode OH_AVCastController_RegisterSeekDoneCallback(OH_AVCastControll
  
   
 
-##### OH_AVCastController_UnregisterSeekDoneCallback()
+#### OH_AVCastController_UnregisterSeekDoneCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -576,7 +576,7 @@ AVSession_ErrCode OH_AVCastController_UnregisterSeekDoneCallback(OH_AVCastContro
  
   
 
-##### OH_AVCastController_RegisterEndOfStreamCallback()
+#### OH_AVCastController_RegisterEndOfStreamCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -608,7 +608,7 @@ AVSession_ErrCode OH_AVCastController_RegisterEndOfStreamCallback(OH_AVCastContr
  
   
 
-##### OH_AVCastController_UnregisterEndOfStreamCallback()
+#### OH_AVCastController_UnregisterEndOfStreamCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -639,7 +639,7 @@ AVSession_ErrCode OH_AVCastController_UnregisterEndOfStreamCallback(OH_AVCastCon
  
   
 
-##### OH_AVCastController_RegisterErrorCallback()
+#### OH_AVCastController_RegisterErrorCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -671,7 +671,7 @@ AVSession_ErrCode OH_AVCastController_RegisterErrorCallback(OH_AVCastController*
  
   
 
-##### OH_AVCastController_UnregisterErrorCallback()
+#### OH_AVCastController_UnregisterErrorCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -702,7 +702,7 @@ AVSession_ErrCode OH_AVCastController_UnregisterErrorCallback(OH_AVCastControlle
  
   
 
-##### OH_AVCastController_SendCommonCommand()
+#### OH_AVCastController_SendCommonCommand()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -733,7 +733,7 @@ AVSession_ErrCode OH_AVCastController_SendCommonCommand(OH_AVCastController* avc
  
   
 
-##### OH_AVCastController_SendSeekCommand()
+#### OH_AVCastController_SendSeekCommand()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -764,7 +764,7 @@ AVSession_ErrCode OH_AVCastController_SendSeekCommand(OH_AVCastController* avcas
  
   
 
-##### OH_AVCastController_SendFastForwardCommand()
+#### OH_AVCastController_SendFastForwardCommand()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -795,7 +795,7 @@ AVSession_ErrCode OH_AVCastController_SendFastForwardCommand(OH_AVCastController
  
   
 
-##### OH_AVCastController_SendRewindCommand()
+#### OH_AVCastController_SendRewindCommand()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -826,7 +826,7 @@ AVSession_ErrCode OH_AVCastController_SendRewindCommand(OH_AVCastController* avc
  
   
 
-##### OH_AVCastController_SendSetSpeedCommand()
+#### OH_AVCastController_SendSetSpeedCommand()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -857,7 +857,7 @@ AVSession_ErrCode OH_AVCastController_SendSetSpeedCommand(OH_AVCastController* a
  
   
 
-##### OH_AVCastController_SendVolumeCommand()
+#### OH_AVCastController_SendVolumeCommand()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -888,7 +888,7 @@ AVSession_ErrCode OH_AVCastController_SendVolumeCommand(OH_AVCastController* avc
  
   
 
-##### OH_AVCastController_Prepare()
+#### OH_AVCastController_Prepare()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -919,7 +919,7 @@ AVSession_ErrCode OH_AVCastController_Prepare(OH_AVCastController* avcastcontrol
  
   
 
-##### OH_AVCastController_Start()
+#### OH_AVCastController_Start()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

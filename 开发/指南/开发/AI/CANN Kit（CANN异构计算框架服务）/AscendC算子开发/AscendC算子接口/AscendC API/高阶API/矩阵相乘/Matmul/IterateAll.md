@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-iterateall
 
-##### 功能说明
+#### 功能说明
 
 调用一次IterateAll，会计算出singleCoreM * singleCoreN大小的C矩阵。迭代顺序可通过tiling参数iterateOrder调整。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 template <bool sync = true> __aicore__ inline void IterateAll(const GlobalTensor<DstT>& gm, uint8_t enAtomic = 0, bool enSequentialWrite = false, bool waitIterateAll = false, bool fakeMsg = false)
@@ -19,7 +19,7 @@ template <bool sync = true> __aicore__ inline void IterateAll(const LocalTensor<
  
   
 
-##### 参数说明
+#### 参数说明
 
 **表1** 模板参数说明
   
@@ -42,25 +42,25 @@ template <bool sync = true> __aicore__ inline void IterateAll(const LocalTensor<
  
   
 
-##### 返回值
+#### 返回值
 
 无
  
   
 
-##### 支持的型号
+#### 支持的型号
 
 Kirin9020系列处理器
  
   
 
-##### 注意事项
+#### 注意事项
 
 传入的C矩阵地址空间大小需要保证不小于singleM * singleN。
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 REGIST_MATMUL_OBJ(&pipe, GetSysWorkSpacePtr(), mm, &tiling);

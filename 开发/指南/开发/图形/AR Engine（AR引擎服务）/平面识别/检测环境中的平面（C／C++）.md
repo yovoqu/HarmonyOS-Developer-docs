@@ -4,31 +4,31 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-get-plane
 
-##### 概要
+#### 概要
 
 本章节给出了关键开发步骤，完整代码可以参考[示例代码](https://gitcode.com/harmonyos_samples/arengine_-sample-code_-clientdemo_cpp)。
 
 
 
-##### 约束与限制
+#### 约束与限制
 
 从5.0.0(12)开始，检测环境平面能力支持部分Phone、部分Tablet设备。请参考[硬件要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-preparations#硬件要求)判断设备是否支持运动跟踪及平面识别特性（[ARENGINE_FEATURE_TYPE_SLAM](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_featuretype)）。
 
 
 
-##### 引入AR Engine
+#### 引入AR Engine
 
 开发者可参考管理AR会话章节的[引入AR Engine](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-arsession#引入ar-engine)。
 
 
 
-##### 创建ARSession
+#### 创建ARSession
 
 开发者可以参考[管理AR会话](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-arsession)创建ARSession。
 
 
 
-##### 创建平面对象列表
+#### 创建平面对象列表
 1. 创建一个平面对象列表planeList，用于存放AR Engine运行过程中检测到的所有平面。
 
   
@@ -47,7 +47,7 @@ AREngine_ARTrackableType planeTrackedType = ARENGINE_TRACKABLE_PLANE;
 
 
 
-##### 识别当前环境中的平面
+#### 识别当前环境中的平面
 
 调用[HMS_AREngine_ARSession_GetAllTrackables](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_getalltrackables)函数，检测当前环境中的所有平面，并将结果存放在planeList中。
 
@@ -57,7 +57,7 @@ HMS_AREngine_ARSession_GetAllTrackables(arSession, planeTrackedType, planeList);
 
 
 
-##### 获取平面数量
+#### 获取平面数量
 
 调用[HMS_AREngine_ARTrackableList_GetSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_artrackablelist_getsize)函数获取平面数量，结果存放在planeListSize中。
 
@@ -76,7 +76,7 @@ HMS_AREngine_ARTrackableList_GetSize(arSession, planeList, &planeListSize);
 
 
 
-##### 获取平面实例
+#### 获取平面实例
 
 当存在1个或多个平面时，可以依次遍历planeList获取所有平面对象。
 
@@ -100,7 +100,7 @@ AREngine_ARPlane *arPlane = reinterpret_cast<AREngine_ARPlane*>(arTrackable);
 
 
 
-##### 销毁平面对象列表
+#### 销毁平面对象列表
 
 ```text
 HMS_AREngine_ARTrackableList_Destroy(planeList);

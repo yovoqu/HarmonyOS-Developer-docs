@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-pointannotation
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -15,7 +15,7 @@ import { map, mapCommon } from '@kit.MapKit';
  
   
 
-##### PointAnnotation
+#### PointAnnotation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -48,7 +48,7 @@ let pointAnnotation: map.PointAnnotation = await this.mapController.addPointAnno
  
   
 
-##### getPosition
+#### getPosition
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -79,7 +79,7 @@ let position: mapCommon.LatLng = pointAnnotation.getPosition();
  
   
 
-##### getTitleText
+#### getTitleText
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -110,7 +110,7 @@ let titleText: mapCommon.Text = pointAnnotation.getTitleText();
  
   
 
-##### setTitleText
+#### setTitleText
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -149,7 +149,7 @@ pointAnnotation.setTitleText({
  
   
 
-##### setTitleAnimation
+#### setTitleAnimation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -197,7 +197,7 @@ pointAnnotation.startTitleAnimation();
  
   
 
-##### startTitleAnimation
+#### startTitleAnimation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

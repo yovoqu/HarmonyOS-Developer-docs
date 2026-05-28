@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-extension-attributemodifier
 
-##### 概述
+#### 概述
 
 声明式语法引入了[@Styles](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-style)和[@Extend](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-extend)两个装饰器，可以解决复用相同自定义样式的问题，但是存在以下受限场景：
 
@@ -33,7 +33,7 @@
 
 
 
-##### 接口定义
+#### 接口定义
 
 ```ArkTS
 declare interface AttributeModifier<T> {
@@ -63,7 +63,7 @@ declare class CommonMethod<T> {
 
 
 
-##### 使用说明
+#### 使用说明
 
  - 组件通用方法attributeModifier支持传入一个实现AttributeModifier&lt;T&gt;接口的实例，T必须指定为组件对应的Attribute类型，或者是[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)（CommonAttribute）。
  - 在组件首次初始化或者关联的状态变量发生变化时，如果传入的实例实现了对应接口，会触发applyNormalAttribute。
@@ -78,7 +78,7 @@ declare class CommonMethod<T> {
 
 
 
-##### 设置和修改组件属性
+#### 设置和修改组件属性
 
 AttributeModifier可以分离UI与样式，支持参数传递及业务逻辑编写，并且通过状态变量触发刷新。
 
@@ -269,7 +269,7 @@ struct Button3 {
 
 
 
-##### 设置多态样式、事件
+#### 设置多态样式、事件
 
 使用AttributeModifier设置多态样式、事件，实现事件逻辑的复用，支持默认态（Normal）、按压态（Pressed）、焦点态（Focused）、禁用态（Disabled）、选择态（Selected）。例如如果需要在组件进入按压态时设置某些属性，就可以通过自定义实现applyPressedAttribute方法完成。
 
@@ -319,13 +319,13 @@ struct Button4 {
 
 
 
-##### 属性或事件对attributeModifier的支持情况
+#### 属性或事件对attributeModifier的支持情况
 
 通过attributeModifier动态设置属性或事件的能力从API version 11开始支持。
 
 
 
-##### 属性或事件不支持attributeModifier的范围
+#### 属性或事件不支持attributeModifier的范围
 
 下表说明了当前不支持attributeModifier的属性或事件。若无特殊说明，属性或事件默认在首次开放时支持attributeModifier。
 
@@ -398,7 +398,7 @@ struct Button4 {
 
 
 
-##### 属性或事件的起始版本与支持attributeModifier版本不一致的范围
+#### 属性或事件的起始版本与支持attributeModifier版本不一致的范围
 
 下表说明了属性或事件的起始版本与默认支持attributeModifier版本不一致的情况。若无特殊说明，属性或事件默认在首次开放时支持attributeModifier。
 

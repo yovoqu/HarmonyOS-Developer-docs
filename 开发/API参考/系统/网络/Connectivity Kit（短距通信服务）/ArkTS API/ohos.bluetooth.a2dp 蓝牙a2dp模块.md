@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { a2dp } from '@kit.ConnectivityKit';
 
 
 
-##### BaseProfile
+#### BaseProfile
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -39,7 +39,7 @@ type BaseProfile = baseProfile.BaseProfile
 
 
 
-##### a2dp.createA2dpSrcProfile
+#### a2dp.createA2dpSrcProfile
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -80,7 +80,7 @@ try {
 
 
 
-##### A2dpSourceProfile
+#### A2dpSourceProfile
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -93,7 +93,7 @@ try {
 
 
 
-##### getPlayingState
+#### getPlayingState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -151,7 +151,7 @@ try {
 
 
 
-##### PlayingState
+#### PlayingState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -167,7 +167,7 @@ try {
 
 
 
-##### CodecInfo11+
+#### CodecInfo11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -187,7 +187,7 @@ try {
 
 
 
-##### CodecInfoList19+
+#### CodecInfoList19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -207,7 +207,7 @@ try {
 
 
 
-##### CodecType11+
+#### CodecType11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -227,7 +227,7 @@ try {
 
 
 
-##### CodecChannelMode11+
+#### CodecChannelMode11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -244,7 +244,7 @@ try {
 
 
 
-##### CodecBitsPerSample11+
+#### CodecBitsPerSample11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -262,7 +262,7 @@ try {
 
 
 
-##### CodecSampleRate11+
+#### CodecSampleRate11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -283,7 +283,7 @@ try {
 
 
 
-##### CodecBitRate19+
+#### CodecBitRate19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -308,7 +308,7 @@ try {
 
 
 
-##### CodecFrameLength19+
+#### CodecFrameLength19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

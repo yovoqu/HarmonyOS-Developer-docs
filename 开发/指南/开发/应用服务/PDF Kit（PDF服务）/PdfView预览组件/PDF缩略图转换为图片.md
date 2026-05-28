@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-pdfview-page2img
 
-##### 场景介绍
+#### 场景介绍
 
 调用[getPagePixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfviewmanage#getpagepixelmap)方法，将指定PDF缩略图转化为图片。
 
 
 
-##### 接口说明
+#### 接口说明
 
 | 接口名 | 描述 |
 | --- | --- |
@@ -19,7 +19,7 @@
 
 
 
-##### 示例代码
+#### 示例代码
 1. 调用loadDocument方法，加载PDF文档。
 2. 调用getPagePixelMap方法，获取image.PixelMap对象。
 3. 将image.PixelMap转化为二进制图片文件并保存。

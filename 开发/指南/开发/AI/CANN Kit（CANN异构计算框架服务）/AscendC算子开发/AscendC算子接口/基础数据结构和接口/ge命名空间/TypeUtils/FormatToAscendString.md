@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-formattoascendstring
 
-##### 函数功能
+#### 函数功能
 
 将Format类型值转化为字符串表达。
  
@@ -16,7 +16,7 @@
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 static AscendString FormatToAscendString(const Format &format);
@@ -24,7 +24,7 @@ static AscendString FormatToAscendString(const Format &format);
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -33,19 +33,19 @@ static AscendString FormatToAscendString(const Format &format);
  
   
 
-##### 返回值
+#### 返回值
 
 转换后的Format字符串，[AscendString](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-ascendstring-construction-and-destructor)类型。
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 ge::Format format = ge::Format::FORMAT_NHWC;

@@ -7,7 +7,7 @@
 **   
 
 
-##### 概述
+#### 概述
 
 网格是应用开发中常见的开发场景。它通过相交的横线和竖线，形成整齐有序的网状布局。网格适用于展示图片、媒体文件、购物商品等多种数据。当网格上下滑动时，子组件会带来测量和绘制的性能消耗。
  
@@ -27,11 +27,11 @@
 在Grid中存在多个GridItem时，如果使用columnStart/columnEnd或rowStart/rowEnd设置GridItem的大小，可能会导致性能问题。在这种情况下，建议使用GridLayoutOptions来提升性能。使用columnStart/columnEnd或rowStart/rowEnd布局时，如果调用scrollToIndex滑动到指定索引，Grid会遍历所有GridItem以查找位置。而使用GridLayoutOptions布局时，通过计算方式查找位置，效率更高。因此，可以通过设置GridLayoutOptions，并结合rowsTemplate或columnsTemplate来替代使用columnStart/columnEnd控制GridItem占用多列的情况。
  
 
-##### 案例说明
+#### 案例说明
 
  
 
-##### 场景示例
+#### 场景示例
 
  
 介绍Grid中使用scrollToIndex滑动到指定位置的场景。案例中，columnStart/columnEnd设置不规则宫格布局的反例，与GridLayoutOption的正例对比，示例代码如下：
@@ -227,7 +227,7 @@ struct GridExample2 {
 ```
  
 
-##### 分析步骤
+#### 分析步骤
 
  
 正反例采用相同的操作步骤，收集跳转过程中的性能参数并进行对比：
@@ -246,7 +246,7 @@ struct GridExample2 {
 
  
 
-##### 结果对比
+#### 结果对比
 
 如图所示，使用columnStart和columnEnd设置GridItem大小的布局方式。从自定义打点标签“H:useColumnStartColumnEndGrid”可以看出，从调用scrollToIndex到查找到指定索引并准备构建GridItem节点耗时447ms。
  
@@ -275,7 +275,7 @@ struct GridExample2 {
  
 图5 **使用GridLayoutOptions的放大trace标签信息
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/OoLlu_ICSLWPH2D6SKc7_Q/zh-cn_image_0000002229450909.png?HW-CC-KV=V1&HW-CC-Date=20260528T013027Z&HW-CC-Expire=86400&HW-CC-Sign=05C1638FC275F6E57D64FBA2E7AC5158FA974182E31E24330EE8EF5559656F73)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/OoLlu_ICSLWPH2D6SKc7_Q/zh-cn_image_0000002229450909.png?HW-CC-KV=V1&HW-CC-Date=20260528T024712Z&HW-CC-Expire=86400&HW-CC-Sign=AADAC6FCA32CA3EA15434F2E3579883756DE60C38F5139FAFC3F44E40515BB87)
 
  
 在相同布局情况下，使用columnStart和columnEnd设置GridItem大小时，Grid在使用scrollToIndex查找指定索引时，会依次遍历GridItem节点，导致查找过程耗时较长。而使用GridLayoutOptions设置GridItem大小时，直接一次性计算找到指定索引，查找过程耗时较短。因此，使用GridLayoutOptions设置GridItem大小可以显著减少Grid加载时间，提升应用性能。

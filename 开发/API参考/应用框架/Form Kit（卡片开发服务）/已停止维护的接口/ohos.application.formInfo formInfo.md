@@ -12,7 +12,7 @@ formInfo模块提供了卡片信息和状态等相关类型和枚举。
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { formInfo } from '@kit.FormKit';
  
   
 
-##### FormInfo
+#### FormInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -54,7 +54,7 @@ import { formInfo } from '@kit.FormKit';
  
   
 
-##### FormType
+#### FormType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -69,7 +69,7 @@ import { formInfo } from '@kit.FormKit';
  
   
 
-##### ColorMode
+#### ColorMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -86,7 +86,7 @@ import { formInfo } from '@kit.FormKit';
  
   
 
-##### FormStateInfo
+#### FormStateInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -102,7 +102,7 @@ import { formInfo } from '@kit.FormKit';
  
   
 
-##### FormState
+#### FormState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -119,7 +119,7 @@ import { formInfo } from '@kit.FormKit';
  
   
 
-##### FormParam
+#### FormParam
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

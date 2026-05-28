@@ -12,7 +12,7 @@ MDNS即多播DNS（Multicast DNS），提供局域网内的本地服务添加、
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { mdns } from '@kit.NetworkKit';
 
 
 
-##### mdns.addLocalService
+#### mdns.addLocalService
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -91,7 +91,7 @@ mdns.addLocalService(context, localServiceInfo, (error:BusinessError, data:mdns.
 
 
 
-##### mdns.addLocalService
+#### mdns.addLocalService
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -165,7 +165,7 @@ mdns.addLocalService(context, localServiceInfo).then((data: mdns.LocalServiceInf
 
 
 
-##### mdns.removeLocalService
+#### mdns.removeLocalService
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -234,7 +234,7 @@ mdns.removeLocalService(context, localServiceInfo, (error: BusinessError, data: 
 
 
 
-##### mdns.removeLocalService
+#### mdns.removeLocalService
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -307,7 +307,7 @@ mdns.removeLocalService(context, localServiceInfo).then((data: mdns.LocalService
 
 
 
-##### mdns.createDiscoveryService
+#### mdns.createDiscoveryService
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -365,7 +365,7 @@ let discoveryService : Object = mdns.createDiscoveryService(context, serviceType
 
 
 
-##### mdns.resolveLocalService
+#### mdns.resolveLocalService
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -434,7 +434,7 @@ mdns.resolveLocalService(context, localServiceInfo, (error: BusinessError, data:
 
 
 
-##### mdns.resolveLocalService
+#### mdns.resolveLocalService
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -508,7 +508,7 @@ mdns.resolveLocalService(context, localServiceInfo).then((data: mdns.LocalServic
 
 
 
-##### DiscoveryService
+#### DiscoveryService
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -516,7 +516,7 @@ mdns.resolveLocalService(context, localServiceInfo).then((data: mdns.LocalServic
 
 
 
-##### startSearchingMDNS
+#### startSearchingMDNS
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -550,7 +550,7 @@ discoveryService.startSearchingMDNS();
 
 
 
-##### stopSearchingMDNS
+#### stopSearchingMDNS
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -584,7 +584,7 @@ discoveryService.stopSearchingMDNS();
 
 
 
-##### on('discoveryStart')
+#### on('discoveryStart')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -630,7 +630,7 @@ discoveryService.stopSearchingMDNS();
 
 
 
-##### off('discoveryStart')
+#### off('discoveryStart')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -680,7 +680,7 @@ discoveryService.off('discoveryStart', (data: mdns.DiscoveryEventInfo) => {
 
 
 
-##### on('discoveryStop')
+#### on('discoveryStop')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -726,7 +726,7 @@ discoveryService.stopSearchingMDNS();
 
 
 
-##### off('discoveryStop')
+#### off('discoveryStop')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -776,7 +776,7 @@ discoveryService.off('discoveryStop', (data: mdns.DiscoveryEventInfo) => {
 
 
 
-##### on('serviceFound')
+#### on('serviceFound')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -825,7 +825,7 @@ discoveryService.stopSearchingMDNS();
 
 
 
-##### off('serviceFound')
+#### off('serviceFound')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -878,7 +878,7 @@ discoveryService.off('serviceFound', (data: mdns.LocalServiceInfo) => {
 
 
 
-##### on('serviceLost')
+#### on('serviceLost')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -924,7 +924,7 @@ discoveryService.stopSearchingMDNS();
 
 
 
-##### off('serviceLost')
+#### off('serviceLost')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -974,7 +974,7 @@ discoveryService.off('serviceLost', (data: mdns.LocalServiceInfo) => {
 
 
 
-##### LocalServiceInfo
+#### LocalServiceInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -995,7 +995,7 @@ MDNS服务信息。
 
 
 
-##### ServiceAttribute
+#### ServiceAttribute
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1013,7 +1013,7 @@ MDNS服务属性信息。
 
 
 
-##### DiscoveryEventInfo11+
+#### DiscoveryEventInfo11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1031,7 +1031,7 @@ MDNS服务属性信息。
 
 
 
-##### MdnsError
+#### MdnsError
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1050,7 +1050,7 @@ MDNS错误信息。
 
 
 
-##### NetAddress
+#### NetAddress
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

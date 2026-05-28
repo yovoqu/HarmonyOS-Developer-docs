@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { drawing } from '@kit.ArkGraphics2D';
 
 
 
-##### createBlurImageFilter12+
+#### createBlurImageFilter12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -68,7 +68,7 @@ let imgFilter = drawing.ImageFilter.createBlurImageFilter(5, 10, drawing.TileMod
 
 
 
-##### createFromImage20+
+#### createFromImage20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -144,7 +144,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### createBlendImageFilter20+
+#### createBlendImageFilter20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -195,7 +195,7 @@ let blendImageFilter = drawing.ImageFilter.createBlendImageFilter(drawing.BlendM
 
 
 
-##### createComposeImageFilter20+
+#### createComposeImageFilter20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -241,7 +241,7 @@ let composedImageFilter = drawing.ImageFilter.createComposeImageFilter(colorFilt
 
 
 
-##### createFromColorFilter12+
+#### createFromColorFilter12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -287,7 +287,7 @@ let imgFilter1 = drawing.ImageFilter.createFromColorFilter(colorFilter, imgFilte
 
 
 
-##### createOffsetImageFilter20+
+#### createOffsetImageFilter20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -325,7 +325,7 @@ let offsetFilter = drawing.ImageFilter.createOffsetImageFilter(dx, dy, null);
 
 
 
-##### createFromShaderEffect20+
+#### createFromShaderEffect20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

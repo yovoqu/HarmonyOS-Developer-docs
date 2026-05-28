@@ -7,7 +7,7 @@
 **   
 
 
-##### 概述
+#### 概述
 
 使用ArkUI开发页面时，多组件状态共享是我们经常会遇到的场景；ArkUI通过装饰器，例如@State+@Prop/@Link、@Provide+@Consume实现父子组件状态共享，但是这样会造成状态数据耦合。
  
@@ -22,7 +22,7 @@ StateStore提供了下列功能特性：
  
  
 
-##### ArkUI状态管理现状
+#### ArkUI状态管理现状
 
 在多组件状态共享的场景中，我们常常遇到的问题是，当多个组件需要共享相同的状态时，必须通过它们的共同父组件来传递和维护这些状态数据。
  
@@ -48,7 +48,7 @@ StateStore提供了下列功能特性：
  
  
 
-##### 实现原理
+#### 实现原理
 
 StateStore基于ArkUI的状态管理特性（[@Observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink)和[@ObservedV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)）实现全局状态管理。统一由UI分发事件指令，状态管理仓库触发对应的状态更新逻辑，实现状态与UI解耦。
  
@@ -85,7 +85,7 @@ StateStore基于ArkUI的状态管理特性（[@Observed](https://developer.huawe
 
  
 
-##### 开发步骤
+#### 开发步骤
 1. **定义业务数据**开发者使用@Observed或@ObservedV2修饰业务数据，并生成实例对象。
 2. **定义状态更新逻辑函数**开发者需要定义状态处理函数，该函数类型为Reducer。该函数负责根据业务逻辑来更新数据。
 3. **创建状态管理仓库**为了集中管理状态更新，开发者使用StateStore.createStore方法来创建一个状态管理仓库（即Store对象）。在调用createStore方法时，需要传入业务数据的对象实例和业务逻辑函数，以便为Store对象绑定相应的**初始状态**和**Reducer**。
@@ -100,11 +100,11 @@ StateStore基于ArkUI的状态管理特性（[@Observed](https://developer.huawe
  
  
 
-##### 使用StateStore实现状态与UI解耦
+#### 使用StateStore实现状态与UI解耦
 
  
 
-##### 场景描述
+#### 场景描述
 
 在开发复杂应用时，状态与UI的强耦合常常导致代码臃肿、难以维护，尤其是在多个组件需要共享状态时，这种问题尤为突出。使用StateStore，开发者可以将状态管理逻辑完全从UI中抽离，实现状态的集中式管理和更新，进而简化代码结构、提高可维护性。
  
@@ -118,7 +118,7 @@ StateStore基于ArkUI的状态管理特性（[@Observed](https://developer.huawe
  
  
 
-##### 开发步骤
+#### 开发步骤
 1. 定义页面数据使用@ObservedV2定义页面需要的数据TodoList、TodoItem。
 
   
@@ -230,11 +230,11 @@ export const TodoStore: Store<TodoStoreModel> =
 
   
 
-  ##### 子线程同步数据库
+  #### 子线程同步数据库
 
   
 
-  ##### 场景描述
+  #### 场景描述
 
   在HarmonyOS开发中，子线程无法直接修改或者操作UI状态。这种限制导致子线程在完成复杂任务处理后，需要额外的逻辑将任务结果同步到主线程进行状态更新。
 
@@ -252,7 +252,7 @@ export const TodoStore: Store<TodoStoreModel> =
 
   
 
-  ##### 开发步骤
+  #### 开发步骤
 
 1. 定义数据
 ```ArkTS
@@ -374,11 +374,11 @@ export struct AsyncProgressBuilder {
 
   
 
-  ##### 状态更新日志埋点
+  #### 状态更新日志埋点
 
   
 
-  ##### 场景描述
+  #### 场景描述
 
   在状态管理过程中，复杂业务逻辑往往需要在状态更新前后插入额外的处理逻辑，例如记录状态更新日志、请求鉴权等。这些逻辑如果直接耦合在状态管理的核心流程中，会导致代码冗杂且难以维护。
 
@@ -393,12 +393,12 @@ export struct AsyncProgressBuilder {
   图6 ****中间件执行流程图**
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/84mK7_KsQBGDquOQon6QmQ/zh-cn_image_0000002229451401.png?HW-CC-KV=V1&HW-CC-Date=20260528T013048Z&HW-CC-Expire=86400&HW-CC-Sign=DB007EC4F0B4DAA390BFBF39F7C74EC9181F2799FD9706DB004512A6A4C76375)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/84mK7_KsQBGDquOQon6QmQ/zh-cn_image_0000002229451401.png?HW-CC-KV=V1&HW-CC-Date=20260528T024732Z&HW-CC-Expire=86400&HW-CC-Sign=B44C1B60EE5683939E5AD60D683900DFF0799E1A6B0EC5D64736DECDF5748F2D)
 
 
   
 
-  ##### 开发步骤
+  #### 开发步骤
 
 1. 定义中间件开发者根据业务逻辑需要来实现beforeAction和afterAction两个钩子方法，分别在状态更新前后执行自定义逻辑。
 
@@ -438,7 +438,7 @@ export const TodoStore: Store<TodoStoreModel> =
 
   
 
-  ##### 示例代码
+  #### 示例代码
 
   
 [基于StateStore实现全局状态管理最佳实践](https://gitcode.com/harmonyos_samples/StateStore)

@@ -10,7 +10,7 @@ typedef ArkUI_TouchRecognizerHandle* ArkUI_TouchRecognizerHandleArray
 ```
   
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-asset-api-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
 
 
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -49,13 +49,13 @@
 
 
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### OH_Asset_Add()
+#### OH_Asset_Add()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -88,7 +88,7 @@ int32_t OH_Asset_Add(const Asset_Attr *attributes, uint32_t attrCnt)
 
 
 
-##### OH_Asset_Remove()
+#### OH_Asset_Remove()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -119,7 +119,7 @@ int32_t OH_Asset_Remove(const Asset_Attr *query, uint32_t queryCnt)
 
 
 
-##### OH_Asset_Update()
+#### OH_Asset_Update()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -152,7 +152,7 @@ int32_t OH_Asset_Update(const Asset_Attr *query, uint32_t queryCnt,const Asset_A
 
 
 
-##### OH_Asset_PreQuery()
+#### OH_Asset_PreQuery()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -184,7 +184,7 @@ int32_t OH_Asset_PreQuery(const Asset_Attr *query, uint32_t queryCnt, Asset_Blob
 
 
 
-##### OH_Asset_Query()
+#### OH_Asset_Query()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -216,7 +216,7 @@ int32_t OH_Asset_Query(const Asset_Attr *query, uint32_t queryCnt, Asset_ResultS
 
 
 
-##### OH_Asset_PostQuery()
+#### OH_Asset_PostQuery()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -247,7 +247,7 @@ int32_t OH_Asset_PostQuery(const Asset_Attr *handle, uint32_t handleCnt)
 
 
 
-##### OH_Asset_QuerySyncResult()
+#### OH_Asset_QuerySyncResult()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -279,7 +279,7 @@ int32_t OH_Asset_QuerySyncResult(const Asset_Attr *query, uint32_t queryCnt, Ass
 
 
 
-##### OH_Asset_ParseAttr()
+#### OH_Asset_ParseAttr()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -310,7 +310,7 @@ Asset_Attr *OH_Asset_ParseAttr(const Asset_Result *result, Asset_Tag tag)
 
 
 
-##### OH_Asset_FreeBlob()
+#### OH_Asset_FreeBlob()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -333,7 +333,7 @@ void OH_Asset_FreeBlob(Asset_Blob *blob)
 
 
 
-##### OH_Asset_FreeResultSet()
+#### OH_Asset_FreeResultSet()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

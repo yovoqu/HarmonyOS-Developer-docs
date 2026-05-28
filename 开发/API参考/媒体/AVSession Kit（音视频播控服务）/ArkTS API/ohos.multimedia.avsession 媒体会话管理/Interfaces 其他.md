@@ -10,7 +10,7 @@
 
 
 
-##### AVCastControlCommand10+
+#### AVCastControlCommand10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -28,7 +28,7 @@
 
 
 
-##### CastDisplayInfo12+
+#### CastDisplayInfo12+
 
 **支持设备：** Phone | Tablet
 
@@ -49,7 +49,7 @@
 
 
 
-##### AVMetadata10+
+#### AVMetadata10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -87,7 +87,7 @@
 
 
 
-##### AVMediaDescription10+
+#### AVMediaDescription10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -123,7 +123,7 @@
 
 
 
-##### AVQueueItem10+
+#### AVQueueItem10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -141,7 +141,7 @@
 
 
 
-##### AVPlaybackState10+
+#### AVPlaybackState10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -169,7 +169,7 @@
 
 
 
-##### PlaybackPosition10+
+#### PlaybackPosition10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -187,7 +187,7 @@
 
 
 
-##### CallMetadata11+
+#### CallMetadata11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -206,7 +206,7 @@
 
 
 
-##### AVCallState11+
+#### AVCallState11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -224,7 +224,7 @@
 
 
 
-##### DeviceInfo10+
+#### DeviceInfo10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -246,7 +246,7 @@
 
 
 
-##### OutputDeviceInfo10+
+#### OutputDeviceInfo10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -263,7 +263,7 @@
 
 
 
-##### AVControlCommand10+
+#### AVControlCommand10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -280,7 +280,7 @@
 
 
 
-##### AVCastPickerOptions14+
+#### AVCastPickerOptions14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -297,7 +297,7 @@
 
 
 
-##### AudioCapabilities20+
+#### AudioCapabilities20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -314,7 +314,7 @@
 
 
 
-##### CommandInfo22+
+#### CommandInfo22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -332,7 +332,7 @@
 
 
 
-##### MenuPosition 22+
+#### MenuPosition 22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -352,7 +352,7 @@
 
 
 
-##### AVSessionDescriptor 23+
+#### AVSessionDescriptor 23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -372,7 +372,7 @@
 
 
 
-##### DesktopLyricState23+
+#### DesktopLyricState23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

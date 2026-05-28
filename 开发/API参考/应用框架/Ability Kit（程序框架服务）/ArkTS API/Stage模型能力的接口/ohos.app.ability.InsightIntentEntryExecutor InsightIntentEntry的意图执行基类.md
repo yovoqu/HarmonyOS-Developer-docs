@@ -14,7 +14,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,13 +24,13 @@ import { InsightIntentEntryExecutor } from '@kit.AbilityKit';
  
   
 
-##### InsightIntentEntryExecutor&lt;T&gt;
+#### InsightIntentEntryExecutor&lt;T&gt;
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -48,7 +48,7 @@ import { InsightIntentEntryExecutor } from '@kit.AbilityKit';
  
   
 
-##### onExecute
+#### onExecute
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

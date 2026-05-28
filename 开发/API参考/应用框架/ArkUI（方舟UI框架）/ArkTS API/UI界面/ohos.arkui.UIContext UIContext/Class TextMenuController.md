@@ -12,7 +12,7 @@
 
   
 
-##### setMenuOptions16+
+#### setMenuOptions16+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -74,7 +74,7 @@ struct Index {
  
   
 
-##### disableSystemServiceMenuItems20+
+#### disableSystemServiceMenuItems20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -143,7 +143,7 @@ struct Index {
  
   
 
-##### disableMenuItems20+
+#### disableMenuItems20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

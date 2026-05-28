@@ -10,7 +10,7 @@
 **起始版本：** 5.0.0(12)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -20,7 +20,7 @@ import { hdsDrawable } from '@kit.UIDesignKit';
  
   
 
-##### hdsDrawable.getHdsLayeredIcon
+#### hdsDrawable.getHdsLayeredIcon
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -104,7 +104,7 @@ try {
  
   
 
-##### hdsDrawable.getHdsLayeredIconAsync
+#### hdsDrawable.getHdsLayeredIconAsync
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -184,7 +184,7 @@ try {
  
   
 
-##### hdsDrawable.getHdsIcon
+#### hdsDrawable.getHdsIcon
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -261,7 +261,7 @@ try {
  
   
 
-##### hdsDrawable.getHdsIconAsync
+#### hdsDrawable.getHdsIconAsync
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -345,7 +345,7 @@ try {
  
   
 
-##### hdsDrawable.getHdsLayeredIcons
+#### hdsDrawable.getHdsLayeredIcons
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -437,7 +437,7 @@ try {
  
   
 
-##### hdsDrawable.getHdsIcons
+#### hdsDrawable.getHdsIcons
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -533,7 +533,7 @@ try {
  
   
 
-##### LayeredIcon
+#### LayeredIcon
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -557,7 +557,7 @@ try {
  
   
 
-##### Options
+#### Options
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -582,7 +582,7 @@ try {
  
   
 
-##### ProcessedIcon
+#### ProcessedIcon
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -606,7 +606,7 @@ try {
  
   
 
-##### Icon
+#### Icon
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

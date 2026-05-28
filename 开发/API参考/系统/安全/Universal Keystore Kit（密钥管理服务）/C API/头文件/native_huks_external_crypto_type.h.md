@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-external-crypto-type-h
 **支持设备：** PC/2in1 | Tablet
 
-##### 概述
+#### 概述
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** PC/2in1 | Tablet
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** PC/2in1 | Tablet
  
@@ -41,7 +41,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** PC/2in1 | Tablet
  
@@ -52,7 +52,7 @@
  
   
 
-##### 宏定义
+#### 宏定义
 
 **支持设备：** PC/2in1 | Tablet
  
@@ -64,13 +64,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** PC/2in1 | Tablet
 
   
 
-##### OH_Huks_ExternalCryptoTag
+#### OH_Huks_ExternalCryptoTag
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -96,7 +96,7 @@ enum OH_Huks_ExternalCryptoTag
  
   
 
-##### OH_Huks_ExternalPinAuthState
+#### OH_Huks_ExternalPinAuthState
 
 **支持设备：** PC/2in1 | Tablet
 

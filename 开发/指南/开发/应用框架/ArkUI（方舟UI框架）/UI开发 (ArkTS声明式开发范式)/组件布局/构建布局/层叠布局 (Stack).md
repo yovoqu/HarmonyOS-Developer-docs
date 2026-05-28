@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-stack-layout
 
-##### 概述
+#### 概述
 
 层叠布局（StackLayout）用于在屏幕上预留一块区域来显示组件中的元素，提供元素可以重叠的布局。层叠布局通过[Stack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-stack)容器组件实现位置的固定定位与层叠，容器中的子元素依次入栈，后一个子元素覆盖前一个子元素，子元素可以叠加，也可以设置位置。
 
@@ -24,7 +24,7 @@
 
 
 
-##### 开发布局
+#### 开发布局
 
 Stack组件为容器组件，容器内可包含各种子元素。其中子元素默认进行居中堆叠。子元素被约束在Stack下，进行自己的样式定义以及排列。
 
@@ -53,7 +53,7 @@ struct StackLayoutExample {
 
 
 
-##### 对齐方式
+#### 对齐方式
 
 Stack组件通过[alignContent参数](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-stack#aligncontent)实现位置的相对移动。如图2所示，支持九种对齐方式。
 
@@ -80,7 +80,7 @@ struct StackAlignContentExample {
 
 
 
-##### Z序控制
+#### Z序控制
 
 Stack容器中兄弟组件显示层级关系可以通过[Z序控制](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-z-order)的zIndex属性改变。zIndex值越大，显示层级越高，即zIndex值大的组件会覆盖在zIndex值小的组件上方。
 
@@ -136,7 +136,7 @@ Stack({ alignContent: Alignment.BottomStart }) {
 
 
 
-##### 场景示例
+#### 场景示例
 
 使用层叠布局快速搭建页面。
 
@@ -180,11 +180,11 @@ struct StackSample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/b6pteeP8ToeX4fI1KphZ6w/zh-cn_image_0000002611833601.png?HW-CC-KV=V1&HW-CC-Date=20260528T014825Z&HW-CC-Expire=86400&HW-CC-Sign=519AF0B9D46D362B25760DE776E9ACC0EA65C4B443832FD4CFBB2979F70E0D63)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/b6pteeP8ToeX4fI1KphZ6w/zh-cn_image_0000002611833601.png?HW-CC-KV=V1&HW-CC-Date=20260528T030454Z&HW-CC-Expire=86400&HW-CC-Sign=C897D9C0F76281EF996140CE5050AA220D417C38EDD7AD1565317BE3C5B25ECB)
 
 
 
 
-##### 示例代码
+#### 示例代码
 
  - [组件堆叠](https://gitcode.com/HarmonyOS_Samples/component-stack)

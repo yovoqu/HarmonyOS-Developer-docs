@@ -10,7 +10,7 @@
 **起始版本：** 5.0.3(15)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -20,7 +20,7 @@ import { deferredLink } from '@kit.AppLinkingKit';
  
   
 
-##### popDeferredLink
+#### popDeferredLink
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

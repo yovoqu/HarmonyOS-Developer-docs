@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { uiExtension } from '@kit.ArkUI';
 
 
 
-##### WindowProxy
+#### WindowProxy
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -30,7 +30,7 @@ UIExtension宿主窗代理。
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -45,7 +45,7 @@ UIExtension宿主窗代理。
 
 
 
-##### getWindowAvoidArea
+#### getWindowAvoidArea
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -99,7 +99,7 @@ export default class EntryAbility extends EmbeddedUIExtensionAbility {
 
 
 
-##### on('avoidAreaChange')
+#### on('avoidAreaChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -148,7 +148,7 @@ export default class EntryAbility extends EmbeddedUIExtensionAbility {
 
 
 
-##### off('avoidAreaChange')
+#### off('avoidAreaChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -194,7 +194,7 @@ export default class EntryAbility extends EmbeddedUIExtensionAbility {
 
 
 
-##### on('windowSizeChange')
+#### on('windowSizeChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -243,7 +243,7 @@ export default class EntryAbility extends EmbeddedUIExtensionAbility {
 
 
 
-##### off('windowSizeChange')
+#### off('windowSizeChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -289,7 +289,7 @@ export default class EntryAbility extends EmbeddedUIExtensionAbility {
 
 
 
-##### on('rectChange')14+
+#### on('rectChange')14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -342,7 +342,7 @@ export default class EntryAbility extends EmbeddedUIExtensionAbility {
 
 
 
-##### off('rectChange')14+
+#### off('rectChange')14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -391,7 +391,7 @@ export default class EntryAbility extends EmbeddedUIExtensionAbility {
 
 
 
-##### createSubWindowWithOptions
+#### createSubWindowWithOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -483,7 +483,7 @@ export default class EntryAbility extends EmbeddedUIExtensionAbility {
 
 
 
-##### createSubWindowWithOptions23+
+#### createSubWindowWithOptions23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -573,7 +573,7 @@ export default class EntryAbility extends EmbeddedUIExtensionAbility {
 
 
 
-##### occupyEvents18+
+#### occupyEvents18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -641,7 +641,7 @@ export default class EntryAbility extends EmbeddedUIExtensionAbility {
 
 
 
-##### EventFlag18+
+#### EventFlag18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -664,7 +664,7 @@ export default class EntryAbility extends EmbeddedUIExtensionAbility {
 
 
 
-##### AvoidAreaInfo
+#### AvoidAreaInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -682,7 +682,7 @@ export default class EntryAbility extends EmbeddedUIExtensionAbility {
 
 
 
-##### WindowProxyProperties14+
+#### WindowProxyProperties14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -699,7 +699,7 @@ export default class EntryAbility extends EmbeddedUIExtensionAbility {
 
 
 
-##### RectChangeReason14+
+#### RectChangeReason14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -716,7 +716,7 @@ export default class EntryAbility extends EmbeddedUIExtensionAbility {
 
 
 
-##### RectChangeOptions14+
+#### RectChangeOptions14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -734,7 +734,7 @@ export default class EntryAbility extends EmbeddedUIExtensionAbility {
 
 
 
-##### 完整示例
+#### 完整示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

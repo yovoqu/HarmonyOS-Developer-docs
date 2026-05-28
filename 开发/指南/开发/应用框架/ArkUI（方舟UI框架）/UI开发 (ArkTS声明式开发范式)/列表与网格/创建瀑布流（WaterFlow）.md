@@ -13,7 +13,7 @@ ArkUI提供了WaterFlow容器组件，用于构建瀑布流布局。WaterFlow组
 
 
 
-##### 布局与约束
+#### 布局与约束
 
 瀑布流支持横向和纵向布局。在纵向布局中，可以通过[columnsTemplate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-waterflow#columnstemplate)设置列数；在横向布局中，可以通过[rowsTemplate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-waterflow#rowstemplate)设置行数。
 
@@ -31,11 +31,11 @@ ArkUI提供了WaterFlow容器组件，用于构建瀑布流布局。WaterFlow组
 
 
 
-##### 无限滚动
+#### 无限滚动
 
 
 
-##### 到达末尾时新增数据
+#### 到达末尾时新增数据
 
 瀑布流常用于无限滚动的信息流。可以在瀑布流组件到达末尾位置时触发的[onReachEnd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-waterflow#onreachend)事件回调中对[LazyForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-lazyforeach)增加新数据，并将footer做成正在加载新数据的样式（使用[LoadingProgress](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-loadingprogress)组件）。
 
@@ -99,7 +99,7 @@ build() {
 
 
 
-##### 提前新增数据
+#### 提前新增数据
 
 虽然在onReachEnd()触发时加载数据可以实现无限加载，但在滑动到底部会出现明显的停顿。
 
@@ -148,7 +148,7 @@ build() {
 
 
 
-##### 动态切换列数
+#### 动态切换列数
 
 通过动态调整瀑布流的列数，应用能够实现在列表模式与瀑布流模式间的切换，或适应屏幕宽度的变化。 若要动态设置列数，建议采用瀑布流的移动窗口布局模式，即取值为[WaterFlowLayoutMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-waterflow#waterflowlayoutmode12枚举说明)中的SLIDING_WINDOW，这可以实现更快速的列数转换。
 
@@ -238,7 +238,7 @@ export struct WaterFlowDynamicSwitchover {
 
 
 
-##### 分组混合布局
+#### 分组混合布局
 
 许多应用界面在瀑布流上方包含其他内容，这类场景可通过在Scroll或List内部嵌套WaterFlow来实现。类似下图：
 
@@ -363,7 +363,7 @@ export struct WaterFlowGroupingMixing {
 
 
 
-##### 示例代码
+#### 示例代码
 
  - [实现WaterFlow瀑布流布局功能](https://gitcode.com/HarmonyOS_Samples/water-flow)
  - [主页瀑布流实现](https://gitcode.com/HarmonyOS-Cases/cases/blob/master/CommonAppDevelopment/feature/functionalscenes/README.md)

@@ -16,7 +16,7 @@
 **起始版本：** 5.0.0(12)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -26,7 +26,7 @@ import { atomicService } from '@kit.ScenarioFusionKit';
  
   
 
-##### SystemSettingInfo
+#### SystemSettingInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -50,7 +50,7 @@ import { atomicService } from '@kit.ScenarioFusionKit';
  
   
 
-##### SystemInfo
+#### SystemInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -87,7 +87,7 @@ import { atomicService } from '@kit.ScenarioFusionKit';
  
   
 
-##### FollowResult
+#### FollowResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -111,7 +111,7 @@ import { atomicService } from '@kit.ScenarioFusionKit';
  
   
 
-##### FollowComponentParams
+#### FollowComponentParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -136,7 +136,7 @@ import { atomicService } from '@kit.ScenarioFusionKit';
  
   
 
-##### FollowComponentCallback
+#### FollowComponentCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -159,7 +159,7 @@ import { atomicService } from '@kit.ScenarioFusionKit';
  
   
 
-##### FollowCompleteResult
+#### FollowCompleteResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -180,7 +180,7 @@ import { atomicService } from '@kit.ScenarioFusionKit';
  
   
 
-##### SystemInfoType
+#### SystemInfoType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -225,7 +225,7 @@ type SystemInfoType = 'brand' | 'deviceModel' | 'screenWidth' | 'screenHeight' |
  
   
 
-##### SystemSettingType
+#### SystemSettingType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -253,7 +253,7 @@ type SystemSettingType = 'bluetoothEnabled' | 'locationEnabled' | 'wifiEnabled' 
  
   
 
-##### getSystemInfoSync
+#### getSystemInfoSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -321,7 +321,7 @@ try {
  
   
 
-##### getSystemInfo
+#### getSystemInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -399,7 +399,7 @@ try {
  
   
 
-##### getSystemSetting
+#### getSystemSetting
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -453,7 +453,7 @@ try {
  
   
 
-##### showFollowComponent
+#### showFollowComponent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

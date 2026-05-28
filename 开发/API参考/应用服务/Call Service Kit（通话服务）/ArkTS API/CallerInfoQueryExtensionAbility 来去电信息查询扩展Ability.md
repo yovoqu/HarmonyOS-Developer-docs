@@ -15,7 +15,7 @@ CallerInfoQueryExtensionAbility是来去电信息查询扩展Ability，提供通
 **起始版本：** 5.0.2(14)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -25,7 +25,7 @@ import { CallerInfoQueryExtensionAbility, CallerInfo, numberIdentify } from '@ki
  
   
 
-##### CallerInfoQueryExtensionAbility
+#### CallerInfoQueryExtensionAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -46,7 +46,7 @@ import { CallerInfoQueryExtensionAbility, CallerInfo, numberIdentify } from '@ki
  
   
 
-##### onQueryCallerInfo
+#### onQueryCallerInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -135,7 +135,7 @@ export default class EntryCallerInfoQueryExtAbility extends CallerInfoQueryExten
  
   
 
-##### onQueryBusinessServiceData
+#### onQueryBusinessServiceData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -205,7 +205,7 @@ export default class EntryCallerInfoQueryExtAbility extends CallerInfoQueryExten
  
   
 
-##### CallerInfo
+#### CallerInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

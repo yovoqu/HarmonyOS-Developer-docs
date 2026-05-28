@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-start-options-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
 
 
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -40,7 +40,7 @@
 
 
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -82,13 +82,13 @@
 
 
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### OH_AbilityRuntime_CreateStartOptions()
+#### OH_AbilityRuntime_CreateStartOptions()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -129,7 +129,7 @@ void createStartOptionsTest()
 
 
 
-##### OH_AbilityRuntime_DestroyStartOptions()
+#### OH_AbilityRuntime_DestroyStartOptions()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -177,7 +177,7 @@ void destroyStartOptionsTest()
 
 
 
-##### OH_AbilityRuntime_SetStartOptionsWindowMode()
+#### OH_AbilityRuntime_SetStartOptionsWindowMode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -231,7 +231,7 @@ void demo()
 
 
 
-##### OH_AbilityRuntime_GetStartOptionsWindowMode()
+#### OH_AbilityRuntime_GetStartOptionsWindowMode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -285,7 +285,7 @@ void demo()
 
 
 
-##### OH_AbilityRuntime_SetStartOptionsDisplayId()
+#### OH_AbilityRuntime_SetStartOptionsDisplayId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -338,7 +338,7 @@ void demo()
 
 
 
-##### OH_AbilityRuntime_GetStartOptionsDisplayId()
+#### OH_AbilityRuntime_GetStartOptionsDisplayId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -392,7 +392,7 @@ void demo()
 
 
 
-##### OH_AbilityRuntime_SetStartOptionsWithAnimation()
+#### OH_AbilityRuntime_SetStartOptionsWithAnimation()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -445,7 +445,7 @@ void demo()
 
 
 
-##### OH_AbilityRuntime_GetStartOptionsWithAnimation()
+#### OH_AbilityRuntime_GetStartOptionsWithAnimation()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -499,7 +499,7 @@ void demo()
 
 
 
-##### OH_AbilityRuntime_SetStartOptionsWindowLeft()
+#### OH_AbilityRuntime_SetStartOptionsWindowLeft()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -552,7 +552,7 @@ void demo()
 
 
 
-##### OH_AbilityRuntime_GetStartOptionsWindowLeft()
+#### OH_AbilityRuntime_GetStartOptionsWindowLeft()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -606,7 +606,7 @@ void demo()
 
 
 
-##### OH_AbilityRuntime_SetStartOptionsWindowTop()
+#### OH_AbilityRuntime_SetStartOptionsWindowTop()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -659,7 +659,7 @@ void demo()
 
 
 
-##### OH_AbilityRuntime_GetStartOptionsWindowTop()
+#### OH_AbilityRuntime_GetStartOptionsWindowTop()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -713,7 +713,7 @@ void demo()
 
 
 
-##### OH_AbilityRuntime_SetStartOptionsWindowHeight()
+#### OH_AbilityRuntime_SetStartOptionsWindowHeight()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -766,7 +766,7 @@ void demo()
 
 
 
-##### OH_AbilityRuntime_GetStartOptionsWindowHeight()
+#### OH_AbilityRuntime_GetStartOptionsWindowHeight()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -820,7 +820,7 @@ void demo()
 
 
 
-##### OH_AbilityRuntime_SetStartOptionsWindowWidth()
+#### OH_AbilityRuntime_SetStartOptionsWindowWidth()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -873,7 +873,7 @@ void demo()
 
 
 
-##### OH_AbilityRuntime_GetStartOptionsWindowWidth()
+#### OH_AbilityRuntime_GetStartOptionsWindowWidth()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -927,7 +927,7 @@ void demo()
 
 
 
-##### OH_AbilityRuntime_SetStartOptionsStartVisibility()
+#### OH_AbilityRuntime_SetStartOptionsStartVisibility()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -981,7 +981,7 @@ void demo()
 
 
 
-##### OH_AbilityRuntime_GetStartOptionsStartVisibility()
+#### OH_AbilityRuntime_GetStartOptionsStartVisibility()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1035,7 +1035,7 @@ void demo()
 
 
 
-##### OH_AbilityRuntime_SetStartOptionsStartWindowIcon()
+#### OH_AbilityRuntime_SetStartOptionsStartWindowIcon()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1125,7 +1125,7 @@ void demo()
 
 
 
-##### OH_AbilityRuntime_GetStartOptionsStartWindowIcon()
+#### OH_AbilityRuntime_GetStartOptionsStartWindowIcon()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1183,7 +1183,7 @@ void demo()
 
 
 
-##### OH_AbilityRuntime_SetStartOptionsStartWindowBackgroundColor()
+#### OH_AbilityRuntime_SetStartOptionsStartWindowBackgroundColor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1237,7 +1237,7 @@ void demo()
 
 
 
-##### OH_AbilityRuntime_GetStartOptionsStartWindowBackgroundColor()
+#### OH_AbilityRuntime_GetStartOptionsStartWindowBackgroundColor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1303,7 +1303,7 @@ void demo()
 
 
 
-##### OH_AbilityRuntime_SetStartOptionsSupportedWindowModes()
+#### OH_AbilityRuntime_SetStartOptionsSupportedWindowModes()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1365,7 +1365,7 @@ void demo()
 
 
 
-##### OH_AbilityRuntime_GetStartOptionsSupportedWindowModes()
+#### OH_AbilityRuntime_GetStartOptionsSupportedWindowModes()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1430,7 +1430,7 @@ void demo()
 
 
 
-##### OH_AbilityRuntime_SetStartOptionsMinWindowWidth()
+#### OH_AbilityRuntime_SetStartOptionsMinWindowWidth()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1484,7 +1484,7 @@ void demo()
 
 
 
-##### OH_AbilityRuntime_GetStartOptionsMinWindowWidth()
+#### OH_AbilityRuntime_GetStartOptionsMinWindowWidth()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1539,7 +1539,7 @@ void demo()
 
 
 
-##### OH_AbilityRuntime_SetStartOptionsMaxWindowWidth()
+#### OH_AbilityRuntime_SetStartOptionsMaxWindowWidth()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1593,7 +1593,7 @@ void demo()
 
 
 
-##### OH_AbilityRuntime_GetStartOptionsMaxWindowWidth()
+#### OH_AbilityRuntime_GetStartOptionsMaxWindowWidth()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1648,7 +1648,7 @@ void demo()
 
 
 
-##### OH_AbilityRuntime_SetStartOptionsMinWindowHeight()
+#### OH_AbilityRuntime_SetStartOptionsMinWindowHeight()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1702,7 +1702,7 @@ void demo()
 
 
 
-##### OH_AbilityRuntime_GetStartOptionsMinWindowHeight()
+#### OH_AbilityRuntime_GetStartOptionsMinWindowHeight()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1757,7 +1757,7 @@ void demo()
 
 
 
-##### OH_AbilityRuntime_SetStartOptionsMaxWindowHeight()
+#### OH_AbilityRuntime_SetStartOptionsMaxWindowHeight()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1811,7 +1811,7 @@ void demo()
 
 
 
-##### OH_AbilityRuntime_GetStartOptionsMaxWindowHeight()
+#### OH_AbilityRuntime_GetStartOptionsMaxWindowHeight()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

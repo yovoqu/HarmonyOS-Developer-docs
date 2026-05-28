@@ -13,7 +13,7 @@
 
 
 
-##### 概述
+#### 概述
 
 在开发和调试过程中，开发者会遇到修改对象的值后UI页面不刷新的问题（详见[状态管理常见问题](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-faq)），在复杂业务中排查此类问题尤为不便。为此，提供了canBeObserved接口帮助开发者定位和分析问题。开发者使用该接口不仅可以判断对象是否为可被观察的对象，还能获取对象关联的组件信息。
 
@@ -25,7 +25,7 @@ import { UIUtils } from '@kit.ArkUI';
 
 
 
-##### 限制条件
+#### 限制条件
 
 canBeObserved仅支持非空的对象类型传参。如果传入undefined或null，isObserved返回false。如果传入非Object类型，则会编译报错。
 
@@ -45,7 +45,7 @@ let result: ObservedResult = UIUtils.canBeObserved(new User()); // 正确用法
 
 
 
-##### 对象可被观察场景
+#### 对象可被观察场景
 
 可被观察对象调用canBeObserved接口，返回的[ObservedResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#observedresult23)结果对象中reason的值包含以下情况：
 
@@ -62,7 +62,7 @@ let result: ObservedResult = UIUtils.canBeObserved(new User()); // 正确用法
 
 
 
-##### V1组件对象可被观察场景
+#### V1组件对象可被观察场景
 
 在V1组件中，可被观察对象场景如下：
 
@@ -280,7 +280,7 @@ struct TrackChild {
 
 
 
-##### V2组件对象可被观察场景
+#### V2组件对象可被观察场景
 
 V2组件中，对象可被观察场景如下：
 
@@ -439,7 +439,7 @@ struct V2Local {
 
 
 
-##### V1组件和V2组件混用对象可被观察场景
+#### V1组件和V2组件混用对象可被观察场景
 
 V1组件和V2组件混用的场景中，要使对象能在V1组件和V2组件保持同步刷新，则需要在V1组件中使用[enableV2Compatibility](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-v1-v2-mixusage#enablev2compatibility)方法将V1组件的可被观察对象包装后传入V2组件。
 
@@ -564,13 +564,13 @@ export struct V2Child {
 
 
 
-##### 状态管理常见不刷新问题分析
+#### 状态管理常见不刷新问题分析
 
 在[状态管理常见问题](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-faq)的案例中介绍了常见的状态管理对象不刷新UI或者页面性能不达标的问题，以下介绍如何使用canBeObserved接口来帮助开发者分析和定位问题原因。
 
 
 
-##### a.b(this.object)案例分析
+#### a.b(this.object)案例分析
 
 在[a.b(this.object)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-faq-inner-component#使用abthisobject形式调用不会触发ui刷新)案例的反例中，由于b的入参传入的是this.object的原始对象，原始对象是不可被观察的，所以导致UI无法刷新。开发者可以在修改属性前调用canBeObserved接口判断入参对象是否可被观察。
 
@@ -644,7 +644,7 @@ reduceVolume(balloon: Balloon) {
 
 
 
-##### 状态变量关联的组件数过多导致性能下降案例分析
+#### 状态变量关联的组件数过多导致性能下降案例分析
 
 在[状态变量关联的组件数过多导致性能下降](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-faq-inner-component#状态变量关联的组件数过多导致性能下降)案例中提供了HiDumper工具来查看状态变量关联的组件，若组件关联过多，则页面性能下降。开发者也可以使用canBeObserved接口在业务代码中获取状态管理对象关联的组件，根据接口返回结果优化业务代码。
 
@@ -743,7 +743,7 @@ Button('move')
 
 
 
-##### ForEach和对象数组结合使用导致UI不刷新案例分析
+#### ForEach和对象数组结合使用导致UI不刷新案例分析
 
 在[ForEach和对象数组结合使用导致UI不刷新](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-faq-inner-component#foreach和对象数组结合使用导致ui不刷新)案例中，使用canBeObserved接口获取判断对象是否是可被观察的。
 
@@ -813,7 +813,7 @@ Text('Font Size List')
 
 
 
-##### 数据重置导致UI不刷新使用场景
+#### 数据重置导致UI不刷新使用场景
 
 在[数据重置导致UI不刷新使用场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-faq-inner-class#数据重置导致ui不刷新)案例中，使用canBeObserved接口定位UI不刷新原因。
 

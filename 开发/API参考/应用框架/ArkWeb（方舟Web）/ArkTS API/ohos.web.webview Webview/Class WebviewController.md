@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { webview } from '@kit.ArkWeb';
 
 
 
-##### constructor11+
+#### constructor11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -126,7 +126,7 @@ struct WebComponent {
 
 
 
-##### initializeWebEngine
+#### initializeWebEngine
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -160,7 +160,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setHttpDns10+
+#### setHttpDns10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -212,7 +212,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setWebDebuggingAccess
+#### setWebDebuggingAccess
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -270,7 +270,7 @@ struct WebComponent {
 
 
 
-##### loadUrl
+#### loadUrl
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -465,7 +465,7 @@ struct WebComponent {
 
 
 
-##### loadData
+#### loadData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -674,7 +674,7 @@ struct WebComponent {
 
 
 
-##### accessForward
+#### accessForward
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -733,7 +733,7 @@ struct WebComponent {
 
 
 
-##### forward
+#### forward
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -782,7 +782,7 @@ struct WebComponent {
 
 
 
-##### accessBackward
+#### accessBackward
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -845,7 +845,7 @@ struct WebComponent {
 
 
 
-##### backward
+#### backward
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -894,7 +894,7 @@ struct WebComponent {
 
 
 
-##### onActive
+#### onActive
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -945,7 +945,7 @@ struct WebComponent {
 
 
 
-##### onInactive
+#### onInactive
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -996,7 +996,7 @@ struct WebComponent {
 
 
 
-##### refresh
+#### refresh
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1045,7 +1045,7 @@ struct WebComponent {
 
 
 
-##### refresh24+
+#### refresh24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1101,7 +1101,7 @@ struct WebComponent {
 
 
 
-##### accessStep
+#### accessStep
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1167,7 +1167,7 @@ struct WebComponent {
 
 
 
-##### clearHistory
+#### clearHistory
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1216,7 +1216,7 @@ struct WebComponent {
 
 
 
-##### registerJavaScriptProxy
+#### registerJavaScriptProxy
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1398,7 +1398,7 @@ struct Index {
 
 
 
-##### runJavaScript
+#### runJavaScript
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1497,7 +1497,7 @@ struct WebComponent {
 
 
 
-##### runJavaScript
+#### runJavaScript
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1596,7 +1596,7 @@ struct WebComponent {
 
 
 
-##### runJavaScriptExt10+
+#### runJavaScriptExt10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1828,7 +1828,7 @@ function test() {
 
 
 
-##### runJavaScriptExt10+
+#### runJavaScriptExt10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2053,7 +2053,7 @@ function test() {
 
 
 
-##### deleteJavaScriptRegister
+#### deleteJavaScriptRegister
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2165,7 +2165,7 @@ struct WebComponent {
 
 
 
-##### zoom
+#### zoom
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2225,7 +2225,7 @@ struct WebComponent {
 
 
 
-##### searchAllAsync
+#### searchAllAsync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2301,7 +2301,7 @@ struct WebComponent {
 
 
 
-##### clearMatches
+#### clearMatches
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2352,7 +2352,7 @@ struct WebComponent {
 
 
 
-##### searchNext
+#### searchNext
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2411,7 +2411,7 @@ struct WebComponent {
 
 
 
-##### clearSslCache
+#### clearSslCache
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2460,7 +2460,7 @@ struct WebComponent {
 
 
 
-##### clearClientAuthenticationCache
+#### clearClientAuthenticationCache
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2509,7 +2509,7 @@ struct WebComponent {
 
 
 
-##### createWebMessagePorts
+#### createWebMessagePorts
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2549,7 +2549,7 @@ createWebMessagePorts(isExtentionType?: boolean): Array&lt;WebMessagePort&gt;
 
 
 
-##### postMessage
+#### postMessage
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2718,7 +2718,7 @@ function PostMsgToEts(data) {
 
 
 
-##### requestFocus
+#### requestFocus
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2767,7 +2767,7 @@ struct WebComponent {
 
 
 
-##### zoomIn
+#### zoomIn
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2817,7 +2817,7 @@ struct WebComponent {
 
 
 
-##### zoomOut
+#### zoomOut
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2867,7 +2867,7 @@ struct WebComponent {
 
 
 
-##### getWebId
+#### getWebId
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2924,7 +2924,7 @@ struct WebComponent {
 
 
 
-##### getUserAgent
+#### getUserAgent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3016,7 +3016,7 @@ struct WebComponent {
 
 
 
-##### getTitle
+#### getTitle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3073,7 +3073,7 @@ struct WebComponent {
 
 
 
-##### getPageHeight
+#### getPageHeight
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3130,7 +3130,7 @@ struct WebComponent {
 
 
 
-##### storeWebArchive
+#### storeWebArchive
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3198,7 +3198,7 @@ struct WebComponent {
 
 
 
-##### storeWebArchive
+#### storeWebArchive
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3272,7 +3272,7 @@ struct WebComponent {
 
 
 
-##### getUrl
+#### getUrl
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3329,7 +3329,7 @@ struct WebComponent {
 
 
 
-##### stop
+#### stop
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3378,7 +3378,7 @@ struct WebComponent {
 
 
 
-##### backOrForward
+#### backOrForward
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3438,7 +3438,7 @@ struct WebComponent {
 
 
 
-##### scrollTo
+#### scrollTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3529,7 +3529,7 @@ Scroll Test
 
 
 
-##### scrollBy
+#### scrollBy
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3624,7 +3624,7 @@ Scroll Test
 
 
 
-##### scrollByWithResult12+
+#### scrollByWithResult12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3718,7 +3718,7 @@ Scroll Test
 
 
 
-##### slideScroll
+#### slideScroll
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3800,7 +3800,7 @@ Scroll Test
 
 
 
-##### getOriginalUrl
+#### getOriginalUrl
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3859,7 +3859,7 @@ struct WebComponent {
 
 
 
-##### getFavicon
+#### getFavicon
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3917,7 +3917,7 @@ struct WebComponent {
 
 
 
-##### setNetworkAvailable
+#### setNetworkAvailable
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3998,7 +3998,7 @@ struct WebComponent {
 
 
 
-##### hasImage
+#### hasImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4061,7 +4061,7 @@ struct WebComponent {
 
 
 
-##### hasImage
+#### hasImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4122,7 +4122,7 @@ struct WebComponent {
 
 
 
-##### removeCache
+#### removeCache
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4183,7 +4183,7 @@ struct WebComponent {
 
 
 
-##### removeAllCache18+
+#### removeAllCache18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4243,7 +4243,7 @@ struct WebComponent {
 
 
 
-##### pageUp
+#### pageUp
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4333,7 +4333,7 @@ struct WebComponent {
 
 
 
-##### pageDown
+#### pageDown
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4425,7 +4425,7 @@ struct WebComponent {
 
 
 
-##### getBackForwardEntries
+#### getBackForwardEntries
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4485,7 +4485,7 @@ struct WebComponent {
 
 
 
-##### serializeWebState
+#### serializeWebState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4568,7 +4568,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### restoreWebState
+#### restoreWebState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4663,7 +4663,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### customizeSchemes
+#### customizeSchemes
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4730,7 +4730,7 @@ struct WebComponent {
 
 
 
-##### customizeSchemes21+
+#### customizeSchemes21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4792,7 +4792,7 @@ struct WebComponent {
 
 
 
-##### getCertificate10+
+#### getCertificate10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4959,7 +4959,7 @@ struct Index {
 
 
 
-##### getCertificate10+
+#### getCertificate10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5127,7 +5127,7 @@ struct Index {
 
 
 
-##### setAudioMuted10+
+#### setAudioMuted10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5183,7 +5183,7 @@ struct WebComponent {
 
 
 
-##### prefetchPage21+
+#### prefetchPage21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5249,7 +5249,7 @@ struct WebComponent {
 
 
 
-##### prefetchPage10+
+#### prefetchPage10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5313,7 +5313,7 @@ struct WebComponent {
 
 
 
-##### prefetchResource12+
+#### prefetchResource12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5373,7 +5373,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### clearPrefetchedResource12+
+#### clearPrefetchedResource12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5429,7 +5429,7 @@ struct WebComponent {
 
 
 
-##### prepareForPageLoad10+
+#### prepareForPageLoad10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5479,7 +5479,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setCustomUserAgent10+
+#### setCustomUserAgent10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5548,7 +5548,7 @@ struct WebComponent {
 
 
 
-##### setDownloadDelegate11+
+#### setDownloadDelegate11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5605,7 +5605,7 @@ struct WebComponent {
 
 
 
-##### startDownload11+
+#### startDownload11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5671,7 +5671,7 @@ struct WebComponent {
 
 
 
-##### getCustomUserAgent10+
+#### getCustomUserAgent10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5731,7 +5731,7 @@ struct WebComponent {
 
 
 
-##### setAppCustomUserAgent20+
+#### setAppCustomUserAgent20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5785,7 +5785,7 @@ struct WebComponent {
 
 
 
-##### setUserAgentForHosts20+
+#### setUserAgentForHosts20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5846,7 +5846,7 @@ struct WebComponent {
 
 
 
-##### setConnectionTimeout11+
+#### setConnectionTimeout11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5909,7 +5909,7 @@ struct WebComponent {
 
 
 
-##### warmupServiceWorker12+
+#### warmupServiceWorker12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5956,7 +5956,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### enableSafeBrowsing11+
+#### enableSafeBrowsing11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6019,7 +6019,7 @@ struct WebComponent {
 
 
 
-##### isSafeBrowsingEnabled11+
+#### isSafeBrowsingEnabled11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6062,7 +6062,7 @@ struct WebComponent {
 
 
 
-##### enableIntelligentTrackingPrevention12+
+#### enableIntelligentTrackingPrevention12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6123,7 +6123,7 @@ struct WebComponent {
 
 
 
-##### isIntelligentTrackingPreventionEnabled12+
+#### isIntelligentTrackingPreventionEnabled12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6183,7 +6183,7 @@ struct WebComponent {
 
 
 
-##### addIntelligentTrackingPreventionBypassingList12+
+#### addIntelligentTrackingPreventionBypassingList12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6243,7 +6243,7 @@ struct WebComponent {
 
 
 
-##### removeIntelligentTrackingPreventionBypassingList12+
+#### removeIntelligentTrackingPreventionBypassingList12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6303,7 +6303,7 @@ struct WebComponent {
 
 
 
-##### clearIntelligentTrackingPreventionBypassingList12+
+#### clearIntelligentTrackingPreventionBypassingList12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6349,7 +6349,7 @@ struct WebComponent {
 
 
 
-##### getDefaultUserAgent14+
+#### getDefaultUserAgent14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6389,7 +6389,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### enableAdsBlock12+
+#### enableAdsBlock12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6456,7 +6456,7 @@ struct WebComponent {
 
 
 
-##### isAdsBlockEnabled12+
+#### isAdsBlockEnabled12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6517,7 +6517,7 @@ struct WebComponent {
 
 
 
-##### isAdsBlockEnabledForCurPage12+
+#### isAdsBlockEnabledForCurPage12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6580,7 +6580,7 @@ struct WebComponent {
 
 
 
-##### setRenderProcessMode12+
+#### setRenderProcessMode12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6636,7 +6636,7 @@ struct WebComponent {
 
 
 
-##### getRenderProcessMode12+
+#### getRenderProcessMode12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6679,7 +6679,7 @@ struct WebComponent {
 
 
 
-##### terminateRenderProcess12+
+#### terminateRenderProcess12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6733,7 +6733,7 @@ struct WebComponent {
 
 
 
-##### postUrl11+
+#### postUrl11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6810,7 +6810,7 @@ struct WebComponent {
 
 
 
-##### createWebPrintDocumentAdapter11+
+#### createWebPrintDocumentAdapter11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6875,7 +6875,7 @@ struct WebComponent {
 
 
 
-##### isIncognitoMode11+
+#### isIncognitoMode11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6932,7 +6932,7 @@ struct WebComponent {
 
 
 
-##### getSecurityLevel11+
+#### getSecurityLevel11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6984,7 +6984,7 @@ struct WebComponent {
 
 
 
-##### setScrollable12+
+#### setScrollable12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7042,7 +7042,7 @@ struct WebComponent {
 
 
 
-##### getScrollable12+
+#### getScrollable12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7099,7 +7099,7 @@ struct WebComponent {
 
 
 
-##### setPrintBackground12+
+#### setPrintBackground12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7155,7 +7155,7 @@ struct WebComponent {
 
 
 
-##### getPrintBackground12+
+#### getPrintBackground12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7211,7 +7211,7 @@ struct WebComponent {
 
 
 
-##### getLastJavascriptProxyCallingFrameUrl12+
+#### getLastJavascriptProxyCallingFrameUrl12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7364,7 +7364,7 @@ struct Index {
 
 
 
-##### pauseAllTimers12+
+#### pauseAllTimers12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7438,7 +7438,7 @@ struct WebComponent {
 
 
 
-##### resumeAllTimers12+
+#### resumeAllTimers12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7516,7 +7516,7 @@ struct WebComponent {
 
 
 
-##### stopAllMedia12+
+#### stopAllMedia12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7565,7 +7565,7 @@ struct WebComponent {
 
 
 
-##### pauseAllMedia12+
+#### pauseAllMedia12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7614,7 +7614,7 @@ struct WebComponent {
 
 
 
-##### resumeAllMedia12+
+#### resumeAllMedia12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7663,7 +7663,7 @@ struct WebComponent {
 
 
 
-##### closeAllMediaPresentations12+
+#### closeAllMediaPresentations12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7712,7 +7712,7 @@ struct WebComponent {
 
 
 
-##### getMediaPlaybackState12+
+#### getMediaPlaybackState12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7768,7 +7768,7 @@ struct WebComponent {
 
 
 
-##### setWebSchemeHandler12+
+#### setWebSchemeHandler12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7827,7 +7827,7 @@ struct WebComponent {
 
 
 
-##### clearWebSchemeHandler12+
+#### clearWebSchemeHandler12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7876,7 +7876,7 @@ struct WebComponent {
 
 
 
-##### setServiceWorkerWebSchemeHandler12+
+#### setServiceWorkerWebSchemeHandler12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7934,7 +7934,7 @@ struct WebComponent {
 
 
 
-##### clearServiceWorkerWebSchemeHandler12+
+#### clearServiceWorkerWebSchemeHandler12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7969,7 +7969,7 @@ struct WebComponent {
 
 
 
-##### startCamera12+
+#### startCamera12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8101,7 +8101,7 @@ struct WebComponent {
 
 
 
-##### stopCamera12+
+#### stopCamera12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8126,7 +8126,7 @@ stopCamera(): void
 
 
 
-##### closeCamera12+
+#### closeCamera12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8151,7 +8151,7 @@ closeCamera(): void
 
 
 
-##### precompileJavaScript12+
+#### precompileJavaScript12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8408,7 +8408,7 @@ struct Index {
 
 
 
-##### onCreateNativeMediaPlayer12+
+#### onCreateNativeMediaPlayer12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8637,7 +8637,7 @@ function shouldHandle(mediaInfo: webview.MediaInfo) {
 
 
 
-##### enableWholeWebPageDrawing12+
+#### enableWholeWebPageDrawing12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8677,7 +8677,7 @@ struct WebComponent {
 
 
 
-##### webPageSnapshot12+
+#### webPageSnapshot12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8738,7 +8738,7 @@ struct WebComponent {
 
 
 
-##### injectOfflineResources12+
+#### injectOfflineResources12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9035,7 +9035,7 @@ struct Index {
 
 
 
-##### setHostIP12+
+#### setHostIP12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9069,7 +9069,7 @@ static setHostIP(hostName: string, address: string, aliveTime: number): void
 
 
 
-##### clearHostIP12+
+#### clearHostIP12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9134,7 +9134,7 @@ struct WebComponent {
 
 
 
-##### getSurfaceId12+
+#### getSurfaceId12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9195,7 +9195,7 @@ struct Example{
 
 
 
-##### setUrlTrustList12+
+#### setUrlTrustList12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9298,7 +9298,7 @@ struct WebComponent {
 
 
 
-##### setPathAllowingUniversalAccess12+
+#### setPathAllowingUniversalAccess12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9448,7 +9448,7 @@ body.appendChild(element);
 
 
 
-##### enableBackForwardCache12+
+#### enableBackForwardCache12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9492,7 +9492,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setBackForwardCacheOptions12+
+#### setBackForwardCacheOptions12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9555,7 +9555,7 @@ struct Index {
 
 
 
-##### trimMemoryByPressureLevel14+
+#### trimMemoryByPressureLevel14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9614,7 +9614,7 @@ struct WebComponent {
 
 
 
-##### createPdf14+
+#### createPdf14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9698,7 +9698,7 @@ struct Index {
 
 
 
-##### createPdf14+
+#### createPdf14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9787,7 +9787,7 @@ struct Index {
 
 
 
-##### getScrollOffset13+
+#### getScrollOffset13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9886,7 +9886,7 @@ Scroll Test
 
 
 
-##### getPageOffset20+
+#### getPageOffset20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9975,7 +9975,7 @@ struct WebComponent {
 
 
 
-##### getLastHitTest18+
+#### getLastHitTest18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10033,7 +10033,7 @@ struct WebComponent {
 
 
 
-##### getAttachState20+
+#### getAttachState20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10086,7 +10086,7 @@ struct WebComponent {
 
 
 
-##### on('controllerAttachStateChange')20+
+#### on('controllerAttachStateChange')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10110,7 +10110,7 @@ on(type: 'controllerAttachStateChange', callback: Callback&lt;ControllerAttachSt
 
 
 
-##### off('controllerAttachStateChange')20+
+#### off('controllerAttachStateChange')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10185,7 +10185,7 @@ struct WebComponent {
 
 
 
-##### waitForAttached20+
+#### waitForAttached20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10250,7 +10250,7 @@ struct WebComponent {
 
 
 
-##### setWebDebuggingAccess20+
+#### setWebDebuggingAccess20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10315,7 +10315,7 @@ struct WebComponent {
 
 
 
-##### getProgress20+
+#### getProgress20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10365,7 +10365,7 @@ struct WebComponent {
 
 
 
-##### getHitTest(deprecated)
+#### getHitTest(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10426,7 +10426,7 @@ struct WebComponent {
 
 
 
-##### getHitTestValue(deprecated)
+#### getHitTestValue(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10488,7 +10488,7 @@ struct WebComponent {
 
 
 
-##### avoidVisibleViewportBottom20+
+#### avoidVisibleViewportBottom20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10558,7 +10558,7 @@ struct WebComponent {
 
 
 
-##### setErrorPageEnabled20+
+#### setErrorPageEnabled20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10611,7 +10611,7 @@ struct WebComponent {
 
 
 
-##### getErrorPageEnabled20+
+#### getErrorPageEnabled20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10662,7 +10662,7 @@ struct WebComponent {
 
 
 
-##### enablePrivateNetworkAccess20+
+#### enablePrivateNetworkAccess20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10705,7 +10705,7 @@ struct WebComponent {
 
 
 
-##### isPrivateNetworkAccessEnabled20+
+#### isPrivateNetworkAccessEnabled20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10756,7 +10756,7 @@ struct WebComponent {
 
 
 
-##### getBlanklessInfoWithKey20+
+#### getBlanklessInfoWithKey20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10834,7 +10834,7 @@ struct WebComponent {
 
 
 
-##### setBlanklessLoadingWithKey20+
+#### setBlanklessLoadingWithKey20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10911,7 +10911,7 @@ struct WebComponent {
 
 
 
-##### setBlanklessLoadingWithParams23+
+#### setBlanklessLoadingWithParams23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10995,7 +10995,7 @@ struct WebComponent {
 
 
 
-##### clearBlanklessLoadingCache20+
+#### clearBlanklessLoadingCache20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11058,7 +11058,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setBlanklessLoadingCacheCapacity20+
+#### setBlanklessLoadingCacheCapacity20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11116,7 +11116,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setWebDestroyMode20+
+#### setWebDestroyMode20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11157,7 +11157,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setScrollbarMode23+
+#### setScrollbarMode23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11227,7 +11227,7 @@ Scroll Test
 
 
 
-##### setActiveWebEngineVersion20+
+#### setActiveWebEngineVersion20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11275,7 +11275,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getActiveWebEngineVersion20+
+#### getActiveWebEngineVersion20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11298,7 +11298,7 @@ static getActiveWebEngineVersion(): ArkWebEngineVersion
 
 
 
-##### isActiveWebEngineEvergreen23+
+#### isActiveWebEngineEvergreen23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11337,7 +11337,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setAutoPreconnect21+
+#### setAutoPreconnect21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11374,7 +11374,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### isAutoPreconnectEnabled21+
+#### isAutoPreconnectEnabled21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11420,7 +11420,7 @@ struct WebComponent {
 
 
 
-##### getSiteIsolationMode21+
+#### getSiteIsolationMode21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11463,7 +11463,7 @@ struct WebComponent {
 
 
 
-##### setSiteIsolationMode21+
+#### setSiteIsolationMode21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11525,7 +11525,7 @@ struct WebComponent {
 
 
 
-##### setSocketIdleTimeout21+
+#### setSocketIdleTimeout21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11561,7 +11561,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setSoftKeyboardBehaviorMode22+
+#### setSoftKeyboardBehaviorMode22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11612,7 +11612,7 @@ struct WebComponent {
 
 
 
-##### resumeMicrophone23+
+#### resumeMicrophone23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11747,7 +11747,7 @@ struct WebComponent {
 
 
 
-##### pauseMicrophone23+
+#### pauseMicrophone23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11772,7 +11772,7 @@ pauseMicrophone(): void
 
 
 
-##### stopMicrophone23+
+#### stopMicrophone23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11797,7 +11797,7 @@ stopMicrophone(): void
 
 
 
-##### setUserAgentClientHintsEnabled24+
+#### setUserAgentClientHintsEnabled24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11905,7 +11905,7 @@ struct WebComponent {
 
 
 
-##### getUserAgentClientHintsEnabled24+
+#### getUserAgentClientHintsEnabled24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11928,7 +11928,7 @@ static getUserAgentClientHintsEnabled(): boolean
 
 
 
-##### setUserAgentMetadata24+
+#### setUserAgentMetadata24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11956,7 +11956,7 @@ setUserAgentMetadata(userAgent: string, metaData: UserAgentMetadata): void
 
 
 
-##### getUserAgentMetadata24+
+#### getUserAgentMetadata24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11986,7 +11986,7 @@ getUserAgentMetadata(userAgent: string): UserAgentMetadata
 
 
 
-##### setUrlTrustList24+
+#### setUrlTrustList24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

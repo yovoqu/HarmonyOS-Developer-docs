@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avmetadata-extractor-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -40,7 +40,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -65,13 +65,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_AVMetadataExtractor_OutputParam_Create()
+#### OH_AVMetadataExtractor_OutputParam_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -94,7 +94,7 @@ OH_AVMetadataExtractor_OutputParam* OH_AVMetadataExtractor_OutputParam_Create()
  
   
 
-##### OH_AVMetadataExtractor_OutputParam_Destroy()
+#### OH_AVMetadataExtractor_OutputParam_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -117,7 +117,7 @@ void OH_AVMetadataExtractor_OutputParam_Destroy(OH_AVMetadataExtractor_OutputPar
  
   
 
-##### OH_AVMetadataExtractor_OutputParam_SetSize()
+#### OH_AVMetadataExtractor_OutputParam_SetSize()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -149,7 +149,7 @@ bool OH_AVMetadataExtractor_OutputParam_SetSize(OH_AVMetadataExtractor_OutputPar
  
   
 
-##### OH_AVMetadataExtractor_FetchFrameByTime()
+#### OH_AVMetadataExtractor_FetchFrameByTime()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -183,7 +183,7 @@ OH_AVErrCode OH_AVMetadataExtractor_FetchFrameByTime(OH_AVMetadataExtractor *ext
  
   
 
-##### OH_AVMetadataExtractor_OnFrameFetched()
+#### OH_AVMetadataExtractor_OnFrameFetched()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -199,7 +199,7 @@ typedef void (*OH_AVMetadataExtractor_OnFrameFetched)(OH_AVMetadataExtractor *ex
  
   
 
-##### OH_AVMetadataExtractor_FetchFramesByTimes()
+#### OH_AVMetadataExtractor_FetchFramesByTimes()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -235,7 +235,7 @@ OH_AVErrCode OH_AVMetadataExtractor_FetchFramesByTimes(OH_AVMetadataExtractor *e
  
   
 
-##### OH_AVMetadataExtractor_CancelAllFetchFrames()
+#### OH_AVMetadataExtractor_CancelAllFetchFrames()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -258,7 +258,7 @@ void OH_AVMetadataExtractor_CancelAllFetchFrames(OH_AVMetadataExtractor *extract
  
   
 
-##### OH_AVMetadataExtractor_GetTrackDescription()
+#### OH_AVMetadataExtractor_GetTrackDescription()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -289,7 +289,7 @@ OH_AVFormat *OH_AVMetadataExtractor_GetTrackDescription(OH_AVMetadataExtractor *
  
   
 
-##### OH_AVMetadataExtractor_GetCustomInfo()
+#### OH_AVMetadataExtractor_GetCustomInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -319,7 +319,7 @@ OH_AVFormat *OH_AVMetadataExtractor_GetCustomInfo(OH_AVMetadataExtractor *extrac
  
   
 
-##### OH_AVMetadataExtractor_SetMediaSource()
+#### OH_AVMetadataExtractor_SetMediaSource()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -350,7 +350,7 @@ OH_AVErrCode OH_AVMetadataExtractor_SetMediaSource(OH_AVMetadataExtractor *extra
  
   
 
-##### OH_AVMetadataExtractor_Create()
+#### OH_AVMetadataExtractor_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -375,7 +375,7 @@ OH_AVMetadataExtractor* OH_AVMetadataExtractor_Create(void)
  
   
 
-##### OH_AVMetadataExtractor_SetFDSource()
+#### OH_AVMetadataExtractor_SetFDSource()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -410,7 +410,7 @@ OH_AVErrCode OH_AVMetadataExtractor_SetFDSource(OH_AVMetadataExtractor* extracto
  
   
 
-##### OH_AVMetadataExtractor_FetchMetadata()
+#### OH_AVMetadataExtractor_FetchMetadata()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -445,7 +445,7 @@ OH_AVErrCode OH_AVMetadataExtractor_FetchMetadata(OH_AVMetadataExtractor* extrac
  
   
 
-##### OH_AVMetadataExtractor_FetchAlbumCover()
+#### OH_AVMetadataExtractor_FetchAlbumCover()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -480,7 +480,7 @@ OH_AVErrCode OH_AVMetadataExtractor_FetchAlbumCover(OH_AVMetadataExtractor* extr
  
   
 
-##### OH_AVMetadataExtractor_Release()
+#### OH_AVMetadataExtractor_Release()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

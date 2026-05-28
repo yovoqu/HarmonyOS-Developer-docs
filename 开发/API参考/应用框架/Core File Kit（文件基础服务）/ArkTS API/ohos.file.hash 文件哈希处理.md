@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { hash } from '@kit.CoreFileKit';
 
 
 
-##### 使用说明
+#### 使用说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -44,7 +44,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### hash.hash
+#### hash.hash
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -95,7 +95,7 @@ hash.hash(filePath, "sha256").then((str: string) => {
 
 
 
-##### hash.hash
+#### hash.hash
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -142,7 +142,7 @@ hash.hash(filePath, "sha256", (err: BusinessError, str: string) => {
 
 
 
-##### hash.createHash12+
+#### hash.createHash12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -203,7 +203,7 @@ function hashFileWithStream() {
 
 
 
-##### HashStream12+
+#### HashStream12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -211,7 +211,7 @@ HashStream 类是用于创建数据的哈希摘要的实用工具。由 [createH
 
 
 
-##### update12+
+#### update12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -252,7 +252,7 @@ console.info(`hashResult: ${hashResult}`);
 
 
 
-##### digest12+
+#### digest12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

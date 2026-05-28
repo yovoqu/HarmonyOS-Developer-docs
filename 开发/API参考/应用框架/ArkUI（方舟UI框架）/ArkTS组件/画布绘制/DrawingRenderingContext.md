@@ -12,7 +12,7 @@ DrawingRenderingContext对象与Canvas组件绑定后，可在Canvas组件上进
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -33,7 +33,7 @@ constructor(unit?: LengthMetricsUnit)
 
 
 
-##### size
+#### size
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -54,7 +54,7 @@ get size(): Size
 
 
 
-##### canvas
+#### canvas
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -75,7 +75,7 @@ get canvas(): DrawingCanvas
 
 
 
-##### invalidate
+#### invalidate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -89,7 +89,7 @@ invalidate(): void
 
 
 
-##### DrawingCanvas12+对象说明
+#### DrawingCanvas12+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -108,7 +108,7 @@ type DrawingCanvas = Canvas
 
 
 
-##### Size
+#### Size
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -126,13 +126,13 @@ DrawingRenderingContext的尺寸信息。
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1（绘制图形）
+#### 示例1（绘制图形）
 
 该示例实现了如何使用DrawingRenderingContext中的方法绘制图形。
 
@@ -200,7 +200,7 @@ struct CanvasExample {
 
 
 
-##### 示例2（绘制文本）
+#### 示例2（绘制文本）
 
 该示例实现了通过[makeFromRawFile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-typeface#makefromrawfile18)（从API version 18开始）加载自定义字体。并使用[drawTextBlob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-canvas#drawtextblob)绘制文本，drawing接口绘制自定义文字时，不需要调用this.uiContext.getFont().[registerFont](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-font#registerfont)或者fontCollection.[loadFontSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text#loadfontsync)提前注册字体，而是通过drawing.Typeface.[makeFromRawFile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-typeface#makefromrawfile18)（从API version 18开始）传入rawfile目录下的自定义字体文件。
 
@@ -238,4 +238,4 @@ struct CanvasExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/0jYT6UBOTxGf0dqj2rPdIQ/zh-cn_image_0000002611835933.png?HW-CC-KV=V1&HW-CC-Date=20260528T024207Z&HW-CC-Expire=86400&HW-CC-Sign=E6D1E81DCE20DB018E2B15B51B2EEEA9498647D335A47691BCEBD64C7FE01773)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/0jYT6UBOTxGf0dqj2rPdIQ/zh-cn_image_0000002611835933.png?HW-CC-KV=V1&HW-CC-Date=20260528T025540Z&HW-CC-Expire=86400&HW-CC-Sign=6BA31ECFFD15A5392DF140D662A55FDB12361D201037B33A20B20E5361CDEDF6)

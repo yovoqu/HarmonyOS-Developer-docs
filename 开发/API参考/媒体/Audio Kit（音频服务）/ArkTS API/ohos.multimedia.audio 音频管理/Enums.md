@@ -10,7 +10,7 @@
 
 
 
-##### AudioVolumeType
+#### AudioVolumeType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -30,7 +30,7 @@
 
 
 
-##### InterruptMode9+
+#### InterruptMode9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -48,7 +48,7 @@
 
 
 
-##### DeviceFlag
+#### DeviceFlag
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -65,7 +65,7 @@
 
 
 
-##### DeviceUsage12+
+#### DeviceUsage12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -85,7 +85,7 @@
 
 
 
-##### DeviceRole
+#### DeviceRole
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -103,7 +103,7 @@
 
 
 
-##### DeviceType
+#### DeviceType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -136,7 +136,7 @@
 
 
 
-##### BluetoothAndNearlinkPreferredRecordCategory21+
+#### BluetoothAndNearlinkPreferredRecordCategory21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -154,7 +154,7 @@
 
 
 
-##### CommunicationDeviceType9+
+#### CommunicationDeviceType9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -169,7 +169,7 @@
 
 
 
-##### AudioRingMode
+#### AudioRingMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -188,7 +188,7 @@
 
 
 
-##### AudioSampleFormat8+
+#### AudioSampleFormat8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -208,7 +208,7 @@
 
 
 
-##### AudioErrors9+
+#### AudioErrors9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -229,7 +229,7 @@
 
 
 
-##### AudioChannel8+
+#### AudioChannel8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -256,7 +256,7 @@
 
 
 
-##### AudioSamplingRate8+
+#### AudioSamplingRate8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -284,7 +284,7 @@
 
 
 
-##### AudioEncodingType8+
+#### AudioEncodingType8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -302,7 +302,7 @@
 
 
 
-##### AudioLatencyType23+
+#### AudioLatencyType23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -321,7 +321,7 @@
 
 
 
-##### AudioChannelLayout11+
+#### AudioChannelLayout11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -384,7 +384,7 @@
 
 
 
-##### StreamUsage
+#### StreamUsage
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -414,7 +414,7 @@
 
 
 
-##### AudioState8+
+#### AudioState8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -435,7 +435,7 @@
 
 
 
-##### AudioEffectMode10+
+#### AudioEffectMode10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -453,7 +453,7 @@
 
 
 
-##### AudioRendererRate8+
+#### AudioRendererRate8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -470,7 +470,7 @@
 
 
 
-##### InterruptType
+#### InterruptType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -488,7 +488,7 @@
 
 
 
-##### InterruptForceType9+
+#### InterruptForceType9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -510,7 +510,7 @@
 
 
 
-##### InterruptHint
+#### InterruptHint
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -538,7 +538,7 @@
 
 
 
-##### AudioVolumeMode19+
+#### AudioVolumeMode19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -554,7 +554,7 @@
 
 
 
-##### AudioPrivacyType10+
+#### AudioPrivacyType10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -571,7 +571,7 @@
 
 
 
-##### ChannelBlendMode11+
+#### ChannelBlendMode11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -589,7 +589,7 @@
 
 
 
-##### AudioStreamDeviceChangeReason11+
+#### AudioStreamDeviceChangeReason11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -609,7 +609,7 @@
 
 
 
-##### OutputDeviceChangeRecommendedAction20+
+#### OutputDeviceChangeRecommendedAction20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -627,7 +627,7 @@
 
 
 
-##### DeviceChangeType
+#### DeviceChangeType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -643,7 +643,7 @@
 
 
 
-##### DeviceBlockStatus13+
+#### DeviceBlockStatus13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -659,7 +659,7 @@
 
 
 
-##### SourceType8+
+#### SourceType8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -680,7 +680,7 @@
 
 
 
-##### AudioScene8+
+#### AudioScene8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -698,7 +698,7 @@
 
 
 
-##### AudioConcurrencyMode12+
+#### AudioConcurrencyMode12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -716,7 +716,7 @@
 
 
 
-##### AudioSessionDeactivatedReason12+
+#### AudioSessionDeactivatedReason12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -732,7 +732,7 @@
 
 
 
-##### AudioSessionScene20+
+#### AudioSessionScene20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -749,7 +749,7 @@
 
 
 
-##### AudioSessionStateChangeHint20+
+#### AudioSessionStateChangeHint20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -779,7 +779,7 @@
 
 
 
-##### AudioDataCallbackResult12+
+#### AudioDataCallbackResult12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -795,7 +795,7 @@
 
 
 
-##### ContentType(deprecated)
+#### ContentType(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -819,7 +819,7 @@
 
 
 
-##### ActiveDeviceType(deprecated)
+#### ActiveDeviceType(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -839,7 +839,7 @@
 
 
 
-##### InterruptActionType(deprecated)
+#### InterruptActionType(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -859,7 +859,7 @@
 
 
 
-##### AudioLoopbackMode20+
+#### AudioLoopbackMode20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -874,7 +874,7 @@
 
 
 
-##### AudioLoopbackStatus20+
+#### AudioLoopbackStatus20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -892,7 +892,7 @@
 
 
 
-##### AudioLoopbackReverbPreset21+
+#### AudioLoopbackReverbPreset21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -910,7 +910,7 @@
 
 
 
-##### AudioLoopbackEqualizerPreset21+
+#### AudioLoopbackEqualizerPreset21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -927,7 +927,7 @@
 
 
 
-##### AudioSessionBehaviorFlags24+
+#### AudioSessionBehaviorFlags24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

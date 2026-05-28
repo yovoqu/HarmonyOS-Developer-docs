@@ -11,7 +11,7 @@
 
 
 
-##### 邮件类应用扩展面板参数说明
+#### 邮件类应用扩展面板参数说明
 
 startAbilityByType接口中type字段为mail，对应的wantParam参数：
 
@@ -33,7 +33,7 @@ startAbilityByType接口中type字段为mail，对应的wantParam参数：
 
 
 
-##### 拉起方开发步骤
+#### 拉起方开发步骤
 1. 导入相关模块。
 
   
@@ -96,12 +96,12 @@ struct Index {
 效果示例图：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/jrhEeB62SduT8tY_l80VRA/zh-cn_image_0000002611833379.png?HW-CC-KV=V1&HW-CC-Date=20260528T014844Z&HW-CC-Expire=86400&HW-CC-Sign=2C9C1340A9440BBBBFB93798FE51D4A98822FD41329EECAAA28E53BD06AA6AAE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/jrhEeB62SduT8tY_l80VRA/zh-cn_image_0000002611833379.png?HW-CC-KV=V1&HW-CC-Date=20260528T030510Z&HW-CC-Expire=86400&HW-CC-Sign=5F09D0BB35F209FB180F685E7949BBF0ADA58E6593145475138CD19D4E7ED869)
 
 
 
 
-##### 目标方开发步骤
+#### 目标方开发步骤
 1. 在module.json5中新增[linkFeature](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#skills标签)属性并设置声明当前应用支持的特性功能，从而系统可以从设备已安装应用中找到当前支持该特性的应用，取值范围如下：
 
 | 取值 | 含义 |

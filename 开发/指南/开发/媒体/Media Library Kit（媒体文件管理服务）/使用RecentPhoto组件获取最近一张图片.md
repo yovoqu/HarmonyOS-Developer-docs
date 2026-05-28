@@ -13,7 +13,7 @@
 
   
 
-##### 开发步骤
+#### 开发步骤
 1. 导入最近图片组件模块文件。
 
   
@@ -97,6 +97,6 @@ private onReceiveCheckResult(recentPhotoExists: boolean): void {
  
   
 
-##### 完整示例
+#### 完整示例
 
 完整示例请查阅[示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-file-recentphotocomponent#示例)。

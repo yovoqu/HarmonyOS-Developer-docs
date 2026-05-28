@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-pixel-map-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -41,7 +41,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -54,13 +54,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Drawing_PixelMapGetFromNativePixelMap()
+#### OH_Drawing_PixelMapGetFromNativePixelMap()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -92,7 +92,7 @@ OH_Drawing_PixelMap* OH_Drawing_PixelMapGetFromNativePixelMap(NativePixelMap_* n
  
   
 
-##### OH_Drawing_PixelMapGetFromOhPixelMapNative()
+#### OH_Drawing_PixelMapGetFromOhPixelMapNative()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -124,7 +124,7 @@ OH_Drawing_PixelMap* OH_Drawing_PixelMapGetFromOhPixelMapNative(OH_PixelmapNativ
  
   
 
-##### OH_Drawing_PixelMapDissolve()
+#### OH_Drawing_PixelMapDissolve()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

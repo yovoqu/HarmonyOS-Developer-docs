@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-metadata-output-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -41,7 +41,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -60,13 +60,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_MetadataOutput_OnMetadataObjectAvailable()
+#### OH_MetadataOutput_OnMetadataObjectAvailable()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -91,7 +91,7 @@ typedef void (*OH_MetadataOutput_OnMetadataObjectAvailable)(Camera_MetadataOutpu
  
   
 
-##### OH_MetadataOutput_OnError()
+#### OH_MetadataOutput_OnError()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -119,7 +119,7 @@ typedef void (*OH_MetadataOutput_OnError)(Camera_MetadataOutput* metadataOutput,
  
   
 
-##### OH_MetadataOutput_RegisterCallback()
+#### OH_MetadataOutput_RegisterCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -150,7 +150,7 @@ Camera_ErrorCode OH_MetadataOutput_RegisterCallback(Camera_MetadataOutput* metad
  
   
 
-##### OH_MetadataOutput_UnregisterCallback()
+#### OH_MetadataOutput_UnregisterCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -181,7 +181,7 @@ Camera_ErrorCode OH_MetadataOutput_UnregisterCallback(Camera_MetadataOutput* met
  
   
 
-##### OH_MetadataOutput_Start()
+#### OH_MetadataOutput_Start()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -211,7 +211,7 @@ Camera_ErrorCode OH_MetadataOutput_Start(Camera_MetadataOutput* metadataOutput)
  
   
 
-##### OH_MetadataOutput_Stop()
+#### OH_MetadataOutput_Stop()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -241,7 +241,7 @@ Camera_ErrorCode OH_MetadataOutput_Stop(Camera_MetadataOutput* metadataOutput)
  
   
 
-##### OH_MetadataOutput_Release()
+#### OH_MetadataOutput_Release()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -271,7 +271,7 @@ Camera_ErrorCode OH_MetadataOutput_Release(Camera_MetadataOutput* metadataOutput
  
   
 
-##### OH_MetadataOutput_AddMetadataObjectTypes()
+#### OH_MetadataOutput_AddMetadataObjectTypes()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -303,7 +303,7 @@ Camera_ErrorCode OH_MetadataOutput_AddMetadataObjectTypes(Camera_MetadataOutput*
  
   
 
-##### OH_MetadataOutput_RemoveMetadataObjectTypes()
+#### OH_MetadataOutput_RemoveMetadataObjectTypes()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

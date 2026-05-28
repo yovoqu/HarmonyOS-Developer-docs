@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-gensimplifiedkey
 
-##### 函数功能
+#### 函数功能
 
 注册生成二进制简化匹配key的函数。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 OpImplRegisterV2 &GenSimplifiedKey(GenSimplifiedKeyKernelFunc gen_simplifiedkey_func);
@@ -18,7 +18,7 @@ OpImplRegisterV2 &GenSimplifiedKey(GenSimplifiedKeyKernelFunc gen_simplifiedkey_
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -27,12 +27,12 @@ OpImplRegisterV2 &GenSimplifiedKey(GenSimplifiedKeyKernelFunc gen_simplifiedkey_
  
   
 
-##### 返回值
+#### 返回值
 
 返回算子的OpImplRegisterV2对象，该对象新增注册了生成二进制简化匹配key函数。
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

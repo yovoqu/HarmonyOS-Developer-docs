@@ -13,13 +13,13 @@ Session之间数据是隔离的，当业务场景需要实现跨Session访问缓
 
 
 
-##### 约束与限制
+#### 约束与限制
 
 Session间缓存共享能力支持Phone、2in1、Tablet、Wearable、TV设备。
 
 
 
-##### 引用相同HTTP响应缓存实例
+#### 引用相同HTTP响应缓存实例
 
 创建一个[ResponseCache](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#responsecache)实例，将其配置到不同Session中，可以在Session间共享缓存数据。
 1. 导入模块。
@@ -80,7 +80,7 @@ console.info(`The current cache hit count is: ${cacheState.hitCount}`);
 
 
 
-##### 配置相同缓存存储路径
+#### 配置相同缓存存储路径
 
 创建不同的[ResponseCache](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#responsecache)实例，但对应缓存存储路径相同，将ResponseCache实例配置到不同Session中，可以在Session间共享缓存数据。
 1. 导入模块。

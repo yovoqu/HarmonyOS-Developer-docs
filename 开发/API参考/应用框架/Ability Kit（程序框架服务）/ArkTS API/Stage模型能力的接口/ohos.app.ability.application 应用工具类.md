@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { application } from '@kit.AbilityKit';
 
 
 
-##### AppPreloadType22+
+#### AppPreloadType22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@ import { application } from '@kit.AbilityKit';
 
 
 
-##### application.createModuleContext
+#### application.createModuleContext
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -110,7 +110,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### application.getApplicationContext14+
+#### application.getApplicationContext14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -161,7 +161,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### application.getApplicationContextInstance23+
+#### application.getApplicationContextInstance23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -212,7 +212,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### application.createPluginModuleContext19+
+#### application.createPluginModuleContext19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -269,7 +269,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### application.promoteCurrentToCandidateMasterProcess20+
+#### application.promoteCurrentToCandidateMasterProcess20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -345,7 +345,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### application.demoteCurrentFromCandidateMasterProcess20+
+#### application.demoteCurrentFromCandidateMasterProcess20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -402,7 +402,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### application.exitMasterProcessRole21+
+#### application.exitMasterProcessRole21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -459,7 +459,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### application.getAppPreloadType22+
+#### application.getAppPreloadType22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

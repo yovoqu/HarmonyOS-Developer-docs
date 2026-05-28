@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wearengine_service_status
 
-##### 监测应用与Wear Engine服务的连接状态
+#### 监测应用与Wear Engine服务的连接状态
 
 华为运动健康App在后台停止服务（如功耗过高），从而导致应用与Wear Engine服务的连接状态发生变化。对于类似这种不确定的断开情况，开发者可以通过本功能特性了解当前应用和Wear Engine的连接状态。前提是在服务断开前，开发者已经使用该功能订阅过对Wear Engine服务连接状态的监测。
 1. 在使用Wear Engine服务前，请导入WearEngine与相关模块。
@@ -53,7 +53,7 @@ try {
 
 
 
-##### 断开应用与Wear Engine服务的连接
+#### 断开应用与Wear Engine服务的连接
 
 断开后，将释放Wear Engine资源，监测设备状态、收消息、收文件等功能不可用，监听服务端断联事件的回调函数不会执行，同时会清理掉之前注册的回调函数。如需重新连接，主动调用任意接口即可。
 1. 在使用Wear Engine服务前，请导入WearEngine与相关模块。

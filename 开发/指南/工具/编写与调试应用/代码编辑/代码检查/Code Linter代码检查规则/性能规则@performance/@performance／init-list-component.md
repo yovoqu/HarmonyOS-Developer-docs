@@ -7,7 +7,7 @@
 List组件在使用时，建议同时定义width和height属性。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@ List组件在使用时，建议同时定义width和height属性。
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 @Component
@@ -47,7 +47,7 @@ struct Greeting {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 @Component
@@ -70,7 +70,7 @@ struct Greeting {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(106,135,89);">plugin:@performance/all</span>

@@ -9,7 +9,7 @@
 该规则仅支持对.js/.ts文件进行检查。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -22,13 +22,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 declare const properlyTyped: { prop: { a: string } };
@@ -46,7 +46,7 @@ export const v4 = arr[idx++];
  
  
 
-##### 反例
+#### 反例
 
 ```text
 declare const properlyTyped: { prop: { a: any } };
@@ -64,7 +64,7 @@ export const v4 = arr[idx++];
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/recommended</span>

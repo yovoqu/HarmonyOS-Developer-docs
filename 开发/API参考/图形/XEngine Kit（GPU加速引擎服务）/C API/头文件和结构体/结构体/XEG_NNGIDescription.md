@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-nngidescription
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -19,13 +19,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  
@@ -52,13 +52,13 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### inferenceCameraProjectionMatrix
+#### inferenceCameraProjectionMatrix
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -72,7 +72,7 @@ float XEG_NNGIDescription::inferenceCameraProjectionMatrix[16]
  
   
 
-##### inferenceCameraViewMatrix
+#### inferenceCameraViewMatrix
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -86,7 +86,7 @@ float XEG_NNGIDescription::inferenceCameraViewMatrix[16]
  
   
 
-##### inferenceInputBaseColorMetallicImage
+#### inferenceInputBaseColorMetallicImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -100,7 +100,7 @@ VkImageView XEG_NNGIDescription::inferenceInputBaseColorMetallicImage
  
   
 
-##### inferenceInputDepthImage
+#### inferenceInputDepthImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -114,7 +114,7 @@ VkImageView XEG_NNGIDescription::inferenceInputDepthImage
  
   
 
-##### inferenceInputNormalImage
+#### inferenceInputNormalImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -128,7 +128,7 @@ VkImageView XEG_NNGIDescription::inferenceInputNormalImage
  
   
 
-##### inferenceOutputGIImage
+#### inferenceOutputGIImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -142,7 +142,7 @@ VkImageView XEG_NNGIDescription::inferenceOutputGIImage
  
   
 
-##### isSceneUnbounded
+#### isSceneUnbounded
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -156,7 +156,7 @@ bool XEG_NNGIDescription::isSceneUnbounded = false
  
   
 
-##### pNext
+#### pNext
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -170,7 +170,7 @@ const void* XEG_NNGIDescription::pNext
  
   
 
-##### sceneAabb
+#### sceneAabb
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -184,7 +184,7 @@ VkAabbPositionsKHR XEG_NNGIDescription::sceneAabb
  
   
 
-##### spatialScaleFactor
+#### spatialScaleFactor
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -198,7 +198,7 @@ float XEG_NNGIDescription::spatialScaleFactor = 0
  
   
 
-##### sType
+#### sType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -212,7 +212,7 @@ XEG_StructureType XEG_NNGIDescription::sType
  
   
 
-##### trainingCameraProjectionMatrix
+#### trainingCameraProjectionMatrix
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -226,7 +226,7 @@ float XEG_NNGIDescription::trainingCameraProjectionMatrix[16]
  
   
 
-##### trainingCameraViewMatrix
+#### trainingCameraViewMatrix
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -240,7 +240,7 @@ float XEG_NNGIDescription::trainingCameraViewMatrix[16]
  
   
 
-##### trainingInputBaseColorMetallicImage
+#### trainingInputBaseColorMetallicImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -254,7 +254,7 @@ VkImageView XEG_NNGIDescription::trainingInputBaseColorMetallicImage
  
   
 
-##### trainingInputGIImage
+#### trainingInputGIImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -268,7 +268,7 @@ VkImageView XEG_NNGIDescription::trainingInputGIImage
  
   
 
-##### trainingInputNormalImage
+#### trainingInputNormalImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -282,7 +282,7 @@ VkImageView XEG_NNGIDescription::trainingInputNormalImage
  
   
 
-##### trainingInputPositionImage
+#### trainingInputPositionImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

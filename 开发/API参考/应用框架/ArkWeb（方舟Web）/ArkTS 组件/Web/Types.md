@@ -10,7 +10,7 @@
 
   
 
-##### WebviewController9+
+#### WebviewController9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -27,7 +27,7 @@ type WebviewController = WebviewController
  
   
 
-##### OnAdsBlockedCallback12+
+#### OnAdsBlockedCallback12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -46,7 +46,7 @@ type OnAdsBlockedCallback = (details: AdsBlockedDetails) => void
  
   
 
-##### OnSslErrorEventCallback12+
+#### OnSslErrorEventCallback12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -65,7 +65,7 @@ type OnSslErrorEventCallback = (sslErrorEvent: SslErrorEvent) => void
  
   
 
-##### OnVerifyPinCallback22+
+#### OnVerifyPinCallback22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -84,7 +84,7 @@ type OnVerifyPinCallback = (verifyPinEvent: VerifyPinEvent) => void
  
   
 
-##### OnContextMenuHideCallback11+
+#### OnContextMenuHideCallback11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -96,7 +96,7 @@ type OnContextMenuHideCallback = () => void
  
   
 
-##### OnRenderProcessNotRespondingCallback12+
+#### OnRenderProcessNotRespondingCallback12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -115,7 +115,7 @@ type OnRenderProcessNotRespondingCallback = (data : RenderProcessNotRespondingDa
  
   
 
-##### OnRenderProcessRespondingCallback12+
+#### OnRenderProcessRespondingCallback12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -127,7 +127,7 @@ type OnRenderProcessRespondingCallback = () => void
  
   
 
-##### OnViewportFitChangedCallback12+
+#### OnViewportFitChangedCallback12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -146,7 +146,7 @@ type OnViewportFitChangedCallback = (viewportFit: ViewportFit) => void
  
   
 
-##### OnNativeEmbedVisibilityChangeCallback12+
+#### OnNativeEmbedVisibilityChangeCallback12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -165,7 +165,7 @@ type OnNativeEmbedVisibilityChangeCallback = (nativeEmbedVisibilityInfo: NativeE
  
   
 
-##### OnFullScreenEnterCallback12+
+#### OnFullScreenEnterCallback12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -184,7 +184,7 @@ Web组件进入全屏时触发的回调。
  
   
 
-##### OnFirstMeaningfulPaintCallback12+
+#### OnFirstMeaningfulPaintCallback12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -203,7 +203,7 @@ type OnFirstMeaningfulPaintCallback = (firstMeaningfulPaint: [FirstMeaningfulPai
  
   
 
-##### OnLargestContentfulPaintCallback12+
+#### OnLargestContentfulPaintCallback12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -222,7 +222,7 @@ type OnLargestContentfulPaintCallback = (largestContentfulPaint: [LargestContent
  
   
 
-##### OnNavigationEntryCommittedCallback11+
+#### OnNavigationEntryCommittedCallback11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -241,7 +241,7 @@ type OnNavigationEntryCommittedCallback = (loadCommittedDetails: [LoadCommittedD
  
   
 
-##### OnSafeBrowsingCheckResultCallback11+
+#### OnSafeBrowsingCheckResultCallback11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -260,7 +260,7 @@ type OnSafeBrowsingCheckResultCallback = (threatType: ThreatType) => void
  
   
 
-##### OnIntelligentTrackingPreventionCallback12+
+#### OnIntelligentTrackingPreventionCallback12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -279,7 +279,7 @@ type OnIntelligentTrackingPreventionCallback = (details: IntelligentTrackingPrev
  
   
 
-##### OnOverrideUrlLoadingCallback12+
+#### OnOverrideUrlLoadingCallback12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -305,7 +305,7 @@ onOverrideUrlLoading的回调。
  
   
 
-##### WebKeyboardCallback12+
+#### WebKeyboardCallback12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -331,7 +331,7 @@ type WebKeyboardCallback = (keyboardCallbackInfo: WebKeyboardCallbackInfo) => We
  
   
 
-##### OnOverrideErrorPageCallback20+
+#### OnOverrideErrorPageCallback20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -357,7 +357,7 @@ onOverrideErrorPage的回调函数，网页加载失败时触发。
  
   
 
-##### MouseInfoCallback20+
+#### MouseInfoCallback20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -380,7 +380,7 @@ type MouseInfoCallback = (event: NativeEmbedMouseInfo) => void
  
   
 
-##### OnNativeEmbedObjectParamChangeCallback21+
+#### OnNativeEmbedObjectParamChangeCallback21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -403,7 +403,7 @@ type OnNativeEmbedObjectParamChangeCallback = (event: NativeEmbedParamDataInfo) 
  
   
 
-##### OnDetectBlankScreenCallback22+
+#### OnDetectBlankScreenCallback22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -426,7 +426,7 @@ type OnDetectBlankScreenCallback = (event: BlankScreenDetectionEventInfo) => voi
  
   
 
-##### OnCameraCaptureStateChangeCallback23+
+#### OnCameraCaptureStateChangeCallback23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -445,7 +445,7 @@ type OnCameraCaptureStateChangeCallback = (event: CameraCaptureStateChangeInfo) 
  
   
 
-##### OnMicrophoneCaptureStateChangeCallback23+
+#### OnMicrophoneCaptureStateChangeCallback23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -464,7 +464,7 @@ type OnMicrophoneCaptureStateChangeCallback = (event: MicrophoneCaptureStateChan
  
   
 
-##### TextSelectionChangeCallback23+
+#### TextSelectionChangeCallback23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -487,7 +487,7 @@ onTextSelectionChange的回调，选区内容改变时触发。
  
   
 
-##### OnFirstScreenPaintCallback23+
+#### OnFirstScreenPaintCallback23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

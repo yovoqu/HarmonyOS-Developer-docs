@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getattr
 
-##### 函数功能
+#### 函数功能
 
 根据属性名称获取对应的属性值。
  
   
 
-##### 函数原型
+#### 函数原型
 
 > [!NOTE]
 > 数据类型为string的接口后续版本会废弃，建议使用数据类型为非string的接口。
@@ -63,7 +63,7 @@ graphStatus GetAttr(const char_t *name, std::vector<ge::NamedAttrs> &attr_value)
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数名 | 输入/输出 | 描述 |
 | --- | --- | --- |
@@ -94,7 +94,7 @@ graphStatus GetAttr(const char_t *name, std::vector<ge::NamedAttrs> &attr_value)
  
   
 
-##### 返回值
+#### 返回值
  
 | 类型 | 描述 |
 | --- | --- |
@@ -103,12 +103,12 @@ graphStatus GetAttr(const char_t *name, std::vector<ge::NamedAttrs> &attr_value)
  
   
 
-##### 异常处理
+#### 异常处理
 
 无
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

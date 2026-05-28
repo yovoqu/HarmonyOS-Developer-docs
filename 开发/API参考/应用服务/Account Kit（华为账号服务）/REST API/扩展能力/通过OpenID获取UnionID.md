@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-get-unionid
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/h53hbaWAR06-IGuJF6P5MA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023744Z&HW-CC-Expire=86400&HW-CC-Sign=1A54A6D4A1A3487122A0679B1E030B02BAADC783D95ED9F8C7E2D7C415122874)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/h53hbaWAR06-IGuJF6P5MA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025117Z&HW-CC-Expire=86400&HW-CC-Sign=977C5D10405A4C64B0505D7951486AE1706CE455657BC230F27E8353AF21A6B7)
 
 
 为了更安全的网络访问，请务必使用TLS1.2协议及规定内的加密套件。若使用协议是TLS1.0、TLS1.1或规定外的加密套件，可能无法正常访问华为账号服务。
@@ -14,19 +14,19 @@
 
 
 
-##### 功能介绍
+#### 功能介绍
 
 应用服务端向华为账号服务器调用该接口，通过用户的OpenID获取UnionID信息。
 
 
 
-##### 场景描述
+#### 场景描述
 
 在开发HarmonyOS应用时，您需要考虑同一用户在非HarmonyOS应用和HarmonyOS应用的用户数据是否互通。如果您之前使用OpenID来关联用户数据，我们建议将用户数据关系切换成UnionID，以确保用户使用HarmonyOS应用后可以继承老版本的用户数据。
 
 
 
-##### 使用约束
+#### 使用约束
 
  - 需确保调用端网络正常。
  - 仅能获取自身应用的用户OpenID对应的UnionID。
@@ -34,7 +34,7 @@
 
 
 
-##### 接口原型
+#### 接口原型
 
  - **承载协议：** HTTPS POST
  - **接口方向：** 开发者服务器->华为账号服务器
@@ -48,11 +48,11 @@
 
 
 
-##### 请求参数
+#### 请求参数
 
 
 
-##### Request Header
+#### Request Header
 
 | 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
@@ -61,7 +61,7 @@
 
 
 
-##### Request Body
+#### Request Body
 
 | 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
@@ -71,7 +71,7 @@
 
 
 
-##### 请求示例
+#### 请求示例
 
 请通过POST方式调用，示例如下：
 
@@ -85,11 +85,11 @@ open_id=<open_id>&access_token=<access_token>
 
 
 
-##### 响应参数
+#### 响应参数
 
 
 
-##### Response Header
+#### Response Header
 
 | 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
@@ -98,7 +98,7 @@ open_id=<open_id>&access_token=<access_token>
 
 
 
-##### Response Body
+#### Response Body
 
 调用成功时，响应消息体返回如下：
 
@@ -117,11 +117,11 @@ open_id=<open_id>&access_token=<access_token>
 
 
 
-##### 响应示例
+#### 响应示例
 
 
 
-##### 请求成功时
+#### 请求成功时
 
 ```json
 HTTP/1.1 200 OK
@@ -132,7 +132,7 @@ Content-Type: text/plain;charset=utf-8
 
 
 
-##### 请求失败时
+#### 请求失败时
 
 ```json
 HTTP/1.1 200 OK
@@ -146,7 +146,7 @@ NSP_STATUS: 102
 
 
 
-##### 示例代码
+#### 示例代码
 
 Java示例代码如下，运行前需要进行[示例代码环境配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-common#示例代码环境配置)（请将此示例代码与工具类CallUtils放于同一路径下，如不在同一路径，请手动添加import）
 
@@ -191,7 +191,7 @@ public class OpenIdToUnionIdDemo {
 
 
 
-##### 错误码
+#### 错误码
 
 | HTTP响应码 | 描述 | 解决方法 |
 | --- | --- | --- |

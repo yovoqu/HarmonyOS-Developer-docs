@@ -9,7 +9,7 @@ typedef struct VkImportNativeBufferInfoOHOS {...} VkImportNativeBufferInfoOHOS
 ```
   
 
-##### 概述
+#### 概述
 
 包含了OH_NativeBuffer结构体的指针。
  
@@ -21,11 +21,11 @@ typedef struct VkImportNativeBufferInfoOHOS {...} VkImportNativeBufferInfoOHOS
  
   
 
-##### 汇总
+#### 汇总
 
   
 
-##### 成员变量
+#### 成员变量
  
 | 名称 | 描述 |
 | --- | --- |

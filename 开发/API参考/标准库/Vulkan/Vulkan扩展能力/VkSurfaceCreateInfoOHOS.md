@@ -9,7 +9,7 @@ typedef struct VkSurfaceCreateInfoOHOS {...} VkSurfaceCreateInfoOHOS
 ```
   
 
-##### 概述
+#### 概述
 
 包含创建Vulkan Surface时必要的参数。
  
@@ -21,11 +21,11 @@ typedef struct VkSurfaceCreateInfoOHOS {...} VkSurfaceCreateInfoOHOS
  
   
 
-##### 汇总
+#### 汇总
 
   
 
-##### 成员变量
+#### 成员变量
  
 | 名称 | 描述 |
 | --- | --- |

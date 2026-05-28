@@ -9,7 +9,7 @@
 获取视频资源的缩略图的全流程包含：创建AVImageGenerator对象，设置资源，获取缩略图，销毁资源。
 
 
-##### 开发步骤及注意事项
+#### 开发步骤及注意事项
 
 详细的API说明请参考[AVImageGenerator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avimagegenerator)。
 1. 使用[createAVImageGenerator()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-f#mediacreateavimagegenerator12-1)创建实例。
@@ -71,7 +71,7 @@ await avImageGenerator.release().catch((err: BusinessError) => {
 
 
 
-##### 运行示例工程
+#### 运行示例工程
 
 参考以下示例，获取一个视频指定时间的缩略图。
 1. 新建工程，下载[完整示例工程](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/Media/AVImageGenerator/AVImageGeneratorArkTS)，并将示例工程的资源复制到对应目录。       

@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ipc-cremote-object-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -25,13 +25,13 @@
 
 
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -43,7 +43,7 @@
 
 
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -54,7 +54,7 @@
 
 
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -78,13 +78,13 @@
 
 
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### OH_IPC_RequestMode
+#### OH_IPC_RequestMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -106,13 +106,13 @@ IPC请求模式定义。
 
 
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### OH_OnRemoteRequestCallback()
+#### OH_OnRemoteRequestCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -147,7 +147,7 @@ Stub端用于处理远端数据请求的回调函数。
 
 
 
-##### OH_OnRemoteDestroyCallback()
+#### OH_OnRemoteDestroyCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -172,7 +172,7 @@ typedef void(*OH_OnRemoteDestroyCallback)(void *userData)
 
 
 
-##### OH_IPCRemoteStub_Create()
+#### OH_IPCRemoteStub_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -207,7 +207,7 @@ OHIPCRemoteStub* OH_IPCRemoteStub_Create(const char *descriptor, OH_OnRemoteRequ
 
 
 
-##### OH_IPCRemoteStub_Destroy()
+#### OH_IPCRemoteStub_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -232,7 +232,7 @@ void OH_IPCRemoteStub_Destroy(OHIPCRemoteStub *stub)
 
 
 
-##### OH_IPCRemoteProxy_Destroy()
+#### OH_IPCRemoteProxy_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -257,7 +257,7 @@ void OH_IPCRemoteProxy_Destroy(OHIPCRemoteProxy *proxy)
 
 
 
-##### OH_IPCRemoteProxy_SendRequest()
+#### OH_IPCRemoteProxy_SendRequest()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -293,7 +293,7 @@ IPC消息发送函数。
 
 
 
-##### OH_IPCRemoteProxy_GetInterfaceDescriptor()
+#### OH_IPCRemoteProxy_GetInterfaceDescriptor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -328,7 +328,7 @@ int OH_IPCRemoteProxy_GetInterfaceDescriptor(OHIPCRemoteProxy *proxy, char **des
 
 
 
-##### OH_OnDeathRecipientCallback()
+#### OH_OnDeathRecipientCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -353,7 +353,7 @@ typedef void (*OH_OnDeathRecipientCallback)(void *userData)
 
 
 
-##### OH_OnDeathRecipientDestroyCallback()
+#### OH_OnDeathRecipientDestroyCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -378,7 +378,7 @@ OHIPCDeathRecipient对象销毁回调函数类型。
 
 
 
-##### OH_IPCDeathRecipient_Create()
+#### OH_IPCDeathRecipient_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -412,7 +412,7 @@ OHIPCDeathRecipient* OH_IPCDeathRecipient_Create(OH_OnDeathRecipientCallback dea
 
 
 
-##### OH_IPCDeathRecipient_Destroy()
+#### OH_IPCDeathRecipient_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -437,7 +437,7 @@ void OH_IPCDeathRecipient_Destroy(OHIPCDeathRecipient *recipient)
 
 
 
-##### OH_IPCRemoteProxy_AddDeathRecipient()
+#### OH_IPCRemoteProxy_AddDeathRecipient()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -470,7 +470,7 @@ int OH_IPCRemoteProxy_AddDeathRecipient(OHIPCRemoteProxy *proxy, OHIPCDeathRecip
 
 
 
-##### OH_IPCRemoteProxy_RemoveDeathRecipient()
+#### OH_IPCRemoteProxy_RemoveDeathRecipient()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -503,7 +503,7 @@ int OH_IPCRemoteProxy_RemoveDeathRecipient(OHIPCRemoteProxy *proxy, OHIPCDeathRe
 
 
 
-##### OH_IPCRemoteProxy_IsRemoteDead()
+#### OH_IPCRemoteProxy_IsRemoteDead()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

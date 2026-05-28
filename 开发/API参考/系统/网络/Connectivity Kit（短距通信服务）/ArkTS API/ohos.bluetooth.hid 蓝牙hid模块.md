@@ -14,7 +14,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { hid } from '@kit.ConnectivityKit';
 
 
 
-##### BaseProfile
+#### BaseProfile
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@ type BaseProfile = baseProfile.BaseProfile
 
 
 
-##### BluetoothAddress23+
+#### BluetoothAddress23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -60,7 +60,7 @@ type BluetoothAddress = common.BluetoothAddress
 
 
 
-##### hid.createHidHostProfile
+#### hid.createHidHostProfile
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -100,7 +100,7 @@ try {
 
 
 
-##### hid.createHidDeviceProfile23+
+#### hid.createHidDeviceProfile23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -141,7 +141,7 @@ try {
 
 
 
-##### HidDeviceProfile23+
+#### HidDeviceProfile23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -155,7 +155,7 @@ try {
 
 
 
-##### registerHidDevice23+
+#### registerHidDevice23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -253,7 +253,7 @@ try {
 
 
 
-##### unregisterHidDevice23+
+#### unregisterHidDevice23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -295,7 +295,7 @@ try {
 
 
 
-##### connect23+
+#### connect23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -354,7 +354,7 @@ try {
 
 
 
-##### disconnect23+
+#### disconnect23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -397,7 +397,7 @@ try {
 
 
 
-##### sendReport23+
+#### sendReport23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -452,7 +452,7 @@ try {
 
 
 
-##### replyReport23+
+#### replyReport23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -509,7 +509,7 @@ try {
 
 
 
-##### reportError23+
+#### reportError23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -561,7 +561,7 @@ try {
 
 
 
-##### onGetReport23+
+#### onGetReport23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -608,7 +608,7 @@ try {
 
 
 
-##### offGetReport23+
+#### offGetReport23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -656,7 +656,7 @@ try {
 
 
 
-##### onSetReport23+
+#### onSetReport23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -703,7 +703,7 @@ try {
 
 
 
-##### offSetReport23+
+#### offSetReport23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -751,7 +751,7 @@ try {
 
 
 
-##### onInterruptDataReceived23+
+#### onInterruptDataReceived23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -798,7 +798,7 @@ try {
 
 
 
-##### offInterruptDataReceived23+
+#### offInterruptDataReceived23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -846,7 +846,7 @@ try {
 
 
 
-##### onSetProtocol23+
+#### onSetProtocol23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -893,7 +893,7 @@ try {
 
 
 
-##### offSetProtocol23+
+#### offSetProtocol23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -941,7 +941,7 @@ try {
 
 
 
-##### onVirtualCableUnplug23+
+#### onVirtualCableUnplug23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -988,7 +988,7 @@ try {
 
 
 
-##### offVirtualCableUnplug23+
+#### offVirtualCableUnplug23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1036,7 +1036,7 @@ try {
 
 
 
-##### HidDeviceSdp23+
+#### HidDeviceSdp23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1057,7 +1057,7 @@ try {
 
 
 
-##### HidDeviceQos23+
+#### HidDeviceQos23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1079,7 +1079,7 @@ try {
 
 
 
-##### GetReportData23+
+#### GetReportData23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1098,7 +1098,7 @@ try {
 
 
 
-##### SetReportData23+
+#### SetReportData23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1117,7 +1117,7 @@ try {
 
 
 
-##### InterruptData23+
+#### InterruptData23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1135,7 +1135,7 @@ try {
 
 
 
-##### ProtocolData23+
+#### ProtocolData23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1152,7 +1152,7 @@ try {
 
 
 
-##### Subclass23+
+#### Subclass23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1178,7 +1178,7 @@ try {
 
 
 
-##### ReportType23+
+#### ReportType23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1197,7 +1197,7 @@ try {
 
 
 
-##### ServiceType23+
+#### ServiceType23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1216,7 +1216,7 @@ try {
 
 
 
-##### ErrorReason23+
+#### ErrorReason23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1238,7 +1238,7 @@ try {
 
 
 
-##### ProtocolType23+
+#### ProtocolType23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

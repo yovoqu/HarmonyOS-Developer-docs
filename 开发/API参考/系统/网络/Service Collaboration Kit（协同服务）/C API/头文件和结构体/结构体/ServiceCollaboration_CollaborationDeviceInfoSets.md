@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/servicecollaboration-collaborationdeviceinfosets
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -19,13 +19,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  
@@ -37,13 +37,13 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### deviceInfoSets
+#### deviceInfoSets
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -57,7 +57,7 @@ ServiceCollaboration_CollaborationDeviceInfo* ServiceCollaboration_Collaboration
  
   
 
-##### size
+#### size
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

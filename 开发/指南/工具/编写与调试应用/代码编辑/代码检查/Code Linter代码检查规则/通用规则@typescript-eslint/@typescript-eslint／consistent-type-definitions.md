@@ -9,7 +9,7 @@
 该规则仅支持对.js/.ts文件进行检查。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -22,13 +22,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/consistent-type-definitions选项](https://typescript-eslint.nodejs.cn/rules/consistent-type-definitions/#options)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 // 基本类型的定义可以使用type
@@ -44,7 +44,7 @@ export type Foo = string | T2;
  
  
 
-##### 反例
+#### 反例
 
 ```text
 // 默认推荐使用interface 进行对象类型定义
@@ -53,7 +53,7 @@ type T = { x: number };
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

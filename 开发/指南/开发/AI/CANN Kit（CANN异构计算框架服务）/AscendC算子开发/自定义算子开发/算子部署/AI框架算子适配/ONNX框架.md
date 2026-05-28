@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-onnx-framework
 
-##### 适配插件开发
+#### 适配插件开发
 
 开发者可以参考本章节进行算子适配插件的开发，将ONNX框架的算子映射成适配Kirin AI处理器的算子（下文简称AscendC算子），从而完成从ONNX框架调用AscendC自定义算子的过程。如下样例展示了一个基础的开发流程：
  
@@ -54,7 +54,7 @@ ParseParamByOpFunc：函数名称，开发者自定义。
  
   
 
-##### 调用样例
+#### 调用样例
 
 完成了ONNX框架的适配插件开发后，即可实现从ONNX框架调用AscendC自定义算子。下面以一个仅包含AddCustom算子的ONNX框架网络为例（该网络中的AddCustom算子通过适配插件映射为自定义的AddCustom算子），呈现一个使用推理工具进行推理的过程，目的在于让开发者快速体验推理场景下网络中自定义算子调用的过程。
  

@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getformatfromsubandc0
 
-##### 函数功能
+#### 函数功能
 
 根据传入的主format，子format和c0format信息得到实际的format。
  
@@ -26,7 +26,7 @@
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 inline int32_t GetFormatFromSubAndC0(int32_t primary_format, int32_t sub_format, int32_t c0_format)
@@ -34,7 +34,7 @@ inline int32_t GetFormatFromSubAndC0(int32_t primary_format, int32_t sub_format,
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -45,18 +45,18 @@ inline int32_t GetFormatFromSubAndC0(int32_t primary_format, int32_t sub_format,
  
   
 
-##### 返回值
+#### 返回值
 
 指定的primary_format、sub_format和c0_format对应的实际format。
  
   
 
-##### 异常处理
+#### 异常处理
 
 无
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

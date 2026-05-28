@@ -72,8 +72,8 @@ Charles的IP地址查看方式：点击Help -> Local IP Address查看。
 - 过滤网络请求。需要对网络请求进行过滤，只监控指定目录服务器上发送的请求。对于这种需求，有两种方法：
 
 1. 在主界面中部点击Ctrl+F打开搜索栏，填入过滤关键字。例如监听www.charlesproxy.com，填入或勾选信息后点击Find。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/mXHkW3SCR1qSkJrHe-kDvQ/zh-cn_image_0000002229604209.png?HW-CC-KV=V1&HW-CC-Date=20260528T013122Z&HW-CC-Expire=86400&HW-CC-Sign=1DF2C00B5FA85FD8230E725E690AAD3C8388876ECEFE22F7CDB221FEF0EA6362)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/mXHkW3SCR1qSkJrHe-kDvQ/zh-cn_image_0000002229604209.png?HW-CC-KV=V1&HW-CC-Date=20260528T024804Z&HW-CC-Expire=86400&HW-CC-Sign=394C75ED696A9CF4ABB9C3A60291EAC6428BD1ACAC88D4EAFC26EA5D15F61381)
 
 
 2. 在Charles的菜单栏中选择“Proxy” -> “Recording Settings” -> 选择“Include”栏 -> 点击“Add”添加一个项目 -> 按需填入需要监控的协议，重新监听即可只截取目标网站。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/wXgXwLLET3OuSvoI8dJxTA/zh-cn_image_0000002194318436.png?HW-CC-KV=V1&HW-CC-Date=20260528T013122Z&HW-CC-Expire=86400&HW-CC-Sign=18DCE1D9CE7081256220F9249EC40FC0969D8503E02924C3167BD8BAE98A47D7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/wXgXwLLET3OuSvoI8dJxTA/zh-cn_image_0000002194318436.png?HW-CC-KV=V1&HW-CC-Date=20260528T024804Z&HW-CC-Expire=86400&HW-CC-Sign=BB1A320D1DA8FA1E2E590EA3E6FCE543F786011D00924E9C6554DA50E10B0AE5)

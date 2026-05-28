@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-ohmidi
 
-##### 场景介绍
+#### 场景介绍
 
 OH_MIDI是系统提供的Native MIDI API，从API version 24开始用于在C/C++层实现MIDI应用开发。当应用需要与外接MIDI设备（如USB MIDI键盘、蓝牙MIDI设备）进行数据交互时，可以使用OH_MIDI。典型使用场景包括：
 
@@ -26,13 +26,13 @@ OH_MIDI是系统提供的Native MIDI API，从API version 24开始用于在C/C++
 
 
 
-##### 系统能力检查
+#### 系统能力检查
 
 使用MIDI进行开发前，先调用接口[canIUse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/init#caniuse)判断当前设备是否支持MIDI能力。当canIUse("SystemCapability.Multimedia.Audio.MIDI")返回值为true时，表示可以使用MIDI能力。
 
 
 
-##### 接口说明
+#### 接口说明
 
 OH_MIDI的主要接口包括：
 
@@ -45,7 +45,7 @@ OH_MIDI的主要接口包括：
 
 
 
-##### 开发准备
+#### 开发准备
 
 在使用OH_MIDI API之前，需要完成以下准备工作：
 
@@ -73,7 +73,7 @@ target_link_libraries(entry PUBLIC
 
 
 
-##### 声明权限
+#### 声明权限
 
 MIDI功能的权限需求根据使用场景不同而有所区别。
 
@@ -96,11 +96,11 @@ MIDI功能的权限需求根据使用场景不同而有所区别。
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 
 
-##### 创建MIDI客户端
+#### 创建MIDI客户端
 
 创建MIDI客户端是使用MIDI API的第一步。
 
@@ -128,7 +128,7 @@ static napi_value CreateMIDIClient(napi_env env, napi_callback_info info)
 
 
 
-##### 销毁MIDI客户端
+#### 销毁MIDI客户端
 
 当不再需要MIDI功能时，应销毁客户端以释放资源。销毁前需要先关闭所有已打开的设备。
 
@@ -153,7 +153,7 @@ static napi_value DestroyMIDIClient(napi_env env, napi_callback_info info)
 
 
 
-##### 枚举MIDI设备
+#### 枚举MIDI设备
 
 创建客户端后，可以枚举系统中当前可用的MIDI设备。枚举设备分为两步：
 1. 获取设备数量：调用[OH_MIDIClient_GetDeviceCount](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-midi-h#oh_midiclient_getdevicecount)接口获取当前连接的设备数量。
@@ -189,7 +189,7 @@ static napi_value GetDeviceInfos(napi_env env, napi_callback_info info)
 
 
 
-##### 打开MIDI设备
+#### 打开MIDI设备
 
 需要打开设备才能进行数据传输。根据设备类型不同，打开方式有所区别：USB MIDI设备通过[OH_MIDIClient_OpenDevice](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-midi-h#oh_midiclient_opendevice)接口同步打开，BLE MIDI设备通过[OH_MIDIClient_OpenBLEDevice](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-midi-h#oh_midiclient_openbledevice)接口异步打开。
 
@@ -280,7 +280,7 @@ static void OnBLEDeviceOpened(void *userData, bool opened, OH_MIDIDevice *device
 
 
 
-##### 关闭MIDI设备
+#### 关闭MIDI设备
 
 通过[OH_MIDIClient_CloseDevice](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-midi-h#oh_midiclient_closedevice)接口关闭已打开的MIDI设备，释放设备资源。
 
@@ -308,7 +308,7 @@ static napi_value CloseDevice(napi_env env, napi_callback_info info)
 
 
 
-##### 获取端口信息
+#### 获取端口信息
 
 打开设备后，需要获取设备的端口信息并打开输入或输出端口来发送或接收MIDI数据。
 
@@ -344,7 +344,7 @@ static napi_value GetPortInfos(napi_env env, napi_callback_info info)
 
 
 
-##### MIDI端口管理
+#### MIDI端口管理
 
 **打开输入端口**
 
@@ -523,7 +523,7 @@ static napi_value CloseOutputPort(napi_env env, napi_callback_info info)
 
 
 
-##### 发送MIDI消息
+#### 发送MIDI消息
 
 发送MIDI消息需要先构造UMP（Universal MIDI Packet）格式的数据，再通过[OH_MIDIDevice_Send](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-midi-h#oh_mididevice_send)接口发送。UMP是Universal MIDI Packet的缩写，是MIDI 2.0标准统一使用的数据包格式。
 
@@ -662,7 +662,7 @@ void SendSysExExample(OH_MIDIDevice *device, uint32_t outputPortIndex){
 
 
 
-##### 清空输出缓冲区
+#### 清空输出缓冲区
 
 通过[OH_MIDIDevice_FlushOutputPort](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-midi-h#oh_mididevice_flushoutputport)接口清空指定端口的输出缓冲区，丢弃所有待发送消息。
 
@@ -696,7 +696,7 @@ static napi_value FlushOutputPort(napi_env env, napi_callback_info info)
 
 
 
-##### 使用userData传递上下文数据
+#### 使用userData传递上下文数据
 
 OH_MIDI API提供客户端级别、BLE连接级别和端口连接级别三个层级的userData参数，分别传递给不同作用域的回调。
 
@@ -728,7 +728,7 @@ OH_MIDI API提供客户端级别、BLE连接级别和端口连接级别三个层
 
 
 
-##### 注意事项
+#### 注意事项
 1. 资源管理顺序：关闭客户端时会自动关闭所有设备和端口。建议应用按端口->设备->客户端的顺序关闭资源，以保证代码逻辑清晰。
 2. 线程安全：MIDI回调函数（OnMIDIReceived、OnDeviceChange、OnError）在独立的线程中执行。需要注意线程安全，即访问共享资源时应该使用互斥锁等同步机制。
 3. 内存安全：OnMIDIReceived回调中的events数组及其中所有数据指针是临时的，仅在此回调期间有效。必须在回调返回前复制任何需要保留的数据。访问过期指针会导致未定义行为（崩溃、内存损坏）。
@@ -749,11 +749,11 @@ OH_MIDI API提供客户端级别、BLE连接级别和端口连接级别三个层
 
 
 
-##### 调测验证
+#### 调测验证
 
 
 
-##### 验证设备枚举
+#### 验证设备枚举
 
 使用以下方法验证MIDI设备是否正确枚举：
 1. 检查日志输出：确认设备数量、设备名称、设备类型等信息正确显示。
@@ -762,7 +762,7 @@ OH_MIDI API提供客户端级别、BLE连接级别和端口连接级别三个层
 
 
 
-##### 调试UMP消息格式
+#### 调试UMP消息格式
 
 UMP消息格式遵循MIDI 2.0标准。常见UMP消息类型：
 
@@ -779,13 +779,13 @@ OH_LOG_DEBUG(LOG_APP, "UMP Data: 0x%{public}08X", umpData[0]);
 
 
 
-##### 常用调试工具
+#### 常用调试工具
 
 日志输出：使用OH_LOG系列宏输出详细调试信息。
 
 
 
-##### 日志记录建议
+#### 日志记录建议
 
 在开发阶段，建议在接口调用、错误处理和关键业务逻辑状态变更处添加包含时间戳、方法名、参数值和返回值的详细日志：
 
@@ -804,11 +804,11 @@ MIDI_LOGD("UMP Data: 0x%{public}08X", umpData[0]);
 
 
 
-##### 常见问题
+#### 常见问题
 
 
 
-##### 发送消息时返回OH_MIDI_STATUS_WOULD_BLOCK
+#### 发送消息时返回OH_MIDI_STATUS_WOULD_BLOCK
 
 表示发送缓冲区已满，无法立即发送消息。原因和处理方法如下：
 1. 发送速度超过缓冲区处理能力：降低发送频率（通常在发送大量SysEx消息的场景）。
@@ -834,7 +834,7 @@ if (result == OH_MIDI_STATUS_WOULD_BLOCK) {
 
 
 
-##### 如何正确处理设备热插拔
+#### 如何正确处理设备热插拔
 
 正确的设备热插拔处理流程：
 1. 监听设备变化回调：在OnDeviceChange中处理连接和断开事件。
@@ -844,7 +844,7 @@ if (result == OH_MIDI_STATUS_WOULD_BLOCK) {
 
 
 
-##### 蓝牙MIDI设备连接失败处理
+#### 蓝牙MIDI设备连接失败处理
 
 蓝牙MIDI设备连接常见问题及解决方案：
 1. 权限未声明：确保在module.json5中声明了ohos.permission.ACCESS_BLUETOOTH权限。
@@ -858,7 +858,7 @@ if (result == OH_MIDI_STATUS_WOULD_BLOCK) {
 
 
 
-##### 在回调中访问数据时程序崩溃处理
+#### 在回调中访问数据时程序崩溃处理
 
 通常是由于线程安全或内存生命周期问题导致。
 1. 内存生命周期问题：OnMIDIReceived回调中的events数据仅在回调期间有效，不能保存指针供后续使用。
@@ -908,7 +908,7 @@ static void OnMIDIReceived(void *userData, const OH_MIDIEvent *events, size_t ev
 
   
 
-  ##### 完整示例
+  #### 完整示例
 
   完整的示例代码可以在示例项目中查看：
 
@@ -930,7 +930,7 @@ static void OnMIDIReceived(void *userData, const OH_MIDIEvent *events, size_t ev
 
 
 
-##### 相关参考
+#### 相关参考
 
  - [OH_MIDI开发概述(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/midi-overview)
  - [OHMIDI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohmidi)API参考

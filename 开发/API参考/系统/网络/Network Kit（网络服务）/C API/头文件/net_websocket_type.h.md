@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-websocket-type-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -46,7 +46,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -60,13 +60,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### WebSocket_ErrCode
+#### WebSocket_ErrCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -105,13 +105,13 @@ enum WebSocket_ErrCode
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### WebSocket_OnOpenCallback()
+#### WebSocket_OnOpenCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -135,7 +135,7 @@ websocket客户端接收open消息的回调函数定义。
  
   
 
-##### WebSocket_OnMessageCallback()
+#### WebSocket_OnMessageCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -160,7 +160,7 @@ websocket客户端接收数据的回调函数定义。
  
   
 
-##### WebSocket_OnErrorCallback()
+#### WebSocket_OnErrorCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -184,7 +184,7 @@ websocket客户端接收error错误消息的回调函数定义。
  
   
 
-##### WebSocket_OnCloseCallback()
+#### WebSocket_OnCloseCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

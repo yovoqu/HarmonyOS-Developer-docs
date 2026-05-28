@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mindspore-guidelines-based-native
 
-##### 场景说明
+#### 场景说明
 
 开发者可以使用[MindSpore](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-mindspore)，在UI代码中直接集成MindSpore Lite能力，快速部署AI算法，进行AI模型推理，实现图像分类的应用。
 
@@ -12,26 +12,26 @@
 
 
 
-##### 基本概念
+#### 基本概念
 
  - N-API：用于构建ArkTS本地化组件的一套接口。可利用N-API，将C/C++开发的库封装成ArkTS模块。
 
 
 
 
-##### 开发流程
+#### 开发流程
 1. 选择图像分类模型。
 2. 在端侧使用MindSpore Lite推理模型，实现对选择的图片进行分类。
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 本文以对相册的一张图片进行推理为例，提供使用MindSpore Lite实现图像分类的开发指导。
 
 
 
-##### 选择模型
+#### 选择模型
 
 本示例程序中使用的图像分类模型文件为[mobilenetv2.ms](https://download.mindspore.cn/model_zoo/official/lite/mobilenetv2_openimage_lite/1.5/mobilenetv2.ms)，放置在entry/src/main/resources/rawfile工程目录下。
 
@@ -39,7 +39,7 @@
 
 
 
-##### 编写推理代码
+#### 编写推理代码
 
 在 entry/src/main/cpp/mslite_napi.cpp，调用[MindSpore](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-mindspore)实现端侧推理，推理代码流程如下。
 1. 引用对应的头文件
@@ -326,7 +326,7 @@ target_link_libraries(entry PUBLIC ace_napi.z)
 
 
 
-##### 使用N-API将C++动态库封装成ArkTS模块
+#### 使用N-API将C++动态库封装成ArkTS模块
 1. 在 entry/src/main/cpp/types/libentry/Index.d.ts，定义ArkTS接口runDemo() 。内容如下：
 
   
@@ -349,7 +349,7 @@ export const runDemo: (a: number[], b:Object) => Array<number>;
 
 
 
-##### 实现图像输入和预处理，并执行推理
+#### 实现图像输入和预处理，并执行推理
 1. 此处以获取相册图片为例，调用[@ohos.file.picker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-picker) 实现相册图片文件的选择。
 2. 根据模型的输入尺寸，调用[@ohos.multimedia.image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image) （实现图片处理）、[@ohos.file.fs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs) （实现基础文件操作） API对选择图片进行裁剪、获取图片buffer数据，并进行标准化处理。
 3. 在 entry/src/main/ets/pages/Index.ets 中，调用封装的ArkTS模块，最后对推理结果进行处理。
@@ -547,7 +547,7 @@ struct Index {
 
 
 
-##### 调测验证
+#### 调测验证
 1. 在DevEco Studio中连接设备，点击Run entry，编译Hap，有如下显示：
 
   
@@ -587,7 +587,7 @@ $ hdc shell aa start -a EntryAbility -b com.samples.mindsporelitecdemo
 
 
 
-##### 效果示意
+#### 效果示意
 
 在设备上，点击photo按钮，选择相册中的一张图片，点击确定。在图片下方显示此图片占比前4的分类信息。
 
@@ -605,6 +605,6 @@ $ hdc shell aa start -a EntryAbility -b com.samples.mindsporelitecdemo
 
 
 
-##### 示例代码
+#### 示例代码
 
  - [基于MindSporeLite接口实现图像分类（C/C++）](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/MindSporeLiteKit/MindSporeLiteCDemo)

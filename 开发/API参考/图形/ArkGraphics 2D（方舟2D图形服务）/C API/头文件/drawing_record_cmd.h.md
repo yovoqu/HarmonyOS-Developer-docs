@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-record-cmd-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -44,13 +44,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Drawing_RecordCmdUtilsCreate()
+#### OH_Drawing_RecordCmdUtilsCreate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -75,7 +75,7 @@ OH_Drawing_RecordCmdUtils* OH_Drawing_RecordCmdUtilsCreate(void)
  
   
 
-##### OH_Drawing_RecordCmdUtilsDestroy()
+#### OH_Drawing_RecordCmdUtilsDestroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -107,7 +107,7 @@ OH_Drawing_ErrorCode OH_Drawing_RecordCmdUtilsDestroy(OH_Drawing_RecordCmdUtils*
  
   
 
-##### OH_Drawing_RecordCmdUtilsBeginRecording()
+#### OH_Drawing_RecordCmdUtilsBeginRecording()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -144,7 +144,7 @@ OH_Drawing_ErrorCode OH_Drawing_RecordCmdUtilsBeginRecording(OH_Drawing_RecordCm
  
   
 
-##### OH_Drawing_RecordCmdUtilsFinishRecording()
+#### OH_Drawing_RecordCmdUtilsFinishRecording()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -179,7 +179,7 @@ OH_Drawing_ErrorCode OH_Drawing_RecordCmdUtilsFinishRecording(OH_Drawing_RecordC
  
   
 
-##### OH_Drawing_RecordCmdDestroy()
+#### OH_Drawing_RecordCmdDestroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

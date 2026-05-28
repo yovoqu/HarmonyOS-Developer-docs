@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { drawing } from '@kit.ArkGraphics2D';
 
 
 
-##### constructor12+
+#### constructor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -42,7 +42,7 @@ const brush = new drawing.Brush();
 
 
 
-##### constructor12+
+#### constructor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -81,7 +81,7 @@ const newBrush = new drawing.Brush(brush);
 
 
 
-##### setColor
+#### setColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -119,7 +119,7 @@ brush.setColor(color);
 
 
 
-##### setColor12+
+#### setColor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -159,7 +159,7 @@ brush.setColor(255, 255, 0, 0);
 
 
 
-##### setColor18+
+#### setColor18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -196,7 +196,7 @@ brush.setColor(0xffff0000);
 
 
 
-##### setColor4f20+
+#### setColor4f20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -227,7 +227,7 @@ brush.setColor4f(color4f, colorSpace);
 
 
 
-##### getColor12+
+#### getColor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -257,7 +257,7 @@ let colorGet = brush.getColor();
 
 
 
-##### getColor4f20+
+#### getColor4f20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -288,7 +288,7 @@ let color = brush.getColor4f();
 
 
 
-##### getHexColor18+
+#### getHexColor18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -319,7 +319,7 @@ console.info('getHexColor: ', hex_color.toString(16));
 
 
 
-##### setAntiAlias
+#### setAntiAlias
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -356,7 +356,7 @@ brush.setAntiAlias(true);
 
 
 
-##### isAntiAlias12+
+#### isAntiAlias12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -384,7 +384,7 @@ let isAntiAlias = brush.isAntiAlias();
 
 
 
-##### setAlpha
+#### setAlpha
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -421,7 +421,7 @@ brush.setAlpha(128);
 
 
 
-##### getAlpha12+
+#### getAlpha12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -449,7 +449,7 @@ let alpha = brush.getAlpha();
 
 
 
-##### setColorFilter
+#### setColorFilter
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -487,7 +487,7 @@ brush.setColorFilter(colorFilter);
 
 
 
-##### setMaskFilter12+
+#### setMaskFilter12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -531,7 +531,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### setShaderEffect12+
+#### setShaderEffect12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -569,7 +569,7 @@ brush.setShaderEffect(shaderEffect);
 
 
 
-##### setShadowLayer12+
+#### setShadowLayer12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -641,7 +641,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### setBlendMode
+#### setBlendMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -678,7 +678,7 @@ brush.setBlendMode(drawing.BlendMode.SRC);
 
 
 
-##### setImageFilter12+
+#### setImageFilter12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -717,7 +717,7 @@ brush.setImageFilter(null);
 
 
 
-##### getColorFilter12+
+#### getColorFilter12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -747,7 +747,7 @@ let filter = brush.getColorFilter();
 
 
 
-##### reset12+
+#### reset12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

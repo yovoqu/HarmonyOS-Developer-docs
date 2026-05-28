@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { MeasureText } from '@kit.ArkUI';
 
 
 
-##### MeasureText.measureText(deprecated)
+#### MeasureText.measureText(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -84,7 +84,7 @@ struct Index {
 
 
 
-##### MeasureText.measureTextSize(deprecated)
+#### MeasureText.measureTextSize(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -147,7 +147,7 @@ struct Index {
 
 
 
-##### MeasureOptions
+#### MeasureOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

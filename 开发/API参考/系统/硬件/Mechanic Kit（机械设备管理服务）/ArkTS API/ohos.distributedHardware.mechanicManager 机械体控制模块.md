@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Tablet
 
@@ -22,7 +22,7 @@ import { mechanicManager } from '@kit.MechanicKit';
  
   
 
-##### mechanicManager.on('attachStateChange')
+#### mechanicManager.on('attachStateChange')
 
 **支持设备：** Phone | Tablet
 
@@ -63,7 +63,7 @@ console.info('Succeeded in registering callback.');
  
   
 
-##### mechanicManager.off('attachStateChange')
+#### mechanicManager.off('attachStateChange')
 
 **支持设备：** Phone | Tablet
 
@@ -104,7 +104,7 @@ console.info('Succeeded in unregistering callback.');
  
   
 
-##### mechanicManager.getAttachedMechDevices
+#### mechanicManager.getAttachedMechDevices
 
 **支持设备：** Phone | Tablet
 
@@ -140,7 +140,7 @@ console.info(`'device list:' ${mechanicInfos}`);
  
   
 
-##### mechanicManager.setCameraTrackingEnabled
+#### mechanicManager.setCameraTrackingEnabled
 
 **支持设备：** Phone | Tablet
 
@@ -178,7 +178,7 @@ console.info('Succeeded in enabling tracking.');
  
   
 
-##### mechanicManager.getCameraTrackingEnabled
+#### mechanicManager.getCameraTrackingEnabled
 
 **支持设备：** Phone | Tablet
 
@@ -215,7 +215,7 @@ console.info(`'current tracking status:' ${enabled}`);
  
   
 
-##### mechanicManager.on('trackingStateChange')
+#### mechanicManager.on('trackingStateChange')
 
 **支持设备：** Phone | Tablet
 
@@ -256,7 +256,7 @@ console.info('Succeeded in registering callback.');
  
   
 
-##### mechanicManager.off('trackingStateChange')
+#### mechanicManager.off('trackingStateChange')
 
 **支持设备：** Phone | Tablet
 
@@ -297,7 +297,7 @@ console.info('Succeeded in unregistering callback.');
  
   
 
-##### mechanicManager.getCameraTrackingLayout
+#### mechanicManager.getCameraTrackingLayout
 
 **支持设备：** Phone | Tablet
 
@@ -334,7 +334,7 @@ console.info(`'Succeeded in querying layout, current layout:' ${layout}`);
  
   
 
-##### MechInfo
+#### MechInfo
 
 **支持设备：** Phone | Tablet
 
@@ -351,7 +351,7 @@ console.info(`'Succeeded in querying layout, current layout:' ${layout}`);
  
   
 
-##### TrackingEventInfo
+#### TrackingEventInfo
 
 **支持设备：** Phone | Tablet
 
@@ -366,7 +366,7 @@ console.info(`'Succeeded in querying layout, current layout:' ${layout}`);
  
   
 
-##### AttachStateChangeInfo
+#### AttachStateChangeInfo
 
 **支持设备：** Phone | Tablet
 
@@ -382,7 +382,7 @@ console.info(`'Succeeded in querying layout, current layout:' ${layout}`);
  
   
 
-##### TrackingEvent
+#### TrackingEvent
 
 **支持设备：** Phone | Tablet
 
@@ -399,7 +399,7 @@ console.info(`'Succeeded in querying layout, current layout:' ${layout}`);
  
   
 
-##### MechDeviceType
+#### MechDeviceType
 
 **支持设备：** Phone | Tablet
 
@@ -414,7 +414,7 @@ console.info(`'Succeeded in querying layout, current layout:' ${layout}`);
  
   
 
-##### AttachState
+#### AttachState
 
 **支持设备：** Phone | Tablet
 
@@ -430,7 +430,7 @@ console.info(`'Succeeded in querying layout, current layout:' ${layout}`);
  
   
 
-##### CameraTrackingLayout
+#### CameraTrackingLayout
 
 **支持设备：** Phone | Tablet
 

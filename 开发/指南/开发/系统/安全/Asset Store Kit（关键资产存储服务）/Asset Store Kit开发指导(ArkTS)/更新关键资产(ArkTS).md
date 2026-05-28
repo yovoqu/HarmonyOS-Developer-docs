@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/asset-js-update
 
-##### 接口介绍
+#### 接口介绍
 
 开发者可以查阅API文档，获取关键资产更新接口的详细说明：[update(query: AssetMap, attributesToUpdate: AssetMap)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-asset#assetupdate)、同步接口[updateSync(query: AssetMap, attributesToUpdate: AssetMap)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-asset#assetupdatesync12)。
 
@@ -90,7 +90,7 @@
 
 
 
-##### 代码示例
+#### 代码示例
 
 > [!NOTE]
 > 本模块提供了异步和同步两套接口，以下为异步接口的使用示例，同步接口详见 @ohos.security.asset (关键资产存储服务) 。 在指定群组中更新一条关键资产的使用示例详见 更新群组关键资产 。 在更新前，需确保已有关键资产，可参考 指南文档 新增关键资产，否则将抛出NOT_FOUND错误（错误码24000002）。

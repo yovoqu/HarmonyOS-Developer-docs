@@ -16,19 +16,19 @@
 
 
 
-##### 网络请求拦截处理 (onInterceptRequest接口)
+#### 网络请求拦截处理 (onInterceptRequest接口)
 
 通过onInterceptRequest接口拦截Web组件发起的网络请求可参考[自定义页面请求响应](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-resource-interception-request-mgmt)。
 
 
 
-##### 网络请求拦截处理 (SchemeHandler机制)
+#### 网络请求拦截处理 (SchemeHandler机制)
 
 通过SchemeHandler机制来拦截Web组件发起的网络请求。
 
 
 
-##### 为Web组件设置SchemeHandler
+#### 为Web组件设置SchemeHandler
 
 ArkWeb支持通过SchemeHandler拦截Web组件或者ServiceWorker发出的HTTP(s)及自定义协议的请求。
 
@@ -88,7 +88,7 @@ ArkTS：[onRequestStop](https://developer.huawei.com/consumer/cn/doc/harmonyos-r
 
 
 
-##### 设置自定义scheme需要遵循的规则
+#### 设置自定义scheme需要遵循的规则
 
 如果要拦截自定义scheme的请求，需要在Web组件初始化之前将自定义scheme注册到Web内核，初始化后再注册会失败。
 
@@ -161,7 +161,7 @@ OH_ArkWeb_RegisterCustomSchemes("custom-isolated", ARKWEB_SCHEME_OPTION_DISPLAY_
 
 
 
-##### 获取被拦截请求的信息
+#### 获取被拦截请求的信息
 
 在请求开始的回调中，应用可以获取请求的基本信息包括url、method、referrer、request headers、resource type、post data等。支持获取PUT/POST类请求的上传数据，数据类型支持BYTES、FILE、BLOB和CHUNKED。
 
@@ -222,7 +222,7 @@ this.schemeHandler.onRequestStart((request: webview.WebSchemeHandlerRequest, res
 
 
 
-##### 拦截Web内核的请求，并为被拦截的请求提供自定义的响应信息
+#### 拦截Web内核的请求，并为被拦截的请求提供自定义的响应信息
 
 网络拦截支持在worker线程以流方式为被拦截的请求提供自定义的响应信息。也可用特定的网络错误码结束当前被拦截的请求。
 
@@ -233,7 +233,7 @@ NDK：[网络错误码(arkweb_net_error_list.h)](https://developer.huawei.com/co
 ArkTS：[网络错误码(@ohos.web.netErrorList.d.ts)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-neterrorlist)。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/dR_9tjTYTba83WdmQEyePw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T014741Z&HW-CC-Expire=86400&HW-CC-Sign=4ED0BA121DDC150B3D4FAB6A297066F78CAA9BC0F0A551B32BC1789FFE92CFCA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/dR_9tjTYTba83WdmQEyePw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030412Z&HW-CC-Expire=86400&HW-CC-Sign=D6DCA6760C1AB15BFB7099EEA9B53D6EAF54DD459C0C261A11ADB2D4C414D227)
 
 
  - ArkWeb不支持自定义错误码，请使用ArkWeb提供的错误码来结束请求。
@@ -329,6 +329,6 @@ this.schemeHandler.onRequestStart((request: webview.WebSchemeHandlerRequest, res
 
 
 
-##### 完整示例
+#### 完整示例
 
 [拦截Web组件发起的网络请求](https://gitcode.com/harmonyos_samples/guide-snippets/tree/master/ArkWeb/ArkWebSchemeHandler)

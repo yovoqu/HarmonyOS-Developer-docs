@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-settensorb
 
-##### 功能说明
+#### 功能说明
 
 设置矩阵乘的右矩阵B。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 __aicore__ inline void SetTensorB(const GlobalTensor<SrcBT>& gm, bool isTransposeB = false)
@@ -20,7 +20,7 @@ __aicore__ inline void SetTensorB(SrcBT bScalar)
  
   
 
-##### 参数说明
+#### 参数说明
 
 **表1** 参数说明
   
@@ -34,25 +34,25 @@ __aicore__ inline void SetTensorB(SrcBT bScalar)
  
   
 
-##### 返回值
+#### 返回值
 
 无
  
   
 
-##### 支持的型号
+#### 支持的型号
 
 Kirin9020系列处理器
  
   
 
-##### 注意事项
+#### 注意事项
 
 传入的TensorB地址空间大小需要保证不小于singleK * singleN。
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 REGIST_MATMUL_OBJ(&pipe, GetSysWorkSpacePtr(), mm, &tiling);

@@ -42,7 +42,7 @@
 
 
 
-##### 1001930000 用户取消操作
+#### 1001930000 用户取消操作
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -64,7 +64,7 @@ The operation was canceled by the user.
 
 
 
-##### 1001930001 支付失败
+#### 1001930001 支付失败
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -86,7 +86,7 @@ Pay failed.
 
 
 
-##### 1001930002 交易已处理
+#### 1001930002 交易已处理
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -108,7 +108,7 @@ The transaction has been processed.
 
 
 
-##### 1001930003 签约失败
+#### 1001930003 签约失败
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -130,7 +130,7 @@ Withhold failed.
 
 
 
-##### 1001930010 重复请求
+#### 1001930010 重复请求
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -152,7 +152,7 @@ Duplicate request.
 
 
 
-##### 1001930011 网络连接异常
+#### 1001930011 网络连接异常
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -174,7 +174,7 @@ Network connection error.
 
 
 
-##### 1014900000 用户取消支付
+#### 1014900000 用户取消支付
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -196,7 +196,7 @@ The operation was canceled by the user.
 
 
 
-##### 1014900001 支付失败
+#### 1014900001 支付失败
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -218,7 +218,7 @@ Payment failed.
 
 
 
-##### 1014900002 交易已处理
+#### 1014900002 交易已处理
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -240,7 +240,7 @@ The transaction has been processed.
 
 
 
-##### 1014900003 重复请求
+#### 1014900003 重复请求
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -262,7 +262,7 @@ Duplicate request.
 
 
 
-##### 1014900004 网络连接异常
+#### 1014900004 网络连接异常
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -284,7 +284,7 @@ Network connection error.
 
 
 
-##### 1014900005 支付环境初始化未完成
+#### 1014900005 支付环境初始化未完成
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -306,7 +306,7 @@ The payment environment is not ready.
 
 
 
-##### 1020100000 应用未开通必要服务
+#### 1020100000 应用未开通必要服务
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -328,7 +328,7 @@ The application does not have the required capability.
 
 
 
-##### 1020100001 用户未同意
+#### 1020100001 用户未同意
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -350,7 +350,7 @@ The user did not accept the agreement.
 
 
 
-##### 1020100002 用户取消操作
+#### 1020100002 用户取消操作
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -372,7 +372,7 @@ The user canceled the operation.
 
 
 
-##### 1020100003 预验证ID无效
+#### 1020100003 预验证ID无效
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -394,7 +394,7 @@ The pre-verify ID is invalid.
 
 
 
-##### 1020100004 网络不可用
+#### 1020100004 网络不可用
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -416,7 +416,7 @@ The network is unavailable.
 
 
 
-##### 1020100005 系统错误
+#### 1020100005 系统错误
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -438,7 +438,7 @@ System internal error.
 
 
 
-##### 1020100006 相机权限未开启
+#### 1020100006 相机权限未开启
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -460,7 +460,7 @@ The camera permission is not granted.
 
 
 
-##### 1020100007 活体检测失败
+#### 1020100007 活体检测失败
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -482,7 +482,7 @@ The liveness detection failed.
 
 
 
-##### 1020100008 appID不匹配
+#### 1020100008 appID不匹配
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -504,7 +504,7 @@ appId不匹配。
 
 
 
-##### 1020100009 用户ID不匹配
+#### 1020100009 用户ID不匹配
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -526,7 +526,7 @@ The user ID does not match.
 
 
 
-##### 1022830000 用户取消操作
+#### 1022830000 用户取消操作
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -548,7 +548,7 @@ The operation was canceled by the user.
 
 
 
-##### 1022830001 支付失败
+#### 1022830001 支付失败
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -570,7 +570,7 @@ Pay failed.
 
 
 
-##### 1022830002 支付信息无效
+#### 1022830002 支付信息无效
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -591,7 +591,7 @@ The payInfo invalid. Possible causes: 1.Data format is not json string; 2.Mandat
 
 
 
-##### 1019200001 系统错误
+#### 1019200001 系统错误
 
 **错误信息**
 
@@ -611,7 +611,7 @@ System internal error.
 
 
 
-##### 1019200002 网络不可用
+#### 1019200002 网络不可用
 
 **错误信息**
 
@@ -631,7 +631,7 @@ Network connection error.
 
 
 
-##### 1019200003 订单金额无效
+#### 1019200003 订单金额无效
 
 **错误信息**
 
@@ -651,7 +651,7 @@ Trade amount is invalid.
 
 
 
-##### 1019200005 商户证书ID无效
+#### 1019200005 商户证书ID无效
 
 **错误信息**
 
@@ -671,7 +671,7 @@ AuthId is invalid.
 
 
 
-##### 1019200006 签名无效
+#### 1019200006 签名无效
 
 **错误信息**
 
@@ -691,7 +691,7 @@ Sign is invalid.
 
 
 
-##### 1019200007 订单上下文无效
+#### 1019200007 订单上下文无效
 
 **错误信息**
 
@@ -711,7 +711,7 @@ OrderContext is invalid.
 
 
 
-##### 1019200008 未登录华为账号
+#### 1019200008 未登录华为账号
 
 **错误信息**
 
@@ -731,7 +731,7 @@ The HUAWEI ID is not signed in.
 
 
 
-##### 1019200009 用户未同意协议
+#### 1019200009 用户未同意协议
 
 **错误信息**
 
@@ -751,7 +751,7 @@ The user did not accept the agreement.
 
 
 
-##### 1019200010 商户号无效
+#### 1019200010 商户号无效
 
 **错误信息**
 

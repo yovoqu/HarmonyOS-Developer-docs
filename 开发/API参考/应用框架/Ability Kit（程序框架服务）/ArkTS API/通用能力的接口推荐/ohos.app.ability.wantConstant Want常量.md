@@ -12,7 +12,7 @@ wantConstant模块提供了[Want](https://developer.huawei.com/consumer/cn/doc/h
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { wantConstant } from '@kit.AbilityKit';
 
 
 
-##### Params
+#### Params
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -60,7 +60,7 @@ import { wantConstant } from '@kit.AbilityKit';
 
 
 
-##### Flags
+#### Flags
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -80,7 +80,7 @@ import { wantConstant } from '@kit.AbilityKit';
 
 
 
-##### ShowMode12+
+#### ShowMode12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

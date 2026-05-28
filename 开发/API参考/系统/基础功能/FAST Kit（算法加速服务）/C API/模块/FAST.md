@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast
 **支持设备：** Phone | PC/2in1 | Tablet
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -15,7 +15,7 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -23,7 +23,7 @@
  
   
 
-##### 文件
+#### 文件
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -38,7 +38,7 @@
  
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -57,7 +57,7 @@
  
   
 
-##### 类型定义
+#### 类型定义
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -83,7 +83,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -96,7 +96,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -158,13 +158,13 @@
  
   
 
-##### 类型定义说明
+#### 类型定义说明
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### FAST_ErrorCode
+#### FAST_ErrorCode
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -180,7 +180,7 @@ FAST Kit的错误码。
  
   
 
-##### FAST_Rect
+#### FAST_Rect
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -196,7 +196,7 @@ typedef struct FAST_Rect FAST_Rect
  
   
 
-##### FAST_RectPartitionConfig
+#### FAST_RectPartitionConfig
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -212,7 +212,7 @@ typedef struct FAST_RectPartitionConfig FAST_RectPartitionConfig
  
   
 
-##### FAST_SegmentMapConfig
+#### FAST_SegmentMapConfig
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -228,7 +228,7 @@ typedef struct FAST_SegmentMapConfig FAST_SegmentMapConfig
  
   
 
-##### FAST_SegmentMapHandle
+#### FAST_SegmentMapHandle
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -244,7 +244,7 @@ typedef void* FAST_SegmentMapHandle
  
   
 
-##### FAST_SegmentMapQueryType
+#### FAST_SegmentMapQueryType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -260,7 +260,7 @@ typedef enum FAST_SegmentMapQueryType FAST_SegmentMapQueryType
  
   
 
-##### FAST_SegmentMapUpdateType
+#### FAST_SegmentMapUpdateType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -276,7 +276,7 @@ typedef enum FAST_SegmentMapUpdateType FAST_SegmentMapUpdateType
  
   
 
-##### FAST_ConcurrentHashmapHandle
+#### FAST_ConcurrentHashmapHandle
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -292,7 +292,7 @@ typedef void* FAST_ConcurrentHashmapHandle
  
   
 
-##### FAST_ConcurrentHashmapKeyPtr
+#### FAST_ConcurrentHashmapKeyPtr
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -308,7 +308,7 @@ typedef void* FAST_ConcurrentHashmapKeyPtr
  
   
 
-##### FAST_ConcurrentHashmapValuePtr
+#### FAST_ConcurrentHashmapValuePtr
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -324,7 +324,7 @@ typedef void* FAST_ConcurrentHashmapValuePtr
  
   
 
-##### HMS_FAST_ConcurrentHashmap_HashFunc
+#### HMS_FAST_ConcurrentHashmap_HashFunc
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -340,7 +340,7 @@ typedef uint64_t (*HMS_FAST_ConcurrentHashmap_HashFunc)(const FAST_ConcurrentHas
  
   
 
-##### HMS_FAST_ConcurrentHashmap_KeyEqualFunc
+#### HMS_FAST_ConcurrentHashmap_KeyEqualFunc
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -359,7 +359,7 @@ typedef int32_t (*HMS_FAST_ConcurrentHashmap_KeyEqualFunc)(
  
   
 
-##### HMS_FAST_ConcurrentHashmap_HookFunc
+#### HMS_FAST_ConcurrentHashmap_HookFunc
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -379,7 +379,7 @@ typedef int32_t (*HMS_FAST_ConcurrentHashmap_HookFunc)(
  
   
 
-##### FAST_SplitComplex
+#### FAST_SplitComplex
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -395,7 +395,7 @@ typedef struct FAST_SplitComplex FAST_SplitComplex
  
   
 
-##### FAST_SplitComplexD
+#### FAST_SplitComplexD
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -411,7 +411,7 @@ typedef struct FAST_SplitComplexD FAST_SplitComplexD
  
   
 
-##### FAST_BiquadCoefficients
+#### FAST_BiquadCoefficients
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -427,7 +427,7 @@ typedef struct FAST_BiquadCoefficients FAST_BiquadCoefficients
  
   
 
-##### FAST_BiquadCoefficientsD
+#### FAST_BiquadCoefficientsD
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -443,7 +443,7 @@ typedef struct FAST_BiquadCoefficientsD FAST_BiquadCoefficientsD
  
   
 
-##### FAST_BiquadState
+#### FAST_BiquadState
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -459,7 +459,7 @@ typedef struct FAST_BiquadState FAST_BiquadState
  
   
 
-##### FAST_BiquadStateD
+#### FAST_BiquadStateD
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -475,7 +475,7 @@ typedef struct FAST_BiquadStateD FAST_BiquadStateD
  
   
 
-##### FAST_Biquadm
+#### FAST_Biquadm
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -491,7 +491,7 @@ typedef struct FAST_Biquadm FAST_Biquadm
  
   
 
-##### FAST_BiquadmD
+#### FAST_BiquadmD
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -507,13 +507,13 @@ typedef struct FAST_BiquadmD FAST_BiquadmD
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### FAST_ErrorCode
+#### FAST_ErrorCode
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -540,7 +540,7 @@ FAST Kit的错误码。
  
   
 
-##### FAST_SegmentMapQueryType
+#### FAST_SegmentMapQueryType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -565,7 +565,7 @@ enum FAST_SegmentMapQueryType
  
   
 
-##### FAST_SegmentMapUpdateType
+#### FAST_SegmentMapUpdateType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -590,13 +590,13 @@ enum FAST_SegmentMapUpdateType
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### HMS_FAST_RectPartition_CreateConfig()
+#### HMS_FAST_RectPartition_CreateConfig()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -627,7 +627,7 @@ FAST_EXPORT FAST_ErrorCode HMS_FAST_RectPartition_CreateConfig (FAST_RectPartiti
  
   
 
-##### HMS_FAST_RectPartition_DestroyConfig()
+#### HMS_FAST_RectPartition_DestroyConfig()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -650,7 +650,7 @@ FAST_EXPORT void HMS_FAST_RectPartition_DestroyConfig (FAST_RectPartitionConfig 
  
   
 
-##### HMS_FAST_RectPartition_SetAlgo()
+#### HMS_FAST_RectPartition_SetAlgo()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -682,7 +682,7 @@ FAST_EXPORT FAST_ErrorCode HMS_FAST_RectPartition_SetAlgo (FAST_RectPartitionCon
  
   
 
-##### HMS_FAST_RectPartition_Solve()
+#### HMS_FAST_RectPartition_Solve()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -722,7 +722,7 @@ FAST_EXPORT FAST_ErrorCode HMS_FAST_RectPartition_Solve (FAST_RectPartitionConfi
  
   
 
-##### HMS_FAST_SegmentMap_Create()
+#### HMS_FAST_SegmentMap_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -756,7 +756,7 @@ FAST_EXPORT FAST_ErrorCode HMS_FAST_SegmentMap_Create (FAST_SegmentMapHandle * h
  
   
 
-##### HMS_FAST_SegmentMap_CreateConfig()
+#### HMS_FAST_SegmentMap_CreateConfig()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -787,7 +787,7 @@ FAST_EXPORT FAST_ErrorCode HMS_FAST_SegmentMap_CreateConfig (FAST_SegmentMapConf
  
   
 
-##### HMS_FAST_SegmentMap_Destroy()
+#### HMS_FAST_SegmentMap_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -810,7 +810,7 @@ FAST_EXPORT void HMS_FAST_SegmentMap_Destroy (FAST_SegmentMapHandle handle)
  
   
 
-##### HMS_FAST_SegmentMap_DestroyConfig()
+#### HMS_FAST_SegmentMap_DestroyConfig()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -833,7 +833,7 @@ FAST_EXPORT void HMS_FAST_SegmentMap_DestroyConfig (FAST_SegmentMapConfig * conf
  
   
 
-##### HMS_FAST_SegmentMap_Query()
+#### HMS_FAST_SegmentMap_Query()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -867,7 +867,7 @@ FAST_EXPORT FAST_ErrorCode HMS_FAST_SegmentMap_Query (FAST_SegmentMapHandle hand
  
   
 
-##### HMS_FAST_SegmentMap_SetQueryType()
+#### HMS_FAST_SegmentMap_SetQueryType()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -897,7 +897,7 @@ FAST_EXPORT FAST_ErrorCode HMS_FAST_SegmentMap_SetQueryType (FAST_SegmentMapConf
  
   
 
-##### HMS_FAST_SegmentMap_SetUpdateType()
+#### HMS_FAST_SegmentMap_SetUpdateType()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -927,7 +927,7 @@ FAST_EXPORT FAST_ErrorCode HMS_FAST_SegmentMap_SetUpdateType (FAST_SegmentMapCon
  
   
 
-##### HMS_FAST_SegmentMap_Update()
+#### HMS_FAST_SegmentMap_Update()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -961,7 +961,7 @@ FAST_EXPORT FAST_ErrorCode HMS_FAST_SegmentMap_Update (FAST_SegmentMapHandle han
  
   
 
-##### HMS_FAST_Biquadm_Create()
+#### HMS_FAST_Biquadm_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -997,7 +997,7 @@ FAST_ErrorCode HMS_FAST_Biquadm_Create (size_t numChannels, size_t numSections, 
  
   
 
-##### HMS_FAST_Biquadm_CreateD()
+#### HMS_FAST_Biquadm_CreateD()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1033,7 +1033,7 @@ FAST_ErrorCode HMS_FAST_Biquadm_CreateD (size_t numChannels, size_t numSections,
  
   
 
-##### HMS_FAST_Biquadm_Destroy()
+#### HMS_FAST_Biquadm_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1056,7 +1056,7 @@ void HMS_FAST_Biquadm_Destroy (FAST_Biquadm * filter)
  
   
 
-##### HMS_FAST_Biquadm_DestroyD()
+#### HMS_FAST_Biquadm_DestroyD()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1079,7 +1079,7 @@ void HMS_FAST_Biquadm_DestroyD (FAST_BiquadmD * filter)
  
   
 
-##### HMS_FAST_Biquadm_SetCoeffSingle()
+#### HMS_FAST_Biquadm_SetCoeffSingle()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1112,7 +1112,7 @@ FAST_ErrorCode HMS_FAST_Biquadm_SetCoeffSingle (FAST_Biquadm * filter, const flo
  
   
 
-##### HMS_FAST_Biquadm_SetCoeffDouble()
+#### HMS_FAST_Biquadm_SetCoeffDouble()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1145,7 +1145,7 @@ FAST_ErrorCode HMS_FAST_Biquadm_SetCoeffDouble (FAST_Biquadm * filter, const dou
  
   
 
-##### HMS_FAST_Biquadm_SetCoeffSingleD()
+#### HMS_FAST_Biquadm_SetCoeffSingleD()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1178,7 +1178,7 @@ FAST_ErrorCode HMS_FAST_Biquadm_SetCoeffSingleD (FAST_BiquadmD * filter, const f
  
   
 
-##### HMS_FAST_Biquadm_SetCoeffDoubleD()
+#### HMS_FAST_Biquadm_SetCoeffDoubleD()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1211,7 +1211,7 @@ FAST_ErrorCode HMS_FAST_Biquadm_SetCoeffDoubleD (FAST_BiquadmD * filter, const d
  
   
 
-##### HMS_FAST_Biquadm_SetActiveFilters()
+#### HMS_FAST_Biquadm_SetActiveFilters()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1243,7 +1243,7 @@ FAST_ErrorCode HMS_FAST_Biquadm_SetActiveFilters (FAST_Biquadm * filter, const u
  
   
 
-##### HMS_FAST_Biquadm_SetActiveFiltersD()
+#### HMS_FAST_Biquadm_SetActiveFiltersD()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1275,7 +1275,7 @@ FAST_ErrorCode HMS_FAST_Biquadm_SetActiveFiltersD (FAST_BiquadmD * filter, const
  
   
 
-##### HMS_FAST_Biquadm()
+#### HMS_FAST_Biquadm()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1311,7 +1311,7 @@ FAST_ErrorCode HMS_FAST_Biquadm (FAST_Biquadm * filter, const float ** input, co
  
   
 
-##### HMS_FAST_BiquadmD()
+#### HMS_FAST_BiquadmD()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1347,7 +1347,7 @@ FAST_ErrorCode HMS_FAST_BiquadmD (FAST_BiquadmD * filter, const double ** input,
  
   
 
-##### HMS_FAST_DSP_Maxmgv()
+#### HMS_FAST_DSP_Maxmgv()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1376,7 +1376,7 @@ float HMS_FAST_DSP_Maxmgv (const float * input, size_t stride, size_t length)
  
   
 
-##### HMS_FAST_DSP_MaxmgvD()
+#### HMS_FAST_DSP_MaxmgvD()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1405,7 +1405,7 @@ double HMS_FAST_DSP_MaxmgvD (const double * input, size_t stride, size_t length)
  
   
 
-##### HMS_FAST_DSP_Maxvi()
+#### HMS_FAST_DSP_Maxvi()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1436,7 +1436,7 @@ void HMS_FAST_DSP_Maxvi (const float * input, size_t stride, size_t length, floa
  
   
 
-##### HMS_FAST_DSP_MaxviD()
+#### HMS_FAST_DSP_MaxviD()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1467,7 +1467,7 @@ void HMS_FAST_DSP_MaxviD (const double * input, size_t stride, size_t length, do
  
   
 
-##### HMS_FAST_DSP_Sve()
+#### HMS_FAST_DSP_Sve()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1496,7 +1496,7 @@ input[i]的和。如果length为0，则返回0.0f。
  
   
 
-##### HMS_FAST_DSP_SveD()
+#### HMS_FAST_DSP_SveD()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1525,7 +1525,7 @@ input[i]的和。如果length为0，则返回0.0。
  
   
 
-##### HMS_FAST_DSP_Svemg()
+#### HMS_FAST_DSP_Svemg()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1554,7 +1554,7 @@ float HMS_FAST_DSP_Svemg (const float * input, size_t stride, size_t length)
  
   
 
-##### HMS_FAST_DSP_SvemgD()
+#### HMS_FAST_DSP_SvemgD()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1583,7 +1583,7 @@ double HMS_FAST_DSP_SvemgD (const double * input, size_t stride, size_t length)
  
   
 
-##### HMS_FAST_DSP_Meamgv()
+#### HMS_FAST_DSP_Meamgv()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1612,7 +1612,7 @@ float HMS_FAST_DSP_Meamgv (const float * input, size_t stride, size_t length)
  
   
 
-##### HMS_FAST_DSP_MeamgvD()
+#### HMS_FAST_DSP_MeamgvD()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1641,7 +1641,7 @@ double HMS_FAST_DSP_MeamgvD (const double * input, size_t stride, size_t length)
  
   
 
-##### HMS_FAST_DSP_Dotpr()
+#### HMS_FAST_DSP_Dotpr()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1672,7 +1672,7 @@ float HMS_FAST_DSP_Dotpr (const float * inputA, size_t strideA, const float * in
  
   
 
-##### HMS_FAST_DSP_DotprD()
+#### HMS_FAST_DSP_DotprD()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1703,7 +1703,7 @@ double HMS_FAST_DSP_DotprD (const double * inputA, size_t strideA, const double 
  
   
 
-##### HMS_FAST_DSP_Vsbsm()
+#### HMS_FAST_DSP_Vsbsm()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1737,7 +1737,7 @@ void HMS_FAST_DSP_Vsbsm (const float * inputA, size_t strideA, const float * inp
  
   
 
-##### HMS_FAST_DSP_VsbsmD()
+#### HMS_FAST_DSP_VsbsmD()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1771,7 +1771,7 @@ void HMS_FAST_DSP_VsbsmD (const double * inputA, size_t strideA, const double * 
  
   
 
-##### HMS_FAST_DSP_Ctoz()
+#### HMS_FAST_DSP_Ctoz()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1802,7 +1802,7 @@ void HMS_FAST_DSP_Ctoz (const float * input, size_t strideInput, FAST_SplitCompl
  
   
 
-##### HMS_FAST_DSP_CtozD()
+#### HMS_FAST_DSP_CtozD()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1833,7 +1833,7 @@ void HMS_FAST_DSP_CtozD (const double * input, size_t strideInput, FAST_SplitCom
  
   
 
-##### HMS_FAST_DSP_Ztoc()
+#### HMS_FAST_DSP_Ztoc()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1864,7 +1864,7 @@ void HMS_FAST_DSP_Ztoc (const FAST_SplitComplex * input, size_t strideInput, flo
  
   
 
-##### HMS_FAST_DSP_ZtocD()
+#### HMS_FAST_DSP_ZtocD()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1895,7 +1895,7 @@ void HMS_FAST_DSP_ZtocD (const FAST_SplitComplexD * input, size_t strideInput, d
  
   
 
-##### HMS_FAST_ConcurrentHashmap_Create()
+#### HMS_FAST_ConcurrentHashmap_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1936,7 +1936,7 @@ FAST_ErrorCode HMS_FAST_ConcurrentHashmap_Create(
  
   
 
-##### HMS_FAST_ConcurrentHashmap_Destroy()
+#### HMS_FAST_ConcurrentHashmap_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1959,7 +1959,7 @@ void HMS_FAST_ConcurrentHashmap_Destroy(FAST_ConcurrentHashmapHandle handle)
  
   
 
-##### HMS_FAST_ConcurrentHashmap_Insert()
+#### HMS_FAST_ConcurrentHashmap_Insert()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1999,7 +1999,7 @@ FAST_ErrorCode HMS_FAST_ConcurrentHashmap_Insert(
  
   
 
-##### HMS_FAST_ConcurrentHashmap_Find()
+#### HMS_FAST_ConcurrentHashmap_Find()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2036,7 +2036,7 @@ FAST_ErrorCode HMS_FAST_ConcurrentHashmap_Find(
  
   
 
-##### HMS_FAST_ConcurrentHashmap_Erase()
+#### HMS_FAST_ConcurrentHashmap_Erase()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2075,7 +2075,7 @@ FAST_ErrorCode HMS_FAST_ConcurrentHashmap_Erase(
  
   
 
-##### HMS_FAST_ConcurrentHashmap_TryInsert()
+#### HMS_FAST_ConcurrentHashmap_TryInsert()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2112,7 +2112,7 @@ FAST_ErrorCode HMS_FAST_ConcurrentHashmap_TryInsert(
  
   
 
-##### HMS_FAST_ConcurrentHashmap_Size()
+#### HMS_FAST_ConcurrentHashmap_Size()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2139,7 +2139,7 @@ size_t HMS_FAST_ConcurrentHashmap_Size(FAST_ConcurrentHashmapHandle handle)
  
   
 
-##### HMS_FAST_ConcurrentHashmap_Clear()
+#### HMS_FAST_ConcurrentHashmap_Clear()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2162,7 +2162,7 @@ void HMS_FAST_ConcurrentHashmap_Clear(FAST_ConcurrentHashmapHandle handle)
  
   
 
-##### HMS_FAST_ConcurrentHashmap_EraseIf()
+#### HMS_FAST_ConcurrentHashmap_EraseIf()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2199,7 +2199,7 @@ size_t HMS_FAST_ConcurrentHashmap_EraseIf(
  
   
 
-##### HMS_FAST_ConcurrentHashmap_Traverse()
+#### HMS_FAST_ConcurrentHashmap_Traverse()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

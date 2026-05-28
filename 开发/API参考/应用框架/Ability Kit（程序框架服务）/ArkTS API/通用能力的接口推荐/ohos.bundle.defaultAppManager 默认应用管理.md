@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { defaultAppManager } from '@kit.AbilityKit';
 
 
 
-##### ApplicationType
+#### ApplicationType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -45,7 +45,7 @@ import { defaultAppManager } from '@kit.AbilityKit';
 
 
 
-##### defaultAppManager.isDefaultApplication
+#### defaultAppManager.isDefaultApplication
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -95,7 +95,7 @@ defaultAppManager.isDefaultApplication(defaultAppManager.ApplicationType.BROWSER
 
 
 
-##### defaultAppManager.isDefaultApplication
+#### defaultAppManager.isDefaultApplication
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -140,7 +140,7 @@ defaultAppManager.isDefaultApplication(defaultAppManager.ApplicationType.BROWSER
 
 
 
-##### defaultAppManager.isDefaultApplicationSync10+
+#### defaultAppManager.isDefaultApplicationSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { display } from '@kit.ArkUI';
 
 
 
-##### DisplayState
+#### DisplayState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -45,7 +45,7 @@ import { display } from '@kit.ArkUI';
 
 
 
-##### Orientation10+
+#### Orientation10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -65,7 +65,7 @@ import { display } from '@kit.ArkUI';
 
 
 
-##### DisplaySourceMode19+
+#### DisplaySourceMode19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -86,7 +86,7 @@ import { display } from '@kit.ArkUI';
 
 
 
-##### FoldStatus10+
+#### FoldStatus10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -114,7 +114,7 @@ import { display } from '@kit.ArkUI';
 
 
 
-##### FoldDisplayMode10+
+#### FoldDisplayMode10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -139,7 +139,7 @@ import { display } from '@kit.ArkUI';
 
 
 
-##### CornerType23+
+#### CornerType23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -159,7 +159,7 @@ import { display } from '@kit.ArkUI';
 
 
 
-##### RoundedCorner23+
+#### RoundedCorner23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -180,7 +180,7 @@ import { display } from '@kit.ArkUI';
 
 
 
-##### FoldCreaseRegion10+
+#### FoldCreaseRegion10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -198,7 +198,7 @@ import { display } from '@kit.ArkUI';
 
 
 
-##### Rect9+
+#### Rect9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -218,7 +218,7 @@ import { display } from '@kit.ArkUI';
 
 
 
-##### WaterfallDisplayAreaRects9+
+#### WaterfallDisplayAreaRects9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -238,7 +238,7 @@ import { display } from '@kit.ArkUI';
 
 
 
-##### CutoutInfo9+
+#### CutoutInfo9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -256,7 +256,7 @@ import { display } from '@kit.ArkUI';
 
 
 
-##### DisplayPhysicalResolution12+
+#### DisplayPhysicalResolution12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -275,7 +275,7 @@ import { display } from '@kit.ArkUI';
 
 
 
-##### BrightnessInfo22+
+#### BrightnessInfo22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -294,7 +294,7 @@ import { display } from '@kit.ArkUI';
 
 
 
-##### BrightnessCallback22+
+#### BrightnessCallback22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -314,7 +314,7 @@ type BrightnessCallback<T1, T2> = (data1: T1, data2: T2) => void
 
 
 
-##### ScreenShape18+
+#### ScreenShape18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -330,7 +330,7 @@ type BrightnessCallback<T1, T2> = (data1: T1, data2: T2) => void
 
 
 
-##### VirtualScreenConfig16+
+#### VirtualScreenConfig16+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -350,7 +350,7 @@ type BrightnessCallback<T1, T2> = (data1: T1, data2: T2) => void
 
 
 
-##### Position20+
+#### Position20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -366,7 +366,7 @@ type BrightnessCallback<T1, T2> = (data1: T1, data2: T2) => void
 
 
 
-##### RelativePosition20+
+#### RelativePosition20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -382,7 +382,7 @@ type BrightnessCallback<T1, T2> = (data1: T1, data2: T2) => void
 
 
 
-##### display.getDisplayByIdSync12+
+#### display.getDisplayByIdSync12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -434,7 +434,7 @@ try {
 
 
 
-##### display.getBrightnessInfo22+
+#### display.getBrightnessInfo22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -484,7 +484,7 @@ try {
 
 
 
-##### display.getAllDisplayPhysicalResolution12+
+#### display.getAllDisplayPhysicalResolution12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -532,7 +532,7 @@ promise.then((resolutionObjects) => {
 
 
 
-##### display.getDefaultDisplaySync9+
+#### display.getDefaultDisplaySync9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -573,7 +573,7 @@ try {
 
 
 
-##### display.getPrimaryDisplaySync14+
+#### display.getPrimaryDisplaySync14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -611,7 +611,7 @@ displayClass = display.getPrimaryDisplaySync();
 
 
 
-##### display.getAllDisplays9+
+#### display.getAllDisplays9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -659,7 +659,7 @@ display.getAllDisplays((err: BusinessError, data: Array<display.Display>) => {
 
 
 
-##### display.getAllDisplays9+
+#### display.getAllDisplays9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -705,7 +705,7 @@ promise.then((data: Array<display.Display>) => {
 
 
 
-##### display.on('add'|'remove'|'change')
+#### display.on('add'|'remove'|'change')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -748,7 +748,7 @@ display.on('add', callback);
 
 
 
-##### display.off('add'|'remove'|'change')
+#### display.off('add'|'remove'|'change')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -792,7 +792,7 @@ display.off('remove', callback);
 
 
 
-##### display.onChangeWithAttribute23+
+#### display.onChangeWithAttribute23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -836,7 +836,7 @@ display.onChangeWithAttribute(attributes, attributesChangeCallback);
 
 
 
-##### display.isFoldable10+
+#### display.isFoldable10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -873,7 +873,7 @@ ret = display.isFoldable();
 
 
 
-##### display.getFoldStatus10+
+#### display.getFoldStatus10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -910,7 +910,7 @@ console.info(`Succeeded in obtaining fold status. Data: ${data}`);
 
 
 
-##### display.getFoldDisplayMode10+
+#### display.getFoldDisplayMode10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -949,7 +949,7 @@ console.info(`Succeeded in obtaining fold display mode. Data: ${data}`);
 
 
 
-##### display.getCurrentFoldCreaseRegion10+
+#### display.getCurrentFoldCreaseRegion10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -988,7 +988,7 @@ console.info(`Succeeded in obtaining current fold crease region. Data: ${JSON.st
 
 
 
-##### display.on('foldStatusChange')10+
+#### display.on('foldStatusChange')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1041,7 +1041,7 @@ display.on('foldStatusChange', callback);
 
 
 
-##### display.off('foldStatusChange')10+
+#### display.off('foldStatusChange')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1086,7 +1086,7 @@ display.off('foldStatusChange', callback);
 
 
 
-##### display.on('brightnessInfoChange')22+
+#### display.on('brightnessInfoChange')22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1132,7 +1132,7 @@ try {
 
 
 
-##### display.off('brightnessInfoChange')22+
+#### display.off('brightnessInfoChange')22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1178,7 +1178,7 @@ try {
 
 
 
-##### display.on('foldAngleChange')12+
+#### display.on('foldAngleChange')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1221,7 +1221,7 @@ display.on('foldAngleChange', callback);
 
 
 
-##### display.off('foldAngleChange')12+
+#### display.off('foldAngleChange')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1268,7 +1268,7 @@ display.off('foldAngleChange', callback);
 
 
 
-##### display.on('captureStatusChange')12+
+#### display.on('captureStatusChange')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1311,7 +1311,7 @@ display.on('captureStatusChange', callback);
 
 
 
-##### display.off('captureStatusChange')12+
+#### display.off('captureStatusChange')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1358,7 +1358,7 @@ display.off('captureStatusChange', callback);
 
 
 
-##### display.isCaptured12+
+#### display.isCaptured12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1395,7 +1395,7 @@ ret = display.isCaptured();
 
 
 
-##### display.on('foldDisplayModeChange')10+
+#### display.on('foldDisplayModeChange')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1446,7 +1446,7 @@ display.on('foldDisplayModeChange', callback);
 
 
 
-##### display.off('foldDisplayModeChange')10+
+#### display.off('foldDisplayModeChange')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1493,7 +1493,7 @@ display.off('foldDisplayModeChange', callback);
 
 
 
-##### display.createVirtualScreen16+
+#### display.createVirtualScreen16+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1563,7 +1563,7 @@ display.createVirtualScreen(config).then((screenId: number) => {
 
 
 
-##### display.destroyVirtualScreen16+
+#### display.destroyVirtualScreen16+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1617,7 +1617,7 @@ display.destroyVirtualScreen(screenId).then(() => {
 
 
 
-##### display.setVirtualScreenSurface16+
+#### display.setVirtualScreenSurface16+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1697,7 +1697,7 @@ struct Index {
 
 
 
-##### display.makeUnique16+
+#### display.makeUnique16+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1753,7 +1753,7 @@ display.makeUnique(screenId).then(() => {
 
 
 
-##### display.convertRelativeToGlobalCoordinate20+
+#### display.convertRelativeToGlobalCoordinate20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1810,7 +1810,7 @@ try {
 
 
 
-##### display.convertGlobalToRelativeCoordinate20+
+#### display.convertGlobalToRelativeCoordinate20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1865,7 +1865,7 @@ try {
 
 
 
-##### display.getDefaultDisplay(deprecated)
+#### display.getDefaultDisplay(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1905,7 +1905,7 @@ display.getDefaultDisplay((err: BusinessError, data: display.Display) => {
 
 
 
-##### display.getDefaultDisplay(deprecated)
+#### display.getDefaultDisplay(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1943,7 +1943,7 @@ promise.then((data: display.Display) => {
 
 
 
-##### display.getAllDisplay(deprecated)
+#### display.getAllDisplay(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1981,7 +1981,7 @@ display.getAllDisplay((err: BusinessError, data: Array<display.Display>) => {
 
 
 
-##### display.getAllDisplay(deprecated)
+#### display.getAllDisplay(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2017,7 +2017,7 @@ promise.then((data: Array<display.Display>) => {
 
 
 
-##### Display
+#### Display
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2027,7 +2027,7 @@ promise.then((data: Array<display.Display>) => {
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2060,7 +2060,7 @@ promise.then((data: Array<display.Display>) => {
 
 
 
-##### getRoundedCorner23+
+#### getRoundedCorner23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2107,7 +2107,7 @@ try {
 
 
 
-##### getCutoutInfo9+
+#### getCutoutInfo9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2155,7 +2155,7 @@ displayClass.getCutoutInfo((err: BusinessError, data: display.CutoutInfo) => {
 
 
 
-##### getCutoutInfo9+
+#### getCutoutInfo9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2200,7 +2200,7 @@ promise.then((data: display.CutoutInfo) => {
 
 
 
-##### getAvailableArea12+
+#### getAvailableArea12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2255,7 +2255,7 @@ try {
 
 
 
-##### on('availableAreaChange')12+
+#### on('availableAreaChange')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2308,7 +2308,7 @@ try {
 
 
 
-##### off('availableAreaChange')12+
+#### off('availableAreaChange')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2361,7 +2361,7 @@ try {
 
 
 
-##### getLiveCreaseRegion20+
+#### getLiveCreaseRegion20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

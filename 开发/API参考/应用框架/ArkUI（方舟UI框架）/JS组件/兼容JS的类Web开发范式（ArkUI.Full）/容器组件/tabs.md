@@ -12,7 +12,7 @@
 tab页签容器。
   
 
-##### 权限列表
+#### 权限列表
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@ tab页签容器。
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -28,7 +28,7 @@ tab页签容器。
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -42,7 +42,7 @@ tab页签容器。
  
   
 
-##### 样式
+#### 样式
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -50,7 +50,7 @@ tab页签容器。
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -63,7 +63,7 @@ tab页签容器。
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -135,4 +135,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/U17eMGWYRm2GbW1teRPr0w/zh-cn_image_0000002581436326.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024108Z&HW-CC-Expire=86400&HW-CC-Sign=13E1B239644BAB850F3264F39CB1969B60398B18153776F5B9F1D4C73C925B58)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/U17eMGWYRm2GbW1teRPr0w/zh-cn_image_0000002581436326.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025443Z&HW-CC-Expire=86400&HW-CC-Sign=5C244F91AD29938AB6C2B4918770A90D977177788F838530A0500F0F0FE766EC)

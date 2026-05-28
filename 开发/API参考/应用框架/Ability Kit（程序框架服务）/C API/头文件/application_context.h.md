@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-application-context-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -57,13 +57,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_AbilityRuntime_ApplicationContextGetCacheDir()
+#### OH_AbilityRuntime_ApplicationContextGetCacheDir()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -95,7 +95,7 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetCacheDir(char* b
  
   
 
-##### OH_AbilityRuntime_ApplicationContextGetAreaMode()
+#### OH_AbilityRuntime_ApplicationContextGetAreaMode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -125,7 +125,7 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetAreaMode(Ability
  
   
 
-##### OH_AbilityRuntime_ApplicationContextGetBundleName()
+#### OH_AbilityRuntime_ApplicationContextGetBundleName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -157,7 +157,7 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetBundleName(char*
  
   
 
-##### OH_AbilityRuntime_ApplicationContextGetTempDir()
+#### OH_AbilityRuntime_ApplicationContextGetTempDir()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -189,7 +189,7 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetTempDir(char* bu
  
   
 
-##### OH_AbilityRuntime_ApplicationContextGetFilesDir()
+#### OH_AbilityRuntime_ApplicationContextGetFilesDir()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -221,7 +221,7 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetFilesDir(char* b
  
   
 
-##### OH_AbilityRuntime_ApplicationContextGetDatabaseDir()
+#### OH_AbilityRuntime_ApplicationContextGetDatabaseDir()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -253,7 +253,7 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetDatabaseDir(char
  
   
 
-##### OH_AbilityRuntime_ApplicationContextGetPreferencesDir()
+#### OH_AbilityRuntime_ApplicationContextGetPreferencesDir()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -285,7 +285,7 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetPreferencesDir(c
  
   
 
-##### OH_AbilityRuntime_ApplicationContextGetBundleCodeDir()
+#### OH_AbilityRuntime_ApplicationContextGetBundleCodeDir()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -317,7 +317,7 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetBundleCodeDir(ch
  
   
 
-##### OH_AbilityRuntime_ApplicationContextGetDistributedFilesDir()
+#### OH_AbilityRuntime_ApplicationContextGetDistributedFilesDir()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -349,7 +349,7 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetDistributedFiles
  
   
 
-##### OH_AbilityRuntime_ApplicationContextGetCloudFileDir()
+#### OH_AbilityRuntime_ApplicationContextGetCloudFileDir()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -381,7 +381,7 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetCloudFileDir(cha
  
   
 
-##### OH_AbilityRuntime_ApplicationContextGetLogFileDir()
+#### OH_AbilityRuntime_ApplicationContextGetLogFileDir()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -413,7 +413,7 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetLogFileDir(char*
  
   
 
-##### OH_AbilityRuntime_ApplicationContextGetResourceDir()
+#### OH_AbilityRuntime_ApplicationContextGetResourceDir()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -446,7 +446,7 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetResourceDir(cons
  
   
 
-##### OH_AbilityRuntime_StartSelfUIAbility()
+#### OH_AbilityRuntime_StartSelfUIAbility()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -504,7 +504,7 @@ void startSelfUIAbilityTest()
  
   
 
-##### OH_AbilityRuntime_StartSelfUIAbilityWithStartOptions()
+#### OH_AbilityRuntime_StartSelfUIAbilityWithStartOptions()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -577,7 +577,7 @@ void demo()
  
   
 
-##### OH_AbilityRuntime_ApplicationContextGetVersionCode()
+#### OH_AbilityRuntime_ApplicationContextGetVersionCode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -607,7 +607,7 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetVersionCode(int6
  
   
 
-##### OH_AbilityRuntime_StartSelfUIAbilityWithPidResult()
+#### OH_AbilityRuntime_StartSelfUIAbilityWithPidResult()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -686,7 +686,7 @@ void demo()
  
   
 
-##### OH_AbilityRuntime_ApplicationContextGetLaunchParameter()
+#### OH_AbilityRuntime_ApplicationContextGetLaunchParameter()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -742,7 +742,7 @@ static napi_value GetLaunchParameter(napi_env env, napi_callback_info info)
  
   
 
-##### OH_AbilityRuntime_ApplicationContextGetLatestParameter()
+#### OH_AbilityRuntime_ApplicationContextGetLatestParameter()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -798,7 +798,7 @@ static napi_value GetLatestParameter(napi_env env, napi_callback_info info)
  
   
 
-##### OH_AbilityRuntime_ApplicationContextNotifyPageChanged()
+#### OH_AbilityRuntime_ApplicationContextNotifyPageChanged()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -7,13 +7,13 @@
 本文主要提供主动刷新的开发指导，刷新流程请参考[主动刷新概述](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-interaction-overview#主动刷新)。
 
 
-##### 卡片提供方主动刷新卡片内容
+#### 卡片提供方主动刷新卡片内容
 
 卡片提供方可以通过[updateForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formprovider#formproviderupdateform)接口进行主动刷新。推荐与卡片生命周期回调[onFormEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formextensionability#formextensionabilityonformevent)、[onUpdateForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formextensionability#formextensionabilityonupdateform)、[onAddForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formextensionability#formextensionabilityonaddform)接口搭配使用。
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 下面给出一个示例，实现如下功能：卡片添加至桌面后，点击卡片上的刷新按钮，刷新卡片信息。
 1. [创建卡片](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-creation)。
@@ -195,7 +195,7 @@ export default class EntryFormAbility extends FormExtensionAbility {
 
 
 
-##### 运行结果
+#### 运行结果
 
 
 ![](assets/ArkTS卡片主动刷新/file-20260514130936593-0.gif)
@@ -203,13 +203,13 @@ export default class EntryFormAbility extends FormExtensionAbility {
 
 
 
-##### 卡片提供方批量请求刷新卡片内容
+#### 卡片提供方批量请求刷新卡片内容
 
 从API version 22开始，支持卡片提供方批量请求刷新卡片内容。卡片提供方可以通过[reloadForms](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formprovider#formproviderreloadforms22)和[reloadAllForms](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formprovider#formproviderreloadallforms22)接口在应用主进程中通知FormExtension进程进行批量更新，仅支持在[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)中调用。
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 下面给出一个示例，实现如下功能：添加应用的多张卡片至桌面后，点击应用UIAbility中的刷新按钮，批量刷新卡片信息。
 1. [创建卡片](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-creation)。
@@ -374,7 +374,7 @@ struct Index {
 
 
 
-##### 运行结果
+#### 运行结果
 
 
 ![](assets/ArkTS卡片主动刷新/file-20260514130936593-1.gif)

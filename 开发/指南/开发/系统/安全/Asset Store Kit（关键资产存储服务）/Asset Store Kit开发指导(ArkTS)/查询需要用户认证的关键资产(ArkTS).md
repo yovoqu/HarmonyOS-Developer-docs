@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/asset-js-query-auth
 
-##### 接口介绍
+#### 接口介绍
 
 可通过API文档查看此功能的相关接口：
 
@@ -136,7 +136,7 @@
 
 
 
-##### 代码示例
+#### 代码示例
 
 > [!NOTE]
 > 本模块提供了异步和同步两套接口，以下为异步接口的使用示例，同步接口详见 @ohos.security.asset (关键资产存储服务) 。 在查询前，需确保已有需要用户认证的关键资产，可参考 指南文档 新增关键资产，否则将抛出NOT_FOUND错误（错误码24000002）。

@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-js-crash-opt
 
-##### 优化建议1：Source Maps归档保存
+#### 优化建议1：Source Maps归档保存
 
 生产环境归档SourceMap便于后续源码还原，遇到JS Crash应先进行[堆栈轨迹分析](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/ide-release-app-stack-analysis-V5)。
  
@@ -14,6 +14,6 @@
  
  
 
-##### 优化建议2：崩溃预防机制
+#### 优化建议2：崩溃预防机制
 
 可使用errorManager注册错误观测器。注册后可以捕获到应用产生的JS Crash，应用崩溃时进程不会退出。详见[errorManager使用指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/errormanager-guidelines)。

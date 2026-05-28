@@ -14,7 +14,7 @@ UIAbility是包含UI界面的应用组件，继承自[Ability](https://developer
 各类Ability的继承关系详见[继承关系说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-ability#ability的继承关系说明)。
 
 
-##### UIAbility生命周期状态
+#### UIAbility生命周期状态
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -32,7 +32,7 @@ UIAbility是包含UI界面的应用组件，继承自[Ability](https://developer
 
 
 
-##### 后台通信能力
+#### 后台通信能力
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@ UIAbility是包含UI界面的应用组件，继承自[Ability](https://developer
 **图2** Call调用示意图
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/H5DK2KJ6SvmnMV2HHAc6xg/zh-cn_image_0000002611833363.png?HW-CC-KV=V1&HW-CC-Date=20260528T024301Z&HW-CC-Expire=86400&HW-CC-Sign=6DF94F94C3BB534A0BBF8A8EB1DE4B39DFE0C6F07ED1EF62D04E36E93274F8BD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/H5DK2KJ6SvmnMV2HHAc6xg/zh-cn_image_0000002611833363.png?HW-CC-KV=V1&HW-CC-Date=20260528T025637Z&HW-CC-Expire=86400&HW-CC-Sign=B9418604115810E1CA972CBCE4071F13DA2B39160781CB9A442926FF0AE1C582)
 
 
  - Caller UIAbility调用[startAbilityByCall()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#startabilitybycall)接口获取[Caller](#caller)对象，并使用Caller对象的[call](#call)方法向Callee UIAbility发送数据。
@@ -50,7 +50,7 @@ UIAbility是包含UI界面的应用组件，继承自[Ability](https://developer
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -60,7 +60,7 @@ import { UIAbility } from '@kit.AbilityKit';
 
 
 
-##### UIAbility
+#### UIAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -68,7 +68,7 @@ import { UIAbility } from '@kit.AbilityKit';
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -85,7 +85,7 @@ import { UIAbility } from '@kit.AbilityKit';
 
 
 
-##### onCreate
+#### onCreate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -124,7 +124,7 @@ export default class MyUIAbility extends UIAbility {
 
 
 
-##### onWindowStageCreate
+#### onWindowStageCreate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -166,7 +166,7 @@ export default class MyUIAbility extends UIAbility {
 
 
 
-##### onWindowStageWillDestroy12+
+#### onWindowStageWillDestroy12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -201,7 +201,7 @@ export default class MyUIAbility extends UIAbility {
 
 
 
-##### onWindowStageDestroy
+#### onWindowStageDestroy
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -231,7 +231,7 @@ export default class MyUIAbility extends UIAbility {
 
 
 
-##### onWindowStageRestore
+#### onWindowStageRestore
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -270,7 +270,7 @@ export default class MyUIAbility extends UIAbility {
 
 
 
-##### onDestroy
+#### onDestroy
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -331,7 +331,7 @@ export default class MyUIAbility extends UIAbility {
 
 
 
-##### onWillForeground20+
+#### onWillForeground20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -401,7 +401,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### onForeground
+#### onForeground
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -430,7 +430,7 @@ export default class MyUIAbility extends UIAbility {
 
 
 
-##### onDidForeground20+
+#### onDidForeground20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -450,7 +450,7 @@ UIAbility生命周期回调，应用转到前台后触发，在[onForeground](#o
 
 
 
-##### onWillBackground20+
+#### onWillBackground20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -496,7 +496,7 @@ export default class MyUIAbility extends UIAbility {
 
 
 
-##### onBackground
+#### onBackground
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -526,7 +526,7 @@ export default class MyUIAbility extends UIAbility {
 
 
 
-##### onDidBackground20+
+#### onDidBackground20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -594,7 +594,7 @@ export default class MyUIAbility extends UIAbility {
 
 
 
-##### onContinue
+#### onContinue
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -669,7 +669,7 @@ export default class MyUIAbility extends UIAbility {
 
 
 
-##### onNewWant
+#### onNewWant
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -706,7 +706,7 @@ export default class MyUIAbility extends UIAbility {
 
 
 
-##### onDump
+#### onDump
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -747,7 +747,7 @@ export default class MyUIAbility extends UIAbility {
 
 
 
-##### onSaveState
+#### onSaveState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -794,7 +794,7 @@ export default class MyUIAbility extends UIAbility {
 
 
 
-##### onSaveStateAsync20+
+#### onSaveStateAsync20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -839,7 +839,7 @@ class MyUIAbility extends UIAbility {
 
 
 
-##### onShare10+
+#### onShare10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -873,7 +873,7 @@ export default class MyUIAbility extends UIAbility {
 
 
 
-##### onPrepareToTerminate10+
+#### onPrepareToTerminate10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -935,7 +935,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### onPrepareToTerminateAsync15+
+#### onPrepareToTerminateAsync15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -985,7 +985,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### onBackPressed10+
+#### onBackPressed10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1022,7 +1022,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### onCollaborate18+
+#### onCollaborate18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1064,7 +1064,7 @@ export default class MyAbility extends UIAbility {
 
 
 
-##### Caller
+#### Caller
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1072,7 +1072,7 @@ export default class MyAbility extends UIAbility {
 
 
 
-##### call
+#### call
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1169,7 +1169,7 @@ export default class MainUIAbility extends UIAbility {
 
 
 
-##### callWithResult
+#### callWithResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1269,7 +1269,7 @@ export default class MainUIAbility extends UIAbility {
 
 
 
-##### release
+#### release
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1320,7 +1320,7 @@ export default class MainUIAbility extends UIAbility {
 
 
 
-##### onRelease
+#### onRelease
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1378,7 +1378,7 @@ export default class MainUIAbility extends UIAbility {
 
 
 
-##### onRemoteStateChange10+
+#### onRemoteStateChange10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1437,7 +1437,7 @@ export default class MainAbility extends UIAbility {
 
 
 
-##### on('release')
+#### on('release')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1497,7 +1497,7 @@ export default class MainUIAbility extends UIAbility {
 
 
 
-##### off('release')
+#### off('release')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1557,7 +1557,7 @@ export default class MainUIAbility extends UIAbility {
 
 
 
-##### off('release')
+#### off('release')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1618,7 +1618,7 @@ export default class MainUIAbility extends UIAbility {
 
 
 
-##### Callee
+#### Callee
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1626,7 +1626,7 @@ export default class MainUIAbility extends UIAbility {
 
 
 
-##### on
+#### on
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1708,7 +1708,7 @@ export default class MainUIAbility extends UIAbility {
 
 
 
-##### off
+#### off
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1757,13 +1757,13 @@ export default class MainUIAbility extends UIAbility {
 
 
 
-##### OnReleaseCallback
+#### OnReleaseCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### (msg: string)
+#### (msg: string)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1782,13 +1782,13 @@ export default class MainUIAbility extends UIAbility {
 
 
 
-##### OnRemoteStateChangeCallback10+
+#### OnRemoteStateChangeCallback10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### (msg: string)10+
+#### (msg: string)10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1807,13 +1807,13 @@ export default class MainUIAbility extends UIAbility {
 
 
 
-##### CalleeCallback
+#### CalleeCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### (indata: rpc.MessageSequence)
+#### (indata: rpc.MessageSequence)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

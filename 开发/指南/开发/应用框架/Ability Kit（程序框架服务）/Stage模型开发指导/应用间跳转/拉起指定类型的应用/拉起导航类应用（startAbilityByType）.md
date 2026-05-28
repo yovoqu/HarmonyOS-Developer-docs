@@ -7,7 +7,7 @@
 本章节介绍如何拉起导航类应用扩展面板。
 
 
-##### 导航类应用扩展面板参数说明
+#### 导航类应用扩展面板参数说明
 
 startAbilityByType接口中type字段为navigation，支持路线规划、导航、位置搜索三种意图场景，对应的wantParam参数如下：
 
@@ -68,7 +68,7 @@ startAbilityByType接口中type字段为navigation，支持路线规划、导航
 
 
 
-##### 拉起方开发步骤
+#### 拉起方开发步骤
 1. 导入相关模块。
 
   
@@ -143,12 +143,12 @@ struct Index {
 效果示例图：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/o69x4LfiRHKv-LAEpkR2Gw/zh-cn_image_0000002581433550.png?HW-CC-KV=V1&HW-CC-Date=20260528T014843Z&HW-CC-Expire=86400&HW-CC-Sign=C240232AFED439DACD348C6F147A4783ADEB0A1098F3E5AEFD7E2CE647E197DD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/o69x4LfiRHKv-LAEpkR2Gw/zh-cn_image_0000002581433550.png?HW-CC-KV=V1&HW-CC-Date=20260528T030510Z&HW-CC-Expire=86400&HW-CC-Sign=3743DA747B1D7E311199C31A38FBE2C7FFEBE738AC3964D233D310448E326D70)
 
 
 
 
-##### 目标方开发步骤
+#### 目标方开发步骤
 1. 在module.json5中配置[uris](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#skills标签)，步骤如下：
 
   

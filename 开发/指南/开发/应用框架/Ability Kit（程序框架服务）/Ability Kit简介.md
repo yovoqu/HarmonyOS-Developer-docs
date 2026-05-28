@@ -7,7 +7,7 @@
 Ability Kit（程序框架服务）提供了应用程序开发和运行的应用模型。开发者可以基于应用模型，实现不同类型的应用组件，更加简单高效地完成应用生命周期管理、组件间交互、进程线程管理等业务逻辑，无需关注底层实现细节。
 
 
-##### 使用场景
+#### 使用场景
 
  - 应用的多Module开发：应用可通过不同类型的Module（[HAP](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hap-package)、[HAR](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/har-package)、[HSP](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/in-app-hsp)）来实现应用的功能开发。其中，HAP用于实现应用的功能和特性，HAR与HSP用于实现代码和资源的共享。
  - 应用内的交互：应用内的不同组件之间可以相互跳转。比如，在移动办公应用中，通过入口UIAbility组件启动视频会议的UIAbility组件。详见[启动应用内的UIAbility组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-intra-device-interaction)。
@@ -17,7 +17,7 @@ Ability Kit（程序框架服务）提供了应用程序开发和运行的应用
 
 
 
-##### 能力范围
+#### 能力范围
 
  - 提供应用进程创建和销毁、应用生命周期调度能力。
  - 提供应用组件运行入口、应用组件生命周期调度、组件间交互等能力。
@@ -33,7 +33,7 @@ Ability Kit（程序框架服务）提供了应用程序开发和运行的应用
 
 
 
-##### 亮点/特征
+#### 亮点/特征
 1. **UI与业务逻辑分离**
 
   从架构设计层面，规范开发者编写业务逻辑和UI交互分离的开发方式。
@@ -66,7 +66,7 @@ Ability Kit（程序框架服务）提供了应用程序开发和运行的应用
 
 
 
-##### 与相关Kit的关系
+#### 与相关Kit的关系
 
 ArkUI：在Ability Kit的UIAbility组件中，可以使用ArkUI提供的组件、事件、动效、状态管理等能力。
 

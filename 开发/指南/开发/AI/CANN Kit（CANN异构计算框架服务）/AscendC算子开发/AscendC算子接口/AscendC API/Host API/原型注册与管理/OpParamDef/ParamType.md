@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-paramtype
 
-##### 函数功能
+#### 函数功能
 
 定义算子参数类型。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 OpParamDef &ParamType(Option param_type);
@@ -18,7 +18,7 @@ OpParamDef &ParamType(Option param_type);
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -27,12 +27,12 @@ OpParamDef &ParamType(Option param_type);
  
   
 
-##### 返回值
+#### 返回值
 
 [OpParamDef](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-paramtype)算子定义。
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

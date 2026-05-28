@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { camera } from '@kit.CameraKit';
  
   
 
-##### isExposureModeSupported11+
+#### isExposureModeSupported11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -77,7 +77,7 @@ function isExposureModeSupported(photoSession: camera.PhotoSession): boolean {
  
   
 
-##### getExposureBiasRange11+
+#### getExposureBiasRange11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -125,7 +125,7 @@ function getExposureBiasRange(photoSession: camera.PhotoSession): Array<number> 
  
   
 
-##### isExposureMeteringModeSupported24+
+#### isExposureMeteringModeSupported24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-animate-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -25,13 +25,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -53,7 +53,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -151,13 +151,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_ArkUI_AnimateOption_Create()
+#### OH_ArkUI_AnimateOption_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -180,7 +180,7 @@ ArkUI_AnimateOption* OH_ArkUI_AnimateOption_Create()
  
   
 
-##### OH_ArkUI_AnimateOption_Dispose()
+#### OH_ArkUI_AnimateOption_Dispose()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -203,7 +203,7 @@ void OH_ArkUI_AnimateOption_Dispose(ArkUI_AnimateOption* option)
  
   
 
-##### OH_ArkUI_AnimateOption_GetDuration()
+#### OH_ArkUI_AnimateOption_GetDuration()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -233,7 +233,7 @@ uint32_t OH_ArkUI_AnimateOption_GetDuration(ArkUI_AnimateOption* option)
  
   
 
-##### OH_ArkUI_AnimateOption_GetTempo()
+#### OH_ArkUI_AnimateOption_GetTempo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -263,7 +263,7 @@ float OH_ArkUI_AnimateOption_GetTempo(ArkUI_AnimateOption* option)
  
   
 
-##### OH_ArkUI_AnimateOption_GetCurve()
+#### OH_ArkUI_AnimateOption_GetCurve()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -293,7 +293,7 @@ ArkUI_AnimationCurve OH_ArkUI_AnimateOption_GetCurve(ArkUI_AnimateOption* option
  
   
 
-##### OH_ArkUI_AnimateOption_GetDelay()
+#### OH_ArkUI_AnimateOption_GetDelay()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -323,7 +323,7 @@ int32_t OH_ArkUI_AnimateOption_GetDelay(ArkUI_AnimateOption* option)
  
   
 
-##### OH_ArkUI_AnimateOption_GetIterations()
+#### OH_ArkUI_AnimateOption_GetIterations()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -353,7 +353,7 @@ int32_t OH_ArkUI_AnimateOption_GetIterations(ArkUI_AnimateOption* option)
  
   
 
-##### OH_ArkUI_AnimateOption_GetPlayMode()
+#### OH_ArkUI_AnimateOption_GetPlayMode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -383,7 +383,7 @@ ArkUI_AnimationPlayMode OH_ArkUI_AnimateOption_GetPlayMode(ArkUI_AnimateOption* 
  
   
 
-##### OH_ArkUI_AnimateOption_GetExpectedFrameRateRange()
+#### OH_ArkUI_AnimateOption_GetExpectedFrameRateRange()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -413,7 +413,7 @@ ArkUI_ExpectedFrameRateRange* OH_ArkUI_AnimateOption_GetExpectedFrameRateRange(A
  
   
 
-##### OH_ArkUI_AnimateOption_SetDuration()
+#### OH_ArkUI_AnimateOption_SetDuration()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -437,7 +437,7 @@ void OH_ArkUI_AnimateOption_SetDuration(ArkUI_AnimateOption* option, int32_t val
  
   
 
-##### OH_ArkUI_AnimateOption_SetTempo()
+#### OH_ArkUI_AnimateOption_SetTempo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -461,7 +461,7 @@ void OH_ArkUI_AnimateOption_SetTempo(ArkUI_AnimateOption* option, float value)
  
   
 
-##### OH_ArkUI_AnimateOption_SetCurve()
+#### OH_ArkUI_AnimateOption_SetCurve()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -485,7 +485,7 @@ void OH_ArkUI_AnimateOption_SetCurve(ArkUI_AnimateOption* option, ArkUI_Animatio
  
   
 
-##### OH_ArkUI_AnimateOption_SetDelay()
+#### OH_ArkUI_AnimateOption_SetDelay()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -509,7 +509,7 @@ void OH_ArkUI_AnimateOption_SetDelay(ArkUI_AnimateOption* option, int32_t value)
  
   
 
-##### OH_ArkUI_AnimateOption_SetIterations()
+#### OH_ArkUI_AnimateOption_SetIterations()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -533,7 +533,7 @@ void OH_ArkUI_AnimateOption_SetIterations(ArkUI_AnimateOption* option, int32_t v
  
   
 
-##### OH_ArkUI_AnimateOption_SetPlayMode()
+#### OH_ArkUI_AnimateOption_SetPlayMode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -557,7 +557,7 @@ void OH_ArkUI_AnimateOption_SetPlayMode(ArkUI_AnimateOption* option, ArkUI_Anima
  
   
 
-##### OH_ArkUI_AnimateOption_SetExpectedFrameRateRange()
+#### OH_ArkUI_AnimateOption_SetExpectedFrameRateRange()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -581,7 +581,7 @@ void OH_ArkUI_AnimateOption_SetExpectedFrameRateRange(ArkUI_AnimateOption* optio
  
   
 
-##### OH_ArkUI_AnimateOption_SetICurve()
+#### OH_ArkUI_AnimateOption_SetICurve()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -609,7 +609,7 @@ void OH_ArkUI_AnimateOption_SetICurve(ArkUI_AnimateOption* option, ArkUI_CurveHa
  
   
 
-##### OH_ArkUI_AnimateOption_GetICurve()
+#### OH_ArkUI_AnimateOption_GetICurve()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -639,7 +639,7 @@ ArkUI_CurveHandle OH_ArkUI_AnimateOption_GetICurve(ArkUI_AnimateOption* option)
  
   
 
-##### OH_ArkUI_KeyframeAnimateOption_Create()
+#### OH_ArkUI_KeyframeAnimateOption_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -669,7 +669,7 @@ ArkUI_KeyframeAnimateOption* OH_ArkUI_KeyframeAnimateOption_Create(int32_t size)
  
   
 
-##### OH_ArkUI_KeyframeAnimateOption_Dispose()
+#### OH_ArkUI_KeyframeAnimateOption_Dispose()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -692,7 +692,7 @@ void OH_ArkUI_KeyframeAnimateOption_Dispose(ArkUI_KeyframeAnimateOption* option)
  
   
 
-##### OH_ArkUI_KeyframeAnimateOption_SetDelay()
+#### OH_ArkUI_KeyframeAnimateOption_SetDelay()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -723,7 +723,7 @@ int32_t OH_ArkUI_KeyframeAnimateOption_SetDelay(ArkUI_KeyframeAnimateOption* opt
  
   
 
-##### OH_ArkUI_KeyframeAnimateOption_SetIterations()
+#### OH_ArkUI_KeyframeAnimateOption_SetIterations()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -754,7 +754,7 @@ int32_t OH_ArkUI_KeyframeAnimateOption_SetIterations(ArkUI_KeyframeAnimateOption
  
   
 
-##### OH_ArkUI_KeyframeAnimateOption_RegisterOnFinishCallback()
+#### OH_ArkUI_KeyframeAnimateOption_RegisterOnFinishCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -786,7 +786,7 @@ int32_t OH_ArkUI_KeyframeAnimateOption_RegisterOnFinishCallback(ArkUI_KeyframeAn
  
   
 
-##### OH_ArkUI_KeyframeAnimateOption_SetExpectedFrameRate()
+#### OH_ArkUI_KeyframeAnimateOption_SetExpectedFrameRate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -817,7 +817,7 @@ int32_t OH_ArkUI_KeyframeAnimateOption_SetExpectedFrameRate(ArkUI_KeyframeAnimat
  
   
 
-##### OH_ArkUI_KeyframeAnimateOption_SetDuration()
+#### OH_ArkUI_KeyframeAnimateOption_SetDuration()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -849,7 +849,7 @@ int32_t OH_ArkUI_KeyframeAnimateOption_SetDuration(ArkUI_KeyframeAnimateOption* 
  
   
 
-##### OH_ArkUI_KeyframeAnimateOption_SetCurve()
+#### OH_ArkUI_KeyframeAnimateOption_SetCurve()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -885,7 +885,7 @@ int32_t OH_ArkUI_KeyframeAnimateOption_SetCurve(ArkUI_KeyframeAnimateOption* opt
  
   
 
-##### OH_ArkUI_KeyframeAnimateOption_RegisterOnEventCallback()
+#### OH_ArkUI_KeyframeAnimateOption_RegisterOnEventCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -918,7 +918,7 @@ int32_t OH_ArkUI_KeyframeAnimateOption_RegisterOnEventCallback(ArkUI_KeyframeAni
  
   
 
-##### OH_ArkUI_KeyframeAnimateOption_GetDelay()
+#### OH_ArkUI_KeyframeAnimateOption_GetDelay()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -948,7 +948,7 @@ int32_t OH_ArkUI_KeyframeAnimateOption_GetDelay(ArkUI_KeyframeAnimateOption* opt
  
   
 
-##### OH_ArkUI_KeyframeAnimateOption_GetIterations()
+#### OH_ArkUI_KeyframeAnimateOption_GetIterations()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -978,7 +978,7 @@ int32_t OH_ArkUI_KeyframeAnimateOption_GetIterations(ArkUI_KeyframeAnimateOption
  
   
 
-##### OH_ArkUI_KeyframeAnimateOption_GetExpectedFrameRate()
+#### OH_ArkUI_KeyframeAnimateOption_GetExpectedFrameRate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1008,7 +1008,7 @@ ArkUI_ExpectedFrameRateRange* OH_ArkUI_KeyframeAnimateOption_GetExpectedFrameRat
  
   
 
-##### OH_ArkUI_KeyframeAnimateOption_GetDuration()
+#### OH_ArkUI_KeyframeAnimateOption_GetDuration()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1039,7 +1039,7 @@ int32_t OH_ArkUI_KeyframeAnimateOption_GetDuration(ArkUI_KeyframeAnimateOption* 
  
   
 
-##### OH_ArkUI_KeyframeAnimateOption_GetCurve()
+#### OH_ArkUI_KeyframeAnimateOption_GetCurve()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1070,7 +1070,7 @@ ArkUI_CurveHandle OH_ArkUI_KeyframeAnimateOption_GetCurve(ArkUI_KeyframeAnimateO
  
   
 
-##### OH_ArkUI_AnimatorOption_Create()
+#### OH_ArkUI_AnimatorOption_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1104,7 +1104,7 @@ ArkUI_AnimatorOption* OH_ArkUI_AnimatorOption_Create(int32_t keyframeSize)
  
   
 
-##### OH_ArkUI_AnimatorOption_Dispose()
+#### OH_ArkUI_AnimatorOption_Dispose()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1127,7 +1127,7 @@ void OH_ArkUI_AnimatorOption_Dispose(ArkUI_AnimatorOption* option)
  
   
 
-##### OH_ArkUI_AnimatorOption_SetDuration()
+#### OH_ArkUI_AnimatorOption_SetDuration()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1158,7 +1158,7 @@ int32_t OH_ArkUI_AnimatorOption_SetDuration(ArkUI_AnimatorOption* option, int32_
  
   
 
-##### OH_ArkUI_AnimatorOption_SetDelay()
+#### OH_ArkUI_AnimatorOption_SetDelay()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1189,7 +1189,7 @@ int32_t OH_ArkUI_AnimatorOption_SetDelay(ArkUI_AnimatorOption* option, int32_t v
  
   
 
-##### OH_ArkUI_AnimatorOption_SetIterations()
+#### OH_ArkUI_AnimatorOption_SetIterations()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1224,7 +1224,7 @@ int32_t OH_ArkUI_AnimatorOption_SetIterations(ArkUI_AnimatorOption* option, int3
  
   
 
-##### OH_ArkUI_AnimatorOption_SetFill()
+#### OH_ArkUI_AnimatorOption_SetFill()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1255,7 +1255,7 @@ int32_t OH_ArkUI_AnimatorOption_SetFill(ArkUI_AnimatorOption* option, ArkUI_Anim
  
   
 
-##### OH_ArkUI_AnimatorOption_SetDirection()
+#### OH_ArkUI_AnimatorOption_SetDirection()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1286,7 +1286,7 @@ int32_t OH_ArkUI_AnimatorOption_SetDirection(ArkUI_AnimatorOption* option, ArkUI
  
   
 
-##### OH_ArkUI_AnimatorOption_SetCurve()
+#### OH_ArkUI_AnimatorOption_SetCurve()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1321,7 +1321,7 @@ int32_t OH_ArkUI_AnimatorOption_SetCurve(ArkUI_AnimatorOption* option, ArkUI_Cur
  
   
 
-##### OH_ArkUI_AnimatorOption_SetBegin()
+#### OH_ArkUI_AnimatorOption_SetBegin()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1356,7 +1356,7 @@ int32_t OH_ArkUI_AnimatorOption_SetBegin(ArkUI_AnimatorOption* option, float val
  
   
 
-##### OH_ArkUI_AnimatorOption_SetEnd()
+#### OH_ArkUI_AnimatorOption_SetEnd()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1391,7 +1391,7 @@ int32_t OH_ArkUI_AnimatorOption_SetEnd(ArkUI_AnimatorOption* option, float value
  
   
 
-##### OH_ArkUI_AnimatorOption_SetExpectedFrameRateRange()
+#### OH_ArkUI_AnimatorOption_SetExpectedFrameRateRange()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1422,7 +1422,7 @@ int32_t OH_ArkUI_AnimatorOption_SetExpectedFrameRateRange(ArkUI_AnimatorOption* 
  
   
 
-##### OH_ArkUI_AnimatorOption_SetKeyframe()
+#### OH_ArkUI_AnimatorOption_SetKeyframe()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1455,7 +1455,7 @@ int32_t OH_ArkUI_AnimatorOption_SetKeyframe(ArkUI_AnimatorOption* option, float 
  
   
 
-##### OH_ArkUI_AnimatorOption_SetKeyframeCurve()
+#### OH_ArkUI_AnimatorOption_SetKeyframeCurve()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1491,7 +1491,7 @@ int32_t OH_ArkUI_AnimatorOption_SetKeyframeCurve(ArkUI_AnimatorOption* option, A
  
   
 
-##### OH_ArkUI_AnimatorOption_GetDuration()
+#### OH_ArkUI_AnimatorOption_GetDuration()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1521,7 +1521,7 @@ int32_t OH_ArkUI_AnimatorOption_GetDuration(ArkUI_AnimatorOption* option)
  
   
 
-##### OH_ArkUI_AnimatorOption_GetDelay()
+#### OH_ArkUI_AnimatorOption_GetDelay()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1551,7 +1551,7 @@ int32_t OH_ArkUI_AnimatorOption_GetDelay(ArkUI_AnimatorOption* option)
  
   
 
-##### OH_ArkUI_AnimatorOption_GetIterations()
+#### OH_ArkUI_AnimatorOption_GetIterations()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1581,7 +1581,7 @@ int32_t OH_ArkUI_AnimatorOption_GetIterations(ArkUI_AnimatorOption* option)
  
   
 
-##### OH_ArkUI_AnimatorOption_GetFill()
+#### OH_ArkUI_AnimatorOption_GetFill()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1611,7 +1611,7 @@ ArkUI_AnimationFillMode OH_ArkUI_AnimatorOption_GetFill(ArkUI_AnimatorOption* op
  
   
 
-##### OH_ArkUI_AnimatorOption_GetDirection()
+#### OH_ArkUI_AnimatorOption_GetDirection()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1641,7 +1641,7 @@ ArkUI_AnimationDirection OH_ArkUI_AnimatorOption_GetDirection(ArkUI_AnimatorOpti
  
   
 
-##### OH_ArkUI_AnimatorOption_GetCurve()
+#### OH_ArkUI_AnimatorOption_GetCurve()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1671,7 +1671,7 @@ ArkUI_CurveHandle OH_ArkUI_AnimatorOption_GetCurve(ArkUI_AnimatorOption* option)
  
   
 
-##### OH_ArkUI_AnimatorOption_GetBegin()
+#### OH_ArkUI_AnimatorOption_GetBegin()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1701,7 +1701,7 @@ float OH_ArkUI_AnimatorOption_GetBegin(ArkUI_AnimatorOption* option)
  
   
 
-##### OH_ArkUI_AnimatorOption_GetEnd()
+#### OH_ArkUI_AnimatorOption_GetEnd()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1731,7 +1731,7 @@ float OH_ArkUI_AnimatorOption_GetEnd(ArkUI_AnimatorOption* option)
  
   
 
-##### OH_ArkUI_AnimatorOption_GetExpectedFrameRateRange()
+#### OH_ArkUI_AnimatorOption_GetExpectedFrameRateRange()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1761,7 +1761,7 @@ ArkUI_ExpectedFrameRateRange* OH_ArkUI_AnimatorOption_GetExpectedFrameRateRange(
  
   
 
-##### OH_ArkUI_AnimatorOption_GetKeyframeTime()
+#### OH_ArkUI_AnimatorOption_GetKeyframeTime()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1792,7 +1792,7 @@ float OH_ArkUI_AnimatorOption_GetKeyframeTime(ArkUI_AnimatorOption* option, int3
  
   
 
-##### OH_ArkUI_AnimatorOption_GetKeyframeValue()
+#### OH_ArkUI_AnimatorOption_GetKeyframeValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1823,7 +1823,7 @@ float OH_ArkUI_AnimatorOption_GetKeyframeValue(ArkUI_AnimatorOption* option, int
  
   
 
-##### OH_ArkUI_AnimatorOption_GetKeyframeCurve()
+#### OH_ArkUI_AnimatorOption_GetKeyframeCurve()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1854,7 +1854,7 @@ ArkUI_CurveHandle OH_ArkUI_AnimatorOption_GetKeyframeCurve(ArkUI_AnimatorOption*
  
   
 
-##### OH_ArkUI_AnimatorEvent_GetUserData()
+#### OH_ArkUI_AnimatorEvent_GetUserData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1884,7 +1884,7 @@ void* OH_ArkUI_AnimatorEvent_GetUserData(ArkUI_AnimatorEvent* event)
  
   
 
-##### OH_ArkUI_AnimatorOnFrameEvent_GetUserData()
+#### OH_ArkUI_AnimatorOnFrameEvent_GetUserData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1914,7 +1914,7 @@ void* OH_ArkUI_AnimatorOnFrameEvent_GetUserData(ArkUI_AnimatorOnFrameEvent* even
  
   
 
-##### OH_ArkUI_AnimatorOnFrameEvent_GetValue()
+#### OH_ArkUI_AnimatorOnFrameEvent_GetValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1944,7 +1944,7 @@ float OH_ArkUI_AnimatorOnFrameEvent_GetValue(ArkUI_AnimatorOnFrameEvent* event)
  
   
 
-##### OH_ArkUI_AnimatorOption_RegisterOnFrameCallback()
+#### OH_ArkUI_AnimatorOption_RegisterOnFrameCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1976,7 +1976,7 @@ int32_t OH_ArkUI_AnimatorOption_RegisterOnFrameCallback(ArkUI_AnimatorOption* op
  
   
 
-##### OH_ArkUI_AnimatorOption_RegisterOnFinishCallback()
+#### OH_ArkUI_AnimatorOption_RegisterOnFinishCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2008,7 +2008,7 @@ int32_t OH_ArkUI_AnimatorOption_RegisterOnFinishCallback(ArkUI_AnimatorOption* o
  
   
 
-##### OH_ArkUI_AnimatorOption_RegisterOnCancelCallback()
+#### OH_ArkUI_AnimatorOption_RegisterOnCancelCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2040,7 +2040,7 @@ int32_t OH_ArkUI_AnimatorOption_RegisterOnCancelCallback(ArkUI_AnimatorOption* o
  
   
 
-##### OH_ArkUI_AnimatorOption_RegisterOnRepeatCallback()
+#### OH_ArkUI_AnimatorOption_RegisterOnRepeatCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2072,7 +2072,7 @@ int32_t OH_ArkUI_AnimatorOption_RegisterOnRepeatCallback(ArkUI_AnimatorOption* o
  
   
 
-##### OH_ArkUI_Animator_ResetAnimatorOption()
+#### OH_ArkUI_Animator_ResetAnimatorOption()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2103,7 +2103,7 @@ int32_t OH_ArkUI_Animator_ResetAnimatorOption(ArkUI_AnimatorHandle animatorHandl
  
   
 
-##### OH_ArkUI_Animator_Play()
+#### OH_ArkUI_Animator_Play()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2133,7 +2133,7 @@ int32_t OH_ArkUI_Animator_Play(ArkUI_AnimatorHandle animatorHandle)
  
   
 
-##### OH_ArkUI_Animator_Finish()
+#### OH_ArkUI_Animator_Finish()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2163,7 +2163,7 @@ int32_t OH_ArkUI_Animator_Finish(ArkUI_AnimatorHandle animatorHandle)
  
   
 
-##### OH_ArkUI_Animator_Pause()
+#### OH_ArkUI_Animator_Pause()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2193,7 +2193,7 @@ int32_t OH_ArkUI_Animator_Pause(ArkUI_AnimatorHandle animatorHandle)
  
   
 
-##### OH_ArkUI_Animator_Cancel()
+#### OH_ArkUI_Animator_Cancel()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2223,7 +2223,7 @@ int32_t OH_ArkUI_Animator_Cancel(ArkUI_AnimatorHandle animatorHandle)
  
   
 
-##### OH_ArkUI_Animator_Reverse()
+#### OH_ArkUI_Animator_Reverse()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2253,7 +2253,7 @@ int32_t OH_ArkUI_Animator_Reverse(ArkUI_AnimatorHandle animatorHandle)
  
   
 
-##### OH_ArkUI_Curve_CreateCurveByType()
+#### OH_ArkUI_Curve_CreateCurveByType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2283,7 +2283,7 @@ ArkUI_CurveHandle OH_ArkUI_Curve_CreateCurveByType(ArkUI_AnimationCurve curve)
  
   
 
-##### OH_ArkUI_Curve_CreateStepsCurve()
+#### OH_ArkUI_Curve_CreateStepsCurve()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2314,7 +2314,7 @@ ArkUI_CurveHandle OH_ArkUI_Curve_CreateStepsCurve(int32_t count, bool end)
  
   
 
-##### OH_ArkUI_Curve_CreateCubicBezierCurve()
+#### OH_ArkUI_Curve_CreateCubicBezierCurve()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2347,7 +2347,7 @@ ArkUI_CurveHandle OH_ArkUI_Curve_CreateCubicBezierCurve(float x1, float y1, floa
  
   
 
-##### OH_ArkUI_Curve_CreateSpringCurve()
+#### OH_ArkUI_Curve_CreateSpringCurve()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2380,7 +2380,7 @@ ArkUI_CurveHandle OH_ArkUI_Curve_CreateSpringCurve(float velocity, float mass, f
  
   
 
-##### OH_ArkUI_Curve_CreateSpringMotion()
+#### OH_ArkUI_Curve_CreateSpringMotion()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2416,7 +2416,7 @@ ArkUI_CurveHandle OH_ArkUI_Curve_CreateSpringMotion(float response, float dampin
  
   
 
-##### OH_ArkUI_Curve_CreateResponsiveSpringMotion()
+#### OH_ArkUI_Curve_CreateResponsiveSpringMotion()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2452,7 +2452,7 @@ ArkUI_CurveHandle OH_ArkUI_Curve_CreateResponsiveSpringMotion(float response, fl
  
   
 
-##### OH_ArkUI_Curve_CreateInterpolatingSpring()
+#### OH_ArkUI_Curve_CreateInterpolatingSpring()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2489,7 +2489,7 @@ ArkUI_CurveHandle OH_ArkUI_Curve_CreateInterpolatingSpring(float velocity, float
  
   
 
-##### OH_ArkUI_Curve_CreateCustomCurve()
+#### OH_ArkUI_Curve_CreateCustomCurve()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2520,7 +2520,7 @@ ArkUI_CurveHandle OH_ArkUI_Curve_CreateCustomCurve(void* userData, float (*inter
  
   
 
-##### OH_ArkUI_Curve_DisposeCurve()
+#### OH_ArkUI_Curve_DisposeCurve()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2543,7 +2543,7 @@ void OH_ArkUI_Curve_DisposeCurve(ArkUI_CurveHandle curveHandle)
  
   
 
-##### OH_ArkUI_CreateOpacityTransitionEffect()
+#### OH_ArkUI_CreateOpacityTransitionEffect()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2573,7 +2573,7 @@ ArkUI_TransitionEffect* OH_ArkUI_CreateOpacityTransitionEffect(float opacity)
  
   
 
-##### OH_ArkUI_CreateTranslationTransitionEffect()
+#### OH_ArkUI_CreateTranslationTransitionEffect()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2603,7 +2603,7 @@ ArkUI_TransitionEffect* OH_ArkUI_CreateTranslationTransitionEffect(ArkUI_Transla
  
   
 
-##### OH_ArkUI_CreateScaleTransitionEffect()
+#### OH_ArkUI_CreateScaleTransitionEffect()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2633,7 +2633,7 @@ ArkUI_TransitionEffect* OH_ArkUI_CreateScaleTransitionEffect(ArkUI_ScaleOptions*
  
   
 
-##### OH_ArkUI_CreateRotationTransitionEffect()
+#### OH_ArkUI_CreateRotationTransitionEffect()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2663,7 +2663,7 @@ ArkUI_TransitionEffect* OH_ArkUI_CreateRotationTransitionEffect(ArkUI_RotationOp
  
   
 
-##### OH_ArkUI_CreateMovementTransitionEffect()
+#### OH_ArkUI_CreateMovementTransitionEffect()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2693,7 +2693,7 @@ ArkUI_TransitionEffect* OH_ArkUI_CreateMovementTransitionEffect(ArkUI_Transition
  
   
 
-##### OH_ArkUI_CreateAsymmetricTransitionEffect()
+#### OH_ArkUI_CreateAsymmetricTransitionEffect()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2728,7 +2728,7 @@ ArkUI_TransitionEffect* OH_ArkUI_CreateAsymmetricTransitionEffect(ArkUI_Transiti
  
   
 
-##### OH_ArkUI_TransitionEffect_Dispose()
+#### OH_ArkUI_TransitionEffect_Dispose()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2751,7 +2751,7 @@ void OH_ArkUI_TransitionEffect_Dispose(ArkUI_TransitionEffect* effect)
  
   
 
-##### OH_ArkUI_TransitionEffect_Combine()
+#### OH_ArkUI_TransitionEffect_Combine()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2782,7 +2782,7 @@ int32_t OH_ArkUI_TransitionEffect_Combine(ArkUI_TransitionEffect* firstEffect, A
  
   
 
-##### OH_ArkUI_TransitionEffect_SetAnimation()
+#### OH_ArkUI_TransitionEffect_SetAnimation()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

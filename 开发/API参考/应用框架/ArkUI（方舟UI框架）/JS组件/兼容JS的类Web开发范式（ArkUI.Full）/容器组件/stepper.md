@@ -12,7 +12,7 @@
 步骤导航器。当完成一个任务需要多个步骤时，可以使用步骤导航器展示当前进展。
   
 
-##### 权限列表
+#### 权限列表
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -32,7 +32,7 @@
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -45,7 +45,7 @@
  
   
 
-##### 样式
+#### 样式
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -57,7 +57,7 @@
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -74,7 +74,7 @@
  
   
 
-##### 方法
+#### 方法
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -87,7 +87,7 @@
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -220,4 +220,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/VuIrQrPlQ8GRn-PO_v4bPw/zh-cn_image_0000002581276408.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024109Z&HW-CC-Expire=86400&HW-CC-Sign=59638605D18A99067C6AA5CDC2D0C1E7C68C85C9F60A9C54957BC573130659A0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/VuIrQrPlQ8GRn-PO_v4bPw/zh-cn_image_0000002581276408.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025444Z&HW-CC-Expire=86400&HW-CC-Sign=607EC730C6C2CBAA599CFDDD0FEBA9B1BBF4AE0E7788CE778A05ED307A07ED8D)

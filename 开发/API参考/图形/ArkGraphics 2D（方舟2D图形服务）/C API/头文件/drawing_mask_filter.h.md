@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-mask-filter-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -40,7 +40,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -52,13 +52,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Drawing_BlurType
+#### OH_Drawing_BlurType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -82,13 +82,13 @@ enum OH_Drawing_BlurType
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Drawing_MaskFilterCreateBlur()
+#### OH_Drawing_MaskFilterCreateBlur()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -122,7 +122,7 @@ OH_Drawing_MaskFilter* OH_Drawing_MaskFilterCreateBlur(OH_Drawing_BlurType blurT
  
   
 
-##### OH_Drawing_MaskFilterDestroy()
+#### OH_Drawing_MaskFilterDestroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

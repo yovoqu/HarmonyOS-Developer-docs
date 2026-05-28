@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-source-mdk-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
 
 
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -50,7 +50,7 @@
 
 
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -77,7 +77,7 @@
 
 
 
-##### 变量
+#### 变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -101,13 +101,13 @@
 
 
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### OH_ImageSource_Create()
+#### OH_ImageSource_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -144,7 +144,7 @@ int32_t OH_ImageSource_Create(napi_env env, struct OhosImageSource* src, struct 
 
 
 
-##### OH_ImageSource_CreateFromUri()
+#### OH_ImageSource_CreateFromUri()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -178,7 +178,7 @@ int32_t OH_ImageSource_CreateFromUri(napi_env env, char* uri, size_t size,struct
 
 
 
-##### OH_ImageSource_CreateFromFd()
+#### OH_ImageSource_CreateFromFd()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -211,7 +211,7 @@ int32_t OH_ImageSource_CreateFromFd(napi_env env, int32_t fd,struct OhosImageSou
 
 
 
-##### OH_ImageSource_CreateFromData()
+#### OH_ImageSource_CreateFromData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -245,7 +245,7 @@ int32_t OH_ImageSource_CreateFromData(napi_env env, uint8_t* data, size_t dataSi
 
 
 
-##### OH_ImageSource_CreateFromRawFile()
+#### OH_ImageSource_CreateFromRawFile()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -278,7 +278,7 @@ int32_t OH_ImageSource_CreateFromRawFile(napi_env env, RawFileDescriptor rawFile
 
 
 
-##### OH_ImageSource_CreateIncremental()
+#### OH_ImageSource_CreateIncremental()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -315,7 +315,7 @@ int32_t OH_ImageSource_CreateIncremental(napi_env env, struct OhosImageSource* s
 
 
 
-##### OH_ImageSource_CreateIncrementalFromData()
+#### OH_ImageSource_CreateIncrementalFromData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -349,7 +349,7 @@ int32_t OH_ImageSource_CreateIncrementalFromData(napi_env env, uint8_t* data, si
 
 
 
-##### OH_ImageSource_GetSupportedFormats()
+#### OH_ImageSource_GetSupportedFormats()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -379,7 +379,7 @@ int32_t OH_ImageSource_GetSupportedFormats(struct OhosImageSourceSupportedFormat
 
 
 
-##### OH_ImageSource_InitNative()
+#### OH_ImageSource_InitNative()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -414,7 +414,7 @@ ImageSourceNative* OH_ImageSource_InitNative(napi_env env, napi_value source)
 
 
 
-##### OH_ImageSource_CreatePixelMap()
+#### OH_ImageSource_CreatePixelMap()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -446,7 +446,7 @@ int32_t OH_ImageSource_CreatePixelMap(const ImageSourceNative* native,struct Oho
 
 
 
-##### OH_ImageSource_CreatePixelMapList()
+#### OH_ImageSource_CreatePixelMapList()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -478,7 +478,7 @@ int32_t OH_ImageSource_CreatePixelMapList(const ImageSourceNative* native,struct
 
 
 
-##### OH_ImageSource_GetDelayTime()
+#### OH_ImageSource_GetDelayTime()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -509,7 +509,7 @@ int32_t OH_ImageSource_GetDelayTime(const ImageSourceNative* native,struct OhosI
 
 
 
-##### OH_ImageSource_GetFrameCount()
+#### OH_ImageSource_GetFrameCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -540,7 +540,7 @@ int32_t OH_ImageSource_GetFrameCount(const ImageSourceNative* native, uint32_t *
 
 
 
-##### OH_ImageSource_GetImageInfo()
+#### OH_ImageSource_GetImageInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -572,7 +572,7 @@ int32_t OH_ImageSource_GetImageInfo(const ImageSourceNative* native, int32_t ind
 
 
 
-##### OH_ImageSource_GetImageProperty()
+#### OH_ImageSource_GetImageProperty()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -604,7 +604,7 @@ int32_t OH_ImageSource_GetImageProperty(const ImageSourceNative* native, struct 
 
 
 
-##### OH_ImageSource_ModifyImageProperty()
+#### OH_ImageSource_ModifyImageProperty()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -636,7 +636,7 @@ int32_t OH_ImageSource_ModifyImageProperty(const ImageSourceNative* native, stru
 
 
 
-##### OH_ImageSource_UpdateData()
+#### OH_ImageSource_UpdateData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -667,7 +667,7 @@ int32_t OH_ImageSource_UpdateData(const ImageSourceNative* native, struct OhosIm
 
 
 
-##### OH_ImageSource_Release()
+#### OH_ImageSource_Release()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -25,7 +25,7 @@ LightWeightSet和[HashSet](https://developer.huawei.com/consumer/cn/doc/harmonyo
 
 
 
-##### 规格限制
+#### 规格限制
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -45,7 +45,7 @@ console.info("result:", st.has(value));  // result: true
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -55,13 +55,13 @@ import { LightWeightSet } from '@kit.ArkTS';
 
 
 
-##### LightWeightSet
+#### LightWeightSet
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -76,7 +76,7 @@ import { LightWeightSet } from '@kit.ArkTS';
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -105,7 +105,7 @@ let lightWeightSet = new LightWeightSet<number | string>();
 
 
 
-##### isEmpty
+#### isEmpty
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -143,7 +143,7 @@ console.info("result:", result);  // result: true
 
 
 
-##### add
+#### add
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -188,7 +188,7 @@ console.info("result:", result);  // result: true
 
 
 
-##### addAll
+#### addAll
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -239,7 +239,7 @@ console.info("result:", result);  // result: true
 
 
 
-##### hasAll
+#### hasAll
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -289,7 +289,7 @@ console.info("result:", result);  // result: true
 
 
 
-##### has
+#### has
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -335,7 +335,7 @@ console.info("result:", result);  // result: true
 
 
 
-##### increaseCapacityTo
+#### increaseCapacityTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -374,7 +374,7 @@ lightWeightSet.increaseCapacityTo(10);
 
 
 
-##### getIndexOf
+#### getIndexOf
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -421,7 +421,7 @@ console.info("result:", result);  // result: 0
 
 
 
-##### remove
+#### remove
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -468,7 +468,7 @@ console.info("result:", result);  // result: sparrow
 
 
 
-##### removeAt
+#### removeAt
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -516,7 +516,7 @@ console.info("result:", result);  // result: true
 
 
 
-##### getValueAt
+#### getValueAt
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -564,7 +564,7 @@ console.info("result:", result);  // result: squirrel
 
 
 
-##### clear
+#### clear
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -598,7 +598,7 @@ console.info("result:", result);  // result: true
 
 
 
-##### toString
+#### toString
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -629,7 +629,7 @@ console.info("result:", result);  // result: sparrow,squirrel
 
 
 
-##### toArray
+#### toArray
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -670,7 +670,7 @@ console.info(result.toString());
 
 
 
-##### values
+#### values
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -714,7 +714,7 @@ for (let value of values) {
 
 
 
-##### forEach
+#### forEach
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -779,7 +779,7 @@ for(let i = 0; i < 10; i++) {
 
 
 
-##### entries
+#### entries
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -834,7 +834,7 @@ for(let i = 0; i < 10; i++) {
 
 
 
-##### [Symbol.iterator]
+#### [Symbol.iterator]
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -900,7 +900,7 @@ for(let i = 0; i < 10; i++) {
 
 
 
-##### equal(deprecated)
+#### equal(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

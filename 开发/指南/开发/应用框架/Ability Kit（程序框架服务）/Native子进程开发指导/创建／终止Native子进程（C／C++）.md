@@ -16,17 +16,17 @@
 
 
 
-##### 创建支持IPC通信的Native子进程
+#### 创建支持IPC通信的Native子进程
 
 
 
-##### 场景介绍
+#### 场景介绍
 
 本章节介绍如何在主进程中创建Native子进程，并在父子进程间建立IPC通道，方便开发者在Native层进行多进程编程。
 
 
 
-##### 接口说明
+#### 接口说明
 
 | 名称 | 描述 |
 | --- | --- |
@@ -39,7 +39,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 基于已创建完成的Native应用开发工程，在此基础上介绍如何使用AbilityKit提供的C API接口，创建Native子进程，并同时在父子进程间建立IPC通道。
 
@@ -221,17 +221,17 @@ target_link_libraries(mainprocesssample PUBLIC
 
 
 
-##### 创建支持参数传递的Native子进程
+#### 创建支持参数传递的Native子进程
 
 
 
-##### 场景介绍
+#### 场景介绍
 
 本章节介绍如何创建Native子进程，并传递参数到子进程。
 
 
 
-##### 接口说明
+#### 接口说明
 
 | 名称 | 描述 |
 | --- | --- |
@@ -240,7 +240,7 @@ target_link_libraries(mainprocesssample PUBLIC
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 **动态库文件**
 
@@ -378,17 +378,17 @@ target_link_libraries(mainprocesssample PUBLIC
 
 
 
-##### 子进程获取启动参数
+#### 子进程获取启动参数
 
 
 
-##### 场景介绍
+#### 场景介绍
 
 从API version 17开始，支持子进程获取启动参数。
 
 
 
-##### 接口说明
+#### 接口说明
 
 | 名称 | 描述 |
 | --- | --- |
@@ -397,7 +397,7 @@ target_link_libraries(mainprocesssample PUBLIC
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 **动态库文件**
 
@@ -457,17 +457,17 @@ void Main(NativeChildProcess_Args args)
 
 
 
-##### 终止子进程
+#### 终止子进程
 
 
 
-##### 场景介绍
+#### 场景介绍
 
 从API version 22开始，支持根据传入的pid终止当前进程创建的[Native子进程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ability-terminology#native子进程)或[ArkTS子进程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ability-terminology#arkts子进程)。
 
 
 
-##### 接口说明
+#### 接口说明
 
 | 名称 | 描述 |
 | --- | --- |
@@ -476,7 +476,7 @@ void Main(NativeChildProcess_Args args)
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 **头文件**
 

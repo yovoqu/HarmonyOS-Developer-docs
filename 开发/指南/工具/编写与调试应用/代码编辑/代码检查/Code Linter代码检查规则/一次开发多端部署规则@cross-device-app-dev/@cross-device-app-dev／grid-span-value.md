@@ -7,7 +7,7 @@
 在栅格布局组件GridCol中，span和offset不建议使用小数。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 @Entry
@@ -50,7 +50,7 @@ struct Index {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 @Entry
@@ -72,7 +72,7 @@ struct Index {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@cross-device-app-dev/recommended</span>

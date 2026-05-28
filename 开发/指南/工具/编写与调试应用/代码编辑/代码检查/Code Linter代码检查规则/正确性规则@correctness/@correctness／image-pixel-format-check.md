@@ -7,7 +7,7 @@
 在使用Image组件[createPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f#imagecreatepixelmap8)接口时，建议不要选择RGB_565档位，避免出现色阶问题。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 import image from '@ohos.multimedia.image';
@@ -69,7 +69,7 @@ export class AodFailTask {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 import image from '@ohos.multimedia.image';
@@ -113,7 +113,7 @@ export class AodFailTask {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@correctness/all</span>

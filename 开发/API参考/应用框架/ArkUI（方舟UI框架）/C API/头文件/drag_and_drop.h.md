@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drag-and-drop-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -25,13 +25,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -48,7 +48,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -63,7 +63,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -142,13 +142,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### ArkUI_DragResult
+#### ArkUI_DragResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -171,7 +171,7 @@ enum ArkUI_DragResult
  
   
 
-##### ArkUI_DropOperation
+#### ArkUI_DropOperation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -193,7 +193,7 @@ enum ArkUI_DropOperation
  
   
 
-##### ArkUI_PreDragStatus
+#### ArkUI_PreDragStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -221,7 +221,7 @@ enum ArkUI_PreDragStatus
  
   
 
-##### ArkUI_DragPreviewScaleMode
+#### ArkUI_DragPreviewScaleMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -243,7 +243,7 @@ enum ArkUI_DragPreviewScaleMode
  
   
 
-##### ArkUI_DragStatus
+#### ArkUI_DragStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -266,13 +266,13 @@ enum ArkUI_DragStatus
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_ArkUI_NodeEvent_GetDragEvent()
+#### OH_ArkUI_NodeEvent_GetDragEvent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -302,7 +302,7 @@ ArkUI_DragEvent* OH_ArkUI_NodeEvent_GetDragEvent(ArkUI_NodeEvent* nodeEvent)
  
   
 
-##### OH_ArkUI_NodeEvent_GetPreDragStatus()
+#### OH_ArkUI_NodeEvent_GetPreDragStatus()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -332,7 +332,7 @@ ArkUI_PreDragStatus OH_ArkUI_NodeEvent_GetPreDragStatus(ArkUI_NodeEvent* nodeEve
  
   
 
-##### OH_ArkUI_DragEvent_DisableDefaultDropAnimation()
+#### OH_ArkUI_DragEvent_DisableDefaultDropAnimation()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -363,7 +363,7 @@ int32_t OH_ArkUI_DragEvent_DisableDefaultDropAnimation(ArkUI_DragEvent* event, b
  
   
 
-##### OH_ArkUI_DragEvent_SetSuggestedDropOperation()
+#### OH_ArkUI_DragEvent_SetSuggestedDropOperation()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -394,7 +394,7 @@ int32_t OH_ArkUI_DragEvent_SetSuggestedDropOperation(ArkUI_DragEvent* event, Ark
  
   
 
-##### OH_ArkUI_DragEvent_SetDragResult()
+#### OH_ArkUI_DragEvent_SetDragResult()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -425,7 +425,7 @@ int32_t OH_ArkUI_DragEvent_SetDragResult(ArkUI_DragEvent* event, ArkUI_DragResul
  
   
 
-##### OH_ArkUI_DragEvent_SetData()
+#### OH_ArkUI_DragEvent_SetData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -456,7 +456,7 @@ int32_t OH_ArkUI_DragEvent_SetData(ArkUI_DragEvent* event, OH_UdmfData* data)
  
   
 
-##### OH_ArkUI_DragEvent_SetDataLoadParams()
+#### OH_ArkUI_DragEvent_SetDataLoadParams()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -487,7 +487,7 @@ ArkUI_ErrorCode OH_ArkUI_DragEvent_SetDataLoadParams(ArkUI_DragEvent* event, OH_
  
   
 
-##### OH_ArkUI_DragEvent_GetUdmfData()
+#### OH_ArkUI_DragEvent_GetUdmfData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -518,7 +518,7 @@ int32_t OH_ArkUI_DragEvent_GetUdmfData(ArkUI_DragEvent* event, OH_UdmfData *data
  
   
 
-##### OH_ArkUI_DragEvent_GetDataTypeCount()
+#### OH_ArkUI_DragEvent_GetDataTypeCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -549,7 +549,7 @@ int32_t OH_ArkUI_DragEvent_GetDataTypeCount(ArkUI_DragEvent* event, int32_t* cou
  
   
 
-##### OH_ArkUI_DragEvent_GetDataTypes()
+#### OH_ArkUI_DragEvent_GetDataTypes()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -582,7 +582,7 @@ int32_t OH_ArkUI_DragEvent_GetDataTypes(ArkUI_DragEvent *event, char *eventTypeA
  
   
 
-##### OH_ArkUI_DragEvent_GetDragResult()
+#### OH_ArkUI_DragEvent_GetDragResult()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -613,7 +613,7 @@ int32_t OH_ArkUI_DragEvent_GetDragResult(ArkUI_DragEvent* event, ArkUI_DragResul
  
   
 
-##### OH_ArkUI_DragEvent_GetDropOperation()
+#### OH_ArkUI_DragEvent_GetDropOperation()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -644,7 +644,7 @@ int32_t OH_ArkUI_DragEvent_GetDropOperation(ArkUI_DragEvent* event, ArkUI_DropOp
  
   
 
-##### OH_ArkUI_DragEvent_GetPreviewTouchPointX()
+#### OH_ArkUI_DragEvent_GetPreviewTouchPointX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -674,7 +674,7 @@ float OH_ArkUI_DragEvent_GetPreviewTouchPointX(ArkUI_DragEvent* event)
  
   
 
-##### OH_ArkUI_DragEvent_GetPreviewTouchPointY()
+#### OH_ArkUI_DragEvent_GetPreviewTouchPointY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -704,7 +704,7 @@ float OH_ArkUI_DragEvent_GetPreviewTouchPointY(ArkUI_DragEvent* event)
  
   
 
-##### OH_ArkUI_DragEvent_GetPreviewRectWidth()
+#### OH_ArkUI_DragEvent_GetPreviewRectWidth()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -734,7 +734,7 @@ float OH_ArkUI_DragEvent_GetPreviewRectWidth(ArkUI_DragEvent* event)
  
   
 
-##### OH_ArkUI_DragEvent_GetPreviewRectHeight()
+#### OH_ArkUI_DragEvent_GetPreviewRectHeight()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -764,7 +764,7 @@ float OH_ArkUI_DragEvent_GetPreviewRectHeight(ArkUI_DragEvent* event)
  
   
 
-##### OH_ArkUI_DragEvent_GetTouchPointXToWindow()
+#### OH_ArkUI_DragEvent_GetTouchPointXToWindow()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -794,7 +794,7 @@ float OH_ArkUI_DragEvent_GetTouchPointXToWindow(ArkUI_DragEvent* event)
  
   
 
-##### OH_ArkUI_DragEvent_GetTouchPointYToWindow()
+#### OH_ArkUI_DragEvent_GetTouchPointYToWindow()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -824,7 +824,7 @@ float OH_ArkUI_DragEvent_GetTouchPointYToWindow(ArkUI_DragEvent* event)
  
   
 
-##### OH_ArkUI_DragEvent_GetTouchPointXToDisplay()
+#### OH_ArkUI_DragEvent_GetTouchPointXToDisplay()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -854,7 +854,7 @@ float OH_ArkUI_DragEvent_GetTouchPointXToDisplay(ArkUI_DragEvent* event)
  
   
 
-##### OH_ArkUI_DragEvent_GetTouchPointYToDisplay()
+#### OH_ArkUI_DragEvent_GetTouchPointYToDisplay()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -884,7 +884,7 @@ float OH_ArkUI_DragEvent_GetTouchPointYToDisplay(ArkUI_DragEvent* event)
  
   
 
-##### OH_ArkUI_DragEvent_GetVelocityX()
+#### OH_ArkUI_DragEvent_GetVelocityX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -914,7 +914,7 @@ float OH_ArkUI_DragEvent_GetVelocityX(ArkUI_DragEvent* event)
  
   
 
-##### OH_ArkUI_DragEvent_GetVelocityY()
+#### OH_ArkUI_DragEvent_GetVelocityY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -944,7 +944,7 @@ float OH_ArkUI_DragEvent_GetVelocityY(ArkUI_DragEvent* event)
  
   
 
-##### OH_ArkUI_DragEvent_GetVelocity()
+#### OH_ArkUI_DragEvent_GetVelocity()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -974,7 +974,7 @@ float OH_ArkUI_DragEvent_GetVelocity(ArkUI_DragEvent* event)
  
   
 
-##### OH_ArkUI_DragEvent_GetModifierKeyStates()
+#### OH_ArkUI_DragEvent_GetModifierKeyStates()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1005,7 +1005,7 @@ int32_t OH_ArkUI_DragEvent_GetModifierKeyStates(ArkUI_DragEvent* event, uint64_t
  
   
 
-##### OH_ArkUI_DragEvent_StartDataLoading()
+#### OH_ArkUI_DragEvent_StartDataLoading()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1038,7 +1038,7 @@ int32_t OH_ArkUI_DragEvent_StartDataLoading(ArkUI_DragEvent* event, OH_UdmfGetDa
  
   
 
-##### OH_ArkUI_CancelDataLoading()
+#### OH_ArkUI_CancelDataLoading()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1069,7 +1069,7 @@ int32_t OH_ArkUI_CancelDataLoading(ArkUI_ContextHandle uiContext, const char* ke
  
   
 
-##### OH_ArkUI_DisableDropDataPrefetchOnNode()
+#### OH_ArkUI_DisableDropDataPrefetchOnNode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1100,7 +1100,7 @@ int32_t OH_ArkUI_DisableDropDataPrefetchOnNode(ArkUI_NodeHandle node, bool disab
  
   
 
-##### OH_ArkUI_SetDragEventStrictReportWithNode()
+#### OH_ArkUI_SetDragEventStrictReportWithNode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1131,7 +1131,7 @@ int32_t OH_ArkUI_SetDragEventStrictReportWithNode(ArkUI_NodeHandle node, bool en
  
   
 
-##### OH_ArkUI_SetDragEventStrictReportWithContext()
+#### OH_ArkUI_SetDragEventStrictReportWithContext()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1162,7 +1162,7 @@ int32_t OH_ArkUI_SetDragEventStrictReportWithContext(ArkUI_ContextHandle uiConte
  
   
 
-##### OH_ArkUI_SetNodeAllowedDropDataTypes()
+#### OH_ArkUI_SetNodeAllowedDropDataTypes()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1194,7 +1194,7 @@ int32_t OH_ArkUI_SetNodeAllowedDropDataTypes(ArkUI_NodeHandle node, const char* 
  
   
 
-##### OH_ArkUI_DisallowNodeAnyDropDataTypes()
+#### OH_ArkUI_DisallowNodeAnyDropDataTypes()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1224,7 +1224,7 @@ int32_t OH_ArkUI_DisallowNodeAnyDropDataTypes(ArkUI_NodeHandle node)
  
   
 
-##### OH_ArkUI_AllowNodeAllDropDataTypes()
+#### OH_ArkUI_AllowNodeAllDropDataTypes()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1254,7 +1254,7 @@ int32_t OH_ArkUI_AllowNodeAllDropDataTypes(ArkUI_NodeHandle node)
  
   
 
-##### OH_ArkUI_SetNodeDraggable()
+#### OH_ArkUI_SetNodeDraggable()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1285,7 +1285,7 @@ int32_t OH_ArkUI_SetNodeDraggable(ArkUI_NodeHandle node, bool enabled)
  
   
 
-##### OH_ArkUI_SetNodeDragPreview()
+#### OH_ArkUI_SetNodeDragPreview()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1316,7 +1316,7 @@ int32_t OH_ArkUI_SetNodeDragPreview(ArkUI_NodeHandle node, OH_PixelmapNative* pr
  
   
 
-##### OH_ArkUI_CreateDragPreviewOption()
+#### OH_ArkUI_CreateDragPreviewOption()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1339,7 +1339,7 @@ ArkUI_DragPreviewOption* OH_ArkUI_CreateDragPreviewOption(void)
  
   
 
-##### OH_ArkUI_DragPreviewOption_Dispose()
+#### OH_ArkUI_DragPreviewOption_Dispose()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1362,7 +1362,7 @@ void OH_ArkUI_DragPreviewOption_Dispose(ArkUI_DragPreviewOption* option)
  
   
 
-##### OH_ArkUI_DragPreviewOption_SetScaleMode()
+#### OH_ArkUI_DragPreviewOption_SetScaleMode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1393,7 +1393,7 @@ int32_t OH_ArkUI_DragPreviewOption_SetScaleMode(ArkUI_DragPreviewOption* option,
  
   
 
-##### OH_ArkUI_DragPreviewOption_SetDefaultShadowEnabled()
+#### OH_ArkUI_DragPreviewOption_SetDefaultShadowEnabled()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1424,7 +1424,7 @@ int32_t OH_ArkUI_DragPreviewOption_SetDefaultShadowEnabled(ArkUI_DragPreviewOpti
  
   
 
-##### OH_ArkUI_DragPreviewOption_SetDefaultRadiusEnabled()
+#### OH_ArkUI_DragPreviewOption_SetDefaultRadiusEnabled()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1455,7 +1455,7 @@ int32_t OH_ArkUI_DragPreviewOption_SetDefaultRadiusEnabled(ArkUI_DragPreviewOpti
  
   
 
-##### OH_ArkUI_DragPreviewOption_SetNumberBadgeEnabled()
+#### OH_ArkUI_DragPreviewOption_SetNumberBadgeEnabled()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1486,7 +1486,7 @@ int32_t OH_ArkUI_DragPreviewOption_SetNumberBadgeEnabled(ArkUI_DragPreviewOption
  
   
 
-##### OH_ArkUI_DragPreviewOption_SetBadgeNumber()
+#### OH_ArkUI_DragPreviewOption_SetBadgeNumber()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1517,7 +1517,7 @@ int32_t OH_ArkUI_DragPreviewOption_SetBadgeNumber(ArkUI_DragPreviewOption* optio
  
   
 
-##### OH_ArkUI_DragPreviewOption_SetDefaultAnimationBeforeLiftingEnabled()
+#### OH_ArkUI_DragPreviewOption_SetDefaultAnimationBeforeLiftingEnabled()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1548,7 +1548,7 @@ int32_t OH_ArkUI_DragPreviewOption_SetDefaultAnimationBeforeLiftingEnabled(ArkUI
  
   
 
-##### OH_ArkUI_SetNodeDragPreviewOption()
+#### OH_ArkUI_SetNodeDragPreviewOption()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1579,7 +1579,7 @@ int32_t OH_ArkUI_SetNodeDragPreviewOption(ArkUI_NodeHandle node, ArkUI_DragPrevi
  
   
 
-##### OH_ArkUI_CreateDragActionWithNode()
+#### OH_ArkUI_CreateDragActionWithNode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1609,7 +1609,7 @@ ArkUI_DragAction* OH_ArkUI_CreateDragActionWithNode(ArkUI_NodeHandle node)
  
   
 
-##### OH_ArkUI_CreateDragActionWithContext()
+#### OH_ArkUI_CreateDragActionWithContext()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1639,7 +1639,7 @@ ArkUI_DragAction* OH_ArkUI_CreateDragActionWithContext(ArkUI_ContextHandle uiCon
  
   
 
-##### OH_ArkUI_DragAction_Dispose()
+#### OH_ArkUI_DragAction_Dispose()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1662,7 +1662,7 @@ void OH_ArkUI_DragAction_Dispose(ArkUI_DragAction* dragAction)
  
   
 
-##### OH_ArkUI_DragAction_SetPointerId()
+#### OH_ArkUI_DragAction_SetPointerId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1693,7 +1693,7 @@ int32_t OH_ArkUI_DragAction_SetPointerId(ArkUI_DragAction* dragAction, int32_t p
  
   
 
-##### OH_ArkUI_DragAction_SetPixelMaps()
+#### OH_ArkUI_DragAction_SetPixelMaps()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1725,7 +1725,7 @@ int32_t OH_ArkUI_DragAction_SetPixelMaps(ArkUI_DragAction* dragAction, OH_Pixelm
  
   
 
-##### OH_ArkUI_DragAction_SetTouchPointX()
+#### OH_ArkUI_DragAction_SetTouchPointX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1756,7 +1756,7 @@ int32_t OH_ArkUI_DragAction_SetTouchPointX(ArkUI_DragAction* dragAction, float x
  
   
 
-##### OH_ArkUI_DragAction_SetTouchPointY()
+#### OH_ArkUI_DragAction_SetTouchPointY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1787,7 +1787,7 @@ int32_t OH_ArkUI_DragAction_SetTouchPointY(ArkUI_DragAction* dragAction, float y
  
   
 
-##### OH_ArkUI_DragAction_SetData()
+#### OH_ArkUI_DragAction_SetData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1818,7 +1818,7 @@ int32_t OH_ArkUI_DragAction_SetData(ArkUI_DragAction* dragAction, OH_UdmfData* d
  
   
 
-##### OH_ArkUI_DragAction_SetDataLoadParams()
+#### OH_ArkUI_DragAction_SetDataLoadParams()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1849,7 +1849,7 @@ ArkUI_ErrorCode OH_ArkUI_DragAction_SetDataLoadParams(ArkUI_DragAction* dragActi
  
   
 
-##### OH_ArkUI_DragAction_SetDragPreviewOption()
+#### OH_ArkUI_DragAction_SetDragPreviewOption()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1880,7 +1880,7 @@ int32_t OH_ArkUI_DragAction_SetDragPreviewOption(ArkUI_DragAction* dragAction, A
  
   
 
-##### OH_ArkUI_DragAction_RegisterStatusListener()
+#### OH_ArkUI_DragAction_RegisterStatusListener()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1912,7 +1912,7 @@ int32_t OH_ArkUI_DragAction_RegisterStatusListener(ArkUI_DragAction* dragAction,
  
   
 
-##### OH_ArkUI_DragEvent_GetDisplayId()
+#### OH_ArkUI_DragEvent_GetDisplayId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1943,7 +1943,7 @@ ArkUI_ErrorCode OH_ArkUI_DragEvent_GetDisplayId(ArkUI_DragEvent* event, int32_t*
  
   
 
-##### OH_ArkUI_DragAction_UnregisterStatusListener()
+#### OH_ArkUI_DragAction_UnregisterStatusListener()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1966,7 +1966,7 @@ void OH_ArkUI_DragAction_UnregisterStatusListener(ArkUI_DragAction* dragAction)
  
   
 
-##### OH_ArkUI_DragAndDropInfo_GetDragStatus()
+#### OH_ArkUI_DragAndDropInfo_GetDragStatus()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1996,7 +1996,7 @@ ArkUI_DragStatus OH_ArkUI_DragAndDropInfo_GetDragStatus(ArkUI_DragAndDropInfo* d
  
   
 
-##### OH_ArkUI_DragAndDropInfo_GetDragEvent()
+#### OH_ArkUI_DragAndDropInfo_GetDragEvent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2026,7 +2026,7 @@ ArkUI_DragEvent* OH_ArkUI_DragAndDropInfo_GetDragEvent(ArkUI_DragAndDropInfo* dr
  
   
 
-##### OH_ArkUI_StartDrag()
+#### OH_ArkUI_StartDrag()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2056,7 +2056,7 @@ int32_t OH_ArkUI_StartDrag(ArkUI_DragAction* dragAction)
  
   
 
-##### OH_ArkUI_DragEvent_RequestDragEndPending()
+#### OH_ArkUI_DragEvent_RequestDragEndPending()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2087,7 +2087,7 @@ int32_t OH_ArkUI_DragEvent_RequestDragEndPending(ArkUI_DragEvent* event, int32_t
  
   
 
-##### OH_ArkUI_NotifyDragResult()
+#### OH_ArkUI_NotifyDragResult()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2118,7 +2118,7 @@ int32_t OH_ArkUI_NotifyDragResult(int32_t requestIdentify, ArkUI_DragResult resu
  
   
 
-##### OH_ArkUI_NotifySuggestedDropOperation()
+#### OH_ArkUI_NotifySuggestedDropOperation()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2149,7 +2149,7 @@ int32_t OH_ArkUI_NotifySuggestedDropOperation(int32_t requestIdentity, ArkUI_Dro
  
   
 
-##### OH_ArkUI_NotifyDisableDefaultDropAnimation()
+#### OH_ArkUI_NotifyDisableDefaultDropAnimation()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2180,7 +2180,7 @@ int32_t OH_ArkUI_NotifyDisableDefaultDropAnimation(int32_t requestIdentity, bool
  
   
 
-##### OH_ArkUI_NotifyDragEndPendingDone()
+#### OH_ArkUI_NotifyDragEndPendingDone()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2210,7 +2210,7 @@ int32_t OH_ArkUI_NotifyDragEndPendingDone(int32_t requestIdentify)
  
   
 
-##### OH_ArkUI_EnableDropDisallowedBadge()
+#### OH_ArkUI_EnableDropDisallowedBadge()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2241,7 +2241,7 @@ ArkUI_ErrorCode OH_ArkUI_EnableDropDisallowedBadge(ArkUI_ContextHandle uiContext
  
   
 
-##### OH_ArkUI_DragEvent_GetTouchPointXToGlobalDisplay()
+#### OH_ArkUI_DragEvent_GetTouchPointXToGlobalDisplay()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2271,7 +2271,7 @@ float OH_ArkUI_DragEvent_GetTouchPointXToGlobalDisplay(ArkUI_DragEvent* event)
  
   
 
-##### OH_ArkUI_DragEvent_GetTouchPointYToGlobalDisplay()
+#### OH_ArkUI_DragEvent_GetTouchPointYToGlobalDisplay()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2301,7 +2301,7 @@ float OH_ArkUI_DragEvent_GetTouchPointYToGlobalDisplay(ArkUI_DragEvent* event)
  
   
 
-##### OH_ArkUI_DragEvent_GetDragSource()
+#### OH_ArkUI_DragEvent_GetDragSource()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2333,7 +2333,7 @@ ArkUI_ErrorCode OH_ArkUI_DragEvent_GetDragSource(ArkUI_DragEvent* event, char *b
  
   
 
-##### OH_ArkUI_DragEvent_IsRemote()
+#### OH_ArkUI_DragEvent_IsRemote()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

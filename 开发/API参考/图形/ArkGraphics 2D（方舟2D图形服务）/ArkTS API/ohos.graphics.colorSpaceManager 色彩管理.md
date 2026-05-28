@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { colorSpaceManager } from '@kit.ArkGraphics2D';
 
 
 
-##### ColorSpace
+#### ColorSpace
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -69,7 +69,7 @@ import { colorSpaceManager } from '@kit.ArkGraphics2D';
 
 
 
-##### ColorSpacePrimaries
+#### ColorSpacePrimaries
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -91,7 +91,7 @@ import { colorSpaceManager } from '@kit.ArkGraphics2D';
 
 
 
-##### colorSpaceManager.create
+#### colorSpaceManager.create
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -137,7 +137,7 @@ try {
 
 
 
-##### colorSpaceManager.create
+#### colorSpaceManager.create
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -195,7 +195,7 @@ try {
 
 
 
-##### ColorSpaceManager
+#### ColorSpaceManager
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -205,7 +205,7 @@ try {
 
 
 
-##### getColorSpaceName
+#### getColorSpaceName
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -235,7 +235,7 @@ try {
 
 
 
-##### getWhitePoint
+#### getWhitePoint
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -265,7 +265,7 @@ try {
 
 
 
-##### getGamma
+#### getGamma
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

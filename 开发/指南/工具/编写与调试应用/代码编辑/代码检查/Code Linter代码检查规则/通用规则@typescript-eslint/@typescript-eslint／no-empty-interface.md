@@ -7,7 +7,7 @@
 不允许声明空接口。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/no-empty-interface选项](https://typescript-eslint.nodejs.cn/rules/no-empty-interface/#options)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 // an interface with any number of members
@@ -45,7 +45,7 @@ export interface Baz extends Foo, Bar {}
  
  
 
-##### 反例
+#### 反例
 
 ```text
 // an empty interface
@@ -60,7 +60,7 @@ export interface Baz {}
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

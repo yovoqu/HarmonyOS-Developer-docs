@@ -13,7 +13,7 @@
 
 
 
-##### 概述
+#### 概述
 
 @Monitor装饰器用于监听状态变量修改，使得状态变量具有深度监听的能力：
 
@@ -29,7 +29,7 @@
 
 
 
-##### 状态管理V1版本@Watch装饰器的局限性
+#### 状态管理V1版本@Watch装饰器的局限性
 
 现有状态管理V1版本无法实现对对象、数组中某一单个属性或数组项变化的监听，且无法获取变化之前的值。
 
@@ -88,7 +88,7 @@ struct Index {
 
 
 
-##### 装饰器说明
+#### 装饰器说明
 
 | @Monitor属性装饰器 | 说明 |
 | --- | --- |
@@ -98,17 +98,17 @@ struct Index {
 
 
 
-##### 接口说明
+#### 接口说明
 
 IMonitor类型和IMonitorValue&lt;T&gt;类型的接口说明参考API文档：[状态变量变化监听](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-watch-monitor)。
 
 
 
-##### 监听变化
+#### 监听变化
 
 
 
-##### 在@ComponentV2装饰的自定义组件中使用@Monitor
+#### 在@ComponentV2装饰的自定义组件中使用@Monitor
 
 使用@Monitor监听的状态变量发生变化时，会触发@Monitor的回调方法。
 
@@ -197,7 +197,7 @@ struct Index {
 
 
 
-##### 在@ObservedV2装饰的类中使用@Monitor
+#### 在@ObservedV2装饰的类中使用@Monitor
 
 使用@Monitor监听的属性发生变化时，会触发@Monitor的回调方法。
 
@@ -358,7 +358,7 @@ struct Index {
 
 
 
-##### 通用监听能力
+#### 通用监听能力
 
 @Monitor还有一些通用的监听能力。
 
@@ -579,7 +579,7 @@ struct Index {
 
 
 
-##### 限制条件
+#### 限制条件
 
 使用@Monitor需要注意如下限制条件：
 
@@ -775,7 +775,7 @@ class Info {
 
 
 
-##### @Monitor与@Watch对比
+#### @Monitor与@Watch对比
 
 @Monitor与@Watch的用法、功能对比如下：
 
@@ -791,11 +791,11 @@ class Info {
 
 
 
-##### 使用场景
+#### 使用场景
 
 
 
-##### 监听深层属性变化
+#### 监听深层属性变化
 
 @Monitor可以监听深层属性的变化，并能够根据更改前后的值做分类处理。
 
@@ -855,11 +855,11 @@ struct Index {
 
 
 
-##### 常见问题
+#### 常见问题
 
 
 
-##### 自定义组件中@Monitor对变量监听的生效及失效时间
+#### 自定义组件中@Monitor对变量监听的生效及失效时间
 
 当@Monitor定义在@ComponentV2装饰的自定义组件中时，@Monitor会在状态变量初始化完成之后生效，并在组件销毁时失效。
 
@@ -954,7 +954,7 @@ struct Index {
 
 
 
-##### 类中@Monitor对变量监听的生效及失效时间
+#### 类中@Monitor对变量监听的生效及失效时间
 
 当@Monitor定义在@ObservedV2装饰的类中时，@Monitor会在类的实例创建完成后生效，在类的实例销毁时失效。
 
@@ -1265,7 +1265,7 @@ struct Index {
 
 
 
-##### 正确设置@Monitor入参
+#### 正确设置@Monitor入参
 
 从API version 23起，增加了对@Monitor入参的编译时校验。当@Monitor的入参不符合监听条件时（如传入非状态变量、不存在的变量等），将会有编辑、编译告警，但@Monitor回调仍会被触发。开发者应正确传入@Monitor入参，避免监听非状态变量，防止功能异常或行为与预期不符。
 
@@ -1468,7 +1468,7 @@ struct Index {
 
 
 
-##### 无法监听变量从可访问变为不可访问和从不可访问变为可访问
+#### 无法监听变量从可访问变为不可访问和从不可访问变为可访问
 
 @Monitor仅会保存变量可访问时的值，当状态变量变为不可访问的状态时，并不会记录其值的变化。在下面的例子中，点击三个Button，均不会触发onChange的回调。
 

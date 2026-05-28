@@ -12,7 +12,7 @@
 
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -60,7 +60,7 @@
  
   
 
-##### 样式
+#### 样式
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -111,7 +111,7 @@ type=arc
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -119,7 +119,7 @@ type=arc
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -150,4 +150,4 @@ type=arc
 **4*4卡片**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/hcmIDbRvRxKobApd2PKiNg/zh-cn_image_0000002581436572.png?HW-CC-KV=V1&HW-CC-Date=20260528T024055Z&HW-CC-Expire=86400&HW-CC-Sign=C195F27E21F64C4E2C68B2E258CE5AAEB1265E8E7BCC6023C7E195E5E6876BD2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/hcmIDbRvRxKobApd2PKiNg/zh-cn_image_0000002581436572.png?HW-CC-KV=V1&HW-CC-Date=20260528T025429Z&HW-CC-Expire=86400&HW-CC-Sign=2B4B3951C6B02B9E83379CF9A884AF8810B579228CE33BB2BABDC18BBB3ADC1F)

@@ -7,7 +7,7 @@
 该规则禁止在AES加密算法中使用不安全的ECB加密模式。推荐使用Petal Aegis SDK中的安全AES接口，详情请参见[对称加解密](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/aegis-encryption-and-decryption-symmetry-0000001861247310)。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 import cryptoFramework from '@ohos.security.cryptoFramework';
@@ -35,7 +35,7 @@ cryptoFramework.createCipher('AES128|CBC|PKCS5');
  
  
 
-##### 反例
+#### 反例
 
 ```text
 import cryptoFramework from '@ohos.security.cryptoFramework';
@@ -44,7 +44,7 @@ cryptoFramework.createCipher('AES128|ECB|NoPadding');
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@security/recommended</span>

@@ -10,7 +10,7 @@
 
 
 
-##### CameraDevice
+#### CameraDevice
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@
 
 
 
-##### CameraStatusInfo
+#### CameraStatusInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -59,7 +59,7 @@
 
 
 
-##### FoldStatusInfo12+
+#### FoldStatusInfo12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -77,7 +77,7 @@
 
 
 
-##### Profile
+#### Profile
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -95,7 +95,7 @@
 
 
 
-##### FrameRateRange
+#### FrameRateRange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -113,7 +113,7 @@
 
 
 
-##### VideoProfile
+#### VideoProfile
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -130,7 +130,7 @@
 
 
 
-##### CameraOutputCapability
+#### CameraOutputCapability
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -150,7 +150,7 @@
 
 
 
-##### TorchStatusInfo11+
+#### TorchStatusInfo11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -169,7 +169,7 @@
 
 
 
-##### Size
+#### Size
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -187,7 +187,7 @@
 
 
 
-##### Point
+#### Point
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -205,7 +205,7 @@
 
 
 
-##### CameraConcurrentInfo18+
+#### CameraConcurrentInfo18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -225,7 +225,7 @@
 
 
 
-##### Location
+#### Location
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -244,7 +244,7 @@
 
 
 
-##### PhotoCaptureSetting
+#### PhotoCaptureSetting
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -264,7 +264,7 @@
 
 
 
-##### FrameShutterInfo
+#### FrameShutterInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -282,7 +282,7 @@
 
 
 
-##### FrameShutterEndInfo12+
+#### FrameShutterEndInfo12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -299,7 +299,7 @@
 
 
 
-##### CaptureStartInfo11+
+#### CaptureStartInfo11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -317,7 +317,7 @@
 
 
 
-##### CaptureEndInfo
+#### CaptureEndInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -335,7 +335,7 @@
 
 
 
-##### AutoDeviceSwitchStatus13+
+#### AutoDeviceSwitchStatus13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -353,7 +353,7 @@
 
 
 
-##### Rect
+#### Rect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -377,7 +377,7 @@
 
 
 
-##### MetadataObject
+#### MetadataObject
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -396,7 +396,7 @@
 
 
 
-##### SmoothZoomInfo11+
+#### SmoothZoomInfo11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -413,7 +413,7 @@
 
 
 
-##### ControlCenterStatusInfo20+
+#### ControlCenterStatusInfo20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -431,7 +431,7 @@
 
 
 
-##### IsoInfo22+
+#### IsoInfo22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -448,7 +448,7 @@
 
 
 
-##### CameraOcclusionDetectionResult23+
+#### CameraOcclusionDetectionResult23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -466,7 +466,7 @@
 
 
 
-##### ZoomRange24+
+#### ZoomRange24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -484,7 +484,7 @@
 
 
 
-##### PhysicalAperture24+
+#### PhysicalAperture24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -502,7 +502,7 @@
 
 
 
-##### ExposureInfo24+
+#### ExposureInfo24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -10,7 +10,7 @@
 
 
 
-##### 1008500001 网络错误
+#### 1008500001 网络错误
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -32,7 +32,7 @@ Network error. The network is unavailable.
 
 
 
-##### 1008500002 无绑定设备
+#### 1008500002 无绑定设备
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -54,7 +54,7 @@ No device is bound.
 
 
 
-##### 1008500003 设备未连接
+#### 1008500003 设备未连接
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -77,7 +77,7 @@ Device disconnected.
 
 
 
-##### 1008500004 应用未申请Wear Engine服务
+#### 1008500004 应用未申请Wear Engine服务
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -99,7 +99,7 @@ App has not applied for the Wear Engine service.
 
 
 
-##### 1008500005 用户未授权
+#### 1008500005 用户未授权
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -121,7 +121,7 @@ The HUAWEI ID is not authorized.
 
 
 
-##### 1008500006 用户未同意隐私授权
+#### 1008500006 用户未同意隐私授权
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -143,7 +143,7 @@ User privacy is not agreed.
 
 
 
-##### 1008500007 穿戴设备侧能力不支持
+#### 1008500007 穿戴设备侧能力不支持
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -165,7 +165,7 @@ The device capability is not supported.
 
 
 
-##### 1008500008 账号未登录
+#### 1008500008 账号未登录
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -187,7 +187,7 @@ Account error. The user has not logged in with HUAWEI ID.
 
 
 
-##### 1008500009 账号异常
+#### 1008500009 账号异常
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -209,7 +209,7 @@ Account error. Failed to obtain account information with HUAWEI ID.
 
 
 
-##### 1008500010 无效设备ID
+#### 1008500010 无效设备ID
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -231,7 +231,7 @@ Device ID is invalid.
 
 
 
-##### 1008500011 无效文件
+#### 1008500011 无效文件
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -253,7 +253,7 @@ File is invalid.
 
 
 
-##### 1008500012 回调函数过多
+#### 1008500012 回调函数过多
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -275,7 +275,7 @@ Too many callbacks of the same type.
 
 
 
-##### 1008509999 内部错误
+#### 1008509999 内部错误
 
 **支持设备：** Phone | Tablet | Wearable
 

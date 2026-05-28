@@ -17,7 +17,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -27,7 +27,7 @@ import { AddFormMenuItem } from '@kit.ArkUI';
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -35,7 +35,7 @@ import { AddFormMenuItem } from '@kit.ArkUI';
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -43,7 +43,7 @@ import { AddFormMenuItem } from '@kit.ArkUI';
 
 
 
-##### AddFormMenuItem
+#### AddFormMenuItem
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -72,7 +72,7 @@ AddFormMenuItem(
 
 
 
-##### AddFormOptions
+#### AddFormOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -91,7 +91,7 @@ AddFormMenuItem(
 
 
 
-##### FormMenuItemStyle
+#### FormMenuItemStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -112,7 +112,7 @@ AddFormMenuItem(
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -120,7 +120,7 @@ AddFormMenuItem(
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -251,7 +251,7 @@ struct WidgetCard {
 **高级自定义控件界面**
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5/v3/_NUDXbPBTOqiqF7zYjwgxw/zh-cn_image_0000002581436254.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T024156Z&HW-CC-Expire=86400&HW-CC-Sign=3705523A60587D748FD2E9B1BFF45F1E43670AD1BD73F79B611A8837787B00DF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5/v3/_NUDXbPBTOqiqF7zYjwgxw/zh-cn_image_0000002581436254.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T025528Z&HW-CC-Expire=86400&HW-CC-Sign=3AC2C654908FA3B1EA43E4C7B407A8B826F048EC555D0F631341033F4C5AB238)
 
 
 **调用高级自定义控件桌面加桌结果**
@@ -259,4 +259,4 @@ struct WidgetCard {
 左侧是formbindingdata为空加桌结果，右侧是formbindingdata为{ data: 'share' }的加桌结果。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/AvHNqH3tT6WP-_g4oWL5-w/zh-cn_image_0000002611836085.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T024156Z&HW-CC-Expire=86400&HW-CC-Sign=A1A31358799FAA4795D0701C36E11C5BF0D52D3D2A9974D92A7EDF7CBA8CBF47)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/AvHNqH3tT6WP-_g4oWL5-w/zh-cn_image_0000002611836085.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T025528Z&HW-CC-Expire=86400&HW-CC-Sign=BF7C54798B371475662146C5C46F60C07ED896606E954C2C6403A202A3DECE85)

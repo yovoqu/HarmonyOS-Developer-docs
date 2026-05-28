@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-get-groupunionid-code
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/05/v3/hCmXeps2Tmap2d7hRkF9sQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023744Z&HW-CC-Expire=86400&HW-CC-Sign=319420C644E1771D7F34979DCC5035F798AA5FD304D9309439F9676580579299)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/05/v3/hCmXeps2Tmap2d7hRkF9sQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025117Z&HW-CC-Expire=86400&HW-CC-Sign=FB15E1270C158DD88BE39BE5045A50954BD70350DE77A9F8046F21F81D8DABB9)
 
 
 为了更安全的网络访问，请务必使用TLS1.2协议及规定内的加密套件。若使用协议是TLS1.0、TLS1.1或规定外的加密套件，可能无法正常访问华为账号服务。
@@ -14,19 +14,19 @@
 
 
 
-##### 功能介绍
+#### 功能介绍
 
 应用服务端通过获取到的Authorization Code调用此接口，获取GroupUnionID、用户级Access Token、Refresh Token、ID Token等信息。
 
 
 
-##### 场景描述
+#### 场景描述
 
 针对用户登录需要获取GroupUnionID场景时，可以在[华为账号一键登录（获取手机号和UnionID/OpenID）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-phone-unionid-login)、[华为账号登录（获取UnionID/OpenID）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-unionid-login-button)、[静默登录](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-silent-login)等场景获取到Authorization Code后，调用该接口获取GroupUnionID、Access Token、Refresh Token、ID Token等信息。
 
 
 
-##### 使用约束
+#### 使用约束
 
  - 需确保调用端网络正常。
  - 仅对企业开发者开放。
@@ -36,7 +36,7 @@
 
 
 
-##### 接口原型
+#### 接口原型
 
  - **承载协议：** HTTPS POST
  - **接口方向：** 开发者服务器->华为账号服务器
@@ -50,11 +50,11 @@
 
 
 
-##### 请求参数
+#### 请求参数
 
 
 
-##### Request Header
+#### Request Header
 
 | 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
@@ -63,7 +63,7 @@
 
 
 
-##### Request Body
+#### Request Body
 
 | 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
@@ -77,7 +77,7 @@
 
 
 
-##### 请求示例
+#### 请求示例
 
 ```text
 POST /oauth2/v3/token HTTP/1.1
@@ -89,11 +89,11 @@ grant_type=authorization_code&code=&client_id=<client_id>&client_secret=<client_
 
 
 
-##### 响应参数
+#### 响应参数
 
 
 
-##### Response Header
+#### Response Header
 
 | 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
@@ -102,7 +102,7 @@ grant_type=authorization_code&code=&client_id=<client_id>&client_secret=<client_
 
 
 
-##### Response Body
+#### Response Body
 
 调用成功时，响应消息体返回如下：
 
@@ -128,11 +128,11 @@ grant_type=authorization_code&code=&client_id=<client_id>&client_secret=<client_
 
 
 
-##### 响应示例
+#### 响应示例
 
 
 
-##### 请求成功时
+#### 请求成功时
 
 ```json
 HTTP/1.1 200 OK
@@ -151,7 +151,7 @@ Content-Type: application/json;charset=utf-8
 
 
 
-##### 请求失败时
+#### 请求失败时
 
 ```json
 HTTP/1.1 400 Bad Request
@@ -166,7 +166,7 @@ Content-Type: application/json
 
 
 
-##### 示例代码
+#### 示例代码
 
 Java示例代码如下，运行前需要进行[示例代码环境配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-common#示例代码环境配置)（请将此示例代码与工具类CallUtils放于同一路径下，如不在同一路径，请手动添加import）
 
@@ -232,7 +232,7 @@ public class GetGroupUnionIDByCodeDemo {
 
 
 
-##### 错误码
+#### 错误码
 
 | HTTP响应码 | 描述 | 解决方法 |
 | --- | --- | --- |

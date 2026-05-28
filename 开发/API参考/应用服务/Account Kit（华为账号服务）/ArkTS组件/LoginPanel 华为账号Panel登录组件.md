@@ -12,7 +12,7 @@ LoginPanel需要配合[loginComponentManager](https://developer.huawei.com/consu
 **起始版本：** 4.1.0(11)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -22,7 +22,7 @@ import { LoginPanel, loginComponentManager } from '@kit.AccountKit';
  
   
 
-##### LoginPanel
+#### LoginPanel
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -47,7 +47,7 @@ import { LoginPanel, loginComponentManager } from '@kit.AccountKit';
  
   
 
-##### build
+#### build
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

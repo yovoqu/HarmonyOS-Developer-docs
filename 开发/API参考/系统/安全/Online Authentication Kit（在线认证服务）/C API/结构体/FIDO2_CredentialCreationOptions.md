@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2___credential_creation_options
 
-##### 概述
+#### 概述
 
 凭据请求的选项。
  
@@ -14,11 +14,11 @@
  
   
 
-##### 汇总
+#### 汇总
 
   
 
-##### 成员变量
+#### 成员变量
  
 | 名称 | 描述 |
 | --- | --- |
@@ -28,11 +28,11 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
   
 
-##### mediation
+#### mediation
 
 ```text
 FIDO2_CredentialMediationRequirement FIDO2_CredentialCreationOptions::mediation
@@ -44,7 +44,7 @@ FIDO2_CredentialMediationRequirement FIDO2_CredentialCreationOptions::mediation
  
   
 
-##### publicKey
+#### publicKey
 
 ```text
 FIDO2_PublicKeyCredentialCreationOptions FIDO2_CredentialCreationOptions::publicKey

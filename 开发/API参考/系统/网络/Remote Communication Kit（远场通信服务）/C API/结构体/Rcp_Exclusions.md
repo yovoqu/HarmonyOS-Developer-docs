@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___exclusions
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -21,13 +21,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -39,13 +39,13 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### exclusionFunction
+#### exclusionFunction
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -59,7 +59,7 @@ Rcp_ExclusionFunction Rcp_Exclusions::exclusionFunction
  
   
 
-##### type
+#### type
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -73,7 +73,7 @@ Rcp_ExclusionsValueType Rcp_Exclusions::type
  
   
 
-##### urls
+#### urls
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

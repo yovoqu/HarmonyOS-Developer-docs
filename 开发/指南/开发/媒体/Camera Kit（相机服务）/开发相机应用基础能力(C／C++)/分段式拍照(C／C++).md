@@ -11,7 +11,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 详细的API说明请参考[OH_Camera](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera)。
 1. 导入NDK接口，接口中提供了相机相关的属性和方法，导入方法如下。

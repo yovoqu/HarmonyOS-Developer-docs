@@ -7,7 +7,7 @@
 执行用户自定义脚本。
  
 
-##### 命令格式
+#### 命令格式
 
 ```text
 ohpm run [options] <script_name> [-- <args...>]
@@ -15,7 +15,7 @@ ohpm run [options] <script_name> [-- <args...>]
  
  
 
-##### 功能描述
+#### 功能描述
 
 - 指定运行定义在模块的 oh-package.json5 文件中 scripts 对象内的脚本。scripts对象内部支持"key":"value"方式配置多个待执行脚本。如以下示例所示，scriptName1、scriptName2、scriptName3为脚本别名（scriptName）；“echo hello”等为脚本内容（scriptContent），后续内容均参考此说明。
 
@@ -37,7 +37,7 @@ ohpm run [options] <script_name> [-- <args...>]
  
  
 
-##### 传递参数
+#### 传递参数
 
 - ohpm run命令可以通过标识符“--”覆盖被引用脚本的参数或为被引用脚本传递额外的参数，如：
 ```text
@@ -49,13 +49,13 @@ ohpm run scriptName3 -- -paramKey1 newValue -paramKey4 paramValue4
  
  
 
-##### 支持多命令
+#### 支持多命令
 
 支持 && 和 || 两种命令连接符 （&& 和 || 没有优先级区分，命令从左到右执行，不支持用括号来改变各个子命令的优先级），详细请参见下方[示例](#section157898418348)。
  
  
 
-##### 约束
+#### 约束
  
 | 约束项 | 说明 |
 | --- | --- |
@@ -66,11 +66,11 @@ ohpm run scriptName3 -- -paramKey1 newValue -paramKey4 paramValue4
  
  
 
-##### Options
+#### Options
 
  
 
-##### prefix
+#### prefix
 
 可以通过 --prefix 指定包的根目录，该目录下必须存在 oh-package.json5 文件。不支持通过这种方式调用依赖包中的脚本别名。
  
@@ -80,7 +80,7 @@ ohpm run --prefix <path> <脚本别名>
  
  
 
-##### log_level
+#### log_level
 
 - 默认值：无
 - 类型： String
@@ -90,7 +90,7 @@ ohpm run --prefix <path> <脚本别名>
  
  
 
-##### debug
+#### debug
 
 - 默认值：false
 - 类型： Boolean
@@ -100,7 +100,7 @@ ohpm run --prefix <path> <脚本别名>
  
  
 
-##### 示例
+#### 示例
 
 下列所有示例的scripts配置均来自如下oh-package.json5：
  
@@ -123,7 +123,7 @@ ohpm run --prefix <path> <脚本别名>
  
  
 
-##### 参数传递的使用示例
+#### 参数传递的使用示例
 
 ```text
 ohpm run script_name -- -arg1=1 --arg2=2 -arg3 3 --arg4 4
@@ -133,7 +133,7 @@ ohpm run script_name -- -arg1=1 --arg2=2 -arg3 3 --arg4 4
  
  
 
-##### 成功示例
+#### 成功示例
 
 执行脚本testSuc，如下所示：
  
@@ -149,7 +149,7 @@ ohpm run testSuc
  
  
 
-##### 失败示例
+#### 失败示例
 
 执行脚本testFail，如下所示：
  
@@ -165,7 +165,7 @@ ohpm run testFail
  
  
 
-##### 逻辑符(&&、||)使用示例
+#### 逻辑符(&&、||)使用示例
 
 执行脚本testLogic，如下所示：
  

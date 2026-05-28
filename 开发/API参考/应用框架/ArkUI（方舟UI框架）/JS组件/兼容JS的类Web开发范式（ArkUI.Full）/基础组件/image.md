@@ -12,7 +12,7 @@
 图片组件，用来渲染展示图片。
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -34,7 +34,7 @@
  
   
 
-##### 样式
+#### 样式
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -65,7 +65,7 @@
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -79,7 +79,7 @@
  
   
 
-##### 方法
+#### 方法
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -87,7 +87,7 @@
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -129,4 +129,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/ZgxMrmJwQVyKfqKyb-XmGA/zh-cn_image_0000002611756269.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024101Z&HW-CC-Expire=86400&HW-CC-Sign=135DEEDB1FBE11DE2537B16D222853E4F9DA5990C0D4BD0C10D177773FFCEB0B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/ZgxMrmJwQVyKfqKyb-XmGA/zh-cn_image_0000002611756269.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025436Z&HW-CC-Expire=86400&HW-CC-Sign=7333014703BB2741415026426DAD2308131368A8310D2817B596737DDC6E4C78)

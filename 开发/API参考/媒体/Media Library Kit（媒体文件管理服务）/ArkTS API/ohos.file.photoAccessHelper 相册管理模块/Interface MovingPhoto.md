@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
 
 
-##### getUri12+
+#### getUri12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -97,7 +97,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 
 
-##### requestContent12+
+#### requestContent12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -199,7 +199,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 
 
-##### requestContent12+
+#### requestContent12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -296,7 +296,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 
 
-##### requestContent12+
+#### requestContent12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

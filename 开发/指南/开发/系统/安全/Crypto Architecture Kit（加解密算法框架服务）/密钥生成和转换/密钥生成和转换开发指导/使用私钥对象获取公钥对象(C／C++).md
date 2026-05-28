@@ -9,7 +9,7 @@
 以RSA为例，根据私钥对象获取公钥对象。
 
 
-##### 在CMake脚本中链接相关动态库
+#### 在CMake脚本中链接相关动态库
 
 ```text
 target_link_libraries(entry PUBLIC libohcrypto.so)
@@ -19,7 +19,7 @@ target_link_libraries(entry PUBLIC libohcrypto.so)
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 调用[OH_CryptoAsymKeyGenerator_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptoasymkeygenerator_create)，指定字符串参数'RSA1024|PRIMES_2'，创建RSA密钥类型为RSA1024、素数个数为2的非对称密钥生成器（OH_CryptoAsymKeyGenerator）。
 2. 调用[OH_CryptoAsymKeyGenerator_Convert](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptoasymkeygenerator_convert)，传入私钥数据，生成非对称密钥对象（OH_CryptoKeyPair）。
 3. 调用[OH_CryptoKeyPair_GetPubKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptokeypair_getpubkey)获取公钥对象 (OH_CryptoPubKey)。

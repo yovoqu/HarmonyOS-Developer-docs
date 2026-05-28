@@ -15,7 +15,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 创建动态卡片，在工程的entry模块中，新建名为WidgetEventRouterCard的ArkTS卡片。
 2. 构建ArkTS卡片页面代码布局，卡片页面布局中有两个按钮，点击其中一个按钮时调用postCardAction向指定UIAbility发送router事件，并在事件内定义需要传递的内容。
 
@@ -301,7 +301,7 @@ struct FunB {
 
 
 
-##### 运行效果
+#### 运行效果
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/Q3axi1LwRZadASl-v272tw/zh-cn_image_0000002611834201.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014730Z&HW-CC-Expire=86400&HW-CC-Sign=63BB3E64A26594EDAF8C3E27D56816B6535160840ABAFC1AE8B053A25BD01649)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/Q3axi1LwRZadASl-v272tw/zh-cn_image_0000002611834201.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030400Z&HW-CC-Expire=86400&HW-CC-Sign=9F3DE9A5A2DD7C6085B7670CEF71DAA90AB2F4C64679CE3822952F1FE5305C04)

@@ -10,7 +10,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@ import { drm } from '@kit.DrmKit';
 
 
 
-##### drm.createMediaKeySystem
+#### drm.createMediaKeySystem
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -70,7 +70,7 @@ console.info(`createMediaKeySystem success, name: ${name}`);
 
 
 
-##### drm.isMediaKeySystemSupported
+#### drm.isMediaKeySystemSupported
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -118,7 +118,7 @@ console.info("isMediaKeySystemSupported: ", supported);
 
 
 
-##### drm.isMediaKeySystemSupported
+#### drm.isMediaKeySystemSupported
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -167,7 +167,7 @@ console.info("isMediaKeySystemSupported: ", supported);
 
 
 
-##### drm.isMediaKeySystemSupported
+#### drm.isMediaKeySystemSupported
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -217,7 +217,7 @@ console.info("isMediaKeySystemSupported: ", supported);
 
 
 
-##### drm.getMediaKeySystemUuid12+
+#### drm.getMediaKeySystemUuid12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -265,7 +265,7 @@ console.info("getMediaKeySystemUuid: ", uuid);
 
 
 
-##### drm.getMediaKeySystems12+
+#### drm.getMediaKeySystems12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

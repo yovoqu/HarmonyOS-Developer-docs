@@ -20,11 +20,11 @@
 
 
 
-##### 创建导航页面
+#### 创建导航页面
 
 
 
-##### 构建导航根容器
+#### 构建导航根容器
 
 首先，开发者需要创建一个[Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)作为导航根容器，并创建一个[NavPathStack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navpathstack10)对象作为构造入参传给Navigation组件，以实现二者的绑定，后续的路由操作均基于该NavPathStack展开。
 
@@ -45,7 +45,7 @@ struct Index {
 
 
 
-##### 构建子页面
+#### 构建子页面
 
 为每个[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)声明对外的实例化方法，如代码中的PageOneBuilder，执行该方法会创建一个PageOne的自定义组件，该组件就是一个Navigation的子页面。
 
@@ -73,7 +73,7 @@ export struct PageOne {
 
 
 
-##### 配置路由表
+#### 配置路由表
 
 系统提供了系统路由表和自定义路由表两种实现方式，此处以系统路由表为例。将子页面中写好的实例化方法与它的name（开发者自定义）在路由表配置文件中注册，配置文件需要自行创建，路径：entry/src/main/resources/base/profile/router_map.json。
 
@@ -93,11 +93,11 @@ export struct PageOne {
 
 
 
-##### 路由操作
+#### 路由操作
 
 
 
-##### 路由栈获取
+#### 路由栈获取
 
 [Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)根容器和子页面以及路由表配置完成后，即可通过调用[NavPathStack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navpathstack10)的API来实现页面之间的跳转。上文提到在一个Navigation容器中，只有一个NavPathStack对象，那么在子页面里执行路由操作就需要获取此NavPathStack对象，有两种方式：
 
@@ -175,7 +175,7 @@ export struct PageOne {
 
 
 
-##### 基础操作
+#### 基础操作
 
 从API version 12开始，导航控制器允许被继承。开发者可以在派生类中自定义属性和方法，也可以重写父类的方法。派生类对象可以替代基类[NavPathStack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navpathstack10)对象使用。重写NavPathStack的示例代码请参考[定义导航控制器派生类](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#示例10定义导航控制器派生类)。下文介绍了NavPathStack里提供的基础路由操作接口。
 
@@ -311,7 +311,7 @@ this.pageStack.moveIndexToTop(1);
 
 
 
-##### 单例跳转
+#### 单例跳转
 
 通过设置[LaunchMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#launchmode12枚举说明)为LaunchMode.MOVE_TO_TOP_SINGLETON或LaunchMode.POP_TO_SINGLETON，可以实现Navigation路由栈的单实例跳转。单实例跳转的规则如下：
 1. 如果指定为LaunchMode.MOVE_TO_TOP_SINGLETON，系统会从栈底到栈顶查找具有指定名称的NavDestination。找到后，该页面将被移动到栈顶（replace操作会用指定的NavDestination替换当前栈顶）。
@@ -323,7 +323,7 @@ this.pageStack.moveIndexToTop(1);
 
 
 
-##### 参数获取
+#### 参数获取
 
 NavDestination子页第一次创建时会触发[onReady](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#onready11)回调，可以获取此页面对应的参数。
 
@@ -387,7 +387,7 @@ this.pageStack.getIndexByName('pageOne');
 
 
 
-##### 路由拦截
+#### 路由拦截
 
 NavPathStack提供了[setInterception](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#setinterception12)方法，用于设置Navigation页面跳转拦截回调。该方法需要传入一个[NavigationInterception](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navigationinterception12)对象，该对象包含多个回调函数，如willShow、didShow等，不同回调函数的调用时机不同，可根据业务需要选择拦截时机。
 
@@ -418,11 +418,11 @@ this.pageStack.setInterception({
 
 
 
-##### 示例
+#### 示例
 
 
 
-##### 创建导航首页
+#### 创建导航首页
 
 实现步骤为：
 1. 使用Navigation创建导航主页，并创建导航控制器NavPathStack以此来实现不同页面之间的跳转。
@@ -517,7 +517,7 @@ struct NavigationDemo {
 
 
 
-##### 创建导航子页
+#### 创建导航子页
 
 导航子页1实现步骤为：
 1. 使用NavDestination来创建导航子页PageOne。
@@ -667,7 +667,7 @@ export struct PageTwo {
 
 
 
-##### 创建路由表
+#### 创建路由表
 
 实现步骤为：
 1. router_map.json中配置全局路由表，导航控制器NavPathStack可根据路由表中的name将对应页面信息入栈。
@@ -728,4 +728,4 @@ export struct PageTwo {
 2. 工程配置文件[module.json5](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)中配置{"routerMap": "$profile:router_map"}。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/WvfDt0hwTY6mASDjdEnYNQ/zh-cn_image_0000002581273822.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014814Z&HW-CC-Expire=86400&HW-CC-Sign=6FD069AF93B210526A9E837EB807A183BE1AA9032834516E3025E90D1C52986C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/WvfDt0hwTY6mASDjdEnYNQ/zh-cn_image_0000002581273822.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030445Z&HW-CC-Expire=86400&HW-CC-Sign=01BA7F5D5E54408176849D5088752F9C26E79F595AF0AE5393ED4F90DF99DD8E)

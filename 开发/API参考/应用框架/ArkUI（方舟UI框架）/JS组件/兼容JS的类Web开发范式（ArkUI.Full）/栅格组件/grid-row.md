@@ -12,7 +12,7 @@
 grid-row是栅格布局容器grid-container的子容器组件，使用flex横向布局，排列每个grid-col容器，justify-content与align-items默认为flex-start，支持折行显示。
   
 
-##### 权限列表
+#### 权限列表
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@ grid-row是栅格布局容器grid-container的子容器组件，使用flex横向
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -28,7 +28,7 @@ grid-row是栅格布局容器grid-container的子容器组件，使用flex横向
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -36,7 +36,7 @@ grid-row是栅格布局容器grid-container的子容器组件，使用flex横向
  
   
 
-##### 样式
+#### 样式
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -56,7 +56,7 @@ grid-row是栅格布局容器grid-container的子容器组件，使用flex横向
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -64,7 +64,7 @@ grid-row是栅格布局容器grid-container的子容器组件，使用flex横向
  
   
 
-##### 方法
+#### 方法
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -72,7 +72,7 @@ grid-row是栅格布局容器grid-container的子容器组件，使用flex横向
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

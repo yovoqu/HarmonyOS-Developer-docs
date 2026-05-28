@@ -12,7 +12,7 @@
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,13 +20,13 @@
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### XComponent19+
+#### XComponent19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -47,7 +47,7 @@ XComponent(params: NativeXComponentParameters)
 
 
 
-##### XComponent12+
+#### XComponent12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -68,7 +68,7 @@ XComponent(options: XComponentOptions)
 
 
 
-##### XComponent10+
+#### XComponent10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -94,7 +94,7 @@ XComponent(value: {id: string, type: XComponentType, libraryname?: string, contr
 
 
 
-##### XComponent(deprecated)
+#### XComponent(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -118,7 +118,7 @@ XComponent(value: {id: string, type: string, libraryname?: string, controller?: 
 
 
 
-##### XComponentOptions12+
+#### XComponentOptions12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -137,7 +137,7 @@ XComponent(value: {id: string, type: string, libraryname?: string, controller?: 
 
 
 
-##### NativeXComponentParameters19+
+#### NativeXComponentParameters19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -155,7 +155,7 @@ XComponent(value: {id: string, type: string, libraryname?: string, controller?: 
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -167,7 +167,7 @@ XComponent(value: {id: string, type: string, libraryname?: string, controller?: 
 
 
 
-##### enableAnalyzer12+
+#### enableAnalyzer12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -196,7 +196,7 @@ enableAnalyzer(enable: boolean)
 
 
 
-##### enableSecure13+
+#### enableSecure13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -221,7 +221,7 @@ enableSecure(isSecure: boolean)
 
 
 
-##### hdrBrightness20+
+#### hdrBrightness20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -246,7 +246,7 @@ hdrBrightness(brightness: number)
 
 
 
-##### hdrBrightness24+
+#### hdrBrightness24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -274,7 +274,7 @@ hdrBrightness(brightness: number, type?: HdrType)
 
 
 
-##### HdrType24+枚举说明
+#### HdrType24+枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -294,7 +294,7 @@ HDR视频的高动态范围渲染类型。
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -308,7 +308,7 @@ HDR视频的高动态范围渲染类型。
 
 
 
-##### onLoad
+#### onLoad
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -329,7 +329,7 @@ onLoad(callback: OnNativeLoadCallback )
 
 
 
-##### onDestroy
+#### onDestroy
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -350,7 +350,7 @@ onDestroy(event: VoidCallback )
 
 
 
-##### OnNativeLoadCallback18+
+#### OnNativeLoadCallback18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -371,7 +371,7 @@ XComponent持有的Surface创建后回调事件。
 
 
 
-##### XComponentController
+#### XComponentController
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -383,7 +383,7 @@ XComponent组件的控制器，可以将此对象绑定至XComponent组件，然
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -403,7 +403,7 @@ xcomponentController: XComponentController = new XComponentController();
 
 
 
-##### getXComponentSurfaceId9+
+#### getXComponentSurfaceId9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -452,7 +452,7 @@ struct Index {
 
 
 
-##### setXComponentSurfaceSize(deprecated)
+#### setXComponentSurfaceSize(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -476,7 +476,7 @@ setXComponentSurfaceSize(value: {surfaceWidth: number, surfaceHeight: number}): 
 
 
 
-##### getXComponentContext
+#### getXComponentContext
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -497,7 +497,7 @@ getXComponentContext(): Object
 
 
 
-##### setXComponentSurfaceRect12+
+#### setXComponentSurfaceRect12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -522,7 +522,7 @@ setXComponentSurfaceRect(rect: SurfaceRect): void
 
 
 
-##### getXComponentSurfaceRect12+
+#### getXComponentSurfaceRect12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -543,7 +543,7 @@ getXComponentSurfaceRect(): SurfaceRect
 
 
 
-##### onSurfaceCreated12+
+#### onSurfaceCreated12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -568,7 +568,7 @@ onSurfaceCreated(surfaceId: string): void
 
 
 
-##### onSurfaceChanged12+
+#### onSurfaceChanged12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -594,7 +594,7 @@ onSurfaceChanged(surfaceId: string, rect: SurfaceRect): void
 
 
 
-##### onSurfaceDestroyed12+
+#### onSurfaceDestroyed12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -619,7 +619,7 @@ onSurfaceDestroyed(surfaceId: string): void
 
 
 
-##### startImageAnalyzer12+
+#### startImageAnalyzer12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -666,7 +666,7 @@ startImageAnalyzer(config: ImageAnalyzerConfig): Promise&lt;void&gt;
 
 
 
-##### stopImageAnalyzer12+
+#### stopImageAnalyzer12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -684,7 +684,7 @@ stopImageAnalyzer(): void
 
 
 
-##### setXComponentSurfaceRotation12+
+#### setXComponentSurfaceRotation12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -709,7 +709,7 @@ setXComponentSurfaceRotation(rotationOptions: SurfaceRotationOptions): void
 
 
 
-##### getXComponentSurfaceRotation12+
+#### getXComponentSurfaceRotation12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -730,7 +730,7 @@ getXComponentSurfaceRotation(): Required&lt;SurfaceRotationOptions&gt;
 
 
 
-##### lockCanvas20+
+#### lockCanvas20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -755,7 +755,7 @@ lockCanvas(): DrawingCanvas | null
 
 
 
-##### unlockCanvasAndPost20+
+#### unlockCanvasAndPost20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -780,7 +780,7 @@ unlockCanvasAndPost(canvas: DrawingCanvas): void
 
 
 
-##### setXComponentSurfaceConfig22+
+#### setXComponentSurfaceConfig22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -805,7 +805,7 @@ setXComponentSurfaceConfig(config: SurfaceConfig): void
 
 
 
-##### SurfaceRotationOptions12+对象说明
+#### SurfaceRotationOptions12+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -822,7 +822,7 @@ setXComponentSurfaceConfig(config: SurfaceConfig): void
 
 
 
-##### SurfaceRect12+对象说明
+#### SurfaceRect12+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -846,7 +846,7 @@ setXComponentSurfaceConfig(config: SurfaceConfig): void
 
 
 
-##### SurfaceConfig22+对象说明
+#### SurfaceConfig22+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -863,7 +863,7 @@ setXComponentSurfaceConfig(config: SurfaceConfig): void
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -871,7 +871,7 @@ setXComponentSurfaceConfig(config: SurfaceConfig): void
 
 
 
-##### 示例1（图像AI分析功能）
+#### 示例1（图像AI分析功能）
 
 使用enableAnalyzer属性开启图像AI分析功能。可通过XComponentController控制开始、停止图形AI分析。
 
@@ -1001,12 +1001,12 @@ struct XComponentExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/05/v3/i1c_qVXJTuO3n2JzGV58bA/zh-cn_image_0000002581436154.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024221Z&HW-CC-Expire=86400&HW-CC-Sign=668E65ADE9E4DB480D95BEDC7AD8BE99A0A1B7097AD5CEB6D283AF1FB01B94D6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/05/v3/i1c_qVXJTuO3n2JzGV58bA/zh-cn_image_0000002581436154.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025555Z&HW-CC-Expire=86400&HW-CC-Sign=3173706CC22F377ADDEACDF203EDC9C2A3CBFC0FBDC6525BEFE51DF5D7B1E8C9)
 
 
 
 
-##### 示例2（在surface旋转过程中锁定）
+#### 示例2（在surface旋转过程中锁定）
 
 通过setXComponentSurfaceRotation设置surface在屏幕旋转过程中锁定方向，不跟随屏幕进行旋转。
 
@@ -1070,7 +1070,7 @@ struct Index {
 
 
 
-##### 示例3（使用画布对象在XComponent上绘制内容）
+#### 示例3（使用画布对象在XComponent上绘制内容）
 
 从API version 20开始，该示例通过调用[lockCanvas](#lockcanvas20)返回画布对象，通过画布对象调用对应的绘制接口，再调用[unlockCanvasAndPost](#unlockcanvasandpost20)在XComponent上绘制内容。
 
@@ -1119,12 +1119,12 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/388RYMfmQG6nhF-0jLak5A/zh-cn_image_0000002611835985.png?HW-CC-KV=V1&HW-CC-Date=20260528T024221Z&HW-CC-Expire=86400&HW-CC-Sign=0A577D35C3B2E0E82BE132BB6081722E53956BA94F99E8B250453360940BF119)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/388RYMfmQG6nhF-0jLak5A/zh-cn_image_0000002611835985.png?HW-CC-KV=V1&HW-CC-Date=20260528T025555Z&HW-CC-Expire=86400&HW-CC-Sign=F740C2FAB40F80DBBCFD801AFA9D9848F20239D126E84BC588F91CC5858F9A8D)
 
 
 
 
-##### 示例4（XComponent实现沉浸式效果）
+#### 示例4（XComponent实现沉浸式效果）
 
 从API version 20开始，在示例3的基础上，调用setXComponentSurfaceRect接口主动设置Surface显示区域达到沉浸式效果。
 
@@ -1172,12 +1172,12 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/TxmMjih-Qs--Pm3X_Sx-Dw/zh-cn_image_0000002581276238.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T024221Z&HW-CC-Expire=86400&HW-CC-Sign=FDE6D65819465B65E68A642AFCDE32DCF1B9952F9439CFB0797631EE44DE5759)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/TxmMjih-Qs--Pm3X_Sx-Dw/zh-cn_image_0000002581276238.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T025555Z&HW-CC-Expire=86400&HW-CC-Sign=A7E39A941B66352BDE8D3763A1F59D356C2A3597ABB12A99933A902CFDBA9FEE)
 
 
 
 
-##### 示例5（设置XComponent持有Surface在渲染时是否需要被视为不透明）
+#### 示例5（设置XComponent持有Surface在渲染时是否需要被视为不透明）
 
 从API version 22开始，该示例通过调用[setXComponentSurfaceConfig](#setxcomponentsurfaceconfig22)接口设置XComponent持有的Surface在渲染时是否需要被视为不透明。
 
@@ -1278,4 +1278,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/0T4xnwgwTimqsaVTXlZKEA/zh-cn_image_0000002611756093.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T024221Z&HW-CC-Expire=86400&HW-CC-Sign=72B6E623C3E61C803F19C008A04B6D7E793D7FAAFF325364AE95C58043755CB1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/0T4xnwgwTimqsaVTXlZKEA/zh-cn_image_0000002611756093.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T025555Z&HW-CC-Expire=86400&HW-CC-Sign=43845F4CDC2B64349BCAB5AA368FE39AF2C54C69C297101BDF96C59E41F8799E)

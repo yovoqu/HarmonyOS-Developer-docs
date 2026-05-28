@@ -7,7 +7,7 @@
 导出ohpm-repo或OpenHarmony三方库中心仓已上架的包列表。
  
 
-##### 命令格式
+#### 命令格式
 
 ```text
 ohpm-repo export_pkginfo [option]
@@ -15,7 +15,7 @@ ohpm-repo export_pkginfo [option]
  
  
 
-##### 功能描述
+#### 功能描述
 
 将所有或者与输入正则表达式匹配的已上架库的包名导出到当前目录的pkgInfo_xxx.json文件。
  
@@ -23,11 +23,11 @@ ohpm-repo export_pkginfo [option]
  
  
 
-##### 选项
+#### 选项
 
  
 
-##### --public-registry
+#### --public-registry
 
 - 默认值：无
 - 类型：URL
@@ -37,7 +37,7 @@ ohpm-repo export_pkginfo [option]
  
  
 
-##### --http-proxy
+#### --http-proxy
 
 - 默认值：无
 - 类型：String
@@ -47,7 +47,7 @@ ohpm-repo export_pkginfo [option]
  
  
 
-##### --filter
+#### --filter
 
 - 默认值：无
 
@@ -61,7 +61,7 @@ ohpm-repo export_pkginfo [option]
 三方包的命名规则为：@&lt;组织名&gt;/&lt;包名&gt;@&lt;版本号&gt;。
  
 
-##### --repos
+#### --repos
 
 - 默认值：无
 
@@ -73,7 +73,7 @@ ohpm-repo export_pkginfo [option]
 ohpm-repo 5.3.0版本开始支持配置多个仓库。在export_pkginfo命令后面配置--repos &lt;string&gt;，导出ohpm-repo中指定仓库的包列表。多个仓库之间通过英文逗号进行分隔，例如"export_pkginfo --repos  one,two"，即可导出仓库one和仓库two中满足要求的包列表。如果没有配置此参数，将默认导出所有仓库中满足要求的包列表。
  
 
-##### 示例
+#### 示例
 
 执行以下命令从ohpm-repo中导出已上架的包列表：
  

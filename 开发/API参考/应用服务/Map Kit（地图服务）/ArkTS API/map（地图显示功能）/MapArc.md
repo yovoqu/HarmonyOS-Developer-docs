@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-maparc
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -15,7 +15,7 @@ import { map, mapCommon } from '@kit.MapKit';
  
   
 
-##### MapArc
+#### MapArc
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -60,7 +60,7 @@ let mapArc: map.MapArc = this.mapController.addArc(mapArcParams);
  
   
 
-##### getColor
+#### getColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -91,7 +91,7 @@ let color: number = mapArc.getColor();
  
   
 
-##### getWidth
+#### getWidth
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -122,7 +122,7 @@ let width: number = mapArc.getWidth();
  
   
 
-##### setColor
+#### setColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -153,7 +153,7 @@ mapArc.setColor(0xffff00ff);
  
   
 
-##### setWidth
+#### setWidth
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

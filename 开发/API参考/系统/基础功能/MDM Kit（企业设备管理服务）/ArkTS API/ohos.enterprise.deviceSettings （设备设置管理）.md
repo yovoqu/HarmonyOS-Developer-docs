@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { deviceSettings } from '@kit.MDMKit';
 
 
 
-##### deviceSettings.setValue
+#### deviceSettings.setValue
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -82,7 +82,7 @@ try {
 
 
 
-##### deviceSettings.getValue
+#### deviceSettings.getValue
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -146,7 +146,7 @@ try {
 
 
 
-##### deviceSettings.setHomeWallpaper20+
+#### deviceSettings.setHomeWallpaper20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -218,7 +218,7 @@ deviceSettings.setHomeWallpaper(wantTemp, fd).then(() => {
 
 
 
-##### deviceSettings.setUnlockWallpaper20+
+#### deviceSettings.setUnlockWallpaper20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -288,7 +288,7 @@ deviceSettings.setUnlockWallpaper(wantTemp, fd).then(() => {
 
 
 
-##### deviceSettings.setValueForAccount24+
+#### deviceSettings.setValueForAccount24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -350,7 +350,7 @@ try {
 
 
 
-##### deviceSettings.getValueForAccount24+
+#### deviceSettings.getValueForAccount24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -417,7 +417,7 @@ try {
 
 
 
-##### deviceSettings.addHiddenSettingsMenu24+
+#### deviceSettings.addHiddenSettingsMenu24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -483,7 +483,7 @@ try {
 
 
 
-##### deviceSettings.removeHiddenSettingsMenu24+
+#### deviceSettings.removeHiddenSettingsMenu24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -549,7 +549,7 @@ try {
 
 
 
-##### deviceSettings.getHiddenSettingsMenu24+
+#### deviceSettings.getHiddenSettingsMenu24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -617,7 +617,7 @@ try {
 
 
 
-##### SettingsItem24+
+#### SettingsItem24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -633,7 +633,7 @@ try {
 
 
 
-##### SettingsMenu24+
+#### SettingsMenu24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

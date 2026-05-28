@@ -13,7 +13,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 初始化生成密钥属性集，需要设置[HUKS_TAG_IS_ALLOWED_WRAP](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)，指定密钥允许导出。
 2. 调用[generateKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksgeneratekeyitem9)生成密钥，具体请参考[密钥生成](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。
 3. 调用[wrapKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukswrapkeyitem20)加密导出密钥。
@@ -21,11 +21,11 @@
 
 
 
-##### 开发案例
+#### 开发案例
 
 
 
-##### 加密导出导入普通密钥
+#### 加密导出导入普通密钥
 
 ```json
 import { huks } from '@kit.UniversalKeystoreKit';
@@ -110,7 +110,7 @@ async function testWrapKey(){
 
 
 
-##### 普通密钥导入为群组密钥
+#### 普通密钥导入为群组密钥
 
 从API 23开始，支持从普通密钥导入为群组密钥。
 

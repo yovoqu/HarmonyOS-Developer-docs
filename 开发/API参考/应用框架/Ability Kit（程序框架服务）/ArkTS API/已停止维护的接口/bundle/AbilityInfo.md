@@ -12,7 +12,7 @@ Ability信息，未做特殊说明的属性，均通过[bundle.getAbilityInfo](h
 
   
 
-##### AbilityInfo(deprecated)
+#### AbilityInfo(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

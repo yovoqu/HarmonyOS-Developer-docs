@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { systemTime } from '@kit.BasicServicesKit';
  
   
 
-##### systemTime.getCurrentTime8+(deprecated)
+#### systemTime.getCurrentTime8+(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -74,7 +74,7 @@ try {
  
   
 
-##### systemTime.getCurrentTime8+(deprecated)
+#### systemTime.getCurrentTime8+(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -125,7 +125,7 @@ try {
  
   
 
-##### systemTime.getCurrentTime8+(deprecated)
+#### systemTime.getCurrentTime8+(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -181,7 +181,7 @@ try {
  
   
 
-##### systemTime.getRealActiveTime8+(deprecated)
+#### systemTime.getRealActiveTime8+(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -233,7 +233,7 @@ try {
  
   
 
-##### systemTime.getRealActiveTime8+(deprecated)
+#### systemTime.getRealActiveTime8+(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -284,7 +284,7 @@ try {
  
   
 
-##### systemTime.getRealActiveTime8+(deprecated)
+#### systemTime.getRealActiveTime8+(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -340,7 +340,7 @@ try {
  
   
 
-##### systemTime.getRealTime8+(deprecated)
+#### systemTime.getRealTime8+(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -392,7 +392,7 @@ try {
  
   
 
-##### systemTime.getRealTime8+(deprecated)
+#### systemTime.getRealTime8+(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -443,7 +443,7 @@ try {
  
   
 
-##### systemTime.getRealTime8+(deprecated)
+#### systemTime.getRealTime8+(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -499,7 +499,7 @@ try {
  
   
 
-##### systemTime.getDate8+(deprecated)
+#### systemTime.getDate8+(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -550,7 +550,7 @@ try {
  
   
 
-##### systemTime.getDate8+(deprecated)
+#### systemTime.getDate8+(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -599,7 +599,7 @@ try {
  
   
 
-##### systemTime.getTimezone8+(deprecated)
+#### systemTime.getTimezone8+(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -650,7 +650,7 @@ try {
  
   
 
-##### systemTime.getTimezone8+(deprecated)
+#### systemTime.getTimezone8+(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -699,7 +699,7 @@ try {
  
   
 
-##### systemTime.setTime(deprecated)
+#### systemTime.setTime(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -755,7 +755,7 @@ try {
  
   
 
-##### systemTime.setTime(deprecated)
+#### systemTime.setTime(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -815,7 +815,7 @@ try {
  
   
 
-##### systemTime.setDate(deprecated)
+#### systemTime.setDate(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -870,7 +870,7 @@ try {
  
   
 
-##### systemTime.setDate(deprecated)
+#### systemTime.setDate(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -929,7 +929,7 @@ try {
  
   
 
-##### systemTime.setTimezone(deprecated)
+#### systemTime.setTimezone(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -983,7 +983,7 @@ try {
  
   
 
-##### systemTime.setTimezone(deprecated)
+#### systemTime.setTimezone(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1041,7 +1041,7 @@ try {
  
   
 
-##### 支持的系统时区
+#### 支持的系统时区
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

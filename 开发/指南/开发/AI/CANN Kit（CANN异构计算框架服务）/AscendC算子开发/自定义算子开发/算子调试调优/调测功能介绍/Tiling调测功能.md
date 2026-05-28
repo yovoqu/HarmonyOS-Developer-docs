@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-tiling-tuning
 
-##### 功能介绍
+#### 功能介绍
 
 Tiling是算子开发中独立且关键的部分，描述了Kirin AI处理器SoC NPU IP加速器上算子的输入/输出数据切分、分块计算、多核并行等策略，以满足片上存储限制和计算pipeline的需求，最大化计算并行性和数据局部性(data locality OR data reuse)，从而发挥硬件的极致性能。
  
@@ -16,7 +16,7 @@ Tiling是算子开发中独立且关键的部分，描述了Kirin AI处理器SoC
  
   
 
-##### 使用方法（命令行）
+#### 使用方法（命令行）
 
 通过命令行进行Tiling调测的关键步骤如下，详细样例请参考Tiling调测功能。
  1. 完成环境搭建，并准备好输入/标杆数据文件。
@@ -33,7 +33,7 @@ ascendebug tiling --json-file {op_config_json_file } --chip-version ${chip_versi
  
   
 
-##### 产物说明
+#### 产物说明
 
 Tiling调测结果存放在${root}/${work_dir}/tiling路径下，其中${root}表示当前操作路径，${work_dir}表示调测工作空间，默认为./debug_workspace/${op_type}目录，${op_type}为算子名。产物一般包含Tiling data bin文件（二进制）、结构体解析文件等，目录结构示例如下，结果文件的详细说明参见表1。
  

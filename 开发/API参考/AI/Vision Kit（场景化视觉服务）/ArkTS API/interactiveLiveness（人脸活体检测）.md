@@ -12,7 +12,7 @@
 **起始版本：** 5.0.0(12)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Tablet
 
@@ -22,7 +22,7 @@ import { interactiveLiveness } from '@kit.VisionKit';
 
 
 
-##### DetectionMode
+#### DetectionMode
 
 **支持设备：** Phone | Tablet
 
@@ -42,7 +42,7 @@ import { interactiveLiveness } from '@kit.VisionKit';
 
 
 
-##### ActionsNumber
+#### ActionsNumber
 
 **支持设备：** Phone | Tablet
 
@@ -64,7 +64,7 @@ import { interactiveLiveness } from '@kit.VisionKit';
 
 
 
-##### RouteRedirectionMode
+#### RouteRedirectionMode
 
 **支持设备：** Phone | Tablet
 
@@ -84,7 +84,7 @@ import { interactiveLiveness } from '@kit.VisionKit';
 
 
 
-##### InteractiveLivenessConfig
+#### InteractiveLivenessConfig
 
 **支持设备：** Phone | Tablet
 
@@ -127,7 +127,7 @@ let routerOptions: interactiveLiveness.InteractiveLivenessConfig = {
 
 
 
-##### startLivenessDetection
+#### startLivenessDetection
 
 **支持设备：** Phone | Tablet
 
@@ -192,7 +192,7 @@ interactiveLiveness.startLivenessDetection(routerOptions).then((isSuccess) => {
 
 
 
-##### startLivenessDetection
+#### startLivenessDetection
 
 **支持设备：** Phone | Tablet
 
@@ -266,7 +266,7 @@ void interactiveLiveness.startLivenessDetection(routerOptions, (err: BusinessErr
 
 
 
-##### LivenessType
+#### LivenessType
 
 **支持设备：** Phone | Tablet
 
@@ -287,7 +287,7 @@ void interactiveLiveness.startLivenessDetection(routerOptions, (err: BusinessErr
 
 
 
-##### InteractiveLivenessResult
+#### InteractiveLivenessResult
 
 **支持设备：** Phone | Tablet
 
@@ -309,7 +309,7 @@ void interactiveLiveness.startLivenessDetection(routerOptions, (err: BusinessErr
 
 
 
-##### getInteractiveLivenessResult
+#### getInteractiveLivenessResult
 
 **支持设备：** Phone | Tablet
 
@@ -357,7 +357,7 @@ interactiveLiveness.getInteractiveLivenessResult().then(data => {
 
 
 
-##### 动作说明
+#### 动作说明
 
 **支持设备：** Phone | Tablet
 

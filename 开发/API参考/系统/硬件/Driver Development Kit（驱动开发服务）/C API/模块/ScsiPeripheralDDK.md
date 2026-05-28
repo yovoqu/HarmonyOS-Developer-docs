@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-scsiperipheralddk
 **支持设备：** PC/2in1
 
-##### 概述
+#### 概述
 
 **支持设备：** PC/2in1
 
@@ -15,7 +15,7 @@ SCSI Peripheral DDK是为开发者提供专门用于开发SCSI设备驱动程序
  
   
 
-##### 文件汇总
+#### 文件汇总
 
 **支持设备：** PC/2in1
  

@@ -10,7 +10,7 @@
 **起始版本：** 5.0.4(16)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -20,7 +20,7 @@ import { readerCore } from '@kit.ReaderKit';
  
   
 
-##### PageDatabaseBean
+#### PageDatabaseBean
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -40,7 +40,7 @@ import { readerCore } from '@kit.ReaderKit';
  
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -64,7 +64,7 @@ constructor(nodeType: string, nodeDataId: string)
  
   
 
-##### PageState
+#### PageState
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -86,7 +86,7 @@ constructor(nodeType: string, nodeDataId: string)
  
   
 
-##### PageDataInfo
+#### PageDataInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -113,7 +113,7 @@ constructor(nodeType: string, nodeDataId: string)
  
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -135,7 +135,7 @@ constructor(nodeType: string, nodeId: string)
  
   
 
-##### ReaderSetting
+#### ReaderSetting
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -166,7 +166,7 @@ constructor(nodeType: string, nodeId: string)
  
   
 
-##### ReaderComponentController
+#### ReaderComponentController
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -180,7 +180,7 @@ constructor(nodeType: string, nodeId: string)
  
   
 
-##### init
+#### init
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -258,7 +258,7 @@ struct Reader {
  
   
 
-##### registerBookParser
+#### registerBookParser
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -335,7 +335,7 @@ struct Reader {
  
   
 
-##### setPageConfig
+#### setPageConfig
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -423,7 +423,7 @@ struct Reader {
  
   
 
-##### startPlay
+#### startPlay
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -517,7 +517,7 @@ struct Reader {
  
   
 
-##### flipPage
+#### flipPage
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -588,7 +588,7 @@ struct Reader {
  
   
 
-##### releaseBook
+#### releaseBook
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -642,7 +642,7 @@ struct Reader {
  
   
 
-##### on('pageShow')
+#### on('pageShow')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -706,7 +706,7 @@ struct Reader {
  
   
 
-##### off('pageShow')
+#### off('pageShow')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -768,7 +768,7 @@ struct Reader {
  
   
 
-##### on('resourceRequest')
+#### on('resourceRequest')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -857,7 +857,7 @@ struct Reader {
  
   
 
-##### off('resourceRequest')
+#### off('resourceRequest')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

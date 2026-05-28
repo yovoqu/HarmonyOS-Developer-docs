@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-vulkan-oh-nativebuffer
 
-##### 概述
+#### 概述
 
 OH_NativeBuffer结构体声明。
  

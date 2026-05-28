@@ -7,7 +7,7 @@
 在获取到解码后的Audio Vivid的PCM数据和元数据之后，可以调用OHAudio的相关播放接口，进行Audio Vivid格式音源的渲染播放。详细的API说明请参考[OHAudio API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio)。
   
 
-##### 在CMake脚本中链接到动态库
+#### 在CMake脚本中链接到动态库
 
 ```text
 target_link_libraries(sample PUBLIC libohaudio.so)
@@ -15,7 +15,7 @@ target_link_libraries(sample PUBLIC libohaudio.so)
  
   
 
-##### 添加头文件
+#### 添加头文件
 
 ```text
 #include <ohaudio/native_audiorenderer.h>
@@ -24,7 +24,7 @@ target_link_libraries(sample PUBLIC libohaudio.so)
  
   
 
-##### 开发步骤
+#### 开发步骤
 
 开发者可以通过以下几个步骤来实现一个简单的播放功能。
  1. 创建构造器。

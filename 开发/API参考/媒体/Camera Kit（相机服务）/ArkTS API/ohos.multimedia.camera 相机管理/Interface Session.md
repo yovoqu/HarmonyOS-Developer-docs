@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { camera } from '@kit.CameraKit';
  
   
 
-##### beginConfig11+
+#### beginConfig11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -62,7 +62,7 @@ function beginConfig(session: camera.Session): void {
  
   
 
-##### commitConfig11+
+#### commitConfig11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -109,7 +109,7 @@ function commitConfig(session: camera.Session): void {
  
   
 
-##### commitConfig11+
+#### commitConfig11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -155,7 +155,7 @@ function commitConfig(session: camera.Session): void {
  
   
 
-##### canAddInput11+
+#### canAddInput11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -192,7 +192,7 @@ function canAddInput(session: camera.Session, cameraInput: camera.CameraInput): 
  
   
 
-##### addInput11+
+#### addInput11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -240,7 +240,7 @@ function addInput(session: camera.Session, cameraInput: camera.CameraInput): voi
  
   
 
-##### removeInput11+
+#### removeInput11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -288,7 +288,7 @@ function removeInput(session: camera.Session, cameraInput: camera.CameraInput): 
  
   
 
-##### canAddOutput11+
+#### canAddOutput11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -325,7 +325,7 @@ function canAddOutput(session: camera.Session, cameraOutput: camera.CameraOutput
  
   
 
-##### addOutput11+
+#### addOutput11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -373,7 +373,7 @@ function addOutput(session: camera.Session, cameraOutput: camera.CameraOutput): 
  
   
 
-##### removeOutput11+
+#### removeOutput11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -421,7 +421,7 @@ function removeOutput(session: camera.Session, previewOutput: camera.PreviewOutp
  
   
 
-##### start11+
+#### start11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -469,7 +469,7 @@ function startCaptureSession(session: camera.Session): void {
  
   
 
-##### start11+
+#### start11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -515,7 +515,7 @@ function startCaptureSession(session: camera.Session): void {
  
   
 
-##### stop11+
+#### stop11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -561,7 +561,7 @@ function stopCaptureSession(session: camera.Session): void {
  
   
 
-##### stop11+
+#### stop11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -605,7 +605,7 @@ function stopCaptureSession(session: camera.Session): void {
  
   
 
-##### release11+
+#### release11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -651,7 +651,7 @@ function releaseCaptureSession(session: camera.Session): void {
  
   
 
-##### release11+
+#### release11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-commissioning-interfaces-dumptensor
 
-##### 函数功能
+#### 函数功能
 
 基于算子工程开发的算子，可以使用该接口Dump指定Tensor的内容。同时支持打印自定义的附加信息（仅支持uint32_t数据类型的信息），比如打印当前行号等。
  
@@ -33,7 +33,7 @@ AscendC::DumpTensor(srcLocal,5, dataLen);
  
   
 
-##### 函数原型
+#### 函数原型
 
 - 无Tensor shape的打印
 
@@ -55,7 +55,7 @@ void DumpTensor(const GlobalTensor<T> &tensor, uint32_t desc, uint32_t dumpNum, 
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数名 | 输入/输出 | 描述 |
 | --- | --- | --- |
@@ -67,13 +67,13 @@ void DumpTensor(const GlobalTensor<T> &tensor, uint32_t desc, uint32_t dumpNum, 
  
   
 
-##### 返回值
+#### 返回值
 
 无
  
   
 
-##### 支持的型号
+#### 支持的型号
 
 Kirin9020系列处理器
  
@@ -81,7 +81,7 @@ KirinX90系列处理器
  
   
 
-##### 约束说明
+#### 约束说明
 
 - **该功能仅在如下场景支持：** 通过[工程化算子开发](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-overview-of-engineering-operator)方式调用算子。
 - **当前仅支持打印存储位置为Unified Buffer/L1 Buffer/L0C Buffer/Global Memory的Tensor信息。**
@@ -91,7 +91,7 @@ KirinX90系列处理器
  
   
 
-##### 调用示例
+#### 调用示例
 
 - 无Tensor shape的打印
 

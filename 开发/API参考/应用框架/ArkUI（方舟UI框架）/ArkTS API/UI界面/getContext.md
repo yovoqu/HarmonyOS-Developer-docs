@@ -12,7 +12,7 @@
 
 
 
-##### getContext(deprecated)
+#### getContext(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -46,7 +46,7 @@ getContext(component?: Object):Context
 
 
 
-##### Context
+#### Context
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

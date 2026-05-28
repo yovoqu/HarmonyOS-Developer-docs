@@ -7,7 +7,7 @@
 Reader Kit（阅读服务）为开发者提供多种格式电子书的解析、排版、阅读交互能力，开发者可以借助Reader Kit的能力和组件快速构建书籍阅读能力。
 
 
-##### 能力范围
+#### 能力范围
 
 Reader Kit提供的能力如下：
 
@@ -18,7 +18,7 @@ Reader Kit提供的能力如下：
 
 
 
-##### 亮点/特征
+#### 亮点/特征
 
  - 支持多种电子书籍格式解析，提供标准规范的书籍信息和内容数据。
  - 对富文本内容（html+css）的排版符合W3C标准规范，且对排版过程做了高效的算法优化，提高了排版速度和效率。
@@ -28,7 +28,7 @@ Reader Kit提供的能力如下：
 
 
 
-##### 基本概念
+#### 基本概念
 
  - ReadPageComponent
 
@@ -43,7 +43,7 @@ Reader Kit提供的能力如下：
 
 
 
-##### 约束和限制
+#### 约束和限制
 
  - 在书籍处理过程中，Reader Kit只支持有本地文件的书籍，不支持在线的文件流，且不同的书籍文件需要存放在应用沙箱下的不同目录。
  - 在书籍处理过程中，Reader Kit不提供对书籍的DRM保护能力。
@@ -53,24 +53,24 @@ Reader Kit提供的能力如下：
 
 
 
-##### 设备限制
+#### 设备限制
 
 Reader Kit仅适用于HarmonyOS NEXT 5.0.4及以上版本的Phone、PC/2in1、Tablet设备。
 
 
 
-##### 支持的国家/地区
+#### 支持的国家/地区
 
 Reader Kit当前仅在中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）提供服务。
 
 
 
-##### 模拟器支持情况
+#### 模拟器支持情况
 
 本Kit暂不支持模拟器。
 
 
 
-##### 示例代码
+#### 示例代码
 
 Reader Kit开发指南涉及到的示例代码均为片段，全量示例代码请参考：[CodeLabs](https://developer.huawei.com/consumer/cn/codelabsPortal/carddetails/tutorials_NEXT-ReaderKit)或[SampleCode](https://gitcode.com/HarmonyOS_Samples/readerkit_samplecode_arkts)。CodeLabs和SampleCode包括了导入本地书籍、构建阅读器、构建目录列表、修改阅读设置等场景的完整实践示例，可帮助开发者更好地使用Reader Kit API。

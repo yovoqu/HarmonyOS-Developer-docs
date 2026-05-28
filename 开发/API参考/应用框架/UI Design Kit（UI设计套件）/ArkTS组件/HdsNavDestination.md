@@ -14,7 +14,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -36,7 +36,7 @@ import { HdsNavDestination } from '@kit.UIDesignKit';
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -46,7 +46,7 @@ import { HdsNavDestination } from '@kit.UIDesignKit';
  
   
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -62,7 +62,7 @@ HdsNavDestination()
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -72,7 +72,7 @@ HdsNavDestination()
  
   
 
-##### titleBar
+#### titleBar
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -97,7 +97,7 @@ titleBar(options?: HdsNavigationTitleBarOptions)
  
   
 
-##### hideTitleBar
+#### hideTitleBar
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -121,7 +121,7 @@ hideTitleBar(hide: boolean, animated?: boolean)
  
   
 
-##### hideBackButton
+#### hideBackButton
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -144,7 +144,7 @@ hideBackButton(value: boolean)
  
   
 
-##### mode
+#### mode
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -167,7 +167,7 @@ mode(value: NavDestinationMode)
  
   
 
-##### toolbarConfiguration
+#### toolbarConfiguration
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -195,7 +195,7 @@ toolbarConfiguration(toolbarParam: Array&lt;ToolbarItem&gt; | CustomBuilder, opt
  
   
 
-##### hideToolBar
+#### hideToolBar
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -219,7 +219,7 @@ hideToolBar(hide: boolean, animated?: boolean)
  
   
 
-##### ignoreLayoutSafeArea
+#### ignoreLayoutSafeArea
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -247,7 +247,7 @@ ignoreLayoutSafeArea(types?: Array&lt;LayoutSafeAreaType&gt;, edges?: Array&lt;L
  
   
 
-##### systemBarStyle
+#### systemBarStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -275,7 +275,7 @@ systemBarStyle(originalStyle: Optional&lt;SystemBarStyle&gt;, scrollEffectStyle:
  
   
 
-##### recoverable
+#### recoverable
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -298,7 +298,7 @@ recoverable(recoverable: Optional&lt;boolean&gt;)
  
   
 
-##### dynamicHideTitleBar
+#### dynamicHideTitleBar
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -321,7 +321,7 @@ dynamicHideTitleBar(value: DynamicHideParams)
  
   
 
-##### bindToScrollable
+#### bindToScrollable
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -344,7 +344,7 @@ bindToScrollable(scrollers: Array&lt;Scroller&gt;)
  
   
 
-##### bindToNestedScrollable
+#### bindToNestedScrollable
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -371,7 +371,7 @@ bindToNestedScrollable(scrollers: Array&lt;NestedScrollInfo&gt;)
  
   
 
-##### systemTransition
+#### systemTransition
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -394,7 +394,7 @@ systemTransition(type: NavigationSystemTransitionType)
  
   
 
-##### customTransition
+#### customTransition
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -417,7 +417,7 @@ customTransition(delegate: NavDestinationTransitionDelegate)
  
   
 
-##### titleMode
+#### titleMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -440,7 +440,7 @@ titleMode(value: HdsNavDestinationTitleMode)
  
   
 
-##### withTheme
+#### withTheme
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -461,13 +461,13 @@ withTheme(value: WithThemeOptions)
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### onShown
+#### onShown
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -488,7 +488,7 @@ onShown(callback: Callback&lt;void&gt;)
  
   
 
-##### onShown
+#### onShown
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -509,7 +509,7 @@ onShown(callback: Callback&lt;VisibilityChangeReason&gt;)
  
   
 
-##### onHidden
+#### onHidden
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -530,7 +530,7 @@ onHidden(callback: Callback&lt;void&gt;)
  
   
 
-##### onHidden
+#### onHidden
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -551,7 +551,7 @@ onHidden(callback: Callback&lt;VisibilityChangeReason&gt;)
  
   
 
-##### onReady
+#### onReady
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -572,7 +572,7 @@ onReady(callback: Callback&lt;NavDestinationContext&gt;)
  
   
 
-##### onWillAppear
+#### onWillAppear
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -593,7 +593,7 @@ onWillAppear(callback: Callback&lt;void&gt;)
  
   
 
-##### onWillDisappear
+#### onWillDisappear
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -614,7 +614,7 @@ onWillDisappear(callback: Callback&lt;void&gt;)
  
   
 
-##### onWillShow
+#### onWillShow
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -635,7 +635,7 @@ onWillShow(callback: Callback&lt;void&gt;)
  
   
 
-##### onWillHide
+#### onWillHide
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -656,7 +656,7 @@ onWillHide(callback: Callback&lt;void&gt;)
  
   
 
-##### onBackPressed
+#### onBackPressed
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -679,7 +679,7 @@ onBackPressed(callback: Callback<void, boolean>)
  
   
 
-##### onActive
+#### onActive
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -700,7 +700,7 @@ HdsNavDestination处于激活态（处于栈顶可操作，且上层无特殊组
  
   
 
-##### onInactive
+#### onInactive
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -721,7 +721,7 @@ HdsNavDestination处于非激活态（处于非栈顶不可操作，或处于栈
  
   
 
-##### HdsNavDestinationTitleMode
+#### HdsNavDestinationTitleMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -741,7 +741,7 @@ HdsNavDestination处于非激活态（处于非栈顶不可操作，或处于栈
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -847,7 +847,7 @@ struct PageOne {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/HhY8WSeLRWmkLRRbb1sozA/zh-cn_image_0000002581276750.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024031Z&HW-CC-Expire=86400&HW-CC-Sign=6960F9FCFD788BDF20B799DF1759A9B87228E05E3E675DEDFC392338350CCEDB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/HhY8WSeLRWmkLRRbb1sozA/zh-cn_image_0000002581276750.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025406Z&HW-CC-Expire=86400&HW-CC-Sign=F70AE63A24070E5876101016B1AF261E6EDA4B043B8ECAC70532941FAE3D9820)
 
  
 HdsNavDestination更多示例可以参考HdsNavigation[示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavigation#示例)。

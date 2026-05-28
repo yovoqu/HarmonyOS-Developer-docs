@@ -10,7 +10,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@ import { avSession } from '@kit.AVSessionKit';
  
   
 
-##### AVSessionType10+
+#### AVSessionType10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -45,7 +45,7 @@ type AVSessionType = 'audio' | 'video' | 'voice_call' | 'video_call' | 'photo'
  
   
 
-##### AVCastControlCommandType10+
+#### AVCastControlCommandType10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -78,7 +78,7 @@ type AVCastControlCommandType = 'play' | 'pause' | 'stop' | 'playNext' | 'playPr
  
   
 
-##### ExtraInfo18+
+#### ExtraInfo18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -95,7 +95,7 @@ type ExtraInfo = {[key: string]: Object;}
  
   
 
-##### KeyRequestCallback12+
+#### KeyRequestCallback12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -125,7 +125,7 @@ let keyRequestCallback: avSession.KeyRequestCallback = async(assetId: string, re
  
   
 
-##### AVControlCommandType10+
+#### AVControlCommandType10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -162,7 +162,7 @@ type AVControlCommandType = 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevio
  
   
 
-##### NoParamCallback22+
+#### NoParamCallback22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -174,7 +174,7 @@ type NoParamCallback = () => void
  
   
 
-##### TwoParamCallback22+
+#### TwoParamCallback22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

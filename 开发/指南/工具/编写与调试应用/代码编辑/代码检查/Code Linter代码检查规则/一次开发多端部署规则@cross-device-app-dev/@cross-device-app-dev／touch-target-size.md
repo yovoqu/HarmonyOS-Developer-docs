@@ -9,7 +9,7 @@
 主要交互元素或控件的可点击热区至少为48vp×48vp（推荐），不得小于40vp×40vp。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -22,13 +22,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 @Entry
@@ -44,7 +44,7 @@ struct Index {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 @Entry
@@ -60,7 +60,7 @@ struct Index {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@cross-device-app-dev/recommended</span>

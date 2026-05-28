@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-types-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -40,7 +40,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -57,13 +57,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_AI_ModelType
+#### OH_AI_ModelType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -85,7 +85,7 @@ enum OH_AI_ModelType
  
   
 
-##### OH_AI_DeviceType
+#### OH_AI_DeviceType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -110,7 +110,7 @@ enum OH_AI_DeviceType
  
   
 
-##### OH_AI_NNRTDeviceType
+#### OH_AI_NNRTDeviceType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -134,7 +134,7 @@ NNRt管理的硬件设备类型。
  
   
 
-##### OH_AI_PerformanceMode
+#### OH_AI_PerformanceMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -159,7 +159,7 @@ NNRt硬件的工作性能模式。
  
   
 
-##### OH_AI_Priority
+#### OH_AI_Priority
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -183,7 +183,7 @@ NNRt推理任务优先级。
  
   
 
-##### OH_AI_OptimizationLevel
+#### OH_AI_OptimizationLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -208,7 +208,7 @@ enum OH_AI_OptimizationLevel
  
   
 
-##### OH_AI_QuantizationType
+#### OH_AI_QuantizationType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

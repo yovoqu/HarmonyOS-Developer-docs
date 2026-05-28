@@ -12,7 +12,7 @@ SIM卡管理模块提供了SIM卡管理的基础能力，包括获取指定卡�
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -22,7 +22,7 @@ import { sim } from '@kit.TelephonyKit';
 
 
 
-##### sim.isSimActive7+
+#### sim.isSimActive7+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -53,7 +53,7 @@ sim.isSimActive(0, (err: BusinessError, data: boolean) => {
 
 
 
-##### sim.isSimActive7+
+#### sim.isSimActive7+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -92,7 +92,7 @@ sim.isSimActive(0).then((data: boolean) => {
 
 
 
-##### sim.isSimActiveSync10+
+#### sim.isSimActiveSync10+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -127,7 +127,7 @@ console.info(`the sim is active:` + isSimActive);
 
 
 
-##### sim.getDefaultVoiceSlotId7+
+#### sim.getDefaultVoiceSlotId7+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -157,7 +157,7 @@ sim.getDefaultVoiceSlotId((err: BusinessError, data: number) => {
 
 
 
-##### sim.getDefaultVoiceSlotId7+
+#### sim.getDefaultVoiceSlotId7+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -189,7 +189,7 @@ sim.getDefaultVoiceSlotId().then((data: number) => {
 
 
 
-##### sim.hasOperatorPrivileges7+
+#### sim.hasOperatorPrivileges7+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -233,7 +233,7 @@ sim.hasOperatorPrivileges(0, (err: BusinessError, data: boolean) => {
 
 
 
-##### sim.hasOperatorPrivileges7+
+#### sim.hasOperatorPrivileges7+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -285,7 +285,7 @@ sim.hasOperatorPrivileges(0).then((data: boolean) => {
 
 
 
-##### sim.getISOCountryCodeForSim
+#### sim.getISOCountryCodeForSim
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -330,7 +330,7 @@ sim.getISOCountryCodeForSim(0, (err: BusinessError, data: string) => {
 
 
 
-##### sim.getISOCountryCodeForSim
+#### sim.getISOCountryCodeForSim
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -383,7 +383,7 @@ sim.getISOCountryCodeForSim(0).then((data: string) => {
 
 
 
-##### sim.getISOCountryCodeForSimSync10+
+#### sim.getISOCountryCodeForSimSync10+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -418,7 +418,7 @@ console.info(`the country ISO is:` + countryCode);
 
 
 
-##### sim.getSimOperatorNumeric
+#### sim.getSimOperatorNumeric
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -463,7 +463,7 @@ sim.getSimOperatorNumeric(0, (err: BusinessError, data: string) => {
 
 
 
-##### sim.getSimOperatorNumeric
+#### sim.getSimOperatorNumeric
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -516,7 +516,7 @@ sim.getSimOperatorNumeric(0).then((data: string) => {
 
 
 
-##### sim.getSimOperatorNumericSync10+
+#### sim.getSimOperatorNumericSync10+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -551,7 +551,7 @@ console.info(`the sim operator numeric is:` + numeric);
 
 
 
-##### sim.getSimSpn
+#### sim.getSimSpn
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -596,7 +596,7 @@ sim.getSimSpn(0, (err: BusinessError, data: string) => {
 
 
 
-##### sim.getSimSpn
+#### sim.getSimSpn
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -649,7 +649,7 @@ sim.getSimSpn(0).then((data: string) => {
 
 
 
-##### sim.getSimSpnSync10+
+#### sim.getSimSpnSync10+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -684,7 +684,7 @@ console.info(`the sim card spn is:` + spn);
 
 
 
-##### sim.getSimState
+#### sim.getSimState
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -728,7 +728,7 @@ sim.getSimState(0, (err: BusinessError, data: sim.SimState) => {
 
 
 
-##### sim.getSimState
+#### sim.getSimState
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -780,7 +780,7 @@ sim.getSimState(0).then((data: sim.SimState) => {
 
 
 
-##### sim.getSimStateSync10+
+#### sim.getSimStateSync10+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -815,7 +815,7 @@ console.info(`The sim state is:` + simState);
 
 
 
-##### sim.getCardType7+
+#### sim.getCardType7+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -860,7 +860,7 @@ sim.getCardType(0, (err: BusinessError, data: sim.CardType) => {
 
 
 
-##### sim.getCardType7+
+#### sim.getCardType7+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -913,7 +913,7 @@ sim.getCardType(0).then((data: sim.CardType) => {
 
 
 
-##### sim.getCardTypeSync10+
+#### sim.getCardTypeSync10+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -948,7 +948,7 @@ console.info(`the card type is:` + cardType);
 
 
 
-##### sim.hasSimCard7+
+#### sim.hasSimCard7+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -992,7 +992,7 @@ sim.hasSimCard(0, (err: BusinessError, data: boolean) => {
 
 
 
-##### sim.hasSimCard7+
+#### sim.hasSimCard7+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1044,7 +1044,7 @@ sim.hasSimCard(0).then((data: boolean) => {
 
 
 
-##### sim.hasSimCardSync10+
+#### sim.hasSimCardSync10+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1079,7 +1079,7 @@ console.info(`has sim card: ` + hasSimCard);
 
 
 
-##### sim.getSimAccountInfo10+
+#### sim.getSimAccountInfo10+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1131,7 +1131,7 @@ sim.getSimAccountInfo(0, (err:BusinessError , data: sim.IccAccountInfo) => {
 
 
 
-##### sim.getSimAccountInfo10+
+#### sim.getSimAccountInfo10+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1191,7 +1191,7 @@ sim.getSimAccountInfo(0).then((data: sim.IccAccountInfo) => {
 
 
 
-##### sim.getActiveSimAccountInfoList10+
+#### sim.getActiveSimAccountInfoList10+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1241,7 +1241,7 @@ sim.getActiveSimAccountInfoList((err: BusinessError, data: Array<sim.IccAccountI
 
 
 
-##### sim.getMaxSimCount7+
+#### sim.getMaxSimCount7+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1268,7 +1268,7 @@ console.info("Result: "+ sim.getMaxSimCount());
 
 
 
-##### sim.getActiveSimAccountInfoList10+
+#### sim.getActiveSimAccountInfoList10+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1318,7 +1318,7 @@ sim.getActiveSimAccountInfoList().then((data: Array<sim.IccAccountInfo>) => {
 
 
 
-##### sim.getOpKey9+
+#### sim.getOpKey9+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1371,7 +1371,7 @@ try {
 
 
 
-##### sim.getOpKey9+
+#### sim.getOpKey9+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1424,7 +1424,7 @@ sim.getOpKey(0).then((data: string) => {
 
 
 
-##### sim.getOpKeySync10+
+#### sim.getOpKeySync10+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1459,7 +1459,7 @@ console.info(`getOpKey success, promise: data->${JSON.stringify(data)}`);
 
 
 
-##### sim.getOpName9+
+#### sim.getOpName9+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1512,7 +1512,7 @@ try {
 
 
 
-##### sim.getOpName9+
+#### sim.getOpName9+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1565,7 +1565,7 @@ sim.getOpName(0).then((data: string) => {
 
 
 
-##### sim.getOpNameSync10+
+#### sim.getOpNameSync10+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1600,7 +1600,7 @@ console.info(`getOpName success, promise: data->${JSON.stringify(data)}`);
 
 
 
-##### sim.getDefaultVoiceSimId10+
+#### sim.getDefaultVoiceSimId10+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1645,7 +1645,7 @@ sim.getDefaultVoiceSimId((err: BusinessError, data: number) => {
 
 
 
-##### sim.getDefaultVoiceSimId10+
+#### sim.getDefaultVoiceSimId10+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1692,7 +1692,7 @@ promise.then((data: number) => {
 
 
 
-##### sim.getSimLabel20+
+#### sim.getSimLabel20+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1739,7 +1739,7 @@ sim.getSimLabel(0, (err: BusinessError, data: sim.SimLabel) => {
 
 
 
-##### sim.getSimLabel20+
+#### sim.getSimLabel20+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1790,7 +1790,7 @@ sim.getSimLabel(0).then((data: sim.SimLabel) => {
 
 
 
-##### sim.getSimLabelSync20+
+#### sim.getSimLabelSync20+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1826,7 +1826,7 @@ console.info(`The sim state is:` + simLabel);
 
 
 
-##### SimType20+
+#### SimType20+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1842,7 +1842,7 @@ SIM卡类型的枚举。
 
 
 
-##### SimLabel20+
+#### SimLabel20+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1858,7 +1858,7 @@ SIM卡标签。
 
 
 
-##### SimState
+#### SimState
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1878,7 +1878,7 @@ SIM卡状态。
 
 
 
-##### CardType7+
+#### CardType7+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1902,7 +1902,7 @@ SIM卡状态。
 
 
 
-##### IccAccountInfo10+
+#### IccAccountInfo10+
 
 **支持设备：** Phone | Tablet | Wearable
 

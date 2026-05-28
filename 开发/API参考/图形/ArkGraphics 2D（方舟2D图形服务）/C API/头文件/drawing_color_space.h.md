@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-color-space-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -42,13 +42,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Drawing_ColorSpaceCreateSrgb()
+#### OH_Drawing_ColorSpaceCreateSrgb()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -73,7 +73,7 @@ OH_Drawing_ColorSpace* OH_Drawing_ColorSpaceCreateSrgb(void)
  
   
 
-##### OH_Drawing_ColorSpaceCreateSrgbLinear()
+#### OH_Drawing_ColorSpaceCreateSrgbLinear()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -98,7 +98,7 @@ OH_Drawing_ColorSpace* OH_Drawing_ColorSpaceCreateSrgbLinear(void)
  
   
 
-##### OH_Drawing_ColorSpaceDestroy()
+#### OH_Drawing_ColorSpaceDestroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

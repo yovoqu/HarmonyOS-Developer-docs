@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { distributedDataObject } from '@kit.ArkData';
 
 
 
-##### distributedDataObject.create9+
+#### distributedDataObject.create9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -113,7 +113,7 @@ class EntryAbility extends UIAbility {
 
 
 
-##### distributedDataObject.genSessionId
+#### distributedDataObject.genSessionId
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -138,7 +138,7 @@ let sessionId: string = distributedDataObject.genSessionId();
 
 
 
-##### SaveSuccessResponse9+
+#### SaveSuccessResponse9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -155,7 +155,7 @@ let sessionId: string = distributedDataObject.genSessionId();
 
 
 
-##### RevokeSaveSuccessResponse9+
+#### RevokeSaveSuccessResponse9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -170,7 +170,7 @@ let sessionId: string = distributedDataObject.genSessionId();
 
 
 
-##### BindInfo11+
+#### BindInfo11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -189,7 +189,7 @@ let sessionId: string = distributedDataObject.genSessionId();
 
 
 
-##### DataObserver20+
+#### DataObserver20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -209,7 +209,7 @@ type DataObserver = (sessionId: string, fields: Array&lt;string&gt;) => void
 
 
 
-##### StatusObserver20+
+#### StatusObserver20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -230,7 +230,7 @@ type StatusObserver = (sessionId: string, networkId: string, status: string) => 
 
 
 
-##### ProgressObserver20+
+#### ProgressObserver20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -250,7 +250,7 @@ type ProgressObserver = (sessionId: string, progress: number) => void
 
 
 
-##### DataObject
+#### DataObject
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -258,7 +258,7 @@ type ProgressObserver = (sessionId: string, progress: number) => void
 
 
 
-##### setSessionId9+
+#### setSessionId9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -304,7 +304,7 @@ g_object.setSessionId("", ()=>{
 
 
 
-##### setSessionId9+
+#### setSessionId9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -352,7 +352,7 @@ g_object.setSessionId(() => {
 
 
 
-##### setSessionId9+
+#### setSessionId9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -408,7 +408,7 @@ g_object.setSessionId().then (()=>{
 
 
 
-##### on('change')9+
+#### on('change')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -450,7 +450,7 @@ g_object.on("change", (sessionId: string, fields: Array<string>) => {
 
 
 
-##### off('change')9+
+#### off('change')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -495,7 +495,7 @@ g_object.off("change");
 
 
 
-##### on('status')9+
+#### on('status')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -532,7 +532,7 @@ g_object.on("status", (sessionId: string, networkId: string, status: 'online' | 
 
 
 
-##### off('status')9+
+#### off('status')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -572,7 +572,7 @@ g_object.off("status");
 
 
 
-##### save9+
+#### save9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -628,7 +628,7 @@ g_object.save("local", (err: BusinessError, result:distributedDataObject.SaveSuc
 
 
 
-##### save9+
+#### save9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -688,7 +688,7 @@ g_object.save("local").then((callbackInfo: distributedDataObject.SaveSuccessResp
 
 
 
-##### revokeSave9+
+#### revokeSave9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -749,7 +749,7 @@ g_object.revokeSave((err: BusinessError, result: distributedDataObject.RevokeSav
 
 
 
-##### revokeSave9+
+#### revokeSave9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -805,7 +805,7 @@ g_object.revokeSave().then((result: distributedDataObject.RevokeSaveSuccessRespo
 
 
 
-##### bindAssetStore11+
+#### bindAssetStore11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -893,7 +893,7 @@ class EntryAbility extends UIAbility {
 
 
 
-##### bindAssetStore11+
+#### bindAssetStore11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -986,7 +986,7 @@ class EntryAbility extends UIAbility {
 
 
 
-##### on('change')20+
+#### on('change')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1024,7 +1024,7 @@ try {
 
 
 
-##### off('change')20+
+#### off('change')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1079,7 +1079,7 @@ try {
 
 
 
-##### on('status')20+
+#### on('status')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1112,7 +1112,7 @@ try {
 
 
 
-##### off('status')20+
+#### off('status')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1156,7 +1156,7 @@ try {
 
 
 
-##### on('progressChanged')20+
+#### on('progressChanged')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1190,7 +1190,7 @@ try {
 
 
 
-##### off('progressChanged')20+
+#### off('progressChanged')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1236,7 +1236,7 @@ try {
 
 
 
-##### setAsset20+
+#### setAsset20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1245,7 +1245,7 @@ setAsset(assetKey: string, uri: string): Promise&lt;void&gt;
 设置分布式对象中的单个资产的属性信息，该接口必须在[setSessionId](#setsessionid9-2)接口调用前使用。使用Promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/cO0ZI0OyTjWeaFzHJIGbrw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024237Z&HW-CC-Expire=86400&HW-CC-Sign=382FDC70E26668D23F8D5341FB0E0AB25E63BF825B236B07D0743C8E2BC73300)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/cO0ZI0OyTjWeaFzHJIGbrw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025611Z&HW-CC-Expire=86400&HW-CC-Sign=3BD04535CFB90AF5751DE1D982CE93E69815D2B031C5FA695A100C54A16E316E)
 
 
 在设置资产时必须保证assetKey存在且对应文件为资产类型文件，否则无法保证对端能接收到此次设置的资产。
@@ -1337,7 +1337,7 @@ class EntryAbility extends UIAbility {
 
 
 
-##### setAssets20+
+#### setAssets20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1346,7 +1346,7 @@ setAssets(assetsKey: string, uris: Array&lt;string&gt;): Promise&lt;void&gt;
 设置分布式对象中的多个资产的属性信息，该接口必须在[setSessionId](#setsessionid9-2)接口调用前使用。uris数组的数量范围为1-50。使用Promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/cXHYskGwRfWCgxEdK78_hQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024237Z&HW-CC-Expire=86400&HW-CC-Sign=57026FAD14389DA98B7AD4AEB3C12161C9EF0D6CEAF10DCC9392870E44A65404)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/cXHYskGwRfWCgxEdK78_hQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025611Z&HW-CC-Expire=86400&HW-CC-Sign=365BA12443B4F8B73DB3418898A2928ADEEDDB5D30F02EDE7AC73160AA47ED23)
 
 
 在设置资产时必须保证assetsKey存在且对应文件为资产类型文件，否则无法保证对端能接收到此次设置的资产。
@@ -1440,7 +1440,7 @@ class EntryAbility extends UIAbility {
 
 
 
-##### distributedDataObject.createDistributedObject(deprecated)
+#### distributedDataObject.createDistributedObject(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1489,7 +1489,7 @@ let g_object: distributedDataObject.DistributedObject = distributedDataObject.cr
 
 
 
-##### DistributedObject(deprecated)
+#### DistributedObject(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1497,7 +1497,7 @@ let g_object: distributedDataObject.DistributedObject = distributedDataObject.cr
 
 
 
-##### setSessionId(deprecated)
+#### setSessionId(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1552,7 +1552,7 @@ g_object.setSessionId("");
 
 
 
-##### on('change')(deprecated)
+#### on('change')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1603,7 +1603,7 @@ g_object.on("change", (sessionId: string, fields: Array<string>) => {
 
 
 
-##### off('change')(deprecated)
+#### off('change')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1657,7 +1657,7 @@ g_object.off("change");
 
 
 
-##### on('status')(deprecated)
+#### on('status')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1704,7 +1704,7 @@ g_object.on("status", (sessionId: string, networkId: string, status: 'online' | 
 
 
 
-##### off('status')(deprecated)
+#### off('status')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

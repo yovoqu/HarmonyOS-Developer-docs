@@ -13,7 +13,7 @@
 
 
 
-##### Web页面输入框输入与软键盘交互的W3C标准支持
+#### Web页面输入框输入与软键盘交互的W3C标准支持
 
 为支持Web页面与系统软键盘、自定义软键盘等的良好交互，ArkWeb遵循并实现了W3C规范中的以下输入控制属性：
 
@@ -104,7 +104,7 @@
 
 
 
-##### 软键盘自动弹出
+#### 软键盘自动弹出
 
 为提升用户体验，可以在页面完成加载后，输入框自动获焦并弹出软键盘。通过调用[showTextInput()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethod#showtextinput10)设置软键盘自动弹出功能。
 
@@ -148,7 +148,7 @@ struct WebComponent {
 
 
 
-##### 设置软键盘避让模式
+#### 设置软键盘避让模式
 
 在移动设备上，支持设置Web页面的软键盘避让模式。
 1. 在应用代码中设置UIContext的软键盘避让模式[setKeyboardAvoidMode()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-expand-safe-area#setkeyboardavoidmode11)。ArkWeb组件支持Resize和Offset两种模式。
@@ -307,7 +307,7 @@ struct WebComponent {
 
 
 
-##### 拦截系统软键盘与自定义软键盘输入
+#### 拦截系统软键盘与自定义软键盘输入
 
 应用可以通过监听[onInterceptKeyboardAttach](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#oninterceptkeyboardattach12)回调，在软键盘拉起前，控制软键盘的显示，包括系统默认软键盘、带有特定Enter键的软键盘，或完全自定义软键盘。借助这一功能，开发者能够实现对软键盘的灵活管理。
 
@@ -488,10 +488,10 @@ ArkWeb自定义键盘的示例效果如图4、图5和图6所示。
 **图5** ArkWeb自定义键盘字母键盘
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/yQj5rh9HQguXUxu7NgIK5Q/zh-cn_image_0000002581434286.png?HW-CC-KV=V1&HW-CC-Date=20260528T014742Z&HW-CC-Expire=86400&HW-CC-Sign=F29AE0F706D676D0E9BC903A7D931D34A63B0740801D90B2D8F9211521C5CD8F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/yQj5rh9HQguXUxu7NgIK5Q/zh-cn_image_0000002581434286.png?HW-CC-KV=V1&HW-CC-Date=20260528T030413Z&HW-CC-Expire=86400&HW-CC-Sign=D7536F59208F12A342624FD6795F5305759D998B6D8EE464C48C12DC450FEDA3)
 
 
 **图6** ArkWeb自定义键盘符号键盘
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/23I4CjgjRD61Qo1tYGfBmw/zh-cn_image_0000002611834115.png?HW-CC-KV=V1&HW-CC-Date=20260528T014742Z&HW-CC-Expire=86400&HW-CC-Sign=D07A6FE77DCA113EFEAE7A71C782FCEADE8420FF915A0FA35BFEB27B43F467A3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/23I4CjgjRD61Qo1tYGfBmw/zh-cn_image_0000002611834115.png?HW-CC-KV=V1&HW-CC-Date=20260528T030413Z&HW-CC-Expire=86400&HW-CC-Sign=B38C18020C2E681339F0EEB83D715C38EEED91F79CD457DC35D0EDC9EC255668)

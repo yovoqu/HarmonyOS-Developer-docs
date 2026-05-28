@@ -7,13 +7,13 @@
 本章节给出了关键开发步骤，完整代码可以参考[示例代码](https://gitcode.com/HarmonyOS_Samples/arengine_samplecode_clientdemo_arkts)。
 
 
-##### 约束与限制
+#### 约束与限制
 
 从5.1.0(18)开始，管理AR会话支持部分Phone、部分Tablet设备。并且从6.1.0(23)版本开始，新增支持TV设备。请参考[硬件要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-preparations#硬件要求)判断设备是否支持。
 
 
 
-##### 接口说明
+#### 接口说明
 
 AR会话主要依赖[ARViewContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontext)，以下接口为AR会话相关接口。详细接口和说明，请参考[arViewController（AR场景管理能力）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller)。
 
@@ -32,7 +32,7 @@ AR会话主要依赖[ARViewContext](https://developer.huawei.com/consumer/cn/doc
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 对于使用ArkTS的任何AR应用，从6.1.0(23)开始，AREngine对于任何AR特性，都可以通过[arViewController.isARTypeSupported](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontrollerisartypesupported)接口来查询当前设备是否支持该特性，当判断该设备支持特性后，进行之后的开发工作。
 
@@ -40,7 +40,7 @@ AR会话主要依赖[ARViewContext](https://developer.huawei.com/consumer/cn/doc
 
 
 
-##### 导入模块
+#### 导入模块
 
 导入AR Engine相关模块，导入方法如下。
 
@@ -52,7 +52,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 
-##### 初始化AR会话和AR场景
+#### 初始化AR会话和AR场景
 
 通过[ARViewContext.init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontextinit)方法初始化一个AR会话及场景。
 
@@ -130,7 +130,7 @@ struct ARWorld {
 
 
 
-##### 使用AR会话对象处理业务
+#### 使用AR会话对象处理业务
 
 调用[ARViewCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcallback)，使用其中的[onFrameUpdate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcallbackonframeupdate)方法获取AR会话对象，之后可根据开发者所需的具体业务编写处理逻辑。
 
@@ -166,7 +166,7 @@ class ARViewCallbackImpl extends arViewController.ARViewCallback {
 
 
 
-##### 暂停AR会话
+#### 暂停AR会话
 
 要暂停AR会话，开发者可以使用[ARViewContext.pause](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontextpause)方法，在应用置为后台时可以暂停AR会话和暂停AR场景。
 
@@ -186,7 +186,7 @@ private pauseARView(): void {
 
 
 
-##### 恢复AR会话
+#### 恢复AR会话
 
 要恢复暂停的AR会话和AR场景，开发者可以使用[ARViewContext.resume](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontextresume)方法。
 
@@ -206,7 +206,7 @@ private resumeARView(): void {
 
 
 
-##### 销毁AR会话
+#### 销毁AR会话
 
 退出AR会话和AR场景时，开发者可以使用[ARViewContext.destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontextdestroy)方法同时销毁AR会话及AR场景。
 

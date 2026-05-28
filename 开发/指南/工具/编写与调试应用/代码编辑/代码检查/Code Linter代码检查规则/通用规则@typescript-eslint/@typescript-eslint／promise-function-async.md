@@ -9,7 +9,7 @@
 
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -22,13 +22,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/promise-function-async选项](https://typescript-eslint.nodejs.cn/rules/promise-function-async/#options)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 export const arrowFunctionReturnsPromise = async () => Promise.resolve('value');
@@ -51,7 +51,7 @@ export async function functionReturnsUnionWithPromiseImplicitly(p: boolean) {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 export const arrowFunctionReturnsPromise = () => Promise.resolve('value');
@@ -67,7 +67,7 @@ export function functionReturnsUnionWithPromiseImplicitly(p: boolean) {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

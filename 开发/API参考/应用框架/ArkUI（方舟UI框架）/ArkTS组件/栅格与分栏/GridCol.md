@@ -12,7 +12,7 @@
 
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -43,7 +43,7 @@ GridCol(option?: GridColOptions)
  
   
 
-##### GridColOptions对象说明
+#### GridColOptions对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -68,7 +68,7 @@ API version 20之后，span的继承规则见[GridColColumnOption](#gridcolcolum
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -76,7 +76,7 @@ API version 20之后，span的继承规则见[GridColColumnOption](#gridcolcolum
  
   
 
-##### span
+#### span
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -99,7 +99,7 @@ span(value: number | GridColColumnOption)
  
   
 
-##### gridColOffset
+#### gridColOffset
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -122,7 +122,7 @@ gridColOffset(value: number | GridColColumnOption)
  
   
 
-##### order
+#### order
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -145,7 +145,7 @@ order(value: number | GridColColumnOption)
  
   
 
-##### GridColColumnOption
+#### GridColColumnOption
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -184,7 +184,7 @@ span: {md:4, lg:8} // 等于配置 span: {xs:4, sm:4, md:4, lg:8, xl:8, xxl:8}
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -192,7 +192,7 @@ span: {md:4, lg:8} // 等于配置 span: {xs:4, sm:4, md:4, lg:8, xl:8, xxl:8}
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -238,4 +238,4 @@ struct GridColExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/vBvIq44RQHKgz75e2AoeLg/zh-cn_image_0000002611755669.png?HW-CC-KV=V1&HW-CC-Date=20260528T024219Z&HW-CC-Expire=86400&HW-CC-Sign=4462EB247E46581FF25B489D8130062538A99441FC48A4C0593D13282B711B5B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/vBvIq44RQHKgz75e2AoeLg/zh-cn_image_0000002611755669.png?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=76520A0DE8AB88D713F267281D451B04695959736AC6FB14CF57EF934B5C382E)

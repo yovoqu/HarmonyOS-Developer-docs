@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-bigint
 
-##### 简介
+#### 简介
 
 BigInt是ArkTS中用于表示任意精度整数的数据类型，它能够处理比Number类型更大范围的整数值。通过Node-API提供的接口，可以在Node-API模块中创建、获取和操作BigInt类型值，从而实现与BigInt相关的功能扩展。
  
   
 
-##### 基本概念
+#### 基本概念
 
 在使用Node-API接口操作BigInt类型值时，需要理解以下基本概念：
  
@@ -21,7 +21,7 @@ BigInt是ArkTS中用于表示任意精度整数的数据类型，它能够处理
  
   
 
-##### 场景和功能介绍
+#### 场景和功能介绍
  
 | 接口 | 描述 |
 | --- | --- |
@@ -35,7 +35,7 @@ BigInt是ArkTS中用于表示任意精度整数的数据类型，它能够处理
  
   
 
-##### 使用示例
+#### 使用示例
 
 Node-API接口开发流程参考[使用Node-API实现跨语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-process)，本文仅对接口对应C++及ArkTS相关代码进行展示。
  
@@ -55,7 +55,7 @@ import testNapi from 'libentry.so';
  
   
 
-##### napi_create_bigint_int64
+#### napi_create_bigint_int64
 
 这个函数用于在给定的Node-API环境中依据一个带有符号的64位整数创建一个ArkTS的BigInt对象。
  
@@ -92,7 +92,7 @@ hilog.info(0x0000, 'testTag', 'Test Node-API napi_create_bigint_int64: %{public}
  
   
 
-##### napi_create_bigint_uint64
+#### napi_create_bigint_uint64
 
 这个函数用于在给定的Node-API环境中依据一个无符号的64位整数创建一个ArkTS的BigInt对象。
  
@@ -129,7 +129,7 @@ hilog.info(0x0000, 'testTag', 'Test Node-API napi_create_bigint_uint64: %{public
  
   
 
-##### napi_create_bigint_words
+#### napi_create_bigint_words
 
 这个函数用于在给定的Node-API环境中由一系列无符号64位整数创建一个ArkTS的BigInt对象。
  
@@ -177,7 +177,7 @@ try {
  
   
 
-##### napi_get_value_bigint_int64
+#### napi_get_value_bigint_int64
 
 用于从传入的参数中提取64位整数的BigInt数据，以供后续处理。
  
@@ -236,7 +236,7 @@ try {
  
   
 
-##### napi_get_value_bigint_uint64
+#### napi_get_value_bigint_uint64
 
 用于从传入的参数中提取无符号64位整数的BigInt数据，以供后续处理。
  
@@ -290,7 +290,7 @@ try {
  
   
 
-##### napi_get_value_bigint_words
+#### napi_get_value_bigint_words
 
 用于从ArkTS对象中获取其符号位和底层64位无符号整数数组表示。
  

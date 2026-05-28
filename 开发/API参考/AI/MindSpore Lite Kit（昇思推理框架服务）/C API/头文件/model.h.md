@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-model-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -44,7 +44,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -86,13 +86,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_AI_KernelCallBack()
+#### OH_AI_KernelCallBack()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -130,7 +130,7 @@ typedef bool (*OH_AI_KernelCallBack)(const OH_AI_TensorHandleArray inputs, const
  
   
 
-##### OH_AI_ModelCreate()
+#### OH_AI_ModelCreate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -153,7 +153,7 @@ OH_AI_API OH_AI_ModelHandle OH_AI_ModelCreate(void)
  
   
 
-##### OH_AI_ModelDestroy()
+#### OH_AI_ModelDestroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -176,7 +176,7 @@ OH_AI_API void OH_AI_ModelDestroy(OH_AI_ModelHandle *model)
  
   
 
-##### OH_AI_ModelBuild()
+#### OH_AI_ModelBuild()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -212,7 +212,7 @@ OH_AI_API OH_AI_Status OH_AI_ModelBuild(OH_AI_ModelHandle model, const void *mod
  
   
 
-##### OH_AI_ModelBuildFromFile()
+#### OH_AI_ModelBuildFromFile()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -247,7 +247,7 @@ OH_AI_API OH_AI_Status OH_AI_ModelBuildFromFile(OH_AI_ModelHandle model, const c
  
   
 
-##### OH_AI_ModelResize()
+#### OH_AI_ModelResize()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -280,7 +280,7 @@ OH_AI_API OH_AI_Status OH_AI_ModelResize(OH_AI_ModelHandle model, const OH_AI_Te
  
   
 
-##### OH_AI_ModelPredict()
+#### OH_AI_ModelPredict()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -314,7 +314,7 @@ OH_AI_API OH_AI_Status OH_AI_ModelPredict(OH_AI_ModelHandle model, const OH_AI_T
  
   
 
-##### OH_AI_ModelGetInputs()
+#### OH_AI_ModelGetInputs()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -344,7 +344,7 @@ OH_AI_API OH_AI_TensorHandleArray OH_AI_ModelGetInputs(const OH_AI_ModelHandle m
  
   
 
-##### OH_AI_ModelGetOutputs()
+#### OH_AI_ModelGetOutputs()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -374,7 +374,7 @@ OH_AI_API OH_AI_TensorHandleArray OH_AI_ModelGetOutputs(const OH_AI_ModelHandle 
  
   
 
-##### OH_AI_ModelGetInputByTensorName()
+#### OH_AI_ModelGetInputByTensorName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -405,7 +405,7 @@ OH_AI_API OH_AI_TensorHandle OH_AI_ModelGetInputByTensorName(const OH_AI_ModelHa
  
   
 
-##### OH_AI_ModelGetOutputByTensorName()
+#### OH_AI_ModelGetOutputByTensorName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -436,7 +436,7 @@ OH_AI_API OH_AI_TensorHandle OH_AI_ModelGetOutputByTensorName(const OH_AI_ModelH
  
   
 
-##### OH_AI_TrainCfgCreate()
+#### OH_AI_TrainCfgCreate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -459,7 +459,7 @@ OH_AI_API OH_AI_TrainCfgHandle OH_AI_TrainCfgCreate()
  
   
 
-##### OH_AI_TrainCfgDestroy()
+#### OH_AI_TrainCfgDestroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -482,7 +482,7 @@ OH_AI_API void OH_AI_TrainCfgDestroy(OH_AI_TrainCfgHandle *train_cfg)
  
   
 
-##### OH_AI_TrainCfgGetLossName()
+#### OH_AI_TrainCfgGetLossName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -513,7 +513,7 @@ OH_AI_API char **OH_AI_TrainCfgGetLossName(OH_AI_TrainCfgHandle train_cfg, size_
  
   
 
-##### OH_AI_TrainCfgSetLossName()
+#### OH_AI_TrainCfgSetLossName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -538,7 +538,7 @@ OH_AI_API void OH_AI_TrainCfgSetLossName(OH_AI_TrainCfgHandle train_cfg, const c
  
   
 
-##### OH_AI_TrainCfgGetOptimizationLevel()
+#### OH_AI_TrainCfgGetOptimizationLevel()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -568,7 +568,7 @@ OH_AI_API OH_AI_OptimizationLevel OH_AI_TrainCfgGetOptimizationLevel(OH_AI_Train
  
   
 
-##### OH_AI_TrainCfgSetOptimizationLevel()
+#### OH_AI_TrainCfgSetOptimizationLevel()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -592,7 +592,7 @@ OH_AI_API void OH_AI_TrainCfgSetOptimizationLevel(OH_AI_TrainCfgHandle train_cfg
  
   
 
-##### OH_AI_TrainModelBuild()
+#### OH_AI_TrainModelBuild()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -627,7 +627,7 @@ OH_AI_API OH_AI_Status OH_AI_TrainModelBuild(OH_AI_ModelHandle model, const void
  
   
 
-##### OH_AI_TrainModelBuildFromFile()
+#### OH_AI_TrainModelBuildFromFile()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -661,7 +661,7 @@ OH_AI_API OH_AI_Status OH_AI_TrainModelBuildFromFile(OH_AI_ModelHandle model, co
  
   
 
-##### OH_AI_RunStep()
+#### OH_AI_RunStep()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -693,7 +693,7 @@ OH_AI_API OH_AI_Status OH_AI_RunStep(OH_AI_ModelHandle model, const OH_AI_Kernel
  
   
 
-##### OH_AI_ModelSetLearningRate()
+#### OH_AI_ModelSetLearningRate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -724,7 +724,7 @@ OH_AI_API OH_AI_Status OH_AI_ModelSetLearningRate(OH_AI_ModelHandle model, float
  
   
 
-##### OH_AI_ModelGetLearningRate()
+#### OH_AI_ModelGetLearningRate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -754,7 +754,7 @@ OH_AI_API float OH_AI_ModelGetLearningRate(OH_AI_ModelHandle model)
  
   
 
-##### OH_AI_ModelGetWeights()
+#### OH_AI_ModelGetWeights()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -784,7 +784,7 @@ OH_AI_API OH_AI_TensorHandleArray OH_AI_ModelGetWeights(OH_AI_ModelHandle model)
  
   
 
-##### OH_AI_ModelUpdateWeights()
+#### OH_AI_ModelUpdateWeights()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -815,7 +815,7 @@ OH_AI_API OH_AI_Status OH_AI_ModelUpdateWeights(OH_AI_ModelHandle model, const O
  
   
 
-##### OH_AI_ModelGetTrainMode()
+#### OH_AI_ModelGetTrainMode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -845,7 +845,7 @@ OH_AI_API bool OH_AI_ModelGetTrainMode(OH_AI_ModelHandle model)
  
   
 
-##### OH_AI_ModelSetTrainMode()
+#### OH_AI_ModelSetTrainMode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -876,7 +876,7 @@ OH_AI_API OH_AI_Status OH_AI_ModelSetTrainMode(OH_AI_ModelHandle model, bool tra
  
   
 
-##### OH_AI_ModelSetupVirtualBatch()
+#### OH_AI_ModelSetupVirtualBatch()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -909,7 +909,7 @@ OH_AI_API OH_AI_Status OH_AI_ModelSetupVirtualBatch(OH_AI_ModelHandle model, int
  
   
 
-##### OH_AI_ExportModel()
+#### OH_AI_ExportModel()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -945,7 +945,7 @@ OH_AI_API OH_AI_Status OH_AI_ExportModel(OH_AI_ModelHandle model, OH_AI_ModelTyp
  
   
 
-##### OH_AI_ExportModelBuffer()
+#### OH_AI_ExportModelBuffer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -982,7 +982,7 @@ OH_AI_API OH_AI_Status OH_AI_ExportModelBuffer(OH_AI_ModelHandle model, OH_AI_Mo
  
   
 
-##### OH_AI_ExportWeightsCollaborateWithMicro()
+#### OH_AI_ExportWeightsCollaborateWithMicro()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1018,7 +1018,7 @@ OH_AI_API OH_AI_Status OH_AI_ExportWeightsCollaborateWithMicro(OH_AI_ModelHandle
  
   
 
-##### OH_AI_ModelLoadConfig()
+#### OH_AI_ModelLoadConfig()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1049,7 +1049,7 @@ OH_AI_API OH_AI_Status OH_AI_ModelLoadConfig(OH_AI_ModelHandle model, const char
  
   
 
-##### OH_AI_ModelPredictWithConfig()
+#### OH_AI_ModelPredictWithConfig()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -11,7 +11,7 @@
 
   
 
-##### 限制约束
+#### 限制约束
 1. 目前仅硬件解码器支持该能力。
 2. 目前仅Surface模式支持该能力。Surface模式和Buffer模式输出差异可参考[视频解码](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-decoding)。
 3. 目前使能该能力时，不支持码流分辨率变化，会通过回调函数OH_AVCodecOnError()报告错误码[AV_ERR_UNSUPPORT](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-averrors-h#oh_averrcode)。
@@ -21,7 +21,7 @@
  
   
 
-##### 在 CMake 脚本中链接动态库
+#### 在 CMake 脚本中链接动态库
 
 ```text
 target_link_libraries(sample PUBLIC libnative_media_avsource.so)
@@ -35,7 +35,7 @@ target_link_libraries(sample PUBLIC libnative_media_core.so)
  
   
 
-##### 开发步骤
+#### 开发步骤
 1. 添加头文件。
 
   

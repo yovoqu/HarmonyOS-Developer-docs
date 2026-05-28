@@ -7,7 +7,7 @@
 在使用ImageReceiver组件中[readNextImage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagereceiver#readnextimage9)接口时，建议设置且调用rowStride属性，避免出现相机获取预览流数据异常的问题。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -77,7 +77,7 @@ function onImageArrival(receiver: image.ImageReceiver): void {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -109,7 +109,7 @@ function onImageArrival(receiver: image.ImageReceiver): void {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(80,160,79);">plugin:@correctness/all</span>

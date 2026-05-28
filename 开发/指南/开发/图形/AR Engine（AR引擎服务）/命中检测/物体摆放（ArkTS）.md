@@ -7,13 +7,13 @@
 本章节给出了关键开发步骤，完整代码可以参考[示例代码](https://gitcode.com/HarmonyOS_Samples/arengine_samplecode_clientdemo_arkts)。
 
 
-##### 约束与限制
+#### 约束与限制
 
 从5.1.0(18)开始，物体摆放能力支持部分Phone、部分Tablet设备。请参考[硬件要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-preparations#硬件要求)判断设备是否支持运动跟踪及平面识别特性（[ARENGINE_FEATURE_TYPE_SLAM](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arfeaturetype)）。
 
 
 
-##### 接口说明
+#### 接口说明
 
 AR物体摆放主要依赖[ARViewContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontext)，以下接口为AR物体摆放相关接口。详细接口和说明，请参考[AR Engine API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine)。
 
@@ -39,7 +39,7 @@ AR物体摆放主要依赖[ARViewContext](https://developer.huawei.com/consumer/
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 AR Engine仅输出识别到的平面数据。为便于用户观察，可使用AGP（Ark Graphics Platform）渲染引擎或者[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)绘制识别的平面。关于AGP的介绍可以查看[ArkGraphics 3D简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkgraphics3d-overview)和[AGP引擎](https://gitcode.com/openharmony/graphic_graphic_3d)。
 
@@ -47,7 +47,7 @@ AR Engine仅输出识别到的平面数据。为便于用户观察，可使用AG
 
 
 
-##### 导入模块
+#### 导入模块
 
 AR物体摆放所需要导入的模块如下。
 
@@ -60,7 +60,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 
-##### 定义变量
+#### 定义变量
 
 定义变量hitAnchorList存储放置物体处的锚点信息、hitPoseList存储放置物体处的位姿信息和statusBarHeight设备状态栏高度。
 
@@ -75,7 +75,7 @@ let statusBarHeight: number = 0;
 
 
 
-##### 显示预览流
+#### 显示预览流
 
 在ARView中加入点击事件，进行碰撞检测，获取锚点位姿数据加入列表。
 
@@ -221,7 +221,7 @@ struct ARWorld {
 
 
 
-##### 渲染识别的平面和放置的物体
+#### 渲染识别的平面和放置的物体
 
 调用[ARViewCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcallback)，使用其中的[onFrameUpdate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcallbackonframeupdate)方法进行帧数据更新，获取平面信息。
 

@@ -12,7 +12,7 @@
 **起始版本：** 4.0.0(10)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -22,7 +22,7 @@ import { devicePicker } from '@kit.ServiceCollaborationKit';
  
   
 
-##### DeviceEvent
+#### DeviceEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -43,7 +43,7 @@ type DeviceEvent = 'deviceSelected' | 'deviceUnselected' | 'selectedDeviceOfflin
  
   
 
-##### createDevicePickerController
+#### createDevicePickerController
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -90,7 +90,7 @@ struct Index {
  
   
 
-##### DevicePickerController
+#### DevicePickerController
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -102,7 +102,7 @@ DevicePickerController类提供了与设备选择面板交互的接口。
  
   
 
-##### on('deviceSelected' | 'deviceUnselected' | 'selectedDeviceOffline')
+#### on('deviceSelected' | 'deviceUnselected' | 'selectedDeviceOffline')
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -189,7 +189,7 @@ struct CustomControls {
  
   
 
-##### off('deviceSelected' | 'deviceUnselected' | 'selectedDeviceOffline')
+#### off('deviceSelected' | 'deviceUnselected' | 'selectedDeviceOffline')
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -252,7 +252,7 @@ struct CustomControls {
  
   
 
-##### updateState
+#### updateState
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -340,7 +340,7 @@ struct CustomControls {
  
   
 
-##### release
+#### release
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -379,7 +379,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### DevicePickerAttribute
+#### DevicePickerAttribute
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -399,7 +399,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### BusinessState
+#### BusinessState
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

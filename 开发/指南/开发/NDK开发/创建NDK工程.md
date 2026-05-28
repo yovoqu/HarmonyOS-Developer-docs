@@ -17,11 +17,11 @@
 3. 根据工程创建向导，选择Native C++工程模板，然后单击**Next**。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/LOAC-DhBT-aTX-YWqb7SOg/zh-cn_image_0000002611835291.png?HW-CC-KV=V1&HW-CC-Date=20260528T014528Z&HW-CC-Expire=86400&HW-CC-Sign=F3F4BEAC0014A6424A29D9E443739489E5668124DAEB149B769C9EEC3DDB95B8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/LOAC-DhBT-aTX-YWqb7SOg/zh-cn_image_0000002611835291.png?HW-CC-KV=V1&HW-CC-Date=20260528T030159Z&HW-CC-Expire=86400&HW-CC-Sign=DD8772CDEDC8D5290CB37B6D9375F7FABBCA10226A0C3F2BBF30A494019E24C4)
 
 4. 在工程配置页面，根据向导配置工程的基本信息后，单击**Finish**，工具会自动生成示例代码和相关资源，等待工程创建完成。
 
   在工程entry/src/main目录下会包含cpp目录，该目录文件的详细介绍请参见[C++工程目录结构](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-project-structure)。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/YuntL78yTlavDays4n0ysw/zh-cn_image_0000002581275544.png?HW-CC-KV=V1&HW-CC-Date=20260528T014528Z&HW-CC-Expire=86400&HW-CC-Sign=5FE1DDFE3A4E926297AFA28DBA932EC736AF40C29A391E2132565C35AC3A1825)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/YuntL78yTlavDays4n0ysw/zh-cn_image_0000002581275544.png?HW-CC-KV=V1&HW-CC-Date=20260528T030159Z&HW-CC-Expire=86400&HW-CC-Sign=70546B0B968FD18A9AF78721AC07545FA239419643232B9BD9F536B385AC1E5B)

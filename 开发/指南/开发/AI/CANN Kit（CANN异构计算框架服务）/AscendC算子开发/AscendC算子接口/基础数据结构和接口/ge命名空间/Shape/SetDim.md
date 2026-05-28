@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-shape-setdim
 
-##### 函数功能
+#### 函数功能
 
 将Shape中第idx维度的值设置为value。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 graphStatus SetDim(size_t idx, int64_t value);
@@ -18,7 +18,7 @@ graphStatus SetDim(size_t idx, int64_t value);
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数名 | 输入/输出 | 描述 |
 | --- | --- | --- |
@@ -28,7 +28,7 @@ graphStatus SetDim(size_t idx, int64_t value);
  
   
 
-##### 返回值
+#### 返回值
  
 | 类型 | 描述 |
 | --- | --- |
@@ -37,12 +37,12 @@ graphStatus SetDim(size_t idx, int64_t value);
  
   
 
-##### 异常处理
+#### 异常处理
 
 无
  
   
 
-##### 约束说明
+#### 约束说明
 
 使用SetDim接口前，只能使用Shape(const std::vector&lt;int64_t&gt;& dims)构造shape对象。如果使用Shape()构造shape对象，使用SetDim接口将返回失败。

@@ -12,7 +12,7 @@
 
 
 
-##### pushUrl
+#### pushUrl
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -160,7 +160,7 @@ struct Second {
 
 
 
-##### pushUrl
+#### pushUrl
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -241,7 +241,7 @@ struct Index {
 
 
 
-##### pushUrl
+#### pushUrl
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -334,7 +334,7 @@ struct Index {
 
 
 
-##### pushUrl
+#### pushUrl
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -423,7 +423,7 @@ struct Index {
 
 
 
-##### replaceUrl
+#### replaceUrl
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -504,7 +504,7 @@ struct Index {
 
 
 
-##### replaceUrl
+#### replaceUrl
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -581,7 +581,7 @@ struct Index {
 
 
 
-##### replaceUrl
+#### replaceUrl
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -670,7 +670,7 @@ struct Index {
 
 
 
-##### replaceUrl
+#### replaceUrl
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -755,7 +755,7 @@ struct Index {
 
 
 
-##### pushNamedRoute
+#### pushNamedRoute
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -840,7 +840,7 @@ struct Index {
 
 
 
-##### pushNamedRoute
+#### pushNamedRoute
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -921,7 +921,7 @@ struct Index {
 
 
 
-##### pushNamedRoute
+#### pushNamedRoute
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1013,7 +1013,7 @@ struct Index {
 
 
 
-##### pushNamedRoute
+#### pushNamedRoute
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1102,7 +1102,7 @@ struct Index {
 
 
 
-##### replaceNamedRoute
+#### replaceNamedRoute
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1183,7 +1183,7 @@ struct Index {
 
 
 
-##### replaceNamedRoute
+#### replaceNamedRoute
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1260,7 +1260,7 @@ struct Index {
 
 
 
-##### replaceNamedRoute
+#### replaceNamedRoute
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1349,7 +1349,7 @@ struct Index {
 
 
 
-##### replaceNamedRoute
+#### replaceNamedRoute
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1434,7 +1434,7 @@ struct Index {
 
 
 
-##### back
+#### back
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1466,7 +1466,7 @@ router.back({url:'pages/detail'});
 
 
 
-##### back12+
+#### back12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1509,7 +1509,7 @@ router.back(1, {info:'来自Home页'}); // 携带参数返回
 
 
 
-##### clear
+#### clear
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1535,7 +1535,7 @@ router.clear();
 
 
 
-##### getLength(deprecated)
+#### getLength(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1573,7 +1573,7 @@ console.info('pages stack size = ' + size);
 
 
 
-##### getStackSize23+
+#### getStackSize23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1622,7 +1622,7 @@ struct Index {
 
 
 
-##### getState
+#### getState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1660,7 +1660,7 @@ if (page != undefined) {
 
 
 
-##### getStateByIndex12+
+#### getStateByIndex12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1706,7 +1706,7 @@ if (options != undefined) {
 
 
 
-##### getStateByUrl12+
+#### getStateByUrl12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1751,7 +1751,7 @@ for (let i: number = 0; i < options.length; i++) {
 
 
 
-##### showAlertBeforeBackPage
+#### showAlertBeforeBackPage
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1803,7 +1803,7 @@ try {
 
 
 
-##### hideAlertBeforeBackPage
+#### hideAlertBeforeBackPage
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1829,7 +1829,7 @@ router.hideAlertBeforeBackPage();
 
 
 
-##### getParams
+#### getParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

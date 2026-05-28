@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-rtshadowparameters
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -19,13 +19,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  
@@ -42,13 +42,13 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### rayPerPixel
+#### rayPerPixel
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -62,7 +62,7 @@ uint32_t XEG_RTShadowParameters::rayPerPixel = 1
  
   
 
-##### raySourceAngleInDegree
+#### raySourceAngleInDegree
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -76,7 +76,7 @@ float XEG_RTShadowParameters::raySourceAngleInDegree = 0.0f
  
   
 
-##### rayTMax
+#### rayTMax
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -90,7 +90,7 @@ float XEG_RTShadowParameters::rayTMax
  
   
 
-##### rayTMin
+#### rayTMin
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -104,7 +104,7 @@ float XEG_RTShadowParameters::rayTMin
  
   
 
-##### shadowCullDistance
+#### shadowCullDistance
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -118,7 +118,7 @@ float XEG_RTShadowParameters::shadowCullDistance
  
   
 
-##### shadowCullMask
+#### shadowCullMask
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -132,7 +132,7 @@ uint32_t XEG_RTShadowParameters::shadowCullMask = 0x5FF
  
   
 
-##### sunDirection
+#### sunDirection
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

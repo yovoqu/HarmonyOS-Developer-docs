@@ -15,7 +15,7 @@
 
   
 
-##### 环境要求
+#### 环境要求
 
 - 在使用本工具前，开发者需要先获取[hdc工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdc#环境准备)，开启[开发者选项](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-developer-mode#section530763213432)，执行hdc shell。
 - 此调试工具仅支持调试应用使用，配置调试应用具体可见[配置应用可调试](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-run-debug-configurations)。
@@ -24,7 +24,7 @@
  
   
 
-##### 操作准备
+#### 操作准备
 
 - 在使用preferences调试工具之前，必须要先切换至目标调试应用路径下，再使用arkdata命令进入到preferences调试工具（需要使用arkdata配置相关参数打开preferences数据库，开库成功后才能使用preferences工具进行数据的增删改查）。
 
@@ -111,7 +111,7 @@ OPTION
  
   
 
-##### 命令列表
+#### 命令列表
 
 preference_kv和preference_xml调试工具支持的命令如下表所示：
   
@@ -128,7 +128,7 @@ preference_kv和preference_xml调试工具支持的命令如下表所示：
  
   
 
-##### 约束限制
+#### 约束限制
 
 - 数字默认为int类型，若以引号赋予数字值，将识别为string类型。
 - 命令行输入数据仅支持string、number和boolean类型，其他类型将被转换为string类型。
@@ -138,11 +138,11 @@ preference_kv和preference_xml调试工具支持的命令如下表所示：
  
   
 
-##### 命令的具体使用及示例
+#### 命令的具体使用及示例
 
   
 
-##### 帮助命令（.help）
+#### 帮助命令（.help）
 
 打开preference_kv或者preference_xml数据库后，使用帮助命令可以查看其支持的命令。
  
@@ -156,7 +156,7 @@ preference_xml>>> .help
  
   
 
-##### 创建或打开已有的数据库
+#### 创建或打开已有的数据库
 1. 执行hdc shell命令进入shell交互模式。
 2. 必须要先切换至目标调试应用路径下，再进入存在db文件的路径下，执行"arkdata -t  preference_kv -f perfdata"或者"arkdata -t  preference_xml -f perfdata"新建一个数据库。
 
@@ -207,7 +207,7 @@ preference_kv>>>
  
   
 
-##### 插入数据
+#### 插入数据
 
 在preference_kv>>>提示符下，可通过put命令插入指定键值对，显示结果如下：
  
@@ -224,7 +224,7 @@ type string: 123
  
   
 
-##### 全表查询
+#### 全表查询
 
 - 在preference_xml>>>提示符下，可通过scan命令全表查询，显示结果如下：
 
@@ -289,7 +289,7 @@ preference_kv>>> scan
  
   
 
-##### 单值查询
+#### 单值查询
 
 在preference_kv>>>提示符下，可通过get命令指定key查询指定键值对，显示结果如下：
  
@@ -321,7 +321,7 @@ type string: true
  
   
 
-##### 更新数据
+#### 更新数据
 
 在preference_kv>>>提示符下，当key值存在时， 可通过put命令更新键值对，显示结果如下：
  
@@ -338,7 +338,7 @@ type string: y
  
   
 
-##### 删除数据
+#### 删除数据
 
 在preference_kv>>>提示符下，可通过delete命令删除指定键值对，显示结果如下：
  
@@ -373,16 +373,16 @@ $
  
   
 
-##### 模拟器支持情况
+#### 模拟器支持情况
 
 当前工具支持模拟器。
  
   
 
-##### 常见问题
+#### 常见问题
 
   
 
-##### 如何删除字符
+#### 如何删除字符
 
 使用Ctrl+BackSpace删除单个字符，使用Ctrl+U删除全部字符。

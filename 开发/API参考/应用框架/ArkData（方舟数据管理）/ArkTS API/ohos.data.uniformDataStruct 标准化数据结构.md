@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -22,7 +22,7 @@ import { uniformDataStruct } from '@kit.ArkData';
 
 
 
-##### PlainText
+#### PlainText
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -64,7 +64,7 @@ let record = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformD
 
 
 
-##### Hyperlink
+#### Hyperlink
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -100,7 +100,7 @@ let record = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformD
 
 
 
-##### HTML
+#### HTML
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -136,7 +136,7 @@ let record = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformD
 
 
 
-##### OpenHarmonyAppItem
+#### OpenHarmonyAppItem
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -182,7 +182,7 @@ let record = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformD
 
 
 
-##### ContentForm14+
+#### ContentForm14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -222,7 +222,7 @@ let record = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformD
 
 
 
-##### Form15+
+#### Form15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -266,7 +266,7 @@ let record = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformD
 
 
 
-##### FileUri15+
+#### FileUri15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -305,7 +305,7 @@ let record = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformD
 
 
 
-##### PixelMap15+
+#### PixelMap15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

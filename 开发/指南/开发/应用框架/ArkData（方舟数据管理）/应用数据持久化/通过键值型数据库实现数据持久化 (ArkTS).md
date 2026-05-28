@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-persistence-by-kv-store
 
-##### 场景介绍
+#### 场景介绍
 
 键值型数据库存储键值对形式的数据，当需要存储的数据没有复杂的关系模型，比如存储商品名称及对应价格、员工工号及今日是否已出勤等，由于数据复杂度低，更容易兼容不同数据库版本和设备类型，因此推荐使用键值型数据库持久化此类数据。
 
 
 
-##### 约束限制
+#### 约束限制
 
  - 设备协同数据库，针对每条记录，Key的长度≤896 Byte，Value的长度<4 MB。
  - 单版本数据库，针对每条记录，Key的长度≤1 KB，Value的长度<4 MB。
@@ -20,7 +20,7 @@
 
 
 
-##### 接口说明
+#### 接口说明
 
 以下是键值型数据库持久化功能的相关接口，更多接口及使用方式请见[分布式键值数据库](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributedkvstore)。
 
@@ -37,7 +37,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 若要使用键值型数据库，首先要使用createKVManager()方法获取一个KVManager实例，用于管理数据库对象。示例代码如下所示：
 
   
@@ -309,6 +309,6 @@ public DeleteKvStore = (()=>{
 
 
 
-##### 示例代码
+#### 示例代码
 
  - [实现键值型数据库读写功能](https://gitcode.com/HarmonyOS_Samples/KVStore)

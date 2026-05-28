@@ -12,7 +12,7 @@
 
 
 
-##### 实现原理
+#### 实现原理
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -21,12 +21,12 @@
 **图1** 快照启动流程
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/i-VZMwe1RNGFnY3utTS_HA/zh-cn_image_0000002581275604.png?HW-CC-KV=V1&HW-CC-Date=20260528T024251Z&HW-CC-Expire=86400&HW-CC-Sign=1E92CA3BB34A47C9B2BB98F9A30585A6E56C269C565304993EC4DB68152CD9E8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/i-VZMwe1RNGFnY3utTS_HA/zh-cn_image_0000002581275604.png?HW-CC-KV=V1&HW-CC-Date=20260528T025625Z&HW-CC-Expire=86400&HW-CC-Sign=D3B048B86865C7891A143805A282854B8259219538114409C46C752D57D871DF)
 
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -36,7 +36,7 @@ import { hyperSnapManager } from '@kit.AbilityKit';
 
 
 
-##### hyperSnapManager.setHyperSnapEnabled
+#### hyperSnapManager.setHyperSnapEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -87,7 +87,7 @@ try {
 
 
 
-##### hyperSnapManager.requestRebuildHyperSnap
+#### hyperSnapManager.requestRebuildHyperSnap
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

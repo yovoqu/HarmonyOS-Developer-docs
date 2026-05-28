@@ -7,7 +7,7 @@
 提供菜单组件，作为临时性弹出窗口，用于展示用户可执行的操作，具体用法请参考[menu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-menu)。
 
 
-##### 创建menu组件
+#### 创建menu组件
 
 在pages/index目录下的hml文件中创建一个menu组件，添加target、type、title属性。
 
@@ -49,7 +49,7 @@
 
 
 
-##### 设置样式
+#### 设置样式
 
 为menu组件设置样式，例如字体颜色、大小、字符间距等。
 
@@ -102,7 +102,7 @@ option{
 
 
 
-##### 绑定事件
+#### 绑定事件
 
 为menu组件绑定oncancel事件（取消操作时触发）。
 
@@ -165,4 +165,4 @@ export default {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/MGMfhgZgQMK6ALTC69Xmeg/zh-cn_image_0000002611754127.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014755Z&HW-CC-Expire=86400&HW-CC-Sign=99ADFAB8A6ADA7E92EC082CEE1701544D1401E8AF2BCFA9F40FE623BDDEDE181)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/MGMfhgZgQMK6ALTC69Xmeg/zh-cn_image_0000002611754127.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030427Z&HW-CC-Expire=86400&HW-CC-Sign=DE0580E6B39B5FC4C4A7D5D1A90F592C7D1EF123EFA8338422F7334707C321F4)

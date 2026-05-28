@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { launcherBundleManager } from '@kit.AbilityKit';
 
 
 
-##### launcherBundleManager.getLauncherAbilityInfoSync
+#### launcherBundleManager.getLauncherAbilityInfoSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -79,7 +79,7 @@ try {
 
 
 
-##### LauncherAbilityInfo
+#### LauncherAbilityInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -96,7 +96,7 @@ LauncherAbilityInfo信息。
 
 
 
-##### ShortcutInfo20+
+#### ShortcutInfo20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -113,7 +113,7 @@ type ShortcutInfo = _ShortcutInfo
 
 
 
-##### ShortcutWant20+
+#### ShortcutWant20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -130,7 +130,7 @@ type ShortcutWant = _ShortcutWant
 
 
 
-##### ParameterItem20+
+#### ParameterItem20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

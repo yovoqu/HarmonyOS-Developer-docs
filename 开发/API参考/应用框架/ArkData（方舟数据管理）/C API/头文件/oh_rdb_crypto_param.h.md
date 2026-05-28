@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-rdb-crypto-param-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -40,7 +40,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -53,7 +53,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -71,13 +71,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### Rdb_EncryptionAlgo
+#### Rdb_EncryptionAlgo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -100,7 +100,7 @@ enum Rdb_EncryptionAlgo
  
   
 
-##### Rdb_HmacAlgo
+#### Rdb_HmacAlgo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -123,7 +123,7 @@ enum Rdb_HmacAlgo
  
   
 
-##### Rdb_KdfAlgo
+#### Rdb_KdfAlgo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -146,13 +146,13 @@ enum Rdb_KdfAlgo
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Rdb_CreateCryptoParam()
+#### OH_Rdb_CreateCryptoParam()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -175,7 +175,7 @@ OH_Rdb_CryptoParam *OH_Rdb_CreateCryptoParam(void)
  
   
 
-##### OH_Rdb_DestroyCryptoParam()
+#### OH_Rdb_DestroyCryptoParam()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -205,7 +205,7 @@ int OH_Rdb_DestroyCryptoParam(OH_Rdb_CryptoParam *param)
  
   
 
-##### OH_Crypto_SetEncryptionKey()
+#### OH_Crypto_SetEncryptionKey()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -237,7 +237,7 @@ int OH_Crypto_SetEncryptionKey(OH_Rdb_CryptoParam *param, const uint8_t *key, in
  
   
 
-##### OH_Crypto_SetIteration()
+#### OH_Crypto_SetIteration()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -268,7 +268,7 @@ int OH_Crypto_SetIteration(OH_Rdb_CryptoParam *param, int64_t iteration)
  
   
 
-##### OH_Crypto_SetEncryptionAlgo()
+#### OH_Crypto_SetEncryptionAlgo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -299,7 +299,7 @@ int OH_Crypto_SetEncryptionAlgo(OH_Rdb_CryptoParam *param, int32_t algo)
  
   
 
-##### OH_Crypto_SetHmacAlgo()
+#### OH_Crypto_SetHmacAlgo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -330,7 +330,7 @@ int OH_Crypto_SetHmacAlgo(OH_Rdb_CryptoParam *param, int32_t algo)
  
   
 
-##### OH_Crypto_SetKdfAlgo()
+#### OH_Crypto_SetKdfAlgo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -361,7 +361,7 @@ int OH_Crypto_SetKdfAlgo(OH_Rdb_CryptoParam *param, int32_t algo)
  
   
 
-##### OH_Crypto_SetCryptoPageSize()
+#### OH_Crypto_SetCryptoPageSize()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

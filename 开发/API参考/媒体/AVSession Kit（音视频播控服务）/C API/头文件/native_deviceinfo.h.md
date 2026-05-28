@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-deviceinfo-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -41,7 +41,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -56,13 +56,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_DeviceInfo_GetAVCastCategory()
+#### OH_DeviceInfo_GetAVCastCategory()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -93,7 +93,7 @@ AVSession_ErrCode OH_DeviceInfo_GetAVCastCategory(AVSession_DeviceInfo *deviceIn
  
   
 
-##### OH_DeviceInfo_GetDeviceId()
+#### OH_DeviceInfo_GetDeviceId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -124,7 +124,7 @@ AVSession_ErrCode OH_DeviceInfo_GetDeviceId(AVSession_DeviceInfo *deviceInfo, ch
  
   
 
-##### OH_DeviceInfo_GetDeviceName()
+#### OH_DeviceInfo_GetDeviceName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -155,7 +155,7 @@ AVSession_ErrCode OH_DeviceInfo_GetDeviceName(AVSession_DeviceInfo *deviceInfo, 
  
   
 
-##### OH_DeviceInfo_GetDeviceType()
+#### OH_DeviceInfo_GetDeviceType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -186,7 +186,7 @@ AVSession_ErrCode OH_DeviceInfo_GetDeviceType(AVSession_DeviceInfo *deviceInfo, 
  
   
 
-##### OH_DeviceInfo_GetSupportedProtocols()
+#### OH_DeviceInfo_GetSupportedProtocols()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

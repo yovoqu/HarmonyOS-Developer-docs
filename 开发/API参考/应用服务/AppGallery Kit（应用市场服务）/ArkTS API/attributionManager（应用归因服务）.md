@@ -14,7 +14,7 @@
 **起始版本：** 5.0.0(12)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -24,7 +24,7 @@ import { attributionManager } from '@kit.AppGalleryKit';
 
 
 
-##### AdSourceInfo
+#### AdSourceInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -51,7 +51,7 @@ import { attributionManager } from '@kit.AppGalleryKit';
 
 
 
-##### AdTriggerInfo
+#### AdTriggerInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -73,7 +73,7 @@ import { attributionManager } from '@kit.AppGalleryKit';
 
 
 
-##### SourceType
+#### SourceType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -93,7 +93,7 @@ import { attributionManager } from '@kit.AppGalleryKit';
 
 
 
-##### attributionManager.registerSource
+#### attributionManager.registerSource
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -199,7 +199,7 @@ class  Attribution {
 
 
 
-##### attributionManager.registerTrigger
+#### attributionManager.registerTrigger
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

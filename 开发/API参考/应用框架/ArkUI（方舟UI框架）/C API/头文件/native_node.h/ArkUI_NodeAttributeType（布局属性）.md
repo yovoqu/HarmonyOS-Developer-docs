@@ -9,7 +9,7 @@ enum ArkUI_NodeAttributeType
 ```
  
 
-##### 概述
+#### 概述
 
 定义ArkUI在Native侧可以设置的布局相关属性集合，包含尺寸、百分比尺寸、内外边距、边框、位置、对齐、方向、约束、Flex参数、布局规则及布局类组件相关属性设置。
  
@@ -21,7 +21,7 @@ enum ArkUI_NodeAttributeType
  
  
 
-##### NODE_WIDTH
+#### NODE_WIDTH
 
 ```text
 NODE_WIDTH = 0
@@ -49,7 +49,7 @@ NODE_WIDTH = 0
  
  
 
-##### NODE_HEIGHT
+#### NODE_HEIGHT
 
 ```text
 NODE_HEIGHT = 1
@@ -77,7 +77,7 @@ NODE_HEIGHT = 1
  
  
 
-##### NODE_PADDING
+#### NODE_PADDING
 
 ```text
 NODE_PADDING = 4
@@ -120,7 +120,7 @@ NODE_PADDING = 4
  
  
 
-##### NODE_MARGIN
+#### NODE_MARGIN
 
 ```text
 NODE_MARGIN = 7
@@ -163,7 +163,7 @@ NODE_MARGIN = 7
  
  
 
-##### NODE_ALIGNMENT
+#### NODE_ALIGNMENT
 
 ```text
 NODE_ALIGNMENT = 15
@@ -191,7 +191,7 @@ NODE_ALIGNMENT = 15
  
  
 
-##### NODE_BORDER_WIDTH
+#### NODE_BORDER_WIDTH
 
 ```text
 NODE_BORDER_WIDTH = 17
@@ -234,7 +234,7 @@ NODE_BORDER_WIDTH = 17
  
  
 
-##### NODE_BORDER_RADIUS
+#### NODE_BORDER_RADIUS
 
 ```text
 NODE_BORDER_RADIUS = 18
@@ -277,7 +277,7 @@ NODE_BORDER_RADIUS = 18
  
  
 
-##### NODE_BORDER_COLOR
+#### NODE_BORDER_COLOR
 
 ```text
 NODE_BORDER_COLOR = 19
@@ -320,7 +320,7 @@ NODE_BORDER_COLOR = 19
  
  
 
-##### NODE_BORDER_STYLE
+#### NODE_BORDER_STYLE
 
 ```text
 NODE_BORDER_STYLE = 20
@@ -363,7 +363,7 @@ NODE_BORDER_STYLE = 20
  
  
 
-##### NODE_POSITION
+#### NODE_POSITION
 
 ```text
 NODE_POSITION = 27
@@ -393,7 +393,7 @@ NODE_POSITION = 27
  
  
 
-##### NODE_DIRECTION
+#### NODE_DIRECTION
 
 ```text
 NODE_DIRECTION = 47
@@ -421,7 +421,7 @@ NODE_DIRECTION = 47
  
  
 
-##### NODE_CONSTRAINT_SIZE
+#### NODE_CONSTRAINT_SIZE
 
 ```text
 NODE_CONSTRAINT_SIZE = 48
@@ -455,7 +455,7 @@ NODE_CONSTRAINT_SIZE = 48
  
  
 
-##### NODE_OFFSET
+#### NODE_OFFSET
 
 ```text
 NODE_OFFSET = 54
@@ -485,7 +485,7 @@ NODE_OFFSET = 54
  
  
 
-##### NODE_MARK_ANCHOR
+#### NODE_MARK_ANCHOR
 
 ```text
 NODE_MARK_ANCHOR = 55
@@ -515,7 +515,7 @@ NODE_MARK_ANCHOR = 55
  
  
 
-##### NODE_ALIGN_RULES
+#### NODE_ALIGN_RULES
 
 ```text
 NODE_ALIGN_RULES = 57
@@ -543,7 +543,7 @@ NODE_ALIGN_RULES = 57
  
  
 
-##### NODE_ALIGN_SELF
+#### NODE_ALIGN_SELF
 
 ```text
 NODE_ALIGN_SELF = 58
@@ -571,7 +571,7 @@ NODE_ALIGN_SELF = 58
  
  
 
-##### NODE_FLEX_GROW
+#### NODE_FLEX_GROW
 
 ```text
 NODE_FLEX_GROW = 59
@@ -599,7 +599,7 @@ NODE_FLEX_GROW = 59
  
  
 
-##### NODE_FLEX_SHRINK
+#### NODE_FLEX_SHRINK
 
 ```text
 NODE_FLEX_SHRINK = 60
@@ -627,7 +627,7 @@ NODE_FLEX_SHRINK = 60
  
  
 
-##### NODE_FLEX_BASIS
+#### NODE_FLEX_BASIS
 
 ```text
 NODE_FLEX_BASIS = 61
@@ -655,7 +655,7 @@ NODE_FLEX_BASIS = 61
  
  
 
-##### NODE_ASPECT_RATIO
+#### NODE_ASPECT_RATIO
 
 ```text
 NODE_ASPECT_RATIO = 67
@@ -683,7 +683,7 @@ NODE_ASPECT_RATIO = 67
  
  
 
-##### NODE_LAYOUT_WEIGHT
+#### NODE_LAYOUT_WEIGHT
 
 ```text
 NODE_LAYOUT_WEIGHT = 68
@@ -711,7 +711,7 @@ Row/Column/Flex布局下的子组件布局权重参数，支持属性设置、�
  
  
 
-##### NODE_DISPLAY_PRIORITY
+#### NODE_DISPLAY_PRIORITY
 
 ```text
 NODE_DISPLAY_PRIORITY = 69
@@ -741,7 +741,7 @@ Row/Column/Flex（单行）布局下的子组件在布局容器中显示的优�
  
  
 
-##### NODE_OUTLINE_WIDTH
+#### NODE_OUTLINE_WIDTH
 
 ```text
 NODE_OUTLINE_WIDTH = 70
@@ -775,7 +775,7 @@ NODE_OUTLINE_WIDTH = 70
  
  
 
-##### NODE_WIDTH_PERCENT
+#### NODE_WIDTH_PERCENT
 
 ```text
 NODE_WIDTH_PERCENT = 71
@@ -803,7 +803,7 @@ NODE_WIDTH_PERCENT = 71
  
  
 
-##### NODE_HEIGHT_PERCENT
+#### NODE_HEIGHT_PERCENT
 
 ```text
 NODE_HEIGHT_PERCENT = 72
@@ -831,7 +831,7 @@ NODE_HEIGHT_PERCENT = 72
  
  
 
-##### NODE_PADDING_PERCENT
+#### NODE_PADDING_PERCENT
 
 ```text
 NODE_PADDING_PERCENT = 73
@@ -866,7 +866,7 @@ NODE_PADDING_PERCENT = 73
  
  
 
-##### NODE_MARGIN_PERCENT
+#### NODE_MARGIN_PERCENT
 
 ```text
 NODE_MARGIN_PERCENT = 74
@@ -901,7 +901,7 @@ NODE_MARGIN_PERCENT = 74
  
  
 
-##### NODE_RELATIVE_LAYOUT_CHAIN_MODE
+#### NODE_RELATIVE_LAYOUT_CHAIN_MODE
 
 ```text
 NODE_RELATIVE_LAYOUT_CHAIN_MODE = 76
@@ -931,7 +931,7 @@ NODE_RELATIVE_LAYOUT_CHAIN_MODE = 76
  
  
 
-##### NODE_SIZE
+#### NODE_SIZE
 
 ```text
 NODE_SIZE = 79
@@ -961,7 +961,7 @@ NODE_SIZE = 79
  
  
 
-##### NODE_LAYOUT_RECT
+#### NODE_LAYOUT_RECT
 
 ```text
 NODE_LAYOUT_RECT = 83
@@ -995,7 +995,7 @@ NODE_LAYOUT_RECT = 83
  
  
 
-##### NODE_BORDER_WIDTH_PERCENT
+#### NODE_BORDER_WIDTH_PERCENT
 
 ```text
 NODE_BORDER_WIDTH_PERCENT = 85
@@ -1030,7 +1030,7 @@ NODE_BORDER_WIDTH_PERCENT = 85
  
  
 
-##### NODE_BORDER_RADIUS_PERCENT
+#### NODE_BORDER_RADIUS_PERCENT
 
 ```text
 NODE_BORDER_RADIUS_PERCENT = 86
@@ -1065,7 +1065,7 @@ NODE_BORDER_RADIUS_PERCENT = 86
  
  
 
-##### NODE_WIDTH_LAYOUTPOLICY
+#### NODE_WIDTH_LAYOUTPOLICY
 
 ```text
 NODE_WIDTH_LAYOUTPOLICY = 105
@@ -1093,7 +1093,7 @@ NODE_WIDTH_LAYOUTPOLICY = 105
  
  
 
-##### NODE_HEIGHT_LAYOUTPOLICY
+#### NODE_HEIGHT_LAYOUTPOLICY
 
 ```text
 NODE_HEIGHT_LAYOUTPOLICY = 106
@@ -1121,7 +1121,7 @@ NODE_HEIGHT_LAYOUTPOLICY = 106
  
  
 
-##### NODE_POSITION_EDGES
+#### NODE_POSITION_EDGES
 
 ```text
 NODE_POSITION_EDGES = 107
@@ -1149,7 +1149,7 @@ NODE_POSITION_EDGES = 107
  
  
 
-##### NODE_CHAIN_WEIGHT
+#### NODE_CHAIN_WEIGHT
 
 ```text
 NODE_CHAIN_WEIGHT = 118
@@ -1179,7 +1179,7 @@ NODE_CHAIN_WEIGHT = 118
  
  
 
-##### NODE_IGNORE_LAYOUT_SAFE_AREA
+#### NODE_IGNORE_LAYOUT_SAFE_AREA
 
 ```text
 NODE_IGNORE_LAYOUT_SAFE_AREA = 119
@@ -1209,7 +1209,7 @@ NODE_IGNORE_LAYOUT_SAFE_AREA = 119
  
  
 
-##### NODE_DASH_WIDTH
+#### NODE_DASH_WIDTH
 
 ```text
 NODE_DASH_WIDTH = 120
@@ -1243,7 +1243,7 @@ NODE_DASH_WIDTH = 120
  
  
 
-##### NODE_DASH_GAP
+#### NODE_DASH_GAP
 
 ```text
 NODE_DASH_GAP = 121
@@ -1277,7 +1277,7 @@ NODE_DASH_GAP = 121
  
  
 
-##### NODE_LAYOUT_GRAVITY
+#### NODE_LAYOUT_GRAVITY
 
 ```text
 NODE_LAYOUT_GRAVITY = 122
@@ -1305,7 +1305,7 @@ NODE_LAYOUT_GRAVITY = 122
  
  
 
-##### NODE_BORDER_RADIUS_TYPE
+#### NODE_BORDER_RADIUS_TYPE
 
 ```text
 NODE_BORDER_RADIUS_TYPE = 123

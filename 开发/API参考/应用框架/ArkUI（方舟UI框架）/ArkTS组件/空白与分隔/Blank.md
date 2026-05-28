@@ -12,7 +12,7 @@
 
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -50,7 +50,7 @@ Blank(min?: number | string)
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -58,7 +58,7 @@ Blank(min?: number | string)
  
   
 
-##### color
+#### color
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -81,7 +81,7 @@ color(value: ResourceColor)
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -89,13 +89,13 @@ color(value: ResourceColor)
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 示例1（占满空余空间）
+#### 示例1（占满空余空间）
 
 Blank组件在横竖屏占满空余空间效果。
  
@@ -130,7 +130,7 @@ struct BlankExample {
  
   
 
-##### 示例2（填充固定宽度）
+#### 示例2（填充固定宽度）
 
 Blank组件的父组件未设置宽度时，min参数的使用效果。
  
@@ -163,4 +163,4 @@ struct BlankExample {
 Blank父组件未设置宽度时，子组件间无空白填充，使用min参数设置填充尺寸
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/F16NTLl_R0eF05wRCiwL3w/zh-cn_image_0000002611755997.png?HW-CC-KV=V1&HW-CC-Date=20260528T024230Z&HW-CC-Expire=86400&HW-CC-Sign=B86427FFFFF447F14E6A792AA3F203E8CAF962200238F6BB5217BBC58EEC3ED4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/F16NTLl_R0eF05wRCiwL3w/zh-cn_image_0000002611755997.png?HW-CC-KV=V1&HW-CC-Date=20260528T025604Z&HW-CC-Expire=86400&HW-CC-Sign=B7360EA5517DFB87AA541AA5B4D9646127EC4ED1303503447975788D7F36A410)

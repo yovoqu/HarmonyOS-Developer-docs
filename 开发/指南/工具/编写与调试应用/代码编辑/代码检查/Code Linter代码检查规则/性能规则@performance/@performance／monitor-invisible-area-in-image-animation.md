@@ -7,7 +7,7 @@
 使用ImageAnimation实现帧动画时，建议显式调用monitorInvisibleArea接口。在动画组件不可见时，会停止动画播放，减少无效的冗余动画带来的负载恶化。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 @Entry
@@ -53,7 +53,7 @@ function test1() {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 @Entry
@@ -80,7 +80,7 @@ function test1() {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(80,160,79);">plugin:@performance/</span><span style="color: rgb(0,0,255);">recommended</span>

@@ -54,7 +54,7 @@
 启动组件的具体校验流程见下文。
 
 
-##### 同设备组件启动规则
+#### 同设备组件启动规则
 
 设备内启动组件，不同场景下的规则不同，可分为如下两种场景：
 
@@ -63,12 +63,12 @@
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/Qo0pKkiTRqGADJ3UFB9MPw/zh-cn_image_0000002611833399.png?HW-CC-KV=V1&HW-CC-Date=20260528T014837Z&HW-CC-Expire=86400&HW-CC-Sign=0EE9BF40A34FF63DE26FF57874A4F1B5A735CD8CCD0F9A707543D1C731993D01)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/Qo0pKkiTRqGADJ3UFB9MPw/zh-cn_image_0000002611833399.png?HW-CC-KV=V1&HW-CC-Date=20260528T030505Z&HW-CC-Expire=86400&HW-CC-Sign=CF63B9636576E89FD78791397E3F8FA603384C60A3C556BC910CB2CBC23DDC36)
 
 
 
 
-##### 分布式跨设备组件启动规则
+#### 分布式跨设备组件启动规则
 
 跨设备启动组件，不同场景下的规则不同，可分为如下两种场景：
 
@@ -77,4 +77,4 @@
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/SJIziGm0SlaxK9tTI7fmzw/zh-cn_image_0000002581273652.png?HW-CC-KV=V1&HW-CC-Date=20260528T014837Z&HW-CC-Expire=86400&HW-CC-Sign=EF9F93855BCB16740440D434982FD7C5C6F43FA1DC6E7E9306A3CF9D284A67F8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/SJIziGm0SlaxK9tTI7fmzw/zh-cn_image_0000002581273652.png?HW-CC-KV=V1&HW-CC-Date=20260528T030505Z&HW-CC-Expire=86400&HW-CC-Sign=B3AAC0E18CCB91611E4DD280EFCDB48790A18C9F05AC9CE7614B608C4B9296A9)

@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hid-ddk-types-h
 **支持设备：** PC/2in1
 
-##### 概述
+#### 概述
 
 **支持设备：** PC/2in1
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** PC/2in1
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** PC/2in1
  
@@ -49,7 +49,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** PC/2in1
  
@@ -68,7 +68,7 @@
  
   
 
-##### 宏定义
+#### 宏定义
 
 **支持设备：** PC/2in1
  
@@ -79,13 +79,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** PC/2in1
 
   
 
-##### Hid_DeviceProp
+#### Hid_DeviceProp
 
 **支持设备：** PC/2in1
 
@@ -112,7 +112,7 @@ enum Hid_DeviceProp
  
   
 
-##### Hid_EventType
+#### Hid_EventType
 
 **支持设备：** PC/2in1
 
@@ -137,7 +137,7 @@ enum Hid_EventType
  
   
 
-##### Hid_SynEvent
+#### Hid_SynEvent
 
 **支持设备：** PC/2in1
 
@@ -161,7 +161,7 @@ enum Hid_SynEvent
  
   
 
-##### Hid_KeyCode
+#### Hid_KeyCode
 
 **支持设备：** PC/2in1
 
@@ -291,7 +291,7 @@ enum Hid_KeyCode
  
   
 
-##### Hid_AbsAxes
+#### Hid_AbsAxes
 
 **支持设备：** PC/2in1
 
@@ -337,7 +337,7 @@ enum Hid_AbsAxes
  
   
 
-##### Hid_RelAxes
+#### Hid_RelAxes
 
 **支持设备：** PC/2in1
 
@@ -370,7 +370,7 @@ enum Hid_RelAxes
  
   
 
-##### Hid_MscEvent
+#### Hid_MscEvent
 
 **支持设备：** PC/2in1
 
@@ -396,7 +396,7 @@ enum Hid_MscEvent
  
   
 
-##### Hid_DdkErrCode
+#### Hid_DdkErrCode
 
 **支持设备：** PC/2in1
 
@@ -428,7 +428,7 @@ HID DDK错误码定义。
  
   
 
-##### Hid_ReportType
+#### Hid_ReportType
 
 **支持设备：** PC/2in1
 
@@ -451,7 +451,7 @@ enum Hid_ReportType
  
   
 
-##### HID_MAX_REPORT_BUFFER_SIZE
+#### HID_MAX_REPORT_BUFFER_SIZE
 
 **支持设备：** PC/2in1
 

@@ -9,7 +9,7 @@
 获取音视频资源的元数据的全流程包含：创建AVMetadataExtractor、设置资源、获取元数据、获取音频资源的专辑封面或获取视频缩略图、释放资源。
 
 
-##### 开发步骤及注意事项
+#### 开发步骤及注意事项
 
 详细的API说明请参考[AVMetadataExtractor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avmetadataextractor)。
 1. 使用[createAVMetadataExtractor()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-f#mediacreateavmetadataextractor11-1)创建实例。
@@ -234,7 +234,7 @@ avMetadataExtractor.release();
 
 
 
-##### 运行示例工程
+#### 运行示例工程
 
 参考以下示例，获取一个音频的元数据和专辑封面。
 1. 新建工程，下载[完整示例工程](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/Media/AVMetadataExtractor/AVMetadataExtractorArkTS)，并将示例工程的资源复制到对应目录。       

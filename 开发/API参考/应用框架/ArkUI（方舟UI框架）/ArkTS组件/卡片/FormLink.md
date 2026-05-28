@@ -12,7 +12,7 @@
 
 
 
-##### 权限
+#### 权限
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -28,7 +28,7 @@
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -49,7 +49,7 @@ FormLink(options: FormLinkOptions)
 
 
 
-##### FormLinkOptions对象说明
+#### FormLinkOptions对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -69,7 +69,7 @@ FormLink(options: FormLinkOptions)
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -77,7 +77,7 @@ FormLink(options: FormLinkOptions)
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -85,7 +85,7 @@ FormLink(options: FormLinkOptions)
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -151,7 +151,7 @@ struct FormLinkDemo {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/09/v3/QLQTIDHvRRCRg-KZMUJxyA/zh-cn_image_0000002611756147.png?HW-CC-KV=V1&HW-CC-Date=20260528T024216Z&HW-CC-Expire=86400&HW-CC-Sign=0B98A36D6F6A14343CABF6F8FD1D31DE1FB77A6DED6356F2892D20B4EA83B2C4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/09/v3/QLQTIDHvRRCRg-KZMUJxyA/zh-cn_image_0000002611756147.png?HW-CC-KV=V1&HW-CC-Date=20260528T025550Z&HW-CC-Expire=86400&HW-CC-Sign=DBA91D8755C4E7A0EF6CCDBFCD63A21FA312D345B8915660D302EF7BA915E9BC)
 
 
 **待跳转应用 [module.json5](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#skills标签) uris 配置示例：**

@@ -9,7 +9,7 @@
 
 
 
-##### NoParamAsyncCallback
+#### NoParamAsyncCallback
 
 type NoParamAsyncCallback = () => Promise&lt;void&gt;
 
@@ -28,7 +28,7 @@ type NoParamAsyncCallback = () => Promise&lt;void&gt;
 
 
 
-##### QueryMainTabsEvent
+#### QueryMainTabsEvent
 
 type QueryMainTabsEvent = () => Promise<MediaTab[]>
 
@@ -47,7 +47,7 @@ type QueryMainTabsEvent = () => Promise<MediaTab[]>
 
 
 
-##### QueryMediaTabContentEvent
+#### QueryMediaTabContentEvent
 
 type QueryMediaTabContentEvent = (tabId: string) => Promise&lt;MediaTabContent&gt;
 
@@ -73,7 +73,7 @@ type QueryMediaTabContentEvent = (tabId: string) => Promise&lt;MediaTabContent&g
 
 
 
-##### QueryMediaEntityEvent
+#### QueryMediaEntityEvent
 
 type QueryMediaEntityEvent = (params: QueryMediaEntityParam) => Promise&lt;PageMediaEntity&gt;
 
@@ -99,7 +99,7 @@ type QueryMediaEntityEvent = (params: QueryMediaEntityParam) => Promise&lt;PageM
 
 
 
-##### QueryCompilationEvent
+#### QueryCompilationEvent
 
 type QueryCompilationEvent = (compilationId: string, pageIndex: number) => Promise&lt;PageMediaEntity&gt;
 
@@ -126,7 +126,7 @@ type QueryCompilationEvent = (compilationId: string, pageIndex: number) => Promi
 
 
 
-##### QueryPlaylistEvent
+#### QueryPlaylistEvent
 
 type QueryPlaylistEvent = (pageIndex: number, sort: Sort) => Promise&lt;PageMediaEntity&gt;
 
@@ -153,7 +153,7 @@ type QueryPlaylistEvent = (pageIndex: number, sort: Sort) => Promise&lt;PageMedi
 
 
 
-##### QueryCurrentSingleEvent
+#### QueryCurrentSingleEvent
 
 type QueryCurrentSingleEvent = () => Promise&lt;Single&gt;
 
@@ -172,7 +172,7 @@ type QueryCurrentSingleEvent = () => Promise&lt;Single&gt;
 
 
 
-##### QueryCompilationByKeywordEvent
+#### QueryCompilationByKeywordEvent
 
 type QueryCompilationByKeywordEvent = (keyword: string) => Promise<Compilation[]>
 
@@ -198,7 +198,7 @@ type QueryCompilationByKeywordEvent = (keyword: string) => Promise<Compilation[]
 
 
 
-##### QueryMediaEntityByKeywordEvent
+#### QueryMediaEntityByKeywordEvent
 
 type QueryMediaEntityByKeywordEvent = (keyword: string, searchType: EntityType, pageIndex: number) => Promise&lt;PageMediaEntity&gt;
 
@@ -226,7 +226,7 @@ type QueryMediaEntityByKeywordEvent = (keyword: string, searchType: EntityType, 
 
 
 
-##### QueryRecommendMediaEntityListEvent
+#### QueryRecommendMediaEntityListEvent
 
 type QueryRecommendMediaEntityListEvent = () => Promise<MediaEntity[]>
 
@@ -245,7 +245,7 @@ type QueryRecommendMediaEntityListEvent = () => Promise<MediaEntity[]>
 
 
 
-##### QueryHotWordsEvent
+#### QueryHotWordsEvent
 
 type QueryHotWordsEvent = () => Promise<string[]>
 
@@ -264,7 +264,7 @@ type QueryHotWordsEvent = () => Promise<string[]>
 
 
 
-##### QuerySearchHistoryEvent
+#### QuerySearchHistoryEvent
 
 type QuerySearchHistoryEvent = () => Promise<string[]>
 
@@ -283,7 +283,7 @@ type QuerySearchHistoryEvent = () => Promise<string[]>
 
 
 
-##### ClearSearchHistoryEvent
+#### ClearSearchHistoryEvent
 
 type ClearSearchHistoryEvent = () => Promise&lt;OperResult&gt;
 
@@ -302,7 +302,7 @@ type ClearSearchHistoryEvent = () => Promise&lt;OperResult&gt;
 
 
 
-##### LoginEvent
+#### LoginEvent
 
 type LoginEvent = (controlType: LoginType, id?: string) => Promise<QrCodeInfo[]>
 
@@ -329,7 +329,7 @@ type LoginEvent = (controlType: LoginType, id?: string) => Promise<QrCodeInfo[]>
 
 
 
-##### LoginType
+#### LoginType
 
 type LoginType = 'queryLoginInfo' | 'refreshLoginInfo' | 'cancel' | 'logout'
 
@@ -349,7 +349,7 @@ type LoginType = 'queryLoginInfo' | 'refreshLoginInfo' | 'cancel' | 'logout'
 
 
 
-##### RequestDialogInfoEvent
+#### RequestDialogInfoEvent
 
 type RequestDialogInfoEvent = (actionType: DialogActionType, actionInfo?: DialogActionInfo) => Promise&lt;DialogInfo&gt;
 
@@ -376,7 +376,7 @@ type RequestDialogInfoEvent = (actionType: DialogActionType, actionInfo?: Dialog
 
 
 
-##### DialogActionType
+#### DialogActionType
 
 type DialogActionType = 'open' | 'close' | 'refresh'
 
@@ -395,7 +395,7 @@ type DialogActionType = 'open' | 'close' | 'refresh'
 
 
 
-##### HandleMemberPurchaseEvent
+#### HandleMemberPurchaseEvent
 
 type HandleMemberPurchaseEvent = (info: MemberPurchaseInfo) => Promise&lt;DialogInfo&gt;
 
@@ -421,7 +421,7 @@ type HandleMemberPurchaseEvent = (info: MemberPurchaseInfo) => Promise&lt;Dialog
 
 
 
-##### QueryMemberPurchaseEvent
+#### QueryMemberPurchaseEvent
 
 type QueryMemberPurchaseEvent = (memberPurchaseType: MemberPurchaseType) => Promise<MemberPurchaseInfo[]>
 
@@ -447,7 +447,7 @@ type QueryMemberPurchaseEvent = (memberPurchaseType: MemberPurchaseType) => Prom
 
 
 
-##### QueryCustomContentEvent
+#### QueryCustomContentEvent
 
 type QueryCustomContentEvent = (queryType: CustomType[]) => Promise&lt;CustomElement&gt;
 
@@ -473,7 +473,7 @@ type QueryCustomContentEvent = (queryType: CustomType[]) => Promise&lt;CustomEle
 
 
 
-##### CustomType
+#### CustomType
 
 type CustomType = 'USER_INFO' | 'TAB' | 'COMPILATION' | 'SETTINGS'
 
@@ -493,7 +493,7 @@ type CustomType = 'USER_INFO' | 'TAB' | 'COMPILATION' | 'SETTINGS'
 
 
 
-##### DownloadMediaEntityEvent
+#### DownloadMediaEntityEvent
 
 type DownloadMediaEntityEvent = (controlType: DownloadControlType, mediaEntity: MediaEntity) => Promise&lt;OperResult&gt;
 
@@ -520,7 +520,7 @@ type DownloadMediaEntityEvent = (controlType: DownloadControlType, mediaEntity: 
 
 
 
-##### DownloadControlType
+#### DownloadControlType
 
 type DownloadControlType = 'startDownload' | 'deleteDownload' | 'resumeDownload' | 'pauseDownload'
 
@@ -540,7 +540,7 @@ type DownloadControlType = 'startDownload' | 'deleteDownload' | 'resumeDownload'
 
 
 
-##### SettingsChangeEvent
+#### SettingsChangeEvent
 
 type SettingsChangeEvent = (settingItem: SettingItem) => Promise&lt;SettingItem&gt;
 
@@ -566,7 +566,7 @@ type SettingsChangeEvent = (settingItem: SettingItem) => Promise&lt;SettingItem&
 
 
 
-##### ProblemAndAdviceEvent
+#### ProblemAndAdviceEvent
 
 type ProblemAndAdviceEvent = (advice: string) => Promise&lt;OperResult&gt;
 
@@ -592,7 +592,7 @@ type ProblemAndAdviceEvent = (advice: string) => Promise&lt;OperResult&gt;
 
 
 
-##### PlayForSearchEvent
+#### PlayForSearchEvent
 
 type PlayForSearchEvent = (command: SearchPlayInfoType, args: SearchPlayInfo) => Promise&lt;OperResult&gt;
 
@@ -619,7 +619,7 @@ type PlayForSearchEvent = (command: SearchPlayInfoType, args: SearchPlayInfo) =>
 
 
 
-##### ExecuteActionEvent
+#### ExecuteActionEvent
 
 type ExecuteActionEvent = (actionType: string, params: string) => Promise&lt;string&gt;
 
@@ -646,7 +646,7 @@ type ExecuteActionEvent = (actionType: string, params: string) => Promise&lt;str
 
 
 
-##### PlayMediaEntityEvent
+#### PlayMediaEntityEvent
 
 type PlayMediaEntityEvent = (mediaEntity: MediaEntity) => Promise&lt;void&gt;
 
@@ -672,7 +672,7 @@ type PlayMediaEntityEvent = (mediaEntity: MediaEntity) => Promise&lt;void&gt;
 
 
 
-##### FavoriteMediaEntityEvent
+#### FavoriteMediaEntityEvent
 
 type FavoriteMediaEntityEvent = (actionType: MediaFavoriteType, mediaEntity: MediaEntity) => Promise&lt;OperResult&gt;
 
@@ -699,7 +699,7 @@ type FavoriteMediaEntityEvent = (actionType: MediaFavoriteType, mediaEntity: Med
 
 
 
-##### MediaFavoriteType
+#### MediaFavoriteType
 
 type MediaFavoriteType = 'addFavorite' | 'removeFavorite'
 
@@ -717,7 +717,7 @@ type MediaFavoriteType = 'addFavorite' | 'removeFavorite'
 
 
 
-##### DialogControlType
+#### DialogControlType
 
 type DialogControlType = 'open' | 'close' | 'refresh' | 'toast'
 
@@ -737,7 +737,7 @@ type DialogControlType = 'open' | 'close' | 'refresh' | 'toast'
 
 
 
-##### ActionType
+#### ActionType
 
 type ActionType = 'add' | 'remove'
 
@@ -755,7 +755,7 @@ type ActionType = 'add' | 'remove'
 
 
 
-##### ReportDialogCommandEvent
+#### ReportDialogCommandEvent
 
 type ReportDialogCommandEvent = (type: DialogControlType, buttonInfo: DialogInfo) => void
 
@@ -775,7 +775,7 @@ type ReportDialogCommandEvent = (type: DialogControlType, buttonInfo: DialogInfo
 
 
 
-##### ReportTabContentEvent
+#### ReportTabContentEvent
 
 type ReportTabContentEvent = (tabId: string, tabContent: MediaTabContent) => void
 
@@ -795,7 +795,7 @@ type ReportTabContentEvent = (tabId: string, tabContent: MediaTabContent) => voi
 
 
 
-##### ReportCustomElementsChangeEvent
+#### ReportCustomElementsChangeEvent
 
 type ReportCustomElementsChangeEvent = (actionType: ActionType, customType: CustomType, customElement: CustomElement) => void
 
@@ -816,7 +816,7 @@ type ReportCustomElementsChangeEvent = (actionType: ActionType, customType: Cust
 
 
 
-##### ReportExecuteActionEvent
+#### ReportExecuteActionEvent
 
 type ReportExecuteActionEvent = (actionType: string, params: string) => void
 
@@ -836,7 +836,7 @@ type ReportExecuteActionEvent = (actionType: string, params: string) => void
 
 
 
-##### ReportExecuteAbilityEvent
+#### ReportExecuteAbilityEvent
 
 type ReportExecuteAbilityEvent = (want: WantAgent) => void
 

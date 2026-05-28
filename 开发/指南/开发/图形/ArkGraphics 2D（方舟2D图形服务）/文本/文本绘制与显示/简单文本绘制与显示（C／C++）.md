@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/simple-text-c
 
-##### 场景介绍
+#### 场景介绍
 
 在一个简单的用户界面中，可能只需要展示几行静态文本，例如标签、按钮上的文字、菜单项或状态栏中的提示信息。此时，开发者只需要选择合适的字体、大小和颜色即可完成渲染。
  
   
 
-##### 接口说明
+#### 接口说明
  
 | 接口定义 | 描述 |
 | --- | --- |
@@ -21,7 +21,7 @@
  
   
 
-##### 开发步骤
+#### 开发步骤
 1. 创建Canvas画布对象，画布Canvas对象创建方法具体可见[画布的获取与绘制结果的显示](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/canvas-get-result-draw-c)。
 2. 初始化段落样式，设置文本对齐方式为居中对齐。
 
@@ -88,7 +88,7 @@ OH_Drawing_DestroyTypography(typography);
  
   
 
-##### 效果展示
+#### 效果展示
 
 
 ![](assets/简单文本绘制与显示（C／C++）/file-20260514131646325-0.png)

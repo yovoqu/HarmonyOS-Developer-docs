@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ipc-capi-development-guideline
 
-##### 场景介绍
+#### 场景介绍
 
 IPC让运行在不同进程间的Proxy和Stub实现互相通信。IPC CAPI是IPC Kit提供的C语言接口。
 
@@ -18,7 +18,7 @@ IPC CAPI接口不直接提供获取通信代理对象的能力，该功能由[Ab
 
 
 
-##### 接口说明
+#### 接口说明
 
 **表1** IPC CAPI侧关键接口
 
@@ -36,7 +36,7 @@ IPC CAPI接口不直接提供获取通信代理对象的能力，该功能由[Ab
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 先创建服务端Stub对象，通过元能力获取其客户端代理Proxy对象，然后用Proxy对象与服务端Stub对象进行IPC通信，同时再注册远端对象的死亡通知回调，用于Proxy侧感知服务端Stub对象所在进程的死亡状态。
 

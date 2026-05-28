@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-temporalupscaledescription
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -19,13 +19,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  
@@ -44,13 +44,13 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### depthImage
+#### depthImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -64,7 +64,7 @@ VkImageView XEG_TemporalUpscaleDescription::depthImage
  
   
 
-##### dynamicMaskImage
+#### dynamicMaskImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -78,7 +78,7 @@ VkImageView XEG_TemporalUpscaleDescription::dynamicMaskImage
  
   
 
-##### inputImage
+#### inputImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -92,7 +92,7 @@ VkImageView XEG_TemporalUpscaleDescription::inputImage
  
   
 
-##### jitterX
+#### jitterX
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -106,7 +106,7 @@ float XEG_TemporalUpscaleDescription::jitterX
  
   
 
-##### jitterY
+#### jitterY
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -120,7 +120,7 @@ float XEG_TemporalUpscaleDescription::jitterY
  
   
 
-##### motionVectorImage
+#### motionVectorImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -134,7 +134,7 @@ VkImageView XEG_TemporalUpscaleDescription::motionVectorImage
  
   
 
-##### outputImage
+#### outputImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -148,7 +148,7 @@ VkImageView XEG_TemporalUpscaleDescription::outputImage
  
   
 
-##### resetHistory
+#### resetHistory
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -162,7 +162,7 @@ bool XEG_TemporalUpscaleDescription::resetHistory
  
   
 
-##### steadyLevel
+#### steadyLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

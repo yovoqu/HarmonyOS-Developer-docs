@@ -4,11 +4,11 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-questions
 
-##### 如何排查功能异常
+#### 如何排查功能异常
 
   
 
-##### 排查功能异常步骤
+#### 排查功能异常步骤
 1. 在obfuscation-rules.txt中配置-disable-obfuscation选项关闭混淆，确认问题是否由混淆引起。
 2. 若确认开启混淆后功能出现异常，请先阅读文档，了解模块已配置的混淆规则的能力和需要配置白名单的语法场景，以确保应用功能正常。下文简要介绍默认开启的四项选项功能，详情请参阅对应选项的完整描述。
 - [-enable-toplevel-obfuscation](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#section-enable-toplevel-obfuscation)为顶层作用域名称混淆开关。
@@ -36,7 +36,7 @@
  
   
 
-##### 排查非预期的混淆能力
+#### 排查非预期的混淆能力
 
 若出现预期外的混淆效果，检查是否由于依赖的本地模块或三方库开启了某些混淆选项。
  
@@ -56,11 +56,11 @@
  
   
 
-##### 典型报错案例及解决方案
+#### 典型报错案例及解决方案
 
   
 
-##### 报错信息为：Error message: Cannot read property xxx of undefined
+#### 报错信息为：Error message: Cannot read property xxx of undefined
 
 **问题现象**
  
@@ -111,7 +111,7 @@ jsonProperty
  
   
 
-##### 报错信息为：Error message: is not callable
+#### 报错信息为：Error message: is not callable
 
 **场景一：导出namespace中的方法时，该方法定义处被混淆，调用时未被混淆**
  
@@ -290,7 +290,7 @@ addNum
  
   
 
-##### 报错信息为：'module1/file1' does not provide an export name 'x', which is imported by 'module2/file2'
+#### 报错信息为：'module1/file1' does not provide an export name 'x', which is imported by 'module2/file2'
 
 **问题现象**
  
@@ -358,11 +358,11 @@ addNum
  
   
 
-##### 应用运行后无crash信息，但功能异常的情况
+#### 应用运行后无crash信息，但功能异常的情况
 
   
 
-##### 使用Record<string, Object>作为对象的类型定义时，属性被混淆
+#### 使用Record<string, Object>作为对象的类型定义时，属性被混淆
 
 **问题现象**
  
@@ -411,7 +411,7 @@ linkSource
  
   
 
-##### 跨文件调用某属性，该属性在一个文件中保留，在另一个文件中被混淆
+#### 跨文件调用某属性，该属性在一个文件中保留，在另一个文件中被混淆
 
 **问题现象**
  
@@ -499,7 +499,7 @@ city1
  
   
 
-##### 未开启-enable-string-property-obfuscation，字符串字面量属性名却被混淆
+#### 未开启-enable-string-property-obfuscation，字符串字面量属性名却被混淆
 
 **问题现象**
  
@@ -533,7 +533,7 @@ person["m"] = 20;
  
   
 
-##### 数据库相关的字段被混淆后导致功能异常
+#### 数据库相关的字段被混淆后导致功能异常
 
 **问题现象**
  

@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-rest-openid-configuration
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/6YD3KHopSCqO8f5ZECBpgA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023744Z&HW-CC-Expire=86400&HW-CC-Sign=9561AEB09F8157BC672FEB2BB8056D0683D17A0BE6BFA31AF9B18FA876D14C5C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/6YD3KHopSCqO8f5ZECBpgA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025117Z&HW-CC-Expire=86400&HW-CC-Sign=550EFCF4FB4881EE10F833E25B9A459D008F0409CB5595FCE0FB6F981CF91D95)
  
  
 为了更安全的网络访问，请务必使用TLS1.2协议及规定内的加密套件。若使用协议是TLS1.0、TLS1.1或规定外的加密套件，可能无法正常访问华为账号服务。
@@ -14,25 +14,25 @@
 
   
 
-##### 功能介绍
+#### 功能介绍
 
 获取OpenID Connect配置公开信息。
  
   
 
-##### 场景描述
+#### 场景描述
 
 应用通过该API获取OAuth2服务的一些公开配置信息，如授权、获取Token、取消授权、JWT公钥信息等接入地址信息。
  
   
 
-##### 使用约束
+#### 使用约束
 
 需确保调用端网络正常。
  
   
 
-##### 接口原型
+#### 接口原型
 
 - **承载协议：** HTTPS POST/GET
 - **接口方向：** 开发者服务器->华为账号服务器
@@ -44,13 +44,13 @@
  
   
 
-##### 请求参数
+#### 请求参数
 
 无
  
   
 
-##### 请求示例
+#### 请求示例
 
 请通过POST方式调用，示例如下：
  
@@ -68,11 +68,11 @@ Host: oauth-login.cloud.huawei.com
  
   
 
-##### 响应参数
+#### 响应参数
 
   
 
-##### Response Header
+#### Response Header
  
 | 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
@@ -81,7 +81,7 @@ Host: oauth-login.cloud.huawei.com
  
   
 
-##### Response Body
+#### Response Body
  
 | 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
@@ -102,7 +102,7 @@ Host: oauth-login.cloud.huawei.com
  
   
 
-##### 响应示例
+#### 响应示例
 
 ```json
 HTTP/1.1 200 OK
@@ -158,7 +158,7 @@ Content-Type: application/json
  
   
 
-##### 示例代码
+#### 示例代码
 
 Java示例代码如下，运行前需要进行[示例代码环境配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-common#示例代码环境配置)（请将此示例代码与工具类CallUtils放于同一路径下，如不在同一路径，请手动添加import）
  
@@ -209,7 +209,7 @@ public class GetOpenIdConnect {
  
   
 
-##### 错误码
+#### 错误码
  
 | HTTP响应码 | 描述 | 解决方法 |
 | --- | --- | --- |

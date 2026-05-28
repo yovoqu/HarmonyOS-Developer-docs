@@ -11,7 +11,7 @@
 该规则仅支持对.js/.ts文件进行检查。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -24,13 +24,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/no-inferrable-types选项](https://typescript-eslint.io/rules/no-inferrable-types/#options)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 const num = 10;
@@ -52,7 +52,7 @@ export function fn(a = num, b = true): void {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 const num: number = 10;
@@ -74,7 +74,7 @@ export function fn(a: number = num, b: boolean = true): void {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { osAccount } from '@kit.BasicServicesKit';
 
 
 
-##### osAccount.getAccountManager
+#### osAccount.getAccountManager
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -47,7 +47,7 @@ let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
 
 
 
-##### OsAccountType
+#### OsAccountType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -64,7 +64,7 @@ let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
 
 
 
-##### AccountManager
+#### AccountManager
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -72,7 +72,7 @@ let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
 
 
 
-##### checkMultiOsAccountEnabled9+
+#### checkMultiOsAccountEnabled9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -121,7 +121,7 @@ try {
 
 
 
-##### checkMultiOsAccountEnabled9+
+#### checkMultiOsAccountEnabled9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -167,7 +167,7 @@ try {
 
 
 
-##### checkOsAccountActivated(deprecated)
+#### checkOsAccountActivated(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -229,7 +229,7 @@ try {
 
 
 
-##### checkOsAccountActivated(deprecated)
+#### checkOsAccountActivated(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -295,7 +295,7 @@ try {
 
 
 
-##### isOsAccountConstraintEnabled11+
+#### isOsAccountConstraintEnabled11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -352,7 +352,7 @@ try {
 
 
 
-##### checkOsAccountConstraintEnabled(deprecated)
+#### checkOsAccountConstraintEnabled(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -416,7 +416,7 @@ try {
 
 
 
-##### checkOsAccountConstraintEnabled(deprecated)
+#### checkOsAccountConstraintEnabled(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -484,7 +484,7 @@ try {
 
 
 
-##### checkOsAccountTestable9+
+#### checkOsAccountTestable9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -533,7 +533,7 @@ try {
 
 
 
-##### checkOsAccountTestable9+
+#### checkOsAccountTestable9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -579,7 +579,7 @@ try {
 
 
 
-##### isOsAccountUnlocked11+
+#### isOsAccountUnlocked11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -625,7 +625,7 @@ try {
 
 
 
-##### checkOsAccountVerified(deprecated)
+#### checkOsAccountVerified(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -677,7 +677,7 @@ try {
 
 
 
-##### checkOsAccountVerified(deprecated)
+#### checkOsAccountVerified(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -727,7 +727,7 @@ try {
 
 
 
-##### checkOsAccountVerified(deprecated)
+#### checkOsAccountVerified(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -787,7 +787,7 @@ try {
 
 
 
-##### checkOsAccountVerified(deprecated)
+#### checkOsAccountVerified(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -851,7 +851,7 @@ try {
 
 
 
-##### getOsAccountCount9+
+#### getOsAccountCount9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -903,7 +903,7 @@ try {
 
 
 
-##### getOsAccountCount9+
+#### getOsAccountCount9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -952,7 +952,7 @@ try {
 
 
 
-##### getOsAccountLocalId9+
+#### getOsAccountLocalId9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1001,7 +1001,7 @@ try {
 
 
 
-##### getOsAccountLocalId9+
+#### getOsAccountLocalId9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1047,7 +1047,7 @@ try {
 
 
 
-##### getOsAccountLocalIdForUid9+
+#### getOsAccountLocalIdForUid9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1100,7 +1100,7 @@ try {
 
 
 
-##### getOsAccountLocalIdForUid9+
+#### getOsAccountLocalIdForUid9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1158,7 +1158,7 @@ try {
 
 
 
-##### getOsAccountLocalIdForUidSync10+
+#### getOsAccountLocalIdForUidSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1212,7 +1212,7 @@ try {
 
 
 
-##### getOsAccountLocalIdForDomain9+
+#### getOsAccountLocalIdForDomain9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1267,7 +1267,7 @@ try {
 
 
 
-##### getOsAccountLocalIdForDomain9+
+#### getOsAccountLocalIdForDomain9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1326,7 +1326,7 @@ try {
 
 
 
-##### getOsAccountConstraints(deprecated)
+#### getOsAccountConstraints(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1388,7 +1388,7 @@ try {
 
 
 
-##### getOsAccountConstraints(deprecated)
+#### getOsAccountConstraints(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1454,7 +1454,7 @@ try {
 
 
 
-##### getActivatedOsAccountLocalIds9+
+#### getActivatedOsAccountLocalIds9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1506,7 +1506,7 @@ try {
 
 
 
-##### getActivatedOsAccountLocalIds9+
+#### getActivatedOsAccountLocalIds9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1552,7 +1552,7 @@ try {
 
 
 
-##### getCurrentOsAccount(deprecated)
+#### getCurrentOsAccount(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1608,7 +1608,7 @@ try {
 
 
 
-##### getCurrentOsAccount(deprecated)
+#### getCurrentOsAccount(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1661,7 +1661,7 @@ try {
 
 
 
-##### getOsAccountType9+
+#### getOsAccountType9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1710,7 +1710,7 @@ try {
 
 
 
-##### getOsAccountType9+
+#### getOsAccountType9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1756,7 +1756,7 @@ try {
 
 
 
-##### queryDistributedVirtualDeviceId9+
+#### queryDistributedVirtualDeviceId9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1808,7 +1808,7 @@ try {
 
 
 
-##### queryDistributedVirtualDeviceId9+
+#### queryDistributedVirtualDeviceId9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1857,7 +1857,7 @@ try {
 
 
 
-##### getOsAccountLocalIdForSerialNumber9+
+#### getOsAccountLocalIdForSerialNumber9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1912,7 +1912,7 @@ try {
 
 
 
-##### getOsAccountLocalIdForSerialNumber9+
+#### getOsAccountLocalIdForSerialNumber9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1971,7 +1971,7 @@ try {
 
 
 
-##### getSerialNumberForOsAccountLocalId9+
+#### getSerialNumberForOsAccountLocalId9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2026,7 +2026,7 @@ try {
 
 
 
-##### getSerialNumberForOsAccountLocalId9+
+#### getSerialNumberForOsAccountLocalId9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2085,7 +2085,7 @@ try {
 
 
 
-##### isMultiOsAccountEnable(deprecated)
+#### isMultiOsAccountEnable(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2123,7 +2123,7 @@ accountManager.isMultiOsAccountEnable((err: BusinessError, isEnabled: boolean) =
 
 
 
-##### isMultiOsAccountEnable(deprecated)
+#### isMultiOsAccountEnable(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2159,7 +2159,7 @@ accountManager.isMultiOsAccountEnable().then((isEnabled: boolean) => {
 
 
 
-##### isOsAccountActived(deprecated)
+#### isOsAccountActived(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2203,7 +2203,7 @@ accountManager.isOsAccountActived(localId, (err: BusinessError, isActived: boole
 
 
 
-##### isOsAccountActived(deprecated)
+#### isOsAccountActived(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2251,7 +2251,7 @@ accountManager.isOsAccountActived(localId).then((isActived: boolean) => {
 
 
 
-##### isOsAccountConstraintEnable(deprecated)
+#### isOsAccountConstraintEnable(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2297,7 +2297,7 @@ accountManager.isOsAccountConstraintEnable(localId, constraint, (err: BusinessEr
 
 
 
-##### isOsAccountConstraintEnable(deprecated)
+#### isOsAccountConstraintEnable(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2347,7 +2347,7 @@ accountManager.isOsAccountConstraintEnable(localId, constraint).then((isEnabled:
 
 
 
-##### isTestOsAccount(deprecated)
+#### isTestOsAccount(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2385,7 +2385,7 @@ accountManager.isTestOsAccount((err: BusinessError, isTestable: boolean) => {
 
 
 
-##### isTestOsAccount(deprecated)
+#### isTestOsAccount(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2421,7 +2421,7 @@ let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
 
 
 
-##### isOsAccountVerified(deprecated)
+#### isOsAccountVerified(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2461,7 +2461,7 @@ accountManager.isOsAccountVerified((err: BusinessError, isVerified: boolean) => 
 
 
 
-##### isOsAccountVerified(deprecated)
+#### isOsAccountVerified(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2503,7 +2503,7 @@ accountManager.isOsAccountVerified(localId, (err: BusinessError, isVerified: boo
 
 
 
-##### isOsAccountVerified(deprecated)
+#### isOsAccountVerified(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2548,7 +2548,7 @@ accountManager.isOsAccountVerified().then((isVerified: boolean) => {
 
 
 
-##### getCreatedOsAccountsCount(deprecated)
+#### getCreatedOsAccountsCount(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2588,7 +2588,7 @@ accountManager.getCreatedOsAccountsCount((err: BusinessError, count: number)=>{
 
 
 
-##### getCreatedOsAccountsCount(deprecated)
+#### getCreatedOsAccountsCount(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2626,7 +2626,7 @@ accountManager.getCreatedOsAccountsCount().then((count: number) => {
 
 
 
-##### getOsAccountLocalIdFromProcess(deprecated)
+#### getOsAccountLocalIdFromProcess(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2664,7 +2664,7 @@ accountManager.getOsAccountLocalIdFromProcess((err: BusinessError, localId: numb
 
 
 
-##### getOsAccountLocalIdFromProcess(deprecated)
+#### getOsAccountLocalIdFromProcess(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2700,7 +2700,7 @@ accountManager.getOsAccountLocalIdFromProcess().then((localId: number) => {
 
 
 
-##### getOsAccountLocalIdFromUid(deprecated)
+#### getOsAccountLocalIdFromUid(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2742,7 +2742,7 @@ accountManager.getOsAccountLocalIdFromUid(uid, (err: BusinessError, localId: num
 
 
 
-##### getOsAccountLocalIdFromUid(deprecated)
+#### getOsAccountLocalIdFromUid(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2788,7 +2788,7 @@ accountManager.getOsAccountLocalIdFromUid(uid).then((localId: number) => {
 
 
 
-##### getOsAccountLocalIdFromDomain(deprecated)
+#### getOsAccountLocalIdFromDomain(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2830,7 +2830,7 @@ accountManager.getOsAccountLocalIdFromDomain(domainInfo, (err: BusinessError, lo
 
 
 
-##### getOsAccountLocalIdFromDomain(deprecated)
+#### getOsAccountLocalIdFromDomain(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2876,7 +2876,7 @@ accountManager.getOsAccountLocalIdFromDomain(domainInfo).then((localId: number) 
 
 
 
-##### getOsAccountAllConstraints(deprecated)
+#### getOsAccountAllConstraints(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2920,7 +2920,7 @@ accountManager.getOsAccountAllConstraints(localId, (err: BusinessError, constrai
 
 
 
-##### getOsAccountAllConstraints(deprecated)
+#### getOsAccountAllConstraints(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2968,7 +2968,7 @@ accountManager.getOsAccountAllConstraints(localId).then((constraints: string[]) 
 
 
 
-##### queryActivatedOsAccountIds(deprecated)
+#### queryActivatedOsAccountIds(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3009,7 +3009,7 @@ accountManager.queryActivatedOsAccountIds((err: BusinessError, idArray: number[]
 
 
 
-##### queryActivatedOsAccountIds(deprecated)
+#### queryActivatedOsAccountIds(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3045,7 +3045,7 @@ accountManager.queryActivatedOsAccountIds().then((idArray: number[]) => {
 
 
 
-##### queryCurrentOsAccount(deprecated)
+#### queryCurrentOsAccount(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3085,7 +3085,7 @@ accountManager.queryCurrentOsAccount((err: BusinessError, curAccountInfo: osAcco
 
 
 
-##### queryCurrentOsAccount(deprecated)
+#### queryCurrentOsAccount(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3123,7 +3123,7 @@ accountManager.queryCurrentOsAccount().then((accountInfo: osAccount.OsAccountInf
 
 
 
-##### getOsAccountTypeFromProcess(deprecated)
+#### getOsAccountTypeFromProcess(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3161,7 +3161,7 @@ accountManager.getOsAccountTypeFromProcess((err: BusinessError, accountType: osA
 
 
 
-##### getOsAccountTypeFromProcess(deprecated)
+#### getOsAccountTypeFromProcess(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3197,7 +3197,7 @@ accountManager.getOsAccountTypeFromProcess().then((accountType: osAccount.OsAcco
 
 
 
-##### getDistributedVirtualDeviceId(deprecated)
+#### getDistributedVirtualDeviceId(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3237,7 +3237,7 @@ accountManager.getDistributedVirtualDeviceId((err: BusinessError, virtualID: str
 
 
 
-##### getDistributedVirtualDeviceId(deprecated)
+#### getDistributedVirtualDeviceId(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3275,7 +3275,7 @@ accountManager.getDistributedVirtualDeviceId().then((virtualID: string) => {
 
 
 
-##### getOsAccountLocalIdBySerialNumber(deprecated)
+#### getOsAccountLocalIdBySerialNumber(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3317,7 +3317,7 @@ accountManager.getOsAccountLocalIdBySerialNumber(serialNumber, (err: BusinessErr
 
 
 
-##### getOsAccountLocalIdBySerialNumber(deprecated)
+#### getOsAccountLocalIdBySerialNumber(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3363,7 +3363,7 @@ accountManager.getOsAccountLocalIdBySerialNumber(serialNumber).then((localId: nu
 
 
 
-##### getSerialNumberByOsAccountLocalId(deprecated)
+#### getSerialNumberByOsAccountLocalId(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3405,7 +3405,7 @@ accountManager.getSerialNumberByOsAccountLocalId(localId, (err: BusinessError, s
 
 
 
-##### getSerialNumberByOsAccountLocalId(deprecated)
+#### getSerialNumberByOsAccountLocalId(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3451,7 +3451,7 @@ accountManager.getSerialNumberByOsAccountLocalId(localId).then((serialNumber: nu
 
 
 
-##### getOsAccountName12+
+#### getOsAccountName12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3497,7 +3497,7 @@ try {
 
 
 
-##### getForegroundOsAccountLocalId15+
+#### getForegroundOsAccountLocalId15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3543,7 +3543,7 @@ try {
 
 
 
-##### getOsAccountDomainInfo15+
+#### getOsAccountDomainInfo15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3602,7 +3602,7 @@ accountManager.getOsAccountDomainInfo(localId).then((domainAccountInfo: osAccoun
 
 
 
-##### DomainAccountManager18+
+#### DomainAccountManager18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3610,7 +3610,7 @@ accountManager.getOsAccountDomainInfo(localId).then((domainAccountInfo: osAccoun
 
 
 
-##### updateAccountInfo18+
+#### updateAccountInfo18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3674,7 +3674,7 @@ try {
 
 
 
-##### OsAccountInfo
+#### OsAccountInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3703,7 +3703,7 @@ try {
 
 
 
-##### DomainAccountInfo8+
+#### DomainAccountInfo8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3720,7 +3720,7 @@ try {
 
 
 
-##### DomainServerConfig18+
+#### DomainServerConfig18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3737,7 +3737,7 @@ try {
 
 
 
-##### DomainServerConfigManager18+
+#### DomainServerConfigManager18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3745,7 +3745,7 @@ try {
 
 
 
-##### addServerConfig18+
+#### addServerConfig18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3805,7 +3805,7 @@ osAccount.DomainServerConfigManager.addServerConfig(configParams).then((
 
 
 
-##### removeServerConfig18+
+#### removeServerConfig18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3865,7 +3865,7 @@ osAccount.DomainServerConfigManager.addServerConfig(configParams).then((
 
 
 
-##### updateServerConfig18+
+#### updateServerConfig18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3932,7 +3932,7 @@ osAccount.DomainServerConfigManager.addServerConfig(configParams).then((
 
 
 
-##### getServerConfig18+
+#### getServerConfig18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3994,7 +3994,7 @@ osAccount.DomainServerConfigManager.addServerConfig(configParams).then((
 
 
 
-##### getAllServerConfigs18+
+#### getAllServerConfigs18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4048,7 +4048,7 @@ osAccount.DomainServerConfigManager.addServerConfig(configParams).then((
 
 
 
-##### getAccountServerConfig18+
+#### getAccountServerConfig18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4105,7 +4105,7 @@ osAccount.DomainServerConfigManager.getAccountServerConfig(accountInfo).then((
 
 
 
-##### 系统账号约束列表
+#### 系统账号约束列表
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

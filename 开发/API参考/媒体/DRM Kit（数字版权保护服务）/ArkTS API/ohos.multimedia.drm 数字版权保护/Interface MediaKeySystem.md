@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { drm } from '@kit.DrmKit';
 
 
 
-##### setConfigurationString
+#### setConfigurationString
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -64,7 +64,7 @@ mediaKeySystem.setConfigurationString("stringConfigName", "stringConfigValue"); 
 
 
 
-##### getConfigurationString
+#### getConfigurationString
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -112,7 +112,7 @@ let configValue: string = mediaKeySystem.getConfigurationString("vendor");
 
 
 
-##### setConfigurationByteArray
+#### setConfigurationByteArray
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -157,7 +157,7 @@ mediaKeySystem.setConfigurationByteArray("byteArrayConfigName", configValue);
 
 
 
-##### getConfigurationByteArray
+#### getConfigurationByteArray
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -205,7 +205,7 @@ let configValue: Uint8Array = mediaKeySystem.getConfigurationByteArray("deviceUn
 
 
 
-##### getStatistics
+#### getStatistics
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -245,7 +245,7 @@ let statisticKeyValue: drm.StatisticKeyValue[] = mediaKeySystem.getStatistics();
 
 
 
-##### getMaxContentProtectionLevel
+#### getMaxContentProtectionLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -285,7 +285,7 @@ let maxLevel: drm.ContentProtectionLevel = mediaKeySystem.getMaxContentProtectio
 
 
 
-##### generateKeySystemRequest
+#### generateKeySystemRequest
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -331,7 +331,7 @@ mediaKeySystem.generateKeySystemRequest().then((provisionRequest: drm.ProvisionR
 
 
 
-##### processKeySystemResponse
+#### processKeySystemResponse
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -385,7 +385,7 @@ mediaKeySystem.processKeySystemResponse(keySystemResponse).then(() => {
 
 
 
-##### getCertificateStatus
+#### getCertificateStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -425,7 +425,7 @@ let certificateStatus: drm.CertificateStatus = mediaKeySystem.getCertificateStat
 
 
 
-##### on('keySystemRequired')
+#### on('keySystemRequired')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -468,7 +468,7 @@ mediaKeySystem.on('keySystemRequired', (eventInfo: drm.EventInfo) => {
 
 
 
-##### off('keySystemRequired')
+#### off('keySystemRequired')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -508,7 +508,7 @@ mediaKeySystem.off('keySystemRequired');
 
 
 
-##### createMediaKeySession
+#### createMediaKeySession
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -557,7 +557,7 @@ let mediaKeySession: drm.MediaKeySession = mediaKeySystem.createMediaKeySession(
 
 
 
-##### createMediaKeySession
+#### createMediaKeySession
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -598,7 +598,7 @@ let mediaKeySession: drm.MediaKeySession = mediaKeySystem.createMediaKeySession(
 
 
 
-##### getOfflineMediaKeyIds
+#### getOfflineMediaKeyIds
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -638,7 +638,7 @@ let offlineMediaKeyIds: Uint8Array[] = mediaKeySystem.getOfflineMediaKeyIds();
 
 
 
-##### getOfflineMediaKeyStatus
+#### getOfflineMediaKeyStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -688,7 +688,7 @@ let configValue: drm.OfflineMediaKeyStatus = mediaKeySystem.getOfflineMediaKeySt
 
 
 
-##### clearOfflineMediaKeys
+#### clearOfflineMediaKeys
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -731,7 +731,7 @@ mediaKeySystem.clearOfflineMediaKeys(mediaKeyId);
 
 
 
-##### destroy
+#### destroy
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

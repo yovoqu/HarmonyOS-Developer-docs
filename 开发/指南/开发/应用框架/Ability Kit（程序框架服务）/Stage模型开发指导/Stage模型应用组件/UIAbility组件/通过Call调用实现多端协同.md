@@ -13,7 +13,7 @@ Call调用的核心接口是[startAbilityByCall()](https://developer.huawei.com/
 
 
 
-##### 基本概念
+#### 基本概念
 
 **表1** Call调用相关名词解释
 
@@ -27,7 +27,7 @@ Call调用的核心接口是[startAbilityByCall()](https://developer.huawei.com/
 
 
 
-##### 约束限制
+#### 约束限制
 
  - CalleeAbility的启动模式不支持指定实例模式。
  - 当前仅分布式迁移场景对第三方应用开放Call调用权限，其余所有Call调用场景均限定为系统内部调用。
@@ -35,7 +35,7 @@ Call调用的核心接口是[startAbilityByCall()](https://developer.huawei.com/
 
 
 
-##### 运行机制
+#### 运行机制
 
 Call调用示意图如下所示。
 
@@ -51,7 +51,7 @@ Call调用示意图如下所示。
 
 
 
-##### 接口说明
+#### 接口说明
 
 Call功能主要接口如下表所示。具体的API详见[Caller](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#caller)接口说明。
 
@@ -70,11 +70,11 @@ Call功能主要接口如下表所示。具体的API详见[Caller](https://devel
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 
 
-##### 创建Callee被调用端
+#### 创建Callee被调用端
 
 在[Callee](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#callee)被调用端，需要实现指定方法的数据接收回调函数、数据的序列化及反序列化方法。在需要接收数据期间，通过[on](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#on)接口注册监听，无需接收数据时通过[off](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#off)接口解除监听。
 1. 需要申请ohos.permission.DISTRIBUTED_DATASYNC权限，配置方式请参见[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。
@@ -213,7 +213,7 @@ export default class CalleeAbility extends UIAbility {
 
 
 
-##### 访问被调用端UIAbility
+#### 访问被调用端UIAbility
 1. 导入[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)模块。
 
   
@@ -315,7 +315,7 @@ struct Page_CollaborateAbility {
 
 
 
-##### 向被调用端UIAbility发送约定序列化数据
+#### 向被调用端UIAbility发送约定序列化数据
 1. 向被调用端发送Parcelable数据有两种方式，一种是不带返回值，一种是获取被调用端返回的数据，method以及序列化数据需要与被调用端协商一致。如下示例调用[Call](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#call)接口，向[Callee](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#callee)被调用端发送数据。
 
   
@@ -441,7 +441,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### 释放Caller通信接口
+#### 释放Caller通信接口
 
 [Caller](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#caller)不再使用后，应用开发者可以通过[release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#release)接口释放Caller。
 

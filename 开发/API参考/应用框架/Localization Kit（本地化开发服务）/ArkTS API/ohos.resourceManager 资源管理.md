@@ -14,7 +14,7 @@ Configuration配置包括语言、区域、横竖屏、Mcc（移动国家码）�
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { resourceManager } from '@kit.LocalizationKit';
 
 
 
-##### 使用说明
+#### 使用说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -48,7 +48,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### resourceManager.getResourceManager
+#### resourceManager.getResourceManager
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -96,7 +96,7 @@ export default {
 
 
 
-##### resourceManager.getResourceManager
+#### resourceManager.getResourceManager
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -147,7 +147,7 @@ export default {
 
 
 
-##### resourceManager.getResourceManager
+#### resourceManager.getResourceManager
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -191,7 +191,7 @@ export default {
 
 
 
-##### resourceManager.getResourceManager
+#### resourceManager.getResourceManager
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -245,7 +245,7 @@ export default {
 
 
 
-##### resourceManager.getSysResourceManager20+
+#### resourceManager.getSysResourceManager20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -296,7 +296,7 @@ try {
 
 
 
-##### Direction
+#### Direction
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -314,7 +314,7 @@ try {
 
 
 
-##### DeviceType
+#### DeviceType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -337,7 +337,7 @@ try {
 
 
 
-##### ScreenDensity
+#### ScreenDensity
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -359,7 +359,7 @@ try {
 
 
 
-##### ColorMode12+
+#### ColorMode12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -377,7 +377,7 @@ try {
 
 
 
-##### Configuration
+#### Configuration
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -398,7 +398,7 @@ try {
 
 
 
-##### DeviceCapability
+#### DeviceCapability
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -416,7 +416,7 @@ try {
 
 
 
-##### RawFileDescriptor9+
+#### RawFileDescriptor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -433,7 +433,7 @@ type RawFileDescriptor = _RawFileDescriptor
 
 
 
-##### Resource9+
+#### Resource9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -450,7 +450,7 @@ type Resource = _Resource
 
 
 
-##### ResourceManager
+#### ResourceManager
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -462,7 +462,7 @@ type Resource = _Resource
 
 
 
-##### getStringSync9+
+#### getStringSync9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -536,7 +536,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getStringSync10+
+#### getStringSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -612,7 +612,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getStringByNameSync9+
+#### getStringByNameSync9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -686,7 +686,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getStringByNameSync10+
+#### getStringByNameSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -762,7 +762,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getStringValue9+
+#### getStringValue9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -829,7 +829,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getStringValue9+
+#### getStringValue9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -900,7 +900,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getStringByName9+
+#### getStringByName9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -967,7 +967,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getStringByName9+
+#### getStringByName9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1038,7 +1038,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getStringArrayValueSync10+
+#### getStringArrayValueSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1116,7 +1116,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getStringArrayByNameSync10+
+#### getStringArrayByNameSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1194,7 +1194,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getStringArrayValue9+
+#### getStringArrayValue9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1266,7 +1266,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getStringArrayValue9+
+#### getStringArrayValue9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1343,7 +1343,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getStringArrayByName9+
+#### getStringArrayByName9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1415,7 +1415,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getStringArrayByName9+
+#### getStringArrayByName9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1492,7 +1492,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getIntPluralStringValueSync18+
+#### getIntPluralStringValueSync18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1583,7 +1583,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getIntPluralStringByNameSync18+
+#### getIntPluralStringByNameSync18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1674,7 +1674,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getDoublePluralStringValueSync18+
+#### getDoublePluralStringValueSync18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1765,7 +1765,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getDoublePluralStringByNameSync18+
+#### getDoublePluralStringByNameSync18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1856,7 +1856,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getMediaContentSync10+
+#### getMediaContentSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1925,7 +1925,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getMediaByNameSync10+
+#### getMediaByNameSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1994,7 +1994,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getMediaContent9+
+#### getMediaContent9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2054,7 +2054,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getMediaContent10+
+#### getMediaContent10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2114,7 +2114,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getMediaContent9+
+#### getMediaContent9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2177,7 +2177,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getMediaContent10+
+#### getMediaContent10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2241,7 +2241,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getMediaByName9+
+#### getMediaByName9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2300,7 +2300,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getMediaByName10+
+#### getMediaByName10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2360,7 +2360,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getMediaByName9+
+#### getMediaByName9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2423,7 +2423,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getMediaByName10+
+#### getMediaByName10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2487,7 +2487,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getMediaContentBase64Sync10+
+#### getMediaContentBase64Sync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2556,7 +2556,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getMediaBase64ByNameSync10+
+#### getMediaBase64ByNameSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2625,7 +2625,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getMediaContentBase649+
+#### getMediaContentBase649+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2684,7 +2684,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getMediaContentBase6410+
+#### getMediaContentBase6410+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2744,7 +2744,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getMediaContentBase649+
+#### getMediaContentBase649+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2807,7 +2807,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getMediaContentBase6410+
+#### getMediaContentBase6410+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2871,7 +2871,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getMediaBase64ByName9+
+#### getMediaBase64ByName9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2930,7 +2930,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getMediaBase64ByName10+
+#### getMediaBase64ByName10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2990,7 +2990,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getMediaBase64ByName9+
+#### getMediaBase64ByName9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3053,7 +3053,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getMediaBase64ByName10+
+#### getMediaBase64ByName10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3117,7 +3117,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getDrawableDescriptor10+
+#### getDrawableDescriptor10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3195,7 +3195,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getDrawableDescriptorByName10+
+#### getDrawableDescriptorByName10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3273,7 +3273,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getBoolean9+
+#### getBoolean9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3347,7 +3347,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getBooleanByName9+
+#### getBooleanByName9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3421,7 +3421,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getNumber9+
+#### getNumber9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3521,7 +3521,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getNumberByName9+
+#### getNumberByName9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3621,7 +3621,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getColorSync10+
+#### getColorSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3695,7 +3695,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getColorByNameSync10+
+#### getColorByNameSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3769,7 +3769,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getColor10+
+#### getColor10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3836,7 +3836,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getColor10+
+#### getColor10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3909,7 +3909,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getColorByName10+
+#### getColorByName10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3976,7 +3976,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getColorByName10+
+#### getColorByName10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4049,7 +4049,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getRawFileContentSync10+
+#### getRawFileContentSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4107,7 +4107,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getRawFileContent9+
+#### getRawFileContent9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4165,7 +4165,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getRawFileContent9+
+#### getRawFileContent9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4227,7 +4227,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getRawFileListSync10+
+#### getRawFileListSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4292,7 +4292,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getRawFileList10+
+#### getRawFileList10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4350,7 +4350,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getRawFileList10+
+#### getRawFileList10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4414,7 +4414,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getRawFdSync10+
+#### getRawFdSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4476,7 +4476,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getRawFd9+
+#### getRawFd9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4541,7 +4541,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getRawFd9+
+#### getRawFd9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4610,7 +4610,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### closeRawFdSync10+
+#### closeRawFdSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4665,7 +4665,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### closeRawFd9+
+#### closeRawFd9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4725,7 +4725,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### closeRawFd9+
+#### closeRawFd9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4786,7 +4786,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getConfigurationSync10+
+#### getConfigurationSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4825,7 +4825,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getConfiguration
+#### getConfiguration
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4871,7 +4871,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getConfiguration
+#### getConfiguration
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4915,7 +4915,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getDeviceCapabilitySync10+
+#### getDeviceCapabilitySync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4954,7 +4954,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getDeviceCapability
+#### getDeviceCapability
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5000,7 +5000,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getDeviceCapability
+#### getDeviceCapability
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5044,7 +5044,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### addResource10+
+#### addResource10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5100,7 +5100,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### removeResource10+
+#### removeResource10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5156,7 +5156,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getLocales11+
+#### getLocales11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5229,7 +5229,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getSymbol11+
+#### getSymbol11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5291,7 +5291,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getSymbolByName11+
+#### getSymbolByName11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5353,7 +5353,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### isRawDir12+
+#### isRawDir12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5420,7 +5420,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getOverrideResourceManager12+
+#### getOverrideResourceManager12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5482,7 +5482,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getOverrideConfiguration12+
+#### getOverrideConfiguration12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5526,7 +5526,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### updateOverrideConfiguration12+
+#### updateOverrideConfiguration12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5579,7 +5579,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### release(deprecated)
+#### release(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5607,7 +5607,7 @@ try {
 
 
 
-##### getString(deprecated)
+#### getString(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5645,7 +5645,7 @@ resourceManager.getResourceManager((error, mgr) => {
 
 
 
-##### getString(deprecated)
+#### getString(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5689,7 +5689,7 @@ resourceManager.getResourceManager((error, mgr) => {
 
 
 
-##### getStringSync(deprecated)
+#### getStringSync(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5769,7 +5769,7 @@ try {
 
 
 
-##### getStringSync(deprecated)
+#### getStringSync(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5851,7 +5851,7 @@ try {
 
 
 
-##### getStringValue(deprecated)
+#### getStringValue(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5924,7 +5924,7 @@ this.context.resourceManager.getStringValue(resource, (error: BusinessError, val
 
 
 
-##### getStringValue(deprecated)
+#### getStringValue(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5991,7 +5991,7 @@ this.context.resourceManager.getStringValue(resource, (error: BusinessError, val
 
 
 
-##### getStringArray(deprecated)
+#### getStringArray(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6029,7 +6029,7 @@ resourceManager.getResourceManager((error, mgr) => {
 
 
 
-##### getStringArray(deprecated)
+#### getStringArray(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6073,7 +6073,7 @@ resourceManager.getResourceManager((error, mgr) => {
 
 
 
-##### getStringArrayValueSync(deprecated)
+#### getStringArrayValueSync(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6157,7 +6157,7 @@ try {
 
 
 
-##### getStringArrayValue(deprecated)
+#### getStringArrayValue(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6234,7 +6234,7 @@ this.context.resourceManager.getStringArrayValue(resource, (error: BusinessError
 
 
 
-##### getStringArrayValue(deprecated)
+#### getStringArrayValue(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6317,7 +6317,7 @@ this.context.resourceManager.getStringArrayValue(resource)
 
 
 
-##### getMedia(deprecated)
+#### getMedia(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6355,7 +6355,7 @@ resourceManager.getResourceManager((error, mgr) => {
 
 
 
-##### getMedia(deprecated)
+#### getMedia(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6399,7 +6399,7 @@ resourceManager.getResourceManager((error, mgr) => {
 
 
 
-##### getMediaContentSync(deprecated)
+#### getMediaContentSync(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6473,7 +6473,7 @@ try {
 
 
 
-##### getMediaContent(deprecated)
+#### getMediaContent(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6538,7 +6538,7 @@ try {
 
 
 
-##### getMediaContent(deprecated)
+#### getMediaContent(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6604,7 +6604,7 @@ try {
 
 
 
-##### getMediaContent(deprecated)
+#### getMediaContent(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6673,7 +6673,7 @@ try {
 
 
 
-##### getMediaContent(deprecated)
+#### getMediaContent(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6743,7 +6743,7 @@ try {
 
 
 
-##### getMediaBase64(deprecated)
+#### getMediaBase64(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6781,7 +6781,7 @@ resourceManager.getResourceManager((error, mgr) => {
 
 
 
-##### getMediaBase64(deprecated)
+#### getMediaBase64(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6825,7 +6825,7 @@ resourceManager.getResourceManager((error, mgr) => {
 
 
 
-##### getMediaContentBase64Sync(deprecated)
+#### getMediaContentBase64Sync(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6899,7 +6899,7 @@ try {
 
 
 
-##### getMediaContentBase64(deprecated)
+#### getMediaContentBase64(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6964,7 +6964,7 @@ try {
 
 
 
-##### getMediaContentBase64(deprecated)
+#### getMediaContentBase64(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7030,7 +7030,7 @@ try {
 
 
 
-##### getMediaContentBase64(deprecated)
+#### getMediaContentBase64(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7099,7 +7099,7 @@ try {
 
 
 
-##### getMediaContentBase64(deprecated)
+#### getMediaContentBase64(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7169,7 +7169,7 @@ try {
 
 
 
-##### getDrawableDescriptor(deprecated)
+#### getDrawableDescriptor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7251,7 +7251,7 @@ try {
 
 
 
-##### getIntPluralStringValueSync(deprecated)
+#### getIntPluralStringValueSync(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7345,7 +7345,7 @@ try {
 
 
 
-##### getDoublePluralStringValueSync(deprecated)
+#### getDoublePluralStringValueSync(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7439,7 +7439,7 @@ try {
 
 
 
-##### getPluralStringValueSync(deprecated)
+#### getPluralStringValueSync(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7523,7 +7523,7 @@ try {
 
 
 
-##### getPluralStringValueSync(deprecated)
+#### getPluralStringValueSync(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7615,7 +7615,7 @@ try {
 
 
 
-##### getPluralStringByNameSync(deprecated)
+#### getPluralStringByNameSync(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7699,7 +7699,7 @@ try {
 
 
 
-##### getPluralStringValue(deprecated)
+#### getPluralStringValue(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7777,7 +7777,7 @@ this.context.resourceManager.getPluralStringValue($r("app.plural.test").id, 1,
 
 
 
-##### getPluralStringValue(deprecated)
+#### getPluralStringValue(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7860,7 +7860,7 @@ this.context.resourceManager.getPluralStringValue($r("app.plural.test").id, 1)
 
 
 
-##### getPluralStringValue(deprecated)
+#### getPluralStringValue(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7946,7 +7946,7 @@ this.context.resourceManager.getPluralStringValue(resource, 1,
 
 
 
-##### getPluralStringValue(deprecated)
+#### getPluralStringValue(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8037,7 +8037,7 @@ this.context.resourceManager.getPluralStringValue(resource, 1)
 
 
 
-##### getPluralStringByName(deprecated)
+#### getPluralStringByName(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8114,7 +8114,7 @@ this.context.resourceManager.getPluralStringByName("test", 1, (error: BusinessEr
 
 
 
-##### getPluralStringByName(deprecated)
+#### getPluralStringByName(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8197,7 +8197,7 @@ this.context.resourceManager.getPluralStringByName("test", 1)
 
 
 
-##### getPluralString(deprecated)
+#### getPluralString(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8242,7 +8242,7 @@ resourceManager.getResourceManager((error, mgr) => {
 
 
 
-##### getPluralString(deprecated)
+#### getPluralString(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8283,7 +8283,7 @@ resourceManager.getResourceManager((error, mgr) => {
 
 
 
-##### getBoolean(deprecated)
+#### getBoolean(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8363,7 +8363,7 @@ try {
 
 
 
-##### getNumber(deprecated)
+#### getNumber(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8444,7 +8444,7 @@ try {
 
 
 
-##### getColorSync(deprecated)
+#### getColorSync(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8524,7 +8524,7 @@ try {
 
 
 
-##### getColor(deprecated)
+#### getColor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8597,7 +8597,7 @@ this.context.resourceManager.getColor(resource, (error: BusinessError, value: nu
 
 
 
-##### getColor(deprecated)
+#### getColor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8676,7 +8676,7 @@ this.context.resourceManager.getColor(resource)
 
 
 
-##### getSymbol(deprecated)
+#### getSymbol(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8744,7 +8744,7 @@ try {
 
 
 
-##### getRawFile(deprecated)
+#### getRawFile(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8784,7 +8784,7 @@ resourceManager.getResourceManager((error, mgr) => {
 
 
 
-##### getRawFile(deprecated)
+#### getRawFile(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8828,7 +8828,7 @@ resourceManager.getResourceManager((error, mgr) => {
 
 
 
-##### getRawFileDescriptor(deprecated)
+#### getRawFileDescriptor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8870,7 +8870,7 @@ resourceManager.getResourceManager((error, mgr) => {
 
 
 
-##### getRawFileDescriptor(deprecated)
+#### getRawFileDescriptor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8916,7 +8916,7 @@ resourceManager.getResourceManager((error, mgr) => {
 
 
 
-##### closeRawFileDescriptor(deprecated)
+#### closeRawFileDescriptor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8954,7 +8954,7 @@ resourceManager.getResourceManager((error, mgr) => {
 
 
 
-##### closeRawFileDescriptor(deprecated)
+#### closeRawFileDescriptor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8994,7 +8994,7 @@ resourceManager.getResourceManager((error, mgr) => {
 
 
 
-##### resourceManager.getSystemResourceManager(deprecated)
+#### resourceManager.getSystemResourceManager(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9048,7 +9048,7 @@ try {
 
 
 
-##### AsyncCallback(deprecated)
+#### AsyncCallback(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9058,7 +9058,7 @@ try {
 
 
 
-##### (err: Error, data: T)(deprecated)
+#### (err: Error, data: T)(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9082,7 +9082,7 @@ try {
 
 
 
-##### 附录
+#### 附录
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

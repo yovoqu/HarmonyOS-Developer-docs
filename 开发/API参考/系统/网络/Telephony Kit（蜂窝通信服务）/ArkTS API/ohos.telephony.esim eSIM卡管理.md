@@ -12,7 +12,7 @@ eSIM卡管理模块提供了eSIM卡管理的基础能力，包括获取指定卡
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Wearable
 
@@ -22,7 +22,7 @@ import { eSIM } from '@kit.TelephonyKit';
 
 
 
-##### eSIM.isSupported
+#### eSIM.isSupported
 
 **支持设备：** Phone | Wearable
 
@@ -68,7 +68,7 @@ console.info(`the esim is Supported:` + isSupported);
 
 
 
-##### eSIM.addProfile
+#### eSIM.addProfile
 
 **支持设备：** Phone | Wearable
 
@@ -133,7 +133,7 @@ eSIM.addProfile(profile).then(() => {
 
 
 
-##### DownloadableProfile
+#### DownloadableProfile
 
 **支持设备：** Phone | Wearable
 
@@ -151,7 +151,7 @@ eSIM.addProfile(profile).then(() => {
 
 
 
-##### AccessRule20+
+#### AccessRule20+
 
 **支持设备：** Phone | Wearable
 

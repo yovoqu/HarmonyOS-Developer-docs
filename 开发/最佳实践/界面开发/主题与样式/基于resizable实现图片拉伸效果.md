@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-implementing-image-resizable
 
-##### 概述
+#### 概述
 
 在一些开发场景中，图片需适配不同尺寸的容器。若直接拉伸，容易导致关键区域（如圆角、边框或图案细节）变形、模糊，影响视觉效果。典型例子如聊天消息气泡，其背景图需随内容长度和高度动态调整。
  
@@ -14,7 +14,7 @@ Image组件提供的[resizable](https://developer.huawei.com/consumer/cn/doc/har
  
  
 
-##### 实现原理
+#### 实现原理
 
 通过Image组件的resizable属性实现精准图片拉伸，其核心原理是：使用特定规则划分图片的固定区域与可拉伸区域，当图片拉伸时，仅对可拉伸区域进行拉伸，固定区域保持原始尺寸与形态不变。
  
@@ -22,7 +22,7 @@ resizable属性参数类型为[ResizableOptions](https://developer.huawei.com/co
  
  
 
-##### 使用slice拉伸图片
+#### 使用slice拉伸图片
 
 通过slice参数指定原图片在上、下、左、右四个方向的偏移值（px像素点），将图片划分为九宫格布局：四个角的区域为固定区域，其余为可拉伸区域。如下图所示：
  
@@ -55,7 +55,7 @@ Image($r('app.media.bg_right_message'))
  
  
 
-##### 使用lattice拉伸图片
+#### 使用lattice拉伸图片
 
 通过设置lattice参数，可以利用原图水平和垂直方向的坐标点数组（px像素点）将图片划分为规则矩形网格，行列数为数组长度+1。其中，偶数行与偶数列交叉处的格子为固定区域（如下图中蓝色部分所示），其余区域为可拉伸区域。拉伸时，固定区域保持原尺寸，其他区域根据需要进行拉伸。
  
@@ -95,7 +95,7 @@ private drawingLatticeFirst: DrawingLattice =
  
  
 
-##### 使用slice与lattice实现图片拉伸对比
+#### 使用slice与lattice实现图片拉伸对比
 
 下面对比了slice与lattice的实现方式及适用场景，开发者可参考以选择合适的方案。
   
@@ -107,11 +107,11 @@ private drawingLatticeFirst: DrawingLattice =
  
  
 
-##### 使用slice实现聊天消息气泡
+#### 使用slice实现聊天消息气泡
 
  
 
-##### 场景描述
+#### 场景描述
 
 聊天消息气泡在社交应用中是一种常见场景，效果如下图所示。当消息内容的长度和高度不同时，消息气泡需保持四周圆角和小三角指示符的形状不变。
  
@@ -121,7 +121,7 @@ private drawingLatticeFirst: DrawingLattice =
  
  
 
-##### 场景实现
+#### 场景实现
 
 通过slice方案实现消息气泡场景，主要方案是通过保持四周的圆角和三角形固定不变来实现的，具体步骤如下：
  1. 将图片划分为网格区域，确定对应的偏移值。开发者可以通过UX提供的坐标点或者使用PhotoShop等图片编辑工具，找到原始图固定区域上、下、左、右准确的偏移值。消息气泡图片区域划分和坐标点如下图所示：
@@ -171,11 +171,11 @@ Text(this.message)
  
  
 
-##### 使用lattice实现可拉伸占位图
+#### 使用lattice实现可拉伸占位图
 
  
 
-##### 场景描述
+#### 场景描述
 
 可拉伸占位图需实现边缘区域可拉伸，而中间的Logo区域保持不变，如下图所示。针对可拉伸占位图场景，本文将采用lattice属性实现。
  
@@ -185,7 +185,7 @@ Text(this.message)
  
  
 
-##### 场景实现
+#### 场景实现
 
 可拉伸占位图的中间区域为固定部分。根据[使用lattice拉伸图片](#section0797147172420)的原理，开发者在划分图片时，需将中间区域划分为偶数行与偶数列的交叉点。具体实现步骤如下：
  1. 将图片划分为网格区域，确定坐标点数组。图片Logo区域的坐标数组，可由UX设计人员提供，或由开发者通过Photoshop等图像编辑工具手动定位获取。示例场景中，该区域的x轴坐标数组为[150, 648]，y轴坐标数组为[150, 733]。若直接使用该坐标点数组，图片将被划分为3行3列的网格，Logo区域将位于第1行第1列（非偶数行和列）的交叉点，无法达到预期效果。如下图所示：
@@ -197,7 +197,7 @@ Text(this.message)
   为解决此问题，可在x轴和y轴各增加一个坐标点，使Logo区域位于第2行第2列（偶数行和列）的交叉点。为避免影响显示效果，可在原坐标前添加一个较小的坐标值，如1。如此，新的x轴坐标点数组变为[1, 150, 648]，y轴坐标点数组变为[1, 150, 733]，如下图所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/xF61IQSpRk-DziXR8Nt2mA/zh-cn_image_0000002506712870.png?HW-CC-KV=V1&HW-CC-Date=20260528T013045Z&HW-CC-Expire=86400&HW-CC-Sign=0B8986A440B1A06C8F55C82EB574D39962DDBEA5F77A278C161DC80264519BBC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/xF61IQSpRk-DziXR8Nt2mA/zh-cn_image_0000002506712870.png?HW-CC-KV=V1&HW-CC-Date=20260528T024729Z&HW-CC-Expire=86400&HW-CC-Sign=55705BAC50794AEE84EE6D871DC443789B9B65FC28B72C7DD6CD7D220D53BD93)
 
 2. 实现可拉伸占位图布局。根据上述获得的x轴和y轴坐标点数组，使用[createImageLattice()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-lattice#createimagelattice12)方法创建矩形网格对象，并设置给lattice参数。
 
@@ -247,11 +247,11 @@ struct PlaceholderImgView {
  
  
 
-##### 常见问题
+#### 常见问题
 
  
 
-##### 给Image组件设置resizable属性之后，在不同手机上的拉伸区域显示效果不一致
+#### 给Image组件设置resizable属性之后，在不同手机上的拉伸区域显示效果不一致
 
 **问题描述**
  
@@ -280,7 +280,7 @@ Image($r('app.media.bg_right_message'))
  
  
 
-##### 设置resizable属性后未生效，图片仍然被拉伸变形
+#### 设置resizable属性后未生效，图片仍然被拉伸变形
 
 **问题描述**
  
@@ -299,7 +299,7 @@ Image($r('app.media.bg_right_message'))
 
   
 
-  ##### 示例代码
+  #### 示例代码
 
   
 [基于resizable实现图片拉伸效果](https://gitcode.com/harmonyos_samples/resizable-image)

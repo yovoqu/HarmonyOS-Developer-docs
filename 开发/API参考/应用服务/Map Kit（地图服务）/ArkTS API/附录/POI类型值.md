@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-poi
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-##### HwLocationType
+#### HwLocationType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -21,7 +21,7 @@
  
   
 
-##### EATING_DRINKING
+#### EATING_DRINKING
  
 | Level 1 | Level 2 | Level 3 | Level 4 |
 | --- | --- | --- | --- |
@@ -271,7 +271,7 @@
  
   
 
-##### SHOPPING
+#### SHOPPING
  
 | Level 1 | Level 2 | Level 3 | Level 4 |
 | --- | --- | --- | --- |
@@ -408,7 +408,7 @@
  
   
 
-##### LEISURE
+#### LEISURE
  
 | Level 1 | Level 2 | Level 3 | Level 4 |
 | --- | --- | --- | --- |
@@ -506,7 +506,7 @@
  
   
 
-##### SPORT_FITNESS
+#### SPORT_FITNESS
  
 | Level 1 | Level 2 | Level 3 |
 | --- | --- | --- |
@@ -544,7 +544,7 @@
  
   
 
-##### TOURISM
+#### TOURISM
  
 | Level 1 | Level 2 | Level 3 |
 | --- | --- | --- |
@@ -595,7 +595,7 @@
  
   
 
-##### HEALTH_CARE
+#### HEALTH_CARE
  
 | Level 1 | Level 2 | Level 3 |
 | --- | --- | --- |
@@ -633,7 +633,7 @@
  
   
 
-##### ACCOMMODATION
+#### ACCOMMODATION
  
 | Level 1 | Level 2 | Level 3 | Level 4 |
 | --- | --- | --- | --- |
@@ -673,7 +673,7 @@
  
   
 
-##### TRANSPORT
+#### TRANSPORT
  
 | Level 1 | Level 2 | Level 3 | Level 4 |
 | --- | --- | --- | --- |
@@ -765,7 +765,7 @@
  
   
 
-##### GOVERNMENT_PUBLIC_SERVICE
+#### GOVERNMENT_PUBLIC_SERVICE
  
 | Level 1 | Level 2 | Level 3 | Level 4 |
 | --- | --- | --- | --- |
@@ -852,7 +852,7 @@
  
   
 
-##### BUSINESS
+#### BUSINESS
  
 | Level 1 | Level 2 | Level 3 | Level 4 |
 | --- | --- | --- | --- |
@@ -978,7 +978,7 @@
  
   
 
-##### AUTOMOTIVE
+#### AUTOMOTIVE
  
 | Level 1 | Level 2 | Level 3 |
 | --- | --- | --- |
@@ -1031,7 +1031,7 @@
  
   
 
-##### MISCELLANEOUS
+#### MISCELLANEOUS
  
 | Level 1 | Level 2 | Level 3 |
 | --- | --- | --- |
@@ -1101,7 +1101,7 @@
  
   
 
-##### CITY_WALK
+#### CITY_WALK
  
 | Level 1 |
 | --- |
@@ -1110,7 +1110,7 @@
  
   
 
-##### OTHERS
+#### OTHERS
  
 | Level 1 |
 | --- |

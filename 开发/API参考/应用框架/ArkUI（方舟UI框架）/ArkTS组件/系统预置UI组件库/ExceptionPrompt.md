@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { ExceptionPrompt, PromptOptions, MarginType } from '@kit.ArkUI';
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -30,7 +30,7 @@ import { ExceptionPrompt, PromptOptions, MarginType } from '@kit.ArkUI';
  
   
 
-##### ExceptionPrompt
+#### ExceptionPrompt
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -55,7 +55,7 @@ ExceptionPrompt({ options: PromptOptions, onTipClick?: ()=>void, onActionTextCli
  
   
 
-##### PromptOptions
+#### PromptOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -78,7 +78,7 @@ PromptOptions定义options的类型。
  
   
 
-##### MarginType
+#### MarginType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -98,7 +98,7 @@ MarginType定义marginType的类型。
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -106,13 +106,13 @@ MarginType定义marginType的类型。
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 示例1（设置异常提示）
+#### 示例1（设置异常提示）
 
 该示例展示了如何设置异常提示的异常图标、异常提示的文字、边距样式和右侧图标按钮的文字内容。
  
@@ -153,7 +153,7 @@ struct Index {
  
   
 
-##### 示例2（设置弹窗类型的异常提示）
+#### 示例2（设置弹窗类型的异常提示）
 
 该示例使用自定义弹窗设置弹窗类型的异常提示。
  
@@ -285,7 +285,7 @@ struct Index1 {
  
   
 
-##### 示例3（设置Symbol类型图标）
+#### 示例3（设置Symbol类型图标）
 
 从API version 18开始，该示例通过设置PromptOptions的属性symbolStyle，展示了自定义Symbol类型图标。
  
@@ -324,4 +324,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/EmSJAr1hSGuEoVCKkD37Iw/zh-cn_image_0000002611836075.png?HW-CC-KV=V1&HW-CC-Date=20260528T024157Z&HW-CC-Expire=86400&HW-CC-Sign=C02C7D3E513F5EF2E050EFBFFD3942E51806C78886E3657EDEC549DFA26D6D92)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/EmSJAr1hSGuEoVCKkD37Iw/zh-cn_image_0000002611836075.png?HW-CC-KV=V1&HW-CC-Date=20260528T025529Z&HW-CC-Expire=86400&HW-CC-Sign=BE69BDC1AB22EFDCF0A2D41CC1D7C9C20E0DEE71903B155E90346372BDF24909)

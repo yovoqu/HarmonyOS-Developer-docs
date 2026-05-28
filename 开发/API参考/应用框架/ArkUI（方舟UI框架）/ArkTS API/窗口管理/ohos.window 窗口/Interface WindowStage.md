@@ -14,7 +14,7 @@
 下列API示例中都需在[onWindowStageCreate()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onwindowstagecreate)函数中使用WindowStage的实例调用对应方法。
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { window } from '@kit.ArkUI';
 
 
 
-##### getMainWindow9+
+#### getMainWindow9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -93,7 +93,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getMainWindow9+
+#### getMainWindow9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -160,7 +160,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getMainWindowSync9+
+#### getMainWindowSync9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -223,7 +223,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### createSubWindow9+
+#### createSubWindow9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -296,7 +296,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### createSubWindow9+
+#### createSubWindow9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -367,7 +367,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### createSubWindowWithOptions11+
+#### createSubWindowWithOptions11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -447,7 +447,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getSubWindow9+
+#### getSubWindow9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -506,7 +506,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getSubWindow9+
+#### getSubWindow9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -563,7 +563,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### loadContent9+
+#### loadContent9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -632,7 +632,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### loadContent9+
+#### loadContent9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -706,7 +706,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### loadContent9+
+#### loadContent9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -771,7 +771,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### loadContentByName11+
+#### loadContentByName11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -863,7 +863,7 @@ export struct Index {
 
 
 
-##### loadContentByName11+
+#### loadContentByName11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -950,7 +950,7 @@ export struct Index {
 
 
 
-##### loadContentByName11+
+#### loadContentByName11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1046,7 +1046,7 @@ export struct Index {
 
 
 
-##### releaseUIContent24+
+#### releaseUIContent24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1117,7 +1117,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### on('windowStageEvent')9+
+#### on('windowStageEvent')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1175,7 +1175,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### off('windowStageEvent')9+
+#### off('windowStageEvent')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1252,7 +1252,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### on('windowStageLifecycleEvent')20+
+#### on('windowStageLifecycleEvent')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1328,7 +1328,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### off('windowStageLifecycleEvent')20+
+#### off('windowStageLifecycleEvent')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1392,7 +1392,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### on('windowStageClose')14+
+#### on('windowStageClose')14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1463,7 +1463,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### off('windowStageClose')14+
+#### off('windowStageClose')14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1531,7 +1531,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setDefaultDensityEnabled12+
+#### setDefaultDensityEnabled12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1600,7 +1600,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setCustomDensity15+
+#### setCustomDensity15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1660,7 +1660,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setCustomDensity20+
+#### setCustomDensity20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1718,7 +1718,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setWindowModal14+
+#### setWindowModal14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1791,7 +1791,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### removeStartingWindow14+
+#### removeStartingWindow14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1853,7 +1853,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setWindowRectAutoSave14+
+#### setWindowRectAutoSave14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1942,7 +1942,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setWindowRectAutoSave17+
+#### setWindowRectAutoSave17+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2032,7 +2032,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### isWindowRectAutoSave14+
+#### isWindowRectAutoSave14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2098,7 +2098,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setSupportedWindowModes15+
+#### setSupportedWindowModes15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2175,7 +2175,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setSupportedWindowModes20+
+#### setSupportedWindowModes20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

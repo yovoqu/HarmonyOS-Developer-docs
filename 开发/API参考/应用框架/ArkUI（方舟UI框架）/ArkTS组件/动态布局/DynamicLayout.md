@@ -12,7 +12,7 @@
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -45,7 +45,7 @@ DynamicLayout(algorithm: LayoutAlgorithm)
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -57,7 +57,7 @@ DynamicLayout(algorithm: LayoutAlgorithm)
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -65,13 +65,13 @@ DynamicLayout(algorithm: LayoutAlgorithm)
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1（自定义布局算法实现瀑布流布局）
+#### 示例1（自定义布局算法实现瀑布流布局）
 
 该示例展示如何重写[onMeasure](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#onmeasure)、[onLayout](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#onlayout)函数，实现瀑布流布局展示商品列表的功能。
 
@@ -249,7 +249,7 @@ interface Product {
 
 
 
-##### 示例2（切换布局算法）
+#### 示例2（切换布局算法）
 
 该示例通过改变[@Local](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-local)装饰的LayoutAlgorithm变量，实现动态切换DynamicLayout组件布局算法的功能。示例展示如何切换布局算法为[水平线性布局算法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#rowlayoutalgorithm)、[垂直线性布局算法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#columnlayoutalgorithm)、[堆叠布局算法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#stacklayoutalgorithm)和[网格布局算法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#gridlayoutalgorithm)。
 
@@ -365,12 +365,12 @@ struct LayoutSwitchExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/Uajj2PHPTgG-gjuRMG-p4w/zh-cn_image_0000002581275816.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024225Z&HW-CC-Expire=86400&HW-CC-Sign=B340B7255BF3585E298E45D884FEC09A034F1CAC062F9CE524A5A38F2948CC52)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/Uajj2PHPTgG-gjuRMG-p4w/zh-cn_image_0000002581275816.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025559Z&HW-CC-Expire=86400&HW-CC-Sign=B586125B98AACC8ED8A29C804D85450D68751D55187B74C9491471CC124F5B8F)
 
 
 
 
-##### 示例3（修改布局算法属性）
+#### 示例3（修改布局算法属性）
 
 该示例通过修改[RowLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#rowlayoutalgorithm)的space和justifyContent属性，实现DynamicLayout组件布局效果刷新的功能。
 
@@ -438,4 +438,4 @@ struct PropertyChangeExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/xeMNpLJYTRWGLNu59GtMaQ/zh-cn_image_0000002611755673.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024225Z&HW-CC-Expire=86400&HW-CC-Sign=6D4C8C0B07FEB07183F05E7EAFD4114C2207941D31AF0E409E96BDA420DA9B8A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/xeMNpLJYTRWGLNu59GtMaQ/zh-cn_image_0000002611755673.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025559Z&HW-CC-Expire=86400&HW-CC-Sign=A80D6B1354F3303E775CA2D45B62A14CDDF7D2A09797480DCC3A1B3FEDEAAD91)

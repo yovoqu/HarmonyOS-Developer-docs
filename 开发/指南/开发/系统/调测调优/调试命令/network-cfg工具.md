@@ -11,13 +11,13 @@ network-cfg是为开发人员提供的用于设置网络相关参数的工具（
 
   
 
-##### 环境要求
+#### 环境要求
 
 在使用本工具前，开发者需要先获取[hdc工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdc)，执行hdc shell。
  
   
 
-##### network-cfg命令工具列表
+#### network-cfg命令工具列表
  
 | 命令 | 描述 |
 | --- | --- |
@@ -27,7 +27,7 @@ network-cfg是为开发人员提供的用于设置网络相关参数的工具（
  
   
 
-##### 帮助命令
+#### 帮助命令
 
 ```bash
 # 显示帮助信息
@@ -37,7 +37,7 @@ network-cfg -h
  
   
 
-##### 设置网络相关参数命令
+#### 设置网络相关参数命令
 
 - 显示set支持的命令信息
 

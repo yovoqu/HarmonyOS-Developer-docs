@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { floatingBall } from '@kit.ArkUI';
 
 
 
-##### floatingBall.isFloatingBallEnabled
+#### floatingBall.isFloatingBallEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -48,7 +48,7 @@ console.info('Floating ball enabled is: ' + enable);
 
 
 
-##### floatingBall.create
+#### floatingBall.create
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -111,7 +111,7 @@ try {
 
 
 
-##### FloatingBallConfiguration
+#### FloatingBallConfiguration
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -126,7 +126,7 @@ try {
 
 
 
-##### FloatingBallController
+#### FloatingBallController
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -138,7 +138,7 @@ try {
 
 
 
-##### startFloatingBall
+#### startFloatingBall
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -203,7 +203,7 @@ try {
 
 
 
-##### updateFloatingBall
+#### updateFloatingBall
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -267,7 +267,7 @@ try {
 
 
 
-##### stopFloatingBall
+#### stopFloatingBall
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -309,7 +309,7 @@ floatingBallController.stopFloatingBall().then(() => {
 
 
 
-##### on('stateChange')
+#### on('stateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -354,7 +354,7 @@ try {
 
 
 
-##### off('stateChange')
+#### off('stateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -398,7 +398,7 @@ try {
 
 
 
-##### on('click')
+#### on('click')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -443,7 +443,7 @@ try {
 
 
 
-##### off('click')
+#### off('click')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -487,7 +487,7 @@ try {
 
 
 
-##### getFloatingBallWindowInfo
+#### getFloatingBallWindowInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -532,7 +532,7 @@ floatingBallController.getFloatingBallWindowInfo().then((data: floatingBall.Floa
 
 
 
-##### restoreMainWindow
+#### restoreMainWindow
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -598,7 +598,7 @@ try {
 
 
 
-##### setFloatingBallVisibilityInApp24+
+#### setFloatingBallVisibilityInApp24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -654,7 +654,7 @@ floatingBallController?.setFloatingBallVisibilityInApp(false).then(() => {
 
 
 
-##### FloatingBallParams
+#### FloatingBallParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -673,7 +673,7 @@ floatingBallController?.setFloatingBallVisibilityInApp(false).then(() => {
 
 
 
-##### FloatingBallState
+#### FloatingBallState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -689,7 +689,7 @@ floatingBallController?.setFloatingBallVisibilityInApp(false).then(() => {
 
 
 
-##### FloatingBallTemplate
+#### FloatingBallTemplate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -707,7 +707,7 @@ floatingBallController?.setFloatingBallVisibilityInApp(false).then(() => {
 
 
 
-##### FloatingBallWindowInfo
+#### FloatingBallWindowInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -14,7 +14,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { audio } from '@kit.AudioKit';
  
   
 
-##### getAudioScene8+
+#### getAudioScene8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -57,7 +57,7 @@ audioManager.getAudioScene((err: BusinessError, value: audio.AudioScene) => {
  
   
 
-##### getAudioScene8+
+#### getAudioScene8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -88,7 +88,7 @@ audioManager.getAudioScene().then((value: audio.AudioScene) => {
  
   
 
-##### getAudioSceneSync10+
+#### getAudioSceneSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -121,7 +121,7 @@ try {
  
   
 
-##### on('audioSceneChange')20+
+#### on('audioSceneChange')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -149,7 +149,7 @@ audioManager.on('audioSceneChange', (audioScene: audio.AudioScene) => {
  
   
 
-##### off('audioSceneChange')20+
+#### off('audioSceneChange')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -185,7 +185,7 @@ audioManager.off('audioSceneChange', audioSceneChangeCallback);
  
   
 
-##### getVolumeManager9+
+#### getVolumeManager9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -214,7 +214,7 @@ let audioVolumeManager: audio.AudioVolumeManager = audioManager.getVolumeManager
  
   
 
-##### getStreamManager9+
+#### getStreamManager9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -241,7 +241,7 @@ let audioStreamManager: audio.AudioStreamManager = audioManager.getStreamManager
  
   
 
-##### getRoutingManager9+
+#### getRoutingManager9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -268,7 +268,7 @@ let audioRoutingManager: audio.AudioRoutingManager = audioManager.getRoutingMana
  
   
 
-##### getSessionManager12+
+#### getSessionManager12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -295,7 +295,7 @@ let audioSessionManager: audio.AudioSessionManager = audioManager.getSessionMana
  
   
 
-##### getSpatializationManager18+
+#### getSpatializationManager18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -321,7 +321,7 @@ let audioSpatializationManager: audio.AudioSpatializationManager = audioManager.
  
   
 
-##### setAudioParameter(deprecated)
+#### setAudioParameter(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -364,7 +364,7 @@ audioManager.setAudioParameter('key_example', 'value_example', (err: BusinessErr
  
   
 
-##### setAudioParameter(deprecated)
+#### setAudioParameter(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -407,7 +407,7 @@ audioManager.setAudioParameter('key_example', 'value_example').then(() => {
  
   
 
-##### getAudioParameter(deprecated)
+#### getAudioParameter(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -447,7 +447,7 @@ audioManager.getAudioParameter('key_example', (err: BusinessError, value: string
  
   
 
-##### getAudioParameter(deprecated)
+#### getAudioParameter(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -487,7 +487,7 @@ audioManager.getAudioParameter('key_example').then((value: string) => {
  
   
 
-##### setVolume(deprecated)
+#### setVolume(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -530,7 +530,7 @@ audioManager.setVolume(audio.AudioVolumeType.MEDIA, 10, (err: BusinessError) => 
  
   
 
-##### setVolume(deprecated)
+#### setVolume(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -573,7 +573,7 @@ audioManager.setVolume(audio.AudioVolumeType.MEDIA, 10).then(() => {
  
   
 
-##### getVolume(deprecated)
+#### getVolume(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -611,7 +611,7 @@ audioManager.getVolume(audio.AudioVolumeType.MEDIA, (err: BusinessError, value: 
  
   
 
-##### getVolume(deprecated)
+#### getVolume(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -649,7 +649,7 @@ audioManager.getVolume(audio.AudioVolumeType.MEDIA).then((value: number) => {
  
   
 
-##### getMinVolume(deprecated)
+#### getMinVolume(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -687,7 +687,7 @@ audioManager.getMinVolume(audio.AudioVolumeType.MEDIA, (err: BusinessError, valu
  
   
 
-##### getMinVolume(deprecated)
+#### getMinVolume(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -725,7 +725,7 @@ audioManager.getMinVolume(audio.AudioVolumeType.MEDIA).then((value: number) => {
  
   
 
-##### getMaxVolume(deprecated)
+#### getMaxVolume(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -763,7 +763,7 @@ audioManager.getMaxVolume(audio.AudioVolumeType.MEDIA, (err: BusinessError, valu
  
   
 
-##### getMaxVolume(deprecated)
+#### getMaxVolume(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -801,7 +801,7 @@ audioManager.getMaxVolume(audio.AudioVolumeType.MEDIA).then((data: number) => {
  
   
 
-##### mute(deprecated)
+#### mute(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -842,7 +842,7 @@ audioManager.mute(audio.AudioVolumeType.MEDIA, true, (err: BusinessError) => {
  
   
 
-##### mute(deprecated)
+#### mute(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -883,7 +883,7 @@ audioManager.mute(audio.AudioVolumeType.MEDIA, true).then(() => {
  
   
 
-##### isMute(deprecated)
+#### isMute(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -921,7 +921,7 @@ audioManager.isMute(audio.AudioVolumeType.MEDIA, (err: BusinessError, value: boo
  
   
 
-##### isMute(deprecated)
+#### isMute(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -959,7 +959,7 @@ audioManager.isMute(audio.AudioVolumeType.MEDIA).then((value: boolean) => {
  
   
 
-##### isActive(deprecated)
+#### isActive(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -997,7 +997,7 @@ audioManager.isActive(audio.AudioVolumeType.MEDIA, (err: BusinessError, value: b
  
   
 
-##### isActive(deprecated)
+#### isActive(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1035,7 +1035,7 @@ audioManager.isActive(audio.AudioVolumeType.MEDIA).then((value: boolean) => {
  
   
 
-##### setRingerMode(deprecated)
+#### setRingerMode(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1077,7 +1077,7 @@ audioManager.setRingerMode(audio.AudioRingMode.RINGER_MODE_NORMAL, (err: Busines
  
   
 
-##### setRingerMode(deprecated)
+#### setRingerMode(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1119,7 +1119,7 @@ audioManager.setRingerMode(audio.AudioRingMode.RINGER_MODE_NORMAL).then(() => {
  
   
 
-##### getRingerMode(deprecated)
+#### getRingerMode(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1156,7 +1156,7 @@ audioManager.getRingerMode((err: BusinessError, value: audio.AudioRingMode) => {
  
   
 
-##### getRingerMode(deprecated)
+#### getRingerMode(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1187,7 +1187,7 @@ audioManager.getRingerMode().then((value: audio.AudioRingMode) => {
  
   
 
-##### getDevices(deprecated)
+#### getDevices(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1225,7 +1225,7 @@ audioManager.getDevices(audio.DeviceFlag.OUTPUT_DEVICES_FLAG, (err: BusinessErro
  
   
 
-##### getDevices(deprecated)
+#### getDevices(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1263,7 +1263,7 @@ audioManager.getDevices(audio.DeviceFlag.OUTPUT_DEVICES_FLAG).then((data: audio.
  
   
 
-##### setDeviceActive(deprecated)
+#### setDeviceActive(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1302,7 +1302,7 @@ audioManager.setDeviceActive(audio.ActiveDeviceType.SPEAKER, true, (err: Busines
  
   
 
-##### setDeviceActive(deprecated)
+#### setDeviceActive(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1341,7 +1341,7 @@ audioManager.setDeviceActive(audio.ActiveDeviceType.SPEAKER, true).then(() => {
  
   
 
-##### isDeviceActive(deprecated)
+#### isDeviceActive(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1379,7 +1379,7 @@ audioManager.isDeviceActive(audio.ActiveDeviceType.SPEAKER, (err: BusinessError,
  
   
 
-##### isDeviceActive(deprecated)
+#### isDeviceActive(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1417,7 +1417,7 @@ audioManager.isDeviceActive(audio.ActiveDeviceType.SPEAKER).then((value: boolean
  
   
 
-##### setMicrophoneMute(deprecated)
+#### setMicrophoneMute(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1457,7 +1457,7 @@ audioManager.setMicrophoneMute(true, (err: BusinessError) => {
  
   
 
-##### setMicrophoneMute(deprecated)
+#### setMicrophoneMute(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1497,7 +1497,7 @@ audioManager.setMicrophoneMute(true).then(() => {
  
   
 
-##### isMicrophoneMute(deprecated)
+#### isMicrophoneMute(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1536,7 +1536,7 @@ audioManager.isMicrophoneMute((err: BusinessError, value: boolean) => {
  
   
 
-##### isMicrophoneMute(deprecated)
+#### isMicrophoneMute(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1569,7 +1569,7 @@ audioManager.isMicrophoneMute().then((value: boolean) => {
  
   
 
-##### on('deviceChange')(deprecated)
+#### on('deviceChange')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1604,7 +1604,7 @@ audioManager.on('deviceChange', (deviceChanged: audio.DeviceChangeAction) => {
  
   
 
-##### off('deviceChange')(deprecated)
+#### off('deviceChange')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1647,7 +1647,7 @@ audioManager.off('deviceChange', deviceChangeCallback);
  
   
 
-##### on('interrupt')(deprecated)
+#### on('interrupt')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1697,7 +1697,7 @@ audioManager.on('interrupt', interAudioInterrupt, (interruptAction: audio.Interr
  
   
 
-##### off('interrupt')(deprecated)
+#### off('interrupt')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

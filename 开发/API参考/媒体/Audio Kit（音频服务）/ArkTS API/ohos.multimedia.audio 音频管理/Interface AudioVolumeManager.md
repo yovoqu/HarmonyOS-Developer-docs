@@ -14,7 +14,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { audio } from '@kit.AudioKit';
 
 
 
-##### getVolumeGroupManager9+
+#### getVolumeGroupManager9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -62,7 +62,7 @@ audioVolumeManager.getVolumeGroupManager(groupId, (err: BusinessError, value: au
 
 
 
-##### getVolumeGroupManager9+
+#### getVolumeGroupManager9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -105,7 +105,7 @@ audioVolumeManager.getVolumeGroupManager(groupId).then((value: audio.AudioVolume
 
 
 
-##### getVolumeGroupManagerSync10+
+#### getVolumeGroupManagerSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -157,7 +157,7 @@ try {
 
 
 
-##### getAppVolumePercentage19+
+#### getAppVolumePercentage19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -188,7 +188,7 @@ audioVolumeManager.getAppVolumePercentage().then((value: number) => {
 
 
 
-##### setAppVolumePercentage19+
+#### setAppVolumePercentage19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -236,7 +236,7 @@ audioVolumeManager.setAppVolumePercentage(20).then(() => {
 
 
 
-##### on('volumeChange')(deprecated)
+#### on('volumeChange')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -280,7 +280,7 @@ audioVolumeManager.on('volumeChange', (volumeEvent: audio.VolumeEvent) => {
 
 
 
-##### off('volumeChange')(deprecated)
+#### off('volumeChange')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -332,7 +332,7 @@ audioVolumeManager.off('volumeChange', volumeChangeCallback);
 
 
 
-##### on('appVolumeChange')19+
+#### on('appVolumeChange')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -371,7 +371,7 @@ audioVolumeManager.on('appVolumeChange', (volumeEvent: audio.VolumeEvent) => {
 
 
 
-##### off('appVolumeChange')19+
+#### off('appVolumeChange')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -418,7 +418,7 @@ audioVolumeManager.off('appVolumeChange', appVolumeChangeCallback);
 
 
 
-##### getVolumeByStream20+
+#### getVolumeByStream20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -471,7 +471,7 @@ try {
 
 
 
-##### getMinVolumeByStream20+
+#### getMinVolumeByStream20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -524,7 +524,7 @@ try {
 
 
 
-##### getMaxVolumeByStream20+
+#### getMaxVolumeByStream20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -577,7 +577,7 @@ try {
 
 
 
-##### isSystemMutedForStream20+
+#### isSystemMutedForStream20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -628,7 +628,7 @@ try {
 
 
 
-##### getVolumeInUnitOfDbByStream20+
+#### getVolumeInUnitOfDbByStream20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -682,7 +682,7 @@ try {
 
 
 
-##### on('streamVolumeChange')20+
+#### on('streamVolumeChange')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -722,7 +722,7 @@ audioVolumeManager.on('streamVolumeChange', audio.StreamUsage.STREAM_USAGE_MUSIC
 
 
 
-##### off('streamVolumeChange')20+
+#### off('streamVolumeChange')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

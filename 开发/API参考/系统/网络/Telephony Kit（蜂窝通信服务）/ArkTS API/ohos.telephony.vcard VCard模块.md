@@ -12,7 +12,7 @@ VCard是电子名片的文件格式标准，它可包含的信息有：姓名、
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -22,7 +22,7 @@ import { vcard } from '@kit.TelephonyKit';
 
 
 
-##### vcard.importVCard
+#### vcard.importVCard
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -78,7 +78,7 @@ class EntryAbility extends UIAbility {
 
 
 
-##### vcard.importVCard
+#### vcard.importVCard
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -142,7 +142,7 @@ class EntryAbility extends UIAbility {
 
 
 
-##### vcard.importVCard
+#### vcard.importVCard
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -196,7 +196,7 @@ class EntryAbility extends UIAbility {
 
 
 
-##### vcard.exportVCard
+#### vcard.exportVCard
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -257,7 +257,7 @@ class EntryAbility extends UIAbility {
 
 
 
-##### vcard.exportVCard
+#### vcard.exportVCard
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -326,7 +326,7 @@ class EntryAbility extends UIAbility {
 
 
 
-##### vcard.exportVCard
+#### vcard.exportVCard
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -383,7 +383,7 @@ class EntryAbility extends UIAbility {
 
 
 
-##### VCardBuilderOptions
+#### VCardBuilderOptions
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -399,7 +399,7 @@ VCard版本和编码信息。
 
 
 
-##### VCardType
+#### VCardType
 
 **支持设备：** Phone | Tablet | Wearable
 

@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/textblock-drawing-c
 
-##### 场景介绍
+#### 场景介绍
 
 字块（TextBlob）是指文本的集合。无论是单个的文字还是大块的文本，都可以通过字块来绘制。
 
@@ -14,7 +14,7 @@
 
 
 
-##### 基本字块绘制
+#### 基本字块绘制
 
 使用OH_Drawing_CanvasDrawTextBlob()接口绘制字块，接口接受4个参数，分别为：画布Canvas对象、字块对象、文字基线左端点的x坐标和y坐标。
 
@@ -55,7 +55,7 @@ OH_Drawing_FontDestroy(font);
 
 
 
-##### 文字描边
+#### 文字描边
 
 基于基本的字块绘制，还可以通过画笔实现文字描边效果，描边效果的更多介绍请参考[描边效果](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/basic-drawing-effect-c#描边效果)。
 
@@ -63,7 +63,7 @@ OH_Drawing_FontDestroy(font);
 
 
 
-##### 英文文字描边
+#### 英文文字描边
 
 英文文字描边的简要示例和示意图如下：
 
@@ -102,7 +102,7 @@ OH_Drawing_PenDestroy(pen);
 
 
 
-##### 中文文字描边
+#### 中文文字描边
 
 首先需要通过画笔描边，然后需要调用画刷填充内部颜色，去除字体中间的杂质和重叠部分，实现中文文字描边效果。
 
@@ -154,7 +154,7 @@ OH_Drawing_BrushDestroy(brush);
 
 
 
-##### 文字渐变
+#### 文字渐变
 
 基于基本字块绘制，还可以通过着色器实现文字渐变的效果，着色器的更多介绍请参考[着色器效果](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/complex-drawing-effect-c#着色器效果)。
 
@@ -202,7 +202,7 @@ OH_Drawing_BrushDestroy(brush);
 
 
 
-##### 主题字体
+#### 主题字体
 
 主题字体，特指系统**主题应用**中能使用的字体，属于一种特殊的自定义字体。如需涉及文本测量和布局排版相关内容，可参考[使用主题字体（C/C++）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/theme-font-c)。
 
@@ -239,7 +239,7 @@ OH_Drawing_FontDestroy(font);
 
 
 
-##### 单字绘制
+#### 单字绘制
 
 单字绘制是图形渲染中针对文本渲染的一种精细化控制技术。相比字块绘制，其核心优势在于能够利用字体退化机制，在当前字体无法显示某字符时，自动退化到使用系统字体绘制字符，提升对特殊字符的兼容性，避免字符缺失。同时，单字绘制支持逐字符配置字体特征（如连字、替代字形），满足复杂排版需求，增强用户体验。详细API说明请见[drawing_canvas.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-canvas-h#oh_drawing_canvasdrawsinglecharacter)。
 
@@ -269,7 +269,7 @@ OH_Drawing_FontDestroy(font);
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/VKSTH9xWTy2ifZ8ZatiEBw/zh-cn_image_0000002611754693.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T014902Z&HW-CC-Expire=86400&HW-CC-Sign=8B34B745FDA6ADA1179DF10C6F64EA841A7F3367BE01A5AFC5431BAA082607ED)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/VKSTH9xWTy2ifZ8ZatiEBw/zh-cn_image_0000002611754693.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T030531Z&HW-CC-Expire=86400&HW-CC-Sign=A21ED490D69947537B15ED234B41721B3D4F68D3A668766B8303DDB96032F2B1)
 
 
 进阶场景：绘制带字体特征的字符。
@@ -303,7 +303,7 @@ OH_Drawing_FontDestroy(font);
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/PgmR698ATKSi_Wonw0tW_A/zh-cn_image_0000002581434756.png?HW-CC-KV=V1&HW-CC-Date=20260528T014902Z&HW-CC-Expire=86400&HW-CC-Sign=E697CCB37958F1DCAD1ACEC9BEAECC427706C77B93E66017DC9E0CA06BDB05C3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/PgmR698ATKSi_Wonw0tW_A/zh-cn_image_0000002581434756.png?HW-CC-KV=V1&HW-CC-Date=20260528T030531Z&HW-CC-Expire=86400&HW-CC-Sign=03911DE5CDDE66BD0CE020D803D22E13ACFE4F26333D66B0C7A3537283A68B3C)
 
 
 > [!NOTE]
@@ -312,6 +312,6 @@ OH_Drawing_FontDestroy(font);
 
 
 
-##### 示例代码
+#### 示例代码
 
  - [图形绘制（C/C++）](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/ArkGraphics2D/Drawing/NDKGraphicsDraw)

@@ -12,7 +12,7 @@
 
   
 
-##### geometryTransition
+#### geometryTransition
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -40,7 +40,7 @@ geometryTransition(id: string): T
  
   
 
-##### geometryTransition11+
+#### geometryTransition11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -69,7 +69,7 @@ geometryTransition(id: string, options?: GeometryTransitionOptions): T
  
   
 
-##### GeometryTransitionOptions11+
+#### GeometryTransitionOptions11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -84,7 +84,7 @@ geometryTransition(id: string, options?: GeometryTransitionOptions): T
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -138,4 +138,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/_lNfSFzMSgazouSX-crTBw/zh-cn_image_0000002581276248.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024159Z&HW-CC-Expire=86400&HW-CC-Sign=000589E9344565C29B27F30D57EC2C5BC73521B74F22D8365D20A9874B3DD707)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/_lNfSFzMSgazouSX-crTBw/zh-cn_image_0000002581276248.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025531Z&HW-CC-Expire=86400&HW-CC-Sign=40D1703C30C61716A7DFCC395AC9F426A7E541164E9D50D158B9E87F5F307BB6)

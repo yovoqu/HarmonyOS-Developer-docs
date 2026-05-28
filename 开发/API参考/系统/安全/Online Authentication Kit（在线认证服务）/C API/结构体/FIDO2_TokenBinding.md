@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2___token_binding
 
-##### 概述
+#### 概述
 
 Token binding协议，用于客户端与依赖方通信。
  
@@ -14,11 +14,11 @@ Token binding协议，用于客户端与依赖方通信。
  
   
 
-##### 汇总
+#### 汇总
 
   
 
-##### 成员变量
+#### 成员变量
  
 | 名称 | 描述 |
 | --- | --- |
@@ -28,11 +28,11 @@ Token binding协议，用于客户端与依赖方通信。
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
   
 
-##### id
+#### id
 
 ```text
 char* FIDO2_TokenBinding::id
@@ -44,7 +44,7 @@ char* FIDO2_TokenBinding::id
  
   
 
-##### status
+#### status
 
 ```text
 FIDO2_TokenBindingStatus FIDO2_TokenBinding::status

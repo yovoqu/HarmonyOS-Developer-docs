@@ -4,19 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-get-plane-shape
 
-##### 约束与限制
+#### 约束与限制
 
 从5.0.0(12)开始，识别目标形状能力支持部分Phone、部分Tablet设备。请参考[硬件要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-preparations#硬件要求)判断设备是否支持平面语义及物体语义特性（[ARENGINE_FEATURE_TYPE_SEMANTIC](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_featuretype)）。
 
 
 
-##### 引入AR Engine
+#### 引入AR Engine
 
 开发者可参考管理AR会话章节的[引入AR Engine](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-arsession#引入ar-engine)。
 
 
 
-##### 创建AR会话
+#### 创建AR会话
 
 创建AR会话并配置为目标形状识别模式。
 
@@ -35,7 +35,7 @@ HMS_AREngine_ARSession_Configure(arSession, arConfig);
 
 
 
-##### 创建可跟踪对象列表
+#### 创建可跟踪对象列表
 
 创建一个可跟踪对象列表targetList，用于存放AR Engine运行过程中检测到的所有可跟踪对象。
 
@@ -46,7 +46,7 @@ HMS_AREngine_ARTrackableList_Create(arSession, &targetList);
 
 
 
-##### 获取当前环境中的可跟踪对象
+#### 获取当前环境中的可跟踪对象
 
 调用[HMS_AREngine_ARSession_GetAllTrackables](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_getalltrackables)函数，检测当前环境中的所有可跟踪对象，并将结果存放在targetList中。
 
@@ -56,7 +56,7 @@ HMS_AREngine_ARSession_GetAllTrackables(arSession, ARENGINE_TRACKABLE_TARGET, ta
 
 
 
-##### 获取可跟踪对象数量
+#### 获取可跟踪对象数量
 
 调用[HMS_AREngine_ARTrackableList_GetSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_artrackablelist_getsize)函数获取当前可跟踪对象数量，结果存放在targetSize中。
 
@@ -73,7 +73,7 @@ HMS_AREngine_ARTrackableList_GetSize(arSession, targetList, &targetSize);
 
 
 
-##### 遍历并识别物体形状
+#### 遍历并识别物体形状
 1. 当环境中存在一个或多个可跟踪对象时，依次遍历targetList中所有可跟踪对象进行目标形状识别。
 
   
@@ -114,7 +114,7 @@ HMS_AREngine_ARTarget_GetShapeType(arSession, reinterpret_cast<AREngine_ARTarget
 
 
 
-##### 销毁可跟踪对象列表
+#### 销毁可跟踪对象列表
 
 ```text
 HMS_AREngine_ARTrackableList_Destroy(targetList);

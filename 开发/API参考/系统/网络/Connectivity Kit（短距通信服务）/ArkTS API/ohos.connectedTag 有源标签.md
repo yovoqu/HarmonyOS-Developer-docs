@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** PC/2in1
 
@@ -22,7 +22,7 @@ import { connectedTag } from '@kit.ConnectivityKit';
 
 
 
-##### connectedTag.init(deprecated)
+#### connectedTag.init(deprecated)
 
 **支持设备：** PC/2in1
 
@@ -47,7 +47,7 @@ init(): boolean
 
 
 
-##### connectedTag.initialize9+
+#### connectedTag.initialize9+
 
 **支持设备：** PC/2in1
 
@@ -72,7 +72,7 @@ initialize(): void
 
 
 
-##### connectedTag.uninit(deprecated)
+#### connectedTag.uninit(deprecated)
 
 **支持设备：** PC/2in1
 
@@ -97,7 +97,7 @@ uninit(): boolean
 
 
 
-##### connectedTag.uninitialize9+
+#### connectedTag.uninitialize9+
 
 **支持设备：** PC/2in1
 
@@ -122,7 +122,7 @@ uninitialize(): void
 
 
 
-##### connectedTag.readNdefTag(deprecated)
+#### connectedTag.readNdefTag(deprecated)
 
 **支持设备：** PC/2in1
 
@@ -160,7 +160,7 @@ connectedTag.readNdefTag().then((data) => {
 
 
 
-##### connectedTag.read9+
+#### connectedTag.read9+
 
 **支持设备：** PC/2in1
 
@@ -205,7 +205,7 @@ connectedTag.read().then((data) => {
 
 
 
-##### connectedTag.readNdefTag(deprecated)
+#### connectedTag.readNdefTag(deprecated)
 
 **支持设备：** PC/2in1
 
@@ -244,7 +244,7 @@ connectedTag.readNdefTag((err, data)=> {
 
 
 
-##### connectedTag.read9+
+#### connectedTag.read9+
 
 **支持设备：** PC/2in1
 
@@ -290,7 +290,7 @@ connectedTag.read((err, data)=> {
 
 
 
-##### connectedTag.writeNdefTag(deprecated)
+#### connectedTag.writeNdefTag(deprecated)
 
 **支持设备：** PC/2in1
 
@@ -336,7 +336,7 @@ connectedTag.writeNdefTag(rawData).then(() => {
 
 
 
-##### connectedTag.write9+
+#### connectedTag.write9+
 
 **支持设备：** PC/2in1
 
@@ -390,7 +390,7 @@ connectedTag.write(rawData).then(() => {
 
 
 
-##### connectedTag.writeNdefTag(deprecated)
+#### connectedTag.writeNdefTag(deprecated)
 
 **支持设备：** PC/2in1
 
@@ -431,7 +431,7 @@ connectedTag.writeNdefTag(rawData, (err)=> {
 
 
 
-##### connectedTag.write9+
+#### connectedTag.write9+
 
 **支持设备：** PC/2in1
 
@@ -480,7 +480,7 @@ connectedTag.write(rawData, (err)=> {
 
 
 
-##### connectedTag.on('notify')
+#### connectedTag.on('notify')
 
 **支持设备：** PC/2in1
 
@@ -502,7 +502,7 @@ on(type: "notify", callback: Callback&lt;number&gt;): void
 
 
 
-##### connectedTag.off('notify')
+#### connectedTag.off('notify')
 
 **支持设备：** PC/2in1
 
@@ -569,7 +569,7 @@ export { nfcTagTestOn, nfcTagTestOff }
 
 
 
-##### NfcRfType
+#### NfcRfType
 
 **支持设备：** PC/2in1
 

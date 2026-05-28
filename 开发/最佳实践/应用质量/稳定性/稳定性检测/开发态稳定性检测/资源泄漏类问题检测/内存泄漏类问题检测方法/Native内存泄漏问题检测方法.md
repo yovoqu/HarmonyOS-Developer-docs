@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-native-memleak-detection
 
-##### 使用Allocation检测Native内存泄漏
+#### 使用Allocation检测Native内存泄漏
 
 应用在开发过程中，可能会因为API使用错误、变量未及时释放、异常频繁创建/释放内存等情况引发各种内存问题。
  
@@ -62,13 +62,13 @@ DevEco Profiler提供了基础的内存场景分析Allocation，您可以使用A
 
   
 
-  ##### 分析数据筛选
+  #### 分析数据筛选
 
   Allocation分析过程中提供多种数据筛选方式，方便开发者缩小分析范围，更精确地定位问题所在。
 
   
 
-  ##### 通过内存状态筛选
+  #### 通过内存状态筛选
 
   在Allocation分析过程中，对“Native Allocation”泳道的内存状态信息进行过滤，便于开发者定位内存问题。
 
@@ -86,7 +86,7 @@ All Allocations：详情区域展示当前框选时间段内的所有内存分�
  
  
 
-##### 通过统计方式筛选
+#### 通过统计方式筛选
 
 在“Native Allocation”泳道的“Statistics”页签中，可以打开“Native Size”选择统计方式以过滤统计数据：
  
@@ -95,32 +95,32 @@ All Allocations：详情区域展示当前框选时间段内的所有内存分�
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0a/v3/XlaSMdPzSqO7ubJUkk84nw/zh-cn_image_0000002404045309.png?HW-CC-KV=V1&HW-CC-Date=20260528T013037Z&HW-CC-Expire=86400&HW-CC-Sign=12AB1C4A803C17D2584F0D078F6E2FCF670958B6BECF6FFF23099551A98951A1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0a/v3/XlaSMdPzSqO7ubJUkk84nw/zh-cn_image_0000002404045309.png?HW-CC-KV=V1&HW-CC-Date=20260528T024722Z&HW-CC-Expire=86400&HW-CC-Sign=7E8DF6A20015DA60A5219F5364C4FD7AF989F4726DE85A98A90B7AC8A597F4E0)
 
  
  
 
-##### 通过so库名筛选
+#### 通过so库名筛选
 
 在“Native Allocation”泳道的“Allocations List”页签中，可以单击“Click to choose”选择要筛选的so库以过滤出与目标so库相关的数据：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/YJHYdiNsS1Scx9sK7G0-3g/zh-cn_image_0000002370565480.png?HW-CC-KV=V1&HW-CC-Date=20260528T013037Z&HW-CC-Expire=86400&HW-CC-Sign=751C572C1692E9616020E3701485FF4AFEB6F5B8AD78480E31A78049B0F5DF65)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/YJHYdiNsS1Scx9sK7G0-3g/zh-cn_image_0000002370565480.png?HW-CC-KV=V1&HW-CC-Date=20260528T024722Z&HW-CC-Expire=86400&HW-CC-Sign=E952F24FD19E3D31A579BDE259A0791784D6387EEB71C9B21A47040C5676FA6A)
 
  
  
 
-##### 通过搜索筛选
+#### 通过搜索筛选
 
 在**Native Allocation**泳道的页签中， 根据界面提示信息输入需要搜索的项目，可定位到相关内容位置，使用搜索框的<、>按键可依次显示搜索结果的详细内容。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/co9kNmKtR1a3kgMW1765zA/zh-cn_image_0000002404125153.png?HW-CC-KV=V1&HW-CC-Date=20260528T013037Z&HW-CC-Expire=86400&HW-CC-Sign=F2282B72020E257D51753460A5225729B11EC08C2BA2D91B3D4439094164F31B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/co9kNmKtR1a3kgMW1765zA/zh-cn_image_0000002404125153.png?HW-CC-KV=V1&HW-CC-Date=20260528T024722Z&HW-CC-Expire=86400&HW-CC-Sign=882578F8C0C7009F8799029A84F935DA0D062B5FDE5397A78AFF5FB513238706)
 
  
  
 
-##### 筛选内存分配堆栈
+#### 筛选内存分配堆栈
 
 在Native Allocation泳道的Call Trees页签中，可以通过底部的“Call Trees”和“Constraints”选择框来过筛选和过滤内存分配栈。
  
@@ -131,7 +131,7 @@ Call Trees选择框包含两种过滤条件：
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/vlLf4QHZTTqigQJWRmA1sQ/zh-cn_image_0000002370405600.png?HW-CC-KV=V1&HW-CC-Date=20260528T013037Z&HW-CC-Expire=86400&HW-CC-Sign=8CD8F4B90CDA3C69830262449FF23DC227ED919460907ACE2DEB06168A2001A5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/vlLf4QHZTTqigQJWRmA1sQ/zh-cn_image_0000002370405600.png?HW-CC-KV=V1&HW-CC-Date=20260528T024722Z&HW-CC-Expire=86400&HW-CC-Sign=95F73CB5FBB87478B86D72F4A308967769BFFE71E75D48ACB411F1E27A652312)
 
  
 Constraints选择框也包含了两种过滤条件：
@@ -141,24 +141,24 @@ Constraints选择框也包含了两种过滤条件：
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/1VQcVBehTISN7oxEanuZ7g/zh-cn_image_0000002404045313.png?HW-CC-KV=V1&HW-CC-Date=20260528T013037Z&HW-CC-Expire=86400&HW-CC-Sign=7F2701C6C7F708CC4A0B9A771D84AF2A0C799FB23EB8229245239FC9EA2F406A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/1VQcVBehTISN7oxEanuZ7g/zh-cn_image_0000002404045313.png?HW-CC-KV=V1&HW-CC-Date=20260528T024722Z&HW-CC-Expire=86400&HW-CC-Sign=8713987AF854165CEA8C0C78694FF143C2C0363BDD1B6143DECE025A6882EA30)
 
  
 在Call Trees页签的More区域，单击“Heaviest Stack”旁的隐藏按钮可以单独控制是否显示More区域最大内存分配栈中的系统堆栈。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/nqmoMZkQQ3qLRKkV0KH6uQ/zh-cn_image_0000002370565484.png?HW-CC-KV=V1&HW-CC-Date=20260528T013037Z&HW-CC-Expire=86400&HW-CC-Sign=70A92CFAC7E0A04B4DBBECDC1EB3C2E7253D02FF1450223D8C3B1AC674AC81F8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/nqmoMZkQQ3qLRKkV0KH6uQ/zh-cn_image_0000002370565484.png?HW-CC-KV=V1&HW-CC-Date=20260528T024722Z&HW-CC-Expire=86400&HW-CC-Sign=356929A9A3F44BE06926D70456ACCB6A81F4822ED38A8EF1B64C898E941C6EF4)
 
  
 在Call Trees页签，可以通过底部的“Flame Chart”切换到火焰图视图。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/Ct09xzCqRkOTPM1O0ERD5A/zh-cn_image_0000002404125157.png?HW-CC-KV=V1&HW-CC-Date=20260528T013037Z&HW-CC-Expire=86400&HW-CC-Sign=90B1D97193279DB8954A14C379BA23B9A81BBAC1B98B0637ECA733B566A9340A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/Ct09xzCqRkOTPM1O0ERD5A/zh-cn_image_0000002404125157.png?HW-CC-KV=V1&HW-CC-Date=20260528T024722Z&HW-CC-Expire=86400&HW-CC-Sign=1641E64F1F57C9B3F8372BF9BD6AF23AB82AA3AAE06EA0F5EBDD803BB89F7FE1)
 
  
  
 
-##### 分析启动内存
+#### 分析启动内存
 
 应用/元服务在启动过程中对内存资源的占用情况，是开发者较为关心的问题。DevEco Profiler的Allocation分析任务，提供了启动内存分析能力，协助开发者优化启动过程的内存占用。
  
@@ -169,7 +169,7 @@ Constraints选择框也包含了两种过滤条件：
  
  
 具体操作方法为：在任务列表中单击Allocation任务后的
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/GoZt4XyJQNGb8j6WZm8qlg/zh-cn_image_0000002370405604.png?HW-CC-KV=V1&HW-CC-Date=20260528T013037Z&HW-CC-Expire=86400&HW-CC-Sign=7B04DC8D35BA20BA4CFC34BEA2217F465C539CBABF43F02D53340AB8B8C88828)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/GoZt4XyJQNGb8j6WZm8qlg/zh-cn_image_0000002370405604.png?HW-CC-KV=V1&HW-CC-Date=20260528T024722Z&HW-CC-Expire=86400&HW-CC-Sign=7D689CA275B2D426121176F0D5731BD611735822D10062BE232241220A14CCC2)
 按钮
  
 在分析结束后，呈现出的数据类型以及相应的处理方法，与非启动过程的分析相同。

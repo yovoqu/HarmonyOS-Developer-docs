@@ -10,7 +10,7 @@
 **起始版本：** 5.0.0(12)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@ import { weatherService } from '@kit.WeatherServiceKit';
  
   
 
-##### weatherService.getWeather
+#### weatherService.getWeather
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -99,7 +99,7 @@ async function getWeatherData() {
  
   
 
-##### weatherService.getWeatherWithContext
+#### weatherService.getWeatherWithContext
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -197,7 +197,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### WeatherRequest
+#### WeatherRequest
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -219,7 +219,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### Location
+#### Location
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -241,7 +241,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### Weather
+#### Weather
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -271,7 +271,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### CurrentWeather
+#### CurrentWeather
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -306,7 +306,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### Forecast&lt;T&gt;
+#### Forecast&lt;T&gt;
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -330,7 +330,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### DailyWeather
+#### DailyWeather
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -363,7 +363,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### HourlyWeather
+#### HourlyWeather
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -395,7 +395,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### MinuteWeather
+#### MinuteWeather
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -418,7 +418,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### WeatherAlert
+#### WeatherAlert
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -452,7 +452,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### WeatherIndex
+#### WeatherIndex
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -477,7 +477,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### Tide
+#### Tide
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -502,7 +502,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### City
+#### City
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -529,7 +529,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### WeatherMetadata
+#### WeatherMetadata
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -552,7 +552,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### WeatherAttribution
+#### WeatherAttribution
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -574,7 +574,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### Wind
+#### Wind
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -600,7 +600,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### WeatherCondition
+#### WeatherCondition
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -623,7 +623,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### UVIndex
+#### UVIndex
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -646,7 +646,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### WeatherAqi
+#### WeatherAqi
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -675,7 +675,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### MoonEvents
+#### MoonEvents
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -700,7 +700,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### MoonPhase
+#### MoonPhase
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -723,7 +723,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### SunEvents
+#### SunEvents
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -745,7 +745,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### DayPartForecast
+#### DayPartForecast
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -775,7 +775,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### DailyIndex
+#### DailyIndex
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -799,7 +799,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### HourlyTide
+#### HourlyTide
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -822,7 +822,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### AdministrativeArea
+#### AdministrativeArea
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -846,7 +846,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### Dataset
+#### Dataset
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -874,7 +874,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### PressureTrend
+#### PressureTrend
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -898,7 +898,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### ConditionType
+#### ConditionType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -991,7 +991,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### CompassDirection
+#### CompassDirection
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1020,7 +1020,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### ExposureCategory
+#### ExposureCategory
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1046,7 +1046,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### MoonPhaseType
+#### MoonPhaseType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1075,7 +1075,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### Precipitation
+#### Precipitation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1100,7 +1100,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### AlertLevel
+#### AlertLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1127,7 +1127,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### AlertType
+#### AlertType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1198,7 +1198,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### AqiCategory
+#### AqiCategory
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1225,7 +1225,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### WeatherIndexType
+#### WeatherIndexType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1257,7 +1257,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### TideCategory
+#### TideCategory
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

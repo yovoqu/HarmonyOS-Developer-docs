@@ -10,7 +10,7 @@ typedef struct OH_EffectBufferInfo OH_EffectBufferInfo
 ```
   
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

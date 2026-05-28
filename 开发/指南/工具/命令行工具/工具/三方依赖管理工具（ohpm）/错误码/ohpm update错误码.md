@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-update-errorcode
 
-##### 00606001 执行命令时带版本号
+#### 00606001 执行命令时带版本号
 
 **错误信息**
  
@@ -24,7 +24,7 @@ update时带版本号。
  
  
 
-##### 00606002  执行tag-filter命令时使用非标准的正则
+#### 00606002  执行tag-filter命令时使用非标准的正则
 
 **错误信息**
  

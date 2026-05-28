@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-effect-guidelines
 
-##### 场景介绍
+#### 场景介绍
 
 ImageEffect提供了一系列接口用于图像的编辑。开发者可以通过ImageEffect接口处理不同图像输入类型Pixelmap、NativeWindow、NativeBuffer或Uri，获得滤镜处理效果。
 
@@ -17,13 +17,13 @@ ImageEffect提供了一系列接口用于图像的编辑。开发者可以通过
 
 
 
-##### 接口说明
+#### 接口说明
 
 详细的接口说明请参考[ImageEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect)。
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 **添加动态链接库**
 
@@ -52,7 +52,7 @@ target_link_libraries(entry PUBLIC
 
 
 
-##### 通过ImageEffect提供的接口生效图像效果
+#### 通过ImageEffect提供的接口生效图像效果
 1. 创建ImageEffect实例。
 
   
@@ -280,7 +280,7 @@ if (errorCode != ImageEffect_ErrorCode::EFFECT_SUCCESS) {
 
 
 
-##### 自定义滤镜
+#### 自定义滤镜
 
 以下步骤描述了如何实现并注册自定义滤镜接口：
 1. 定义 ImageEffect_FilterDelegate。
@@ -444,7 +444,7 @@ if (errorCode != ImageEffect_ErrorCode::EFFECT_SUCCESS) {
 
 
 
-##### EffectFilter快速实现单个滤镜的处理效果
+#### EffectFilter快速实现单个滤镜的处理效果
 1. 创建滤镜。
 
   
@@ -485,7 +485,7 @@ errorCode = OH_EffectFilter_Release(filter);
 
 
 
-##### 查询能力
+#### 查询能力
 
  - 根据滤镜名查询滤镜信息。
 

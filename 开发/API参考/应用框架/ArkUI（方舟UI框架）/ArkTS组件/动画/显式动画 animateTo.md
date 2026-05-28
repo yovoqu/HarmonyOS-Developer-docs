@@ -12,7 +12,7 @@
 
 
 
-##### AnimateParam对象说明
+#### AnimateParam对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -39,7 +39,7 @@
 
 
 
-##### ICurve9+
+#### ICurve9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -47,7 +47,7 @@
 
 
 
-##### interpolate9+
+#### interpolate9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -77,7 +77,7 @@ interpolate(fraction: number): number
 
 
 
-##### FinishCallbackType11+
+#### FinishCallbackType11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -97,7 +97,7 @@ interpolate(fraction: number): number
 
 
 
-##### ExpectedFrameRateRange11+
+#### ExpectedFrameRateRange11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -116,7 +116,7 @@ interpolate(fraction: number): number
 
 
 
-##### animateTo(deprecated)
+#### animateTo(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -144,13 +144,13 @@ animateTo(value: AnimateParam, event: () => void): void
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1（在组件出现时创建动画）
+#### 示例1（在组件出现时创建动画）
 
 > [!NOTE]
 > 直接使用animateTo可能导致 UI上下文不明确 的问题，建议使用getUIContext()获取 UIContext 实例，并使用 animateTo 调用绑定实例的animateTo。
@@ -232,12 +232,12 @@ struct AnimateToExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/HMVDCBDETTmlHD-QXPxmhA/zh-cn_image_0000002611756097.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024159Z&HW-CC-Expire=86400&HW-CC-Sign=1125B6C0E70C73DA68A82C3A43653467D3CE8C8560A6BD8E3696193AA0D1138E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/HMVDCBDETTmlHD-QXPxmhA/zh-cn_image_0000002611756097.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025531Z&HW-CC-Expire=86400&HW-CC-Sign=C41C0E5588FB20D908A9F998160435C0961351977EFC29B26CF6B1E3B52578F8)
 
 
 
 
-##### 示例2（动画执行结束后组件消失）
+#### 示例2（动画执行结束后组件消失）
 
 该示例主要演示如何实现在动画执行结束后组件消失。
 
@@ -289,4 +289,4 @@ struct AttrAnimationExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/CmlgAE4IScW7DtF2GChI6A/zh-cn_image_0000002581436160.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024159Z&HW-CC-Expire=86400&HW-CC-Sign=EE09741FA354409C92C46BBF09E0E78515F191AA7DAE968AED9BD43CBCD6FEAB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/CmlgAE4IScW7DtF2GChI6A/zh-cn_image_0000002581436160.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025531Z&HW-CC-Expire=86400&HW-CC-Sign=D7E02330AE13F05202361CA84A82C1848628BA6697334BF1C461A5B7EBC64570)

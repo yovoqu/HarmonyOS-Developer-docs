@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-animation-faq
 
-##### Dialog类型NavDestination蒙层动画不流畅
+#### Dialog类型NavDestination蒙层动画不流畅
 
 **问题现象**
 
@@ -74,7 +74,7 @@ export struct DialogNavDestination {
 
 
 
-##### router、navigation动画冲突
+#### router、navigation动画冲突
 
 **问题现象**
 
@@ -105,7 +105,7 @@ struct NavigationPage {
 
 
 
-##### pop、push同时进行却执行pop动画
+#### pop、push同时进行却执行pop动画
 
 **问题现象**
 
@@ -133,13 +133,13 @@ this.stack.pushPath({ name: 'animation-BasicNavDestination' }, { launchMode: Lau
 
 
 
-##### 跳转动画是否有结束回调
+#### 跳转动画是否有结束回调
 
 当前系统动画并没有提供动画结束回调，仅自定义转场动画提供了结束回调，需要自行实现[自定义转场动画](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-animation#自定义转场)，相关接口：[NavDestinationTransition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#navdestinationtransition15)、 [NavigationAnimatedTransition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navigationanimatedtransition11)。
 
 
 
-##### 如何实现Navigation和NavDestination之间的共享元素转场
+#### 如何实现Navigation和NavDestination之间的共享元素转场
 
 目前仅NavDestination间的跳转支持共享元素转场动效，NavBar与NavDestination间的跳转系统暂不支持共享元素动效。
 
@@ -154,7 +154,7 @@ NavDestination的共享元素转场需要配合[geometryTransition](https://deve
 
 
 
-##### 给NavDestination设置zIndex后跳转动画异常
+#### 给NavDestination设置zIndex后跳转动画异常
 
 [zIndex](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-z-order#zindex)用于修改组件显示层级，给NavDestination设置该属性会覆盖系统设置的层级，导致动画被打乱。因此不建议给NavDestination设置zIndex。
 

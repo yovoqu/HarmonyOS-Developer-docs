@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/changelogs-ux-6001
 
-##### bindSheet在2in1设备中默认避让窗口安全区
+#### bindSheet在2in1设备中默认避让窗口安全区
 
 **变更原因**
  
@@ -60,7 +60,7 @@ bindSheet的preferType属性
  
  
 
-##### FullScreenLaunchComponent嵌入式运行元服务内容区避让系统安全区行为变更
+#### FullScreenLaunchComponent嵌入式运行元服务内容区避让系统安全区行为变更
 
 **变更原因**
  
@@ -122,7 +122,7 @@ export default class AtomicServiceAbility extends EmbeddableUIAbility {
  
  
 
-##### 半模态跟手样式弹窗显示位置避让规则变更
+#### 半模态跟手样式弹窗显示位置避让规则变更
 
 **变更原因**
  

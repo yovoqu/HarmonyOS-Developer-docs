@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-calctotalsize
 
-##### 函数功能
+#### 函数功能
 
 通过最大容量计算TilingData实例所占用的内存空间。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 static ge::graphStatus CalcTotalSize(const size_t cap_size, size_t &total_size);
@@ -18,7 +18,7 @@ static ge::graphStatus CalcTotalSize(const size_t cap_size, size_t &total_size);
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -28,7 +28,7 @@ static ge::graphStatus CalcTotalSize(const size_t cap_size, size_t &total_size);
  
   
 
-##### 返回值
+#### 返回值
 
 - 成功返回：ge::GRAPH_SUCCESS。
 - 失败返回：ge::GRAPH_FAILED。
@@ -36,13 +36,13 @@ static ge::graphStatus CalcTotalSize(const size_t cap_size, size_t &total_size);
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 auto td_buf = TilingData::CreateCap(100U);

@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___events_handler
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -19,13 +19,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -41,13 +41,13 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### onCanceled
+#### onCanceled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -61,7 +61,7 @@ Rcp_OnVoidCallback Rcp_EventsHandler::onCanceled
  
   
 
-##### onDataEnd
+#### onDataEnd
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -75,7 +75,7 @@ Rcp_OnVoidCallback Rcp_EventsHandler::onDataEnd
  
   
 
-##### onDataReceive
+#### onDataReceive
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -89,7 +89,7 @@ Rcp_OnDataReceiveCallback Rcp_EventsHandler::onDataReceive
  
   
 
-##### onDownloadProgress
+#### onDownloadProgress
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -103,7 +103,7 @@ Rcp_OnProgressCallback Rcp_EventsHandler::onDownloadProgress
  
   
 
-##### onHeaderReceive
+#### onHeaderReceive
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -117,7 +117,7 @@ Rcp_OnHeaderReceiveCallback Rcp_EventsHandler::onHeaderReceive
  
   
 
-##### onUploadProgress
+#### onUploadProgress
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

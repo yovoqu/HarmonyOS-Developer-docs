@@ -10,7 +10,7 @@
 
 
 
-##### PixelMapFormat7+
+#### PixelMapFormat7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -38,7 +38,7 @@
 
 
 
-##### AlphaType9+
+#### AlphaType9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -60,7 +60,7 @@
 
 
 
-##### AuxiliaryPictureType13+
+#### AuxiliaryPictureType13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -83,7 +83,7 @@
 
 
 
-##### MetadataType13+
+#### MetadataType13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -103,7 +103,7 @@
 
 
 
-##### ScaleMode9+
+#### ScaleMode9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -123,7 +123,7 @@
 
 
 
-##### PropertyKey7+
+#### PropertyKey7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -321,7 +321,7 @@
 
 
 
-##### FragmentMapPropertyKey13+
+#### FragmentMapPropertyKey13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -339,7 +339,7 @@
 
 
 
-##### GifPropertyKey20+
+#### GifPropertyKey20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -355,7 +355,7 @@
 
 
 
-##### HeifsPropertyKey23+
+#### HeifsPropertyKey23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -372,7 +372,7 @@
 
 
 
-##### WebPPropertyKey24+
+#### WebPPropertyKey24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -393,7 +393,7 @@
 
 
 
-##### DngPropertyKey24+
+#### DngPropertyKey24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -504,7 +504,7 @@
 
 
 
-##### ImageFormat9+
+#### ImageFormat9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -520,7 +520,7 @@
 
 
 
-##### ComponentType9+
+#### ComponentType9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -538,7 +538,7 @@
 
 
 
-##### DecodingDynamicRange12+
+#### DecodingDynamicRange12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -555,7 +555,7 @@
 
 
 
-##### PackingDynamicRange12+
+#### PackingDynamicRange12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -571,7 +571,7 @@
 
 
 
-##### CropAndScaleStrategy18+
+#### CropAndScaleStrategy18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -597,7 +597,7 @@
 
 
 
-##### HdrMetadataKey12+
+#### HdrMetadataKey12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -615,7 +615,7 @@
 
 
 
-##### HdrMetadataType12+
+#### HdrMetadataType12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -633,7 +633,7 @@
 
 
 
-##### AntiAliasingLevel12+
+#### AntiAliasingLevel12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -653,7 +653,7 @@
 
 
 
-##### AllocatorType15+
+#### AllocatorType15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -670,7 +670,7 @@
 
 
 
-##### Orientation23+
+#### Orientation23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -694,7 +694,7 @@
 
 
 
-##### FocusMode23+
+#### FocusMode23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -714,7 +714,7 @@
 
 
 
-##### XmageColorMode23+
+#### XmageColorMode23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

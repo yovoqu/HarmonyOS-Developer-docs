@@ -10,7 +10,7 @@ typedef struct Input_InterceptorEventCallback {...} Input_InterceptorEventCallba
 ```
   
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,13 +24,13 @@ typedef struct Input_InterceptorEventCallback {...} Input_InterceptorEventCallba
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -43,7 +43,7 @@ typedef struct Input_InterceptorEventCallback {...} Input_InterceptorEventCallba
  
   
 
-##### 成员函数
+#### 成员函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -59,13 +59,13 @@ typedef struct Input_InterceptorEventCallback {...} Input_InterceptorEventCallba
  
   
 
-##### 成员函数说明
+#### 成员函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### Input_KeyEventCallback()
+#### Input_KeyEventCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -88,7 +88,7 @@ typedef void (*Input_KeyEventCallback)(const Input_KeyEvent* keyEvent)
  
   
 
-##### Input_MouseEventCallback()
+#### Input_MouseEventCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -111,7 +111,7 @@ typedef void (*Input_MouseEventCallback)(const Input_MouseEvent* mouseEvent)
  
   
 
-##### Input_TouchEventCallback()
+#### Input_TouchEventCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -134,7 +134,7 @@ typedef void (*Input_TouchEventCallback)(const Input_TouchEvent* touchEvent)
  
   
 
-##### Input_AxisEventCallback()
+#### Input_AxisEventCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -157,7 +157,7 @@ typedef void (*Input_AxisEventCallback)(const Input_AxisEvent* axisEvent)
  
   
 
-##### Input_DeviceAddedCallback()
+#### Input_DeviceAddedCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -180,7 +180,7 @@ typedef void (*Input_DeviceAddedCallback)(int32_t deviceId)
  
   
 
-##### Input_DeviceRemovedCallback()
+#### Input_DeviceRemovedCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

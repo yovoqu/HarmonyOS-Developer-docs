@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-broadcast-infer
 
-##### 函数功能
+#### 函数功能
 
 提供公共函数宏封装，供算子开发者开发InferShape函数。该函数基于2个输入的shape，设置输出的shape。该宏只是设置shape，未设置dtype。
  
@@ -16,7 +16,7 @@
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 BROADCAST_INFER(in1_name, in2_name, out_name)
@@ -32,13 +32,13 @@ graphStatus BroadCastInfer(const function<vector<int64_t>()> &get_in1_shape,
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数名 | 输入/输出 | 描述 |
 | --- | --- | --- |
@@ -49,13 +49,13 @@ graphStatus BroadCastInfer(const function<vector<int64_t>()> &get_in1_shape,
  
   
 
-##### 返回值
+#### 返回值
 
 执行成功或失败。
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 IMPLEMT_INFERFUNC(RightShift, RightShiftInfer) {

@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { appManager } from '@kit.AbilityKit';
  
   
 
-##### ApplicationStateObserver.onForegroundApplicationChanged
+#### ApplicationStateObserver.onForegroundApplicationChanged
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@ onForegroundApplicationChanged(appStateData: AppStateData): void
  
   
 
-##### ApplicationStateObserver.onAbilityStateChanged
+#### ApplicationStateObserver.onAbilityStateChanged
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -60,7 +60,7 @@ Ability状态发生变化时执行的回调函数。
  
   
 
-##### ApplicationStateObserver.onProcessCreated
+#### ApplicationStateObserver.onProcessCreated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -79,7 +79,7 @@ onProcessCreated(processData: ProcessData): void
  
   
 
-##### ApplicationStateObserver.onProcessDied
+#### ApplicationStateObserver.onProcessDied
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -98,7 +98,7 @@ onProcessDied(processData: ProcessData): void
  
   
 
-##### ApplicationStateObserver.onProcessStateChanged
+#### ApplicationStateObserver.onProcessStateChanged
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -117,7 +117,7 @@ onProcessStateChanged(processData: ProcessData): void
  
   
 
-##### ApplicationStateObserver.onAppStarted
+#### ApplicationStateObserver.onAppStarted
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -136,7 +136,7 @@ onAppStarted(appStateData: AppStateData): void
  
   
 
-##### ApplicationStateObserver.onAppStopped
+#### ApplicationStateObserver.onAppStopped
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -155,7 +155,7 @@ onAppStopped(appStateData: AppStateData): void
  
   
 
-##### ProcessData
+#### ProcessData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

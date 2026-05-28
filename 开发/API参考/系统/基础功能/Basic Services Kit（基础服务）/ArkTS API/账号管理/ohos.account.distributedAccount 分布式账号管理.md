@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { distributedAccount } from '@kit.BasicServicesKit';
 
 
 
-##### distributedAccount.getDistributedAccountAbility
+#### distributedAccount.getDistributedAccountAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -47,7 +47,7 @@ const accountAbility: distributedAccount.DistributedAccountAbility = distributed
 
 
 
-##### DistributedAccountAbility
+#### DistributedAccountAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -55,7 +55,7 @@ const accountAbility: distributedAccount.DistributedAccountAbility = distributed
 
 
 
-##### getOsAccountDistributedInfo9+
+#### getOsAccountDistributedInfo9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -108,7 +108,7 @@ try {
 
 
 
-##### getOsAccountDistributedInfo9+
+#### getOsAccountDistributedInfo9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -157,7 +157,7 @@ try {
 
 
 
-##### queryOsAccountDistributedInfo(deprecated)
+#### queryOsAccountDistributedInfo(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -198,7 +198,7 @@ accountAbility.queryOsAccountDistributedInfo(
 
 
 
-##### queryOsAccountDistributedInfo(deprecated)
+#### queryOsAccountDistributedInfo(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -236,7 +236,7 @@ accountAbility.queryOsAccountDistributedInfo().then((data: distributedAccount.Di
 
 
 
-##### setOsAccountDistributedInfo9+
+#### setOsAccountDistributedInfo9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -293,7 +293,7 @@ try {
 
 
 
-##### setOsAccountDistributedInfo9+
+#### setOsAccountDistributedInfo9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -354,7 +354,7 @@ try {
 
 
 
-##### updateOsAccountDistributedInfo(deprecated)
+#### updateOsAccountDistributedInfo(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -397,7 +397,7 @@ accountAbility.updateOsAccountDistributedInfo(accountInfo, (err: BusinessError) 
 
 
 
-##### updateOsAccountDistributedInfo(deprecated)
+#### updateOsAccountDistributedInfo(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -444,7 +444,7 @@ accountAbility.updateOsAccountDistributedInfo(accountInfo).then(() => {
 
 
 
-##### DistributedInfo
+#### DistributedInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -465,7 +465,7 @@ accountAbility.updateOsAccountDistributedInfo(accountInfo).then(() => {
 
 
 
-##### DistributedAccountStatus10+
+#### DistributedAccountStatus10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

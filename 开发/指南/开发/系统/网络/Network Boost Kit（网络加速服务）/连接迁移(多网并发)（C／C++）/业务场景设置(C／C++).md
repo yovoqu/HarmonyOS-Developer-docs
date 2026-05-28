@@ -7,13 +7,13 @@
 从6.0.2(22)开始，支持业务场景设置。
 
 
-##### 场景介绍
+#### 场景介绍
 
 应用在请求多网并发之前，通过设置业务场景，可以帮助系统进行多网并发管控和业务时长分析。
 
 
 
-##### 接口说明
+#### 接口说明
 
 具体API说明详见[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/network-boost-c-overview)。
 
@@ -24,7 +24,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 导入Network Boost Kit模块。
 
   

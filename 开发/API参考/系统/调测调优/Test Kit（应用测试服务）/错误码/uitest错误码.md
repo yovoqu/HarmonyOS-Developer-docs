@@ -10,7 +10,7 @@
 
 
 
-##### 17000001 初始化失败
+#### 17000001 初始化失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -32,7 +32,7 @@ Initialization failed.
 
 
 
-##### 17000002 当前无法调用
+#### 17000002 当前无法调用
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -54,7 +54,7 @@ API没有使用await进行异步调用，造成堵塞。
 
 
 
-##### 17000003 断言失败
+#### 17000003 断言失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -76,7 +76,7 @@ Assertion failed.
 
 
 
-##### 17000004 目标控件/窗口丢失
+#### 17000004 目标控件/窗口丢失
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -98,7 +98,7 @@ The window or component is invisible or destroyed.
 
 
 
-##### 17000005 操作不支持
+#### 17000005 操作不支持
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -120,7 +120,7 @@ UI对象不支持该操作。
 
 
 
-##### 17000007 参数不合法
+#### 17000007 参数不合法
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

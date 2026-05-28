@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { Animator as animator, AnimatorOptions, AnimatorResult, SimpleAnimatorOp
 
 
 
-##### Animator
+#### Animator
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -34,7 +34,7 @@ import { Animator as animator, AnimatorOptions, AnimatorResult, SimpleAnimatorOp
 
 
 
-##### create(deprecated)
+#### create(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -99,7 +99,7 @@ animator.create(options); // 建议使用 UIContext.createAnimator()接口
 
 
 
-##### create18+
+#### create18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -150,7 +150,7 @@ animator.create(options);// 建议使用 UIContext.createAnimator()接口
 
 
 
-##### createAnimator(deprecated)
+#### createAnimator(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -201,7 +201,7 @@ this.animator = animator.createAnimator(options);
 
 
 
-##### AnimatorResult
+#### AnimatorResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -209,7 +209,7 @@ this.animator = animator.createAnimator(options);
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -229,7 +229,7 @@ this.animator = animator.createAnimator(options);
 
 
 
-##### reset9+
+#### reset9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -299,7 +299,7 @@ struct AnimatorTest {
 
 
 
-##### reset18+
+#### reset18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -355,7 +355,7 @@ animatorResult.reset(optionsNew);
 
 
 
-##### play
+#### play
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -377,7 +377,7 @@ animator.play();
 
 
 
-##### finish
+#### finish
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -399,7 +399,7 @@ animator.finish();
 
 
 
-##### pause
+#### pause
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -421,7 +421,7 @@ animator.pause();
 
 
 
-##### cancel
+#### cancel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -443,7 +443,7 @@ animator.cancel();
 
 
 
-##### reverse
+#### reverse
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -465,7 +465,7 @@ animator.reverse();
 
 
 
-##### setExpectedFrameRateRange12+
+#### setExpectedFrameRateRange12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -526,7 +526,7 @@ struct AnimatorTest {
 
 
 
-##### update(deprecated)
+#### update(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -557,7 +557,7 @@ animator.update(options);
 
 
 
-##### AnimatorOptions
+#### AnimatorOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -569,7 +569,7 @@ animator.update(options);
 
 
 
-##### 属性
+#### 属性
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -607,7 +607,7 @@ animator.update(options);
 
 
 
-##### SimpleAnimatorOptions18+
+#### SimpleAnimatorOptions18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -615,7 +615,7 @@ animator简易动画参数对象。与AnimatorOptions相比，部分动画参数
 
 
 
-##### constructor18+
+#### constructor18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -660,7 +660,7 @@ struct AnimatorTest {
 
 
 
-##### duration18+
+#### duration18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -711,7 +711,7 @@ struct AnimatorTest {
 
 
 
-##### easing18+
+#### easing18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -762,7 +762,7 @@ struct AnimatorTest {
 
 
 
-##### delay18+
+#### delay18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -813,7 +813,7 @@ struct AnimatorTest {
 
 
 
-##### fill18+
+#### fill18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -864,7 +864,7 @@ struct AnimatorTest {
 
 
 
-##### direction18+
+#### direction18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -915,7 +915,7 @@ struct AnimatorTest {
 
 
 
-##### iterations18+
+#### iterations18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -966,13 +966,13 @@ struct AnimatorTest {
 
 
 
-##### 完整示例
+#### 完整示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 基于JS扩展的类Web开发范式
+#### 基于JS扩展的类Web开发范式
 
 ```text
 <!-- hml -->
@@ -1065,12 +1065,12 @@ class DateT {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/MbcCwd2jSvatZEhoHZXK5w/zh-cn_image_0000002611835355.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024114Z&HW-CC-Expire=86400&HW-CC-Sign=ECA81E1B695571CF911C136D678050FDADD0C9A045DF379CAE6A2EEF486F8052)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/MbcCwd2jSvatZEhoHZXK5w/zh-cn_image_0000002611835355.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025448Z&HW-CC-Expire=86400&HW-CC-Sign=97CD1B13B6A6BD66854EF7D51F5AE2094FC440DE951EE72E289E2EBDF420D0A1)
 
 
 
 
-##### 基于ArkTS扩展的声明式开发范式
+#### 基于ArkTS扩展的声明式开发范式
 
 > [!NOTE]
 > 推荐通过使用 UIContext 中的 createAnimator 接口明确UI上下文。
@@ -1241,12 +1241,12 @@ struct AnimatorTest {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/3HT8pOGuTXiRECBF7VTedw/zh-cn_image_0000002581275606.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024114Z&HW-CC-Expire=86400&HW-CC-Sign=FBF2F7CCB7ED3B05DD23FB409B833B299159B55310AE2AAFC371099D58D42559)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/3HT8pOGuTXiRECBF7VTedw/zh-cn_image_0000002581275606.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025448Z&HW-CC-Expire=86400&HW-CC-Sign=88A73B3B4B5EDDEC2B942AB70E241623FDA973A6EAEA8B49EDF0AA71316C41CD)
 
 
 
 
-##### 位移动画示例（简易入参）
+#### 位移动画示例（简易入参）
 
 ```text
 import { AnimatorResult, SimpleAnimatorOptions } from '@kit.ArkUI';
@@ -1346,4 +1346,4 @@ struct AnimatorTest {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/Wt9FnNJnSTuXTNR3alvnNQ/zh-cn_image_0000002611755463.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024114Z&HW-CC-Expire=86400&HW-CC-Sign=A559CC5A6AAC9E0885D332AA7C0CCF9184A7B4F4BF4A150C959232D5A68B4C78)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/Wt9FnNJnSTuXTNR3alvnNQ/zh-cn_image_0000002611755463.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025448Z&HW-CC-Expire=86400&HW-CC-Sign=1EF61FFEE27EEE0A11472D046D28A41C99FB52956EEE7B610BA2C855E14C6EB7)

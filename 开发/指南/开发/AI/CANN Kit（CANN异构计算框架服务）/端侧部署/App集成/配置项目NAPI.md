@@ -7,7 +7,7 @@
 编译HAP时，NAPI层的so需要编译依赖NDK中的libneural_network_core.so和libhiai_foundation.so。
   
 
-##### 头文件引用
+#### 头文件引用
 
 按需引用[NNCore](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-neuralnetworkruntime)和[CANN Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/cannkit-hiai-aipp-param-8h)的头文件。
  
@@ -18,7 +18,7 @@
  
   
 
-##### 编写CMakeLists.txt
+#### 编写CMakeLists.txt
 
 CMakeLists.txt示例代码如下。
  

@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -34,7 +34,7 @@ import { ArcAlphabetIndexer } from '@kit.ArkUI';
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -42,7 +42,7 @@ import { ArcAlphabetIndexer } from '@kit.ArkUI';
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -63,7 +63,7 @@ ArcAlphabetIndexer(info: ArcAlphabetIndexerInitInfo)
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -71,7 +71,7 @@ ArcAlphabetIndexer(info: ArcAlphabetIndexerInitInfo)
 
 
 
-##### color
+#### color
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -92,7 +92,7 @@ color(color: Optional&lt;ColorMetrics&gt;)
 
 
 
-##### selectedColor
+#### selectedColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -113,7 +113,7 @@ selectedColor(color: Optional&lt;ColorMetrics&gt;)
 
 
 
-##### popupColor
+#### popupColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -134,7 +134,7 @@ popupColor(color: Optional&lt;ColorMetrics&gt;)
 
 
 
-##### selectedBackgroundColor
+#### selectedBackgroundColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -155,7 +155,7 @@ selectedBackgroundColor(color: Optional&lt;ColorMetrics&gt;)
 
 
 
-##### popupBackground
+#### popupBackground
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -180,7 +180,7 @@ popupBackground(color: Optional&lt;ColorMetrics&gt;)
 
 
 
-##### usePopup
+#### usePopup
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -201,7 +201,7 @@ usePopup(enabled: Optional&lt;boolean&gt;)
 
 
 
-##### selectedFont
+#### selectedFont
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -222,7 +222,7 @@ selectedFont(font: Optional&lt;Font&gt;)
 
 
 
-##### popupFont
+#### popupFont
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -243,7 +243,7 @@ popupFont(font: Optional&lt;Font&gt;)
 
 
 
-##### font
+#### font
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -264,7 +264,7 @@ font(font: Optional&lt;Font&gt;)
 
 
 
-##### itemSize
+#### itemSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -285,7 +285,7 @@ itemSize(size: Optional&lt;LengthMetrics&gt;)
 
 
 
-##### selected
+#### selected
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -306,7 +306,7 @@ selected(index: Optional&lt;number&gt;)
 
 
 
-##### autoCollapse
+#### autoCollapse
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -327,7 +327,7 @@ autoCollapse(enable: Optional&lt;boolean&gt;)
 
 
 
-##### popupBackgroundBlurStyle
+#### popupBackgroundBlurStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -352,7 +352,7 @@ popupBackgroundBlurStyle(style: Optional&lt;BlurStyle&gt;)
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -360,7 +360,7 @@ popupBackgroundBlurStyle(style: Optional&lt;BlurStyle&gt;)
 
 
 
-##### onSelect
+#### onSelect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -381,7 +381,7 @@ onSelect(handler: Optional&lt;OnSelectCallback&gt;)
 
 
 
-##### ArcAlphabetIndexerInitInfo对象说明
+#### ArcAlphabetIndexerInitInfo对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -399,7 +399,7 @@ onSelect(handler: Optional&lt;OnSelectCallback&gt;)
 
 
 
-##### OnSelectCallback
+#### OnSelectCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -420,7 +420,7 @@ type OnSelectCallback = (index: number) => void
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -525,4 +525,4 @@ struct ArcListAndIndexer {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/dAigkfP4T_WMW6rlNcOl7A/zh-cn_image_0000002581436034.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024224Z&HW-CC-Expire=86400&HW-CC-Sign=2C22A35D45852D6A7BA61D0126142FDE0A90CDB5D13ECBB50C5C5299CD8BA62A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/dAigkfP4T_WMW6rlNcOl7A/zh-cn_image_0000002581436034.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025557Z&HW-CC-Expire=86400&HW-CC-Sign=6C2989D3DC429FAD466F99D577C4FA1D2BED708FF962082E3EB480E2B68C8A71)

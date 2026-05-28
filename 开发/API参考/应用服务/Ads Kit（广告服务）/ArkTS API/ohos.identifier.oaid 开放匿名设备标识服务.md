@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -22,7 +22,7 @@ import { identifier } from '@kit.AdsKit';
  
   
 
-##### identifier.getOAID
+#### identifier.getOAID
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -70,7 +70,7 @@ void identifier.getOAID().then((data: string) => {
  
   
 
-##### identifier.getOAID
+#### identifier.getOAID
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

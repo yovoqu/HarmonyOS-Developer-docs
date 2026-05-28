@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-gettpipeptr
 
-##### 功能说明
+#### 功能说明
 
 创建[TPipe](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-tpipe-constructor)对象时，对象初始化会设置全局唯一的TPipe指针。本接口用于获取该指针，获取该指针后，可进行TPipe相关的操作。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 __aicore__ inline AscendC::TPipe* GetTPipePtr()
@@ -18,7 +18,7 @@ __aicore__ inline AscendC::TPipe* GetTPipePtr()
  
   
 
-##### 支持的型号
+#### 支持的型号
 
 Kirin9020系列处理器
  
@@ -26,13 +26,13 @@ KirinX90系列处理器
  
   
 
-##### 注意事项
+#### 注意事项
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 如下样例中，在核函数入口处创建TPipe对象，对象初始化会设置全局唯一的TPipe指针。在调用KernelAdd类Init函数时，无需显式传入TPipe指针，而是在函数内直接使用GetTPipePtr获取全局TPipe指针，用来做InitBuffer等操作。
  

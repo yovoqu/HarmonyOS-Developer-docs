@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___request_cookie_entry
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -19,13 +19,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -38,13 +38,13 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### key
+#### key
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -58,7 +58,7 @@ char* Rcp_RequestCookieEntry::key
  
   
 
-##### next
+#### next
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -72,7 +72,7 @@ struct Rcp_RequestCookieEntry* Rcp_RequestCookieEntry::next
  
   
 
-##### value
+#### value
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

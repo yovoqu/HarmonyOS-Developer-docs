@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-button-get-risklevel
 
-##### 场景介绍
+#### 场景介绍
 
 从6.0.2(22)开始，支持获取手机号和风险等级Button功能。
 
@@ -12,13 +12,13 @@
 
 
 
-##### 前提条件
+#### 前提条件
 
 需要完成手机号的scope权限申请和【获取风险等级】权限申请，请见[申请账号权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-config-permissions)和[开发前提](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-get-risklevel-on-demand-acquisition#开发前提)章节。
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 导入Scenario Fusion Kit模块以及相关公共模块。
 
   

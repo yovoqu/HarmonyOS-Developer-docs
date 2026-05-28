@@ -12,7 +12,7 @@
 
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -36,7 +36,7 @@ Divider()
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -44,7 +44,7 @@ Divider()
  
   
 
-##### vertical
+#### vertical
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -67,7 +67,7 @@ vertical(value: boolean)
  
   
 
-##### color
+#### color
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -90,7 +90,7 @@ color(value: ResourceColor)
  
   
 
-##### strokeWidth
+#### strokeWidth
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -117,7 +117,7 @@ strokeWidth(value: number | string)
  
   
 
-##### lineCap
+#### lineCap
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -140,7 +140,7 @@ lineCap(value: LineCapStyle)
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -148,13 +148,13 @@ lineCap(value: LineCapStyle)
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 示例1（定义Divider方向、颜色及宽度）
+#### 示例1（定义Divider方向、颜色及宽度）
 
 该示例定义了Divider的样式，如方向、颜色及宽度。
  
@@ -229,12 +229,12 @@ struct DividerExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/eyB0Y9MES-CcC3IjlMhB-Q/zh-cn_image_0000002581436058.png?HW-CC-KV=V1&HW-CC-Date=20260528T024230Z&HW-CC-Expire=86400&HW-CC-Sign=5320B05D4AE55912BFB5AE07C34B079AA16D1218E1D808D01A50E09FA46B48F4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/eyB0Y9MES-CcC3IjlMhB-Q/zh-cn_image_0000002581436058.png?HW-CC-KV=V1&HW-CC-Date=20260528T025604Z&HW-CC-Expire=86400&HW-CC-Sign=EFB24A0E1FC816624FABC94135D330516240C47E9DC48BA3AC2F81D36AE57469)
 
  
   
 
-##### 示例2（定义Divider的lineCap样式）
+#### 示例2（定义Divider的lineCap样式）
 
 该示例定义了Divider的lineCap样式。
  
@@ -272,4 +272,4 @@ struct DividerExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/lh0rD0PgTh-ASUDKv_SlLg/zh-cn_image_0000002611835889.png?HW-CC-KV=V1&HW-CC-Date=20260528T024230Z&HW-CC-Expire=86400&HW-CC-Sign=1187043E1FFC5B044B1D0A6F4DC05D88D7E238D3970B176A11B87EEA6E911340)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/lh0rD0PgTh-ASUDKv_SlLg/zh-cn_image_0000002611835889.png?HW-CC-KV=V1&HW-CC-Date=20260528T025604Z&HW-CC-Expire=86400&HW-CC-Sign=7FD415605663860AB68720876E771DAA7F60F4990B513045C39637F9C72BB60C)

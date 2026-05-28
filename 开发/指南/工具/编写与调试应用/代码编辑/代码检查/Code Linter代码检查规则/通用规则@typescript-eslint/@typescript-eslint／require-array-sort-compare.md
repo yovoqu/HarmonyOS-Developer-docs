@@ -7,7 +7,7 @@
 要求调用“Array#sort”时，始终提供“compareFunction”。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/require-array-sort-compare选项](https://typescript-eslint.nodejs.cn/rules/require-array-sort-compare/#options)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 declare const array: string[];
@@ -37,7 +37,7 @@ array.sort((a, b) => a.localeCompare(b));
  
  
 
-##### 反例
+#### 反例
 
 ```text
 declare const array: number[];
@@ -51,7 +51,7 @@ stringArray.sort();
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

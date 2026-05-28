@@ -7,7 +7,7 @@
 一多特性必须使用系统断点判断是否开启，不能通过设备类型、设备方向或是否可折叠等属性来判断。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 @Entry
@@ -43,7 +43,7 @@ struct ItemComponent {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 import { display } from '@kit.ArkUI';
@@ -62,7 +62,7 @@ struct ItemComponent {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(80,160,79);">plugin:@cross-device-app-dev/recommended</span>

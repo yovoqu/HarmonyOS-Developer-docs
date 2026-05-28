@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -15,7 +15,7 @@ import { map, mapCommon } from '@kit.MapKit';
 
 
 
-##### MapComponentController
+#### MapComponentController
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -96,7 +96,7 @@ struct HuaweiMapDemo {
 
 
 
-##### animateCamera
+#### animateCamera
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -139,7 +139,7 @@ this.mapController.animateCamera(cameraUpdate, 1000);
 
 
 
-##### animateCameraStatus
+#### animateCameraStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -198,7 +198,7 @@ let animateResult = await this.mapController.animateCameraStatus(cameraUpdate, 1
 
 
 
-##### animateCameraWithMarker
+#### animateCameraWithMarker
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -262,7 +262,7 @@ await this.mapController.animateCameraWithMarker(cameraUpdate, marker, 1000);
 
 
 
-##### animateCameraWithMarkers
+#### animateCameraWithMarkers
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -348,7 +348,7 @@ await this.mapController.animateCameraWithMarkers(cameraUpdate, [marker1, marker
 
 
 
-##### stopAnimation
+#### stopAnimation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -372,7 +372,7 @@ this.mapController.stopAnimation();
 
 
 
-##### clear
+#### clear
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -396,7 +396,7 @@ this.mapController.clear();
 
 
 
-##### moveCamera
+#### moveCamera
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -438,7 +438,7 @@ this.mapController.moveCamera(cameraUpdate);
 
 
 
-##### getCameraPosition
+#### getCameraPosition
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -469,7 +469,7 @@ let cameraPosition: mapCommon.CameraPosition = this.mapController.getCameraPosit
 
 
 
-##### setLatLngBounds
+#### setLatLngBounds
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -510,7 +510,7 @@ this.mapController.setLatLngBounds(bounds);
 
 
 
-##### setPointToCenter
+#### setPointToCenter
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -545,7 +545,7 @@ this.mapController.setPointToCenter(point);
 
 
 
-##### setMaxZoom
+#### setMaxZoom
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -576,7 +576,7 @@ this.mapController.setMaxZoom(10);
 
 
 
-##### setMinZoom
+#### setMinZoom
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -607,7 +607,7 @@ this.mapController.setMinZoom(3);
 
 
 
-##### getMaxZoom
+#### getMaxZoom
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -638,7 +638,7 @@ let maxZoom: number = this.mapController.getMaxZoom();
 
 
 
-##### getMinZoom
+#### getMinZoom
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -669,7 +669,7 @@ let minZoom: number = this.mapController.getMinZoom();
 
 
 
-##### setTrafficEnabled
+#### setTrafficEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -700,7 +700,7 @@ this.mapController.setTrafficEnabled(true);
 
 
 
-##### isTrafficEnabled
+#### isTrafficEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -731,7 +731,7 @@ let isTrafficEnabled: boolean = this.mapController.isTrafficEnabled();
 
 
 
-##### setBuildingEnabled
+#### setBuildingEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -762,7 +762,7 @@ this.mapController.setBuildingEnabled(true);
 
 
 
-##### isBuildingEnabled
+#### isBuildingEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -793,7 +793,7 @@ let isBuildingEnabled: boolean = this.mapController.isBuildingEnabled();
 
 
 
-##### setMyLocationEnabled
+#### setMyLocationEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -824,7 +824,7 @@ this.mapController.setMyLocationEnabled(true);
 
 
 
-##### setMyLocation
+#### setMyLocation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -859,7 +859,7 @@ this.mapController.setMyLocation(location);
 
 
 
-##### setMyLocationStyle
+#### setMyLocationStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -904,7 +904,7 @@ await this.mapController.setMyLocationStyle(style);
 
 
 
-##### isMyLocationEnabled
+#### isMyLocationEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -935,7 +935,7 @@ let isMyLocationEnabled: boolean = this.mapController.isMyLocationEnabled();
 
 
 
-##### setZoomGesturesEnabled
+#### setZoomGesturesEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -976,7 +976,7 @@ this.mapController.setZoomGesturesEnabled(true);
 
 
 
-##### isZoomGesturesEnabled
+#### isZoomGesturesEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1007,7 +1007,7 @@ let isZoomGesturesEnabled: boolean = this.mapController.isZoomGesturesEnabled();
 
 
 
-##### setScrollGesturesEnabled
+#### setScrollGesturesEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1042,7 +1042,7 @@ this.mapController.setScrollGesturesEnabled(true);
 
 
 
-##### isScrollGesturesEnabled
+#### isScrollGesturesEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1073,7 +1073,7 @@ let isScrollGesturesEnabled: boolean = this.mapController.isScrollGesturesEnable
 
 
 
-##### setRotateGesturesEnabled
+#### setRotateGesturesEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1108,7 +1108,7 @@ this.mapController.setRotateGesturesEnabled(true);
 
 
 
-##### isRotateGesturesEnabled
+#### isRotateGesturesEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1139,7 +1139,7 @@ let isRotateGesturesEnabled: boolean = this.mapController.isRotateGesturesEnable
 
 
 
-##### setTiltGesturesEnabled
+#### setTiltGesturesEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1174,7 +1174,7 @@ this.mapController.setTiltGesturesEnabled(true);
 
 
 
-##### isTiltGesturesEnabled
+#### isTiltGesturesEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1205,7 +1205,7 @@ let isTiltGesturesEnabled: boolean = this.mapController.isTiltGesturesEnabled();
 
 
 
-##### setZoomControlsEnabled
+#### setZoomControlsEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1240,7 +1240,7 @@ this.mapController.setZoomControlsEnabled(true);
 
 
 
-##### isZoomControlsEnabled
+#### isZoomControlsEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1271,7 +1271,7 @@ let isZoomControlsEnabled: boolean = this.mapController.isZoomControlsEnabled();
 
 
 
-##### setMyLocationControlsEnabled
+#### setMyLocationControlsEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1302,7 +1302,7 @@ this.mapController.setMyLocationControlsEnabled(true);
 
 
 
-##### isMyLocationControlsEnabled
+#### isMyLocationControlsEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1333,7 +1333,7 @@ let isMyLocationControlsEnabled: boolean = this.mapController.isMyLocationContro
 
 
 
-##### setScaleControlsEnabled
+#### setScaleControlsEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1364,7 +1364,7 @@ this.mapController.setScaleControlsEnabled(true);
 
 
 
-##### isScaleControlsEnabled
+#### isScaleControlsEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1395,7 +1395,7 @@ let isScaleControlsEnabled: boolean = this.mapController.isScaleControlsEnabled(
 
 
 
-##### setCompassControlsEnabled
+#### setCompassControlsEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1426,7 +1426,7 @@ this.mapController.setCompassControlsEnabled(true);
 
 
 
-##### isCompassControlsEnabled
+#### isCompassControlsEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1457,7 +1457,7 @@ let isCompassControlsEnabled: boolean = this.mapController.isCompassControlsEnab
 
 
 
-##### setGestureScaleByMapCenter
+#### setGestureScaleByMapCenter
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1492,7 +1492,7 @@ this.mapController.setGestureScaleByMapCenter(true);
 
 
 
-##### isGestureScaleByMapCenter
+#### isGestureScaleByMapCenter
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1523,7 +1523,7 @@ let isGestureScaleByMapCenter: boolean = this.mapController.isGestureScaleByMapC
 
 
 
-##### setLogoAlignment
+#### setLogoAlignment
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1554,7 +1554,7 @@ this.mapController.setLogoAlignment(mapCommon.LogoAlignment.BOTTOM_START);
 
 
 
-##### setLogoPadding
+#### setLogoPadding
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1598,7 +1598,7 @@ this.mapController.setLogoPadding(padding);
 
 
 
-##### getScalePerPixel
+#### getScalePerPixel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1629,7 +1629,7 @@ let scalePerPixel: number = this.mapController.getScalePerPixel();
 
 
 
-##### addMarker
+#### addMarker
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1697,7 +1697,7 @@ let marker: map.Marker = await this.mapController.addMarker(markerOptions);
 
 
 
-##### addCircle
+#### addCircle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1768,7 +1768,7 @@ let mapCircle: map.MapCircle = await this.mapController.addCircle(mapCircleOptio
 
 
 
-##### addPolyline
+#### addPolyline
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1838,7 +1838,7 @@ let mapPolyline: map.MapPolyline = await this.mapController.addPolyline(polyline
 
 
 
-##### addPolygon
+#### addPolygon
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1912,7 +1912,7 @@ let mapPolygon: map.MapPolygon = await this.mapController.addPolygon(polygonOpti
 
 
 
-##### addPointAnnotation
+#### addPointAnnotation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2006,7 +2006,7 @@ let pointAnnotation: map.PointAnnotation = await this.mapController.addPointAnno
 
 
 
-##### addBubble
+#### addBubble
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2077,7 +2077,7 @@ let bubble: map.Bubble = await this.mapController.addBubble(bubbleOptions);
 
 
 
-##### setPadding
+#### setPadding
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2113,7 +2113,7 @@ this.mapController.setPadding(padding);
 
 
 
-##### getProjection
+#### getProjection
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2144,7 +2144,7 @@ let projection: map.Projection = this.mapController.getProjection();
 
 
 
-##### setCustomMapStyle
+#### setCustomMapStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2196,7 +2196,7 @@ await this.mapController.setCustomMapStyle(param);
 
 
 
-##### getDayNightMode
+#### getDayNightMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2227,7 +2227,7 @@ let mode = this.mapController.getDayNightMode();
 
 
 
-##### setDayNightMode
+#### setDayNightMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2258,7 +2258,7 @@ this.mapController.setDayNightMode(mapCommon.DayNightMode.AUTO);
 
 
 
-##### getMapType
+#### getMapType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2289,7 +2289,7 @@ let mapType = this.mapController.getMapType();
 
 
 
-##### setMapType
+#### setMapType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2320,7 +2320,7 @@ this.mapController.setMapType(mapCommon.MapType.TERRAIN);
 
 
 
-##### setScalePosition
+#### setScalePosition
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2357,7 +2357,7 @@ this.mapController.setScalePosition(point);
 
 
 
-##### getScaleLevel
+#### getScaleLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2388,7 +2388,7 @@ let level = this.mapController.getScaleLevel();
 
 
 
-##### setCompassPosition
+#### setCompassPosition
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2423,7 +2423,7 @@ this.mapController.setCompassPosition(point);
 
 
 
-##### setAllGesturesEnabled
+#### setAllGesturesEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2454,7 +2454,7 @@ this.mapController.setAllGesturesEnabled(true);
 
 
 
-##### getScaleControlsHeight
+#### getScaleControlsHeight
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2485,7 +2485,7 @@ let height = this.mapController.getScaleControlsHeight();
 
 
 
-##### getScaleControlsWidth
+#### getScaleControlsWidth
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2516,7 +2516,7 @@ let width = this.mapController.getScaleControlsWidth();
 
 
 
-##### setAlwaysShowScaleEnabled
+#### setAlwaysShowScaleEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2547,7 +2547,7 @@ this.mapController.setAlwaysShowScaleEnabled(true);
 
 
 
-##### isAlwaysShowScaleEnabled
+#### isAlwaysShowScaleEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2578,7 +2578,7 @@ let scaleEnabled: boolean = this.mapController.isAlwaysShowScaleEnabled();
 
 
 
-##### addClusterOverlay
+#### addClusterOverlay
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2643,7 +2643,7 @@ let clusterOverlay: map.ClusterOverlay = await this.mapController.addClusterOver
 
 
 
-##### addImageOverlay
+#### addImageOverlay
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2706,7 +2706,7 @@ let imageOverlay = await this.mapController?.addImageOverlay(imageOverlayParams)
 
 
 
-##### snapshot
+#### snapshot
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2739,7 +2739,7 @@ let image: image.PixelMap = await this.mapController.snapshot();
 
 
 
-##### addBuildingOverlay
+#### addBuildingOverlay
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2949,7 +2949,7 @@ let buildingOverlay: map.BuildingOverlay = await this.mapController?.addBuilding
 
 
 
-##### addTraceOverlay
+#### addTraceOverlay
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -3136,7 +3136,7 @@ let traceOverlay: map.TraceOverlay = await this.mapController.addTraceOverlay(tr
 
 
 
-##### addArc
+#### addArc
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -3207,7 +3207,7 @@ this.mapController.addArc(mapArcParams);
 
 
 
-##### show
+#### show
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -3237,7 +3237,7 @@ onPageShow(): void {
 
 
 
-##### hide
+#### hide
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -3267,7 +3267,7 @@ onPageHide(): void {
 
 
 
-##### getEventManager
+#### getEventManager
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -3298,7 +3298,7 @@ let mapEventManager: map.MapEventManager = this.mapController.getEventManager();
 
 
 
-##### setDisplayOrder
+#### setDisplayOrder
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -3343,7 +3343,7 @@ this.mapController.setDisplayOrder(mapElementTypeArr);
 
 
 
-##### setLogoScale
+#### setLogoScale
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -3383,7 +3383,7 @@ this.mapController.setLogoScale(0.9);
 
 
 
-##### getLogoScale
+#### getLogoScale
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -3414,7 +3414,7 @@ let logoScale: number = this.mapController.getLogoScale();
 
 
 
-##### isSphereEnabled
+#### isSphereEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -3445,7 +3445,7 @@ let result: boolean = this.mapController.isSphereEnabled();
 
 
 
-##### setSphereEnabled
+#### setSphereEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -3476,7 +3476,7 @@ this.mapController.setSphereEnabled(true);
 
 
 
-##### setSphereEnabled
+#### setSphereEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -3508,7 +3508,7 @@ this.mapController.setSphereEnabled(true, 1000);
 
 
 
-##### setSphereEnabled
+#### setSphereEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -3541,7 +3541,7 @@ this.mapController.setSphereEnabled(true, 1000, true);
 
 
 
-##### addHeatmap
+#### addHeatmap
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -3609,7 +3609,7 @@ await this.mapController?.addHeatmap(heatMapOptions)
 
 
 
-##### addMvtOverlay
+#### addMvtOverlay
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -3678,7 +3678,7 @@ let mvtOverlay = this.mapController?.addMvtOverlay(params);
 
 
 
-##### setFramePerSecond
+#### setFramePerSecond
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -3709,7 +3709,7 @@ this.mapController?.setFramePerSecond(60);
 
 
 
-##### addFlowFieldOverlay
+#### addFlowFieldOverlay
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -3760,7 +3760,7 @@ let fieldOverlay = await this.mapController.addFlowFieldOverlay(params);
 
 
 
-##### addMassPointOverlay
+#### addMassPointOverlay
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -3826,7 +3826,7 @@ let massPointOverlay = await this.mapController?.addMassPointOverlay(params);
 
 
 
-##### setLanguage
+#### setLanguage
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -3857,7 +3857,7 @@ this.mapController?.setLanguage('ja');
 
 
 
-##### getLanguage
+#### getLanguage
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -3888,7 +3888,7 @@ let language = this.mapController?.getLanguage();
 
 
 
-##### changeMyLocationLayerOrder
+#### changeMyLocationLayerOrder
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -3919,7 +3919,7 @@ this.mapController?.changeMyLocationLayerOrder(true);
 
 
 
-##### addTileOverlay
+#### addTileOverlay
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -3981,7 +3981,7 @@ let tileOverlay: map.TileOverlay = this.mapController?.addTileOverlay(params);
 
 
 
-##### on('cameraChange')
+#### on('cameraChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4017,7 +4017,7 @@ this.mapController.on("cameraChange", (position) => {
 
 
 
-##### off('cameraChange')
+#### off('cameraChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4053,7 +4053,7 @@ this.mapController.off("cameraChange", (position) => {
 
 
 
-##### on('cameraIdle')
+#### on('cameraIdle')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4089,7 +4089,7 @@ this.mapController.on("cameraIdle", () => {
 
 
 
-##### off('cameraIdle')
+#### off('cameraIdle')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4125,7 +4125,7 @@ this.mapController.off("cameraIdle", () => {
 
 
 
-##### on('cameraMoveCancel')
+#### on('cameraMoveCancel')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4161,7 +4161,7 @@ this.mapController.on("cameraMoveCancel", () => {
 
 
 
-##### off('cameraMoveCancel')
+#### off('cameraMoveCancel')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4197,7 +4197,7 @@ this.mapController.off("cameraMoveCancel", () => {
 
 
 
-##### on('cameraMove')
+#### on('cameraMove')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4233,7 +4233,7 @@ this.mapController.on("cameraMove", () => {
 
 
 
-##### off('cameraMove')
+#### off('cameraMove')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4269,7 +4269,7 @@ this.mapController.off("cameraMove", () => {
 
 
 
-##### on('cameraMoveStart')
+#### on('cameraMoveStart')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4305,7 +4305,7 @@ this.mapController.on("cameraMoveStart", (reason) => {
 
 
 
-##### off('cameraMoveStart')
+#### off('cameraMoveStart')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4341,7 +4341,7 @@ this.mapController.off("cameraMoveStart", () => {
 
 
 
-##### on('mapClick')
+#### on('mapClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4377,7 +4377,7 @@ this.mapController.on("mapClick", (position) => {
 
 
 
-##### off('mapClick')
+#### off('mapClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4413,7 +4413,7 @@ this.mapController.off("mapClick", () => {
 
 
 
-##### on('mapLoad')
+#### on('mapLoad')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4449,7 +4449,7 @@ this.mapController.on("mapLoad", () => {
 
 
 
-##### off('mapLoad')
+#### off('mapLoad')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4485,7 +4485,7 @@ this.mapController.off("mapLoad", () => {
 
 
 
-##### on('mapLongClick')
+#### on('mapLongClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4521,7 +4521,7 @@ this.mapController.on("mapLongClick", () => {
 
 
 
-##### off('mapLongClick')
+#### off('mapLongClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4557,7 +4557,7 @@ this.mapController.off("mapLongClick", () => {
 
 
 
-##### on('myLocationButtonClick')
+#### on('myLocationButtonClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4593,7 +4593,7 @@ this.mapController.on("myLocationButtonClick", () => {
 
 
 
-##### off('myLocationButtonClick')
+#### off('myLocationButtonClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4629,7 +4629,7 @@ this.mapController.off("myLocationButtonClick", () => {
 
 
 
-##### on('myLocationClick')
+#### on('myLocationClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4665,7 +4665,7 @@ this.mapController.on("myLocationClick", (position) => {
 
 
 
-##### off('myLocationClick')
+#### off('myLocationClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4701,7 +4701,7 @@ this.mapController.off("myLocationClick", () => {
 
 
 
-##### on('poiClick')
+#### on('poiClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4737,7 +4737,7 @@ this.mapController.on("poiClick", (poi) => {
 
 
 
-##### off('poiClick')
+#### off('poiClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4773,7 +4773,7 @@ this.mapController.off("poiClick", () => {
 
 
 
-##### on('markerClick')
+#### on('markerClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4809,7 +4809,7 @@ this.mapController.on("markerClick", (marker) => {
 
 
 
-##### off('markerClick')
+#### off('markerClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4845,7 +4845,7 @@ this.mapController.off("markerClick", () => {
 
 
 
-##### on('markerDragStart')
+#### on('markerDragStart')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4881,7 +4881,7 @@ this.mapController.on("markerDragStart", (marker) => {
 
 
 
-##### off('markerDragStart')
+#### off('markerDragStart')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4917,7 +4917,7 @@ this.mapController.off("markerDragStart", () => {
 
 
 
-##### on('markerDrag')
+#### on('markerDrag')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4953,7 +4953,7 @@ this.mapController.on("markerDrag", (marker) => {
 
 
 
-##### off('markerDrag')
+#### off('markerDrag')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4989,7 +4989,7 @@ this.mapController.off("markerDrag", () => {
 
 
 
-##### on('markerDragEnd')
+#### on('markerDragEnd')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5025,7 +5025,7 @@ this.mapController.on("markerDragEnd", (marker) => {
 
 
 
-##### off('markerDragEnd')
+#### off('markerDragEnd')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5061,7 +5061,7 @@ this.mapController.off("markerDragEnd", () => {
 
 
 
-##### on('circleClick')
+#### on('circleClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5097,7 +5097,7 @@ this.mapController.on("circleClick", (position) => {
 
 
 
-##### off('circleClick')
+#### off('circleClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5133,7 +5133,7 @@ this.mapController.off("circleClick", () => {
 
 
 
-##### on('polylineClick')
+#### on('polylineClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5169,7 +5169,7 @@ this.mapController.on("polylineClick", (polyline) => {
 
 
 
-##### off('polylineClick')
+#### off('polylineClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5205,7 +5205,7 @@ this.mapController.off("polylineClick", () => {
 
 
 
-##### on('polygonClick')
+#### on('polygonClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5241,7 +5241,7 @@ this.mapController.on("polygonClick", (polygon) => {
 
 
 
-##### off('polygonClick')
+#### off('polygonClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5277,7 +5277,7 @@ this.mapController.off("polygonClick", () => {
 
 
 
-##### on('infoWindowClick')
+#### on('infoWindowClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5313,7 +5313,7 @@ this.mapController.on("infoWindowClick", (infoWindow) => {
 
 
 
-##### off('infoWindowClick')
+#### off('infoWindowClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5349,7 +5349,7 @@ this.mapController.off("infoWindowClick", () => {
 
 
 
-##### on('infoWindowClose')
+#### on('infoWindowClose')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5385,7 +5385,7 @@ this.mapController.on("infoWindowClose", (infoWindowClose) => {
 
 
 
-##### off('infoWindowClose')
+#### off('infoWindowClose')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5421,7 +5421,7 @@ this.mapController.off("infoWindowClose", () => {
 
 
 
-##### on('pointAnnotationClick')
+#### on('pointAnnotationClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5457,7 +5457,7 @@ this.mapController.on("pointAnnotationClick", (pointAnnotation) => {
 
 
 
-##### off('pointAnnotationClick')
+#### off('pointAnnotationClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5493,7 +5493,7 @@ this.mapController.off("pointAnnotationClick", () => {
 
 
 
-##### on('bubbleClick')
+#### on('bubbleClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5529,7 +5529,7 @@ this.mapController.on("bubbleClick", (bubble) => {
 
 
 
-##### off('bubbleClick')
+#### off('bubbleClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5565,7 +5565,7 @@ this.mapController.off("bubbleClick", () => {
 
 
 
-##### on('imageOverlayClick')
+#### on('imageOverlayClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5603,7 +5603,7 @@ this.mapController.on("imageOverlayClick", imageOverlayCallback)
 
 
 
-##### off('imageOverlayClick')
+#### off('imageOverlayClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5640,7 +5640,7 @@ this.mapController.off("imageOverlayClick", imageOverlayCallback);
 
 
 
-##### on('error')
+#### on('error')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5676,7 +5676,7 @@ this.mapController.on("error", (error) => {
 
 
 
-##### off('error')
+#### off('error')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5712,7 +5712,7 @@ this.mapController.off("error", () => {
 
 
 
-##### setIndoorMapEnabled
+#### setIndoorMapEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5755,7 +5755,7 @@ this.mapController.setIndoorMapEnabled(true);
 
 
 
-##### isIndoorMapEnabled
+#### isIndoorMapEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5797,7 +5797,7 @@ let isIndoorMapEnabled = this.mapController.isIndoorMapEnabled();
 
 
 
-##### switchIndoorMapFloor
+#### switchIndoorMapFloor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5840,7 +5840,7 @@ this.mapController?.switchIndoorMapFloor('822588304363886720', '3F');
 
 
 
-##### setFloorControlsPosition
+#### setFloorControlsPosition
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5885,7 +5885,7 @@ this.mapController?.setFloorControlsPosition({
 
 
 
-##### isApproveNumberEnabled
+#### isApproveNumberEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5916,7 +5916,7 @@ let isApproveNumberEnabled = this.mapController?.isApproveNumberEnabled();
 
 
 
-##### setApproveNumberEnabled
+#### setApproveNumberEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

@@ -12,7 +12,7 @@
 提供搜索框组件，用于提供用户搜索内容的输入区域。
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -45,7 +45,7 @@
  
   
 
-##### 样式
+#### 样式
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -64,7 +64,7 @@
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -82,7 +82,7 @@
  
   
 
-##### 方法
+#### 方法
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -90,7 +90,7 @@
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -112,4 +112,4 @@
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/TKoohKB6TuiTJALEEuXtWw/zh-cn_image_0000002581276422.png?HW-CC-KV=V1&HW-CC-Date=20260528T024102Z&HW-CC-Expire=86400&HW-CC-Sign=1EAF55795F7E946E48C57A5484CD79E9152B4B9A499C13B2A745242809C61E8E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/TKoohKB6TuiTJALEEuXtWw/zh-cn_image_0000002581276422.png?HW-CC-KV=V1&HW-CC-Date=20260528T025437Z&HW-CC-Expire=86400&HW-CC-Sign=A47E69C1B9044943087AE7406528B54D84E3FBBA4CA72925D545D67DDD3A5911)

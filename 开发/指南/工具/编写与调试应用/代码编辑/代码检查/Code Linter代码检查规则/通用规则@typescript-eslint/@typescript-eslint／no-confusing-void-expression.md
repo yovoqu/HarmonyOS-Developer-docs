@@ -9,7 +9,7 @@
 void指要被忽略的函数返回，如果将void类型的表达式作为值使用，比如分配给变量、作为函数参数传递或者从函数中返回，容易产生误导。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -22,13 +22,13 @@ void指要被忽略的函数返回，如果将void类型的表达式作为值使
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/no-confusing-void-expression选项](https://typescript-eslint.nodejs.cn/rules/no-confusing-void-expression/#options)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 export function func(): void {
@@ -38,7 +38,7 @@ export function func(): void {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 export function func(): void {
@@ -50,7 +50,7 @@ console.info(func());
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

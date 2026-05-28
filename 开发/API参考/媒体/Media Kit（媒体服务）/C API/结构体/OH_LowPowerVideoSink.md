@@ -10,7 +10,7 @@ typedef struct OH_LowPowerVideoSink OH_LowPowerVideoSink
 ```
   
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

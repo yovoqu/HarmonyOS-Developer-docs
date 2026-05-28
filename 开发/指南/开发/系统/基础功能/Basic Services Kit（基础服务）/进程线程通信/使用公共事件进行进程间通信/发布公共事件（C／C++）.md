@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-common-event-publish
 
-##### 场景介绍
+#### 场景介绍
 
 当需要发布某个公共事件时，可以通过[OH_CommonEvent_Publish](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-commonevent-h#oh_commonevent_publish)和[OH_CommonEvent_PublishWithInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-commonevent-h#oh_commonevent_publishwithinfo)方法发布事件。发布的公共事件可以携带数据，供订阅者解析并进行下一步处理。
 
 
 
-##### 接口说明
+#### 接口说明
 
 详细的API说明请参考[oh_commonevent.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-commonevent-h)。
 
@@ -27,7 +27,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 引用头文件。
 
   

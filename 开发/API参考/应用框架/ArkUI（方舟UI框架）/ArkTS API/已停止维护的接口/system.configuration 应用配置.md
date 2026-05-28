@@ -10,7 +10,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -20,7 +20,7 @@ import Configuration from '@system.configuration';
  
   
 
-##### configuration.getLocale
+#### configuration.getLocale
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -205,7 +205,7 @@ export default {
  
   
 
-##### LocaleResponse
+#### LocaleResponse
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 

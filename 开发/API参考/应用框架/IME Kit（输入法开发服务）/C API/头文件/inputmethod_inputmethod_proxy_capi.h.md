@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-inputmethod-inputmethod-proxy-capi-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -40,7 +40,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -57,13 +57,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_InputMethodProxy_ShowKeyboard()
+#### OH_InputMethodProxy_ShowKeyboard()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -93,7 +93,7 @@ InputMethod_ErrorCode OH_InputMethodProxy_ShowKeyboard(InputMethod_InputMethodPr
  
   
 
-##### OH_InputMethodProxy_ShowTextInput()
+#### OH_InputMethodProxy_ShowTextInput()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -124,7 +124,7 @@ InputMethod_ErrorCode OH_InputMethodProxy_ShowTextInput(InputMethod_InputMethodP
  
   
 
-##### OH_InputMethodProxy_HideKeyboard()
+#### OH_InputMethodProxy_HideKeyboard()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -154,7 +154,7 @@ InputMethod_ErrorCode OH_InputMethodProxy_HideKeyboard(InputMethod_InputMethodPr
  
   
 
-##### OH_InputMethodProxy_NotifySelectionChange()
+#### OH_InputMethodProxy_NotifySelectionChange()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -188,7 +188,7 @@ InputMethod_ErrorCode OH_InputMethodProxy_NotifySelectionChange(InputMethod_Inpu
  
   
 
-##### OH_InputMethodProxy_NotifyConfigurationChange()
+#### OH_InputMethodProxy_NotifyConfigurationChange()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -220,7 +220,7 @@ InputMethod_ErrorCode OH_InputMethodProxy_NotifyConfigurationChange(InputMethod_
  
   
 
-##### OH_InputMethodProxy_NotifyCursorUpdate()
+#### OH_InputMethodProxy_NotifyCursorUpdate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -251,7 +251,7 @@ InputMethod_ErrorCode OH_InputMethodProxy_NotifyCursorUpdate(InputMethod_InputMe
  
   
 
-##### OH_InputMethodProxy_SendPrivateCommand()
+#### OH_InputMethodProxy_SendPrivateCommand()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -15,7 +15,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 位图操作相关API的详细介绍请参见[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)。
 1. 完成[图片解码](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-decoding)，获取PixelMap位图对象。
@@ -83,11 +83,11 @@ pixelMap.writePixels(area).then(() => {
 
 
 
-##### 开发示例
+#### 开发示例
 
 
 
-##### 复制（深拷贝）位图并改变像素格式
+#### 复制（深拷贝）位图并改变像素格式
 
 > [!NOTE]
 > 该方法仅可实现PixelMap基本内容的复制，不支持复制色域和HDR元数据。如果不需要改变新PixelMap的像素格式，请使用 clone 或 cloneSync 。 该方法不支持将新PixelMap转换为下列像素格式：RGBA_1010102、YCBCR_P010、YCRCB_P010、ASTC_4x4。
@@ -131,7 +131,7 @@ async function clonePixelMap(pixelMap: PixelMap, desiredPixelFormat?: image.Pixe
 
 
 
-##### 将两张宽度相同的位图纵向拼接成一张长图
+#### 将两张宽度相同的位图纵向拼接成一张长图
 
 > [!NOTE]
 > 该方法仅支持以下像素格式的PixelMap：RGBA_8888、BGRA_8888、RGBA_F16。
@@ -193,6 +193,6 @@ async function concatPixelMap(pixelMap1: PixelMap, pixelMap2: PixelMap): Promise
 
 
 
-##### 示例代码
+#### 示例代码
 
  - [PixelMap深拷贝案例](https://gitcode.com/HarmonyOS_Samples/image-depth-copy)

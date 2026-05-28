@@ -10,7 +10,7 @@
 **起始版本：** 5.0.0(12)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone
 
@@ -20,7 +20,7 @@ import { walletPass } from '@kit.WalletKit';
 
 
 
-##### WalletPassClient
+#### WalletPassClient
 
 **支持设备：** Phone
 
@@ -34,7 +34,7 @@ import { walletPass } from '@kit.WalletKit';
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone
 
@@ -74,7 +74,7 @@ struct Index {
 
 
 
-##### queryPassDeviceInfo
+#### queryPassDeviceInfo
 
 **支持设备：** Phone
 
@@ -157,7 +157,7 @@ struct Index {
 
 
 
-##### canAddPass
+#### canAddPass
 
 **支持设备：** Phone
 
@@ -246,7 +246,7 @@ struct Index {
 
 
 
-##### initWalletEnvironment
+#### initWalletEnvironment
 
 **支持设备：** Phone
 
@@ -325,7 +325,7 @@ struct Index {
 
 
 
-##### addPass
+#### addPass
 
 **支持设备：** Phone
 
@@ -416,7 +416,7 @@ struct Index {
 
 
 
-##### queryPass
+#### queryPass
 
 **支持设备：** Phone
 
@@ -498,7 +498,7 @@ struct Index {
 
 
 
-##### viewPass
+#### viewPass
 
 **支持设备：** Phone
 
@@ -574,7 +574,7 @@ struct Index {
 
 
 
-##### updatePass
+#### updatePass
 
 **支持设备：** Phone
 
@@ -659,7 +659,7 @@ struct Index {
 
 
 
-##### deletePass
+#### deletePass
 
 **支持设备：** Phone
 
@@ -745,7 +745,7 @@ struct Index {
 
 
 
-##### queryICCEConnectionState
+#### queryICCEConnectionState
 
 **支持设备：** Phone
 
@@ -827,7 +827,7 @@ struct Index {
 
 
 
-##### startICCEConnection
+#### startICCEConnection
 
 **支持设备：** Phone
 
@@ -913,7 +913,7 @@ struct Index {
 
 
 
-##### registerICCEListener
+#### registerICCEListener
 
 **支持设备：** Phone
 
@@ -1010,7 +1010,7 @@ struct Index {
 
 
 
-##### unregisterICCEListener
+#### unregisterICCEListener
 
 **支持设备：** Phone
 
@@ -1094,7 +1094,7 @@ struct Index {
 
 
 
-##### sendICCERKEMessage
+#### sendICCERKEMessage
 
 **支持设备：** Phone
 

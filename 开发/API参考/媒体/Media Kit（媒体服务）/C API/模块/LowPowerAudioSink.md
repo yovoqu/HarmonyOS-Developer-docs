@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-lowpoweraudiosink
 **支持设备：** Phone | PC/2in1 | Tablet
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -15,7 +15,7 @@ LowPowerAudioSink子模块为低功耗播放音频组件提供变量、属性和
  
   
 
-##### 文件汇总
+#### 文件汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet
  

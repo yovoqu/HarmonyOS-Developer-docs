@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getchangedresourcekeys
 
-##### 函数功能
+#### 函数功能
 
 一般由框架调用。
  
@@ -12,7 +12,7 @@
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 const std::set<ge::AscendString>& GetChangedResourceKeys() const
@@ -20,13 +20,13 @@ const std::set<ge::AscendString>& GetChangedResourceKeys() const
  
   
 
-##### 参数说明
+#### 参数说明
 
 无
  
   
 
-##### 返回值
+#### 返回值
  
 | 类型 | 描述 |
 | --- | --- |
@@ -35,6 +35,6 @@ const std::set<ge::AscendString>& GetChangedResourceKeys() const
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

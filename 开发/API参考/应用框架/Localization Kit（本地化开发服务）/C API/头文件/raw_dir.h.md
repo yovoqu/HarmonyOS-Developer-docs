@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-raw-dir-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -40,7 +40,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -53,13 +53,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_ResourceManager_GetRawFileName()
+#### OH_ResourceManager_GetRawFileName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -94,7 +94,7 @@ const char *OH_ResourceManager_GetRawFileName(RawDir *rawDir, int index)
  
   
 
-##### OH_ResourceManager_GetRawFileCount()
+#### OH_ResourceManager_GetRawFileCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -128,7 +128,7 @@ int OH_ResourceManager_GetRawFileCount(RawDir *rawDir)
  
   
 
-##### OH_ResourceManager_CloseRawDir()
+#### OH_ResourceManager_CloseRawDir()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -12,7 +12,7 @@
 
 
 
-##### clearFocus12+
+#### clearFocus12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -77,7 +77,7 @@ struct ClearFocusExample {
 
 
 
-##### requestFocus12+
+#### requestFocus12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -165,7 +165,7 @@ struct RequestExample {
 
 
 
-##### activate14+
+#### activate14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -224,7 +224,7 @@ struct ActivateExample {
 
 
 
-##### isActive20+
+#### isActive20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -298,7 +298,7 @@ struct ClearFocusExample {
 
 
 
-##### setAutoFocusTransfer14+
+#### setAutoFocusTransfer14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -371,7 +371,7 @@ struct CustomDialogUser {
 
 
 
-##### setKeyProcessingMode15+
+#### setKeyProcessingMode15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

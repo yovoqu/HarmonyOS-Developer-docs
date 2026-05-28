@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -22,7 +22,7 @@ import { wallpaper } from '@kit.BasicServicesKit';
 
 
 
-##### WallpaperType7+
+#### WallpaperType7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -38,7 +38,7 @@ import { wallpaper } from '@kit.BasicServicesKit';
 
 
 
-##### RgbaColor(deprecated)
+#### RgbaColor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -60,7 +60,7 @@ import { wallpaper } from '@kit.BasicServicesKit';
 
 
 
-##### wallpaper.on('colorChange')(deprecated)
+#### wallpaper.on('colorChange')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -97,7 +97,7 @@ try {
 
 
 
-##### wallpaper.off('colorChange')(deprecated)
+#### wallpaper.off('colorChange')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -148,7 +148,7 @@ try {
 
 
 
-##### wallpaper.getColors(deprecated)
+#### wallpaper.getColors(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -186,7 +186,7 @@ wallpaper.getColors(wallpaper.WallpaperType.WALLPAPER_SYSTEM, (error: BusinessEr
 
 
 
-##### wallpaper.getColors(deprecated)
+#### wallpaper.getColors(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -228,7 +228,7 @@ wallpaper.getColors(wallpaper.WallpaperType.WALLPAPER_SYSTEM).then((data: Array<
 
 
 
-##### wallpaper.getId(deprecated)
+#### wallpaper.getId(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -266,7 +266,7 @@ wallpaper.getId(wallpaper.WallpaperType.WALLPAPER_SYSTEM, (error: BusinessError,
 
 
 
-##### wallpaper.getId(deprecated)
+#### wallpaper.getId(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -308,7 +308,7 @@ wallpaper.getId(wallpaper.WallpaperType.WALLPAPER_SYSTEM).then((data: Number) =>
 
 
 
-##### wallpaper.getMinHeight(deprecated)
+#### wallpaper.getMinHeight(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -345,7 +345,7 @@ wallpaper.getMinHeight((error: BusinessError, data: Number) => {
 
 
 
-##### wallpaper.getMinHeight(deprecated)
+#### wallpaper.getMinHeight(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -380,7 +380,7 @@ wallpaper.getMinHeight().then((data: Number) => {
 
 
 
-##### wallpaper.getMinWidth(deprecated)
+#### wallpaper.getMinWidth(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -417,7 +417,7 @@ wallpaper.getMinWidth((error: BusinessError, data: Number) => {
 
 
 
-##### wallpaper.getMinWidth(deprecated)
+#### wallpaper.getMinWidth(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -452,7 +452,7 @@ wallpaper.getMinWidth().then((data: Number) => {
 
 
 
-##### wallpaper.getFile(deprecated)
+#### wallpaper.getFile(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -492,7 +492,7 @@ wallpaper.getFile(wallpaper.WallpaperType.WALLPAPER_SYSTEM, (error: BusinessErro
 
 
 
-##### wallpaper.getFile(deprecated)
+#### wallpaper.getFile(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -536,7 +536,7 @@ wallpaper.getFile(wallpaper.WallpaperType.WALLPAPER_SYSTEM).then((data: number) 
 
 
 
-##### wallpaper.isChangePermitted(deprecated)
+#### wallpaper.isChangePermitted(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -573,7 +573,7 @@ wallpaper.isChangePermitted((error: BusinessError, data: Boolean) => {
 
 
 
-##### wallpaper.isChangePermitted(deprecated)
+#### wallpaper.isChangePermitted(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -608,7 +608,7 @@ wallpaper.isChangePermitted().then((data: Boolean) => {
 
 
 
-##### wallpaper.isOperationAllowed(deprecated)
+#### wallpaper.isOperationAllowed(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -645,7 +645,7 @@ wallpaper.isOperationAllowed((error: BusinessError, data: Boolean) => {
 
 
 
-##### wallpaper.isOperationAllowed(deprecated)
+#### wallpaper.isOperationAllowed(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -680,7 +680,7 @@ wallpaper.isOperationAllowed().then((data: Boolean) => {
 
 
 
-##### wallpaper.reset(deprecated)
+#### wallpaper.reset(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -720,7 +720,7 @@ wallpaper.reset(wallpaper.WallpaperType.WALLPAPER_SYSTEM, (error: BusinessError)
 
 
 
-##### wallpaper.reset(deprecated)
+#### wallpaper.reset(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -764,7 +764,7 @@ wallpaper.reset(wallpaper.WallpaperType.WALLPAPER_SYSTEM).then(() => {
 
 
 
-##### wallpaper.setWallpaper(deprecated)
+#### wallpaper.setWallpaper(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -828,7 +828,7 @@ imageSource.createPixelMap(opts).then((pixelMap: image.PixelMap) => {
 
 
 
-##### wallpaper.setWallpaper(deprecated)
+#### wallpaper.setWallpaper(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

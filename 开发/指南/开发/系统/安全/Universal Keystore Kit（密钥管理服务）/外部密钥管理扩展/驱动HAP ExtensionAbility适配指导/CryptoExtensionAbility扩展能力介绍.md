@@ -15,7 +15,7 @@ CryptoExtensionAbility可以隔离底层硬件（Ukey驱动）厂商实现差异
 首先，需继承CryptoExtensionAbility并完成相关的接口实现。其次，通过Provider注册接口[registerProvider](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptoregisterprovider)完成能力注册。最后，由HUKS和证书管理将对应的密钥管理扩展能力开放给应用。
 
 
-##### 核心能力实现
+#### 核心能力实现
 
 CryptoExtensionAbility主要实现以下能力：
 1. 设备管理，支持单个ExtensionAbility连接多个Ukey。       

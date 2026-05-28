@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-mediakeysession-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -25,13 +25,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -43,7 +43,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -69,13 +69,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### MediaKeySession_EventCallback()
+#### MediaKeySession_EventCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -108,7 +108,7 @@ MediaKeySession事件触发时将调用的回调函数，如密钥过期事件�
  
   
 
-##### MediaKeySession_KeyChangeCallback()
+#### MediaKeySession_KeyChangeCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -139,7 +139,7 @@ typedef  Drm_ErrCode (*MediaKeySession_KeyChangeCallback)(DRM_KeysInfo *keysInfo
  
   
 
-##### OH_MediaKeySession_EventCallback()
+#### OH_MediaKeySession_EventCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -173,7 +173,7 @@ typedef Drm_ErrCode (*OH_MediaKeySession_EventCallback)(MediaKeySession *mediaKe
  
   
 
-##### OH_MediaKeySession_KeyChangeCallback()
+#### OH_MediaKeySession_KeyChangeCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -205,7 +205,7 @@ typedef Drm_ErrCode (*OH_MediaKeySession_KeyChangeCallback)(MediaKeySession *med
  
   
 
-##### OH_MediaKeySession_GenerateMediaKeyRequest()
+#### OH_MediaKeySession_GenerateMediaKeyRequest()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -237,7 +237,7 @@ Drm_ErrCode OH_MediaKeySession_GenerateMediaKeyRequest(MediaKeySession *mediaKey
  
   
 
-##### OH_MediaKeySession_ProcessMediaKeyResponse()
+#### OH_MediaKeySession_ProcessMediaKeyResponse()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -271,7 +271,7 @@ Drm_ErrCode OH_MediaKeySession_ProcessMediaKeyResponse(MediaKeySession *mediaKey
  
   
 
-##### OH_MediaKeySession_CheckMediaKeyStatus()
+#### OH_MediaKeySession_CheckMediaKeyStatus()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -302,7 +302,7 @@ Drm_ErrCode OH_MediaKeySession_CheckMediaKeyStatus(MediaKeySession *mediaKeySess
  
   
 
-##### OH_MediaKeySession_ClearMediaKeys()
+#### OH_MediaKeySession_ClearMediaKeys()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -332,7 +332,7 @@ Drm_ErrCode OH_MediaKeySession_ClearMediaKeys(MediaKeySession *mediaKeySession)
  
   
 
-##### OH_MediaKeySession_GenerateOfflineReleaseRequest()
+#### OH_MediaKeySession_GenerateOfflineReleaseRequest()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -366,7 +366,7 @@ Drm_ErrCode OH_MediaKeySession_GenerateOfflineReleaseRequest(MediaKeySession *me
  
   
 
-##### OH_MediaKeySession_ProcessOfflineReleaseResponse()
+#### OH_MediaKeySession_ProcessOfflineReleaseResponse()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -400,7 +400,7 @@ Drm_ErrCode OH_MediaKeySession_ProcessOfflineReleaseResponse(MediaKeySession *me
  
   
 
-##### OH_MediaKeySession_RestoreOfflineMediaKeys()
+#### OH_MediaKeySession_RestoreOfflineMediaKeys()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -432,7 +432,7 @@ Drm_ErrCode OH_MediaKeySession_RestoreOfflineMediaKeys(MediaKeySession *mediaKey
  
   
 
-##### OH_MediaKeySession_GetContentProtectionLevel()
+#### OH_MediaKeySession_GetContentProtectionLevel()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -463,7 +463,7 @@ Drm_ErrCode OH_MediaKeySession_GetContentProtectionLevel(MediaKeySession *mediaK
  
   
 
-##### OH_MediaKeySession_RequireSecureDecoderModule()
+#### OH_MediaKeySession_RequireSecureDecoderModule()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -495,7 +495,7 @@ Drm_ErrCode OH_MediaKeySession_RequireSecureDecoderModule(MediaKeySession *media
  
   
 
-##### OH_MediaKeySession_SetMediaKeySessionCallback()
+#### OH_MediaKeySession_SetMediaKeySessionCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -526,7 +526,7 @@ Drm_ErrCode OH_MediaKeySession_SetMediaKeySessionCallback(MediaKeySession *media
  
   
 
-##### OH_MediaKeySession_SetCallback()
+#### OH_MediaKeySession_SetCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -557,7 +557,7 @@ Drm_ErrCode OH_MediaKeySession_SetCallback(MediaKeySession *mediaKeySession,OH_M
  
   
 
-##### OH_MediaKeySession_Destroy()
+#### OH_MediaKeySession_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

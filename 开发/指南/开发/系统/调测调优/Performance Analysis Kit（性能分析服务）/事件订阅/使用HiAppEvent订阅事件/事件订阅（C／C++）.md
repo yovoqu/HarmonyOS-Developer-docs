@@ -7,7 +7,7 @@
 HiAppEvent提供了事件订阅接口，用于订阅并接收应用产生的事件。
 
 
-##### 接口说明
+#### 接口说明
 
 API接口的使用说明，包括参数使用限制和取值范围，请参考[hiappevent.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hiappevent-h)。
 
@@ -28,13 +28,13 @@ API接口的使用说明，包括参数使用限制和取值范围，请参考[h
 
 
 
-##### 事件订阅开发指导
+#### 事件订阅开发指导
 
 以订阅崩溃事件（系统事件）和按钮点击事件（应用事件）为例，说明开发步骤。
 
 
 
-##### 步骤一：新建工程及编译配置
+#### 步骤一：新建工程及编译配置
 1. 将示例工程依赖的jsoncpp库文件复制到新建工程中。
 
   打开链接[HiAppEvent示例工程EventSub](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/PerformanceAnalysisKit/HiAppEvent/EventSub)，并点击“下载当前目录”，下载EventSub工程文件。
@@ -102,7 +102,7 @@ target_include_directories(entry PRIVATE ${DEST_DIR}/jsoncpp-1.9.6/include/json)
 
 
 
-##### 步骤二：订阅事件
+#### 步骤二：订阅事件
 1. 订阅事件。分别使用OnReceive类型观察者、OnTrigger类型观察者的订阅方式。
 
   
@@ -170,7 +170,7 @@ testNapi.registerWatcherClick();
 
 
 
-##### 步骤三：触发事件
+#### 步骤三：触发事件
 
 编辑“Index.ets”文件，新增“WatchAppCrash ArkTS&C++”按钮以触发崩溃事件；新增“writeEvent C++”按钮，在按钮点击函数中进行事件打点。示例代码如下：
 
@@ -209,7 +209,7 @@ Button('writeEvent C++')
 
 
 
-##### 调测验证
+#### 调测验证
 1. 点击DevEco Studio界面中的运行按钮，运行应用工程。在应用界面中点击“WatchAppCrash ArkTS&C++”按钮，触发崩溃事件。应用退出后重新打开应用。
 2. 搜索关键字“AppEvents”，在HiLog窗口查看应用处理崩溃事件数据的日志：
 

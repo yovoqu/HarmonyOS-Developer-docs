@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_g___algorithm_mode_info
 **支持设备：** Phone | Tablet | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | Tablet | TV
 
@@ -19,13 +19,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | Tablet | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | Tablet | TV
  
@@ -37,13 +37,13 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** Phone | Tablet | TV
 
   
 
-##### meMode
+#### meMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -57,7 +57,7 @@ FG_MeMode FG_AlgorithmModeInfo::meMode
  
   
 
-##### predictionMode
+#### predictionMode
 
 **支持设备：** Phone | Tablet | TV
 

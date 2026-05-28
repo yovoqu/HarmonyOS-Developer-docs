@@ -12,13 +12,13 @@
 
   
 
-##### 方法
+#### 方法
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### setTransform
+#### setTransform
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@ setTransform(transform?: Matrix2D): void
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -102,4 +102,4 @@ struct CanvasPatternPage {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/uyeAWSAsSJ--MREUcYzH3g/zh-cn_image_0000002581436062.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024207Z&HW-CC-Expire=86400&HW-CC-Sign=9501231CE958C5624BA5AE7039DACC256E749A540452AE1BFCD5A07606575069)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/uyeAWSAsSJ--MREUcYzH3g/zh-cn_image_0000002581436062.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025540Z&HW-CC-Expire=86400&HW-CC-Sign=E66FA15F3D43855D4C8BE7ACC6107DE2EB4D5E27066036D3C9265D44C8B1CB2A)

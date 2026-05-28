@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-attr
 
-##### 函数功能
+#### 函数功能
 
 定义算子属性名称。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 OpAttrDef &Attr(const char *name);
@@ -18,7 +18,7 @@ OpAttrDef &Attr(const char *name);
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -27,13 +27,13 @@ OpAttrDef &Attr(const char *name);
  
   
 
-##### 返回值
+#### 返回值
 
 [OpAttrDef](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-opattrdef)算子属性定义。
  
   
 
-##### 约束说明
+#### 约束说明
 
 Attr属性名不能与python关键字及内置变量名相同，否则会导致未定义错误。
  

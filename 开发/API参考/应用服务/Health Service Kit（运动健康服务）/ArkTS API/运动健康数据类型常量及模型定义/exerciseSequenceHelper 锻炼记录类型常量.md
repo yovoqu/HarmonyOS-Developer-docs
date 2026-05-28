@@ -10,7 +10,7 @@
 **起始版本：** 5.0.0(12)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -24,7 +24,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -39,7 +39,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### adventures
+#### adventures
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -51,7 +51,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -66,7 +66,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -85,7 +85,7 @@ type Model = healthModels.Adventures
  
   
 
-##### SummaryFields
+#### SummaryFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -104,7 +104,7 @@ type SummaryFields = healthFields.AdventuresSummary
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -123,7 +123,7 @@ type DetailFields = healthFields.AdventuresDetail
  
   
 
-##### basketball
+#### basketball
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -135,7 +135,7 @@ type DetailFields = healthFields.AdventuresDetail
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -150,7 +150,7 @@ type DetailFields = healthFields.AdventuresDetail
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -169,7 +169,7 @@ type Model = healthModels.Basketball
  
   
 
-##### SummaryFields
+#### SummaryFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -188,7 +188,7 @@ type SummaryFields = healthFields.BasketballSummary
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -207,7 +207,7 @@ type DetailFields = healthFields.BasketballDetail
  
   
 
-##### biathlon
+#### biathlon
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -219,7 +219,7 @@ type DetailFields = healthFields.BasketballDetail
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -234,7 +234,7 @@ type DetailFields = healthFields.BasketballDetail
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -253,7 +253,7 @@ type Model = healthModels.Biathlon
  
   
 
-##### SummaryFields
+#### SummaryFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -272,7 +272,7 @@ type SummaryFields = healthFields.BiathlonSummary
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -291,7 +291,7 @@ type DetailFields = healthFields.BiathlonDetail
  
   
 
-##### bmx
+#### bmx
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -303,7 +303,7 @@ BMX自行车数据类型常量及数据模型。
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -318,7 +318,7 @@ BMX自行车数据类型常量及数据模型。
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -337,7 +337,7 @@ BMX自行车锻炼记录数据模型。
  
   
 
-##### SummaryFields
+#### SummaryFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -356,7 +356,7 @@ BMX自行车统计数据字段列表。
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -375,7 +375,7 @@ BMX自行车详情数据字段列表。
  
   
 
-##### breathHoldingTest
+#### breathHoldingTest
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -387,7 +387,7 @@ BMX自行车详情数据字段列表。
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -402,7 +402,7 @@ BMX自行车详情数据字段列表。
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -421,7 +421,7 @@ type Model = healthModels.BreathHoldingTest
  
   
 
-##### SummaryFields
+#### SummaryFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -440,7 +440,7 @@ type SummaryFields = healthFields.BreathHoldingTestSummary
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -459,7 +459,7 @@ type DetailFields = healthFields.BreathHoldingTestDetail
  
   
 
-##### breathHoldingTrain
+#### breathHoldingTrain
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -471,7 +471,7 @@ type DetailFields = healthFields.BreathHoldingTestDetail
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -486,7 +486,7 @@ type DetailFields = healthFields.BreathHoldingTestDetail
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -505,7 +505,7 @@ type Model = healthModels.BreathHoldingTrain
  
   
 
-##### SummaryFields
+#### SummaryFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -524,7 +524,7 @@ type SummaryFields = healthFields.BreathHoldingTrainSummary
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -543,7 +543,7 @@ type DetailFields = healthFields.BreathHoldingTrainDetail
  
   
 
-##### cycling
+#### cycling
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -555,7 +555,7 @@ type DetailFields = healthFields.BreathHoldingTrainDetail
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -570,7 +570,7 @@ type DetailFields = healthFields.BreathHoldingTrainDetail
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -589,7 +589,7 @@ type Model = healthModels.Cycling
  
   
 
-##### SummaryFields
+#### SummaryFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -608,7 +608,7 @@ type SummaryFields = healthFields.CyclingSummary
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -627,7 +627,7 @@ type DetailFields = healthFields.CyclingDetail
  
   
 
-##### diving
+#### diving
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -639,7 +639,7 @@ type DetailFields = healthFields.CyclingDetail
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -654,7 +654,7 @@ type DetailFields = healthFields.CyclingDetail
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -673,7 +673,7 @@ type Model = healthModels.Diving
  
   
 
-##### SummaryFields
+#### SummaryFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -692,7 +692,7 @@ type SummaryFields = healthFields.DivingSummary
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -711,7 +711,7 @@ type DetailFields = healthFields.DivingDetail
  
   
 
-##### elliptical
+#### elliptical
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -723,7 +723,7 @@ type DetailFields = healthFields.DivingDetail
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -738,7 +738,7 @@ type DetailFields = healthFields.DivingDetail
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -757,7 +757,7 @@ type Model = healthModels.Elliptical
  
   
 
-##### SummaryFields
+#### SummaryFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -776,7 +776,7 @@ type SummaryFields = healthFields.EllipticalSummary
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -795,7 +795,7 @@ type DetailFields = healthFields.EllipticalDetail
  
   
 
-##### golfCourseModel
+#### golfCourseModel
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -807,7 +807,7 @@ type DetailFields = healthFields.EllipticalDetail
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -822,7 +822,7 @@ type DetailFields = healthFields.EllipticalDetail
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -841,7 +841,7 @@ type Model = healthModels.GolfCourseModel
  
   
 
-##### SummaryFields
+#### SummaryFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -860,7 +860,7 @@ type SummaryFields = healthFields.GolfCourseModelSummary
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -879,7 +879,7 @@ type DetailFields = healthFields.GolfCourseModelDetail
  
   
 
-##### golfPractice
+#### golfPractice
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -891,7 +891,7 @@ type DetailFields = healthFields.GolfCourseModelDetail
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -906,7 +906,7 @@ type DetailFields = healthFields.GolfCourseModelDetail
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -925,7 +925,7 @@ type Model = healthModels.GolfPractice
  
   
 
-##### SummaryFields
+#### SummaryFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -944,7 +944,7 @@ type SummaryFields = healthFields.GolfPracticeSummary
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -963,7 +963,7 @@ type DetailFields = healthFields.GolfPracticeDetail
  
   
 
-##### hiking
+#### hiking
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -975,7 +975,7 @@ type DetailFields = healthFields.GolfPracticeDetail
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -990,7 +990,7 @@ type DetailFields = healthFields.GolfPracticeDetail
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1009,7 +1009,7 @@ type Model = healthModels.Hiking
  
   
 
-##### SummaryFields
+#### SummaryFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1028,7 +1028,7 @@ type SummaryFields = healthFields.WalkingSummary
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1047,7 +1047,7 @@ type DetailFields = healthFields.WalkingDetail
  
   
 
-##### indoorCycling
+#### indoorCycling
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1059,7 +1059,7 @@ type DetailFields = healthFields.WalkingDetail
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1074,7 +1074,7 @@ type DetailFields = healthFields.WalkingDetail
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1093,7 +1093,7 @@ type Model = healthModels.IndoorCycling
  
   
 
-##### SummaryFields
+#### SummaryFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1112,7 +1112,7 @@ type SummaryFields = healthFields.CyclingSummary
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1131,7 +1131,7 @@ type DetailFields = healthFields.CyclingDetail
  
   
 
-##### indoorRunning
+#### indoorRunning
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1143,7 +1143,7 @@ type DetailFields = healthFields.CyclingDetail
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1158,7 +1158,7 @@ type DetailFields = healthFields.CyclingDetail
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1177,7 +1177,7 @@ type Model = healthModels.IndoorRunning
  
   
 
-##### SummaryFields
+#### SummaryFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1196,7 +1196,7 @@ type SummaryFields = healthFields.RunningSummary
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1215,7 +1215,7 @@ type DetailFields = healthFields.RunningDetail
  
   
 
-##### indoorWalking
+#### indoorWalking
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1227,7 +1227,7 @@ type DetailFields = healthFields.RunningDetail
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1242,7 +1242,7 @@ type DetailFields = healthFields.RunningDetail
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1261,7 +1261,7 @@ type Model = healthModels.IndoorWalking
  
   
 
-##### SummaryFields
+#### SummaryFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1280,7 +1280,7 @@ type SummaryFields = healthFields.WalkingSummary
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1299,7 +1299,7 @@ type DetailFields = healthFields.WalkingDetail
  
   
 
-##### jumpingRope
+#### jumpingRope
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1311,7 +1311,7 @@ type DetailFields = healthFields.WalkingDetail
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1326,7 +1326,7 @@ type DetailFields = healthFields.WalkingDetail
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1345,7 +1345,7 @@ type Model = healthModels.JumpingRope
  
   
 
-##### SummaryFields
+#### SummaryFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1364,7 +1364,7 @@ type SummaryFields = healthFields.JumpingRopeSummary
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1383,7 +1383,7 @@ type DetailFields = healthFields.JumpingRopeDetail
  
   
 
-##### mountainHike
+#### mountainHike
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1395,7 +1395,7 @@ type DetailFields = healthFields.JumpingRopeDetail
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1410,7 +1410,7 @@ type DetailFields = healthFields.JumpingRopeDetail
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1429,7 +1429,7 @@ type Model = healthModels.MountainHike
  
   
 
-##### SummaryFields
+#### SummaryFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1448,7 +1448,7 @@ type SummaryFields = healthFields.MountainHikeSummary
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1467,7 +1467,7 @@ type DetailFields = healthFields.MountainHikeDetail
  
   
 
-##### openWaterSwim
+#### openWaterSwim
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1479,7 +1479,7 @@ type DetailFields = healthFields.MountainHikeDetail
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1494,7 +1494,7 @@ type DetailFields = healthFields.MountainHikeDetail
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1513,7 +1513,7 @@ type Model = healthModels.OpenWaterSwim
  
   
 
-##### SummaryFields
+#### SummaryFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1532,7 +1532,7 @@ type SummaryFields = healthFields.OpenWaterSwimSummary
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1551,7 +1551,7 @@ type DetailFields = healthFields.OpenWaterSwimDetail
  
   
 
-##### poolSwim
+#### poolSwim
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1563,7 +1563,7 @@ type DetailFields = healthFields.OpenWaterSwimDetail
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1578,7 +1578,7 @@ type DetailFields = healthFields.OpenWaterSwimDetail
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1597,7 +1597,7 @@ type Model = healthModels.PoolSwim
  
   
 
-##### SummaryFields
+#### SummaryFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1616,7 +1616,7 @@ type SummaryFields = healthFields.PoolSwimSummary
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1635,7 +1635,7 @@ type DetailFields = healthFields.PoolSwimDetail
  
   
 
-##### rower
+#### rower
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1647,7 +1647,7 @@ type DetailFields = healthFields.PoolSwimDetail
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1662,7 +1662,7 @@ type DetailFields = healthFields.PoolSwimDetail
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1681,7 +1681,7 @@ type Model = healthModels.Rower
  
   
 
-##### SummaryFields
+#### SummaryFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1700,7 +1700,7 @@ type SummaryFields = healthFields.RowerSummary
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1719,7 +1719,7 @@ type DetailFields = healthFields.RowerDetail
  
   
 
-##### rowing
+#### rowing
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1731,7 +1731,7 @@ type DetailFields = healthFields.RowerDetail
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1746,7 +1746,7 @@ type DetailFields = healthFields.RowerDetail
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1765,7 +1765,7 @@ type Model = healthModels.Rowing
  
   
 
-##### SummaryFields
+#### SummaryFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1784,7 +1784,7 @@ type SummaryFields = healthFields.RowingSummary
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1803,7 +1803,7 @@ type DetailFields = healthFields.RowingDetail
  
   
 
-##### running
+#### running
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1815,7 +1815,7 @@ type DetailFields = healthFields.RowingDetail
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1830,7 +1830,7 @@ type DetailFields = healthFields.RowingDetail
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1849,7 +1849,7 @@ type Model = healthModels.Running
  
   
 
-##### SummaryFields
+#### SummaryFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1868,7 +1868,7 @@ type SummaryFields = healthFields.RunningSummary
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1887,7 +1887,7 @@ type DetailFields = healthFields.RunningDetail
  
   
 
-##### scubaDiving
+#### scubaDiving
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1899,7 +1899,7 @@ type DetailFields = healthFields.RunningDetail
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1914,7 +1914,7 @@ type DetailFields = healthFields.RunningDetail
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1933,7 +1933,7 @@ type Model = healthModels.ScubaDiving
  
   
 
-##### SummaryFields
+#### SummaryFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1952,7 +1952,7 @@ type SummaryFields = healthFields.ScubaDivingSummary
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1971,7 +1971,7 @@ type DetailFields = healthFields.ScubaDivingDetail
  
   
 
-##### skiing
+#### skiing
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1983,7 +1983,7 @@ type DetailFields = healthFields.ScubaDivingDetail
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1998,7 +1998,7 @@ type DetailFields = healthFields.ScubaDivingDetail
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2017,7 +2017,7 @@ type Model = healthModels.Skiing
  
   
 
-##### SummaryFields
+#### SummaryFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2036,7 +2036,7 @@ type SummaryFields = healthFields.SkiingSummary
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2055,7 +2055,7 @@ type DetailFields = healthFields.SkiingDetail
  
   
 
-##### sled
+#### sled
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2067,7 +2067,7 @@ type DetailFields = healthFields.SkiingDetail
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2082,7 +2082,7 @@ type DetailFields = healthFields.SkiingDetail
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2101,7 +2101,7 @@ type Model = healthModels.Sled
  
   
 
-##### SummaryFields
+#### SummaryFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2120,7 +2120,7 @@ type SummaryFields = healthFields.SledSummary
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2139,7 +2139,7 @@ type DetailFields = healthFields.SledDetail
  
   
 
-##### snowboarding
+#### snowboarding
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2151,7 +2151,7 @@ type DetailFields = healthFields.SledDetail
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2166,7 +2166,7 @@ type DetailFields = healthFields.SledDetail
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2185,7 +2185,7 @@ type Model = healthModels.Snowboarding
  
   
 
-##### SummaryFields
+#### SummaryFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2204,7 +2204,7 @@ type SummaryFields = healthFields.SnowboardingSummary
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2223,7 +2223,7 @@ type DetailFields = healthFields.SnowboardingDetail
  
   
 
-##### spinning
+#### spinning
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2235,7 +2235,7 @@ type DetailFields = healthFields.SnowboardingDetail
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2250,7 +2250,7 @@ type DetailFields = healthFields.SnowboardingDetail
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2269,7 +2269,7 @@ type Model = healthModels.Spinning
  
   
 
-##### SummaryFields
+#### SummaryFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2288,7 +2288,7 @@ type SummaryFields = healthFields.CyclingSummary
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2307,7 +2307,7 @@ type DetailFields = healthFields.CyclingDetail
  
   
 
-##### sports
+#### sports
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2319,7 +2319,7 @@ type DetailFields = healthFields.CyclingDetail
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2420,7 +2420,7 @@ type DetailFields = healthFields.CyclingDetail
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2439,7 +2439,7 @@ type Model = healthModels.Sports
  
   
 
-##### SummaryFields
+#### SummaryFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2458,7 +2458,7 @@ type SummaryFields = healthFields.SportsSummary
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2477,7 +2477,7 @@ type DetailFields = healthFields.SportsDetail
  
   
 
-##### trailRunning
+#### trailRunning
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2489,7 +2489,7 @@ type DetailFields = healthFields.SportsDetail
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2504,7 +2504,7 @@ type DetailFields = healthFields.SportsDetail
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2523,7 +2523,7 @@ type Model = healthModels.TrailRunning
  
   
 
-##### SummaryFields
+#### SummaryFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2542,7 +2542,7 @@ type SummaryFields = healthFields.RunningSummary
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2561,7 +2561,7 @@ type DetailFields = healthFields.RunningDetail
  
   
 
-##### walking
+#### walking
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2573,7 +2573,7 @@ type DetailFields = healthFields.RunningDetail
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2588,7 +2588,7 @@ type DetailFields = healthFields.RunningDetail
  
   
 
-##### Model
+#### Model
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2607,7 +2607,7 @@ type Model = healthModels.Walking
  
   
 
-##### SummaryFields
+#### SummaryFields
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2626,7 +2626,7 @@ type SummaryFields = healthFields.WalkingSummary
  
   
 
-##### DetailFields
+#### DetailFields
 
 **支持设备：** Phone | Tablet | Wearable
 

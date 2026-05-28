@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-get-token
 
-##### 场景介绍
+#### 场景介绍
 
 > [!NOTE]
 > Push Kit对Push Token进行了权益校验，请在进行开发前先阅读 开通推送服务 章节，完成相关配置。
@@ -25,13 +25,13 @@ Push Token一般情况不会变化，仅下列场景会导致之前的Push Token
 
 
 
-##### 约束与限制
+#### 约束与限制
 
 获取Push Token能力支持Phone、Tablet、PC/2in1设备。并且从5.1.0(18)版本开始，新增支持Wearable设备；从5.1.1(19)版本开始，新增支持TV设备。
 
 
 
-##### 注意事项
+#### 注意事项
 
  - 请勿使用Push Token跟踪标记用户。
  - 应用不要固定判断Push Token长度，因为Push Token长度可能会变化。
@@ -41,7 +41,7 @@ Push Token一般情况不会变化，仅下列场景会导致之前的Push Token
 
 
 
-##### 接口说明
+#### 接口说明
 
 接口返回值有两种返回形式：Callback和Promise回调。下表中仅展示Promise回调形式的接口，Promise和Callback只是返回值方式不一样，功能相同。
 
@@ -53,7 +53,7 @@ Push Token一般情况不会变化，仅下列场景会导致之前的Push Token
 
 
 
-##### 获取Push Token
+#### 获取Push Token
 1. Push Kit对Push Token进行了权益校验，请在进行开发前先阅读[开通推送服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-config-setting)章节，完成相关配置。
 2. 导入pushService模块及相关公共模块。
 
@@ -91,7 +91,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### 删除Push Token
+#### 删除Push Token
 
 > [!NOTE]
 > 删除Push Token后，本应用下的所有Push Kit历史数据会一并删除。非必要情况，请您不要主动调用 deleteToken ()接口。
@@ -127,7 +127,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### Push Token更新回调
+#### Push Token更新回调
 
 > [!NOTE]
 > Push Token更新回调能力支持Wearable设备。并且从6.1.0(23)版本开始，新增支持Phone、Tablet、PC/2in1设备。 当设备离开当前国家或地区时，可能会触发Push Token自动更新，如果应用期望感知到Push Token更新事件，需要调用on接口进行回调注册；对应的，可以调用off接口解除回调注册，解除后当Push Token更新时，应用将不会收到回调。

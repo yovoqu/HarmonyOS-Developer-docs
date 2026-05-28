@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-gesture-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -51,7 +51,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -69,7 +69,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -135,7 +135,7 @@
  
   
 
-##### 变量
+#### 变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -147,7 +147,7 @@
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -160,13 +160,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### ArkUI_GestureEventActionType
+#### ArkUI_GestureEventActionType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -190,7 +190,7 @@ enum ArkUI_GestureEventActionType
  
   
 
-##### ArkUI_GesturePriority
+#### ArkUI_GesturePriority
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -213,7 +213,7 @@ enum ArkUI_GesturePriority
  
   
 
-##### ArkUI_GroupGestureMode
+#### ArkUI_GroupGestureMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -236,7 +236,7 @@ enum ArkUI_GroupGestureMode
  
   
 
-##### ArkUI_GestureDirection
+#### ArkUI_GestureDirection
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -264,7 +264,7 @@ enum ArkUI_GestureDirection
  
   
 
-##### ArkUI_GestureMask
+#### ArkUI_GestureMask
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -286,7 +286,7 @@ enum ArkUI_GestureMask
  
   
 
-##### ArkUI_GestureRecognizerType
+#### ArkUI_GestureRecognizerType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -315,7 +315,7 @@ enum ArkUI_GestureRecognizerType
  
   
 
-##### ArkUI_GestureInterruptResult
+#### ArkUI_GestureInterruptResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -337,7 +337,7 @@ enum ArkUI_GestureInterruptResult
  
   
 
-##### ArkUI_GestureRecognizerState
+#### ArkUI_GestureRecognizerState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -363,13 +363,13 @@ enum ArkUI_GestureRecognizerState
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### ArkUI_GestureRecognizerDisposeNotifyCallback()
+#### ArkUI_GestureRecognizerDisposeNotifyCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -393,7 +393,7 @@ typedef void (*ArkUI_GestureRecognizerDisposeNotifyCallback)(ArkUI_GestureRecogn
  
   
 
-##### OH_ArkUI_GestureInterruptInfo_GetSystemFlag()
+#### OH_ArkUI_GestureInterruptInfo_GetSystemFlag()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -423,7 +423,7 @@ bool OH_ArkUI_GestureInterruptInfo_GetSystemFlag(const ArkUI_GestureInterruptInf
  
   
 
-##### OH_ArkUI_GestureInterruptInfo_GetRecognizer()
+#### OH_ArkUI_GestureInterruptInfo_GetRecognizer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -453,7 +453,7 @@ ArkUI_GestureRecognizer* OH_ArkUI_GestureInterruptInfo_GetRecognizer(const ArkUI
  
   
 
-##### OH_ArkUI_GestureInterruptInfo_GetGestureEvent()
+#### OH_ArkUI_GestureInterruptInfo_GetGestureEvent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -483,7 +483,7 @@ ArkUI_GestureEvent* OH_ArkUI_GestureInterruptInfo_GetGestureEvent(const ArkUI_Ge
  
   
 
-##### OH_ArkUI_GestureInterruptInfo_GetSystemRecognizerType()
+#### OH_ArkUI_GestureInterruptInfo_GetSystemRecognizerType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -513,7 +513,7 @@ int32_t OH_ArkUI_GestureInterruptInfo_GetSystemRecognizerType(const ArkUI_Gestur
  
   
 
-##### OH_ArkUI_GestureInterruptInfo_GetTouchRecognizers()
+#### OH_ArkUI_GestureInterruptInfo_GetTouchRecognizers()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -545,7 +545,7 @@ int32_t OH_ArkUI_GestureInterruptInfo_GetTouchRecognizers(const ArkUI_GestureInt
  
   
 
-##### OH_ArkUI_TouchRecognizer_GetNodeHandle()
+#### OH_ArkUI_TouchRecognizer_GetNodeHandle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -575,7 +575,7 @@ ArkUI_NodeHandle OH_ArkUI_TouchRecognizer_GetNodeHandle(const ArkUI_TouchRecogni
  
   
 
-##### OH_ArkUI_TouchRecognizer_CancelTouch()
+#### OH_ArkUI_TouchRecognizer_CancelTouch()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -606,7 +606,7 @@ int32_t OH_ArkUI_TouchRecognizer_CancelTouch(ArkUI_TouchRecognizerHandle recogni
  
   
 
-##### OH_ArkUI_GestureEvent_GetActionType()
+#### OH_ArkUI_GestureEvent_GetActionType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -636,7 +636,7 @@ ArkUI_GestureEventActionType OH_ArkUI_GestureEvent_GetActionType(const ArkUI_Ges
  
   
 
-##### OH_ArkUI_GestureEvent_GetRawInputEvent()
+#### OH_ArkUI_GestureEvent_GetRawInputEvent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -666,7 +666,7 @@ const ArkUI_UIInputEvent* OH_ArkUI_GestureEvent_GetRawInputEvent(const ArkUI_Ges
  
   
 
-##### OH_ArkUI_LongPress_GetRepeatCount()
+#### OH_ArkUI_LongPress_GetRepeatCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -696,7 +696,7 @@ int32_t OH_ArkUI_LongPress_GetRepeatCount(const ArkUI_GestureEvent* event)
  
   
 
-##### OH_ArkUI_PanGesture_GetVelocity()
+#### OH_ArkUI_PanGesture_GetVelocity()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -726,7 +726,7 @@ float OH_ArkUI_PanGesture_GetVelocity(const ArkUI_GestureEvent* event)
  
   
 
-##### OH_ArkUI_PanGesture_GetVelocityX()
+#### OH_ArkUI_PanGesture_GetVelocityX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -756,7 +756,7 @@ float OH_ArkUI_PanGesture_GetVelocityX(const ArkUI_GestureEvent* event)
  
   
 
-##### OH_ArkUI_PanGesture_GetVelocityY()
+#### OH_ArkUI_PanGesture_GetVelocityY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -786,7 +786,7 @@ float OH_ArkUI_PanGesture_GetVelocityY(const ArkUI_GestureEvent* event)
  
   
 
-##### OH_ArkUI_PanGesture_GetOffsetX()
+#### OH_ArkUI_PanGesture_GetOffsetX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -816,7 +816,7 @@ float OH_ArkUI_PanGesture_GetOffsetX(const ArkUI_GestureEvent* event)
  
   
 
-##### OH_ArkUI_PanGesture_GetOffsetY()
+#### OH_ArkUI_PanGesture_GetOffsetY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -846,7 +846,7 @@ float OH_ArkUI_PanGesture_GetOffsetY(const ArkUI_GestureEvent* event)
  
   
 
-##### OH_ArkUI_SwipeGesture_GetAngle()
+#### OH_ArkUI_SwipeGesture_GetAngle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -882,7 +882,7 @@ float OH_ArkUI_SwipeGesture_GetAngle(const ArkUI_GestureEvent* event)
  
   
 
-##### OH_ArkUI_SwipeGesture_GetVelocity()
+#### OH_ArkUI_SwipeGesture_GetVelocity()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -912,7 +912,7 @@ float OH_ArkUI_SwipeGesture_GetVelocity(const ArkUI_GestureEvent* event)
  
   
 
-##### OH_ArkUI_RotationGesture_GetAngle()
+#### OH_ArkUI_RotationGesture_GetAngle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -942,7 +942,7 @@ float OH_ArkUI_RotationGesture_GetAngle(const ArkUI_GestureEvent* event)
  
   
 
-##### OH_ArkUI_PinchGesture_GetScale()
+#### OH_ArkUI_PinchGesture_GetScale()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -972,7 +972,7 @@ float OH_ArkUI_PinchGesture_GetScale(const ArkUI_GestureEvent* event)
  
   
 
-##### OH_ArkUI_PinchGesture_GetCenterX()
+#### OH_ArkUI_PinchGesture_GetCenterX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1002,7 +1002,7 @@ float OH_ArkUI_PinchGesture_GetCenterX(const ArkUI_GestureEvent* event)
  
   
 
-##### OH_ArkUI_PinchGesture_GetCenterY()
+#### OH_ArkUI_PinchGesture_GetCenterY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1032,7 +1032,7 @@ float OH_ArkUI_PinchGesture_GetCenterY(const ArkUI_GestureEvent* event)
  
   
 
-##### OH_ArkUI_GestureEvent_GetNode()
+#### OH_ArkUI_GestureEvent_GetNode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1062,7 +1062,7 @@ ArkUI_NodeHandle OH_ArkUI_GestureEvent_GetNode(const ArkUI_GestureEvent* event)
  
   
 
-##### OH_ArkUI_GetResponseRecognizersFromInterruptInfo()
+#### OH_ArkUI_GetResponseRecognizersFromInterruptInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1094,7 +1094,7 @@ int32_t OH_ArkUI_GetResponseRecognizersFromInterruptInfo(const ArkUI_GestureInte
  
   
 
-##### OH_ArkUI_SetGestureRecognizerEnabled()
+#### OH_ArkUI_SetGestureRecognizerEnabled()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1125,7 +1125,7 @@ int32_t OH_ArkUI_SetGestureRecognizerEnabled(ArkUI_GestureRecognizer* recognizer
  
   
 
-##### OH_ArkUI_SetGestureRecognizerLimitFingerCount()
+#### OH_ArkUI_SetGestureRecognizerLimitFingerCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1156,7 +1156,7 @@ int32_t OH_ArkUI_SetGestureRecognizerLimitFingerCount(ArkUI_GestureRecognizer* r
  
   
 
-##### OH_ArkUI_GetGestureRecognizerEnabled()
+#### OH_ArkUI_GetGestureRecognizerEnabled()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1186,7 +1186,7 @@ bool OH_ArkUI_GetGestureRecognizerEnabled(ArkUI_GestureRecognizer* recognizer)
  
   
 
-##### OH_ArkUI_GetGestureRecognizerState()
+#### OH_ArkUI_GetGestureRecognizerState()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1217,7 +1217,7 @@ int32_t OH_ArkUI_GetGestureRecognizerState(ArkUI_GestureRecognizer* recognizer, 
  
   
 
-##### OH_ArkUI_GetGestureEventTargetInfo()
+#### OH_ArkUI_GetGestureEventTargetInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1248,7 +1248,7 @@ int32_t OH_ArkUI_GetGestureEventTargetInfo(ArkUI_GestureRecognizer* recognizer, 
  
   
 
-##### OH_ArkUI_GestureEventTargetInfo_IsScrollBegin()
+#### OH_ArkUI_GestureEventTargetInfo_IsScrollBegin()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1279,7 +1279,7 @@ int32_t OH_ArkUI_GestureEventTargetInfo_IsScrollBegin(ArkUI_GestureEventTargetIn
  
   
 
-##### OH_ArkUI_GestureEventTargetInfo_IsScrollEnd()
+#### OH_ArkUI_GestureEventTargetInfo_IsScrollEnd()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1310,7 +1310,7 @@ int32_t OH_ArkUI_GestureEventTargetInfo_IsScrollEnd(ArkUI_GestureEventTargetInfo
  
   
 
-##### OH_ArkUI_GetPanGestureDirectionMask()
+#### OH_ArkUI_GetPanGestureDirectionMask()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1341,7 +1341,7 @@ int32_t OH_ArkUI_GetPanGestureDirectionMask(ArkUI_GestureRecognizer* recognizer,
  
   
 
-##### OH_ArkUI_IsBuiltInGesture()
+#### OH_ArkUI_IsBuiltInGesture()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1371,7 +1371,7 @@ bool OH_ArkUI_IsBuiltInGesture(ArkUI_GestureRecognizer* recognizer)
  
   
 
-##### OH_ArkUI_GetGestureTag()
+#### OH_ArkUI_GetGestureTag()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1404,7 +1404,7 @@ int32_t OH_ArkUI_GetGestureTag(ArkUI_GestureRecognizer* recognizer, char* buffer
  
   
 
-##### OH_ArkUI_GetGestureBindNodeId()
+#### OH_ArkUI_GetGestureBindNodeId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1437,7 +1437,7 @@ int32_t OH_ArkUI_GetGestureBindNodeId(ArkUI_GestureRecognizer* recognizer, char*
  
   
 
-##### OH_ArkUI_IsGestureRecognizerValid()
+#### OH_ArkUI_IsGestureRecognizerValid()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1467,7 +1467,7 @@ bool OH_ArkUI_IsGestureRecognizerValid(ArkUI_GestureRecognizer* recognizer)
  
   
 
-##### OH_ArkUI_ParallelInnerGestureEvent_GetUserData()
+#### OH_ArkUI_ParallelInnerGestureEvent_GetUserData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1497,7 +1497,7 @@ void* OH_ArkUI_ParallelInnerGestureEvent_GetUserData(ArkUI_ParallelInnerGestureE
  
   
 
-##### OH_ArkUI_ParallelInnerGestureEvent_GetCurrentRecognizer()
+#### OH_ArkUI_ParallelInnerGestureEvent_GetCurrentRecognizer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1527,7 +1527,7 @@ ArkUI_GestureRecognizer* OH_ArkUI_ParallelInnerGestureEvent_GetCurrentRecognizer
  
   
 
-##### OH_ArkUI_ParallelInnerGestureEvent_GetConflictRecognizers()
+#### OH_ArkUI_ParallelInnerGestureEvent_GetConflictRecognizers()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1559,7 +1559,7 @@ int32_t OH_ArkUI_ParallelInnerGestureEvent_GetConflictRecognizers(ArkUI_Parallel
  
   
 
-##### OH_ArkUI_SetArkUIGestureRecognizerDisposeNotify()
+#### OH_ArkUI_SetArkUIGestureRecognizerDisposeNotify()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1591,7 +1591,7 @@ int32_t OH_ArkUI_SetArkUIGestureRecognizerDisposeNotify(ArkUI_GestureRecognizer*
  
   
 
-##### OH_ArkUI_GetGestureParam_DirectMask()
+#### OH_ArkUI_GetGestureParam_DirectMask()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1622,7 +1622,7 @@ int32_t OH_ArkUI_GetGestureParam_DirectMask(ArkUI_GestureRecognizer* recognizer,
  
   
 
-##### OH_ArkUI_GetGestureParam_FingerCount()
+#### OH_ArkUI_GetGestureParam_FingerCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1653,7 +1653,7 @@ int32_t OH_ArkUI_GetGestureParam_FingerCount(ArkUI_GestureRecognizer* recognizer
  
   
 
-##### OH_ArkUI_GetGestureParam_limitFingerCount()
+#### OH_ArkUI_GetGestureParam_limitFingerCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1684,7 +1684,7 @@ int32_t OH_ArkUI_GetGestureParam_limitFingerCount(ArkUI_GestureRecognizer* recog
  
   
 
-##### OH_ArkUI_GetGestureParam_repeat()
+#### OH_ArkUI_GetGestureParam_repeat()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1715,7 +1715,7 @@ int32_t OH_ArkUI_GetGestureParam_repeat(ArkUI_GestureRecognizer* recognizer, boo
  
   
 
-##### OH_ArkUI_GetGestureParam_distance()
+#### OH_ArkUI_GetGestureParam_distance()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1746,7 +1746,7 @@ int32_t OH_ArkUI_GetGestureParam_distance(ArkUI_GestureRecognizer* recognizer, d
  
   
 
-##### OH_ArkUI_GetGestureParam_speed()
+#### OH_ArkUI_GetGestureParam_speed()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1777,7 +1777,7 @@ int32_t OH_ArkUI_GetGestureParam_speed(ArkUI_GestureRecognizer* recognizer, doub
  
   
 
-##### OH_ArkUI_GetGestureParam_duration()
+#### OH_ArkUI_GetGestureParam_duration()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1808,7 +1808,7 @@ int32_t OH_ArkUI_GetGestureParam_duration(ArkUI_GestureRecognizer* recognizer, i
  
   
 
-##### OH_ArkUI_GetGestureParam_angle()
+#### OH_ArkUI_GetGestureParam_angle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1839,7 +1839,7 @@ int32_t OH_ArkUI_GetGestureParam_angle(ArkUI_GestureRecognizer* recognizer, doub
  
   
 
-##### OH_ArkUI_GetGestureParam_distanceThreshold()
+#### OH_ArkUI_GetGestureParam_distanceThreshold()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1870,7 +1870,7 @@ int32_t OH_ArkUI_GetGestureParam_distanceThreshold(ArkUI_GestureRecognizer* reco
  
   
 
-##### OH_ArkUI_PanGesture_SetDistanceMap()
+#### OH_ArkUI_PanGesture_SetDistanceMap()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1903,7 +1903,7 @@ ArkUI_ErrorCode OH_ArkUI_PanGesture_SetDistanceMap(ArkUI_GestureRecognizer* reco
  
   
 
-##### OH_ArkUI_PanGesture_GetDistanceByToolType()
+#### OH_ArkUI_PanGesture_GetDistanceByToolType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1935,7 +1935,7 @@ ArkUI_ErrorCode OH_ArkUI_PanGesture_GetDistanceByToolType(ArkUI_GestureRecognize
  
   
 
-##### OH_ArkUI_SetTouchTestDoneCallback()
+#### OH_ArkUI_SetTouchTestDoneCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1967,7 +1967,7 @@ ArkUI_ErrorCode OH_ArkUI_SetTouchTestDoneCallback(ArkUI_NodeHandle node, void* u
  
   
 
-##### OH_ArkUI_GestureInterrupter_GetUserData()
+#### OH_ArkUI_GestureInterrupter_GetUserData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1997,7 +1997,7 @@ void* OH_ArkUI_GestureInterrupter_GetUserData(ArkUI_GestureInterruptInfo* event)
  
   
 
-##### OH_ArkUI_PreventGestureRecognizerBegin()
+#### OH_ArkUI_PreventGestureRecognizerBegin()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2027,7 +2027,7 @@ ArkUI_ErrorCode OH_ArkUI_PreventGestureRecognizerBegin(ArkUI_GestureRecognizer* 
  
   
 
-##### OH_ArkUI_LongPressGesture_SetAllowableMovement()
+#### OH_ArkUI_LongPressGesture_SetAllowableMovement()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2058,7 +2058,7 @@ ArkUI_ErrorCode OH_ArkUI_LongPressGesture_SetAllowableMovement(ArkUI_GestureReco
  
   
 
-##### OH_ArkUI_LongPressGesture_GetAllowableMovement()
+#### OH_ArkUI_LongPressGesture_GetAllowableMovement()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

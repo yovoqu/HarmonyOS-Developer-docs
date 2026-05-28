@@ -12,7 +12,7 @@
 **起始版本：** 5.0.0(12)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { faceDetector } from '@kit.CoreVisionKit';
 
 
 
-##### VisionInfo
+#### VisionInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -41,7 +41,7 @@ import { faceDetector } from '@kit.CoreVisionKit';
 
 
 
-##### FaceRecognitionConfiguration
+#### FaceRecognitionConfiguration
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -58,7 +58,7 @@ import { faceDetector } from '@kit.CoreVisionKit';
 
 
 
-##### FaceBlock
+#### FaceBlock
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -77,7 +77,7 @@ import { faceDetector } from '@kit.CoreVisionKit';
 
 
 
-##### FacePoint
+#### FacePoint
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -97,7 +97,7 @@ import { faceDetector } from '@kit.CoreVisionKit';
 
 
 
-##### FacePose
+#### FacePose
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -118,7 +118,7 @@ import { faceDetector } from '@kit.CoreVisionKit';
 
 
 
-##### FaceRectangle
+#### FaceRectangle
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -140,7 +140,7 @@ import { faceDetector } from '@kit.CoreVisionKit';
 
 
 
-##### Face
+#### Face
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -161,7 +161,7 @@ import { faceDetector } from '@kit.CoreVisionKit';
 
 
 
-##### faceDetector.init
+#### faceDetector.init
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -223,7 +223,7 @@ struct Page {
 
 
 
-##### faceDetector.init
+#### faceDetector.init
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -302,7 +302,7 @@ struct Page {
 
 
 
-##### faceDetector.release
+#### faceDetector.release
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -364,7 +364,7 @@ struct Page {
 
 
 
-##### faceDetector.detect
+#### faceDetector.detect
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/embeddeduiextensionability
 
-##### 概述
+#### 概述
 
 [EmbeddedUIExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-embeddeduiextensionability)是EMBEDDED_UI类型的[ExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-extensionability)组件，提供了跨进程界面嵌入的能力。
 
@@ -20,13 +20,13 @@ EmbeddedUIExtensionAbility需要和[EmbeddedComponent](https://developer.huawei.
 
 
 
-##### 约束限制
+#### 约束限制
 
 当前EmbeddedUIExtensionAbility和EmbeddedComponent仅支持在拥有多进程配置的设备上使用，目前支持多进程配置的设备有2in1与Tablet。
 
 
 
-##### 生命周期
+#### 生命周期
 
 [EmbeddedUIExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-embeddeduiextensionability)提供了onCreate、onSessionCreate、onSessionDestroy、onForeground、onBackground和onDestroy生命周期回调，根据需要重写对应的回调方法。以下生命周期回调均继承自[UIExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiextensionability)。
 
@@ -46,7 +46,7 @@ EmbeddedUIExtensionAbility通过[UIExtensionContext](https://developer.huawei.co
 
 
 
-##### 开发EmbeddedUIExtensionAbility提供方
+#### 开发EmbeddedUIExtensionAbility提供方
 
 开发者在实现一个[EmbeddedUIExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-embeddeduiextensionability)提供方时，需要在DevEco Studio工程中手动新建一个EmbeddedUIExtensionAbility，具体步骤如下。
 1. 在工程Module对应的ets目录下，右键选择“New > Directory”，新建一个目录并命名为embeddeduiextability。
@@ -146,7 +146,7 @@ struct Extension {
 
 
 
-##### 开发EmbeddedUIExtensionAbility使用方
+#### 开发EmbeddedUIExtensionAbility使用方
 
 开发者可以在[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)的页面中通过[EmbeddedComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-embedded-component)容器加载自己应用内的[EmbeddedUIExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-embeddeduiextensionability)。此外，EmbeddedUIExtensionAbility在[want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want).parameters中新增了两个字段ohos.extension.processMode.hostSpecified和ohos.extension.processMode.hostInstance。
 

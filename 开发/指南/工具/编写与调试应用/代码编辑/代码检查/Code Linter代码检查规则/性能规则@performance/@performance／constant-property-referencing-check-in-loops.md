@@ -9,7 +9,7 @@
 根据[ArkTS高性能编程实践](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-high-performance-programming)，建议修改。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -22,13 +22,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 class Time {
@@ -50,7 +50,7 @@ function getNum(num: number): number {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 class Time {
@@ -70,7 +70,7 @@ function getNum(num: number): number {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 plugin:@performance/all

@@ -9,13 +9,13 @@
 某些场景下降低帧率可在相机设备启用时降低功耗。
   
 
-##### 约束与限制
+#### 约束与限制
 
 支持的帧率范围及帧率的设置依赖于硬件能力的实现，不同的硬件平台可能拥有不同的默认帧率。
  
   
 
-##### 开发流程
+#### 开发流程
 
 相机使用预览功能前，均需要创建相机会话。完成会话配置后，应用提交和开启会话，才可以开始调用相机相关功能。
  
@@ -41,7 +41,7 @@
  
   
 
-##### 导入模块
+#### 导入模块
 1. 导入NDK接口，导入方法如下。
 
   
@@ -67,7 +67,7 @@ target_link_libraries(entry PUBLIC libohcamera.so libhilog_ndk.z.so)
  
   
 
-##### 创建Session会话并指定模式
+#### 创建Session会话并指定模式
 
 相机使用预览等功能前，均需创建相机会话，调用[OH_CameraManager_CreateCaptureSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-manager-h#oh_cameramanager_createcapturesession)创建一个会话。
  
@@ -89,7 +89,7 @@ Camera_ErrorCode CreateCaptureSession(Camera_Manager *cameraManager, Camera_Capt
  
   
 
-##### 动态调整帧率
+#### 动态调整帧率
 1. 调用[OH_PreviewOutput_GetSupportedFrameRates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-preview-output-h#oh_previewoutput_getsupportedframerates)，查询当前previewOutput支持的帧率范围。
 
   

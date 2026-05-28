@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-cpo
 
-##### 约束与限制
+#### 约束与限制
 
 通过配置Configuration优化传输性能能力支持Phone、2in1、Tablet、Wearable设备。并且从5.1.1(19)开始，新增支持TV设备。
  
   
 
-##### 导入模块
+#### 导入模块
 
 ```text
 import { rcp } from '@kit.RemoteCommunicationKit';
@@ -19,7 +19,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
  
   
 
-##### 请求预处理阶段
+#### 请求预处理阶段
 
 - 基于Session抽象的高并发网络框架
 - 支持创建多个Session
@@ -62,7 +62,7 @@ session1.cancel(request1); // 取消request1请求
  
   
 
-##### DNS阶段
+#### DNS阶段
 
 应用可[定制DNS](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-customdnsconfig)请求规则，如定制DNS服务器、重写DNS解析函数，从而获取最佳的DNS性能体验。
  
@@ -110,7 +110,7 @@ session.fetch(request).then((response) => {
  
   
 
-##### 连接阶段
+#### 连接阶段
 
 根据资源特征动态调整连接池大小
  
@@ -132,7 +132,7 @@ for (let i = 0; i < 1024; ++i) {
  
   
 
-##### HTTP请求阶段
+#### HTTP请求阶段
 
 - 支持响应体分段返回，以节省内存
 - 支持直接将响应写入文件，以节省内存
@@ -174,7 +174,7 @@ try {
  
   
 
-##### HTTP响应阶段
+#### HTTP响应阶段
 
 获取响应各阶段耗时动态判断网络质量，动态调整请求（请求不同质量的资源、降低资源缓存数量）。更详细的示例请移步[HTTP请求过程中各时间点详解](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-tpms#http请求过程中各时间点详解)。
  

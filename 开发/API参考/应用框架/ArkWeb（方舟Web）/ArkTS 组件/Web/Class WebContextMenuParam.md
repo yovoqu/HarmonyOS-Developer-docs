@@ -12,7 +12,7 @@
 
   
 
-##### constructor9+
+#### constructor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ WebContextMenuParam的构造函数。
  
   
 
-##### x9+
+#### x9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -43,7 +43,7 @@ x(): number
  
   
 
-##### y9+
+#### y9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -62,7 +62,7 @@ y(): number
  
   
 
-##### getLinkUrl9+
+#### getLinkUrl9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -81,7 +81,7 @@ getLinkUrl(): string
  
   
 
-##### getUnfilteredLinkUrl9+
+#### getUnfilteredLinkUrl9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -100,7 +100,7 @@ getUnfilteredLinkUrl(): string
  
   
 
-##### getSourceUrl9+
+#### getSourceUrl9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -119,7 +119,7 @@ getSourceUrl(): string
  
   
 
-##### existsImageContents9+
+#### existsImageContents9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -138,7 +138,7 @@ existsImageContents(): boolean
  
   
 
-##### getMediaType9+
+#### getMediaType9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -157,7 +157,7 @@ getMediaType(): ContextMenuMediaType
  
   
 
-##### getSelectionText9+
+#### getSelectionText9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -176,7 +176,7 @@ getSelectionText(): string
  
   
 
-##### getSourceType9+
+#### getSourceType9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -195,7 +195,7 @@ getSourceType(): ContextMenuSourceType
  
   
 
-##### getInputFieldType9+
+#### getInputFieldType9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -214,7 +214,7 @@ getInputFieldType(): ContextMenuInputFieldType
  
   
 
-##### isEditable9+
+#### isEditable9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -233,7 +233,7 @@ isEditable(): boolean
  
   
 
-##### getEditStateFlags9+
+#### getEditStateFlags9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -252,7 +252,7 @@ getEditStateFlags(): number
  
   
 
-##### getPreviewWidth13+
+#### getPreviewWidth13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -271,7 +271,7 @@ getPreviewWidth(): number
  
   
 
-##### getPreviewHeight13+
+#### getPreviewHeight13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -290,7 +290,7 @@ getPreviewHeight(): number
  
   
 
-##### getContextMenuMediaType22+
+#### getContextMenuMediaType22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

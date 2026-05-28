@@ -12,13 +12,13 @@
 
 
 
-##### TimePickerDialog
+#### TimePickerDialog
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### show(deprecated)
+#### show(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -45,7 +45,7 @@ static show(options?: TimePickerDialogOptions)
 
 
 
-##### TimePickerDialogOptions对象说明
+#### TimePickerDialogOptions对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -90,7 +90,7 @@ static show(options?: TimePickerDialogOptions)
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -100,7 +100,7 @@ static show(options?: TimePickerDialogOptions)
 
 
 
-##### 示例1（设置时间格式）
+#### 示例1（设置时间格式）
 
 该示例通过useMilitaryTime、dateTimeOptions、format设置时间格式。
 
@@ -173,7 +173,7 @@ struct TimePickerDialogExample {
 
 
 
-##### 示例2（自定义样式）
+#### 示例2（自定义样式）
 
 该示例通过配置disappearTextStyle、textStyle、selectedTextStyle、acceptButtonStyle、cancelButtonStyle实现了自定义文本以及按钮样式。
 
@@ -236,7 +236,7 @@ struct TimePickerDialogExample {
 
 
 
-##### 示例3（悬停态弹窗）
+#### 示例3（悬停态弹窗）
 
 该示例展示了在折叠屏悬停态下设置dialog布局区域的效果。
 
@@ -296,7 +296,7 @@ struct TimePickerDialogExample {
 
 
 
-##### 示例4（设置弹窗位置）
+#### 示例4（设置弹窗位置）
 
 该示例通过alignment和offset设置弹窗的位置。
 
@@ -335,7 +335,7 @@ struct TimePickerDialogExample {
 
 
 
-##### 示例5（设置遮蔽区）
+#### 示例5（设置遮蔽区）
 
 该示例通过maskRect设置遮蔽区。
 
@@ -373,7 +373,7 @@ struct TimePickerDialogExample {
 
 
 
-##### 示例6（设置弹窗背板）
+#### 示例6（设置弹窗背板）
 
 该示例通过maskRect设置弹窗背板。
 
@@ -413,7 +413,7 @@ struct TimePickerDialogExample {
 
 
 
-##### 示例7（设置时间滑动选择器弹窗的起始时间）
+#### 示例7（设置时间滑动选择器弹窗的起始时间）
 
 该示例设置TimePickerDialog的起始时间。
 
@@ -454,7 +454,7 @@ struct TimePickerDialogExample {
 
 
 
-##### 示例8（设置时间滑动选择器弹窗的结束时间）
+#### 示例8（设置时间滑动选择器弹窗的结束时间）
 
 该示例设置TimePickerDialog的结束时间。
 
@@ -495,7 +495,7 @@ struct TimePickerDialogExample {
 
 
 
-##### 示例9（设置上午下午跟随时间联动）
+#### 示例9（设置上午下午跟随时间联动）
 
 该示例通过配置enableCascade实现12小时制时上午下午跟随时间联动。
 
@@ -530,12 +530,12 @@ struct TimePickerDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/b4bz7Zb8TcaBH1iMK4B52w/zh-cn_image_0000002581436198.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024204Z&HW-CC-Expire=86400&HW-CC-Sign=00F3605A4D11E9CE6BF680D79E0FE0CADD88585D6A3CFC3FAB0F8B92205ADD99)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/b4bz7Zb8TcaBH1iMK4B52w/zh-cn_image_0000002581436198.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025537Z&HW-CC-Expire=86400&HW-CC-Sign=068DD1C1D03E55AD7F6F634BD4A26482F51E7AEA2194F80F4855896E6EC537C4)
 
 
 
 
-##### 示例10（自定义背景模糊效果参数）
+#### 示例10（自定义背景模糊效果参数）
 
 从API version 19开始，该示例通过配置[backgroundBlurStyleOptions](#timepickerdialogoptions对象说明)，实现自定义背景模糊效果。
 
@@ -569,12 +569,12 @@ struct TimePickerDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/lyoGvcWyRqKhVooN70xQcw/zh-cn_image_0000002611836029.png?HW-CC-KV=V1&HW-CC-Date=20260528T024204Z&HW-CC-Expire=86400&HW-CC-Sign=D7CF8599788CE6AD5A0648968553CB4DA1B8727F7E391A0096CF1E8874745AD3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/lyoGvcWyRqKhVooN70xQcw/zh-cn_image_0000002611836029.png?HW-CC-KV=V1&HW-CC-Date=20260528T025537Z&HW-CC-Expire=86400&HW-CC-Sign=20552480CAA80F6C79208B4604ECCFE2BBE18BD46D850E8C463BB1BE576379F0)
 
 
 
 
-##### 示例11（自定义背景效果参数）
+#### 示例11（自定义背景效果参数）
 
 从API version 19开始，该示例通过配置[backgroundEffect](#timepickerdialogoptions对象说明)，实现自定义背景效果。
 
@@ -609,4 +609,4 @@ struct TimePickerDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/e4dQzuueR9SCVRjLN8Rl6Q/zh-cn_image_0000002581276282.png?HW-CC-KV=V1&HW-CC-Date=20260528T024204Z&HW-CC-Expire=86400&HW-CC-Sign=D7B8EEFF1807AC02F1C1F30E46BD3D70C5B30E42217240B4533D9807E5A57732)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/e4dQzuueR9SCVRjLN8Rl6Q/zh-cn_image_0000002581276282.png?HW-CC-KV=V1&HW-CC-Date=20260528T025537Z&HW-CC-Expire=86400&HW-CC-Sign=B9854A621217281EA34359B5F431EA5640F51167F748497358B8C79A99DA33F3)

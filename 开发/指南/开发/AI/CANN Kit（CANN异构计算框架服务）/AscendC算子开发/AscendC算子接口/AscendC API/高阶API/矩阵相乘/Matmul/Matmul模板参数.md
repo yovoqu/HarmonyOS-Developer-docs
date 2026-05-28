@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-template-parameters
 
-##### 功能说明
+#### 功能说明
 
 创建Matmul对象时需要传入：
  
@@ -18,7 +18,7 @@
  
   
 
-##### 实现原理
+#### 实现原理
 
 以输入矩阵A (GM, ND, half)、矩阵B(GM, ND, half)，输出矩阵C (GM, ND, float)，无Bias场景为例，其中(GM, ND, half)表示数据存放在GM上，数据格式为ND，数据类型为half，描述Matmul高阶API典型场景的内部算法框图，如下图所示。
  
@@ -39,7 +39,7 @@
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 template <class A_TYPE, class B_TYPE, class C_TYPE, class BIAS_TYPE = C_TYPE, const MatmulConfig& MM_CFG = CFG_NORM, class MM_CB = MatmulCallBackFunc<nullptr, nullptr, nullptr>, MATMUL_POLICY_DEFAULT_OF(MatmulPolicy)> 
@@ -67,7 +67,7 @@ template <const auto& = MM_CFG, typename ...> class MATMUL_POLICY = DEFAULT
  
   
 
-##### 参数说明
+#### 参数说明
 
 **表1** MatmulType参数说明
   
@@ -201,13 +201,13 @@ template <const auto& = MM_CFG, typename ...> class MATMUL_POLICY = DEFAULT
  
   
 
-##### 返回值
+#### 返回值
 
 无
  
   
 
-##### 支持的型号
+#### 支持的型号
 
 Kirin9020系列处理器
  
@@ -215,13 +215,13 @@ KirinX90系列处理器
  
   
 
-##### 注意事项
+#### 注意事项
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 // 开发者自定义回调函数

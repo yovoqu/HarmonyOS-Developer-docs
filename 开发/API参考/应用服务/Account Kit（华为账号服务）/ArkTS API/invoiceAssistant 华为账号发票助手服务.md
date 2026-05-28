@@ -10,7 +10,7 @@
 **起始版本：** 5.0.0(12)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -20,7 +20,7 @@ import { invoiceAssistant } from '@kit.AccountKit';
  
   
 
-##### InvoiceAssistantErrorCode
+#### InvoiceAssistantErrorCode
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -48,7 +48,7 @@ import { invoiceAssistant } from '@kit.AccountKit';
  
   
 
-##### InvoiceTitle
+#### InvoiceTitle
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -75,7 +75,7 @@ import { invoiceAssistant } from '@kit.AccountKit';
  
   
 
-##### selectInvoiceTitle
+#### selectInvoiceTitle
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

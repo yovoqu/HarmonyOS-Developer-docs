@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { camera } from '@kit.CameraKit';
  
   
 
-##### isOISModeSupported24+
+#### isOISModeSupported24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -79,7 +79,7 @@ function isOISModeSupported(photoSession: camera.PhotoSession, mode: camera.OISM
  
   
 
-##### getSupportedOISBiasRange24+
+#### getSupportedOISBiasRange24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -136,7 +136,7 @@ function getSupportedOISBiasRange(photoSession: camera.PhotoSession, oisAxis: ca
  
   
 
-##### getSupportedOISBiasStep24+
+#### getSupportedOISBiasStep24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -193,7 +193,7 @@ function getSupportedOISBiasStep(photoSession: camera.PhotoSession, oisAxis: cam
  
   
 
-##### getCurrentOISMode24+
+#### getCurrentOISMode24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -243,7 +243,7 @@ function getCurrentOISMode(photoSession: camera.PhotoSession): camera.OISMode {
  
   
 
-##### getCurrentCustomOISBias24+
+#### getCurrentCustomOISBias24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

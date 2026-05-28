@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/obtaining-target-app-url-info
 
-##### 场景介绍
+#### 场景介绍
 
 开发者在使用[UIAbilityContext.openLink](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#openlink12)接口拉起目标应用时，需要传入目标应用的URL信息。本章节主要介绍如何获取目标应用的URL信息。
 
@@ -36,13 +36,13 @@
 
 
 
-##### 环境要求
+#### 环境要求
 
 开发者需要先获取[hdc工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdc)。
 
 
 
-##### 操作步骤
+#### 操作步骤
 1. 使用[bm工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/bm-tool)获取目标应用的bundleName。
 
   
@@ -209,4 +209,4 @@ struct SpecifiedPage {
   **图1** 拉起目标应用演示
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/-xyxWwlmQNey6rDzkcc-wg/zh-cn_image_0000002611753483.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014843Z&HW-CC-Expire=86400&HW-CC-Sign=B25335C7101FC72AC7DA6359DB103B87230F489B09EFFF913D93DD1D77E5C1D1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/-xyxWwlmQNey6rDzkcc-wg/zh-cn_image_0000002611753483.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030509Z&HW-CC-Expire=86400&HW-CC-Sign=DB510F16242259284130B4A475E020D4C24F109E2973BCC24B37D9B6A2B763D1)

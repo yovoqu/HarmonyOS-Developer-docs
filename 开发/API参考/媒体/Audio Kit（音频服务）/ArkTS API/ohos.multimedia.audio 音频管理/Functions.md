@@ -10,7 +10,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@ import { audio } from '@kit.AudioKit';
 
 
 
-##### audio.getAudioManager
+#### audio.getAudioManager
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -49,7 +49,7 @@ let audioManager = audio.getAudioManager();
 
 
 
-##### audio.createAudioRenderer8+
+#### audio.createAudioRenderer8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -103,7 +103,7 @@ audio.createAudioRenderer(audioRendererOptions,(err, data) => {
 
 
 
-##### audio.createAudioRenderer8+
+#### audio.createAudioRenderer8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -162,7 +162,7 @@ audio.createAudioRenderer(audioRendererOptions).then((data) => {
 
 
 
-##### audio.createAudioCapturer8+
+#### audio.createAudioCapturer8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -220,7 +220,7 @@ audio.createAudioCapturer(audioCapturerOptions, (err, data) => {
 
 
 
-##### audio.createAudioCapturer8+
+#### audio.createAudioCapturer8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -283,7 +283,7 @@ audio.createAudioCapturer(audioCapturerOptions).then((data) => {
 
 
 
-##### audio.createAudioLoopback20+
+#### audio.createAudioLoopback20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

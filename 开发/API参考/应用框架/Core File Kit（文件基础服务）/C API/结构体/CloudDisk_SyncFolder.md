@@ -10,7 +10,7 @@ typedef struct CloudDisk_SyncFolder {...} CloudDisk_SyncFolder
 ```
   
 
-##### 概述
+#### 概述
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -24,13 +24,13 @@ typedef struct CloudDisk_SyncFolder {...} CloudDisk_SyncFolder
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** PC/2in1 | Tablet
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** PC/2in1 | Tablet
  

@@ -16,7 +16,7 @@ AbilityStage拥有[onCreate()](#oncreate)、[onDestroy()](#ondestroy12)生命周
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -26,13 +26,13 @@ import { AbilityStage } from '@kit.AbilityKit';
 
 
 
-##### AbilityStage
+#### AbilityStage
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -47,7 +47,7 @@ import { AbilityStage } from '@kit.AbilityKit';
 
 
 
-##### onCreate
+#### onCreate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -75,7 +75,7 @@ export default class MyAbilityStage extends AbilityStage {
 
 
 
-##### onAcceptWant
+#### onAcceptWant
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -122,7 +122,7 @@ export default class MyAbilityStage extends AbilityStage {
 
 
 
-##### onNewProcessRequest11+
+#### onNewProcessRequest11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -171,7 +171,7 @@ export default class MyAbilityStage extends AbilityStage {
 
 
 
-##### onConfigurationUpdate
+#### onConfigurationUpdate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -208,7 +208,7 @@ export default class MyAbilityStage extends AbilityStage {
 
 
 
-##### onMemoryLevel
+#### onMemoryLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -247,7 +247,7 @@ export default class MyAbilityStage extends AbilityStage {
 
 
 
-##### onDestroy12+
+#### onDestroy12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -273,7 +273,7 @@ export default class MyAbilityStage extends AbilityStage {
 
 
 
-##### onPrepareTermination15+
+#### onPrepareTermination15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -319,7 +319,7 @@ export default class MyAbilityStage extends AbilityStage {
 
 
 
-##### onPrepareTerminationAsync15+
+#### onPrepareTerminationAsync15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -367,7 +367,7 @@ export default class MyAbilityStage extends AbilityStage {
 
 
 
-##### onAcceptWantAsync20+
+#### onAcceptWantAsync20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -412,7 +412,7 @@ class MyAbilityStage extends AbilityStage {
 
 
 
-##### onNewProcessRequestAsync20+
+#### onNewProcessRequestAsync20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -459,7 +459,7 @@ class MyAbilityStage extends AbilityStage {
 
 
 
-##### onLaunchFromHyperSnap24+
+#### onLaunchFromHyperSnap24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -486,7 +486,7 @@ export default class MyAbilityStage extends AbilityStage {
 
 
 
-##### onAboutToCreateAbility24+
+#### onAboutToCreateAbility24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

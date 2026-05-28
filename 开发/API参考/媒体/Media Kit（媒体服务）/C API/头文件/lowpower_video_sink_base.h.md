@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-lowpower-video-sink-base-h
 **支持设备：** Phone | PC/2in1 | Tablet
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -41,7 +41,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -58,13 +58,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### OH_LowPowerVideoSink_OnDataNeeded()
+#### OH_LowPowerVideoSink_OnDataNeeded()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -89,7 +89,7 @@ LowPowerVideoSink需要数据时调用该方法，包含在[OH_LowPowerVideoSink
  
   
 
-##### OH_LowPowerVideoSink_OnError()
+#### OH_LowPowerVideoSink_OnError()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -115,7 +115,7 @@ LowPowerVideoSink发生错误时调用该方法。
  
   
 
-##### OH_LowPowerVideoSink_OnTargetArrived()
+#### OH_LowPowerVideoSink_OnTargetArrived()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -141,7 +141,7 @@ LowPowerVideoSink到达目标点时调用该方法，包含在[OH_LowPowerVideoS
  
   
 
-##### OH_LowPowerVideoSink_OnRenderStarted()
+#### OH_LowPowerVideoSink_OnRenderStarted()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -165,7 +165,7 @@ LowPowerVideoSink开始渲染时调用该方法，包含在[OH_LowPowerVideoSink
  
   
 
-##### OH_LowPowerVideoSink_OnStreamChanged()
+#### OH_LowPowerVideoSink_OnStreamChanged()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -190,7 +190,7 @@ LowPowerVideoSink流切换调用该方法，包含在[OH_LowPowerVideoSinkCallba
  
   
 
-##### OH_LowPowerVideoSink_OnFirstFrameDecoded()
+#### OH_LowPowerVideoSink_OnFirstFrameDecoded()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -214,7 +214,7 @@ LowPowerVideoSink第一帧解码成功时调用该方法，包含在[OH_LowPower
  
   
 
-##### OH_LowPowerVideoSink_OnEos()
+#### OH_LowPowerVideoSink_OnEos()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

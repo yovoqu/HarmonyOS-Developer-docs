@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-high-performance-json-parsing
 
-##### 概述
+#### 概述
 
 在应用开发中，JSON解析是数据存储与网络传输的关键环节。然而，当前常规的JSON解析方案常面临性能瓶颈和类型安全性问题，尤其在处理复杂对象、大文件或高并发场景时表现欠佳。
  
@@ -20,11 +20,11 @@
  
  
 
-##### 反序列化为业务类型
+#### 反序列化为业务类型
 
  
 
-##### 使用场景
+#### 使用场景
 
 在数据存储和网络传输场景中，JSON数据被广泛用于结构化交互。例如，某应用从服务端获取的API响应为JSON字符串（如{"name":"zhangsan","age":28}），业务层需将其转换为自定义类型Person（包含姓名、年龄等强类型属性）以供调用。但系统提供的[@ohos.util.json（JSON解析与生成）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-json)工具仅能将字符串反序列化为简单对象（如Object），无法直接生成目标业务类型实例；为实现类型转换，常见做法有两种：
  1. 手动创建业务对象并遍历JSON属性赋值，但是代码冗余且易出错；
@@ -34,7 +34,7 @@
  
  
 
-##### 实现原理
+#### 实现原理
 
 TurboTransJSON采用编译器代码生成的方式，当开发者使用TurboTransJSON提供的装饰器及hvigor插件时，插件会根据开发者自定义类型及装饰器配置，生成自定义类型对应的序列化器代码。
  1. 装饰器与元数据收集
@@ -50,7 +50,7 @@ TurboTransJSON采用编译器代码生成的方式，当开发者使用TurboTran
 
   
 
-  ##### 开发步骤
+  #### 开发步骤
 
 1. 引入TurboTransJSONPlugin和TurboTransJSON三方库。
 插件引入，在工程根目录hvigor/hvigor-config.json5文件内加入如下配置：
@@ -110,11 +110,11 @@ if (response && response.body) {
 
   
 
-  ##### 跨线程数据传输
+  #### 跨线程数据传输
 
   
 
-  ##### 使用场景
+  #### 使用场景
 
   在并发编程环境中，常需在线程间传递数据。当数据以JSON格式存储时，如何高效地进行序列化和反序列化成为一个关键问题。常见场景包括生产者-消费者模式、线程池任务提交、异步处理流程等。
 
@@ -122,7 +122,7 @@ if (response && response.body) {
 
   
 
-  ##### 实现原理
+  #### 实现原理
 
   TurboTransJSON在跨线程数据传输方面采用了以下优化策略：
 
@@ -133,7 +133,7 @@ if (response && response.body) {
  
  
 
-##### 开发步骤
+#### 开发步骤
 1. 向TurboTransJSON提供的@Serializable装饰器添加generateSendable: true属性。
 ```ArkTS
 import { Serializable } from '@hadss/turbo-trans-core';
@@ -166,17 +166,17 @@ this.person = TJSON.toOrigin<PersonWithSendable>(data);
  
  
 
-##### 大文件解析
+#### 大文件解析
 
  
 
-##### 使用场景
+#### 使用场景
 
 处理几十MB至几百MB的大型JSON文件是开发中的高频需求，尤其在日志分析、数据迁移和批量导入导出等场景。若采用传统方式一次性解析整个文件到内存，会直接导致内存占用飙升，可能触发OOM（Out of Memory）错误，同时解析过程耗时也会导致应用触发AppFreeze，严重影响应用稳定性。而TurboTransJSON专为这类场景优化，从根源上解决内存过载以及解析耗时问题。
  
  
 
-##### 实现原理
+#### 实现原理
 
 TurboTransJSON库在大文件解析方面采用了以下技术：
  
@@ -187,7 +187,7 @@ TurboTransJSON库在大文件解析方面采用了以下技术：
  
  
 
-##### 开发步骤
+#### 开发步骤
 1. 通过toJsonNodeFromBuffer()或toJsonNodeFromString()方法，将ArrayBuffer数据或JSON字符串转换为JsonNode对象。
 ```ArkTS
 // this.json.buffer is read citylots.json buffer
@@ -249,7 +249,7 @@ const obj: ESObject = await jsonNode.toPlainObjectAsync();
  
  
 
-##### 性能对比
+#### 性能对比
 
 测试用例输入包括4KB、53KB、467KB、2765KB大小的四个 JSON 文件，分别对应数据集small json、medium json、large json、huge json，以测试JSON大小对序列化以及反序列化速度的影响。
  
@@ -284,7 +284,7 @@ const obj: ESObject = await jsonNode.toPlainObjectAsync();
  
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/Eoyhw1ntQKWUmDSDXw3M-w/zh-cn_image_0000002501330544.png?HW-CC-KV=V1&HW-CC-Date=20260528T013029Z&HW-CC-Expire=86400&HW-CC-Sign=E966B4B4E2C1E4894B0AE535C6187F5E95F7E41CF5C18A448527848891A96738)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/Eoyhw1ntQKWUmDSDXw3M-w/zh-cn_image_0000002501330544.png?HW-CC-KV=V1&HW-CC-Date=20260528T024714Z&HW-CC-Expire=86400&HW-CC-Sign=083195BFB683B1E6EAEE388A4B676B6A2BA01DEE69A96A0BACC1C245FD2A4811)
 
  
 通过上述比对数据发现：
@@ -295,6 +295,6 @@ const obj: ESObject = await jsonNode.toPlainObjectAsync();
  
  
 
-##### 示例代码
+#### 示例代码
 
 [基于TurboTransJSON实现高性能JSON解析](https://gitcode.com/HarmonyOS_Samples/TurboTransJSON)

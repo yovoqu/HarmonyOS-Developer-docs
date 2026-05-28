@@ -12,7 +12,7 @@
 
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -43,7 +43,7 @@ Polygon(options?: PolygonOptions)
  
   
 
-##### PolygonOptions18+对象说明
+#### PolygonOptions18+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -67,7 +67,7 @@ Polygon(options?: PolygonOptions)
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -75,7 +75,7 @@ Polygon(options?: PolygonOptions)
  
   
 
-##### points
+#### points
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -98,7 +98,7 @@ points(value: Array&lt;any&gt;)
  
   
 
-##### fill
+#### fill
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -121,7 +121,7 @@ fill(value: ResourceColor)
  
   
 
-##### fillOpacity
+#### fillOpacity
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -144,7 +144,7 @@ fillOpacity(value: number | string | Resource)
  
   
 
-##### stroke
+#### stroke
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -167,7 +167,7 @@ stroke(value: ResourceColor)
  
   
 
-##### strokeDashArray
+#### strokeDashArray
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -190,7 +190,7 @@ strokeDashArray(value: Array&lt;any&gt;)
  
   
 
-##### strokeDashOffset
+#### strokeDashOffset
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -213,7 +213,7 @@ strokeDashOffset(value: number | string)
  
   
 
-##### strokeLineCap
+#### strokeLineCap
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -236,7 +236,7 @@ strokeLineCap(value: LineCapStyle)
  
   
 
-##### strokeLineJoin
+#### strokeLineJoin
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -259,7 +259,7 @@ strokeLineJoin(value: LineJoinStyle)
  
   
 
-##### strokeMiterLimit
+#### strokeMiterLimit
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -284,7 +284,7 @@ strokeMiterLimit(value: number | string)
  
   
 
-##### strokeOpacity
+#### strokeOpacity
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -307,7 +307,7 @@ strokeOpacity(value: number | string | Resource)
  
   
 
-##### strokeWidth
+#### strokeWidth
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -330,7 +330,7 @@ strokeWidth(value: Length)
  
   
 
-##### antiAlias
+#### antiAlias
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -353,13 +353,13 @@ antiAlias(value: boolean)
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 示例1（组件属性绘制）
+#### 示例1（组件属性绘制）
 
 通过points、fill、fillOpacity、stroke属性分别绘制多边形的经过坐标、填充颜色、透明度、边框颜色。
  
@@ -400,7 +400,7 @@ struct PolygonExample {
  
   
 
-##### 示例2（宽和高使用不同参数类型绘制多边形）
+#### 示例2（宽和高使用不同参数类型绘制多边形）
 
 width、height属性分别使用不同的长度类型绘制图形。
  
@@ -430,12 +430,12 @@ struct PolygonTypeExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/GRSlvyPjSdmsyfKCAXw78g/zh-cn_image_0000002611756085.png?HW-CC-KV=V1&HW-CC-Date=20260528T024200Z&HW-CC-Expire=86400&HW-CC-Sign=684C35CC6068A63FB084C75C9C0127816832A983B90ABCAF0541C3C2030A344C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/GRSlvyPjSdmsyfKCAXw78g/zh-cn_image_0000002611756085.png?HW-CC-KV=V1&HW-CC-Date=20260528T025533Z&HW-CC-Expire=86400&HW-CC-Sign=DEE57C6D3B46C743A7AC9F6BE99EF80E6551D0740F27D8C29D572AB178E2CD52)
 
  
   
 
-##### 示例3（使用attributeModifier动态设置Polygon组件的属性）
+#### 示例3（使用attributeModifier动态设置Polygon组件的属性）
 
 以下示例展示了如何使用attributeModifier动态设置Polygon组件的points、fill、fillOpacity、stroke、strokeDashArray、strokeDashOffset、strokeLineCap、strokeLineJoin、strokeMiterLimit、strokeOpacity、strokeWidth和antiAlias属性。
  
@@ -477,4 +477,4 @@ struct PolygonModifierDemo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/05/v3/mTatUqYFSJCmANqldjU5nA/zh-cn_image_0000002581436148.png?HW-CC-KV=V1&HW-CC-Date=20260528T024200Z&HW-CC-Expire=86400&HW-CC-Sign=D0C4CD43811FA1CCE32039A2AAAD1814AF0A309CBF831E00F7140F6B77D0F485)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/05/v3/mTatUqYFSJCmANqldjU5nA/zh-cn_image_0000002581436148.png?HW-CC-KV=V1&HW-CC-Date=20260528T025533Z&HW-CC-Expire=86400&HW-CC-Sign=09431DA9E368583827C5A49656AA3D7B0E2E877A06901E55DD6AB6B5F02819B7)

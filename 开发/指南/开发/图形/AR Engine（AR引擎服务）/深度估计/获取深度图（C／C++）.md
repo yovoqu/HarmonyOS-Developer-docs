@@ -7,13 +7,13 @@
 本章节给出了关键开发步骤，完整代码可以参考[示例代码](https://gitcode.com/harmonyos_samples/arengine_-sample-code_-clientdemo_cpp)。
 
 
-##### 约束与限制
+#### 约束与限制
 
 从5.0.5(17)开始，获取深度估计信息能力支持部分Phone、部分Tablet设备。请参考[硬件要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-preparations#硬件要求)判断设备是否支持深度估计特性（[ARENGINE_FEATURE_TYPE_DEPTH](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_featuretype)）。
 
 
 
-##### 接口说明
+#### 接口说明
 
 以下接口为AR深度估计相关接口。详细接口和说明，请参考[AR Engine API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine)。
 
@@ -38,17 +38,17 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 
 
-##### 声明Native接口
+#### 声明Native接口
 
 开发者可参考AR物体摆放章节的[声明Native接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-arworld#声明native接口)。
 
 
 
-##### 创建UI界面
+#### 创建UI界面
 
 首先创建一个UI界面ARDepth.ets，用于选择是否开启深度图渲染模式。
 
@@ -192,13 +192,13 @@ struct ARDepthRender {
 
 
 
-##### 引入AR Engine
+#### 引入AR Engine
 
 开发者可参考AR物体摆放章节的[引入AR Engine](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-arworld#引入ar-engine)。
 
 
 
-##### 创建AR会话
+#### 创建AR会话
 
 创建AR会话并配置为开启深度模式。
 
@@ -217,7 +217,7 @@ HMS_AREngine_ARSession_Configure(arSession, arConfig);
 
 
 
-##### 获取当前环境中的深度图
+#### 获取当前环境中的深度图
 
 调用[HMS_AREngine_ARFrame_AcquireDepthImage16Bits](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arframe_acquiredepthimage16bits)函数，获取当前环境中的深度信息，并将结果存放在depthImage中。
 
@@ -232,7 +232,7 @@ HMS_AREngine_ARFrame_AcquireDepthImage16Bits(arSession, arFrame, &depthImage);
 
 
 
-##### 获取当前深度图对应的深度置信度图
+#### 获取当前深度图对应的深度置信度图
 
 调用[HMS_AREngine_ARFrame_AcquireDepthConfidenceImage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arframe_acquiredepthconfidenceimage)函数，获取当前深度图对应的置信度图。
 
@@ -247,7 +247,7 @@ HMS_AREngine_ARFrame_AcquireDepthConfidenceImage(arSession, arFrame, &depthConfi
 
 
 
-##### 获取深度图和深度置信度图中的值
+#### 获取深度图和深度置信度图中的值
 
 深度图和深度置信度图包装为[AREngine_ARImage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_arimage)对象，可以通过此对象获取对应的深度图和深度置信度图。
 
@@ -269,7 +269,7 @@ HMS_AREngine_ARImage_GetPlaneData(arSession, depthImage, 0, (const uint8_t **)&d
 
 
 
-##### 使用完毕后，销毁深度图和深度置信度图
+#### 使用完毕后，销毁深度图和深度置信度图
 
 ```text
 HMS_AREngine_ARImage_Release(depthImage);

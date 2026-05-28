@@ -14,7 +14,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { media } from '@kit.MediaKit';
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -37,7 +37,7 @@ import { media } from '@kit.MediaKit';
 
 
 
-##### fetchFrameByTime12+
+#### fetchFrameByTime12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -107,7 +107,7 @@ media.createAVImageGenerator((err: BusinessError, generator: media.AVImageGenera
 
 
 
-##### fetchFrameByTime12+
+#### fetchFrameByTime12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -181,7 +181,7 @@ media.createAVImageGenerator((err: BusinessError, generator: media.AVImageGenera
 
 
 
-##### fetchScaledFrameByTime20+
+#### fetchScaledFrameByTime20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -251,7 +251,7 @@ media.createAVImageGenerator((err: BusinessError, generator: media.AVImageGenera
 
 
 
-##### release12+
+#### release12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -305,7 +305,7 @@ media.createAVImageGenerator((err: BusinessError, generator: media.AVImageGenera
 
 
 
-##### release12+
+#### release12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

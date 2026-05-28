@@ -9,7 +9,7 @@
 根据[ArkTS编程规范](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-high-performance-programming)，建议修改。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -22,13 +22,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 let arr = [0, 1, 2];
@@ -41,7 +41,7 @@ foo(arr);
  
  
 
-##### 反例
+#### 反例
 
 ```text
 let arr = [0, 1, 2];
@@ -54,7 +54,7 @@ foo();
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(106,135,89);">plugin:@performance/all</span>

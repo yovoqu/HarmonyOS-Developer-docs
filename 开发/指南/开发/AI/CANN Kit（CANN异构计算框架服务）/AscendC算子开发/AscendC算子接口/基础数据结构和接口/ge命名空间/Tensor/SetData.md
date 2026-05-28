@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-tensor-setdata
 
-##### 函数功能
+#### 函数功能
 
 向Tensor中设置数据。
  
   
 
-##### 函数原型
+#### 函数原型
 
 > [!NOTE]
 > 数据类型为string的接口后续版本会废弃，建议使用数据类型为非string的接口。
@@ -29,7 +29,7 @@ graphStatus SetData(uint8_t *data, size_t size, const Tensor::DeleteFunc &delete
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数名 | 输入/输出 | 描述 |
 | --- | --- | --- |
@@ -40,7 +40,7 @@ graphStatus SetData(uint8_t *data, size_t size, const Tensor::DeleteFunc &delete
  
   
 
-##### 返回值
+#### 返回值
  
 | 类型 | 描述 |
 | --- | --- |
@@ -49,12 +49,12 @@ graphStatus SetData(uint8_t *data, size_t size, const Tensor::DeleteFunc &delete
  
   
 
-##### 异常处理
+#### 异常处理
 
 无
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

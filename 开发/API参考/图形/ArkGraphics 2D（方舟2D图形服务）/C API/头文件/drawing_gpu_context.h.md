@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-gpu-context-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -40,7 +40,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -53,13 +53,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Drawing_GpuContextCreateFromGL()
+#### OH_Drawing_GpuContextCreateFromGL()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -95,7 +95,7 @@ OH_Drawing_GpuContext* OH_Drawing_GpuContextCreateFromGL(OH_Drawing_GpuContextOp
  
   
 
-##### OH_Drawing_GpuContextCreate()
+#### OH_Drawing_GpuContextCreate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -120,7 +120,7 @@ OH_Drawing_GpuContext* OH_Drawing_GpuContextCreate(void)
  
   
 
-##### OH_Drawing_GpuContextDestroy()
+#### OH_Drawing_GpuContextDestroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

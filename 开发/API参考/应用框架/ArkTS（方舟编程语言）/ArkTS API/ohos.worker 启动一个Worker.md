@@ -18,7 +18,7 @@ Worker的上下文环境和UI线程的上下文环境是独立的，Worker线程
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -28,7 +28,7 @@ import { worker } from '@kit.ArkTS';
 
 
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -42,7 +42,7 @@ import { worker } from '@kit.ArkTS';
 
 
 
-##### WorkerOptions
+#### WorkerOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -60,7 +60,7 @@ Worker构造函数的选项，用于为Worker添加其他信息。
 
 
 
-##### ThreadWorkerPriority18+
+#### ThreadWorkerPriority18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -80,7 +80,7 @@ Worker线程的优先级枚举，各优先级对应关系请参考[QoS等级定�
 
 
 
-##### ThreadWorker9+
+#### ThreadWorker9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -88,7 +88,7 @@ Worker线程的优先级枚举，各优先级对应关系请参考[QoS等级定�
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -126,7 +126,7 @@ onAllErrors接口与onerror接口之间的行为差异如下：
 
 
 
-##### constructor9+
+#### constructor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -171,7 +171,7 @@ const workerInstance = new worker.ThreadWorker('entry/ets/workers/worker.ets', {
 
 
 
-##### postMessage9+
+#### postMessage9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -279,7 +279,7 @@ struct Index {
 
 
 
-##### postMessage9+
+#### postMessage9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -327,7 +327,7 @@ workerInstance.postMessage(buffer, {transfer: [buffer]});
 
 
 
-##### postMessageWithSharedSendable12+
+#### postMessageWithSharedSendable12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -403,7 +403,7 @@ workerPort.onmessage = (e: MessageEvents) => {
 
 
 
-##### on9+
+#### on9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -453,7 +453,7 @@ workerInstance.dispatchEvent({type: "alert", timeStamp: 0}); // timeStamp暂未�
 
 
 
-##### once9+
+#### once9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -501,7 +501,7 @@ workerInstance.dispatchEvent({type: "alert", timeStamp: 0}); // timeStamp暂未�
 
 
 
-##### off9+
+#### off9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -562,7 +562,7 @@ workerInstance.off("alert");
 
 
 
-##### registerGlobalCallObject11+
+#### registerGlobalCallObject11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -641,7 +641,7 @@ workerPort.onmessage = (e: MessageEvents): void => {
 
 
 
-##### unregisterGlobalCallObject11+
+#### unregisterGlobalCallObject11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -696,7 +696,7 @@ workerInstance.postMessage("start worker");
 
 
 
-##### terminate9+
+#### terminate9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -729,7 +729,7 @@ workerInstance.terminate();
 
 
 
-##### addEventListener9+
+#### addEventListener9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -778,7 +778,7 @@ workerInstance.dispatchEvent({type: "alert", timeStamp: 0}); // timeStamp暂未�
 
 
 
-##### removeEventListener9+
+#### removeEventListener9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -827,7 +827,7 @@ workerInstance.removeEventListener("alert");
 
 
 
-##### dispatchEvent9+
+#### dispatchEvent9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -884,7 +884,7 @@ console.info("dispatchEvent result is: ", result);
 
 
 
-##### removeAllListener9+
+#### removeAllListener9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -920,7 +920,7 @@ workerInstance.removeAllListener();
 
 
 
-##### WorkerEventTarget9+
+#### WorkerEventTarget9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -928,7 +928,7 @@ workerInstance.removeAllListener();
 
 
 
-##### addEventListener9+
+#### addEventListener9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -976,7 +976,7 @@ workerPort.onmessage = (event: MessageEvents) => {
 
 
 
-##### removeEventListener9+
+#### removeEventListener9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1025,7 +1025,7 @@ workerPort.onmessage = (event: MessageEvents) => {
 
 
 
-##### dispatchEvent9+
+#### dispatchEvent9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1082,7 +1082,7 @@ workerPort.onmessage = (event: MessageEvents) => {
 
 
 
-##### removeAllListener9+
+#### removeAllListener9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1122,7 +1122,7 @@ workerPort.onmessage = (event: MessageEvents) => {
 
 
 
-##### ThreadWorkerGlobalScope9+
+#### ThreadWorkerGlobalScope9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1130,7 +1130,7 @@ Worker线程用于与宿主线程通信的类。ThreadWorkerGlobalScope类继承
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1144,7 +1144,7 @@ Worker线程用于与宿主线程通信的类。ThreadWorkerGlobalScope类继承
 
 
 
-##### postMessage9+
+#### postMessage9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1201,7 +1201,7 @@ workerPort.onmessage = (e: MessageEvents): void => {
 
 
 
-##### postMessage9+
+#### postMessage9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1257,7 +1257,7 @@ workerPort.onmessage = (e: MessageEvents): void => {
 
 
 
-##### postMessageWithSharedSendable12+
+#### postMessageWithSharedSendable12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1332,7 +1332,7 @@ workerInstance.onmessage = (e: MessageEvents) => {
 
 
 
-##### callGlobalCallObjectMethod11+
+#### callGlobalCallObjectMethod11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1424,7 +1424,7 @@ workerPort.onmessage = (e: MessageEvents): void => {
 
 
 
-##### close9+
+#### close9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1467,7 +1467,7 @@ workerPort.onmessage = (e: MessageEvents): void => {
 
 
 
-##### WorkerEventListener9+
+#### WorkerEventListener9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1475,7 +1475,7 @@ workerPort.onmessage = (e: MessageEvents): void => {
 
 
 
-##### (event: Event)9+
+#### (event: Event)9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1530,7 +1530,7 @@ workerInstance.dispatchEvent(eventToDispatch);
 
 
 
-##### GlobalScope9+
+#### GlobalScope9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1549,7 +1549,7 @@ Worker线程自身的运行环境，GlobalScope类继承[WorkerEventTarget](#wor
 
 
 
-##### MessageEvents9+
+#### MessageEvents9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1566,7 +1566,7 @@ Worker线程自身的运行环境，GlobalScope类继承[WorkerEventTarget](#wor
 
 
 
-##### MessageType
+#### MessageType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1586,7 +1586,7 @@ type MessageType = 'message' | 'messageerror'
 
 
 
-##### ErrorCallback18+
+#### ErrorCallback18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1607,7 +1607,7 @@ type ErrorCallback = (err: ErrorEvent) => void
 
 
 
-##### Worker(deprecated)
+#### Worker(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1619,7 +1619,7 @@ type ErrorCallback = (err: ErrorEvent) => void
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1635,7 +1635,7 @@ type ErrorCallback = (err: ErrorEvent) => void
 
 
 
-##### constructor(deprecated)
+#### constructor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1671,7 +1671,7 @@ const workerInstance = new worker.Worker('entry/ets/workers/worker.ets', {name: 
 
 
 
-##### postMessage(deprecated)
+#### postMessage(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1707,7 +1707,7 @@ workerInstance.postMessage(buffer, [buffer]);
 
 
 
-##### postMessage(deprecated)
+#### postMessage(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1745,7 +1745,7 @@ workerInstance.postMessage(buffer, [buffer]);
 
 
 
-##### on(deprecated)
+#### on(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1781,7 +1781,7 @@ workerInstance.on("alert", () => {
 
 
 
-##### once(deprecated)
+#### once(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1817,7 +1817,7 @@ workerInstance.once("alert", () => {
 
 
 
-##### off(deprecated)
+#### off(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1852,7 +1852,7 @@ workerInstance.off("alert");
 
 
 
-##### terminate(deprecated)
+#### terminate(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1878,7 +1878,7 @@ workerInstance.terminate();
 
 
 
-##### EventTarget(deprecated)
+#### EventTarget(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1888,7 +1888,7 @@ workerInstance.terminate();
 
 
 
-##### addEventListener(deprecated)
+#### addEventListener(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1925,7 +1925,7 @@ workerPort.addEventListener("alert", () => {
 
 
 
-##### removeEventListener(deprecated)
+#### removeEventListener(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1964,7 +1964,7 @@ workerPort.removeEventListener('alert');
 
 
 
-##### dispatchEvent(deprecated)
+#### dispatchEvent(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2037,7 +2037,7 @@ workerPort.onmessage = (event: MessageEvents) => {
 
 
 
-##### removeAllListener(deprecated)
+#### removeAllListener(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2068,7 +2068,7 @@ workerPort.removeAllListener();
 
 
 
-##### DedicatedWorkerGlobalScope(deprecated)
+#### DedicatedWorkerGlobalScope(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2080,7 +2080,7 @@ Worker线程用于与宿主线程通信的类。DedicatedWorkerGlobalScope类继
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2094,7 +2094,7 @@ Worker线程用于与宿主线程通信的类。DedicatedWorkerGlobalScope类继
 
 
 
-##### postMessage(deprecated)
+#### postMessage(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2118,7 +2118,7 @@ Worker线程通过转移对象所有权的方式向宿主线程发送消息。
 
 
 
-##### postMessage(deprecated)
+#### postMessage(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2169,7 +2169,7 @@ workerPort.onmessage = (): void => {
 
 
 
-##### postMessage(deprecated)
+#### postMessage(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2216,7 +2216,7 @@ parentPort.onmessage = (e: MessageEvents) => {
 
 
 
-##### close(deprecated)
+#### close(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2252,7 +2252,7 @@ parentPort.onmessage = (): void => {
 
 
 
-##### PostMessageOptions
+#### PostMessageOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2269,7 +2269,7 @@ parentPort.onmessage = (): void => {
 
 
 
-##### Event
+#### Event
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2287,7 +2287,7 @@ parentPort.onmessage = (): void => {
 
 
 
-##### EventListener(deprecated)
+#### EventListener(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2299,7 +2299,7 @@ parentPort.onmessage = (): void => {
 
 
 
-##### (evt: Event)(deprecated)
+#### (evt: Event)(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2339,7 +2339,7 @@ workerInstance.addEventListener("alert", ()=>{
 
 
 
-##### ErrorEvent
+#### ErrorEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2360,7 +2360,7 @@ workerInstance.addEventListener("alert", ()=>{
 
 
 
-##### MessageEvent&lt;T&gt;
+#### MessageEvent&lt;T&gt;
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2377,7 +2377,7 @@ workerInstance.addEventListener("alert", ()=>{
 
 
 
-##### WorkerGlobalScope(deprecated)
+#### WorkerGlobalScope(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2398,13 +2398,13 @@ Worker线程自身的运行环境，WorkerGlobalScope类继承[EventTarget](#eve
 
 
 
-##### 其他说明
+#### 其他说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 序列化支持类型
+#### 序列化支持类型
 
 序列化支持类型包括：除Symbol之外的基础类型、Date、String、RegExp、Array、Map、Set、Object（仅限简单对象，比如通过"{}"或者"new Object"创建，普通对象仅支持传递属性，不支持传递其原型及方法）、ArrayBuffer、TypedArray。
 
@@ -2457,7 +2457,7 @@ workerPort.onerror = (err: ErrorEvent) => {
 
 
 
-##### 内存模型
+#### 内存模型
 
 Worker基于Actor并发模型实现。在Worker的交互流程中，宿主线程可以创建多个Worker子线程，各个Worker线程间运行环境相互隔离，并通过序列化、引用传递或转移所有权的方式传递对象，等到Worker线程完成计算任务，再把结果返回给宿主线程。
 
@@ -2465,7 +2465,7 @@ Actor并发模型的交互原理：各个Actor并发地处理宿主线程任务�
 
 
 
-##### 完整示例
+#### 完整示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2475,7 +2475,7 @@ Actor并发模型的交互原理：各个Actor并发地处理宿主线程任务�
 
 
 
-##### FA模型
+#### FA模型
 
 此处以API version 9的工程为例。
 
@@ -2548,7 +2548,7 @@ workerPort.onerror = (err: ErrorEvent) => {
 
 
 
-##### Stage模型
+#### Stage模型
 
 此处以API version 18的工程为例。
 
@@ -2634,7 +2634,7 @@ workerPort.onerror = (err: ErrorEvent) => {
 
 
 
-##### 分发事件与监听接口搭配使用示例
+#### 分发事件与监听接口搭配使用示例
 
 ```ArkTS
 // Index.ets

@@ -10,7 +10,7 @@
 **起始版本：** 5.0.0(12)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -24,7 +24,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### Adventures
+#### Adventures
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -43,7 +43,7 @@ type Adventures = healthStore.ExerciseSequence<healthFields.AdventuresSummary, h
  
   
 
-##### Basketball
+#### Basketball
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -62,7 +62,7 @@ type Basketball = healthStore.ExerciseSequence<healthFields.BasketballSummary, h
  
   
 
-##### Biathlon
+#### Biathlon
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -81,7 +81,7 @@ type Biathlon = healthStore.ExerciseSequence<healthFields.BiathlonSummary, healt
  
   
 
-##### BloodOxygenSaturation
+#### BloodOxygenSaturation
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -100,7 +100,7 @@ type BloodOxygenSaturation = healthStore.SamplePoint<healthFields.BloodOxygenSat
  
   
 
-##### BloodOxygenSaturationAggregateRequest
+#### BloodOxygenSaturationAggregateRequest
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -119,7 +119,7 @@ type BloodOxygenSaturationAggregateRequest = healthStore.AggregateRequest<health
  
   
 
-##### BloodOxygenSaturationAggregateResult
+#### BloodOxygenSaturationAggregateResult
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -138,7 +138,7 @@ type BloodOxygenSaturationAggregateResult = healthStore.AggregateResult<healthFi
  
   
 
-##### BloodPressure
+#### BloodPressure
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -157,7 +157,7 @@ type BloodPressure = healthStore.SamplePoint<healthFields.BloodPressure>
  
   
 
-##### Bmx
+#### Bmx
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -176,7 +176,7 @@ BMX自行车锻炼记录数据模型。
  
   
 
-##### BodyTemperature
+#### BodyTemperature
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -195,7 +195,7 @@ type BodyTemperature = healthStore.SamplePoint<healthFields.BodyTemperature>
  
   
 
-##### BodyTemperatureAggregateRequest
+#### BodyTemperatureAggregateRequest
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -214,7 +214,7 @@ type BodyTemperatureAggregateRequest = healthStore.AggregateRequest<healthFields
  
   
 
-##### BodyTemperatureAggregateResult
+#### BodyTemperatureAggregateResult
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -233,7 +233,7 @@ type BodyTemperatureAggregateResult = healthStore.AggregateResult<healthFields.B
  
   
 
-##### BreathHoldingTest
+#### BreathHoldingTest
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -252,7 +252,7 @@ type BreathHoldingTest = healthStore.ExerciseSequence<healthFields.BreathHolding
  
   
 
-##### BreathHoldingTrain
+#### BreathHoldingTrain
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -271,7 +271,7 @@ type BreathHoldingTrain = healthStore.ExerciseSequence<healthFields.BreathHoldin
  
   
 
-##### Cycling
+#### Cycling
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -290,7 +290,7 @@ type Cycling = healthStore.ExerciseSequence<healthFields.CyclingSummary, healthF
  
   
 
-##### DailyActivities
+#### DailyActivities
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -309,7 +309,7 @@ type DailyActivities = healthStore.SamplePoint<healthFields.DailyActivities>
  
   
 
-##### DailyActivitiesAggregateRequest
+#### DailyActivitiesAggregateRequest
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -330,7 +330,7 @@ type DailyActivitiesAggregateRequest = healthStore.AggregateRequest<healthFields
  
   
 
-##### DailyActivitiesAggregateResult
+#### DailyActivitiesAggregateResult
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -351,7 +351,7 @@ type DailyActivitiesAggregateResult = healthStore.AggregateResult<healthFields.D
  
   
 
-##### Diving
+#### Diving
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -370,7 +370,7 @@ type Diving = healthStore.ExerciseSequence<healthFields.DivingSummary, healthFie
  
   
 
-##### Elliptical
+#### Elliptical
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -389,7 +389,7 @@ type Elliptical = healthStore.ExerciseSequence<healthFields.EllipticalSummary, h
  
   
 
-##### Emotion
+#### Emotion
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -408,7 +408,7 @@ type Emotion = healthStore.SamplePoint<healthFields.Emotion>
  
   
 
-##### GolfCourseModel
+#### GolfCourseModel
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -427,7 +427,7 @@ type GolfCourseModel = healthStore.ExerciseSequence<healthFields.GolfCourseModel
  
   
 
-##### GolfPractice
+#### GolfPractice
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -446,7 +446,7 @@ type GolfPractice = healthStore.ExerciseSequence<healthFields.GolfPracticeSummar
  
   
 
-##### HeartRate
+#### HeartRate
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -465,7 +465,7 @@ type HeartRate = healthStore.SamplePoint<healthFields.HeartRate>
  
   
 
-##### HeartRateAggregateRequest
+#### HeartRateAggregateRequest
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -484,7 +484,7 @@ type HeartRateAggregateRequest = healthStore.AggregateRequest<healthFields.Heart
  
   
 
-##### HeartRateAggregateResult
+#### HeartRateAggregateResult
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -503,7 +503,7 @@ type HeartRateAggregateResult = healthStore.AggregateResult<healthFields.HeartRa
  
   
 
-##### HeartRateVariability
+#### HeartRateVariability
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -522,7 +522,7 @@ type HeartRateVariability = healthStore.SamplePoint<healthFields.HeartRateVariab
  
   
 
-##### Height
+#### Height
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -541,7 +541,7 @@ type Height = healthStore.SamplePoint<healthFields.Height>
  
   
 
-##### Hiking
+#### Hiking
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -560,7 +560,7 @@ type Hiking = healthStore.ExerciseSequence<healthFields.WalkingSummary, healthFi
  
   
 
-##### IndoorCycling
+#### IndoorCycling
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -579,7 +579,7 @@ type IndoorCycling = healthStore.ExerciseSequence<healthFields.CyclingSummary, h
  
   
 
-##### IndoorRunning
+#### IndoorRunning
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -598,7 +598,7 @@ type IndoorRunning = healthStore.ExerciseSequence<healthFields.RunningSummary, h
  
   
 
-##### IndoorWalking
+#### IndoorWalking
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -617,7 +617,7 @@ type IndoorWalking = healthStore.ExerciseSequence<healthFields.WalkingSummary, h
  
   
 
-##### JumpingRope
+#### JumpingRope
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -636,7 +636,7 @@ type JumpingRope = healthStore.ExerciseSequence<healthFields.JumpingRopeSummary,
  
   
 
-##### MenstrualCycle
+#### MenstrualCycle
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -657,7 +657,7 @@ type MenstrualCycle = healthStore.HealthSequence<healthFields.MenstrualCycle, he
  
   
 
-##### MountainHike
+#### MountainHike
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -676,7 +676,7 @@ type MountainHike = healthStore.ExerciseSequence<healthFields.MountainHikeSummar
  
   
 
-##### OpenWaterSwim
+#### OpenWaterSwim
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -695,7 +695,7 @@ type OpenWaterSwim = healthStore.ExerciseSequence<healthFields.OpenWaterSwimSumm
  
   
 
-##### PoolSwim
+#### PoolSwim
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -714,7 +714,7 @@ type PoolSwim = healthStore.ExerciseSequence<healthFields.PoolSwimSummary, healt
  
   
 
-##### RestingHeartRate
+#### RestingHeartRate
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -733,7 +733,7 @@ type RestingHeartRate = healthStore.SamplePoint<healthFields.RestingHeartRate>
  
   
 
-##### RestingHeartRateAggregateRequest
+#### RestingHeartRateAggregateRequest
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -752,7 +752,7 @@ type RestingHeartRateAggregateRequest = healthStore.AggregateRequest<healthField
  
   
 
-##### RestingHeartRateAggregateResult
+#### RestingHeartRateAggregateResult
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -771,7 +771,7 @@ type RestingHeartRateAggregateResult = healthStore.AggregateResult<healthFields.
  
   
 
-##### Rower
+#### Rower
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -790,7 +790,7 @@ type Rower = healthStore.ExerciseSequence<healthFields.RowerSummary, healthField
  
   
 
-##### Rowing
+#### Rowing
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -809,7 +809,7 @@ type Rowing = healthStore.ExerciseSequence<healthFields.RowingSummary, healthFie
  
   
 
-##### Running
+#### Running
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -828,7 +828,7 @@ type Running = healthStore.ExerciseSequence<healthFields.RunningSummary, healthF
  
   
 
-##### ScubaDiving
+#### ScubaDiving
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -847,7 +847,7 @@ type ScubaDiving = healthStore.ExerciseSequence<healthFields.ScubaDivingSummary,
  
   
 
-##### Skiing
+#### Skiing
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -866,7 +866,7 @@ type Skiing = healthStore.ExerciseSequence<healthFields.SkiingSummary, healthFie
  
   
 
-##### SkinTemperature
+#### SkinTemperature
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -885,7 +885,7 @@ type SkinTemperature = healthStore.SamplePoint<healthFields.SkinTemperature>
  
   
 
-##### SkinTemperatureAggregateRequest
+#### SkinTemperatureAggregateRequest
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -904,7 +904,7 @@ type SkinTemperatureAggregateRequest = healthStore.AggregateRequest<healthFields
  
   
 
-##### SkinTemperatureAggregateResult
+#### SkinTemperatureAggregateResult
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -923,7 +923,7 @@ type SkinTemperatureAggregateResult = healthStore.AggregateResult<healthFields.S
  
   
 
-##### Sled
+#### Sled
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -942,7 +942,7 @@ type Sled = healthStore.ExerciseSequence<healthFields.SledSummary, healthFields.
  
   
 
-##### SleepNapRecord
+#### SleepNapRecord
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -961,7 +961,7 @@ type SleepNapRecord = healthStore.HealthSequence<healthFields.SleepNap, healthFi
  
   
 
-##### SleepRecord
+#### SleepRecord
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -980,7 +980,7 @@ type SleepRecord = healthStore.HealthSequence<healthFields.Sleep, healthFields.S
  
   
 
-##### Snowboarding
+#### Snowboarding
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -999,7 +999,7 @@ type Snowboarding = healthStore.ExerciseSequence<healthFields.SnowboardingSummar
  
   
 
-##### Spinning
+#### Spinning
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1018,7 +1018,7 @@ type Spinning = healthStore.ExerciseSequence<healthFields.CyclingSummary, health
  
   
 
-##### Sports
+#### Sports
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1037,7 +1037,7 @@ type Sports = healthStore.ExerciseSequence<healthFields.SportsSummary, healthFie
  
   
 
-##### Stress
+#### Stress
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1056,7 +1056,7 @@ type Stress = healthStore.SamplePoint<healthFields.Stress>
  
   
 
-##### StressAggregateRequest
+#### StressAggregateRequest
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1075,7 +1075,7 @@ type StressAggregateRequest = healthStore.AggregateRequest<healthFields.StressAg
  
   
 
-##### StressAggregateResult
+#### StressAggregateResult
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1094,7 +1094,7 @@ type StressAggregateResult = healthStore.AggregateResult<healthFields.StressAggr
  
   
 
-##### TrailRunning
+#### TrailRunning
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1113,7 +1113,7 @@ type TrailRunning = healthStore.ExerciseSequence<healthFields.RunningSummary, he
  
   
 
-##### Walking
+#### Walking
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1132,7 +1132,7 @@ type Walking = healthStore.ExerciseSequence<healthFields.WalkingSummary, healthF
  
   
 
-##### Weight
+#### Weight
 
 **支持设备：** Phone | Tablet | Wearable
 

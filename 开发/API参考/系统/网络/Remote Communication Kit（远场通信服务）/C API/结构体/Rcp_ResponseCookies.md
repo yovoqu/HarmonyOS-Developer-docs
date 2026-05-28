@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___response_cookies
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -19,13 +19,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -48,13 +48,13 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### cookieAttributes
+#### cookieAttributes
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -68,7 +68,7 @@ Rcp_CookieAttributes* Rcp_ResponseCookies::cookieAttributes
  
   
 
-##### domain
+#### domain
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -82,7 +82,7 @@ char* Rcp_ResponseCookies::domain
  
   
 
-##### expires
+#### expires
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -96,7 +96,7 @@ char* Rcp_ResponseCookies::expires
  
   
 
-##### httpOnly
+#### httpOnly
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -110,7 +110,7 @@ bool Rcp_ResponseCookies::httpOnly
  
   
 
-##### maxAge
+#### maxAge
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -124,7 +124,7 @@ uint64_t Rcp_ResponseCookies::maxAge
  
   
 
-##### name
+#### name
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -138,7 +138,7 @@ char* Rcp_ResponseCookies::name
  
   
 
-##### next
+#### next
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -152,7 +152,7 @@ struct Rcp_ResponseCookies* Rcp_ResponseCookies::next
  
   
 
-##### originString
+#### originString
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -166,7 +166,7 @@ char* Rcp_ResponseCookies::originString
  
   
 
-##### path
+#### path
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -180,7 +180,7 @@ char* Rcp_ResponseCookies::path
  
   
 
-##### rawSize
+#### rawSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -194,7 +194,7 @@ uint64_t Rcp_ResponseCookies::rawSize
  
   
 
-##### sameSite
+#### sameSite
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -208,7 +208,7 @@ char* Rcp_ResponseCookies::sameSite
  
   
 
-##### secure
+#### secure
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -222,7 +222,7 @@ bool Rcp_ResponseCookies::secure
  
   
 
-##### value
+#### value
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

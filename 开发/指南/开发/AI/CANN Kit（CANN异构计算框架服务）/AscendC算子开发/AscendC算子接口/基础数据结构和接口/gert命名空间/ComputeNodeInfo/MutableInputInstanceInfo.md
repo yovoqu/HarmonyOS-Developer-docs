@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-mutableinputinstanceinfo
 
-##### 函数功能
+#### 函数功能
 
 根据算子IR原型中的输入索引，获取对应的实例化对象。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 AnchorInstanceInfo *MutableInputInstanceInfo(const size_t ir_index)
@@ -18,7 +18,7 @@ AnchorInstanceInfo *MutableInputInstanceInfo(const size_t ir_index)
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -27,19 +27,19 @@ AnchorInstanceInfo *MutableInputInstanceInfo(const size_t ir_index)
  
   
 
-##### 返回值
+#### 返回值
 
 返回的实例化对象的地址。返回对象为非const。
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 for (size_t i = 0; i < ir_inputs.size(); ++i) {

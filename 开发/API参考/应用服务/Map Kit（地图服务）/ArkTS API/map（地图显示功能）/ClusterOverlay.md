@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-clusteroverlay
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -15,7 +15,7 @@ import { map, mapCommon } from '@kit.MapKit';
  
   
 
-##### ClusterOverlay
+#### ClusterOverlay
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -57,7 +57,7 @@ let clusterOverlay: map.ClusterOverlay = await this.mapController.addClusterOver
  
   
 
-##### on('clusterClick')
+#### on('clusterClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -93,7 +93,7 @@ clusterOverlay.on("clusterClick", (clusterItems) => {
  
   
 
-##### off('clusterClick')
+#### off('clusterClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -129,7 +129,7 @@ clusterOverlay.off("clusterClick", () => {
  
   
 
-##### on('click')
+#### on('click')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -172,7 +172,7 @@ clusterOverlay.on("click", callback3);
  
   
 
-##### off('click')
+#### off('click')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -220,7 +220,7 @@ clusterOverlay.off('click');
  
   
 
-##### on('markerClusterClick')
+#### on('markerClusterClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -263,7 +263,7 @@ clusterOverlay.on("markerClusterClick", callback3);
  
   
 
-##### off('markerClusterClick')
+#### off('markerClusterClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -310,7 +310,7 @@ clusterOverlay.off('markerClusterClick');
  
   
 
-##### addItem
+#### addItem
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -354,7 +354,7 @@ await clusterOverlay.addItem(clusterItem);
  
   
 
-##### remove
+#### remove
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

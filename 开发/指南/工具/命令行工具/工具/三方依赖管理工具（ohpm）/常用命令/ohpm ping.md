@@ -7,7 +7,7 @@
 ping ohpm 仓库地址。
  
 
-##### 命令格式
+#### 命令格式
 
 ```text
 ohpm ping
@@ -15,7 +15,7 @@ ohpm ping
  
  
 
-##### 功能描述
+#### 功能描述
 
 对给定的或者是配置中的仓库地址进行身份验证。如果有效，将会输出相关信息，比如以下内容：
  
@@ -33,11 +33,11 @@ ohpm ERROR: HttpCode 404, API ping in your_registry - Not Found
  
  
 
-##### Options
+#### Options
 
  
 
-##### registry
+#### registry
 
 - 默认值：""
 - 类型：URL
@@ -47,7 +47,7 @@ ohpm ERROR: HttpCode 404, API ping in your_registry - Not Found
  
  
 
-##### fetch_timeout
+#### fetch_timeout
 
 - 默认值：60000
 - 类型： Number
@@ -58,7 +58,7 @@ ohpm ERROR: HttpCode 404, API ping in your_registry - Not Found
  
  
 
-##### strict_ssl
+#### strict_ssl
 
 - 默认值：true
 - 类型：Boolean
@@ -68,7 +68,7 @@ ohpm ERROR: HttpCode 404, API ping in your_registry - Not Found
  
  
 
-##### log_level
+#### log_level
 
 - 默认值：无
 - 类型： string
@@ -78,7 +78,7 @@ ohpm ERROR: HttpCode 404, API ping in your_registry - Not Found
  
  
 
-##### debug
+#### debug
 
 - 默认值：false
 - 类型： Boolean

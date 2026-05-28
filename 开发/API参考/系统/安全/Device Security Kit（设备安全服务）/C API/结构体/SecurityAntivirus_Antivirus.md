@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-structs-securityantivirus
 **支持设备：** PC/2in1
 
-##### 概述
+#### 概述
 
 **支持设备：** PC/2in1
 
@@ -19,13 +19,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** PC/2in1
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** PC/2in1
  
@@ -37,13 +37,13 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** PC/2in1
 
   
 
-##### bundleName
+#### bundleName
 
 **支持设备：** PC/2in1
 
@@ -57,7 +57,7 @@ const char *SecurityAntivirus_Antivirus::bundleName
  
   
 
-##### metadata
+#### metadata
 
 **支持设备：** PC/2in1
 

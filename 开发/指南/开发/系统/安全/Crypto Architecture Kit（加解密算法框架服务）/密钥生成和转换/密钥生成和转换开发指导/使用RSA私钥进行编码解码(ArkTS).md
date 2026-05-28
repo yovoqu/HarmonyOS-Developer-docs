@@ -16,7 +16,7 @@
   如何生成RSA非对称密钥对，开发者可参考下文示例，并结合[非对称密钥生成和转换规格：RSA](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-asym-key-generation-conversion-spec#rsa)。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/1YtqkWcVQ8uua1G5jUloYg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T014642Z&HW-CC-Expire=86400&HW-CC-Sign=8DB787EEF45D0A23B9E0F7EB27B1FB9D667355DC3FB346F4A0027F54FD5373BE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/1YtqkWcVQ8uua1G5jUloYg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030312Z&HW-CC-Expire=86400&HW-CC-Sign=67E834479BCFB7AFA0645AE2471E71CD2930203769537E9C33D75D8DBD6A8E99)
  
 
   解码应该与编码传入的算法一致。

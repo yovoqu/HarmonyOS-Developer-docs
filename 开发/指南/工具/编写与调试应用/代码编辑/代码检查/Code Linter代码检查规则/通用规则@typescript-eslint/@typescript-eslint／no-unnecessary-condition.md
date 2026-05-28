@@ -9,7 +9,7 @@
 
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -22,13 +22,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/no-unnecessary-condition选项](https://typescript-eslint.nodejs.cn/rules/no-unnecessary-condition/#options)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 const index = 0;
@@ -55,7 +55,7 @@ export function bar(arg?: string | null) {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 const index = 0;
@@ -82,7 +82,7 @@ export function bar(arg: string) {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

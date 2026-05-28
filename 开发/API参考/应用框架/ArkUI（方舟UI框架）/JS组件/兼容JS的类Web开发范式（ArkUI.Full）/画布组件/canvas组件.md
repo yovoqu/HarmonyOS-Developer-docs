@@ -12,7 +12,7 @@
 提供画布组件。用于自定义绘制图形。
   
 
-##### 权限列表
+#### 权限列表
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -28,7 +28,7 @@
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -36,7 +36,7 @@
  
   
 
-##### 样式
+#### 样式
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -44,7 +44,7 @@
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -52,7 +52,7 @@
  
   
 
-##### 方法
+#### 方法
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -60,7 +60,7 @@
  
   
 
-##### getContext
+#### getContext
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -85,7 +85,7 @@ getContext(type: '2d', options?: ContextAttrOptions): CanvasRenderingContext2D
  
   
 
-##### toDataURL6+
+#### toDataURL6+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -110,7 +110,7 @@ toDataURL(type?: string, quality?: number): string
  
   
 
-##### ContextAttrOptions6+
+#### ContextAttrOptions6+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -125,7 +125,7 @@ toDataURL(type?: string, quality?: number): string
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -150,4 +150,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/XySHcTpjT56sKpVfEQ4kYQ/zh-cn_image_0000002581436344.png?HW-CC-KV=V1&HW-CC-Date=20260528T024100Z&HW-CC-Expire=86400&HW-CC-Sign=B67A8479FC80AA398306234EE419F2369087A32B446226563DF39A834160C19E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/XySHcTpjT56sKpVfEQ4kYQ/zh-cn_image_0000002581436344.png?HW-CC-KV=V1&HW-CC-Date=20260528T025435Z&HW-CC-Expire=86400&HW-CC-Sign=404033AFA2094FD7234B7B4E9E7CF374B426C86EF489742E5EDCE17C93390DEF)

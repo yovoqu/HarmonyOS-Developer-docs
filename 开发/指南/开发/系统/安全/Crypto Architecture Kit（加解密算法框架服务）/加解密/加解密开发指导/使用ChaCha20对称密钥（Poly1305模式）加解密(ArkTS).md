@@ -9,7 +9,7 @@
 对应的算法规格请查看[对称密钥加解密算法规格：ChaCha20](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sym-encrypt-decrypt-spec#chacha20)。
 
 
-##### 开发步骤
+#### 开发步骤
 
 **创建对象**
 

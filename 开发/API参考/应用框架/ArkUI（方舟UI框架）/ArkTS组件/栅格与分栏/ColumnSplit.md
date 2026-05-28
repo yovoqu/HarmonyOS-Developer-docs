@@ -12,7 +12,7 @@
 
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ ColumnSplit通过分割线限制子组件的高度。初始化时，分割线位
  
   
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -38,7 +38,7 @@ ColumnSplit()
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -50,7 +50,7 @@ ColumnSplit()
  
   
 
-##### resizeable
+#### resizeable
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -71,7 +71,7 @@ resizeable(value: boolean)
  
   
 
-##### divider10+
+#### divider10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -92,7 +92,7 @@ divider(value: ColumnSplitDividerStyle | null)
  
   
 
-##### ColumnSplitDividerStyle10+对象说明
+#### ColumnSplitDividerStyle10+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -114,7 +114,7 @@ divider(value: ColumnSplitDividerStyle | null)
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -122,13 +122,13 @@ divider(value: ColumnSplitDividerStyle | null)
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 示例1（设置可拖动的ColumnSplit组件）
+#### 示例1（设置可拖动的ColumnSplit组件）
 
 本示例展示如何设置可拖动的ColumnSplit组件及其效果。
  
@@ -156,12 +156,12 @@ struct ColumnSplitExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/9dHsCkNbT56mBOD2-N751g/zh-cn_image_0000002611835561.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024219Z&HW-CC-Expire=86400&HW-CC-Sign=1EE17EEE99C95CD6F574FCF5650297DB11E56E535F7E1438F980A30A187353BF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/9dHsCkNbT56mBOD2-N751g/zh-cn_image_0000002611835561.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025552Z&HW-CC-Expire=86400&HW-CC-Sign=1175DD17616E8A43E5A7E69608BEE65B5A52083CDE8C8DB4C987E5532D225A5D)
 
  
   
 
-##### 示例2（设置带有间隔的ColumnSplit组件）
+#### 示例2（设置带有间隔的ColumnSplit组件）
 
 本示例展示如何设置带有间隔的ColumnSplit组件及其效果。
  
@@ -190,4 +190,4 @@ struct ColumnSplitDividerExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/Ajyd6BvhSXSdKeSsxtmMCg/zh-cn_image_0000002581275814.png?HW-CC-KV=V1&HW-CC-Date=20260528T024219Z&HW-CC-Expire=86400&HW-CC-Sign=D3361C5459376FDBD06B556A2CE304F13D621EEAB650029788657F645E8FAB41)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/Ajyd6BvhSXSdKeSsxtmMCg/zh-cn_image_0000002581275814.png?HW-CC-KV=V1&HW-CC-Date=20260528T025552Z&HW-CC-Expire=86400&HW-CC-Sign=D8D6DA8E75D3E46FF4FDD789074E435F92460A49A633C9C2F8A05059812F9C7A)

@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-createfollowing
 
-##### 函数功能
+#### 函数功能
 
 创建一个指定数据类型以及大小的Tensor，其数据在Tensor对象后连续排布。
  
   
 
-##### 函数原型
+#### 函数原型
 
 - 传入元素个数和数据类型，创建Tensor
 
@@ -30,7 +30,7 @@ static std::unique_ptr<uint8_t[]> CreateFollowing(const ge::DataType dt, const s
  
   
 
-##### 参数说明
+#### 参数说明
 
 **表1** 参数说明（传入元素个数和数据类型，创建Tensor）
   
@@ -52,19 +52,19 @@ static std::unique_ptr<uint8_t[]> CreateFollowing(const ge::DataType dt, const s
  
   
 
-##### 返回值
+#### 返回值
 
 创建的Tensor指针。
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 size_t total_size;

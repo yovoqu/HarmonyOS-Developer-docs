@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import prompt from '@ohos.prompt'
  
   
 
-##### prompt.showToast
+#### prompt.showToast
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -55,7 +55,7 @@ prompt.showToast({
  
   
 
-##### ShowToastOptions
+#### ShowToastOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -72,7 +72,7 @@ prompt.showToast({
  
   
 
-##### prompt.showDialog
+#### prompt.showDialog
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -128,7 +128,7 @@ prompt.showDialog({
  
   
 
-##### prompt.showDialog
+#### prompt.showDialog
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -178,7 +178,7 @@ prompt.showDialog({
  
   
 
-##### ShowDialogOptions
+#### ShowDialogOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -195,7 +195,7 @@ prompt.showDialog({
  
   
 
-##### ShowDialogSuccessResponse
+#### ShowDialogSuccessResponse
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -210,7 +210,7 @@ prompt.showDialog({
  
   
 
-##### prompt.showActionMenu
+#### prompt.showActionMenu
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -259,7 +259,7 @@ prompt.showActionMenu({
  
   
 
-##### prompt.showActionMenu
+#### prompt.showActionMenu
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -309,12 +309,12 @@ prompt.showActionMenu({
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/iX5IyZuAQEmyqik31wEMDA/zh-cn_image_0000002611755493.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024113Z&HW-CC-Expire=86400&HW-CC-Sign=AF56FE4E1AB310ED4954E65FC331A6E7E0C79A2C071C3988439836921ECF7467)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/iX5IyZuAQEmyqik31wEMDA/zh-cn_image_0000002611755493.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025447Z&HW-CC-Expire=86400&HW-CC-Sign=1CB3859AEBB308C3C304132B54337A65378152CC1441F61DEA7F1422D56C704B)
 
  
   
 
-##### ActionMenuOptions
+#### ActionMenuOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -330,7 +330,7 @@ prompt.showActionMenu({
  
   
 
-##### ActionMenuSuccessResponse
+#### ActionMenuSuccessResponse
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -345,7 +345,7 @@ prompt.showActionMenu({
  
   
 
-##### Button
+#### Button
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

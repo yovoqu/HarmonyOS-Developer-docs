@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { AtomicServiceNavigation } from '@kit.ArkUI';
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -32,7 +32,7 @@ import { AtomicServiceNavigation } from '@kit.ArkUI';
  
   
 
-##### AtomicServiceNavigation
+#### AtomicServiceNavigation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -85,7 +85,7 @@ AtomicServiceNavigation({
  
   
 
-##### TitleOptions
+#### TitleOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -104,7 +104,7 @@ AtomicServiceNavigation({
  
   
 
-##### GradientBackground18+
+#### GradientBackground18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -125,7 +125,7 @@ AtomicServiceNavigation({
  
   
 
-##### NavDestinationBuilder
+#### NavDestinationBuilder
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -147,7 +147,7 @@ NavDestination组件内容。
  
   
 
-##### MixMode18+
+#### MixMode18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -166,7 +166,7 @@ NavDestination组件内容。
  
   
 
-##### TitleBarType18+
+#### TitleBarType18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -185,7 +185,7 @@ NavDestination组件内容。
  
   
 
-##### GradientAlpha18+
+#### GradientAlpha18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -205,7 +205,7 @@ NavDestination组件内容。
  
   
 
-##### BackgroundTheme18+
+#### BackgroundTheme18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -224,7 +224,7 @@ NavDestination组件内容。
  
   
 
-##### SideBarOptions18+
+#### SideBarOptions18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -243,13 +243,13 @@ NavDestination组件内容。
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 示例1（AtomicServiceNavigation页面布局与渐变色背景）
+#### 示例1（AtomicServiceNavigation页面布局与渐变色背景）
 
 AtomicServiceNavigation的基础样式，并展示渐变色背景。
  
@@ -390,7 +390,7 @@ export struct PageTwo {
  
   
 
-##### 示例2（抽屉模式，宽屏场景下插入自定义布局）
+#### 示例2（抽屉模式，宽屏场景下插入自定义布局）
 
 设备宽屏场景（宽度大于600vp）下设置抽屉模式，用户在标题栏插入自定义布局。
  
@@ -537,7 +537,7 @@ export struct PageTwo {
  
   
 
-##### 示例3（边栏使用场景）
+#### 示例3（边栏使用场景）
 
 设置边栏：背景色与内容样式。
  
@@ -688,4 +688,4 @@ export struct PageTwo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/wWkkUmURSRWzLWCX1iN6ZQ/zh-cn_image_0000002581436216.png?HW-CC-KV=V1&HW-CC-Date=20260528T024206Z&HW-CC-Expire=86400&HW-CC-Sign=0BC26A6FA08464A4F1AD54E332CC10198AB12AE266A53DE5BA1353BA797DE118)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/wWkkUmURSRWzLWCX1iN6ZQ/zh-cn_image_0000002581436216.png?HW-CC-KV=V1&HW-CC-Date=20260528T025539Z&HW-CC-Expire=86400&HW-CC-Sign=978F622C4DF985C32F24314517B87306BD205E0BAA125EE6E78FA8670DDD3531)

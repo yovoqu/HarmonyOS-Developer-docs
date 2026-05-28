@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-avplayer-embeded-short-video
 
-##### 概述
+#### 概述
 
 本文适用于视频播放类应用开发，针对市场上主流视频播放应用常见场景，介绍如何基于[AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer)系统播放器实现嵌入式短视频播放。本文指导开发者实现以下几种场景：
  
@@ -20,17 +20,17 @@
  
  
 
-##### 基础播控能力
+#### 基础播控能力
 
 通过[AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer)实现视频资源加载、播放、暂停、停止、退出操作，包含了静音播放、倍数设置和字幕挂载等功能，实现原理详情可参考[《基于AVPlayer基础播控实践》](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-avplayer-basic-control)。
  
  
 
-##### 焦点管理
+#### 焦点管理
 
  
 
-##### 场景描述
+#### 场景描述
 
 前台视频播放过程中，音频被后台闹钟、电话等中断事件打断，完成播放过程音视频焦点管理。
  
@@ -40,17 +40,17 @@
  
  
 
-##### 开发步骤
+#### 开发步骤
 
  
 具体开发步骤可参考基于AVPlayer播放长视频实践的[焦点管理开发步骤](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-avplayer-long-video#section1716082163419)。
  
 
-##### 前后台感知
+#### 前后台感知
 
  
 
-##### 场景描述
+#### 场景描述
 
 应用从后台切回到前台时，保持原视频播放且会从之前的位置继续播放。
  
@@ -60,17 +60,17 @@
  
  
 
-##### 开发步骤
+#### 开发步骤
 
 具体开发步骤可参考基于AVPlayer播放长视频实践的[前后台感知开发步骤](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-avplayer-long-video#section1448773335411)。
  
  
 
-##### 横竖屏切换和旋转感知
+#### 横竖屏切换和旋转感知
 
  
 
-##### 场景描述
+#### 场景描述
 
 播放视频时可以手动进行横竖屏切换，也支持根据设备旋转方向自动切换横竖屏模式，以适应不同屏幕方向下的视频播放需求。
  
@@ -80,17 +80,17 @@
  
  
 
-##### 开发步骤
+#### 开发步骤
 
 具体开发步骤可参考基于AVPlayer播放长视频实践的[横竖屏切换和旋转感知开发步骤](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-avplayer-long-video#section1257185216407)。
  
  
 
-##### 画中画播放
+#### 画中画播放
 
  
 
-##### 场景描述
+#### 场景描述
 
 画中画模式用户可进行其他界面操作，提升使用体验。应用场景包括视频播放、直播、视频通话和视频会议等。
  
@@ -100,17 +100,17 @@
  
  
 
-##### 开发步骤
+#### 开发步骤
 
 具体开发步骤可参考基于AVPlayer播放长视频实践的[画中画播放开发步骤](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-avplayer-long-video#section4691194231313)。
  
  
 
-##### 视频首帧显示
+#### 视频首帧显示
 
  
 
-##### 场景描述
+#### 场景描述
 
 视频播放列表或播放窗口中显示视频首帧作为视频描述信息。
  
@@ -120,17 +120,17 @@
  
  
 
-##### 开发步骤
+#### 开发步骤
 
 具体开发步骤可参考基于AVPlayer播放长视频实践的[视频首帧显示开发步骤](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-avplayer-long-video#section27212108403)。
  
  
 
-##### 嵌入式视频列表自动播放
+#### 嵌入式视频列表自动播放
 
  
 
-##### 场景描述
+#### 场景描述
 
 用户浏览视频列表时自动播放视频，在用户滑动视频列表时自动切换至首个完全可见的视频播放。
  
@@ -140,7 +140,7 @@
  
  
 
-##### 实现原理
+#### 实现原理
 
 使用[AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer)组件实现视频播放列表页面。通过监听列表滑动[onScrollStop()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list#onscrollstop)事件，在滑动停止时获取滑动偏移量offset，计算首个可完全展示的视频的索引，切换至该视频播放，实现视频列表中首个可见视频自动播放效果。
  
@@ -152,7 +152,7 @@
  
  
 
-##### 开发步骤
+#### 开发步骤
 1. 创建视频列表的模拟数据。
 
   
@@ -382,11 +382,11 @@ XComponent({
  
  
 
-##### 视频无缝转场播放
+#### 视频无缝转场播放
 
  
 
-##### 场景描述
+#### 场景描述
 
 视频播放无缝转场是影音娱乐类应用中的典型场景之一，如视频列表中自动播放的热门视频，点击当前播放视频跳转至视频详情页后继续播放。
  
@@ -396,7 +396,7 @@ XComponent({
  
  
 
-##### 实现原理
+#### 实现原理
 
 基于[AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer)与[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)实现视频播放，通过切换AVPlayer的surfaceId控制不同XComponent播放视频，实现转场效果，使用[seek()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#seek9)方法跳转至指定位置播放，主要分为两部分：
  
@@ -412,7 +412,7 @@ XComponent({
  
  
 
-##### 开发步骤
+#### 开发步骤
 1. 创建route_map.json路由配置文件，配置视频跳转播放页面参数信息。
 
   
@@ -616,6 +616,6 @@ handleBackAction() {
  
  
 
-##### 示例代码
+#### 示例代码
 
 - [基于AVPlayer实现嵌入式短视频播放](https://gitcode.com/harmonyos_samples/avplayer-embeded-short-video/tree/master/)

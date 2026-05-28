@@ -12,7 +12,7 @@
 
 
 
-##### bindPopup
+#### bindPopup
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -45,7 +45,7 @@ bindPopup(show: boolean, popup: PopupOptions | CustomPopupOptions): T
 
 
 
-##### PopupOptions类型说明
+#### PopupOptions类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -91,7 +91,7 @@ bindPopup(show: boolean, popup: PopupOptions | CustomPopupOptions): T
 
 
 
-##### PopupMessageOptions10+类型说明
+#### PopupMessageOptions10+类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -109,7 +109,7 @@ bindPopup(show: boolean, popup: PopupOptions | CustomPopupOptions): T
 
 
 
-##### DismissPopupAction12+类型说明
+#### DismissPopupAction12+类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -127,7 +127,7 @@ bindPopup(show: boolean, popup: PopupOptions | CustomPopupOptions): T
 
 
 
-##### DismissReason12+枚举说明
+#### DismissReason12+枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -146,7 +146,7 @@ bindPopup(show: boolean, popup: PopupOptions | CustomPopupOptions): T
 
 
 
-##### CustomPopupOptions8+类型说明
+#### CustomPopupOptions8+类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -190,7 +190,7 @@ bindPopup(show: boolean, popup: PopupOptions | CustomPopupOptions): T
 
 
 
-##### PopupCommonOptions18+类型说明
+#### PopupCommonOptions18+类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -231,7 +231,7 @@ bindPopup(show: boolean, popup: PopupOptions | CustomPopupOptions): T
 
 
 
-##### PopupStateChangeParam18+类型说明
+#### PopupStateChangeParam18+类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -248,7 +248,7 @@ bindPopup(show: boolean, popup: PopupOptions | CustomPopupOptions): T
 
 
 
-##### PopupStateChangeCallback18+
+#### PopupStateChangeCallback18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -269,7 +269,7 @@ type PopupStateChangeCallback = (event: PopupStateChangeParam) => void;
 
 
 
-##### PopupMaskType18+类型说明
+#### PopupMaskType18+类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -286,7 +286,7 @@ type PopupStateChangeCallback = (event: PopupStateChangeParam) => void;
 
 
 
-##### PopupBorderLinearGradient20+类型说明
+#### PopupBorderLinearGradient20+类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -304,7 +304,7 @@ type PopupStateChangeCallback = (event: PopupStateChangeParam) => void;
 
 
 
-##### KeyboardAvoidMode12+枚举说明
+#### KeyboardAvoidMode12+枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -322,13 +322,13 @@ type PopupStateChangeCallback = (event: PopupStateChangeParam) => void;
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1（弹出不同类型的气泡）
+#### 示例1（弹出不同类型的气泡）
 
 该示例通过配置[PopupOptions](#popupoptions类型说明)或[CustomPopupOptions](#custompopupoptions8类型说明)中的keyboardAvoidMode属性，设置气泡是否避让软键盘。
 
@@ -419,7 +419,7 @@ struct PopupExample {
 
 
 
-##### 示例2（设置气泡的文本样式）
+#### 示例2（设置气泡的文本样式）
 
 该示例通过配置[PopupOptions](#popupoptions类型说明)中的messageOptions属性，实现了弹出自定义文本样式的气泡。
 
@@ -470,7 +470,7 @@ struct PopupExample {
 
 
 
-##### 示例3（设置气泡的样式）
+#### 示例3（设置气泡的样式）
 
 该示例通过配置[PopupOptions](#popupoptions类型说明)中的arrowHeight、arrowWidth、radius、shadow和popupColor属性，实现了气泡箭头以及气泡本身的样式。
 
@@ -522,7 +522,7 @@ struct PopupExample {
 
 
 
-##### 示例4（设置气泡的动效）
+#### 示例4（设置气泡的动效）
 
 该示例通过配置[PopupOptions](#popupoptions类型说明)或[CustomPopupOptions](#custompopupoptions8类型说明)中的transition属性，实现了气泡显示以及退出的动效。
 
@@ -596,7 +596,7 @@ struct PopupExample {
 
 
 
-##### 示例5（为气泡添加事件）
+#### 示例5（为气泡添加事件）
 
 该示例通过配置[PopupOptions](#popupoptions类型说明)中的onWillDismiss属性，实现了当气泡退出时，拦截退出事件并执行回调函数。
 
@@ -651,7 +651,7 @@ struct PopupExample {
 
 
 
-##### 示例6（为气泡拦截退出事件）
+#### 示例6（为气泡拦截退出事件）
 
 该示例通过将[PopupOptions](#popupoptions类型说明)中onWillDismiss属性设置为false，实现拦截气泡的退出事件。同时，配置[PopupOptions](#popupoptions类型说明)中的followTransformOfTarget属性，可以设置宿主变换位置时，气泡是否跟随显示到相应位置。
 
@@ -705,7 +705,7 @@ struct PopupExample {
 
 
 
-##### 示例7（为气泡内外描边设置线性渐变）
+#### 示例7（为气泡内外描边设置线性渐变）
 
 该示例通过配置[PopupOptions](#popupoptions类型说明)中的outlineWidth、borderWidth、outlineLinearGradient、borderLinearGradient属性，为气泡设置内外描边线性渐变的颜色和方向。
 
@@ -745,12 +745,12 @@ struct PopupExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/wOrZRzrlQbCmvYzcCpishw/zh-cn_image_0000002581435678.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024211Z&HW-CC-Expire=86400&HW-CC-Sign=BA1D6CEB84ED181E381985FE8BE23EF4C65CF3531CA7DE9EC4AAB26A988DCFAA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/wOrZRzrlQbCmvYzcCpishw/zh-cn_image_0000002581435678.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025545Z&HW-CC-Expire=86400&HW-CC-Sign=4C03CCB234479314DED5B0278CB5039F9DAA1FE922E320D133D401EA124C2280)
 
 
 
 
-##### 示例8（为气泡设置避让宿主模式）
+#### 示例8（为气泡设置避让宿主模式）
 
 该示例通过配置[PopupOptions](#popupoptions类型说明)的avoidTarget属性，实现气泡对其绑定组件的避让。
 
@@ -781,4 +781,4 @@ struct PopupExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/4uw9DviJSfO80VqJgF3KeQ/zh-cn_image_0000002611835509.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024211Z&HW-CC-Expire=86400&HW-CC-Sign=6D9334B7CBEA1AF1E3AE70431E5EF875E9174F377E0CD6BA4C1A88591AA6EAE1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/4uw9DviJSfO80VqJgF3KeQ/zh-cn_image_0000002611835509.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025545Z&HW-CC-Expire=86400&HW-CC-Sign=A49554B0F6247A74F71879D0881ACA3C4056BF2751DF6326BA3D6369CBF62995)

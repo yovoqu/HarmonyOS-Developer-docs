@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Wearable | lite_wearable
 
@@ -22,7 +22,7 @@ import brightness, { BrightnessModeResponse, BrightnessResponse } from '@system.
 
 
 
-##### brightness.getValue(deprecated)
+#### brightness.getValue(deprecated)
 
 **支持设备：** Wearable | lite_wearable
 
@@ -54,7 +54,7 @@ brightness.getValue({
 
 
 
-##### brightness.setValue(deprecated)
+#### brightness.setValue(deprecated)
 
 **支持设备：** Wearable | lite_wearable
 
@@ -87,7 +87,7 @@ brightness.setValue({
 
 
 
-##### brightness.getMode(deprecated)
+#### brightness.getMode(deprecated)
 
 **支持设备：** Wearable | lite_wearable
 
@@ -119,7 +119,7 @@ brightness.getMode({
 
 
 
-##### brightness.setMode(deprecated)
+#### brightness.setMode(deprecated)
 
 **支持设备：** Wearable | lite_wearable
 
@@ -152,7 +152,7 @@ brightness.setMode({
 
 
 
-##### brightness.setKeepScreenOn(deprecated)
+#### brightness.setKeepScreenOn(deprecated)
 
 **支持设备：** Wearable | lite_wearable
 
@@ -163,7 +163,7 @@ setKeepScreenOn(options?: SetKeepScreenOnOptions): void
 设置屏幕是否保持常亮状态，开启常亮模式推荐在onShow()阶段调用。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/s30Fu2PNRRKjM_evD95xMQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023815Z&HW-CC-Expire=86400&HW-CC-Sign=052BA1A2AC368EEB9DCAAE041911D1A84466743806EF94B028878EB29CCB0B78)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/s30Fu2PNRRKjM_evD95xMQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025149Z&HW-CC-Expire=86400&HW-CC-Sign=6CD8D14BAD6E38CEC64D3C1DCB0C2635711276BA5BBF70AEF80A269BEECC0C8B)
 
 
 在Lite Wearable上，该接口仅能阻止系统无活动超时灭屏（自动），无法阻止用户主动操作（如盖屏）、常亮时刻结束等导致的灭屏。
@@ -195,7 +195,7 @@ brightness.setKeepScreenOn({
 
 
 
-##### GetBrightnessOptions(deprecated)
+#### GetBrightnessOptions(deprecated)
 
 **支持设备：** Wearable | lite_wearable
 
@@ -212,7 +212,7 @@ brightness.setKeepScreenOn({
 
 
 
-##### SetBrightnessOptions(deprecated)
+#### SetBrightnessOptions(deprecated)
 
 **支持设备：** Wearable | lite_wearable
 
@@ -230,7 +230,7 @@ brightness.setKeepScreenOn({
 
 
 
-##### BrightnessResponse(deprecated)
+#### BrightnessResponse(deprecated)
 
 **支持设备：** Wearable | lite_wearable
 
@@ -245,7 +245,7 @@ brightness.setKeepScreenOn({
 
 
 
-##### GetBrightnessModeOptions(deprecated)
+#### GetBrightnessModeOptions(deprecated)
 
 **支持设备：** Wearable | lite_wearable
 
@@ -262,7 +262,7 @@ brightness.setKeepScreenOn({
 
 
 
-##### SetBrightnessModeOptions(deprecated)
+#### SetBrightnessModeOptions(deprecated)
 
 **支持设备：** Wearable | lite_wearable
 
@@ -280,7 +280,7 @@ brightness.setKeepScreenOn({
 
 
 
-##### BrightnessModeResponse(deprecated)
+#### BrightnessModeResponse(deprecated)
 
 **支持设备：** Wearable | lite_wearable
 
@@ -295,7 +295,7 @@ brightness.setKeepScreenOn({
 
 
 
-##### SetKeepScreenOnOptions(deprecated)
+#### SetKeepScreenOnOptions(deprecated)
 
 **支持设备：** Wearable | lite_wearable
 

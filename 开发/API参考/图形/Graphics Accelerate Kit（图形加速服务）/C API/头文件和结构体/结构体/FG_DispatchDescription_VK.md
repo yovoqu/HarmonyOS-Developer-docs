@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_g___dispatch_description___v_k
 **支持设备：** Phone | Tablet | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | Tablet | TV
 
@@ -19,13 +19,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | Tablet | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | Tablet | TV
  
@@ -42,13 +42,13 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** Phone | Tablet | TV
 
   
 
-##### frameIdx
+#### frameIdx
 
 **支持设备：** Phone | Tablet | TV
 
@@ -62,7 +62,7 @@ uint8_t FG_DispatchDescription_VK::frameIdx
  
   
 
-##### inputColorInfo
+#### inputColorInfo
 
 **支持设备：** Phone | Tablet | TV
 
@@ -76,7 +76,7 @@ FG_ImageInfo_VK FG_DispatchDescription_VK::inputColorInfo
  
   
 
-##### inputDepthStencilInfo
+#### inputDepthStencilInfo
 
 **支持设备：** Phone | Tablet | TV
 
@@ -90,7 +90,7 @@ FG_ImageInfo_VK FG_DispatchDescription_VK::inputDepthStencilInfo
  
   
 
-##### invViewProj
+#### invViewProj
 
 **支持设备：** Phone | Tablet | TV
 
@@ -104,7 +104,7 @@ FG_Mat4x4 FG_DispatchDescription_VK::invViewProj
  
   
 
-##### outputColorInfo
+#### outputColorInfo
 
 **支持设备：** Phone | Tablet | TV
 
@@ -118,7 +118,7 @@ FG_ImageInfo_VK FG_DispatchDescription_VK::outputColorInfo
  
   
 
-##### viewProj
+#### viewProj
 
 **支持设备：** Phone | Tablet | TV
 
@@ -132,7 +132,7 @@ FG_Mat4x4 FG_DispatchDescription_VK::viewProj
  
   
 
-##### vkCommandBuffer
+#### vkCommandBuffer
 
 **支持设备：** Phone | Tablet | TV
 

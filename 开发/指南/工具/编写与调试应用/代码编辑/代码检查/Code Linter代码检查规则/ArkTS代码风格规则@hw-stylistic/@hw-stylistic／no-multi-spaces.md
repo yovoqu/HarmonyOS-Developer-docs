@@ -7,7 +7,7 @@
 不允许出现连续多个空格，除非是换行。该规则仅检查.ets文件类型。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 export const message: string = 'Hello World';
@@ -34,7 +34,7 @@ export const message: string = 'Hello World';
  
  
 
-##### 反例
+#### 反例
 
 ```text
 // Multiple spaces found before 'message'.
@@ -46,7 +46,7 @@ export const   message:  string  =  'Hello World';
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">"plugin:@hw-stylistic/recommended"</span>

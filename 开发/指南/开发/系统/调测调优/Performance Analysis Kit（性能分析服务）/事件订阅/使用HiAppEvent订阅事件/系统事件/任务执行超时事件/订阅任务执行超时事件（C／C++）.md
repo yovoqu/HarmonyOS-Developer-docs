@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-apphicollie-events-ndk
 
-##### 简介
+#### 简介
 
 本文介绍如何使用HiAppEvent提供的C/C++接口订阅任务执行超时事件。接口的详细使用说明（参数限制、取值范围等）请参考[hiappevent.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hiappevent-h)。
 
 
 
-##### 接口说明
+#### 接口说明
 
 | 接口名 | 描述 |
 | --- | --- |
@@ -20,11 +20,11 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 
 
-##### 添加事件观察者
+#### 添加事件观察者
 
 以实现对用户点击按钮触发卡顿场景生成的卡顿事件订阅为例，说明开发步骤。
 1. 获取该示例工程依赖的jsoncpp文件，打开链接[HiAppEvent示例工程EventSub](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/PerformanceAnalysisKit/HiAppEvent/EventSub)，点击“下载当前目录”，下载EventSub工程文件。
@@ -202,7 +202,7 @@ Button('TestHiCollieTimerNdk')
 
 
 
-##### 验证观察者是否订阅到任务执行超时事件
+#### 验证观察者是否订阅到任务执行超时事件
 
 应用工程崩溃退出后再次运行可以在Log窗口看到对系统事件数据的处理日志。
 
@@ -228,7 +228,7 @@ HiAppEvent eventInfo.params.external_callback_log=THREAD_BLOCK_3S:log3s THREAD_B
 
 
 
-##### 移除并销毁事件观察者
+#### 移除并销毁事件观察者
 1. 移除事件观察者。
 
   

@@ -7,7 +7,7 @@
 dialog组件用于创建自定义弹窗，通常用来展示用户当前需要或用户必须关注的信息或操作。具体用法请参考[dialog API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-container-dialog)。
 
 
-##### 创建dialog组件
+#### 创建dialog组件
 
 在pages/index目录下的hml文件中创建一个dialog组件，并添加Button组件来触发dialog。dialog组件仅支持width、height、margin、margin-[left|top|right|bottom]、margin-[start|end]样式。
 
@@ -72,7 +72,7 @@ export default {
 
 
 
-##### 设置弹窗响应
+#### 设置弹窗响应
 
 开发者点击页面上非dialog的区域时，将触发cancel事件而关闭弹窗。同时也可以通过对dialog添加show和close方法来显示和关闭弹窗。
 
@@ -156,7 +156,7 @@ export default {
 
 
 
-##### 场景示例
+#### 场景示例
 
 在本场景中，开发者可以通过dialog组件实现一个日程表。弹窗在打开状态下，利用[textarea](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-textarea)组件输入当前日程，点击确认按钮后获取当前时间并保存输入文本。最后以列表形式将各日程进行展示。
 
@@ -314,4 +314,4 @@ export default {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/tk4UfDtARAKi5bp16DuIJA/zh-cn_image_0000002611833985.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014756Z&HW-CC-Expire=86400&HW-CC-Sign=475AA735D83E18607B825D711DDF70AD7692E4808F07DD8EF20444CED137FBB3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/tk4UfDtARAKi5bp16DuIJA/zh-cn_image_0000002611833985.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030428Z&HW-CC-Expire=86400&HW-CC-Sign=7A4032A903A4FF97E7021D44141C63917961DE83736E7F54A9B9369F242568A2)

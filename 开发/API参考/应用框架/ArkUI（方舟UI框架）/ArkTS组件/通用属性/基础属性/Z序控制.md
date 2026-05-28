@@ -12,7 +12,7 @@
 
   
 
-##### zIndex
+#### zIndex
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -42,13 +42,13 @@ zIndex(value: number): T
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 示例1（设置组件堆叠顺序）
+#### 示例1（设置组件堆叠顺序）
 
 该示例通过zIndex设置组件堆叠顺序。
  
@@ -93,7 +93,7 @@ Stack容器子组件设置zIndex后的效果。
  
   
 
-##### 示例2（动态修改zIndex属性）
+#### 示例2（动态修改zIndex属性）
 
 该示例使用Button组件动态修改zIndex属性。
  
@@ -146,7 +146,7 @@ struct ZIndexExample {
  
   
 
-##### 示例3（设置不同容器内组件的zIndex属性）
+#### 示例3（设置不同容器内组件的zIndex属性）
 
 该示例在不同容器内设置zIndex属性。其中，Text1、Text2和Text3在不同的Stack容器内。虽然Text3的zIndex值最小，但Text1、Text2仍无法按照预期显示在Text3的上方。
  
@@ -181,4 +181,4 @@ struct ZIndexExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/6WhpjW7DQEyGM34MCSXbcw/zh-cn_image_0000002581435614.png?HW-CC-KV=V1&HW-CC-Date=20260528T024209Z&HW-CC-Expire=86400&HW-CC-Sign=819D6CB05087FCF1147C04B39B37A66787D77E2641CE750CDF4C62B033C253B5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/6WhpjW7DQEyGM34MCSXbcw/zh-cn_image_0000002581435614.png?HW-CC-KV=V1&HW-CC-Date=20260528T025543Z&HW-CC-Expire=86400&HW-CC-Sign=A0548ED71397259935498C71F72E8245B068F694AAAAC37BB555519557C84907)

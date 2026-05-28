@@ -13,7 +13,7 @@
 
   
 
-##### 亮点/特征
+#### 亮点/特征
 
 - 丰富待机显示，提供个性美观的待机显示页面，打造全场景、个性化的“百变”心灵陪伴。
 - 提供情感陪伴和情绪价值，在工作的时候，日程待办，提升工作效率；在学习的时候，作为时钟摆台，陪伴学习。
@@ -21,14 +21,14 @@
  
   
 
-##### 约束和限制
+#### 约束和限制
 1. 待机屏保卡片只支持 2*2尺寸的卡片。
 2. 待机屏保卡片不推荐展示用户个人隐私敏感数据。
 3. 待机屏保卡片有明确的UX设计规范。具体请参考设计指南中的[待机屏保](https://developer.huawei.com/consumer/cn/doc/design-guides/system-features-service-widget-0000002087671904#section966618274556)。
  
   
 
-##### 开启方式
+#### 开启方式
 
 待机屏保功能在系统上默认是开启的，功能开关路径“设置>桌面和个性化>待机屏保设置”，开关界面如下图。
  
@@ -38,7 +38,7 @@
  
   
 
-##### 使用步骤
+#### 使用步骤
 
 待机屏保支持卡片展示与卡片编辑功能（添加、移除），具体操作步骤如下：
  1. 进入待机屏保界面：插入充电器或开启“不充电可显示” 开关，设备横屏锁屏并与桌面夹角45°~90°稳定摆放（折叠机需切换为外屏；同时折叠机支持帐篷模式显示），即可进入待机屏保界面。
@@ -74,11 +74,11 @@
  
   
 
-##### 开发准备
+#### 开发准备
 
   
 
-##### 待机屏保开放能力申请
+#### 待机屏保开放能力申请
 
 待机屏保卡片会展示在设备的待机屏保界面，开发者需申请上架开放能力，用以保护数据隐私安全。
  
@@ -110,14 +110,14 @@
 5. 返回“开放能力管理”页面，原“申请”按钮变为置灰显示的“申请”，待机屏保卡片的能力开关已勾选。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/HytMYODGTLK3pSwkBC-38g/zh-cn_image_0000002581434388.png?HW-CC-KV=V1&HW-CC-Date=20260528T014730Z&HW-CC-Expire=86400&HW-CC-Sign=87F7E4E5D63DC01741B0B8A73B57DC6556CA4D2C3AE37400F7DA5B287D511442)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/HytMYODGTLK3pSwkBC-38g/zh-cn_image_0000002581434388.png?HW-CC-KV=V1&HW-CC-Date=20260528T030400Z&HW-CC-Expire=86400&HW-CC-Sign=872013934FE64EF0BE8F4D291D5000DB22EE6E24FC7C142EB03393510464E4EF)
 
 
   至此，您的应用已成功开通待机屏保开放能力。
  
   
 
-##### 开发步骤
+#### 开发步骤
 
 下面给出示例，实现待机屏保卡片展示。
  1. [创建卡片](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-creation)。

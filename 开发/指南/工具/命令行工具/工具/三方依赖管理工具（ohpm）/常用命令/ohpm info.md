@@ -7,7 +7,7 @@
 查询指定三方库的具体信息。
  
 
-##### 命令格式
+#### 命令格式
 
 ```text
 ohpm info [options] [<@group>/]<pkg>[@<version> | @tag:<tag>] [field]
@@ -19,17 +19,17 @@ ohpm info [options] [<@group>/]<pkg>[@<version> | @tag:<tag>] [field]
 
  
 
-##### 功能描述
+#### 功能描述
 
 用于调用云端查询接口，查看指定包的详细信息，并将结果进行标准输出。
  
  
 
-##### Options
+#### Options
 
  
 
-##### registry
+#### registry
 
 - 默认值：""
 - 类型：URL
@@ -39,7 +39,7 @@ ohpm info [options] [<@group>/]<pkg>[@<version> | @tag:<tag>] [field]
  
  
 
-##### fetch_timeout
+#### fetch_timeout
 
 - 默认值：60000
 - 类型： Number
@@ -50,7 +50,7 @@ ohpm info [options] [<@group>/]<pkg>[@<version> | @tag:<tag>] [field]
  
  
 
-##### strict_ssl
+#### strict_ssl
 
 - 默认值：true
 - 类型： Boolean
@@ -60,7 +60,7 @@ ohpm info [options] [<@group>/]<pkg>[@<version> | @tag:<tag>] [field]
  
  
 
-##### pageNum
+#### pageNum
 
 - 默认值：1
 - 类型： Number
@@ -70,7 +70,7 @@ ohpm info [options] [<@group>/]<pkg>[@<version> | @tag:<tag>] [field]
  
  
 
-##### pageSize
+#### pageSize
 
 - 默认值：100
 - 类型： Number
@@ -80,7 +80,7 @@ ohpm info [options] [<@group>/]<pkg>[@<version> | @tag:<tag>] [field]
  
  
 
-##### debug
+#### debug
 
 - 默认值：false
 - 类型： Boolean
@@ -90,7 +90,7 @@ ohpm info [options] [<@group>/]<pkg>[@<version> | @tag:<tag>] [field]
  
  
 
-##### log_level
+#### log_level
 
 - 默认值：无
 - 类型： string
@@ -104,7 +104,7 @@ ohpm info [options] [<@group>/]<pkg>[@<version> | @tag:<tag>] [field]
  
  
 
-##### Field
+#### Field
 
 从ohpm 6.21.0版本开始，支持通过field查看三方库中元数据的属性，属性如下：
  
@@ -125,11 +125,11 @@ ohpm info [options] [<@group>/]<pkg>[@<version> | @tag:<tag>] [field]
 
  
 
-##### 示例
+#### 示例
 
  
 
-##### 示例1
+#### 示例1
 
 命令：
  
@@ -159,7 +159,7 @@ published 15 hours ago by ohos_tpc
  
  
 
-##### 示例2
+#### 示例2
 
 命令：
  
@@ -175,7 +175,7 @@ OpenHarmony, ImageKnife, glide, HarmonyOS
 ```
  
 
-##### 示例3
+#### 示例3
 
 命令：
  

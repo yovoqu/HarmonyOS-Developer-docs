@@ -12,7 +12,7 @@
 **起始版本：** 4.0.0(10)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -22,7 +22,7 @@ import { CollaborationDevicePicker } from '@kit.ServiceCollaborationKit';
  
   
 
-##### CollaborationDevicePicker
+#### CollaborationDevicePicker
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -40,7 +40,7 @@ import { CollaborationDevicePicker } from '@kit.ServiceCollaborationKit';
  
   
 
-##### build
+#### build
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

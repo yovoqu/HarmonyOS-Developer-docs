@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,13 +22,13 @@ import { PrintExtensionAbility } from '@kit.BasicServicesKit';
 
 
 
-##### PrintExtensionAbility
+#### PrintExtensionAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
 
 
-##### onCreate
+#### onCreate
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -61,7 +61,7 @@ export default class HWPrintExtension extends PrintExtensionAbility {
 
 
 
-##### onStartDiscoverPrinter
+#### onStartDiscoverPrinter
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -86,7 +86,7 @@ export default class HWPrintExtension extends PrintExtensionAbility {
 
 
 
-##### onStopDiscoverPrinter
+#### onStopDiscoverPrinter
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -111,7 +111,7 @@ export default class HWPrintExtension extends PrintExtensionAbility {
 
 
 
-##### onConnectPrinter
+#### onConnectPrinter
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -143,7 +143,7 @@ export default class HWPrintExtension extends PrintExtensionAbility {
 
 
 
-##### onDisconnectPrinter
+#### onDisconnectPrinter
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -175,7 +175,7 @@ export default class HWPrintExtension extends PrintExtensionAbility {
 
 
 
-##### onStartPrintJob24+
+#### onStartPrintJob24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -207,7 +207,7 @@ export default class HWPrintExtension extends PrintExtensionAbility {
 
 
 
-##### onCancelPrintJob24+
+#### onCancelPrintJob24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -239,7 +239,7 @@ export default class HWPrintExtension extends PrintExtensionAbility {
 
 
 
-##### onRequestPrinterCapability24+
+#### onRequestPrinterCapability24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -284,7 +284,7 @@ export default class HWPrintExtension extends PrintExtensionAbility {
 
 
 
-##### onDestroy
+#### onDestroy
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

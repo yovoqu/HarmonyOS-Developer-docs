@@ -9,13 +9,13 @@ ArkTS卡片提供卡片页面编辑能力，支持实现用户自定义卡片内
 卡片页面编辑分为半模态卡片编辑和全屏卡片编辑两种方式，从API version 18开始，支持半模态卡片编辑。
 
 
-##### 半模态卡片编辑
+#### 半模态卡片编辑
 
 下面给出一个示例，介绍半模态卡片编辑的使用步骤。
 
 
 
-##### 实现原理
+#### 实现原理
 
 
 ![](assets/ArkTS卡片编辑概述/file-20260514130942322-0.png)
@@ -33,7 +33,7 @@ ArkTS卡片提供卡片页面编辑能力，支持实现用户自定义卡片内
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. [创建卡片](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-creation)。
 2. 新增EntryFormEditAbility文件，用于实现[FormEditExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formeditextensionability)的半模态编辑组件，并在form_config.json文件中配置[formConfigAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-configuration#配置文件字段说明)字段。
 
@@ -101,11 +101,11 @@ ArkTS卡片提供卡片页面编辑能力，支持实现用户自定义卡片内
 
 
 
-##### 全屏卡片编辑
+#### 全屏卡片编辑
 
 
 
-##### 实现原理
+#### 实现原理
 
 
 ![](assets/ArkTS卡片编辑概述/file-20260514130942322-2.png)
@@ -116,7 +116,7 @@ ArkTS卡片提供卡片页面编辑能力，支持实现用户自定义卡片内
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 下面给出示例，实现如下功能：长按卡片弹出编辑菜单，点击“编辑”菜单项进入全屏编辑页，修改卡片内容。
 1. [创建卡片](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-creation)。

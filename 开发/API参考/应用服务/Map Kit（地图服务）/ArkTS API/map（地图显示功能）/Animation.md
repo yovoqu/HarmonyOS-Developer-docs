@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-animation
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -15,7 +15,7 @@ import { map } from '@kit.MapKit';
  
   
 
-##### Animation
+#### Animation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -62,7 +62,7 @@ animation.on("animationEnd", callbackEnd);
  
   
 
-##### setDuration
+#### setDuration
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -93,7 +93,7 @@ animation.setDuration(3000);
  
   
 
-##### setFillMode
+#### setFillMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -124,7 +124,7 @@ animation.setFillMode(map.AnimationFillMode.BACKWARDS);
  
   
 
-##### setInterpolator
+#### setInterpolator
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -155,7 +155,7 @@ animation.setInterpolator(Curve.Linear);
  
   
 
-##### setRepeatCount
+#### setRepeatCount
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -186,7 +186,7 @@ animation.setRepeatCount(100);
  
   
 
-##### setRepeatMode
+#### setRepeatMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -217,7 +217,7 @@ animation.setRepeatMode(map.AnimationRepeatMode.RESTART);
  
   
 
-##### on('start')
+#### on('start')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -253,7 +253,7 @@ animation.on("start", () => {
  
   
 
-##### off('start')
+#### off('start')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -289,7 +289,7 @@ animation.off("start", () => {
  
   
 
-##### on('end')
+#### on('end')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -325,7 +325,7 @@ animation.on("end", () => {
  
   
 
-##### off('end')
+#### off('end')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -361,7 +361,7 @@ animation.off("end", () => {
  
   
 
-##### on('animationStart')
+#### on('animationStart')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -404,7 +404,7 @@ animation.on("animationStart", callback3);
  
   
 
-##### off('animationStart')
+#### off('animationStart')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -452,7 +452,7 @@ animation.off('animationStart');
  
   
 
-##### on('animationEnd')
+#### on('animationEnd')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -495,7 +495,7 @@ animation.on("animationEnd", callback3);
  
   
 
-##### off('animationEnd')
+#### off('animationEnd')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

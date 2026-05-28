@@ -12,13 +12,13 @@
 
   
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### RotationGesture
+#### RotationGesture
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -39,7 +39,7 @@ RotationGesture(value?: { fingers?: number; angle?: number })
  
   
 
-##### RotationGesture15+
+#### RotationGesture15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -60,7 +60,7 @@ RotationGesture(options?: RotationGestureHandlerOptions)
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -70,7 +70,7 @@ RotationGesture(options?: RotationGestureHandlerOptions)
  
   
 
-##### onActionStart
+#### onActionStart
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -91,7 +91,7 @@ Rotation手势识别成功后触发的回调。
  
   
 
-##### onActionUpdate
+#### onActionUpdate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -112,7 +112,7 @@ Rotation手势移动过程中触发的回调。
  
   
 
-##### onActionEnd
+#### onActionEnd
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -133,7 +133,7 @@ Rotation手势识别成功，当抬起最后一根满足手势触发条件的手
  
   
 
-##### onActionCancel
+#### onActionCancel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -154,7 +154,7 @@ Rotation手势识别成功，接收到触摸取消事件触发的回调。该回
  
   
 
-##### onActionCancel18+
+#### onActionCancel18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -175,7 +175,7 @@ Rotation手势识别成功，接收到触摸取消事件触发的回调。与[on
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -222,4 +222,4 @@ struct RotationGestureExample {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/-LcY2IkeRha222tuTql3sw/zh-cn_image_0000002581435712.png?HW-CC-KV=V1&HW-CC-Date=20260528T024201Z&HW-CC-Expire=86400&HW-CC-Sign=F543E2D3F86EBDEAD61067B6EAFCD70828B1043C0AA429038EB910B72C1B275B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/-LcY2IkeRha222tuTql3sw/zh-cn_image_0000002581435712.png?HW-CC-KV=V1&HW-CC-Date=20260528T025533Z&HW-CC-Expire=86400&HW-CC-Sign=6678B1D307E0E95D21DA9EE27175AA25A1227EB99AEB970BE16E27D93FB33ADE)

@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-background-process-manager-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -41,7 +41,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -53,13 +53,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### BackgroundProcessManager_ProcessPriority
+#### BackgroundProcessManager_ProcessPriority
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -81,7 +81,7 @@ enum BackgroundProcessManager_ProcessPriority
  
   
 
-##### BackgroundProcessManager_ErrorCode
+#### BackgroundProcessManager_ErrorCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -104,13 +104,13 @@ enum BackgroundProcessManager_ErrorCode
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_BackgroundProcessManager_SetProcessPriority()
+#### OH_BackgroundProcessManager_SetProcessPriority()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -141,7 +141,7 @@ int OH_BackgroundProcessManager_SetProcessPriority(int pid, BackgroundProcessMan
  
   
 
-##### OH_BackgroundProcessManager_ResetProcessPriority()
+#### OH_BackgroundProcessManager_ResetProcessPriority()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

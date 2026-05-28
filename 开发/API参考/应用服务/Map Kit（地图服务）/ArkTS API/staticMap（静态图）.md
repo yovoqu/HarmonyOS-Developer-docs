@@ -10,7 +10,7 @@
 **起始版本：** 4.1.0(11)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -20,7 +20,7 @@ import { staticMap } from '@kit.MapKit';
  
   
 
-##### getMapImage
+#### getMapImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -86,7 +86,7 @@ await staticMap.getMapImage(staticMapOptions);
  
   
 
-##### getMapImage
+#### getMapImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -153,7 +153,7 @@ await staticMap.getMapImage(this.getUIContext().getHostContext(), staticMapOptio
  
   
 
-##### StaticMapOptions
+#### StaticMapOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -194,7 +194,7 @@ let staticMapOptions: staticMap.StaticMapOptions = {
  
   
 
-##### StaticMapMarker
+#### StaticMapMarker
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -236,7 +236,7 @@ let staticMapMarker: staticMap.StaticMapMarker = {
  
   
 
-##### StaticMapPath
+#### StaticMapPath
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -277,7 +277,7 @@ let staticMapPath: staticMap.StaticMapPath = {
  
   
 
-##### IconSize
+#### IconSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

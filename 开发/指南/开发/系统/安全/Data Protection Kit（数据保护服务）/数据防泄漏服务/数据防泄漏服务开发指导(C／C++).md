@@ -13,7 +13,7 @@
 
 
 
-##### 接口说明
+#### 接口说明
 
 数据防泄漏服务关键接口如下表所示。具体API说明详见[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-dlp-permission-api-h)
 
@@ -29,7 +29,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 在CMakeLists.txt中导入数据防泄漏的共享库，并链接该库。
 
   

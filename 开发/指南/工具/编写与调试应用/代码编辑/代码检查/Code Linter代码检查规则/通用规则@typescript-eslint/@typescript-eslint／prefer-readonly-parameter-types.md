@@ -9,7 +9,7 @@
 该规则校验比较严格，由开发者自主判断是否需要修复告警。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -22,13 +22,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/prefer-readonly-parameter-types选项](https://typescript-eslint.nodejs.cn/rules/prefer-readonly-parameter-types/#options)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 const index = 0;
@@ -70,7 +70,7 @@ export function primitive6(arg: undefined): void {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 const index = 0;
@@ -92,7 +92,7 @@ export function array4(arg: [string[], number]): void {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

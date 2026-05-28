@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -22,7 +22,7 @@ import { ContentFormCard, FormType } from '@kit.ArkData';
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -30,7 +30,7 @@ import { ContentFormCard, FormType } from '@kit.ArkData';
  
   
 
-##### ContentFormCard
+#### ContentFormCard
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -53,7 +53,7 @@ ContentFormCard({contentFormData: uniformDataStruct.ContentForm, formType: FormT
  
   
 
-##### FormType
+#### FormType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -70,7 +70,7 @@ ContentFormCard({contentFormData: uniformDataStruct.ContentForm, formType: FormT
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

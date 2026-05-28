@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hilog-tool
 
-##### 使用场景
+#### 使用场景
 
 当前hilog日志为编码后二进制形式保存的gz格式文件，开发者从设备/data/log/hilog路径下导出后无法直接解压查看，需要使用hilogtool工具进行解析，将转换为明文hilog日志。
  
@@ -14,17 +14,17 @@
  
   
 
-##### 使用指导
+#### 使用指导
 
   
 
-##### 工具获取
+#### 工具获取
 
 下载HarmonyOS SDK，hilogtool解析工具默认在对应平台的 hms/toolchains目录下。
  
   
 
-##### 环境配置
+#### 环境配置
 
 **Windows环境变量设置方法**
  
@@ -78,7 +78,7 @@ source ~/.zshrc
  
   
 
-##### 使用方法
+#### 使用方法
 
 **命令：**
  
@@ -104,11 +104,11 @@ hilogtool parse --input xxx --output xxx --dict xxx
  
   
 
-##### 常用解析命令示例
+#### 常用解析命令示例
 
   
 
-##### 解析当前目录下所有的hilog文件（推荐）
+#### 解析当前目录下所有的hilog文件（推荐）
 
 在当前日志所在目录，通过cmd进入shell窗口，在shell窗口直接执行hilogtool parse，即可进行解析操作，如下图：
  
@@ -118,7 +118,7 @@ hilogtool parse --input xxx --output xxx --dict xxx
  
   
 
-##### 解析指定目录下的hilog文件
+#### 解析指定目录下的hilog文件
 
 hilogtool parse -i D:\09-temp\dict-test -d D:\09-temp\dict-test
  
@@ -128,23 +128,23 @@ hilogtool parse -i D:\09-temp\dict-test -d D:\09-temp\dict-test
  
   
 
-##### 解析单个hilog文件
+#### 解析单个hilog文件
 
 hilogtool parse -i D:\09-temp\dict-test\hilog.025.20231020-154659.gz -d D:\09-temp\dict-test
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/600yHmmgRlmK2a5jHdlduw/zh-cn_image_0000002581434608.png?HW-CC-KV=V1&HW-CC-Date=20260528T014557Z&HW-CC-Expire=86400&HW-CC-Sign=70BAC130C6C2B10B8629B06C3D631339223330D6172017F7EDA7DB552A980622)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/600yHmmgRlmK2a5jHdlduw/zh-cn_image_0000002581434608.png?HW-CC-KV=V1&HW-CC-Date=20260528T030227Z&HW-CC-Expire=86400&HW-CC-Sign=58DAEE8B2408F8B33335718D7E4793B3FD9E68EC9A85A6668491942D0E8E9019)
 
  
   
 
-##### 自动化脚本
+#### 自动化脚本
 
 自动化调试脚本，将脚本与hilogtool工具放在同一目录下，执行get_hilog.bat，脚本会导出设备中的data/log/hilog日志，并且自动解析生成明文日志。
  
   
 
-##### windows平台脚本
+#### windows平台脚本
 
 windows平台 get_hilog.bat 脚本内容参考：
  
@@ -161,12 +161,12 @@ pause
 脚本运行结果：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e/v3/HXqpKul_TFuFjg8IrWT3dQ/zh-cn_image_0000002611834439.png?HW-CC-KV=V1&HW-CC-Date=20260528T014557Z&HW-CC-Expire=86400&HW-CC-Sign=A8BA7376A94D732EE77CF5C459F19925C6267D11E5B9CEC30F05B2EAB3058DB3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e/v3/HXqpKul_TFuFjg8IrWT3dQ/zh-cn_image_0000002611834439.png?HW-CC-KV=V1&HW-CC-Date=20260528T030227Z&HW-CC-Expire=86400&HW-CC-Sign=083908ABAD40C70AA9774C8961FC5D8C63A48D638C247CD0B2A46784D765A104)
 
  
   
 
-##### mac平台脚本
+#### mac平台脚本
 
 mac平台脚本内容参考：
  
@@ -180,23 +180,23 @@ hdc file recv /data/log/hilog/ ./$Dir/
  
   
 
-##### 可能有影响的场景
+#### 可能有影响的场景
 
   
 
-##### 自动化分析日志
+#### 自动化分析日志
 
 部分领域涉及到自动化分析/data/log/hilog目录下的明文日志文件，目前hilog轻量化后，日志以二进制保存，需要使用上述解析工具适配一下自动化反编译二进制日志动作。
  
   
 
-##### 日志转发他人
+#### 日志转发他人
 
 直接从手机/data/log/hilog目录下recv出来的日志文件为二进制日志文件，直接发送给他人，无法正常查看，建议解析后再发送，或者将二进制日志文件与数据字典一同转发。
  
   
 
-##### 错误码
+#### 错误码
  
 | 错误码 | 含义 | 处理方法 |
 | --- | --- | --- |
@@ -208,7 +208,7 @@ hdc file recv /data/log/hilog/ ./$Dir/
  
   
 
-##### 常见问题
+#### 常见问题
 
 **问题现象**
  

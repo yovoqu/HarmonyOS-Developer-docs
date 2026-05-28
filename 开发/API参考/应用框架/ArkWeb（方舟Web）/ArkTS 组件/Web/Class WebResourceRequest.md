@@ -12,7 +12,7 @@ Web组件获取资源请求对象。示例代码参考[onErrorReceive事件](htt
 
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ WebResourceRequest的构造函数。
  
   
 
-##### getRequestHeader
+#### getRequestHeader
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -43,7 +43,7 @@ getRequestHeader(): Array&lt;Header&gt;
  
   
 
-##### getRequestUrl
+#### getRequestUrl
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -62,7 +62,7 @@ getRequestUrl(): string
  
   
 
-##### isMainFrame
+#### isMainFrame
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -81,7 +81,7 @@ isMainFrame(): boolean
  
   
 
-##### isRedirect
+#### isRedirect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -100,7 +100,7 @@ isRedirect(): boolean
  
   
 
-##### isRequestGesture
+#### isRequestGesture
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -119,7 +119,7 @@ isRequestGesture(): boolean
  
   
 
-##### getRequestMethod9+
+#### getRequestMethod9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

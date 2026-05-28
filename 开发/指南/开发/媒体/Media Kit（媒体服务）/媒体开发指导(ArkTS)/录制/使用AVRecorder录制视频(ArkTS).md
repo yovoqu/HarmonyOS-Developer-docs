@@ -19,7 +19,7 @@
 状态的详细说明请参考[AVRecorderState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-t#avrecorderstate9)。
 
 
-##### 申请权限
+#### 申请权限
 
 在开发此功能前，开发者应根据实际需求申请相关权限：
 
@@ -35,7 +35,7 @@
 
 
 
-##### 开发步骤及注意事项
+#### 开发步骤及注意事项
 
 > [!NOTE]
 > AVRecorder只负责视频数据的处理，需要与视频数据采集模块配合才能完成视频录制。视频数据采集模块需要通过Surface将视频数据传递给AVRecorder进行数据处理。当前主流的数据采集模块为相机模块，详细实现请参考 相机-录像 。 关于文件的创建与存储操作，请参考 应用文件访问与管理 ，默认存储在应用的沙箱路径之下，如需存储至图库，请使用 安全控件保存媒体资源 对沙箱内文件进行存储。
@@ -158,7 +158,7 @@ this.avRecorder?.getInputSurface().then((surfaceId: string) => {
 
 
 
-##### 完整示例
+#### 完整示例
 
 参考以下示例，完成“开始录制-暂停录制-恢复录制-停止录制”的完整流程。
 

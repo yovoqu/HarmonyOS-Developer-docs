@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-taskpool_usage_specifications_and_faqs
 
-##### 概述
+#### 概述
 
 [任务池（TaskPool）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/taskpool-introduction)基于池化思想和任务机制，提供了一系列并发API，旨在充分发挥多核CPU的优势，降低主线程负载，提高程序性能。使用TaskPool进行开发需遵守一些规范，并综合业务和并发特性，细分场景使用。违反这些规范可能会导致性能劣化，引起稳定性或者其他非预期的问题。
  
@@ -12,11 +12,11 @@
  
  
 
-##### TaskPool使用规范
+#### TaskPool使用规范
 
  
 
-##### 根据业务场景合理划分项目结构，避免在子线程中直接或间接引入UI
+#### 根据业务场景合理划分项目结构，避免在子线程中直接或间接引入UI
 
  
 **场景描述**
@@ -141,7 +141,7 @@ taskpool.execute(correctConcurrentFunc)
 将原先涉及UI的class（此处为Bar）剥离到单独的文件中，子线程再去导入不涉及UI的class（此处为Foo），这样就能确保应用正确运行。这样划分结构有利于提高程序正确性、执行效率和可维护性。
  
 
-##### 在长时任务中注册监听事件，避免在非长时任务中使用带有监听性质的接口
+#### 在长时任务中注册监听事件，避免在非长时任务中使用带有监听性质的接口
 
  
 **场景描述**
@@ -237,7 +237,7 @@ taskpool.execute(task)
 需要根据业务诉求合理选择任务类型。像http类的监听性质的接口适合使用长时任务，同时主动管理任务所在线程的生命周期，在具体逻辑执行完成后调用terminateTask()接口(通常在拿到结果时调用，即await之后或then逻辑里)，释放资源，避免造成执行长时任务的线程长时间不释放。
  
 
-##### 使用emitter和LongTask()的组合实现回调场景的通信诉求，避免在回调函数中使用sendData()
+#### 使用emitter和LongTask()的组合实现回调场景的通信诉求，避免在回调函数中使用sendData()
 
 **场景描述**
  
@@ -330,7 +330,7 @@ taskpool.execute(task)
  
  
 
-##### 根据业务场景和性能数据控制并发度
+#### 根据业务场景和性能数据控制并发度
 
  
 **场景描述**
@@ -396,7 +396,7 @@ histogramStatistic(buffer);
 上例是一段处理图片的代码。在示例中将图片buffer分成3段，使用TaskPool的TaskGroup接口分发一组任务到多个子线程计算，同时接收多个结果，再返回UI线程展示。
  
 
-##### 正确处理业务逻辑异常情况，避免Task损耗
+#### 正确处理业务逻辑异常情况，避免Task损耗
 
 **场景描述**
  
@@ -504,7 +504,7 @@ taskpool.execute(correctConcurrentFunc2).catch((error: BusinessError) => {
  
  
 
-##### ArkTS线程间传递对象遵守序列化
+#### ArkTS线程间传递对象遵守序列化
 
  
 **场景描述**
@@ -564,11 +564,11 @@ taskpool.execute(returnPromise).catch((e: BusinessError) => {
 反例2中尝试返回一个pending状态的promise，目前会被拦截，需要在当前线程完成对promise的操作。
  
 
-##### 常见问题
+#### 常见问题
 
  
 
-##### 使用TaskPool时不遵循最小化导入原则有什么影响
+#### 使用TaskPool时不遵循最小化导入原则有什么影响
 
  
 根据ECMA规范，导入方法和变量的时候，JavaScript运行时会根据开发者指定的入口文件开始深度遍历import链上的每个文件，并先从叶子节点执行文件。每个文件只会运行一次，然后存放在线程缓存中，后续加载可直接获取。
@@ -598,7 +598,7 @@ function concurrentFunc() {
 
  
 
-##### 子线程使用同步接口和异步接口有什么差异 ，使用哪种接口比较合适
+#### 子线程使用同步接口和异步接口有什么差异 ，使用哪种接口比较合适
 
  
 TaskPool线程池线程的最大数量是有限的，当前策略是maxThreads=CPU核数 -1，因此基于当前的设备，正常情况下线程数上限为11个。当所有线程都被占用时，后续的任务可能不会被及时调度。因此，在工作线程中推荐使用异步接口而非同步接口，在等待I/O时能够及时处理新入队的任务，避免任务池阻塞。
@@ -631,7 +631,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 ```
  
 
-##### 使用Sendable传输数据与使用深拷贝传输数据有什么差异
+#### 使用Sendable传输数据与使用深拷贝传输数据有什么差异
 
 默认情况下，Sendable数据被分配在共享堆SharedHeap中，其在ArkTS并发实例间是通过引用传递数据。区别于深拷贝的方式，在trace上的直观表现是序列化和反序列化的时间明显减少，因此非常适用于性能敏感的场景。
  
@@ -643,7 +643,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
  
  
 
-##### Napi回调耗时长如何处理
+#### Napi回调耗时长如何处理
 
 ArkTS的执行是在单线程中进行的，这意味着异步函数不会自己创建线程。 即使用了TaskPool，任务在任务池的子线程执行，但是结果逻辑是需要返回到任务的宿主线程处理的。
  
@@ -653,6 +653,6 @@ ArkTS的执行是在单线程中进行的，这意味着异步函数不会自己
 当Promise状态变为Fulfield之后会执行微任务队列，即执行开发者定义的await之后的逻辑或者then的逻辑。这段耗时和微任务的逻辑和数量密切相关，Napi complete的Trace也会统计这段耗时。这段耗时并不是系统造成的，而是开发者自己的代码的耗时。如果耗时较长，例如在forEach里对返回的数据做复杂的加工处理，渲染UI等，可能会有掉帧的风险。
  
 
-##### 示例代码
+#### 示例代码
 
 - [TaskPool使用规范样例代码工程](https://gitcode.com/harmonyos_samples/BestPracticeSnippets/tree/master/TaskPoolPractice)

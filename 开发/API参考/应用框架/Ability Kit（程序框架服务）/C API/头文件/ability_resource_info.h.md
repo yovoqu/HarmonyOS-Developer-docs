@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ability-resource-info-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -40,7 +40,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -59,13 +59,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_NativeBundle_GetBundleName()
+#### OH_NativeBundle_GetBundleName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -96,7 +96,7 @@ BundleManager_ErrorCode OH_NativeBundle_GetBundleName(OH_NativeBundle_AbilityRes
  
   
 
-##### OH_NativeBundle_GetModuleName()
+#### OH_NativeBundle_GetModuleName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -127,7 +127,7 @@ BundleManager_ErrorCode OH_NativeBundle_GetModuleName(OH_NativeBundle_AbilityRes
  
   
 
-##### OH_NativeBundle_GetAbilityName()
+#### OH_NativeBundle_GetAbilityName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -158,7 +158,7 @@ BundleManager_ErrorCode OH_NativeBundle_GetAbilityName(OH_NativeBundle_AbilityRe
  
   
 
-##### OH_NativeBundle_GetDrawableDescriptor()
+#### OH_NativeBundle_GetDrawableDescriptor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -189,7 +189,7 @@ BundleManager_ErrorCode OH_NativeBundle_GetDrawableDescriptor(OH_NativeBundle_Ab
  
   
 
-##### OH_NativeBundle_GetLabel()
+#### OH_NativeBundle_GetLabel()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -220,7 +220,7 @@ BundleManager_ErrorCode OH_NativeBundle_GetLabel(OH_NativeBundle_AbilityResource
  
   
 
-##### OH_NativeBundle_GetAppIndex()
+#### OH_NativeBundle_GetAppIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -251,7 +251,7 @@ BundleManager_ErrorCode OH_NativeBundle_GetAppIndex(OH_NativeBundle_AbilityResou
  
   
 
-##### OH_NativeBundle_CheckDefaultApp()
+#### OH_NativeBundle_CheckDefaultApp()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -282,7 +282,7 @@ BundleManager_ErrorCode OH_NativeBundle_CheckDefaultApp(OH_NativeBundle_AbilityR
  
   
 
-##### OH_AbilityResourceInfo_Destroy()
+#### OH_AbilityResourceInfo_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -313,7 +313,7 @@ BundleManager_ErrorCode OH_AbilityResourceInfo_Destroy(OH_NativeBundle_AbilityRe
  
   
 
-##### OH_NativeBundle_GetSize()
+#### OH_NativeBundle_GetSize()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

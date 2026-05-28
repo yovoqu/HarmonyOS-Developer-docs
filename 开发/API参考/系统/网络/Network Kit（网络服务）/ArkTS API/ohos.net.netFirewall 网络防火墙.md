@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** PC/2in1
 
@@ -22,7 +22,7 @@ import { netFirewall } from '@kit.NetworkKit';
 
 
 
-##### netFirewall.setNetFirewallPolicy
+#### netFirewall.setNetFirewallPolicy
 
 **支持设备：** PC/2in1
 
@@ -87,7 +87,7 @@ netFirewall.setNetFirewallPolicy(100, policy).then(() => {
 
 
 
-##### netFirewall.getNetFirewallPolicy
+#### netFirewall.getNetFirewallPolicy
 
 **支持设备：** PC/2in1
 
@@ -142,7 +142,7 @@ netFirewall.getNetFirewallPolicy(100).then((result: netFirewall.NetFirewallPolic
 
 
 
-##### netFirewall.addNetFirewallRule
+#### netFirewall.addNetFirewallRule
 
 **支持设备：** PC/2in1
 
@@ -299,7 +299,7 @@ netFirewall.addNetFirewallRule(dnsRule).then((result: number) => {
 
 
 
-##### netFirewall.removeNetFirewallRule
+#### netFirewall.removeNetFirewallRule
 
 **支持设备：** PC/2in1
 
@@ -356,7 +356,7 @@ netFirewall.removeNetFirewallRule(100, 1).then(() => {
 
 
 
-##### netFirewall.updateNetFirewallRule
+#### netFirewall.updateNetFirewallRule
 
 **支持设备：** PC/2in1
 
@@ -440,7 +440,7 @@ netFirewall.updateNetFirewallRule(ipRuleUpd).then(() => {
 
 
 
-##### netFirewall.getNetFirewallRules
+#### netFirewall.getNetFirewallRules
 
 **支持设备：** PC/2in1
 
@@ -502,7 +502,7 @@ netFirewall.getNetFirewallRules(100, ruleParam).then((result: netFirewall.Firewa
 
 
 
-##### netFirewall.getNetFirewallRule
+#### netFirewall.getNetFirewallRule
 
 **支持设备：** PC/2in1
 
@@ -559,7 +559,7 @@ netFirewall.getNetFirewallRule(100, 1).then((rule: netFirewall.NetFirewallRule) 
 
 
 
-##### NetFirewallRule
+#### NetFirewallRule
 
 **支持设备：** PC/2in1
 
@@ -589,7 +589,7 @@ netFirewall.getNetFirewallRule(100, 1).then((rule: netFirewall.NetFirewallRule) 
 
 
 
-##### RequestParam
+#### RequestParam
 
 **支持设备：** PC/2in1
 
@@ -607,7 +607,7 @@ netFirewall.getNetFirewallRule(100, 1).then((rule: netFirewall.NetFirewallRule) 
 
 
 
-##### FirewallRulePage
+#### FirewallRulePage
 
 **支持设备：** PC/2in1
 
@@ -625,7 +625,7 @@ netFirewall.getNetFirewallRule(100, 1).then((rule: netFirewall.NetFirewallRule) 
 
 
 
-##### NetFirewallPolicy
+#### NetFirewallPolicy
 
 **支持设备：** PC/2in1
 
@@ -642,7 +642,7 @@ netFirewall.getNetFirewallRule(100, 1).then((rule: netFirewall.NetFirewallRule) 
 
 
 
-##### NetFirewallRuleDirection
+#### NetFirewallRuleDirection
 
 **支持设备：** PC/2in1
 
@@ -658,7 +658,7 @@ netFirewall.getNetFirewallRule(100, 1).then((rule: netFirewall.NetFirewallRule) 
 
 
 
-##### FirewallRuleAction
+#### FirewallRuleAction
 
 **支持设备：** PC/2in1
 
@@ -674,7 +674,7 @@ netFirewall.getNetFirewallRule(100, 1).then((rule: netFirewall.NetFirewallRule) 
 
 
 
-##### NetFirewallRuleType
+#### NetFirewallRuleType
 
 **支持设备：** PC/2in1
 
@@ -691,7 +691,7 @@ netFirewall.getNetFirewallRule(100, 1).then((rule: netFirewall.NetFirewallRule) 
 
 
 
-##### NetFirewallOrderField
+#### NetFirewallOrderField
 
 **支持设备：** PC/2in1
 
@@ -711,7 +711,7 @@ netFirewall.getNetFirewallRule(100, 1).then((rule: netFirewall.NetFirewallRule) 
 
 
 
-##### NetFirewallOrderType
+#### NetFirewallOrderType
 
 **支持设备：** PC/2in1
 
@@ -727,7 +727,7 @@ netFirewall.getNetFirewallRule(100, 1).then((rule: netFirewall.NetFirewallRule) 
 
 
 
-##### NetFirewallIpParams
+#### NetFirewallIpParams
 
 **支持设备：** PC/2in1
 
@@ -747,7 +747,7 @@ netFirewall.getNetFirewallRule(100, 1).then((rule: netFirewall.NetFirewallRule) 
 
 
 
-##### NetFirewallPortParams
+#### NetFirewallPortParams
 
 **支持设备：** PC/2in1
 
@@ -763,7 +763,7 @@ netFirewall.getNetFirewallRule(100, 1).then((rule: netFirewall.NetFirewallRule) 
 
 
 
-##### NetFirewallDomainParams
+#### NetFirewallDomainParams
 
 **支持设备：** PC/2in1
 
@@ -779,7 +779,7 @@ netFirewall.getNetFirewallRule(100, 1).then((rule: netFirewall.NetFirewallRule) 
 
 
 
-##### NetFirewallDnsParams
+#### NetFirewallDnsParams
 
 **支持设备：** PC/2in1
 

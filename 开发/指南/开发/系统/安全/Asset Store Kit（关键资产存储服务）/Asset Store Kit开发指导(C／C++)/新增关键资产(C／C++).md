@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/asset-native-add
 
-##### 接口介绍
+#### 接口介绍
 
 开发者可以查阅API文档，获取关键资产新增接口的详细说明：[OH_Asset_Add](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-asset-api-h#oh_asset_add)。
 
@@ -47,7 +47,7 @@
 
 
 
-##### 约束和限制
+#### 约束和限制
 
  - 基于别名的访问
 
@@ -62,7 +62,7 @@ ASSET为业务预留了12个关键资产自定义属性，名称以"ASSET_TAG_DA
 
 
 
-##### 代码示例
+#### 代码示例
 
 新增密码为demo_pwd、别名为demo_alias、附属信息为demo_label的关键资产。用户首次解锁设备后，该关键资产可被访问。
 

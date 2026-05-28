@@ -16,7 +16,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -26,7 +26,7 @@ import { cloudData } from '@kit.ArkData';
 
 
 
-##### StrategyType
+#### StrategyType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -41,7 +41,7 @@ import { cloudData } from '@kit.ArkData';
 
 
 
-##### NetWorkStrategy
+#### NetWorkStrategy
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -57,7 +57,7 @@ import { cloudData } from '@kit.ArkData';
 
 
 
-##### cloudData.setCloudStrategy
+#### cloudData.setCloudStrategy
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

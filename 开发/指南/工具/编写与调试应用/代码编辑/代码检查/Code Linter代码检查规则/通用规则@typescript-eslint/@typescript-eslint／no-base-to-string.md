@@ -7,7 +7,7 @@
 要求当一个对象在字符串化时提供了有用的信息，才能调用“toString()”方法。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/no-base-to-string选项](https://typescript-eslint.nodejs.cn/rules/no-base-to-string/#options)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 // These types all have useful .toString()s
@@ -40,7 +40,7 @@ export const v2 = `Value: ${num}`;
  
  
 
-##### 反例
+#### 反例
 
 ```text
 interface MyType {
@@ -63,7 +63,7 @@ export const v4 = obj.toString();
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

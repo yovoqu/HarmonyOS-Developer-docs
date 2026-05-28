@@ -10,7 +10,7 @@
 **起始版本：** 5.0.5(17)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** PC/2in1
 
@@ -20,7 +20,7 @@ import { openFileBoost } from '@kit.PreviewKit';
 
 
 
-##### FilePreloadState
+#### FilePreloadState
 
 **支持设备：** PC/2in1
 
@@ -39,7 +39,7 @@ import { openFileBoost } from '@kit.PreviewKit';
 
 
 
-##### FilePreloadStatusInfo
+#### FilePreloadStatusInfo
 
 **支持设备：** PC/2in1
 
@@ -58,7 +58,7 @@ import { openFileBoost } from '@kit.PreviewKit';
 
 
 
-##### openFileBoost.on('filePreloadStateChanged')
+#### openFileBoost.on('filePreloadStateChanged')
 
 **支持设备：** PC/2in1
 
@@ -124,7 +124,7 @@ function register(): void {
 
 
 
-##### openFileBoost.off('filePreloadStateChanged')
+#### openFileBoost.off('filePreloadStateChanged')
 
 **支持设备：** PC/2in1
 
@@ -191,7 +191,7 @@ function testUnregister(): void {
 
 
 
-##### openFileBoost.addFile
+#### openFileBoost.addFile
 
 **支持设备：** PC/2in1
 
@@ -254,7 +254,7 @@ function testAddFile(): void {
 
 
 
-##### openFileBoost.removeFile
+#### openFileBoost.removeFile
 
 **支持设备：** PC/2in1
 
@@ -303,7 +303,7 @@ try {
 
 
 
-##### openFileBoost.queryFilePreloadStatusInfo
+#### openFileBoost.queryFilePreloadStatusInfo
 
 **支持设备：** PC/2in1
 

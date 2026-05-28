@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-semantics
 
-##### 约束与限制
+#### 约束与限制
 
 从5.1.0(18)开始，识别平面语义能力支持部分Phone、部分Tablet设备。请参考[硬件要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-preparations#硬件要求)判断设备是否支持平面及物体语义特性（[ARENGINE_FEATURE_TYPE_SEMANTIC](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arfeaturetype)）。
 
 
 
-##### 接口说明
+#### 接口说明
 
 获取平面语义信息可以通过[ARPlane](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arplane)平面对象获取，以下接口为平面相关接口。详细接口和说明，请参考[AR Engine API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine)。
 
@@ -27,7 +27,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 AR Engine仅输出识别到的平面数据。为便于用户观察，可使用AGP（Ark Graphics Platform）渲染引擎或者[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)绘制识别的平面。关于AGP的介绍可以查看[ArkGraphics 3D简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkgraphics3d-overview)和[AGP引擎](https://gitcode.com/openharmony/graphic_graphic_3d)。
 
@@ -37,7 +37,7 @@ AR Engine仅输出识别到的平面数据。为便于用户观察，可使用AG
 
 
 
-##### 导入模块
+#### 导入模块
 
 识别平面语义能力所需要导入的模块如下：
 
@@ -49,7 +49,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 
-##### 定义变量
+#### 定义变量
 
 定义变量planeLabel接收平面类型标签信息。
 
@@ -59,7 +59,7 @@ let planeLabel: arEngine.ARSemanticPlaneLabel;
 
 
 
-##### 显示平面语义信息
+#### 显示平面语义信息
 
 首先初始化AR会话和AR场景，可以参考[初始化AR会话和AR场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-arsession#初始化ar会话和ar场景)章节。
 
@@ -183,7 +183,7 @@ function infoStyles() {
 
 
 
-##### 获取语义信息
+#### 获取语义信息
 
 调用[ARViewCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcallback)，使用其中的[onFrameUpdate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcallbackonframeupdate)方法进行帧数据更新，在设备界面上显示识别到的平面类型。
 
@@ -234,7 +234,7 @@ class ARViewCallbackImpl extends arViewController.ARViewCallback {
 
 
 
-##### 识别平面语义的自定义方法
+#### 识别平面语义的自定义方法
 
 自定义方法获取顶点数据getVertices、创建索引generateMeshIndex、创建mesh数据generateMeshInput，可参考[检测平面的自定义方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-plane#检测平面的自定义方法)。
 

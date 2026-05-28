@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-imagefeaturepicker-c
 **支持设备：** Phone | PC/2in1 | Tablet
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -17,13 +17,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### 文件
+#### 文件
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -34,7 +34,7 @@
  
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -46,7 +46,7 @@
  
   
 
-##### 类型定义
+#### 类型定义
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -57,7 +57,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -68,7 +68,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -80,13 +80,13 @@
  
   
 
-##### 类型定义说明
+#### 类型定义说明
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### HMS_GCP_OnResult
+#### HMS_GCP_OnResult
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -111,13 +111,13 @@ typedef void(* HMS_GCP_OnResult) (void *userData, HMS_GCP_PickedColorInfo colorI
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### HMS_GCP_ColorSpace
+#### HMS_GCP_ColorSpace
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -163,13 +163,13 @@ enum HMS_GCP_ColorSpace
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### HMS_GCP_StartColorPicker()
+#### HMS_GCP_StartColorPicker()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -195,7 +195,7 @@ int32_t HMS_GCP_StartColorPicker (int32_t initialPosX, int32_t initialPosY, HMS_
  
   
 
-##### HMS_GCP_StartColorPickerWithColorValue()
+#### HMS_GCP_StartColorPickerWithColorValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

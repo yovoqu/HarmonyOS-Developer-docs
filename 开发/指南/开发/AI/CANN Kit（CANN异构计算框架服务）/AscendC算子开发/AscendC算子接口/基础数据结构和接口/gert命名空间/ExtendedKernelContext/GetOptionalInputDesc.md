@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getoptionalinputdesc
 
-##### 函数功能
+#### 函数功能
 
 根据算子原型定义中的输入索引获取对应可选输入的tensor描述信息。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 const CompileTimeTensorDesc *GetOptionalInputDesc(const size_t ir_index) const;
@@ -18,7 +18,7 @@ const CompileTimeTensorDesc *GetOptionalInputDesc(const size_t ir_index) const;
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -27,7 +27,7 @@ const CompileTimeTensorDesc *GetOptionalInputDesc(const size_t ir_index) const;
  
   
 
-##### 返回值
+#### 返回值
 
 输入TensorDesc的指针，当输入index非法时，或该INPUT没有实例化时，返回空指针。
  
@@ -35,13 +35,13 @@ const CompileTimeTensorDesc *GetOptionalInputDesc(const size_t ir_index) const;
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 // 假设已存在KernelContext *context

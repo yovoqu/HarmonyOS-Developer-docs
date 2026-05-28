@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { dragController } from '@kit.ArkUI';
 
 
 
-##### dragController.executeDrag(deprecated)
+#### dragController.executeDrag(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -146,7 +146,7 @@ struct DragControllerPage {
 
 
 
-##### dragController.executeDrag(deprecated)
+#### dragController.executeDrag(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -301,12 +301,12 @@ struct DragControllerPage {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/7xx30mq7TxeMcBvPY6mM-w/zh-cn_image_0000002611835359.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024115Z&HW-CC-Expire=86400&HW-CC-Sign=FE0A563A6EFE32FB4CB1CCD752853324F319BC456132D86B69320D0FB83BD792)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/7xx30mq7TxeMcBvPY6mM-w/zh-cn_image_0000002611835359.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025449Z&HW-CC-Expire=86400&HW-CC-Sign=2A2C9E5CC000B7544DA7D7227D66C0B8BE6BABF9D094F49C428732D82A9C8F62)
 
 
 
 
-##### DragInfo
+#### DragInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -326,7 +326,7 @@ struct DragControllerPage {
 
 
 
-##### dragController.createDragAction(deprecated)
+#### dragController.createDragAction(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -478,12 +478,12 @@ struct DragControllerPage {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/Ojmh-cvhRIyZ-Nfm4y562Q/zh-cn_image_0000002581275610.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024115Z&HW-CC-Expire=86400&HW-CC-Sign=66EA10DC1740691695F3BF6A7B33C860984905DC4FFBB1C6B17A8013B7D2952E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/Ojmh-cvhRIyZ-Nfm4y562Q/zh-cn_image_0000002581275610.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025449Z&HW-CC-Expire=86400&HW-CC-Sign=F17BF2B4B93861B9C1475A262E01F5F7662388E7993B3CBC9167ECD886C49017)
 
 
 
 
-##### DragAction11+
+#### DragAction11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -495,7 +495,7 @@ struct DragControllerPage {
 
 
 
-##### startDrag11+
+#### startDrag11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -765,12 +765,12 @@ struct ImageExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/1kXpC1QuSk-abiJXJliEKg/zh-cn_image_0000002611755467.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024115Z&HW-CC-Expire=86400&HW-CC-Sign=E3B09972BBA622B986DEA222A82F5A43B32BCA07317A6406BF53921B0655CCE9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/1kXpC1QuSk-abiJXJliEKg/zh-cn_image_0000002611755467.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025449Z&HW-CC-Expire=86400&HW-CC-Sign=EF072F38DED0B59C87621803E60E6B1DB582B609252C594906DDC8AF63B67B76)
 
 
 
 
-##### on('statusChange')11+
+#### on('statusChange')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -866,7 +866,7 @@ struct DragControllerPage {
 
 
 
-##### off('statusChange')11+
+#### off('statusChange')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -959,7 +959,7 @@ struct DragControllerPage {
 
 
 
-##### DragAndDropInfo11+
+#### DragAndDropInfo11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -978,7 +978,7 @@ struct DragControllerPage {
 
 
 
-##### DragStatus11+
+#### DragStatus11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -996,7 +996,7 @@ struct DragControllerPage {
 
 
 
-##### AnimationOptions11+
+#### AnimationOptions11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1014,7 +1014,7 @@ struct DragControllerPage {
 
 
 
-##### DragEventParam12+
+#### DragEventParam12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1032,7 +1032,7 @@ struct DragControllerPage {
 
 
 
-##### dragController.getDragPreview(deprecated)
+#### dragController.getDragPreview(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1061,7 +1061,7 @@ getDragPreview(): DragPreview
 
 
 
-##### DragPreview11+
+#### DragPreview11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1073,7 +1073,7 @@ getDragPreview(): DragPreview
 
 
 
-##### setForegroundColor11+
+#### setForegroundColor11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1098,7 +1098,7 @@ setForegroundColor(color: ResourceColor): void
 
 
 
-##### animate11+
+#### animate11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1268,12 +1268,12 @@ struct DragControllerPage {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/ISY2TDAlSM-K531D2mcBaw/zh-cn_image_0000002581435530.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024115Z&HW-CC-Expire=86400&HW-CC-Sign=E69F3CC4ECF3464F4CF32E1F15B976EB2E757FBB1709E36819CE1CD7EC8DD2CB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/ISY2TDAlSM-K531D2mcBaw/zh-cn_image_0000002581435530.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025449Z&HW-CC-Expire=86400&HW-CC-Sign=36FE669F39B42B5C6980722EBB05C9F4F89900C0D7DAFE932B4EC5FDCF20BCE9)
 
 
 
 
-##### DragStartRequestStatus18+
+#### DragStartRequestStatus18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1291,7 +1291,7 @@ struct DragControllerPage {
 
 
 
-##### DragSpringLoadingState20+
+#### DragSpringLoadingState20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1311,7 +1311,7 @@ struct DragControllerPage {
 
 
 
-##### DragSpringLoadingConfiguration20+
+#### DragSpringLoadingConfiguration20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1331,7 +1331,7 @@ struct DragControllerPage {
 
 
 
-##### SpringLoadingDragInfos20+
+#### SpringLoadingDragInfos20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1349,7 +1349,7 @@ struct DragControllerPage {
 
 
 
-##### SpringLoadingContext20+
+#### SpringLoadingContext20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1357,7 +1357,7 @@ struct DragControllerPage {
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1375,7 +1375,7 @@ struct DragControllerPage {
 
 
 
-##### abort20+
+#### abort20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1389,7 +1389,7 @@ abort(): void
 
 
 
-##### updateConfiguration20+
+#### updateConfiguration20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

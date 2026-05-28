@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-crash-events-arkts
 
-##### 简介
+#### 简介
 
 本文介绍如何使用HiAppEvent提供的ArkTS接口订阅应用崩溃事件。接口的详细使用说明（参数限制、取值范围等）请参考[@ohos.hiviewdfx.hiAppEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-hiappevent)。
 
@@ -14,7 +14,7 @@
 
 
 
-##### 接口说明
+#### 接口说明
 
 | 接口名 | 描述 |
 | --- | --- |
@@ -24,11 +24,11 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 
 
-##### 添加事件观察者
+#### 添加事件观察者
 
 **建议在应用启动后、执行业务逻辑前添加事件观察者，以确保能够订阅到崩溃事件。**
 
@@ -236,7 +236,7 @@ Button('JsError')
 
 
 
-##### 验证观察者是否订阅到崩溃事件
+#### 验证观察者是否订阅到崩溃事件
 
 在应用主动捕获崩溃异常和未主动捕获崩溃异常的场景下，崩溃事件的回调时机不同，需在不同时间验证是否订阅到崩溃事件。
 
@@ -285,7 +285,7 @@ HiAppEvent eventInfo.params.test_data=100
 
 
 
-##### 从Faultlogger接口迁移崩溃事件
+#### 从Faultlogger接口迁移崩溃事件
 
 [@ohos.faultLogger (故障日志获取)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-faultlogger)接口从API version 18开始废弃使用, 不再维护。后续版本推荐使用[@ohos.hiviewdfx.hiAppEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-hiappevent)订阅崩溃事件。该章节指导开发者从Faultlogger接口迁移至hiAppEvent接口，来订阅崩溃事件。
 

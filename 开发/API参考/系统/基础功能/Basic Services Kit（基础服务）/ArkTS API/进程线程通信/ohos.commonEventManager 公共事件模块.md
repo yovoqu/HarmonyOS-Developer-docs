@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { commonEventManager } from '@kit.BasicServicesKit';
 
 
 
-##### Support
+#### Support
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -30,7 +30,7 @@ import { commonEventManager } from '@kit.BasicServicesKit';
 
 
 
-##### commonEventManager.publish
+#### commonEventManager.publish
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -84,7 +84,7 @@ try {
 
 
 
-##### commonEventManager.publish
+#### commonEventManager.publish
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -146,7 +146,7 @@ try {
 
 
 
-##### commonEventManager.createSubscriber
+#### commonEventManager.createSubscriber
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -206,7 +206,7 @@ try {
 
 
 
-##### commonEventManager.createSubscriber
+#### commonEventManager.createSubscriber
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -263,7 +263,7 @@ commonEventManager.createSubscriber(subscribeInfo).then((commonEventSubscriber: 
 
 
 
-##### commonEventManager.createSubscriberSync10+
+#### commonEventManager.createSubscriberSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -320,7 +320,7 @@ try {
 
 
 
-##### commonEventManager.subscribe
+#### commonEventManager.subscribe
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -396,7 +396,7 @@ try {
 
 
 
-##### commonEventManager.unsubscribe
+#### commonEventManager.unsubscribe
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -491,7 +491,7 @@ setTimeout(() => {
 
 
 
-##### commonEventManager.subscribeToEvent20+
+#### commonEventManager.subscribeToEvent20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -574,7 +574,7 @@ try {
 
 
 
-##### CommonEventData10+
+#### CommonEventData10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -593,7 +593,7 @@ type CommonEventData = _CommonEventData
 
 
 
-##### CommonEventSubscriber10+
+#### CommonEventSubscriber10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -612,7 +612,7 @@ type CommonEventSubscriber = _CommonEventSubscriber
 
 
 
-##### CommonEventSubscribeInfo10+
+#### CommonEventSubscribeInfo10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -631,7 +631,7 @@ type CommonEventSubscribeInfo = _CommonEventSubscribeInfo
 
 
 
-##### CommonEventPublishData10+
+#### CommonEventPublishData10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

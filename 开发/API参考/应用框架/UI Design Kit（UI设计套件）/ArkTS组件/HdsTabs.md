@@ -12,7 +12,7 @@ HdsTabs组件是根视图容器，一般作为Page页面的根容器使用。Hds
 **起始版本：** 6.0.0(20)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -34,7 +34,7 @@ import { HdsTabs, HdsTabsController } from '@kit.UIDesignKit';
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -44,7 +44,7 @@ import { HdsTabs, HdsTabsController } from '@kit.UIDesignKit';
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -69,7 +69,7 @@ HdsTabs(options?: HdsTabsOptions)
 
 
 
-##### HdsTabsOptions
+#### HdsTabsOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -90,7 +90,7 @@ HdsTabs组件参数，继承自[TabsOptions](https://developer.huawei.com/consum
 
 
 
-##### HdsTabsController
+#### HdsTabsController
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -106,7 +106,7 @@ HdsTabs组件的控制器，用于控制HdsTabs组件进行页签切换。不支
 
 
 
-##### bindScroller
+#### bindScroller
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -133,7 +133,7 @@ HdsTabs的控制器绑定内容区的滚动组件。
 
 
 
-##### unbindScroller
+#### unbindScroller
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -158,7 +158,7 @@ HdsTabs的控制器解除绑定内容区的滚动组件。
 
 
 
-##### applyMiniBarStyle
+#### applyMiniBarStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -183,7 +183,7 @@ HdsTabs的控制器更新[迷你栏](https://developer.huawei.com/consumer/cn/do
 
 
 
-##### applyHideAnimation
+#### applyHideAnimation
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -208,7 +208,7 @@ HdsTabs的控制器调用页签栏和[迷你栏](https://developer.huawei.com/co
 
 
 
-##### applyShowAnimation
+#### applyShowAnimation
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -233,7 +233,7 @@ HdsTabs的控制器调用页签栏和[迷你栏](https://developer.huawei.com/co
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -243,7 +243,7 @@ HdsTabs的控制器调用页签栏和[迷你栏](https://developer.huawei.com/co
 
 
 
-##### vertical
+#### vertical
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -268,7 +268,7 @@ vertical(value: boolean)
 
 
 
-##### barPosition
+#### barPosition
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -293,7 +293,7 @@ barPosition(value: BarPosition)
 
 
 
-##### scrollable
+#### scrollable
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -318,7 +318,7 @@ scrollable(value: boolean)
 
 
 
-##### barWidth
+#### barWidth
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -343,7 +343,7 @@ barWidth(value: Length)
 
 
 
-##### barHeight
+#### barHeight
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -368,7 +368,7 @@ barHeight(value: Length)
 
 
 
-##### animationDuration
+#### animationDuration
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -393,7 +393,7 @@ animationDuration(value: number)
 
 
 
-##### barOverlap
+#### barOverlap
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -418,7 +418,7 @@ barOverlap(value: boolean)
 
 
 
-##### barBackgroundColor
+#### barBackgroundColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -443,7 +443,7 @@ barBackgroundColor(value: ResourceColor)
 
 
 
-##### barBackgroundBlurStyle
+#### barBackgroundBlurStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -469,7 +469,7 @@ barBackgroundBlurStyle(style: BlurStyle, options?: BackgroundBlurStyleOptions)
 
 
 
-##### barBackgroundEffect
+#### barBackgroundEffect
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -494,7 +494,7 @@ barBackgroundEffect(options: BackgroundEffectOptions)
 
 
 
-##### barMode
+#### barMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -520,7 +520,7 @@ barMode(value: HdsBarMode, options?: ScrollableBarModeOptions)
 
 
 
-##### divider
+#### divider
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -549,7 +549,7 @@ divider(value: Optional&lt;HdsDividerStyle&gt;)
 
 
 
-##### barBackgroundStyle
+#### barBackgroundStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -578,7 +578,7 @@ barBackgroundStyle(backgroundStyle: Optional&lt;HdsTabsBackgroundStyle&gt;)
 
 
 
-##### blurStrategy
+#### blurStrategy
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -603,7 +603,7 @@ blurStrategy(value: BlurStrategy)
 
 
 
-##### cachedMaxCount
+#### cachedMaxCount
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -629,7 +629,7 @@ cachedMaxCount(count: number, mode: TabsCacheMode)
 
 
 
-##### barFloatingStyle
+#### barFloatingStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -654,7 +654,7 @@ barFloatingStyle(barFloatingStyle?: Optional&lt;HdsTabsFloatingStyle&gt;)
 
 
 
-##### HdsTabsFloatingStyle
+#### HdsTabsFloatingStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -684,7 +684,7 @@ barFloatingStyle(barFloatingStyle?: Optional&lt;HdsTabsFloatingStyle&gt;)
 
 
 
-##### HdsBarWidthRangeOptions
+#### HdsBarWidthRangeOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -707,7 +707,7 @@ barFloatingStyle(barFloatingStyle?: Optional&lt;HdsTabsFloatingStyle&gt;)
 
 
 
-##### HdsTabsMiniBar
+#### HdsTabsMiniBar
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -737,7 +737,7 @@ barFloatingStyle(barFloatingStyle?: Optional&lt;HdsTabsFloatingStyle&gt;)
 
 
 
-##### SystemMaterialParams
+#### SystemMaterialParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -759,7 +759,7 @@ barFloatingStyle(barFloatingStyle?: Optional&lt;HdsTabsFloatingStyle&gt;)
 
 
 
-##### HdsAnimationMode
+#### HdsAnimationMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -781,7 +781,7 @@ barFloatingStyle(barFloatingStyle?: Optional&lt;HdsTabsFloatingStyle&gt;)
 
 
 
-##### HdsBarStyle
+#### HdsBarStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -803,7 +803,7 @@ barFloatingStyle(barFloatingStyle?: Optional&lt;HdsTabsFloatingStyle&gt;)
 
 
 
-##### HdsBarLayoutMode
+#### HdsBarLayoutMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -825,7 +825,7 @@ minibar和tabbar的布局模式枚举。
 
 
 
-##### HdsTabsBarChangeMode
+#### HdsTabsBarChangeMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -848,7 +848,7 @@ minibar和tabbar的布局模式枚举。
 
 
 
-##### BarStyleChangeCallback
+#### BarStyleChangeCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -877,7 +877,7 @@ type BarStyleChangeCallback = (miniBarStyle: HdsBarStyle, tabBarStyle: HdsBarSty
 
 
 
-##### MiniBarAnimationStartCallback
+#### MiniBarAnimationStartCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -903,7 +903,7 @@ type MiniBarAnimationStartCallback = (style: HdsBarStyle, width: number) => void
 
 
 
-##### MiniBarAnimationEndCallback
+#### MiniBarAnimationEndCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -928,7 +928,7 @@ type MiniBarAnimationEndCallback = (style: HdsBarStyle) => void
 
 
 
-##### TabBarAnimationStartCallback
+#### TabBarAnimationStartCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -954,7 +954,7 @@ type TabBarAnimationStartCallback = (style: HdsBarStyle, width: number) => void
 
 
 
-##### HdsDividerStyle
+#### HdsDividerStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -976,7 +976,7 @@ type TabBarAnimationStartCallback = (style: HdsBarStyle, width: number) => void
 
 
 
-##### HdsTabsBackgroundStyle
+#### HdsTabsBackgroundStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -998,13 +998,13 @@ type TabBarAnimationStartCallback = (style: HdsBarStyle, width: number) => void
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
 
 
-##### onChange
+#### onChange
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1029,7 +1029,7 @@ onChange(event: Callback&lt;number&gt;)
 
 
 
-##### onAnimationStart
+#### onAnimationStart
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1054,7 +1054,7 @@ onAnimationStart(handler: OnTabsAnimationStartCallback)
 
 
 
-##### onContentWillChange
+#### onContentWillChange
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1086,7 +1086,7 @@ onContentWillChange(handler: OnTabsContentWillChangeCallback)
 
 
 
-##### onTabBarClick
+#### onTabBarClick
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1111,7 +1111,7 @@ Tab页签点击后触发的事件。
 
 
 
-##### onSelected
+#### onSelected
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1142,7 +1142,7 @@ onSelected(event: Callback&lt;number&gt;)
 
 
 
-##### onUnselected
+#### onUnselected
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1173,7 +1173,7 @@ onUnselected(event: Callback&lt;number&gt;)
 
 
 
-##### ExtendBarMode
+#### ExtendBarMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1194,7 +1194,7 @@ onUnselected(event: Callback&lt;number&gt;)
 
 
 
-##### DividerMode
+#### DividerMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1217,7 +1217,7 @@ onUnselected(event: Callback&lt;number&gt;)
 
 
 
-##### HdsBarMode
+#### HdsBarMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1241,7 +1241,7 @@ HdsBarMode页签栏的布局模式和扩展模式设置。
 
 
 
-##### bleedIconStyle
+#### bleedIconStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1268,7 +1268,7 @@ bleedIconStyle(builder: CustomTabBuilder): void
 
 
 
-##### CustomTabBuilder
+#### CustomTabBuilder
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1286,7 +1286,7 @@ type CustomTabBuilder= () => void
 
 
 
-##### HdsTabsModifier
+#### HdsTabsModifier
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1302,7 +1302,7 @@ type CustomTabBuilder= () => void
 
 
 
-##### applyNormalAttribute
+#### applyNormalAttribute
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1327,13 +1327,13 @@ applyNormalAttribute?(instance: HdsTabsAttribute): void
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
 
 
-##### 支持分割线出现和消失
+#### 支持分割线出现和消失
 
 通过设置分割线属性中的类型 ，控制分割线的常显、常隐、跟手效果。
 
@@ -1444,7 +1444,7 @@ struct Index {
 
 
 
-##### 支持渐变模糊
+#### 支持渐变模糊
 
 通过设置HdsTabs组件的barBackgroundStyle样式，可以自定义模糊的颜色和高度，实现渐变模糊。
 
@@ -1487,12 +1487,12 @@ struct Index {
 效果：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/dJswJSPQQEqryCni1rkypQ/zh-cn_image_0000002581276754.png?HW-CC-KV=V1&HW-CC-Date=20260528T024032Z&HW-CC-Expire=86400&HW-CC-Sign=CB3B82B540789176E201B13C0D6BF1B9176ED2C357EAB7395CDC7A409E4DFBA7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/dJswJSPQQEqryCni1rkypQ/zh-cn_image_0000002581276754.png?HW-CC-KV=V1&HW-CC-Date=20260528T025406Z&HW-CC-Expire=86400&HW-CC-Sign=A75570BA6F8FFAD66A4DCA76FBE91B06FFD75C67297AFEB489D66FF8C171136A)
 
 
 
 
-##### 支持出血效果
+#### 支持出血效果
 
 通过设置HdsTabs组件TabContent的tabBar样式，可以实现出血效果。
 
@@ -1540,12 +1540,12 @@ struct Index {
 效果：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/F_XVxv-NR2udbFOjZ2sWoQ/zh-cn_image_0000002611756611.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T024032Z&HW-CC-Expire=86400&HW-CC-Sign=F4A0203E6E585A7B9F8BBB76D8F4EFA2F010347BEDA9222999BDBC544B075E7B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/F_XVxv-NR2udbFOjZ2sWoQ/zh-cn_image_0000002611756611.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T025406Z&HW-CC-Expire=86400&HW-CC-Sign=4EEA950EC990F95FEC2874E007ACF05D087541FC7DBB355116AB5ADBEA805A81)
 
 
 
 
-##### 页签半屏居中对齐布局
+#### 页签半屏居中对齐布局
 
 通过设置HdsTabs组件的barMode样式为ExtendBarMode.HALF_SCREEN_FIXED，页签高度是Tabs高度的四分之一均分，并且半屏居中对齐。
 
@@ -1590,4 +1590,4 @@ struct Index {
 效果：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/7mNpmxnfRN6m0HhfL39Ilw/zh-cn_image_0000002581436670.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T024032Z&HW-CC-Expire=86400&HW-CC-Sign=781150136C545EB1A0777D41C4AB12994C4EA38F4AC4B24153637431E132F816)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/7mNpmxnfRN6m0HhfL39Ilw/zh-cn_image_0000002581436670.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T025406Z&HW-CC-Expire=86400&HW-CC-Sign=989B16B4249424B63D671292195BBE201F732AF18C061B572245BB4D9433D889)

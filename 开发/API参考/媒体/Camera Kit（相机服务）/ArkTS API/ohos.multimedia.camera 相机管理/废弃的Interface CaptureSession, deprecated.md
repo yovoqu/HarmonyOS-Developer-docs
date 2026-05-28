@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { camera } from '@kit.CameraKit';
 
 
 
-##### beginConfig(deprecated)
+#### beginConfig(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -63,7 +63,7 @@ function beginConfig(captureSession: camera.CaptureSession): void {
 
 
 
-##### commitConfig(deprecated)
+#### commitConfig(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -112,7 +112,7 @@ function commitConfig(captureSession: camera.CaptureSession): void {
 
 
 
-##### commitConfig(deprecated)
+#### commitConfig(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -160,7 +160,7 @@ function commitConfig(captureSession: camera.CaptureSession): void {
 
 
 
-##### addInput(deprecated)
+#### addInput(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -209,7 +209,7 @@ function addInput(captureSession: camera.CaptureSession, cameraInput: camera.Cam
 
 
 
-##### removeInput(deprecated)
+#### removeInput(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -258,7 +258,7 @@ function removeInput(captureSession: camera.CaptureSession, cameraInput: camera.
 
 
 
-##### addOutput(deprecated)
+#### addOutput(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -307,7 +307,7 @@ function addOutput(captureSession: camera.CaptureSession, cameraOutput: camera.C
 
 
 
-##### removeOutput(deprecated)
+#### removeOutput(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -356,7 +356,7 @@ function removeOutput(captureSession: camera.CaptureSession, previewOutput: came
 
 
 
-##### start(deprecated)
+#### start(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -405,7 +405,7 @@ function startCaptureSession(captureSession: camera.CaptureSession): void {
 
 
 
-##### start(deprecated)
+#### start(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -452,7 +452,7 @@ function startCaptureSession(captureSession: camera.CaptureSession): void {
 
 
 
-##### stop(deprecated)
+#### stop(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -500,7 +500,7 @@ function stopCaptureSession(captureSession: camera.CaptureSession): void {
 
 
 
-##### stop(deprecated)
+#### stop(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -546,7 +546,7 @@ function stopCaptureSession(captureSession: camera.CaptureSession): void {
 
 
 
-##### release(deprecated)
+#### release(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -594,7 +594,7 @@ function releaseCaptureSession(captureSession: camera.CaptureSession): void {
 
 
 
-##### release(deprecated)
+#### release(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -640,7 +640,7 @@ function releaseCaptureSession(captureSession: camera.CaptureSession): void {
 
 
 
-##### hasFlash(deprecated)
+#### hasFlash(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -690,7 +690,7 @@ function hasFlash(captureSession: camera.CaptureSession): boolean {
 
 
 
-##### isFlashModeSupported(deprecated)
+#### isFlashModeSupported(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -747,7 +747,7 @@ function isFlashModeSupported(captureSession: camera.CaptureSession): boolean {
 
 
 
-##### setFlashMode(deprecated)
+#### setFlashMode(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -799,7 +799,7 @@ function setFlashMode(captureSession: camera.CaptureSession): void {
 
 
 
-##### getFlashMode(deprecated)
+#### getFlashMode(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -849,7 +849,7 @@ function getFlashMode(captureSession: camera.CaptureSession): camera.FlashMode |
 
 
 
-##### isExposureModeSupported(deprecated)
+#### isExposureModeSupported(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -906,7 +906,7 @@ function isExposureModeSupported(captureSession: camera.CaptureSession): boolean
 
 
 
-##### getExposureMode(deprecated)
+#### getExposureMode(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -956,7 +956,7 @@ function getExposureMode(captureSession: camera.CaptureSession): camera.Exposure
 
 
 
-##### setExposureMode(deprecated)
+#### setExposureMode(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1004,7 +1004,7 @@ function setExposureMode(captureSession: camera.CaptureSession): void {
 
 
 
-##### getMeteringPoint(deprecated)
+#### getMeteringPoint(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1054,7 +1054,7 @@ function getMeteringPoint(captureSession: camera.CaptureSession): camera.Point |
 
 
 
-##### setMeteringPoint(deprecated)
+#### setMeteringPoint(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1105,7 +1105,7 @@ function setMeteringPoint(captureSession: camera.CaptureSession): void {
 
 
 
-##### getExposureBiasRange(deprecated)
+#### getExposureBiasRange(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1155,7 +1155,7 @@ function getExposureBiasRange(captureSession: camera.CaptureSession): Array<numb
 
 
 
-##### setExposureBias(deprecated)
+#### setExposureBias(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1208,7 +1208,7 @@ function setExposureBias(captureSession: camera.CaptureSession, biasRangeArray: 
 
 
 
-##### getExposureValue(deprecated)
+#### getExposureValue(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1259,7 +1259,7 @@ function getExposureValue(captureSession: camera.CaptureSession): number {
 
 
 
-##### isFocusModeSupported(deprecated)
+#### isFocusModeSupported(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1316,7 +1316,7 @@ function isFocusModeSupported(captureSession: camera.CaptureSession): boolean {
 
 
 
-##### setFocusMode(deprecated)
+#### setFocusMode(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1366,7 +1366,7 @@ function setFocusMode(captureSession: camera.CaptureSession): void {
 
 
 
-##### getFocusMode(deprecated)
+#### getFocusMode(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1416,7 +1416,7 @@ function getFocusMode(captureSession: camera.CaptureSession): camera.FocusMode |
 
 
 
-##### setFocusPoint(deprecated)
+#### setFocusPoint(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1467,7 +1467,7 @@ function setFocusPoint(captureSession: camera.CaptureSession): void {
 
 
 
-##### getFocusPoint(deprecated)
+#### getFocusPoint(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1517,7 +1517,7 @@ function getFocusPoint(captureSession: camera.CaptureSession): camera.Point | un
 
 
 
-##### getFocalLength(deprecated)
+#### getFocalLength(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1568,7 +1568,7 @@ function getFocalLength(captureSession: camera.CaptureSession): number {
 
 
 
-##### getZoomRatioRange(deprecated)
+#### getZoomRatioRange(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1618,7 +1618,7 @@ function getZoomRatioRange(captureSession: camera.CaptureSession): Array<number>
 
 
 
-##### setZoomRatio(deprecated)
+#### setZoomRatio(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1670,7 +1670,7 @@ function setZoomRatio(captureSession: camera.CaptureSession, zoomRatioRange: Arr
 
 
 
-##### getZoomRatio(deprecated)
+#### getZoomRatio(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1721,7 +1721,7 @@ function getZoomRatio(captureSession: camera.CaptureSession): number {
 
 
 
-##### isVideoStabilizationModeSupported(deprecated)
+#### isVideoStabilizationModeSupported(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1778,7 +1778,7 @@ function isVideoStabilizationModeSupported(captureSession: camera.CaptureSession
 
 
 
-##### getActiveVideoStabilizationMode(deprecated)
+#### getActiveVideoStabilizationMode(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1828,7 +1828,7 @@ function getActiveVideoStabilizationMode(captureSession: camera.CaptureSession):
 
 
 
-##### setVideoStabilizationMode(deprecated)
+#### setVideoStabilizationMode(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1876,7 +1876,7 @@ function setVideoStabilizationMode(captureSession: camera.CaptureSession): void 
 
 
 
-##### on('focusStateChange')(deprecated)
+#### on('focusStateChange')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1916,7 +1916,7 @@ function registerFocusStateChange(captureSession: camera.CaptureSession): void {
 
 
 
-##### off('focusStateChange')(deprecated)
+#### off('focusStateChange')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1948,7 +1948,7 @@ function unregisterFocusStateChange(captureSession: camera.CaptureSession): void
 
 
 
-##### on('error')(deprecated)
+#### on('error')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1984,7 +1984,7 @@ function registerCaptureSessionError(captureSession: camera.CaptureSession): voi
 
 
 
-##### off('error')(deprecated)
+#### off('error')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

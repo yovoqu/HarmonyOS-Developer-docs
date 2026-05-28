@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/networkboost-appreportqoe-c
 
-##### 场景介绍
+#### 场景介绍
 
 当应用传输体验发生变化时，应用将传输体验和传输的业务类型信息通过实时反馈接口传输给系统网络业务模块，系统网络业务模块进行精细化调度，实现网络加速。
 
@@ -12,7 +12,7 @@
 
 
 
-##### 接口说明
+#### 接口说明
 
 具体API说明详见[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/network-boost-c-overview)。
 
@@ -23,7 +23,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 导入Network Boost Kit模块。
 
   

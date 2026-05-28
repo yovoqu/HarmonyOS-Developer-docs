@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { drawing } from '@kit.ArkGraphics2D';
 
 
 
-##### createComposeShader20+
+#### createComposeShader20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -69,7 +69,7 @@ let shader = drawing.ShaderEffect.createComposeShader(dstShader, srcShader, draw
 
 
 
-##### createImageShader20+
+#### createImageShader20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -148,7 +148,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### createColorShader12+
+#### createColorShader12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -191,7 +191,7 @@ let shaderEffect = drawing.ShaderEffect.createColorShader(0xFFFF0000);
 
 
 
-##### createLinearGradient12+
+#### createLinearGradient12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -247,7 +247,7 @@ let shaderEffect = drawing.ShaderEffect.createLinearGradient(startPt, endPt, [0x
 
 
 
-##### createRadialGradient12+
+#### createRadialGradient12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -302,7 +302,7 @@ let shaderEffect = drawing.ShaderEffect.createRadialGradient(centerPt, 100, [0xF
 
 
 
-##### createSweepGradient12+
+#### createSweepGradient12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -358,7 +358,7 @@ let shaderEffect = drawing.ShaderEffect.createSweepGradient(centerPt, [0xFF00FF0
 
 
 
-##### createConicalGradient12+
+#### createConicalGradient12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -383,7 +383,7 @@ static createConicalGradient(startPt: common2D.Point, startRadius: number, endPt
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/U_qI5i2_SeaKd1ISurTlDw/zh-cn_image_0000002611836839.png?HW-CC-KV=V1&HW-CC-Date=20260528T024331Z&HW-CC-Expire=86400&HW-CC-Sign=4EF92721A9ADC32D43E27D99D82FC0E726B3E1F0A576144943BA723236689C04)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/U_qI5i2_SeaKd1ISurTlDw/zh-cn_image_0000002611836839.png?HW-CC-KV=V1&HW-CC-Date=20260528T025707Z&HW-CC-Expire=86400&HW-CC-Sign=30F422A381015CFD844F5B484AB8A40001A197B2FDD812F5D6F64415FAB5957E)
 
 
 如上图所示，设置颜色数组为红绿蓝，位置数组为0.0、0.5和1.0的绘制结果。左侧为起始圆不在结束圆内的绘制结果，右侧为起始圆在结束圆内的绘制结果。

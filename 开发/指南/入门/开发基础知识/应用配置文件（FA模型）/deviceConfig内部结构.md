@@ -7,7 +7,7 @@
 deviceConfig 包含设备上的应用配置信息，支持 default、tv、car、wearable 等属性。
   
 
-##### deviceConfig对象内部结构
+#### deviceConfig对象内部结构
 
 **表1** **deviceConfig对象内部结构说明**
   
@@ -27,7 +27,7 @@ deviceConfig 包含设备上的应用配置信息，支持 default、tv、car、
  
   
 
-##### deviceConfig设备对象内部结构
+#### deviceConfig设备对象内部结构
 
 **表2** **deviceConfig设备对象内部结构说明**
   
@@ -42,7 +42,7 @@ deviceConfig 包含设备上的应用配置信息，支持 default、tv、car、
  
   
 
-##### network对象内部结构
+#### network对象内部结构
 
 **表3** **network对象内部结构说明**
   
@@ -54,7 +54,7 @@ deviceConfig 包含设备上的应用配置信息，支持 default、tv、car、
  
   
 
-##### securityConfig对象内部结构
+#### securityConfig对象内部结构
 
 **表4** **securityConfig对象内部结构说明**
   
@@ -65,7 +65,7 @@ deviceConfig 包含设备上的应用配置信息，支持 default、tv、car、
  
   
 
-##### domainSettings对象内部结构
+#### domainSettings对象内部结构
 
 **表5** **domainSettings对象内部结构说明**
   

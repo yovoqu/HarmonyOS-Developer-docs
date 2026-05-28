@@ -7,7 +7,7 @@
 建议类中的字面量属性对外暴露时，保持一致的风格。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/class-literal-property-style选项](https://typescript-eslint.nodejs.cn/rules/class-literal-property-style/#options)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 class Mx {
@@ -46,7 +46,7 @@ export { Mx };
  
  
 
-##### 反例
+#### 反例
 
 ```text
 class Mx {
@@ -64,7 +64,7 @@ export { Mx };
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

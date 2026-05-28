@@ -16,7 +16,7 @@
 **起始版本：** 6.0.0(20)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Tablet
 
@@ -26,7 +26,7 @@ import { businessRiskIntelligentDetection } from '@kit.DeviceSecurityKit';
  
   
 
-##### FraudDetectionRequest
+#### FraudDetectionRequest
 
 **支持设备：** Phone | Tablet
 
@@ -45,7 +45,7 @@ import { businessRiskIntelligentDetection } from '@kit.DeviceSecurityKit';
  
   
 
-##### SimulatedClickDetectionRequest
+#### SimulatedClickDetectionRequest
 
 **支持设备：** Phone | Tablet
 
@@ -62,7 +62,7 @@ import { businessRiskIntelligentDetection } from '@kit.DeviceSecurityKit';
  
   
 
-##### SimulatedClickDetectionEnhancedRequest
+#### SimulatedClickDetectionEnhancedRequest
 
 **支持设备：** Phone | Tablet
 
@@ -81,7 +81,7 @@ import { businessRiskIntelligentDetection } from '@kit.DeviceSecurityKit';
  
   
 
-##### SigningAlgorithm
+#### SigningAlgorithm
 
 **支持设备：** Phone | Tablet
 
@@ -98,7 +98,7 @@ import { businessRiskIntelligentDetection } from '@kit.DeviceSecurityKit';
  
   
 
-##### detectFraudRisk
+#### detectFraudRisk
 
 **支持设备：** Phone | Tablet
 
@@ -170,7 +170,7 @@ try {
  
   
 
-##### detectSimulatedClickRisk
+#### detectSimulatedClickRisk
 
 **支持设备：** Phone | Tablet
 
@@ -239,7 +239,7 @@ try {
  
   
 
-##### detectSimulatedClickRiskEnhanced
+#### detectSimulatedClickRiskEnhanced
 
 **支持设备：** Phone | Tablet
 

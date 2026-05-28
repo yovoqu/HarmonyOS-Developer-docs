@@ -10,7 +10,7 @@
 
   
 
-##### AVErrorCode9+
+#### AVErrorCode9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -53,7 +53,7 @@
  
   
 
-##### MediaType8+
+#### MediaType8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -75,7 +75,7 @@
  
   
 
-##### CodecMimeType8+
+#### CodecMimeType8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -102,7 +102,7 @@ Codec MIME类型枚举。
  
   
 
-##### AacProfile22+
+#### AacProfile22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -121,7 +121,7 @@ Codec MIME类型枚举。
  
   
 
-##### MediaDescriptionKey8+
+#### MediaDescriptionKey8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -154,7 +154,7 @@ Codec MIME类型枚举。
  
   
 
-##### FetchResult23+
+#### FetchResult23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -173,7 +173,7 @@ Codec MIME类型枚举。
  
   
 
-##### PlaybackInfoKey12+
+#### PlaybackInfoKey12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -192,7 +192,7 @@ Codec MIME类型枚举。
  
   
 
-##### PlaybackMetricsKey23+
+#### PlaybackMetricsKey23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -215,7 +215,7 @@ Codec MIME类型枚举。
  
   
 
-##### BufferingInfoType8+
+#### BufferingInfoType8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -235,7 +235,7 @@ Codec MIME类型枚举。
  
   
 
-##### SoundInterruptMode23+
+#### SoundInterruptMode23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -253,7 +253,7 @@ Codec MIME类型枚举。
  
   
 
-##### StateChangeReason9+
+#### StateChangeReason9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -271,7 +271,7 @@ Codec MIME类型枚举。
  
   
 
-##### SeekMode8+
+#### SeekMode8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -289,7 +289,7 @@ Codec MIME类型枚举。
  
   
 
-##### SwitchMode12+
+#### SwitchMode12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -306,7 +306,7 @@ Codec MIME类型枚举。
  
   
 
-##### PlaybackSpeed8+
+#### PlaybackSpeed8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -332,7 +332,7 @@ Codec MIME类型枚举。
  
   
 
-##### VideoScaleType9+
+#### VideoScaleType9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -351,7 +351,7 @@ Codec MIME类型枚举。
  
   
 
-##### AudioSourceType9+
+#### AudioSourceType9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -371,7 +371,7 @@ Codec MIME类型枚举。
  
   
 
-##### VideoSourceType9+
+#### VideoSourceType9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -387,7 +387,7 @@ Codec MIME类型枚举。
  
   
 
-##### ContainerFormatType8+
+#### ContainerFormatType8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -407,7 +407,7 @@ Codec MIME类型枚举。
  
   
 
-##### FileGenerationMode12+
+#### FileGenerationMode12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -423,7 +423,7 @@ Codec MIME类型枚举。
  
   
 
-##### HdrType12+
+#### HdrType12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -439,7 +439,7 @@ Codec MIME类型枚举。
  
   
 
-##### AVImageQueryOptions12+
+#### AVImageQueryOptions12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -459,7 +459,7 @@ Codec MIME类型枚举。
  
   
 
-##### LoadingRequestError18+
+#### LoadingRequestError18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -482,7 +482,7 @@ Codec MIME类型枚举。
  
   
 
-##### AVMimeTypes12+
+#### AVMimeTypes12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -499,7 +499,7 @@ Codec MIME类型枚举。
  
   
 
-##### AVScreenCaptureRecordPreset12+
+#### AVScreenCaptureRecordPreset12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -515,7 +515,7 @@ Codec MIME类型枚举。
  
   
 
-##### AVScreenCaptureStateCode12+
+#### AVScreenCaptureStateCode12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -540,7 +540,7 @@ Codec MIME类型枚举。
  
   
 
-##### AVScreenCaptureFillMode18+
+#### AVScreenCaptureFillMode18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -556,7 +556,7 @@ Codec MIME类型枚举。
  
   
 
-##### PickerMode22+
+#### PickerMode22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -573,7 +573,7 @@ Codec MIME类型枚举。
  
   
 
-##### AVMetricsEventType23+
+#### AVMetricsEventType23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -588,7 +588,7 @@ Codec MIME类型枚举。
  
   
 
-##### AudioEncoder(deprecated)
+#### AudioEncoder(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -611,7 +611,7 @@ Codec MIME类型枚举。
  
   
 
-##### AudioOutputFormat(deprecated)
+#### AudioOutputFormat(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -634,7 +634,7 @@ Codec MIME类型枚举。
  
   
 
-##### MediaErrorCode(deprecated)
+#### MediaErrorCode(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

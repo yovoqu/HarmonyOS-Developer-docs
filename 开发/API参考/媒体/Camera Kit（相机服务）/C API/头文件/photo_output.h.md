@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-photo-output-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -41,7 +41,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -91,13 +91,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_PhotoOutput_OnFrameStart()
+#### OH_PhotoOutput_OnFrameStart()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -120,7 +120,7 @@ typedef void (*OH_PhotoOutput_OnFrameStart)(Camera_PhotoOutput* photoOutput)
  
   
 
-##### OH_PhotoOutput_OnFrameShutter()
+#### OH_PhotoOutput_OnFrameShutter()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -144,7 +144,7 @@ typedef void (*OH_PhotoOutput_OnFrameShutter)(Camera_PhotoOutput* photoOutput, C
  
   
 
-##### OH_PhotoOutput_OnFrameEnd()
+#### OH_PhotoOutput_OnFrameEnd()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -168,7 +168,7 @@ typedef void (*OH_PhotoOutput_OnFrameEnd)(Camera_PhotoOutput* photoOutput, int32
  
   
 
-##### OH_PhotoOutput_OnError()
+#### OH_PhotoOutput_OnError()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -196,7 +196,7 @@ typedef void (*OH_PhotoOutput_OnError)(Camera_PhotoOutput* photoOutput, Camera_E
  
   
 
-##### OH_PhotoOutput_CaptureEnd()
+#### OH_PhotoOutput_CaptureEnd()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -220,7 +220,7 @@ typedef void (*OH_PhotoOutput_CaptureEnd)(Camera_PhotoOutput* photoOutput, int32
  
   
 
-##### OH_PhotoOutput_CaptureStartWithInfo()
+#### OH_PhotoOutput_CaptureStartWithInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -244,7 +244,7 @@ typedef void (*OH_PhotoOutput_CaptureStartWithInfo)(Camera_PhotoOutput* photoOut
  
   
 
-##### OH_PhotoOutput_OnFrameShutterEnd()
+#### OH_PhotoOutput_OnFrameShutterEnd()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -268,7 +268,7 @@ typedef void (*OH_PhotoOutput_OnFrameShutterEnd)(Camera_PhotoOutput* photoOutput
  
   
 
-##### OH_PhotoOutput_CaptureReady()
+#### OH_PhotoOutput_CaptureReady()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -291,7 +291,7 @@ typedef void (*OH_PhotoOutput_CaptureReady)(Camera_PhotoOutput* photoOutput)
  
   
 
-##### OH_PhotoOutput_EstimatedCaptureDuration()
+#### OH_PhotoOutput_EstimatedCaptureDuration()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -315,7 +315,7 @@ typedef void (*OH_PhotoOutput_EstimatedCaptureDuration)(Camera_PhotoOutput* phot
  
   
 
-##### OH_PhotoOutput_PhotoAvailable()
+#### OH_PhotoOutput_PhotoAvailable()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -339,7 +339,7 @@ typedef void (*OH_PhotoOutput_PhotoAvailable)(Camera_PhotoOutput* photoOutput, O
  
   
 
-##### OH_PhotoOutput_PhotoAssetAvailable()
+#### OH_PhotoOutput_PhotoAssetAvailable()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -363,7 +363,7 @@ typedef void (*OH_PhotoOutput_PhotoAssetAvailable)(Camera_PhotoOutput* photoOutp
  
   
 
-##### OH_PhotoOutput_RegisterCallback()
+#### OH_PhotoOutput_RegisterCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -394,7 +394,7 @@ Camera_ErrorCode OH_PhotoOutput_RegisterCallback(Camera_PhotoOutput* photoOutput
  
   
 
-##### OH_PhotoOutput_UnregisterCallback()
+#### OH_PhotoOutput_UnregisterCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -425,7 +425,7 @@ Camera_ErrorCode OH_PhotoOutput_UnregisterCallback(Camera_PhotoOutput* photoOutp
  
   
 
-##### OH_PhotoOutput_RegisterCaptureStartWithInfoCallback()
+#### OH_PhotoOutput_RegisterCaptureStartWithInfoCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -456,7 +456,7 @@ Camera_ErrorCode OH_PhotoOutput_RegisterCaptureStartWithInfoCallback(Camera_Phot
  
   
 
-##### OH_PhotoOutput_GetPhotoRotation()
+#### OH_PhotoOutput_GetPhotoRotation()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -488,7 +488,7 @@ Camera_ErrorCode OH_PhotoOutput_GetPhotoRotation(Camera_PhotoOutput* photoOutput
  
   
 
-##### OH_PhotoOutput_GetPhotoRotationWithoutDeviceDegree()
+#### OH_PhotoOutput_GetPhotoRotationWithoutDeviceDegree()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -519,7 +519,7 @@ Camera_ErrorCode OH_PhotoOutput_GetPhotoRotationWithoutDeviceDegree(Camera_Photo
  
   
 
-##### OH_PhotoOutput_UnregisterCaptureStartWithInfoCallback()
+#### OH_PhotoOutput_UnregisterCaptureStartWithInfoCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -550,7 +550,7 @@ Camera_ErrorCode OH_PhotoOutput_UnregisterCaptureStartWithInfoCallback(Camera_Ph
  
   
 
-##### OH_PhotoOutput_RegisterCaptureEndCallback()
+#### OH_PhotoOutput_RegisterCaptureEndCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -581,7 +581,7 @@ Camera_ErrorCode OH_PhotoOutput_RegisterCaptureEndCallback(Camera_PhotoOutput* p
  
   
 
-##### OH_PhotoOutput_UnregisterCaptureEndCallback()
+#### OH_PhotoOutput_UnregisterCaptureEndCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -612,7 +612,7 @@ Camera_ErrorCode OH_PhotoOutput_UnregisterCaptureEndCallback(Camera_PhotoOutput*
  
   
 
-##### OH_PhotoOutput_RegisterFrameShutterEndCallback()
+#### OH_PhotoOutput_RegisterFrameShutterEndCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -643,7 +643,7 @@ Camera_ErrorCode OH_PhotoOutput_RegisterFrameShutterEndCallback(Camera_PhotoOutp
  
   
 
-##### OH_PhotoOutput_UnregisterFrameShutterEndCallback()
+#### OH_PhotoOutput_UnregisterFrameShutterEndCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -674,7 +674,7 @@ Camera_ErrorCode OH_PhotoOutput_UnregisterFrameShutterEndCallback(Camera_PhotoOu
  
   
 
-##### OH_PhotoOutput_RegisterCaptureReadyCallback()
+#### OH_PhotoOutput_RegisterCaptureReadyCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -705,7 +705,7 @@ Camera_ErrorCode OH_PhotoOutput_RegisterCaptureReadyCallback(Camera_PhotoOutput*
  
   
 
-##### OH_PhotoOutput_UnregisterCaptureReadyCallback()
+#### OH_PhotoOutput_UnregisterCaptureReadyCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -736,7 +736,7 @@ Camera_ErrorCode OH_PhotoOutput_UnregisterCaptureReadyCallback(Camera_PhotoOutpu
  
   
 
-##### OH_PhotoOutput_RegisterEstimatedCaptureDurationCallback()
+#### OH_PhotoOutput_RegisterEstimatedCaptureDurationCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -767,7 +767,7 @@ Camera_ErrorCode OH_PhotoOutput_RegisterEstimatedCaptureDurationCallback(Camera_
  
   
 
-##### OH_PhotoOutput_UnregisterEstimatedCaptureDurationCallback()
+#### OH_PhotoOutput_UnregisterEstimatedCaptureDurationCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -798,7 +798,7 @@ Camera_ErrorCode OH_PhotoOutput_UnregisterEstimatedCaptureDurationCallback(Camer
  
   
 
-##### OH_PhotoOutput_RegisterPhotoAvailableCallback()
+#### OH_PhotoOutput_RegisterPhotoAvailableCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -829,7 +829,7 @@ Camera_ErrorCode OH_PhotoOutput_RegisterPhotoAvailableCallback(Camera_PhotoOutpu
  
   
 
-##### OH_PhotoOutput_UnregisterPhotoAvailableCallback()
+#### OH_PhotoOutput_UnregisterPhotoAvailableCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -860,7 +860,7 @@ Camera_ErrorCode OH_PhotoOutput_UnregisterPhotoAvailableCallback(Camera_PhotoOut
  
   
 
-##### OH_PhotoOutput_RegisterPhotoAssetAvailableCallback()
+#### OH_PhotoOutput_RegisterPhotoAssetAvailableCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -891,7 +891,7 @@ Camera_ErrorCode OH_PhotoOutput_RegisterPhotoAssetAvailableCallback(Camera_Photo
  
   
 
-##### OH_PhotoOutput_UnregisterPhotoAssetAvailableCallback()
+#### OH_PhotoOutput_UnregisterPhotoAssetAvailableCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -922,7 +922,7 @@ Camera_ErrorCode OH_PhotoOutput_UnregisterPhotoAssetAvailableCallback(Camera_Pho
  
   
 
-##### OH_PhotoOutput_Capture()
+#### OH_PhotoOutput_Capture()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -954,7 +954,7 @@ Camera_ErrorCode OH_PhotoOutput_Capture(Camera_PhotoOutput* photoOutput)
  
   
 
-##### OH_PhotoOutput_Capture_WithCaptureSetting()
+#### OH_PhotoOutput_Capture_WithCaptureSetting()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -985,7 +985,7 @@ Camera_ErrorCode OH_PhotoOutput_Capture_WithCaptureSetting(Camera_PhotoOutput* p
  
   
 
-##### OH_PhotoOutput_Release()
+#### OH_PhotoOutput_Release()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1015,7 +1015,7 @@ Camera_ErrorCode OH_PhotoOutput_Release(Camera_PhotoOutput* photoOutput)
  
   
 
-##### OH_PhotoOutput_IsMirrorSupported()
+#### OH_PhotoOutput_IsMirrorSupported()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1046,7 +1046,7 @@ Camera_ErrorCode OH_PhotoOutput_IsMirrorSupported(Camera_PhotoOutput* photoOutpu
  
   
 
-##### OH_PhotoOutput_EnableMirror()
+#### OH_PhotoOutput_EnableMirror()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1077,7 +1077,7 @@ Camera_ErrorCode OH_PhotoOutput_EnableMirror(Camera_PhotoOutput* photoOutput, bo
  
   
 
-##### OH_PhotoOutput_GetActiveProfile()
+#### OH_PhotoOutput_GetActiveProfile()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1108,7 +1108,7 @@ Camera_ErrorCode OH_PhotoOutput_GetActiveProfile(Camera_PhotoOutput* photoOutput
  
   
 
-##### OH_PhotoOutput_DeleteProfile()
+#### OH_PhotoOutput_DeleteProfile()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1138,7 +1138,7 @@ Camera_ErrorCode OH_PhotoOutput_DeleteProfile(Camera_Profile* profile)
  
   
 
-##### OH_PhotoOutput_IsMovingPhotoSupported()
+#### OH_PhotoOutput_IsMovingPhotoSupported()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1169,7 +1169,7 @@ Camera_ErrorCode OH_PhotoOutput_IsMovingPhotoSupported(Camera_PhotoOutput* photo
  
   
 
-##### OH_PhotoOutput_EnableMovingPhoto()
+#### OH_PhotoOutput_EnableMovingPhoto()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1200,7 +1200,7 @@ Camera_ErrorCode OH_PhotoOutput_EnableMovingPhoto(Camera_PhotoOutput* photoOutpu
  
   
 
-##### OH_PhotoOutput_IsPhotoQualityPrioritizationSupported()
+#### OH_PhotoOutput_IsPhotoQualityPrioritizationSupported()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1232,7 +1232,7 @@ Camera_ErrorCode OH_PhotoOutput_IsPhotoQualityPrioritizationSupported(Camera_Pho
  
   
 
-##### OH_PhotoOutput_SetPhotoQualityPrioritization()
+#### OH_PhotoOutput_SetPhotoQualityPrioritization()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { SubHeader } from '@kit.ArkUI';
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -34,7 +34,7 @@ import { SubHeader } from '@kit.ArkUI';
  
   
 
-##### SubHeader
+#### SubHeader
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -67,7 +67,7 @@ SubHeader({icon?: ResourceStr, iconSymbolOptions?: SymbolOptions, primaryTitle?:
  
   
 
-##### OperationType
+#### OperationType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -89,7 +89,7 @@ SubHeader({icon?: ResourceStr, iconSymbolOptions?: SymbolOptions, primaryTitle?:
  
   
 
-##### SelectOptions
+#### SelectOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -109,7 +109,7 @@ SubHeader({icon?: ResourceStr, iconSymbolOptions?: SymbolOptions, primaryTitle?:
  
   
 
-##### OperationOption
+#### OperationOption
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -130,7 +130,7 @@ SubHeader({icon?: ResourceStr, iconSymbolOptions?: SymbolOptions, primaryTitle?:
  
   
 
-##### SymbolOptions12+
+#### SymbolOptions12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -151,7 +151,7 @@ SubHeader({icon?: ResourceStr, iconSymbolOptions?: SymbolOptions, primaryTitle?:
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -159,13 +159,13 @@ SubHeader({icon?: ResourceStr, iconSymbolOptions?: SymbolOptions, primaryTitle?:
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 示例1（效率型子标题）
+#### 示例1（效率型子标题）
 
 该示例主要演示子标题左侧为icon、secondaryTitle，右侧operationType为按钮类型。
  
@@ -199,7 +199,7 @@ struct SubHeaderExample {
  
   
 
-##### 示例2（双行文本内容型子标题）
+#### 示例2（双行文本内容型子标题）
 
 该示例主要演示子标题左侧为primaryTitle、secondaryTitle，右侧operationType类型为TEXT_ARROW。
  
@@ -233,7 +233,7 @@ struct SubHeaderExample {
  
   
 
-##### 示例3（spinner型内容型子标题）
+#### 示例3（spinner型内容型子标题）
 
 该示例主要演示子标题左侧为select，右侧operationType类型为ICON_GROUP。
  
@@ -285,7 +285,7 @@ struct SubHeaderExample {
  
   
 
-##### 示例4（设置左侧symbol图标）
+#### 示例4（设置左侧symbol图标）
 
 该示例主要演示子标题左侧icon设置symbol图标。
  
@@ -323,7 +323,7 @@ struct SubHeaderExample {
  
   
 
-##### 示例5（设置右侧symbol图标）
+#### 示例5（设置右侧symbol图标）
 
 该示例主要演示子标题operationType设置为OperationType.ICON_GROUP，operationItem的value设置为symbol图标。
  
@@ -385,7 +385,7 @@ struct SubHeaderExample {
  
   
 
-##### 示例6（自定义标题内容）
+#### 示例6（自定义标题内容）
 
  该示例主要演示SubHeader设置titleBuilder自定义标题内容的效果。
  
@@ -433,7 +433,7 @@ struct SubHeaderExample {
  
   
 
-##### 示例7（自定义标题样式）
+#### 示例7（自定义标题样式）
 
 该示例主要演示SubHeader设置标题和副标题字体样式以及标题内外边距的效果。
  
@@ -476,7 +476,7 @@ struct SubHeaderExample {
  
   
 
-##### 示例8（右侧按钮自定义播报）
+#### 示例8（右侧按钮自定义播报）
 
 从API version 18开始，该示例通过设置SubHeader的右侧按钮属性accessibilityText、accessibilityDescription、accessibilityLevel自定义屏幕朗读播报文本。
  
@@ -547,12 +547,12 @@ struct SubHeaderExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/x3FClJmmTqyeqILVCG6XNg/zh-cn_image_0000002581436272.png?HW-CC-KV=V1&HW-CC-Date=20260528T024156Z&HW-CC-Expire=86400&HW-CC-Sign=0E6931D7C62DBF4B3DEDDF7DCC80D404C5A8B493F853D579CD99AFFAA33DD979)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/x3FClJmmTqyeqILVCG6XNg/zh-cn_image_0000002581436272.png?HW-CC-KV=V1&HW-CC-Date=20260528T025529Z&HW-CC-Expire=86400&HW-CC-Sign=4541018901E83FA9B6405BFBC7F382CD0C63D3FEFA9D3007271099341A783B9A)
 
  
   
 
-##### 示例9（右侧按钮设置默认获焦）
+#### 示例9（右侧按钮设置默认获焦）
 
 在获焦状态下，该示例通过设置SubHeader的右侧按钮属性defaultFocus使其默认获焦。
  
@@ -585,4 +585,4 @@ struct SubHeaderExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/BIbz0AQ6S-mAVcQAwiUG1w/zh-cn_image_0000002611836103.png?HW-CC-KV=V1&HW-CC-Date=20260528T024156Z&HW-CC-Expire=86400&HW-CC-Sign=5A510414A4E8E406C3C401DC9455F3776907DF9D2820D94254EAD0DC331A7A68)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/BIbz0AQ6S-mAVcQAwiUG1w/zh-cn_image_0000002611836103.png?HW-CC-KV=V1&HW-CC-Date=20260528T025529Z&HW-CC-Expire=86400&HW-CC-Sign=460BEFF79418F3CB464C406B5D535A238AE0D828D785495663B848041CBD801B)

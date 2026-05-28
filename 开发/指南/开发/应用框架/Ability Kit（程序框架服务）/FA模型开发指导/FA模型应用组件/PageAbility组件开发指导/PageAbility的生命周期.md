@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pageability-lifecycle
 
-##### 概述
+#### 概述
 
 PageAbility生命周期是PageAbility被调度到INACTIVE、ACTIVE、BACKGROUND等各个状态的统称。PageAbility生命周期流转及状态说明如图1、表1所示。
 
@@ -55,7 +55,7 @@ PageAbility生命周期回调与生命周期状态的关系如下图所示。
 
 
 
-##### 开发指导
+#### 开发指导
 
 下面通过一个完整的示例展示FA模型PageAbility生命周期的使用。
 1. 在app.ets文件中实现Ability生命周期回调。

@@ -10,7 +10,7 @@
 **起始版本：** 5.0.1(13)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@ import { scan } from '@kit.NearLinkKit';
  
   
 
-##### startScan
+#### startScan
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -86,7 +86,7 @@ try {
  
   
 
-##### stopScan
+#### stopScan
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -136,7 +136,7 @@ try {
  
   
 
-##### on( 'deviceFound')
+#### on( 'deviceFound')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -187,7 +187,7 @@ try {
  
   
 
-##### off( 'deviceFound')
+#### off( 'deviceFound')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -235,7 +235,7 @@ try {
  
   
 
-##### ScanResults
+#### ScanResults
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -257,7 +257,7 @@ try {
  
   
 
-##### ScanFilters
+#### ScanFilters
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -278,7 +278,7 @@ try {
  
   
 
-##### ScanOptions
+#### ScanOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -296,7 +296,7 @@ try {
  
   
 
-##### ScanMode
+#### ScanMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

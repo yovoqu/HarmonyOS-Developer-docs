@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-register-font-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -46,13 +46,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Drawing_RegisterFont()
+#### OH_Drawing_RegisterFont()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -86,7 +86,7 @@ uint32_t OH_Drawing_RegisterFont(OH_Drawing_FontCollection*, const char* fontFam
  
   
 
-##### OH_Drawing_RegisterFontBuffer()
+#### OH_Drawing_RegisterFontBuffer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -121,7 +121,7 @@ uint32_t OH_Drawing_RegisterFontBuffer(OH_Drawing_FontCollection*, const char* f
  
   
 
-##### OH_Drawing_UnregisterFont()
+#### OH_Drawing_UnregisterFont()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -158,7 +158,7 @@ uint32_t OH_Drawing_UnregisterFont(OH_Drawing_FontCollection* fontCollection, co
  
   
 
-##### OH_Drawing_RegisterFontByIndex()
+#### OH_Drawing_RegisterFontByIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -191,7 +191,7 @@ uint32_t OH_Drawing_RegisterFontByIndex(OH_Drawing_FontCollection* fontCollectio
  
   
 
-##### OH_Drawing_RegisterFontBufferByIndex()
+#### OH_Drawing_RegisterFontBufferByIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -225,7 +225,7 @@ uint32_t OH_Drawing_RegisterFontBufferByIndex(OH_Drawing_FontCollection* fontCol
  
   
 
-##### OH_Drawing_IsFontSupportedFromPath()
+#### OH_Drawing_IsFontSupportedFromPath()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -255,7 +255,7 @@ bool OH_Drawing_IsFontSupportedFromPath(const char* path)
  
   
 
-##### OH_Drawing_IsFontSupportedFromBuffer()
+#### OH_Drawing_IsFontSupportedFromBuffer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

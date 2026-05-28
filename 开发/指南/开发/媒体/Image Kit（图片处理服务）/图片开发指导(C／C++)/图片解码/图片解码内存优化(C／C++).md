@@ -11,7 +11,7 @@
 当PixelMap占用的内存空间较大且使用共享内存时，RenderScript主线程将经历较长的纹理上传时间，导致卡顿现象。图形侧提供了DMA（Direct Memory Access）内存零拷贝功能，可在绘制图片时避免这一消耗。
 
 
-##### 内存类型介绍
+#### 内存类型介绍
 
 当前PixelMap的内存类型包括以下两种。
 
@@ -23,7 +23,7 @@
 
 
 
-##### SHARE_MEMORY和DMA_ALLOC的区别
+#### SHARE_MEMORY和DMA_ALLOC的区别
 
 | 名称 | SHARE_MEMORY | DMA_ALLOC |
 | --- | --- | --- |
@@ -39,7 +39,7 @@
 
 
 
-##### 使用DMA_ALLOC的优势
+#### 使用DMA_ALLOC的优势
 
  - **减少纹理上传时间**
 
@@ -56,7 +56,7 @@ SHARE_MEMORY耗时：4K图片单帧渲染耗时约为20ms。
 
 
 
-##### 系统默认的内存分配方式
+#### 系统默认的内存分配方式
 
 在使用接口[OH_ImageSourceNative_CreatePixelmap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-source-native-h#oh_imagesourcenative_createpixelmap)进行解码时，不同场景下会采取不同的内存分配类型。
 
@@ -72,7 +72,7 @@ SHARE_MEMORY耗时：4K图片单帧渲染耗时约为20ms。
 
 
 
-##### 自定义内存分配方式
+#### 自定义内存分配方式
 
 默认场景下，由系统选择性能最优的内存分配方式。特定场景支持应用使用指定的内存分配方式。
 
@@ -82,7 +82,7 @@ SHARE_MEMORY耗时：4K图片单帧渲染耗时约为20ms。
 
 
 
-##### 使用限制
+#### 使用限制
 
 当前图片解码功能针对内存分配模式有如下限制。
 
@@ -99,7 +99,7 @@ SHARE_MEMORY耗时：4K图片单帧渲染耗时约为20ms。
 
 
 
-##### 获取stride
+#### 获取stride
 
 stride（步幅）描述了图片在内存中每一行像素数据的存储宽度。它是图片绘制过程中的重要参数，用于正确定位图片数据在内存中的布局。
 
@@ -280,7 +280,7 @@ napi_value TestStrideWithAllocatorType(napi_env env, napi_callback_info info)
 
 
 
-##### 解码单张图片的内存限制
+#### 解码单张图片的内存限制
 
 为了防止内存溢出导致系统崩溃，系统对进程内存做了限制，详细说明请参考[应用被查杀问题检测方法](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-runtime-appkilled-detection)。
 

@@ -10,7 +10,7 @@
 **起始版本：** 5.1.1(19)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -20,7 +20,7 @@ import { symbolRegister } from '@kit.UIDesignKit';
  
   
 
-##### symbolRegister.registerSymbol
+#### symbolRegister.registerSymbol
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

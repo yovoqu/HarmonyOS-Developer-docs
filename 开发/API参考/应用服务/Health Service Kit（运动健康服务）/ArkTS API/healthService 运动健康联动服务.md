@@ -10,7 +10,7 @@
 **起始版本：** 5.0.0(12)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -20,7 +20,7 @@ import { healthService } from '@kit.HealthServiceKit';
  
   
 
-##### SampleEvent
+#### SampleEvent
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -41,7 +41,7 @@ import { healthService } from '@kit.HealthServiceKit';
  
   
 
-##### SampleReal
+#### SampleReal
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -63,7 +63,7 @@ SampleReal<K extends Record<string, [healthStore.HealthValueType](https://develo
  
   
 
-##### workout
+#### workout
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -77,7 +77,7 @@ SampleReal<K extends Record<string, [healthStore.HealthValueType](https://develo
  
   
 
-##### ActivityReport
+#### ActivityReport
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -103,7 +103,7 @@ SampleReal<K extends Record<string, [healthStore.HealthValueType](https://develo
  
   
 
-##### ConfigType
+#### ConfigType
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -124,7 +124,7 @@ type ConfigType = number | string | boolean
  
   
 
-##### DeviceState
+#### DeviceState
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -143,7 +143,7 @@ type ConfigType = number | string | boolean
  
   
 
-##### Goal
+#### Goal
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -161,7 +161,7 @@ type ConfigType = number | string | boolean
  
   
 
-##### LinkageType
+#### LinkageType
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -179,7 +179,7 @@ type ConfigType = number | string | boolean
  
   
 
-##### StartCode
+#### StartCode
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -199,7 +199,7 @@ type ConfigType = number | string | boolean
  
   
 
-##### StartResult
+#### StartResult
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -217,7 +217,7 @@ type ConfigType = number | string | boolean
  
   
 
-##### SportInfo
+#### SportInfo
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -237,7 +237,7 @@ type ConfigType = number | string | boolean
  
   
 
-##### SportState
+#### SportState
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -260,7 +260,7 @@ type ConfigType = number | string | boolean
  
   
 
-##### TargetType
+#### TargetType
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -281,7 +281,7 @@ type ConfigType = number | string | boolean
  
   
 
-##### WorkoutConfig
+#### WorkoutConfig
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -301,7 +301,7 @@ type ConfigType = number | string | boolean
  
   
 
-##### workout.config
+#### workout.config
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -365,7 +365,7 @@ try {
  
   
 
-##### workout.start
+#### workout.start
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -420,7 +420,7 @@ try {
  
   
 
-##### workout.pause
+#### workout.pause
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -472,7 +472,7 @@ try {
  
   
 
-##### workout.resume
+#### workout.resume
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -524,7 +524,7 @@ try {
  
   
 
-##### workout.stop
+#### workout.stop
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -576,7 +576,7 @@ try {
  
   
 
-##### workout.onData
+#### workout.onData
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -640,7 +640,7 @@ try {
  
   
 
-##### workout.onData
+#### workout.onData
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -701,7 +701,7 @@ try {
  
   
 
-##### workout.offData
+#### workout.offData
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -762,7 +762,7 @@ try {
  
   
 
-##### workout.offData
+#### workout.offData
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -823,7 +823,7 @@ try {
  
   
 
-##### workout.onEvent("*")
+#### workout.onEvent("*")
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -884,7 +884,7 @@ try {
  
   
 
-##### workout.offEvent("*")
+#### workout.offEvent("*")
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -945,7 +945,7 @@ try {
  
   
 
-##### workout.readActivityReport
+#### workout.readActivityReport
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1002,7 +1002,7 @@ try {
  
   
 
-##### workout.sendData
+#### workout.sendData
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1067,7 +1067,7 @@ try {
  
   
 
-##### workout.sendEvent
+#### workout.sendEvent
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1130,7 +1130,7 @@ try {
  
   
 
-##### workout.getCurrentSportInfo
+#### workout.getCurrentSportInfo
 
 **支持设备：** Phone | Tablet | Wearable
 

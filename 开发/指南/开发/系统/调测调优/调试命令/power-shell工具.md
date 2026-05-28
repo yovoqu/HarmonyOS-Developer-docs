@@ -7,13 +7,13 @@
 power-shell是实现设备电源状态转换等功能的工具，为开发者提供基本的设备电源状态调试能力，例如：熄屏、唤醒、设置电源模式等。
   
 
-##### 环境要求
+#### 环境要求
 
 开发者在使用本工具前需开启开发者模式，且需要获取[hdc工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdc)，执行hdc shell。
  
   
 
-##### power-shell命令工具列表
+#### power-shell命令工具列表
  
 | 命令 | 描述 |
 | --- | --- |
@@ -26,7 +26,7 @@ power-shell是实现设备电源状态转换等功能的工具，为开发者提
  
   
 
-##### 帮助命令
+#### 帮助命令
 
 ```bash
 # 显示帮助信息
@@ -35,7 +35,7 @@ power-shell help
  
   
 
-##### 设置电源模式命令
+#### 设置电源模式命令
 
 ```bash
 power-shell setmode
@@ -67,7 +67,7 @@ power-shell setmode 603
  
   
 
-##### 亮屏命令
+#### 亮屏命令
 
 ```bash
 power-shell wakeup
@@ -89,7 +89,7 @@ power-shell wakeup
  
   
 
-##### 熄屏命令
+#### 熄屏命令
 
 ```bash
 power-shell suspend
@@ -111,7 +111,7 @@ power-shell suspend
  
   
 
-##### 自动熄屏命令
+#### 自动熄屏命令
 
 ```bash
 power-shell timeout

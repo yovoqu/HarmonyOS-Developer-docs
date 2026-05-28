@@ -8,7 +8,7 @@
 1. 进入华为开发者联盟的“管理中心”，点击“[应用服务](https://developer.huawei.com/consumer/cn/console/service/AppService)”页签下的“Wear Engine”卡片。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/FmqcrLHJQi2AMJtUFo9N5w/zh-cn_image_0000002581434576.png?HW-CC-KV=V1&HW-CC-Date=20260528T014544Z&HW-CC-Expire=86400&HW-CC-Sign=A02815A8EEE0D3D7BD89B42B19A8460EF71FD8CD3576BCF985C70ADD3099C8BB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/FmqcrLHJQi2AMJtUFo9N5w/zh-cn_image_0000002581434576.png?HW-CC-KV=V1&HW-CC-Date=20260528T030214Z&HW-CC-Expire=86400&HW-CC-Sign=3ACEFB8B576CB7A5591DB7025F88D7B3ECFF22598E172C3F91885B8F63CE2483)
 
 
   
@@ -18,12 +18,12 @@
 2. 点击“申请Wear Engine服务”，同意协议后，进入权限申请页面。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/Gil5GhP4RCybCdKGdQ92GA/zh-cn_image_0000002611834407.png?HW-CC-KV=V1&HW-CC-Date=20260528T014544Z&HW-CC-Expire=86400&HW-CC-Sign=59622328D69289D1CBB753BCC601043BA372DBF9AC91721641298AEBB01C00AD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/Gil5GhP4RCybCdKGdQ92GA/zh-cn_image_0000002611834407.png?HW-CC-KV=V1&HW-CC-Date=20260528T030214Z&HW-CC-Expire=86400&HW-CC-Sign=EF3C3C495891C607A0750C566BD09E7E82C6DA200E6A58405CD5E0F6426E5F92)
 
 3. 点击“HarmonyOS应用”并选择产品后，勾选必需申请的权限（个人开发者当前只可申请设备基础信息、消息通知两个基本的权限）。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/7N2PYRMjTl287cAMLE3KDw/zh-cn_image_0000002581274660.png?HW-CC-KV=V1&HW-CC-Date=20260528T014544Z&HW-CC-Expire=86400&HW-CC-Sign=40A81EA6B8327C0948667D8937078AEE3CDD2034784E5880C6DE531B7D576DA5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/7N2PYRMjTl287cAMLE3KDw/zh-cn_image_0000002581274660.png?HW-CC-KV=V1&HW-CC-Date=20260528T030214Z&HW-CC-Expire=86400&HW-CC-Sign=612C545772DA9464FB074D008F51CA3ACBE8A34200E0B42C733ECB5C89EBFCCF)
 
 
   
@@ -75,4 +75,4 @@
   若您的业务范围发生变动，需要修改相应的数据权限，您可以点击“修改”重新提交申请。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/qinYrrg1SPW1VWW0tKBwBQ/zh-cn_image_0000002611754515.png?HW-CC-KV=V1&HW-CC-Date=20260528T014544Z&HW-CC-Expire=86400&HW-CC-Sign=8042888CEE9AFA3D83133B01AF77C4007DBE9CEE90BFA4936CF3C13264BC5529)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/qinYrrg1SPW1VWW0tKBwBQ/zh-cn_image_0000002611754515.png?HW-CC-KV=V1&HW-CC-Date=20260528T030214Z&HW-CC-Expire=86400&HW-CC-Sign=518D94B9332203C1102C1309A8C6A650FF26C8BC393DE18EDDEF278B0F5FA9D2)

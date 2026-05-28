@@ -7,17 +7,17 @@
 从API 22开始，huksExternalCrypto提供Provider注册和注销功能接口。
 
 
-##### 注册Provider
+#### 注册Provider
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 构造注册参数，需要传入[HUKS_EXT_CRYPTO_TAG_ABILITY_NAME](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptotag)。
 2. 调用注册接口[registerProvider](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptoregisterprovider)。
 
 
 
-##### 开发案例
+#### 开发案例
 
 ```text
 import { huksExternalCrypto } from '@kit.UniversalKeystoreKit';
@@ -61,11 +61,11 @@ async function TestRegisterProvider() {
 
 
 
-##### 注销Provider
+#### 注销Provider
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 构造注销参数，注销单个ability需要传入[HUKS_EXT_CRYPTO_TAG_ABILITY_NAME](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptotag)参数。批量注销不需要传入[HUKS_EXT_CRYPTO_TAG_ABILITY_NAME](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptotag)参数。
 2. 调用注销接口[unregisterProvider](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptounregisterprovider)。
 

@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-want-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@ Want是对象间信息传递的载体，可以用于应用组件间的信息传�
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -41,7 +41,7 @@ Want是对象间信息传递的载体，可以用于应用组件间的信息传�
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -67,13 +67,13 @@ Want是对象间信息传递的载体，可以用于应用组件间的信息传�
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_AbilityBase_CreateWant()
+#### OH_AbilityBase_CreateWant()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -103,7 +103,7 @@ AbilityBase_Want* OH_AbilityBase_CreateWant(AbilityBase_Element element)
  
   
 
-##### OH_AbilityBase_DestroyWant()
+#### OH_AbilityBase_DestroyWant()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -133,7 +133,7 @@ AbilityBase_ErrorCode OH_AbilityBase_DestroyWant(AbilityBase_Want* want)
  
   
 
-##### OH_AbilityBase_SetWantElement()
+#### OH_AbilityBase_SetWantElement()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -164,7 +164,7 @@ AbilityBase_ErrorCode OH_AbilityBase_SetWantElement(AbilityBase_Want* want, Abil
  
   
 
-##### OH_AbilityBase_GetWantElement()
+#### OH_AbilityBase_GetWantElement()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -195,7 +195,7 @@ AbilityBase_ErrorCode OH_AbilityBase_GetWantElement(AbilityBase_Want* want, Abil
  
   
 
-##### OH_AbilityBase_SetWantCharParam()
+#### OH_AbilityBase_SetWantCharParam()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -227,7 +227,7 @@ AbilityBase_ErrorCode OH_AbilityBase_SetWantCharParam(AbilityBase_Want* want, co
  
   
 
-##### OH_AbilityBase_GetWantCharParam()
+#### OH_AbilityBase_GetWantCharParam()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -260,7 +260,7 @@ AbilityBase_ErrorCode OH_AbilityBase_GetWantCharParam(AbilityBase_Want* want, co
  
   
 
-##### OH_AbilityBase_AddWantFd()
+#### OH_AbilityBase_AddWantFd()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -292,7 +292,7 @@ AbilityBase_ErrorCode OH_AbilityBase_AddWantFd(AbilityBase_Want* want, const cha
  
   
 
-##### OH_AbilityBase_GetWantFd()
+#### OH_AbilityBase_GetWantFd()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -324,7 +324,7 @@ AbilityBase_ErrorCode OH_AbilityBase_GetWantFd(AbilityBase_Want* want, const cha
  
   
 
-##### OH_AbilityBase_SetWantUri()
+#### OH_AbilityBase_SetWantUri()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -355,7 +355,7 @@ AbilityBase_ErrorCode OH_AbilityBase_SetWantUri(AbilityBase_Want* want, const ch
  
   
 
-##### OH_AbilityBase_GetWantUri()
+#### OH_AbilityBase_GetWantUri()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -387,7 +387,7 @@ AbilityBase_ErrorCode OH_AbilityBase_GetWantUri(AbilityBase_Want* want, char* ur
  
   
 
-##### OH_AbilityBase_SetWantInt32Param()
+#### OH_AbilityBase_SetWantInt32Param()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -419,7 +419,7 @@ AbilityBase_ErrorCode OH_AbilityBase_SetWantInt32Param(AbilityBase_Want* want, c
  
   
 
-##### OH_AbilityBase_GetWantInt32Param()
+#### OH_AbilityBase_GetWantInt32Param()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -451,7 +451,7 @@ AbilityBase_ErrorCode OH_AbilityBase_GetWantInt32Param(AbilityBase_Want* want, c
  
   
 
-##### OH_AbilityBase_SetWantBoolParam()
+#### OH_AbilityBase_SetWantBoolParam()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -483,7 +483,7 @@ AbilityBase_ErrorCode OH_AbilityBase_SetWantBoolParam(AbilityBase_Want* want, co
  
   
 
-##### OH_AbilityBase_GetWantBoolParam()
+#### OH_AbilityBase_GetWantBoolParam()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -515,7 +515,7 @@ AbilityBase_ErrorCode OH_AbilityBase_GetWantBoolParam(AbilityBase_Want* want, co
  
   
 
-##### OH_AbilityBase_SetWantDoubleParam()
+#### OH_AbilityBase_SetWantDoubleParam()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -547,7 +547,7 @@ AbilityBase_ErrorCode OH_AbilityBase_SetWantDoubleParam(AbilityBase_Want* want, 
  
   
 
-##### OH_AbilityBase_GetWantDoubleParam()
+#### OH_AbilityBase_GetWantDoubleParam()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

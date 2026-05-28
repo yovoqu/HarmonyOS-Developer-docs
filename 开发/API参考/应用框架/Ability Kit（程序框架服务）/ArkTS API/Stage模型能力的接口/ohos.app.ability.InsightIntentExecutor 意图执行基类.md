@@ -14,7 +14,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { InsightIntentExecutor } from '@kit.AbilityKit';
 
 
 
-##### InsightIntentExecutor
+#### InsightIntentExecutor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -32,7 +32,7 @@ import { InsightIntentExecutor } from '@kit.AbilityKit';
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -47,7 +47,7 @@ import { InsightIntentExecutor } from '@kit.AbilityKit';
 
 
 
-##### onExecuteInUIAbilityForegroundMode
+#### onExecuteInUIAbilityForegroundMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -169,7 +169,7 @@ export default class IntentExecutorImpl extends InsightIntentExecutor {
 
 
 
-##### onExecuteInUIAbilityBackgroundMode
+#### onExecuteInUIAbilityBackgroundMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -249,7 +249,7 @@ export default class IntentExecutorImpl extends InsightIntentExecutor {
 
 
 
-##### onExecuteInUIExtensionAbility
+#### onExecuteInUIExtensionAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -359,7 +359,7 @@ export default class IntentExecutorImpl extends InsightIntentExecutor {
 
 
 
-##### onExecuteInServiceExtensionAbility
+#### onExecuteInServiceExtensionAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

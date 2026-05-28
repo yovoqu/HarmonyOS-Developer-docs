@@ -14,7 +14,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Tablet
 
@@ -25,7 +25,7 @@ CardRecognitionConfig, ShootingMode, CardContentConfig, BankCardConfig } from '@
  
   
 
-##### CardRecognition
+#### CardRecognition
 
 **支持设备：** Phone | Tablet
 
@@ -50,7 +50,7 @@ CardRecognitionConfig, ShootingMode, CardContentConfig, BankCardConfig } from '@
  
   
 
-##### CardType
+#### CardType
 
 **支持设备：** Phone | Tablet
 
@@ -74,7 +74,7 @@ CardRecognitionConfig, ShootingMode, CardContentConfig, BankCardConfig } from '@
  
   
 
-##### CardSide
+#### CardSide
 
 **支持设备：** Phone | Tablet
 
@@ -95,7 +95,7 @@ CardRecognitionConfig, ShootingMode, CardContentConfig, BankCardConfig } from '@
  
   
 
-##### CallbackParam(deprecated)
+#### CallbackParam(deprecated)
 
 **支持设备：** Phone | Tablet
 
@@ -120,7 +120,7 @@ CardRecognitionConfig, ShootingMode, CardContentConfig, BankCardConfig } from '@
  
   
 
-##### CardRecognitionResult
+#### CardRecognitionResult
 
 **支持设备：** Phone | Tablet
 
@@ -141,7 +141,7 @@ CardRecognitionConfig, ShootingMode, CardContentConfig, BankCardConfig } from '@
  
   
 
-##### CardRecognitionConfig
+#### CardRecognitionConfig
 
 **支持设备：** Phone | Tablet
 
@@ -161,7 +161,7 @@ CardRecognitionConfig, ShootingMode, CardContentConfig, BankCardConfig } from '@
  
   
 
-##### ShootingMode
+#### ShootingMode
 
 **支持设备：** Phone | Tablet
 
@@ -181,7 +181,7 @@ CardRecognitionConfig, ShootingMode, CardContentConfig, BankCardConfig } from '@
  
   
 
-##### CardContentConfig
+#### CardContentConfig
 
 **支持设备：** Phone | Tablet
 
@@ -199,7 +199,7 @@ CardRecognitionConfig, ShootingMode, CardContentConfig, BankCardConfig } from '@
  
   
 
-##### BankCardConfig
+#### BankCardConfig
 
 **支持设备：** Phone | Tablet
 
@@ -218,7 +218,7 @@ CardRecognitionConfig, ShootingMode, CardContentConfig, BankCardConfig } from '@
  
   
 
-##### IdCardConfig
+#### IdCardConfig
 
 **支持设备：** Phone | Tablet
 
@@ -236,7 +236,7 @@ CardRecognitionConfig, ShootingMode, CardContentConfig, BankCardConfig } from '@
  
   
 
-##### cardInfo
+#### cardInfo
 
 **支持设备：** Phone | Tablet
 

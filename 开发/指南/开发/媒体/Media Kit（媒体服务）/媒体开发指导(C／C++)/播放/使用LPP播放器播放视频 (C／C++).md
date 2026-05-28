@@ -15,7 +15,7 @@
 **图1** 播放状态变化示意图
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/YVIJt9ETT2mUKP84ieMOjQ/zh-cn_image_0000002581434690.png?HW-CC-KV=V1&HW-CC-Date=20260528T014726Z&HW-CC-Expire=86400&HW-CC-Sign=0CFB3C3346F0AB2B09C309FF970F5E48ABE2D8D3C27C426AABF4D7C231EB2095)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/YVIJt9ETT2mUKP84ieMOjQ/zh-cn_image_0000002581434690.png?HW-CC-KV=V1&HW-CC-Date=20260528T030356Z&HW-CC-Expire=86400&HW-CC-Sign=16DB34190CD2437140058C23BD1BB473513466DED9363DB44FD23FFFC2D9999E)
 
 
 播放流程包含：创建（created）、初始化（initialized）、就绪（ready）、解码（decoding）和渲染（rendering）五个阶段。
@@ -31,7 +31,7 @@
 当播放处于ready/decoding/rendering/paused/stopped状态时，播放引擎此时处于工作状态会占用较多的系统资源。当暂停使用播放器时，可调用reset或destroy回收资源。
 
 
-##### 开发建议
+#### 开发建议
 
 当前指导仅介绍如何实现媒体资源播放，在应用开发过程中会涉及后台播放、播放冲突等情况，请根据实际需要参考以下说明。
 
@@ -60,7 +60,7 @@
 
 
 
-##### 开发步骤及注意事项
+#### 开发步骤及注意事项
 
 在CMake脚本中链接动态库。
 
@@ -190,7 +190,7 @@ OH_LowPowerVideoSink_StartRenderer(lppVideoStreamer_);
 
 
 
-##### 运行完整示例
+#### 运行完整示例
 1. 新建工程。下载[示例工程](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/MediaKit/LowPowerAVSInk/lowPowerAVSinkSample)，并将示例工程的以下资源复制到对应目录。
 
   

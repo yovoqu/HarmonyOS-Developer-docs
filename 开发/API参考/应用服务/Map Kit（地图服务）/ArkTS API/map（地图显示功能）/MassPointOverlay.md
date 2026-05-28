@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-masspointoverlay
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -15,7 +15,7 @@ import { map, mapCommon } from '@kit.MapKit';
  
   
 
-##### MassPointOverlay
+#### MassPointOverlay
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -58,7 +58,7 @@ let massPointOverlay = await this.mapController?.addMassPointOverlay(params);
  
   
 
-##### getId
+#### getId
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -89,7 +89,7 @@ let Id = massPointOverlay.getId();
  
   
 
-##### setItems
+#### setItems
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -130,7 +130,7 @@ massPointOverlay.setItems(items);
  
   
 
-##### getItems
+#### getItems
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -161,7 +161,7 @@ let MassPointItem: mapCommon.MassPointItem[] = this.massPointOverlay.getItems();
  
   
 
-##### setAnchorU
+#### setAnchorU
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -192,7 +192,7 @@ massPointOverlay.setAnchorU(0.6);
  
   
 
-##### getAnchorU
+#### getAnchorU
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -223,7 +223,7 @@ let AnchorU: number = this.massPointOverlay.getAnchorU();
  
   
 
-##### setAnchorV
+#### setAnchorV
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -254,7 +254,7 @@ massPointOverlay.setAnchorV(0.6);
  
   
 
-##### getAnchorV
+#### getAnchorV
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -285,7 +285,7 @@ let AnchorV: number = this.massPointOverlay.getAnchorV();
  
   
 
-##### setVisible
+#### setVisible
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -316,7 +316,7 @@ massPointOverlay.setVisible(true);
  
   
 
-##### isVisible
+#### isVisible
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -347,7 +347,7 @@ let isVisible: boolean = massPointOverlay.isVisible();
  
   
 
-##### remove
+#### remove
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

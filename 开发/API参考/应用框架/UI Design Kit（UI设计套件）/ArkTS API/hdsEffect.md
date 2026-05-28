@@ -10,7 +10,7 @@
 **起始版本：** 6.0.0(20)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -20,7 +20,7 @@ import { hdsEffect } from '@kit.UIDesignKit';
  
   
 
-##### HdsEffectBuilder
+#### HdsEffectBuilder
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -34,7 +34,7 @@ import { hdsEffect } from '@kit.UIDesignKit';
  
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -50,7 +50,7 @@ HdsEffectBuilder的构造函数。
  
   
 
-##### pointLight
+#### pointLight
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -147,7 +147,7 @@ struct Index {
  
   
 
-##### pressShadow
+#### pressShadow
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -230,7 +230,7 @@ struct PressShadowExample {
  
   
 
-##### shaderEffect
+#### shaderEffect
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -318,7 +318,7 @@ struct Index {
  
   
 
-##### buildEffect
+#### buildEffect
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -341,7 +341,7 @@ buildEffect(): VisualEffect
  
   
 
-##### ShaderEffectParams
+#### ShaderEffectParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -363,7 +363,7 @@ shaderEffect视效配置。
  
   
 
-##### EffectType
+#### EffectType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -385,7 +385,7 @@ shaderEffect视效配置。
  
   
 
-##### AnimationParams
+#### AnimationParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -410,7 +410,7 @@ shaderEffect视效配置。
  
   
 
-##### OnFinishCallback
+#### OnFinishCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -426,7 +426,7 @@ type OnFinishCallback = () => void
  
   
 
-##### ExpectedFrameRateRange
+#### ExpectedFrameRateRange
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -447,7 +447,7 @@ type OnFinishCallback = () => void
  
   
 
-##### FrameRateType
+#### FrameRateType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -468,7 +468,7 @@ type OnFinishCallback = () => void
  
   
 
-##### EffectParams
+#### EffectParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -490,7 +490,7 @@ type EffectParams = DualEdgeFlowLightParam | UVFlowLightColorParam
  
   
 
-##### DualEdgeFlowLightParam
+#### DualEdgeFlowLightParam
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -510,7 +510,7 @@ type EffectParams = DualEdgeFlowLightParam | UVFlowLightColorParam
  
   
 
-##### UVFlowLightColorParam
+#### UVFlowLightColorParam
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -530,7 +530,7 @@ UV流光视效参数。
  
   
 
-##### EdgeFlowLightParam
+#### EdgeFlowLightParam
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -551,7 +551,7 @@ UV流光视效参数。
  
   
 
-##### ShaderEffectController
+#### ShaderEffectController
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -565,7 +565,7 @@ UV流光视效参数。
  
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -581,7 +581,7 @@ ShaderEffectController的构造函数。
  
   
 
-##### play
+#### play
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -597,7 +597,7 @@ play(): void
  
   
 
-##### pause
+#### pause
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -613,7 +613,7 @@ pause(): void
  
   
 
-##### resume
+#### resume
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -629,7 +629,7 @@ resume(): void
  
   
 
-##### reverse
+#### reverse
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -645,7 +645,7 @@ reverse(): void
  
   
 
-##### stop
+#### stop
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -661,7 +661,7 @@ stop(): void
  
   
 
-##### setEffectParams
+#### setEffectParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -682,7 +682,7 @@ setEffectParams(params: EffectParams): void
  
   
 
-##### PointLightEffect
+#### PointLightEffect
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -707,7 +707,7 @@ setEffectParams(params: EffectParams): void
  
   
 
-##### PointLightSourceType
+#### PointLightSourceType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -728,7 +728,7 @@ setEffectParams(params: EffectParams): void
  
   
 
-##### PointLightIlluminatedType
+#### PointLightIlluminatedType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -751,7 +751,7 @@ setEffectParams(params: EffectParams): void
  
   
 
-##### PointLightOptions
+#### PointLightOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -773,7 +773,7 @@ setEffectParams(params: EffectParams): void
  
   
 
-##### PressShadowType
+#### PressShadowType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-about-primitive
 
-##### 简介
+#### 简介
 
 在使用JSVM-API接口时，开发人员可以实现在JSVM模块中与JavaScript对象的交互，并进行数据转换和获取特定对象的操作，它们在不同的场景中发挥着重要的作用，使开发人员能够更灵活地处理JavaScript值和对象。
  
   
 
-##### 基本概念
+#### 基本概念
 
 在使用JSVM操作JavaScript对象时，需要了解一些基本概念：
  
@@ -19,7 +19,7 @@
  
   
 
-##### 接口说明
+#### 接口说明
  
 | 接口 | 功能说明 |
 | --- | --- |
@@ -36,13 +36,13 @@
  
   
 
-##### 使用示例
+#### 使用示例
 
 JSVM-API接口开发流程参考[使用JSVM-API实现JS与C/C++语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-process)。本文仅展示接口对应的C++相关代码。
  
   
 
-##### OH_JSVM_CoerceToBool
+#### OH_JSVM_CoerceToBool
 
 用于将一个给定的JavaScript值强制转为JavaScript boolean值。
  
@@ -91,7 +91,7 @@ JSVM OH_JSVM_CoerceToBool success:1
  
   
 
-##### OH_JSVM_CoerceToNumber
+#### OH_JSVM_CoerceToNumber
 
 用于将给定的JavaScript value强转为JavaScript number。
  
@@ -140,7 +140,7 @@ JSVM OH_JSVM_CoerceToNumber success:1
  
   
 
-##### OH_JSVM_CoerceToObject
+#### OH_JSVM_CoerceToObject
 
 用于将给定的JavaScript value强转为JavaScript Object类型。
  
@@ -188,7 +188,7 @@ JSVM OH_JSVM_CoerceToObject success
  
   
 
-##### OH_JSVM_CoerceToString
+#### OH_JSVM_CoerceToString
 
 用于将给定的JavaScript value强转为JavaScript string类型。
  
@@ -236,7 +236,7 @@ JSVM OH_JSVM_CoerceToString success
  
   
 
-##### OH_JSVM_GetBoolean
+#### OH_JSVM_GetBoolean
 
 获取给定布尔值的JavaScript单例对象。
  
@@ -299,7 +299,7 @@ JSVM OH_JSVM_GetBoolean success:1
  
   
 
-##### OH_JSVM_GetValueBool
+#### OH_JSVM_GetValueBool
 
 使用这个函数将JavaScript中的布尔值转为等价的C布尔值。
  
@@ -354,7 +354,7 @@ JSVM OH_JSVM_GetValueBool success:0
  
   
 
-##### OH_JSVM_GetGlobal
+#### OH_JSVM_GetGlobal
 
 用于获取全局JavaScript对象。该函数的主要作用是获取表示JavaScript全局对象的JSVM_Value，使JSVM模块能够与JavaScript运行时的全局对象进行交互。
  
@@ -402,7 +402,7 @@ JSVM OH_JSVM_GetGlobal success
  
   
 
-##### OH_JSVM_GetNull
+#### OH_JSVM_GetNull
 
 用于获取 JavaScript null 对象。
  
@@ -445,7 +445,7 @@ JSVM OH_JSVM_GetNull success
  
   
 
-##### OH_JSVM_GetUndefined
+#### OH_JSVM_GetUndefined
 
 用于获取 JavaScript undefined 对象。
  

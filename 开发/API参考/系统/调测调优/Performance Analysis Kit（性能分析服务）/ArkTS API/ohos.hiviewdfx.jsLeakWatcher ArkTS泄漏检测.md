@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { jsLeakWatcher } from '@kit.PerformanceAnalysisKit';
  
   
 
-##### jsLeakWatcher.enable
+#### jsLeakWatcher.enable
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -47,7 +47,7 @@ jsLeakWatcher.enable(true);
  
   
 
-##### jsLeakWatcher.watch
+#### jsLeakWatcher.watch
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -74,7 +74,7 @@ jsLeakWatcher.watch(obj, "Trace Object");
  
   
 
-##### jsLeakWatcher.check
+#### jsLeakWatcher.check
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -99,7 +99,7 @@ let leakObjlist:string = jsLeakWatcher.check();
  
   
 
-##### jsLeakWatcher.dump
+#### jsLeakWatcher.dump
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -132,7 +132,7 @@ let files: Array<string> = jsLeakWatcher.dump(context?.filesDir);
  
   
 
-##### jsLeakWatcher.enableLeakWatcher20+
+#### jsLeakWatcher.enableLeakWatcher20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -178,7 +178,7 @@ jsLeakWatcher.enableLeakWatcher(true, config, (filePath: Array<string>) => {
  
   
 
-##### jsLeakWatcher.enableLeakWatcher24+
+#### jsLeakWatcher.enableLeakWatcher24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -233,7 +233,7 @@ jsLeakWatcher.enableLeakWatcher(true, config, (filePath : Array<string>) => {
  
   
 
-##### LeakWatcherConfig24+
+#### LeakWatcherConfig24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -255,7 +255,7 @@ LeakWatcherConfig对象类型，对象中包含多个用于内存泄漏监测的
  
   
 
-##### MonitorObjectType24+
+#### MonitorObjectType24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

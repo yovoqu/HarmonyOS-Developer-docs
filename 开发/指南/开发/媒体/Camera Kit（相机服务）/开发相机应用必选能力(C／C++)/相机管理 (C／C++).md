@@ -7,7 +7,7 @@
 在开发一个相机应用前，需要先通过调用相机接口来创建一个独立的相机设备。
 
 
-##### 开发步骤
+#### 开发步骤
 
 详细的API说明请参考[OH_Camera](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera)。
 1. 导入NDK接口。选择系统提供的NDK接口能力，导入NDK接口的方法如下。
@@ -79,7 +79,7 @@ Camera_ErrorCode GetSupportedCameras(Camera_Manager* cameraManager, Camera_Devic
 
 
 
-##### 状态监听
+#### 状态监听
 
 在相机应用开发过程中，可以随时监听相机状态，包括新相机的出现、相机的移除、相机的可用状态。在回调函数中，通过相机ID、相机状态这两个参数进行监听，如当有新相机出现时，可以将新相机加入到应用的备用相机中。
 

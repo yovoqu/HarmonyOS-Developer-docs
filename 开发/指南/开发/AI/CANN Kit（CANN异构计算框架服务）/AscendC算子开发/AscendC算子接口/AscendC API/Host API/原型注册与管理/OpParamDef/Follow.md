@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-follow
 
-##### 函数功能
+#### 函数功能
 
 用于指定当前输入/输出的datatype/format/shape信息与之前定义过的某个输入一致。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 OpParamDef &Follow(const char *paramName);
@@ -19,7 +19,7 @@ OpParamDef &Follow(const char *paramName, FollowType ftype);
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -29,13 +29,13 @@ OpParamDef &Follow(const char *paramName, FollowType ftype);
  
   
 
-##### 返回值
+#### 返回值
 
 [OpParamDef](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-paramtype)算子定义。
  
   
 
-##### 约束说明
+#### 约束说明
 
 - 所有Follow的数据源头仅支持为Input。
 - 针对shape推导，仅支持输出参数Follow输入参数，不支持输入参数Follow另一个输入参数。
@@ -46,7 +46,7 @@ OpParamDef &Follow(const char *paramName, FollowType ftype);
  
   
 
-##### 调用示例
+#### 调用示例
 
 输出“y1”Follow输入“x1”场景，此时“y1”的datatype、format以及shape都将会和“x1”保持一致。
  

@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-setinferdatatype
 
-##### 函数功能
+#### 函数功能
 
 注册DataType推导函数。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 OpDef &SetInferDataType(gert::OpImplRegisterV2::InferDataTypeKernelFunc func);
@@ -18,7 +18,7 @@ OpDef &SetInferDataType(gert::OpImplRegisterV2::InferDataTypeKernelFunc func);
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -27,12 +27,12 @@ OpDef &SetInferDataType(gert::OpImplRegisterV2::InferDataTypeKernelFunc func);
  
   
 
-##### 返回值
+#### 返回值
 
 [OpDef](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-input)算子定义。
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

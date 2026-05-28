@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getoutputattr
 
-##### 函数功能
+#### 函数功能
 
 根据属性名称获取算子输出Tensor对应的属性值。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 graphStatus GetOutputAttr(const int32_t index, const char_t *name, AscendString &attr_value) const;
@@ -41,7 +41,7 @@ graphStatus GetOutputAttr(const char_t *dst_name, const char_t *name, std::vecto
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数名 | 输入/输出 | 描述 |
 | --- | --- | --- |
@@ -64,7 +64,7 @@ graphStatus GetOutputAttr(const char_t *dst_name, const char_t *name, std::vecto
  
   
 
-##### 返回值
+#### 返回值
  
 | 类型 | 描述 |
 | --- | --- |
@@ -73,12 +73,12 @@ graphStatus GetOutputAttr(const char_t *dst_name, const char_t *name, std::vecto
  
   
 
-##### 异常处理
+#### 异常处理
 
 无
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

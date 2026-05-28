@@ -25,7 +25,7 @@ JSVM提供了生成并使用code cache加速编译过程的方法，其获取和
  
   
 
-##### 场景示例
+#### 场景示例
 
 下面的伪代码是一个典型的使用方法，其中第二次编译，如果cacheRejected为true，那么说明code cache被拒绝无法生效，运行时间会与无code cache时间相同；为false则这次运行将会极大加快。
  
@@ -125,7 +125,7 @@ cache rejected: 0
  
   
 
-##### 注意事项
+#### 注意事项
 
 上述代码中使用了code cache进行编译：OH_JSVM_CompileScript(env, jsSrc, dataPtr, length, true, &cacheRejected, &script);
  

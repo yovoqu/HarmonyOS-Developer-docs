@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { drawing } from '@kit.ArkGraphics2D';
 
 
 
-##### constructor20+
+#### constructor20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -58,7 +58,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### constructor20+
+#### constructor20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -104,7 +104,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### constructor20+
+#### constructor20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -151,7 +151,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### isEqual20+
+#### isEqual20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -209,7 +209,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### isComplex20+
+#### isComplex20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -260,7 +260,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### isEmpty20+
+#### isEmpty20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -309,7 +309,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### getBounds20+
+#### getBounds20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -337,7 +337,7 @@ let rect = region.getBounds();
 
 
 
-##### getBoundaryPath20+
+#### getBoundaryPath20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -365,7 +365,7 @@ let path = region.getBoundaryPath();
 
 
 
-##### isPointContained12+
+#### isPointContained12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -431,7 +431,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### offset20+
+#### offset20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -479,7 +479,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### isRegionContained12+
+#### isRegionContained12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -546,7 +546,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### op12+
+#### op12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -613,7 +613,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### quickReject12+
+#### quickReject12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -680,7 +680,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### quickRejectRegion20+
+#### quickRejectRegion20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -736,7 +736,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### setPath12+
+#### setPath12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -803,7 +803,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### setRegion20+
+#### setRegion20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -850,7 +850,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### setEmpty20+
+#### setEmpty20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -881,7 +881,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### setRect12+
+#### setRect12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -947,7 +947,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### isRect23+
+#### isRect23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1003,7 +1003,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### quickContains23+
+#### quickContains23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

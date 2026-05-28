@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { startupManager }  from '@kit.AbilityKit';
 
 
 
-##### startupManager.run
+#### startupManager.run
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -96,7 +96,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### startupManager.run20+
+#### startupManager.run20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -177,7 +177,7 @@ export default class MyAbilityStage extends AbilityStage {
 
 
 
-##### startupManager.removeAllStartupTaskResults
+#### startupManager.removeAllStartupTaskResults
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -228,7 +228,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### startupManager.getStartupTaskResult
+#### startupManager.getStartupTaskResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -300,7 +300,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### startupManager.isStartupTaskInitialized
+#### startupManager.isStartupTaskInitialized
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -383,7 +383,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### startupManager.removeStartupTaskResult
+#### startupManager.removeStartupTaskResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

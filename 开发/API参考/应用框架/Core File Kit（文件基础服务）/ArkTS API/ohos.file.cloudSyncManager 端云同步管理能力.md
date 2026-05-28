@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { cloudSyncManager } from '@kit.CoreFileKit';
  
   
 
-##### DownloadStopReason20+
+#### DownloadStopReason20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -43,7 +43,7 @@ import { cloudSyncManager } from '@kit.CoreFileKit';
  
   
 
-##### DownloadState20+
+#### DownloadState20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -60,7 +60,7 @@ import { cloudSyncManager } from '@kit.CoreFileKit';
  
   
 
-##### DownloadProgress20+
+#### DownloadProgress20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -70,7 +70,7 @@ import { cloudSyncManager } from '@kit.CoreFileKit';
  
   
 
-##### 属性
+#### 属性
  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -85,7 +85,7 @@ import { cloudSyncManager } from '@kit.CoreFileKit';
  
   
 
-##### CloudFileInfo20+
+#### CloudFileInfo20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -95,7 +95,7 @@ import { cloudSyncManager } from '@kit.CoreFileKit';
  
   
 
-##### 属性
+#### 属性
  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |

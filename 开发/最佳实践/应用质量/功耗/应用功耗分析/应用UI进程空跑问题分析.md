@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-ui-skip-analysis
 
-##### 应用UI进程空跑介绍
+#### 应用UI进程空跑介绍
 
 应用UI进程空跑主要指在应用界面无实际变化、无用户交互、无可见动画播放等情况下，应用进程仍以固定帧率刷新。
  
@@ -28,11 +28,11 @@
  
  
 
-##### 分析思路
+#### 分析思路
 
  
 
-##### 使用Trace分析
+#### 使用Trace分析
 
 开发者可在Profiler中的Energy模板录制一段trace分析，以找到UI帧空帧的原因。关键Trace：H:DisplaySyncId[29] Type[0]... 其中Type的类型是导致刷帧的原因，包括：
  
@@ -48,7 +48,7 @@ Type[1]：Xcomponent
  
  
 
-##### 使用Profiler的Energy工具分析（推荐）
+#### 使用Profiler的Energy工具分析（推荐）
 
 在DevEco Studio 6.1版本（手机版本需配套HarmonyOS 6.1及以上版本），针对UI空刷问题，增加了自动检测与分析能力，可通过以下步骤辅助问题定位:
  1. 抓取Trace信息点击Profiler工具，选择要分析的应用进程，创建一个Energy Session，操作应用进行测试。
@@ -67,11 +67,11 @@ Type[1]：Xcomponent
  
  
 
-##### 常见故障根因
+#### 常见故障根因
 
  
 
-##### Animator动画
+#### Animator动画
 
 Animator是一种依赖DisplaySync机制产生UI刷新的动画机制。如下图“1”处所示，“jsAnimator onframe, duration: 5000, curve: ease, id:1”表明，该动效持续时间为5000ms，动效曲线为ease，Animator的ID为1。
  
@@ -198,7 +198,7 @@ export struct MyAnimatorTest {
 ```
  
 
-##### DisplaySync
+#### DisplaySync
 
 DisplaySync支持开发者以[指定帧率运行UI业务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/displaysync-ui)，主要用于精细控制绘制帧率的场景，如动态帧率动画、为特定UI组件设置独立于系统刷新率的绘制帧率等。
  

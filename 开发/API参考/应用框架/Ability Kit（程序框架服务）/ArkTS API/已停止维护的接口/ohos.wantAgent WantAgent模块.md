@@ -12,7 +12,7 @@ WantAgent模块提供了创建WantAgent实例、获取实例的用户ID、获取
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import wantAgent from '@ohos.wantAgent';
  
   
 
-##### wantAgent.getWantAgent
+#### wantAgent.getWantAgent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -87,7 +87,7 @@ wantAgent.getWantAgent({
  
   
 
-##### wantAgent.getWantAgent
+#### wantAgent.getWantAgent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -150,7 +150,7 @@ wantAgent.getWantAgent({
  
   
 
-##### wantAgent.getBundleName
+#### wantAgent.getBundleName
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -226,7 +226,7 @@ wantAgent.getWantAgent({
  
   
 
-##### wantAgent.getBundleName
+#### wantAgent.getBundleName
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -298,7 +298,7 @@ wantAgent.getWantAgent({
  
   
 
-##### wantAgent.getUid
+#### wantAgent.getUid
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -374,7 +374,7 @@ wantAgent.getWantAgent({
  
   
 
-##### wantAgent.getUid
+#### wantAgent.getUid
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -446,7 +446,7 @@ wantAgent.getWantAgent({
  
   
 
-##### wantAgent.cancel
+#### wantAgent.cancel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -522,7 +522,7 @@ wantAgent.getWantAgent({
  
   
 
-##### wantAgent.cancel
+#### wantAgent.cancel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -595,7 +595,7 @@ wantAgent.getWantAgent({
  
   
 
-##### wantAgent.trigger
+#### wantAgent.trigger
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -673,7 +673,7 @@ wantAgent.getWantAgent({
  
   
 
-##### wantAgent.equal
+#### wantAgent.equal
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -752,7 +752,7 @@ wantAgent.getWantAgent({
  
   
 
-##### wantAgent.equal
+#### wantAgent.equal
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -827,7 +827,7 @@ wantAgent.getWantAgent({
  
   
 
-##### WantAgentFlags
+#### WantAgentFlags
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -851,7 +851,7 @@ wantAgent.getWantAgent({
  
   
 
-##### OperationType
+#### OperationType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -870,7 +870,7 @@ wantAgent.getWantAgent({
  
   
 
-##### CompleteData
+#### CompleteData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -889,7 +889,7 @@ wantAgent.getWantAgent({
  
   
 
-##### WantAgent
+#### WantAgent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

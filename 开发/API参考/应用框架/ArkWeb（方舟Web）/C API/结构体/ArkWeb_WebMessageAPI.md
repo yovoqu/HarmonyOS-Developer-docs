@@ -10,7 +10,7 @@ typedef struct {...} ArkWeb_WebMessageAPI
 ```
   
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,13 +24,13 @@ Post Message数据相关的Native API结构体。在调用接口前建议通过[
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -41,7 +41,7 @@ Post Message数据相关的Native API结构体。在调用接口前建议通过[
  
   
 
-##### 成员函数
+#### 成员函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -57,13 +57,13 @@ Post Message数据相关的Native API结构体。在调用接口前建议通过[
  
   
 
-##### 成员函数说明
+#### 成员函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### createWebMessage()
+#### createWebMessage()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -84,7 +84,7 @@ ArkWeb_WebMessagePtr (*createWebMessage)()
  
   
 
-##### destroyWebMessage()
+#### destroyWebMessage()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -105,7 +105,7 @@ void (*destroyWebMessage)(ArkWeb_WebMessagePtr* webMessage)
  
   
 
-##### setType()
+#### setType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -127,7 +127,7 @@ void (*setType)(ArkWeb_WebMessagePtr webMessage, ArkWeb_WebMessageType type)
  
   
 
-##### getType()
+#### getType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -148,7 +148,7 @@ ArkWeb_WebMessageType (*getType)(ArkWeb_WebMessagePtr webMessage)
  
   
 
-##### setData()
+#### setData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -171,7 +171,7 @@ void (*setData)(ArkWeb_WebMessagePtr webMessage, void* data, size_t dataLength)
  
   
 
-##### getData()
+#### getData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { ToneMappingType, ToneMappingSettings, BloomSettings, PostProcessSetting
  
   
 
-##### ToneMappingType
+#### ToneMappingType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -39,7 +39,7 @@ import { ToneMappingType, ToneMappingSettings, BloomSettings, PostProcessSetting
  
   
 
-##### ToneMappingSettings
+#### ToneMappingSettings
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -55,7 +55,7 @@ import { ToneMappingType, ToneMappingSettings, BloomSettings, PostProcessSetting
  
   
 
-##### BloomSettings18+
+#### BloomSettings18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -73,7 +73,7 @@ import { ToneMappingType, ToneMappingSettings, BloomSettings, PostProcessSetting
  
   
 
-##### VignetteSettings22+
+#### VignetteSettings22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -89,7 +89,7 @@ import { ToneMappingType, ToneMappingSettings, BloomSettings, PostProcessSetting
  
   
 
-##### ColorFringeSettings22+
+#### ColorFringeSettings22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -104,7 +104,7 @@ import { ToneMappingType, ToneMappingSettings, BloomSettings, PostProcessSetting
  
   
 
-##### PostProcessSettings
+#### PostProcessSettings
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

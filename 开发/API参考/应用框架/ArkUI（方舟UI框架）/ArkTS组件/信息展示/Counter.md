@@ -12,7 +12,7 @@
 
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -34,7 +34,7 @@ Counter()
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -42,7 +42,7 @@ Counter()
  
   
 
-##### enableInc10+
+#### enableInc10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -63,7 +63,7 @@ enableInc(value: boolean)
  
   
 
-##### enableDec10+
+#### enableDec10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -84,7 +84,7 @@ enableDec(value: boolean)
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -92,7 +92,7 @@ enableDec(value: boolean)
  
   
 
-##### onInc
+#### onInc
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -115,7 +115,7 @@ onInc(event: VoidCallback)
  
   
 
-##### onDec
+#### onDec
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -138,7 +138,7 @@ onDec(event: VoidCallback)
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -184,4 +184,4 @@ struct CounterExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/V39WxPuyRtafhvO3kXT7hw/zh-cn_image_0000002581436036.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024223Z&HW-CC-Expire=86400&HW-CC-Sign=171CA4BC0A196B5266F369A9989BCCE54A506CEAF82B555AD54BF6EB2B1B8FAB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/V39WxPuyRtafhvO3kXT7hw/zh-cn_image_0000002581436036.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025557Z&HW-CC-Expire=86400&HW-CC-Sign=DC09ED1F8EA2F62DE420F4DF17BFAE6BF025ADD393E03548768552D9BA88745B)

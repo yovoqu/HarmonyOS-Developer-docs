@@ -7,13 +7,13 @@
 富文本控件[RichEditor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor)已集成跨设备互通能力。在Tablet或PC/2in1设备上，用户可通过其右键菜单调用Phone的相机、扫描及图库（访问图片）功能。
   
 
-##### 场景介绍
+#### 场景介绍
 
 您通过此能力实现跨设备交互，可以使用其他设备的相机、扫描和图库功能。
  
   
 
-##### 约束与限制
+#### 约束与限制
 
 需同时满足以下条件，才能使用该功能：
  
@@ -34,7 +34,7 @@
  
   
 
-##### 开发步骤
+#### 开发步骤
 
 添加[RichEditor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor)富文本组件，即可在富文本组件中右键中选择其他设备进行导入，通过onWillChange属性对回传的照片进行处理。
  
@@ -107,7 +107,7 @@ struct Index {
  
   
 
-##### 关闭富文本跨设备互通能力
+#### 关闭富文本跨设备互通能力
 
 如果需要关闭富文本右键菜单跨设备互通能力，可通过editMenuOptions属性自定义菜单内容去除跨设备互通菜单项，示例如下：
  

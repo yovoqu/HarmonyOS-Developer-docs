@@ -17,13 +17,13 @@ Image(src: PixelMap | ResourceStr | DrawableDescriptor)
 如果图片加载过程中出现白色块，请参考[Image白块解决方案](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-image-white-lump-solution)。如果图片加载时间过长，请参考[预置图片资源加载优化](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-texture-compression-improve-performance)。
 
 
-##### 加载图片资源
+#### 加载图片资源
 
 Image支持加载存档图、多媒体像素图和可绘制描述符三种类型。
 
 
 
-##### 存档图类型数据源
+#### 存档图类型数据源
 
 存档图类型的数据源可以分为本地资源、网络资源、Resource资源、媒体库资源和base64。
 
@@ -181,7 +181,7 @@ Image('file://media/Photos/5')
 
 
 
-##### 多媒体像素图
+#### 多媒体像素图
 
 PixelMap是图片解码后的像素图，具体用法请参考[Image Kit简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-overview)。以下示例将加载的网络图片返回的数据解码成PixelMap格式，再显示在Image组件上。
 
@@ -236,7 +236,7 @@ struct HttpExample {
 
 
 
-##### 可绘制描述符
+#### 可绘制描述符
 
 DrawableDescriptor是ArkUI提供的一种高级图片抽象机制，它通过将图片资源封装为可编程对象，实现了传统Image组件难以实现的动态组合与运行时控制功能。开发者可利用它实现图片的分层叠加（如徽章图标）、动态属性调整（如颜色滤镜）、复杂动画序列等高级效果，适用于需要灵活控制图片展现或实现复杂视觉交互的场景。详细使用方法，请参考[DrawableDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-drawabledescriptor)。
 
@@ -365,7 +365,7 @@ struct DrawableDescriptorType {
 
 
 
-##### 显示矢量图
+#### 显示矢量图
 
 Image组件可显示矢量图（SVG格式的图片），SVG标签文档请参考[SVG标签说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-svg)。
 
@@ -394,7 +394,7 @@ Image($r('app.media.cloud'))
 
 
 
-##### 矢量图引用位图
+#### 矢量图引用位图
 
 如果Image加载的SVG图源中包含对本地位图的引用，则SVG图源的路径应当设置为以ets为根目录的工程路径，同时，本地位图的路径应设置为与SVG图源同级的相对路径。
 
@@ -427,13 +427,13 @@ SVG图源通过&lt;image&gt;标签的xlink:href属性指定本地位图路径，
 
 
 
-##### 添加属性
+#### 添加属性
 
 给Image组件设置属性可以使图片显示更灵活，达到一些自定义的效果。以下是几个常用属性的使用示例，完整属性信息详见[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image)。
 
 
 
-##### 设置图片缩放类型
+#### 设置图片缩放类型
 
 通过设置[objectFit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-imagespan#objectfit)属性，可以使图片在高度和宽度确定的框内进行缩放。
 
@@ -529,7 +529,7 @@ struct ImageScalingType {
 
 
 
-##### 图片插值
+#### 图片插值
 
 当原图分辨率较低并放大显示时，图片会变得模糊并出现锯齿。这时可以使用[interpolation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#interpolation)属性对图片进行插值，以提高显示清晰度。
 
@@ -594,7 +594,7 @@ struct ImageInterpolationType {
 
 
 
-##### 设置图片重复样式
+#### 设置图片重复样式
 
 通过objectRepeat属性设置图片的重复样式方式，重复样式请参考[ImageRepeat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#imagerepeat)枚举说明。
 
@@ -650,7 +650,7 @@ struct ImageRepetitionStyle {
 
 
 
-##### 设置图片渲染模式
+#### 设置图片渲染模式
 
 通过renderMode属性设置图片的渲染模式为原色或黑白。
 
@@ -691,7 +691,7 @@ struct SetImageRenderingMode {
 
 
 
-##### 设置图片解码尺寸
+#### 设置图片解码尺寸
 
 通过sourceSize属性设置图片解码尺寸，降低图片的分辨率。
 
@@ -743,7 +743,7 @@ struct SetImageDecodingSize {
 
 
 
-##### 为图片添加滤镜效果
+#### 为图片添加滤镜效果
 
 通过colorFilter调整图片的像素颜色，为图片添加滤镜。
 
@@ -776,12 +776,12 @@ struct AddFilterEffectsToImages {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/mor3t1_LQ8eC7UekCvOnPA/zh-cn_image_0000002581274008.png?HW-CC-KV=V1&HW-CC-Date=20260528T014813Z&HW-CC-Expire=86400&HW-CC-Sign=3FF44624CE587F43ECEECE4425B7BFB402EC81A9DFB1762788B653D36AF1CD80)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/mor3t1_LQ8eC7UekCvOnPA/zh-cn_image_0000002581274008.png?HW-CC-KV=V1&HW-CC-Date=20260528T030444Z&HW-CC-Expire=86400&HW-CC-Sign=059AA0BDE10A9059BC16F958CB6F24722A7A74B864755F91481FDF116D3CD840)
 
 
 
 
-##### 同步加载图片
+#### 同步加载图片
 
 一般情况下，图片加载流程会异步进行，以避免阻塞主线程，影响UI交互。但是特定情况下，图片刷新时会出现闪烁，这时可以使用syncLoad属性，使图片同步加载，从而避免出现闪烁。不建议图片加载较长时间时使用，会导致页面无法响应。
 
@@ -793,7 +793,7 @@ Image($r('app.media.icon'))
 
 
 
-##### 事件调用
+#### 事件调用
 
 通过在Image组件上绑定onComplete事件，图片加载成功后可以获取图片的必要信息。如果图片加载失败，也可以通过绑定onError回调来获得结果。
 
@@ -844,4 +844,4 @@ struct EventCall {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/bY9gtHGWTlindxiK51nv7w/zh-cn_image_0000002611753863.png?HW-CC-KV=V1&HW-CC-Date=20260528T014813Z&HW-CC-Expire=86400&HW-CC-Sign=80D4BC470F98B107315A86C8BA594FCA6C903E992A421ED7452E818DF20716DF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/bY9gtHGWTlindxiK51nv7w/zh-cn_image_0000002611753863.png?HW-CC-KV=V1&HW-CC-Date=20260528T030444Z&HW-CC-Expire=86400&HW-CC-Sign=0C42E4EE5AB3CBA283A250121A7DD95765344703F7D3DBB43748FBBB7090039C)

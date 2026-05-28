@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-freeze-events-arkts
 
-##### 简介
+#### 简介
 
 本文介绍如何使用HiAppEvent提供的ArkTS接口订阅应用冻屏事件。接口的详细使用说明（参数限制、取值范围等）请参考[@ohos.hiviewdfx.hiAppEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-hiappevent)。
 
 
 
-##### 接口说明
+#### 接口说明
 
 | 接口名 | 描述 |
 | --- | --- |
@@ -20,11 +20,11 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 
 
-##### 添加事件观察者
+#### 添加事件观察者
 
 以订阅应用冻屏事件为例，说明开发步骤。
 1. 新建一个ArkTS应用工程，编辑工程中的“entry > src > main > ets > entryability > EntryAbility.ets”文件，导入依赖模块，示例代码如下：
@@ -155,7 +155,7 @@ Button("appFreeze").onClick(()=>{
 
 
 
-##### 验证观察者是否订阅到应用冻屏事件
+#### 验证观察者是否订阅到应用冻屏事件
 1. 应用无响应退出后，重新进入应用可以在Log窗口看到对系统事件数据的处理日志：
 
   
@@ -193,7 +193,7 @@ HiAppEvent eventInfo.params.external_callback_log=THREAD_BLOCK_3S:log3s THREAD_B
 
 
 
-##### 从Faultlogger接口迁移应用冻屏事件
+#### 从Faultlogger接口迁移应用冻屏事件
 
 [@ohos.faultLogger (故障日志获取)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-faultlogger)接口从API version 18开始废弃使用, 不再维护。后续版本推荐使用[@ohos.hiviewdfx.hiAppEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-hiappevent)订阅应用冻屏事件。该章节指导开发者从Faultlogger接口迁移至hiAppEvent接口，来订阅应用冻屏事件。
 
@@ -223,6 +223,6 @@ HiAppEvent eventInfo.params.external_callback_log=THREAD_BLOCK_3S:log3s THREAD_B
 
 
 
-##### 示例代码
+#### 示例代码
 
  - [应用异常处理](https://gitcode.com/HarmonyOS_Samples/exception-handling)

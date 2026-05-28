@@ -14,7 +14,7 @@
 **起始版本：** 4.0.0(10)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -24,7 +24,7 @@ import { CollaborationCameraStateDialog, createCollaborationCameraMenuItems, Col
 
 
 
-##### createCollaborationCameraMenuItems(deprecated)
+#### createCollaborationCameraMenuItems(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -64,7 +64,7 @@ myTestMenu() {
 
 
 
-##### CollaborationCameraBusinessFilter(deprecated)
+#### CollaborationCameraBusinessFilter(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -99,7 +99,7 @@ myTestMenu() {
 
 
 
-##### CollaborationCameraStateDialog(deprecated)
+#### CollaborationCameraStateDialog(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -121,7 +121,7 @@ myTestMenu() {
 
 
 
-##### onState(deprecated)
+#### onState(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -162,7 +162,7 @@ onState: (stateCode: number, buffer: ArrayBuffer) => void
 
 
 
-##### build(deprecated)
+#### build(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

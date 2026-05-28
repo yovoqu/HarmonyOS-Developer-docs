@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Tablet
 
@@ -22,7 +22,7 @@ import { intelligentScene } from '@kit.BasicServicesKit';
 
 
 
-##### intelligentScene.isDoNotDisturbEnabled
+#### intelligentScene.isDoNotDisturbEnabled
 
 **支持设备：** Phone | Tablet
 
@@ -76,7 +76,7 @@ async function isDoNotDisturbEnabled(): Promise<boolean> {
 
 
 
-##### intelligentScene.isNotifyAllowedInDoNotDisturb
+#### intelligentScene.isNotifyAllowedInDoNotDisturb
 
 **支持设备：** Phone | Tablet
 

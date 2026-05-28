@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-tpms
 
-##### 约束与限制
+#### 约束与限制
 
 性能维测能力支持Phone、2in1、Tablet、Wearable设备。并且从5.1.1(19)开始，新增支持TV设备。
 
 
 
-##### 捕获有关HTTP请求/响应流的详细信息
+#### 捕获有关HTTP请求/响应流的详细信息
 
 当需要进行性能维测时，可以采集应用中HTTP请求的详细跟踪信息时，利用[TracingConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#tracingconfiguration)进行相关配置。[TracingConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#tracingconfiguration)中可以设置verbose（启用详细跟踪）、infoToCollect（配置要收集的特定类型的信息事件）、collectTimeInfo（在跟踪过程中是否应收集与时间相关的信息）、httpEventsHandler（为HTTP请求/响应过程中的特定操作定义响应处理程序的回调）四个参数。
 
@@ -84,7 +84,7 @@ session.get('http://developer.huawei.com').then((response) => {
 
 
 
-##### HTTP请求过程中各时间点详解
+#### HTTP请求过程中各时间点详解
 
 在实施性能维测的过程中，HTTP请求的各个时间点至关重要。借助TimeInfo提供的详细字段，可以精准控制请求过程，无论是直接利用这些字段，还是通过它们之间的运算，都能准确获取所需的时间点，从而提升测试效率。
 
@@ -98,7 +98,7 @@ session.get('http://developer.huawei.com').then((response) => {
 
 
 
-##### TimeInfo时间线
+#### TimeInfo时间线
 
 请求开始 （0时刻） -> nameLookupTimeMs（DNS解析）-> connectTimeMs（建立连接）-> tlsHandshakeTimeMs（TLS握手）-> preTransferTimeMs（请求业务数据发送到服务器的时间点） -> startTransferTimeMs（从服务器接收到首包数据的时间点）。
 
@@ -108,7 +108,7 @@ session.get('http://developer.huawei.com').then((response) => {
 
 
 
-##### 示例代码
+#### 示例代码
 
 这段代码在使用过程中会将上述说明中三个比较关键的时间点打印出来，开发者可以根据获取到的时间对应用性能实现动态调整，获取最佳体验。
 

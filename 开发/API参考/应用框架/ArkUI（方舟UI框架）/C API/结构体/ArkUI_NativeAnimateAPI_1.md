@@ -10,7 +10,7 @@ typedef struct {...} ArkUI_NativeAnimateAPI_1
 ```
   
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,13 +24,13 @@ ArkUI提供的Native侧动画接口集合。
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 成员函数
+#### 成员函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -44,13 +44,13 @@ ArkUI提供的Native侧动画接口集合。
  
   
 
-##### 成员函数说明
+#### 成员函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### animateTo()
+#### animateTo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -81,7 +81,7 @@ int32_t (*animateTo)(ArkUI_ContextHandle context, ArkUI_AnimateOption* option, A
  
   
 
-##### keyframeAnimateTo()
+#### keyframeAnimateTo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -110,7 +110,7 @@ int32_t (*keyframeAnimateTo)(ArkUI_ContextHandle context, ArkUI_KeyframeAnimateO
  
   
 
-##### createAnimator()
+#### createAnimator()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -139,7 +139,7 @@ ArkUI_AnimatorHandle (*createAnimator)(ArkUI_ContextHandle context, ArkUI_Animat
  
   
 
-##### disposeAnimator()
+#### disposeAnimator()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

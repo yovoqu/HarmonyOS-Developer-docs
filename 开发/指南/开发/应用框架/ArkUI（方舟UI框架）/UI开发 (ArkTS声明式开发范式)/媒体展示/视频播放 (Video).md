@@ -7,7 +7,7 @@
 Video组件用于播放视频文件并控制其播放状态，常用于短视频和应用内部视频的列表页面。当视频完整出现时会自动播放，用户点击视频区域则会暂停播放，同时显示播放进度条，通过拖动播放进度条指定视频播放到具体位置。具体用法请参考[Video](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-media-components-video)。
 
 
-##### 创建视频组件
+#### 创建视频组件
 
 Video通过调用接口来创建，接口调用形式如下：
 
@@ -15,13 +15,13 @@ Video(value: VideoOptions)
 
 
 
-##### 加载视频资源
+#### 加载视频资源
 
 Video组件支持加载本地视频和网络视频。具体的数据源配置请参考[VideoOptions对象说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-media-components-video#videooptions对象说明)。
 
 
 
-##### 加载本地视频
+#### 加载本地视频
 
  - 普通本地视频。
 
@@ -85,7 +85,7 @@ export struct LocalVideoTwo {
 
 
 
-##### 加载沙箱路径视频
+#### 加载沙箱路径视频
 
 支持file://路径前缀的字符串，用于读取应用沙箱路径内的资源，需要确保应用沙箱目录路径下的文件存在并且有可读权限。
 
@@ -110,7 +110,7 @@ export struct Sandbox {
 
 
 
-##### 加载网络视频
+#### 加载网络视频
 
 加载网络视频时，需要申请ohos.permission.INTERNET权限，具体申请方式请参考[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。此时，Video的src属性为网络视频的链接。
 
@@ -137,7 +137,7 @@ export struct OnlineVideo {
 
 
 
-##### 添加属性
+#### 添加属性
 
 Video组件[属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-media-components-video#属性)主要用于设置视频的播放形式。例如设置视频播放是否静音、播放是否显示控制条等。
 
@@ -165,7 +165,7 @@ export struct AttributeVideo {
 
 
 
-##### 事件调用
+#### 事件调用
 
 Video组件回调事件主要包括播放开始、播放暂停、播放结束、播放失败、播放停止、视频准备和操作进度条等事件，除此之外，Video组件也支持通用事件的调用，如点击、触摸等事件的调用。详细事件请参考[事件说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-media-components-video#事件)。
 
@@ -200,7 +200,7 @@ struct EventCall {
 
 
 
-##### Video控制器使用
+#### Video控制器使用
 
 Video控制器主要用于控制视频的状态，包括播放、暂停、停止以及设置进度等，详细使用请参考[VideoController使用说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-media-components-video#videocontroller)。
 
@@ -301,7 +301,7 @@ struct CustomizedControl {
 
 
 
-##### 其他说明
+#### 其他说明
 
 Video组件已经封装好了视频播放的基础能力，开发者无需进行视频实例的创建，视频信息的设置获取，只需要设置数据源以及基础信息即可播放视频，相对扩展能力较弱。如果开发者想自定义视频播放，请使用[AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/media-kit-intro#avplayer)，下面是一个使用AVPlayer进行播放视频的简单示例，如果需要更详细信息或更复杂功能请参考[视频播放](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-playback)。
 
@@ -512,6 +512,6 @@ struct XComponentAVPlayer {
 
 
 
-##### 示例代码
+#### 示例代码
 
  - [媒体库视频](https://gitcode.com/harmonyos_samples/video-show)

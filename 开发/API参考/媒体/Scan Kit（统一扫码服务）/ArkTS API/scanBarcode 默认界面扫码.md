@@ -12,7 +12,7 @@
 **起始版本：** 4.0.0(10)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -22,7 +22,7 @@ import { scanBarcode } from '@kit.ScanKit';
  
   
 
-##### ScanResult
+#### ScanResult
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -44,7 +44,7 @@ import { scanBarcode } from '@kit.ScanKit';
  
   
 
-##### ScanCodeRect
+#### ScanCodeRect
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -68,7 +68,7 @@ import { scanBarcode } from '@kit.ScanKit';
  
   
 
-##### Point
+#### Point
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -86,7 +86,7 @@ import { scanBarcode } from '@kit.ScanKit';
  
   
 
-##### ScanOptions
+#### ScanOptions
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -133,7 +133,7 @@ function loadPage(uiContext: UIContext) {
  
   
 
-##### scanBarcode.startScanForResult
+#### scanBarcode.startScanForResult
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -205,7 +205,7 @@ function loadPage(uiContext: UIContext) {
  
   
 
-##### scanBarcode.startScanForResult
+#### scanBarcode.startScanForResult
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -271,7 +271,7 @@ function loadPage(uiContext: UIContext) {
  
   
 
-##### scanBarcode.startScanForResult
+#### scanBarcode.startScanForResult
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -341,7 +341,7 @@ function loadPage(uiContext: UIContext) {
  
   
 
-##### scanBarcode.startScan(deprecated)
+#### scanBarcode.startScan(deprecated)
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -405,7 +405,7 @@ try {
  
   
 
-##### scanBarcode.startScan(deprecated)
+#### scanBarcode.startScan(deprecated)
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -462,7 +462,7 @@ try {
  
   
 
-##### scanBarcode.startScan(deprecated)
+#### scanBarcode.startScan(deprecated)
 
 **支持设备：** Phone | Tablet | Wearable
 

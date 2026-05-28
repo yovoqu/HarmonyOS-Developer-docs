@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2___authenticator_metadata
 
-##### 概述
+#### 概述
 
 认证器元数据。
  
@@ -14,11 +14,11 @@
  
   
 
-##### 汇总
+#### 汇总
 
   
 
-##### 成员变量
+#### 成员变量
  
 | 名称 | 描述 |
 | --- | --- |
@@ -29,11 +29,11 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
   
 
-##### aaguid
+#### aaguid
 
 ```text
 Uint8Buff FIDO2_AuthenticatorMetadata::aaguid
@@ -45,7 +45,7 @@ Uint8Buff FIDO2_AuthenticatorMetadata::aaguid
  
   
 
-##### isAvailable
+#### isAvailable
 
 ```text
 bool FIDO2_AuthenticatorMetadata::isAvailable
@@ -57,7 +57,7 @@ bool FIDO2_AuthenticatorMetadata::isAvailable
  
   
 
-##### uvm
+#### uvm
 
 ```text
 FIDO2_Uvm FIDO2_AuthenticatorMetadata::uvm

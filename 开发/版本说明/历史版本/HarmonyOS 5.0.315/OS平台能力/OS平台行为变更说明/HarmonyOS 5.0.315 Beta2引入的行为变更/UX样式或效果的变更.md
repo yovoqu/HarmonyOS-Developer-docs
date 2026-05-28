@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/changelogs-ux-5032
 
-##### 动态照片自动播放效果变更
+#### 动态照片自动播放效果变更
 
 **变更原因**
  
@@ -34,7 +34,7 @@
  
  
 
-##### NavDestination标题栏工具栏支持跟手滑动隐藏后，超过2秒未操作，不恢复显示
+#### NavDestination标题栏工具栏支持跟手滑动隐藏后，超过2秒未操作，不恢复显示
 
 **变更原因**
  
@@ -62,7 +62,7 @@ NavDestination.bindToScrollable, NavDestination.bindToNestedScrollable
  
  
 
-##### Tabs组件TabBar的显示和隐藏动效变更
+#### Tabs组件TabBar的显示和隐藏动效变更
 
 **变更原因**
  

@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-infershaperange
 
-##### 函数功能
+#### 函数功能
 
 注册算子的InferShapeRange函数。
  
@@ -18,7 +18,7 @@ using InferShapeRangeKernelFunc = UINT32 (*)(InferShapeRangeContext *);
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 OpImplRegisterV2 &InferShapeRange(InferShapeRangeKernelFunc infer_shape_range_func);
@@ -26,7 +26,7 @@ OpImplRegisterV2 &InferShapeRange(InferShapeRangeKernelFunc infer_shape_range_fu
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -35,12 +35,12 @@ OpImplRegisterV2 &InferShapeRange(InferShapeRangeKernelFunc infer_shape_range_fu
  
   
 
-##### 返回值
+#### 返回值
 
 返回算子的OpImplRegisterV2对象，该对象新增注册了InferShapeRange函数infer_shape_range_func。
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

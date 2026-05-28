@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-errorcode-universal
 
-##### 00617101 获取包信息失败
+#### 00617101 获取包信息失败
 
 **错误信息**
  
@@ -24,7 +24,7 @@ Fetch Pkg Info Failed.
  
  
 
-##### 00608001 oh-package.json5文件不存在
+#### 00608001 oh-package.json5文件不存在
 
 **错误信息**
  
@@ -44,7 +44,7 @@ Pkg Not Found.
  
  
 
-##### 00608002 文件不存在
+#### 00608002 文件不存在
 
 **错误信息**
  
@@ -64,7 +64,7 @@ File Not Found.
  
  
 
-##### 00608003 读取文件时发生错误
+#### 00608003 读取文件时发生错误
 
 **错误信息**
  
@@ -84,7 +84,7 @@ File Read Error.
  
  
 
-##### 00670002 路径大小写敏感错误
+#### 00670002 路径大小写敏感错误
 
 **错误信息**
  

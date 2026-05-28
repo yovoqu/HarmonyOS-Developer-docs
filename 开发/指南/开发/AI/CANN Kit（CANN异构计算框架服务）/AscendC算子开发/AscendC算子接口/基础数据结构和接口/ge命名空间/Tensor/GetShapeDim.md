@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getshapedim
 
-##### 函数功能
+#### 函数功能
 
 获取shape第idx维度。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 int64_t GetShapeDim(const size_t idx) const;
@@ -18,7 +18,7 @@ int64_t GetShapeDim(const size_t idx) const;
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数名 | 输入/输出 | 描述 |
 | --- | --- | --- |
@@ -27,7 +27,7 @@ int64_t GetShapeDim(const size_t idx) const;
  
   
 
-##### 返回值
+#### 返回值
  
 | 类型 | 描述 |
 | --- | --- |
@@ -36,12 +36,12 @@ int64_t GetShapeDim(const size_t idx) const;
  
   
 
-##### 异常处理
+#### 异常处理
 
 无
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

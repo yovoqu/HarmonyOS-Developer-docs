@@ -14,7 +14,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV | lite_wearable
 
@@ -24,7 +24,7 @@ import { router } from '@kit.ArkUI';
 
 
 
-##### router.pushUrl(deprecated)
+#### router.pushUrl(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -107,7 +107,7 @@ router.pushUrl({
 
 
 
-##### router.pushUrl(deprecated)
+#### router.pushUrl(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -182,7 +182,7 @@ router.pushUrl({
 
 
 
-##### router.pushUrl(deprecated)
+#### router.pushUrl(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -266,7 +266,7 @@ router.pushUrl({
 
 
 
-##### router.pushUrl(deprecated)
+#### router.pushUrl(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -342,7 +342,7 @@ router.pushUrl({
 
 
 
-##### router.replaceUrl(deprecated)
+#### router.replaceUrl(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -414,7 +414,7 @@ router.replaceUrl({
 
 
 
-##### router.replaceUrl(deprecated)
+#### router.replaceUrl(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -478,7 +478,7 @@ router.replaceUrl({
 
 
 
-##### router.replaceUrl(deprecated)
+#### router.replaceUrl(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -551,7 +551,7 @@ router.replaceUrl({
 
 
 
-##### router.replaceUrl(deprecated)
+#### router.replaceUrl(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -616,7 +616,7 @@ router.replaceUrl({
 
 
 
-##### router.pushNamedRoute(deprecated)
+#### router.pushNamedRoute(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -701,7 +701,7 @@ router.pushNamedRoute({
 
 
 
-##### router.pushNamedRoute(deprecated)
+#### router.pushNamedRoute(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -776,7 +776,7 @@ router.pushNamedRoute({
 
 
 
-##### router.pushNamedRoute(deprecated)
+#### router.pushNamedRoute(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -860,7 +860,7 @@ router.pushNamedRoute({
 
 
 
-##### router.pushNamedRoute(deprecated)
+#### router.pushNamedRoute(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -936,7 +936,7 @@ router.pushNamedRoute({
 
 
 
-##### router.replaceNamedRoute(deprecated)
+#### router.replaceNamedRoute(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1008,7 +1008,7 @@ router.replaceNamedRoute({
 
 
 
-##### router.replaceNamedRoute(deprecated)
+#### router.replaceNamedRoute(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1072,7 +1072,7 @@ router.replaceNamedRoute({
 
 
 
-##### router.replaceNamedRoute(deprecated)
+#### router.replaceNamedRoute(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1145,7 +1145,7 @@ router.replaceNamedRoute({
 
 
 
-##### router.replaceNamedRoute(deprecated)
+#### router.replaceNamedRoute(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1210,7 +1210,7 @@ router.replaceNamedRoute({
 
 
 
-##### router.back(deprecated)
+#### router.back(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1241,7 +1241,7 @@ this.getUIContext().getRouter().back({ url: 'pages/detail' });
 
 
 
-##### router.back(deprecated)
+#### router.back(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1277,7 +1277,7 @@ this.getUIContext().getRouter().back(1, { info: '来自Home页' }); // 携带参
 
 
 
-##### router.clear(deprecated)
+#### router.clear(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1301,7 +1301,7 @@ this.getUIContext().getRouter().clear();
 
 
 
-##### router.getLength(deprecated)
+#### router.getLength(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1333,7 +1333,7 @@ console.info('pages stack size = ' + size);
 
 
 
-##### router.getState(deprecated)
+#### router.getState(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1367,7 +1367,7 @@ console.info('current path = ' + page.path);
 
 
 
-##### router.getStateByIndex(deprecated)
+#### router.getStateByIndex(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1411,7 +1411,7 @@ if (options != undefined) {
 
 
 
-##### router.getStateByUrl(deprecated)
+#### router.getStateByUrl(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1455,7 +1455,7 @@ for (let i: number = 0; i < options.length; i++) {
 
 
 
-##### RouterState
+#### RouterState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1473,7 +1473,7 @@ for (let i: number = 0; i < options.length; i++) {
 
 
 
-##### router.showAlertBeforeBackPage(deprecated)
+#### router.showAlertBeforeBackPage(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1522,7 +1522,7 @@ try {
 
 
 
-##### EnableAlertOptions
+#### EnableAlertOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1539,7 +1539,7 @@ try {
 
 
 
-##### router.hideAlertBeforeBackPage(deprecated)
+#### router.hideAlertBeforeBackPage(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1563,7 +1563,7 @@ this.getUIContext().getRouter().hideAlertBeforeBackPage();
 
 
 
-##### router.getParams(deprecated)
+#### router.getParams(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1594,7 +1594,7 @@ this.getUIContext().getRouter().getParams();
 
 
 
-##### RouterOptions
+#### RouterOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -1615,7 +1615,7 @@ this.getUIContext().getRouter().getParams();
 
 
 
-##### RouterMode9+
+#### RouterMode9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1633,7 +1633,7 @@ this.getUIContext().getRouter().getParams();
 
 
 
-##### NamedRouterOptions10+
+#### NamedRouterOptions10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV | lite_wearable
 
@@ -1648,13 +1648,13 @@ this.getUIContext().getRouter().getParams();
 
 
 
-##### 完整示例
+#### 完整示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV | lite_wearable
 
 
 
-##### 基于JS扩展的类Web开发范式
+#### 基于JS扩展的类Web开发范式
 
 以下代码仅适用于javascript文件，不适用于ArkTS文件
 
@@ -1683,7 +1683,7 @@ export default {
 
 
 
-##### 基于TS扩展的声明式开发范式
+#### 基于TS扩展的声明式开发范式
 
 > [!NOTE]
 > 直接使用router可能导致 UI上下文不明确 的问题，建议使用getUIContext获取 UIContext 实例，并使用 getRouter 获取绑定实例的router。
@@ -1808,7 +1808,7 @@ struct Second {
 
 
 
-##### router.push(deprecated)
+#### router.push(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1858,7 +1858,7 @@ router.push({
 
 
 
-##### router.replace(deprecated)
+#### router.replace(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -1898,7 +1898,7 @@ router.replace({
 
 
 
-##### router.enableAlertBeforeBackPage(deprecated)
+#### router.enableAlertBeforeBackPage(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1929,7 +1929,7 @@ router.enableAlertBeforeBackPage({
 
 
 
-##### router.disableAlertBeforeBackPage(deprecated)
+#### router.disableAlertBeforeBackPage(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

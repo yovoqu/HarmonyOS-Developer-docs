@@ -12,7 +12,7 @@ OverlayModuleInfo信息，可以通过[overlay.getOverlayModuleInfo](https://dev
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { overlay } from '@kit.AbilityKit';
  
   
 
-##### OverlayModuleInfo
+#### OverlayModuleInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avformat-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -25,13 +25,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -42,7 +42,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -53,7 +53,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -87,13 +87,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_AVPixelFormat
+#### OH_AVPixelFormat
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -121,13 +121,13 @@ enum OH_AVPixelFormat
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_AVFormat_Create()
+#### OH_AVFormat_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -152,7 +152,7 @@ struct OH_AVFormat *OH_AVFormat_Create(void)
  
   
 
-##### OH_AVFormat_CreateAudioFormat()
+#### OH_AVFormat_CreateAudioFormat()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -186,7 +186,7 @@ struct OH_AVFormat *OH_AVFormat_CreateAudioFormat(const char *mimeType, int32_t 
  
   
 
-##### OH_AVFormat_CreateVideoFormat()
+#### OH_AVFormat_CreateVideoFormat()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -220,7 +220,7 @@ struct OH_AVFormat *OH_AVFormat_CreateVideoFormat(const char *mimeType, int32_t 
  
   
 
-##### OH_AVFormat_Destroy()
+#### OH_AVFormat_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -245,7 +245,7 @@ void OH_AVFormat_Destroy(struct OH_AVFormat *format)
  
   
 
-##### OH_AVFormat_Copy()
+#### OH_AVFormat_Copy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -278,7 +278,7 @@ bool OH_AVFormat_Copy(struct OH_AVFormat *to, struct OH_AVFormat *from)
  
   
 
-##### OH_AVFormat_SetIntValue()
+#### OH_AVFormat_SetIntValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -312,7 +312,7 @@ bool OH_AVFormat_SetIntValue(struct OH_AVFormat *format, const char *key, int32_
  
   
 
-##### OH_AVFormat_SetUintValue()
+#### OH_AVFormat_SetUintValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -344,7 +344,7 @@ bool OH_AVFormat_SetUintValue(struct OH_AVFormat *format, const char *key, uint3
  
   
 
-##### OH_AVFormat_SetLongValue()
+#### OH_AVFormat_SetLongValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -378,7 +378,7 @@ bool OH_AVFormat_SetLongValue(struct OH_AVFormat *format, const char *key, int64
  
   
 
-##### OH_AVFormat_SetFloatValue()
+#### OH_AVFormat_SetFloatValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -412,7 +412,7 @@ bool OH_AVFormat_SetFloatValue(struct OH_AVFormat *format, const char *key, floa
  
   
 
-##### OH_AVFormat_SetDoubleValue()
+#### OH_AVFormat_SetDoubleValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -446,7 +446,7 @@ bool OH_AVFormat_SetDoubleValue(struct OH_AVFormat *format, const char *key, dou
  
   
 
-##### OH_AVFormat_SetStringValue()
+#### OH_AVFormat_SetStringValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -480,7 +480,7 @@ bool OH_AVFormat_SetStringValue(struct OH_AVFormat *format, const char *key, con
  
   
 
-##### OH_AVFormat_SetBuffer()
+#### OH_AVFormat_SetBuffer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -515,7 +515,7 @@ bool OH_AVFormat_SetBuffer(struct OH_AVFormat *format, const char *key, const ui
  
   
 
-##### OH_AVFormat_GetIntValue()
+#### OH_AVFormat_GetIntValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -549,7 +549,7 @@ bool OH_AVFormat_GetIntValue(struct OH_AVFormat *format, const char *key, int32_
  
   
 
-##### OH_AVFormat_GetUintValue()
+#### OH_AVFormat_GetUintValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -581,7 +581,7 @@ bool OH_AVFormat_GetUintValue(struct OH_AVFormat *format, const char *key, uint3
  
   
 
-##### OH_AVFormat_GetLongValue()
+#### OH_AVFormat_GetLongValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -615,7 +615,7 @@ bool OH_AVFormat_GetLongValue(struct OH_AVFormat *format, const char *key, int64
  
   
 
-##### OH_AVFormat_GetFloatValue()
+#### OH_AVFormat_GetFloatValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -649,7 +649,7 @@ bool OH_AVFormat_GetFloatValue(struct OH_AVFormat *format, const char *key, floa
  
   
 
-##### OH_AVFormat_GetDoubleValue()
+#### OH_AVFormat_GetDoubleValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -683,7 +683,7 @@ bool OH_AVFormat_GetDoubleValue(struct OH_AVFormat *format, const char *key, dou
  
   
 
-##### OH_AVFormat_GetStringValue()
+#### OH_AVFormat_GetStringValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -717,7 +717,7 @@ bool OH_AVFormat_GetStringValue(struct OH_AVFormat *format, const char *key, con
  
   
 
-##### OH_AVFormat_GetBuffer()
+#### OH_AVFormat_GetBuffer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -752,7 +752,7 @@ bool OH_AVFormat_GetBuffer(struct OH_AVFormat *format, const char *key, uint8_t 
  
   
 
-##### OH_AVFormat_GetIntBuffer()
+#### OH_AVFormat_GetIntBuffer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -791,7 +791,7 @@ bool OH_AVFormat_GetIntBuffer(struct OH_AVFormat *format, const char *key, int32
  
   
 
-##### OH_AVFormat_DumpInfo()
+#### OH_AVFormat_DumpInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -823,7 +823,7 @@ const char *OH_AVFormat_DumpInfo(struct OH_AVFormat *format)
  
   
 
-##### OH_AVFormat_SetIntBuffer()
+#### OH_AVFormat_SetIntBuffer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -858,7 +858,7 @@ bool OH_AVFormat_SetIntBuffer(struct OH_AVFormat *format, const char *key, const
  
   
 
-##### OH_AVFormat_GetKeyCount()
+#### OH_AVFormat_GetKeyCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -888,7 +888,7 @@ uint32_t OH_AVFormat_GetKeyCount(OH_AVFormat *format)
  
   
 
-##### OH_AVFormat_GetKey()
+#### OH_AVFormat_GetKey()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

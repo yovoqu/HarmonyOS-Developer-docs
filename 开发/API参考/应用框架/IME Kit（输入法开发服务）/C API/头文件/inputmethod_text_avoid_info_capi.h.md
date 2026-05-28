@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-inputmethod-text-avoid-info-capi-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -40,7 +40,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -56,13 +56,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_TextAvoidInfo_Create()
+#### OH_TextAvoidInfo_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -93,7 +93,7 @@ InputMethod_TextAvoidInfo *OH_TextAvoidInfo_Create(double positionY, double heig
  
   
 
-##### OH_TextAvoidInfo_Destroy()
+#### OH_TextAvoidInfo_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -116,7 +116,7 @@ void OH_TextAvoidInfo_Destroy(InputMethod_TextAvoidInfo *info)
  
   
 
-##### OH_TextAvoidInfo_SetPositionY()
+#### OH_TextAvoidInfo_SetPositionY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -147,7 +147,7 @@ InputMethod_ErrorCode OH_TextAvoidInfo_SetPositionY(InputMethod_TextAvoidInfo *i
  
   
 
-##### OH_TextAvoidInfo_SetHeight()
+#### OH_TextAvoidInfo_SetHeight()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -178,7 +178,7 @@ InputMethod_ErrorCode OH_TextAvoidInfo_SetHeight(InputMethod_TextAvoidInfo *info
  
   
 
-##### OH_TextAvoidInfo_GetPositionY()
+#### OH_TextAvoidInfo_GetPositionY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -209,7 +209,7 @@ InputMethod_ErrorCode OH_TextAvoidInfo_GetPositionY(InputMethod_TextAvoidInfo *i
  
   
 
-##### OH_TextAvoidInfo_GetHeight()
+#### OH_TextAvoidInfo_GetHeight()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

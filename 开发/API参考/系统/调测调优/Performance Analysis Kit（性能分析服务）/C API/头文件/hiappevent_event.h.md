@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hiappevent-event-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 宏定义
+#### 宏定义
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -56,13 +56,13 @@
  
   
 
-##### 宏定义说明
+#### 宏定义说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### EVENT_USER_LOGIN
+#### EVENT_USER_LOGIN
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -78,7 +78,7 @@
  
   
 
-##### EVENT_USER_LOGOUT
+#### EVENT_USER_LOGOUT
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -94,7 +94,7 @@
  
   
 
-##### EVENT_DISTRIBUTED_SERVICE_START
+#### EVENT_DISTRIBUTED_SERVICE_START
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -110,7 +110,7 @@
  
   
 
-##### EVENT_APP_CRASH
+#### EVENT_APP_CRASH
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -126,7 +126,7 @@
  
   
 
-##### EVENT_APP_FREEZE
+#### EVENT_APP_FREEZE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -142,7 +142,7 @@
  
   
 
-##### EVENT_APP_LAUNCH
+#### EVENT_APP_LAUNCH
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -158,7 +158,7 @@
  
   
 
-##### EVENT_SCROLL_JANK
+#### EVENT_SCROLL_JANK
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -174,7 +174,7 @@
  
   
 
-##### EVENT_CPU_USAGE_HIGH
+#### EVENT_CPU_USAGE_HIGH
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -190,7 +190,7 @@ CPU高负载事件。
  
   
 
-##### EVENT_BATTERY_USAGE
+#### EVENT_BATTERY_USAGE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -206,7 +206,7 @@ CPU高负载事件。
  
   
 
-##### EVENT_RESOURCE_OVERLIMIT
+#### EVENT_RESOURCE_OVERLIMIT
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -222,7 +222,7 @@ CPU高负载事件。
  
   
 
-##### EVENT_ADDRESS_SANITIZER
+#### EVENT_ADDRESS_SANITIZER
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -238,7 +238,7 @@ CPU高负载事件。
  
   
 
-##### EVENT_MAIN_THREAD_JANK
+#### EVENT_MAIN_THREAD_JANK
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -254,7 +254,7 @@ CPU高负载事件。
  
   
 
-##### EVENT_APP_HICOLLIE
+#### EVENT_APP_HICOLLIE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -270,7 +270,7 @@ CPU高负载事件。
  
   
 
-##### EVENT_APP_KILLED
+#### EVENT_APP_KILLED
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -286,7 +286,7 @@ CPU高负载事件。
  
   
 
-##### EVENT_AUDIO_JANK_FRAME
+#### EVENT_AUDIO_JANK_FRAME
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -302,7 +302,7 @@ CPU高负载事件。
  
   
 
-##### DOMAIN_OS
+#### DOMAIN_OS
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -318,7 +318,7 @@ OS作用域。
  
   
 
-##### EVENT_MAIN_THREAD_JANK_V2
+#### EVENT_MAIN_THREAD_JANK_V2
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

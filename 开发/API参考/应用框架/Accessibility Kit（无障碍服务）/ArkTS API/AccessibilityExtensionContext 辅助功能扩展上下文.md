@@ -14,7 +14,7 @@ AccessibilityExtensionContext是AccessibilityExtensionAbility上下文环境，�
 
 
 
-##### 使用说明
+#### 使用说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -32,7 +32,7 @@ class EntryAbility extends AccessibilityExtensionAbility {
 
 
 
-##### ElementAttributeValues
+#### ElementAttributeValues
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -44,7 +44,7 @@ class EntryAbility extends AccessibilityExtensionAbility {
 
 
 
-##### 属性
+#### 属性
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -108,7 +108,7 @@ class EntryAbility extends AccessibilityExtensionAbility {
 
 
 
-##### FocusDirection
+#### FocusDirection
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -130,7 +130,7 @@ type FocusDirection = 'up' | 'down' | 'left' | 'right' | 'forward' | 'backward'
 
 
 
-##### FocusType
+#### FocusType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -148,7 +148,7 @@ type FocusType = 'accessibility' | 'normal'
 
 
 
-##### Rect
+#### Rect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -166,7 +166,7 @@ type FocusType = 'accessibility' | 'normal'
 
 
 
-##### WindowType
+#### WindowType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -184,7 +184,7 @@ type WindowType = 'application' | 'system'
 
 
 
-##### AccessibilityExtensionContext.setTargetBundleName(deprecated)
+#### AccessibilityExtensionContext.setTargetBundleName(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -236,7 +236,7 @@ axContext.setTargetBundleName(targetNames).then(() => {
 
 
 
-##### AccessibilityExtensionContext.setTargetBundleName(deprecated)
+#### AccessibilityExtensionContext.setTargetBundleName(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -288,7 +288,7 @@ try {
 
 
 
-##### AccessibilityExtensionContext.getFocusElement(deprecated)
+#### AccessibilityExtensionContext.getFocusElement(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -344,7 +344,7 @@ axContext.getFocusElement().then((data: AccessibilityElement) => {
 
 
 
-##### AccessibilityExtensionContext.getFocusElement(deprecated)
+#### AccessibilityExtensionContext.getFocusElement(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -395,7 +395,7 @@ axContext.getFocusElement((err: BusinessError, data: AccessibilityElement) => {
 
 
 
-##### AccessibilityExtensionContext.getFocusElement(deprecated)
+#### AccessibilityExtensionContext.getFocusElement(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -448,7 +448,7 @@ axContext.getFocusElement(isAccessibilityFocus, (err: BusinessError, data: Acces
 
 
 
-##### AccessibilityExtensionContext.getWindowRootElement(deprecated)
+#### AccessibilityExtensionContext.getWindowRootElement(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -504,7 +504,7 @@ axContext.getWindowRootElement().then((data: AccessibilityElement) => {
 
 
 
-##### AccessibilityExtensionContext.getWindowRootElement(deprecated)
+#### AccessibilityExtensionContext.getWindowRootElement(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -555,7 +555,7 @@ axContext.getWindowRootElement((err: BusinessError, data: AccessibilityElement) 
 
 
 
-##### AccessibilityExtensionContext.getWindowRootElement(deprecated)
+#### AccessibilityExtensionContext.getWindowRootElement(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -608,7 +608,7 @@ axContext.getWindowRootElement(windowId, (err: BusinessError, data: Accessibilit
 
 
 
-##### AccessibilityExtensionContext.getWindows(deprecated)
+#### AccessibilityExtensionContext.getWindows(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -661,7 +661,7 @@ axContext.getWindows().then((data: AccessibilityElement[]) => {
 
 
 
-##### AccessibilityExtensionContext.getWindows(deprecated)
+#### AccessibilityExtensionContext.getWindows(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -709,7 +709,7 @@ axContext.getWindows((err: BusinessError, data: AccessibilityElement[]) => {
 
 
 
-##### AccessibilityExtensionContext.getWindows(deprecated)
+#### AccessibilityExtensionContext.getWindows(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -759,7 +759,7 @@ axContext.getWindows(displayId, (err: BusinessError, data: AccessibilityElement[
 
 
 
-##### AccessibilityExtensionContext.injectGesture(deprecated)
+#### AccessibilityExtensionContext.injectGesture(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -818,7 +818,7 @@ axContext.injectGesture(gesturePath).then(() => {
 
 
 
-##### AccessibilityExtensionContext.injectGesture(deprecated)
+#### AccessibilityExtensionContext.injectGesture(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -872,7 +872,7 @@ axContext.injectGesture(gesturePath, (err: BusinessError) => {
 
 
 
-##### AccessibilityExtensionContext.injectGestureSync(deprecated)
+#### AccessibilityExtensionContext.injectGestureSync(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -918,7 +918,7 @@ axContext.injectGestureSync(gesturePath);
 
 
 
-##### AccessibilityElement
+#### AccessibilityElement
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -930,7 +930,7 @@ axContext.injectGestureSync(gesturePath);
 
 
 
-##### attributeNames(deprecated)
+#### attributeNames(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -967,7 +967,7 @@ rootElement.attributeNames().then((data: ElementAttributeKeys[]) => {
 
 
 
-##### attributeNames(deprecated)
+#### attributeNames(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1006,7 +1006,7 @@ rootElement.attributeNames((err: BusinessError, data: ElementAttributeKeys[]) =>
 
 
 
-##### attributeValue(deprecated)
+#### attributeValue(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1062,7 +1062,7 @@ rootElement.attributeValue(attributeName).then((data: string) => {
 
 
 
-##### attributeValue(deprecated)
+#### attributeValue(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1114,7 +1114,7 @@ rootElement.attributeValue(attributeName, (err: BusinessError, data: string) => 
 
 
 
-##### actionNames(deprecated)
+#### actionNames(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1150,7 +1150,7 @@ rootElement.actionNames().then((data: string[]) => {
 
 
 
-##### actionNames(deprecated)
+#### actionNames(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1186,7 +1186,7 @@ rootElement.actionNames((err: BusinessError, data: string[]) => {
 
 
 
-##### performAction(deprecated)
+#### performAction(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1288,7 +1288,7 @@ rootElement.performAction('setCursorPosition', {
 
 
 
-##### performAction(deprecated)
+#### performAction(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1339,7 +1339,7 @@ rootElement.performAction(actionName, (err: BusinessError) => {
 
 
 
-##### performAction(deprecated)
+#### performAction(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1392,7 +1392,7 @@ rootElement.performAction(actionName, parameters, (err: BusinessError) => {
 
 
 
-##### findElement('content')(deprecated)
+#### findElement('content')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1447,7 +1447,7 @@ rootElement.findElement('content', condition).then((data: AccessibilityElement[]
 
 
 
-##### findElement('content')(deprecated)
+#### findElement('content')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1498,7 +1498,7 @@ rootElement.findElement('content', condition, (err: BusinessError, data: Accessi
 
 
 
-##### findElement('focusType')(deprecated)
+#### findElement('focusType')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1554,7 +1554,7 @@ rootElement.findElement('focusType', condition).then((data: AccessibilityElement
 
 
 
-##### findElement('focusType')(deprecated)
+#### findElement('focusType')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1606,7 +1606,7 @@ rootElement.findElement('focusType', condition, (err: BusinessError, data: Acces
 
 
 
-##### findElement('focusDirection')(deprecated)
+#### findElement('focusDirection')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1662,7 +1662,7 @@ rootElement.findElement('focusDirection', condition).then((data: AccessibilityEl
 
 
 
-##### findElement('focusDirection')(deprecated)
+#### findElement('focusDirection')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

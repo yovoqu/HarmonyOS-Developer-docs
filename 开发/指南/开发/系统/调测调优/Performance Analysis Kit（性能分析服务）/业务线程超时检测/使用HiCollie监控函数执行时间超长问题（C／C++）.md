@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hicollie-settimer-guidelines-ndk
 
-##### 简介
+#### 简介
 
 任务执行超时指要监控的业务代码逻辑执行时长超过业务逻辑预期时间。本文面向开发者介绍HiCollie模块对外提供函数执行时间超长的检测能力。
 
@@ -18,7 +18,7 @@
 
 
 
-##### 接口说明
+#### 接口说明
 
 | 接口名 | 描述 |
 | --- | --- |
@@ -32,7 +32,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 下文将展示如何在应用内增加一个按钮，并单击该按钮以调用HiCollie Ndk接口。
 1. 新建Native C++工程，目录结构如下：

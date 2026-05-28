@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { statistics } from '@kit.NetworkKit';
 
 
 
-##### statistics.getIfaceRxBytes
+#### statistics.getIfaceRxBytes
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -68,7 +68,7 @@ statistics.getIfaceRxBytes("wlan0", (error: BusinessError, stats: number) => {
 
 
 
-##### statistics.getIfaceRxBytes
+#### statistics.getIfaceRxBytes
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -118,7 +118,7 @@ statistics.getIfaceRxBytes("wlan0").then((stats: number) => {
 
 
 
-##### statistics.getIfaceTxBytes
+#### statistics.getIfaceTxBytes
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -164,7 +164,7 @@ statistics.getIfaceTxBytes("wlan0", (error: BusinessError, stats: number) => {
 
 
 
-##### statistics.getIfaceTxBytes
+#### statistics.getIfaceTxBytes
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -214,7 +214,7 @@ statistics.getIfaceTxBytes("wlan0").then((stats: number) => {
 
 
 
-##### statistics.getCellularRxBytes
+#### statistics.getCellularRxBytes
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -258,7 +258,7 @@ statistics.getCellularRxBytes((error: BusinessError, stats: number) => {
 
 
 
-##### statistics.getCellularRxBytes
+#### statistics.getCellularRxBytes
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -300,7 +300,7 @@ statistics.getCellularRxBytes().then((stats: number) => {
 
 
 
-##### statistics.getCellularTxBytes
+#### statistics.getCellularTxBytes
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -344,7 +344,7 @@ statistics.getCellularTxBytes((error: BusinessError, stats: number) => {
 
 
 
-##### statistics.getCellularTxBytes
+#### statistics.getCellularTxBytes
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -386,7 +386,7 @@ statistics.getCellularTxBytes().then((stats: number) => {
 
 
 
-##### statistics.getAllRxBytes
+#### statistics.getAllRxBytes
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -431,7 +431,7 @@ statistics.getAllRxBytes((error: BusinessError, stats: number) => {
 
 
 
-##### statistics.getAllRxBytes
+#### statistics.getAllRxBytes
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -474,7 +474,7 @@ statistics.getAllRxBytes().then((stats: number) => {
 
 
 
-##### statistics.getAllTxBytes
+#### statistics.getAllTxBytes
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -519,7 +519,7 @@ statistics.getAllTxBytes((error: BusinessError, stats: number) => {
 
 
 
-##### statistics.getAllTxBytes
+#### statistics.getAllTxBytes
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -562,7 +562,7 @@ statistics.getAllTxBytes().then((stats: number) => {
 
 
 
-##### statistics.getUidRxBytes
+#### statistics.getUidRxBytes
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -607,7 +607,7 @@ statistics.getUidRxBytes(20010038, (error: BusinessError, stats: number) => {
 
 
 
-##### statistics.getUidRxBytes
+#### statistics.getUidRxBytes
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -656,7 +656,7 @@ statistics.getUidRxBytes(20010038).then((stats: number) => {
 
 
 
-##### statistics.getUidTxBytes
+#### statistics.getUidTxBytes
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -701,7 +701,7 @@ statistics.getUidTxBytes(20010038, (error: BusinessError, stats: number) => {
 
 
 
-##### statistics.getUidTxBytes
+#### statistics.getUidTxBytes
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -750,7 +750,7 @@ statistics.getUidTxBytes(20010038).then((stats: number) => {
 
 
 
-##### statistics.getSockfdRxBytes11+
+#### statistics.getSockfdRxBytes11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -795,7 +795,7 @@ statistics.getSockfdRxBytes(sockfd, (error: BusinessError, stats: number) => {
 
 
 
-##### statistics.getSockfdRxBytes11+
+#### statistics.getSockfdRxBytes11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -847,7 +847,7 @@ statistics.getSockfdRxBytes(sockfd).then((stats: number) => {
 
 
 
-##### statistics.getSockfdTxBytes11+
+#### statistics.getSockfdTxBytes11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -892,7 +892,7 @@ statistics.getSockfdTxBytes(sockfd, (error: BusinessError, stats: number) => {
 
 
 
-##### statistics.getSockfdTxBytes11+
+#### statistics.getSockfdTxBytes11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -944,7 +944,7 @@ statistics.getSockfdTxBytes(sockfd).then((stats: number) => {
 
 
 
-##### statistics.getSelfTrafficStats22+
+#### statistics.getSelfTrafficStats22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1007,7 +1007,7 @@ statistics.getSelfTrafficStats(networkInfo).then((stats: statistics.NetStatsInfo
 
 
 
-##### NetBearType12+
+#### NetBearType12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1024,7 +1024,7 @@ type NetBearType = connection.NetBearType
 
 
 
-##### NetworkInfo22+
+#### NetworkInfo22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1042,7 +1042,7 @@ type NetBearType = connection.NetBearType
 
 
 
-##### NetStatsInfo22+
+#### NetStatsInfo22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

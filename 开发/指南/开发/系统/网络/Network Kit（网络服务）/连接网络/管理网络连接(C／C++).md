@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-netmanager-guidelines
 
-##### 场景介绍
+#### 场景介绍
 
 NetConnection模块提供了常用网络信息查询的能力。
 
 
 
-##### 接口说明
+#### 接口说明
 
 NetConnection常用接口如下表所示，详细的接口说明请参考[net_connection.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-connection-h)。
 
@@ -37,11 +37,11 @@ NetConnection常用接口如下表所示，详细的接口说明请参考[net_co
 
 
 
-##### 网络管理接口开发示例
+#### 网络管理接口开发示例
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 使用本文档涉及接口获取网络相关信息时，需先创建Native C++工程，在源文件中将相关接口封装，再在ArkTS层对封装的接口进行调用，使用hilog或者console.log等手段选择打印在控制台或者生成设备日志。
 
@@ -51,7 +51,7 @@ NetConnection常用接口如下表所示，详细的接口说明请参考[net_co
 
 
 
-##### 添加开发依赖
+#### 添加开发依赖
 
 **添加动态链接库**
 
@@ -72,7 +72,7 @@ libnet_connection.so
 
 
 
-##### 构建工程
+#### 构建工程
 1. 在源文件中编写调用该API的代码，并将结果封装成一个napi_value类型的值返回给Node.js环境。
 
   
@@ -247,7 +247,7 @@ struct Index {
 
 
 
-##### 测试步骤
+#### 测试步骤
 1. 连接设备，使用DevEco Studio打开搭建好的工程。
 2. 运行工程，设备上会弹出以下所示图片。
 

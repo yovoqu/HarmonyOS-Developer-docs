@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-midi-base-h
 **支持设备：** Phone | PC/2in1 | Tablet
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -46,7 +46,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -61,7 +61,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -75,13 +75,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### OH_MIDIStatusCode
+#### OH_MIDIStatusCode
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -117,7 +117,7 @@ MIDI状态码枚举。定义MIDI操作的状态码，用于表示操作成功或
  
   
 
-##### OH_MIDIPortDirection
+#### OH_MIDIPortDirection
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -139,7 +139,7 @@ enum OH_MIDIPortDirection
  
   
 
-##### OH_MIDIProtocol
+#### OH_MIDIProtocol
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -165,7 +165,7 @@ MIDI协议版本枚举，用于指定端口使用的MIDI协议行为。
  
   
 
-##### OH_MIDIDeviceType
+#### OH_MIDIDeviceType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -187,7 +187,7 @@ MIDI设备类型枚举。定义MIDI设备的连接类型。
  
   
 
-##### OH_MIDIDeviceChangeAction
+#### OH_MIDIDeviceChangeAction
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -209,13 +209,13 @@ enum OH_MIDIDeviceChangeAction
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### OH_MIDICallback_OnDeviceChange()
+#### OH_MIDICallback_OnDeviceChange()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -240,7 +240,7 @@ typedef void (*OH_MIDICallback_OnDeviceChange)(void *userData, OH_MIDIDeviceChan
  
   
 
-##### OH_MIDICallback_OnError()
+#### OH_MIDICallback_OnError()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -264,7 +264,7 @@ typedef void (*OH_MIDICallback_OnError)(void *userData, OH_MIDIStatusCode code)
  
   
 
-##### OH_MIDIDevice_OnReceived()
+#### OH_MIDIDevice_OnReceived()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -293,7 +293,7 @@ typedef void (*OH_MIDIDevice_OnReceived)(void *userData, const OH_MIDIEvent *eve
  
   
 
-##### OH_MIDIClient_OnDeviceOpened()
+#### OH_MIDIClient_OnDeviceOpened()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

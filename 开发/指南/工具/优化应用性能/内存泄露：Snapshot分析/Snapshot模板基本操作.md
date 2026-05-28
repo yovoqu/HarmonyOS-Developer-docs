@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-snapshot-basic-operations
 
-##### 功能介绍
+#### 功能介绍
 
 针对方舟虚拟机，DevEco Profiler提供了内存快照分析能力，结合Memory实时占用情况，分析不同时刻的方舟虚拟机内存对象占用情况及差异。
 
@@ -12,13 +12,13 @@
 
 
 
-##### 约束与限制
+#### 约束与限制
 
 由于隐私安全政策，已上架应用市场的应用不支持使用Snapshot分析模板。
 
 
 
-##### 查看快照详情
+#### 查看快照详情
 1. 创建Snapshot场景调优分析任务，操作方法可参考[性能问题定位：深度录制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/deep-recording)。
 2. 设置Snapshot泳道。单击任务左上角的
 ![](assets/Snapshot模板基本操作/file-20260514133142120-0.png)
@@ -66,7 +66,7 @@
 
   
 
-  ##### 应用对象名称解析
+  #### 应用对象名称解析
 
   方舟系统目前有方舟应用对象、系统内部框架对象、其他JS对象三类对象，从DevEco Studio 6.0.0 Beta1版本开始，支持对应用对象类的名称进行解析，帮助开发者快速定位问题所在的源码位置，从而提升问题定位效率。
 
@@ -106,7 +106,7 @@ Module：模块信息。
 
 
 
-##### 节点属性与引用链
+#### 节点属性与引用链
 
 在“Snapshot”的“Statistics”页签和“Comparison”页签中，所有实例对象节点展开后会显示"&lt;fields&gt;"以及"&lt;references&gt;"，这两项节点分别代表该实例对象的属性以及该实例对象的引用链信息。
 
@@ -118,7 +118,7 @@ Module：模块信息。
 
 
 
-##### 节点跳转
+#### 节点跳转
 
 在“Snapshot”的“Comparison”页签中，查看内存对象、对象属性及其引用链时，若要查看某一对象的详细信息，可以单击该对象所在行行尾的跳转图标跳转至该对象所在的“Statistics”页签并定位至该对象所在的位置，以查看该对象的详细信息。
 
@@ -128,7 +128,7 @@ Module：模块信息。
 
 
 
-##### 历史节点前进/后退
+#### 历史节点前进/后退
 
 当在“Comparison”和“Statistics”之间进行节点跳转后，单击详情区域左下角的左右箭头可以前进或者后退至下一个或上一个历史节点，以便快速在多个历史节点之间跳转查看。当箭头为激活状态时，表示前进/后退功能可用，当箭头为灰色状态时则代表无法使用该功能。
 
@@ -138,7 +138,7 @@ Module：模块信息。
 
 
 
-##### 比较快照差异
+#### 比较快照差异
 
 在“Snapshot”的“Comparison”页签中，以当前选择的快照为base，下拉框选择的快照为Target，即可得到两次快照信息的比较结果。
 
@@ -154,13 +154,13 @@ Module：模块信息。
 
 
 
-##### 引用链向最小引用距离展开
+#### 引用链向最小引用距离展开
 
 Snapshot分析支持一键向引用链最小的引用距离方向展开。系统会计算从GC Roots垃圾收集器根到选定实例对象的最短路径（最短路径是指Distance逐渐-1的路径，最终抵达Distance = 1的节点），通过最短路径，能够清晰地看到该对象的句柄被哪些对象持有，快速定位问题产生的根源。
 
 
 
-##### DevEco Studio 6.1.0 Beta2及之后版本
+#### DevEco Studio 6.1.0 Beta2及之后版本
 
 选择一个实例节点，系统会计算从GC Roots到选定对象的最短路径，并在右侧Shortest Paths页签实时切换和展示。
 
@@ -172,7 +172,7 @@ Snapshot分析支持一键向引用链最小的引用距离方向展开。系统
 
 
 
-##### DevEco Studio 6.1.0 Beta2之前版本
+#### DevEco Studio 6.1.0 Beta2之前版本
 
 选择一个实例节点，底部搜索栏的Path to GC Root按钮呈可点击状态。点击该按钮选择搜索模式并确认，系统会计算从GC Roots到选定对象的最短路径，并在右侧Shortest Paths页签展示。
 
@@ -194,7 +194,7 @@ Snapshot分析支持一键向引用链最小的引用距离方向展开。系统
 
 
 
-##### 合并展示最小引用距离
+#### 合并展示最小引用距离
 
 
 从DevEco Studio 6.1.1 Beta1版本开始，在“Statistics”页签中，选中一个构造器或实例结点，点击底部搜索栏的**References**按钮并确认，在右侧**Merged Incoming References**页签可查看该节点构造器下的所有实例到GC Roots的最短路径。
@@ -204,7 +204,7 @@ Snapshot分析支持一键向引用链最小的引用距离方向展开。系统
 
 
 
-##### 引用链可视化
+#### 引用链可视化
 
 从DevEco Studio 6.0.0 Beta1版本开始，Snapshot模板支持将所有引用链以图表形式展示。系统会计算该节点周边的引用节点，并以关系图的形式清晰展示该对象的引用关系，便于定位问题产生的根源。
 
@@ -253,7 +253,7 @@ Snapshot分析支持一键向引用链最小的引用距离方向展开。系统
 
 
 
-##### 离线导入内存快照
+#### 离线导入内存快照
 
 DevEco Profiler支持离线导入内存快照功能，可导入一个或多个.heapsnapshot及.rawheap文件。
 
@@ -279,7 +279,7 @@ DevEco Profiler支持离线导入内存快照功能，可导入一个或多个.h
 
 
 
-##### 解析内存对象
+#### 解析内存对象
 
 从DevEco Studio 6.1.0 Beta2开始，DevEco Profiler支持导入[代码混淆产物nameCache](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-exception-stack-parsing-principle#section19215122372720)文件和[ArkTS调试产物sourceMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-exception-stack-parsing-principle#section666114451518)文件，还原文件名称和文件路径。
 

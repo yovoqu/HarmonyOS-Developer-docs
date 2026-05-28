@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-tilingdata-structure-registration
 
-##### 函数功能
+#### 函数功能
 
 注册定义的TilingData结构体并和自定义算子绑定。具体使用说明请参考[调用示例](#调用示例)。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 REGISTER_TILING_DATA_CLASS(op_type, class_name)
@@ -29,7 +29,7 @@ REGISTER_TILING_DATA_CLASS(op_type, class_name)
  
   
 
-##### 参数说明
+#### 参数说明
 
 **表1** 参数说明
   
@@ -41,7 +41,7 @@ REGISTER_TILING_DATA_CLASS(op_type, class_name)
  
   
 
-##### 约束说明
+#### 约束说明
 
 - 使用时需要包含头文件register/tilingdata_base.h。
 - 中间结构体和定制tilingkey结构体需注意op_type命名规则，具体见[调用示例](#调用示例)。
@@ -51,7 +51,7 @@ REGISTER_TILING_DATA_CLASS(op_type, class_name)
  
   
 
-##### 调用示例
+#### 调用示例
 
 - 注册算子Tiling结构体
 

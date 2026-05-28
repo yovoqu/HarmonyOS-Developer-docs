@@ -13,7 +13,7 @@ ArkTS卡片开发采用通用[ArkTS语言](https://developer.huawei.com/consumer
 
   
 
-##### ArkTS卡片支持的页面能力
+#### ArkTS卡片支持的页面能力
 
 ArkTS卡片具备JS卡片的全量能力，并且新增了动效能力和自定义绘制的能力，支持[ArkTS声明式开发范式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-development-overview)的部分组件、事件、动效、数据管理、状态管理能力。
  

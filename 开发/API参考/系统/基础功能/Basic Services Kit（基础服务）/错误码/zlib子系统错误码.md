@@ -10,7 +10,7 @@
 
 
 
-##### 900001 传入的源文件错误
+#### 900001 传入的源文件错误
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -33,7 +33,7 @@ The input source file is invalid.
 
 
 
-##### 900002 传入的目标文件错误
+#### 900002 传入的目标文件错误
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -55,7 +55,7 @@ The input destination file is invalid.
 
 
 
-##### 900003 传入的源文件格式错误或者已损坏
+#### 900003 传入的源文件格式错误或者已损坏
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -77,7 +77,7 @@ The input source file is not in ZIP format or is damaged.
 
 
 
-##### 17800002 传入的文件或访问模式错误
+#### 17800002 传入的文件或访问模式错误
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -99,7 +99,7 @@ No such file or access mode error.
 
 
 
-##### 17800004 压缩流或解压流错误
+#### 17800004 压缩流或解压流错误
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -123,7 +123,7 @@ Compression or decompression stream error, which may be caused by an initializat
 
 
 
-##### 17800005 传入的数据错误
+#### 17800005 传入的数据错误
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -145,7 +145,7 @@ The input data is incorrect. For example, the data does not conform to the zlib 
 
 
 
-##### 17800006 内存分配失败错误
+#### 17800006 内存分配失败错误
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -167,7 +167,7 @@ Memory allocation failed.
 
 
 
-##### 17800007 传入的缓冲区错误
+#### 17800007 传入的缓冲区错误
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -190,7 +190,7 @@ The input buffer is incorrect, and the output buffer is too small to accommodate
 
 
 
-##### 17800009 内部结构错误
+#### 17800009 内部结构错误
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

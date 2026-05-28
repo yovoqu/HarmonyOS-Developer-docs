@@ -12,7 +12,7 @@ Counter组件用于精确调节数值。
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { CounterType, CounterComponent, CounterOptions, DateData } from '@kit.Ar
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -30,7 +30,7 @@ import { CounterType, CounterComponent, CounterOptions, DateData } from '@kit.Ar
  
   
 
-##### CounterComponent
+#### CounterComponent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -53,7 +53,7 @@ CounterComponent({ options: CounterOptions })
  
   
 
-##### CounterOptions
+#### CounterOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -84,7 +84,7 @@ CounterOptions定义Counter类型及样式。
  
   
 
-##### CounterType
+#### CounterType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -104,7 +104,7 @@ CounterType指定Counter类型。
  
   
 
-##### CommonOptions
+#### CommonOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -124,7 +124,7 @@ CommonOptions定义了Counter的共通属性和事件。
  
   
 
-##### InlineStyleOptions
+#### InlineStyleOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -147,7 +147,7 @@ InlineStyleOptions定义了数值内联型Counter的属性和事件。
  
   
 
-##### NumberStyleOptions
+#### NumberStyleOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -170,7 +170,7 @@ NumberStyleOptions定义了列表型和紧凑型Counter的属性和事件。
  
   
 
-##### DateStyleOptions
+#### DateStyleOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -192,7 +192,7 @@ DateStyleOptions定义日期内联型Counter的属性和事件。
  
   
 
-##### DateData
+#### DateData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -211,7 +211,7 @@ DateData定义了日期通用属性和方法，包括年、月、日。
  
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -234,7 +234,7 @@ DateData的构造函数用于初始化日期对象。
  
   
 
-##### toString
+#### toString
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -255,13 +255,13 @@ toString(): string
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 示例1（列表型Counter）
+#### 示例1（列表型Counter）
 
 该示例通过设置type为CounterType.LIST和配置numberOptions，实现了列表型Counter。
  
@@ -296,7 +296,7 @@ struct ListCounterExample {
  
   
 
-##### 示例2（紧凑型Counter）
+#### 示例2（紧凑型Counter）
 
 该示例通过设置type为CounterType.COMPACT和numberOptions，实现紧凑型Counter。
  
@@ -332,7 +332,7 @@ struct CompactCounterExample {
  
   
 
-##### 示例3（数值内联型Counter）
+#### 示例3（数值内联型Counter）
 
 设置type为CounterType.INLINE和inlineOptions，实现数值内联型Counter。
  
@@ -371,7 +371,7 @@ struct NumberStyleExample {
  
   
 
-##### 示例4（日期内联型Counter）
+#### 示例4（日期内联型Counter）
 
 设置type为CounterType.INLINE_DATE和dateOptions，实现日期内联型Counter。
  
@@ -406,7 +406,7 @@ struct DataStyleExample {
  
   
 
-##### 示例5（镜像布局展示）
+#### 示例5（镜像布局展示）
 
 设置direction属性，实现列表型、紧凑型、数字内联型、日期内联型Counter的镜像布局。
  
@@ -491,4 +491,4 @@ struct CounterPage {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/SXhMdTljRfWVwa0iLjV8lQ/zh-cn_image_0000002611756221.png?HW-CC-KV=V1&HW-CC-Date=20260528T024155Z&HW-CC-Expire=86400&HW-CC-Sign=49274A0E5F433A0C432323B068B643B94BCB6DCED8D0731D4300B48CB1B6DAB3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/SXhMdTljRfWVwa0iLjV8lQ/zh-cn_image_0000002611756221.png?HW-CC-KV=V1&HW-CC-Date=20260528T025528Z&HW-CC-Expire=86400&HW-CC-Sign=2C7BF8E97CDEE79FF205F119B056328442D6AE64F60C93C28325CECA02498FDE)

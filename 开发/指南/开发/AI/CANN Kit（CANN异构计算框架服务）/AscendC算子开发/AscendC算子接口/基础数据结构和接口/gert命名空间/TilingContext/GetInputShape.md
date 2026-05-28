@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getinputshape
 
-##### 函数功能
+#### 函数功能
 
 根据算子输入索引获取对应的输入shape指针。这里的输入索引是指算子实例化后实际的索引，不是原型定义中的索引。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 const StorageShape *GetInputShape(const size_t index) const;
@@ -18,7 +18,7 @@ const StorageShape *GetInputShape(const size_t index) const;
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -27,7 +27,7 @@ const StorageShape *GetInputShape(const size_t index) const;
  
   
 
-##### 返回值
+#### 返回值
 
 指定的输入shape指针，输入shape中包含了原始shape与运行时shape信息。关于StorageShape类型的定义，请参见[StorageShape](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-storageshape-introduction)。
  
@@ -35,13 +35,13 @@ const StorageShape *GetInputShape(const size_t index) const;
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 ge::graphStatus TilingForMul(TilingContext *context) {

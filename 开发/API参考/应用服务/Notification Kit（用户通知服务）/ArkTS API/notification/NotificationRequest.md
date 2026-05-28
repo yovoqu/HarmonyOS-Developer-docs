@@ -12,7 +12,7 @@
 
 
 
-##### NotificationRequest
+#### NotificationRequest
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -63,7 +63,7 @@
 
 
 
-##### DistributedOptions8+
+#### DistributedOptions8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -80,7 +80,7 @@
 
 
 
-##### NotificationParameters24+
+#### NotificationParameters24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

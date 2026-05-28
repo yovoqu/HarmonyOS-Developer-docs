@@ -11,7 +11,7 @@
 内存优化场景下，建议优先修改。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -24,13 +24,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例1
+#### 正例1
 
 ```json
 import lottie from '@ohos/lottie';   //需安装@ohos/lottie依赖后import
@@ -72,7 +72,7 @@ struct LottieAnimation1 {
  
  
 
-##### 正例2
+#### 正例2
 
 ```json
 import lottie from '@ohos/lottie';
@@ -130,7 +130,7 @@ struct LottieAnimation2 {
  
  
 
-##### 反例1
+#### 反例1
 
 ```json
 import lottie from '@ohos/lottie';
@@ -171,7 +171,7 @@ struct LottieAnimation1 {
  
  
 
-##### 反例2
+#### 反例2
 
 ```json
 import lottie from '@ohos/lottie';
@@ -242,7 +242,7 @@ struct LottieAnimation4 {
  
  
 
-##### 反例3
+#### 反例3
 
 ```json
 import lottie from '@ohos/lottie';
@@ -302,7 +302,7 @@ struct LottieAnimation5 {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(106,135,89);">plugin:@performance/all</span>

@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-use-pasteboard
 
-##### 场景介绍
+#### 场景介绍
 
 剪贴板为开发者提供数据的复制粘贴能力。支持对纯文本、超文本、URI等内容的操作。
 
 
 
-##### 基本概念
+#### 基本概念
 
  - [**OH_PasteboardObserver**](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboardobserver)：剪贴板数据变更观察者对象，用以监听剪贴板数据变更事件。
  - [**OH_Pasteboard**](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboard)：剪贴板对象，用来进行查询、写入等操作。
@@ -19,7 +19,7 @@
 
 
 
-##### 约束限制
+#### 约束限制
 
  - 剪贴板内容包含剪贴板系统服务元数据和应用设置的数据，总大小上限默认为128MB，PC/2in1设备可通过系统配置修改上限，有效范围为1MB~2GB。
  - 为保证剪贴板数据的准确性，同一时间只能支持一个复制操作。
@@ -31,7 +31,7 @@
 
 
 
-##### 接口说明
+#### 接口说明
 
 详细接口见[Pasteboard文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard)。
 
@@ -57,7 +57,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 添加动态链接库。
 
   

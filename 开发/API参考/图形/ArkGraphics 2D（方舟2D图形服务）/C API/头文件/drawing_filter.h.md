@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-filter-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -45,13 +45,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Drawing_FilterCreate()
+#### OH_Drawing_FilterCreate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -76,7 +76,7 @@ OH_Drawing_Filter* OH_Drawing_FilterCreate(void)
  
   
 
-##### OH_Drawing_FilterSetImageFilter()
+#### OH_Drawing_FilterSetImageFilter()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -106,7 +106,7 @@ filter为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
  
   
 
-##### OH_Drawing_FilterSetMaskFilter()
+#### OH_Drawing_FilterSetMaskFilter()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -136,7 +136,7 @@ filter为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
  
   
 
-##### OH_Drawing_FilterSetColorFilter()
+#### OH_Drawing_FilterSetColorFilter()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -166,7 +166,7 @@ filter为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
  
   
 
-##### OH_Drawing_FilterGetColorFilter()
+#### OH_Drawing_FilterGetColorFilter()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -196,7 +196,7 @@ filter、colorFilter任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMET
  
   
 
-##### OH_Drawing_FilterDestroy()
+#### OH_Drawing_FilterDestroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

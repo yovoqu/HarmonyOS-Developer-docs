@@ -12,7 +12,7 @@ LinkedList和[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-refer
 LinkedList和[ArrayList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arraylist)相比，LinkedList插入数据效率高于ArrayList，而ArrayList查询效率高于LinkedList。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/1MB6r2PwSOKX67C1I4KQTQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024312Z&HW-CC-Expire=86400&HW-CC-Sign=EB5F3381BD7607424A356C3B70B7BCFAB2327A464C5289F1C9A4688222EE79C6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/1MB6r2PwSOKX67C1I4KQTQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025647Z&HW-CC-Expire=86400&HW-CC-Sign=DA5B84876845AF016A9EF7A93CA1FB28B315DB09232D016236D6B0C23F35092D)
 
 
 在LinkedList中使用[index]的方式获取元素可能导致未定义结果，推荐使用get()方法。
@@ -31,7 +31,7 @@ LinkedList和[ArrayList](https://developer.huawei.com/consumer/cn/doc/harmonyos-
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,13 +41,13 @@ import { LinkedList } from '@kit.ArkTS';
 
 
 
-##### LinkedList
+#### LinkedList
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -62,7 +62,7 @@ import { LinkedList } from '@kit.ArkTS';
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -91,7 +91,7 @@ let linkedList = new LinkedList<string | number | boolean | object>();
 
 
 
-##### add
+#### add
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -146,7 +146,7 @@ console.info("result = ", result4) // result =  true
 
 
 
-##### addFirst
+#### addFirst
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -195,7 +195,7 @@ console.info("result:", result);  // result: 1,2,3
 
 
 
-##### insert
+#### insert
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -239,7 +239,7 @@ console.info("result:", result);  // result: 0
 
 
 
-##### has
+#### has
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -285,7 +285,7 @@ console.info("result:", result);  // result: true
 
 
 
-##### get
+#### get
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -338,7 +338,7 @@ console.info("result:", result);  // result: 5
 
 
 
-##### getLastIndexOf
+#### getLastIndexOf
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -390,7 +390,7 @@ console.info("result:", result);  // result: 5
 
 
 
-##### getIndexOf
+#### getIndexOf
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -442,7 +442,7 @@ console.info("result:", result);  // result: 0
 
 
 
-##### removeByIndex
+#### removeByIndex
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -494,7 +494,7 @@ console.info("result:", result);  // result: 5
 
 
 
-##### removeFirst
+#### removeFirst
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -538,7 +538,7 @@ console.info("result:", result);  // result: 2
 
 
 
-##### removeLast
+#### removeLast
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -582,7 +582,7 @@ console.info("result:", result);  // result: 4
 
 
 
-##### remove
+#### remove
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -631,7 +631,7 @@ console.info("result:", result);  // result: true
 
 
 
-##### removeFirstFound
+#### removeFirstFound
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -682,7 +682,7 @@ console.info("result:", result);  // result: true
 
 
 
-##### removeLastFound
+#### removeLastFound
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -733,7 +733,7 @@ console.info("result:", result);  // result: true
 
 
 
-##### clone
+#### clone
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -775,7 +775,7 @@ console.info("result:", result.has(4));  // result: true
 
 
 
-##### forEach
+#### forEach
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -833,7 +833,7 @@ linkedList.forEach((value: number, index: number) => {
 
 
 
-##### clear
+#### clear
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -869,7 +869,7 @@ console.info("result:", result);  // result: false
 
 
 
-##### set
+#### set
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -921,7 +921,7 @@ console.info("result:", result);  // result: b
 
 
 
-##### convertToArray
+#### convertToArray
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -963,7 +963,7 @@ console.info("result:", result);  // result: 2,4,5,4
 
 
 
-##### getFirst
+#### getFirst
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1005,7 +1005,7 @@ console.info("result:", result);  // result: 2
 
 
 
-##### getLast
+#### getLast
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1047,7 +1047,7 @@ console.info("result:", result);  // result: 4
 
 
 
-##### [Symbol.iterator]
+#### [Symbol.iterator]
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -7,7 +7,7 @@
 建议减少组件刷新范围。该规则已于5.0.3.500版本下线。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 <span style="color: rgb(78,201,176);">@Entry</span>
@@ -56,7 +56,7 @@ struct <span style="color: rgb(78,201,176);">StackExample6</span> {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 @Entry
@@ -84,7 +84,7 @@ struct StackExample5 {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(106,135,89);">plugin:@performance/all</span>

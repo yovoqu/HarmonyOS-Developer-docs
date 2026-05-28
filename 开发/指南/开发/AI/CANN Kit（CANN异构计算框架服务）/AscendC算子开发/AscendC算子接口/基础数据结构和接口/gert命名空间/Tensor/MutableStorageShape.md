@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-tensor-mutablestorageshape
 
-##### 函数功能
+#### 函数功能
 
 获取运行时Tensor的shape，此shape对象是可变的。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 Shape &MutableStorageShape()
@@ -18,25 +18,25 @@ Shape &MutableStorageShape()
  
   
 
-##### 参数说明
+#### 参数说明
 
 无
  
   
 
-##### 返回值
+#### 返回值
 
 运行时shape的引用。
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 StorageShape sh({1, 2, 3}, {2, 1, 3});

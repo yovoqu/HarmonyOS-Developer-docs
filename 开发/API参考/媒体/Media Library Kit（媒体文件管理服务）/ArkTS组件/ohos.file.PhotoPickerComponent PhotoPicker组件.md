@@ -16,7 +16,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -33,7 +33,7 @@ import {
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@ import {
 
 
 
-##### PhotoPickerComponent
+#### PhotoPickerComponent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -85,7 +85,7 @@ PhotoPickerComponent({ pickerOptions?: PickerOptions, onSelect?: (uri: string) =
 
 
 
-##### PickerOptions
+#### PickerOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -124,7 +124,7 @@ Picker配置选项，继承自[photoAccessHelper.BaseSelectOptions](https://deve
 
 
 
-##### ItemsDeletedCallback13+
+#### ItemsDeletedCallback13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -145,7 +145,7 @@ type ItemsDeletedCallback = (baseItemInfos: Array&lt;BaseItemInfo&gt;) => void
 
 
 
-##### ExceedMaxSelectedCallback13+
+#### ExceedMaxSelectedCallback13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -166,7 +166,7 @@ type ExceedMaxSelectedCallback = (exceedMaxCountType: MaxCountType) => void
 
 
 
-##### CurrentAlbumDeletedCallback13+
+#### CurrentAlbumDeletedCallback13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -180,7 +180,7 @@ type CurrentAlbumDeletedCallback = () => void
 
 
 
-##### videoPlayStateChangedCallback14+
+#### videoPlayStateChangedCallback14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -201,7 +201,7 @@ type videoPlayStateChangedCallback = (state: VideoPlayerState) => void
 
 
 
-##### MovingPhotoBadgeStateChangedCallback22+
+#### MovingPhotoBadgeStateChangedCallback22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -223,7 +223,7 @@ type MovingPhotoBadgeStateChangedCallback = (uri: string, state: photoAccessHelp
 
 
 
-##### ScrollStopAtStartCallback23+
+#### ScrollStopAtStartCallback23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -239,7 +239,7 @@ type ScrollStopAtStartCallback = () => void
 
 
 
-##### ItemClickedNotifyCallback23+
+#### ItemClickedNotifyCallback23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -413,7 +413,7 @@ private isOnClickedNotify: boolean = false;
 
 
 
-##### ScrollStopAtEndCallback23+
+#### ScrollStopAtEndCallback23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -429,7 +429,7 @@ type ScrollStopAtEndCallback = () => void
 
 
 
-##### PhotoBrowserChangeStartCallback23+
+#### PhotoBrowserChangeStartCallback23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -452,7 +452,7 @@ type PhotoBrowserChangeStartCallback = (targetPhotoInfo: BaseItemInfo) => void
 
 
 
-##### PinchGridSwitchedCallback23+
+#### PinchGridSwitchedCallback23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -475,7 +475,7 @@ type PinchGridSwitchedCallback = (gridLevel: photoAccessHelper.GridLevel) => voi
 
 
 
-##### ErrorCallback23+
+#### ErrorCallback23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -498,7 +498,7 @@ PhotoPickerComponent产生错误时的回调。
 
 
 
-##### PickerController
+#### PickerController
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -512,7 +512,7 @@ PhotoPickerComponent产生错误时的回调。
 
 
 
-##### setData
+#### setData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -534,7 +534,7 @@ setData(dataType: DataType, data: Object): void
 
 
 
-##### addData21+
+#### addData21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -556,7 +556,7 @@ addData(dataType: DataType, data: Object): void
 
 
 
-##### deleteData21+
+#### deleteData21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -578,7 +578,7 @@ deleteData(dataType: DataType, data: Object): void
 
 
 
-##### setMaxSelected
+#### setMaxSelected
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -599,7 +599,7 @@ setMaxSelected(maxSelected: MaxSelected): void
 
 
 
-##### setPhotoBrowserItem
+#### setPhotoBrowserItem
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -621,7 +621,7 @@ setPhotoBrowserItem(uri: string, photoBrowserRange?: PhotoBrowserRange): void
 
 
 
-##### exitPhotoBrowser13+
+#### exitPhotoBrowser13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -635,7 +635,7 @@ exitPhotoBrowser(): void
 
 
 
-##### setPhotoBrowserUIElementVisibility13+
+#### setPhotoBrowserUIElementVisibility13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -657,7 +657,7 @@ setPhotoBrowserUIElementVisibility(elements: Array&lt;PhotoBrowserUIElement&gt;,
 
 
 
-##### replacePhotoPickerPreview15+
+#### replacePhotoPickerPreview15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -680,7 +680,7 @@ replacePhotoPickerPreview(originalUri: string, newUri: string, callback: AsyncCa
 
 
 
-##### saveTrustedPhotoAssets15+
+#### saveTrustedPhotoAssets15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -704,7 +704,7 @@ saveTrustedPhotoAssets(trustedUris: Array&lt;string&gt;, callback: AsyncCallback
 
 
 
-##### updatePickerOptions22+
+#### updatePickerOptions22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -732,7 +732,7 @@ updatePickerOptions(updateConfig: UpdatablePickerConfigs): Promise&lt;void&gt;
 
 
 
-##### saveTrustedPhotoAssetsEx23+
+#### saveTrustedPhotoAssetsEx23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -768,7 +768,7 @@ saveTrustedPhotoAssetsEx(trustedUris: Array&lt;string&gt;,settings?: Array<photo
 
 
 
-##### setMovingPhotoState23+
+#### setMovingPhotoState23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -810,7 +810,7 @@ setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateTyp
 
 
 
-##### BaseItemInfo
+#### BaseItemInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -835,7 +835,7 @@ setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateTyp
 
 
 
-##### ItemInfo
+#### ItemInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -854,7 +854,7 @@ setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateTyp
 
 
 
-##### PhotoBrowserInfo
+#### PhotoBrowserInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -871,7 +871,7 @@ setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateTyp
 
 
 
-##### AnimatorParams
+#### AnimatorParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -889,7 +889,7 @@ setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateTyp
 
 
 
-##### MaxSelected
+#### MaxSelected
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -906,7 +906,7 @@ setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateTyp
 
 
 
-##### SingleLineConfig20+
+#### SingleLineConfig20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -925,7 +925,7 @@ setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateTyp
 
 
 
-##### BadgeConfig21+
+#### BadgeConfig21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -943,7 +943,7 @@ setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateTyp
 
 
 
-##### ClickResult23+
+#### ClickResult23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -963,7 +963,7 @@ setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateTyp
 
 
 
-##### PreselectedInfo21+
+#### PreselectedInfo21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -981,7 +981,7 @@ setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateTyp
 
 
 
-##### UpdatablePickerConfigs22+
+#### UpdatablePickerConfigs22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1014,7 +1014,7 @@ setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateTyp
 
 
 
-##### PickerError23+
+#### PickerError23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1035,7 +1035,7 @@ setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateTyp
 
 
 
-##### DataType
+#### DataType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1054,7 +1054,7 @@ setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateTyp
 
 
 
-##### ItemType
+#### ItemType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1072,7 +1072,7 @@ setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateTyp
 
 
 
-##### ClickType
+#### ClickType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1090,7 +1090,7 @@ setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateTyp
 
 
 
-##### PickerOrientation
+#### PickerOrientation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1110,7 +1110,7 @@ Picker宫格页面滑动预览的方向。
 
 
 
-##### SelectMode
+#### SelectMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1128,7 +1128,7 @@ Picker宫格页面滑动预览的方向。
 
 
 
-##### PickerColorMode
+#### PickerColorMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1147,7 +1147,7 @@ Picker的颜色模式。
 
 
 
-##### ReminderMode
+#### ReminderMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1166,7 +1166,7 @@ Picker的颜色模式。
 
 
 
-##### MaxCountType
+#### MaxCountType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1185,7 +1185,7 @@ Picker的颜色模式。
 
 
 
-##### PhotoBrowserRange
+#### PhotoBrowserRange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1203,7 +1203,7 @@ Picker的颜色模式。
 
 
 
-##### PhotoBrowserUIElement13+
+#### PhotoBrowserUIElement13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1221,7 +1221,7 @@ Picker的颜色模式。
 
 
 
-##### SaveMode15+
+#### SaveMode15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1239,7 +1239,7 @@ Picker的颜色模式。
 
 
 
-##### BadgeType21+
+#### BadgeType21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1256,7 +1256,7 @@ Picker的颜色模式。
 
 
 
-##### VideoPlayerState14+
+#### VideoPlayerState14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1277,7 +1277,7 @@ Picker的颜色模式。
 
 
 
-##### ItemDisplayRatio20+
+#### ItemDisplayRatio20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1295,7 +1295,7 @@ Picker的颜色模式。
 
 
 
-##### 示例一（PhotoPickerComponent组件的使用）
+#### 示例一（PhotoPickerComponent组件的使用）
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1524,7 +1524,7 @@ struct PickerDemo {
 
 
 
-##### 示例二（使用PhotoPickerComponent实现抽屉组件效果）
+#### 示例二（使用PhotoPickerComponent实现抽屉组件效果）
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-utd-h
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  
@@ -40,7 +40,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  
@@ -66,13 +66,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### OH_Utd_Create()
+#### OH_Utd_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -102,7 +102,7 @@ OH_Utd* OH_Utd_Create(const char* typeId)
  
   
 
-##### OH_Utd_Destroy()
+#### OH_Utd_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -125,7 +125,7 @@ void OH_Utd_Destroy(OH_Utd* pThis)
  
   
 
-##### OH_Utd_GetTypeId()
+#### OH_Utd_GetTypeId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -155,7 +155,7 @@ const char* OH_Utd_GetTypeId(OH_Utd* pThis)
  
   
 
-##### OH_Utd_GetDescription()
+#### OH_Utd_GetDescription()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -185,7 +185,7 @@ const char* OH_Utd_GetDescription(OH_Utd* pThis)
  
   
 
-##### OH_Utd_GetReferenceUrl()
+#### OH_Utd_GetReferenceUrl()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -215,7 +215,7 @@ const char* OH_Utd_GetReferenceUrl(OH_Utd* pThis)
  
   
 
-##### OH_Utd_GetIconFile()
+#### OH_Utd_GetIconFile()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -245,7 +245,7 @@ const char* OH_Utd_GetIconFile(OH_Utd* pThis)
  
   
 
-##### OH_Utd_GetBelongingToTypes()
+#### OH_Utd_GetBelongingToTypes()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -276,7 +276,7 @@ const char** OH_Utd_GetBelongingToTypes(OH_Utd* pThis, unsigned int* count)
  
   
 
-##### OH_Utd_GetFilenameExtensions()
+#### OH_Utd_GetFilenameExtensions()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -307,7 +307,7 @@ const char** OH_Utd_GetFilenameExtensions(OH_Utd* pThis, unsigned int* count)
  
   
 
-##### OH_Utd_GetMimeTypes()
+#### OH_Utd_GetMimeTypes()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -338,7 +338,7 @@ const char** OH_Utd_GetMimeTypes(OH_Utd* pThis, unsigned int* count)
  
   
 
-##### OH_Utd_GetTypesByFilenameExtension()
+#### OH_Utd_GetTypesByFilenameExtension()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -369,7 +369,7 @@ const char** OH_Utd_GetTypesByFilenameExtension(const char* extension, unsigned 
  
   
 
-##### OH_Utd_GetTypesByMimeType()
+#### OH_Utd_GetTypesByMimeType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -400,7 +400,7 @@ const char** OH_Utd_GetTypesByMimeType(const char* mimeType, unsigned int* count
  
   
 
-##### OH_Utd_BelongsTo()
+#### OH_Utd_BelongsTo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -431,7 +431,7 @@ bool OH_Utd_BelongsTo(const char* srcTypeId, const char* destTypeId)
  
   
 
-##### OH_Utd_IsLower()
+#### OH_Utd_IsLower()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -462,7 +462,7 @@ bool OH_Utd_IsLower(const char* srcTypeId, const char* destTypeId)
  
   
 
-##### OH_Utd_IsHigher()
+#### OH_Utd_IsHigher()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -493,7 +493,7 @@ bool OH_Utd_IsHigher(const char* srcTypeId, const char* destTypeId)
  
   
 
-##### OH_Utd_Equals()
+#### OH_Utd_Equals()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -524,7 +524,7 @@ bool OH_Utd_Equals(OH_Utd* utd1, OH_Utd* utd2)
  
   
 
-##### OH_Utd_DestroyStringList()
+#### OH_Utd_DestroyStringList()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

@@ -12,7 +12,7 @@ AbilityRunningInfo是记录Ability运行信息和状态的数据结构，通过[
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { abilityManager } from '@kit.AbilityKit';
  
   
 
-##### AbilityRunningInfo
+#### AbilityRunningInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

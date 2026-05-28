@@ -10,7 +10,7 @@
 **起始版本：** 5.1.0(18)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -20,7 +20,7 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 
 
-##### CreateParameters
+#### CreateParameters
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -43,7 +43,7 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 
 
-##### ConnectNotification
+#### ConnectNotification
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -62,7 +62,7 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 
 
-##### BindParameters
+#### BindParameters
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -80,7 +80,7 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 
 
-##### NearbyGameDevice
+#### NearbyGameDevice
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -99,7 +99,7 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 
 
-##### DiscoveryResult
+#### DiscoveryResult
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -116,7 +116,7 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 
 
-##### CreateResult
+#### CreateResult
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -134,7 +134,7 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 
 
-##### TransferNotification
+#### TransferNotification
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -153,7 +153,7 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 
 
-##### FileInfo
+#### FileInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -171,7 +171,7 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 
 
-##### PackageInfo
+#### PackageInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -191,7 +191,7 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 
 
-##### PackageFile
+#### PackageFile
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -209,7 +209,7 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 
 
-##### PackageData
+#### PackageData
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -228,7 +228,7 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 
 
-##### ReturnResult
+#### ReturnResult
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -246,7 +246,7 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 
 
-##### PackageInfoResult
+#### PackageInfoResult
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -264,7 +264,7 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 
 
-##### TransferInfo
+#### TransferInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -284,7 +284,7 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 
 
-##### RemoteInstallationInfo
+#### RemoteInstallationInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -303,7 +303,7 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 
 
-##### Mode
+#### Mode
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -322,7 +322,7 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 
 
-##### ConnectState
+#### ConnectState
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -340,7 +340,7 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 
 
-##### TransferState
+#### TransferState
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -364,7 +364,7 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 
 
-##### PackageInfoResultCode
+#### PackageInfoResultCode
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -383,7 +383,7 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 
 
-##### ContentType
+#### ContentType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -403,7 +403,7 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 
 
-##### NearbyTransferErrorCode
+#### NearbyTransferErrorCode
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -429,7 +429,7 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 
 
-##### gameNearbyTransfer.on('connectNotify')
+#### gameNearbyTransfer.on('connectNotify')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -482,7 +482,7 @@ function connectNotifyCallBack(callback: gameNearbyTransfer.ConnectNotification)
 
 
 
-##### gameNearbyTransfer.off('connectNotify')
+#### gameNearbyTransfer.off('connectNotify')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -535,7 +535,7 @@ function connectNotifyCallBack(callback: gameNearbyTransfer.ConnectNotification)
 
 
 
-##### gameNearbyTransfer.on('discovery')
+#### gameNearbyTransfer.on('discovery')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -590,7 +590,7 @@ function discoveryCallBack(callback: gameNearbyTransfer.DiscoveryResult) {
 
 
 
-##### gameNearbyTransfer.off('discovery')
+#### gameNearbyTransfer.off('discovery')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -645,7 +645,7 @@ function discoveryCallBack(callback: gameNearbyTransfer.DiscoveryResult) {
 
 
 
-##### gameNearbyTransfer.on('receivePackageInfo')
+#### gameNearbyTransfer.on('receivePackageInfo')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -697,7 +697,7 @@ function receivePackageInfoCallBack(callback: gameNearbyTransfer.PackageInfo) {
 
 
 
-##### gameNearbyTransfer.off('receivePackageInfo')
+#### gameNearbyTransfer.off('receivePackageInfo')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -750,7 +750,7 @@ function receivePackageInfoCallBack(callback: gameNearbyTransfer.PackageInfo) {
 
 
 
-##### gameNearbyTransfer.on('transferNotify')
+#### gameNearbyTransfer.on('transferNotify')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -803,7 +803,7 @@ function transferNotifyCallBack(callback: gameNearbyTransfer.TransferNotificatio
 
 
 
-##### gameNearbyTransfer.off('transferNotify')
+#### gameNearbyTransfer.off('transferNotify')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -856,7 +856,7 @@ function transferNotifyCallBack(callback: gameNearbyTransfer.TransferNotificatio
 
 
 
-##### gameNearbyTransfer.on('error')
+#### gameNearbyTransfer.on('error')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -908,7 +908,7 @@ function errorCallBack(callback: gameNearbyTransfer.ReturnResult) {
 
 
 
-##### gameNearbyTransfer.off('error')
+#### gameNearbyTransfer.off('error')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -958,7 +958,7 @@ function errorCallBack(callback: gameNearbyTransfer.ReturnResult) {
 
 
 
-##### gameNearbyTransfer.onRemoteInstallationInfoNotify
+#### gameNearbyTransfer.onRemoteInstallationInfoNotify
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1010,7 +1010,7 @@ function remoteCallBack(callback: gameNearbyTransfer.RemoteInstallationInfo) {
 
 
 
-##### gameNearbyTransfer.offRemoteInstallationInfoNotify
+#### gameNearbyTransfer.offRemoteInstallationInfoNotify
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1062,7 +1062,7 @@ function remoteCallBack(callback: gameNearbyTransfer.RemoteInstallationInfo) {
 
 
 
-##### gameNearbyTransfer.create
+#### gameNearbyTransfer.create
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1191,7 +1191,7 @@ struct Create {
 
 
 
-##### gameNearbyTransfer.publishNearbyGame
+#### gameNearbyTransfer.publishNearbyGame
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1243,7 +1243,7 @@ try {
 
 
 
-##### gameNearbyTransfer.discoveryNearbyGame
+#### gameNearbyTransfer.discoveryNearbyGame
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1295,7 +1295,7 @@ try {
 
 
 
-##### gameNearbyTransfer.bindNearbyGame
+#### gameNearbyTransfer.bindNearbyGame
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1361,7 +1361,7 @@ try {
 
 
 
-##### gameNearbyTransfer.autoBindNearbyGame
+#### gameNearbyTransfer.autoBindNearbyGame
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1416,7 +1416,7 @@ try {
 
 
 
-##### gameNearbyTransfer.acceptCollaboration
+#### gameNearbyTransfer.acceptCollaboration
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1482,7 +1482,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### gameNearbyTransfer.sendPackageInfo
+#### gameNearbyTransfer.sendPackageInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1554,7 +1554,7 @@ try {
 
 
 
-##### gameNearbyTransfer.replyPackageInfoResult
+#### gameNearbyTransfer.replyPackageInfoResult
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1619,7 +1619,7 @@ try {
 
 
 
-##### gameNearbyTransfer.transferPackageData
+#### gameNearbyTransfer.transferPackageData
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1687,7 +1687,7 @@ try {
 
 
 
-##### gameNearbyTransfer.destroy
+#### gameNearbyTransfer.destroy
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

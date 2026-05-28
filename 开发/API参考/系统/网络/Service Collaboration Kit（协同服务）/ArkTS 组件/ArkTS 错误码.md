@@ -10,7 +10,7 @@
 
   
 
-##### 1001202001 代表对端取消流程
+#### 1001202001 代表对端取消流程
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -32,7 +32,7 @@ The peer end cancels the operation.
  
   
 
-##### 1001202002 代表协同框架内部出现错误
+#### 1001202002 代表协同框架内部出现错误
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -54,7 +54,7 @@ An error occurred within the collaborative framework.
  
   
 
-##### 1001202003 代表本端取消流程
+#### 1001202003 代表本端取消流程
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -76,7 +76,7 @@ The local end cancels the operation.
  
   
 
-##### 1001202004 代表跨设备互通能力开始
+#### 1001202004 代表跨设备互通能力开始
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -98,7 +98,7 @@ The device interconnectivity has been established.
  
   
 
-##### 1001202005 代表图片全部回传结束
+#### 1001202005 代表图片全部回传结束
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -120,7 +120,7 @@ All images have been successfully sent back.
  
   
 
-##### 1001202006 正在回传多个图片
+#### 1001202006 正在回传多个图片
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -142,7 +142,7 @@ Multiple images are being sent back.
  
   
 
-##### 1001202007 代表传入的自定义图片张数小于等于0
+#### 1001202007 代表传入的自定义图片张数小于等于0
 
 **错误信息**
  
@@ -162,7 +162,7 @@ The number of input custom images is less than or equal to 0.
  
   
 
-##### 1001202015 代表视频回传成功
+#### 1001202015 代表视频回传成功
 
 **错误信息**
  
@@ -182,7 +182,7 @@ All videos have been successfully sent back.
  
   
 
-##### 1001202016 正在回传多个视频
+#### 1001202016 正在回传多个视频
 
 **错误信息**
  
@@ -202,7 +202,7 @@ Multiple videos are being sent back.
  
   
 
-##### 1001202017 内存不足视频回传失败
+#### 1001202017 内存不足视频回传失败
 
 **错误信息**
  

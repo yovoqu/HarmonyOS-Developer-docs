@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-fileio-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@ fileio模块接口定义，提供获取文件存储位置的native接口。
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -40,7 +40,7 @@ fileio模块接口定义，提供获取文件存储位置的native接口。
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -51,13 +51,13 @@ fileio模块接口定义，提供获取文件存储位置的native接口。
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### FileIO_FileLocation
+#### FileIO_FileLocation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -80,13 +80,13 @@ enum FileIO_FileLocation
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_FileIO_GetFileLocation()
+#### OH_FileIO_GetFileLocation()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

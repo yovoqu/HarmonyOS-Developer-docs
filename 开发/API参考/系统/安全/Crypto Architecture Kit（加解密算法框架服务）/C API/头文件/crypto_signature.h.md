@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -42,7 +42,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -53,7 +53,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -85,13 +85,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### CryptoSignature_ParamType
+#### CryptoSignature_ParamType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -117,13 +117,13 @@ enum CryptoSignature_ParamType
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_CryptoVerify_Create()
+#### OH_CryptoVerify_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -156,7 +156,7 @@ OH_Crypto_ErrCode OH_CryptoVerify_Create(const char *algoName, OH_CryptoVerify *
  
   
 
-##### OH_CryptoVerify_Init()
+#### OH_CryptoVerify_Init()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -193,7 +193,7 @@ OH_Crypto_ErrCode OH_CryptoVerify_Init(OH_CryptoVerify *ctx, OH_CryptoPubKey *pu
  
   
 
-##### OH_CryptoVerify_Update()
+#### OH_CryptoVerify_Update()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -230,7 +230,7 @@ OH_Crypto_ErrCode OH_CryptoVerify_Update(OH_CryptoVerify *ctx, Crypto_DataBlob *
  
   
 
-##### OH_CryptoVerify_Final()
+#### OH_CryptoVerify_Final()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -268,7 +268,7 @@ bool OH_CryptoVerify_Final(OH_CryptoVerify *ctx, Crypto_DataBlob *in, Crypto_Dat
  
   
 
-##### OH_CryptoVerify_Recover()
+#### OH_CryptoVerify_Recover()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -302,7 +302,7 @@ OH_Crypto_ErrCode OH_CryptoVerify_Recover(OH_CryptoVerify *ctx, Crypto_DataBlob 
  
   
 
-##### OH_CryptoVerify_GetAlgoName()
+#### OH_CryptoVerify_GetAlgoName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -332,7 +332,7 @@ const char *OH_CryptoVerify_GetAlgoName(OH_CryptoVerify *ctx)
  
   
 
-##### OH_CryptoVerify_SetParam()
+#### OH_CryptoVerify_SetParam()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -364,7 +364,7 @@ OH_Crypto_ErrCode OH_CryptoVerify_SetParam(OH_CryptoVerify *ctx, CryptoSignature
  
   
 
-##### OH_CryptoVerify_GetParam()
+#### OH_CryptoVerify_GetParam()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -398,7 +398,7 @@ OH_Crypto_ErrCode OH_CryptoVerify_GetParam(OH_CryptoVerify *ctx, CryptoSignature
  
   
 
-##### OH_CryptoVerify_Destroy()
+#### OH_CryptoVerify_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -421,7 +421,7 @@ void OH_CryptoVerify_Destroy(OH_CryptoVerify *ctx)
  
   
 
-##### OH_CryptoSign_Create()
+#### OH_CryptoSign_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -454,7 +454,7 @@ OH_Crypto_ErrCode OH_CryptoSign_Create(const char *algoName, OH_CryptoSign **sig
  
   
 
-##### OH_CryptoSign_Init()
+#### OH_CryptoSign_Init()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -491,7 +491,7 @@ OH_Crypto_ErrCode OH_CryptoSign_Init(OH_CryptoSign *ctx, OH_CryptoPrivKey *privK
  
   
 
-##### OH_CryptoSign_Update()
+#### OH_CryptoSign_Update()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -528,7 +528,7 @@ OH_Crypto_ErrCode OH_CryptoSign_Update(OH_CryptoSign *ctx, const Crypto_DataBlob
  
   
 
-##### OH_CryptoSign_Final()
+#### OH_CryptoSign_Final()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -568,7 +568,7 @@ OH_Crypto_ErrCode OH_CryptoSign_Final(OH_CryptoSign *ctx, const Crypto_DataBlob 
  
   
 
-##### OH_CryptoSign_GetAlgoName()
+#### OH_CryptoSign_GetAlgoName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -598,7 +598,7 @@ const char *OH_CryptoSign_GetAlgoName(OH_CryptoSign *ctx)
  
   
 
-##### OH_CryptoSign_SetParam()
+#### OH_CryptoSign_SetParam()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -630,7 +630,7 @@ OH_Crypto_ErrCode OH_CryptoSign_SetParam(OH_CryptoSign *ctx, CryptoSignature_Par
  
   
 
-##### OH_CryptoSign_GetParam()
+#### OH_CryptoSign_GetParam()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -664,7 +664,7 @@ OH_Crypto_ErrCode OH_CryptoSign_GetParam(OH_CryptoSign *ctx, CryptoSignature_Par
  
   
 
-##### OH_CryptoSign_Destroy()
+#### OH_CryptoSign_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -687,7 +687,7 @@ void OH_CryptoSign_Destroy(OH_CryptoSign *ctx)
  
   
 
-##### OH_CryptoEccSignatureSpec_Create()
+#### OH_CryptoEccSignatureSpec_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -720,7 +720,7 @@ OH_Crypto_ErrCode OH_CryptoEccSignatureSpec_Create(Crypto_DataBlob *eccSignature
  
   
 
-##### OH_CryptoEccSignatureSpec_GetRAndS()
+#### OH_CryptoEccSignatureSpec_GetRAndS()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -754,7 +754,7 @@ OH_Crypto_ErrCode OH_CryptoEccSignatureSpec_GetRAndS(OH_CryptoEccSignatureSpec *
  
   
 
-##### OH_CryptoEccSignatureSpec_SetRAndS()
+#### OH_CryptoEccSignatureSpec_SetRAndS()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -786,7 +786,7 @@ OH_Crypto_ErrCode OH_CryptoEccSignatureSpec_SetRAndS(OH_CryptoEccSignatureSpec *
  
   
 
-##### OH_CryptoEccSignatureSpec_Encode()
+#### OH_CryptoEccSignatureSpec_Encode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -819,7 +819,7 @@ OH_Crypto_ErrCode OH_CryptoEccSignatureSpec_Encode(OH_CryptoEccSignatureSpec *sp
  
   
 
-##### OH_CryptoEccSignatureSpec_Destroy()
+#### OH_CryptoEccSignatureSpec_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

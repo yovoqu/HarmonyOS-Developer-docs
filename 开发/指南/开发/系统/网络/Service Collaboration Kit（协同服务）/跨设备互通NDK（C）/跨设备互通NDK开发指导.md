@@ -7,13 +7,13 @@
 跨设备互通提供相机、扫描以及图库（图片和视频）的跨设备调用能力，TV、Tablet或PC/2in1设备可以调用Phone的相机、扫描、图库等功能，并且在6.1.0(23)之后支持TV、Phone、Tablet或PC/2in1设备调用支持拍照、扫描、选择图库中图片与视频能力的Phone，支持拍照、扫描、选择图库中图片与视频能力的Tablet，以及支持选择图库中图片与视频能力的PC/2in1设备。
 
 
-##### 场景介绍
+#### 场景介绍
 
 您通过此能力实现跨设备交互，可以使用其他设备的相机、扫描和图库功能。
 
 
 
-##### 约束与限制
+#### 约束与限制
 
 需同时满足以下条件，才能使用该功能：
 
@@ -34,14 +34,14 @@
 
 
 
-##### 业务流程
+#### 业务流程
 1. 通过[HMS_ServiceCollaboration_GetCollaborationDeviceInfos](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/servicecollaboration-capi-module#hms_servicecollaboration_getcollaborationdeviceinfos)接口获取设备能力列表。
 2. 通过[HMS_ServiceCollaboration_StartCollaboration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/servicecollaboration-capi-module#hms_servicecollaboration_startcollaboration)接口拉起跨设备互通能力。
 3. 对端设备确定回传后，本端处理对端回传的图片。
 
 
 
-##### 接口说明
+#### 接口说明
 
 在开发具体功能前，请先查阅[参考文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/servicecollaboration-capi-module)。
 
@@ -55,7 +55,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 引入头文件。
 
   

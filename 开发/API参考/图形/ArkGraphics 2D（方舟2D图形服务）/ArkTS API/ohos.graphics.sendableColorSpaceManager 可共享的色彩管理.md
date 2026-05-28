@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { sendableColorSpaceManager } from '@kit.ArkGraphics2D';
 
 
 
-##### ISendable
+#### ISendable
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -39,7 +39,7 @@ type ISendable = lang.ISendable
 
 
 
-##### sendableColorSpaceManager.create
+#### sendableColorSpaceManager.create
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -83,7 +83,7 @@ colorSpace = sendableColorSpaceManager.create(colorSpaceManager.ColorSpace.SRGB)
 
 
 
-##### sendableColorSpaceManager.create
+#### sendableColorSpaceManager.create
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -139,7 +139,7 @@ colorSpace = sendableColorSpaceManager.create(primaries, gamma);
 
 
 
-##### ColorSpaceManager
+#### ColorSpaceManager
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -149,7 +149,7 @@ colorSpace = sendableColorSpaceManager.create(primaries, gamma);
 
 
 
-##### getColorSpaceName
+#### getColorSpaceName
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -174,7 +174,7 @@ let spaceName: colorSpaceManager.ColorSpace = colorSpace.getColorSpaceName();
 
 
 
-##### getWhitePoint
+#### getWhitePoint
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -200,7 +200,7 @@ let point: collections.Array<number> = colorSpace.getWhitePoint();
 
 
 
-##### getGamma
+#### getGamma
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

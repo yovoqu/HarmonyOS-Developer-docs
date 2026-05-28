@@ -18,7 +18,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -28,7 +28,7 @@ import { audio } from '@kit.AudioKit';
 
 
 
-##### getStatus20+
+#### getStatus20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -59,7 +59,7 @@ audioLoopback.getStatus().then((status: audio.AudioLoopbackStatus) => {
 
 
 
-##### setVolume20+
+#### setVolume20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -106,7 +106,7 @@ audioLoopback.setVolume(0.5).then(() => {
 
 
 
-##### on('statusChange')20+
+#### on('statusChange')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -151,7 +151,7 @@ audioLoopback.on('statusChange', (status: audio.AudioLoopbackStatus) => {
 
 
 
-##### off('statusChange')20+
+#### off('statusChange')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -204,7 +204,7 @@ audioLoopback.off('statusChange', statusChangeCallback);
 
 
 
-##### enable20+
+#### enable20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -258,7 +258,7 @@ audioLoopback.enable(true).then((isSuccess) => {
 
 
 
-##### setReverbPreset21+
+#### setReverbPreset21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -304,7 +304,7 @@ try {
 
 
 
-##### getReverbPreset21+
+#### getReverbPreset21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -334,7 +334,7 @@ try {
 
 
 
-##### setEqualizerPreset21+
+#### setEqualizerPreset21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -380,7 +380,7 @@ try {
 
 
 
-##### getEqualizerPreset21+
+#### getEqualizerPreset21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

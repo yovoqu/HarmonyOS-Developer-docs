@@ -12,7 +12,7 @@ CompletionHandlerForAtomicService作为[AtomicServiceOptions](https://developer.
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { CompletionHandlerForAtomicService } from '@kit.AbilityKit';
  
   
 
-##### FailureCode
+#### FailureCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@ import { CompletionHandlerForAtomicService } from '@kit.AbilityKit';
  
   
 
-##### CompletionHandlerForAtomicService
+#### CompletionHandlerForAtomicService
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -49,7 +49,7 @@ CompletionHandlerForAtomicService提供了[onAtomicServiceRequestSuccess](#onato
  
   
 
-##### onAtomicServiceRequestSuccess
+#### onAtomicServiceRequestSuccess
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -74,7 +74,7 @@ onAtomicServiceRequestSuccess(appId: string): void
  
   
 
-##### onAtomicServiceRequestFailure
+#### onAtomicServiceRequestFailure
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -101,7 +101,7 @@ onAtomicServiceRequestFailure(appId: string, failureCode: FailureCode, failureMe
  
   
 
-##### CompletionHandlerForAtomicService示例
+#### CompletionHandlerForAtomicService示例
 
 ```json
 import { AbilityConstant, AtomicServiceOptions, common, UIAbility, Want, CompletionHandlerForAtomicService, FailureCode } from '@kit.AbilityKit';

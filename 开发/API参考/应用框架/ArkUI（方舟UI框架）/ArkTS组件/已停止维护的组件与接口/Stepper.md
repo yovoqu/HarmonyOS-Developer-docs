@@ -12,7 +12,7 @@
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -45,7 +45,7 @@ Stepper(value?: { index?: number })
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -53,13 +53,13 @@ Stepper(value?: { index?: number })
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### onFinish(deprecated)
+#### onFinish(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -84,7 +84,7 @@ onFinish(callback: () => void)
 
 
 
-##### onSkip(deprecated)
+#### onSkip(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -109,7 +109,7 @@ onSkip(callback: () => void)
 
 
 
-##### onChange(deprecated)
+#### onChange(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -135,7 +135,7 @@ onChange(callback: (prevIndex: number, index: number) => void)
 
 
 
-##### onNext(deprecated)
+#### onNext(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -161,7 +161,7 @@ onNext(callback: (index: number, pendingIndex: number) => void)
 
 
 
-##### onPrevious(deprecated)
+#### onPrevious(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -187,13 +187,13 @@ onPrevious(callback: (index: number, pendingIndex: number) => void)
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1（使用Stepper）
+#### 示例1（使用Stepper）
 
 该示例主要演示如何使用步骤导航器组件。
 
@@ -296,12 +296,12 @@ struct StepperExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/lp3RK0IkRj-N3QwJIUPzlw/zh-cn_image_0000002611836137.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024224Z&HW-CC-Expire=86400&HW-CC-Sign=654C27C5960C7C3E1374FAB7327CA2ED6B66B7B2BACD366BCC39751779C9267B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/lp3RK0IkRj-N3QwJIUPzlw/zh-cn_image_0000002611836137.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025558Z&HW-CC-Expire=86400&HW-CC-Sign=9D394FEB5CCE6F6876C09687410A994AB264FFB3C19D1DAAB69B2A57B81E8C0E)
 
 
 
 
-##### 示例2（使用Swiper替代Stepper）
+#### 示例2（使用Swiper替代Stepper）
 
 该示例主要演示如何使用[Swiper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper)组件实现Stepper组件的功能，示例效果图同示例1。
 

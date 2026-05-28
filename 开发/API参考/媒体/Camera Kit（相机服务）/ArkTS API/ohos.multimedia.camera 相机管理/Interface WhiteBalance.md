@@ -14,7 +14,7 @@ WhiteBalance继承自[WhiteBalanceQuery](https://developer.huawei.com/consumer/c
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { camera } from '@kit.CameraKit';
  
   
 
-##### setWhiteBalanceMode20+
+#### setWhiteBalanceMode20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -70,7 +70,7 @@ function setWhiteBalanceMode(session: camera.PhotoSession | camera.VideoSession)
  
   
 
-##### getWhiteBalanceMode20+
+#### getWhiteBalanceMode20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -117,7 +117,7 @@ function getWhiteBalanceMode(session: camera.PhotoSession | camera.VideoSession)
  
   
 
-##### setWhiteBalance20+
+#### setWhiteBalance20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -166,7 +166,7 @@ function setWhiteBalance(session: camera.PhotoSession | camera.VideoSession): vo
  
   
 
-##### getWhiteBalance20+
+#### getWhiteBalance20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

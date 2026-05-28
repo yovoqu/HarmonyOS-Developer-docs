@@ -7,7 +7,7 @@
 在使用Image组件[interpolation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#interpolation)接口时，建议不要使用最邻近插值，避免出现明显锯齿问题。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 const ADAPTIVE_SCALE = 1.5;
@@ -71,7 +71,7 @@ export struct AppIcon {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 const ADAPTIVE_SCALE = 1.5;
@@ -119,7 +119,7 @@ export struct AppIcon {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@correctness/all</span>

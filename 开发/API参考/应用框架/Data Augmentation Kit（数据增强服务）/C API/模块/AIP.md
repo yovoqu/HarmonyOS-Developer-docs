@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-aip
 **支持设备：** Phone | PC/2in1 | Tablet
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -15,13 +15,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### 文件
+#### 文件
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -32,7 +32,7 @@
  
   
 
-##### 类型定义
+#### 类型定义
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -43,7 +43,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -54,13 +54,13 @@
  
   
 
-##### 类型定义说明
+#### 类型定义说明
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### OH_Aip_ErrCode
+#### OH_Aip_ErrCode
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -76,13 +76,13 @@ typedef enum OH_Aip_ErrCode OH_Aip_ErrCode;
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### OH_Aip_ErrCode
+#### OH_Aip_ErrCode
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

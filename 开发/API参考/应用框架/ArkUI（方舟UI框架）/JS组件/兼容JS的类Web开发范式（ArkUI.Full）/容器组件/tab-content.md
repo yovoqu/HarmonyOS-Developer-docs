@@ -12,7 +12,7 @@
 <[tabs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-container-tabs)>的子组件，用来展示tab的内容区，高度默认充满tabs剩余空间，子组件排列方式为横向排列，当作为容器组件的子元素时在主轴方向需要设置tab-content的确定长度，否则无法显示。tab-content组件不支持内容过长时页面的滑动，如需页面滑动，可嵌套List使用。
   
 
-##### 权限列表
+#### 权限列表
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -28,7 +28,7 @@
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@
  
   
 
-##### 样式
+#### 样式
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -49,7 +49,7 @@
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -57,7 +57,7 @@
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

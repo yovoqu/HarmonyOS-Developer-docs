@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-nngicreateinfo
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -19,13 +19,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  
@@ -41,13 +41,13 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### inferenceInputSize
+#### inferenceInputSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -61,7 +61,7 @@ VkExtent2D XEG_NNGICreateInfo::inferenceInputSize
  
   
 
-##### inferenceOutputSize
+#### inferenceOutputSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -75,7 +75,7 @@ VkExtent2D XEG_NNGICreateInfo::inferenceOutputSize
  
   
 
-##### pNext
+#### pNext
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -89,7 +89,7 @@ const void* XEG_NNGICreateInfo::pNext
  
   
 
-##### qualityMode
+#### qualityMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -103,7 +103,7 @@ XEG_RTGIQualityMode XEG_NNGICreateInfo::qualityMode
  
   
 
-##### sType
+#### sType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -117,7 +117,7 @@ XEG_StructureType XEG_NNGICreateInfo::sType
  
   
 
-##### trainingSize
+#### trainingSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

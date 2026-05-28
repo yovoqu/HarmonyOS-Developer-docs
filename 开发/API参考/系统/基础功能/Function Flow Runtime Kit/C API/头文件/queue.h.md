@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-queue-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -40,7 +40,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -51,7 +51,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -83,13 +83,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### ffrt_queue_type_t
+#### ffrt_queue_type_t
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -112,13 +112,13 @@ enum ffrt_queue_type_t
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### ffrt_queue_attr_init()
+#### ffrt_queue_attr_init()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -148,7 +148,7 @@ FFRT_C_API int ffrt_queue_attr_init(ffrt_queue_attr_t* attr)
  
   
 
-##### ffrt_queue_attr_destroy()
+#### ffrt_queue_attr_destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -171,7 +171,7 @@ FFRT_C_API void ffrt_queue_attr_destroy(ffrt_queue_attr_t* attr)
  
   
 
-##### ffrt_queue_attr_set_qos()
+#### ffrt_queue_attr_set_qos()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -195,7 +195,7 @@ FFRT_C_API void ffrt_queue_attr_set_qos(ffrt_queue_attr_t* attr, ffrt_qos_t qos)
  
   
 
-##### ffrt_queue_attr_get_qos()
+#### ffrt_queue_attr_get_qos()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -225,7 +225,7 @@ FFRT_C_API ffrt_qos_t ffrt_queue_attr_get_qos(const ffrt_queue_attr_t* attr)
  
   
 
-##### ffrt_queue_attr_set_timeout()
+#### ffrt_queue_attr_set_timeout()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -249,7 +249,7 @@ FFRT_C_API void ffrt_queue_attr_set_timeout(ffrt_queue_attr_t* attr, uint64_t ti
  
   
 
-##### ffrt_queue_attr_get_timeout()
+#### ffrt_queue_attr_get_timeout()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -279,7 +279,7 @@ FFRT_C_API uint64_t ffrt_queue_attr_get_timeout(const ffrt_queue_attr_t* attr)
  
   
 
-##### ffrt_queue_attr_set_callback()
+#### ffrt_queue_attr_set_callback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -305,7 +305,7 @@ FFRT_C_API void ffrt_queue_attr_set_callback(ffrt_queue_attr_t* attr, ffrt_funct
  
   
 
-##### ffrt_queue_attr_get_callback()
+#### ffrt_queue_attr_get_callback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -335,7 +335,7 @@ FFRT_C_API ffrt_function_header_t* ffrt_queue_attr_get_callback(const ffrt_queue
  
   
 
-##### ffrt_queue_attr_set_max_concurrency()
+#### ffrt_queue_attr_set_max_concurrency()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -359,7 +359,7 @@ FFRT_C_API void ffrt_queue_attr_set_max_concurrency(ffrt_queue_attr_t* attr, con
  
   
 
-##### ffrt_queue_attr_get_max_concurrency()
+#### ffrt_queue_attr_get_max_concurrency()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -389,7 +389,7 @@ FFRT_C_API int ffrt_queue_attr_get_max_concurrency(const ffrt_queue_attr_t* attr
  
   
 
-##### ffrt_queue_attr_set_thread_mode()
+#### ffrt_queue_attr_set_thread_mode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -413,7 +413,7 @@ FFRT_C_API void ffrt_queue_attr_set_thread_mode(ffrt_queue_attr_t* attr, bool mo
  
   
 
-##### ffrt_queue_attr_get_thread_mode()
+#### ffrt_queue_attr_get_thread_mode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -443,7 +443,7 @@ FFRT_C_API bool ffrt_queue_attr_get_thread_mode(const ffrt_queue_attr_t* attr)
  
   
 
-##### ffrt_queue_create()
+#### ffrt_queue_create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -475,7 +475,7 @@ FFRT_C_API ffrt_queue_t ffrt_queue_create(ffrt_queue_type_t type, const char* na
  
   
 
-##### ffrt_queue_destroy()
+#### ffrt_queue_destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -498,7 +498,7 @@ FFRT_C_API void ffrt_queue_destroy(ffrt_queue_t queue)
  
   
 
-##### ffrt_queue_submit()
+#### ffrt_queue_submit()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -523,7 +523,7 @@ FFRT_C_API void ffrt_queue_submit(ffrt_queue_t queue, ffrt_function_header_t* f,
  
   
 
-##### ffrt_queue_submit_h()
+#### ffrt_queue_submit_h()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -555,7 +555,7 @@ FFRT_C_API ffrt_task_handle_t ffrt_queue_submit_h(ffrt_queue_t queue, ffrt_funct
  
   
 
-##### ffrt_queue_submit_f()
+#### ffrt_queue_submit_f()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -585,7 +585,7 @@ FFRT_C_API void ffrt_queue_submit_f(ffrt_queue_t queue, ffrt_function_t func, vo
  
   
 
-##### ffrt_queue_submit_h_f()
+#### ffrt_queue_submit_h_f()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -622,7 +622,7 @@ FFRT_C_API ffrt_task_handle_t ffrt_queue_submit_h_f(ffrt_queue_t queue, ffrt_fun
  
   
 
-##### ffrt_queue_wait()
+#### ffrt_queue_wait()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -645,7 +645,7 @@ FFRT_C_API void ffrt_queue_wait(ffrt_task_handle_t handle)
  
   
 
-##### ffrt_queue_cancel()
+#### ffrt_queue_cancel()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -675,7 +675,7 @@ FFRT_C_API int ffrt_queue_cancel(ffrt_task_handle_t handle)
  
   
 
-##### ffrt_get_main_queue()
+#### ffrt_get_main_queue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -698,7 +698,7 @@ FFRT_C_API ffrt_queue_t ffrt_get_main_queue(void)
  
   
 
-##### ffrt_get_current_queue()
+#### ffrt_get_current_queue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

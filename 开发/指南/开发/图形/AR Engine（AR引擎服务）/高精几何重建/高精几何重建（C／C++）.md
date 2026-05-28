@@ -7,13 +7,13 @@
 本章节给出了关键开发步骤，完整代码可以参考[示例代码](https://gitcode.com/harmonyos_samples/arengine_-sample-code_-clientdemo_cpp)。
 
 
-##### 约束与限制
+#### 约束与限制
 
 从6.0.0(20)开始，高精几何重建能力支持部分Phone、部分Tablet设备。请参考[硬件要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-preparations#硬件要求)判断设备是否支持高精几何重建特性（[ARENGINE_FEATURE_TYPE_SEMANTIC_DENSE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_featuretype)）。
 
 
 
-##### 接口说明
+#### 接口说明
 
 以下接口为AREngine高精几何重建相关接口，详细接口和说明，请参考[AR Engine API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine)。
 
@@ -29,17 +29,17 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 
 
-##### 声明Native接口
+#### 声明Native接口
 
 开发者可参考AR物体摆放章节的[声明Native接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-arworld#声明native接口)。
 
 
 
-##### 创建UI界面
+#### 创建UI界面
 
 首先创建一个UI界面ARSemanticDense.ets，用于选择高精几何重建相关模式。
 
@@ -215,13 +215,13 @@ struct ARSemanticDenseRender {
 
 
 
-##### 引入AR Engine
+#### 引入AR Engine
 
 开发者可参考AR物体摆放章节的[引入AR Engine](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-arworld#引入ar-engine)。
 
 
 
-##### 创建AR会话并配置高精几何重建相关模式
+#### 创建AR会话并配置高精几何重建相关模式
 
 ```text
 AREngine_ARSession *arSession = nullptr;
@@ -238,7 +238,7 @@ HMS_AREngine_ARSession_Configure(arSession, arConfig);
 
 
 
-##### 获取当前环境中的高精几何重建信息
+#### 获取当前环境中的高精几何重建信息
 
 创建一个帧对象，调用[HMS_AREngine_ARFrame_AcquireSemanticDenseData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arframe_acquiresemanticdensedata)函数，从当前帧中获取环境中的高精几何重建信息，其中包含了环境中的稠密点云信息和立方体信息。
 
@@ -253,7 +253,7 @@ HMS_AREngine_ARFrame_AcquireSemanticDenseData(arSession, arFrame, &arSemanticDen
 
 
 
-##### 获取高精几何重建信息中的立方体数据
+#### 获取高精几何重建信息中的立方体数据
 1. 调用[HMS_AREngine_ARSemanticDense_AcquireCubeData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsemanticdense_acquirecubedata)函数，获取当前环境中的立方体数据，立方体的数据结构详情参考[AREngine_ARSemanticDenseCubeData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-struct-arsemanticdensecubedata)。
 
   
@@ -273,7 +273,7 @@ HMS_AREngine_ARSemanticDense_AcquireCubeDataSize(arSession, arSemanticDense, &cu
 
 
 
-##### 绘制相关几何信息
+#### 绘制相关几何信息
 1. 通过获取到的[AREngine_ARSemanticDenseCubeData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-struct-arsemanticdensecubedata)对象来绘制立方体。
 
   

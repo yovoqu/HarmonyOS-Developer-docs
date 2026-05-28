@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { bundleManager } from '@kit.MDMKit';
 
 
 
-##### bundleManager.addAllowedInstallBundlesSync
+#### bundleManager.addAllowedInstallBundlesSync
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -83,7 +83,7 @@ try {
 
 
 
-##### bundleManager.removeAllowedInstallBundlesSync
+#### bundleManager.removeAllowedInstallBundlesSync
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -144,7 +144,7 @@ try {
 
 
 
-##### bundleManager.getAllowedInstallBundlesSync
+#### bundleManager.getAllowedInstallBundlesSync
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -207,7 +207,7 @@ try {
 
 
 
-##### bundleManager.addDisallowedInstallBundlesSync
+#### bundleManager.addDisallowedInstallBundlesSync
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -268,7 +268,7 @@ try {
 
 
 
-##### bundleManager.removeDisallowedInstallBundlesSync
+#### bundleManager.removeDisallowedInstallBundlesSync
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -329,7 +329,7 @@ try {
 
 
 
-##### bundleManager.getDisallowedInstallBundlesSync
+#### bundleManager.getDisallowedInstallBundlesSync
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -393,7 +393,7 @@ try {
 
 
 
-##### bundleManager.addDisallowedUninstallBundlesSync
+#### bundleManager.addDisallowedUninstallBundlesSync
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -455,7 +455,7 @@ try {
 
 
 
-##### bundleManager.removeDisallowedUninstallBundlesSync
+#### bundleManager.removeDisallowedUninstallBundlesSync
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -517,7 +517,7 @@ try {
 
 
 
-##### bundleManager.getDisallowedUninstallBundlesSync
+#### bundleManager.getDisallowedUninstallBundlesSync
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -581,7 +581,7 @@ try {
 
 
 
-##### bundleManager.uninstall
+#### bundleManager.uninstall
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -651,7 +651,7 @@ bundleManager.uninstall(wantTemp, 'bundleName', 100, true).then(() => {
 
 
 
-##### bundleManager.install
+#### bundleManager.install
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -754,7 +754,7 @@ bundleManager.install(wantTemp, hapFilePaths, installParam).then(() => {
 
 
 
-##### bundleManager.getInstalledBundleList20+
+#### bundleManager.getInstalledBundleList20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -817,7 +817,7 @@ bundleManager.getInstalledBundleList(wantTemp, accountId).then((result) => {
 
 
 
-##### bundleManager.getInstalledBundleList23+
+#### bundleManager.getInstalledBundleList23+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -883,7 +883,7 @@ bundleManager.getInstalledBundleList(wantTemp, accountId, bundleInfoGetFlag).the
 
 
 
-##### bundleManager.addInstallationAllowedAppDistributionTypes20+
+#### bundleManager.addInstallationAllowedAppDistributionTypes20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -943,7 +943,7 @@ try {
 
 
 
-##### bundleManager.removeInstallationAllowedAppDistributionTypes20+
+#### bundleManager.removeInstallationAllowedAppDistributionTypes20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1003,7 +1003,7 @@ try {
 
 
 
-##### bundleManager.getInstallationAllowedAppDistributionTypes20+
+#### bundleManager.getInstallationAllowedAppDistributionTypes20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1063,7 +1063,7 @@ try {
 
 
 
-##### bundleManager.installMarketApps22+
+#### bundleManager.installMarketApps22+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1125,7 +1125,7 @@ try {
 
 
 
-##### InstallParam
+#### InstallParam
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1142,7 +1142,7 @@ try {
 
 
 
-##### AppDistributionType20+
+#### AppDistributionType20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1162,7 +1162,7 @@ try {
 
 
 
-##### BundleInfo20+
+#### BundleInfo20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1188,7 +1188,7 @@ try {
 
 
 
-##### SignatureInfo20+
+#### SignatureInfo20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1206,7 +1206,7 @@ try {
 
 
 
-##### ApplicationInfo20+
+#### ApplicationInfo20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1246,7 +1246,7 @@ try {
 
 
 
-##### Resource20+
+#### Resource20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1263,7 +1263,7 @@ try {
 
 
 
-##### BundleInfoGetFlag23+
+#### BundleInfoGetFlag23+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

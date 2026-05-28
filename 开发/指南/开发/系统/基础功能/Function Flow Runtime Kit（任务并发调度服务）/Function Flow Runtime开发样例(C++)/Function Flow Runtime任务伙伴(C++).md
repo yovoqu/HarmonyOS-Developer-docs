@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ffrt-concurrency-job-partner-cpp
 
-##### 概述
+#### 概述
 
 从API version 20开始，FFRT支持Job Partner功能。在实际业务中，可能会遇到某一个线程（比如UI绘制线程）耗时很长，难以充分利用CPU多核能力的情况。此时，将原有线程的大任务拆分为多个小任务交给其他线程去执行是解决该问题的有效方法。但是，在实践中，会遇到两个问题：
  
@@ -26,7 +26,7 @@ Job Partner并发范式中定义原先的线程为master线程，并支持动态
  
   
 
-##### 示例：某商城系统
+#### 示例：某商城系统
 
 实现一个商城系统的节点并行化创建，要求节点创建的部分代码片段必须在JS线程中运行，其他片段可以在任意线程执行。
  
@@ -76,7 +76,7 @@ namespace market_system {
  
   
 
-##### 接口说明
+#### 接口说明
 
 上述样例中涉及的主要FFRT接口及其功能包括：
   
@@ -91,7 +91,7 @@ namespace market_system {
  
   
 
-##### 约束限制
+#### 约束限制
 
 - 适用Job Partner并发范式的场景应该是粒度较小且不会长时间阻塞线程的大批量任务。
 - 如果任务粒度较大（比如数百微秒以上），推荐使用FFRT更为通用的任务提交接口。

@@ -7,13 +7,13 @@
 打包ohpm-repo部署目录文件。
  
 
-##### 前提条件
+#### 前提条件
 
 已成功执行[start 命令](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-repo-start)或者[restart 命令](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-repo-restart)，ohpm-repo服务启动成功。
  
  
 
-##### 命令格式
+#### 命令格式
 
 ```text
 ohpm-repo pack <deploy_root>
@@ -21,7 +21,7 @@ ohpm-repo pack <deploy_root>
  
  
 
-##### 功能描述
+#### 功能描述
 
 用于打包ohpm-repo部署目录[deploy_root](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-repo-configuration#zh-cn_topic_0000001745376470_关于-deploy_root)下的conf ，db和meta目录。
  
@@ -34,11 +34,11 @@ ohpm-repo pack <deploy_root>
  
  
 
-##### 参数
+#### 参数
 
  
 
-##### &lt;deploy_root&gt;
+#### &lt;deploy_root&gt;
 
 - 类型： String
 - 必填参数
@@ -48,7 +48,7 @@ ohpm-repo pack <deploy_root>
  
  
 
-##### 示例
+#### 示例
 
 执行以下命令：
  

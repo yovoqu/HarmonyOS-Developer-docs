@@ -18,7 +18,7 @@ ImageReceiver类，用于获取组件surface id、接收最新的图片和读取
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -28,7 +28,7 @@ import { image } from '@kit.ImageKit';
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -43,7 +43,7 @@ import { image } from '@kit.ImageKit';
  
   
 
-##### getReceivingSurfaceId9+
+#### getReceivingSurfaceId9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -78,7 +78,7 @@ async function GetReceivingSurfaceId(receiver : image.ImageReceiver) {
  
   
 
-##### getReceivingSurfaceId9+
+#### getReceivingSurfaceId9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -111,7 +111,7 @@ async function GetReceivingSurfaceId(receiver : image.ImageReceiver) {
  
   
 
-##### readLatestImage9+
+#### readLatestImage9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -166,7 +166,7 @@ async function ReadLatestImage(receiver : image.ImageReceiver) {
  
   
 
-##### readLatestImage9+
+#### readLatestImage9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -219,7 +219,7 @@ async function ReadLatestImage(receiver : image.ImageReceiver) {
  
   
 
-##### readNextImage9+
+#### readNextImage9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -274,7 +274,7 @@ async function ReadNextImage(receiver : image.ImageReceiver) {
  
   
 
-##### readNextImage9+
+#### readNextImage9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -283,7 +283,7 @@ readNextImage(): Promise&lt;Image&gt;
 从ImageReceiver读取下一张图片。使用Promise异步回调。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/TBxNuVHJRviF1YTKz1kQIw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023952Z&HW-CC-Expire=86400&HW-CC-Sign=07C330F744A4E0276A647591E56101DEF9F94D4D9F0C2FC46F7DB8D829B5AB14)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/TBxNuVHJRviF1YTKz1kQIw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025326Z&HW-CC-Expire=86400&HW-CC-Sign=1ED8415D89FA15A4EF12D74820D3202EAD2A4D17B968D6B8DE12F0BC2BA6C350)
  
  
 此接口需要在[on](#on9)回调触发后调用，才能正常的接收到数据。且此接口返回的[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-image)对象使用完毕后需要调用[release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-image#release9)方法释放，释放后才可以继续接收新的数据。
@@ -327,7 +327,7 @@ async function ReadNextImage(receiver : image.ImageReceiver) {
  
   
 
-##### on9+
+#### on9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -363,7 +363,7 @@ async function On(receiver : image.ImageReceiver) {
  
   
 
-##### off13+
+#### off13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -395,7 +395,7 @@ async function Off(receiver : image.ImageReceiver) {
  
   
 
-##### release9+
+#### release9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -434,7 +434,7 @@ async function Release(receiver : image.ImageReceiver) {
  
   
 
-##### release9+
+#### release9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

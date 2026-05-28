@@ -19,7 +19,7 @@ import {
 ```
 
 
-##### 设置导航点样式
+#### 设置导航点样式
 
 ArcSwiper提供了默认的弧形导航点样式，导航点默认显示在ArcSwiper下方居中位置，开发者也可以通过[indicator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arcswiper#indicator)属性自定义弧形导航点的样式。
 
@@ -78,7 +78,7 @@ ArcSwiper() {
 
 
 
-##### 控制页面切换方式
+#### 控制页面切换方式
 
 ArcSwiper支持滑动手指、点击导航点、旋转表冠和控制控制器四种方式切换页面。以下示例展示通过控制控制器和旋转表冠翻页的方法。
 
@@ -192,7 +192,7 @@ ArcSwiper(
 
 
 
-##### 设置轮播方向
+#### 设置轮播方向
 
 ArcSwiper支持水平和垂直方向上进行轮播，主要通过[vertical](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arcswiper#vertical)属性控制。
 
@@ -229,7 +229,7 @@ ArcSwiper() {
 
 
 
-##### 自定义切换动画
+#### 自定义切换动画
 
 ArcSwiper支持通过[customContentTransition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arcswiper#customcontenttransition)设置自定义切换动画，可以在回调中对视窗内所有页面逐帧设置透明度、缩放比例、位移、渲染层级等属性，从而实现自定义切换动画效果。
 
@@ -302,7 +302,7 @@ export struct ArcSwiperAction {
 
 
 
-##### 实现侧滑返回
+#### 实现侧滑返回
 
 ArcSwiper的滑动事件会与侧滑返回冲突，可以通过[onGestureRecognizerJudgeBegin](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-blocking-enhancement#ongesturerecognizerjudgebegin)去判断ArcSwiper是否滑动到开头去拦截ArcSwiper的滑动手势，实现再次左滑返回上一页的功能。
 

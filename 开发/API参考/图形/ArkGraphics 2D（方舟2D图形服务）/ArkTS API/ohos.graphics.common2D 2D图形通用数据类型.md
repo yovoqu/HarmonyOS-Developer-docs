@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { common2D } from '@kit.ArkGraphics2D';
  
   
 
-##### Color
+#### Color
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -42,7 +42,7 @@ ARGB格式的颜色描述。
  
   
 
-##### Rect
+#### Rect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -62,7 +62,7 @@ ARGB格式的颜色描述。
  
   
 
-##### Point12+
+#### Point12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -80,7 +80,7 @@ ARGB格式的颜色描述。
  
   
 
-##### Color4f20+
+#### Color4f20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -98,7 +98,7 @@ ARGB格式的颜色描述。
  
   
 
-##### Point3d12+
+#### Point3d12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

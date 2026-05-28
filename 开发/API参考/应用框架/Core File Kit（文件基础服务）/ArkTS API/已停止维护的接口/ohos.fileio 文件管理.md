@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import fileio from '@ohos.fileio';
 
 
 
-##### 使用说明
+#### 使用说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -44,7 +44,7 @@ import UIAbility from '@ohos.app.ability.UIAbility';
 
 
 
-##### fileio.stat
+#### fileio.stat
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -86,7 +86,7 @@ fileio.stat(filePath).then((stat: fileio.Stat) => {
 
 
 
-##### fileio.stat
+#### fileio.stat
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -119,7 +119,7 @@ fileio.stat(pathDir, (err: BusinessError, stat: fileio.Stat) => {
 
 
 
-##### fileio.statSync
+#### fileio.statSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -156,7 +156,7 @@ let stat = fileio.statSync(pathDir);
 
 
 
-##### fileio.opendir
+#### fileio.opendir
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -198,7 +198,7 @@ fileio.opendir(dirPath).then((dir: fileio.Dir) => {
 
 
 
-##### fileio.opendir
+#### fileio.opendir
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -232,7 +232,7 @@ fileio.opendir(pathDir, (err: BusinessError, dir: fileio.Dir) => {
 
 
 
-##### fileio.opendirSync
+#### fileio.opendirSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -270,7 +270,7 @@ let dir = fileio.opendirSync(pathDir);
 
 
 
-##### fileio.access
+#### fileio.access
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -313,7 +313,7 @@ fileio.access(filePath).then(() => {
 
 
 
-##### fileio.access
+#### fileio.access
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -348,7 +348,7 @@ fileio.access(filePath, (err: BusinessError) => {
 
 
 
-##### fileio.accessSync
+#### fileio.accessSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -385,7 +385,7 @@ try {
 
 
 
-##### fileio.close7+
+#### fileio.close7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -428,7 +428,7 @@ fileio.close(fd).then(() => {
 
 
 
-##### fileio.close7+
+#### fileio.close7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -463,7 +463,7 @@ fileio.close(fd, (err: BusinessError) => {
 
 
 
-##### fileio.closeSync
+#### fileio.closeSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -494,7 +494,7 @@ fileio.closeSync(fd);
 
 
 
-##### fileio.copyFile
+#### fileio.copyFile
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -539,7 +539,7 @@ fileio.copyFile(srcPath, dstPath).then(() => {
 
 
 
-##### fileio.copyFile
+#### fileio.copyFile
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -576,7 +576,7 @@ fileio.copyFile(srcPath, dstPath, (err: BusinessError) => {
 
 
 
-##### fileio.copyFileSync
+#### fileio.copyFileSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -609,7 +609,7 @@ fileio.copyFileSync(srcPath, dstPath);
 
 
 
-##### fileio.mkdir
+#### fileio.mkdir
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -652,7 +652,7 @@ fileio.mkdir(dirPath).then(() => {
 
 
 
-##### fileio.mkdir
+#### fileio.mkdir
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -687,7 +687,7 @@ fileio.mkdir(dirPath, (err: BusinessError) => {
 
 
 
-##### fileio.mkdirSync
+#### fileio.mkdirSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -718,7 +718,7 @@ fileio.mkdirSync(dirPath);
 
 
 
-##### fileio.open7+
+#### fileio.open7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -762,7 +762,7 @@ fileio.open(filePath, 0o1, 0o0200).then((number: number) => {
 
 
 
-##### fileio.open7+
+#### fileio.open7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -798,7 +798,7 @@ fileio.open(filePath, 0, (err: BusinessError, fd: number) => {
 
 
 
-##### fileio.openSync
+#### fileio.openSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -830,7 +830,7 @@ openSync(path: string, flags?: number, mode?: number): number
 
 
 
-##### fileio.read
+#### fileio.read
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -862,7 +862,7 @@ read(fd: number, buffer: ArrayBuffer, options?: { offset?: number; length?: numb
 
 
 
-##### fileio.read
+#### fileio.read
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -888,7 +888,7 @@ read(fd: number, buffer: ArrayBuffer, options: { offset?: number; length?: numbe
 
 
 
-##### fileio.readSync
+#### fileio.readSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -929,7 +929,7 @@ let num = fileio.readSync(fd, buf);
 
 
 
-##### fileio.rmdir7+
+#### fileio.rmdir7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -971,7 +971,7 @@ fileio.rmdir(dirPath).then(() => {
 
 
 
-##### fileio.rmdir7+
+#### fileio.rmdir7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1006,7 +1006,7 @@ fileio.rmdir(dirPath, (err: BusinessError) => {
 
 
 
-##### fileio.rmdirSync7+
+#### fileio.rmdirSync7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1036,7 +1036,7 @@ fileio.rmdirSync(dirPath);
 
 
 
-##### fileio.unlink
+#### fileio.unlink
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1078,7 +1078,7 @@ fileio.unlink(filePath).then(() => {
 
 
 
-##### fileio.unlink
+#### fileio.unlink
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1112,7 +1112,7 @@ fileio.unlink(filePath, (err: BusinessError) => {
 
 
 
-##### fileio.unlinkSync
+#### fileio.unlinkSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1142,7 +1142,7 @@ fileio.unlinkSync(filePath);
 
 
 
-##### fileio.write
+#### fileio.write
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1187,7 +1187,7 @@ fileio.write(fd, "hello, world").then((number: number) => {
 
 
 
-##### fileio.write
+#### fileio.write
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1226,7 +1226,7 @@ fileio.write(fd, "hello, world", (err: BusinessError, bytesWritten: number) => {
 
 
 
-##### fileio.writeSync
+#### fileio.writeSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1266,7 +1266,7 @@ let num = fileio.writeSync(fd, "hello, world");
 
 
 
-##### fileio.hash
+#### fileio.hash
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1309,7 +1309,7 @@ fileio.hash(filePath, "sha256").then((str: string) => {
 
 
 
-##### fileio.hash
+#### fileio.hash
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1346,7 +1346,7 @@ fileio.hash(filePath, "sha256", (err: BusinessError, hashStr: string) => {
 
 
 
-##### fileio.chmod7+
+#### fileio.chmod7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1389,7 +1389,7 @@ fileio.chmod(filePath, 0o700).then(() => {
 
 
 
-##### fileio.chmod7+
+#### fileio.chmod7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1424,7 +1424,7 @@ fileio.chmod(filePath, 0o700, (err: BusinessError) => {
 
 
 
-##### fileio.chmodSync7+
+#### fileio.chmodSync7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1455,7 +1455,7 @@ fileio.chmodSync(filePath, 0o700);
 
 
 
-##### fileio.fstat7+
+#### fileio.fstat7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1498,7 +1498,7 @@ fileio.fstat(fd).then((stat: fileio.Stat) => {
 
 
 
-##### fileio.fstat7+
+#### fileio.fstat7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1533,7 +1533,7 @@ fileio.fstat(fd, (err: BusinessError) => {
 
 
 
-##### fileio.fstatSync7+
+#### fileio.fstatSync7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1571,7 +1571,7 @@ let stat = fileio.fstatSync(fd);
 
 
 
-##### fileio.ftruncate7+
+#### fileio.ftruncate7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1615,7 +1615,7 @@ fileio.ftruncate(fd, 5).then(() => {
 
 
 
-##### fileio.ftruncate7+
+#### fileio.ftruncate7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1652,7 +1652,7 @@ fileio.ftruncate(fd, 5, (err: BusinessError) => {
 
 
 
-##### fileio.ftruncateSync7+
+#### fileio.ftruncateSync7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1685,7 +1685,7 @@ fileio.ftruncateSync(fd, len);
 
 
 
-##### fileio.truncate7+
+#### fileio.truncate7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1729,7 +1729,7 @@ fileio.truncate(filePath, len).then(() => {
 
 
 
-##### fileio.truncate7+
+#### fileio.truncate7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1765,7 +1765,7 @@ fileio.truncate(filePath, len, (err: BusinessError) => {
 
 
 
-##### fileio.truncateSync7+
+#### fileio.truncateSync7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1797,7 +1797,7 @@ fileio.truncateSync(filePath, len);
 
 
 
-##### fileio.readText7+
+#### fileio.readText7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1840,7 +1840,7 @@ fileio.readText(filePath).then((str: string) => {
 
 
 
-##### fileio.readText7+
+#### fileio.readText7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1883,7 +1883,7 @@ fileio.readText(filePath, option, (err: BusinessError, str: string) => {
 
 
 
-##### fileio.readTextSync7+
+#### fileio.readTextSync7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1929,7 +1929,7 @@ let str = fileio.readTextSync(filePath, option);
 
 
 
-##### fileio.lstat7+
+#### fileio.lstat7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1971,7 +1971,7 @@ fileio.lstat(filePath).then((stat: fileio.Stat) => {
 
 
 
-##### fileio.lstat7+
+#### fileio.lstat7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2005,7 +2005,7 @@ fileio.lstat(filePath, (err: BusinessError, stat: fileio.Stat) => {
 
 
 
-##### fileio.lstatSync7+
+#### fileio.lstatSync7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2042,7 +2042,7 @@ let stat = fileio.lstatSync(filePath);
 
 
 
-##### fileio.rename7+
+#### fileio.rename7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2086,7 +2086,7 @@ fileio.rename(srcFile, dstFile).then(() => {
 
 
 
-##### fileio.rename7+
+#### fileio.rename7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2121,7 +2121,7 @@ fileio.rename(srcFile, dstFile, (err: BusinessError) => {
 
 
 
-##### fileio.renameSync7+
+#### fileio.renameSync7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2153,7 +2153,7 @@ fileio.renameSync(srcFile, dstFile);
 
 
 
-##### fileio.fsync7+
+#### fileio.fsync7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2196,7 +2196,7 @@ fileio.fsync(fd).then(() => {
 
 
 
-##### fileio.fsync7+
+#### fileio.fsync7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2231,7 +2231,7 @@ fileio.fsync(fd, (err: BusinessError) => {
 
 
 
-##### fileio.fsyncSync7+
+#### fileio.fsyncSync7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2262,7 +2262,7 @@ fileio.fsyncSync(fd);
 
 
 
-##### fileio.fdatasync7+
+#### fileio.fdatasync7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2305,7 +2305,7 @@ fileio.fdatasync(fd).then(() => {
 
 
 
-##### fileio.fdatasync7+
+#### fileio.fdatasync7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2340,7 +2340,7 @@ fileio.fdatasync (fd, (err: BusinessError) => {
 
 
 
-##### fileio.fdatasyncSync7+
+#### fileio.fdatasyncSync7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2371,7 +2371,7 @@ let stat = fileio.fdatasyncSync(fd);
 
 
 
-##### fileio.symlink7+
+#### fileio.symlink7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2415,7 +2415,7 @@ fileio.symlink(srcFile, dstFile).then(() => {
 
 
 
-##### fileio.symlink7+
+#### fileio.symlink7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2451,7 +2451,7 @@ fileio.symlink(srcFile, dstFile, (err: BusinessError) => {
 
 
 
-##### fileio.symlinkSync7+
+#### fileio.symlinkSync7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2483,7 +2483,7 @@ fileio.symlinkSync(srcFile, dstFile);
 
 
 
-##### fileio.chown7+
+#### fileio.chown7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2528,7 +2528,7 @@ fileio.chown(filePath, stat.uid, stat.gid).then(() => {
 
 
 
-##### fileio.chown7+
+#### fileio.chown7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2565,7 +2565,7 @@ fileio.chown(filePath, stat.uid, stat.gid, (err: BusinessError) => {
 
 
 
-##### fileio.chownSync7+
+#### fileio.chownSync7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2598,7 +2598,7 @@ fileio.chownSync(filePath, stat.uid, stat.gid);
 
 
 
-##### fileio.mkdtemp7+
+#### fileio.mkdtemp7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2639,7 +2639,7 @@ fileio.mkdtemp(pathDir + "/XXXXXX").then((pathDir: string) => {
 
 
 
-##### fileio.mkdtemp7+
+#### fileio.mkdtemp7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2672,7 +2672,7 @@ fileio.mkdtemp(pathDir + "/XXXXXX", (err: BusinessError, res: string) => {
 
 
 
-##### fileio.mkdtempSync7+
+#### fileio.mkdtempSync7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2708,7 +2708,7 @@ let res = fileio.mkdtempSync(pathDir + "/XXXXXX");
 
 
 
-##### fileio.fchmod7+
+#### fileio.fchmod7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2753,7 +2753,7 @@ fileio.fchmod(fd, mode).then(() => {
 
 
 
-##### fileio.fchmod7+
+#### fileio.fchmod7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2790,7 +2790,7 @@ fileio.fchmod(fd, mode, (err: BusinessError) => {
 
 
 
-##### fileio.fchmodSync7+
+#### fileio.fchmodSync7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2823,7 +2823,7 @@ fileio.fchmodSync(fd, mode);
 
 
 
-##### fileio.createStream7+
+#### fileio.createStream7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2866,7 +2866,7 @@ fileio.createStream(filePath, "r+").then((stream: fileio.Stream) => {
 
 
 
-##### fileio.createStream7+
+#### fileio.createStream7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2901,7 +2901,7 @@ fileio.createStream(filePath, "r+", (err: BusinessError, stream: fileio.Stream) 
 
 
 
-##### fileio.createStreamSync7+
+#### fileio.createStreamSync7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2939,7 +2939,7 @@ let ss = fileio.createStreamSync(filePath, "r+");
 
 
 
-##### fileio.fdopenStream7+
+#### fileio.fdopenStream7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2983,7 +2983,7 @@ fileio.fdopenStream(fd, "r+").then((stream: fileio.Stream) => {
 
 
 
-##### fileio.fdopenStream7+
+#### fileio.fdopenStream7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3019,7 +3019,7 @@ fileio.fdopenStream(fd, "r+", (err: BusinessError, stream: fileio.Stream) => {
 
 
 
-##### fileio.fdopenStreamSync7+
+#### fileio.fdopenStreamSync7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3058,7 +3058,7 @@ let ss = fileio.fdopenStreamSync(fd, "r+");
 
 
 
-##### fileio.fchown7+
+#### fileio.fchown7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3104,7 +3104,7 @@ fileio.fchown(fd, stat.uid, stat.gid).then(() => {
 
 
 
-##### fileio.fchown7+
+#### fileio.fchown7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3142,7 +3142,7 @@ fileio.fchown(fd, stat.uid, stat.gid, (err: BusinessError) => {
 
 
 
-##### fileio.fchownSync7+
+#### fileio.fchownSync7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3176,7 +3176,7 @@ fileio.fchownSync(fd, stat.uid, stat.gid);
 
 
 
-##### fileio.lchown7+
+#### fileio.lchown7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3221,7 +3221,7 @@ fileio.lchown(filePath, stat.uid, stat.gid).then(() => {
 
 
 
-##### fileio.lchown7+
+#### fileio.lchown7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3258,7 +3258,7 @@ fileio.lchown(filePath, stat.uid, stat.gid, (err: BusinessError) => {
 
 
 
-##### fileio.lchownSync7+
+#### fileio.lchownSync7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3291,7 +3291,7 @@ fileio.lchownSync(filePath, stat.uid, stat.gid);
 
 
 
-##### fileio.createWatcher7+
+#### fileio.createWatcher7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3332,7 +3332,7 @@ fileio.createWatcher(filePath, 1, (err: BusinessError, event: number) => {
 
 
 
-##### Readout
+#### Readout
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3353,7 +3353,7 @@ fileio.createWatcher(filePath, 1, (err: BusinessError, event: number) => {
 
 
 
-##### Stat
+#### Stat
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3367,7 +3367,7 @@ fileio.createWatcher(filePath, 1, (err: BusinessError, event: number) => {
 
 
 
-##### 属性
+#### 属性
 
 | 名称 | 类型 | 只读 | 可写 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -3387,7 +3387,7 @@ fileio.createWatcher(filePath, 1, (err: BusinessError, event: number) => {
 
 
 
-##### isBlockDevice
+#### isBlockDevice
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3417,7 +3417,7 @@ let isBLockDevice = fileio.statSync(filePath).isBlockDevice();
 
 
 
-##### isCharacterDevice
+#### isCharacterDevice
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3447,7 +3447,7 @@ let isCharacterDevice = fileio.statSync(filePath).isCharacterDevice();
 
 
 
-##### isDirectory
+#### isDirectory
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3477,7 +3477,7 @@ let isDirectory = fileio.statSync(dirPath).isDirectory();
 
 
 
-##### isFIFO
+#### isFIFO
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3507,7 +3507,7 @@ let isFIFO = fileio.statSync(filePath).isFIFO();
 
 
 
-##### isFile
+#### isFile
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3537,7 +3537,7 @@ let isFile = fileio.statSync(filePath).isFile();
 
 
 
-##### isSocket
+#### isSocket
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3567,7 +3567,7 @@ let isSocket = fileio.statSync(filePath).isSocket();
 
 
 
-##### isSymbolicLink
+#### isSymbolicLink
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3597,7 +3597,7 @@ let isSymbolicLink = fileio.statSync(filePath).isSymbolicLink();
 
 
 
-##### Watcher7+
+#### Watcher7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3609,7 +3609,7 @@ Watcher是文件变化监听的实例，调用Watcher.stop()方法（同步或�
 
 
 
-##### stop7+
+#### stop7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3637,7 +3637,7 @@ watcher.stop().then(() => {
 
 
 
-##### stop7+
+#### stop7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3672,7 +3672,7 @@ watcher.stop(() => {
 
 
 
-##### Stream
+#### Stream
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3684,7 +3684,7 @@ watcher.stop(() => {
 
 
 
-##### close7+
+#### close7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3720,7 +3720,7 @@ ss.close().then(() => {
 
 
 
-##### close7+
+#### close7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3754,7 +3754,7 @@ ss.close((err: BusinessError) => {
 
 
 
-##### closeSync
+#### closeSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3778,7 +3778,7 @@ ss.closeSync();
 
 
 
-##### flush7+
+#### flush7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3814,7 +3814,7 @@ ss.flush().then(() => {
 
 
 
-##### flush7+
+#### flush7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3848,7 +3848,7 @@ ss.flush((err: BusinessError) => {
 
 
 
-##### flushSync7+
+#### flushSync7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3872,7 +3872,7 @@ ss.flushSync();
 
 
 
-##### write7+
+#### write7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3926,7 +3926,7 @@ ss.write("hello, world", option).then((number: number) => {
 
 
 
-##### write7+
+#### write7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3975,7 +3975,7 @@ ss.write("hello, world", option, (err: BusinessError, bytesWritten: number) => {
 
 
 
-##### writeSync7+
+#### writeSync7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4024,7 +4024,7 @@ let num = ss.writeSync("hello, world", option);
 
 
 
-##### read7+
+#### read7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4081,7 +4081,7 @@ ss.read(arrayBuffer, option).then((readResult: fileio.ReadOut) => {
 
 
 
-##### read7+
+#### read7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4132,7 +4132,7 @@ ss.read(arrayBuffer, option, (err: BusinessError, readResult: fileio.ReadOut) =>
 
 
 
-##### readSync7+
+#### readSync7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4181,7 +4181,7 @@ let num = ss.readSync(buf, option);
 
 
 
-##### Dir
+#### Dir
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4193,7 +4193,7 @@ let num = ss.readSync(buf, option);
 
 
 
-##### read
+#### read
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4227,7 +4227,7 @@ dir.read().then((dirent: fileio.Dirent) => {
 
 
 
-##### read
+#### read
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4262,7 +4262,7 @@ dir.read((err: BusinessError, dirent: fileio.Dirent) => {
 
 
 
-##### readSync
+#### readSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4291,7 +4291,7 @@ let dirent = dir.readSync();
 
 
 
-##### close7+
+#### close7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4316,7 +4316,7 @@ dir.close().then(() => {
 
 
 
-##### close7+
+#### close7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4341,7 +4341,7 @@ dir.close((err: BusinessError) => {
 
 
 
-##### closeSync
+#### closeSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4363,7 +4363,7 @@ dir.closeSync();
 
 
 
-##### Dirent
+#### Dirent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4377,7 +4377,7 @@ dir.closeSync();
 
 
 
-##### 属性
+#### 属性
 
 | 名称 | 类型 | 只读 | 可写 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -4386,7 +4386,7 @@ dir.closeSync();
 
 
 
-##### isBlockDevice
+#### isBlockDevice
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4416,7 +4416,7 @@ let isBLockDevice = dir.readSync().isBlockDevice();
 
 
 
-##### isCharacterDevice
+#### isCharacterDevice
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4446,7 +4446,7 @@ let isCharacterDevice = dir.readSync().isCharacterDevice();
 
 
 
-##### isDirectory
+#### isDirectory
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4476,7 +4476,7 @@ let isDirectory = dir.readSync().isDirectory();
 
 
 
-##### isFIFO
+#### isFIFO
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4506,7 +4506,7 @@ let isFIFO = dir.readSync().isFIFO();
 
 
 
-##### isFile
+#### isFile
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4536,7 +4536,7 @@ let isFile = dir.readSync().isFile();
 
 
 
-##### isSocket
+#### isSocket
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4566,7 +4566,7 @@ let isSocket = dir.readSync().isSocket();
 
 
 
-##### isSymbolicLink
+#### isSymbolicLink
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

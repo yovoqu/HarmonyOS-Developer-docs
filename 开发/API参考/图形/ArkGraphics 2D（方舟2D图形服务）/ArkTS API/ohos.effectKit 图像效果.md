@@ -19,7 +19,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -29,7 +29,7 @@ import { effectKit } from "@kit.ArkGraphics2D";
 
 
 
-##### effectKit.createEffect
+#### effectKit.createEffect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -79,7 +79,7 @@ image.createPixelMap(color, opts).then((pixelMap) => {
 
 
 
-##### effectKit.createColorPicker
+#### effectKit.createColorPicker
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -144,7 +144,7 @@ image.createPixelMap(color, opts).then((pixelMap) => {
 
 
 
-##### effectKit.createColorPicker10+
+#### effectKit.createColorPicker10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -210,7 +210,7 @@ image.createPixelMap(color, opts).then((pixelMap) => {
 
 
 
-##### effectKit.createColorPicker
+#### effectKit.createColorPicker
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -269,7 +269,7 @@ image.createPixelMap(color, opts).then((pixelMap) => {
 
 
 
-##### effectKit.createColorPicker10+
+#### effectKit.createColorPicker10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -329,7 +329,7 @@ image.createPixelMap(color, opts).then((pixelMap) => {
 
 
 
-##### Color
+#### Color
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -351,7 +351,7 @@ image.createPixelMap(color, opts).then((pixelMap) => {
 
 
 
-##### TileMode14+
+#### TileMode14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -369,7 +369,7 @@ image.createPixelMap(color, opts).then((pixelMap) => {
 
 
 
-##### ColorPicker
+#### ColorPicker
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -377,7 +377,7 @@ image.createPixelMap(color, opts).then((pixelMap) => {
 
 
 
-##### getMainColor
+#### getMainColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -434,7 +434,7 @@ image.createPixelMap(color, opts).then((pixelMap) => {
 
 
 
-##### getMainColorSync
+#### getMainColorSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -489,7 +489,7 @@ image.createPixelMap(color, opts).then((pixelMap) => {
 
 
 
-##### getLargestProportionColor10+
+#### getLargestProportionColor10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -544,7 +544,7 @@ image.createPixelMap(color, opts).then((pixelMap) => {
 
 
 
-##### getTopProportionColors12+
+#### getTopProportionColors12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -610,7 +610,7 @@ image.createPixelMap(color, opts).then((pixelMap) => {
 
 
 
-##### getHighestSaturationColor10+
+#### getHighestSaturationColor10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -665,7 +665,7 @@ image.createPixelMap(color, opts).then((pixelMap) => {
 
 
 
-##### getAverageColor10+
+#### getAverageColor10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -720,7 +720,7 @@ image.createPixelMap(color, opts).then((pixelMap) => {
 
 
 
-##### isBlackOrWhiteOrGrayColor10+
+#### isBlackOrWhiteOrGrayColor10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -778,7 +778,7 @@ image.createPixelMap(color, opts).then((pixelMap) => {
 
 
 
-##### Filter
+#### Filter
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -786,7 +786,7 @@ image.createPixelMap(color, opts).then((pixelMap) => {
 
 
 
-##### blur
+#### blur
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -887,7 +887,7 @@ struct Index {
 
 
 
-##### blur14+
+#### blur14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -985,7 +985,7 @@ struct Index {
 
 
 
-##### invert12+
+#### invert12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1070,7 +1070,7 @@ struct Index {
 
 
 
-##### setColorMatrix12+
+#### setColorMatrix12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1172,12 +1172,12 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4/v3/E1g-r1DLQBqCwAuyzW6zNg/zh-cn_image_0000002581277086.png?HW-CC-KV=V1&HW-CC-Date=20260528T024330Z&HW-CC-Expire=86400&HW-CC-Sign=8370F2B7D18AB03D762720F0DF1869A6A29E4D84F248F5C169EE6792650EB7C1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4/v3/E1g-r1DLQBqCwAuyzW6zNg/zh-cn_image_0000002581277086.png?HW-CC-KV=V1&HW-CC-Date=20260528T025705Z&HW-CC-Expire=86400&HW-CC-Sign=8193D7838F7ECFF40C2D0AEFDA60D7DE695209720B2E2E3B2780DC7AF1291AFF)
 
 
 
 
-##### brightness
+#### brightness
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1269,12 +1269,12 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/GWcGRkjwSNiFpUha0eke8Q/zh-cn_image_0000002611756943.png?HW-CC-KV=V1&HW-CC-Date=20260528T024330Z&HW-CC-Expire=86400&HW-CC-Sign=7AAB5BC91A21600FCF6FE9B1DC0D7969D51228CADDEB1975AC08FE5C7DACDDEB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/GWcGRkjwSNiFpUha0eke8Q/zh-cn_image_0000002611756943.png?HW-CC-KV=V1&HW-CC-Date=20260528T025705Z&HW-CC-Expire=86400&HW-CC-Sign=3828622DDCAAD0A508F329929B70CDAC6C5263C62112C0B81D470D37B6324D90)
 
 
 
 
-##### grayscale
+#### grayscale
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1358,12 +1358,12 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/OR98B4NYTJCmp8fgupzEuw/zh-cn_image_0000002581437002.png?HW-CC-KV=V1&HW-CC-Date=20260528T024330Z&HW-CC-Expire=86400&HW-CC-Sign=CF563BA69ABF78D0FB03380AEEB1A37B07E613DEBDCF8AAE8B43CDE52251FBE8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/OR98B4NYTJCmp8fgupzEuw/zh-cn_image_0000002581437002.png?HW-CC-KV=V1&HW-CC-Date=20260528T025705Z&HW-CC-Expire=86400&HW-CC-Sign=88F5FB3F262C1AB73DBFC70E5A9D89B22E28F22445E0D54DCA3C3BEE384EDB5D)
 
 
 
 
-##### getEffectPixelMap11+
+#### getEffectPixelMap11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1408,7 +1408,7 @@ image.createPixelMap(color, opts).then((pixelMap) => {
 
 
 
-##### getEffectPixelMap20+
+#### getEffectPixelMap20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1460,7 +1460,7 @@ image.createPixelMap(color, opts).then((pixelMap) => {
 
 
 
-##### getPixelMap(deprecated)
+#### getPixelMap(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

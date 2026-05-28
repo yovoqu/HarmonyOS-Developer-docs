@@ -12,7 +12,7 @@ FolderStack继承于[Stack](https://developer.huawei.com/consumer/cn/doc/harmony
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@ FolderStack继承于[Stack](https://developer.huawei.com/consumer/cn/doc/harmony
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@ FolderStack(options?: FolderStackOptions)
 
 
 
-##### FolderStackOptions18+对象说明
+#### FolderStackOptions18+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -62,7 +62,7 @@ FolderStack(options?: FolderStackOptions)
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -74,7 +74,7 @@ FolderStack(options?: FolderStackOptions)
 
 
 
-##### alignContent
+#### alignContent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -101,7 +101,7 @@ alignContent(value: Alignment)
 
 
 
-##### enableAnimation
+#### enableAnimation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -128,7 +128,7 @@ enableAnimation(value: boolean)
 
 
 
-##### autoHalfFold
+#### autoHalfFold
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -155,7 +155,7 @@ autoHalfFold(value: boolean)
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -163,7 +163,7 @@ autoHalfFold(value: boolean)
 
 
 
-##### onFolderStateChange
+#### onFolderStateChange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -190,7 +190,7 @@ onFolderStateChange(callback: OnFoldStatusChangeCallback)
 
 
 
-##### onHoverStatusChange12+
+#### onHoverStatusChange12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -217,7 +217,7 @@ onHoverStatusChange(handler: OnHoverStatusChangeCallback)
 
 
 
-##### OnHoverStatusChangeCallback18+
+#### OnHoverStatusChangeCallback18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -240,7 +240,7 @@ type OnHoverStatusChangeCallback = (param: HoverEventParam) => void
 
 
 
-##### OnFoldStatusChangeCallback18+
+#### OnFoldStatusChangeCallback18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -263,7 +263,7 @@ type OnFoldStatusChangeCallback = (event: OnFoldStatusChangeInfo) => void
 
 
 
-##### OnFoldStatusChangeInfo18+
+#### OnFoldStatusChangeInfo18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -286,7 +286,7 @@ type OnFoldStatusChangeCallback = (event: OnFoldStatusChangeInfo) => void
 
 
 
-##### HoverEventParam12+对象说明
+#### HoverEventParam12+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -306,7 +306,7 @@ type OnFoldStatusChangeCallback = (event: OnFoldStatusChangeInfo) => void
 
 
 
-##### WindowStatusType12+
+#### WindowStatusType12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -327,13 +327,13 @@ type WindowStatusType = WindowStatusType
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1（FolderStack折叠屏悬停能力）
+#### 示例1（FolderStack折叠屏悬停能力）
 
 该示例实现了折叠屏悬停能力。
 
@@ -411,18 +411,18 @@ struct Index {
 **图1** 横屏展开
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/CYzM34ZlQ4OAYtfC64XfmA/zh-cn_image_0000002611756185.png?HW-CC-KV=V1&HW-CC-Date=20260528T024157Z&HW-CC-Expire=86400&HW-CC-Sign=2B08B50E7A8834BA2D58A3303D8218B41E0C6E1282065C569CB20CA30E7348E7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/CYzM34ZlQ4OAYtfC64XfmA/zh-cn_image_0000002611756185.png?HW-CC-KV=V1&HW-CC-Date=20260528T025529Z&HW-CC-Expire=86400&HW-CC-Sign=A0A0A48BBB51C02198BCBE6975AE91C9EEBC7A8242BA35C66EBDF74DD3726895)
 
 
 **图2** 横屏半折叠
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/uypVXkv8RXeHI9SiTu3biw/zh-cn_image_0000002581436246.png?HW-CC-KV=V1&HW-CC-Date=20260528T024157Z&HW-CC-Expire=86400&HW-CC-Sign=6017A9C711AB9C8D27004CD7996EB4AFAC94419BA935B327016B8A92BD086C00)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/uypVXkv8RXeHI9SiTu3biw/zh-cn_image_0000002581436246.png?HW-CC-KV=V1&HW-CC-Date=20260528T025529Z&HW-CC-Expire=86400&HW-CC-Sign=D76BF8E45335BA642BF84BB01933216FEED163DB7946AF3925E7EEA96AFDB9BE)
 
 
 
 
-##### 示例2（使用attributeModifier动态设置FolderStack组件的属性及方法）
+#### 示例2（使用attributeModifier动态设置FolderStack组件的属性及方法）
 
 该示例展示了如何使用attributeModifier动态设置FolderStack组件的onFolderStateChange和onHoverStatusChange方法。
 
@@ -522,7 +522,7 @@ this appRotation:3
 this windowStatusType:1
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/Hy94Lqz6R-yu-YnQu9t7bQ/zh-cn_image_0000002611836077.png?HW-CC-KV=V1&HW-CC-Date=20260528T024157Z&HW-CC-Expire=86400&HW-CC-Sign=507BF7A395A08E5CF545863F0056DD3B07A77E3E7F731839C2830F054CB19087)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/Hy94Lqz6R-yu-YnQu9t7bQ/zh-cn_image_0000002611836077.png?HW-CC-KV=V1&HW-CC-Date=20260528T025529Z&HW-CC-Expire=86400&HW-CC-Sign=2F93F115CEAB382245E0B33C083811A87332F9D41CF07E0ECDD0B59909E6833A)
 
 
 **图2** 横屏半折叠
@@ -540,4 +540,4 @@ this appRotation:3
 this windowStatusType:1
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/9XuKKu-nT5CE1RBx2pE5Uw/zh-cn_image_0000002581276332.png?HW-CC-KV=V1&HW-CC-Date=20260528T024157Z&HW-CC-Expire=86400&HW-CC-Sign=0A96D316B2DA835D29BF50BB93051A9E529A5B411C0B51C43980922562542DCD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/9XuKKu-nT5CE1RBx2pE5Uw/zh-cn_image_0000002581276332.png?HW-CC-KV=V1&HW-CC-Date=20260528T025529Z&HW-CC-Expire=86400&HW-CC-Sign=3C98C63B10A2C17FCABD45C711B06018909BD1BF4D34CB2CF75733A7C5C7304A)

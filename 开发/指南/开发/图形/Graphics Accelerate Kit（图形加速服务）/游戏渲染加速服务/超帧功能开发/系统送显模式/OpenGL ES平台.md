@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/graphics-accelerate-fg-systempresent-gles
 
-##### 业务流程
+#### 业务流程
 
 基于OpenGL ES图形API平台，系统送显模式的主要业务流程如下：
 
@@ -29,7 +29,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 本节阐述基于OpenGL ES图形API平台的系统送显模式调用示例。详细代码请参考[图形开发Sample（超帧GLES）](https://gitcode.com/harmonyos_samples/frame-generation-gles-samplecode-clientdemo-cpp)。
 1. 设置meta-data。在应用的module.json5中声明meta-data以支持系统送显模式。

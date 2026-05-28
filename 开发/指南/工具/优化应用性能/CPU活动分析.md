@@ -7,7 +7,7 @@
 开发者可使用DevEco Profiler的CPU场景调优分析，在应用或元服务运行时，实时显示CPU使用率和线程的运行状态，了解指定时间段内的CPU资源消耗情况，查看系统的关键打点（例如图形系统打点、应用服务框架打点等），进行更具针对性的优化。
  
 
-##### 查看各CPU使用情况
+#### 查看各CPU使用情况
 1. 创建CPU分析任务并录制相关数据，操作方法可参考[性能问题定位：深度录制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/deep-recording)，或在会话区选择**Open File**，导入历史数据。
 
   CPU分析任务支持在录制前单击
@@ -55,7 +55,7 @@
 
   
 
-  ##### 查询进程详情
+  #### 查询进程详情
 
   单击工具控制栏中的
 ![](assets/CPU活动分析/file-20260514133157065-6.png)
@@ -75,7 +75,7 @@
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/XIxPng95SRyqfQ9VVr2klA/zh-cn_image_0000002571546858.png?HW-CC-KV=V1&HW-CC-Date=20260528T015025Z&HW-CC-Expire=86400&HW-CC-Sign=E1CB4E64D8AE362DB38C77AD895553E0A6608AEEE22C9866D8D67C5A7650E5FC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/wwoAIUZNSIyBsHjvzk-cmg/zh-cn_image_0000002571546858.png?HW-CC-KV=V1&HW-CC-Date=20260528T030655Z&HW-CC-Expire=86400&HW-CC-Sign=91D7C4E9F7A589CA59D68E0C037CE394A2D1365F5AAD66D92C2244C75CDCE47F)
 
 - 框选应用进程Process主泳道，可查看此时间段内该进程下的线程并行度统计信息。并行度数据每100ms做一次统计，可以查看100ms内运行的总线程数量、各线程并行的总时间和并行度。点选某一行，可以查看对应线程编号和运行时间段。
 > [!NOTE]
@@ -83,14 +83,14 @@
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/xfY64gL8T3-6QDdBKV5oIw/zh-cn_image_0000002602186393.png?HW-CC-KV=V1&HW-CC-Date=20260528T015025Z&HW-CC-Expire=86400&HW-CC-Sign=868E278F0244DE9236A53D87F6203455D8C2D69C7F5C82E616E0D2C849D514C1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/0ZrnJ6wZRkanh7liG6WY9g/zh-cn_image_0000002602186393.png?HW-CC-KV=V1&HW-CC-Date=20260528T030655Z&HW-CC-Expire=86400&HW-CC-Sign=A75CA3C58FA6338E8BBA2B217B2F4A3AB3F436EB9CC848F79ED3F4E1D8DD315C)
 
 
  
  
  
 
-##### 查看Trace详情
+#### 查看Trace详情
 
 当存在Trace任务时，可在对应的线程泳道查看到当前线程已触发的Trace任务层叠图。选择待查询的Trace。
 - 点选泳道中的Trace片段，可查看单个Trace详情，包括名称、所属进程、所属线程、起始时间、持续时长、深度等。
@@ -99,7 +99,7 @@
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/aCl-VmCmQW2hS0RXgjQcSw/zh-cn_image_0000002602186395.png?HW-CC-KV=V1&HW-CC-Date=20260528T015025Z&HW-CC-Expire=86400&HW-CC-Sign=E33961537417A6B83C50A5F638A3B1DB00F03B9082B251BC4E8EDB2EA7587B49)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/gpC_Ttc2S8S-FrK17V4RlA/zh-cn_image_0000002602186395.png?HW-CC-KV=V1&HW-CC-Date=20260528T030655Z&HW-CC-Expire=86400&HW-CC-Sign=4641FDFCFF1E97B6DB16CC042B8FF603A3BAB5133AB39A52008CB39880083D35)
 
 - 框选多个Trace片段，可查看到Trace统计信息列表，包括Trace名称、此类Trace的总耗时、单个Trace的平均耗时、以及该时间段内该类Trace的触发次数等。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/E-qrMSxVRzKAGZ7a9a0GXw/zh-cn_image_0000002602186399.png?HW-CC-KV=V1&HW-CC-Date=20260528T015025Z&HW-CC-Expire=86400&HW-CC-Sign=424E1B0C7AE948C85EC30D3206BFF0BAEE3286812046B4F9853CF92CCE1CB47B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/cjN2OkfZRFCFwS6LrlQh8Q/zh-cn_image_0000002602186399.png?HW-CC-KV=V1&HW-CC-Date=20260528T030655Z&HW-CC-Expire=86400&HW-CC-Sign=593BEC63813D69E0EDB9F6385948C547DC5A1A6EF6F039D71F8E4C13F51F512F)

@@ -7,7 +7,7 @@
 从6.1.0(23)版本开始，新增通用文件缓存加速功能。提供了缓存机制将文件的解码数据缓存到磁盘中，后续用户再次打开或浏览该文件，应用无需执行解码流程，可直接从磁盘中获取缓存的解码数据，省去耗时的解码时间。
 
 
-##### 接口说明
+#### 接口说明
 
 具体API说明详见[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/openfileboost_preview)。
 
@@ -26,13 +26,13 @@
 
 
 
-##### 开发准备
+#### 开发准备
 
 需要先通过[Syscap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap#使用caniuse判断syscap是否可调用)查询您的目标设备是否支持SystemCapability.PCService.OpenFileBoost系统能力，当前仅在2in1设备上支持该能力。
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 添加对应的头文件。
 
   

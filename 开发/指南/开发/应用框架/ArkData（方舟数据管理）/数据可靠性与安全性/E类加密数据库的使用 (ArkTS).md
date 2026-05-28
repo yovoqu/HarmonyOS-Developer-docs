@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/encrypted-estore-guidelines
 
-##### 场景介绍
+#### 场景介绍
 
 从安全角度考虑，为满足部分敏感数据的安全特性，提供了E类加密数据库的方案以提高锁屏下数据的安全性。存有敏感信息的应用在申请ohos.permission.PROTECT_SCREEN_LOCK_DATA权限后会在[EL5](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-contextconstant#areamode)路径下创建一个E类数据库。在锁屏的情况下（未调用Access接口获取保留文件密钥）会触发文件密钥的销毁，此时E类数据库不可读写。当锁屏解锁后，密钥会恢复，E类数据库恢复正常读写操作。这样的设计可以有效防止用户数据的泄露。
 
@@ -14,7 +14,7 @@
 
 
 
-##### 实现机制
+#### 实现机制
 
 通过封装Mover类、Store类、SecretKeyObserver类和ECStoreManager类实现应用数据库密钥加锁和解锁状态下E类数据库和C类数据库的切换和操作。
 
@@ -28,7 +28,7 @@ ECStoreManager类：用于管理应用的E类数据库和C类数据库。
 
 
 
-##### 配置权限
+#### 配置权限
 
 使用EL5路径下的数据库，需要配置ohos.permission.PROTECT_SCREEN_LOCK_DATA权限。
 
@@ -43,13 +43,13 @@ ECStoreManager类：用于管理应用的E类数据库和C类数据库。
 
 
 
-##### 键值型数据库E类加密
+#### 键值型数据库E类加密
 
 本章节提供键值型数据库的E类加密数据库使用方式，提供[Mover](#mover)类、[Store](#store)类、[SecretKeyObserver](#secretkeyobserver)类和[ECStoreManager](#ecstoremanager)类的具体实现，并在[EntryAbility](#entryability)和[index按键事件](#index按键事件)中展示这几个类的使用方式。
 
 
 
-##### Mover
+#### Mover
 
 提供数据库数据迁移接口，在锁屏解锁后，若C类数据库中存在数据，使用该接口将数据迁移到E类数据库。
 
@@ -71,7 +71,7 @@ export class Mover {
 
 
 
-##### Store
+#### Store
 
 提供了获取数据库，在数据库中插入数据、删除数据、更新数据和获取当前数据数量的接口。
 
@@ -194,7 +194,7 @@ export class Store {
 
 
 
-##### SecretKeyObserver
+#### SecretKeyObserver
 
 该类提供了获取当前密钥状态的接口，在密钥销毁后，关闭E类数据库。
 
@@ -242,7 +242,7 @@ export let lockObserve = new SecretKeyObserver();
 
 
 
-##### ECStoreManager
+#### ECStoreManager
 
 ECStoreManager类用于管理应用的E类数据库和C类数据库。支持配置数据库信息、配置迁移函数的信息，可根据密钥状态为应用提供相应的数据库句柄，并提供了关闭E类数据库、数据迁移完成后销毁C类数据库等接口。
 
@@ -340,7 +340,7 @@ export class ECStoreManager {
 
 
 
-##### EntryAbility
+#### EntryAbility
 
 模拟应用启动期间，注册对COMMON_EVENT_SCREEN_LOCK_FILE_ACCESS_STATE_CHANGED公共事件的监听，并配置相应的数据库信息、密钥状态信息等。
 
@@ -476,7 +476,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### Index按键事件
+#### Index按键事件
 
 使用Button按钮，通过点击按钮来模拟应用操作数据库，如插入数据、删除数据、更新数据和获取数据数量的操作等，展示数据库基本的增删改查能力。
 
@@ -556,13 +556,13 @@ struct Index {
 
 
 
-##### 关系型数据库E类加密
+#### 关系型数据库E类加密
 
 本章节提供关系型数据库的E类加密数据库使用方式，提供[Mover](#mover-1)类，[Store](#store-1)类，[SecretKeyObserver](#secretkeyobserver-1)类和[ECStoreManager](#ecstoremanager-1)类的具体实现，并在[EntryAbility](#entryability-1)和[index按键事件](#index按键事件-1)中展示这几个类的使用方式。
 
 
 
-##### Mover
+#### Mover
 
 提供数据库数据迁移接口，在锁屏解锁后，若C类数据库中有数据，使用该接口将数据迁移到E类数据库。
 
@@ -585,7 +585,7 @@ export class Mover {
 
 
 
-##### Store
+#### Store
 
 提供了获取数据库，在数据库中插入数据、删除数据、更新数据和获取当前数据数量的接口。其中StoreInfo类用于存储获取数据库相关信息。
 
@@ -691,7 +691,7 @@ export class Store {
 
 
 
-##### SecretKeyObserver
+#### SecretKeyObserver
 
 该类提供了获取当前密钥状态的接口，在密钥销毁后，关闭E类数据库。
 
@@ -738,7 +738,7 @@ export let lockObserve = new SecretKeyObserver();
 
 
 
-##### ECStoreManager
+#### ECStoreManager
 
 ECStoreManager类用于管理应用的E类数据库和C类数据库。支持配置数据库信息、配置迁移函数的信息，可根据密钥状态为应用提供相应的数据库句柄，并提供了关闭E类数据库、数据迁移完成后销毁C类数据库等接口。
 
@@ -816,7 +816,7 @@ export class ECStoreManager {
 
 
 
-##### EntryAbility
+#### EntryAbility
 
 模拟在应用启动期间，注册对COMMON_EVENT_SCREEN_LOCK_FILE_ACCESS_STATE_CHANGED公共事件的监听，并配置相应的数据库信息、密钥状态信息等。
 
@@ -932,7 +932,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### Index按键事件
+#### Index按键事件
 
 使用Button按钮，通过点击按钮来模拟应用操作数据库，如插入数据、删除数据、更新数据和获取数据数量的操作等，展示数据库基本的增删改查能力。
 

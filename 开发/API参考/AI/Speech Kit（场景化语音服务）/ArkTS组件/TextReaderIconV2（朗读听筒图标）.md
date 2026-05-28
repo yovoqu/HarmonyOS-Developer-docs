@@ -12,7 +12,7 @@
 **起始版本：** 6.1.1(24)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { TextReaderIconV2 } from '@kit.SpeechKit';
  
   
 
-##### UpReadState
+#### UpReadState
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -47,7 +47,7 @@ type UpReadState = (readState:ReadStateCode)=>void
  
   
 
-##### TextReaderIconV2
+#### TextReaderIconV2
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -73,7 +73,7 @@ type UpReadState = (readState:ReadStateCode)=>void
  
   
 
-##### build
+#### build
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

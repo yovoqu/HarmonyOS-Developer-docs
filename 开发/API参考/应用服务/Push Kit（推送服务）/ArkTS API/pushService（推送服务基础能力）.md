@@ -16,7 +16,7 @@
 **起始版本：** 4.0.0(10)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -26,7 +26,7 @@ import { pushService } from '@kit.PushKit';
 
 
 
-##### pushService.getToken
+#### pushService.getToken
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -92,7 +92,7 @@ try {
 
 
 
-##### pushService.getToken
+#### pushService.getToken
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -155,7 +155,7 @@ try {
 
 
 
-##### pushService.deleteToken
+#### pushService.deleteToken
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -217,7 +217,7 @@ try {
 
 
 
-##### pushService.deleteToken
+#### pushService.deleteToken
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -276,7 +276,7 @@ try {
 
 
 
-##### pushService.bindAppProfileId
+#### pushService.bindAppProfileId
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -341,7 +341,7 @@ try {
 
 
 
-##### pushService.bindAppProfileId
+#### pushService.bindAppProfileId
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -411,7 +411,7 @@ try {
 
 
 
-##### pushService.unbindAppProfileId
+#### pushService.unbindAppProfileId
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -473,7 +473,7 @@ try {
 
 
 
-##### pushService.unbindAppProfileId
+#### pushService.unbindAppProfileId
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -539,7 +539,7 @@ try {
 
 
 
-##### pushService.PushType
+#### pushService.PushType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -566,7 +566,7 @@ type PushType = 'DEFAULT' |'IM' | 'VoIP' | 'BACKGROUND' | 'EMERGENCY'
 
 
 
-##### pushService.receiveMessage
+#### pushService.receiveMessage
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -636,7 +636,7 @@ export default class PushMessageAbility extends UIAbility {
 
 
 
-##### pushService.on('tokenUpdate')
+#### pushService.on('tokenUpdate')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -705,7 +705,7 @@ export default class PushMessageAbility extends UIAbility {
 
 
 
-##### pushService.off('tokenUpdate')
+#### pushService.off('tokenUpdate')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -764,7 +764,7 @@ export default class PushMessageAbility extends UIAbility {
 
 
 
-##### pushService.on('distributedMessageReceive')
+#### pushService.on('distributedMessageReceive')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -840,7 +840,7 @@ export default class PushMessageAbility extends UIAbility {
 
 
 
-##### pushService.off('distributedMessageReceive')
+#### pushService.off('distributedMessageReceive')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -911,7 +911,7 @@ export default class PushMessageAbility extends UIAbility {
 
 
 
-##### DistributedMessageCallback
+#### DistributedMessageCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -943,7 +943,7 @@ type DistributedMessageCallback = (PushPayload: pushCommon.PushPayload) => Promi
 
 
 
-##### DistributedMessageResult
+#### DistributedMessageResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -966,7 +966,7 @@ distributedMessageReceive事件中使用的回调类型。
 
 
 
-##### ResultCode
+#### ResultCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

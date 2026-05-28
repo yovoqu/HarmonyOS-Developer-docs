@@ -7,7 +7,7 @@
 强制标识符使用一致的命名风格。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/naming-convention选项](https://typescript-eslint.nodejs.cn/rules/naming-convention/#options)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 // 默认类名为大驼峰的命名风格，函数名为小驼峰的命名风格
@@ -43,7 +43,7 @@ export function foo() {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 // 默认类名为大驼峰的命名风格，函数名为小驼峰的命名风格
@@ -60,7 +60,7 @@ export function Foo() {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

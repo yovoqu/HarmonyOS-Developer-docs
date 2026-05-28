@@ -10,7 +10,7 @@
 **起始版本：** 6.0.2(22)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@ import { superPrivacyMode } from '@kit.DeviceSecurityKit';
 
 
 
-##### SuperPrivacyMode
+#### SuperPrivacyMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@ import { superPrivacyMode } from '@kit.DeviceSecurityKit';
 
 
 
-##### getSuperPrivacyMode
+#### getSuperPrivacyMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -92,7 +92,7 @@ try {
 
 
 
-##### on('superPrivacyModeChange')
+#### on('superPrivacyModeChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -149,7 +149,7 @@ try {
 
 
 
-##### off('superPrivacyModeChange')
+#### off('superPrivacyModeChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

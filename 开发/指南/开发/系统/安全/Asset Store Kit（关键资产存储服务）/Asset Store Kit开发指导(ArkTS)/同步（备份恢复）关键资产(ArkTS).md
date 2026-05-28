@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/asset-js-sync
 
-##### 新增支持同步的关键资产
+#### 新增支持同步的关键资产
 
 新增密码demo_pwd（别名demo_alias），附属信息为demo_label，支持同步的关键资产。
 1. 引用头文件，定义工具函数。
@@ -48,17 +48,17 @@ try {
 
 
 
-##### 接入备份恢复扩展能力
+#### 接入备份恢复扩展能力
 
 为触发应用数据备份恢复，需要[应用接入数据备份恢复](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-file-backup-extension)。
 
 
 
-##### 查询关键资产同步结果
+#### 查询关键资产同步结果
 
 
 
-##### 接口介绍
+#### 接口介绍
 
 通过API文档查看查询关键资产同步结果接口[asset.querySyncResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-asset#assetquerysyncresult20)。
 
@@ -72,7 +72,7 @@ try {
 
 
 
-##### 代码示例
+#### 代码示例
 1. 引用头文件，定义工具函数。
 
   
@@ -98,7 +98,7 @@ asset.querySyncResult(query).then((res: asset.SyncResult) => {
 
 
 
-##### 约束和限制
+#### 约束和限制
 
 在可信设备间同步过程中，新旧设备的关键资产均需处于可访问的状态，否则可能出现关键资产无法同步的情况。
 

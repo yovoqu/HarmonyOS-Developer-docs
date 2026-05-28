@@ -10,7 +10,7 @@
 **起始版本：** 5.1.0(18)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@ import { dataTransfer } from '@kit.NearLinkKit';
 
 
 
-##### ConnectionState
+#### ConnectionState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -39,7 +39,7 @@ type ConnectionState = constant.ConnectionState
 
 
 
-##### createPort
+#### createPort
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -92,7 +92,7 @@ try {
 
 
 
-##### destroyPort
+#### destroyPort
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -144,7 +144,7 @@ try {
 
 
 
-##### connect
+#### connect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -208,7 +208,7 @@ try {
 
 
 
-##### disconnect
+#### disconnect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -272,7 +272,7 @@ try {
 
 
 
-##### on('connectionStateChanged')
+#### on('connectionStateChanged')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -325,7 +325,7 @@ try {
 
 
 
-##### off('connectionStateChanged')
+#### off('connectionStateChanged')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -374,7 +374,7 @@ try {
 
 
 
-##### getConnectionState
+#### getConnectionState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -435,7 +435,7 @@ try {
 
 
 
-##### writeData
+#### writeData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -505,7 +505,7 @@ try {
 
 
 
-##### on('readData')
+#### on('readData')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -558,7 +558,7 @@ try {
 
 
 
-##### off('readData')
+#### off('readData')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -607,7 +607,7 @@ try {
 
 
 
-##### ConnectionParams
+#### ConnectionParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -627,7 +627,7 @@ try {
 
 
 
-##### DataParams
+#### DataParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -646,7 +646,7 @@ try {
 
 
 
-##### ConnectionResult
+#### ConnectionResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -666,7 +666,7 @@ try {
 
 
 
-##### ConnectionStateParams
+#### ConnectionStateParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -684,7 +684,7 @@ try {
 
 
 
-##### TransferMode
+#### TransferMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

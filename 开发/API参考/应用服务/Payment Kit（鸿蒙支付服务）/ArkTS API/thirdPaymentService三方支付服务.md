@@ -16,7 +16,7 @@
 **起始版本：** 6.0.0(20)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -26,7 +26,7 @@ import { thirdPaymentService } from '@kit.PaymentKit';
  
   
 
-##### PayMethod
+#### PayMethod
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -49,7 +49,7 @@ import { thirdPaymentService } from '@kit.PaymentKit';
  
   
 
-##### ThirdPayClient
+#### ThirdPayClient
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -65,7 +65,7 @@ import { thirdPaymentService } from '@kit.PaymentKit';
  
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -140,7 +140,7 @@ struct Index {
  
   
 
-##### pay
+#### pay
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -226,7 +226,7 @@ struct Index {
  
   
 
-##### handlePayCallback
+#### handlePayCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

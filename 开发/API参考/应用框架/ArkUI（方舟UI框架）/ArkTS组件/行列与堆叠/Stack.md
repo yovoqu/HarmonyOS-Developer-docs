@@ -12,7 +12,7 @@
 
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -47,7 +47,7 @@ Stack(options?: StackOptions)
  
   
 
-##### StackOptions18+对象说明
+#### StackOptions18+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -70,7 +70,7 @@ Stack(options?: StackOptions)
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -78,7 +78,7 @@ Stack(options?: StackOptions)
  
   
 
-##### alignContent
+#### alignContent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -101,7 +101,7 @@ alignContent(value: Alignment)
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -109,7 +109,7 @@ alignContent(value: Alignment)
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -130,4 +130,4 @@ struct StackExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/wYcC1S8xQCOWPtLs8mu0SQ/zh-cn_image_0000002611755663.png?HW-CC-KV=V1&HW-CC-Date=20260528T024158Z&HW-CC-Expire=86400&HW-CC-Sign=4F4C99A2795326EDDF88CDC35D2241ED493AD5964CEB84B105C523188D89D056)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/wYcC1S8xQCOWPtLs8mu0SQ/zh-cn_image_0000002611755663.png?HW-CC-KV=V1&HW-CC-Date=20260528T025530Z&HW-CC-Expire=86400&HW-CC-Sign=4DFCDAC3D3EC60FB373DC65CDF32AC873E5866B51C8DFFF09A52F380C8A518AA)

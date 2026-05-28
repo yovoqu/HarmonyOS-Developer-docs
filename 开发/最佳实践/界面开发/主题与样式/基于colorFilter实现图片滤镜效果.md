@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-implementing-image-filters
 
-##### 概述
+#### 概述
 
 在美颜类应用开发中，图片处理和美化功能已成为提升用户体验的关键要素。通过对原始图像进行不同参数的色彩滤镜调整，开发者可以创造出复杂多样的美图滤镜效果。
  
@@ -14,7 +14,7 @@ ArkUI框架在[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-ref
  
  
 
-##### 实现原理
+#### 实现原理
 
 [colorFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#colorfilter9)属性本质上是对像素的RGBA通道进行线性变换，该变换通常在渲染管线的片元着色阶段执行，最终影响渲染输出的颜色结果。ArkUI框架提供了4×5颜色矩阵和颜色滤波器两种方式来实现这种变换。
  
@@ -24,7 +24,7 @@ ArkUI框架在[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-ref
  
  
 
-##### 4×5颜色矩阵
+#### 4×5颜色矩阵
 
 颜色矩阵是业界通用的方法，通过[colorFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#colorfilter9)传入一个4×5的RGBA转换矩阵来实现，该矩阵是实现图片滤镜效果的核心。数学原理上，这是一个4×5的二维矩阵，但在ArkTS的接口实现中，需将其按行优先展开，封装为包含20个数值的一维数组（number[]）。数组的前5个元素对应矩阵的第一行（R通道变换），接下来的5个元素对应第二行（G通道变换），依此类推。
  
@@ -91,7 +91,7 @@ ArkUI框架在[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-ref
  
  
 
-##### 颜色滤波器
+#### 颜色滤波器
 
 从API 12开始，ArkUI开放了[@ohos.graphics.drawing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-drawing)模块中的颜色滤波器（[DrawingColorFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#drawingcolorfilter12)接口类型，表示[ColorFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-colorfilter)类型的别名）。使用颜色滤波器作为参数的方法提供了更高级、语义化、简便的滤镜创建方式。开发者可根据所需实现的滤镜效果指定ARGB格式（参考如下说明）的颜色值，并选用系统预设的[BlendMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#blendmode)混合模式创建颜色滤波器，以实现不同混合算法下的颜色滤镜效果。
  
@@ -112,7 +112,7 @@ BlendMode.SRC_IN：常用于改变图标颜色（保留透明度）。
  
  
 
-##### 颜色矩阵和颜色滤波器的区别和使用场景对比
+#### 颜色矩阵和颜色滤波器的区别和使用场景对比
  
 | 对比维度 | 颜色矩阵 | 颜色滤波器（createBlendModeColorFilter混合模式） |
 | --- | --- | --- |
@@ -122,11 +122,11 @@ BlendMode.SRC_IN：常用于改变图标颜色（保留透明度）。
  
  
 
-##### 滤镜实现
+#### 滤镜实现
 
  
 
-##### 原图显示，初始化单位矩阵
+#### 原图显示，初始化单位矩阵
 
 在滤镜列表中，首个选项通常为“原图”或“无效果”。技术实现上，使用单位矩阵对应此状态。
  
@@ -151,12 +151,12 @@ export const ORIGINAL_MATRIX: number[] = [
 **效果图：**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/KmOYYUhHSj6ti4gXpr12dA/zh-cn_image_0000002506836446.png?HW-CC-KV=V1&HW-CC-Date=20260528T013045Z&HW-CC-Expire=86400&HW-CC-Sign=FA1710215A7AA8FA3FA6CA427BEDFC2A564A3B4226A732A30DA6A72CB948B924)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/KmOYYUhHSj6ti4gXpr12dA/zh-cn_image_0000002506836446.png?HW-CC-KV=V1&HW-CC-Date=20260528T024729Z&HW-CC-Expire=86400&HW-CC-Sign=32C17F6DAB81CC3214B399DC3B0DD4E533DC1F8CE6AADCE44311E59C5B8536A6)
 
  
  
 
-##### 实现复古灰度滤镜功能
+#### 实现复古灰度滤镜功能
 
 **颜色矩阵定义：**
  
@@ -175,7 +175,7 @@ const RETRO_COLOR_MATRIX: number[] = [
 **原理解析:**
  
 - RGB三通道使用相同的权重系数（0.213, 0.715, 0.072），这是标准的灰度转换系数，源自ITU-R BT.709国际标准（高清视频色彩空间标准）中的亮度计算公式，具体公式如下：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/syqXgAc3QDatLdqC-2k54w/zh-cn_formulaimage_0000002506676612.png?HW-CC-KV=V1&HW-CC-Date=20260528T013045Z&HW-CC-Expire=86400&HW-CC-Sign=091DD869C2A37739626D0E3D237A62ED723A19C1920F2633125136A15CC75315)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/syqXgAc3QDatLdqC-2k54w/zh-cn_formulaimage_0000002506676612.png?HW-CC-KV=V1&HW-CC-Date=20260528T024729Z&HW-CC-Expire=86400&HW-CC-Sign=862C3BF18ACFDD3E6AEDF29D59DFF31EF231D310BEDE87A4B01532D75204F807)
 
 
   灰度图的特点是每个像素的R、G、B值相等，因此通过转换矩阵使R' =  G' =  B'时，图片颜色将失去色相，仅保留亮度。基于此原理，使用上述灰度值转换公式，将R'、G'、B'均设置为L即可实现复古灰度滤镜效果。
@@ -190,12 +190,12 @@ const RETRO_COLOR_MATRIX: number[] = [
 **效果图：**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/td-7IAlpRGKL_GEd6SRZlA/zh-cn_image_0000002506836448.png?HW-CC-KV=V1&HW-CC-Date=20260528T013045Z&HW-CC-Expire=86400&HW-CC-Sign=237B055CDBD8755C8DAB1186BAF94AFF652B7E072FF92C5FD92A64DA8BE8B08C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/td-7IAlpRGKL_GEd6SRZlA/zh-cn_image_0000002506836448.png?HW-CC-KV=V1&HW-CC-Date=20260528T024729Z&HW-CC-Expire=86400&HW-CC-Sign=5BE022D0010EB9D848D9F9A768187E23EE57EE6CAEB93EC4C57B44FE8B5F2B46)
 
  
  
 
-##### 实现反色滤镜功能
+#### 实现反色滤镜功能
 
 **颜色矩阵定义：**
  
@@ -221,12 +221,12 @@ const REVERSE_COLOR_MATRIX: number[] = [
 **效果图：**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/tHQ1i_xfTPuFYgClVHRtDw/zh-cn_image_0000002506676614.png?HW-CC-KV=V1&HW-CC-Date=20260528T013045Z&HW-CC-Expire=86400&HW-CC-Sign=9FC6AF3F7C238C2C9C6012B8164B01B5043ADF60BDBA386A677EA6BCC1308920)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/tHQ1i_xfTPuFYgClVHRtDw/zh-cn_image_0000002506676614.png?HW-CC-KV=V1&HW-CC-Date=20260528T024729Z&HW-CC-Expire=86400&HW-CC-Sign=7FEAC33921D15F8C53C1C6E69849C2CCBFB31E78AABF9677BFAE97B2BB13836C)
 
  
  
 
-##### 实现饱和度增强滤镜功能
+#### 实现饱和度增强滤镜功能
 
 **颜色矩阵定义：**
  
@@ -256,12 +256,12 @@ const ENHANCE_COLOR_MATRIX: number[] = [
 **效果图：**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/VdfN0UjTQM--nXAOUrBppw/zh-cn_image_0000002506836452.png?HW-CC-KV=V1&HW-CC-Date=20260528T013045Z&HW-CC-Expire=86400&HW-CC-Sign=58731D3DDF7CD82AEF1E2A38699420D4D22B33E6BCFD231F0471EBF4638E783F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/VdfN0UjTQM--nXAOUrBppw/zh-cn_image_0000002506836452.png?HW-CC-KV=V1&HW-CC-Date=20260528T024729Z&HW-CC-Expire=86400&HW-CC-Sign=B3AC2FBE0CD34B890A74F1E55A3689FCD8C07866ADA7F1CF0AB9743BAE73BF62)
 
  
  
 
-##### 实现美白滤镜功能
+#### 实现美白滤镜功能
 
 **颜色滤波器定义：**
  
@@ -296,12 +296,12 @@ const WHITENING_COLOR_FILTER =
 **效果图：**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/_TApv7R4SgCK8eKF8WPMPw/zh-cn_image_0000002506676618.png?HW-CC-KV=V1&HW-CC-Date=20260528T013045Z&HW-CC-Expire=86400&HW-CC-Sign=BBD1612D893810DB20B5F258F168CC3DB156A116BD23688215317BE9E20DB0B5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/_TApv7R4SgCK8eKF8WPMPw/zh-cn_image_0000002506676618.png?HW-CC-KV=V1&HW-CC-Date=20260528T024729Z&HW-CC-Expire=86400&HW-CC-Sign=F99EF3D376065054A350EA59F271363FEB299E9364077BA64B08EAAFFBD0450B)
 
  
  
 
-##### 开发步骤
+#### 开发步骤
 1. 定义滤镜数据结构首先定义图片滤镜选项的接口，便于管理和扩展：
 
   
@@ -373,11 +373,11 @@ private getFilterByTag(tag: string): ColorFilter | number[] {
 
   
 
-  ##### 常见问题
+  #### 常见问题
 
   
 
-  ##### SVG图片设置colorFilter未生效
+  #### SVG图片设置colorFilter未生效
 
   **问题现象**
 
@@ -399,7 +399,7 @@ API 11及之前版本，SVG类型图源不支持[colorFilter](https://developer.
  
  
 
-##### 设置了colorFilter，但renderMode属性未生效
+#### 设置了colorFilter，但renderMode属性未生效
 
 **问题现象**
  
@@ -424,6 +424,6 @@ API 11及之前版本，SVG类型图源不支持[colorFilter](https://developer.
  
  
 
-##### 示例代码
+#### 示例代码
 
 - [基于colorFilter实现图片滤镜效果](https://gitcode.com/HarmonyOS_Samples/image-filter)

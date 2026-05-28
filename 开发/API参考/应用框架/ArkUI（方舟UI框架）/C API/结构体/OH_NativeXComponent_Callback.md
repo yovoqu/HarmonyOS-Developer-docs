@@ -10,7 +10,7 @@ typedef struct OH_NativeXComponent_Callback {...} OH_NativeXComponent_Callback
 ```
   
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,13 +24,13 @@ typedef struct OH_NativeXComponent_Callback {...} OH_NativeXComponent_Callback
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 成员函数
+#### 成员函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -44,13 +44,13 @@ typedef struct OH_NativeXComponent_Callback {...} OH_NativeXComponent_Callback
  
   
 
-##### 成员函数说明
+#### 成员函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OnSurfaceCreated()
+#### OnSurfaceCreated()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -74,7 +74,7 @@ void (*OnSurfaceCreated)(OH_NativeXComponent* component, void* window)
  
   
 
-##### OnSurfaceChanged()
+#### OnSurfaceChanged()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -98,7 +98,7 @@ void (*OnSurfaceChanged)(OH_NativeXComponent* component, void* window)
  
   
 
-##### OnSurfaceDestroyed()
+#### OnSurfaceDestroyed()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -122,7 +122,7 @@ void (*OnSurfaceDestroyed)(OH_NativeXComponent* component, void* window)
  
   
 
-##### DispatchTouchEvent()
+#### DispatchTouchEvent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

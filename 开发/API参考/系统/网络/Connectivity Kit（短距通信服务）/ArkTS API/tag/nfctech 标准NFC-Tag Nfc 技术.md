@@ -12,7 +12,7 @@
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/_7r_iPorQ3qY9s5VXMw8kg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023852Z&HW-CC-Expire=86400&HW-CC-Sign=0E3D623EE07276EFFEA323CB6A6E4BDA8C13CDEC2A74E4B2AC3A0F608C2F5C93)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/_7r_iPorQ3qY9s5VXMw8kg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025227Z&HW-CC-Expire=86400&HW-CC-Sign=59CB0D726D99300F3318B77E032EC05C50080AF457A0229B77EC307D2766B241)
 
 
 导入tag模块编辑器报错，在某个具体设备型号上能力可能超出工程默认设备定义的能力集范围，如需要使用此部分能力需额外配置自定义syscap，参考[syscap开发指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap)。
@@ -20,7 +20,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Wearable
 
@@ -30,7 +30,7 @@ import { tag } from '@kit.ConnectivityKit';
 
 
 
-##### NfcATag
+#### NfcATag
 
 **支持设备：** Phone | Wearable
 
@@ -44,7 +44,7 @@ NfcATag获取方式请参考[nfc-tag开发指南](https://developer.huawei.com/c
 
 
 
-##### NfcATag.getSak
+#### NfcATag.getSak
 
 **支持设备：** Phone | Wearable
 
@@ -75,7 +75,7 @@ console.info("nfcA sak: " + sak);
 
 
 
-##### NfcATag.getAtqa
+#### NfcATag.getAtqa
 
 **支持设备：** Phone | Wearable
 
@@ -106,7 +106,7 @@ console.info("nfcA atqa: " + atqa);
 
 
 
-##### NfcBTag
+#### NfcBTag
 
 **支持设备：** Phone | Wearable
 
@@ -120,7 +120,7 @@ NfcBTag获取方式请参考[nfc-tag开发指南](https://developer.huawei.com/c
 
 
 
-##### NfcBTag.getRespAppData
+#### NfcBTag.getRespAppData
 
 **支持设备：** Phone | Wearable
 
@@ -151,7 +151,7 @@ console.info("nfcB respAppData: " + respAppData);
 
 
 
-##### NfcBTag.getRespProtocol
+#### NfcBTag.getRespProtocol
 
 **支持设备：** Phone | Wearable
 
@@ -182,7 +182,7 @@ console.info("nfcB respProtocol: " + respProtocol);
 
 
 
-##### NfcFTag
+#### NfcFTag
 
 **支持设备：** Phone | Wearable
 
@@ -196,7 +196,7 @@ NfcFTag获取方式请参考[nfc-tag开发指南](https://developer.huawei.com/c
 
 
 
-##### NfcFTag.getSystemCode
+#### NfcFTag.getSystemCode
 
 **支持设备：** Phone | Wearable
 
@@ -227,7 +227,7 @@ console.info("nfcF systemCode: " + systemCode);
 
 
 
-##### NfcFTag.getPmm
+#### NfcFTag.getPmm
 
 **支持设备：** Phone | Wearable
 
@@ -258,7 +258,7 @@ console.info("nfcF pmm: " + pmm);
 
 
 
-##### NfcVTag
+#### NfcVTag
 
 **支持设备：** Phone | Wearable
 
@@ -272,7 +272,7 @@ NfcVTag获取方式请参考[nfc-tag开发指南](https://developer.huawei.com/c
 
 
 
-##### NfcVTag.getResponseFlags
+#### NfcVTag.getResponseFlags
 
 **支持设备：** Phone | Wearable
 
@@ -303,7 +303,7 @@ console.info("nfcV responseFlags: " + responseFlags);
 
 
 
-##### NfcVTag.getDsfId
+#### NfcVTag.getDsfId
 
 **支持设备：** Phone | Wearable
 
@@ -334,7 +334,7 @@ console.info("nfcV dsfId: " + dsfId);
 
 
 
-##### IsoDepTag9+
+#### IsoDepTag9+
 
 **支持设备：** Phone | Wearable
 
@@ -348,7 +348,7 @@ IsoDepTag获取方式请参考[nfc-tag开发指南](https://developer.huawei.com
 
 
 
-##### IsoDepTag.getHistoricalBytes9+
+#### IsoDepTag.getHistoricalBytes9+
 
 **支持设备：** Phone | Wearable
 
@@ -379,7 +379,7 @@ console.info("isoDep historicalBytes: " + historicalBytes);
 
 
 
-##### IsoDepTag.getHiLayerResponse9+
+#### IsoDepTag.getHiLayerResponse9+
 
 **支持设备：** Phone | Wearable
 
@@ -410,7 +410,7 @@ console.info("isoDep hiLayerResponse: " + hiLayerResponse);
 
 
 
-##### IsoDepTag.isExtendedApduSupported9+
+#### IsoDepTag.isExtendedApduSupported9+
 
 **支持设备：** Phone | Wearable
 
@@ -473,7 +473,7 @@ function nfcTechDemo() {
 
 
 
-##### IsoDepTag.isExtendedApduSupported9+
+#### IsoDepTag.isExtendedApduSupported9+
 
 **支持设备：** Phone | Wearable
 
@@ -538,13 +538,13 @@ function nfcTechDemo() {
 
 
 
-##### NdefMessage9+
+#### NdefMessage9+
 
 **支持设备：** Phone | Wearable
 
 
 
-##### NdefMessage.getNdefRecords9+
+#### NdefMessage.getNdefRecords9+
 
 **支持设备：** Phone | Wearable
 
@@ -578,7 +578,7 @@ console.info("ndef ndefRecords number: " + ndefRecords.length);
 
 
 
-##### NdefTag9+
+#### NdefTag9+
 
 **支持设备：** Phone | Wearable
 
@@ -592,7 +592,7 @@ NdefTag获取方式请参考[nfc-tag开发指南](https://developer.huawei.com/c
 
 
 
-##### NdefTag.getNdefTagType9+
+#### NdefTag.getNdefTagType9+
 
 **支持设备：** Phone | Wearable
 
@@ -623,7 +623,7 @@ console.info("ndef ndefTagType: " + ndefTagType);
 
 
 
-##### NdefTag.getNdefMessage9+
+#### NdefTag.getNdefMessage9+
 
 **支持设备：** Phone | Wearable
 
@@ -654,7 +654,7 @@ console.info("ndef ndefMessage: " + ndefMessage);
 
 
 
-##### NdefTag.isNdefWritable9+
+#### NdefTag.isNdefWritable9+
 
 **支持设备：** Phone | Wearable
 
@@ -685,7 +685,7 @@ console.info("ndef isNdefWritable: " + isWritable);
 
 
 
-##### NdefTag.readNdef9+
+#### NdefTag.readNdef9+
 
 **支持设备：** Phone | Wearable
 
@@ -748,7 +748,7 @@ function nfcTechDemo(){
 
 
 
-##### NdefTag.readNdef9+
+#### NdefTag.readNdef9+
 
 **支持设备：** Phone | Wearable
 
@@ -813,7 +813,7 @@ function nfcTechDemo() {
 
 
 
-##### NdefTag.writeNdef9+
+#### NdefTag.writeNdef9+
 
 **支持设备：** Phone | Wearable
 
@@ -888,7 +888,7 @@ function nfcTechDemo() {
 
 
 
-##### NdefTag.writeNdef9+
+#### NdefTag.writeNdef9+
 
 **支持设备：** Phone | Wearable
 
@@ -959,7 +959,7 @@ function nfcTechDemo() {
 
 
 
-##### NdefTag.canSetReadOnly9+
+#### NdefTag.canSetReadOnly9+
 
 **支持设备：** Phone | Wearable
 
@@ -1002,7 +1002,7 @@ console.info("ndef canSetReadOnly: " + canSetReadOnly);
 
 
 
-##### NdefTag.setReadOnly9+
+#### NdefTag.setReadOnly9+
 
 **支持设备：** Phone | Wearable
 
@@ -1066,7 +1066,7 @@ function nfcTechDemo() {
 
 
 
-##### NdefTag.setReadOnly9+
+#### NdefTag.setReadOnly9+
 
 **支持设备：** Phone | Wearable
 
@@ -1132,7 +1132,7 @@ function nfcTechDemo() {
 
 
 
-##### NdefTag.getNdefTagTypeString9+
+#### NdefTag.getNdefTagTypeString9+
 
 **支持设备：** Phone | Wearable
 
@@ -1185,7 +1185,7 @@ try {
 
 
 
-##### MifareClassicTag9+
+#### MifareClassicTag9+
 
 **支持设备：** Phone | Wearable
 
@@ -1199,7 +1199,7 @@ MifareClassicTag获取方式请参考[nfc-tag开发指南](https://developer.hua
 
 
 
-##### MifareClassicTag.authenticateSector9+
+#### MifareClassicTag.authenticateSector9+
 
 **支持设备：** Phone | Wearable
 
@@ -1274,7 +1274,7 @@ function nfcTechDemo() {
 
 
 
-##### MifareClassicTag.authenticateSector9+
+#### MifareClassicTag.authenticateSector9+
 
 **支持设备：** Phone | Wearable
 
@@ -1345,7 +1345,7 @@ function nfcTechDemo() {
 
 
 
-##### MifareClassicTag.readSingleBlock9+
+#### MifareClassicTag.readSingleBlock9+
 
 **支持设备：** Phone | Wearable
 
@@ -1417,7 +1417,7 @@ function nfcTechDemo() {
 
 
 
-##### MifareClassicTag.readSingleBlock9+
+#### MifareClassicTag.readSingleBlock9+
 
 **支持设备：** Phone | Wearable
 
@@ -1485,7 +1485,7 @@ function nfcTechDemo() {
 
 
 
-##### MifareClassicTag.writeSingleBlock9+
+#### MifareClassicTag.writeSingleBlock9+
 
 **支持设备：** Phone | Wearable
 
@@ -1560,7 +1560,7 @@ function nfcTechDemo() {
 
 
 
-##### MifareClassicTag.writeSingleBlock9+
+#### MifareClassicTag.writeSingleBlock9+
 
 **支持设备：** Phone | Wearable
 
@@ -1631,7 +1631,7 @@ function nfcTechDemo() {
 
 
 
-##### MifareClassicTag.incrementBlock9+
+#### MifareClassicTag.incrementBlock9+
 
 **支持设备：** Phone | Wearable
 
@@ -1705,7 +1705,7 @@ function nfcTechDemo() {
 
 
 
-##### MifareClassicTag.incrementBlock9+
+#### MifareClassicTag.incrementBlock9+
 
 **支持设备：** Phone | Wearable
 
@@ -1775,7 +1775,7 @@ function nfcTechDemo() {
 
 
 
-##### MifareClassicTag.decrementBlock9+
+#### MifareClassicTag.decrementBlock9+
 
 **支持设备：** Phone | Wearable
 
@@ -1849,7 +1849,7 @@ function nfcTechDemo() {
 
 
 
-##### MifareClassicTag.decrementBlock9+
+#### MifareClassicTag.decrementBlock9+
 
 **支持设备：** Phone | Wearable
 
@@ -1920,7 +1920,7 @@ function nfcTechDemo() {
 
 
 
-##### MifareClassicTag.transferToBlock9+
+#### MifareClassicTag.transferToBlock9+
 
 **支持设备：** Phone | Wearable
 
@@ -1992,7 +1992,7 @@ function nfcTechDemo() {
 
 
 
-##### MifareClassicTag.transferToBlock9+
+#### MifareClassicTag.transferToBlock9+
 
 **支持设备：** Phone | Wearable
 
@@ -2060,7 +2060,7 @@ function nfcTechDemo() {
 
 
 
-##### MifareClassicTag.restoreFromBlock9+
+#### MifareClassicTag.restoreFromBlock9+
 
 **支持设备：** Phone | Wearable
 
@@ -2132,7 +2132,7 @@ function nfcTechDemo() {
 
 
 
-##### MifareClassicTag.restoreFromBlock9+
+#### MifareClassicTag.restoreFromBlock9+
 
 **支持设备：** Phone | Wearable
 
@@ -2200,7 +2200,7 @@ function nfcTechDemo() {
 
 
 
-##### MifareClassicTag.getSectorCount9+
+#### MifareClassicTag.getSectorCount9+
 
 **支持设备：** Phone | Wearable
 
@@ -2232,7 +2232,7 @@ console.info("mifareClassic sectorCount: " + sectorCount);
 
 
 
-##### MifareClassicTag.getBlockCountInSector9+
+#### MifareClassicTag.getBlockCountInSector9+
 
 **支持设备：** Phone | Wearable
 
@@ -2286,7 +2286,7 @@ try {
 
 
 
-##### MifareClassicTag.getType9+
+#### MifareClassicTag.getType9+
 
 **支持设备：** Phone | Wearable
 
@@ -2317,7 +2317,7 @@ console.info("mifareClassic getType: " + getType);
 
 
 
-##### MifareClassicTag.getTagSize9+
+#### MifareClassicTag.getTagSize9+
 
 **支持设备：** Phone | Wearable
 
@@ -2349,7 +2349,7 @@ console.info("mifareClassic tagSize: " + tagSize);
 
 
 
-##### MifareClassicTag.isEmulatedTag9+
+#### MifareClassicTag.isEmulatedTag9+
 
 **支持设备：** Phone | Wearable
 
@@ -2381,7 +2381,7 @@ console.info("mifareClassic isEmulatedTag: " + isEmulatedTag);
 
 
 
-##### MifareClassicTag.getBlockIndex9+
+#### MifareClassicTag.getBlockIndex9+
 
 **支持设备：** Phone | Wearable
 
@@ -2435,7 +2435,7 @@ try {
 
 
 
-##### MifareClassicTag.getSectorIndex9+
+#### MifareClassicTag.getSectorIndex9+
 
 **支持设备：** Phone | Wearable
 
@@ -2489,7 +2489,7 @@ try {
 
 
 
-##### MifareUltralightTag9+
+#### MifareUltralightTag9+
 
 **支持设备：** Phone | Wearable
 
@@ -2503,7 +2503,7 @@ MifareUltralightTag获取方式请参考[nfc-tag开发指南](https://developer.
 
 
 
-##### MifareUltralightTag.readMultiplePages9+
+#### MifareUltralightTag.readMultiplePages9+
 
 **支持设备：** Phone | Wearable
 
@@ -2575,7 +2575,7 @@ function nfcTechDemo() {
 
 
 
-##### MifareUltralightTag.readMultiplePages9+
+#### MifareUltralightTag.readMultiplePages9+
 
 **支持设备：** Phone | Wearable
 
@@ -2643,7 +2643,7 @@ function nfcTechDemo() {
 
 
 
-##### MifareUltralightTag.writeSinglePage9+
+#### MifareUltralightTag.writeSinglePage9+
 
 **支持设备：** Phone | Wearable
 
@@ -2717,7 +2717,7 @@ function nfcTechDemo() {
 
 
 
-##### MifareUltralightTag.writeSinglePage9+
+#### MifareUltralightTag.writeSinglePage9+
 
 **支持设备：** Phone | Wearable
 
@@ -2787,7 +2787,7 @@ function nfcTechDemo() {
 
 
 
-##### MifareUltralightTag.getType9+
+#### MifareUltralightTag.getType9+
 
 **支持设备：** Phone | Wearable
 
@@ -2818,7 +2818,7 @@ console.info("mifareUltralight getType: " + getType);
 
 
 
-##### NdefFormatableTag9+
+#### NdefFormatableTag9+
 
 **支持设备：** Phone | Wearable
 
@@ -2832,7 +2832,7 @@ NdefFormatableTag获取方式请参考[nfc-tag开发指南](https://developer.hu
 
 
 
-##### NdefFormatableTag.format9+
+#### NdefFormatableTag.format9+
 
 **支持设备：** Phone | Wearable
 
@@ -2908,7 +2908,7 @@ function nfcTechDemo() {
 
 
 
-##### NdefFormatableTag.format9+
+#### NdefFormatableTag.format9+
 
 **支持设备：** Phone | Wearable
 
@@ -2979,7 +2979,7 @@ function nfcTechDemo() {
 
 
 
-##### NdefFormatableTag.formatReadOnly9+
+#### NdefFormatableTag.formatReadOnly9+
 
 **支持设备：** Phone | Wearable
 
@@ -3055,7 +3055,7 @@ function nfcTechDemo() {
 
 
 
-##### NdefFormatableTag.formatReadOnly9+
+#### NdefFormatableTag.formatReadOnly9+
 
 **支持设备：** Phone | Wearable
 
@@ -3127,7 +3127,7 @@ function nfcTechDemo() {
 
 
 
-##### BarcodeTag18+
+#### BarcodeTag18+
 
 **支持设备：** Phone | Wearable
 
@@ -3141,7 +3141,7 @@ BarcodeTag获取方式请参考[nfc-tag开发指南](https://developer.huawei.co
 
 
 
-##### BarcodeTag.getBarcode18+
+#### BarcodeTag.getBarcode18+
 
 **支持设备：** Phone | Wearable
 

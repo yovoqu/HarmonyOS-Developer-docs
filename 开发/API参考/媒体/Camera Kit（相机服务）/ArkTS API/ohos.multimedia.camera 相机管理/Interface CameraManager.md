@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { camera } from '@kit.CameraKit';
 
 
 
-##### getSupportedCameras
+#### getSupportedCameras
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -60,7 +60,7 @@ function getSupportedCameras(cameraManager: camera.CameraManager): Array<camera.
 
 
 
-##### getSupportedSceneModes11+
+#### getSupportedSceneModes11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -105,7 +105,7 @@ function getSupportedSceneModes(cameraManager: camera.CameraManager, camera: cam
 
 
 
-##### getSupportedOutputCapability11+
+#### getSupportedOutputCapability11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -143,7 +143,7 @@ function getSupportedOutputCapability(camera: camera.CameraDevice, cameraManager
 
 
 
-##### getSupportedFullOutputCapability23+
+#### getSupportedFullOutputCapability23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -189,7 +189,7 @@ function getSupportedFullOutputCapability(camera: camera.CameraDevice, cameraMan
 
 
 
-##### isCameraMuted
+#### isCameraMuted
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -219,7 +219,7 @@ function isCameraMuted(cameraManager: camera.CameraManager): boolean {
 
 
 
-##### createCameraInput
+#### createCameraInput
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -280,7 +280,7 @@ function createCameraInput(camera: camera.CameraDevice, cameraManager: camera.Ca
 
 
 
-##### createCameraInput
+#### createCameraInput
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -344,7 +344,7 @@ function createCameraInput(camera: camera.CameraDevice, cameraManager: camera.Ca
 
 
 
-##### createPreviewOutput
+#### createPreviewOutput
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -402,7 +402,7 @@ function createPreviewOutput(cameraOutputCapability: camera.CameraOutputCapabili
 
 
 
-##### createPreviewOutput12+
+#### createPreviewOutput12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -458,7 +458,7 @@ function createPreviewOutput(cameraManager: camera.CameraManager, surfaceId: str
 
 
 
-##### createDeferredPreviewOutput24+
+#### createDeferredPreviewOutput24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -515,7 +515,7 @@ function createPreviewOutput(cameraOutputCapability: camera.CameraOutputCapabili
 
 
 
-##### createPhotoOutput11+
+#### createPhotoOutput11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -572,7 +572,7 @@ function createPhotoOutput(cameraOutputCapability: camera.CameraOutputCapability
 
 
 
-##### createVideoOutput
+#### createVideoOutput
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -638,7 +638,7 @@ function createVideoOutput(cameraOutputCapability: camera.CameraOutputCapability
 
 
 
-##### createVideoOutput12+
+#### createVideoOutput12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -694,7 +694,7 @@ function createVideoOutput(cameraManager: camera.CameraManager, surfaceId: strin
 
 
 
-##### createMetadataOutput
+#### createMetadataOutput
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -750,7 +750,7 @@ function createMetadataOutput(cameraManager: camera.CameraManager, cameraOutputC
 
 
 
-##### createSession11+
+#### createSession11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -806,7 +806,7 @@ function createSession(cameraManager: camera.CameraManager, mode: camera.SceneMo
 
 
 
-##### on('cameraStatus')
+#### on('cameraStatus')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -851,7 +851,7 @@ function registerCameraStatus(cameraManager: camera.CameraManager): void {
 
 
 
-##### off('cameraStatus')
+#### off('cameraStatus')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -881,7 +881,7 @@ function unregisterCameraStatus(cameraManager: camera.CameraManager): void {
 
 
 
-##### on('foldStatusChange')12+
+#### on('foldStatusChange')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -926,7 +926,7 @@ function registerFoldStatusChange(cameraManager: camera.CameraManager): void {
 
 
 
-##### off('foldStatusChange')12+
+#### off('foldStatusChange')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -956,7 +956,7 @@ function unregisterFoldStatusChange(cameraManager: camera.CameraManager): void {
 
 
 
-##### isTorchSupported11+
+#### isTorchSupported11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -986,7 +986,7 @@ function isTorchSupported(cameraManager: camera.CameraManager): boolean {
 
 
 
-##### isTorchModeSupported11+
+#### isTorchModeSupported11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1023,7 +1023,7 @@ function isTorchModeSupported(cameraManager: camera.CameraManager, torchMode: ca
 
 
 
-##### getTorchMode11+
+#### getTorchMode11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1054,7 +1054,7 @@ function getTorchMode(cameraManager: camera.CameraManager): camera.TorchMode | u
 
 
 
-##### setTorchMode11+
+#### setTorchMode11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1101,7 +1101,7 @@ function setTorchMode(cameraManager: camera.CameraManager, torchMode: camera.Tor
 
 
 
-##### on('torchStatusChange')11+
+#### on('torchStatusChange')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1145,7 +1145,7 @@ function registerTorchStatusChange(cameraManager: camera.CameraManager): void {
 
 
 
-##### off('torchStatusChange')11+
+#### off('torchStatusChange')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1175,7 +1175,7 @@ function unregisterTorchStatusChange(cameraManager: camera.CameraManager): void 
 
 
 
-##### getCameraDevice18+
+#### getCameraDevice18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1233,7 +1233,7 @@ function getCameraDevice(cameraManager: camera.CameraManager, position: camera.C
 
 
 
-##### getCameraDevices23+
+#### getCameraDevices23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1290,7 +1290,7 @@ function getCameraDevices(cameraManager: camera.CameraManager, position: camera.
 
 
 
-##### getCameraConcurrentInfos18+
+#### getCameraConcurrentInfos18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1347,7 +1347,7 @@ function getCameraConcurrentInfos(cameraManager: camera.CameraManager,
 
 
 
-##### getSupportedOutputCapability(deprecated)
+#### getSupportedOutputCapability(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1386,7 +1386,7 @@ function getSupportedOutputCapability(camera: camera.CameraDevice, cameraManager
 
 
 
-##### createPhotoOutput(deprecated)
+#### createPhotoOutput(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1443,7 +1443,7 @@ function createPhotoOutput(cameraOutputCapability: camera.CameraOutputCapability
 
 
 
-##### createCaptureSession(deprecated)
+#### createCaptureSession(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

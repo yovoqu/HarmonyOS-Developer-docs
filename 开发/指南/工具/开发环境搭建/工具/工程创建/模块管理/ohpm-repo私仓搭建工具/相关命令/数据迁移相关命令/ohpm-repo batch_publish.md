@@ -7,13 +7,13 @@
 批量上传包文件。
  
 
-##### 前提条件
+#### 前提条件
 
 已成功执行[batch_download 命令](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-repo-batch-download)、 [export_userinfo 命令](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-repo-export-userinfo)、[import_userinfo 命令](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-repo-import-userinfo)，确保每个包指定的包文件、用户和组织都存在。
  
  
 
-##### 命令格式
+#### 命令格式
 
 ```text
 ohpm-repo batch_publish <zip_file>
@@ -21,17 +21,17 @@ ohpm-repo batch_publish <zip_file>
  
  
 
-##### 功能描述
+#### 功能描述
 
 根据提供的zip文件批量上传其中的包到ohpm-repo对应的仓库中。
  
  
 
-##### 参数
+#### 参数
 
  
 
-##### &lt;zip_file&gt;
+#### &lt;zip_file&gt;
 
 - 类型： String
 - 必填参数
@@ -41,11 +41,11 @@ ohpm-repo batch_publish <zip_file>
  
  
 
-##### 选项
+#### 选项
 
  
 
-##### --force
+#### --force
 
 - 默认值：false
 - 类型：Boolean
@@ -65,7 +65,7 @@ ohpm-repo 5.3.0版本开始支持配置多个仓库，当[batch_download命令](
  
  
 
-##### 示例
+#### 示例
 
 执行以下命令：
  

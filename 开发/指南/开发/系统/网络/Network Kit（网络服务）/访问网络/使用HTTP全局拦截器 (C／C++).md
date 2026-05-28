@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-httpinterceptor-guidelines
 
-##### 场景介绍
+#### 场景介绍
 
 从API version 24开始，通过HTTP全局拦截器，开发者可以监控HTTP流量，实现日志记录功能。
 
 
 
-##### 接口说明
+#### 接口说明
 
 HTTP全局拦截器常用接口如下表所示，详细的接口说明请参考[http_interceptor.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-http-interceptor-h)。
 
@@ -25,7 +25,7 @@ HTTP全局拦截器常用接口如下表所示，详细的接口说明请参考[
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 使用本文档涉及接口创建并使用HTTP全局拦截器时，需先创建Native C++工程，在源文件中封装相关接口，然后在ArkTS层调用封装好的接口，使用hilog或console.info等方法将日志打印到控制台或生成设备日志。
 
@@ -33,7 +33,7 @@ HTTP全局拦截器常用接口如下表所示，详细的接口说明请参考[
 
 
 
-##### 添加开发依赖
+#### 添加开发依赖
 
 **添加动态链接库**
 
@@ -54,7 +54,7 @@ libhttp_interceptor.so
 
 
 
-##### 构建工程
+#### 构建工程
 1. 在源文件中编写调用该API的代码，实现HTTP全局拦截器的处理函数和相关操作。
 
   
@@ -352,7 +352,7 @@ struct Index {
 
 
 
-##### 测试步骤
+#### 测试步骤
 1. 连接设备，使用DevEco Studio打开搭建好的工程。
 2. 运行工程，设备上会弹出以下图片所示界面。
 

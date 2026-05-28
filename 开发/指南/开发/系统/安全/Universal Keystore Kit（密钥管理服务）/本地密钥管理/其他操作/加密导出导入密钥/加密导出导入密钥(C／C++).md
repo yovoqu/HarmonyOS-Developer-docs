@@ -7,7 +7,7 @@
 从API 20开始，支持加密导出导入密钥。
 
 
-##### 在CMake脚本中链接相关动态库
+#### 在CMake脚本中链接相关动态库
 
 ```text
 target_link_libraries(entry PUBLIC libhuks_ndk.z.so)
@@ -15,7 +15,7 @@ target_link_libraries(entry PUBLIC libhuks_ndk.z.so)
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 初始化生成密钥属性集，需要设置[OH_HUKS_TAG_IS_ALLOWED_WRAP](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-type-h#oh_huks_tag)，指定密钥允许导出。
 2. 调用[OH_Huks_GenerateKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_generatekeyitem)生成密钥，具体请参考[密钥生成](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。
 3. 调用[OH_Huks_WrapKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_wrapkey)加密导出密钥。
@@ -23,7 +23,7 @@ target_link_libraries(entry PUBLIC libhuks_ndk.z.so)
 
 
 
-##### 开发案例
+#### 开发案例
 
 ```text
 #include "huks/native_huks_api.h"

@@ -7,7 +7,7 @@
 禁止或者要求函数名与函数名后面的括号之间加空格。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/func-call-spacing选项](https://eslint.nodejs.cn/docs/rules/func-call-spacing#选项)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 function fn() {
@@ -39,7 +39,7 @@ fn();
  
  
 
-##### 反例
+#### 反例
 
 ```text
 function fn() {
@@ -55,7 +55,7 @@ fn
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

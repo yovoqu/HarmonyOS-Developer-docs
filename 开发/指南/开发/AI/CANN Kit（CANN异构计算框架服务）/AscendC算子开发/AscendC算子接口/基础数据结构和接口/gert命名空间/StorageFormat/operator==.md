@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-storageformat-operatora
 
-##### 函数功能
+#### 函数功能
 
 判断格式是否相等。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 bool operator==(const StorageFormat &other) const
@@ -18,7 +18,7 @@ bool operator==(const StorageFormat &other) const
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -27,7 +27,7 @@ bool operator==(const StorageFormat &other) const
  
   
 
-##### 返回值
+#### 返回值
 
 true代表相等。
  
@@ -35,13 +35,13 @@ false代表不等。
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 ExpandDimsType dim_type("1100");

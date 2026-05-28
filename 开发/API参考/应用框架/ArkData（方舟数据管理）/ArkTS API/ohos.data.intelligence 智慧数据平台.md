@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { intelligence } from '@kit.ArkData';
 
 
 
-##### intelligence.getTextEmbeddingModel
+#### intelligence.getTextEmbeddingModel
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -83,7 +83,7 @@ intelligence.getTextEmbeddingModel(textConfig)
 
 
 
-##### intelligence.getImageEmbeddingModel
+#### intelligence.getImageEmbeddingModel
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -144,7 +144,7 @@ intelligence.getImageEmbeddingModel(imageConfig)
 
 
 
-##### intelligence.splitText
+#### intelligence.splitText
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -204,7 +204,7 @@ intelligence.splitText(splitText, splitConfig)
 
 
 
-##### ModelConfig
+#### ModelConfig
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -221,7 +221,7 @@ intelligence.splitText(splitText, splitConfig)
 
 
 
-##### ModelVersion
+#### ModelVersion
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -236,7 +236,7 @@ intelligence.splitText(splitText, splitConfig)
 
 
 
-##### Image
+#### Image
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -253,7 +253,7 @@ type Image = string
 
 
 
-##### SplitConfig
+#### SplitConfig
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -269,7 +269,7 @@ type Image = string
 
 
 
-##### TextEmbedding
+#### TextEmbedding
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -281,7 +281,7 @@ type Image = string
 
 
 
-##### loadModel
+#### loadModel
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -326,7 +326,7 @@ textEmbedding.loadModel()
 
 
 
-##### releaseModel
+#### releaseModel
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -371,7 +371,7 @@ textEmbedding.releaseModel()
 
 
 
-##### getEmbedding
+#### getEmbedding
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -428,7 +428,7 @@ textEmbedding.getEmbedding(text)
 
 
 
-##### getEmbedding
+#### getEmbedding
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -485,7 +485,7 @@ textEmbedding.getEmbedding(batchTexts)
 
 
 
-##### ImageEmbedding
+#### ImageEmbedding
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -497,7 +497,7 @@ textEmbedding.getEmbedding(batchTexts)
 
 
 
-##### loadModel
+#### loadModel
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -542,7 +542,7 @@ imageEmbedding.loadModel()
 
 
 
-##### releaseModel
+#### releaseModel
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -587,7 +587,7 @@ imageEmbedding.releaseModel()
 
 
 
-##### getEmbedding
+#### getEmbedding
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

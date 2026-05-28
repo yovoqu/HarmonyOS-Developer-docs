@@ -7,7 +7,7 @@
 本文主要提供被动刷新的开发指导，刷新流程请参考[被动刷新概述](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-interaction-overview#被动刷新)。
 
 
-##### 卡片定时刷新
+#### 卡片定时刷新
 
 当前卡片框架提供了如下两种按时间刷新卡片的方式：
 
@@ -105,7 +105,7 @@ export default class UpdateByTimeFormAbility extends FormExtensionAbility {
 
 
 
-##### 卡片定点刷新
+#### 卡片定点刷新
 
 当前卡片框架提供了如下两种定点刷新卡片的方式：
 

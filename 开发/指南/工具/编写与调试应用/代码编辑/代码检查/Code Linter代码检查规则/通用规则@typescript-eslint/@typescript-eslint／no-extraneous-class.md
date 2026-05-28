@@ -7,7 +7,7 @@
 不允许将类用作命名空间，更多规则详情可参考[no-extraneous-class](https://typescript-eslint.nodejs.cn/rules/no-extraneous-class)。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/no-extraneous-class选项](https://typescript-eslint.nodejs.cn/rules/no-extraneous-class/#options)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 export const version = 42;
@@ -42,7 +42,7 @@ export function logHelloWorld() {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 export class StaticConstants {
@@ -62,7 +62,7 @@ export class HelloWorldLogger {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

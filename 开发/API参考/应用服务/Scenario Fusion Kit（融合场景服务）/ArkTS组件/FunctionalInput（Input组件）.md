@@ -18,7 +18,7 @@ FunctionalInput需要配合[functionalInputComponentManager](https://developer.h
 **起始版本：** 5.1.0(18)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -28,7 +28,7 @@ import { FunctionalInput, functionalInputComponentManager } from '@kit.ScenarioF
  
   
 
-##### FunctionalInput
+#### FunctionalInput
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -56,7 +56,7 @@ FunctionalInput组件需要配合[functionalInputComponentManager](https://devel
  
   
 
-##### build
+#### build
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

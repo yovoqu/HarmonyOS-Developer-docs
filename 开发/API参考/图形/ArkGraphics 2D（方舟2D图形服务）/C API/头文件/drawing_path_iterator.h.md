@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-path-iterator-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -40,7 +40,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -55,13 +55,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Drawing_PathIteratorVerb
+#### OH_Drawing_PathIteratorVerb
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -88,13 +88,13 @@ enum OH_Drawing_PathIteratorVerb
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Drawing_PathIteratorCreate()
+#### OH_Drawing_PathIteratorCreate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -125,7 +125,7 @@ OH_Drawing_ErrorCode OH_Drawing_PathIteratorCreate(const OH_Drawing_Path* path, 
  
   
 
-##### OH_Drawing_PathIteratorDestroy()
+#### OH_Drawing_PathIteratorDestroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -155,7 +155,7 @@ OH_Drawing_ErrorCode OH_Drawing_PathIteratorDestroy(OH_Drawing_PathIterator* pat
  
   
 
-##### OH_Drawing_PathIteratorHasNext()
+#### OH_Drawing_PathIteratorHasNext()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -186,7 +186,7 @@ OH_Drawing_ErrorCode OH_Drawing_PathIteratorHasNext(const OH_Drawing_PathIterato
  
   
 
-##### OH_Drawing_PathIteratorNext()
+#### OH_Drawing_PathIteratorNext()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -220,7 +220,7 @@ OH_Drawing_ErrorCode OH_Drawing_PathIteratorNext(OH_Drawing_PathIterator* pathIt
  
   
 
-##### OH_Drawing_PathIteratorPeek()
+#### OH_Drawing_PathIteratorPeek()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

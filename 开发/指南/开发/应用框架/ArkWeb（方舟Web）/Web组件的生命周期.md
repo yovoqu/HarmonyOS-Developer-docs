@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-event-sequence
 
-##### 概述
+#### 概述
 
 开发者可以使用Web组件加载本地或者在线网页。
 
@@ -24,7 +24,7 @@ Web页面保活可以参考[使用离线Web组件](https://developer.huawei.com/
 
 
 
-##### Web组件网页正常加载过程所涉及的状态说明
+#### Web组件网页正常加载过程所涉及的状态说明
 
  - [aboutToAppear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#abouttoappear)函数：在创建自定义组件的新实例后，在执行其build函数前执行。建议在此设置WebDebug调试模式、自定义协议URL的权限、Cookie等。
  - [onControllerAttached](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#oncontrollerattached10)事件：当Controller成功绑定到Web组件时触发该回调，且禁止在该事件回调前调用Web组件相关的接口，否则会抛出js-error异常。建议在此事件中注入JS对象、设置自定义用户代理，使用操作网页不相关的接口。但因为该回调调用时网页还未加载，因此无法在回调中使用有关操作网页的接口，例如[zoomIn](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#zoomin)、[zoomOut](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#zoomout)等。
@@ -37,7 +37,7 @@ Web页面保活可以参考[使用离线Web组件](https://developer.huawei.com/
 
 
 
-##### Web组件网页异常加载过程所涉及的状态说明
+#### Web组件网页异常加载过程所涉及的状态说明
 
  - [onOverrideUrlLoading](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onoverrideurlloading12)事件：当URL将要加载到当前Web中时，让宿主应用程序有机会获得控制权，回调函数返回true将导致当前Web中止加载URL，而返回false则会导致Web继续照常加载URL。onLoadIntercept接口和onOverrideUrlLoading接口行为不一致，触发时机也不同，所以在应用场景上存在一定区别。onLoadIntercept事件在LoadUrl和iframe加载时触发，但onOverrideUrlLoading事件在LoadUrl和特定iframe加载时不会触发。
  - [onPageVisible](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onpagevisible9)事件：Web回调事件。渲染流程中当HTTP响应的主体开始加载，新页面即将可见时触发该回调。此时文档加载还处于早期，因此链接的资源比如在线CSS、在线图片等可能尚不可用。
@@ -170,7 +170,7 @@ struct WebComponent {
 
 
 
-##### Web组件网页加载的性能指标
+#### Web组件网页加载的性能指标
 
 网页加载过程中需要关注一些重要的性能指标。例如，FCP(First Contentful Paint)首次内容绘制，FMP(First Meaningful Paint)首次有效绘制，LCP(Largest Contentful Paint)最大内容绘制等。Web组件提供了如下接口来通知开发者，接口仅支持在线非PDF网页，不支持本地网页和PDF网页。
 
@@ -181,7 +181,7 @@ struct WebComponent {
 
 
 
-##### 应用如何避免Web组件渲染子进程异常退出导致的页面卡死问题
+#### 应用如何避免Web组件渲染子进程异常退出导致的页面卡死问题
 
 ArkWeb（方舟Web）是一个Web组件平台，旨在为应用程序提供展示Web页面内容的功能，并向开发者提供一系列的能力，如页面加载、交互和调试等功能。使用ArkWeb相关应用时，可能因各种原因（例如前端偶现异常导致ArkWeb渲染子进程崩溃，或是打开的应用较多，系统资源紧张导致后台ArkWeb渲染子进程被终止）而出现页面卡死的问题，这时需要重新打开页面或重启应用来解决。
 

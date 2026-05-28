@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-inputmethod-attach-options-capi-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -40,7 +40,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -55,13 +55,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_AttachOptions_Create()
+#### OH_AttachOptions_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -91,7 +91,7 @@ InputMethod_AttachOptions *OH_AttachOptions_Create(bool showKeyboard)
  
   
 
-##### OH_AttachOptions_CreateWithRequestKeyboardReason()
+#### OH_AttachOptions_CreateWithRequestKeyboardReason()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -122,7 +122,7 @@ InputMethod_AttachOptions *OH_AttachOptions_CreateWithRequestKeyboardReason(bool
  
   
 
-##### OH_AttachOptions_Destroy()
+#### OH_AttachOptions_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -145,7 +145,7 @@ void OH_AttachOptions_Destroy(InputMethod_AttachOptions *options)
  
   
 
-##### OH_AttachOptions_IsShowKeyboard()
+#### OH_AttachOptions_IsShowKeyboard()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -176,7 +176,7 @@ InputMethod_ErrorCode OH_AttachOptions_IsShowKeyboard(InputMethod_AttachOptions 
  
   
 
-##### OH_AttachOptions_GetRequestKeyboardReason()
+#### OH_AttachOptions_GetRequestKeyboardReason()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

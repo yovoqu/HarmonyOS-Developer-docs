@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-utils-sendablelrucache
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-## SendableLruCache<K, V>
+# SendableLruCache<K, V>
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
    
@@ -19,7 +19,7 @@ SendableLruCache在缓存空间不足时，会用新数据替换近期最少使�
 **装饰器类型：**@Sendable
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -29,7 +29,7 @@ import { ArkTSUtils } from '@kit.ArkTS'
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -55,7 +55,7 @@ console.info('result = ' + result);
 
 
 
-##### constructor18+
+#### constructor18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -82,7 +82,7 @@ let pro = new ArkTSUtils.SendableLruCache<number, number>();
 
 
 
-##### updateCapacity18+
+#### updateCapacity18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -119,7 +119,7 @@ pro.updateCapacity(100);
 
 
 
-##### toString18+
+#### toString18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -152,7 +152,7 @@ console.info(pro.toString());
 
 
 
-##### getCapacity18+
+#### getCapacity18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -182,7 +182,7 @@ console.info('result = ' + result);
 
 
 
-##### clear18+
+#### clear18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -210,7 +210,7 @@ console.info('res = ' + res);
 
 
 
-##### getCreateCount18+
+#### getCreateCount18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -255,7 +255,7 @@ console.info('res = ' + res);
 
 
 
-##### getMissCount18+
+#### getMissCount18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -287,7 +287,7 @@ console.info('result = ' + result);
 
 
 
-##### getRemoveCount18+
+#### getRemoveCount18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -320,7 +320,7 @@ console.info('result = ' + result);
 
 
 
-##### getMatchCount18+
+#### getMatchCount18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -352,7 +352,7 @@ console.info('result = ' + result);
 
 
 
-##### getPutCount18+
+#### getPutCount18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -383,7 +383,7 @@ console.info('result = ' + result);
 
 
 
-##### isEmpty18+
+#### isEmpty18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -414,7 +414,7 @@ console.info('result = ' + result);
 
 
 
-##### get18+
+#### get18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -452,7 +452,7 @@ console.info('result = ' + result);
 
 
 
-##### put18+
+#### put18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -490,7 +490,7 @@ console.info('result = ' + result);
 
 
 
-##### values18+
+#### values18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -523,7 +523,7 @@ console.info('result = ' + result);
 
 
 
-##### keys18+
+#### keys18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -555,7 +555,7 @@ console.info('result = ' + result);
 
 
 
-##### remove18+
+#### remove18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -593,7 +593,7 @@ console.info('result = ' + result);
 
 
 
-##### contains18+
+#### contains18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -631,7 +631,7 @@ console.info('result = ' + result);
 
 
 
-##### entries18+
+#### entries18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

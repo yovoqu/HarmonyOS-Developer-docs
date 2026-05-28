@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-cloud-sync-of-rdb-store
 
-##### 场景介绍
+#### 场景介绍
 
 端云数据同步：关系型数据库提供端云同步的能力，云作为数据的中心节点，设备通过与云的数据同步，实现同账号设备间的数据一致性。
  
@@ -14,7 +14,7 @@
  
   
 
-##### 约束限制
+#### 约束限制
 
 - 每个应用程序最多支持同时打开16个关系型分布式数据库。
 - 单个数据库最多支持注册8个订阅数据变化的回调。
@@ -29,7 +29,7 @@
  
   
 
-##### 接口说明
+#### 接口说明
 
 以下为使用关系型数据库实现端云数据同步的相关接口，更多接口及使用方式可见[关系型数据库](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-relationalstore)和[端云服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-clouddata)。
   
@@ -45,7 +45,7 @@
  
   
 
-##### 开发步骤
+#### 开发步骤
 
 以设备A发生数据变更，设备B订阅数据变化通知实现端-云-端数据同步为例。
  1. 导入模块。

@@ -18,7 +18,7 @@ Image的属性仅支持在创建时初始化，后续无法再修改，且其属
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -28,7 +28,7 @@ import { image } from '@kit.ImageKit';
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -45,7 +45,7 @@ import { image } from '@kit.ImageKit';
 
 
 
-##### getComponent9+
+#### getComponent9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -81,7 +81,7 @@ async function GetComponent(img : image.Image) {
 
 
 
-##### getComponent9+
+#### getComponent9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -121,7 +121,7 @@ async function GetComponent(img : image.Image) {
 
 
 
-##### release9+
+#### release9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -162,7 +162,7 @@ async function Release(img : image.Image) {
 
 
 
-##### release9+
+#### release9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -201,7 +201,7 @@ async function Release(img : image.Image) {
 
 
 
-##### getBufferData23+
+#### getBufferData23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -210,7 +210,7 @@ getBufferData(): ImageBufferData | null
 从图像中获取ImageBufferData。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/kAZoh1WKQvirk5wb0NpNow/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023950Z&HW-CC-Expire=86400&HW-CC-Sign=A7219E564A16364D079784F2CEA7C09ED4EC2620CAEA21BF001778659A6F613A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/kAZoh1WKQvirk5wb0NpNow/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025324Z&HW-CC-Expire=86400&HW-CC-Sign=8722C525C575D72A38B43B177D66AE2AE5497E80A964EEFA3C38007E55428A17)
 
 
 ImageBufferData中的byteBuffer是对内部缓存的浅拷贝，当Image的生命周期结束时，便不能对byteBuffer做任何操作，否则会导致未定义行为。
@@ -243,7 +243,7 @@ function GetBufferData(img: image.Image) {
 
 
 
-##### getMetadata23+
+#### getMetadata23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

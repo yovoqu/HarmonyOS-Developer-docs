@@ -9,22 +9,22 @@
 2. 点击进入对应的项目，在左侧“项目设置”页签，上侧导航选择“开放能力管理”，打开华为钱包的开关。用于钱包对车钥匙管理台向钱包服务器发起http/https请求时的权限控制。关闭状态下，开发者服务器将访问不了钱包服务器。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/lNpkHRx7TbattEt4qygJuQ/zh-cn_image_0000002611755231.png?HW-CC-KV=V1&HW-CC-Date=20260528T014434Z&HW-CC-Expire=86400&HW-CC-Sign=CE96F917252B00D50A4372906B0C6A9C092A89D9432E930DA9C9AEF26C0AD894)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/lNpkHRx7TbattEt4qygJuQ/zh-cn_image_0000002611755231.png?HW-CC-KV=V1&HW-CC-Date=20260528T030103Z&HW-CC-Expire=86400&HW-CC-Sign=6D591FE28357B869217D6B8E0E7CBF684A1232A66EE2603F959D2FD2C3A144BB)
 
 3. 在“项目设置”页签，左侧导航选择“盈利 > 华为钱包”，点击“申请Wallet Kit服务”，进入申请Wallet Kit服务。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/5B9lFb6RS6uwJS9TOCQKlw/zh-cn_image_0000002581435292.png?HW-CC-KV=V1&HW-CC-Date=20260528T014434Z&HW-CC-Expire=86400&HW-CC-Sign=D3F96868AFABEC26CB1BDB97D32DC241BE83857BBBFD74F15844406F445472C5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/5B9lFb6RS6uwJS9TOCQKlw/zh-cn_image_0000002581435292.png?HW-CC-KV=V1&HW-CC-Date=20260528T030103Z&HW-CC-Expire=86400&HW-CC-Sign=E02B1BF7520AC7577EB0398BC4F7E268DBF8C4A592C97D1D38217B1F1095B500)
 
 4. 点击“产品接入华为钱包服务”的“点击申请”按钮。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/A2sNOTM-QtupvowQG3KGag/zh-cn_image_0000002611835123.png?HW-CC-KV=V1&HW-CC-Date=20260528T014434Z&HW-CC-Expire=86400&HW-CC-Sign=1A3E68918D69E4814072F721BBE8DB6BC07C7C4BA904AF5A5719AD7FDFBE1F6D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/A2sNOTM-QtupvowQG3KGag/zh-cn_image_0000002611835123.png?HW-CC-KV=V1&HW-CC-Date=20260528T030103Z&HW-CC-Expire=86400&HW-CC-Sign=D75C6DAD45A1AADF6A9C03847984FF532D896352B85E3118D922111A294FD540)
 
 5. 各业务场景对应的参数有差异，具体参数请参考各业务的Wallet Kit服务基本信息。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/sP9lbdxkSeysyms4BWwSHQ/zh-cn_image_0000002581275376.png?HW-CC-KV=V1&HW-CC-Date=20260528T014434Z&HW-CC-Expire=86400&HW-CC-Sign=ECDBD5F6846CE31A94458646535AF2ACDB99EB1700787F31E99DE51D58927D7F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/sP9lbdxkSeysyms4BWwSHQ/zh-cn_image_0000002581275376.png?HW-CC-KV=V1&HW-CC-Date=20260528T030103Z&HW-CC-Expire=86400&HW-CC-Sign=ACA057F83954B1C8AC079CD027789BA2020F464B890A40EDFE0B661EDC7D73C9)
 
 
 | Wallet Kit服务参数名称 | 参数值 |
@@ -74,12 +74,12 @@ console.info(privateKey.toString('base64'));
   （3）从结果中拷贝生成的公私钥并保存。结果如下图所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/N1BjBjGYSd-lJ2ddyGEY6A/zh-cn_image_0000002611755233.png?HW-CC-KV=V1&HW-CC-Date=20260528T014434Z&HW-CC-Expire=86400&HW-CC-Sign=56FDBFDF29F7C99F148AC9E942B9C477369AB391221A8CEE0E62B68EBC7F6498)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/N1BjBjGYSd-lJ2ddyGEY6A/zh-cn_image_0000002611755233.png?HW-CC-KV=V1&HW-CC-Date=20260528T030103Z&HW-CC-Expire=86400&HW-CC-Sign=02509A87963AF52DB997801069704673E744A275FB6DAD79E8A09664ECFF4191)
 
 6. 点击“下一步”，进入NFC参数设置页面，各业务场景对应的参数有差异，具体参数请参考各业务的NFC参数。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/9GkOqcmbQpG9HpDgNKxHVg/zh-cn_image_0000002581435294.png?HW-CC-KV=V1&HW-CC-Date=20260528T014434Z&HW-CC-Expire=86400&HW-CC-Sign=42193A341E1138B197D07732CDDC9CE7DD0DF10A67B6B25B20EC7671AC082FFF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/9GkOqcmbQpG9HpDgNKxHVg/zh-cn_image_0000002581435294.png?HW-CC-KV=V1&HW-CC-Date=20260528T030103Z&HW-CC-Expire=86400&HW-CC-Sign=647FAECF1ADFA6C3EC14B25EF823A8F1AB2B3CD8ACC84CD877E3EA56197A085F)
 
 
 | NFC参数名称 | 参数值 |

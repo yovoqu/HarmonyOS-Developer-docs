@@ -11,7 +11,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 ```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
@@ -19,7 +19,7 @@ import { avMusicTemplate } from '@kit.AVSessionKit';
 
 
 
-##### 属性
+#### 属性
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -71,7 +71,7 @@ export class TemplateManager {
 
 
 
-##### startTemplate
+#### startTemplate
 
 startTemplate(): Promise&lt;OperResult&gt;
 
@@ -116,7 +116,7 @@ export class TemplateManager {
 
 
 
-##### onQueryMainTabs
+#### onQueryMainTabs
 
 onQueryMainTabs(callback: QueryMainTabsEvent): void
 
@@ -187,7 +187,7 @@ export class TemplateManager {
 
 
 
-##### offQueryMainTabs
+#### offQueryMainTabs
 
 offQueryMainTabs(callback?: QueryMainTabsEvent): void
 
@@ -234,7 +234,7 @@ export class TemplateManager {
 
 
 
-##### onQueryMediaTabContent
+#### onQueryMediaTabContent
 
 onQueryMediaTabContent(callback: QueryMediaTabContentEvent): void
 
@@ -339,7 +339,7 @@ export class TemplateManager {
 
 
 
-##### offQueryMediaTabContent
+#### offQueryMediaTabContent
 
 offQueryMediaTabContent(callback?: QueryMediaTabContentEvent): void
 
@@ -386,7 +386,7 @@ export class TemplateManager {
 
 
 
-##### onQueryMediaEntity
+#### onQueryMediaEntity
 
 onQueryMediaEntity(callback: QueryMediaEntityEvent): void
 
@@ -477,7 +477,7 @@ export class TemplateManager {
 
 
 
-##### offQueryMediaEntity
+#### offQueryMediaEntity
 
 offQueryMediaEntity(callback?: QueryMediaEntityEvent): void
 
@@ -524,7 +524,7 @@ export class TemplateManager {
 
 
 
-##### onQueryCompilation
+#### onQueryCompilation
 
 onQueryCompilation(callback: QueryCompilationEvent): void
 
@@ -615,7 +615,7 @@ export class TemplateManager {
 
 
 
-##### offQueryCompilation
+#### offQueryCompilation
 
 offQueryCompilation(callback?: QueryCompilationEvent): void
 
@@ -662,7 +662,7 @@ export class TemplateManager {
 
 
 
-##### onQueryPlaylist
+#### onQueryPlaylist
 
 onQueryPlaylist(callback: QueryPlaylistEvent): void
 
@@ -753,7 +753,7 @@ export class TemplateManager {
 
 
 
-##### offQueryPlaylist
+#### offQueryPlaylist
 
 offQueryPlaylist(callback?: QueryPlaylistEvent): void
 
@@ -800,7 +800,7 @@ export class TemplateManager {
 
 
 
-##### onQueryCurrentSingle
+#### onQueryCurrentSingle
 
 onQueryCurrentSingle(callback: QueryCurrentSingleEvent): void
 
@@ -902,7 +902,7 @@ export class TemplateManager {
 
 
 
-##### offQueryCurrentSingle
+#### offQueryCurrentSingle
 
 offQueryCurrentSingle(callback?: QueryCurrentSingleEvent): void
 
@@ -949,7 +949,7 @@ export class TemplateManager {
 
 
 
-##### onQueryCompilationByKeyword
+#### onQueryCompilationByKeyword
 
 onQueryCompilationByKeyword(callback: QueryCompilationByKeywordEvent): void
 
@@ -1040,7 +1040,7 @@ export class TemplateManager {
 
 
 
-##### offQueryCompilationByKeyword
+#### offQueryCompilationByKeyword
 
 offQueryCompilationByKeyword(callback?: QueryCompilationByKeywordEvent): void
 
@@ -1087,7 +1087,7 @@ export class TemplateManager {
 
 
 
-##### onQueryMediaEntityByKeyword
+#### onQueryMediaEntityByKeyword
 
 onQueryMediaEntityByKeyword(callback: QueryMediaEntityByKeywordEvent): void
 
@@ -1178,7 +1178,7 @@ export class TemplateManager {
 
 
 
-##### offQueryMediaEntityByKeyword
+#### offQueryMediaEntityByKeyword
 
 offQueryMediaEntityByKeyword(callback?: QueryMediaEntityByKeywordEvent): void
 
@@ -1225,7 +1225,7 @@ export class TemplateManager {
 
 
 
-##### onQueryRecommendMediaEntityList
+#### onQueryRecommendMediaEntityList
 
 onQueryRecommendMediaEntityList(callback: QueryRecommendMediaEntityListEvent): void
 
@@ -1297,7 +1297,7 @@ export class TemplateManager {
 
 
 
-##### offQueryRecommendMediaEntityList
+#### offQueryRecommendMediaEntityList
 
 offQueryRecommendMediaEntityList(callback?: QueryRecommendMediaEntityListEvent): void
 
@@ -1344,7 +1344,7 @@ export class TemplateManager {
 
 
 
-##### onQueryHotWords
+#### onQueryHotWords
 
 onQueryHotWords(callback: QueryHotWordsEvent): void
 
@@ -1397,7 +1397,7 @@ export class TemplateManager {
 
 
 
-##### offQueryHotWords
+#### offQueryHotWords
 
 offQueryHotWords(callback?: QueryHotWordsEvent): void
 
@@ -1444,7 +1444,7 @@ export class TemplateManager {
 
 
 
-##### onQuerySearchHistory
+#### onQuerySearchHistory
 
 onQuerySearchHistory(callback: QuerySearchHistoryEvent): void
 
@@ -1497,7 +1497,7 @@ export class TemplateManager {
 
 
 
-##### offQuerySearchHistory
+#### offQuerySearchHistory
 
 offQuerySearchHistory(callback?: QuerySearchHistoryEvent): void
 
@@ -1544,7 +1544,7 @@ export class TemplateManager {
 
 
 
-##### onClearSearchHistory
+#### onClearSearchHistory
 
 onClearSearchHistory(callback: ClearSearchHistoryEvent): void
 
@@ -1609,7 +1609,7 @@ export class TemplateManager {
 
 
 
-##### offClearSearchHistory
+#### offClearSearchHistory
 
 offClearSearchHistory(callback?: ClearSearchHistoryEvent): void
 
@@ -1656,7 +1656,7 @@ export class TemplateManager {
 
 
 
-##### onLogin
+#### onLogin
 
 onLogin(callback: LoginEvent): void
 
@@ -1728,7 +1728,7 @@ export class TemplateManager {
 
 
 
-##### offLogin
+#### offLogin
 
 offLogin(callback?: LoginEvent): void
 
@@ -1775,7 +1775,7 @@ export class TemplateManager {
 
 
 
-##### onRequestDialogInfo
+#### onRequestDialogInfo
 
 onRequestDialogInfo(callback: RequestDialogInfoEvent): void
 
@@ -1853,7 +1853,7 @@ export class TemplateManager {
 
 
 
-##### offRequestDialogInfo
+#### offRequestDialogInfo
 
 offRequestDialogInfo(callback?: RequestDialogInfoEvent): void
 
@@ -1900,7 +1900,7 @@ export class TemplateManager {
 
 
 
-##### onHandleMemberPurchase
+#### onHandleMemberPurchase
 
 onHandleMemberPurchase(callback: HandleMemberPurchaseEvent): void
 
@@ -1978,7 +1978,7 @@ export class TemplateManager {
 
 
 
-##### offHandleMemberPurchase
+#### offHandleMemberPurchase
 
 offHandleMemberPurchase(callback?: HandleMemberPurchaseEvent): void
 
@@ -2025,7 +2025,7 @@ export class TemplateManager {
 
 
 
-##### onQueryMemberPurchase
+#### onQueryMemberPurchase
 
 onQueryMemberPurchase(callback: QueryMemberPurchaseEvent): void
 
@@ -2095,7 +2095,7 @@ export class TemplateManager {
 
 
 
-##### offQueryMemberPurchase
+#### offQueryMemberPurchase
 
 offQueryMemberPurchase(callback?: QueryMemberPurchaseEvent): void
 
@@ -2142,7 +2142,7 @@ export class TemplateManager {
 
 
 
-##### onQueryCustomContent
+#### onQueryCustomContent
 
 onQueryCustomContent(callback: QueryCustomContentEvent): void
 
@@ -2228,7 +2228,7 @@ export class TemplateManager {
 
 
 
-##### offQueryCustomContent
+#### offQueryCustomContent
 
 offQueryCustomContent(callback?: QueryCustomContentEvent): void
 
@@ -2275,7 +2275,7 @@ export class TemplateManager {
 
 
 
-##### onDownloadMediaEntity
+#### onDownloadMediaEntity
 
 onDownloadMediaEntity(callback: DownloadMediaEntityEvent): void
 
@@ -2364,7 +2364,7 @@ export class TemplateManager {
 
 
 
-##### offDownloadMediaEntity
+#### offDownloadMediaEntity
 
 offDownloadMediaEntity(callback?: DownloadMediaEntityEvent): void
 
@@ -2411,7 +2411,7 @@ export class TemplateManager {
 
 
 
-##### onSettingsChange
+#### onSettingsChange
 
 onSettingsChange(callback: SettingsChangeEvent): void
 
@@ -2482,7 +2482,7 @@ export class TemplateManager {
 
 
 
-##### offSettingsChange
+#### offSettingsChange
 
 offSettingsChange(callback?: SettingsChangeEvent): void
 
@@ -2529,7 +2529,7 @@ export class TemplateManager {
 
 
 
-##### onProblemAndAdvice
+#### onProblemAndAdvice
 
 onProblemAndAdvice(callback: ProblemAndAdviceEvent): void
 
@@ -2594,7 +2594,7 @@ export class TemplateManager {
 
 
 
-##### offProblemAndAdvice
+#### offProblemAndAdvice
 
 offProblemAndAdvice(callback?: ProblemAndAdviceEvent): void
 
@@ -2641,7 +2641,7 @@ export class TemplateManager {
 
 
 
-##### onPlayForSearch
+#### onPlayForSearch
 
 onPlayForSearch(callback: PlayForSearchEvent): void
 
@@ -2707,7 +2707,7 @@ export class TemplateManager {
 
 
 
-##### offPlayForSearch
+#### offPlayForSearch
 
 offPlayForSearch(callback?: PlayForSearchEvent): void
 
@@ -2754,7 +2754,7 @@ export class TemplateManager {
 
 
 
-##### onExecuteAction
+#### onExecuteAction
 
 onExecuteAction(callback: ExecuteActionEvent): void
 
@@ -2807,7 +2807,7 @@ export class TemplateManager {
 
 
 
-##### offExecuteAction
+#### offExecuteAction
 
 offExecuteAction(callback?: ExecuteActionEvent): void
 
@@ -2854,7 +2854,7 @@ export class TemplateManager {
 
 
 
-##### onPlayMediaEntity
+#### onPlayMediaEntity
 
 onPlayMediaEntity(callback: PlayMediaEntityEvent): void
 
@@ -2905,7 +2905,7 @@ export class TemplateManager {
 
 
 
-##### offPlayMediaEntity
+#### offPlayMediaEntity
 
 offPlayMediaEntity(callback?: PlayMediaEntityEvent): void
 
@@ -2952,7 +2952,7 @@ export class TemplateManager {
 
 
 
-##### onFavoriteMediaEntity
+#### onFavoriteMediaEntity
 
 onFavoriteMediaEntity(callback: FavoriteMediaEntityEvent): void
 
@@ -3018,7 +3018,7 @@ export class TemplateManager {
 
 
 
-##### offFavoriteMediaEntity
+#### offFavoriteMediaEntity
 
 offFavoriteMediaEntity(callback?: FavoriteMediaEntityEvent): void
 
@@ -3065,7 +3065,7 @@ export class TemplateManager {
 
 
 
-##### setUserInfo
+#### setUserInfo
 
 setUserInfo(userInfo: UserInfo): Promise&lt;void&gt;
 
@@ -3138,7 +3138,7 @@ export class TemplateManager {
 
 
 
-##### setDialogCommand
+#### setDialogCommand
 
 setDialogCommand(type: DialogControlType, dialogInfo: DialogInfo): Promise&lt;void&gt;
 
@@ -3208,7 +3208,7 @@ export class TemplateManager {
 
 
 
-##### setCurrentSingle
+#### setCurrentSingle
 
 setCurrentSingle(single: Single): Promise&lt;void&gt;
 
@@ -3309,7 +3309,7 @@ export class TemplateManager {
 
 
 
-##### setMediaEntities
+#### setMediaEntities
 
 setMediaEntities(entities: MediaEntity[]): Promise&lt;void&gt;
 
@@ -3372,7 +3372,7 @@ export class TemplateManager {
 
 
 
-##### setTabContent
+#### setTabContent
 
 setTabContent(tabId: string, tabContent: MediaTabContent): Promise&lt;void&gt;
 
@@ -3451,7 +3451,7 @@ export class TemplateManager {
 
 
 
-##### setPlaylist
+#### setPlaylist
 
 setPlaylist(playlist: PageMediaEntity): Promise&lt;void&gt;
 
@@ -3524,7 +3524,7 @@ export class TemplateManager {
 
 
 
-##### setDownloadMediaEntityStatus
+#### setDownloadMediaEntityStatus
 
 setDownloadMediaEntityStatus(single: MediaEntity): Promise&lt;void&gt;
 
@@ -3588,7 +3588,7 @@ export class TemplateManager {
 
 
 
-##### setCustomElements
+#### setCustomElements
 
 setCustomElements(actionType: ActionType, customType: CustomType, customElement: CustomElement): Promise&lt;void&gt;
 
@@ -3668,7 +3668,7 @@ export class TemplateManager {
 
 
 
-##### setSettings
+#### setSettings
 
 setSettings(settingItems: SettingItem[]): Promise&lt;void&gt;
 
@@ -3730,7 +3730,7 @@ export class TemplateManager {
 
 
 
-##### reportExecuteAction
+#### reportExecuteAction
 
 reportExecuteAction(actionType: string, params: string): Promise&lt;void&gt;
 
@@ -3787,7 +3787,7 @@ export class TemplateManager {
 
 
 
-##### setExtensionAbility
+#### setExtensionAbility
 
 setExtensionAbility(want: WantAgent): Promise&lt;void&gt;
 
@@ -3859,7 +3859,7 @@ export class TemplateManager {
 
 
 
-##### destroy
+#### destroy
 
 destroy(): Promise&lt;void&gt;
 

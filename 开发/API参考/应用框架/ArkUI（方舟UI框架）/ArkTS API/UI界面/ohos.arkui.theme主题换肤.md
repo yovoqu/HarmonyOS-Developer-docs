@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { Theme, ThemeControl, CustomColors, Colors, CustomTheme, CustomDarkColor
 
 
 
-##### Theme
+#### Theme
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -39,7 +39,7 @@ import { Theme, ThemeControl, CustomColors, Colors, CustomTheme, CustomDarkColor
 
 
 
-##### Colors
+#### Colors
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -110,7 +110,7 @@ import { Theme, ThemeControl, CustomColors, Colors, CustomTheme, CustomDarkColor
 
 
 
-##### CustomTheme
+#### CustomTheme
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -126,7 +126,7 @@ import { Theme, ThemeControl, CustomColors, Colors, CustomTheme, CustomDarkColor
 
 
 
-##### CustomColors
+#### CustomColors
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -145,7 +145,7 @@ type CustomColors = Partial&lt;Colors&gt;
 
 
 
-##### CustomDarkColors20+
+#### CustomDarkColors20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -164,7 +164,7 @@ type CustomDarkColors = Partial&lt;Colors&gt;
 
 
 
-##### ThemeControl
+#### ThemeControl
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -176,7 +176,7 @@ ThemeControl将自定义Theme应用于App组件内，实现App组件风格跟随
 
 
 
-##### setDefaultTheme
+#### setDefaultTheme
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -248,8 +248,8 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/NgBmT124SkS9UeYrdOdqdg/zh-cn_image_0000002611755469.png?HW-CC-KV=V1&HW-CC-Date=20260528T024116Z&HW-CC-Expire=86400&HW-CC-Sign=5897A3A3B3FE07870B92977DCD3F67D0B9368BE2B6E56C3607759BF4A221F5E1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/NgBmT124SkS9UeYrdOdqdg/zh-cn_image_0000002611755469.png?HW-CC-KV=V1&HW-CC-Date=20260528T025450Z&HW-CC-Expire=86400&HW-CC-Sign=8DFAED64B1EBDCC847A3AB2812B1248D230EE5179F646BCFE444A1A49D51C492)
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/JxqKQO0fSCWR3HvXV5a7hg/zh-cn_image_0000002581435532.png?HW-CC-KV=V1&HW-CC-Date=20260528T024116Z&HW-CC-Expire=86400&HW-CC-Sign=52E9C9D5E7541BC87F0482EC6F866AF79997D0FDD67BB91ADE0E5C351297F018)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/JxqKQO0fSCWR3HvXV5a7hg/zh-cn_image_0000002581435532.png?HW-CC-KV=V1&HW-CC-Date=20260528T025450Z&HW-CC-Expire=86400&HW-CC-Sign=271B886C98B22115F64B8F0715B4348CBA3E5B2901595650401AB941EC56EE87)

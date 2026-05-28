@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-class
 
-##### 简介
+#### 简介
 
 使用Node-API接口进行class相关开发，处理ArkTS中的类，例如定义类、构造实例等。
  
   
 
-##### 基本概念
+#### 基本概念
 
 在使用Node-API接口进行class相关开发时，需要理解以下基本概念：
  
@@ -21,7 +21,7 @@
  
   
 
-##### 场景和功能介绍
+#### 场景和功能介绍
 
 以下Node-API接口主要用于处理class。他们的使用场景如下：
   
@@ -37,13 +37,13 @@
  
   
 
-##### 使用示例
+#### 使用示例
 
 Node-API接口开发流程参考[使用Node-API实现跨语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-process)，本文仅对接口对应C++及ArkTS相关代码进行展示。
  
   
 
-##### napi_new_instance
+#### napi_new_instance
 
 通过给定的构造函数实例化一个对象，将这个对象返回ArkTS侧使用。
  
@@ -96,7 +96,7 @@ hilog.info(0x0000, 'Node-API', 'napi_new_instance %{public}s', JSON.stringify(ob
  
   
 
-##### napi_get_new_target
+#### napi_get_new_target
 
 用于获取构造函数的new.target值。在ArkTS中，new.target是一个特殊的元属性，用于在构造函数中判断是否通过new关键字调用了该构造函数。
  
@@ -106,7 +106,7 @@ hilog.info(0x0000, 'Node-API', 'napi_new_instance %{public}s', JSON.stringify(ob
  
   
 
-##### napi_define_class
+#### napi_define_class
 
 用于定义一个ArkTS类。该函数允许在Node-API模块中创建一个ArkTS类，并将类的方法和属性与相应的Node-API模块关联起来。
  
@@ -116,7 +116,7 @@ hilog.info(0x0000, 'Node-API', 'napi_new_instance %{public}s', JSON.stringify(ob
  
   
 
-##### napi_wrap
+#### napi_wrap
 
 在ArkTS object上绑定一个native对象实例。
  
@@ -126,7 +126,7 @@ hilog.info(0x0000, 'Node-API', 'napi_new_instance %{public}s', JSON.stringify(ob
  
   
 
-##### napi_unwrap
+#### napi_unwrap
 
 从一个被包装的对象中获取与之关联的数据指针。
  
@@ -136,7 +136,7 @@ hilog.info(0x0000, 'Node-API', 'napi_new_instance %{public}s', JSON.stringify(ob
  
   
 
-##### napi_remove_wrap
+#### napi_remove_wrap
 
 从ArkTS object上获取先前绑定的native对象实例，并解除绑定。
  

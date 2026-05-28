@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/preferences-guidelines
 
-##### 场景介绍
+#### 场景介绍
 
 用户首选项（Preferences）模块主要提供轻量级Key-Value操作，支持本地存储少量数据，数据存储在文件和内存中，访问速度快。如果存在大量数据场景，请考虑使用键值型数据库或关系型数据库。
 
 
 
-##### 约束限制
+#### 约束限制
 
  - API version 18之前：ArkTS API仅支持[XML存储模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-persistence-by-preferences#xml存储)；C API仅支持[GSKV存储模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-persistence-by-preferences#gskv存储)；存储模式互不兼容，不支持ArkTS和C API操作同一个Preferences实例。
  - API version 18及之后：ArkTS和C API均支持XML和GSKV双模式；ArkTS和C API使用相同的存储模式时，可以正常操作同一Preferences实例；禁止ArkTS和C API选择不同的存储模式，来操作同一个Preferences实例。
@@ -19,7 +19,7 @@
 
 
 
-##### 接口说明
+#### 接口说明
 
 详细的接口说明请参考[Preferences接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-preferences)。
 
@@ -54,7 +54,7 @@
 
 
 
-##### 添加动态链接库
+#### 添加动态链接库
 
 CMakeLists.txt中添加以下lib。
 
@@ -64,7 +64,7 @@ libohpreferences.so
 
 
 
-##### 引用头文件
+#### 引用头文件
 
 ```text
 #include <database/preferences/oh_preferences.h>
@@ -75,7 +75,7 @@ libohpreferences.so
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 下列实例展示如何通过Preferences实现对键值数据的修改与持久化。
 1. 创建Preferences配置选项（PreferencesOption）对象并设置配置选项成员（名称、应用组ID、包名、存储模式）。使用完毕后，调用OH_PreferencesOption_Destroy销毁配置选项实例。

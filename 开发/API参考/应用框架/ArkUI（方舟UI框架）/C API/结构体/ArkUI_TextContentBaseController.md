@@ -10,7 +10,7 @@ typedef struct ArkUI_TextContentBaseController ArkUI_TextContentBaseController
 ```
   
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

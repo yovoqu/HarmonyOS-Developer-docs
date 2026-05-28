@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-location-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -42,13 +42,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Location_IsLocatingEnabled()
+#### OH_Location_IsLocatingEnabled()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -78,7 +78,7 @@ Location_ResultCode OH_Location_IsLocatingEnabled(bool* enabled)
  
   
 
-##### OH_Location_StartLocating()
+#### OH_Location_StartLocating()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -110,7 +110,7 @@ Location_ResultCode OH_Location_StartLocating(const Location_RequestConfig* requ
  
   
 
-##### OH_Location_StopLocating()
+#### OH_Location_StopLocating()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

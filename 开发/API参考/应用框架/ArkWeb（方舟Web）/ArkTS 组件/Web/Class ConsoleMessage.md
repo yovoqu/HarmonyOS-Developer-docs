@@ -12,7 +12,7 @@ Web组件获取控制台信息对象。示例代码参考[onConsole事件](https
 
   
 
-##### constructor(deprecated)
+#### constructor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -38,7 +38,7 @@ ConsoleMessage的构造函数。
  
   
 
-##### constructor9+
+#### constructor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -50,7 +50,7 @@ ConsoleMessage的构造函数。
  
   
 
-##### getLineNumber
+#### getLineNumber
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -69,7 +69,7 @@ getLineNumber(): number
  
   
 
-##### getMessage
+#### getMessage
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -88,7 +88,7 @@ getMessage(): string
  
   
 
-##### getMessageLevel
+#### getMessageLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -107,7 +107,7 @@ getMessageLevel(): MessageLevel
  
   
 
-##### getSourceId
+#### getSourceId
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -126,7 +126,7 @@ getSourceId(): string
  
   
 
-##### getSource23+
+#### getSource23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -15,7 +15,7 @@
 
 
 
-##### 概述
+#### 概述
 
 @State装饰的变量与声明式范式中的其他被装饰变量一样，是私有的，只能从组件内部访问，在声明时必须指定其类型并完成本地初始化；若需从父组件初始化，也可选择使用命名参数机制完成赋值。
 
@@ -26,7 +26,7 @@
 
 
 
-##### 装饰器使用规则说明
+#### 装饰器使用规则说明
 
 | @State变量装饰器 | 说明 |
 | --- | --- |
@@ -39,7 +39,7 @@
 
 
 
-##### 变量的传递/访问规则说明
+#### 变量的传递/访问规则说明
 
 | 传递/访问 | 说明 |
 | --- | --- |
@@ -56,13 +56,13 @@
 
 
 
-##### 观察变化和行为表现
+#### 观察变化和行为表现
 
 并不是状态变量的所有更改都会引起UI的刷新，只有可以被框架观察到的修改才会引起UI刷新。本小节将介绍什么样的修改才能被观察到，以及观察到变化后，框架是怎么引起UI刷新的，即框架的行为表现是什么。
 
 
 
-##### 观察变化
+#### 观察变化
 
  - 当装饰的数据类型为boolean、string、number类型时，可以观察到数值的变化。
 
@@ -137,7 +137,7 @@ this.title.name.value = 'ArkUI';
 
 
 
-##### 框架行为
+#### 框架行为
 
  - 当状态变量改变时，查询依赖该状态变量的组件。
  - 执行依赖该状态变量的组件更新方法，实现组件更新渲染。
@@ -145,7 +145,7 @@ this.title.name.value = 'ArkUI';
 
 
 
-##### 限制条件
+#### 限制条件
 1. @State装饰的变量必须初始化，否则编译期会报错。
 
   
@@ -197,11 +197,11 @@ struct Child {
 
 
 
-##### 使用场景
+#### 使用场景
 
 
 
-##### 装饰简单类型的变量
+#### 装饰简单类型的变量
 
 以下示例为@State装饰的简单类型，count被@State装饰成为状态变量，count的改变引起Button组件的刷新：
 
@@ -239,7 +239,7 @@ struct MyComponent {
 
 
 
-##### 装饰class对象类型的变量
+#### 装饰class对象类型的变量
 
  - 自定义组件MyComponent定义了被@State装饰的状态变量count和title，其中title的类型为自定义类Model。如果count或title的值发生变化，则查询MyComponent中使用该状态变量的UI组件，并进行重新渲染。
  - EntryComponent中有多个MyComponent组件实例，第一个MyComponent内部状态的更改不会影响第二个MyComponent。
@@ -327,7 +327,7 @@ MyComponent({ title: new Model('Hello World 2'), count: 7 })
 
 
 
-##### 装饰Array类型变量
+#### 装饰Array类型变量
 
 在下面的示例中，@State装饰的变量fruits的类型为Array&lt;Fruit&gt;，点击Button改变fruits的值，视图会随之刷新。
 
@@ -402,7 +402,7 @@ struct ArraySample {
 
 
 
-##### 装饰Map类型变量
+#### 装饰Map类型变量
 
 > [!NOTE]
 > 从API version 11开始，@State支持Map类型。
@@ -473,7 +473,7 @@ struct MapSample {
 
 
 
-##### 装饰Set类型变量
+#### 装饰Set类型变量
 
 > [!NOTE]
 > 从API version 11开始，@State支持Set类型。
@@ -537,7 +537,7 @@ struct SetSample {
 
 
 
-##### 装饰Date类型变量
+#### 装饰Date类型变量
 
 在下面的示例中，@State装饰的变量selectedDate的类型为Date，点击Button改变selectedDate的值，视图会随之刷新。
 
@@ -597,7 +597,7 @@ struct DatePickerExample {
 
 
 
-##### State支持联合类型实例
+#### State支持联合类型实例
 
 @State支持联合类型和undefined和null，在下面的示例中，count类型为number | undefined，点击Button改变count的值，视图会随之刷新。
 

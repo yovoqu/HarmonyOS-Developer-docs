@@ -10,7 +10,7 @@
 **起始版本：** 6.1.1(24)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** lite_wearable
 
@@ -20,7 +20,7 @@ import healthStore from '@hms.health.store';
 
 
 
-##### AuthorizationBase
+#### AuthorizationBase
 
 **支持设备：** lite_wearable
 
@@ -40,7 +40,7 @@ import healthStore from '@hms.health.store';
 
 
 
-##### AuthorizationRequest
+#### AuthorizationRequest
 
 **支持设备：** lite_wearable
 
@@ -61,7 +61,7 @@ import healthStore from '@hms.health.store';
 
 
 
-##### AuthorizationResponse
+#### AuthorizationResponse
 
 **支持设备：** lite_wearable
 
@@ -82,7 +82,7 @@ import healthStore from '@hms.health.store';
 
 
 
-##### DataReadRequest
+#### DataReadRequest
 
 **支持设备：** lite_wearable
 
@@ -103,7 +103,7 @@ import healthStore from '@hms.health.store';
 
 
 
-##### DataRequest
+#### DataRequest
 
 **支持设备：** lite_wearable
 
@@ -126,7 +126,7 @@ import healthStore from '@hms.health.store';
 
 
 
-##### DataSourceOptions
+#### DataSourceOptions
 
 **支持设备：** lite_wearable
 
@@ -148,7 +148,7 @@ import healthStore from '@hms.health.store';
 
 
 
-##### DataType
+#### DataType
 
 **支持设备：** lite_wearable
 
@@ -168,7 +168,7 @@ import healthStore from '@hms.health.store';
 
 
 
-##### ExerciseSequence
+#### ExerciseSequence
 
 **支持设备：** lite_wearable
 
@@ -192,7 +192,7 @@ ExerciseSequence<K extends Record<string, [ExerciseSummary](#exercisesummary)> =
 
 
 
-##### ExerciseSequenceReadRequest
+#### ExerciseSequenceReadRequest
 
 **支持设备：** lite_wearable
 
@@ -214,7 +214,7 @@ ExerciseSequenceReadRequest<DK extends Record<string, [SequencePoint](#sequencep
 
 
 
-##### ExerciseSummary
+#### ExerciseSummary
 
 **支持设备：** lite_wearable
 
@@ -233,7 +233,7 @@ ExerciseSequenceReadRequest<DK extends Record<string, [SequencePoint](#sequencep
 
 
 
-##### HealthValueType
+#### HealthValueType
 
 **支持设备：** lite_wearable
 
@@ -257,7 +257,7 @@ type HealthValueType = number | string | boolean | undefined
 
 
 
-##### PaceValueType
+#### PaceValueType
 
 **支持设备：** lite_wearable
 
@@ -278,7 +278,7 @@ type PaceValueType = Record<string, number>
 
 
 
-##### SampleDataBase
+#### SampleDataBase
 
 **支持设备：** lite_wearable
 
@@ -303,7 +303,7 @@ type PaceValueType = Record<string, number>
 
 
 
-##### SequencePoint
+#### SequencePoint
 
 **支持设备：** lite_wearable
 
@@ -323,7 +323,7 @@ type PaceValueType = Record<string, number>
 
 
 
-##### SequenceReadOptions
+#### SequenceReadOptions
 
 **支持设备：** lite_wearable
 
@@ -345,7 +345,7 @@ SequenceReadOptions<DK extends Record<string, [SequencePoint](#sequencepoint)[]>
 
 
 
-##### SortOrder
+#### SortOrder
 
 **支持设备：** lite_wearable
 
@@ -365,7 +365,7 @@ SequenceReadOptions<DK extends Record<string, [SequencePoint](#sequencepoint)[]>
 
 
 
-##### SubDataType
+#### SubDataType
 
 **支持设备：** lite_wearable
 
@@ -386,7 +386,7 @@ type SubDataType = DataType
 
 
 
-##### healthStore.saveData
+#### healthStore.saveData
 
 **支持设备：** lite_wearable
 
@@ -465,7 +465,7 @@ try {
 
 
 
-##### healthStore.readData
+#### healthStore.readData
 
 **支持设备：** lite_wearable
 
@@ -535,7 +535,7 @@ try {
 
 
 
-##### healthStore.requestAuthorizations
+#### healthStore.requestAuthorizations
 
 **支持设备：** lite_wearable
 
@@ -584,7 +584,7 @@ try {
 
 
 
-##### healthStore.getAuthorizations
+#### healthStore.getAuthorizations
 
 **支持设备：** lite_wearable
 

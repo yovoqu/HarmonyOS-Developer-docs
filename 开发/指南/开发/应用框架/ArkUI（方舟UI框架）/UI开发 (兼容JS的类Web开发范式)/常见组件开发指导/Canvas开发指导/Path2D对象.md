@@ -7,7 +7,7 @@
 路径对象，支持通过对象的接口进行路径的描述，并通过Canvas的[stroke](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#stroke-1)接口进行绘制。具体请参考[Path2D对象](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-canvas-path2d)。
 
 
-##### 画线段
+#### 画线段
 
 创建Path2D对象，使用多条线段组合图形。
 
@@ -84,7 +84,7 @@ export default {
 
 
 
-##### 画图形
+#### 画图形
 
 先使用createPath2D创建出路径对象，只对path1路径进行描边，所以画布上就只会出现path1的路径图形。点击text组件触发addPath方法会把path2路径对象当参数传入path1中，再对path1对象进行描边（stroke）操作后画布出现path1和path2两个图形。点击change文本改变setTransform属性值为setTransform(2, 0.1, 0.1, 2, 0,0)，图形变大并向左倾斜。
 

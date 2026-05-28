@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-transpose
 
-##### 功能说明
+#### 功能说明
 
 - 可实现16*16的二维矩阵数据块的转置。
 - 可实现[N, C, H, W]与[N, H, W, C]互相转换。
@@ -12,7 +12,7 @@
  
   
 
-##### 函数原型
+#### 函数原型
 
 - 普通转置，支持16*16的二维矩阵数据块进行转置
 
@@ -34,7 +34,7 @@ void Transpose(const LocalTensor<T> &dstLocal, const LocalTensor<T> &srcLocal, c
  
   
 
-##### 参数说明
+#### 参数说明
 
 **表1** 模板参数说明
   
@@ -84,7 +84,7 @@ void Transpose(const LocalTensor<T> &dstLocal, const LocalTensor<T> &srcLocal, c
  
   
 
-##### 支持的型号
+#### 支持的型号
 
 Kirin9020系列处理器
  
@@ -92,7 +92,7 @@ KirinX90系列处理器
  
   
 
-##### 注意事项
+#### 注意事项
 
 - 操作数地址偏移对齐要求请参见[通用约束](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-general-constraints)。
 - 该指令不可迭代（即不能通过repeatTimes重复）。
@@ -103,13 +103,13 @@ KirinX90系列处理器
  
   
 
-##### 返回值
+#### 返回值
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 - 普通接口调用示例，该示例对[16, 16]的half类型矩阵进行转置。
 

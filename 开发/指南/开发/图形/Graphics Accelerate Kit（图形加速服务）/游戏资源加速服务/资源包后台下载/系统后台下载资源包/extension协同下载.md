@@ -9,7 +9,7 @@
 用户在应用市场安装游戏后、或更新游戏后、设备满足闲时条件时，在游戏未启动状态下，若检测到该游戏有资源包需要更新，可使用**应用自身下载器**自动下载资源包。
 
 
-##### 业务流程
+#### 业务流程
 
 
 ![](assets/extension协同下载/file-20260514131705055-0.png)
@@ -28,7 +28,7 @@
 
 
 
-##### 接口说明
+#### 接口说明
 
 具体API说明请详见[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-extensionability)。
 
@@ -41,7 +41,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 新增配置信息。
 
   在“src/main/module.json5”的extensionAbilities层级中添加资源加速ExtensionAbility信息。

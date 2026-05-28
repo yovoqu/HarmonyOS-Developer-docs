@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-persistence-by-rdb-store
 
-##### 场景介绍
+#### 场景介绍
 
 关系型数据库基于SQLite组件，适用于存储包含复杂关系数据的场景，比如一个班级的学生信息，需要包括姓名、学号、各科成绩等，又或者公司的雇员信息，需要包括姓名、工号、职位等，由于数据之间有较强的对应关系，复杂程度比键值型数据更高，此时需要使用关系型数据库来持久化保存数据。
 
@@ -18,7 +18,7 @@
 
 
 
-##### 基本概念
+#### 基本概念
 
  - **谓词**：数据库中用来代表数据实体的性质、特征或者数据实体之间关系的词项，主要用来定义数据库的操作条件。
  - **结果集**：指用户查询之后的结果集合，可以对数据进行访问。结果集提供了灵活的数据访问方式，可以更方便地拿到用户想要的数据。
@@ -26,7 +26,7 @@
 
 
 
-##### 运作机制
+#### 运作机制
 
 关系型数据库对应用提供通用的操作接口，底层使用SQLite作为持久化存储引擎，支持SQLite具有的数据库特性，包括但不限于事务、索引、视图、触发器、外键、参数化查询和预编译SQL语句。
 
@@ -38,7 +38,7 @@
 
 
 
-##### 约束限制
+#### 约束限制
 
  - 系统默认日志方式是[WAL](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-terminology#wal模式)（Write Ahead Log）模式，系统默认落盘方式是[FULL模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-terminology#full模式)。
  - 数据库中常驻有4个读连接和1个写连接。读连接会动态扩充，无可用读连接时，会创建新的读连接执行读操作。写连接不会动态扩充，无可用写连接时，会等待连接释放后执行写操作。
@@ -50,7 +50,7 @@
 
 
 
-##### 接口说明
+#### 接口说明
 
 以下是关系型数据库持久化功能的相关接口，更多接口及使用方式请见[@ohos.data.relationalStore (关系型数据库)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore)。
 
@@ -70,7 +70,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 因Stage模型、FA模型的差异，个别示例代码提供了在两种模型下的对应示例；示例代码未区分模型或没有对应注释说明时默认在两种模型下均适用。
 

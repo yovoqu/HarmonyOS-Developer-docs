@@ -7,7 +7,7 @@
 使用DataShareHelper的query接口查询数据后必须及时关闭结果集，以防止内存泄漏。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 import relationalStore from "@ohos.data.relationalStore";
@@ -75,7 +75,7 @@ export class DataShareQueryUnReleaseNoReport0 extends UIAbility {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 import relationalStore from "@ohos.data.relationalStore";
@@ -124,7 +124,7 @@ export class DataShareQueryUnReleaseReport0 extends UIAbility {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(80,160,79);">plugin:@performance/</span><span style="color: rgb(0,0,255);">recommended</span>

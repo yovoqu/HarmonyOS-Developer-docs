@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { process } from '@kit.ArkTS';
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -39,7 +39,7 @@ import { process } from '@kit.ArkTS';
 
 
 
-##### EventListener
+#### EventListener
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -60,7 +60,7 @@ type EventListener = (evt: Object) => void
 
 
 
-##### process.isIsolatedProcess8+
+#### process.isIsolatedProcess8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -87,7 +87,7 @@ let result = process.isIsolatedProcess();
 
 
 
-##### process.is64Bit8+
+#### process.is64Bit8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -114,7 +114,7 @@ let result = process.is64Bit();
 
 
 
-##### process.getStartRealtime8+
+#### process.getStartRealtime8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -141,7 +141,7 @@ let realtime = process.getStartRealtime();
 
 
 
-##### process.getPastCpuTime8+
+#### process.getPastCpuTime8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -168,7 +168,7 @@ let result = process.getPastCpuTime();
 
 
 
-##### process.abort
+#### process.abort
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -188,7 +188,7 @@ process.abort();
 
 
 
-##### process.uptime
+#### process.uptime
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -215,7 +215,7 @@ let time = process.uptime();
 
 
 
-##### process.kill(deprecated)
+#### process.kill(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -253,7 +253,7 @@ let result = process.kill(28, pres);
 
 
 
-##### process.exit(deprecated)
+#### process.exit(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -284,7 +284,7 @@ process.exit(0);
 
 
 
-##### process.getUidForName(deprecated)
+#### process.getUidForName(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -320,7 +320,7 @@ let pres = process.getUidForName("tool");
 
 
 
-##### process.getThreadPriority(deprecated)
+#### process.getThreadPriority(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -357,7 +357,7 @@ let pres = process.getThreadPriority(tid);
 
 
 
-##### process.isAppUid(deprecated)
+#### process.isAppUid(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -393,7 +393,7 @@ let result = process.isAppUid(688);
 
 
 
-##### process.getSystemConfig(deprecated)
+#### process.getSystemConfig(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -430,7 +430,7 @@ let pres = process.getSystemConfig(_SC_ARG_MAX);
 
 
 
-##### process.getEnvironmentVar(deprecated)
+#### process.getEnvironmentVar(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -466,7 +466,7 @@ let pres = process.getEnvironmentVar("PATH");
 
 
 
-##### ProcessManager9+
+#### ProcessManager9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -476,7 +476,7 @@ let pres = process.getEnvironmentVar("PATH");
 
 
 
-##### isAppUid9+
+#### isAppUid9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -523,7 +523,7 @@ console.info("result: " + result); // result: true
 
 
 
-##### getUidForName9+
+#### getUidForName9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -567,7 +567,7 @@ let pres = pro.getUidForName("tool");
 
 
 
-##### getThreadPriority9+
+#### getThreadPriority9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -612,7 +612,7 @@ let pres = pro.getThreadPriority(tid);
 
 
 
-##### getSystemConfig9+
+#### getSystemConfig9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -657,7 +657,7 @@ let pres = pro.getSystemConfig(_SC_ARG_MAX);
 
 
 
-##### getEnvironmentVar9+
+#### getEnvironmentVar9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -701,7 +701,7 @@ let pres = pro.getEnvironmentVar("PATH");
 
 
 
-##### exit9+
+#### exit9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -740,7 +740,7 @@ pro.exit(0);
 
 
 
-##### kill9+
+#### kill9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -12,7 +12,7 @@
 
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -43,7 +43,7 @@ Line(options?: LineOptions)
  
   
 
-##### LineOptions18+对象说明
+#### LineOptions18+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -67,7 +67,7 @@ Line(options?: LineOptions)
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -75,7 +75,7 @@ Line(options?: LineOptions)
  
   
 
-##### startPoint
+#### startPoint
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -98,7 +98,7 @@ startPoint(value: Array&lt;any&gt;)
  
   
 
-##### endPoint
+#### endPoint
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -121,7 +121,7 @@ endPoint(value: Array&lt;any&gt;)
  
   
 
-##### fill
+#### fill
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -144,7 +144,7 @@ fill(value: ResourceColor)
  
   
 
-##### fillOpacity
+#### fillOpacity
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -167,7 +167,7 @@ fillOpacity(value: number | string | Resource)
  
   
 
-##### stroke
+#### stroke
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -190,7 +190,7 @@ stroke(value: ResourceColor)
  
   
 
-##### strokeDashArray
+#### strokeDashArray
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -213,7 +213,7 @@ strokeDashArray(value: Array&lt;any&gt;)
  
   
 
-##### strokeDashOffset
+#### strokeDashOffset
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -236,7 +236,7 @@ strokeDashOffset(value: number | string)
  
   
 
-##### strokeLineCap
+#### strokeLineCap
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -259,7 +259,7 @@ strokeLineCap(value: LineCapStyle)
  
   
 
-##### strokeLineJoin
+#### strokeLineJoin
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -282,7 +282,7 @@ strokeLineJoin(value: LineJoinStyle)
  
   
 
-##### strokeMiterLimit
+#### strokeMiterLimit
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -305,7 +305,7 @@ strokeMiterLimit(value: number | string)
  
   
 
-##### strokeOpacity
+#### strokeOpacity
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -328,7 +328,7 @@ strokeOpacity(value: number | string | Resource)
  
   
 
-##### strokeWidth
+#### strokeWidth
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -351,7 +351,7 @@ strokeWidth(value: Length)
  
   
 
-##### antiAlias
+#### antiAlias
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -374,13 +374,13 @@ antiAlias(value: boolean)
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 示例1（组件属性绘制）
+#### 示例1（组件属性绘制）
 
 通过startPoint、endPoint、fillOpacity、stroke、strokeDashArray、strokeDashOffset属性分别绘制直线的起始点、结束点、透明度、直线颜色、边框间隙、绘制起点。
  
@@ -440,7 +440,7 @@ struct LineExample {
  
   
 
-##### 示例2（边框端点绘制）
+#### 示例2（边框端点绘制）
 
 通过strokeLineCap属性绘制直线的边框端点样式。
  
@@ -493,7 +493,7 @@ struct LineExample1 {
  
   
 
-##### 示例3（边框间隙绘制）
+#### 示例3（边框间隙绘制）
 
 通过strokeDashArray属性绘制直线的边框间隙。
  
@@ -558,7 +558,7 @@ struct LineExample {
  
   
 
-##### 示例4（宽和高使用不同参数类型绘制直线）
+#### 示例4（宽和高使用不同参数类型绘制直线）
 
 width、height属性分别使用不同的长度类型绘制直线。
  
@@ -599,12 +599,12 @@ struct LineTypeExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/fOBBE2UpToGv-K_AodII2g/zh-cn_image_0000002611835973.png?HW-CC-KV=V1&HW-CC-Date=20260528T024200Z&HW-CC-Expire=86400&HW-CC-Sign=ED9917CCE019EE7E539AA7F5FD8AC71FF83BFE88E2C79E5E916117C0197C6948)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/fOBBE2UpToGv-K_AodII2g/zh-cn_image_0000002611835973.png?HW-CC-KV=V1&HW-CC-Date=20260528T025533Z&HW-CC-Expire=86400&HW-CC-Sign=A134214B0093FF271E82C1698B8CADC918A91293121042E201756FE0736B45E9)
 
  
   
 
-##### 示例5（使用attributeModifier动态设置Line组件的属性）
+#### 示例5（使用attributeModifier动态设置Line组件的属性）
 
 以下示例展示了如何使用attributeModifier动态设置Line组件的startPoint、endPoint、stroke、strokeDashArray、strokeDashOffset、strokeLineCap、strokeOpacity、strokeWidth和antiAlias属性。
  
@@ -641,4 +641,4 @@ struct LineModifierDemo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/VhHtkdZ5TzOcT-G3OPpGOw/zh-cn_image_0000002581276228.png?HW-CC-KV=V1&HW-CC-Date=20260528T024200Z&HW-CC-Expire=86400&HW-CC-Sign=1AD61E9801ADF166CF15907A25EBA9C8825D1F0893501377E1452398A3F77D5F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/VhHtkdZ5TzOcT-G3OPpGOw/zh-cn_image_0000002581276228.png?HW-CC-KV=V1&HW-CC-Date=20260528T025533Z&HW-CC-Expire=86400&HW-CC-Sign=5917E8B6F29107D2578E25BA903C5433CF21EA4654E724388895D57A2612B2F5)

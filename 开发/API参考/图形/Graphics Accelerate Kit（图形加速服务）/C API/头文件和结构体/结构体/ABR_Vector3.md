@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_a_b_r___vector3
 **支持设备：** Phone | Tablet | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | Tablet | TV
 
@@ -19,13 +19,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | Tablet | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | Tablet | TV
  
@@ -38,13 +38,13 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** Phone | Tablet | TV
 
   
 
-##### x
+#### x
 
 **支持设备：** Phone | Tablet | TV
 
@@ -58,7 +58,7 @@ float ABR_Vector3::x
  
   
 
-##### y
+#### y
 
 **支持设备：** Phone | Tablet | TV
 
@@ -72,7 +72,7 @@ float ABR_Vector3::y
  
   
 
-##### z
+#### z
 
 **支持设备：** Phone | Tablet | TV
 

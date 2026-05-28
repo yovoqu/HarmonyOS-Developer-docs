@@ -97,7 +97,7 @@ export default {
 
 
 
-##### 判断位置
+#### 判断位置
 
 使用isPointInPath判断坐标点是否在路径的区域内，使用isPointInStroke判断坐标点是否在路径的边缘线上，并在页面上显示返回结果。
 

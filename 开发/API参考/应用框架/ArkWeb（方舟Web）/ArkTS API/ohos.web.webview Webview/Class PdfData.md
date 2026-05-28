@@ -12,7 +12,7 @@ PdfData类用于封装createPdf函数输出的数据流。
 
   
 
-##### pdfArrayBuffer14+
+#### pdfArrayBuffer14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

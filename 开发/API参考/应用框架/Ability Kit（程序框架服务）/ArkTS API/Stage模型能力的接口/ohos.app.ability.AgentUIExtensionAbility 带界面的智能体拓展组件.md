@@ -16,7 +16,7 @@ AgentUIExtensionAbility继承自[UIExtensionAbility](https://developer.huawei.co
 
 
 
-##### 约束限制
+#### 约束限制
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -26,7 +26,7 @@ AgentUIExtensionAbility继承自[UIExtensionAbility](https://developer.huawei.co
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -36,7 +36,7 @@ import { AgentUIExtensionAbility } from '@kit.AbilityKit';
 
 
 
-##### AgentUIExtensionAbility
+#### AgentUIExtensionAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

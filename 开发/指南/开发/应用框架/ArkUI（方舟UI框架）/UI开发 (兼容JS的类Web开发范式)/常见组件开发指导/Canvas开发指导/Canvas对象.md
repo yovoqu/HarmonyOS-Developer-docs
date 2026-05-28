@@ -7,7 +7,7 @@
 Canvas组件提供画布，用于自定义绘制图形。具体用法请参考[CanvasRenderingContext2D对象](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-canvas-canvasrenderingcontext2d)。
 
 
-##### 创建Canvas组件
+#### 创建Canvas组件
 
 在pages/index目录下的hml文件中创建一个Canvas组件。
 
@@ -44,7 +44,7 @@ canvas {
 
 
 
-##### 添加样式
+#### 添加样式
 
 Canvas组件设置宽（width）、高（height）、背景色（background-color）及边框样式（border）。
 
@@ -80,7 +80,7 @@ canvas {
 
 
 
-##### 添加事件
+#### 添加事件
 
 Canvas添加长按事件，长按后可获取Canvas组件的dataUrl值（toDataURL方法返回的图片信息），打印在下方文本区域内。
 
@@ -148,7 +148,7 @@ export default {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/giAoqG0ASSumE4X_KjxG6A/zh-cn_image_0000002611754135.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014753Z&HW-CC-Expire=86400&HW-CC-Sign=D15C8D6DB7080AB6B52718F2D06DDFE6A39E4AA69F4A24A8747B8C313DCA5CD3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/giAoqG0ASSumE4X_KjxG6A/zh-cn_image_0000002611754135.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030425Z&HW-CC-Expire=86400&HW-CC-Sign=8F7EFDE9C14FF8EAF5ECAAFA30AB2AA04B461AF4401B82C2107C0295BED88423)
 
 
 > [!NOTE]

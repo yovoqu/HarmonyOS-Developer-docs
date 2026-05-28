@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getextendinfo
 
-##### 函数功能
+#### 函数功能
 
 获取本kernel的扩展信息。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 const KernelExtendInfo *GetExtendInfo() const
@@ -18,13 +18,13 @@ const KernelExtendInfo *GetExtendInfo() const
  
   
 
-##### 参数说明
+#### 参数说明
 
 无
  
   
 
-##### 返回值
+#### 返回值
 
 本kernel的扩展信息。
  
@@ -32,13 +32,13 @@ const KernelExtendInfo *GetExtendInfo() const
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 // 假设已存在KernelContext *context

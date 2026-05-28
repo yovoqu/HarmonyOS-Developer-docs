@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-midi-h
 **支持设备：** Phone | PC/2in1 | Tablet
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -35,13 +35,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -67,13 +67,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### OH_MIDIClient_Create()
+#### OH_MIDIClient_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -113,7 +113,7 @@ OH_MIDIStatusCode OH_MIDIClient_Create(OH_MIDIClient **client, OH_MIDICallbacks 
  
   
 
-##### OH_MIDIClient_Destroy()
+#### OH_MIDIClient_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -147,7 +147,7 @@ OH_MIDIStatusCode OH_MIDIClient_Destroy(OH_MIDIClient *client)
  
   
 
-##### OH_MIDIClient_GetDeviceCount()
+#### OH_MIDIClient_GetDeviceCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -180,7 +180,7 @@ OH_MIDIStatusCode OH_MIDIClient_GetDeviceCount(const OH_MIDIClient *client, size
  
   
 
-##### OH_MIDIClient_GetDeviceInfos()
+#### OH_MIDIClient_GetDeviceInfos()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -219,7 +219,7 @@ OH_MIDIStatusCode OH_MIDIClient_GetDeviceInfos(const OH_MIDIClient *client, OH_M
  
   
 
-##### OH_MIDIClient_OpenDevice()
+#### OH_MIDIClient_OpenDevice()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -255,7 +255,7 @@ OH_MIDIStatusCode OH_MIDIClient_OpenDevice(OH_MIDIClient *client, int64_t device
  
   
 
-##### OH_MIDIClient_OpenBLEDevice()
+#### OH_MIDIClient_OpenBLEDevice()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -294,7 +294,7 @@ OH_MIDIStatusCode OH_MIDIClient_OpenBLEDevice(OH_MIDIClient *client, const char 
  
   
 
-##### OH_MIDIClient_CloseDevice()
+#### OH_MIDIClient_CloseDevice()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -329,7 +329,7 @@ OH_MIDIStatusCode OH_MIDIClient_CloseDevice(OH_MIDIClient *client, OH_MIDIDevice
  
   
 
-##### OH_MIDIClient_GetPortCount()
+#### OH_MIDIClient_GetPortCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -361,7 +361,7 @@ OH_MIDIStatusCode OH_MIDIClient_GetPortCount(const OH_MIDIClient *client, int64_
  
   
 
-##### OH_MIDIClient_GetPortInfos()
+#### OH_MIDIClient_GetPortInfos()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -399,7 +399,7 @@ OH_MIDIStatusCode OH_MIDIClient_GetPortInfos(const OH_MIDIClient *client, int64_
  
   
 
-##### OH_MIDIDevice_OpenInputPort()
+#### OH_MIDIDevice_OpenInputPort()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -436,7 +436,7 @@ OH_MIDIStatusCode OH_MIDIDevice_OpenInputPort(OH_MIDIDevice *device, OH_MIDIPort
  
   
 
-##### OH_MIDIDevice_OpenOutputPort()
+#### OH_MIDIDevice_OpenOutputPort()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -471,7 +471,7 @@ OH_MIDIStatusCode OH_MIDIDevice_OpenOutputPort(OH_MIDIDevice *device, OH_MIDIPor
  
   
 
-##### OH_MIDIDevice_CloseInputPort()
+#### OH_MIDIDevice_CloseInputPort()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -506,7 +506,7 @@ OH_MIDIStatusCode OH_MIDIDevice_CloseInputPort(OH_MIDIDevice *device, uint32_t p
  
   
 
-##### OH_MIDIDevice_CloseOutputPort()
+#### OH_MIDIDevice_CloseOutputPort()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -541,7 +541,7 @@ OH_MIDIStatusCode OH_MIDIDevice_CloseOutputPort(OH_MIDIDevice *device, uint32_t 
  
   
 
-##### OH_MIDIDevice_Send()
+#### OH_MIDIDevice_Send()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -579,7 +579,7 @@ OH_MIDIStatusCode OH_MIDIDevice_Send(OH_MIDIDevice *device, uint32_t portIndex, 
  
   
 
-##### OH_MIDIDevice_SendSysEx()
+#### OH_MIDIDevice_SendSysEx()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -620,7 +620,7 @@ OH_MIDIStatusCode OH_MIDIDevice_SendSysEx(OH_MIDIDevice *device, uint32_t portIn
  
   
 
-##### OH_MIDIDevice_FlushOutputPort()
+#### OH_MIDIDevice_FlushOutputPort()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

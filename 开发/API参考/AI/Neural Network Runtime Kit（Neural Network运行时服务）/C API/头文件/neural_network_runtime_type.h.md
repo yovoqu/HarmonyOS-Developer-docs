@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-neural-network-runtime-type-h
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -23,13 +23,13 @@ Neural Network Runtime定义的结构体和枚举值。
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  
@@ -49,7 +49,7 @@ Neural Network Runtime定义的结构体和枚举值。
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  
@@ -68,7 +68,7 @@ Neural Network Runtime定义的结构体和枚举值。
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  
@@ -80,13 +80,13 @@ Neural Network Runtime定义的结构体和枚举值。
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### OH_NN_PerformanceMode
+#### OH_NN_PerformanceMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -111,7 +111,7 @@ enum OH_NN_PerformanceMode
  
   
 
-##### OH_NN_Priority
+#### OH_NN_Priority
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -135,7 +135,7 @@ enum OH_NN_Priority
  
   
 
-##### OH_NN_ReturnCode
+#### OH_NN_ReturnCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -170,7 +170,7 @@ Neural Network Runtime 定义的错误码类型。
  
   
 
-##### OH_NN_FuseType
+#### OH_NN_FuseType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -193,7 +193,7 @@ Neural Network Runtime 融合算子中激活函数的类型。
  
   
 
-##### OH_NN_Format
+#### OH_NN_Format
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -217,7 +217,7 @@ enum OH_NN_Format
  
   
 
-##### OH_NN_DeviceType
+#### OH_NN_DeviceType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -241,7 +241,7 @@ Neural Network Runtime 支持的设备类型。
  
   
 
-##### OH_NN_DataType
+#### OH_NN_DataType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -274,7 +274,7 @@ Neural Network Runtime 支持的数据类型。
  
   
 
-##### OH_NN_OperationType
+#### OH_NN_OperationType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -402,7 +402,7 @@ Neural Network Runtime 支持算子的类型。
  
   
 
-##### OH_NN_TensorType
+#### OH_NN_TensorType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -589,13 +589,13 @@ enum OH_NN_TensorType
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### NN_OnRunDone()
+#### NN_OnRunDone()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -623,7 +623,7 @@ typedef void (*NN_OnRunDone)(void *userData, OH_NN_ReturnCode errCode, void *out
  
   
 
-##### NN_OnServiceDied()
+#### NN_OnServiceDied()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

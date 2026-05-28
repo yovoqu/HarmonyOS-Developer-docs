@@ -10,7 +10,7 @@
 **起始版本：** 5.0.0(12)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -20,7 +20,7 @@ import { TextReader } from '@kit.SpeechKit';
 
 
 
-##### 注意事项
+#### 注意事项
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -28,7 +28,7 @@ import { TextReader } from '@kit.SpeechKit';
 
 
 
-##### init
+#### init
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -111,7 +111,7 @@ struct Index {
 
 
 
-##### start
+#### start
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -189,7 +189,7 @@ TextReader.start(readInfoList).then(() => {
 
 
 
-##### start
+#### start
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -272,7 +272,7 @@ TextReader.start(readInfoList, undefined, startParams).then(() => {
 
 
 
-##### stop
+#### stop
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -319,7 +319,7 @@ TextReader.stop().then(() => {
 
 
 
-##### resetParam
+#### resetParam
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -364,7 +364,7 @@ try {
 
 
 
-##### release
+#### release
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -412,7 +412,7 @@ TextReader.release().then(() => {
 
 
 
-##### pause
+#### pause
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -449,7 +449,7 @@ try {
 
 
 
-##### resume
+#### resume
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -490,7 +490,7 @@ try {
 
 
 
-##### playPrev
+#### playPrev
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -528,7 +528,7 @@ try {
 
 
 
-##### playNext
+#### playNext
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -566,7 +566,7 @@ try {
 
 
 
-##### hidePanel
+#### hidePanel
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -603,7 +603,7 @@ try {
 
 
 
-##### showPanel
+#### showPanel
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -640,7 +640,7 @@ try {
 
 
 
-##### showMinibar
+#### showMinibar
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -677,7 +677,7 @@ try {
 
 
 
-##### hideMinibar
+#### hideMinibar
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -714,7 +714,7 @@ try {
 
 
 
-##### queryReadState
+#### queryReadState
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -766,7 +766,7 @@ try {
 
 
 
-##### setArticleContent
+#### setArticleContent
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -811,7 +811,7 @@ try {
 
 
 
-##### setArticle
+#### setArticle
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -873,7 +873,7 @@ try {
 
 
 
-##### loadMore
+#### loadMore
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1002,7 +1002,7 @@ struct Index {
 
 
 
-##### queryReadStateByCategoryId
+#### queryReadStateByCategoryId
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1052,7 +1052,7 @@ try {
 
 
 
-##### on('setArticle')
+#### on('setArticle')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1099,7 +1099,7 @@ try {
 
 
 
-##### off('setArticle')
+#### off('setArticle')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1144,7 +1144,7 @@ try {
 
 
 
-##### on('clickArticle')
+#### on('clickArticle')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1191,7 +1191,7 @@ try {
 
 
 
-##### off('clickArticle')
+#### off('clickArticle')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1236,7 +1236,7 @@ try {
 
 
 
-##### on('clickAuthor')
+#### on('clickAuthor')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1283,7 +1283,7 @@ try {
 
 
 
-##### off('clickAuthor')
+#### off('clickAuthor')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1328,7 +1328,7 @@ try {
 
 
 
-##### on( 'clickNotification')
+#### on( 'clickNotification')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1375,7 +1375,7 @@ try {
 
 
 
-##### off('clickNotification')
+#### off('clickNotification')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1420,7 +1420,7 @@ try {
 
 
 
-##### on('showPanel')
+#### on('showPanel')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1467,7 +1467,7 @@ try {
 
 
 
-##### off('showPanel')
+#### off('showPanel')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1513,7 +1513,7 @@ try {
 
 
 
-##### on('hidePanel')
+#### on('hidePanel')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1560,7 +1560,7 @@ try {
 
 
 
-##### off('hidePanel')
+#### off('hidePanel')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1606,7 +1606,7 @@ try {
 
 
 
-##### on('stop')
+#### on('stop')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1653,7 +1653,7 @@ try {
 
 
 
-##### off('stop')
+#### off('stop')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1698,7 +1698,7 @@ try {
 
 
 
-##### on('release')
+#### on('release')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1745,7 +1745,7 @@ try {
 
 
 
-##### off('release')
+#### off('release')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1790,7 +1790,7 @@ try {
 
 
 
-##### on('stateChange')
+#### on('stateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1837,7 +1837,7 @@ try {
 
 
 
-##### off('stateChange')
+#### off('stateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1882,7 +1882,7 @@ try {
 
 
 
-##### on('requestMore')
+#### on('requestMore')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1929,7 +1929,7 @@ try {
 
 
 
-##### on('requestMore')
+#### on('requestMore')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1974,7 +1974,7 @@ try {
 
 
 
-##### off('requestMore')
+#### off('requestMore')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2019,7 +2019,7 @@ try {
 
 
 
-##### off('requestMore')
+#### off('requestMore')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2066,7 +2066,7 @@ try {
 
 
 
-##### on('eventNotification')
+#### on('eventNotification')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2113,7 +2113,7 @@ try {
 
 
 
-##### off('eventNotification')
+#### off('eventNotification')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2158,7 +2158,7 @@ try {
 
 
 
-##### on('eventPanel')
+#### on('eventPanel')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2205,7 +2205,7 @@ try {
 
 
 
-##### off('eventPanel')
+#### off('eventPanel')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2251,7 +2251,7 @@ try {
 
 
 
-##### on( 'eventReadList')
+#### on( 'eventReadList')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2300,7 +2300,7 @@ try {
 
 
 
-##### off('eventReadList')
+#### off('eventReadList')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2345,7 +2345,7 @@ try {
 
 
 
-##### on('readProgress')
+#### on('readProgress')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2392,7 +2392,7 @@ try {
 
 
 
-##### off('readProgress')
+#### off('readProgress')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2437,7 +2437,7 @@ try {
 
 
 
-##### Person
+#### Person
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2457,7 +2457,7 @@ try {
 
 
 
-##### ReaderParam
+#### ReaderParam
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2486,7 +2486,7 @@ try {
 
 
 
-##### StartParams
+#### StartParams
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2505,7 +2505,7 @@ try {
 
 
 
-##### MinibarParams
+#### MinibarParams
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2525,7 +2525,7 @@ try {
 
 
 
-##### BusinessBrandInfo
+#### BusinessBrandInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2547,7 +2547,7 @@ try {
 
 
 
-##### ReadState
+#### ReadState
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2569,7 +2569,7 @@ try {
 
 
 
-##### CustomFeature
+#### CustomFeature
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2633,7 +2633,7 @@ struct Index {
 
 
 
-##### ReadInfo
+#### ReadInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2663,7 +2663,7 @@ struct Index {
 
 
 
-##### CategoryInfo
+#### CategoryInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2686,7 +2686,7 @@ struct Index {
 
 
 
-##### TextInfo
+#### TextInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2708,7 +2708,7 @@ struct Index {
 
 
 
-##### BodyInfo
+#### BodyInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2730,7 +2730,7 @@ readInfo的正文内容信息
 
 
 
-##### AudioInfo
+#### AudioInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2755,7 +2755,7 @@ readInfo的正文内容信息
 
 
 
-##### ReadProgress
+#### ReadProgress
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2779,7 +2779,7 @@ readInfo的正文内容信息
 
 
 
-##### PanelEvent
+#### PanelEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2802,7 +2802,7 @@ readInfo的正文内容信息
 
 
 
-##### NotificationEvent
+#### NotificationEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2826,7 +2826,7 @@ readInfo的正文内容信息
 
 
 
-##### ListEventState
+#### ListEventState
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2848,7 +2848,7 @@ readInfo的正文内容信息
 
 
 
-##### ResetParamType
+#### ResetParamType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2869,7 +2869,7 @@ readInfo的正文内容信息
 
 
 
-##### DisplayTab
+#### DisplayTab
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2892,7 +2892,7 @@ readInfo的正文内容信息
 
 
 
-##### BarAlignment
+#### BarAlignment
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2912,7 +2912,7 @@ readInfo的正文内容信息
 
 
 
-##### BodyInfoType
+#### BodyInfoType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2932,7 +2932,7 @@ readInfo的正文内容信息
 
 
 
-##### CustomFeatureType
+#### CustomFeatureType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2952,7 +2952,7 @@ readInfo的正文内容信息
 
 
 
-##### ReadProgressType
+#### ReadProgressType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

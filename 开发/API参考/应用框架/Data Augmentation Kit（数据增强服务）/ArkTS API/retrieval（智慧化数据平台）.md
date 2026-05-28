@@ -16,7 +16,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -26,7 +26,7 @@ import { retrieval } from '@kit.DataAugmentationKit';
  
   
 
-##### getRetriever
+#### getRetriever
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -116,7 +116,7 @@ struct Page {
  
   
 
-##### RetrievalConfig
+#### RetrievalConfig
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -133,7 +133,7 @@ struct Page {
  
   
 
-##### ChannelConfig
+#### ChannelConfig
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -152,7 +152,7 @@ struct Page {
  
   
 
-##### ChannelType
+#### ChannelType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -170,7 +170,7 @@ struct Page {
  
   
 
-##### DbConfig
+#### DbConfig
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -189,7 +189,7 @@ type DbConfig = relationalStore.StoreConfig
  
   
 
-##### Retriever
+#### Retriever
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -203,7 +203,7 @@ type DbConfig = relationalStore.StoreConfig
  
   
 
-##### retrieveRdb
+#### retrieveRdb
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -494,7 +494,7 @@ async retrieve() {
  
   
 
-##### RetrievalCondition
+#### RetrievalCondition
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -514,7 +514,7 @@ async retrieve() {
  
   
 
-##### ExplanationConfig
+#### ExplanationConfig
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -531,7 +531,7 @@ async retrieve() {
  
   
 
-##### Recallcondition
+#### Recallcondition
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -551,7 +551,7 @@ type RecallCondition = InvertedIndexRecallCondition | VectorRecallCondition
  
   
 
-##### InvertedIndexRecallCondition
+#### InvertedIndexRecallCondition
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -575,7 +575,7 @@ type RecallCondition = InvertedIndexRecallCondition | VectorRecallCondition
  
   
 
-##### ColumnName
+#### ColumnName
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -594,7 +594,7 @@ type ColumnName = string
  
   
 
-##### RecallName
+#### RecallName
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -613,7 +613,7 @@ type RecallName = string
  
   
 
-##### FilterInfo
+#### FilterInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -633,7 +633,7 @@ type RecallName = string
  
   
 
-##### FilterValue
+#### FilterValue
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -654,7 +654,7 @@ type FilterValue = number | string | bigint
  
   
 
-##### FilterRange
+#### FilterRange
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -672,7 +672,7 @@ type FilterValue = number | string | bigint
  
   
 
-##### Operator
+#### Operator
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -699,7 +699,7 @@ type FilterValue = number | string | bigint
  
   
 
-##### InvertedIndexStrategy
+#### InvertedIndexStrategy
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -720,7 +720,7 @@ type InvertedIndexStrategy = Bm25Strategy | ExactMatchingStrategy | ProximityStr
  
   
 
-##### Bm25Strategy
+#### Bm25Strategy
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -738,7 +738,7 @@ type InvertedIndexStrategy = Bm25Strategy | ExactMatchingStrategy | ProximityStr
  
   
 
-##### ExactMatchingStrategy
+#### ExactMatchingStrategy
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -756,7 +756,7 @@ type InvertedIndexStrategy = Bm25Strategy | ExactMatchingStrategy | ProximityStr
  
   
 
-##### ProximityStrategy
+#### ProximityStrategy
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -775,7 +775,7 @@ type InvertedIndexStrategy = Bm25Strategy | ExactMatchingStrategy | ProximityStr
  
   
 
-##### VectorRecallCondition
+#### VectorRecallCondition
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -798,7 +798,7 @@ type InvertedIndexStrategy = Bm25Strategy | ExactMatchingStrategy | ProximityStr
  
   
 
-##### VectorQuery
+#### VectorQuery
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -817,7 +817,7 @@ type InvertedIndexStrategy = Bm25Strategy | ExactMatchingStrategy | ProximityStr
  
   
 
-##### RerankMethod
+#### RerankMethod
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -836,7 +836,7 @@ type InvertedIndexStrategy = Bm25Strategy | ExactMatchingStrategy | ProximityStr
  
   
 
-##### RerankType
+#### RerankType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -854,7 +854,7 @@ type InvertedIndexStrategy = Bm25Strategy | ExactMatchingStrategy | ProximityStr
  
   
 
-##### RerankParameter
+#### RerankParameter
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -874,7 +874,7 @@ type RerankParameter = InvertedIndexRerankParameter| VectorRerankParameter
  
   
 
-##### InvertedIndexRerankParameter
+#### InvertedIndexRerankParameter
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -891,7 +891,7 @@ type RerankParameter = InvertedIndexRerankParameter| VectorRerankParameter
  
   
 
-##### VectorRerankParameter
+#### VectorRerankParameter
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -910,7 +910,7 @@ type RerankParameter = InvertedIndexRerankParameter| VectorRerankParameter
  
   
 
-##### RdbRecords
+#### RdbRecords
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -928,7 +928,7 @@ type RerankParameter = InvertedIndexRerankParameter| VectorRerankParameter
  
   
 
-##### ItemInfo
+#### ItemInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -950,7 +950,7 @@ type RerankParameter = InvertedIndexRerankParameter| VectorRerankParameter
  
   
 
-##### RecallScore
+#### RecallScore
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -968,7 +968,7 @@ type RerankParameter = InvertedIndexRerankParameter| VectorRerankParameter
  
   
 
-##### SimilarityLevel
+#### SimilarityLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

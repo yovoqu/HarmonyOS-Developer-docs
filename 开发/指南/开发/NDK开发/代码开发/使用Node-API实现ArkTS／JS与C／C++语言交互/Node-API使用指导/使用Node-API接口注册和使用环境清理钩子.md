@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-cleanuphook
 
-##### 简介
+#### 简介
 
 使用Node-API接口在进程退出时处理未释放资源，在Node-API模块注册清理钩子，一旦当前环境退出，这些钩子就会运行，使所有资源都被正确释放。
 
 
 
-##### 基本概念
+#### 基本概念
 
 Node-API提供了注册和取消注册清理钩子函数的功能，以下是相关概念：
 
@@ -22,7 +22,7 @@ Node-API提供了注册和取消注册清理钩子函数的功能，以下是相
 
 
 
-##### 场景和功能介绍
+#### 场景和功能介绍
 
 以下Node-API接口用于注册和取消不同类型的清理钩子。他们的使用场景如下：
 
@@ -36,13 +36,13 @@ Node-API提供了注册和取消注册清理钩子函数的功能，以下是相
 
 
 
-##### 使用示例
+#### 使用示例
 
 Node-API接口开发流程参考[使用Node-API实现跨语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-process)，本文仅对接口对应C++及ArkTS相关代码进行展示。
 
 
 
-##### napi_add_env_cleanup_hook
+#### napi_add_env_cleanup_hook
 
 用于注册一个环境清理钩子函数，该函数将在环境退出时执行。这是确保资源在环境销毁前得到清理的重要机制。
 
@@ -50,7 +50,7 @@ Node-API接口开发流程参考[使用Node-API实现跨语言交互开发流程
 
 
 
-##### napi_remove_env_cleanup_hook
+#### napi_remove_env_cleanup_hook
 
 用于取消之前注册的环境清理钩子函数。在某些情况下，需要在插件卸载或资源被重新分配时取消钩子函数。
 
@@ -179,13 +179,13 @@ worker相关开发配置和流程参考以下链接：
 
 
 
-##### napi_add_async_cleanup_hook
+#### napi_add_async_cleanup_hook
 
 这个接口用于注册一个异步清理钩子函数，该函数将在环境退出时异步执行。与同步钩子不同，异步钩子允许在进程退出时进行更长时间的操作，而不会阻塞进程退出。
 
 
 
-##### napi_remove_async_cleanup_hook
+#### napi_remove_async_cleanup_hook
 
 这个接口用于取消之前注册的异步清理钩子函数。与取消同步钩子类似，这通常是在不再需要钩子函数时进行的操作。
 

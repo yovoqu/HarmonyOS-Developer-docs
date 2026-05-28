@@ -7,7 +7,7 @@
 在 build() 方法内，避免将@Observed和@ObjectLink装饰的类对象的状态变量直接作为参数传递给方法（如 a.b(this.object)）。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 @Observed
@@ -98,7 +98,7 @@ struct Child {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 @Observed
@@ -168,7 +168,7 @@ struct Child {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(80,160,79);">plugin:@correctness/all</span>

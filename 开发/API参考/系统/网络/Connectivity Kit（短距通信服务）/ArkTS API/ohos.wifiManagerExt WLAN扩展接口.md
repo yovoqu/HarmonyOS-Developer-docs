@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { wifiManagerExt } from '@kit.ConnectivityKit';
  
   
 
-##### wifiManagerExt.enableHotspot(deprecated)
+#### wifiManagerExt.enableHotspot(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -63,7 +63,7 @@ import { wifiManagerExt } from '@kit.ConnectivityKit';
  
   
 
-##### wifiManagerExt.disableHotspot(deprecated)
+#### wifiManagerExt.disableHotspot(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -104,7 +104,7 @@ import { wifiManagerExt } from '@kit.ConnectivityKit';
  
   
 
-##### wifiManagerExt.getSupportedPowerMode
+#### wifiManagerExt.getSupportedPowerMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -136,7 +136,7 @@ getSupportedPowerMode(): Promise<Array&lt;PowerMode&gt;>
  
   
 
-##### PowerMode
+#### PowerMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -153,7 +153,7 @@ getSupportedPowerMode(): Promise<Array&lt;PowerMode&gt;>
  
   
 
-##### wifiManagerExt.getSupportedPowerMode
+#### wifiManagerExt.getSupportedPowerMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -199,7 +199,7 @@ wifiManagerExt.getSupportedPowerMode((err, data: wifiManagerExt.PowerMode[]) => 
  
   
 
-##### wifiManagerExt.getPowerMode
+#### wifiManagerExt.getPowerMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -249,7 +249,7 @@ async function getWifiPowerMode() {
  
   
 
-##### wifiManagerExt.getPowerMode
+#### wifiManagerExt.getPowerMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -301,7 +301,7 @@ import { wifiManagerExt } from '@kit.ConnectivityKit';
  
   
 
-##### wifiManagerExt.setPowerMode(deprecated)
+#### wifiManagerExt.setPowerMode(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

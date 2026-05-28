@@ -32,7 +32,7 @@
 
 
 
-##### 支持的算法与规格
+#### 支持的算法与规格
 
 安全随机数生成，设置硬件熵源之后，使用OpenSSL的RAND_priv_bytes接口生成。
 
@@ -43,7 +43,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 调用[OH_CryptoRand_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-rand-h#oh_cryptorand_create)，创建随机数生成器。
 2. 调用[OH_CryptoRand_EnableHardwareEntropy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-rand-h#oh_cryptorand_enablehardwareentropy)，开启硬件熵源。
 3. （可选）调用[OH_CryptoRand_SetSeed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-rand-h#oh_cryptorand_setseed)，为随机数生成器设置种子。

@@ -21,7 +21,7 @@ ArrayList和[LinkedList](https://developer.huawei.com/consumer/cn/doc/harmonyos-
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -31,13 +31,13 @@ import { ArrayList } from '@kit.ArkTS';
 
 
 
-##### ArrayList
+#### ArrayList
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -52,7 +52,7 @@ import { ArrayList } from '@kit.ArkTS';
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -81,7 +81,7 @@ let arrayList = new ArrayList<string | number>();
 
 
 
-##### add
+#### add
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -138,7 +138,7 @@ console.info("length:", arrayList.length);  // length: 5
 
 
 
-##### insert
+#### insert
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -181,7 +181,7 @@ console.info("length:", arrayList.length);  // length: 3
 
 
 
-##### has
+#### has
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -227,7 +227,7 @@ console.info("result:", result);  // result: true
 
 
 
-##### getIndexOf
+#### getIndexOf
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -279,7 +279,7 @@ console.info("result = ", result); // result = 0
 
 
 
-##### getLastIndexOf
+#### getLastIndexOf
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -331,7 +331,7 @@ console.info("result = ", result); // result = 5
 
 
 
-##### removeByIndex
+#### removeByIndex
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -383,7 +383,7 @@ console.info("result = ", result); // result = 5
 
 
 
-##### remove
+#### remove
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -432,7 +432,7 @@ console.info("result = ", result); // result =  true
 
 
 
-##### removeByRange
+#### removeByRange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -476,7 +476,7 @@ arrayList.removeByRange(2, 4);
 
 
 
-##### replaceAllElements
+#### replaceAllElements
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -531,7 +531,7 @@ arrayList.replaceAllElements((value: number): number => {
 
 
 
-##### forEach
+#### forEach
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -589,7 +589,7 @@ arrayList.forEach((value: number, index?: number) => {
 
 
 
-##### sort
+#### sort
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -633,7 +633,7 @@ arrayList.sort();
 
 
 
-##### subArrayList
+#### subArrayList
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -685,7 +685,7 @@ console.info("result = ", result.length); // result = 2
 
 
 
-##### clear
+#### clear
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -719,7 +719,7 @@ arrayList.clear();
 
 
 
-##### clone
+#### clone
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -761,7 +761,7 @@ console.info("result = ", result.length); // result = 4
 
 
 
-##### getCapacity
+#### getCapacity
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -803,7 +803,7 @@ console.info("result = ", result); // result = 10
 
 
 
-##### convertToArray
+#### convertToArray
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -845,7 +845,7 @@ console.info("result = ", result); // result =  2,4,5,4
 
 
 
-##### isEmpty
+#### isEmpty
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -887,7 +887,7 @@ console.info("result = ", result); // result =  false
 
 
 
-##### [index: number]12+
+#### [index: number]12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -937,7 +937,7 @@ console.info("result = ", result); // result =  5
 
 
 
-##### increaseCapacityTo
+#### increaseCapacityTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -981,7 +981,7 @@ console.info("result = ", arrayList.length); // result = 4
 
 
 
-##### trimToCurrentLength
+#### trimToCurrentLength
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1016,7 +1016,7 @@ console.info("result = ", arrayList.length); // result = 4
 
 
 
-##### [Symbol.iterator]
+#### [Symbol.iterator]
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1077,7 +1077,7 @@ while(!temp.done) {
 
 
 
-##### ArrayListComparatorFn&lt;T&gt;23+
+#### ArrayListComparatorFn&lt;T&gt;23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

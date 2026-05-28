@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-face
 
-##### 约束与限制
+#### 约束与限制
 
 从6.1.0(23)开始，人脸跟踪能力支持部分Phone、部分Tablet、TV设备。请参考[硬件要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-preparations#硬件要求)判断设备是否支持人脸识别与跟踪特性（[ARENGINE_FEATURE_TYPE_FACE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arfeaturetype)）。
 
 
 
-##### 接口说明
+#### 接口说明
 
 人脸跟踪主要依赖ARFace，以下接口为人脸跟踪的相关接口。详细接口和说明，请参考[AR Engine API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine)。
 
@@ -24,13 +24,13 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 对于使用ArkTS的任何AR应用，首先需要参考[AR特性检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontrollerisartypesupported)接口检查当前设备是否支持该特性。若设备支持，创建一个AR会话[ARViewContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontext)，用于管理AR Engine的系统状态。AR会话[ARViewContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontext)的创建可以参考[管理AR会话](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-arsession)章节。
 
 
 
-##### 导入模块
+#### 导入模块
 
 人脸跟踪能力所需要导入的模块如下：
 
@@ -42,7 +42,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 
-##### 定义变量
+#### 定义变量
 
 定义变量face接收人脸对象，定义变量faceGeometry接收人脸几何对象，定义变量faceBlendShapes接收人脸微表情对象。
 
@@ -54,7 +54,7 @@ let faceBlendShapes: arEngine.ARBlendShapes;
 
 
 
-##### 显示预览流
+#### 显示预览流
 
 首先初始化AR会话和AR场景，可以参考[初始化AR会话和AR场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-arsession#初始化ar会话和ar场景)章节。
 
@@ -138,7 +138,7 @@ struct ARFace {
 
 
 
-##### 获取人脸几何数据和微表情数据
+#### 获取人脸几何数据和微表情数据
 
 调用[ARViewCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcallback)，使用其中的[onFrameUpdate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcallbackonframeupdate)方法进行帧数据更新，通过[ARSession.getFrame](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arsessiongetframe)方法获取当前帧，通过[ARSession.getAllTrackables](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arsessiongetalltrackables)获得当前会话包含的人脸对象数据，通过[ARFace.getGeometry](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arfacegetgeometry)和[ARFace.getBlendShapes](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arfacegetblendshapes)从人脸对象数据中获取识别到的几何信息和微表情信息，相关变量定义参考[定义变量](#定义变量)。
 

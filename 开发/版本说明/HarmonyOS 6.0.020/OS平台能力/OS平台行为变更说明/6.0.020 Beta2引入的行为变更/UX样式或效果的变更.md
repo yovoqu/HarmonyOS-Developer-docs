@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/changelogs-ux-6002
 
-##### selectDynamicIcon接口新增错误码
+#### selectDynamicIcon接口新增错误码
 
 **变更原因**
  

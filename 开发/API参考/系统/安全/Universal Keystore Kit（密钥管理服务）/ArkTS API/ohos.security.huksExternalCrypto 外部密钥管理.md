@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { huksExternalCrypto } from '@kit.UniversalKeystoreKit';
 
 
 
-##### HuksExternalCryptoTagType
+#### HuksExternalCryptoTagType
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -38,7 +38,7 @@ import { huksExternalCrypto } from '@kit.UniversalKeystoreKit';
 
 
 
-##### HuksExternalCryptoTag
+#### HuksExternalCryptoTag
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -57,7 +57,7 @@ import { huksExternalCrypto } from '@kit.UniversalKeystoreKit';
 
 
 
-##### HuksExternalCryptoParam
+#### HuksExternalCryptoParam
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -73,7 +73,7 @@ import { huksExternalCrypto } from '@kit.UniversalKeystoreKit';
 
 
 
-##### HuksExternalPinAuthState
+#### HuksExternalPinAuthState
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -90,7 +90,7 @@ import { huksExternalCrypto } from '@kit.UniversalKeystoreKit';
 
 
 
-##### huksExternalCrypto.registerProvider
+#### huksExternalCrypto.registerProvider
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -162,7 +162,7 @@ huksExternalCrypto.registerProvider(providerName, extProperties)
 
 
 
-##### huksExternalCrypto.unregisterProvider
+#### huksExternalCrypto.unregisterProvider
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -232,7 +232,7 @@ huksExternalCrypto.unregisterProvider(providerName, extProperties)
 
 
 
-##### huksExternalCrypto.getUkeyPinAuthState
+#### huksExternalCrypto.getUkeyPinAuthState
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -297,7 +297,7 @@ huksExternalCrypto.getUkeyPinAuthState(testResourceId, extProperties)
 
 
 
-##### huksExternalCrypto.getProperty
+#### huksExternalCrypto.getProperty
 
 **支持设备：** PC/2in1 | Tablet
 

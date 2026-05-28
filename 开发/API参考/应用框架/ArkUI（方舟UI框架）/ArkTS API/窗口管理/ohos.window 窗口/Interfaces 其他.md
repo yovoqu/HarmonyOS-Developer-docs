@@ -10,7 +10,7 @@
 
 
 
-##### Configuration9+
+#### Configuration9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -31,7 +31,7 @@
 
 
 
-##### SystemBarProperties
+#### SystemBarProperties
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -53,7 +53,7 @@
 
 
 
-##### StatusBarProperty18+
+#### StatusBarProperty18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -68,7 +68,7 @@
 
 
 
-##### SystemBarStyle12+
+#### SystemBarStyle12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -85,7 +85,7 @@
 
 
 
-##### FrameMetrics22+
+#### FrameMetrics22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -103,7 +103,7 @@
 
 
 
-##### Rect7+
+#### Rect7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -123,7 +123,7 @@
 
 
 
-##### RectInVP23+
+#### RectInVP23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -143,7 +143,7 @@
 
 
 
-##### AvoidArea7+
+#### AvoidArea7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -172,7 +172,7 @@
 
 
 
-##### UIEnvAvoidAreaVP23+
+#### UIEnvAvoidAreaVP23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -191,7 +191,7 @@
 
 
 
-##### UIEnvWindowAvoidAreaInfoPX23+
+#### UIEnvWindowAvoidAreaInfoPX23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -209,7 +209,7 @@
 
 
 
-##### UIEnvWindowAvoidAreaInfoVP23+
+#### UIEnvWindowAvoidAreaInfoVP23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -227,7 +227,7 @@
 
 
 
-##### Size7+
+#### Size7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -245,7 +245,7 @@
 
 
 
-##### SizeInVP23+
+#### SizeInVP23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -263,7 +263,7 @@
 
 
 
-##### Position20+
+#### Position20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -279,7 +279,7 @@
 
 
 
-##### RectChangeOptions12+
+#### RectChangeOptions12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -297,7 +297,7 @@
 
 
 
-##### AvoidAreaOptions12+
+#### AvoidAreaOptions12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -315,7 +315,7 @@
 
 
 
-##### WindowProperties
+#### WindowProperties
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -344,7 +344,7 @@
 
 
 
-##### DecorButtonStyle14+
+#### DecorButtonStyle14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -364,7 +364,7 @@
 
 
 
-##### WindowLimits11+
+#### WindowLimits11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -393,7 +393,7 @@
 
 
 
-##### TitleButtonRect11+
+#### TitleButtonRect11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -413,7 +413,7 @@
 
 
 
-##### MoveConfiguration15+
+#### MoveConfiguration15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -430,7 +430,7 @@
 
 
 
-##### WindowDensityInfo15+
+#### WindowDensityInfo15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -449,7 +449,7 @@
 
 
 
-##### WindowLayoutInfo15+
+#### WindowLayoutInfo15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -466,7 +466,7 @@
 
 
 
-##### KeyboardInfo18+
+#### KeyboardInfo18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -484,7 +484,7 @@
 
 
 
-##### ShowWindowOptions20+
+#### ShowWindowOptions20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -501,7 +501,7 @@
 
 
 
-##### WindowAnimationConfig20+
+#### WindowAnimationConfig20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -520,7 +520,7 @@
 
 
 
-##### WindowInfo18+
+#### WindowInfo18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -541,7 +541,7 @@
 
 
 
-##### TransitionAnimation20+
+#### TransitionAnimation20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -559,7 +559,7 @@
 
 
 
-##### StartAnimationParams20+
+#### StartAnimationParams20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -580,7 +580,7 @@
 
 
 
-##### WindowCreateParams20+
+#### WindowCreateParams20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -596,13 +596,13 @@
 
 
 
-##### Callback15+
+#### Callback15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### (data: T)15+
+#### (data: T)15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -632,7 +632,7 @@
 
 
 
-##### RotationChangeInfo19+
+#### RotationChangeInfo19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -652,7 +652,7 @@
 
 
 
-##### RotationChangeResult19+
+#### RotationChangeResult19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -672,7 +672,7 @@
 
 
 
-##### SubWindowOptions11+
+#### SubWindowOptions11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -694,7 +694,7 @@
 
 
 
-##### KeyFramePolicy20+
+#### KeyFramePolicy20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -713,7 +713,7 @@
 
 
 
-##### MainWindowInfo21+
+#### MainWindowInfo21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -731,7 +731,7 @@
 
 
 
-##### WindowSnapshotConfiguration21+
+#### WindowSnapshotConfiguration21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

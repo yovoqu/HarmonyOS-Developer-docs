@@ -14,7 +14,7 @@
 **起始版本：** 5.0.0(12)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -24,7 +24,7 @@ import { attributionTestManager } from '@kit.AppGalleryKit';
 
 
 
-##### attributionTestManager.validateSource
+#### attributionTestManager.validateSource
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -138,7 +138,7 @@ class  AttributionTest {
 
 
 
-##### attributionTestManager.setPostback
+#### attributionTestManager.setPostback
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -255,7 +255,7 @@ struct Attribution {
 
 
 
-##### attributionTestManager.flushPostbacks
+#### attributionTestManager.flushPostbacks
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -344,7 +344,7 @@ struct Attribution {
 
 
 
-##### AdSourceInfo
+#### AdSourceInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -371,7 +371,7 @@ struct Attribution {
 
 
 
-##### PostbackInfo
+#### PostbackInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -397,7 +397,7 @@ struct Attribution {
 
 
 
-##### SourceType
+#### SourceType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import ability from '@ohos.ability.ability';
  
   
 
-##### 使用说明
+#### 使用说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -35,7 +35,7 @@ import relationalStore from '@ohos.data.relationalStore';
  
   
 
-##### DataAbilityHelper.openFile
+#### DataAbilityHelper.openFile
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -77,7 +77,7 @@ DAHelper.openFile('dataability:///com.example.DataAbility', mode, (error, data) 
  
   
 
-##### DataAbilityHelper.openFile
+#### DataAbilityHelper.openFile
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -121,7 +121,7 @@ DAHelper.openFile('dataability:///com.example.DataAbility', mode).then((data) =>
  
   
 
-##### DataAbilityHelper.on('dataChange')
+#### DataAbilityHelper.on('dataChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -163,7 +163,7 @@ DAHelper.on(
  
   
 
-##### DataAbilityHelper.off('dataChange')
+#### DataAbilityHelper.off('dataChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -209,7 +209,7 @@ DAHelper.off(
  
   
 
-##### DataAbilityHelper.getType
+#### DataAbilityHelper.getType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -249,7 +249,7 @@ DAHelper.getType('dataability:///com.example.DataAbility', (error, data) => {
  
   
 
-##### DataAbilityHelper.getType
+#### DataAbilityHelper.getType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -291,7 +291,7 @@ DAHelper.getType('dataability:///com.example.DataAbility').then((data) => {
  
   
 
-##### DataAbilityHelper.getFileTypes
+#### DataAbilityHelper.getFileTypes
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -332,7 +332,7 @@ DAHelper.getFileTypes( 'dataability:///com.example.DataAbility', 'image/*', (err
  
   
 
-##### DataAbilityHelper.getFileTypes
+#### DataAbilityHelper.getFileTypes
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -375,7 +375,7 @@ DAHelper.getFileTypes('dataability:///com.example.DataAbility', 'image/*').then(
  
   
 
-##### DataAbilityHelper.normalizeUri
+#### DataAbilityHelper.normalizeUri
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -415,7 +415,7 @@ DAHelper.normalizeUri('dataability:///com.example.DataAbility', (error, data) =>
  
   
 
-##### DataAbilityHelper.normalizeUri
+#### DataAbilityHelper.normalizeUri
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -457,7 +457,7 @@ DAHelper.normalizeUri('dataability:///com.example.DataAbility').then((data) => {
  
   
 
-##### DataAbilityHelper.denormalizeUri
+#### DataAbilityHelper.denormalizeUri
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -497,7 +497,7 @@ DAHelper.denormalizeUri('dataability:///com.example.DataAbility', (error, data) 
  
   
 
-##### DataAbilityHelper.denormalizeUri
+#### DataAbilityHelper.denormalizeUri
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -539,7 +539,7 @@ DAHelper.denormalizeUri('dataability:///com.example.DataAbility').then((data) =>
  
   
 
-##### DataAbilityHelper.notifyChange
+#### DataAbilityHelper.notifyChange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -579,7 +579,7 @@ DAHelper.notifyChange('dataability:///com.example.DataAbility', (error) => {
  
   
 
-##### DataAbilityHelper.notifyChange
+#### DataAbilityHelper.notifyChange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -621,7 +621,7 @@ DAHelper.notifyChange('dataability:///com.example.DataAbility').then(() => {
  
   
 
-##### DataAbilityHelper.insert
+#### DataAbilityHelper.insert
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -669,7 +669,7 @@ DAHelper.insert('dataability:///com.example.DataAbility', valueBucket, (error, d
  
   
 
-##### DataAbilityHelper.insert
+#### DataAbilityHelper.insert
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -719,7 +719,7 @@ DAHelper.insert('dataability:///com.example.DataAbility', valueBucket).then((dat
  
   
 
-##### DataAbilityHelper.batchInsert
+#### DataAbilityHelper.batchInsert
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -764,7 +764,7 @@ DAHelper.batchInsert('dataability:///com.example.DataAbility', cars, (error, dat
  
   
 
-##### DataAbilityHelper.batchInsert
+#### DataAbilityHelper.batchInsert
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -811,7 +811,7 @@ DAHelper.batchInsert('dataability:///com.example.DataAbility', cars).then((data)
  
   
 
-##### DataAbilityHelper.delete
+#### DataAbilityHelper.delete
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -854,7 +854,7 @@ DAHelper.delete('dataability:///com.example.DataAbility', da, (error, data) => {
  
   
 
-##### DataAbilityHelper.delete
+#### DataAbilityHelper.delete
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -899,7 +899,7 @@ DAHelper.delete('dataability:///com.example.DataAbility', da).then((data) => {
  
   
 
-##### DataAbilityHelper.delete
+#### DataAbilityHelper.delete
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -939,7 +939,7 @@ DAHelper.delete('dataability:///com.example.DataAbility', (error, data) => {
  
   
 
-##### DataAbilityHelper.update
+#### DataAbilityHelper.update
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -990,7 +990,7 @@ DAHelper.update('dataability:///com.example.DataAbility', va, da, (error, data) 
  
   
 
-##### DataAbilityHelper.update
+#### DataAbilityHelper.update
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1043,7 +1043,7 @@ DAHelper.update('dataability:///com.example.DataAbility', va, da).then((data) =>
  
   
 
-##### DataAbilityHelper.update
+#### DataAbilityHelper.update
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1091,7 +1091,7 @@ DAHelper.update('dataability:///com.example.DataAbility', va, (error, data) => {
  
   
 
-##### DataAbilityHelper.query
+#### DataAbilityHelper.query
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1136,7 +1136,7 @@ DAHelper.query('dataability:///com.example.DataAbility', cars, da, (error, data)
  
   
 
-##### DataAbilityHelper.query
+#### DataAbilityHelper.query
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1176,7 +1176,7 @@ DAHelper.query('dataability:///com.example.DataAbility', (error, data) => {
  
   
 
-##### DataAbilityHelper.query
+#### DataAbilityHelper.query
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1218,7 +1218,7 @@ DAHelper.query('dataability:///com.example.DataAbility', cars, (error, data) => 
  
   
 
-##### DataAbilityHelper.query
+#### DataAbilityHelper.query
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1261,7 +1261,7 @@ DAHelper.query('dataability:///com.example.DataAbility', da, (error, data) => {
  
   
 
-##### DataAbilityHelper.query
+#### DataAbilityHelper.query
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1308,7 +1308,7 @@ DAHelper.query('dataability:///com.example.DataAbility', cars, da).then((data) =
  
   
 
-##### DataAbilityHelper.call
+#### DataAbilityHelper.call
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1352,7 +1352,7 @@ dataAbilityHelper.call('dataability:///com.example.jsapidemo.UserDataAbility',
  
   
 
-##### DataAbilityHelper.call
+#### DataAbilityHelper.call
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1401,7 +1401,7 @@ dataAbilityHelper.call('dataability:///com.example.jsapidemo.UserDataAbility',
  
   
 
-##### DataAbilityHelper.executeBatch
+#### DataAbilityHelper.executeBatch
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1444,7 +1444,7 @@ dataAbilityHelper.executeBatch('dataability:///com.example.jsapidemo.UserDataAbi
  
   
 
-##### DataAbilityHelper.executeBatch
+#### DataAbilityHelper.executeBatch
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1492,7 +1492,7 @@ dataAbilityHelper.executeBatch('dataability:///com.example.jsapidemo.UserDataAbi
  
   
 
-##### PacMap
+#### PacMap
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -15,7 +15,7 @@
 
  
 
-##### 获取所有已上架的包列表
+#### 获取所有已上架的包列表
 
 使用[export_pkginfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-repo-export-pkginfo) 命令，导出OpenHarmony三方库中心仓已上架的包列表。
  
@@ -47,7 +47,7 @@ PS C:\Users\xxxxx\Desktop> ohpm-repo export_pkginfo  --public-registry https://o
  
  
 
-##### 批量下载三方包
+#### 批量下载三方包
 
 执行[batch_download](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-repo-batch-download)命令将上一步生成的pkgInfo_xxx.json文件中记录的包全部下载。
  
@@ -79,7 +79,7 @@ PS C:\Users\xxxxx\Desktop> ohpm-repo batch_download C:\Users\xxxxx\Desktop\pkgIn
  
  
 
-##### 批量上传
+#### 批量上传
 
 执行batch_publish命令将上一步生成的batch_download_xxx.zip压缩包中全部包批量上传到ohpm-repo。
  
@@ -101,7 +101,7 @@ PS C:\Users\xxxxx\Desktop> ohpm-repo batch_publish C:\Users\xxxxx\Desktop\batch_
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/gtTFgG8bSlS9WDiCclW23g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T015016Z&HW-CC-Expire=86400&HW-CC-Sign=C99662ECD8E7E151D5B13451A213F5D13A8C23394781B76077EB2BE6B2A0D5A4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/49UuuD_zSo2-K_VC_rxO3g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030646Z&HW-CC-Expire=86400&HW-CC-Sign=E7EB417123CEEC0D450A759C9071229F10747BD9A02B12BA84A45ADB57857D82)
  
 
 如果ohpm-repo实例的数据存储类型为filedb，请执行ohpm-repo restart命令重启ohpm-repo服务，以便刷新ohpm-repo实例缓存中的数据。该操作会影响正在使用ohpm-repo服务的用户，请提前告知。

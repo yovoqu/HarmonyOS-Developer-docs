@@ -7,7 +7,7 @@
 禁止在返回类型或者泛型类型之外使用void。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/no-invalid-void-type选项](https://typescript-eslint.nodejs.cn/rules/no-invalid-void-type/#options)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 export type NoOp = () => void;
@@ -44,7 +44,7 @@ export type StillVoid = void | never;
  
  
 
-##### 反例
+#### 反例
 
 ```text
 // 不允许使用void作为类型
@@ -69,7 +69,7 @@ export interface Interface {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

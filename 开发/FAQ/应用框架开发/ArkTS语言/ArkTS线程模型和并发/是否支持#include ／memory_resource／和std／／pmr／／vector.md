@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-149
 
-## 是否支持#include &lt;memory_resource&gt;和std::pmr::vector
+# 是否支持#include &lt;memory_resource&gt;和std::pmr::vector
  
 
 暂时不支持。

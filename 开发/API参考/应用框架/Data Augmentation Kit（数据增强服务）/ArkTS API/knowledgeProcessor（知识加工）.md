@@ -12,7 +12,7 @@
 **起始版本：** 6.0.0(20)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { knowledgeProcessor } from '@kit.DataAugmentationKit';
  
   
 
-##### getKnowledgeProcessor
+#### getKnowledgeProcessor
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -97,7 +97,7 @@ async function getProcessor() {
  
   
 
-##### cleanKnowledgeData
+#### cleanKnowledgeData
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -168,7 +168,7 @@ async function cleanKnowledgeData() {
  
   
 
-##### KnowledgeProcessorConfig
+#### KnowledgeProcessorConfig
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -185,7 +185,7 @@ async function cleanKnowledgeData() {
  
   
 
-##### KnowledgeSourceConfig
+#### KnowledgeSourceConfig
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -202,7 +202,7 @@ async function cleanKnowledgeData() {
  
   
 
-##### KnowledgeProcessConfig
+#### KnowledgeProcessConfig
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -219,7 +219,7 @@ async function cleanKnowledgeData() {
  
   
 
-##### KnowledgeProcessorMode
+#### KnowledgeProcessorMode
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -237,7 +237,7 @@ async function cleanKnowledgeData() {
  
   
 
-##### KnowledgeProcessor
+#### KnowledgeProcessor
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -249,7 +249,7 @@ async function cleanKnowledgeData() {
  
   
 
-##### getStatus
+#### getStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -313,7 +313,7 @@ async function getStatus() {
  
   
 
-##### startProcess
+#### startProcess
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -387,7 +387,7 @@ async function startProcess() {
  
   
 
-##### stopProcess
+#### stopProcess
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -441,7 +441,7 @@ async function stopProcess() {
  
   
 
-##### ProcessorStatus
+#### ProcessorStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

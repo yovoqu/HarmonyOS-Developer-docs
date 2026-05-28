@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-commonevent-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -42,7 +42,7 @@
  
   
 
-##### 变量
+#### 变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -54,7 +54,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -65,7 +65,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -130,13 +130,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### CommonEvent_ErrCode
+#### CommonEvent_ErrCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -166,13 +166,13 @@ enum CommonEvent_ErrCode
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### CommonEvent_ReceiveCallback()
+#### CommonEvent_ReceiveCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -195,7 +195,7 @@ typedef void (*CommonEvent_ReceiveCallback)(const CommonEvent_RcvData *data)
  
   
 
-##### OH_CommonEvent_CreateSubscribeInfo()
+#### OH_CommonEvent_CreateSubscribeInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -226,7 +226,7 @@ CommonEvent_SubscribeInfo* OH_CommonEvent_CreateSubscribeInfo(const char* events
  
   
 
-##### OH_CommonEvent_SetPublisherPermission()
+#### OH_CommonEvent_SetPublisherPermission()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -257,7 +257,7 @@ CommonEvent_ErrCode OH_CommonEvent_SetPublisherPermission(CommonEvent_SubscribeI
  
   
 
-##### OH_CommonEvent_SetPublisherBundleName()
+#### OH_CommonEvent_SetPublisherBundleName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -288,7 +288,7 @@ CommonEvent_ErrCode OH_CommonEvent_SetPublisherBundleName(CommonEvent_SubscribeI
  
   
 
-##### OH_CommonEvent_DestroySubscribeInfo()
+#### OH_CommonEvent_DestroySubscribeInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -311,7 +311,7 @@ void OH_CommonEvent_DestroySubscribeInfo(CommonEvent_SubscribeInfo* info)
  
   
 
-##### OH_CommonEvent_CreateSubscriber()
+#### OH_CommonEvent_CreateSubscriber()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -342,7 +342,7 @@ CommonEvent_Subscriber* OH_CommonEvent_CreateSubscriber(const CommonEvent_Subscr
  
   
 
-##### OH_CommonEvent_DestroySubscriber()
+#### OH_CommonEvent_DestroySubscriber()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -365,7 +365,7 @@ void OH_CommonEvent_DestroySubscriber(CommonEvent_Subscriber* subscriber)
  
   
 
-##### OH_CommonEvent_Subscribe()
+#### OH_CommonEvent_Subscribe()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -395,7 +395,7 @@ CommonEvent_ErrCode OH_CommonEvent_Subscribe(const CommonEvent_Subscriber* subsc
  
   
 
-##### OH_CommonEvent_UnSubscribe()
+#### OH_CommonEvent_UnSubscribe()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -425,7 +425,7 @@ CommonEvent_ErrCode OH_CommonEvent_UnSubscribe(const CommonEvent_Subscriber* sub
  
   
 
-##### OH_CommonEvent_GetEventFromRcvData()
+#### OH_CommonEvent_GetEventFromRcvData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -455,7 +455,7 @@ const char* OH_CommonEvent_GetEventFromRcvData(const CommonEvent_RcvData* rcvDat
  
   
 
-##### OH_CommonEvent_GetCodeFromRcvData()
+#### OH_CommonEvent_GetCodeFromRcvData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -485,7 +485,7 @@ int32_t OH_CommonEvent_GetCodeFromRcvData(const CommonEvent_RcvData* rcvData)
  
   
 
-##### OH_CommonEvent_GetDataStrFromRcvData()
+#### OH_CommonEvent_GetDataStrFromRcvData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -515,7 +515,7 @@ const char* OH_CommonEvent_GetDataStrFromRcvData(const CommonEvent_RcvData* rcvD
  
   
 
-##### OH_CommonEvent_GetBundleNameFromRcvData()
+#### OH_CommonEvent_GetBundleNameFromRcvData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -545,7 +545,7 @@ const char* OH_CommonEvent_GetBundleNameFromRcvData(const CommonEvent_RcvData* r
  
   
 
-##### OH_CommonEvent_GetParametersFromRcvData()
+#### OH_CommonEvent_GetParametersFromRcvData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -575,7 +575,7 @@ const CommonEvent_Parameters* OH_CommonEvent_GetParametersFromRcvData(const Comm
  
   
 
-##### OH_CommonEvent_CreatePublishInfo()
+#### OH_CommonEvent_CreatePublishInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -605,7 +605,7 @@ CommonEvent_PublishInfo* OH_CommonEvent_CreatePublishInfo(bool ordered)
  
   
 
-##### OH_CommonEvent_DestroyPublishInfo()
+#### OH_CommonEvent_DestroyPublishInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -628,7 +628,7 @@ void OH_CommonEvent_DestroyPublishInfo(CommonEvent_PublishInfo* info)
  
   
 
-##### OH_CommonEvent_SetPublishInfoBundleName()
+#### OH_CommonEvent_SetPublishInfoBundleName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -659,7 +659,7 @@ CommonEvent_ErrCode OH_CommonEvent_SetPublishInfoBundleName(CommonEvent_PublishI
  
   
 
-##### OH_CommonEvent_SetPublishInfoPermissions()
+#### OH_CommonEvent_SetPublishInfoPermissions()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -691,7 +691,7 @@ CommonEvent_ErrCode OH_CommonEvent_SetPublishInfoPermissions(CommonEvent_Publish
  
   
 
-##### OH_CommonEvent_SetPublishInfoCode()
+#### OH_CommonEvent_SetPublishInfoCode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -722,7 +722,7 @@ CommonEvent_ErrCode OH_CommonEvent_SetPublishInfoCode(CommonEvent_PublishInfo* i
  
   
 
-##### OH_CommonEvent_SetPublishInfoData()
+#### OH_CommonEvent_SetPublishInfoData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -754,7 +754,7 @@ CommonEvent_ErrCode OH_CommonEvent_SetPublishInfoData(CommonEvent_PublishInfo* i
  
   
 
-##### OH_CommonEvent_SetPublishInfoParameters()
+#### OH_CommonEvent_SetPublishInfoParameters()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -785,7 +785,7 @@ CommonEvent_ErrCode OH_CommonEvent_SetPublishInfoParameters(CommonEvent_PublishI
  
   
 
-##### OH_CommonEvent_CreateParameters()
+#### OH_CommonEvent_CreateParameters()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -808,7 +808,7 @@ CommonEvent_Parameters* OH_CommonEvent_CreateParameters()
  
   
 
-##### OH_CommonEvent_DestroyParameters()
+#### OH_CommonEvent_DestroyParameters()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -831,7 +831,7 @@ void OH_CommonEvent_DestroyParameters(CommonEvent_Parameters* param)
  
   
 
-##### OH_CommonEvent_HasKeyInParameters()
+#### OH_CommonEvent_HasKeyInParameters()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -862,7 +862,7 @@ bool OH_CommonEvent_HasKeyInParameters(const CommonEvent_Parameters* para, const
  
   
 
-##### OH_CommonEvent_GetIntFromParameters()
+#### OH_CommonEvent_GetIntFromParameters()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -894,7 +894,7 @@ int OH_CommonEvent_GetIntFromParameters(const CommonEvent_Parameters* para, cons
  
   
 
-##### OH_CommonEvent_SetIntToParameters()
+#### OH_CommonEvent_SetIntToParameters()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -926,7 +926,7 @@ CommonEvent_ErrCode OH_CommonEvent_SetIntToParameters(CommonEvent_Parameters* pa
  
   
 
-##### OH_CommonEvent_GetIntArrayFromParameters()
+#### OH_CommonEvent_GetIntArrayFromParameters()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -958,7 +958,7 @@ int32_t OH_CommonEvent_GetIntArrayFromParameters(const CommonEvent_Parameters* p
  
   
 
-##### OH_CommonEvent_SetIntArrayToParameters()
+#### OH_CommonEvent_SetIntArrayToParameters()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -991,7 +991,7 @@ CommonEvent_ErrCode OH_CommonEvent_SetIntArrayToParameters(CommonEvent_Parameter
  
   
 
-##### OH_CommonEvent_GetLongFromParameters()
+#### OH_CommonEvent_GetLongFromParameters()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1023,7 +1023,7 @@ long OH_CommonEvent_GetLongFromParameters(const CommonEvent_Parameters* para, co
  
   
 
-##### OH_CommonEvent_SetLongToParameters()
+#### OH_CommonEvent_SetLongToParameters()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1055,7 +1055,7 @@ CommonEvent_ErrCode OH_CommonEvent_SetLongToParameters(CommonEvent_Parameters* p
  
   
 
-##### OH_CommonEvent_GetLongArrayFromParameters()
+#### OH_CommonEvent_GetLongArrayFromParameters()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1087,7 +1087,7 @@ int32_t OH_CommonEvent_GetLongArrayFromParameters(const CommonEvent_Parameters* 
  
   
 
-##### OH_CommonEvent_SetLongArrayToParameters()
+#### OH_CommonEvent_SetLongArrayToParameters()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1120,7 +1120,7 @@ CommonEvent_ErrCode OH_CommonEvent_SetLongArrayToParameters(CommonEvent_Paramete
  
   
 
-##### OH_CommonEvent_GetBoolFromParameters()
+#### OH_CommonEvent_GetBoolFromParameters()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1152,7 +1152,7 @@ bool OH_CommonEvent_GetBoolFromParameters(const CommonEvent_Parameters* para, co
  
   
 
-##### OH_CommonEvent_SetBoolToParameters()
+#### OH_CommonEvent_SetBoolToParameters()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1184,7 +1184,7 @@ CommonEvent_ErrCode OH_CommonEvent_SetBoolToParameters(CommonEvent_Parameters* p
  
   
 
-##### OH_CommonEvent_GetBoolArrayFromParameters()
+#### OH_CommonEvent_GetBoolArrayFromParameters()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1216,7 +1216,7 @@ int32_t OH_CommonEvent_GetBoolArrayFromParameters(const CommonEvent_Parameters* 
  
   
 
-##### OH_CommonEvent_SetBoolArrayToParameters()
+#### OH_CommonEvent_SetBoolArrayToParameters()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1249,7 +1249,7 @@ CommonEvent_ErrCode OH_CommonEvent_SetBoolArrayToParameters(CommonEvent_Paramete
  
   
 
-##### OH_CommonEvent_GetCharFromParameters()
+#### OH_CommonEvent_GetCharFromParameters()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1281,7 +1281,7 @@ char OH_CommonEvent_GetCharFromParameters(const CommonEvent_Parameters* para, co
  
   
 
-##### OH_CommonEvent_SetCharToParameters()
+#### OH_CommonEvent_SetCharToParameters()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1313,7 +1313,7 @@ CommonEvent_ErrCode OH_CommonEvent_SetCharToParameters(CommonEvent_Parameters* p
  
   
 
-##### OH_CommonEvent_GetCharArrayFromParameters()
+#### OH_CommonEvent_GetCharArrayFromParameters()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1345,7 +1345,7 @@ int32_t OH_CommonEvent_GetCharArrayFromParameters(const CommonEvent_Parameters* 
  
   
 
-##### OH_CommonEvent_SetCharArrayToParameters()
+#### OH_CommonEvent_SetCharArrayToParameters()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1378,7 +1378,7 @@ CommonEvent_ErrCode OH_CommonEvent_SetCharArrayToParameters(CommonEvent_Paramete
  
   
 
-##### OH_CommonEvent_GetDoubleFromParameters()
+#### OH_CommonEvent_GetDoubleFromParameters()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1410,7 +1410,7 @@ double OH_CommonEvent_GetDoubleFromParameters(const CommonEvent_Parameters* para
  
   
 
-##### OH_CommonEvent_SetDoubleToParameters()
+#### OH_CommonEvent_SetDoubleToParameters()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1442,7 +1442,7 @@ CommonEvent_ErrCode OH_CommonEvent_SetDoubleToParameters(CommonEvent_Parameters*
  
   
 
-##### OH_CommonEvent_GetDoubleArrayFromParameters()
+#### OH_CommonEvent_GetDoubleArrayFromParameters()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1474,7 +1474,7 @@ int32_t OH_CommonEvent_GetDoubleArrayFromParameters(const CommonEvent_Parameters
  
   
 
-##### OH_CommonEvent_SetDoubleArrayToParameters()
+#### OH_CommonEvent_SetDoubleArrayToParameters()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1507,7 +1507,7 @@ CommonEvent_ErrCode OH_CommonEvent_SetDoubleArrayToParameters(CommonEvent_Parame
  
   
 
-##### OH_CommonEvent_Publish()
+#### OH_CommonEvent_Publish()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1537,7 +1537,7 @@ CommonEvent_ErrCode OH_CommonEvent_Publish(const char* event)
  
   
 
-##### OH_CommonEvent_PublishWithInfo()
+#### OH_CommonEvent_PublishWithInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1568,7 +1568,7 @@ CommonEvent_ErrCode OH_CommonEvent_PublishWithInfo(const char* event, const Comm
  
   
 
-##### OH_CommonEvent_IsOrderedCommonEvent()
+#### OH_CommonEvent_IsOrderedCommonEvent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1598,7 +1598,7 @@ bool OH_CommonEvent_IsOrderedCommonEvent(const CommonEvent_Subscriber* subscribe
  
   
 
-##### OH_CommonEvent_FinishCommonEvent()
+#### OH_CommonEvent_FinishCommonEvent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1628,7 +1628,7 @@ bool OH_CommonEvent_FinishCommonEvent(CommonEvent_Subscriber* subscriber)
  
   
 
-##### OH_CommonEvent_GetAbortCommonEvent()
+#### OH_CommonEvent_GetAbortCommonEvent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1658,7 +1658,7 @@ bool OH_CommonEvent_GetAbortCommonEvent(const CommonEvent_Subscriber* subscriber
  
   
 
-##### OH_CommonEvent_AbortCommonEvent()
+#### OH_CommonEvent_AbortCommonEvent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1688,7 +1688,7 @@ bool OH_CommonEvent_AbortCommonEvent(CommonEvent_Subscriber* subscriber)
  
   
 
-##### OH_CommonEvent_ClearAbortCommonEvent()
+#### OH_CommonEvent_ClearAbortCommonEvent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1718,7 +1718,7 @@ bool OH_CommonEvent_ClearAbortCommonEvent(CommonEvent_Subscriber* subscriber)
  
   
 
-##### OH_CommonEvent_GetCodeFromSubscriber()
+#### OH_CommonEvent_GetCodeFromSubscriber()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1748,7 +1748,7 @@ int32_t OH_CommonEvent_GetCodeFromSubscriber(const CommonEvent_Subscriber* subsc
  
   
 
-##### OH_CommonEvent_SetCodeToSubscriber()
+#### OH_CommonEvent_SetCodeToSubscriber()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1779,7 +1779,7 @@ bool OH_CommonEvent_SetCodeToSubscriber(CommonEvent_Subscriber* subscriber, int3
  
   
 
-##### OH_CommonEvent_GetDataFromSubscriber()
+#### OH_CommonEvent_GetDataFromSubscriber()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1809,7 +1809,7 @@ const char* OH_CommonEvent_GetDataFromSubscriber(const CommonEvent_Subscriber* s
  
   
 
-##### OH_CommonEvent_SetDataToSubscriber()
+#### OH_CommonEvent_SetDataToSubscriber()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

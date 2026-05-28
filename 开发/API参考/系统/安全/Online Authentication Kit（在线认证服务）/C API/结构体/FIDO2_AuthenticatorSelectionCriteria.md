@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2___authenticator_selection_criteria
 
-##### 概述
+#### 概述
 
 由WebAuthn依赖方指定，与认证器有关。
  
@@ -14,11 +14,11 @@
  
   
 
-##### 汇总
+#### 汇总
 
   
 
-##### 成员变量
+#### 成员变量
  
 | 名称 | 描述 |
 | --- | --- |
@@ -30,11 +30,11 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
   
 
-##### authenticatorAttachment
+#### authenticatorAttachment
 
 ```text
 FIDO2_AuthenticatorAttachment FIDO2_AuthenticatorSelectionCriteria::authenticatorAttachment
@@ -46,7 +46,7 @@ FIDO2_AuthenticatorAttachment FIDO2_AuthenticatorSelectionCriteria::authenticato
  
   
 
-##### requireResidentKey
+#### requireResidentKey
 
 ```text
 bool FIDO2_AuthenticatorSelectionCriteria::requireResidentKey
@@ -58,7 +58,7 @@ bool FIDO2_AuthenticatorSelectionCriteria::requireResidentKey
  
   
 
-##### residentKey
+#### residentKey
 
 ```text
 const char* FIDO2_AuthenticatorSelectionCriteria::residentKey
@@ -70,7 +70,7 @@ const char* FIDO2_AuthenticatorSelectionCriteria::residentKey
  
   
 
-##### userVerification
+#### userVerification
 
 ```text
 FIDO2_UserVerificationRequirement FIDO2_AuthenticatorSelectionCriteria::userVerification

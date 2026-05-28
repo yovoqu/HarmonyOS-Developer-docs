@@ -17,14 +17,14 @@
 状态变量面板分为总览（Summary）和当前值（Current Value）两个子面板：
  
 - 总览面板显示了当前应用运行时，状态变量更新的总体情况，包含了状态变量的名称、更新次数、装饰器类型、所属组件、所属类、当前值。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/IgDByT9DRzmWCxq_QT-Xpw/zh-cn_image_0000002571386868.png?HW-CC-KV=V1&HW-CC-Date=20260528T014923Z&HW-CC-Expire=86400&HW-CC-Sign=75E85ACB12264F359E342B696073B7A7EBC6E138542D477D512661AE89960DC2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/fh8QfGuLTB2vo6pMG78OEQ/zh-cn_image_0000002571386868.png?HW-CC-KV=V1&HW-CC-Date=20260528T030551Z&HW-CC-Expire=86400&HW-CC-Sign=3C92D7542E9BA3386BF655149947C9050B86884FED6D6A0E98C92E35C103777A)
 
 - 当前值面板记录了状态变量实时变化的数据，包含了状态变量的更新时间、名称、所属组件、所属类、装饰器类型、当前值、影响的组件数量。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/-6DqZ4AESYupRQvENzjAJw/zh-cn_image_0000002602186033.png?HW-CC-KV=V1&HW-CC-Date=20260528T014923Z&HW-CC-Expire=86400&HW-CC-Sign=FF6E009FDCE936613C77204DB1B829B557FCD54E2D7EC005C87305B7C5A44940)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/T9hIinY1SUSZAA7MFV4Yaw/zh-cn_image_0000002602186033.png?HW-CC-KV=V1&HW-CC-Date=20260528T030551Z&HW-CC-Expire=86400&HW-CC-Sign=FFC759ED9D9F17EE5054854987F2931F802CBA6B29AE0BE8377E863E6E96BD6A)
 当点击右侧的箭头时，新弹出的面板将显示当前选中状态变量影响的组件列表，包含影响组件的组件名、组件ID、是否为自定义组件。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/CiPMsbN2SjSjFP1fVcSQAA/zh-cn_image_0000002602065979.png?HW-CC-KV=V1&HW-CC-Date=20260528T014923Z&HW-CC-Expire=86400&HW-CC-Sign=C20FC25F0AC28F18E170C31D15A62827C4F5F4178BFA3358570D1B1698A102E2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/YB_VU8SIRv-WyhPc5TeBIg/zh-cn_image_0000002602065979.png?HW-CC-KV=V1&HW-CC-Date=20260528T030551Z&HW-CC-Expire=86400&HW-CC-Sign=750EEBCA4332CFEEA8762ECA541B2B69930E5FAAA3C86F03872417B6F7D194A0)
 
 
  

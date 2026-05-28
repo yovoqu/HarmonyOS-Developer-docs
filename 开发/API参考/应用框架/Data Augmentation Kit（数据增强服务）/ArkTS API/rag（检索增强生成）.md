@@ -10,7 +10,7 @@
 **起始版本：** 6.0.0(20)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** PC/2in1
 
@@ -20,7 +20,7 @@ import { rag } from '@kit.DataAugmentationKit';
  
   
 
-##### LLMStreamAnswer
+#### LLMStreamAnswer
 
 **支持设备：** PC/2in1
 
@@ -41,7 +41,7 @@ import { rag } from '@kit.DataAugmentationKit';
  
   
 
-##### LLMRequestStatus
+#### LLMRequestStatus
 
 **支持设备：** PC/2in1
 
@@ -64,7 +64,7 @@ import { rag } from '@kit.DataAugmentationKit';
  
   
 
-##### LLMRequestInfo
+#### LLMRequestInfo
 
 **支持设备：** PC/2in1
 
@@ -84,7 +84,7 @@ import { rag } from '@kit.DataAugmentationKit';
  
   
 
-##### ChatLLM
+#### ChatLLM
 
 **支持设备：** PC/2in1
 
@@ -98,7 +98,7 @@ import { rag } from '@kit.DataAugmentationKit';
  
   
 
-##### streamChat
+#### streamChat
 
 **支持设备：** PC/2in1
 
@@ -170,7 +170,7 @@ class MyChatLLM extends rag.ChatLLM {
  
   
 
-##### cancel
+#### cancel
 
 **支持设备：** PC/2in1
 
@@ -215,7 +215,7 @@ class MyChatLLM extends rag.ChatLLM {
  
   
 
-##### Config
+#### Config
 
 **支持设备：** PC/2in1
 
@@ -262,7 +262,7 @@ let config: rag.Config = {
  
   
 
-##### Answer
+#### Answer
 
 **支持设备：** PC/2in1
 
@@ -282,7 +282,7 @@ let config: rag.Config = {
  
   
 
-##### StreamType
+#### StreamType
 
 **支持设备：** PC/2in1
 
@@ -303,7 +303,7 @@ let config: rag.Config = {
  
   
 
-##### Stream
+#### Stream
 
 **支持设备：** PC/2in1
 
@@ -324,7 +324,7 @@ let config: rag.Config = {
  
   
 
-##### RunConfig
+#### RunConfig
 
 **支持设备：** PC/2in1
 
@@ -343,7 +343,7 @@ let config: rag.Config = {
  
   
 
-##### FeedbackInfo
+#### FeedbackInfo
 
 **支持设备：** PC/2in1
 
@@ -365,7 +365,7 @@ let config: rag.Config = {
  
   
 
-##### RagSession
+#### RagSession
 
 **支持设备：** PC/2in1
 
@@ -379,7 +379,7 @@ RAG会话，用以提供基于知识库的智能问答能力。
  
   
 
-##### streamRun
+#### streamRun
 
 **支持设备：** PC/2in1
 
@@ -472,7 +472,7 @@ if (session != null) {
  
   
 
-##### cancel
+#### cancel
 
 **支持设备：** PC/2in1
 
@@ -531,7 +531,7 @@ if (session != null) {
  
   
 
-##### close
+#### close
 
 **支持设备：** PC/2in1
 
@@ -580,7 +580,7 @@ function WindowStageDestroy(): void {
  
   
 
-##### createRagSession
+#### createRagSession
 
 **支持设备：** PC/2in1
 
@@ -673,7 +673,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### feedback
+#### feedback
 
 **支持设备：** PC/2in1
 

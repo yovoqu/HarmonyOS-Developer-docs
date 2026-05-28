@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-tbuf-get
 
-##### 功能说明
+#### 功能说明
 
 从TBuf上获取指定长度的Tensor，或者获取全部长度的Tensor。
  
   
 
-##### 函数原型
+#### 函数原型
 
 - 获取全部长度的Tensor
 
@@ -30,7 +30,7 @@ LocalTensor<T> Get<T>(uint32_t len)
  
   
 
-##### 参数说明
+#### 参数说明
 
 **表1** 参数说明
   
@@ -41,7 +41,7 @@ LocalTensor<T> Get<T>(uint32_t len)
  
   
 
-##### 支持的型号
+#### 支持的型号
 
 Kirin9020系列处理器
  
@@ -49,19 +49,19 @@ KirinX90系列处理器
  
   
 
-##### 注意事项
+#### 注意事项
 
 len的数值是Tensor中元素的个数，len*sizeof(T)不能超过TBuf初始化时的长度。
  
   
 
-##### 返回值
+#### 返回值
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 // 为TBuf初始化分配内存，分配内存长度为1024Bytes

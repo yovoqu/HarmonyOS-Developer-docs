@@ -14,7 +14,7 @@ WantAgent模块封装了[Want](https://developer.huawei.com/consumer/cn/doc/harm
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { wantAgent } from '@kit.AbilityKit';
 
 
 
-##### wantAgent.getWantAgent
+#### wantAgent.getWantAgent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -110,7 +110,7 @@ try {
 
 
 
-##### wantAgent.getWantAgent
+#### wantAgent.getWantAgent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -196,7 +196,7 @@ try {
 
 
 
-##### wantAgent.getBundleName
+#### wantAgent.getBundleName
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -295,7 +295,7 @@ try {
 
 
 
-##### wantAgent.getBundleName
+#### wantAgent.getBundleName
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -395,7 +395,7 @@ try {
 
 
 
-##### wantAgent.getUid
+#### wantAgent.getUid
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -498,7 +498,7 @@ try {
 
 
 
-##### wantAgent.getUid
+#### wantAgent.getUid
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -603,7 +603,7 @@ try {
 
 
 
-##### wantAgent.cancel
+#### wantAgent.cancel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -706,7 +706,7 @@ try {
 
 
 
-##### wantAgent.cancel
+#### wantAgent.cancel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -811,7 +811,7 @@ try {
 
 
 
-##### wantAgent.trigger
+#### wantAgent.trigger
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -919,7 +919,7 @@ try {
 
 
 
-##### wantAgent.equal
+#### wantAgent.equal
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1021,7 +1021,7 @@ try {
 
 
 
-##### wantAgent.equal
+#### wantAgent.equal
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1125,7 +1125,7 @@ try {
 
 
 
-##### wantAgent.getOperationType
+#### wantAgent.getOperationType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1225,7 +1225,7 @@ try {
 
 
 
-##### wantAgent.getOperationType
+#### wantAgent.getOperationType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1327,7 +1327,7 @@ try {
 
 
 
-##### WantAgentFlags
+#### WantAgentFlags
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1353,7 +1353,7 @@ try {
 
 
 
-##### OperationType
+#### OperationType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1374,7 +1374,7 @@ try {
 
 
 
-##### CompleteData
+#### CompleteData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1395,7 +1395,7 @@ try {
 
 
 
-##### TriggerInfo
+#### TriggerInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1414,7 +1414,7 @@ TriggerInfo对象。
 
 
 
-##### WantAgentInfo
+#### WantAgentInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1433,7 +1433,7 @@ WantAgentInfo对象。
 
 
 
-##### WantAgent
+#### WantAgent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

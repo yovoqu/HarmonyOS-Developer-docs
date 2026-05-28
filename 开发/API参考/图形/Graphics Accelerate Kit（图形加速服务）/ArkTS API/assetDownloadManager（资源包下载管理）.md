@@ -10,7 +10,7 @@
 **起始版本：** 5.1.0(18)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Tablet
 
@@ -20,7 +20,7 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
 
 
-##### DownloadFault
+#### DownloadFault
 
 **支持设备：** Phone | Tablet
 
@@ -48,7 +48,7 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
 
 
-##### State
+#### State
 
 **支持设备：** Phone | Tablet
 
@@ -72,7 +72,7 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
 
 
-##### AssetDownloadConfig
+#### AssetDownloadConfig
 
 **支持设备：** Phone | Tablet
 
@@ -98,7 +98,7 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
 
 
-##### AssetDownloadTask
+#### AssetDownloadTask
 
 **支持设备：** Phone | Tablet
 
@@ -119,7 +119,7 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
 
 
-##### DownloadProgressInfo
+#### DownloadProgressInfo
 
 **支持设备：** Phone | Tablet
 
@@ -140,7 +140,7 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
 
 
-##### DownloadCompletedInfo
+#### DownloadCompletedInfo
 
 **支持设备：** Phone | Tablet
 
@@ -160,7 +160,7 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
 
 
-##### DownloadFailedInfo
+#### DownloadFailedInfo
 
 **支持设备：** Phone | Tablet
 
@@ -180,7 +180,7 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
 
 
-##### assetDownloadManager.on('progress')
+#### assetDownloadManager.on('progress')
 
 **支持设备：** Phone | Tablet
 
@@ -228,7 +228,7 @@ assetDownloadManager.on('progress', onProgressCallback);
 
 
 
-##### assetDownloadManager.off('progress')
+#### assetDownloadManager.off('progress')
 
 **支持设备：** Phone | Tablet
 
@@ -276,7 +276,7 @@ assetDownloadManager.off('progress', onProgressCallback);
 
 
 
-##### assetDownloadManager.on('pause')
+#### assetDownloadManager.on('pause')
 
 **支持设备：** Phone | Tablet
 
@@ -324,7 +324,7 @@ assetDownloadManager.on('pause', onPauseCallback);
 
 
 
-##### assetDownloadManager.off('pause')
+#### assetDownloadManager.off('pause')
 
 **支持设备：** Phone | Tablet
 
@@ -372,7 +372,7 @@ assetDownloadManager.off('pause', onPauseCallback);
 
 
 
-##### assetDownloadManager.on('complete')
+#### assetDownloadManager.on('complete')
 
 **支持设备：** Phone | Tablet
 
@@ -420,7 +420,7 @@ assetDownloadManager.on('complete', onCompleteCallback);
 
 
 
-##### assetDownloadManager.off('complete')
+#### assetDownloadManager.off('complete')
 
 **支持设备：** Phone | Tablet
 
@@ -468,7 +468,7 @@ assetDownloadManager.off('complete', onCompleteCallback);
 
 
 
-##### assetDownloadManager.on('fail')
+#### assetDownloadManager.on('fail')
 
 **支持设备：** Phone | Tablet
 
@@ -516,7 +516,7 @@ assetDownloadManager.on('fail', onFailedCallback);
 
 
 
-##### assetDownloadManager.off('fail')
+#### assetDownloadManager.off('fail')
 
 **支持设备：** Phone | Tablet
 
@@ -564,7 +564,7 @@ assetDownloadManager.off('fail', onFailedCallback);
 
 
 
-##### assetDownloadManager.fetchManifestUrl
+#### assetDownloadManager.fetchManifestUrl
 
 **支持设备：** Phone | Tablet
 
@@ -616,7 +616,7 @@ async fetchManifestUrl() {
 
 
 
-##### assetDownloadManager.addAssetDownloadTask
+#### assetDownloadManager.addAssetDownloadTask
 
 **支持设备：** Phone | Tablet
 
@@ -689,7 +689,7 @@ async addAssetDownloadTask() {
 
 
 
-##### assetDownloadManager.pauseAssetDownloadTask
+#### assetDownloadManager.pauseAssetDownloadTask
 
 **支持设备：** Phone | Tablet
 
@@ -771,7 +771,7 @@ async pauseAssetDownloadTask() {
 
 
 
-##### assetDownloadManager.resumeAssetDownloadTask
+#### assetDownloadManager.resumeAssetDownloadTask
 
 **支持设备：** Phone | Tablet
 
@@ -861,7 +861,7 @@ async resumeAssetDownloadTask() {
 
 
 
-##### assetDownloadManager.removeAssetDownloadTask
+#### assetDownloadManager.removeAssetDownloadTask
 
 **支持设备：** Phone | Tablet
 
@@ -938,7 +938,7 @@ async removeAssetDownloadTask() {
 
 
 
-##### assetDownloadManager.fetchAllAssetDownloadTasks
+#### assetDownloadManager.fetchAllAssetDownloadTasks
 
 **支持设备：** Phone | Tablet
 
@@ -1007,7 +1007,7 @@ async fetchAllAssetDownloadTasks() {
 
 
 
-##### assetDownloadManager.pauseAllAssetDownloadTasks
+#### assetDownloadManager.pauseAllAssetDownloadTasks
 
 **支持设备：** Phone | Tablet
 
@@ -1079,7 +1079,7 @@ async pauseAllAssetDownloadTasks() {
 
 
 
-##### assetDownloadManager.resumeAllAssetDownloadTasks
+#### assetDownloadManager.resumeAllAssetDownloadTasks
 
 **支持设备：** Phone | Tablet
 
@@ -1159,7 +1159,7 @@ async resumeAllAssetDownloadTasks() {
 
 
 
-##### assetDownloadManager.removeAllAssetDownloadTasks
+#### assetDownloadManager.removeAllAssetDownloadTasks
 
 **支持设备：** Phone | Tablet
 
@@ -1227,7 +1227,7 @@ async removeAllAssetDownloadTasks() {
 
 
 
-##### assetDownloadManager.fetchGroupAssetDownloadTasks
+#### assetDownloadManager.fetchGroupAssetDownloadTasks
 
 **支持设备：** Phone | Tablet
 
@@ -1306,7 +1306,7 @@ async fetchGroupAssetDownloadTasks() {
 
 
 
-##### assetDownloadManager.pauseGroupAssetDownloadTasks
+#### assetDownloadManager.pauseGroupAssetDownloadTasks
 
 **支持设备：** Phone | Tablet
 
@@ -1388,7 +1388,7 @@ async pauseGroupAssetDownloadTasks() {
 
 
 
-##### assetDownloadManager.resumeGroupAssetDownloadTasks
+#### assetDownloadManager.resumeGroupAssetDownloadTasks
 
 **支持设备：** Phone | Tablet
 
@@ -1478,7 +1478,7 @@ async resumeGroupAssetDownloadTasks() {
 
 
 
-##### assetDownloadManager.removeGroupAssetDownloadTasks
+#### assetDownloadManager.removeGroupAssetDownloadTasks
 
 **支持设备：** Phone | Tablet
 
@@ -1556,7 +1556,7 @@ async removeGroupAssetDownloadTasks() {
 
 
 
-##### NetSpeedLevel
+#### NetSpeedLevel
 
 **支持设备：** Phone | Tablet
 
@@ -1577,7 +1577,7 @@ async removeGroupAssetDownloadTasks() {
 
 
 
-##### assetDownloadManager.limitDownloadTaskSpeed
+#### assetDownloadManager.limitDownloadTaskSpeed
 
 **支持设备：** Phone | Tablet
 
@@ -1658,7 +1658,7 @@ async limitDownloadTaskSpeed() {
 
 
 
-##### AppDownloadStatus
+#### AppDownloadStatus
 
 **支持设备：** Phone | Tablet
 
@@ -1678,7 +1678,7 @@ async limitDownloadTaskSpeed() {
 
 
 
-##### ResourceType
+#### ResourceType
 
 **支持设备：** Phone | Tablet
 
@@ -1698,7 +1698,7 @@ async limitDownloadTaskSpeed() {
 
 
 
-##### AppDownloadProgress
+#### AppDownloadProgress
 
 **支持设备：** Phone | Tablet
 
@@ -1723,7 +1723,7 @@ async limitDownloadTaskSpeed() {
 
 
 
-##### assetDownloadManager.reportDownloadProgress
+#### assetDownloadManager.reportDownloadProgress
 
 **支持设备：** Phone | Tablet
 

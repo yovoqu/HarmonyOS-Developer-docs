@@ -7,7 +7,7 @@
 同步sftp存储的包。
  
 
-##### 前提条件
+#### 前提条件
 
 - 已成功执行[start 命令](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-repo-start)或者[restart 命令](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-repo-restart)，ohpm-repo服务启动成功。
 - 数据存储db模块的类型必须为mysql，文件存储store模块的类型必须为sftp。
@@ -15,7 +15,7 @@
  
  
 
-##### 命令格式
+#### 命令格式
 
 ```text
 ohpm-repo mirror_storage <source_sftp> <target_sftp> <target> [options]
@@ -23,17 +23,17 @@ ohpm-repo mirror_storage <source_sftp> <target_sftp> <target> [options]
  
  
 
-##### 功能描述
+#### 功能描述
 
 该命令必须配置文件存储插件模块为sftp。命令会将**源sftp**目录下满足&lt;target&gt;条件的包同步到**目标sftp**目录下。
  
  
 
-##### 参数
+#### 参数
 
  
 
-##### &lt;source_sftp&gt;
+#### &lt;source_sftp&gt;
 
 - 类型：String
 - 必填参数
@@ -43,7 +43,7 @@ ohpm-repo mirror_storage <source_sftp> <target_sftp> <target> [options]
  
  
 
-##### &lt;target_sftp&gt;
+#### &lt;target_sftp&gt;
 
 - 类型：String
 - 必填参数
@@ -53,7 +53,7 @@ ohpm-repo mirror_storage <source_sftp> <target_sftp> <target> [options]
  
  
 
-##### &lt;target&gt;
+#### &lt;target&gt;
 
 - 类型：String
 - 必填参数
@@ -65,11 +65,11 @@ ohpm-repo mirror_storage <source_sftp> <target_sftp> <target> [options]
  
  
 
-##### 选项
+#### 选项
 
  
 
-##### failed
+#### failed
 
 - 默认值：无
 - 类型：无
@@ -79,7 +79,7 @@ ohpm-repo mirror_storage <source_sftp> <target_sftp> <target> [options]
  
  
 
-##### 示例
+#### 示例
 
 执行以下命令，同步包repo_sftp2_mirror_gxy07056@2.0.0：
  

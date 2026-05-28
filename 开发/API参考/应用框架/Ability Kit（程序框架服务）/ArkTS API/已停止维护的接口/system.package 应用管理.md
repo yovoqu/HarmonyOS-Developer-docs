@@ -10,7 +10,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@ import Package from '@system.package';
  
   
 
-##### package.hasInstalled(deprecated)
+#### package.hasInstalled(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -67,7 +67,7 @@ struct MainPage {
  
   
 
-##### CheckPackageHasInstalledResponse
+#### CheckPackageHasInstalledResponse
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -86,7 +86,7 @@ struct MainPage {
  
   
 
-##### CheckPackageHasInstalledOptions
+#### CheckPackageHasInstalledOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

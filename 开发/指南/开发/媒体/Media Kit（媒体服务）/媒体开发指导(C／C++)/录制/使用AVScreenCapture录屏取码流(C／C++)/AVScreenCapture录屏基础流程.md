@@ -13,7 +13,7 @@
 
 
 
-##### 流程介绍
+#### 流程介绍
 
 基础屏幕录制功能涉及到AVScreenCapture实例创建、音视频参数配置、回调设置、开始与停止、结果处理、资源释放等步骤。
 
@@ -33,7 +33,7 @@
 
 
 
-##### 约束与限制
+#### 约束与限制
 
  - 使用AVScreenCapture时需明确其状态变化。创建实例后，调用方法可进入指定状态。在错误状态下执行方法会导致AVScreenCapture出错。开发者应在状态转换前进行检查以避免异常。
  - 在录屏取码流场景中，屏幕录制启动时会弹出隐私保护弹框，包含“屏幕隐私保护”选项。勾选后，隐私信息（如横幅通知、控制中心、通话界面等）将被屏蔽。不同产品上的隐私信息可能有差异，以实际录制结果为准。
@@ -47,11 +47,11 @@
 
 
 
-##### 通用开发步骤
+#### 通用开发步骤
 
 
 
-##### 依赖导入
+#### 依赖导入
 
 在CMake脚本中链接动态库：
 
@@ -73,7 +73,7 @@ target_link_libraries(entry PUBLIC libnative_avscreen_capture.so libnative_buffe
 
 
 
-##### 创建AVScreenCapture实例
+#### 创建AVScreenCapture实例
 
 实例化对象，通过[OH_AVScreenCapture_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avscreen-capture-h#oh_avscreencapture_create)创建[OH_AVScreenCapture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avscreencapture-oh-avscreencapture)。
 
@@ -83,7 +83,7 @@ OH_AVScreenCapture* capture = OH_AVScreenCapture_Create();
 
 
 
-##### 配置音频采集参数
+#### 配置音频采集参数
 
 创建AVScreenCapture实例后，可设置屏幕录制所需要的音频参数[OH_AudioInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avscreencapture-oh-audioinfo)，包括内录、麦克风音频[OH_AudioCaptureInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avscreencapture-oh-audiocaptureinfo)和输出规格[OH_AudioEncInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avscreencapture-oh-audioencinfo)。
 
@@ -127,7 +127,7 @@ OH_AVScreenCapture_SetMicrophoneEnabled(capture, isMic);
 
 
 
-##### 配置视频采集参数
+#### 配置视频采集参数
 
 录屏的视频采集信息[OH_VideoInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avscreencapture-oh-videoinfo)包含录屏输入规格配置[OH_VideoCaptureInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avscreencapture-oh-videocaptureinfo)和录屏输出规格配置[OH_VideoEncInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avscreencapture-oh-videoencinfo)。
 
@@ -152,7 +152,7 @@ OH_VideoInfo videoInfo = {
 
 
 
-##### 初始化AVScreenCapture实例配置
+#### 初始化AVScreenCapture实例配置
 
 AVScreenCapture实例的配置信息为[OH_AVScreenCaptureConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avscreencapture-oh-avscreencaptureconfig)，包括录制数据格式[OH_VideoInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avscreencapture-oh-videoinfo)、音视频采集参数[OH_AudioInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avscreencapture-oh-audioinfo)、录屏模式[OH_CaptureMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avscreen-capture-base-h#oh_capturemode)等，录屏模式包含OH_CAPTURE_HOME_SCREEN、OH_CAPTURE_SPECIFIED_SCREEN、OH_CAPTURE_SPECIFIED_WINDOW。
 
@@ -175,7 +175,7 @@ OH_AVScreenCapture_Init(capture, config);
 
 
 
-##### 设置数据更新、状态切换、错误上报的回调
+#### 设置数据更新、状态切换、错误上报的回调
 
 回调函数主要用来监听录屏过程中的错误发生、音视频流生成和录屏状态变更等事件，详细内容请参考：错误回调[OH_AVScreenCaptureOnError](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avscreen-capture-base-h#oh_avscreencaptureonerror)、状态回调[OH_AVScreenCapture_SetStateCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avscreen-capture-h#oh_avscreencapture_setstatecallback)和获取数据回调[OH_AVScreenCapture_SetDataCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avscreen-capture-h#oh_avscreencapture_setdatacallback)。
 
@@ -210,7 +210,7 @@ OH_AVScreenCapture_SetDataCallback(capture, OnBufferAvailable, userData);
 
 
 
-##### 启动录屏
+#### 启动录屏
 
 启动录屏[OH_AVScreenCapture_StartScreenCapture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avscreen-capture-h#oh_avscreencapture_startscreencapture)后，开始采集原始码流，通过回调[OH_AVScreenCapture_OnBufferAvailable](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avscreen-capture-base-h#oh_avscreencapture_onbufferavailable)来监听当前是否有码流的产生，通过回调[OH_AVScreenCapture_OnStateChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avscreen-capture-base-h#oh_avscreencapture_onstatechange)来监听启动状态的变更。
 
@@ -222,7 +222,7 @@ OH_AVScreenCapture_StartScreenCapture(capture);
 
 
 
-##### 处理录屏数据
+#### 处理录屏数据
 
 根据音视频采集的参数不同，会生成不同数据流，包含视频流、内录的音频流、麦克风录制的音频流，开发者可根据场景进行不同的处理，如将码流流转到其他模块，实现共享桌面、视频直播等。
 
@@ -290,7 +290,7 @@ void OnBufferAvailable(OH_AVScreenCapture *capture, OH_AVBuffer *buffer, OH_AVSc
 
 
 
-##### 停止录屏
+#### 停止录屏
 
 调用[OH_AVScreenCapture_StopScreenCapture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avscreen-capture-h#oh_avscreencapture_stopscreencapture)后应用会停止录屏或屏幕共享，释放麦克风。
 
@@ -301,7 +301,7 @@ OH_AVScreenCapture_StopScreenCapture(capture);
 
 
 
-##### 释放资源
+#### 释放资源
 
 调用[OH_AVScreenCapture_Release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avscreen-capture-h#oh_avscreencapture_release)释放创建的OH_AVScreenCapture实例，需要在停止录屏后释放。
 
@@ -312,7 +312,7 @@ OH_AVScreenCapture_Release(capture);
 
 
 
-##### PC/2in1弹窗模式配置说明
+#### PC/2in1弹窗模式配置说明
 
 系统提供的录屏模式：[录制指定屏幕](#录制指定屏幕)、[录制主屏幕](#录制主屏幕)和[录制指定窗口](#录制指定窗口推荐)。
 
@@ -320,7 +320,7 @@ OH_AVScreenCapture_Release(capture);
 
 
 
-##### 录制指定屏幕
+#### 录制指定屏幕
 
 即[OH_CAPTURE_SPECIFIED_SCREEN](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avscreen-capture-base-h#oh_capturemode)模式。
 
@@ -344,7 +344,7 @@ config.videoInfo.videoCapInfo.displayId = 0;
 
 
 
-##### 录制主屏幕
+#### 录制主屏幕
 
 即[OH_CAPTURE_HOME_SCREEN](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avscreen-capture-base-h#oh_capturemode)模式。
 
@@ -361,7 +361,7 @@ config.captureMode = OH_CAPTURE_HOME_SCREEN;
 
 
 
-##### 录制指定窗口（推荐）
+#### 录制指定窗口（推荐）
 
 即[OH_CAPTURE_SPECIFIED_WINDOW](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avscreen-capture-base-h#oh_capturemode)模式。
 
@@ -407,7 +407,7 @@ config.videoInfo.videoCapInfo.missionIDsLen = static_cast<int32_t>(missionIds.si
 
 
 
-##### Phone/Tablet弹窗模式配置说明
+#### Phone/Tablet弹窗模式配置说明
 
 从API version 23开始，支持在设备Phone/Tablet上通过策略控制是否弹出选择共享内容弹窗。
 
@@ -433,7 +433,7 @@ OH_AVScreenCapture_ReleaseCaptureStrategy(strategy);
 
 
 
-##### 更多资源
+#### 更多资源
 
  - API参考：详细的API描述请见[native_avscreen_capture.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avscreen-capture-h)。
  - 示例工程：该示例调用了媒体AVScreenCapture组件提供的接口能力，提供屏幕捕获的功能，详情见[录屏示例工程](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/Media/ScreenCapture/ScreenCaptureSample)。

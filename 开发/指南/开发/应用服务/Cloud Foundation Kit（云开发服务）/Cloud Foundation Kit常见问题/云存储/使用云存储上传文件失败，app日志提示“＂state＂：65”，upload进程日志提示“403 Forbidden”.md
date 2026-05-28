@@ -11,12 +11,12 @@
  - app日志提示“"state":65”
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/t-p7cwgJTGaYeMtu5OVWxg/zh-cn_image_0000002581275058.png?HW-CC-KV=V1&HW-CC-Date=20260528T014421Z&HW-CC-Expire=86400&HW-CC-Sign=D418C57061FB584D28AEF2AA43BB21FB15CCCF57D25648983DC4E915ADD326BA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/t-p7cwgJTGaYeMtu5OVWxg/zh-cn_image_0000002581275058.png?HW-CC-KV=V1&HW-CC-Date=20260528T030049Z&HW-CC-Expire=86400&HW-CC-Sign=58E1CC747C4F923DF20B00602D33018EF214E168BCAED0277C67CE0272807AD1)
 
  - upload进程的日志提示“403 Forbidden”（通过设置“No filters”模式、过滤“C01C50”关键字查找）
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/tz1dHfnTQX28gMRJ2Oj6aQ/zh-cn_image_0000002611754913.png?HW-CC-KV=V1&HW-CC-Date=20260528T014421Z&HW-CC-Expire=86400&HW-CC-Sign=E6BE439A71FEAF26EE6A220B16467349A3A5F324474CF997D4F47FEAED718627)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/tz1dHfnTQX28gMRJ2Oj6aQ/zh-cn_image_0000002611754913.png?HW-CC-KV=V1&HW-CC-Date=20260528T030049Z&HW-CC-Expire=86400&HW-CC-Sign=1A4DD89A27C53113A87D66BB9C64E3551780780240C6CE8C9DE22F0FDAA3E844)
 
 
 

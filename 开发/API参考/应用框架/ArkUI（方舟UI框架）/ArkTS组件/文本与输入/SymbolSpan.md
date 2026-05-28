@@ -12,7 +12,7 @@
 
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -45,7 +45,7 @@ SymbolSpan(value: Resource)
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -53,7 +53,7 @@ SymbolSpan(value: Resource)
  
   
 
-##### fontColor
+#### fontColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -80,7 +80,7 @@ fontColor(value: Array&lt;ResourceColor&gt;)
  
   
 
-##### fontSize
+#### fontSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -107,7 +107,7 @@ fontSize(value: number | string | Resource)
  
   
 
-##### fontWeight
+#### fontWeight
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -136,7 +136,7 @@ sys.symbol.ohos_lungs图标不支持设置fontWeight。
  
   
 
-##### renderingStrategy
+#### renderingStrategy
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -164,12 +164,12 @@ renderingStrategy(value: SymbolRenderingStrategy)
 不同渲染策略效果可参考以下示意图。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/F9NJLGxfQRqL2nf3_UTRZg/zh-cn_image_0000002581276032.png?HW-CC-KV=V1&HW-CC-Date=20260528T024227Z&HW-CC-Expire=86400&HW-CC-Sign=5D19974CE19504927F17F8F6F4BEBD0EE8D7C04EACC410DA51F1FE90088162F2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/F9NJLGxfQRqL2nf3_UTRZg/zh-cn_image_0000002581276032.png?HW-CC-KV=V1&HW-CC-Date=20260528T025600Z&HW-CC-Expire=86400&HW-CC-Sign=E184464BFDD0BE6E24983F1B302428480E92DB8B7A9F8F8B78B99C9848F4B84B)
 
  
   
 
-##### effectStrategy
+#### effectStrategy
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -196,7 +196,7 @@ effectStrategy(value: SymbolEffectStrategy)
  
   
 
-##### attributeModifier12+
+#### attributeModifier12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -217,7 +217,7 @@ attributeModifier(modifier: AttributeModifier&lt;SymbolSpanAttribute&gt;)
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -225,13 +225,13 @@ attributeModifier(modifier: AttributeModifier&lt;SymbolSpanAttribute&gt;)
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 示例1（设置渲染和动效策略）
+#### 示例1（设置渲染和动效策略）
 
 从API version 11开始，该示例通过[renderingStrategy](#renderingstrategy)、[effectStrategy](#effectstrategy)属性展示了不同的渲染和动效策略。
  
@@ -337,12 +337,12 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/Njdt9fxBTBCyEuUhvjARhw/zh-cn_image_0000002611755887.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024227Z&HW-CC-Expire=86400&HW-CC-Sign=0D2053C7AD36FE3C1BB0E7E5960DCFDA0D78762C92A8935B5ABEA766D851E8F2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/Njdt9fxBTBCyEuUhvjARhw/zh-cn_image_0000002611755887.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025600Z&HW-CC-Expire=86400&HW-CC-Sign=72D902D6F42692FF58398DC75AB4E261487372E6E452C428BF4746DC71194E43)
 
  
   
 
-##### 示例2（设置动态属性）
+#### 示例2（设置动态属性）
 
 从API version 12开始，该示例通过[attributeModifier](#attributemodifier12)属性创建指定样式图标。
  
@@ -375,4 +375,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/IINveTJFQNO1ac7gYa_YUA/zh-cn_image_0000002581435950.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024227Z&HW-CC-Expire=86400&HW-CC-Sign=B9829D60D8BDC84D0CE32C3AF19A90CC5C17B0642FC0B5CD159B8AB0C8DE3391)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/IINveTJFQNO1ac7gYa_YUA/zh-cn_image_0000002581435950.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025600Z&HW-CC-Expire=86400&HW-CC-Sign=69D19B337C544FE87D3608DED9E597A6B9DB22268882B4F1B10C4A549BAFC1D6)

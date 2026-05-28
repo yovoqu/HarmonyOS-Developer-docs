@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/http-request
 
-##### 场景介绍
+#### 场景介绍
 
 应用通过HTTP发起一个数据请求，支持常见的GET、POST、OPTIONS、HEAD、PUT、DELETE、TRACE、CONNECT方法。当前提供了2种HTTP请求方式，若请求发送或接收的数据量较少，可使用[HttpRequest.request](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#request)，若是大文件的上传或者下载，且关注数据发送和接收进度，可使用HTTP请求流式传输[HttpRequest.requestInstream](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#requestinstream10)。从API version 22开始，若是需要在"HTTP请求-响应"生命周期中的关键节点插入自定义逻辑，可以使用[HTTP拦截器](#http拦截器)。
 
@@ -42,7 +42,7 @@
 
 
 
-##### 发起HTTP数据请求
+#### 发起HTTP数据请求
 
 > [!NOTE]
 > 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需在页面中使用UIAbilityContext提供的能力，请参见 获取UIAbility的上下文信息 。
@@ -194,7 +194,7 @@ httpRequest.destroy();
 
 
 
-##### 发起HTTP流式传输请求
+#### 发起HTTP流式传输请求
 
 HTTP流式传输是指在处理HTTP响应时，可以一次只处理响应内容的一小部分，而不是一次性将整个响应加载到内存，这对于处理大文件、实时数据流等场景非常有用。
 
@@ -314,7 +314,7 @@ public destroyRequest(httpRequest: http.HttpRequest) {
 
 
 
-##### 通过HTTP发起WebDAV请求
+#### 通过HTTP发起WebDAV请求
 
 从API version 23开始，HTTP请求支持WebDAV协议的文件访问，WebDAV是基于HTTP协议的扩展，支持对远程服务器上的文件进行创建、读取、更新、删除、移动、复制(MKCOL、GET、PUT、DELETE、MOVE、COPY)等操作。
 
@@ -611,13 +611,13 @@ struct Index {
 
 
 
-##### 配置证书校验
+#### 配置证书校验
 
 当应用使用HTTPS协议时，涉及证书相关配置。面向互联网用户提供服务的应用仅需信任系统预置的CA证书。当前HTTP模块已默认信任系统预置的CA证书，无需特别设置。如果应用需要锁定证书，只信任开发者特别指定的证书，或者需要跳过证书校验，可以参考以下说明进行配置。
 
 
 
-##### TLS客户端证书验证流程
+#### TLS客户端证书验证流程
 
 在TLS握手过程中，客户端验证服务端证书以确保连接可信。服务端证书通常包括域名证书和中间CA证书。
 
@@ -690,7 +690,7 @@ HTTPS：通过[remoteValidation](https://developer.huawei.com/consumer/cn/doc/ha
 
 
 
-##### 证书锁定
+#### 证书锁定
 
 可以通过预置应用级证书，或者预置证书公钥哈希值的方式来进行证书锁定，即只有开发者特别指定的证书才能正常建立HTTPS连接。
 
@@ -715,7 +715,7 @@ openssl s_client -servername www.example.com -connect www.example.com:443 \
 直接把证书原文件预置在APP中。目前支持crt和pem格式的证书文件。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/nRFahURRReWJM5OUjDZucw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T014609Z&HW-CC-Expire=86400&HW-CC-Sign=2130100BFCDC556552BC7DC267FBEF8C6AAE6252B725944D446877F3F69A5E15)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/nRFahURRReWJM5OUjDZucw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030240Z&HW-CC-Expire=86400&HW-CC-Sign=4B94A071680E2B9006533A7B9F3205F1336D779A8187DEFC91382D6514C6316F)
 
 
 当前ohos.net.http和Image组件的证书锁定，会匹配证书链上所有证书的哈希值，如果服务器更新了任意一本证书，都会导致校验失败。如果服务器出现了更新证书的情况，APP版本应当随之更新并推荐消费者尽快升级APP版本，否则可能导致联网失败。
@@ -848,7 +848,7 @@ openssl dgst -sha256 -binary www.example.com.pubkey.der | openssl base64
 
 
 
-##### 配置不信任用户安装的CA证书
+#### 配置不信任用户安装的CA证书
 
 系统默认信任系统预置的CA证书和用户安装的CA证书，可配置不信任用户安装的CA证书提升安全性。配置不信任用户安装的CA证书可以在src/main/resources/base/profile/network_config.json进行配置，更多网络连接安全相关的配置可以参考[网络连接安全配置](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-network-ca-security#section5454123841911)。
 
@@ -864,7 +864,7 @@ openssl dgst -sha256 -binary www.example.com.pubkey.der | openssl base64
 
 
 
-##### 明文HTTP访问权限配置说明
+#### 明文HTTP访问权限配置说明
 
 该配置用于控制HTTP请求是否允许以明文形式传输。以下为明文HTTP访问权限的配置示例（含应用、组件及域名级配置），以及各字段的详细含义说明。更多网络连接安全相关的配置可以参考[网络连接安全配置](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-network-ca-security#section5454123841911)。
 
@@ -920,13 +920,13 @@ openssl dgst -sha256 -binary www.example.com.pubkey.der | openssl base64
 
 
 
-##### HTTP拦截器
+#### HTTP拦截器
 
 从API version 22开始，HTTP拦截器模块提供了一种强大且可定制的机制，允许开发者在"HTTP请求-响应"生命周期中的关键节点插入自定义逻辑。通过拦截器，开发者可以无需修改核心网络代码即可实现修改请求头/体、缓存策略、重定向处理、网络监控、响应预处理等全局功能。
 
 
 
-##### 拦截点说明
+#### 拦截点说明
 
 | 拦截点名称 | 位置说明 | 拦截点interceptorHandle接口的出参和入参 |
 | --- | --- | --- |
@@ -945,7 +945,7 @@ openssl dgst -sha256 -binary www.example.com.pubkey.der | openssl base64
 
 
 
-##### HTTP拦截器开发步骤
+#### HTTP拦截器开发步骤
 1. 导入HTTP请求拦截器所需模块。
 
   

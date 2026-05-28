@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/multi-thread-ui-build-faq
 
-##### 如何获取和使用支持多线程调用的NDK接口
+#### 如何获取和使用支持多线程调用的NDK接口
 
 从API version 22开始，[ArkUI_NativeAPIVariantKind](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-interface-h#arkui_nativeapivariantkind)中新增ARKUI_MULTI_THREAD_NATIVE_NODE枚举。
 
@@ -12,7 +12,7 @@
 
 
 
-##### 调用多线程NDK接口返回ARKUI_ERROR_CODE_NODE_ON_INVALID_THREAD错误码
+#### 调用多线程NDK接口返回ARKUI_ERROR_CODE_NODE_ON_INVALID_THREAD错误码
 
 **问题现象**
 
@@ -28,7 +28,7 @@
 
 
 
-##### 如何保证多线程操作ArkUI组件时线程安全
+#### 如何保证多线程操作ArkUI组件时线程安全
 
 在使用多线程NDK接口时，多个线程同时操作同一个组件或组件树，无法保证线程安全，需要开发者通过合理的架构设计避免出现上述情况。
 

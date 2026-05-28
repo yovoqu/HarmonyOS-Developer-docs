@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/asset-native-query
 
-##### 接口介绍
+#### 接口介绍
 
 开发者可以查阅API文档，获取关键资产查询接口的详细说明：[OH_Asset_Query](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-asset-api-h#oh_asset_query)。
 
@@ -50,13 +50,13 @@
 
 
 
-##### 约束和限制
+#### 约束和限制
 
 批量查询出的关键资产需要通过IPC通道传输给业务，受IPC缓冲区大小限制，建议对查询超过40条关键资产时，进行分批查询，且每次查询数量不超过40条。
 
 
 
-##### 代码示例
+#### 代码示例
 
 > [!NOTE]
 > 在查询前，需确保已有关键资产，可参考 指南文档 新增关键资产，否则将抛出NOT_FOUND错误（错误码24000002）。
@@ -64,7 +64,7 @@
 
 
 
-##### 查询单条关键资产明文
+#### 查询单条关键资产明文
 
 查询别名是demo_alias的关键资产明文。
 
@@ -119,7 +119,7 @@ static napi_value QueryAssetPlaintext(napi_env env, napi_callback_info info)
 
 
 
-##### 查询单条关键资产属性
+#### 查询单条关键资产属性
 
 查询别名是demo_alias的关键资产属性。
 
@@ -174,7 +174,7 @@ static napi_value QueryAssetAttribute(napi_env env, napi_callback_info info)
 
 
 
-##### 批量查询关键资产属性
+#### 批量查询关键资产属性
 
 批量查询标签为demo_label的关键资产属性，共返回10条符合条件的查询结果，结果按ASSET_TAG_DATA_LABEL_NORMAL_1属性内容排序。
 1. 在CMake脚本中链接相关动态库。

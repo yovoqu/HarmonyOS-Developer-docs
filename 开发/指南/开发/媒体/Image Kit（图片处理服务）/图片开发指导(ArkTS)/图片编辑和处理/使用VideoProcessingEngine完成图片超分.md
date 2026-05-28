@@ -9,7 +9,7 @@
 典型应用场景如：从URL获取图片源 > 图片细节增强 > 显示。
   
 
-##### 约束与限制
+#### 约束与限制
 1. 当前仅支持处理同时满足以下条件的图片：
 
   
@@ -35,7 +35,7 @@
 
   
 
-  ##### 开发步骤
+  #### 开发步骤
 
 1. 添加引用文件。
 
@@ -134,7 +134,7 @@ videoProcessingEngine.deinitializeEnvironment();
 
   
 
-  ##### 示例代码
+  #### 示例代码
 
   
 [图片超分示例代码](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/ImageKit/UsingImageProcessingToProcessImages/entry/src/main/ets/view/ImageScalingComponentTs.ets)

@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-telephony-radio-h
 **支持设备：** Phone | Tablet | Wearable
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | Tablet | Wearable
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | Tablet | Wearable
  
@@ -41,13 +41,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | Tablet | Wearable
 
   
 
-##### OH_Telephony_GetNetworkState()
+#### OH_Telephony_GetNetworkState()
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -81,7 +81,7 @@ Telephony_RadioResult OH_Telephony_GetNetworkState(Telephony_NetworkState *state
  
   
 
-##### OH_Telephony_GetNetworkStateForSlot()
+#### OH_Telephony_GetNetworkStateForSlot()
 
 **支持设备：** Phone | Tablet | Wearable
 

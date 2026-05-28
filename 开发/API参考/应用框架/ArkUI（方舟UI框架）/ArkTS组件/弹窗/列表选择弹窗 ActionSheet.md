@@ -12,7 +12,7 @@
 
 
 
-##### ActionSheetOptions对象说明
+#### ActionSheetOptions对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -61,7 +61,7 @@
 
 
 
-##### SheetInfo对象说明
+#### SheetInfo对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -80,7 +80,7 @@
 
 
 
-##### LevelMode15+
+#### LevelMode15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -99,7 +99,7 @@ type LevelMode = LevelMode
 
 
 
-##### ImmersiveMode15+
+#### ImmersiveMode15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -118,7 +118,7 @@ type ImmersiveMode = ImmersiveMode
 
 
 
-##### DismissDialogAction12+
+#### DismissDialogAction12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -130,7 +130,7 @@ Dialog关闭的信息。
 
 
 
-##### 属性
+#### 属性
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -140,7 +140,7 @@ Dialog关闭的信息。
 
 
 
-##### ActionSheetButtonOptions18+对象说明
+#### ActionSheetButtonOptions18+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -165,7 +165,7 @@ Dialog关闭的信息。
 
 
 
-##### ActionSheetOffset18+对象说明
+#### ActionSheetOffset18+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -183,13 +183,13 @@ Dialog关闭的信息。
 
 
 
-##### ActionSheet
+#### ActionSheet
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### show(deprecated)
+#### show(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -214,7 +214,7 @@ static show(value: ActionSheetOptions)
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -224,7 +224,7 @@ static show(value: ActionSheetOptions)
 
 
 
-##### 示例1（弹出列表选择弹窗）
+#### 示例1（弹出列表选择弹窗）
 
 该示例通过点击按钮弹出列表选择弹窗。
 
@@ -298,7 +298,7 @@ struct ActionSheetExample {
 
 
 
-##### 示例2（可在主窗外弹出的弹窗）
+#### 示例2（可在主窗外弹出的弹窗）
 
 在2in1设备上设置[showInSubWindow](#actionsheetoptions对象说明)为true时，可以弹出在主窗外显示的弹窗。
 
@@ -374,7 +374,7 @@ struct ActionSheetExample {
 
 
 
-##### 示例3（设置弹窗的动画）
+#### 示例3（设置弹窗的动画）
 
 该示例通过配置[transition](#actionsheetoptions对象说明)实现弹窗的显示和消失动画。
 
@@ -440,7 +440,7 @@ struct ActionSheetExample {
 
 
 
-##### 示例4（设置弹窗的样式）
+#### 示例4（设置弹窗的样式）
 
 该示例定义了ActionSheet的样式，如宽度、高度、背景色、阴影等。
 
@@ -526,7 +526,7 @@ struct ActionSheetExample {
 
 
 
-##### 示例5（悬停态弹窗）
+#### 示例5（悬停态弹窗）
 
 该示例展示了在折叠屏悬停态下设置dialog布局区域的效果。
 
@@ -597,12 +597,12 @@ struct ActionSheetExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/fVPFwl5eSDiJc2vTCWTnOQ/zh-cn_image_0000002611836007.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024203Z&HW-CC-Expire=86400&HW-CC-Sign=2B2EDF8DD927AD422420AD6611F0EDF92FE9EF83DCF7B2EE9B5325CCF83C3EEA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/fVPFwl5eSDiJc2vTCWTnOQ/zh-cn_image_0000002611836007.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025536Z&HW-CC-Expire=86400&HW-CC-Sign=A3347CF7BD089D54B308B4E3537B25F64FE7B7882D584600B0EE007C63DBB06A)
 
 
 
 
-##### 示例6（弹窗生命周期）
+#### 示例6（弹窗生命周期）
 
 该示例为弹窗配置生命周期回调。
 
@@ -680,12 +680,12 @@ struct Example1 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/mQ6wByz0SDm1IsL_rpJPzw/zh-cn_image_0000002581276260.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024203Z&HW-CC-Expire=86400&HW-CC-Sign=44F663E8D0E208CA88FFC009DB283AD1720DAF5F41C1E093C1D9B38469A93D5E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/mQ6wByz0SDm1IsL_rpJPzw/zh-cn_image_0000002581276260.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025536Z&HW-CC-Expire=86400&HW-CC-Sign=FF9EA883AA558C25AECEB9A24BE1C37A7BEA82B1656C0EC3ED2CD5618E04EF16)
 
 
 
 
-##### 示例7（自定义背景模糊效果参数）
+#### 示例7（自定义背景模糊效果参数）
 
 该示例通过配置[backgroundBlurStyleOptions](#actionsheetoptions对象说明)，实现自定义背景模糊效果。
 
@@ -744,12 +744,12 @@ struct ActionSheetExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/eReW0ZJLQ36DcXI7TmRcUA/zh-cn_image_0000002611756115.png?HW-CC-KV=V1&HW-CC-Date=20260528T024203Z&HW-CC-Expire=86400&HW-CC-Sign=195473D60DC0D05E8B5590DD8B70403FDDCBB7E931539CC5CAB8A5E49D70CDD8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/eReW0ZJLQ36DcXI7TmRcUA/zh-cn_image_0000002611756115.png?HW-CC-KV=V1&HW-CC-Date=20260528T025536Z&HW-CC-Expire=86400&HW-CC-Sign=8872F6C8C09C18DB8FE9D346F61A5092C5A6BBF86126E7B1562F0FE5D77B0C75)
 
 
 
 
-##### 示例8（自定义背景效果参数）
+#### 示例8（自定义背景效果参数）
 
 该示例通过配置[backgroundEffect](#actionsheetoptions对象说明)，实现自定义背景效果。
 
@@ -809,4 +809,4 @@ struct ActionSheetExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/W2Kfi2vRTVWB7noTP7ndew/zh-cn_image_0000002581436178.png?HW-CC-KV=V1&HW-CC-Date=20260528T024203Z&HW-CC-Expire=86400&HW-CC-Sign=77B5D0D86838D1D58FD40BC532C00018AE8C6357F53359ED158AA49E401F0A3B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/W2Kfi2vRTVWB7noTP7ndew/zh-cn_image_0000002581436178.png?HW-CC-KV=V1&HW-CC-Date=20260528T025536Z&HW-CC-Expire=86400&HW-CC-Sign=FF9B489BC6B8FB3178836EB620B4EC0D62F6A56A1C13E57B729268EFC8471F52)

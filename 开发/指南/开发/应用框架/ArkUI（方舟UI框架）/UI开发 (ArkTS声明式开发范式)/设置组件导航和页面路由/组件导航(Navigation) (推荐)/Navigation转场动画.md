@@ -7,7 +7,7 @@
 [Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)存在默认转场动画，此外也提供了自定义转场和共享元素转场能力。
 
 
-##### 系统默认转场
+#### 系统默认转场
 
 系统提供了多种默认转场类型，可以通过[NavDestination.systemTransition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#systemtransition14)接口实现，具体示例请参考[设置指定的NavDestination系统转场](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#示例3设置指定的navdestination系统转场)。
 
@@ -37,7 +37,7 @@ aboutToAppear(): void {
 
 
 
-##### 自定义转场
+#### 自定义转场
 
 Navigation提供了两种自定义转场接口：Navigation自定义转场、NavDestination自定义转场。
 
@@ -61,7 +61,7 @@ Navigation提供了两种自定义转场接口：Navigation自定义转场、Nav
 
 
 
-##### 共享元素转场
+#### 共享元素转场
 
 NavDestination之间切换时可以通过[geometryTransition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-transition-animation-geometrytransition#geometrytransition)实现共享元素转场，示例如下。配置了共享元素转场的页面，同时需要关闭系统默认的转场动画，否则默认动画会与共享元素动画叠加，导致效果异常。
 1. 为需要实现共享元素转场的组件添加geometryTransition属性，id参数必须在两个NavDestination之间保持一致。

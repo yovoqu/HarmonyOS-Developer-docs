@@ -7,7 +7,7 @@
 对应的算法规格请查看[对称密钥加解密算法规格：3DES](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sym-encrypt-decrypt-spec#section3des)。
 
 
-##### 在CMake脚本中链接相关动态库
+#### 在CMake脚本中链接相关动态库
 
 ```text
 target_link_libraries(entry PUBLIC libohcrypto.so)
@@ -15,7 +15,7 @@ target_link_libraries(entry PUBLIC libohcrypto.so)
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 **创建对象**
 
@@ -60,7 +60,7 @@ target_link_libraries(entry PUBLIC libohcrypto.so)
 
 
 
-##### 开发示例
+#### 开发示例
 
 当前示例以ECB分组模式为例，不需要设置加解密参数。
 
@@ -133,7 +133,7 @@ end:
 
 
 
-##### 设置加解密参数IV
+#### 设置加解密参数IV
 
 下述示例为CBC分组模式，需要设置加解密参数IV。
 

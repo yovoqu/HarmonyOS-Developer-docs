@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-verifyallattr
 
-##### 函数功能
+#### 函数功能
 
 根据disableCommonVerifier值，校验Operator中的属性是否有效，校验Operator的输入输出是否有效。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 graphStatus VerifyAllAttr(bool disable_common_verifier = false);
@@ -18,7 +18,7 @@ graphStatus VerifyAllAttr(bool disable_common_verifier = false);
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数名 | 输入/输出 | 描述 |
 | --- | --- | --- |
@@ -27,7 +27,7 @@ graphStatus VerifyAllAttr(bool disable_common_verifier = false);
  
   
 
-##### 返回值
+#### 返回值
  
 | 类型 | 描述 |
 | --- | --- |
@@ -36,12 +36,12 @@ graphStatus VerifyAllAttr(bool disable_common_verifier = false);
  
   
 
-##### 异常处理
+#### 异常处理
 
 无
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

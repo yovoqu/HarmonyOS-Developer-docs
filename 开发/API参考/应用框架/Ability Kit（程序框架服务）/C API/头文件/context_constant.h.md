@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-context-constant-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
 
 
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -43,13 +43,13 @@
 
 
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### AbilityRuntime_AreaMode
+#### AbilityRuntime_AreaMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -74,7 +74,7 @@ enum AbilityRuntime_AreaMode
 
 
 
-##### AbilityRuntime_StartVisibility
+#### AbilityRuntime_StartVisibility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -96,7 +96,7 @@ enum AbilityRuntime_StartVisibility
 
 
 
-##### AbilityRuntime_WindowMode
+#### AbilityRuntime_WindowMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -118,7 +118,7 @@ enum AbilityRuntime_WindowMode
 
 
 
-##### AbilityRuntime_SupportedWindowMode
+#### AbilityRuntime_SupportedWindowMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

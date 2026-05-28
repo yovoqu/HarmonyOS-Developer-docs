@@ -9,7 +9,7 @@ hvigorw作为Hvigor的wrapper包装工具，支持自动安装Hvigor构建工具
 执行命令前，需要先配置JDK，配置Node.js、hvigor等环境变量，具体请参考[搭建流水线](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-command-line-building-app)。
 
 
-##### 命令行使用方式
+#### 命令行使用方式
 
 hvigorw命令行格式为：
 
@@ -25,13 +25,13 @@ hvigorw [taskNames...] <options>
 
 
 
-##### 常用命令
+#### 常用命令
 
 常见的任务和参数如下，更多任务请参考[任务详细说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-task-process#section196919100414)。
 
 
 
-##### 查询
+#### 查询
 
 | 参数 | 说明 |
 | --- | --- |
@@ -41,7 +41,7 @@ hvigorw [taskNames...] <options>
 
 
 
-##### 编译构建
+#### 编译构建
 
 | 任务 | 说明 |
 | --- | --- |
@@ -77,7 +77,7 @@ hvigorw [taskNames...] <options>
 
 
 
-##### 日志
+#### 日志
 
 | 参数 | 说明 |
 | --- | --- |
@@ -90,7 +90,7 @@ hvigorw [taskNames...] <options>
 
 
 
-##### 可视化
+#### 可视化
 
 | 参数 | 说明 |
 | --- | --- |
@@ -106,7 +106,7 @@ hvigorw [taskNames...] <options>
 
 
 
-##### daemon
+#### daemon
 
 | 参数 | 说明 |
 | --- | --- |
@@ -121,7 +121,7 @@ hvigorw [taskNames...] <options>
 
 
 
-##### 性能/内存
+#### 性能/内存
 
 | 参数 | 说明 |
 | --- | --- |
@@ -133,7 +133,7 @@ hvigorw [taskNames...] <options>
 
 
 
-##### 公共命令
+#### 公共命令
 
 | 任务 | 说明 |
 | --- | --- |
@@ -154,7 +154,7 @@ buildInfo命令扩展参数：
 
 
 
-##### 其他命令
+#### 其他命令
 
 | 参数 | 说明 |
 | --- | --- |
@@ -165,7 +165,7 @@ buildInfo命令扩展参数：
 | --no-pnpm-frozen-lockfile，--pnpm-frozen-lockfile | Hvigor默认不忽略pnpm-lock.yaml文件，如需忽略，可在命令行后添加--pnpm-frozen-lockfile。 忽略pnpm-lock.yaml文件，按照hvigor-config.json5的配置安装Hvigor插件的依赖（如果不忽略pnpm-lock.yaml文件，在使用Hvigor 2.0.0及以上版本的CI场景下安装Hvigor插件依赖时将报错）。 
 > [!TIP]
 > 该命令在4.1 Release及以上版本中已废弃。在CI场景中将自动配置，无需开发者手动配置。
-|
+ |
 | --config, -c | 指定hvigor-config.json5配置文件中的参数。 当前仅支持设置properties里的参数，具体支持的参数请查看hvigor-config.json5文件中properties支持的参数。 --config properties.key=value 同 -c properties.key=value |
 | --watch | 开启观察模式，主要用于预览和热加载场景。 |
 | --generate-build-profile, --no-generate-build-profile | 已废弃。生成BuildProfile.ets文件。 |

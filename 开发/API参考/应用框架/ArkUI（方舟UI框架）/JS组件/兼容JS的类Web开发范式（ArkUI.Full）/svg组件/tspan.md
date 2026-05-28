@@ -12,7 +12,7 @@
 
   
 
-##### 权限列表
+#### 权限列表
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -47,7 +47,7 @@
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -185,4 +185,4 @@
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/p2QJ2eyITIWsV-r514Kzbg/zh-cn_image_0000002581436388.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024106Z&HW-CC-Expire=86400&HW-CC-Sign=4D1731060036761F76F80166B81FE5871D1B20BBD7546EC61BB8ED92E3A6EDF8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/p2QJ2eyITIWsV-r514Kzbg/zh-cn_image_0000002581436388.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025440Z&HW-CC-Expire=86400&HW-CC-Sign=EF9B1C1B2DC2E82A0F4AEC2E3EFEF3FEE8E6E2736FA7AC64B3309A0E2AB74C76)

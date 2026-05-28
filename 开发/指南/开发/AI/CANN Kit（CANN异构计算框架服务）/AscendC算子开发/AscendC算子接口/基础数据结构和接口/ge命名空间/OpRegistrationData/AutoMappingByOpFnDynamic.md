@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-automappingbyopfndynamic
 
-##### 函数功能
+#### 函数功能
 
 动态输入/输出算子的自动映射回调函数。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 Status AutoMappingByOpFnDynamic(const ge::Operator &op_src, ge::Operator &op, const std::vector<DynamicInputOutputInfo> &dynamic_name_attr_value)
@@ -18,7 +18,7 @@ Status AutoMappingByOpFnDynamic(const ge::Operator &op_src, ge::Operator &op, co
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -29,7 +29,7 @@ Status AutoMappingByOpFnDynamic(const ge::Operator &op_src, ge::Operator &op, co
  
   
 
-##### DynamicInputOutputInfo数据结构说明
+#### DynamicInputOutputInfo数据结构说明
 
 ```text
 constexpr int64_t kMaxNameLength = 1048576; // 1M
@@ -64,7 +64,7 @@ struct DynamicInputOutputInfo {
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 Status QueueDequeueUpToMapping(const  ge::Operator& op_src, ge::Operator& op) {

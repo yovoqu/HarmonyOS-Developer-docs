@@ -9,13 +9,13 @@
 针对复杂页面场景，可以使用Swiper组件的预加载机制，利用主线程的空闲时间来提前构建和布局绘制组件，优化滑动体验。
 
 
-##### 布局与约束
+#### 布局与约束
 
 Swiper作为一个容器组件，如果设置了自身尺寸属性，则在轮播显示过程中均以该尺寸生效。如果自身尺寸属性未被设置，则分两种情况：如果设置了[prevMargin](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#prevmargin10)或者[nextMargin](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#nextmargin10)属性，则Swiper自身尺寸会跟随其父组件；如果未设置prevMargin或者nextMargin属性，则会自动根据子组件的大小设置自身的尺寸。
 
 
 
-##### 循环播放
+#### 循环播放
 
 通过[loop](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#loop)属性控制是否循环播放，该属性默认值为true。
 
@@ -72,7 +72,7 @@ Swiper() {
 
 
 
-##### 自动轮播
+#### 自动轮播
 
 Swiper通过设置[autoPlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#autoplay)属性，控制是否自动轮播子组件。该属性默认值为false。
 
@@ -94,7 +94,7 @@ Swiper() {
 
 
 
-##### 导航点样式
+#### 导航点样式
 
 Swiper提供了默认的导航点样式和导航点箭头样式，导航点默认显示在Swiper下方居中位置，开发者也可以通过[indicator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#indicator)属性自定义导航点的位置和样式，导航点箭头默认不显示。
 
@@ -201,7 +201,7 @@ Swiper() {
 
 
 
-##### 页面切换方式
+#### 页面切换方式
 
 Swiper支持手指滑动、点击导航点和通过控制器三种方式切换页面，以下示例展示通过控制器切换页面的方法。
 
@@ -298,7 +298,7 @@ export struct SwiperPageSwitchMethod {
 
 
 
-##### 轮播方向
+#### 轮播方向
 
 Swiper支持水平和垂直方向上进行轮播，主要通过[vertical](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#vertical)属性控制。
 
@@ -342,7 +342,7 @@ Swiper(
 
 
 
-##### 每页显示多个子页面
+#### 每页显示多个子页面
 
 Swiper支持在一个页面内同时显示多个子组件，通过[displayCount](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#displaycount8)属性设置。
 
@@ -385,7 +385,7 @@ Swiper() {
 
 
 
-##### 自定义切换动画
+#### 自定义切换动画
 
 Swiper支持通过[customContentTransition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#customcontenttransition12)设置自定义切换动画，可以在回调中对视窗内所有页面逐帧设置透明度、缩放比例、位移、渲染层级等属性实现自定义切换动画。
 
@@ -475,7 +475,7 @@ export struct SwiperCustomAnimation {
 
 
 
-##### Swiper与Tabs联动
+#### Swiper与Tabs联动
 
 从API version 18开始，Swiper选中的元素改变时，会通过[onSelected](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#onselected18)回调事件，将元素的索引值index返回。通过调用[tabsController.changeIndex(index)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#changeindex)方法来实现Tabs页签的切换。
 
@@ -591,7 +591,7 @@ export struct SwiperAndTabsLinkage {
 
 
 
-##### 设置圆点导航点间距
+#### 设置圆点导航点间距
 
 从API version 19开始，针对圆点导航点，可以通过DotIndicator的[space](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#space19)属性来设置圆点导航点的间距。
 
@@ -609,7 +609,7 @@ Swiper(
 
 
 
-##### 导航点忽略组件大小
+#### 导航点忽略组件大小
 
 当导航点的[bottom](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#bottom)设为0之后，导航点的底部与Swiper的底部还会有一定间距。如果希望消除该间距，从API version 19开始，可通过调用[bottom](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#bottom19)(bottom, ignoreSize)属性来进行设置。将ignoreSize设置为true，即可忽略导航点组件大小，达到消除该间距的目的。
 
@@ -755,7 +755,7 @@ export struct SwiperIgnoreComponentSize {
 
 
 
-##### 保持可见内容位置不变
+#### 保持可见内容位置不变
 
 从API version 20开始，Swiper通过设置[maintainVisibleContentPosition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#maintainvisiblecontentposition20)属性，可在使用LazyForEach懒加载数据时（如通过onDataAdd新增数据），保持当前可见内容位置不变，避免因数据增删导致的视图跳动。该属性默认值为false。
 
@@ -862,6 +862,6 @@ export struct SwiperVisibleContentPosition {
 
 
 
-##### 示例代码
+#### 示例代码
 
  - [短视频切换](https://gitcode.com/HarmonyOS_Samples/short-video)

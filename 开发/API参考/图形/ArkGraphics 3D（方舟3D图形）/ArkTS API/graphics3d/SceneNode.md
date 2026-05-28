@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,7 +23,7 @@ import { LayerMask, NodeType, Container, Node, Geometry, LightType, Light, SpotL
  
   
 
-##### LayerMask
+#### LayerMask
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -31,7 +31,7 @@ import { LayerMask, NodeType, Container, Node, Geometry, LightType, Light, SpotL
  
   
 
-##### getEnabled
+#### getEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -79,7 +79,7 @@ function layerMask(): void {
  
   
 
-##### setEnabled
+#### setEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -121,7 +121,7 @@ function layerMask(): void {
  
   
 
-##### NodeType
+#### NodeType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -140,7 +140,7 @@ function layerMask(): void {
  
   
 
-##### Container&lt;T&gt;
+#### Container&lt;T&gt;
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -148,7 +148,7 @@ function layerMask(): void {
  
   
 
-##### append
+#### append
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -189,7 +189,7 @@ function append(): void {
  
   
 
-##### insertAfter
+#### insertAfter
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -231,7 +231,7 @@ function insertAfter(): void {
  
   
 
-##### remove
+#### remove
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -272,7 +272,7 @@ function remove(): void {
  
   
 
-##### get
+#### get
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -318,7 +318,7 @@ function get(): void {
  
   
 
-##### clear
+#### clear
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -352,7 +352,7 @@ function clear(): void {
  
   
 
-##### count
+#### count
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -392,7 +392,7 @@ function count(): void {
  
   
 
-##### Node
+#### Node
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -400,7 +400,7 @@ function count(): void {
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -421,7 +421,7 @@ function count(): void {
  
   
 
-##### getNodeByPath
+#### getNodeByPath
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -464,7 +464,7 @@ function getNode(): void {
  
   
 
-##### Geometry
+#### Geometry
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -480,7 +480,7 @@ function getNode(): void {
  
   
 
-##### LightType
+#### LightType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -496,7 +496,7 @@ function getNode(): void {
  
   
 
-##### Light
+#### Light
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -515,7 +515,7 @@ function getNode(): void {
  
   
 
-##### SpotLight
+#### SpotLight
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -532,7 +532,7 @@ function getNode(): void {
  
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/16M3GdY4R8GxwesvGfTfeQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024325Z&HW-CC-Expire=86400&HW-CC-Sign=D4565B0512F56C4D8C874572C7D4FB6139D684849683D3C211B6E21932A5A103)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/16M3GdY4R8GxwesvGfTfeQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025701Z&HW-CC-Expire=86400&HW-CC-Sign=D663663459E8220D04FF7A00E91ADBD33AC0A9AF8463689806F808399610EF56)
  
  
 用户需要保证设置的innerAngle与outerAngle值是合理的。当outerAngle设置的值大于PI/2时，内部会强制其等于PI/2。当outerAngle设置的值小于innerAngle时，内部会强制其等于innerAngle。
@@ -541,7 +541,7 @@ function getNode(): void {
  
   
 
-##### DirectionalLight
+#### DirectionalLight
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -551,7 +551,7 @@ function getNode(): void {
  
   
 
-##### Camera
+#### Camera
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -559,7 +559,7 @@ function getNode(): void {
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -580,7 +580,7 @@ function getNode(): void {
  
   
 
-##### raycast20+
+#### raycast20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -721,7 +721,7 @@ function lookAt(node: Node, eye: Vec3, center: Vec3, up: Vec3) {
  
   
 
-##### getViewMatrix23+
+#### getViewMatrix23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -763,7 +763,7 @@ function GetViewMatrix(): void {
  
   
 
-##### getProjectionMatrix23+
+#### getProjectionMatrix23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

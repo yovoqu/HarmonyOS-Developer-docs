@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -25,13 +25,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -58,13 +58,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Huks_GetSdkVersion()
+#### OH_Huks_GetSdkVersion()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -94,7 +94,7 @@ struct OH_Huks_Result OH_Huks_GetSdkVersion(struct OH_Huks_Blob *sdkVersion)
  
   
 
-##### OH_Huks_GenerateKeyItem()
+#### OH_Huks_GenerateKeyItem()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -126,7 +126,7 @@ struct OH_Huks_Result OH_Huks_GenerateKeyItem(const struct OH_Huks_Blob *keyAlia
  
   
 
-##### OH_Huks_ImportKeyItem()
+#### OH_Huks_ImportKeyItem()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -158,7 +158,7 @@ struct OH_Huks_Result OH_Huks_ImportKeyItem(const struct OH_Huks_Blob *keyAlias,
  
   
 
-##### OH_Huks_ImportWrappedKeyItem()
+#### OH_Huks_ImportWrappedKeyItem()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -191,7 +191,7 @@ struct OH_Huks_Result OH_Huks_ImportWrappedKeyItem(const struct OH_Huks_Blob *ke
  
   
 
-##### OH_Huks_ExportPublicKeyItem()
+#### OH_Huks_ExportPublicKeyItem()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -223,7 +223,7 @@ struct OH_Huks_Result OH_Huks_ExportPublicKeyItem(const struct OH_Huks_Blob *key
  
   
 
-##### OH_Huks_DeleteKeyItem()
+#### OH_Huks_DeleteKeyItem()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -254,7 +254,7 @@ struct OH_Huks_Result OH_Huks_DeleteKeyItem(const struct OH_Huks_Blob *keyAlias,
  
   
 
-##### OH_Huks_GetKeyItemParamSet()
+#### OH_Huks_GetKeyItemParamSet()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -286,7 +286,7 @@ struct OH_Huks_Result OH_Huks_GetKeyItemParamSet(const struct OH_Huks_Blob *keyA
  
   
 
-##### OH_Huks_IsKeyItemExist()
+#### OH_Huks_IsKeyItemExist()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -317,7 +317,7 @@ struct OH_Huks_Result OH_Huks_IsKeyItemExist(const struct OH_Huks_Blob *keyAlias
  
   
 
-##### OH_Huks_AttestKeyItem()
+#### OH_Huks_AttestKeyItem()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -355,7 +355,7 @@ struct OH_Huks_Result OH_Huks_AttestKeyItem(const struct OH_Huks_Blob *keyAlias,
  
   
 
-##### OH_Huks_AnonAttestKeyItem()
+#### OH_Huks_AnonAttestKeyItem()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -389,7 +389,7 @@ struct OH_Huks_Result OH_Huks_AnonAttestKeyItem(const struct OH_Huks_Blob *keyAl
  
   
 
-##### OH_Huks_InitSession()
+#### OH_Huks_InitSession()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -430,7 +430,7 @@ struct OH_Huks_Result OH_Huks_InitSession(const struct OH_Huks_Blob *keyAlias, c
  
   
 
-##### OH_Huks_UpdateSession()
+#### OH_Huks_UpdateSession()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -471,7 +471,7 @@ struct OH_Huks_Result OH_Huks_UpdateSession(const struct OH_Huks_Blob *handle, c
  
   
 
-##### OH_Huks_FinishSession()
+#### OH_Huks_FinishSession()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -512,7 +512,7 @@ struct OH_Huks_Result OH_Huks_FinishSession(const struct OH_Huks_Blob *handle, c
  
   
 
-##### OH_Huks_AbortSession()
+#### OH_Huks_AbortSession()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -551,7 +551,7 @@ struct OH_Huks_Result OH_Huks_AbortSession(const struct OH_Huks_Blob *handle, co
  
   
 
-##### OH_Huks_ListAliases()
+#### OH_Huks_ListAliases()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -582,7 +582,7 @@ struct OH_Huks_Result OH_Huks_ListAliases(const struct OH_Huks_ParamSet *paramSe
  
   
 
-##### OH_Huks_WrapKey()
+#### OH_Huks_WrapKey()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -614,7 +614,7 @@ struct OH_Huks_Result OH_Huks_WrapKey(const struct OH_Huks_Blob *keyAlias, const
  
   
 
-##### OH_Huks_UnwrapKey()
+#### OH_Huks_UnwrapKey()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

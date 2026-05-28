@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone
 
@@ -22,7 +22,7 @@ import { motion } from '@kit.MultimodalAwarenessKit';
 
 
 
-##### OperatingHandStatus
+#### OperatingHandStatus
 
 **支持设备：** Phone
 
@@ -39,7 +39,7 @@ import { motion } from '@kit.MultimodalAwarenessKit';
 
 
 
-##### HoldingHandStatus20+
+#### HoldingHandStatus20+
 
 **支持设备：** Phone
 
@@ -58,7 +58,7 @@ import { motion } from '@kit.MultimodalAwarenessKit';
 
 
 
-##### motion.on('operatingHandChanged')
+#### motion.on('operatingHandChanged')
 
 **支持设备：** Phone
 
@@ -113,7 +113,7 @@ try {
 
 
 
-##### motion.off('operatingHandChanged')
+#### motion.off('operatingHandChanged')
 
 **支持设备：** Phone
 
@@ -162,7 +162,7 @@ try {
 
 
 
-##### motion.getRecentOperatingHandStatus()
+#### motion.getRecentOperatingHandStatus()
 
 **支持设备：** Phone
 
@@ -208,7 +208,7 @@ try {
 
 
 
-##### motion.on('holdingHandChanged') 20+
+#### motion.on('holdingHandChanged') 20+
 
 **支持设备：** Phone
 
@@ -260,7 +260,7 @@ try {
 
 
 
-##### motion.off('holdingHandChanged') 20+
+#### motion.off('holdingHandChanged') 20+
 
 **支持设备：** Phone
 

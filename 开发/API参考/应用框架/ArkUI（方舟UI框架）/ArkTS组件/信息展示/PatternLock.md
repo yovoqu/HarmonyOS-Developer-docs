@@ -12,7 +12,7 @@
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@ PatternLock(controller?: PatternLockController)
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -49,7 +49,7 @@ PatternLock(controller?: PatternLockController)
 
 
 
-##### sideLength
+#### sideLength
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -74,7 +74,7 @@ sideLength(value: Length)
 
 
 
-##### circleRadius
+#### circleRadius
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -95,7 +95,7 @@ circleRadius(value: Length)
 
 
 
-##### backgroundColor
+#### backgroundColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -120,7 +120,7 @@ backgroundColor(value: ResourceColor)
 
 
 
-##### regularColor
+#### regularColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -141,7 +141,7 @@ regularColor(value: ResourceColor)
 
 
 
-##### selectedColor
+#### selectedColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -162,7 +162,7 @@ selectedColor(value: ResourceColor)
 
 
 
-##### activeColor
+#### activeColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -183,7 +183,7 @@ activeColor(value: ResourceColor)
 
 
 
-##### pathColor
+#### pathColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -204,7 +204,7 @@ pathColor(value: ResourceColor)
 
 
 
-##### pathStrokeWidth
+#### pathStrokeWidth
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -225,7 +225,7 @@ pathStrokeWidth(value: number | string)
 
 
 
-##### autoReset
+#### autoReset
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -246,7 +246,7 @@ autoReset(value: boolean)
 
 
 
-##### activateCircleStyle12+
+#### activateCircleStyle12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -267,7 +267,7 @@ activateCircleStyle(options: Optional&lt;CircleStyleOptions&gt;)
 
 
 
-##### skipUnselectedPoint15+
+#### skipUnselectedPoint15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -288,7 +288,7 @@ skipUnselectedPoint(skipped: boolean)
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -296,7 +296,7 @@ skipUnselectedPoint(skipped: boolean)
 
 
 
-##### onPatternComplete
+#### onPatternComplete
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -317,7 +317,7 @@ onPatternComplete(callback: (input: Array&lt;number&gt;) => void)
 
 
 
-##### onDotConnect11+
+#### onDotConnect11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -344,7 +344,7 @@ onDotConnect(callback: [Callback](https://developer.huawei.com/consumer/cn/doc/h
 
 
 
-##### CircleStyleOptions12+对象说明
+#### CircleStyleOptions12+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -362,7 +362,7 @@ onDotConnect(callback: [Callback](https://developer.huawei.com/consumer/cn/doc/h
 
 
 
-##### PatternLockController
+#### PatternLockController
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -370,7 +370,7 @@ PatternLock组件的控制器，用于重置组件状态。
 
 
 
-##### 导入对象
+#### 导入对象
 
 ```text
 let patternLockController: PatternLockController = new PatternLockController()
@@ -378,7 +378,7 @@ let patternLockController: PatternLockController = new PatternLockController()
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -392,7 +392,7 @@ PatternLockController的构造函数。
 
 
 
-##### reset
+#### reset
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -406,7 +406,7 @@ reset()
 
 
 
-##### setChallengeResult11+
+#### setChallengeResult11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -427,7 +427,7 @@ setChallengeResult(result: PatternLockChallengeResult): void
 
 
 
-##### PatternLockChallengeResult11+枚举说明
+#### PatternLockChallengeResult11+枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -445,13 +445,13 @@ setChallengeResult(result: PatternLockChallengeResult): void
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1（创建图案密码锁）
+#### 示例1（创建图案密码锁）
 
 该示例展示了PatternLock组件的基本使用方法。
 
@@ -487,12 +487,12 @@ struct PatternLockExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/y8Larou2TB2SkvdPeQHH3g/zh-cn_image_0000002581276130.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024224Z&HW-CC-Expire=86400&HW-CC-Sign=1EE5204DF907EB9FF59E832E873771A34D4965880BBC918E85249F7B4418B595)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/y8Larou2TB2SkvdPeQHH3g/zh-cn_image_0000002581276130.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025558Z&HW-CC-Expire=86400&HW-CC-Sign=F49ED956063158CD8ABE8A371132D793AA74156994EBCBE2DF92C9B8EE7380E5)
 
 
 
 
-##### 示例2（判断密码是否正确）
+#### 示例2（判断密码是否正确）
 
 该示例通过[sideLength](#sidelength)属性设置九宫格的大小、[circleRadius](#circleradius)属性设置宫格圆点样式、[onPatternComplete](#onpatterncomplete)属性设置密码输入时的回调。
 
@@ -566,4 +566,4 @@ struct PatternLockExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/Rh8c_jyLRmyafO9oEmZi1A/zh-cn_image_0000002611755985.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024224Z&HW-CC-Expire=86400&HW-CC-Sign=642C414AC4F1F0DB80BBE972396014E4A8C08ADD189CCC510F1F7B148FFF8F45)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/Rh8c_jyLRmyafO9oEmZi1A/zh-cn_image_0000002611755985.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025558Z&HW-CC-Expire=86400&HW-CC-Sign=E4DE6F60073E0153915536B17C01766B9AA47D402E774D4C9735B85ED5394E8F)

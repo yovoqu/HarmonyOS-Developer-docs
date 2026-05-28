@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-source-native-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
 
 
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -44,7 +44,7 @@
 
 
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -57,7 +57,7 @@
 
 
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -133,13 +133,13 @@
 
 
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### IMAGE_DYNAMIC_RANGE
+#### IMAGE_DYNAMIC_RANGE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -162,7 +162,7 @@ enum IMAGE_DYNAMIC_RANGE
 
 
 
-##### IMAGE_ALLOCATOR_TYPE
+#### IMAGE_ALLOCATOR_TYPE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -185,7 +185,7 @@ enum IMAGE_ALLOCATOR_TYPE
 
 
 
-##### Image_CropAndScaleStrategy
+#### Image_CropAndScaleStrategy
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -217,13 +217,13 @@ enum Image_CropAndScaleStrategy
 
 
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### OH_ImageSourceInfo_Create()
+#### OH_ImageSourceInfo_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -253,7 +253,7 @@ Image_ErrorCode OH_ImageSourceInfo_Create(OH_ImageSource_Info **info)
 
 
 
-##### OH_ImageSourceInfo_GetWidth()
+#### OH_ImageSourceInfo_GetWidth()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -284,7 +284,7 @@ Image_ErrorCode OH_ImageSourceInfo_GetWidth(OH_ImageSource_Info *info, uint32_t 
 
 
 
-##### OH_ImageSourceInfo_GetHeight()
+#### OH_ImageSourceInfo_GetHeight()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -315,7 +315,7 @@ Image_ErrorCode OH_ImageSourceInfo_GetHeight(OH_ImageSource_Info *info, uint32_t
 
 
 
-##### OH_ImageSourceInfo_GetDynamicRange()
+#### OH_ImageSourceInfo_GetDynamicRange()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -346,7 +346,7 @@ Image_ErrorCode OH_ImageSourceInfo_GetDynamicRange(OH_ImageSource_Info *info, bo
 
 
 
-##### OH_ImageSourceInfo_GetMimeType()
+#### OH_ImageSourceInfo_GetMimeType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -381,7 +381,7 @@ Image_ErrorCode OH_ImageSourceInfo_GetMimeType(OH_ImageSource_Info *info, Image_
 
 
 
-##### OH_ImageSourceInfo_Release()
+#### OH_ImageSourceInfo_Release()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -411,7 +411,7 @@ Image_ErrorCode OH_ImageSourceInfo_Release(OH_ImageSource_Info *info)
 
 
 
-##### OH_DecodingOptions_Create()
+#### OH_DecodingOptions_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -441,7 +441,7 @@ Image_ErrorCode OH_DecodingOptions_Create(OH_DecodingOptions **options)
 
 
 
-##### OH_DecodingOptions_GetPixelFormat()
+#### OH_DecodingOptions_GetPixelFormat()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -472,7 +472,7 @@ Image_ErrorCode OH_DecodingOptions_GetPixelFormat(OH_DecodingOptions *options, i
 
 
 
-##### OH_DecodingOptions_SetPixelFormat()
+#### OH_DecodingOptions_SetPixelFormat()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -503,7 +503,7 @@ Image_ErrorCode OH_DecodingOptions_SetPixelFormat(OH_DecodingOptions *options,in
 
 
 
-##### OH_DecodingOptions_GetIndex()
+#### OH_DecodingOptions_GetIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -534,7 +534,7 @@ Image_ErrorCode OH_DecodingOptions_GetIndex(OH_DecodingOptions *options, uint32_
 
 
 
-##### OH_DecodingOptions_SetIndex()
+#### OH_DecodingOptions_SetIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -565,7 +565,7 @@ Image_ErrorCode OH_DecodingOptions_SetIndex(OH_DecodingOptions *options, uint32_
 
 
 
-##### OH_DecodingOptions_GetRotate()
+#### OH_DecodingOptions_GetRotate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -596,7 +596,7 @@ Image_ErrorCode OH_DecodingOptions_GetRotate(OH_DecodingOptions *options, float 
 
 
 
-##### OH_DecodingOptions_SetRotate()
+#### OH_DecodingOptions_SetRotate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -627,7 +627,7 @@ Image_ErrorCode OH_DecodingOptions_SetRotate(OH_DecodingOptions *options, float 
 
 
 
-##### OH_DecodingOptions_GetDesiredSize()
+#### OH_DecodingOptions_GetDesiredSize()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -658,7 +658,7 @@ Image_ErrorCode OH_DecodingOptions_GetDesiredSize(OH_DecodingOptions *options, I
 
 
 
-##### OH_DecodingOptions_SetDesiredSize()
+#### OH_DecodingOptions_SetDesiredSize()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -689,7 +689,7 @@ Image_ErrorCode OH_DecodingOptions_SetDesiredSize(OH_DecodingOptions *options, I
 
 
 
-##### OH_DecodingOptions_GetDesiredRegion()
+#### OH_DecodingOptions_GetDesiredRegion()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -722,7 +722,7 @@ Image_ErrorCode OH_DecodingOptions_GetDesiredRegion(OH_DecodingOptions *options,
 
 
 
-##### OH_DecodingOptions_SetDesiredRegion()
+#### OH_DecodingOptions_SetDesiredRegion()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -755,7 +755,7 @@ Image_ErrorCode OH_DecodingOptions_SetDesiredRegion(OH_DecodingOptions *options,
 
 
 
-##### OH_DecodingOptions_GetDesiredDynamicRange()
+#### OH_DecodingOptions_GetDesiredDynamicRange()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -786,7 +786,7 @@ Image_ErrorCode OH_DecodingOptions_GetDesiredDynamicRange(OH_DecodingOptions *op
 
 
 
-##### OH_DecodingOptions_SetDesiredDynamicRange()
+#### OH_DecodingOptions_SetDesiredDynamicRange()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -817,7 +817,7 @@ Image_ErrorCode OH_DecodingOptions_SetDesiredDynamicRange(OH_DecodingOptions *op
 
 
 
-##### OH_DecodingOptions_GetDesiredColorSpace()
+#### OH_DecodingOptions_GetDesiredColorSpace()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -848,7 +848,7 @@ Image_ErrorCode OH_DecodingOptions_GetDesiredColorSpace(OH_DecodingOptions *opti
 
 
 
-##### OH_DecodingOptions_SetDesiredColorSpace()
+#### OH_DecodingOptions_SetDesiredColorSpace()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -879,7 +879,7 @@ Image_ErrorCode OH_DecodingOptions_SetDesiredColorSpace(OH_DecodingOptions *opti
 
 
 
-##### OH_DecodingOptions_SetCropAndScaleStrategy()
+#### OH_DecodingOptions_SetCropAndScaleStrategy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -910,7 +910,7 @@ Image_ErrorCode OH_DecodingOptions_SetCropAndScaleStrategy(OH_DecodingOptions *o
 
 
 
-##### OH_DecodingOptions_GetCropAndScaleStrategy()
+#### OH_DecodingOptions_GetCropAndScaleStrategy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -941,7 +941,7 @@ Image_ErrorCode OH_DecodingOptions_GetCropAndScaleStrategy(OH_DecodingOptions *o
 
 
 
-##### OH_DecodingOptions_GetCropRegion()
+#### OH_DecodingOptions_GetCropRegion()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -972,7 +972,7 @@ Image_ErrorCode OH_DecodingOptions_GetCropRegion(OH_DecodingOptions *options, Im
 
 
 
-##### OH_DecodingOptions_SetCropRegion()
+#### OH_DecodingOptions_SetCropRegion()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1003,7 +1003,7 @@ Image_ErrorCode OH_DecodingOptions_SetCropRegion(OH_DecodingOptions *options, Im
 
 
 
-##### OH_DecodingOptions_Release()
+#### OH_DecodingOptions_Release()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1033,7 +1033,7 @@ Image_ErrorCode OH_DecodingOptions_Release(OH_DecodingOptions *options)
 
 
 
-##### OH_ImageSourceNative_CreateFromUri()
+#### OH_ImageSourceNative_CreateFromUri()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1065,7 +1065,7 @@ Image_ErrorCode OH_ImageSourceNative_CreateFromUri(char *uri, size_t uriSize, OH
 
 
 
-##### OH_ImageSourceNative_CreateFromFd()
+#### OH_ImageSourceNative_CreateFromFd()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1096,7 +1096,7 @@ Image_ErrorCode OH_ImageSourceNative_CreateFromFd(int32_t fd, OH_ImageSourceNati
 
 
 
-##### OH_ImageSourceNative_CreateFromData()
+#### OH_ImageSourceNative_CreateFromData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1132,7 +1132,7 @@ data数据应该是未解码的数据，不要传入类似于RGBA，YUV的像素
 
 
 
-##### OH_ImageSourceNative_CreateFromDataWithUserBuffer()
+#### OH_ImageSourceNative_CreateFromDataWithUserBuffer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1164,7 +1164,7 @@ Image_ErrorCode OH_ImageSourceNative_CreateFromDataWithUserBuffer(uint8_t *data,
 
 
 
-##### OH_ImageSourceNative_CreateFromRawFile()
+#### OH_ImageSourceNative_CreateFromRawFile()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1195,7 +1195,7 @@ Image_ErrorCode OH_ImageSourceNative_CreateFromRawFile(RawFileDescriptor *rawFil
 
 
 
-##### OH_ImageSourceNative_CreatePixelmap()
+#### OH_ImageSourceNative_CreatePixelmap()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1227,7 +1227,7 @@ Image_ErrorCode OH_ImageSourceNative_CreatePixelmap(OH_ImageSourceNative *source
 
 
 
-##### OH_ImageSourceNative_CreatePixelmapUsingAllocator()
+#### OH_ImageSourceNative_CreatePixelmapUsingAllocator()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1262,7 +1262,7 @@ Image_ErrorCode OH_ImageSourceNative_CreatePixelmapUsingAllocator(OH_ImageSource
 
 
 
-##### OH_ImageSourceNative_CreatePixelmapList()
+#### OH_ImageSourceNative_CreatePixelmapList()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1297,7 +1297,7 @@ Image_ErrorCode OH_ImageSourceNative_CreatePixelmapList(OH_ImageSourceNative *so
 
 
 
-##### OH_ImageSourceNative_CreatePicture()
+#### OH_ImageSourceNative_CreatePicture()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1329,7 +1329,7 @@ Image_ErrorCode OH_ImageSourceNative_CreatePicture(OH_ImageSourceNative *source,
 
 
 
-##### OH_ImageSourceNative_CreatePictureAtIndex()
+#### OH_ImageSourceNative_CreatePictureAtIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1361,7 +1361,7 @@ Image_ErrorCode OH_ImageSourceNative_CreatePictureAtIndex(OH_ImageSourceNative *
 
 
 
-##### OH_ImageSourceNative_GetDelayTimeList()
+#### OH_ImageSourceNative_GetDelayTimeList()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1393,7 +1393,7 @@ Image_ErrorCode OH_ImageSourceNative_GetDelayTimeList(OH_ImageSourceNative *sour
 
 
 
-##### OH_ImageSourceNative_GetImageInfo()
+#### OH_ImageSourceNative_GetImageInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1425,7 +1425,7 @@ Image_ErrorCode OH_ImageSourceNative_GetImageInfo(OH_ImageSourceNative *source, 
 
 
 
-##### OH_ImageSourceNative_GetImageProperty()
+#### OH_ImageSourceNative_GetImageProperty()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1459,7 +1459,7 @@ Image_ErrorCode OH_ImageSourceNative_GetImageProperty(OH_ImageSourceNative *sour
 
 
 
-##### OH_ImageSourceNative_GetImagePropertyShort()
+#### OH_ImageSourceNative_GetImagePropertyShort()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1495,7 +1495,7 @@ Image_ErrorCode OH_ImageSourceNative_GetImagePropertyShort(OH_ImageSourceNative 
 
 
 
-##### OH_ImageSourceNative_GetImagePropertyLong()
+#### OH_ImageSourceNative_GetImagePropertyLong()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1531,7 +1531,7 @@ Image_ErrorCode OH_ImageSourceNative_GetImagePropertyLong(OH_ImageSourceNative *
 
 
 
-##### OH_ImageSourceNative_GetImagePropertyDouble()
+#### OH_ImageSourceNative_GetImagePropertyDouble()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1567,7 +1567,7 @@ Image_ErrorCode OH_ImageSourceNative_GetImagePropertyDouble(OH_ImageSourceNative
 
 
 
-##### OH_ImageSourceNative_GetImagePropertyArraySize()
+#### OH_ImageSourceNative_GetImagePropertyArraySize()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1599,7 +1599,7 @@ Image_ErrorCode OH_ImageSourceNative_GetImagePropertyArraySize(OH_ImageSourceNat
 
 
 
-##### OH_ImageSourceNative_GetImagePropertyString()
+#### OH_ImageSourceNative_GetImagePropertyString()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1636,7 +1636,7 @@ Image_ErrorCode OH_ImageSourceNative_GetImagePropertyString(OH_ImageSourceNative
 
 
 
-##### OH_ImageSourceNative_GetImagePropertyIntArray()
+#### OH_ImageSourceNative_GetImagePropertyIntArray()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1673,7 +1673,7 @@ Image_ErrorCode OH_ImageSourceNative_GetImagePropertyIntArray(OH_ImageSourceNati
 
 
 
-##### OH_ImageSourceNative_GetImagePropertyDoubleArray()
+#### OH_ImageSourceNative_GetImagePropertyDoubleArray()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1710,7 +1710,7 @@ Image_ErrorCode OH_ImageSourceNative_GetImagePropertyDoubleArray(OH_ImageSourceN
 
 
 
-##### OH_ImageSourceNative_GetImagePropertyBlob()
+#### OH_ImageSourceNative_GetImagePropertyBlob()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1747,7 +1747,7 @@ Image_ErrorCode OH_ImageSourceNative_GetImagePropertyBlob(OH_ImageSourceNative *
 
 
 
-##### OH_ImageSourceNative_ModifyImagePropertyShort()
+#### OH_ImageSourceNative_ModifyImagePropertyShort()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1779,7 +1779,7 @@ Image_ErrorCode OH_ImageSourceNative_ModifyImagePropertyShort(OH_ImageSourceNati
 
 
 
-##### OH_ImageSourceNative_ModifyImagePropertyLong()
+#### OH_ImageSourceNative_ModifyImagePropertyLong()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1811,7 +1811,7 @@ Image_ErrorCode OH_ImageSourceNative_ModifyImagePropertyLong(OH_ImageSourceNativ
 
 
 
-##### OH_ImageSourceNative_ModifyImagePropertyDouble()
+#### OH_ImageSourceNative_ModifyImagePropertyDouble()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1843,7 +1843,7 @@ Image_ErrorCode OH_ImageSourceNative_ModifyImagePropertyDouble(OH_ImageSourceNat
 
 
 
-##### OH_ImageSourceNative_ModifyImagePropertyIntArray()
+#### OH_ImageSourceNative_ModifyImagePropertyIntArray()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1876,7 +1876,7 @@ Image_ErrorCode OH_ImageSourceNative_ModifyImagePropertyIntArray(OH_ImageSourceN
 
 
 
-##### OH_ImageSourceNative_ModifyImagePropertyDoubleArray()
+#### OH_ImageSourceNative_ModifyImagePropertyDoubleArray()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1909,7 +1909,7 @@ Image_ErrorCode OH_ImageSourceNative_ModifyImagePropertyDoubleArray(OH_ImageSour
 
 
 
-##### OH_ImageSourceNative_ModifyImagePropertyBlob()
+#### OH_ImageSourceNative_ModifyImagePropertyBlob()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1942,7 +1942,7 @@ Image_ErrorCode OH_ImageSourceNative_ModifyImagePropertyBlob(OH_ImageSourceNativ
 
 
 
-##### OH_ImageSourceNative_GetImagePropertyWithNull()
+#### OH_ImageSourceNative_GetImagePropertyWithNull()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1974,7 +1974,7 @@ Image_ErrorCode OH_ImageSourceNative_GetImagePropertyWithNull(OH_ImageSourceNati
 
 
 
-##### OH_ImageSourceNative_ModifyImageProperty()
+#### OH_ImageSourceNative_ModifyImageProperty()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2006,7 +2006,7 @@ Image_ErrorCode OH_ImageSourceNative_ModifyImageProperty(OH_ImageSourceNative *s
 
 
 
-##### OH_ImageSourceNative_GetFrameCount()
+#### OH_ImageSourceNative_GetFrameCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2037,7 +2037,7 @@ Image_ErrorCode OH_ImageSourceNative_GetFrameCount(OH_ImageSourceNative *source,
 
 
 
-##### OH_ImageSourceNative_GetSupportedFormats()
+#### OH_ImageSourceNative_GetSupportedFormats()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2068,7 +2068,7 @@ Image_ErrorCode OH_ImageSourceNative_GetSupportedFormats(Image_MimeType **suppor
 
 
 
-##### OH_ImageSourceNative_Release()
+#### OH_ImageSourceNative_Release()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2098,7 +2098,7 @@ Image_ErrorCode OH_ImageSourceNative_Release(OH_ImageSourceNative *source)
 
 
 
-##### OH_DecodingOptionsForPicture_Create()
+#### OH_DecodingOptionsForPicture_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2128,7 +2128,7 @@ Image_ErrorCode OH_DecodingOptionsForPicture_Create(OH_DecodingOptionsForPicture
 
 
 
-##### OH_DecodingOptionsForPicture_GetDesiredAuxiliaryPictures()
+#### OH_DecodingOptionsForPicture_GetDesiredAuxiliaryPictures()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2160,7 +2160,7 @@ Image_ErrorCode OH_DecodingOptionsForPicture_GetDesiredAuxiliaryPictures(OH_Deco
 
 
 
-##### OH_DecodingOptionsForPicture_SetDesiredAuxiliaryPictures()
+#### OH_DecodingOptionsForPicture_SetDesiredAuxiliaryPictures()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2192,7 +2192,7 @@ Image_ErrorCode OH_DecodingOptionsForPicture_SetDesiredAuxiliaryPictures(OH_Deco
 
 
 
-##### OH_DecodingOptionsForPicture_Release()
+#### OH_DecodingOptionsForPicture_Release()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2222,7 +2222,7 @@ Image_ErrorCode OH_DecodingOptionsForPicture_Release(OH_DecodingOptionsForPictur
 
 
 
-##### OH_ImageSourceNative_CreateImageRawData()
+#### OH_ImageSourceNative_CreateImageRawData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2255,7 +2255,7 @@ Image_ErrorCode OH_ImageSourceNative_CreateImageRawData(const OH_ImageSourceNati
 
 
 
-##### OH_ImageSourceNative_GetBufferFromRawData()
+#### OH_ImageSourceNative_GetBufferFromRawData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2287,7 +2287,7 @@ Image_ErrorCode OH_ImageSourceNative_GetBufferFromRawData(const OH_ImageRawData 
 
 
 
-##### OH_ImageSourceNative_GetBitsPerPixelFromRawData()
+#### OH_ImageSourceNative_GetBitsPerPixelFromRawData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2318,7 +2318,7 @@ Image_ErrorCode OH_ImageSourceNative_GetBitsPerPixelFromRawData(const OH_ImageRa
 
 
 
-##### OH_ImageSourceNative_DestroyImageRawData()
+#### OH_ImageSourceNative_DestroyImageRawData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

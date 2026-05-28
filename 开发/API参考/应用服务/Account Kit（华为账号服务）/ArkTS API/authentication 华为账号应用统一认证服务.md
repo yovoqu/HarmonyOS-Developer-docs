@@ -10,7 +10,7 @@
 **起始版本：** 4.0.0(10)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@ import { authentication } from '@kit.AccountKit';
 
 
 
-##### HuaweiIDProvider
+#### HuaweiIDProvider
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -38,7 +38,7 @@ import { authentication } from '@kit.AccountKit';
 
 
 
-##### createLoginWithHuaweiIDRequest
+#### createLoginWithHuaweiIDRequest
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -72,7 +72,7 @@ const loginWithHuaweiIDRequest = huaweiIdProvider.createLoginWithHuaweiIDRequest
 
 
 
-##### createAuthorizationWithHuaweiIDRequest
+#### createAuthorizationWithHuaweiIDRequest
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -106,7 +106,7 @@ const request = huaweiIdProvider.createAuthorizationWithHuaweiIDRequest();
 
 
 
-##### createCancelAuthorizationRequest
+#### createCancelAuthorizationRequest
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -140,7 +140,7 @@ const cancelAuthorizationRequest = huaweiIdProvider.createCancelAuthorizationReq
 
 
 
-##### getHuaweiIDState
+#### getHuaweiIDState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -213,7 +213,7 @@ function dealAllError(error: BusinessError): void {
 
 
 
-##### getMobileNumberConsistency
+#### getMobileNumberConsistency
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -300,7 +300,7 @@ function dealAllError(error: BusinessError): void {
 
 
 
-##### LoginWithHuaweiIDRequest
+#### LoginWithHuaweiIDRequest
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -339,7 +339,7 @@ loginRequest.state = util.generateRandomUUID(); // 建议使用generateRandomUUI
 
 
 
-##### IdTokenSignAlgorithm
+#### IdTokenSignAlgorithm
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -372,7 +372,7 @@ loginRequest.idTokenSignAlgorithm = authentication.IdTokenSignAlgorithm.PS256;
 
 
 
-##### LoginWithHuaweiIDResponse
+#### LoginWithHuaweiIDResponse
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -474,7 +474,7 @@ export enum ErrorCode {
 
 
 
-##### LoginWithHuaweiIDCredential
+#### LoginWithHuaweiIDCredential
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -578,7 +578,7 @@ export enum ErrorCode {
 
 
 
-##### AuthorizationWithHuaweiIDRequest
+#### AuthorizationWithHuaweiIDRequest
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -619,7 +619,7 @@ authRequest.idTokenSignAlgorithm = authentication.IdTokenSignAlgorithm.PS256;
 
 
 
-##### AuthorizationWithHuaweiIDResponse
+#### AuthorizationWithHuaweiIDResponse
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -719,7 +719,7 @@ export enum ErrorCode {
 
 
 
-##### AuthorizationWithHuaweiIDCredential
+#### AuthorizationWithHuaweiIDCredential
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -822,7 +822,7 @@ export enum ErrorCode {
 
 
 
-##### CancelAuthorizationRequest
+#### CancelAuthorizationRequest
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -855,7 +855,7 @@ cancelRequest.state = util.generateRandomUUID(); // 建议使用generateRandomUU
 
 
 
-##### CancelAuthorizationResponse
+#### CancelAuthorizationResponse
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -951,7 +951,7 @@ export enum ErrorCode {
 
 
 
-##### AuthenticationErrorCode
+#### AuthenticationErrorCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -981,7 +981,7 @@ export enum ErrorCode {
 
 
 
-##### AuthenticationController
+#### AuthenticationController
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -997,7 +997,7 @@ export enum ErrorCode {
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1031,7 +1031,7 @@ const controller = new authentication.AuthenticationController(this.getUIContext
 
 
 
-##### executeRequest
+#### executeRequest
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1153,7 +1153,7 @@ export enum ErrorCode {
 
 
 
-##### executeRequest
+#### executeRequest
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1279,7 +1279,7 @@ export enum ErrorCode {
 
 
 
-##### AuthenticationRequest
+#### AuthenticationRequest
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1295,7 +1295,7 @@ export enum ErrorCode {
 
 
 
-##### AuthenticationResponse
+#### AuthenticationResponse
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1311,7 +1311,7 @@ export enum ErrorCode {
 
 
 
-##### AuthenticationProvider
+#### AuthenticationProvider
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1327,7 +1327,7 @@ export enum ErrorCode {
 
 
 
-##### IdType
+#### IdType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1350,7 +1350,7 @@ export enum ErrorCode {
 
 
 
-##### State
+#### State
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1373,7 +1373,7 @@ export enum ErrorCode {
 
 
 
-##### StateRequest
+#### StateRequest
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1407,7 +1407,7 @@ const request: authentication.StateRequest = {
 
 
 
-##### StateResult
+#### StateResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1459,7 +1459,7 @@ function dealAllError(error: BusinessError): void {
 
 
 
-##### ConsistencyState
+#### ConsistencyState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1480,7 +1480,7 @@ function dealAllError(error: BusinessError): void {
 
 
 
-##### ConsistencyRequest
+#### ConsistencyRequest
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1514,7 +1514,7 @@ const request: authentication.ConsistencyRequest = {
 
 
 
-##### ConsistencyResult
+#### ConsistencyResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

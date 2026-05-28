@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-commissioning-function-assert
 
-##### 功能介绍
+#### 功能介绍
 
 使用工具进行算子调测时，支持断言功能。当核函数代码中条件判断为false时，则立即中断运行流程并打印相关信息，方便快速定位错误。
  
@@ -14,7 +14,7 @@
  
   
 
-##### 使用方法（命令行）
+#### 使用方法（命令行）
 1. 在核函数代码中根据需要，在目标位置调用assert接口，详情请参见接口说明，样例如下。
 
   
@@ -42,7 +42,7 @@ ascendebug kernel --backend simulator --dump-mode normal ... {其他simulator调
  
   
 
-##### 接口说明
+#### 接口说明
 
 assert接口说明如下。
  

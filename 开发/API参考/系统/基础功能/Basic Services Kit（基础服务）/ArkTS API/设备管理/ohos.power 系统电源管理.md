@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import {power} from '@kit.BasicServicesKit';
  
   
 
-##### power.isActive9+
+#### power.isActive9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -52,7 +52,7 @@ console.info('power is active: ' + isActive);
  
   
 
-##### power.rebootDevice(deprecated)
+#### power.rebootDevice(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -81,7 +81,7 @@ power.rebootDevice('reboot_test');
  
   
 
-##### power.getPowerMode9+
+#### power.getPowerMode9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -107,7 +107,7 @@ console.info('power mode: ' + mode);
  
   
 
-##### power.isStandby10+
+#### power.isStandby10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -146,7 +146,7 @@ try {
  
   
 
-##### power.isScreenOn(deprecated)
+#### power.isScreenOn(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -181,7 +181,7 @@ power.isScreenOn((err: Error, data: boolean) => {
  
   
 
-##### power.isScreenOn(deprecated)
+#### power.isScreenOn(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -216,7 +216,7 @@ power.isScreenOn()
  
   
 
-##### DevicePowerMode9+
+#### DevicePowerMode9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -235,7 +235,7 @@ power.isScreenOn()
  
   
 
-##### PowerKeyFilteringStrategy21+
+#### PowerKeyFilteringStrategy21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

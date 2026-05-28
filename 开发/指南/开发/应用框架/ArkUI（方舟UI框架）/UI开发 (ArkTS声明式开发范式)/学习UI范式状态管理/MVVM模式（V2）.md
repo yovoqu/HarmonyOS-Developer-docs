@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-mvvm-v2
 
-##### 概述
+#### 概述
 
 在应用开发中，UI的更新需要随着数据状态的变化进行实时同步，而这种同步往往决定了应用程序的性能和用户体验。为了解决数据与UI同步的复杂性，ArkUI采用了Model-View-ViewModel（MVVM）架构模式。MVVM将应用分为Model、View和ViewModel三个核心部分，实现数据、视图与逻辑的分离。通过这种模式，UI可以随着状态的变化自动更新，无需手动处理，从而高效管理数据和视图的绑定与更新。
  
@@ -15,7 +15,7 @@
  
   
 
-##### 通过状态管理V2版本实现ViewModel
+#### 通过状态管理V2版本实现ViewModel
 
 在MVVM模式中，ViewModel负责管理数据状态，并在数据变化时自动更新视图。ArkUI的状态管理V2版本提供了丰富的装饰器和工具，帮助开发者在自定义组件之间共享数据，确保数据变化自动同步到UI。常用的状态管理装饰器包括[@Local](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-local)、[@Param](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-param)、[@Event](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-event)、[@ObservedV2、@Trace](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)等等。此外，V2还提供了[AppStorageV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-appstoragev2)和[PersistenceV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-persistencev2)作为全局状态存储工具，用于应用间的状态共享和持久化存储。
  
@@ -23,7 +23,7 @@
  
   
 
-##### 基础示例
+#### 基础示例
 
 首先，从静态待办事项列表开始。在示例1中，任务是静态的，没有状态变化和动态交互。
  
@@ -49,7 +49,7 @@ struct TodoList {
  
   
 
-##### 添加@Local，实现对组件内部状态观测
+#### 添加@Local，实现对组件内部状态观测
 
 完成静态待办列表展示后，为了让用户能够更改任务的完成状态，需要使待办事项能够响应交互并动态更新显示。为此，引入@Local装饰器管理组件内部的状态。被@Local装饰的变量发生变化时，触发绑定的UI组件刷新。
  
@@ -85,7 +85,7 @@ struct TodoList {
  
   
 
-##### 添加@Param，实现组件接收外部输入
+#### 添加@Param，实现组件接收外部输入
 
 实现任务本地状态切换后，为增强待办事项列表的灵活性，需要能够动态设置每个任务的名称，而不是固定在代码中。引入@Param装饰器后，子组件被装饰的变量可以接收父组件传入的值，实现单向数据同步。@Param默认只读，使用@Param [@Once](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-once)可在子组件中对传入的值进行本地更新。
  
@@ -131,7 +131,7 @@ struct TodoList {
  
   
 
-##### 添加@Event，实现组件对外输出
+#### 添加@Event，实现组件对外输出
 
 实现任务名称动态设置后，任务列表内容固定。为了实现任务列表的动态扩展，需要增加任务项的添加和删除功能。为此，引入@Event装饰器，用于子组件向父组件输出数据。
  
@@ -205,7 +205,7 @@ struct TodoList {
  
   
 
-##### 添加Repeat，实现子组件复用
+#### 添加Repeat，实现子组件复用
 
 添加任务增删功能后，任务列表项增加，需要高效渲染多个结构相同的子组件，提高界面性能。引入[Repeat](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-rendering-control-repeat)组件，优化任务列表渲染。
  
@@ -286,7 +286,7 @@ struct TodoList {
  
   
 
-##### 添加@ObservedV2，@Trace，实现类属性观测变化
+#### 添加@ObservedV2，@Trace，实现类属性观测变化
 
 实现多个功能后，任务列表管理变得复杂。为了有效处理任务数据的变化，特别是在多层嵌套结构中，需要确保属性变化能够被深度观测并自动更新UI。为此，引入了@ObservedV2和@Trace装饰器。与仅能观测对象及其第一层变化的@Local不同，@ObservedV2和@Trace适用于多层嵌套和继承等复杂场景。在@ObservedV2装饰的类中，@Trace装饰的属性变化时，会触发绑定的UI组件刷新。
  
@@ -390,7 +390,7 @@ struct TodoList {
  
   
 
-##### 添加@Monitor，@Computed，实现监听状态变量和计算属性
+#### 添加@Monitor，@Computed，实现监听状态变量和计算属性
 
 在当前任务列表功能基础上，为了提升体验，可以增加一些额外的功能，如任务状态变化的监听和未完成任务数量的动态计算。为此，引入[@Monitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-monitor)和[@Computed](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-computed)装饰器。@Monitor用于深度监听状态变量，在属性变化时触发自定义回调方法。@Computed用于装饰getter方法，检测被计算的属性变化。被计算的值变化时，仅计算一次，减少重复计算开销。
  
@@ -507,7 +507,7 @@ struct TodoList {
  
   
 
-##### 添加AppStorageV2，实现应用全局UI状态存储
+#### 添加AppStorageV2，实现应用全局UI状态存储
 
 随着待办事项功能的增强，应用涉及多个页面或功能模块时，需要在这些页面之间共享全局状态。例如：在待办事项应用中，新增一个设置页面与主界面联动。为实现跨页面的状态共享，引入AppStorageV2，用于在多个UIAbility实例之间存储和共享应用的全局状态。
  
@@ -677,7 +677,7 @@ struct SettingPage {
  
   
 
-##### 添加PersistenceV2，实现持久化UI状态存储
+#### 添加PersistenceV2，实现持久化UI状态存储
 
 为了确保用户重新打开应用时能看到之前的任务状态，建议使用PersistenceV2进行数据持久化存储。PersistenceV2可将数据保存在设备磁盘上，与AppStorageV2的运行时内存相比，它能确保数据在应用关闭后再次启动时保持不变。
  
@@ -846,7 +846,7 @@ JSON文件存放在src/main/resources/rawfile/defaultTasks.json路径下。
  
   
 
-##### 添加@Builder，实现自定义构建函数
+#### 添加@Builder，实现自定义构建函数
 
 随着应用功能逐步扩展，代码中的某些UI元素开始重复，不仅增加了代码量，也让维护变得复杂。为解决此问题，建议使用@Builder装饰器，将重复的UI组件抽象为独立的构建方法，便于复用和代码模块化。
  
@@ -1018,7 +1018,7 @@ struct TodoList {
  
   
 
-##### 效果图展示
+#### 效果图展示
 
 
 ![](assets/MVVM模式（V2）/file-20260514130515838-0.gif)
@@ -1026,13 +1026,13 @@ struct TodoList {
  
   
 
-##### 重构代码以符合MVVM架构
+#### 重构代码以符合MVVM架构
 
 前面的例子通过使用一系列的状态管理装饰器，实现了todolist中的数据同步与UI更新。然而，随着应用功能的复杂化，代码的结构变得难以维护，Model、View和ViewModel的职责没有完全分离，存在耦合。为了更好地组织代码和提升可维护性，使用MVVM模式重构代码，进一步将数据层（Model）、逻辑层（ViewModel）和展示层（View）分离。
  
   
 
-##### 重构后的代码结构
+#### 重构后的代码结构
 
 ```ArkTS
 /src
@@ -1060,7 +1060,7 @@ struct TodoList {
  
   
 
-##### Model层
+#### Model层
 
 Model层负责管理应用的数据及其业务逻辑，通常与后端或数据存储进行交互。在todolist应用中，Model层的主要职责是存储任务数据、加载任务列表，并提供数据操作的接口，而不直接涉及UI展示。
  
@@ -1116,7 +1116,7 @@ export default class TaskListModel {
  
   
 
-##### ViewModel层
+#### ViewModel层
 
 ViewModel层管理UI状态和业务逻辑，连接Model和View。通过监控Model数据变化，处理应用逻辑，将数据同步到View层，从而实现UI的自动更新。使用ViewModel实现数据与视图解耦，提高代码可读性和可维护性。
  
@@ -1188,7 +1188,7 @@ export default class TaskListViewModel {
  
   
 
-##### View层
+#### View层
 
 View层负责应用程序的UI展示和与用户的交互。它只关注如何渲染用户界面和展示数据，不包含业务逻辑。所有的数据状态和逻辑都来自ViewModel层，View层通过接收ViewModel传递的状态数据进行渲染，确保视图和数据分离。
  
@@ -1423,12 +1423,12 @@ struct SettingPage {
  
   
 
-##### 总结
+#### 总结
 
 本指南通过待办事项应用示例，引入状态管理V2装饰器，并通过代码重构实现MVVM架构。最终将数据、业务逻辑和视图展示分层处理，使得代码结构更加清晰且易于维护。开发者通过正确应用Model、View和ViewModel分层结构，能够更好地理解和应用MVVM模式，进而在实际项目中提升开发效率、保证代码质量，并优化数据与UI的同步机制，简化整体开发流程。
  
   
 
-##### 代码示例
+#### 代码示例
 
 [完整源码](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/ArkUISample/StateMgmtV2MVVM/entry)

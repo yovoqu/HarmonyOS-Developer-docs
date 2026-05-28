@@ -7,7 +7,7 @@
 对应的算法规格请查看[签名验签算法规格：RSA](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sign-sig-verify-overview#rsa)。
 
 
-##### 在CMake脚本中链接相关动态库
+#### 在CMake脚本中链接相关动态库
 
 ```text
 target_link_libraries(entry PUBLIC libohcrypto.so)
@@ -15,7 +15,7 @@ target_link_libraries(entry PUBLIC libohcrypto.so)
 
 
 
-##### 签名开发步骤
+#### 签名开发步骤
 1. 调用[OH_CryptoSign_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptosign_create)，指定字符串参数'RSA1024|PKCS1|SHA256'，创建Sign实例，用于完成签名操作。
 2. 调用[OH_CryptoSign_Init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptosign_init)，使用私钥（OH_CryptoPrivKey）初始化Sign实例。
 3. 调用[OH_CryptoSign_Update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptosign_update)，传入待签名的数据。当前单次update长度没有限制，开发者可以根据数据量判断如何调用update。如果数据量较小，可以直接调用OH_CryptoSign_Final接口一次性传入。
@@ -93,7 +93,7 @@ static OH_Crypto_ErrCode doTestRsaSignature() {
 
 
 
-##### 验签开发步骤
+#### 验签开发步骤
 1. 调用[OH_CryptoVerify_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoverify_create)，指定字符串参数'RSA1024|PKCS1|SHA256'，与签名的Sign实例保持一致。创建Verify实例，用于完成验签操作。
 2. 调用[OH_CryptoVerify_Init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoverify_init)，使用公钥（OH_CryptoPubKey）初始化Verify实例。
 3. 调用[OH_CryptoVerify_Update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoverify_update)，传入待验证的数据。

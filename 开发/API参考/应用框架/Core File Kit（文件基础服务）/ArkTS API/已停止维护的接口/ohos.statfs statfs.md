@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import statfs from '@ohos.statfs';
  
   
 
-##### Statfs.getFreeBytes
+#### Statfs.getFreeBytes
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -60,7 +60,7 @@ statfs.getFreeBytes(path).then((number: number) => {
  
   
 
-##### Statfs.getFreeBytes
+#### Statfs.getFreeBytes
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -96,7 +96,7 @@ statfs.getFreeBytes(path, (err: BusinessError, freeBytes:Number) => {
  
   
 
-##### Statfs.getTotalBytes
+#### Statfs.getTotalBytes
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -134,7 +134,7 @@ statfs.getTotalBytes(path).then((number: number) => {
  
   
 
-##### Statfs.getTotalBytes
+#### Statfs.getTotalBytes
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

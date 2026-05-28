@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_g___per_frame_extended_camera_info
 **支持设备：** Phone | Tablet | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | Tablet | TV
 
@@ -19,13 +19,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | Tablet | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | Tablet | TV
  
@@ -40,13 +40,13 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** Phone | Tablet | TV
 
   
 
-##### proj
+#### proj
 
 **支持设备：** Phone | Tablet | TV
 
@@ -60,7 +60,7 @@ FG_Mat4x4 FG_PerFrameExtendedCameraInfo::proj
  
   
 
-##### translatedInvViewProj
+#### translatedInvViewProj
 
 **支持设备：** Phone | Tablet | TV
 
@@ -74,7 +74,7 @@ FG_Mat4x4 FG_PerFrameExtendedCameraInfo::translatedInvViewProj
  
   
 
-##### translatedView
+#### translatedView
 
 **支持设备：** Phone | Tablet | TV
 
@@ -88,7 +88,7 @@ FG_Mat4x4 FG_PerFrameExtendedCameraInfo::translatedView
  
   
 
-##### translatedViewProj
+#### translatedViewProj
 
 **支持设备：** Phone | Tablet | TV
 
@@ -102,7 +102,7 @@ FG_Mat4x4 FG_PerFrameExtendedCameraInfo::translatedViewProj
  
   
 
-##### worldPosition
+#### worldPosition
 
 **支持设备：** Phone | Tablet | TV
 

@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -22,7 +22,7 @@ import { unifiedDataChannel } from '@kit.ArkData';
 
 
 
-##### ShareOptions12+
+#### ShareOptions12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -40,7 +40,7 @@ UDMF支持的设备内使用范围类型枚举。
 
 
 
-##### GetDelayData12+
+#### GetDelayData12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -93,7 +93,7 @@ let getDelayData: unifiedDataChannel.GetDelayData = ((type: string) => {
 
 
 
-##### ValueType12+
+#### ValueType12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -120,7 +120,7 @@ type ValueType = number | string | boolean | image.PixelMap | Want | ArrayBuffer
 
 
 
-##### UnifiedDataProperties12+
+#### UnifiedDataProperties12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -175,7 +175,7 @@ properties.getDelayData = ((type: string) => {
 
 
 
-##### UnifiedData
+#### UnifiedData
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -185,7 +185,7 @@ properties.getDelayData = ((type: string) => {
 
 
 
-##### 属性
+#### 属性
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -194,7 +194,7 @@ properties.getDelayData = ((type: string) => {
 
 
 
-##### constructor12+
+#### constructor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -214,7 +214,7 @@ let unifiedData = new unifiedDataChannel.UnifiedData();
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -257,7 +257,7 @@ let unifiedData = new unifiedDataChannel.UnifiedData(text);
 
 
 
-##### addRecord
+#### addRecord
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -308,7 +308,7 @@ unifiedData.addRecord(link);
 
 
 
-##### getRecords
+#### getRecords
 
 getRecords(): Array&lt;UnifiedRecord&gt;
 
@@ -362,7 +362,7 @@ for (let i = 0; i < records.length; i++) {
 
 
 
-##### hasType12+
+#### hasType12+
 
 hasType(type: string): boolean
 
@@ -424,7 +424,7 @@ let hasLink = unifiedData.hasType(uniformTypeDescriptor.UniformDataType.HYPERLIN
 
 
 
-##### getTypes12+
+#### getTypes12+
 
 getTypes(): Array&lt;string&gt;
 
@@ -467,7 +467,7 @@ let types = unifiedData.getTypes();
 
 
 
-##### Summary
+#### Summary
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -508,7 +508,7 @@ function parseSummary(summary : unifiedDataChannel.Summary) {
 
 
 
-##### UnifiedRecord
+#### UnifiedRecord
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -516,7 +516,7 @@ function parseSummary(summary : unifiedDataChannel.Summary) {
 
 
 
-##### constructor12+
+#### constructor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -536,7 +536,7 @@ let unifiedRecord = new unifiedDataChannel.UnifiedRecord();
 
 
 
-##### constructor12+
+#### constructor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -600,7 +600,7 @@ let pixelMapRecord = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.
 
 
 
-##### getType
+#### getType
 
 getType(): string
 
@@ -639,7 +639,7 @@ if (records[0].getType() == uniformTypeDescriptor.UniformDataType.PLAIN_TEXT) {
 
 
 
-##### getValue12+
+#### getValue12+
 
 getValue(): ValueType
 
@@ -680,7 +680,7 @@ let hyperlinkValue = hyperlinkRecord.getValue();
 
 
 
-##### addEntry15+
+#### addEntry15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -738,7 +738,7 @@ unifiedData.addRecord(record);
 
 
 
-##### getEntry15+
+#### getEntry15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -823,7 +823,7 @@ for (let i = 0; i < records.length; i++) {
 
 
 
-##### getEntries15+
+#### getEntries15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -893,7 +893,7 @@ for (let i = 0; i < records.length; i++) {
 
 
 
-##### getTypes15+
+#### getTypes15+
 
 getTypes(): Array&lt;string&gt;
 
@@ -956,7 +956,7 @@ for (let i = 0; i < records.length; i++) {
 
 
 
-##### Text
+#### Text
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -984,7 +984,7 @@ let unifiedData = new unifiedDataChannel.UnifiedData(text);
 
 
 
-##### PlainText
+#### PlainText
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1010,7 +1010,7 @@ text.abstract = 'This is abstract';
 
 
 
-##### Hyperlink
+#### Hyperlink
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1036,7 +1036,7 @@ link.description = 'This is description';
 
 
 
-##### HTML
+#### HTML
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1062,7 +1062,7 @@ html.plainContent = 'This is plainContent';
 
 
 
-##### File
+#### File
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1103,7 +1103,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### Image
+#### Image
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1139,7 +1139,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### Video
+#### Video
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1175,7 +1175,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### Audio
+#### Audio
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1211,7 +1211,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### Folder
+#### Folder
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1247,7 +1247,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### SystemDefinedRecord
+#### SystemDefinedRecord
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1277,7 +1277,7 @@ let unifiedData = new unifiedDataChannel.UnifiedData(sdr);
 
 
 
-##### SystemDefinedForm
+#### SystemDefinedForm
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1316,7 +1316,7 @@ let unifiedData = new unifiedDataChannel.UnifiedData(form);
 
 
 
-##### SystemDefinedAppItem
+#### SystemDefinedAppItem
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1357,7 +1357,7 @@ let unifiedData = new unifiedDataChannel.UnifiedData(appItem);
 
 
 
-##### SystemDefinedPixelMap
+#### SystemDefinedPixelMap
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1416,7 +1416,7 @@ image.createPixelMap(color, opts, (error, pixelMap) => {
 
 
 
-##### ApplicationDefinedRecord
+#### ApplicationDefinedRecord
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1444,7 +1444,7 @@ let unifiedData = new unifiedDataChannel.UnifiedData(record);
 
 
 
-##### Intention
+#### Intention
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1463,7 +1463,7 @@ UDMF已经支持的数据通路枚举类型。其主要用途是标识各种UDMF
 
 
 
-##### Visibility20+
+#### Visibility20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1479,7 +1479,7 @@ UDMF已经支持的数据通路枚举类型。其主要用途是标识各种UDMF
 
 
 
-##### Options
+#### Options
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1496,7 +1496,7 @@ UDMF提供的数据操作接口包含三个可选参数：intention、key和visi
 
 
 
-##### FileConflictOptions15+
+#### FileConflictOptions15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1514,7 +1514,7 @@ UDMF提供的数据操作接口包含三个可选参数：intention、key和visi
 
 
 
-##### ProgressIndicator15+
+#### ProgressIndicator15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1532,7 +1532,7 @@ UDMF提供的数据操作接口包含三个可选参数：intention、key和visi
 
 
 
-##### ListenerStatus15+
+#### ListenerStatus15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1556,7 +1556,7 @@ UDMF提供的数据操作接口包含三个可选参数：intention、key和visi
 
 
 
-##### ProgressInfo15+
+#### ProgressInfo15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1574,7 +1574,7 @@ UDMF提供的数据操作接口包含三个可选参数：intention、key和visi
 
 
 
-##### DataProgressListener15+
+#### DataProgressListener15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1596,7 +1596,7 @@ type DataProgressListener = (progressInfo: ProgressInfo, data: UnifiedData | nul
 
 
 
-##### GetDataParams15+
+#### GetDataParams15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1619,7 +1619,7 @@ type DataProgressListener = (progressInfo: ProgressInfo, data: UnifiedData | nul
 
 
 
-##### DataLoadInfo20+
+#### DataLoadInfo20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1643,7 +1643,7 @@ type DataProgressListener = (progressInfo: ProgressInfo, data: UnifiedData | nul
 
 
 
-##### DataLoadHandler20+
+#### DataLoadHandler20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1673,7 +1673,7 @@ type DataLoadHandler = (acceptableInfo?: DataLoadInfo) => UnifiedData | null
 
 
 
-##### DelayedDataLoadHandler22+
+#### DelayedDataLoadHandler22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1705,7 +1705,7 @@ type DelayedDataLoadHandler = (acceptableInfo?: DataLoadInfo) => Promise<Unified
 
 
 
-##### DataLoadParams20+
+#### DataLoadParams20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1726,7 +1726,7 @@ type DelayedDataLoadHandler = (acceptableInfo?: DataLoadInfo) => Promise<Unified
 
 
 
-##### unifiedDataChannel.insertData
+#### unifiedDataChannel.insertData
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1789,7 +1789,7 @@ try {
 
 
 
-##### unifiedDataChannel.insertData
+#### unifiedDataChannel.insertData
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1856,7 +1856,7 @@ try {
 
 
 
-##### unifiedDataChannel.updateData
+#### unifiedDataChannel.updateData
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1939,7 +1939,7 @@ try {
 
 
 
-##### unifiedDataChannel.updateData
+#### unifiedDataChannel.updateData
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2026,7 +2026,7 @@ try {
 
 
 
-##### unifiedDataChannel.queryData
+#### unifiedDataChannel.queryData
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2090,7 +2090,7 @@ try {
 
 
 
-##### unifiedDataChannel.queryData
+#### unifiedDataChannel.queryData
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2158,7 +2158,7 @@ try {
 
 
 
-##### unifiedDataChannel.deleteData
+#### unifiedDataChannel.deleteData
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2222,7 +2222,7 @@ try {
 
 
 
-##### unifiedDataChannel.deleteData
+#### unifiedDataChannel.deleteData
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2290,7 +2290,7 @@ try {
 
 
 
-##### unifiedDataChannel.setAppShareOptions14+
+#### unifiedDataChannel.setAppShareOptions14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2338,7 +2338,7 @@ try {
 
 
 
-##### unifiedDataChannel.removeAppShareOptions14+
+#### unifiedDataChannel.removeAppShareOptions14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2384,7 +2384,7 @@ try {
 
 
 
-##### unifiedDataChannel.convertRecordsToEntries17+
+#### unifiedDataChannel.convertRecordsToEntries17+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

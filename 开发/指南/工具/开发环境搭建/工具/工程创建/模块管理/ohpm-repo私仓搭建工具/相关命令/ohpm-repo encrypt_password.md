@@ -7,7 +7,7 @@
 对键入的密码类型字符串进行加密。
  
 
-##### 命令格式
+#### 命令格式
 
 ```text
 ohpm-repo encrypt_password [options]
@@ -15,17 +15,17 @@ ohpm-repo encrypt_password [options]
  
  
 
-##### 功能描述
+#### 功能描述
 
 使用指定的加密组件加密从标准输入读取的数据，并在标准输出中输出密文。
  
  
 
-##### 选项
+#### 选项
 
  
 
-##### crypto_path
+#### crypto_path
 
 - 类型：String
 - 必填参数
@@ -35,7 +35,7 @@ ohpm-repo encrypt_password [options]
  
  
 
-##### 示例
+#### 示例
 
 执行以下命令：
  

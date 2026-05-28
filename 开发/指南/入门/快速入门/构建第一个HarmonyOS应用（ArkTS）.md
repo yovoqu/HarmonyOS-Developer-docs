@@ -9,7 +9,7 @@
 
   
 
-##### 创建ArkTS工程
+#### 创建ArkTS工程
 1. 若首次打开**DevEco Studio**，请单击**Create Project**创建工程。如果已经打开了一个工程，请在菜单栏选择**File** > **New** > **Create Project**来创建一个新工程。
 2. 选择**Application**应用开发（本文以应用开发为例，[Atomic Service](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/glossary#atomic-service元服务)对应为元服务开发），选择模板**Empty Ability**，单击**Next**进行下一步配置。
 
@@ -27,7 +27,7 @@
  
   
 
-##### ArkTS工程目录结构（Stage模型）
+#### ArkTS工程目录结构（Stage模型）
 
 
 ![](assets/构建第一个HarmonyOS应用（ArkTS）/file-20260514124510135-3.png)
@@ -56,7 +56,7 @@
  
   
 
-##### 构建第一个页面
+#### 构建第一个页面
 1. 使用文本组件。
 
   工程同步完成后，在**Project**窗口，单击**entry > src > main > ets > pages**，打开**Index.ets**文件，将页面从RelativeContainer相对布局修改成Row/Column线性布局。
@@ -134,7 +134,7 @@ struct Index {
  
   
 
-##### 构建第二个页面
+#### 构建第二个页面
 1. 创建第二个页面。
 
   
@@ -201,7 +201,7 @@ struct Second {
  
   
 
-##### 实现页面间的跳转
+#### 实现页面间的跳转
 
 页面间的导航可以通过[页面路由router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)来实现。页面路由router根据页面url找到目标页面，从而实现跳转。
  
@@ -327,7 +327,7 @@ struct Second {
  
   
 
-##### 使用真机运行应用
+#### 使用真机运行应用
 1. 将搭载HarmonyOS系统的真机与电脑连接。具体指导及要求，可查看[使用本地真机运行应用/服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-run-device)。
 2. 进入**File > Project Structure... > Project > Signing Configs**界面，勾选“**Automatically generate signature**”，即可完成签名。如果未登录，请先单击**Sign In**进行登录，然后自动完成签名。具体请见[配置调试签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing#section151231211105010)。如下图所示：
 
@@ -335,11 +335,11 @@ struct Second {
 ![](assets/构建第一个HarmonyOS应用（ArkTS）/file-20260514124510135-9.png)
 
 3. 在编辑窗口右上角的工具栏，单击
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/tGQ7lVl7RyKeRGxUKORb3A/zh-cn_image_0000002581273596.png?HW-CC-KV=V1&HW-CC-Date=20260528T014252Z&HW-CC-Expire=86400&HW-CC-Sign=6C330D8DB81ACA0CDBCEBCF57A44DAD9E66CB01A5E4E69252EAB61845727FD3C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/tGQ7lVl7RyKeRGxUKORb3A/zh-cn_image_0000002581273596.png?HW-CC-KV=V1&HW-CC-Date=20260528T025921Z&HW-CC-Expire=86400&HW-CC-Sign=72F0DC583599868C653A8E2DCB95936948A3DA9483947C41FBE514C54BF08906)
 按钮运行。效果如下图所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/87PommMIQr2u5RDM2iR-Bg/zh-cn_image_0000002611753451.png?HW-CC-KV=V1&HW-CC-Date=20260528T014252Z&HW-CC-Expire=86400&HW-CC-Sign=B46ED929DC1D41E0B9E389E5E2BB3E4ADC1402725D9F7F90DDC83DF58F67A35C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/87PommMIQr2u5RDM2iR-Bg/zh-cn_image_0000002611753451.png?HW-CC-KV=V1&HW-CC-Date=20260528T025921Z&HW-CC-Expire=86400&HW-CC-Sign=C5B0504C9D16499544D03ADF65499F4E1101A3B91641301AE454D155870FC75A)
 
  
 恭喜您已经基于ArkTS语言构建完成第一个HarmonyOS应用，快来探索更多的HarmonyOS功能吧。

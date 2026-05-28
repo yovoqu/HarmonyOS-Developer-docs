@@ -10,7 +10,7 @@
 
   
 
-##### WebMessage
+#### WebMessage
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -28,7 +28,7 @@ type WebMessage = ArrayBuffer | string
  
   
 
-##### OnProxyConfigChangeCallback15+
+#### OnProxyConfigChangeCallback15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -44,7 +44,7 @@ type OnProxyConfigChangeCallback = () => void
  
   
 
-##### CreateNativeMediaPlayerCallback12+
+#### CreateNativeMediaPlayerCallback12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

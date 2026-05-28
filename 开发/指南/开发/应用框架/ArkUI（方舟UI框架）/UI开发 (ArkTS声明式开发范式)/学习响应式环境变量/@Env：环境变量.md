@@ -11,7 +11,7 @@
 
 
 
-##### 概述
+#### 概述
 
 @Env是响应式系统环境变量装饰器，其功能包括：
 
@@ -28,13 +28,13 @@
 
 
 
-##### @Env支持参数
+#### @Env支持参数
 
 @Env支持的参数请参考[SystemProperties枚举类型说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-env-system-property#systemproperties)。
 
 
 
-##### @Env和Environment能力对比
+#### @Env和Environment能力对比
 
 @Env和[Environment](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-environment)都是系统环境变量相关，但两者能力有较大的不同，具体能力对比见下表。
 
@@ -48,7 +48,7 @@
 
 
 
-##### 限制条件
+#### 限制条件
 
  - @Env仅支持在@Component和@ComponentV2中使用，否则会有编译时报错。如果开发者绕过编译时检查，则会有运行时报错。
 
@@ -207,7 +207,7 @@ struct CompInvalid {
 
 
 
-##### @Env初始化流程
+#### @Env初始化流程
 
 @Env变量不允许开发者初始化，其值由框架根据当前窗口的环境变量自动提供，@Env变量在被第一次读值的时候，会触发初始化。@Env变量初始化遵循以下流程：
 1. 从父组件中查找已有实例：       
@@ -328,11 +328,11 @@ struct GrandChild2 {
 
   
 
-  ##### 使用场景
+  #### 使用场景
 
   
 
-  ##### 在@ComponentV2中使用@Env
+  #### 在@ComponentV2中使用@Env
 
   下面的例子中：
 
@@ -437,7 +437,7 @@ struct Comp {
 
 
 
-##### 在@Component中使用@Env
+#### 在@Component中使用@Env
 
 @Env在@Component中使用和其在@ComponentV2中使用类似，示例如下。
 
@@ -534,7 +534,7 @@ struct Comp {
 
 
 
-##### 通过BuilderNode切换窗口
+#### 通过BuilderNode切换窗口
 
 @Env用于展示@Component/@ComponentV2所在[窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window)的环境变量信息。开发者通过BuilderNode切换@Component@ComponentV2所在的窗口实例时，@Env会根据新的窗口获取对应的环境变量信息，并触发关联的UI组件刷新。以SystemProperties.BREAK_POINT为例。
 

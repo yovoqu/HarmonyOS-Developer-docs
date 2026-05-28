@@ -10,7 +10,7 @@
 **起始版本：** 6.1.1(24)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** lite_wearable
 
@@ -24,7 +24,7 @@ import healthStore from '@hms.health.store';
  
   
 
-##### Altitude
+#### Altitude
 
 **支持设备：** lite_wearable
 
@@ -43,7 +43,7 @@ import healthStore from '@hms.health.store';
  
   
 
-##### ExerciseHeartRate
+#### ExerciseHeartRate
 
 **支持设备：** lite_wearable
 
@@ -62,7 +62,7 @@ import healthStore from '@hms.health.store';
  
   
 
-##### Speed
+#### Speed
 
 **支持设备：** lite_wearable
 
@@ -81,7 +81,7 @@ import healthStore from '@hms.health.store';
  
   
 
-##### GroupSummary
+#### GroupSummary
 
 **支持设备：** lite_wearable
 
@@ -102,7 +102,7 @@ import healthStore from '@hms.health.store';
  
   
 
-##### ActionSummary
+#### ActionSummary
 
 **支持设备：** lite_wearable
 
@@ -126,7 +126,7 @@ import healthStore from '@hms.health.store';
  
   
 
-##### BadmintonDetail
+#### BadmintonDetail
 
 **支持设备：** lite_wearable
 
@@ -145,7 +145,7 @@ import healthStore from '@hms.health.store';
  
   
 
-##### BadmintonSummary
+#### BadmintonSummary
 
 **支持设备：** lite_wearable
 
@@ -187,7 +187,7 @@ import healthStore from '@hms.health.store';
  
   
 
-##### SoccerDetail
+#### SoccerDetail
 
 **支持设备：** lite_wearable
 
@@ -206,7 +206,7 @@ import healthStore from '@hms.health.store';
  
   
 
-##### SoccerSummary
+#### SoccerSummary
 
 **支持设备：** lite_wearable
 
@@ -240,7 +240,7 @@ import healthStore from '@hms.health.store';
  
   
 
-##### StrengthTrainingSummary
+#### StrengthTrainingSummary
 
 **支持设备：** lite_wearable
 
@@ -277,7 +277,7 @@ import healthStore from '@hms.health.store';
  
   
 
-##### StrengthTrainingDetail
+#### StrengthTrainingDetail
 
 **支持设备：** lite_wearable
 
@@ -296,7 +296,7 @@ import healthStore from '@hms.health.store';
  
   
 
-##### TennisSummary
+#### TennisSummary
 
 **支持设备：** lite_wearable
 
@@ -332,7 +332,7 @@ import healthStore from '@hms.health.store';
  
   
 
-##### TennisDetail
+#### TennisDetail
 
 **支持设备：** lite_wearable
 
@@ -351,7 +351,7 @@ import healthStore from '@hms.health.store';
  
   
 
-##### StairClimbSummary
+#### StairClimbSummary
 
 **支持设备：** lite_wearable
 
@@ -387,7 +387,7 @@ import healthStore from '@hms.health.store';
  
   
 
-##### StairClimbDetail
+#### StairClimbDetail
 
 **支持设备：** lite_wearable
 
@@ -406,7 +406,7 @@ import healthStore from '@hms.health.store';
  
   
 
-##### PickleBallSummary
+#### PickleBallSummary
 
 **支持设备：** lite_wearable
 
@@ -442,7 +442,7 @@ import healthStore from '@hms.health.store';
  
   
 
-##### PickleBallDetail
+#### PickleBallDetail
 
 **支持设备：** lite_wearable
 

@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getdata
 
-##### 函数功能
+#### 函数功能
 
 获取Tensor的数据地址。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 template<class T>  const T *GetData() const
@@ -19,7 +19,7 @@ template<class T>  T *GetData()
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -28,19 +28,19 @@ template<class T>  T *GetData()
  
   
 
-##### 返回值
+#### 返回值
 
 数据地址。
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 Tensor tensor{{{8, 3, 224, 224}, {16, 3, 224, 224}}, // shape

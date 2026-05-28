@@ -11,7 +11,7 @@
 
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -24,13 +24,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```json
 src
@@ -47,7 +47,7 @@ src
  
  
 
-##### 反例
+#### 反例
 
 ```json
 src
@@ -63,7 +63,7 @@ src
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(80,160,79);">plugin:@performance/all</span>

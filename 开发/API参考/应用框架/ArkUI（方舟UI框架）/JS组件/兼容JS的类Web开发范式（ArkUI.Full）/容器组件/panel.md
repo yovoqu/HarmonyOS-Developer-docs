@@ -12,7 +12,7 @@
 可滑动面板，提供一种轻量的内容展示窗口，在不同尺寸中切换，属于弹出式组件。
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -42,7 +42,7 @@
  
   
 
-##### 样式
+#### 样式
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -77,7 +77,7 @@
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -90,7 +90,7 @@
  
   
 
-##### 方法
+#### 方法
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -104,7 +104,7 @@
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -190,4 +190,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/6zHl4j6nQne-fOo26aFkSg/zh-cn_image_0000002581276406.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024110Z&HW-CC-Expire=86400&HW-CC-Sign=6F17A3D684DB95102C98702A91DEA49B445947F29EB69300225B12F15E62C9EA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/6zHl4j6nQne-fOo26aFkSg/zh-cn_image_0000002581276406.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025444Z&HW-CC-Expire=86400&HW-CC-Sign=1DCB5F82A4324DCA890A1A613F8DD8A411C32FBA4932C9D40C9136DABEDF0B76)

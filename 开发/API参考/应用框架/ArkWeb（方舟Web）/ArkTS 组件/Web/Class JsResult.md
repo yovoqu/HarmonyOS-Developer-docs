@@ -12,7 +12,7 @@ Web组件返回的弹窗确认或取消功能对象。示例代码参考[onAlert
 
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ JsResult的构造函数。
  
   
 
-##### handleCancel
+#### handleCancel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -36,7 +36,7 @@ handleCancel(): void
  
   
 
-##### handleConfirm
+#### handleConfirm
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -48,7 +48,7 @@ handleConfirm(): void
  
   
 
-##### handlePromptConfirm9+
+#### handlePromptConfirm9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

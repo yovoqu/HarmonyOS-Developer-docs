@@ -12,7 +12,7 @@ UIServiceProxy提供代理能力，可以从UIServiceExtension客户端发送数
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { common } from '@kit.AbilityKit';
 
 
 
-##### UIServiceProxy.sendData
+#### UIServiceProxy.sendData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -7,7 +7,7 @@
 要求加法的两个操作数都是相同的类型，并且是“bigint”、“number”或“string”。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/restrict-plus-operands选项](https://typescript-eslint.nodejs.cn/rules/restrict-plus-operands/#options)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 const num = 10;
@@ -37,7 +37,7 @@ export const foo2 = bigIntNum + bigIntNum;
  
  
 
-##### 反例
+#### 反例
 
 ```text
 const num = 10;
@@ -47,7 +47,7 @@ export const foo2 = bigIntNum + num;
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

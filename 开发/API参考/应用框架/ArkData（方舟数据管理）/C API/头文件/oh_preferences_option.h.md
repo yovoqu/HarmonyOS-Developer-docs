@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-preferences-option-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -40,7 +40,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -51,7 +51,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -67,13 +67,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### Preferences_StorageType
+#### Preferences_StorageType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -95,13 +95,13 @@ enum Preferences_StorageType
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_PreferencesOption_Create()
+#### OH_PreferencesOption_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -126,7 +126,7 @@ OH_PreferencesOption *OH_PreferencesOption_Create(void)
  
   
 
-##### OH_PreferencesOption_SetFileName()
+#### OH_PreferencesOption_SetFileName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -161,7 +161,7 @@ OH_Preferences_ErrCode
  
   
 
-##### OH_PreferencesOption_SetBundleName()
+#### OH_PreferencesOption_SetBundleName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -192,7 +192,7 @@ int OH_PreferencesOption_SetBundleName(OH_PreferencesOption *option, const char 
  
   
 
-##### OH_PreferencesOption_SetDataGroupId()
+#### OH_PreferencesOption_SetDataGroupId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -227,7 +227,7 @@ int OH_PreferencesOption_SetDataGroupId(OH_PreferencesOption *option, const char
  
   
 
-##### OH_PreferencesOption_SetStorageType()
+#### OH_PreferencesOption_SetStorageType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -258,7 +258,7 @@ int OH_PreferencesOption_SetStorageType(OH_PreferencesOption *option, Preference
  
   
 
-##### OH_PreferencesOption_Destroy()
+#### OH_PreferencesOption_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { drawing } from '@kit.ArkGraphics2D';
 
 
 
-##### createDashPathEffect12+
+#### createDashPathEffect12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -73,7 +73,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### createPathDashEffect18+
+#### createPathDashEffect18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -149,7 +149,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### createSumPathEffect18+
+#### createSumPathEffect18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -193,7 +193,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### createCornerPathEffect12+
+#### createCornerPathEffect12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -242,7 +242,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### createDiscretePathEffect18+
+#### createDiscretePathEffect18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -284,7 +284,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### createComposePathEffect18+
+#### createComposePathEffect18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

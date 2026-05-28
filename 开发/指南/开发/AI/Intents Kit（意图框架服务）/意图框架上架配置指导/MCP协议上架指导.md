@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/intents-kit-listing-mcp-protocol
 
-##### **意图注册配置操作步骤**
+#### **意图注册配置操作步骤**
 1. 账号登录：
 
   

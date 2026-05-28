@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-data-encryption
 
-##### 场景介绍
+#### 场景介绍
 
 为了增强数据库的安全性，数据库提供了安全的加密功能，以有效保护存储的内容。
 
@@ -16,7 +16,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 关系型数据库通过调用OH_Rdb_SetEncrypted方法来设置是否加密。isEncrypted参数为true时表示加密，为false时表示不加密，默认不加密。
 

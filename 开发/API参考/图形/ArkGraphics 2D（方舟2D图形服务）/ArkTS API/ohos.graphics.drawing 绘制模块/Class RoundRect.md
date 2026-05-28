@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { drawing } from '@kit.ArkGraphics2D';
 
 
 
-##### constructor20+
+#### constructor20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -51,7 +51,7 @@ let roundRect2 = new drawing.RoundRect(roundRect);
 
 
 
-##### constructor12+
+#### constructor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -90,7 +90,7 @@ let roundRect = new drawing.RoundRect(rect, 50, 50);
 
 
 
-##### setCorner12+
+#### setCorner12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -129,7 +129,7 @@ roundRect.setCorner(drawing.CornerPos.TOP_LEFT_POS, 150, 150);
 
 
 
-##### getCorner12+
+#### getCorner12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -175,7 +175,7 @@ console.info("getCorner---"+cornerRadius.y)
 
 
 
-##### offset12+
+#### offset12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

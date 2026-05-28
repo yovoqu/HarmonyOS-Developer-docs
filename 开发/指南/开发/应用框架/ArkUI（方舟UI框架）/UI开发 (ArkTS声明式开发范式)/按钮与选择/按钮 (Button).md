@@ -7,7 +7,7 @@
 Button是按钮组件，通常用于响应用户的点击操作，其类型包括胶囊按钮、圆形按钮、普通按钮、圆角矩形按钮。Button作为容器使用时可以通过添加子组件实现包含文字、图片等元素的按钮。具体用法请参考[Button](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button)。
 
 
-##### 创建按钮
+#### 创建按钮
 
 Button通过调用接口来创建，接口调用有以下两种形式：
 
@@ -55,7 +55,7 @@ Button({ type: ButtonType.Normal, stateEffect: true }) {
 
 
 
-##### 设置按钮类型
+#### 设置按钮类型
 
 Button有四种可选类型，分别为胶囊类型（Capsule）、圆形按钮（Circle）、普通按钮（Normal）和圆角矩形按钮（ROUNDED_RECTANGLE），通过type进行设置。
 
@@ -120,7 +120,7 @@ Button('Disable', { type: ButtonType.ROUNDED_RECTANGLE, stateEffect: true })
 
 
 
-##### 自定义样式
+#### 自定义样式
 
  - 设置边框弧度。
 
@@ -178,7 +178,7 @@ Button({ type: ButtonType.Circle, stateEffect: true }) {
 
 
 
-##### 添加事件
+#### 添加事件
 
 Button组件通常用于触发某些操作，可以绑定onClick事件来响应点击操作后的自定义行为。
 
@@ -191,7 +191,7 @@ Button('Ok', { type: ButtonType.Normal, stateEffect: true })
 
 
 
-##### 场景示例
+#### 场景示例
 
  - 用于启动操作。
 

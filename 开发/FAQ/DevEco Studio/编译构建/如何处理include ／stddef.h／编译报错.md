@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-59
 
-## 如何处理include <stddef.h>编译报错
+# 如何处理include <stddef.h>编译报错
  
 
 **问题现象**

@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-lite-framework-js-file
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
-##### 应用生命周期4+
+#### 应用生命周期4+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -31,7 +31,7 @@ export default {
  
   
 
-##### 应用对象10+
+#### 应用对象10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
  

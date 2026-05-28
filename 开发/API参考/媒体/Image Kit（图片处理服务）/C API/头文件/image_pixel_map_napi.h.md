@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-pixel-map-napi-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -40,7 +40,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -53,7 +53,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -66,13 +66,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 方法返回的错误码
+#### 方法返回的错误码
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -96,7 +96,7 @@ enum anonymous enum
  
   
 
-##### 像素格式
+#### 像素格式
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -121,7 +121,7 @@ enum anonymous enum
  
   
 
-##### PixelMap缩放类型
+#### PixelMap缩放类型
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -143,13 +143,13 @@ PixelMap缩放类型的枚举。
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_GetImageInfo()
+#### OH_GetImageInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -183,7 +183,7 @@ int32_t OH_GetImageInfo(napi_env env, napi_value value, OhosPixelMapInfo *info)
  
   
 
-##### OH_AccessPixels()
+#### OH_AccessPixels()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -219,7 +219,7 @@ int32_t OH_AccessPixels(napi_env env, napi_value value, void** addrPtr)
  
   
 
-##### OH_UnAccessPixels()
+#### OH_UnAccessPixels()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

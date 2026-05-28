@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** PC/2in1
 
@@ -22,7 +22,7 @@ import { SelectionExtensionAbility } from '@kit.BasicServicesKit';
 
 
 
-##### SelectionExtensionAbility
+#### SelectionExtensionAbility
 
 **支持设备：** PC/2in1
 
@@ -37,7 +37,7 @@ import { SelectionExtensionAbility } from '@kit.BasicServicesKit';
 
 
 
-##### onConnect
+#### onConnect
 
 **支持设备：** PC/2in1
 
@@ -91,7 +91,7 @@ class ServiceExtAbility extends SelectionExtensionAbility {
 
 
 
-##### onDisconnect
+#### onDisconnect
 
 **支持设备：** PC/2in1
 

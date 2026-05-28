@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/system-font-c
 
-##### 场景介绍
+#### 场景介绍
 
 系统字体是指操作系统预设的字体，用于在没有指定自定义字体时显示文本，确保文本的可读性和一致性。默认的系统字体为“HarmonyOS Sans”。
 
@@ -14,7 +14,7 @@
 
 
 
-##### 接口说明
+#### 接口说明
 
 以下是系统字体相关的常用接口和结构体，详细接口说明请参考[Drawing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing)。
 
@@ -37,7 +37,7 @@
 
 
 
-##### 获取系统字体信息
+#### 获取系统字体信息
 1. 在工程的src/main/cpp/CMakeLists.txt文件中添加以下lib。
 
   
@@ -85,7 +85,7 @@ OH_Drawing_DestroySystemFontConfigInfo(fontConfigInfo);
 
 
 
-##### 使用或切换系统字体
+#### 使用或切换系统字体
 
 系统字体可以有多种，可以先获取系统字体配置信息，再根据其中的字体家族名来进行系统字体的切换和使用。
 
@@ -169,7 +169,7 @@ OH_Drawing_TypographyPaint(typography, cCanvas_, 0, height_ / 2.0);
 
 
 
-##### 禁用系统字体
+#### 禁用系统字体
 
 当自定义字体不存在时，不禁用系统字体，系统则会自动回退到默认字体。通过禁用系统字体，开发者可以在任何场景避免字体回退为系统默认字体，确保文本渲染符合设计预期，从而统一应用的视觉风格。
 
@@ -213,7 +213,7 @@ OH_Drawing_DisableFontCollectionSystemFont(fontCollection);
 6. 创建文本样式对象，使用注册成功的自定义字体。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/5WD3hY78Sr20DahLm7k1Yg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T014905Z&HW-CC-Expire=86400&HW-CC-Sign=217E2C2403796001886C0EFD12506F9C686CFE7D7057931B5096C7B714933404)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/5WD3hY78Sr20DahLm7k1Yg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030534Z&HW-CC-Expire=86400&HW-CC-Sign=4B5468388D500C18AB91538ED8D9F7006C18B962842B7B82CBFF1B4BC5E20029)
  
 
   若不设置字体，文本会默认使用系统字体，而系统字体禁用后若不设置使用自定义字体，文本将无法正常显示。

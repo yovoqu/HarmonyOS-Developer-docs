@@ -15,7 +15,7 @@
 当isModal为true时，弹出框为模态弹窗，且弹窗周围的蒙层区不支持透传。isModal为false时，弹出框为非模态弹窗，且弹窗周围的蒙层区可以透传。因此如果需要同时允许弹出框的交互和弹出框外页面的交互行为，需要将弹出框设置为非模态。
 
 
-##### 生命周期
+#### 生命周期
 
 弹出框提供了生命周期函数用于通知用户该弹出框的生命周期。生命周期的触发时序依次为：onWillAppear -> onDidAppear -> onWillDisappear -> onDidDisappear。
 
@@ -29,7 +29,7 @@
 
 
 
-##### 自定义弹出框的打开与关闭
+#### 自定义弹出框的打开与关闭
 
 > [!NOTE]
 > 详细变量定义请参考 完整示例 。
@@ -86,7 +86,7 @@ PromptActionClassNew.ctx.getPromptAction().closeCustomDialog(PromptActionClassNe
 
 
 
-##### 更新自定义弹出框的内容
+#### 更新自定义弹出框的内容
 
 ComponentContent与[BuilderNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode)有相同的使用限制，不支持自定义组件使用[@Reusable](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-reusable)、[@Link](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-link)、[@Provide](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-provide-and-consume)、[@Consume](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-provide-and-consume)等装饰器，来同步弹出框弹出的页面与ComponentContent中自定义组件的状态。因此，若需要更新弹出框中自定义组件的内容可以通过ComponentContent提供的update方法来实现。
 
@@ -96,7 +96,7 @@ this.contentNode.update(new Params('update'))
 
 
 
-##### 更新自定义弹出框的属性
+#### 更新自定义弹出框的属性
 
 通过updateCustomDialog可以动态更新弹出框的属性。目前支持更新弹出框的对齐方式、基于对齐方式的偏移量、是否点击蒙层自动关闭以及蒙层颜色，对应的属性分别为[BaseDialogOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#basedialogoptions11)中的alignment、offset、autoCancel和maskColor。
 
@@ -116,7 +116,7 @@ PromptActionClassNew.ctx.getPromptAction().updateCustomDialog(PromptActionClassN
 
 
 
-##### 为弹出框内容和蒙层设置不同的动画效果
+#### 为弹出框内容和蒙层设置不同的动画效果
 
 当弹出框出现时，内容与蒙层显示动效一致。若开发者希望为弹出框内容及蒙层设定不同动画效果，从API version 19开始，可通过[BaseDialogOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#basedialogoptions11)中dialogTransition和maskTransition属性单独配置弹窗内容与蒙层的动画。具体的动画效果请参考[组件内转场 (transition)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-transition-animation-component)。
 
@@ -194,12 +194,12 @@ export struct CustomDialogComponentWithTransition {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/JzlRXFrlSxOkUbZQTMrVEQ/zh-cn_image_0000002611833791.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014811Z&HW-CC-Expire=86400&HW-CC-Sign=026B42AE4B74EC00C5ED7D10362951480162ECB84245495A305F2D3019A60BC1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/JzlRXFrlSxOkUbZQTMrVEQ/zh-cn_image_0000002611833791.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030442Z&HW-CC-Expire=86400&HW-CC-Sign=785B3FF9D0F4B2882FCF216874841703F318E339A9D6D61B91CE95B59907D771)
 
 
 
 
-##### 设置弹出框避让软键盘的距离
+#### 设置弹出框避让软键盘的距离
 
 为显示弹出框的独立性，弹出框弹出时会与周边进行避让，包括状态栏、导航条以及键盘等留有间距。故当软键盘弹出时，默认情况下，弹出框会自动避开软键盘，并与之保持16vp的距离。从API version 15开始，开发者可以利用[BaseDialogOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#basedialogoptions11)中的keyboardAvoidMode和keyboardAvoidDistance这两个配置项，来设置弹出框在软键盘弹出时的行为，包括是否需要避开软键盘以及与软键盘之间的距离。
 
@@ -255,12 +255,12 @@ export struct CustomDialogWithKeyboardAvoidDistance {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/pQ-IdEfWRk2MbdasSr56SQ/zh-cn_image_0000002581274044.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014811Z&HW-CC-Expire=86400&HW-CC-Sign=3B9AE2172FEB63D05606917A990DF54D81C97F511B54420DCFADBD00A53A092C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/pQ-IdEfWRk2MbdasSr56SQ/zh-cn_image_0000002581274044.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030442Z&HW-CC-Expire=86400&HW-CC-Sign=CB2A0C7380C3A187DBB0DC8BD82CDE032C56E8F46BF594154BACC3267E08A647)
 
 
 
 
-##### 完整示例
+#### 完整示例
 
 ```ArkTS
 // PromptActionClassNew.ets
@@ -411,4 +411,4 @@ export struct OpenDialogAndUpdate {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/7mxETJ2lTEqhgU48o6rzlQ/zh-cn_image_0000002611753899.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014811Z&HW-CC-Expire=86400&HW-CC-Sign=5966FDCA6B2CEA16A21FE20A5FFE975D5AA21F204E0D112CA03F4C8A20A2EB86)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/7mxETJ2lTEqhgU48o6rzlQ/zh-cn_image_0000002611753899.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030442Z&HW-CC-Expire=86400&HW-CC-Sign=BC6447D8764B97D569D0A9AE26EF7E306AF5B9A7145A3E2EC2318C01A5490001)

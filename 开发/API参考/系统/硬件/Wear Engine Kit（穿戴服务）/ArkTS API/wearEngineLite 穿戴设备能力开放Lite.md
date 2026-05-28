@@ -10,7 +10,7 @@
 **起始版本**：6.1.1(24)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Wearable | lite_wearable
 
@@ -20,7 +20,7 @@ import WearEngineLite from '@hms.health.WearEngineLite';
  
   
 
-##### onConnectionStateChange
+#### onConnectionStateChange
 
 **支持设备：** Wearable | lite_wearable
 
@@ -66,7 +66,7 @@ let eventCallback = {
  
   
 
-##### offConnectionStateChange
+#### offConnectionStateChange
 
 **支持设备：** Wearable | lite_wearable
 
@@ -107,7 +107,7 @@ let eventCallback = {
  
   
 
-##### MonitorEventCallback
+#### MonitorEventCallback
 
 **支持设备：** Wearable | lite_wearable
 
@@ -115,7 +115,7 @@ let eventCallback = {
  
   
 
-##### eventChange
+#### eventChange
 
 **支持设备：** Wearable | lite_wearable
 
@@ -153,7 +153,7 @@ let eventCallback = {
  
   
 
-##### success
+#### success
 
 **支持设备：** Wearable | lite_wearable
 
@@ -191,7 +191,7 @@ let eventCallback = {
  
   
 
-##### fail
+#### fail
 
 **支持设备：** Wearable | lite_wearable
 
@@ -229,7 +229,7 @@ let eventCallback = {
  
   
 
-##### MonitorData
+#### MonitorData
 
 **支持设备：** Wearable | lite_wearable
 
@@ -249,7 +249,7 @@ let eventCallback = {
  
   
 
-##### MonitorEventData
+#### MonitorEventData
 
 **支持设备：** Wearable | lite_wearable
 

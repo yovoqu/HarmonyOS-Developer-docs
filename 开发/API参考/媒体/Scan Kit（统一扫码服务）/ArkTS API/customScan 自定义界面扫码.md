@@ -12,7 +12,7 @@
 **起始版本：** 4.1.0(11)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -22,7 +22,7 @@ import { customScan } from '@kit.ScanKit';
  
   
 
-##### ViewControl
+#### ViewControl
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -104,7 +104,7 @@ struct CustomScanPage {
  
   
 
-##### ScanFrame
+#### ScanFrame
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -234,7 +234,7 @@ if (frameResult && frameResult.scanCodeRects) {
  
   
 
-##### customScan.init
+#### customScan.init
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -294,7 +294,7 @@ try {
  
   
 
-##### customScan.start
+#### customScan.start
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -406,7 +406,7 @@ struct CustomScanPage {
  
   
 
-##### customScan.start
+#### customScan.start
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -529,7 +529,7 @@ struct CustomScanPage {
  
   
 
-##### customScan.getFlashLightStatus
+#### customScan.getFlashLightStatus
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -593,7 +593,7 @@ try {
  
   
 
-##### customScan.openFlashLight
+#### customScan.openFlashLight
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -650,7 +650,7 @@ try {
  
   
 
-##### customScan.closeFlashLight
+#### customScan.closeFlashLight
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -707,7 +707,7 @@ if (flashLightStatus) {
  
   
 
-##### customScan.setZoom
+#### customScan.setZoom
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -759,7 +759,7 @@ try {
  
   
 
-##### customScan.getZoom
+#### customScan.getZoom
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -810,7 +810,7 @@ try {
  
   
 
-##### customScan.setFocusPoint
+#### customScan.setFocusPoint
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -861,7 +861,7 @@ try {
  
   
 
-##### customScan.resetFocus
+#### customScan.resetFocus
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -904,7 +904,7 @@ try {
  
   
 
-##### customScan.on('lightingFlash')
+#### customScan.on('lightingFlash')
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -965,7 +965,7 @@ try {
  
   
 
-##### customScan.off('lightingFlash')
+#### customScan.off('lightingFlash')
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1026,7 +1026,7 @@ try {
  
   
 
-##### customScan.rescan
+#### customScan.rescan
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1126,7 +1126,7 @@ struct CustomScanPage {
  
   
 
-##### customScan.setAutoZoomEnabled
+#### customScan.setAutoZoomEnabled
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1176,7 +1176,7 @@ try {
  
   
 
-##### customScan.stop
+#### customScan.stop
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1232,7 +1232,7 @@ try {
  
   
 
-##### customScan.stop
+#### customScan.stop
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1290,7 +1290,7 @@ try {
  
   
 
-##### customScan.release
+#### customScan.release
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1346,7 +1346,7 @@ try {
  
   
 
-##### customScan.release
+#### customScan.release
 
 **支持设备：** Phone | Tablet | Wearable
 

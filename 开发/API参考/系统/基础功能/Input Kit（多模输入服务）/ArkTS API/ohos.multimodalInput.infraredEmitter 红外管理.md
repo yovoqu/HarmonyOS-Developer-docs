@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | TV
 
@@ -22,7 +22,7 @@ import { infraredEmitter } from '@kit.InputKit';
 
 
 
-##### infraredEmitter.transmitInfrared
+#### infraredEmitter.transmitInfrared
 
 **支持设备：** Phone | TV
 
@@ -77,7 +77,7 @@ struct Index {
 
 
 
-##### infraredEmitter.getInfraredFrequencies
+#### infraredEmitter.getInfraredFrequencies
 
 **支持设备：** Phone | TV
 
@@ -133,7 +133,7 @@ struct Index {
 
 
 
-##### InfraredFrequency
+#### InfraredFrequency
 
 **支持设备：** Phone | TV
 
@@ -149,7 +149,7 @@ struct Index {
 
 
 
-##### infraredEmitter.hasIrEmitter23+
+#### infraredEmitter.hasIrEmitter23+
 
 **支持设备：** Phone | TV
 

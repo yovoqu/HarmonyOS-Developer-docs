@@ -16,7 +16,7 @@ SecureSession继承自[Session](https://developer.huawei.com/consumer/cn/doc/har
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -26,7 +26,7 @@ import { camera } from '@kit.CameraKit';
 
 
 
-##### addSecureOutput12+
+#### addSecureOutput12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -73,7 +73,7 @@ function addSecureOutput(session: camera.SecureSession, previewOutput: camera.Pr
 
 
 
-##### on('error')12+
+#### on('error')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -113,7 +113,7 @@ function registerSessionError(secureSession: camera.SecureSession): void {
 
 
 
-##### off('error')12+
+#### off('error')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -143,7 +143,7 @@ function unregisterSessionError(secureSession: camera.SecureSession): void {
 
 
 
-##### on('focusStateChange')12+
+#### on('focusStateChange')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -187,7 +187,7 @@ function registerFocusStateChange(secureSession: camera.SecureSession): void {
 
 
 
-##### off('focusStateChange')12+
+#### off('focusStateChange')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

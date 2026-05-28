@@ -12,7 +12,7 @@
 
   
 
-##### flexBasis
+#### flexBasis
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -42,7 +42,7 @@ flexBasis(value: number | string): T
  
   
 
-##### flexGrow
+#### flexGrow
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -72,7 +72,7 @@ flexGrow(value: number): T
  
   
 
-##### flexShrink
+#### flexShrink
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -106,7 +106,7 @@ flexShrink(value: number): T
  
   
 
-##### alignSelf
+#### alignSelf
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -136,7 +136,7 @@ alignSelf(value: ItemAlign): T
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -230,4 +230,4 @@ struct FlexExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/KgETMMZmQO6S8-z1WlIJCg/zh-cn_image_0000002611755561.png?HW-CC-KV=V1&HW-CC-Date=20260528T024210Z&HW-CC-Expire=86400&HW-CC-Sign=6D2996434BF66BF9BDE008C35ACD2D7C19C5F2C242DB281A70F147B402BD8691)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/KgETMMZmQO6S8-z1WlIJCg/zh-cn_image_0000002611755561.png?HW-CC-KV=V1&HW-CC-Date=20260528T025543Z&HW-CC-Expire=86400&HW-CC-Sign=CAB13EDD385632EE78C8CBCED96C76818C1278B9E270F0BF5EB533BEABCE49E7)

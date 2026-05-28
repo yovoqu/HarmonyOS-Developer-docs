@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___session_configuration
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -19,13 +19,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -44,13 +44,13 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### baseUrl
+#### baseUrl
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -66,7 +66,7 @@ const char* Rcp_SessionConfiguration::baseUrl
  
   
 
-##### connectionConfiguration
+#### connectionConfiguration
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -82,7 +82,7 @@ Rcp_ConnectionConfiguration Rcp_SessionConfiguration::connectionConfiguration
  
   
 
-##### cookies
+#### cookies
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -98,7 +98,7 @@ Rcp_RequestCookies* Rcp_SessionConfiguration::cookies
  
   
 
-##### headers
+#### headers
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -114,7 +114,7 @@ Rcp_Headers* Rcp_SessionConfiguration::headers
  
   
 
-##### interceptors
+#### interceptors
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -132,7 +132,7 @@ Rcp_InterceptorArray Rcp_SessionConfiguration::interceptors
  
   
 
-##### requestConfiguration
+#### requestConfiguration
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -146,7 +146,7 @@ Rcp_Configuration* Rcp_SessionConfiguration::requestConfiguration
  
   
 
-##### sessionListener
+#### sessionListener
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -160,7 +160,7 @@ Rcp_SessionListener Rcp_SessionConfiguration::sessionListener
  
   
 
-##### syncInterceptors
+#### syncInterceptors
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -178,7 +178,7 @@ Rcp_SyncInterceptorArray Rcp_SessionConfiguration::syncInterceptors
  
   
 
-##### type
+#### type
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

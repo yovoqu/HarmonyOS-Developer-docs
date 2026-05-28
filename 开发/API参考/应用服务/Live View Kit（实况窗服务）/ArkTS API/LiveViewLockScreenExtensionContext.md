@@ -10,7 +10,7 @@ LiveViewLockScreenExtensionContext继承自[ExtensionContext](https://developer.
 **起始版本：** 5.0.0(12)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { LiveViewLockScreenExtensionContext } from '@kit.LiveViewKit';
  
   
 
-##### LiveViewLockScreenExtensionContext
+#### LiveViewLockScreenExtensionContext
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

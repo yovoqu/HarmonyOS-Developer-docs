@@ -7,7 +7,7 @@
 应用退到后台时，禁止使用传感器资源。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 import { UIAbility } from '@kit.AbilityKit';
@@ -46,7 +46,7 @@ export default class EntryAbility extends UIAbility {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 import { UIAbility } from '@kit.AbilityKit';
@@ -64,7 +64,7 @@ export default class EntryAbility extends UIAbility {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(80,160,79);">plugin:@performance/all</span>

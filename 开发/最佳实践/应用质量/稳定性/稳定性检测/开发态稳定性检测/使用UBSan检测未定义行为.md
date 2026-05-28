@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-ubsan-detection
 
-##### 原理概述
+#### 原理概述
 
  
 代码中出现未定义行为最初可能不会引发问题，但随着代码复杂度增加，未定义行为可能导致程序崩溃或错误，检测根源也会变得更加困难。UBSan（Undefined Behavior Sanitizer）可以检测代码中的未定义行为，帮助开发者清除由未定义行为引起的运行时错误。
@@ -12,19 +12,19 @@
 常见的未定义UBSan异常检测类型包括：存储到未对齐地址、访问未对齐地址的成员、不是类型“bool”的有效值、除以零等。具体类型详见[UBSan异常检测类型](#section124211321406)。
  
 
-##### 使用约束
+#### 使用约束
 
  
 ASan、TSan、UBSan 和 HWASan 不能同时开启，只能启用其中一个。
  
 
-##### UBSan使能
+#### UBSan使能
 
 可以通过以下两种方式启用UBSan。每种方式都包括DevEco Studio场景和流水线场景。
  
  
 
-##### 方式一
+#### 方式一
 
 **DevEco Studio场景**
  
@@ -44,7 +44,7 @@ hvigorw [taskNames...] ohos-enable-ubsan=true  <options>
 ```
  
 
-##### 方式二
+#### 方式二
 
 **DevEco Studio场景**
  
@@ -72,11 +72,11 @@ hvigorw [taskNames...]  <options>
 
  
 
-##### UBSan异常检测类型
+#### UBSan异常检测类型
 
  
 
-##### store to misaligned address
+#### store to misaligned address
 
  
 **背景**
@@ -127,7 +127,7 @@ SUMMARY: UndefinedBehaviorSanitizer: undefined-behavior E:/MyCppUbsan/entry/src/
 避免用地址加偏移量赋值，确保指针字节对齐。
  
 
-##### member access within misaligned address
+#### member access within misaligned address
 
  
 **背景**
@@ -182,7 +182,7 @@ SUMMARY: UndefinedBehaviorSanitizer: undefined-behavior E:/MyCppUbsan/entry/src/
 避免用地址加偏移量赋值，确保指针字节对齐。
  
 
-##### not a valid value for type 'bool'
+#### not a valid value for type 'bool'
 
  
 **背景**
@@ -231,7 +231,7 @@ SUMMARY: UndefinedBehaviorSanitizer: undefined-behavior E:/MyCppUbsan/entry/src/
 不要使用不恰当的类型转换
  
 
-##### index xxx out of bounds for type xxx
+#### index xxx out of bounds for type xxx
 
  
 **背景**
@@ -279,7 +279,7 @@ SUMMARY: UndefinedBehaviorSanitizer: undefined-behavior E:/MyCppUbsan/entry/src/
 在访问数组前校验访问位置和数组长度。
  
 
-##### xxx is outside the range of representable values of type 'int'
+#### xxx is outside the range of representable values of type 'int'
 
  
 **背景**
@@ -325,7 +325,7 @@ SUMMARY: UndefinedBehaviorSanitizer: undefined-behavior E:/MyCppUbsan/entry/src/
 强转之前检查值，确保不会溢出
  
 
-##### division by zero
+#### division by zero
 
  
 **背景**

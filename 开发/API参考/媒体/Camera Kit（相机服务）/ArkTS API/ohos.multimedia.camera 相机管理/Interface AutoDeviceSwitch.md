@@ -14,7 +14,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { camera } from '@kit.CameraKit';
 
 
 
-##### enableAutoDeviceSwitch13+
+#### enableAutoDeviceSwitch13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

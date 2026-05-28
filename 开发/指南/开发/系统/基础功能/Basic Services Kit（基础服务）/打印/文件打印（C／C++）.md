@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-print-file
 
-##### HarmonyOS提供的两种打印方式
+#### HarmonyOS提供的两种打印方式
 
 [方式一](#步骤4-通过接口拉起系统打印预览界面下发任务)：应用通过接口拉起系统打印预览界面。适合没有实现打印预览能力的应用。
 
@@ -16,7 +16,7 @@
 
 
 
-##### 步骤1. 引用NDK头文件
+#### 步骤1. 引用NDK头文件
 
 初始路径为entry/src/main/cpp/types/napi_init.cpp # C++ 源码目录 NAPI 初始化入口（桥接 ArkTS 与 C++）。
 
@@ -47,7 +47,7 @@ class HiLog {
 
 
 
-##### 步骤2. 在CMake脚本中添加动态链接库
+#### 步骤2. 在CMake脚本中添加动态链接库
 
 初始路径为entry/src/main/cpp/types/CMakeLists.txt # C++ 源码目录 CMake 构建配置。
 
@@ -61,7 +61,7 @@ target_link_libraries(entry PUBLIC
 
 
 
-##### 步骤3. 绑定页面和打印服务生命周期
+#### 步骤3. 绑定页面和打印服务生命周期
 
 建议将打印服务初始化和释放与使用系统打印能力的页面的生命周期绑定。
 
@@ -198,7 +198,7 @@ struct Index {
 
 
 
-##### 步骤4. 通过接口拉起系统打印预览界面下发任务
+#### 步骤4. 通过接口拉起系统打印预览界面下发任务
 
 封装c++接口。
 
@@ -308,7 +308,7 @@ struct Index {
 
 
 
-##### 步骤5. 通过打印接口直接下发打印任务
+#### 步骤5. 通过打印接口直接下发打印任务
 
 封装c++接口，示例仅演示从已添加打印设备列表获取信息并下发任务。
 

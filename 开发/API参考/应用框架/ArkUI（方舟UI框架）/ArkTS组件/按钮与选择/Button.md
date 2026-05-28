@@ -12,7 +12,7 @@
 
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,13 +20,13 @@
  
   
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### Button
+#### Button
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -49,7 +49,7 @@ Button(options: ButtonOptions)
  
   
 
-##### Button
+#### Button
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -75,7 +75,7 @@ Button(label: ResourceStr, options?: ButtonOptions)
  
   
 
-##### Button
+#### Button
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -91,7 +91,7 @@ Button()
  
   
 
-##### ButtonOptions对象说明
+#### ButtonOptions对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -110,7 +110,7 @@ Button()
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -118,7 +118,7 @@ Button()
  
   
 
-##### type
+#### type
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -141,7 +141,7 @@ type(value: ButtonType)
  
   
 
-##### fontSize
+#### fontSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -164,7 +164,7 @@ fontSize(value: Length)
  
   
 
-##### fontColor
+#### fontColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -187,7 +187,7 @@ fontColor(value: ResourceColor)
  
   
 
-##### fontWeight
+#### fontWeight
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -210,7 +210,7 @@ fontWeight(value: number | FontWeight | string)
  
   
 
-##### fontStyle8+
+#### fontStyle8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -233,7 +233,7 @@ fontStyle(value: FontStyle)
  
   
 
-##### stateEffect
+#### stateEffect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -260,7 +260,7 @@ stateEffect(value: boolean)
  
   
 
-##### fontFamily8+
+#### fontFamily8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -283,7 +283,7 @@ fontFamily(value: string | Resource)
  
   
 
-##### labelStyle10+
+#### labelStyle10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -304,7 +304,7 @@ labelStyle(value: LabelStyle)
  
   
 
-##### buttonStyle11+
+#### buttonStyle11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -331,7 +331,7 @@ buttonStyle(value: ButtonStyleMode)
  
   
 
-##### controlSize11+
+#### controlSize11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -358,7 +358,7 @@ controlSize(value: ControlSize)
  
   
 
-##### role12+
+#### role12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -381,7 +381,7 @@ role(value: ButtonRole)
  
   
 
-##### contentModifier12+
+#### contentModifier12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -402,7 +402,7 @@ contentModifier(modifier: ContentModifier&lt;ButtonConfiguration&gt;)
  
   
 
-##### minFontScale18+
+#### minFontScale18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -423,7 +423,7 @@ minFontScale(scale: number | Resource)
  
   
 
-##### maxFontScale18+
+#### maxFontScale18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -444,7 +444,7 @@ maxFontScale(scale: number | Resource)
  
   
 
-##### ButtonType枚举说明
+#### ButtonType枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -466,7 +466,7 @@ maxFontScale(scale: number | Resource)
  
   
 
-##### LabelStyle10+对象说明
+#### LabelStyle10+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -487,7 +487,7 @@ Button组件的label文本及其字体样式。
  
   
 
-##### ButtonStyleMode11+枚举说明
+#### ButtonStyleMode11+枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -508,7 +508,7 @@ Button组件的label文本及其字体样式。
  
   
 
-##### ControlSize11+枚举说明
+#### ControlSize11+枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -528,7 +528,7 @@ Button组件的label文本及其字体样式。
  
   
 
-##### ButtonRole12+枚举说明
+#### ButtonRole12+枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -548,7 +548,7 @@ Button组件的label文本及其字体样式。
  
   
 
-##### ButtonConfiguration12+对象说明
+#### ButtonConfiguration12+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -567,7 +567,7 @@ Button组件的label文本及其字体样式。
  
   
 
-##### ButtonTriggerClickCallback12+
+#### ButtonTriggerClickCallback12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -589,7 +589,7 @@ type ButtonTriggerClickCallback = (xPos: number, yPos: number) => void
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -597,13 +597,13 @@ type ButtonTriggerClickCallback = (xPos: number, yPos: number) => void
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 示例1（设置按钮的显示样式）
+#### 示例1（设置按钮的显示样式）
 
 该示例实现了两种创建按钮的方式，包含子组件或使用文本内容创建相应的按钮。
  
@@ -669,7 +669,7 @@ struct ButtonExample {
  
   
 
-##### 示例2 （为按钮添加渲染控制）
+#### 示例2 （为按钮添加渲染控制）
 
 该示例通过if/else控制按钮的显示文本。
  
@@ -705,7 +705,7 @@ struct SwipeGestureExample {
  
   
 
-##### 示例3 （设置按钮文本样式）
+#### 示例3 （设置按钮文本样式）
 
 该示例通过配置labelStyle自定义按钮文本的显示样式。
  
@@ -751,7 +751,7 @@ struct ButtonTestDemo {
  
   
 
-##### 示例4（设置不同尺寸按钮的重要程度）
+#### 示例4（设置不同尺寸按钮的重要程度）
 
 该示例通过配置controlSize、buttonStyle实现不同尺寸按钮的重要程度。
  
@@ -789,12 +789,12 @@ struct ButtonExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/fq3om64sT6CqZYh7uR9SIQ/zh-cn_image_0000002581275906.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T024219Z&HW-CC-Expire=86400&HW-CC-Sign=71596D1942E6189C7FC878302D97D4F6963F834B1543BE8F528C3016FAF78494)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/fq3om64sT6CqZYh7uR9SIQ/zh-cn_image_0000002581275906.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=9A675725A998FE53329564940CD486C99DA95BF03C566CAA2A9C743D88612A3B)
 
  
   
 
-##### 示例5（设置按钮的角色）
+#### 示例5（设置按钮的角色）
 
 该示例通过配置role实现按钮的角色。
  
@@ -823,12 +823,12 @@ struct ButtonExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/eKFd1LQnR1WVs4vICd5Wuw/zh-cn_image_0000002611755763.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T024219Z&HW-CC-Expire=86400&HW-CC-Sign=52D2650A03B3EF1DBBB2A53F8E13EBC5D295F37B602610B94F19AD267E851FCD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/eKFd1LQnR1WVs4vICd5Wuw/zh-cn_image_0000002611755763.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=120F37B726DC94EB566EA03EBCD5473DC4F20F2A02FACC2682DFFAD265FE0109)
 
  
   
 
-##### 示例6（设置自定义样式按钮）
+#### 示例6（设置自定义样式按钮）
 
 该示例实现了自定义样式的功能，自定义样式实现了一个圆圈替换原本的按钮样式。如果按压，圆圈将变成红色，标题会显示按压字样；如果没有按压，圆圈将变成黑色，标题会显示非按压字样。
  
@@ -898,12 +898,12 @@ struct ButtonExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/y-sxQheBToawxAzvYwsBdA/zh-cn_image_0000002581435826.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024219Z&HW-CC-Expire=86400&HW-CC-Sign=72BF1A47ECE9FC45D7236C0233D0BDA165AD158B13C6B586A94C46CCE89ACC1A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/y-sxQheBToawxAzvYwsBdA/zh-cn_image_0000002581435826.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=62055A487844C644A88DA297F4F55188EB9D762CD1C4A89D28EAFDE473AF7C19)
 
  
   
 
-##### 示例7（设置圆角矩形按钮）
+#### 示例7（设置圆角矩形按钮）
 
 该示例通过配置ButtonType.ROUNDED_RECTANGLE创建圆角矩形按钮。
  
@@ -944,12 +944,12 @@ struct ButtonExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/wuYd5yqbR-CqqytA2vHPzA/zh-cn_image_0000002611835657.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T024219Z&HW-CC-Expire=86400&HW-CC-Sign=46525FA2B5D07C834D65A4787A9B5D8F58E7C11856EAEC3FE1F5D8634316EB25)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/wuYd5yqbR-CqqytA2vHPzA/zh-cn_image_0000002611835657.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=CFF5C327D20FB0867E671C02AF41B53454BABEFBEB879C35BDE5E0EDCB99A3BC)
 
  
   
 
-##### 示例8（设置label文本水平对齐方式）
+#### 示例8（设置label文本水平对齐方式）
 
 该示例通过配置[LabelStyle](#labelstyle10对象说明)的textAlign，设置文本对齐方式。
  
@@ -974,4 +974,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/OljZnxPcQOKl3OB_JBj6Zw/zh-cn_image_0000002581275908.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T024219Z&HW-CC-Expire=86400&HW-CC-Sign=ED04F6EE093B03F88B301FB685679B149D4F82F77028D54B131C4A41C00A0D67)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/OljZnxPcQOKl3OB_JBj6Zw/zh-cn_image_0000002581275908.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=7555DAADAE9CDA7E6ABB329C2D6AE4535A704621EA863593D415DF0976E4DD72)

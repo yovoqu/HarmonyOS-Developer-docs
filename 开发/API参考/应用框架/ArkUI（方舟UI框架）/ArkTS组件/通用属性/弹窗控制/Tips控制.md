@@ -12,7 +12,7 @@
 
   
 
-##### bindTips
+#### bindTips
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -45,7 +45,7 @@ bindTips(message: TipsMessageType, options?: TipsOptions): T
  
   
 
-##### TipsOptions类型说明
+#### TipsOptions类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -68,7 +68,7 @@ bindTips(message: TipsMessageType, options?: TipsOptions): T
  
   
 
-##### TipsMessageType
+#### TipsMessageType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -88,7 +88,7 @@ type TipsMessageType = ResourceStr | StyledString
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -96,7 +96,7 @@ type TipsMessageType = ResourceStr | StyledString
  
   
 
-##### 示例1（悬浮气泡的显示和消失）
+#### 示例1（悬浮气泡的显示和消失）
 
 此示例为bindTips通过绑定Button产生悬浮气泡。
  
@@ -122,12 +122,12 @@ struct TipsExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/lUUU1EliSzubbqC0A7ZMaA/zh-cn_image_0000002581275762.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024211Z&HW-CC-Expire=86400&HW-CC-Sign=ABF33CAE5701A93A78198D90681970FDE26AFF90EA8EC51BA2E78FA7A6DFCEB1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/lUUU1EliSzubbqC0A7ZMaA/zh-cn_image_0000002581275762.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025545Z&HW-CC-Expire=86400&HW-CC-Sign=5A2F1C324A9AD958B1723BB89A60052A9B27063A79B2509DAD7AFB9367221255)
 
  
   
 
-##### 示例2（多个悬浮气泡的显示和消失）
+#### 示例2（多个悬浮气泡的显示和消失）
 
 此示例展示了如何使用bindTips配置多个悬浮气泡依次显示和消失。
  
@@ -166,4 +166,4 @@ struct TipsExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/Jsb3STSsTmi4FtMNfZ0XSQ/zh-cn_image_0000002611755619.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024211Z&HW-CC-Expire=86400&HW-CC-Sign=4CDB9F99971E8C271C5FB67558A6EE4680A5363D10A64596F3985A518966348D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/Jsb3STSsTmi4FtMNfZ0XSQ/zh-cn_image_0000002611755619.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025545Z&HW-CC-Expire=86400&HW-CC-Sign=4DFB1E22E2A92EA91BFD4FFEA44E95A596D4485F5D8D604849432DA37F034190)

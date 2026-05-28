@@ -10,7 +10,7 @@
 **起始版本：** 4.1.0(11)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -20,7 +20,7 @@ import { site } from '@kit.MapKit';
 
 
 
-##### searchByText
+#### searchByText
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -82,7 +82,7 @@ console.info("Succeeded in searching by text.");
 
 
 
-##### searchByText
+#### searchByText
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -145,7 +145,7 @@ console.info("Succeeded in searching by text.");
 
 
 
-##### nearbySearch
+#### nearbySearch
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -211,7 +211,7 @@ console.info(`Succeeded in searching nearby. result is ${result}`);
 
 
 
-##### nearbySearch
+#### nearbySearch
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -278,7 +278,7 @@ console.info(`Succeeded in searching nearby. result is ${result}`);
 
 
 
-##### queryAutoComplete
+#### queryAutoComplete
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -340,7 +340,7 @@ console.info("Succeeded in querying.");
 
 
 
-##### queryAutoComplete
+#### queryAutoComplete
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -403,7 +403,7 @@ console.info("Succeeded in querying.");
 
 
 
-##### searchById
+#### searchById
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -461,7 +461,7 @@ console.info("Succeeded in searching by id.");
 
 
 
-##### searchById
+#### searchById
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -520,7 +520,7 @@ console.info("Succeeded in searching by id.");
 
 
 
-##### geocode
+#### geocode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -581,7 +581,7 @@ console.info("Succeeded in geocoding.");
 
 
 
-##### geocode
+#### geocode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -643,7 +643,7 @@ console.info("Succeeded in geocoding.");
 
 
 
-##### reverseGeocode
+#### reverseGeocode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -704,7 +704,7 @@ console.info("Succeeded in reversing geocode.");
 
 
 
-##### reverseGeocode
+#### reverseGeocode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -766,7 +766,7 @@ console.info("Succeeded in reversing geocode.");
 
 
 
-##### SortRule
+#### SortRule
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -788,7 +788,7 @@ console.info("Succeeded in reversing geocode.");
 
 
 
-##### SearchByTextParams
+#### SearchByTextParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -819,7 +819,7 @@ SearchByTextParams定义了搜索关键字的参数。
 
 
 
-##### NearbySearchParams
+#### NearbySearchParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -845,7 +845,7 @@ SearchByTextParams定义了搜索关键字的参数。
 
 
 
-##### QueryAutoCompleteParams
+#### QueryAutoCompleteParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -873,7 +873,7 @@ SearchByTextParams定义了搜索关键字的参数。
 
 
 
-##### SearchByIdParams
+#### SearchByIdParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -896,7 +896,7 @@ SearchByTextParams定义了搜索关键字的参数。
 
 
 
-##### ReverseGeocodeParams
+#### ReverseGeocodeParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -921,7 +921,7 @@ SearchByTextParams定义了搜索关键字的参数。
 
 
 
-##### GeocodeParams
+#### GeocodeParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -944,7 +944,7 @@ SearchByTextParams定义了搜索关键字的参数。
 
 
 
-##### SearchByTextResult
+#### SearchByTextResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -966,7 +966,7 @@ SearchByTextParams定义了搜索关键字的参数。
 
 
 
-##### NearbySearchResult
+#### NearbySearchResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -988,7 +988,7 @@ SearchByTextParams定义了搜索关键字的参数。
 
 
 
-##### QueryAutoCompleteResult
+#### QueryAutoCompleteResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1009,7 +1009,7 @@ SearchByTextParams定义了搜索关键字的参数。
 
 
 
-##### SearchByIdResult
+#### SearchByIdResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1030,7 +1030,7 @@ SearchByTextParams定义了搜索关键字的参数。
 
 
 
-##### ReverseGeocodeResult
+#### ReverseGeocodeResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1056,7 +1056,7 @@ SearchByTextParams定义了搜索关键字的参数。
 
 
 
-##### GeocodeResult
+#### GeocodeResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1077,7 +1077,7 @@ SearchByTextParams定义了搜索关键字的参数。
 
 
 
-##### Site
+#### Site
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1105,7 +1105,7 @@ SearchByTextParams定义了搜索关键字的参数。
 
 
 
-##### AddressComponent
+#### AddressComponent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1140,7 +1140,7 @@ SearchByTextParams定义了搜索关键字的参数。
 
 
 
-##### City
+#### City
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1163,7 +1163,7 @@ SearchByTextParams定义了搜索关键字的参数。
 
 
 
-##### StreetNumber
+#### StreetNumber
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1189,7 +1189,7 @@ SearchByTextParams定义了搜索关键字的参数。
 
 
 
-##### Poi
+#### Poi
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1225,7 +1225,7 @@ POI信息。
 
 
 
-##### OpeningHours
+#### OpeningHours
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1247,7 +1247,7 @@ POI信息。
 
 
 
-##### Period
+#### Period
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1269,7 +1269,7 @@ POI信息。
 
 
 
-##### TimeOfWeek
+#### TimeOfWeek
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1291,7 +1291,7 @@ POI信息。
 
 
 
-##### ChildNode
+#### ChildNode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1316,7 +1316,7 @@ POI的子节点信息。
 
 
 
-##### Comment
+#### Comment
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1338,7 +1338,7 @@ POI的评论信息。
 
 
 
-##### Aoi
+#### Aoi
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1363,7 +1363,7 @@ Aoi面信息。
 
 
 
-##### ReverseGeocodePoi
+#### ReverseGeocodePoi
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1390,7 +1390,7 @@ Aoi面信息。
 
 
 
-##### Road
+#### Road
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1415,7 +1415,7 @@ Aoi面信息。
 
 
 
-##### Intersection
+#### Intersection
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

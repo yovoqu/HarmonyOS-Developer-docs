@@ -7,7 +7,7 @@
 绘制组件用于在页面绘制图形，Shape组件是绘制组件的父组件，包含所有绘制组件的通用属性。具体用法请参考[Shape](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-shape)。
 
 
-##### 创建绘制组件
+#### 创建绘制组件
 
 绘制组件可以由以下两种形式创建：
 
@@ -45,7 +45,7 @@ Circle({ width: 150, height: 150 })
 
 
 
-##### 形状视口viewPort
+#### 形状视口viewPort
 
 ```text
 viewPort(value: { x?: number | string, y?: number | string, width?: number | string, height?: number | string })
@@ -196,7 +196,7 @@ struct ViewPort3 {
 
 
 
-##### 自定义样式
+#### 自定义样式
 
 > [!TIP]
 > 示例通过commands来绘制路径，commands参数说明请参考 SVG路径描述规范 。
@@ -493,11 +493,11 @@ struct Mesh {
 
 
 
-##### 场景示例
+#### 场景示例
 
 
 
-##### 绘制封闭路径
+#### 绘制封闭路径
 
 在Shape的(-80, -5)点绘制一个封闭路径，填充颜色0x317AF7，线条宽度3，边框颜色红色，拐角样式锐角（默认值）。
 
@@ -531,12 +531,12 @@ struct ShapeExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/fIrVNuU8Q9qub7oAiiWq2Q/zh-cn_image_0000002581274080.png?HW-CC-KV=V1&HW-CC-Date=20260528T014827Z&HW-CC-Expire=86400&HW-CC-Sign=E85419610193A2D94175E660FBEE76D29231730CEAD3C6F00FBD76B9C3AE6764)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/fIrVNuU8Q9qub7oAiiWq2Q/zh-cn_image_0000002581274080.png?HW-CC-KV=V1&HW-CC-Date=20260528T030456Z&HW-CC-Expire=86400&HW-CC-Sign=719A501253850A9F332A65720D70CA4973B42CAD6BEAC4C41FF853F712DFC0FE)
 
 
 
 
-##### 绘制圆和圆环
+#### 绘制圆和圆环
 
 绘制一个直径为150的圆，和一个直径为150、线条为红色虚线的圆环（宽高设置不一致时以短边为直径）。
 
@@ -567,12 +567,12 @@ struct CircleExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/yS_HnafuQfCPAqVgskIj4A/zh-cn_image_0000002611753935.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T014827Z&HW-CC-Expire=86400&HW-CC-Sign=7368FBBD4B0B382BC5FAAA57684A987F344B0FC373324941B6573973CDB28C1A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/yS_HnafuQfCPAqVgskIj4A/zh-cn_image_0000002611753935.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T030456Z&HW-CC-Expire=86400&HW-CC-Sign=E27FD781822CD1F821448C3014D5F6E40D094DF76C1989E90B6E4752CB55658A)
 
 
 
 
-##### UI视觉属性作用效果
+#### UI视觉属性作用效果
 
 > [!NOTE]
 > backgroundColor 、 linearGradient 等通用属性作用于组件的背景区域，而不会在组件具体的内容区域生效。
@@ -596,4 +596,4 @@ struct CircleExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/Xbi3dRNVRWWbs-SRPGNLxQ/zh-cn_image_0000002581434000.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T014827Z&HW-CC-Expire=86400&HW-CC-Sign=18139DF24B40893AFD12A96EF0F9C270CCB7B9E5CD099D9CF37AA186198EB039)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/Xbi3dRNVRWWbs-SRPGNLxQ/zh-cn_image_0000002581434000.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T030456Z&HW-CC-Expire=86400&HW-CC-Sign=0B0EED9A1D1343AD76BF691D0814DD398F2A4334ED5CC88511A3417EA7F5D30C)

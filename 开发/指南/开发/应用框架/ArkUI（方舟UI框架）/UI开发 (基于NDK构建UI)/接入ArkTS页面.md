@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-access-the-arkts-page
 
-##### 占位组件
+#### 占位组件
 
 使用NDK接口构建UI界面时，需要在ArkTS页面创建用于挂载NDK接口创建组件的占位组件。占位组件类型为[ContentSlot](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-contentslot)，ContentSlot能够绑定一个[NodeContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontent)对象，该对象可通过Node-API传递到Native侧挂载显示Native组件。
 
@@ -82,7 +82,7 @@ OH_ArkUI_NodeContent_RemoveNode(handle_, myNativeNode);
 
 
 
-##### NDK组件模块
+#### NDK组件模块
 
 NDK提供的UI组件能力如组件创建、树操作、属性设置、事件注册等是通过函数指针结构体（如[ArkUI_NativeNodeAPI_1](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1)）进行暴露，该函数指针结构体可以通过[模块查询接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-interface-h#oh_arkui_getmoduleinterface)获取。
 
@@ -143,7 +143,7 @@ arkUINativeNodeApi->registerNodeEvent(stack, NODE_ON_CLICK, 0, nullptr);
 
 
 
-##### 示例
+#### 示例
 
 下面的示例展示了如何使用ContentSlot挂载Native侧的文本列表。
 
@@ -176,7 +176,7 @@ arkUINativeNodeApi->registerNodeEvent(stack, NODE_ON_CLICK, 0, nullptr);
 **图1** Native文本列表
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/DOSGumfhQEuu-OcPPYiwaw/zh-cn_image_0000002581274210.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014759Z&HW-CC-Expire=86400&HW-CC-Sign=464BFE2976A036719FD64A01874CC2ABF7893CF796E8E53A5C9161C7C9A99EB9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/DOSGumfhQEuu-OcPPYiwaw/zh-cn_image_0000002581274210.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030431Z&HW-CC-Expire=86400&HW-CC-Sign=ECF9294E0E8D17DD1369533B374352571A9F6BF90E9A50ECAA1D80A249BFE33C)
 
 1. 在ArkTS页面上声明用于Native页面挂载的占位组件，并在页面创建时通知Native侧创建文本列表。
 

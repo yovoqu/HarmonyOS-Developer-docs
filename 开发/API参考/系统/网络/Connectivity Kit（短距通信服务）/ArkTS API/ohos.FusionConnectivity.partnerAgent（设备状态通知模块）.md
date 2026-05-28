@@ -18,7 +18,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -28,7 +28,7 @@ import { partnerAgent } from '@kit.ConnectivityKit';
 
 
 
-##### partnerAgent.isPartnerAgentSupported
+#### partnerAgent.isPartnerAgentSupported
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -57,7 +57,7 @@ console.info(`This device support partner agent: ${isSupport}`);
 
 
 
-##### partnerAgent.bindDevice
+#### partnerAgent.bindDevice
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -145,7 +145,7 @@ try {
 
 
 
-##### partnerAgent.unbindDevice
+#### partnerAgent.unbindDevice
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -216,7 +216,7 @@ try {
 
 
 
-##### partnerAgent.isDeviceBound
+#### partnerAgent.isDeviceBound
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -280,7 +280,7 @@ try {
 
 
 
-##### partnerAgent.getBoundDevices
+#### partnerAgent.getBoundDevices
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -329,7 +329,7 @@ try {
 
 
 
-##### partnerAgent.isDeviceControlEnabled
+#### partnerAgent.isDeviceControlEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -394,7 +394,7 @@ try {
 
 
 
-##### partnerAgent.DeviceCapability
+#### partnerAgent.DeviceCapability
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -412,7 +412,7 @@ try {
 
 
 
-##### partnerAgent.BusinessCapability
+#### partnerAgent.BusinessCapability
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -430,7 +430,7 @@ try {
 
 
 
-##### partnerAgent.PartnerDeviceAddress
+#### partnerAgent.PartnerDeviceAddress
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -447,7 +447,7 @@ try {
 
 
 
-##### partnerAgent.PartnerAgentExtensionAbilityDestroyReason
+#### partnerAgent.PartnerAgentExtensionAbilityDestroyReason
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

@@ -16,7 +16,7 @@ UIExtensionAbility组件是带界面的ExtensionAbility组件，继承自[Extens
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -26,7 +26,7 @@ import { UIExtensionAbility } from '@kit.AbilityKit';
  
   
 
-##### UIExtensionAbility
+#### UIExtensionAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -34,7 +34,7 @@ import { UIExtensionAbility } from '@kit.AbilityKit';
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -47,7 +47,7 @@ import { UIExtensionAbility } from '@kit.AbilityKit';
  
   
 
-##### onCreate
+#### onCreate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -81,7 +81,7 @@ export default class ShareExtAbility extends ShareExtensionAbility {
  
   
 
-##### onSessionCreate
+#### onSessionCreate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -124,7 +124,7 @@ export default class ShareExtAbility extends ShareExtensionAbility {
  
   
 
-##### onSessionDestroy
+#### onSessionDestroy
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -158,7 +158,7 @@ export default class ShareExtAbility extends ShareExtensionAbility {
  
   
 
-##### onForeground
+#### onForeground
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -185,7 +185,7 @@ export default class ShareExtAbility extends ShareExtensionAbility {
  
   
 
-##### onBackground
+#### onBackground
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -212,7 +212,7 @@ export default class ShareExtAbility extends ShareExtensionAbility {
  
   
 
-##### onDestroy
+#### onDestroy
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

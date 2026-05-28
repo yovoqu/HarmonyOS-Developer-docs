@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-text-line-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -58,13 +58,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Drawing_TypographyGetTextLines()
+#### OH_Drawing_TypographyGetTextLines()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -96,7 +96,7 @@ OH_Drawing_Array* OH_Drawing_TypographyGetTextLines(OH_Drawing_Typography* typog
  
   
 
-##### OH_Drawing_DestroyTextLines()
+#### OH_Drawing_DestroyTextLines()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -121,7 +121,7 @@ void OH_Drawing_DestroyTextLines(OH_Drawing_Array* lines)
  
   
 
-##### OH_Drawing_DestroyTextLine()
+#### OH_Drawing_DestroyTextLine()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -146,7 +146,7 @@ void OH_Drawing_DestroyTextLine(OH_Drawing_TextLine* line)
  
   
 
-##### OH_Drawing_GetTextLineByIndex()
+#### OH_Drawing_GetTextLineByIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -179,7 +179,7 @@ OH_Drawing_TextLine* OH_Drawing_GetTextLineByIndex(OH_Drawing_Array* lines, size
  
   
 
-##### OH_Drawing_TextLineGetGlyphCount()
+#### OH_Drawing_TextLineGetGlyphCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -211,7 +211,7 @@ double OH_Drawing_TextLineGetGlyphCount(OH_Drawing_TextLine* line)
  
   
 
-##### OH_Drawing_TextLineGetTextRange()
+#### OH_Drawing_TextLineGetTextRange()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -238,7 +238,7 @@ void OH_Drawing_TextLineGetTextRange(OH_Drawing_TextLine* line, size_t* start, s
  
   
 
-##### OH_Drawing_TextLineGetGlyphRuns()
+#### OH_Drawing_TextLineGetGlyphRuns()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -270,7 +270,7 @@ OH_Drawing_Array* OH_Drawing_TextLineGetGlyphRuns(OH_Drawing_TextLine* line)
  
   
 
-##### OH_Drawing_DestroyRuns()
+#### OH_Drawing_DestroyRuns()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -295,7 +295,7 @@ void OH_Drawing_DestroyRuns(OH_Drawing_Array* runs)
  
   
 
-##### OH_Drawing_GetRunByIndex()
+#### OH_Drawing_GetRunByIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -328,7 +328,7 @@ OH_Drawing_Run* OH_Drawing_GetRunByIndex(OH_Drawing_Array* runs, size_t index)
  
   
 
-##### OH_Drawing_TextLinePaint()
+#### OH_Drawing_TextLinePaint()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -356,7 +356,7 @@ void OH_Drawing_TextLinePaint(OH_Drawing_TextLine* line, OH_Drawing_Canvas* canv
  
   
 
-##### OH_Drawing_TextLineCreateTruncatedLine()
+#### OH_Drawing_TextLineCreateTruncatedLine()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -391,7 +391,7 @@ OH_Drawing_TextLine* OH_Drawing_TextLineCreateTruncatedLine(OH_Drawing_TextLine*
  
   
 
-##### OH_Drawing_TextLineGetTypographicBounds()
+#### OH_Drawing_TextLineGetTypographicBounds()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -428,7 +428,7 @@ double OH_Drawing_TextLineGetTypographicBounds(OH_Drawing_TextLine* line, double
  
   
 
-##### OH_Drawing_TextLineGetImageBounds()
+#### OH_Drawing_TextLineGetImageBounds()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -464,7 +464,7 @@ OH_Drawing_Rect* OH_Drawing_TextLineGetImageBounds(OH_Drawing_TextLine* line)
  
   
 
-##### OH_Drawing_TextLineGetTrailingSpaceWidth()
+#### OH_Drawing_TextLineGetTrailingSpaceWidth()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -496,7 +496,7 @@ double OH_Drawing_TextLineGetTrailingSpaceWidth(OH_Drawing_TextLine* line)
  
   
 
-##### OH_Drawing_TextLineGetStringIndexForPosition()
+#### OH_Drawing_TextLineGetStringIndexForPosition()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -529,7 +529,7 @@ int32_t OH_Drawing_TextLineGetStringIndexForPosition(OH_Drawing_TextLine* line, 
  
   
 
-##### OH_Drawing_TextLineGetOffsetForStringIndex()
+#### OH_Drawing_TextLineGetOffsetForStringIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -562,7 +562,7 @@ double OH_Drawing_TextLineGetOffsetForStringIndex(OH_Drawing_TextLine* line, int
  
   
 
-##### Drawing_CaretOffsetsCallback()
+#### Drawing_CaretOffsetsCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -596,7 +596,7 @@ typedef bool (*Drawing_CaretOffsetsCallback)(double offset, int32_t index, bool 
  
   
 
-##### OH_Drawing_TextLineEnumerateCaretOffsets()
+#### OH_Drawing_TextLineEnumerateCaretOffsets()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -622,7 +622,7 @@ void OH_Drawing_TextLineEnumerateCaretOffsets(OH_Drawing_TextLine* line, Drawing
  
   
 
-##### OH_Drawing_TextLineGetAlignmentOffset()
+#### OH_Drawing_TextLineGetAlignmentOffset()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

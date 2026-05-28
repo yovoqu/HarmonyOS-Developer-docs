@@ -7,7 +7,7 @@
 音视频应用在实现音视频功能的同时，需要作为媒体会话提供方接入媒体会话，在媒体会话控制方（例如播控中心）中展示媒体相关信息，并响应媒体会话控制方下发的播控命令。
 
 
-##### 基本概念
+#### 基本概念
 
  - 媒体会话元数据（AVMetadata）： 用于描述媒体数据相关属性，包含标识当前媒体的ID（assetId），上一首媒体的ID（previousAssetId），下一首媒体的ID（nextAssetId），标题（title），专辑作者（author），专辑名称（album），词作者（writer），媒体时长（duration）等属性。
  - 媒体播放状态（AVPlaybackState）：用于描述媒体播放状态的相关属性，包含当前媒体的播放状态（state）、播放位置（position）、播放倍速（speed）、缓冲时间（bufferedTime）、循环模式（loopMode）、是否收藏（isFavorite）、正在播放的媒体Id（activeItemId）、自定义媒体数据（extras）等属性。
@@ -15,7 +15,7 @@
 
 
 
-##### 接口说明
+#### 接口说明
 
 媒体会话提供方使用的关键接口如下表所示。接口返回值有两种返回形式：callback和promise，下表中为callback形式接口，promise和callback只是返回值方式不一样，功能相同。
 
@@ -41,7 +41,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 音视频应用作为媒体会话提供方接入媒体会话的基本步骤如下所示：
 1. 通过AVSessionManager的方法创建并激活媒体会话。

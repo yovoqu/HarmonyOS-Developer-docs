@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getparsesubgraphpostfn
 
-##### 函数功能
+#### 函数功能
 
 根据算子类型，获取算子注册的子图中输入输出节点跟算子的输入输出的对应关系实现的函数对象。
  
   
 
-##### 函数原型
+#### 函数原型
 
 > [!NOTE]
 > 数据类型为string的接口后续版本会废弃，建议使用数据类型为非string的接口。
@@ -38,7 +38,7 @@ using ParseSubgraphFuncV2 = std::function<Status(const ge::AscendString &subgrap
  
   
 
-##### 参数说明
+#### 参数说明
 
 - GetParseSubgraphPostFn()函数
 
@@ -54,6 +54,6 @@ using ParseSubgraphFuncV2 = std::function<Status(const ge::AscendString &subgrap
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

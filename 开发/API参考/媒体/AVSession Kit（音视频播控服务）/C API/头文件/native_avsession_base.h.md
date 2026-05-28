@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avsession-base-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -52,13 +52,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### AVSession_Type
+#### AVSession_Type
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -83,7 +83,7 @@ enum AVSession_Type
  
   
 
-##### AVSession_PlaybackState
+#### AVSession_PlaybackState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -116,7 +116,7 @@ enum AVSession_PlaybackState
  
   
 
-##### AVSession_LoopMode
+#### AVSession_LoopMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -141,7 +141,7 @@ enum AVSession_LoopMode
  
   
 
-##### AVSession_ControlCommand
+#### AVSession_ControlCommand
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -167,7 +167,7 @@ enum AVSession_ControlCommand
  
   
 
-##### AVMetadata_SkipIntervals
+#### AVMetadata_SkipIntervals
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -190,7 +190,7 @@ enum AVMetadata_SkipIntervals
  
   
 
-##### AVMetadata_DisplayTag
+#### AVMetadata_DisplayTag
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -211,7 +211,7 @@ enum AVMetadata_DisplayTag
  
   
 
-##### AVSession_ConnectionState
+#### AVSession_ConnectionState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -234,7 +234,7 @@ enum AVSession_ConnectionState
  
   
 
-##### AVSession_AVCastCategory
+#### AVSession_AVCastCategory
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -256,7 +256,7 @@ enum AVSession_AVCastCategory
  
   
 
-##### AVSession_DeviceType
+#### AVSession_DeviceType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -280,7 +280,7 @@ enum AVSession_DeviceType
  
   
 
-##### AVSession_ProtocolType
+#### AVSession_ProtocolType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -304,7 +304,7 @@ enum AVSession_ProtocolType
  
   
 
-##### AVSession_AVCastControlCommandType
+#### AVSession_AVCastControlCommandType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -334,7 +334,7 @@ enum AVSession_AVCastControlCommandType
  
   
 
-##### AVSession_PlaybackSpeed
+#### AVSession_PlaybackSpeed
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -361,7 +361,7 @@ enum AVSession_PlaybackSpeed
  
   
 
-##### AVSession_PlaybackFilter
+#### AVSession_PlaybackFilter
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

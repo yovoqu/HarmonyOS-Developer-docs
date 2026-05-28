@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-converttoascendstring
 
-##### 函数功能
+#### 函数功能
 
 模板函数，接受一个模板参数T，并将其转换为AscendString类型。这个函数的主要功能是将不同类型的字符串转换为AscendString类型。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 template<typename T> ge::AscendString ConvertToAscendString(T str)
@@ -38,7 +38,7 @@ template<> inline ge::AscendString ConvertToAscendString<ge::AscendString>(ge::A
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -47,18 +47,18 @@ template<> inline ge::AscendString ConvertToAscendString<ge::AscendString>(ge::A
  
   
 
-##### 返回值
+#### 返回值
 
 转换后的AscendString类型字符串。
  
   
 
-##### 异常处理
+#### 异常处理
 
 无
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

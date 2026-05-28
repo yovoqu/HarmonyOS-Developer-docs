@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-h
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -25,13 +25,13 @@
 
 
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
 
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -60,13 +60,13 @@
 
 
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
 
 
-##### OH_VideoProcessing_InitializeEnvironment()
+#### OH_VideoProcessing_InitializeEnvironment()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -97,7 +97,7 @@ VideoProcessing_ErrorCode OH_VideoProcessing_InitializeEnvironment(void)
 
 
 
-##### OH_VideoProcessing_DeinitializeEnvironment()
+#### OH_VideoProcessing_DeinitializeEnvironment()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -126,7 +126,7 @@ VideoProcessing_ErrorCode OH_VideoProcessing_DeinitializeEnvironment(void)
 
 
 
-##### OH_VideoProcessing_IsColorSpaceConversionSupported()
+#### OH_VideoProcessing_IsColorSpaceConversionSupported()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -157,7 +157,7 @@ bool OH_VideoProcessing_IsColorSpaceConversionSupported(const VideoProcessing_Co
 
 
 
-##### OH_VideoProcessing_IsMetadataGenerationSupported()
+#### OH_VideoProcessing_IsMetadataGenerationSupported()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -187,7 +187,7 @@ bool OH_VideoProcessing_IsMetadataGenerationSupported(const VideoProcessing_Colo
 
 
 
-##### OH_VideoProcessing_Create()
+#### OH_VideoProcessing_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -218,7 +218,7 @@ VideoProcessing_ErrorCode OH_VideoProcessing_Create(OH_VideoProcessing** videoPr
 
 
 
-##### OH_VideoProcessing_Destroy()
+#### OH_VideoProcessing_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -250,7 +250,7 @@ VideoProcessing_ErrorCode OH_VideoProcessing_Destroy(OH_VideoProcessing* videoPr
 
 
 
-##### OH_VideoProcessing_RegisterCallback()
+#### OH_VideoProcessing_RegisterCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -284,7 +284,7 @@ VideoProcessing_ErrorCode OH_VideoProcessing_RegisterCallback(OH_VideoProcessing
 
 
 
-##### OH_VideoProcessing_SetSurface()
+#### OH_VideoProcessing_SetSurface()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -317,7 +317,7 @@ VideoProcessing_ErrorCode OH_VideoProcessing_SetSurface(OH_VideoProcessing* vide
 
 
 
-##### OH_VideoProcessing_GetSurface()
+#### OH_VideoProcessing_GetSurface()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -350,7 +350,7 @@ VideoProcessing_ErrorCode OH_VideoProcessing_GetSurface(OH_VideoProcessing* vide
 
 
 
-##### OH_VideoProcessing_SetParameter()
+#### OH_VideoProcessing_SetParameter()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -381,7 +381,7 @@ VideoProcessing_ErrorCode OH_VideoProcessing_SetParameter(OH_VideoProcessing* vi
 
 
 
-##### OH_VideoProcessing_GetParameter()
+#### OH_VideoProcessing_GetParameter()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -412,7 +412,7 @@ VideoProcessing_ErrorCode OH_VideoProcessing_GetParameter(OH_VideoProcessing* vi
 
 
 
-##### OH_VideoProcessing_Start()
+#### OH_VideoProcessing_Start()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -444,7 +444,7 @@ VideoProcessing_ErrorCode OH_VideoProcessing_Start(OH_VideoProcessing* videoProc
 
 
 
-##### OH_VideoProcessing_Stop()
+#### OH_VideoProcessing_Stop()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -476,7 +476,7 @@ VideoProcessing_ErrorCode OH_VideoProcessing_Stop(OH_VideoProcessing* videoProce
 
 
 
-##### OH_VideoProcessing_RenderOutputBuffer()
+#### OH_VideoProcessing_RenderOutputBuffer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -509,7 +509,7 @@ VideoProcessing_ErrorCode OH_VideoProcessing_RenderOutputBuffer(OH_VideoProcessi
 
 
 
-##### OH_VideoProcessingCallback_Create()
+#### OH_VideoProcessingCallback_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -539,7 +539,7 @@ VideoProcessing_ErrorCode OH_VideoProcessingCallback_Create(VideoProcessing_Call
 
 
 
-##### OH_VideoProcessingCallback_Destroy()
+#### OH_VideoProcessingCallback_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -569,7 +569,7 @@ VideoProcessing_ErrorCode OH_VideoProcessingCallback_Destroy(VideoProcessing_Cal
 
 
 
-##### OH_VideoProcessingCallback_BindOnError()
+#### OH_VideoProcessingCallback_BindOnError()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -600,7 +600,7 @@ VideoProcessing_ErrorCode OH_VideoProcessingCallback_BindOnError(VideoProcessing
 
 
 
-##### OH_VideoProcessingCallback_BindOnState()
+#### OH_VideoProcessingCallback_BindOnState()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -631,7 +631,7 @@ VideoProcessing_ErrorCode OH_VideoProcessingCallback_BindOnState(VideoProcessing
 
 
 
-##### OH_VideoProcessingCallback_BindOnNewOutputBuffer()
+#### OH_VideoProcessingCallback_BindOnNewOutputBuffer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

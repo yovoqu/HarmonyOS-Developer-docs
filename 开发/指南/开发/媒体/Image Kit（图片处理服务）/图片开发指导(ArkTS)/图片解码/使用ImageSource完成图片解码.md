@@ -9,7 +9,7 @@
 从API version 22开始，支持对专业相机拍摄的CR2、CR3、ARW、NEF、RAF、NRW、ORF、RW2、PEF、SRW格式图片内嵌的预览图（通常为JPEG格式）进行解码。该解码能力不受运行设备类型限制。
 
 
-##### 开发步骤
+#### 开发步骤
 
 图片解码相关API的详细介绍请参见[ImageSource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource)。
 1. 全局导入Image模块。
@@ -192,7 +192,7 @@ async release(pixelMap: image.PixelMap | undefined, imageSource: image.ImageSour
 
   
 
-  ##### 示例代码
+  #### 示例代码
 
   
 [实现图片获取与保存功能](https://gitcode.com/HarmonyOS_Samples/ImageGetAndSave)

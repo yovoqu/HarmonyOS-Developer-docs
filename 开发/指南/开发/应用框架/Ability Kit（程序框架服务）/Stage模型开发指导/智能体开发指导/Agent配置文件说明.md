@@ -9,7 +9,7 @@
 该配置文件由开发者手动创建，通常位于Module的resources/base/profile/目录下。AgentExtensionAbility可以在metadata配置项中引用该资源文件，来绑定对应的AgentCard。一个agent_config.json只能被一个AgentExtensionAbility引用。
 
 
-##### agent_config.json配置文件字段说明
+#### agent_config.json配置文件字段说明
 
 | 标签 | 含义 | 数据类型 | 是否可缺省 |
 | --- | --- | --- | --- |
@@ -18,7 +18,7 @@
 
 
 
-##### agentCards标签
+#### agentCards标签
 
 本标签用于说明AgentCard对象的内部结构。
 
@@ -42,7 +42,7 @@
 
 
 
-##### provider标签
+#### provider标签
 
 本标签用于说明provider对象的内部结构。
 
@@ -54,7 +54,7 @@
 
 
 
-##### capabilities标签
+#### capabilities标签
 
 本标签用于说明capabilities对象的内部结构。
 
@@ -69,7 +69,7 @@
 
 
 
-##### skills标签
+#### skills标签
 
 本标签用于说明skill对象的内部结构。
 
@@ -87,7 +87,7 @@
 
 
 
-##### appInfo标签
+#### appInfo标签
 
 本标签用于说明appInfo对象的内部结构。
 
@@ -99,7 +99,7 @@
 
 
 
-##### agent_config.json配置文件示例
+#### agent_config.json配置文件示例
 
 ```json
 {

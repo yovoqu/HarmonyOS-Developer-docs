@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hid-ddk-guidelines
 
-##### 简介
+#### 简介
 
 HidDdk（HID Driver Development Kit）是为开发者提供的HID设备驱动程序开发套件，支持开发者基于用户态，在应用层开发HID设备驱动。提供了一系列主机侧访问设备的接口，包括创建设备、向设备发送事件、销毁设备、打开关闭设备、读取写入报告、获取设备信息等。
 
@@ -12,7 +12,7 @@ HidDdk（HID Driver Development Kit）是为开发者提供的HID设备驱动程
 
 
 
-##### 基本概念
+#### 基本概念
 
 在进行HidDdk开发前，开发者应了解以下基本概念：
 
@@ -26,7 +26,7 @@ HidDdk（HID Driver Development Kit）是为开发者提供的HID设备驱动程
 
 
 
-##### 实现原理
+#### 实现原理
 
 非标外设应用通过扩展外设管理服务获取HID设备的ID，通过RPC将ID和要操作的动作下发给HID设备驱动应用，驱动应用通过调用HidDdk接口可创建、销毁HID设备，以及对HID设备发送事件，获取HID报文，解析报文等，DDK接口使用HDI服务将指令下发至内核驱动，内核驱动使用指令与设备通信。
 
@@ -38,7 +38,7 @@ HidDdk（HID Driver Development Kit）是为开发者提供的HID设备驱动程
 
 
 
-##### 约束与限制
+#### 约束与限制
 
  - HidDdk开放API支持非标HID类外设扩展驱动开发场景。
  - HidDdk开放API仅允许DriverExtensionAbility生命周期内使用。
@@ -47,7 +47,7 @@ HidDdk（HID Driver Development Kit）是为开发者提供的HID设备驱动程
 
 
 
-##### 接口说明
+#### 接口说明
 
 | 名称 | 描述 |
 | --- | --- |
@@ -75,11 +75,11 @@ HidDdk（HID Driver Development Kit）是为开发者提供的HID设备驱动程
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 
 
-##### HID基础驱动能力开发
+#### HID基础驱动能力开发
 
 以下步骤描述了如何使用 **HidDdk**开发HID设备驱动：
 
@@ -152,7 +152,7 @@ int32_t res = OH_Hid_DestroyDevice(deviceId);
 
 
 
-##### HID报文通信驱动能力开发
+#### HID报文通信驱动能力开发
 
 以下步骤描述了如何使用 **HidDdk** 开发HID报文通信驱动：
 

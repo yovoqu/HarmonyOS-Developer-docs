@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-device-base-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -41,7 +41,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -57,7 +57,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -76,13 +76,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_AudioDevice_ChangeType
+#### OH_AudioDevice_ChangeType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -104,7 +104,7 @@ enum OH_AudioDevice_ChangeType
  
   
 
-##### OH_AudioDevice_Role
+#### OH_AudioDevice_Role
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -126,7 +126,7 @@ enum OH_AudioDevice_Role
  
   
 
-##### OH_AudioDevice_Type
+#### OH_AudioDevice_Type
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -164,7 +164,7 @@ enum OH_AudioDevice_Type
  
   
 
-##### OH_AudioDevice_Flag
+#### OH_AudioDevice_Flag
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -188,7 +188,7 @@ enum OH_AudioDevice_Flag
  
   
 
-##### OH_AudioDevice_Usage
+#### OH_AudioDevice_Usage
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -214,7 +214,7 @@ enum OH_AudioDevice_Usage
  
   
 
-##### OH_AudioDevice_BlockStatus
+#### OH_AudioDevice_BlockStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -236,13 +236,13 @@ enum OH_AudioDevice_BlockStatus
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_AudioDeviceDescriptor_GetDeviceRole()
+#### OH_AudioDeviceDescriptor_GetDeviceRole()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -273,7 +273,7 @@ OH_AudioCommon_Result OH_AudioDeviceDescriptor_GetDeviceRole(OH_AudioDeviceDescr
  
   
 
-##### OH_AudioDeviceDescriptor_GetDeviceType()
+#### OH_AudioDeviceDescriptor_GetDeviceType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -304,7 +304,7 @@ OH_AudioCommon_Result OH_AudioDeviceDescriptor_GetDeviceType(OH_AudioDeviceDescr
  
   
 
-##### OH_AudioDeviceDescriptor_GetDeviceId()
+#### OH_AudioDeviceDescriptor_GetDeviceId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -335,7 +335,7 @@ OH_AudioCommon_Result OH_AudioDeviceDescriptor_GetDeviceId(OH_AudioDeviceDescrip
  
   
 
-##### OH_AudioDeviceDescriptor_GetDeviceName()
+#### OH_AudioDeviceDescriptor_GetDeviceName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -366,7 +366,7 @@ OH_AudioCommon_Result OH_AudioDeviceDescriptor_GetDeviceName(OH_AudioDeviceDescr
  
   
 
-##### OH_AudioDeviceDescriptor_GetDeviceAddress()
+#### OH_AudioDeviceDescriptor_GetDeviceAddress()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -397,7 +397,7 @@ OH_AudioCommon_Result OH_AudioDeviceDescriptor_GetDeviceAddress(OH_AudioDeviceDe
  
   
 
-##### OH_AudioDeviceDescriptor_GetDeviceSampleRates()
+#### OH_AudioDeviceDescriptor_GetDeviceSampleRates()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -429,7 +429,7 @@ OH_AudioCommon_Result OH_AudioDeviceDescriptor_GetDeviceSampleRates(OH_AudioDevi
  
   
 
-##### OH_AudioDeviceDescriptor_GetDeviceChannelCounts()
+#### OH_AudioDeviceDescriptor_GetDeviceChannelCounts()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -461,7 +461,7 @@ OH_AudioCommon_Result OH_AudioDeviceDescriptor_GetDeviceChannelCounts(OH_AudioDe
  
   
 
-##### OH_AudioDeviceDescriptor_GetDeviceDisplayName()
+#### OH_AudioDeviceDescriptor_GetDeviceDisplayName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -492,7 +492,7 @@ OH_AudioCommon_Result OH_AudioDeviceDescriptor_GetDeviceDisplayName(OH_AudioDevi
  
   
 
-##### OH_AudioDeviceDescriptor_GetDeviceEncodingTypes()
+#### OH_AudioDeviceDescriptor_GetDeviceEncodingTypes()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

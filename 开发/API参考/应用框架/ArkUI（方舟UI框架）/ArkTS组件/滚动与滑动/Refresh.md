@@ -12,7 +12,7 @@
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -43,7 +43,7 @@ Refresh(value: RefreshOptions)
 
 
 
-##### RefreshOptions对象说明
+#### RefreshOptions对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -67,7 +67,7 @@ Refresh(value: RefreshOptions)
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -75,7 +75,7 @@ Refresh(value: RefreshOptions)
 
 
 
-##### refreshOffset12+
+#### refreshOffset12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -96,7 +96,7 @@ refreshOffset(value: number)
 
 
 
-##### pullToRefresh12+
+#### pullToRefresh12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -117,7 +117,7 @@ pullToRefresh(value: boolean)
 
 
 
-##### pullUpToCancelRefresh23+
+#### pullUpToCancelRefresh23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -138,7 +138,7 @@ pullUpToCancelRefresh(enabled: boolean | undefined)
 
 
 
-##### pullDownRatio12+
+#### pullDownRatio12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -159,7 +159,7 @@ pullDownRatio(ratio: [Optional](https://developer.huawei.com/consumer/cn/doc/har
 
 
 
-##### maxPullDownDistance20+
+#### maxPullDownDistance20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -180,7 +180,7 @@ maxPullDownDistance(distance: Optional&lt;number&gt;)
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -188,7 +188,7 @@ maxPullDownDistance(distance: Optional&lt;number&gt;)
 
 
 
-##### onStateChange
+#### onStateChange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -209,7 +209,7 @@ onStateChange(callback: (state: RefreshStatus) => void)
 
 
 
-##### onRefreshing
+#### onRefreshing
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -230,7 +230,7 @@ onRefreshing(callback: () => void)
 
 
 
-##### onOffsetChange12+
+#### onOffsetChange12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -255,7 +255,7 @@ onOffsetChange(callback: Callback&lt;number&gt;)
 
 
 
-##### RefreshStatus枚举说明
+#### RefreshStatus枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -276,13 +276,13 @@ RefreshStatus刷新状态枚举。
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1（默认刷新样式）
+#### 示例1（默认刷新样式）
 
 刷新区域使用默认刷新样式。
 
@@ -354,7 +354,7 @@ struct RefreshExample {
 
 
 
-##### 示例2（设置刷新区域显示文本）
+#### 示例2（设置刷新区域显示文本）
 
 通过[promptText](#refreshoptions对象说明)参数设置刷新区域显示文本。
 
@@ -418,7 +418,7 @@ struct RefreshExample {
 
 
 
-##### 示例3（自定义刷新区域显示内容-builder）
+#### 示例3（自定义刷新区域显示内容-builder）
 
 通过[builder](#refreshoptions对象说明)参数自定义刷新区域显示内容。
 
@@ -494,7 +494,7 @@ struct RefreshExample {
 
 
 
-##### 示例4（自定义刷新区域显示内容-refreshingContent）
+#### 示例4（自定义刷新区域显示内容-refreshingContent）
 
 通过[refreshingContent](#refreshoptions对象说明)参数自定义刷新区域显示内容。
 
@@ -592,7 +592,7 @@ struct RefreshExample {
 
 
 
-##### 示例5（实现最大下拉距离）
+#### 示例5（实现最大下拉距离）
 
 通过[pullDownRatio](#pulldownratio12)属性和[onOffsetChange](#onoffsetchange12)事件实现最大下拉距离。
 
@@ -682,7 +682,7 @@ struct RefreshExample {
 
 
 
-##### 示例6（实现下拉刷新上拉加载更多）
+#### 示例6（实现下拉刷新上拉加载更多）
 
 Refresh组件与[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)组件组合实现下拉刷新上拉加载更多效果。
 
@@ -786,7 +786,7 @@ struct ListRefreshLoad {
 
 
 
-##### 示例7（设置最大下拉距离）
+#### 示例7（设置最大下拉距离）
 
 从API version 20开始，通过[maxPullDownDistance](#maxpulldowndistance20)属性设置最大下拉距离。
 
@@ -850,7 +850,7 @@ struct RefreshExample {
 
 
 
-##### 示例8（禁止下拉刷新）
+#### 示例8（禁止下拉刷新）
 
 通过[pullDownRatio](#pulldownratio12)属性禁止下拉刷新。
 
@@ -923,7 +923,7 @@ struct RefreshExample {
 
 
 
-##### 示例9（不满一屏场景实现下拉刷新）
+#### 示例9（不满一屏场景实现下拉刷新）
 
 调用[edgeEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common#edgeeffect11)时，将options参数的[alwaysEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common#edgeeffectoptions11对象说明)设置为true，可以在不满一屏的情况下实现Refresh组件的下拉刷新效果。
 
@@ -991,7 +991,7 @@ struct RefreshExample {
 
 
 
-##### 示例10（上划不取消刷新）
+#### 示例10（上划不取消刷新）
 
 该示例通过[pullUpToCancelRefresh](#pulluptocancelrefresh23)接口设置上划不取消刷新。
 

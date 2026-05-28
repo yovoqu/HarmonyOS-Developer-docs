@@ -7,7 +7,7 @@
 当页面信息较多时，为了让用户能够聚焦于当前显示的内容，需要对页面内容进行分类，提高页面空间利用率。[Tabs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs)组件可以在一个页面内快速实现视图内容的切换，一方面提升查找信息的效率，另一方面精简用户单次获取到的信息量。
 
 
-##### 基本布局
+#### 基本布局
 
 Tabs组件的页面组成包含两个部分，分别是[TabContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabcontent)和[TabBar](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabcontent#tabbar)。TabContent是内容页，TabBar是导航页签栏，页面结构如下图所示，根据不同的导航类型，布局会有区别，可以分为底部导航、顶部导航、侧边导航，其导航栏分别位于底部、顶部和侧边。
 
@@ -81,7 +81,7 @@ Tabs() {
 
 
 
-##### 底部导航
+#### 底部导航
 
 底部导航是应用中最常见的一种导航方式。底部导航位于应用一级页面的底部，用户打开应用，能够分清整个应用的功能分类，以及页签对应的内容，并且其位于底部更加方便用户单手操作。底部导航一般作为应用的主导航形式存在，其作用是将用户关心的内容按照功能进行分类，迎合用户使用习惯，方便在不同模块间的内容切换。
 
@@ -104,7 +104,7 @@ Tabs({ barPosition: BarPosition.End }) {
 
 
 
-##### 顶部导航
+#### 顶部导航
 
 当内容分类较多，用户对不同内容的浏览概率相差不大，需要经常快速切换时，一般采用顶部导航模式进行设计，作为对底部导航内容的进一步划分，常见一些资讯类应用对内容的分类为关注、视频、数码，或者主题应用中对主题进行进一步划分为图片、视频、字体等。
 
@@ -123,7 +123,7 @@ Tabs({ barPosition: BarPosition.Start }) {
 
 
 
-##### 侧边导航
+#### 侧边导航
 
 侧边导航是应用较为少见的一种导航模式，更多适用于横屏界面，用于对应用进行导航操作，由于用户的视觉习惯是从左到右，侧边导航栏默认为左侧侧边栏。
 
@@ -152,7 +152,7 @@ Tabs({ barPosition: BarPosition.Start }) {
 
 
 
-##### 限制导航栏的滑动切换
+#### 限制导航栏的滑动切换
 
 默认情况下，导航栏都支持滑动切换，在一些内容信息量需要进行多级分类的页面，如支持底部导航+顶部导航组合的情况下，底部导航栏的滑动效果与顶部导航出现冲突，此时需要限制底部导航的滑动，避免引起不好的用户体验。
 
@@ -188,7 +188,7 @@ Tabs({ barPosition: BarPosition.End }) {
 
 
 
-##### 固定导航栏
+#### 固定导航栏
 
 当内容分类较为固定且不具有拓展性时，例如底部导航内容分类一般固定，分类数量一般在3-5个，此时使用固定导航栏。固定导航栏不可滚动，无法被拖拽滚动，内容均分tabBar的宽度。
 
@@ -210,7 +210,7 @@ Tabs({ barPosition: BarPosition.End }) {
 
 
 
-##### 滚动导航栏
+#### 滚动导航栏
 
 滚动导航栏可以用于顶部导航栏或者侧边导航栏的设置，内容分类较多，屏幕宽度无法容纳所有分类页签的情况下，需要使用可滚动的导航栏，支持用户点击和滑动来加载隐藏的页签内容。
 
@@ -232,7 +232,7 @@ Tabs({ barPosition: BarPosition.Start }) {
 
 
 
-##### 自定义导航栏
+#### 自定义导航栏
 
 对于底部导航栏，一般作为应用主页面功能区分，为了更好的用户体验，会组合文字以及对应语义图标表示页签内容，这种情况下，需要自定义导航页签的样式。
 
@@ -281,7 +281,7 @@ TabContent() {
 
 
 
-##### 切换至指定页签
+#### 切换至指定页签
 
 在不使用自定义导航栏时，默认的Tabs会实现切换逻辑。在使用了自定义导航栏后，默认的Tabs仅实现滑动内容页和点击页签时内容页的切换逻辑，页签切换逻辑需要自行实现。即用户滑动内容页和点击页签时，页签栏需要同步切换至内容页对应的页签。
 
@@ -438,7 +438,7 @@ Tabs({ barPosition: BarPosition.End, index: this.currentIndex, controller: this.
 
 
 
-##### 支持适老化
+#### 支持适老化
 
 在适老化大字体场景下，底部页签提供大字体弹窗显示内容。当组件识别到大字体时，基于设置的文字和图标等内容，构建长按提示弹窗。当用户长按弹窗后，滑动到下一个页签位置时，使用新页签的弹窗提示内容替换上一个页签提示内容，抬手关闭弹窗并切换到对应TabContent内容页。
 
@@ -492,7 +492,7 @@ export struct AgeFriendlyTabs {
 
 
 
-##### 控制页面缓存数
+#### 控制页面缓存数
 
 从API version 19开始，开发者可以通过[cachedMaxCount](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#cachedmaxcount19)接口，设置子组件的最大缓存个数和缓存模式。默认情况下Tabs创建时会一次性预加载所有TabContent，而且已加载的页面不会释放，可能会带来性能内存问题。此时可以设置[cachedMaxCount](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#cachedmaxcount19)属性控制缓存的页面数量，设置此属性后不会进行页面预加载，使用懒加载机制(仅切换到页面时才加载)，当切换页面时根据所设置的[TabsCacheMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#tabscachemode19枚举说明)决定保留缓存或者释放页面。
 
@@ -569,33 +569,33 @@ struct MyComponent {
   **图16** 默认翻页动画，CACHE_BOTH_SIDE模式示意图
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/mynBKz2yTxCToRIwj8jflA/zh-cn_image_0000002611753755.png?HW-CC-KV=V1&HW-CC-Date=20260528T014826Z&HW-CC-Expire=86400&HW-CC-Sign=FA24FB2714180EB71732F46216558188BE9BB4D65F8FAD61F628EF703FFAC1E6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/mynBKz2yTxCToRIwj8jflA/zh-cn_image_0000002611753755.png?HW-CC-KV=V1&HW-CC-Date=20260528T030455Z&HW-CC-Expire=86400&HW-CC-Sign=3C5C2BE33827D623D0A6C4C48F3E3D8D6066A9CD5AA482C8C77D58BCA74BA76F)
 
 2. 如图17所示，使用默认翻页动画，CACHE_LATEST_SWITCHED模式，n设置为2，点击TabBar切换到yellow页，TabContent1、3被缓存，TabContent2释放。再切换到red页，TabContent1、3、5被缓存，TabContent4释放。
 
   **图17** 默认翻页动画，CACHE_LATEST_SWITCHED模式示意图
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/BHZ81HZaQxqN93ybohJqYA/zh-cn_image_0000002581433820.png?HW-CC-KV=V1&HW-CC-Date=20260528T014826Z&HW-CC-Expire=86400&HW-CC-Sign=565D01A33F3336D1BAE835EEFA1470F5F02592A4CE8F0E8C5DB6FA77A776C74F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/BHZ81HZaQxqN93ybohJqYA/zh-cn_image_0000002581433820.png?HW-CC-KV=V1&HW-CC-Date=20260528T030455Z&HW-CC-Expire=86400&HW-CC-Sign=54269D9A4135CE45406BD8F970349D5DA4173867D1CCE459AE94CC7DC98B8DC9)
 
 3. 如图18所示，关闭翻页动画，CACHE_BOTH_SIDE模式，n设置为2，点击TabBar切换到yellow页，TabContent1、3被缓存。再切换到red页，TabContent3、5被缓存，TabContent1释放。
 
   **图18** 关闭翻页动画，CACHE_BOTH_SIDE模式示意图
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/hBEcTf0RR76n3QJSQ7iOnw/zh-cn_image_0000002611833649.png?HW-CC-KV=V1&HW-CC-Date=20260528T014826Z&HW-CC-Expire=86400&HW-CC-Sign=82B87A47A7A5E7DB063DB083FE1E746BAB8B3C2AD4EEECA8D68A5331D07B642B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/hBEcTf0RR76n3QJSQ7iOnw/zh-cn_image_0000002611833649.png?HW-CC-KV=V1&HW-CC-Date=20260528T030455Z&HW-CC-Expire=86400&HW-CC-Sign=37333A4E98E1F09AB092E0923C9D9C757D2A1A6F0A4537F7148534C55E8D7E4F)
 
 4. 如图19所示，关闭翻页动画，CACHE_LATEST_SWITCHED模式，n设置为2，点击TabBar切换到yellow页，TabContent1、3被缓存。再切换到red页，TabContent1、3、5被缓存。
 
   **图19** 关闭翻页动画，CACHE_LATEST_SWITCHED模式示意图
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/kq1goLt-T3OptM5OT1Aprw/zh-cn_image_0000002581273902.png?HW-CC-KV=V1&HW-CC-Date=20260528T014826Z&HW-CC-Expire=86400&HW-CC-Sign=EAC37B62AE5F2628CAC15C30F31786E1382A592A04EA122E1DD8767FE4E33049)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/kq1goLt-T3OptM5OT1Aprw/zh-cn_image_0000002581273902.png?HW-CC-KV=V1&HW-CC-Date=20260528T030455Z&HW-CC-Expire=86400&HW-CC-Sign=AF60F043766C4B6C2AB0032FB9514A14AE7DF9FC603FCFAEA2860E1E33D26E0A)
 
 
 
 
-##### 示例代码
+#### 示例代码
 
  - [基于Tabs组件实现常见导航样式](https://gitcode.com/HarmonyOS_Samples/multi-tab-navigation)
  - [基于Tab组件实现增删Tab的功能](https://gitcode.com/HarmonyOS_Samples/handle-tabs)

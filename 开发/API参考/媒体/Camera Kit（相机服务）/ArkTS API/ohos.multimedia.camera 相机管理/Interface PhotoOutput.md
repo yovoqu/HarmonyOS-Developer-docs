@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { camera } from '@kit.CameraKit';
 
 
 
-##### capture
+#### capture
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -69,7 +69,7 @@ function capture(photoOutput: camera.PhotoOutput): void {
 
 
 
-##### capture
+#### capture
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -114,7 +114,7 @@ function capture(photoOutput: camera.PhotoOutput): void {
 
 
 
-##### capture
+#### capture
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -174,7 +174,7 @@ function capture(photoOutput: camera.PhotoOutput): void {
 
 
 
-##### capture
+#### capture
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -238,7 +238,7 @@ function capture(photoOutput: camera.PhotoOutput): void {
 
 
 
-##### on('photoAvailable')11+
+#### on('photoAvailable')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -284,7 +284,7 @@ function registerPhotoOutputPhotoAvailable(photoOutput: camera.PhotoOutput): voi
 
 
 
-##### off('photoAvailable')11+
+#### off('photoAvailable')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -325,7 +325,7 @@ function unRegisterPhotoOutputPhotoAvailable(photoOutput: camera.PhotoOutput): v
 
 
 
-##### onCapturePhotoAvailable23+
+#### onCapturePhotoAvailable23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -367,7 +367,7 @@ function registerCapturePhotoOutputPhotoAvailable(photoOutput: camera.PhotoOutpu
 
 
 
-##### offCapturePhotoAvailable23+
+#### offCapturePhotoAvailable23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -405,7 +405,7 @@ function unRegisterCapturePhotoOutputPhotoAvailable(photoOutput: camera.PhotoOut
 
 
 
-##### on('captureStartWithInfo')11+
+#### on('captureStartWithInfo')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -449,7 +449,7 @@ function registerCaptureStartWithInfo(photoOutput: camera.PhotoOutput): void {
 
 
 
-##### off('captureStartWithInfo')11+
+#### off('captureStartWithInfo')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -481,7 +481,7 @@ function unRegisterCaptureStartWithInfo(photoOutput: camera.PhotoOutput): void {
 
 
 
-##### isMovingPhotoSupported12+
+#### isMovingPhotoSupported12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -529,7 +529,7 @@ function isMovingPhotoSupported(photoOutput: camera.PhotoOutput): boolean {
 
 
 
-##### enableMovingPhoto12+
+#### enableMovingPhoto12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -579,7 +579,7 @@ function enableMovingPhoto(photoOutput: camera.PhotoOutput): void {
 
 
 
-##### on('photoAssetAvailable')12+
+#### on('photoAssetAvailable')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -625,7 +625,7 @@ function onPhotoOutputPhotoAssetAvailable(photoOutput: camera.PhotoOutput): void
 
 
 
-##### off('photoAssetAvailable')12+
+#### off('photoAssetAvailable')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -655,7 +655,7 @@ function offPhotoOutputPhotoAssetAvailable(photoOutput: camera.PhotoOutput): voi
 
 
 
-##### isMirrorSupported
+#### isMirrorSupported
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -685,7 +685,7 @@ function isMirrorSupported(photoOutput: camera.PhotoOutput): boolean {
 
 
 
-##### enableMirror13+
+#### enableMirror13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -735,7 +735,7 @@ function enableMirror(photoOutput: camera.PhotoOutput): void {
 
 
 
-##### getSupportedMovingPhotoVideoCodecTypes13+
+#### getSupportedMovingPhotoVideoCodecTypes13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -774,7 +774,7 @@ function getSupportedMovingPhotoVideoCodecType(photoOutput: camera.PhotoOutput):
 
 
 
-##### setMovingPhotoVideoCodecType13+
+#### setMovingPhotoVideoCodecType13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -812,7 +812,7 @@ function setMovingPhotoVideoCodecTypes(photoOutput: camera.PhotoOutput, videoCod
 
 
 
-##### on('frameShutter')
+#### on('frameShutter')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -853,7 +853,7 @@ function registerPhotoOutputFrameShutter(photoOutput: camera.PhotoOutput): void 
 
 
 
-##### off('frameShutter')
+#### off('frameShutter')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -883,7 +883,7 @@ function unregisterPhotoOutputFrameShutter(photoOutput: camera.PhotoOutput): voi
 
 
 
-##### on('captureEnd')
+#### on('captureEnd')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -928,7 +928,7 @@ function registerPhotoOutputCaptureEnd(photoOutput: camera.PhotoOutput): void {
 
 
 
-##### off('captureEnd')
+#### off('captureEnd')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -958,7 +958,7 @@ function unregisterPhotoOutputCaptureEnd(photoOutput: camera.PhotoOutput): void 
 
 
 
-##### on('frameShutterEnd')12+
+#### on('frameShutterEnd')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1002,7 +1002,7 @@ function registerPhotoOutputFrameShutterEnd(photoOutput: camera.PhotoOutput): vo
 
 
 
-##### off('frameShutterEnd')12+
+#### off('frameShutterEnd')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1032,7 +1032,7 @@ function unregisterPhotoOutputFrameShutterEnd(photoOutput: camera.PhotoOutput): 
 
 
 
-##### on('captureReady')12+
+#### on('captureReady')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1076,7 +1076,7 @@ function registerPhotoOutputCaptureReady(photoOutput: camera.PhotoOutput): void 
 
 
 
-##### off('captureReady')12+
+#### off('captureReady')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1106,7 +1106,7 @@ function unregisterPhotoOutputCaptureReady(photoOutput: camera.PhotoOutput): voi
 
 
 
-##### on('estimatedCaptureDuration')12+
+#### on('estimatedCaptureDuration')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1150,7 +1150,7 @@ function registerPhotoOutputEstimatedCaptureDuration(photoOutput: camera.PhotoOu
 
 
 
-##### off('estimatedCaptureDuration')12+
+#### off('estimatedCaptureDuration')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1180,7 +1180,7 @@ function unregisterPhotoOutputEstimatedCaptureDuration(photoOutput: camera.Photo
 
 
 
-##### on('error')
+#### on('error')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1220,7 +1220,7 @@ function registerPhotoOutputError(photoOutput: camera.PhotoOutput): void {
 
 
 
-##### off('error')
+#### off('error')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1250,7 +1250,7 @@ function unregisterPhotoOutputError(photoOutput: camera.PhotoOutput): void {
 
 
 
-##### getActiveProfile12+
+#### getActiveProfile12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1298,7 +1298,7 @@ function testGetActiveProfile(photoOutput: camera.PhotoOutput): camera.Profile |
 
 
 
-##### getPhotoRotation12+
+#### getPhotoRotation12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1373,7 +1373,7 @@ function testGetPhotoRotationWithOutParam(photoOutput: camera.PhotoOutput): came
 
 
 
-##### on('captureStart')(deprecated)
+#### on('captureStart')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1415,7 +1415,7 @@ function registerPhotoOutputCaptureStart(photoOutput: camera.PhotoOutput): void 
 
 
 
-##### off('captureStart')(deprecated)
+#### off('captureStart')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1447,7 +1447,7 @@ function unregisterPhotoOutputCaptureStart(photoOutput: camera.PhotoOutput): voi
 
 
 
-##### isPhotoQualityPrioritizationSupported21+
+#### isPhotoQualityPrioritizationSupported21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1504,7 +1504,7 @@ function isPhotoQualityPrioritizationSupported(qualityPrioritization: camera.Pho
 
 
 
-##### setPhotoQualityPrioritization21+
+#### setPhotoQualityPrioritization21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

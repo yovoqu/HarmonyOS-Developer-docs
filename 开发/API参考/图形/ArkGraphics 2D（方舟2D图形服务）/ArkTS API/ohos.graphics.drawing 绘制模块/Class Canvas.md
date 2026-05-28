@@ -16,7 +16,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -26,7 +26,7 @@ import { drawing } from '@kit.ArkGraphics2D';
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -76,7 +76,7 @@ image.createPixelMap(color, opts).then((pixelMap) => {
 
 
 
-##### drawRect
+#### drawRect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -123,7 +123,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### drawRect12+
+#### drawRect12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -174,7 +174,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### drawRoundRect12+
+#### drawRoundRect12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -218,7 +218,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### drawNestedRoundRect12+
+#### drawNestedRoundRect12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -266,7 +266,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### drawBackground12+
+#### drawBackground12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -311,7 +311,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### drawShadow12+
+#### drawShadow12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -376,7 +376,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### drawShadow18+
+#### drawShadow18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -429,7 +429,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### getLocalClipBounds12+
+#### getLocalClipBounds12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -470,7 +470,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### getTotalMatrix12+
+#### getTotalMatrix12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -506,7 +506,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### drawCircle
+#### drawCircle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -555,7 +555,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### drawImage
+#### drawImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -624,7 +624,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### drawImageRect12+
+#### drawImageRect12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -693,7 +693,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### drawImageRectWithSrc12+
+#### drawImageRectWithSrc12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -765,7 +765,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### drawColor
+#### drawColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -814,7 +814,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### drawColor12+
+#### drawColor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -860,7 +860,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### drawColor18+
+#### drawColor18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -903,7 +903,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### drawVertices23+
+#### drawVertices23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -968,7 +968,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### drawPixelMapMesh12+
+#### drawPixelMapMesh12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1043,7 +1043,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### clear12+
+#### clear12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1086,7 +1086,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### clear18+
+#### clear18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1120,7 +1120,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### getWidth12+
+#### getWidth12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1154,7 +1154,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### getHeight12+
+#### getHeight12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1188,7 +1188,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### drawOval12+
+#### drawOval12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1237,7 +1237,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### drawArc12+
+#### drawArc12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1288,7 +1288,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### drawPoint
+#### drawPoint
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1336,7 +1336,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### drawPoints12+
+#### drawPoints12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1385,7 +1385,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### drawPath
+#### drawPath
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1436,7 +1436,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### drawLine
+#### drawLine
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1486,7 +1486,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### drawTextBlob
+#### drawTextBlob
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1506,7 +1506,7 @@ drawTextBlob(blob: TextBlob, x: number, y: number): void
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/jrrXJDcERqKNZVnG0exiVg/zh-cn_image_0000002611836835.png?HW-CC-KV=V1&HW-CC-Date=20260528T024331Z&HW-CC-Expire=86400&HW-CC-Sign=AFEA040CA978AA564A951EF80F163721421F7598E1857C7DCF97F349F45C8EFB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/jrrXJDcERqKNZVnG0exiVg/zh-cn_image_0000002611836835.png?HW-CC-KV=V1&HW-CC-Date=20260528T025706Z&HW-CC-Expire=86400&HW-CC-Sign=96E14A78CC0D3C92F73033F21549B904C79E64AA4661813E20C6A7E106385551)
 
 
 **错误码：**
@@ -1541,7 +1541,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### drawSingleCharacter12+
+#### drawSingleCharacter12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1562,7 +1562,7 @@ drawSingleCharacter(text: string, font: Font, x: number, y: number): void
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/5BbKcd6oQR2OyWjnXCqucg/zh-cn_image_0000002611836835.png?HW-CC-KV=V1&HW-CC-Date=20260528T024331Z&HW-CC-Expire=86400&HW-CC-Sign=895DFA20BB22C7CB9AAF79E8E88FD6D596CBC5E973D61C1D9FEB52B7773FB2D4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/5BbKcd6oQR2OyWjnXCqucg/zh-cn_image_0000002611836835.png?HW-CC-KV=V1&HW-CC-Date=20260528T025706Z&HW-CC-Expire=86400&HW-CC-Sign=3030213DBB327BDFA20D813E58ADBB4616EDCDC282E75B8D5D68818331820EC5)
 
 
 **错误码：**
@@ -1597,7 +1597,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### drawSingleCharacterWithFeatures20+
+#### drawSingleCharacterWithFeatures20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1652,7 +1652,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### drawRegion12+
+#### drawRegion12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1701,7 +1701,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### attachPen
+#### attachPen
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1752,7 +1752,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### attachBrush
+#### attachBrush
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1802,7 +1802,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### detachPen
+#### detachPen
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1833,7 +1833,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### detachBrush
+#### detachBrush
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1863,7 +1863,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### clipPath12+
+#### clipPath12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1912,7 +1912,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### clipRect12+
+#### clipRect12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1957,7 +1957,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### save12+
+#### save12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1992,7 +1992,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### saveLayer12+
+#### saveLayer12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2061,7 +2061,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### scale12+
+#### scale12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2110,7 +2110,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### skew12+
+#### skew12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2159,7 +2159,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### rotate12+
+#### rotate12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2209,7 +2209,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### translate12+
+#### translate12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2258,7 +2258,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### getSaveCount12+
+#### getSaveCount12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2299,7 +2299,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### restoreToCount12+
+#### restoreToCount12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2353,7 +2353,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### restore12+
+#### restore12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2384,7 +2384,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### concatMatrix12+
+#### concatMatrix12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2429,7 +2429,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### setMatrix12+
+#### setMatrix12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2474,7 +2474,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### isClipEmpty12+
+#### isClipEmpty12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2511,7 +2511,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### clipRegion12+
+#### clipRegion12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2558,7 +2558,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### clipRoundRect12+
+#### clipRoundRect12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2606,7 +2606,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### resetMatrix12+
+#### resetMatrix12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2633,7 +2633,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### quickRejectPath18+
+#### quickRejectPath18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2681,7 +2681,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### quickRejectRect18+
+#### quickRejectRect18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2726,7 +2726,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### drawArcWithCenter18+
+#### drawArcWithCenter18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2769,7 +2769,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### drawImageNine18+
+#### drawImageNine18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2857,7 +2857,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### drawImageLattice18+
+#### drawImageLattice18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

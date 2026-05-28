@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -28,7 +28,7 @@ import {
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -36,7 +36,7 @@ import {
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -44,7 +44,7 @@ import {
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -52,7 +52,7 @@ import {
 
 
 
-##### ArcButton
+#### ArcButton
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -75,7 +75,7 @@ ArcButton({ options: ArcButtonOptions })
 
 
 
-##### ArcButtonOptions
+#### ArcButtonOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -85,7 +85,7 @@ ArcButton({ options: ArcButtonOptions })
 
 
 
-##### 属性
+#### 属性
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -110,7 +110,7 @@ ArcButton({ options: ArcButtonOptions })
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -131,7 +131,7 @@ constructor(options: CommonArcButtonOptions)
 
 
 
-##### CommonArcButtonOptions
+#### CommonArcButtonOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -162,7 +162,7 @@ ArcButton的默认样式或自定义样式参数。
 
 
 
-##### ArcButtonProgressConfig23+
+#### ArcButtonProgressConfig23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -183,7 +183,7 @@ ArcButton内进度条的参数配置。
 
 
 
-##### ArcButtonPosition
+#### ArcButtonPosition
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -201,7 +201,7 @@ ArcButton内进度条的参数配置。
 
 
 
-##### ArcButtonStyleMode
+#### ArcButtonStyleMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -222,7 +222,7 @@ ArcButton内进度条的参数配置。
 
 
 
-##### ArcButtonStatus
+#### ArcButtonStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -241,13 +241,13 @@ ArcButton内进度条的参数配置。
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1 (设置弧形按钮)
+#### 示例1 (设置弧形按钮)
 
 该示例展示了ArcButton的基本用法。从API version 18开始，新增ArcButton。示例配置如下：
 
@@ -340,7 +340,7 @@ struct Index {
 
 
 
-##### 示例2 (设置设备进度条按钮)
+#### 示例2 (设置设备进度条按钮)
 
 该示例展示了ArcButton组件进度条样式的基本用法。从API version 23开始，新增[progressConfig](#arcbuttonoptions)接口。示例配置如下：
 
@@ -431,4 +431,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/ZfVnUihgQmWbh-BuqwHOMg/zh-cn_image_0000002611755801.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T024219Z&HW-CC-Expire=86400&HW-CC-Sign=F9EFB0BE7944D289CB79EE40D63B3ADD27944F9E9C6FD1A826C7171D6B00D28F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/ZfVnUihgQmWbh-BuqwHOMg/zh-cn_image_0000002611755801.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=9AF04C41B71CFABC2279151B10DB68C34DDC1138DBCA5B848957F1F9A92AE9A9)

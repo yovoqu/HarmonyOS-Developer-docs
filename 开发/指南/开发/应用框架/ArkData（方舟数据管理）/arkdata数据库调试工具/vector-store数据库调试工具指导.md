@@ -13,7 +13,7 @@
 
   
 
-##### 环境要求
+#### 环境要求
 
 - 在使用本工具前，开发者需要先获取[hdc工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdc#环境准备)，开启[开发者选项](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-developer-mode#section530763213432)，执行hdc shell。
 - 此调试工具仅支持调试应用使用，配置调试应用具体可见[配置应用可调试](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-run-debug-configurations)。
@@ -22,7 +22,7 @@
  
   
 
-##### 操作准备
+#### 操作准备
 
 - 在使用vector-store调试工具之前，必须要先切换至目标调试应用路径下，再使用arkdata命令进入到vector-store调试工具（需要使用arkdata配置相关参数打开vector-store数据库，开库成功后才能使用vector-store工具进行数据的增删改查）。
 
@@ -89,7 +89,7 @@ OPTION
  
   
 
-##### 命令参考
+#### 命令参考
 
 vector-store调试工具支持的命令如下表所示：
   
@@ -124,7 +124,7 @@ vector-store调试工具操作用例如下表所示：
  
   
 
-##### 约束限制
+#### 约束限制
 
 - vector-store数据库调试工具，命令语句最大的长度为1024*1024-1。
 - 由于hdc使用中文会显示乱码，因此数据库调试工具不支持中文。
@@ -133,11 +133,11 @@ vector-store调试工具操作用例如下表所示：
  
   
 
-##### 命令的具体使用及示例
+#### 命令的具体使用及示例
 
   
 
-##### 帮助命令（.help）
+#### 帮助命令（.help）
 
 打开vector-store数据库后，使用帮助命令可以查看其支持的命令。
  
@@ -147,7 +147,7 @@ vector>>> .help
  
   
 
-##### 创建或打开已有的数据库
+#### 创建或打开已有的数据库
 1. 执行hdc shell命令进入shell交互模式。
 2. 必须要先切换至目标调试应用路径下, 再进入已有db文件层级，执行"arkdata  -t vector"新建一个数据库。
 
@@ -187,7 +187,7 @@ vector>>>
  
   
 
-##### 创建表
+#### 创建表
 
 - 在vector>>>提示符下，通过create table命令创建单个表。
 
@@ -246,7 +246,7 @@ vector>>> .schema
  
   
 
-##### 查询表
+#### 查询表
 
 - 在vector>>>提示符下，通过.table命令，列出数据库中所有表的名字，显示结果如下：
 
@@ -288,7 +288,7 @@ Invalid input. Press 'q' to quit, 'n' to continue: n
  
   
 
-##### 重命名表名
+#### 重命名表名
 
 在vector>>>提示符下，通过"alter table t1 rename to new_t1;"命令重命名对应的表名，显示结果如下：
  
@@ -310,7 +310,7 @@ vector>>> .schema
  
   
 
-##### 增加表字段
+#### 增加表字段
 
 在vector>>>提示符下，通过"alter table t1 add column c text;"命令进行增加表字段，显示结果如下：
  
@@ -333,7 +333,7 @@ vector>>> .schema
  
   
 
-##### 重命名表字段
+#### 重命名表字段
 
 在vector>>>提示符下，通过"alter table t1 rename b to new_b;"命令重命名对应的表字段，显示结果如下：
  
@@ -355,7 +355,7 @@ vector>>> .schema
  
   
 
-##### 删除表字段
+#### 删除表字段
 
 在vector>>>提示符下，通过"alter table t1 drop column c;"命令删除指表中指定字段，显示结果如下：
  
@@ -377,7 +377,7 @@ vector>>> .schema
  
   
 
-##### 删除表
+#### 删除表
 
 在vector>>>提示符下，通过"drop table t1;"命令，删除数据库中的名为t1的表，显示结果如下：
  
@@ -393,7 +393,7 @@ vector>>>.table
  
   
 
-##### 添加表索引
+#### 添加表索引
 
 在vector>>>提示符下，通过"create index idx_1 on t3(a);"命令给该表对应字段，添加索引，显示结果如下：
  
@@ -410,7 +410,7 @@ vector>>> .index
  
   
 
-##### 插入数据
+#### 插入数据
 
 - 在vector>>>提示符下，通过"insert into t2 values(1,'xx'),(2,'yy');"命令插入指定键值对，显示结果如下：
 
@@ -483,7 +483,7 @@ vector>>> select * from t8;
  
   
 
-##### 查询数据
+#### 查询数据
 1. 全表查询。
 
   
@@ -544,7 +544,7 @@ vector>>> .count
  
   
 
-##### 更新数据
+#### 更新数据
 
 在vector>>>提示符下，通过"update t1 set b = 'z' where a =3;"命令更新键值对，显示结果如下：
  
@@ -570,7 +570,7 @@ vector>>> select * from t1;
  
   
 
-##### 删除数据
+#### 删除数据
 
 在vector>>>提示符下，通过"delete from t1 where b = 'z';"命令删除表中指定键值对，显示结果如下：
  
@@ -602,16 +602,16 @@ $
  
   
 
-##### 模拟器支持情况
+#### 模拟器支持情况
 
 当前工具支持模拟器。
  
   
 
-##### 常见问题
+#### 常见问题
 
   
 
-##### 如何删除字符
+#### 如何删除字符
 
 使用Ctrl+BackSpace删除单个字符，使用Ctrl+U删除全部字符。

@@ -7,7 +7,7 @@
 当需要通过Web页面进行文件下载时，可以通过此方式调用Web接口。
 
 
-##### 监听页面触发的下载
+#### 监听页面触发的下载
 
 通过[setDownloadDelegate()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#setdownloaddelegate11)向Web组件注册一个DownloadDelegate来监听页面触发的下载任务。资源由Web组件来下载，Web组件会通过DownloadDelegate将下载的进度通知给应用。
 
@@ -86,7 +86,7 @@ struct WebComponent {
 
 
 
-##### 使用Web组件发起一个下载任务
+#### 使用Web组件发起一个下载任务
 
 使用[startDownload()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#startdownload11)接口发起一个下载。
 
@@ -237,7 +237,7 @@ function getDownloadPathFromPicker(): Promise<string> {
 
 
 
-##### 使用Web组件恢复进程退出时未下载完成的任务
+#### 使用Web组件恢复进程退出时未下载完成的任务
 
 在Web组件启动时，可通过[resumeDownload()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webdownloadmanager#resumedownload11)接口恢复未完成的下载任务。
 

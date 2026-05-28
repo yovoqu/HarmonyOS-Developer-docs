@@ -4,19 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurity-vps-c
 
-##### 场景介绍
+#### 场景介绍
 
 从6.0.0(20)开始，三方EDR（Endpoint Detection and Response）应用在Device Security Kit上注册后，可以调用注册、更新、卸载（删除数据）接口，将自身应用信息提交至HarmonyOS安全防护服务进行统一管理；零信任应用在Device Security Kit上注册后，可以查询所有注册的EDR信息列表（包含包名、当前版本号、上次更新时间、病毒防护开关状态、用户ID）；MDM应用在Device Security Kit上注册后，企业管理员可通过MDM（Mobile Device Management）应用启用或禁用HarmonyOS自带的安全防护服务。
 
 
 
-##### 约束与限制
+#### 约束与限制
 1. 当前能力仅支持PC/2in1设备。
 2. 不支持并发场景，同一时间仅允许一个三方EDR应用或MDM应用调用该模块接口。
 
 
 
-##### 业务流程
+#### 业务流程
 
 
 ![](assets/病毒防护服务管理(C／C++)/file-20260514131141805-0.png)
@@ -37,7 +37,7 @@
 
 
 
-##### 接口说明
+#### 接口说明
 
 以下是病毒防护服务管理的相关接口，更多接口及使用方法请参见[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityantivirus)。
 
@@ -56,7 +56,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 > [!NOTE]
 > 在开发准备过程中，需要申请权限：ohos.permission.REGISTER_ANTIVIRUS、ohos.permission.MANAGE_ANTIVIRUS、ohos.permission.MANAGE_PREINSTALLED_ANTIVIRUS。 只允许名单内的应用申请该权限，申请方式请参考： 申请使用企业类应用可用权限 ， 申请使用仅MDM应用可用权限
@@ -119,7 +119,7 @@ free(list); // 释放出参数组本身
 5. MDM应用执行接口调用，实现HarmonyOS安全防护服务的启停，需要ohos.permission.MANAGE_PREINSTALLED_ANTIVIRUS权限。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/qbb0BbBjSEerc1SN_j8Sfw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T014629Z&HW-CC-Expire=86400&HW-CC-Sign=B535B1BFD5990D67D7F2D9CCF8F481FA411A04FA3D199B5A9C357E332D5B4958)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/qbb0BbBjSEerc1SN_j8Sfw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030300Z&HW-CC-Expire=86400&HW-CC-Sign=E4662E9D95DC0D3B171BBF65D9EB30B752182FD82B56768D4E08C1EE50DEFA35)
  
 
   MDM应用在根据应用进程信息进行业务处理后，需要释放查询接口出入参的内存。

@@ -9,7 +9,7 @@
 ArkGraphics 3D提供播放并控制场景动画的能力，支持开发者灵活地控制动画的状态，达到预期的渲染效果。
   
 
-##### 开发步骤
+#### 开发步骤
 1. 导入相关模块。
 
   在页面脚本中导入ArkGraphics 3D提供的核心类型，用于创建和控制3D场景、相机以及动画资源。
@@ -82,7 +82,7 @@ this.sceneOpt = { scene: this.scene, modelType: ModelType.SURFACE } as SceneOpti
 
   
 
-  ##### 示例代码
+  #### 示例代码
 
   
 [基于3D引擎接口实现3D图形渲染功能（ArkTS）](https://gitcode.com/HarmonyOS_Samples/Graphics3D)

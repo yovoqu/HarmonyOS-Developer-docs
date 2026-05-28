@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { inputMethodEngine } from '@kit.IMEKit';
 
 
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -74,7 +74,7 @@ import { inputMethodEngine } from '@kit.IMEKit';
 
 
 
-##### inputMethodEngine.getInputMethodAbility9+
+#### inputMethodEngine.getInputMethodAbility9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -101,7 +101,7 @@ let InputMethodAbility: inputMethodEngine.InputMethodAbility = inputMethodEngine
 
 
 
-##### inputMethodEngine.getKeyboardDelegate9+
+#### inputMethodEngine.getKeyboardDelegate9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -128,7 +128,7 @@ let KeyboardDelegate: inputMethodEngine.KeyboardDelegate = inputMethodEngine.get
 
 
 
-##### inputMethodEngine.getInputMethodEngine(deprecated)
+#### inputMethodEngine.getInputMethodEngine(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -159,7 +159,7 @@ let InputMethodEngine: inputMethodEngine.InputMethodEngine = inputMethodEngine.g
 
 
 
-##### inputMethodEngine.createKeyboardDelegate(deprecated)
+#### inputMethodEngine.createKeyboardDelegate(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -188,7 +188,7 @@ let keyboardDelegate: inputMethodEngine.KeyboardDelegate = inputMethodEngine.cre
 
 
 
-##### CommandDataType12+
+#### CommandDataType12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -207,7 +207,7 @@ type CommandDataType = number | string | boolean;
 
 
 
-##### SizeChangeCallback15+
+#### SizeChangeCallback15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -227,7 +227,7 @@ type SizeChangeCallback = (size: window.Size, keyboardArea?: KeyboardArea) => vo
 
 
 
-##### InputMethodEngine(deprecated)
+#### InputMethodEngine(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -239,7 +239,7 @@ type SizeChangeCallback = (size: window.Size, keyboardArea?: KeyboardArea) => vo
 
 
 
-##### on('inputStart')(deprecated)
+#### on('inputStart')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -274,7 +274,7 @@ inputMethodEngine.getInputMethodEngine()
 
 
 
-##### off('inputStart')(deprecated)
+#### off('inputStart')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -308,7 +308,7 @@ inputMethodEngine.getInputMethodEngine()
 
 
 
-##### on('keyboardShow'|'keyboardHide')(deprecated)
+#### on('keyboardShow'|'keyboardHide')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -343,7 +343,7 @@ inputMethodEngine.getInputMethodEngine().on('keyboardHide', () => {
 
 
 
-##### off('keyboardShow'|'keyboardHide')(deprecated)
+#### off('keyboardShow'|'keyboardHide')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -374,7 +374,7 @@ inputMethodEngine.getInputMethodEngine().off('keyboardHide');
 
 
 
-##### InputMethodAbility
+#### InputMethodAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -382,7 +382,7 @@ inputMethodEngine.getInputMethodEngine().off('keyboardHide');
 
 
 
-##### on('inputStart')9+
+#### on('inputStart')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -413,7 +413,7 @@ inputMethodEngine.getInputMethodAbility()
 
 
 
-##### off('inputStart')9+
+#### off('inputStart')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -439,7 +439,7 @@ inputMethodEngine.getInputMethodAbility().off('inputStart');
 
 
 
-##### on('inputStop')9+
+#### on('inputStop')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -467,7 +467,7 @@ inputMethodEngine.getInputMethodAbility().on('inputStop', () => {
 
 
 
-##### off('inputStop')9+
+#### off('inputStop')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -495,7 +495,7 @@ inputMethodEngine.getInputMethodAbility().off('inputStop', () => {
 
 
 
-##### on('setCallingWindow')9+
+#### on('setCallingWindow')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -523,7 +523,7 @@ inputMethodEngine.getInputMethodAbility().on('setCallingWindow', (wid: number) =
 
 
 
-##### off('setCallingWindow')9+
+#### off('setCallingWindow')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -551,7 +551,7 @@ inputMethodEngine.getInputMethodAbility().off('setCallingWindow', (wid: number) 
 
 
 
-##### on('keyboardShow'|'keyboardHide')9+
+#### on('keyboardShow'|'keyboardHide')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -582,7 +582,7 @@ inputMethodEngine.getInputMethodAbility().on('keyboardHide', () => {
 
 
 
-##### off('keyboardShow'|'keyboardHide')9+
+#### off('keyboardShow'|'keyboardHide')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -613,7 +613,7 @@ inputMethodEngine.getInputMethodAbility().off('keyboardHide', () => {
 
 
 
-##### on('setSubtype')9+
+#### on('setSubtype')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -643,7 +643,7 @@ inputMethodEngine.getInputMethodAbility().on('setSubtype', (inputMethodSubtype: 
 
 
 
-##### off('setSubtype')9+
+#### off('setSubtype')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -671,7 +671,7 @@ inputMethodEngine.getInputMethodAbility().off('setSubtype', () => {
 
 
 
-##### on('securityModeChange')11+
+#### on('securityModeChange')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -700,7 +700,7 @@ inputMethodEngine.getInputMethodAbility()
 
 
 
-##### off('securityModeChange')11+
+#### off('securityModeChange')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -732,7 +732,7 @@ inputMethodAbility.off('securityModeChange', securityChangeCallback);
 
 
 
-##### on('privateCommand')12+
+#### on('privateCommand')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -773,7 +773,7 @@ inputMethodEngine.getInputMethodAbility().on('privateCommand', privateCommandCal
 
 
 
-##### off('privateCommand')12+
+#### off('privateCommand')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -815,7 +815,7 @@ inputMethodEngine.getInputMethodAbility().off('privateCommand', privateCommandCa
 
 
 
-##### on('callingDisplayDidChange')18+
+#### on('callingDisplayDidChange')18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -853,7 +853,7 @@ inputMethodEngine.getInputMethodAbility().on('callingDisplayDidChange', callingD
 
 
 
-##### off('callingDisplayDidChange')18+
+#### off('callingDisplayDidChange')18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -881,7 +881,7 @@ inputMethodEngine.getInputMethodAbility().off('callingDisplayDidChange', (num: n
 
 
 
-##### on('discardTypingText')20+
+#### on('discardTypingText')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -909,7 +909,7 @@ inputMethodEngine.getInputMethodAbility().on('discardTypingText', () => {
 
 
 
-##### off('discardTypingText')20+
+#### off('discardTypingText')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -937,7 +937,7 @@ inputMethodEngine.getInputMethodAbility().off('discardTypingText', () => {
 
 
 
-##### getSecurityMode11+
+#### getSecurityMode11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -972,7 +972,7 @@ console.error(`getSecurityMode, securityMode is : ${security}`);
 
 
 
-##### createPanel10+
+#### createPanel10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1036,7 +1036,7 @@ class InputMethodExt extends InputMethodExtensionAbility {
 
 
 
-##### createPanel10+
+#### createPanel10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1104,7 +1104,7 @@ class InputMethodExt extends InputMethodExtensionAbility {
 
 
 
-##### destroyPanel10+
+#### destroyPanel10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1167,7 +1167,7 @@ if (inputPanel) {
 
 
 
-##### destroyPanel10+
+#### destroyPanel10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1234,7 +1234,7 @@ if (inputPanel) {
 
 
 
-##### KeyboardDelegate
+#### KeyboardDelegate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1242,7 +1242,7 @@ if (inputPanel) {
 
 
 
-##### on('keyDown'|'keyUp')
+#### on('keyDown'|'keyUp')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1277,7 +1277,7 @@ inputMethodEngine.getKeyboardDelegate().on('keyDown', (keyEvent: inputMethodEngi
 
 
 
-##### off('keyDown'|'keyUp')
+#### off('keyDown'|'keyUp')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1310,7 +1310,7 @@ inputMethodEngine.getKeyboardDelegate().off('keyDown', (keyEvent: inputMethodEng
 
 
 
-##### on('keyEvent')10+
+#### on('keyEvent')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1344,7 +1344,7 @@ inputMethodEngine.getKeyboardDelegate().on('keyEvent', (keyEvent: KeyEvent) => {
 
 
 
-##### off('keyEvent')10+
+#### off('keyEvent')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1376,7 +1376,7 @@ inputMethodEngine.getKeyboardDelegate().off('keyEvent');
 
 
 
-##### on('cursorContextChange')
+#### on('cursorContextChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1406,7 +1406,7 @@ inputMethodEngine.getKeyboardDelegate().on('cursorContextChange', (x: number, y:
 
 
 
-##### off('cursorContextChange')
+#### off('cursorContextChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1434,7 +1434,7 @@ inputMethodEngine.getKeyboardDelegate().off('cursorContextChange', (x: number, y
 
 
 
-##### on('selectionChange')
+#### on('selectionChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1466,7 +1466,7 @@ inputMethodEngine.getKeyboardDelegate()
 
 
 
-##### off('selectionChange')
+#### off('selectionChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1495,7 +1495,7 @@ inputMethodEngine.getKeyboardDelegate()
 
 
 
-##### on('textChange')
+#### on('textChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1523,7 +1523,7 @@ inputMethodEngine.getKeyboardDelegate().on('textChange', (text: string) => {
 
 
 
-##### off('textChange')
+#### off('textChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1551,7 +1551,7 @@ inputMethodEngine.getKeyboardDelegate().off('textChange', (text: string) => {
 
 
 
-##### on('editorAttributeChanged')10+
+#### on('editorAttributeChanged')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1580,7 +1580,7 @@ inputMethodEngine.getKeyboardDelegate()
 
 
 
-##### off('editorAttributeChanged')10+
+#### off('editorAttributeChanged')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1606,7 +1606,7 @@ inputMethodEngine.getKeyboardDelegate().off('editorAttributeChanged');
 
 
 
-##### Panel10+
+#### Panel10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1614,7 +1614,7 @@ inputMethodEngine.getKeyboardDelegate().off('editorAttributeChanged');
 
 
 
-##### setUiContent10+
+#### setUiContent10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1657,7 +1657,7 @@ panel.setUiContent('pages/page2/page2', (err: BusinessError) => {
 
 
 
-##### setUiContent10+
+#### setUiContent10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1704,7 +1704,7 @@ panel.setUiContent('pages/page2/page2').then(() => {
 
 
 
-##### setUiContent10+
+#### setUiContent10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1750,7 +1750,7 @@ panel.setUiContent('pages/page2/page2', storage, (err: BusinessError) => {
 
 
 
-##### setUiContent10+
+#### setUiContent10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1800,7 +1800,7 @@ panel.setUiContent('pages/page2/page2', storage).then(() => {
 
 
 
-##### resize10+
+#### resize10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1848,7 +1848,7 @@ panel.resize(500, 1000, (err: BusinessError) => {
 
 
 
-##### resize10+
+#### resize10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1900,7 +1900,7 @@ panel.resize(500, 1000).then(() => {
 
 
 
-##### moveTo10+
+#### moveTo10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1944,7 +1944,7 @@ panel.moveTo(300, 300, (err: BusinessError) => {
 
 
 
-##### moveTo10+
+#### moveTo10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1992,7 +1992,7 @@ panel.moveTo(300, 300).then(() => {
 
 
 
-##### startMoving15+
+#### startMoving15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2022,7 +2022,7 @@ panel.startMoving();
 
 
 
-##### getDisplayId15+
+#### getDisplayId15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2063,7 +2063,7 @@ panel.getDisplayId().then((result: number) => {
 
 
 
-##### show10+
+#### show10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2096,7 +2096,7 @@ panel.show((err: BusinessError) => {
 
 
 
-##### show10+
+#### show10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2127,7 +2127,7 @@ panel.show().then(() => {
 
 
 
-##### hide10+
+#### hide10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2160,7 +2160,7 @@ panel.hide((err: BusinessError) => {
 
 
 
-##### hide10+
+#### hide10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2191,7 +2191,7 @@ panel.hide().then(() => {
 
 
 
-##### adjustPanelRect12+
+#### adjustPanelRect12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2254,7 +2254,7 @@ panel.adjustPanelRect(panelFlag, panelRect);
 
 
 
-##### adjustPanelRect15+
+#### adjustPanelRect15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2322,7 +2322,7 @@ panel.adjustPanelRect(panelFlag, panelRect);
 
 
 
-##### updateRegion15+
+#### updateRegion15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2371,7 +2371,7 @@ panel.updateRegion(inputRegion);
 
 
 
-##### on('show')10+
+#### on('show')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2399,7 +2399,7 @@ panel.on('show', () => {
 
 
 
-##### on('hide')10+
+#### on('hide')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2427,7 +2427,7 @@ panel.on('hide', () => {
 
 
 
-##### on('sizeChange')12+
+#### on('sizeChange')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2466,7 +2466,7 @@ panel.on('sizeChange', (windowSize: window.Size, keyboardArea: inputMethodEngine
 
 
 
-##### off('show')10+
+#### off('show')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2501,7 +2501,7 @@ panel.off('show');
 
 
 
-##### off('hide')10+
+#### off('hide')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2536,7 +2536,7 @@ panel.off('hide');
 
 
 
-##### off('sizeChange')12+
+#### off('sizeChange')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2570,7 +2570,7 @@ panel.off('sizeChange', (windowSize: window.Size) => {
 
 
 
-##### changeFlag10+
+#### changeFlag10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2605,7 +2605,7 @@ panel.changeFlag(panelFlag);
 
 
 
-##### setPrivacyMode11+
+#### setPrivacyMode11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2643,7 +2643,7 @@ panel.setPrivacyMode(isPrivacyMode);
 
 
 
-##### setImmersiveMode15+
+#### setImmersiveMode15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2679,7 +2679,7 @@ panel.setImmersiveMode(inputMethodEngine.ImmersiveMode.LIGHT_IMMERSIVE);
 
 
 
-##### getImmersiveMode15+
+#### getImmersiveMode15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2704,7 +2704,7 @@ let mode: inputMethodEngine.ImmersiveMode = panel.getImmersiveMode();
 
 
 
-##### setImmersiveEffect20+
+#### setImmersiveEffect20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2757,7 +2757,7 @@ panel.setImmersiveEffect(effect);
 
 
 
-##### setKeepScreenOn20+
+#### setKeepScreenOn20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2808,7 +2808,7 @@ panel.setKeepScreenOn(true).then(() => {
 
 
 
-##### getSystemPanelCurrentInsets21+
+#### getSystemPanelCurrentInsets21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2868,7 +2868,7 @@ inputMethodAbility.createPanel(this.context, panelConfig).then( (panel: inputMet
 
 
 
-##### setSystemPanelButtonColor22+
+#### setSystemPanelButtonColor22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2914,7 +2914,7 @@ try {
 
 
 
-##### KeyboardController
+#### KeyboardController
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2922,7 +2922,7 @@ try {
 
 
 
-##### hide9+
+#### hide9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2964,7 +2964,7 @@ keyboardController.hide((err: BusinessError) => {
 
 
 
-##### hide9+
+#### hide9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3004,7 +3004,7 @@ keyboardController.hide().then(() => {
 
 
 
-##### hideKeyboard(deprecated)
+#### hideKeyboard(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3041,7 +3041,7 @@ keyboardController.hideKeyboard((err: BusinessError) => {
 
 
 
-##### hideKeyboard(deprecated)
+#### hideKeyboard(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3076,7 +3076,7 @@ keyboardController.hideKeyboard().then(() => {
 
 
 
-##### exitCurrentInputType11+
+#### exitCurrentInputType11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3119,7 +3119,7 @@ keyboardController.exitCurrentInputType((err: BusinessError) => {
 
 
 
-##### exitCurrentInputType11+
+#### exitCurrentInputType11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3160,7 +3160,7 @@ keyboardController.exitCurrentInputType().then(() => {
 
 
 
-##### SecurityMode11+
+#### SecurityMode11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3176,7 +3176,7 @@ keyboardController.exitCurrentInputType().then(() => {
 
 
 
-##### ExtendAction10+
+#### ExtendAction10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3194,7 +3194,7 @@ keyboardController.exitCurrentInputType().then(() => {
 
 
 
-##### Direction10+
+#### Direction10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3212,7 +3212,7 @@ keyboardController.exitCurrentInputType().then(() => {
 
 
 
-##### Range10+
+#### Range10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3228,7 +3228,7 @@ keyboardController.exitCurrentInputType().then(() => {
 
 
 
-##### Movement10+
+#### Movement10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3243,7 +3243,7 @@ keyboardController.exitCurrentInputType().then(() => {
 
 
 
-##### MessageHandler15+
+#### MessageHandler15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3255,7 +3255,7 @@ keyboardController.exitCurrentInputType().then(() => {
 
 
 
-##### onMessage15+
+#### onMessage15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3299,7 +3299,7 @@ inputMethodEngine.getInputMethodAbility()
 
 
 
-##### onTerminated15+
+#### onTerminated15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3335,7 +3335,7 @@ inputMethodEngine.getInputMethodAbility()
 
 
 
-##### InputClient9+
+#### InputClient9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3343,7 +3343,7 @@ inputMethodEngine.getInputMethodAbility()
 
 
 
-##### sendKeyFunction9+
+#### sendKeyFunction9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3393,7 +3393,7 @@ inputClient.sendKeyFunction(action, (err: BusinessError, result: boolean) => {
 
 
 
-##### sendKeyFunction9+
+#### sendKeyFunction9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3446,7 +3446,7 @@ inputClient.sendKeyFunction(action).then((result: boolean) => {
 
 
 
-##### getForward9+
+#### getForward9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3492,7 +3492,7 @@ inputClient.getForward(length, (err: BusinessError, text: string) => {
 
 
 
-##### getForward9+
+#### getForward9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3542,7 +3542,7 @@ inputClient.getForward(length).then((text: string) => {
 
 
 
-##### getForwardSync10+
+#### getForwardSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3587,7 +3587,7 @@ console.info(`Succeeded in getting forward, text: ${text}`);
 
 
 
-##### getBackward9+
+#### getBackward9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3633,7 +3633,7 @@ inputClient.getBackward(length, (err: BusinessError, text: string) => {
 
 
 
-##### getBackward9+
+#### getBackward9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3683,7 +3683,7 @@ inputClient.getBackward(length).then((text: string) => {
 
 
 
-##### getBackwardSync10+
+#### getBackwardSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3728,7 +3728,7 @@ console.info(`Succeeded in getting backward, text: ${text}`);
 
 
 
-##### deleteForward9+
+#### deleteForward9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3778,7 +3778,7 @@ inputClient.deleteForward(length, (err: BusinessError, result: boolean) => {
 
 
 
-##### deleteForward9+
+#### deleteForward9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3832,7 +3832,7 @@ inputClient.deleteForward(length).then((result: boolean) => {
 
 
 
-##### deleteForwardSync10+
+#### deleteForwardSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3869,7 +3869,7 @@ inputClient.deleteForwardSync(length);
 
 
 
-##### deleteBackward9+
+#### deleteBackward9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3919,7 +3919,7 @@ inputClient.deleteBackward(length, (err: BusinessError, result: boolean) => {
 
 
 
-##### deleteBackward9+
+#### deleteBackward9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3973,7 +3973,7 @@ inputClient.deleteBackward(length).then((result: boolean) => {
 
 
 
-##### deleteBackwardSync10+
+#### deleteBackwardSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4010,7 +4010,7 @@ inputClient.deleteBackwardSync(length);
 
 
 
-##### insertText9+
+#### insertText9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4060,7 +4060,7 @@ inputClient.insertText('test', (err: BusinessError, result: boolean) => {
 
 
 
-##### insertText9+
+#### insertText9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4113,7 +4113,7 @@ inputClient.insertText('test').then((result: boolean) => {
 
 
 
-##### insertTextSync10+
+#### insertTextSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4149,7 +4149,7 @@ inputClient.insertTextSync('test');
 
 
 
-##### getEditorAttribute9+
+#### getEditorAttribute9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4192,7 +4192,7 @@ inputClient.getEditorAttribute((err: BusinessError, editorAttribute: inputMethod
 
 
 
-##### getEditorAttribute9+
+#### getEditorAttribute9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4233,7 +4233,7 @@ inputClient.getEditorAttribute().then((editorAttribute: inputMethodEngine.Editor
 
 
 
-##### getEditorAttributeSync10+
+#### getEditorAttributeSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4269,7 +4269,7 @@ console.info(`editorAttribute.enterKeyType:  ${editorAttribute.enterKeyType}`);
 
 
 
-##### moveCursor9+
+#### moveCursor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4313,7 +4313,7 @@ inputClient.moveCursor(inputMethodEngine.Direction.CURSOR_UP, (err: BusinessErro
 
 
 
-##### moveCursor9+
+#### moveCursor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4361,7 +4361,7 @@ inputClient.moveCursor(inputMethodEngine.Direction.CURSOR_UP).then(() => {
 
 
 
-##### moveCursorSync10+
+#### moveCursorSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4396,7 +4396,7 @@ inputClient.moveCursorSync(inputMethodEngine.Direction.CURSOR_UP);
 
 
 
-##### selectByRange10+
+#### selectByRange10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4441,7 +4441,7 @@ inputClient.selectByRange(range, (err: BusinessError) => {
 
 
 
-##### selectByRange10+
+#### selectByRange10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4490,7 +4490,7 @@ inputClient.selectByRange(range).then(() => {
 
 
 
-##### selectByRangeSync10+
+#### selectByRangeSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4526,7 +4526,7 @@ inputClient.selectByRangeSync(range);
 
 
 
-##### selectByMovement10+
+#### selectByMovement10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4571,7 +4571,7 @@ inputClient.selectByMovement(movement, (err: BusinessError) => {
 
 
 
-##### selectByMovement10+
+#### selectByMovement10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4620,7 +4620,7 @@ inputClient.selectByMovement(movement).then(() => {
 
 
 
-##### selectByMovementSync10+
+#### selectByMovementSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4656,7 +4656,7 @@ inputClient.selectByMovementSync(movement);
 
 
 
-##### getTextIndexAtCursor10+
+#### getTextIndexAtCursor10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4699,7 +4699,7 @@ inputClient.getTextIndexAtCursor((err: BusinessError, index: number) => {
 
 
 
-##### getTextIndexAtCursor10+
+#### getTextIndexAtCursor10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4740,7 +4740,7 @@ inputClient.getTextIndexAtCursor().then((index: number) => {
 
 
 
-##### getTextIndexAtCursorSync10+
+#### getTextIndexAtCursorSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4776,7 +4776,7 @@ console.info(`Succeeded in getTextIndexAtCursorSync, index: ${index}`);
 
 
 
-##### sendExtendAction10+
+#### sendExtendAction10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4825,7 +4825,7 @@ inputClient.sendExtendAction(inputMethodEngine.ExtendAction.COPY, (err: Business
 
 
 
-##### sendExtendAction10+
+#### sendExtendAction10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4878,7 +4878,7 @@ inputClient.sendExtendAction(inputMethodEngine.ExtendAction.COPY).then(() => {
 
 
 
-##### sendPrivateCommand12+
+#### sendPrivateCommand12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4939,7 +4939,7 @@ inputMethodEngine.getInputMethodAbility().on('inputStart', (kbController, textIn
 
 
 
-##### getCallingWindowInfo12+
+#### getCallingWindowInfo12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4986,7 +4986,7 @@ inputClient.getCallingWindowInfo().then((windowInfo: inputMethodEngine.WindowInf
 
 
 
-##### setPreviewText12+
+#### setPreviewText12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5037,7 +5037,7 @@ inputClient.setPreviewText('test', range).then(() => {
 
 
 
-##### setPreviewTextSync12+
+#### setPreviewTextSync12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5075,7 +5075,7 @@ inputClient.setPreviewTextSync('test', range);
 
 
 
-##### finishTextPreview12+
+#### finishTextPreview12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5120,7 +5120,7 @@ inputClient.finishTextPreview().then(() => {
 
 
 
-##### finishTextPreviewSync12+
+#### finishTextPreviewSync12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5152,7 +5152,7 @@ inputClient.finishTextPreviewSync();
 
 
 
-##### sendMessage15+
+#### sendMessage15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5211,7 +5211,7 @@ inputClient.sendMessage(msgId, msgParam).then(() => {
 
 
 
-##### recvMessage15+
+#### recvMessage15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5263,7 +5263,7 @@ inputMethodEngine.getInputMethodAbility()
 
 
 
-##### getAttachOptions19+
+#### getAttachOptions19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5281,7 +5281,7 @@ getAttachOptions(): AttachOptions
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/pxx_WNn7RlaKftBvzmPZsA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024050Z&HW-CC-Expire=86400&HW-CC-Sign=93005A60A2337C40B7B1C8B4B79453FCD79B7D51E2B42D0B2730240DB09D8827)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/pxx_WNn7RlaKftBvzmPZsA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025425Z&HW-CC-Expire=86400&HW-CC-Sign=F164C80B7D7E4592451AE5B9E232C32B06158A39F77835C761721324E23BC5F0)
 
 
 从API version 20 开始，错误码801 Capability not supported.被移除。
@@ -5297,7 +5297,7 @@ console.info(`Succeeded in getting AttachOptions, AttachOptions is ${attachOptio
 
 
 
-##### on('attachOptionsDidChange')19+
+#### on('attachOptionsDidChange')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5316,7 +5316,7 @@ on(type: 'attachOptionsDidChange', callback: Callback&lt;AttachOptions&gt;): voi
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/06FiKHgtTyaGrBT7i9B35w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024050Z&HW-CC-Expire=86400&HW-CC-Sign=9ADFEC69B2FF82B633C6BBC60959A1D07FADAFFE87FA5CF0A7174054EBFF467B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/06FiKHgtTyaGrBT7i9B35w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025425Z&HW-CC-Expire=86400&HW-CC-Sign=168338DB3B0D42414980954D698C11B4D6EDDC118CA2A957F1B1E7CB01835E8F)
 
 
 从API version 20 开始，错误码801 Capability not supported.被移除。
@@ -5339,7 +5339,7 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 
 
 
-##### off('attachOptionsDidChange')19+
+#### off('attachOptionsDidChange')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5373,7 +5373,7 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 
 
 
-##### CapitalizeMode20+
+#### CapitalizeMode20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5391,7 +5391,7 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 
 
 
-##### EditorAttribute
+#### EditorAttribute
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5417,7 +5417,7 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 
 
 
-##### KeyEvent
+#### KeyEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5433,7 +5433,7 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 
 
 
-##### PanelFlag10+
+#### PanelFlag10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5450,7 +5450,7 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 
 
 
-##### PanelType10+
+#### PanelType10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5466,7 +5466,7 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 
 
 
-##### PanelInfo10+
+#### PanelInfo10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5482,7 +5482,7 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 
 
 
-##### PanelRect12+
+#### PanelRect12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5498,7 +5498,7 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 
 
 
-##### EnhancedPanelRect15+
+#### EnhancedPanelRect15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5519,7 +5519,7 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 
 
 
-##### KeyboardArea15+
+#### KeyboardArea15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5537,7 +5537,7 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 
 
 
-##### AttachOptions19+
+#### AttachOptions19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5553,7 +5553,7 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 
 
 
-##### WindowInfo12+
+#### WindowInfo12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5569,7 +5569,7 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 
 
 
-##### ImmersiveMode15+
+#### ImmersiveMode15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5587,7 +5587,7 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 
 
 
-##### RequestKeyboardReason19+
+#### RequestKeyboardReason19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5605,7 +5605,7 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 
 
 
-##### GradientMode20+
+#### GradientMode20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5621,7 +5621,7 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 
 
 
-##### ImmersiveEffect20+
+#### ImmersiveEffect20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5637,7 +5637,7 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 
 
 
-##### SystemPanelInsets21+
+#### SystemPanelInsets21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5654,7 +5654,7 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 
 
 
-##### TextInputClient(deprecated)
+#### TextInputClient(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5666,7 +5666,7 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 
 
 
-##### getForward(deprecated)
+#### getForward(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5705,7 +5705,7 @@ textInputClient.getForward(length, (err: BusinessError, text: string) => {
 
 
 
-##### getForward(deprecated)
+#### getForward(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5748,7 +5748,7 @@ textInputClient.getForward(length).then((text: string) => {
 
 
 
-##### getBackward(deprecated)
+#### getBackward(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5787,7 +5787,7 @@ textInputClient.getBackward(length, (err: BusinessError, text: string) => {
 
 
 
-##### getBackward(deprecated)
+#### getBackward(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5830,7 +5830,7 @@ textInputClient.getBackward(length).then((text: string) => {
 
 
 
-##### deleteForward(deprecated)
+#### deleteForward(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5873,7 +5873,7 @@ textInputClient.deleteForward(length, (err: BusinessError, result: boolean) => {
 
 
 
-##### deleteForward(deprecated)
+#### deleteForward(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5920,7 +5920,7 @@ textInputClient.deleteForward(length).then((result: boolean) => {
 
 
 
-##### deleteBackward(deprecated)
+#### deleteBackward(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5963,7 +5963,7 @@ textInputClient.deleteBackward(length, (err: BusinessError, result: boolean) => 
 
 
 
-##### deleteBackward(deprecated)
+#### deleteBackward(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6010,7 +6010,7 @@ textInputClient.deleteBackward(length).then((result: boolean) => {
 
 
 
-##### sendKeyFunction(deprecated)
+#### sendKeyFunction(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6053,7 +6053,7 @@ textInputClient.sendKeyFunction(action, (err: BusinessError, result: boolean) =>
 
 
 
-##### sendKeyFunction(deprecated)
+#### sendKeyFunction(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6100,7 +6100,7 @@ textInputClient.sendKeyFunction(action).then((result: boolean) => {
 
 
 
-##### insertText(deprecated)
+#### insertText(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6142,7 +6142,7 @@ textInputClient.insertText('test', (err: BusinessError, result: boolean) => {
 
 
 
-##### insertText(deprecated)
+#### insertText(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6188,7 +6188,7 @@ textInputClient.insertText('test').then((result: boolean) => {
 
 
 
-##### getEditorAttribute(deprecated)
+#### getEditorAttribute(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6228,7 +6228,7 @@ textInputClient.getEditorAttribute((err: BusinessError,
 
 
 
-##### getEditorAttribute(deprecated)
+#### getEditorAttribute(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

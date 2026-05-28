@@ -14,7 +14,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { media } from '@kit.MediaKit';
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -38,7 +38,7 @@ import { media } from '@kit.MediaKit';
 
 
 
-##### setUrlSource20+
+#### setUrlSource20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -81,7 +81,7 @@ media.createAVMetadataExtractor(async (error: BusinessError, extractor: media.AV
 
 
 
-##### fetchFrameByTime20+
+#### fetchFrameByTime20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -154,7 +154,7 @@ media.createAVMetadataExtractor((error: BusinessError, extractor: media.AVMetada
 
 
 
-##### fetchFramesByTimes23+
+#### fetchFramesByTimes23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -227,7 +227,7 @@ async function fetchFramesByTimesDemo() {
 
 
 
-##### cancelAllFetchFrames23+
+#### cancelAllFetchFrames23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -259,7 +259,7 @@ media.createAVMetadataExtractor((error: BusinessError, extractor: media.AVMetada
 
 
 
-##### fetchMetadata11+
+#### fetchMetadata11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -308,7 +308,7 @@ async function test() {
 
 
 
-##### fetchMetadata11+
+#### fetchMetadata11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -355,7 +355,7 @@ async function test() {
 
 
 
-##### fetchAlbumCover11+
+#### fetchAlbumCover11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -406,7 +406,7 @@ async function test() {
 
 
 
-##### fetchAlbumCover11+
+#### fetchAlbumCover11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -455,7 +455,7 @@ async function test() {
 
 
 
-##### release11+
+#### release11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -502,7 +502,7 @@ async function test() {
 
 
 
-##### release11+
+#### release11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

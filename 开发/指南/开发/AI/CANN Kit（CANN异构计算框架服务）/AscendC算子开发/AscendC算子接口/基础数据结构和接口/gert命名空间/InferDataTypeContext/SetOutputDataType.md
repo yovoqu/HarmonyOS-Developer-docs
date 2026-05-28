@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-setoutputdatatype
 
-##### 函数功能
+#### 函数功能
 
 根据输出索引，设置指定输出的数据类型。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 ge::graphStatus SetOutputDataType(const size_t index, const ge::DataType datatype);
@@ -18,7 +18,7 @@ ge::graphStatus SetOutputDataType(const size_t index, const ge::DataType datatyp
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -28,7 +28,7 @@ ge::graphStatus SetOutputDataType(const size_t index, const ge::DataType datatyp
  
   
 
-##### 返回值
+#### 返回值
 
 返回设置的结果状态，状态说明请参见[ge::graphStatus](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-gegraphstatus)。
  
@@ -36,13 +36,13 @@ index非法时，返回失败。
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 ge::graphStatus InferDataTypeForXXX(InferDataTypeContext *context) {

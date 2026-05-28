@@ -13,7 +13,7 @@
 
 
 
-##### 概述
+#### 概述
 
 @SyncMonitor装饰器用于同步监听状态变量修改，使得状态变量具有深度监听的能力：
 
@@ -22,7 +22,7 @@
 
 
 
-##### 装饰器使用规则说明
+#### 装饰器使用规则说明
 
  - @SyncMonitor装饰器支持在类中与[@ObservedV2、@Trace](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)配合使用，不允许在未被@ObservedV2装饰的类中使用@SyncMonitor装饰器。未被@Trace装饰的属性无法被@SyncMonitor监听到变化。当观测的属性变化时，@SyncMonitor装饰器定义的回调方法将被调用。判断属性是否变化使用的是严格相等（===），当严格相等判断的结果是false（即不相等）的情况下，就会立即触发@SyncMonitor的回调。同一事件内，当被观察的属性多次改变时，回调函数将在每次属性改变时被调用。
  - 单个@SyncMonitor装饰器能够同时监听多个属性的变化，当这些属性在一次事件中共同变化时，只会触发一次@SyncMonitor的回调方法。 当@SyncMonitor监听整个数组时，更改数组的某一项不会被监听到。
@@ -34,7 +34,7 @@
 
 
 
-##### 比较@Monitor，@SyncMonitor和@Watch
+#### 比较@Monitor，@SyncMonitor和@Watch
 
 与[@Watch](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-watch)装饰器类似，开发者必须自己定义回调函数。不同之处在于，@Watch使用函数名作为参数，而@SyncMonitor直接装饰回调函数。带有通配符监听路径的@SyncMonitor监听范围与@Watch一致。@Watch和@SyncMonitor装饰的函数都同步执行。下表比较@Monitor、@SyncMonitor和@Watch的用法和功能。
 
@@ -134,7 +134,7 @@ Monitor - sum changed from 0 to 6
 
 
 
-##### 装饰器说明
+#### 装饰器说明
 
 | @SyncMonitor属性装饰器 | 说明 |
 | --- | --- |
@@ -144,7 +144,7 @@ Monitor - sum changed from 0 to 6
 
 
 
-##### 监听路径中通配符的说明
+#### 监听路径中通配符的说明
 
 当@SyncMonitor装饰器监听路径中使用了通配符('*')时：
 
@@ -184,17 +184,17 @@ Monitor - sum changed from 0 to 6
 
 
 
-##### 接口说明
+#### 接口说明
 
 IMonitor类型和IMonitorValue&lt;T&gt;类型的接口说明参考API文档：[状态变量变化监听](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-watch-monitor)。
 
 
 
-##### 监听变化
+#### 监听变化
 
 
 
-##### 在@ComponentV2装饰的自定义组件中使用@SyncMonitor
+#### 在@ComponentV2装饰的自定义组件中使用@SyncMonitor
 
 使用@SyncMonitor监听的状态变量发生变化时，会触发@SyncMonitor的回调方法。
 
@@ -273,7 +273,7 @@ struct Index {
 
 
 
-##### 在@ObservedV2装饰的类中使用@SyncMonitor
+#### 在@ObservedV2装饰的类中使用@SyncMonitor
 
 使用@SyncMonitor监听的属性发生变化时，会触发@SyncMonitor的回调方法。
 
@@ -434,7 +434,7 @@ struct Index {
 
 
 
-##### 通用监听能力
+#### 通用监听能力
 
 @SyncMonitor还有一些通用的监听能力。
 
@@ -743,13 +743,13 @@ struct DocSampleArrayMultiPath {
 
 
 
-##### 观察路径中的通配符
+#### 观察路径中的通配符
 
 @SyncMonitor路径中的通配符(*)可用于在任何对象属性或任何数组项更改时触发回调。
 
 
 
-##### 被观察属性变更或对象赋值时，监听函数自动执行
+#### 被观察属性变更或对象赋值时，监听函数自动执行
 
 ```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -813,7 +813,7 @@ struct DocSampleClass {
 
 
 
-##### 数组项更改及数组赋值时，监听函数会自动执行
+#### 数组项更改及数组赋值时，监听函数会自动执行
 
 同步监听的观察路径：@SyncMonitor('arrayOfPerson.*')
 
@@ -904,7 +904,7 @@ struct DocSampleArray {
 
 
 
-##### 嵌套被观察对象属性更改时，监听函数会执行
+#### 嵌套被观察对象属性更改时，监听函数会执行
 
 ```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -1026,7 +1026,7 @@ export struct DocSampleNestedClass {
 
 
 
-##### 模糊监听数组项的变化
+#### 模糊监听数组项的变化
 
 嵌套的被观察对象的属性更改时，会执行监听函数。
 
@@ -1158,7 +1158,7 @@ struct DocSampleArrayOfArrays {
 
 
 
-##### 限制条件
+#### 限制条件
 
 使用@SyncMonitor需要注意如下限制条件：
 
@@ -1332,11 +1332,11 @@ class Info {
 
 
 
-##### 使用场景
+#### 使用场景
 
 
 
-##### 监听深层属性变化
+#### 监听深层属性变化
 
 @SyncMonitor可以监听深层属性的变化，并能够根据更改前后的值做分类处理。
 
@@ -1395,11 +1395,11 @@ struct Index {
 
 
 
-##### 常见问题
+#### 常见问题
 
 
 
-##### 自定义组件中@SyncMonitor对变量监听的生效及失效时间
+#### 自定义组件中@SyncMonitor对变量监听的生效及失效时间
 
 当@SyncMonitor定义在@ComponentV2装饰的自定义组件中时，@SyncMonitor会在状态变量初始化完成之后生效，并在组件销毁时失效。
 
@@ -1493,7 +1493,7 @@ struct Index {
 
 
 
-##### 类中@SyncMonitor对变量监听的生效及失效时间
+#### 类中@SyncMonitor对变量监听的生效及失效时间
 
 当@SyncMonitor定义在@ObservedV2装饰的类中时，@SyncMonitor会在类的实例创建完成后生效，在类的实例销毁时失效。
 
@@ -1716,7 +1716,7 @@ struct Index {
 
 
 
-##### 正确设置@SyncMonitor入参
+#### 正确设置@SyncMonitor入参
 
 由于@SyncMonitor无法对入参做编译时校验，当前存在以下写法不符合@SyncMonitor监听条件但@SyncMonitor仍会触发的情况。开发者应当正确传入@SyncMonitor入参，不传入非状态变量，避免造成功能异常或行为表现不符合预期。
 
@@ -1920,7 +1920,7 @@ struct Index {
 
 
 
-##### 使用通配符的无效路径
+#### 使用通配符的无效路径
 
 有效的监听路径规则如下：
 
@@ -1941,7 +1941,7 @@ struct Index {
 
 
 
-##### 监听变量从可访问变为不可访问和从不可访问变为可访问
+#### 监听变量从可访问变为不可访问和从不可访问变为可访问
 
 @Monitor仅会保存变量可访问时的值，当状态变量变为不可访问的状态时，并不会记录其值的变化。从API version 20开始，如果需要监听可访问到不可访问和不可访问到可访问的状态变化，可以使用[addMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-addmonitor-clearmonitor#监听变量从可访问到不访问和从不可访问到可访问)。
 

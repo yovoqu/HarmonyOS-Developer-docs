@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/spatial-recon-load
 
-##### 适用场景
+#### 适用场景
 
 支持的3DGS模块格式包括：MP4、PLY、GLB三种格式。
 
@@ -16,7 +16,7 @@
 
 
 
-##### 接口说明
+#### 接口说明
 
 以下仅列出本指南示例代码中调用的部分主要接口：
 
@@ -27,7 +27,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 从entry目录进入/src/main/ets/entryability/EntryAbility.ets文件，导入空间建模模块。
 
   

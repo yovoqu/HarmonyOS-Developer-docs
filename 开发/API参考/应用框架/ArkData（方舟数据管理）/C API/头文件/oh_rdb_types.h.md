@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-rdb-types-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -40,7 +40,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -51,7 +51,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -67,13 +67,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### Rdb_ConflictResolution
+#### Rdb_ConflictResolution
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -99,13 +99,13 @@ enum Rdb_ConflictResolution
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_RDB_CreateReturningContext()
+#### OH_RDB_CreateReturningContext()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -128,7 +128,7 @@ OH_RDB_ReturningContext *OH_RDB_CreateReturningContext(void)
  
   
 
-##### OH_RDB_DestroyReturningContext()
+#### OH_RDB_DestroyReturningContext()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -151,7 +151,7 @@ void OH_RDB_DestroyReturningContext(OH_RDB_ReturningContext *context)
  
   
 
-##### OH_RDB_SetReturningFields()
+#### OH_RDB_SetReturningFields()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -183,7 +183,7 @@ int OH_RDB_SetReturningFields(OH_RDB_ReturningContext *context, const char *cons
  
   
 
-##### OH_RDB_SetMaxReturningCount()
+#### OH_RDB_SetMaxReturningCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -214,7 +214,7 @@ int OH_RDB_SetMaxReturningCount(OH_RDB_ReturningContext *context, int32_t count)
  
   
 
-##### OH_RDB_GetReturningValues()
+#### OH_RDB_GetReturningValues()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -244,7 +244,7 @@ OH_Cursor *OH_RDB_GetReturningValues(OH_RDB_ReturningContext *context)
  
   
 
-##### OH_RDB_GetChangedCount()
+#### OH_RDB_GetChangedCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

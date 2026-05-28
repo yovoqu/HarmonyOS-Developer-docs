@@ -7,7 +7,7 @@
 FA模型从API version 7开始支持，已经不再主推。该应用模型通过导出匿名对象、固定入口文件的方式指定应用组件，开发者无法进行派生，不利于扩展能力。建议使用新的Stage模型进行开发。
 
 
-##### 接口说明
+#### 接口说明
 
 FormAbility生命周期接口如下：
 
@@ -43,7 +43,7 @@ FormBindingData类有如下API接口，具体的API介绍详见[@ohos.app.form.f
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 FA卡片开发，即基于[FA模型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fa-model-development-overview)的卡片提供方开发，主要涉及如下关键步骤：
 
@@ -57,7 +57,7 @@ FA卡片开发，即基于[FA模型](https://developer.huawei.com/consumer/cn/do
 
 
 
-##### 实现卡片生命周期接口
+#### 实现卡片生命周期接口
 
 创建FA模型的卡片，需实现卡片的生命周期接口。先参考[DevEco Studio开发服务卡片指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-service-widget)生成服务卡片模板。
 1. 在form.ts中，导入相关模块
@@ -214,7 +214,7 @@ export default obj;
 
 
 
-##### 配置卡片配置文件
+#### 配置卡片配置文件
 
 卡片需要在应用配置文件config.json中进行配置。
 
@@ -331,7 +331,7 @@ export default obj;
 
 
 
-##### 卡片信息的持久化
+#### 卡片信息的持久化
 
 因大部分卡片提供方都不是常驻服务，只有在需要使用时才会被拉起获取卡片信息，且卡片管理服务支持对卡片进行多实例管理，卡片ID对应实例ID，因此若卡片提供方支持对卡片数据进行配置，则需要对卡片的业务数据按照卡片ID进行持久化管理，以便在后续获取、更新以及拉起时能获取到正确的卡片业务数据。且需要适配onDestroy卡片删除通知接口，在其中实现卡片实例数据的删除。
 
@@ -431,7 +431,7 @@ let deleteFormInfo = async (formId: string, context: featureAbility.Context): Pr
 
 
 
-##### 卡片数据交互
+#### 卡片数据交互
 
 当卡片应用需要更新数据时（如触发了定时更新或定点更新），卡片应用获取最新数据，并调用updateForm()接口更新主动触发卡片的更新。
 
@@ -456,12 +456,12 @@ onUpdate(formId: string) {
 
 
 
-##### 开发卡片页面
+#### 开发卡片页面
 
 开发者可以使用类Web范式（HML+CSS+JSON）开发JS卡片页面。生成如下卡片页面，可以这样配置卡片页面文件：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/hmvGxLqPSr-wikkBqrfAFw/zh-cn_image_0000002611754331.png?HW-CC-KV=V1&HW-CC-Date=20260528T014732Z&HW-CC-Expire=86400&HW-CC-Sign=83FE62A241EAD8F65C5EA218BBB5BAE63D6E3C0A3DC2AC56E97946DC8C3CFDEE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/hmvGxLqPSr-wikkBqrfAFw/zh-cn_image_0000002611754331.png?HW-CC-KV=V1&HW-CC-Date=20260528T030402Z&HW-CC-Expire=86400&HW-CC-Sign=0D776A14056570F78E6AD86B542A74EE3892550337121D38E9AD3A819C9E6D04)
 
 
 > [!NOTE]
@@ -570,7 +570,7 @@ onUpdate(formId: string) {
 
 
 
-##### 开发卡片事件
+#### 开发卡片事件
 
 卡片支持为组件设置交互事件(action)，包括router事件和message事件，其中router事件用于Ability跳转，message事件用于卡片开发人员自定义点击事件。关键步骤说明如下：
 1. 在hml中为组件设置onclick属性，其值对应到json文件的actions字段中。

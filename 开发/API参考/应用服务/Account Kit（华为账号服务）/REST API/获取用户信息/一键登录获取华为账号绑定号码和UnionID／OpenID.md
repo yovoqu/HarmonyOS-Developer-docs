@@ -14,19 +14,19 @@
 
 
 
-##### 功能介绍
+#### 功能介绍
 
 通过一键登录场景的Authorization Code获取UnionID，OpenID，华为账号绑定的手机号码及其相关信息。
 
 
 
-##### 场景描述
+#### 场景描述
 
 [华为账号一键登录（获取手机号和UnionID/OpenID）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-phone-unionid-login)场景，应用服务端向华为账号服务器调用该接口获取UnionID，OpenID，华为账号绑定的手机号码及其相关信息。该服务仅对中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）用户提供。
 
 
 
-##### 使用约束
+#### 使用约束
 
  - 需确保调用端网络正常。
  - 华为账号一键登录服务仅对中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）用户提供。
@@ -35,7 +35,7 @@
 
 
 
-##### 接口原型
+#### 接口原型
 
  - **承载协议：** HTTPS POST
  - **接口方向：** 开发者服务器->华为账号服务器
@@ -49,11 +49,11 @@
 
 
 
-##### 请求参数
+#### 请求参数
 
 
 
-##### Request Header
+#### Request Header
 
 | 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
@@ -62,7 +62,7 @@
 
 
 
-##### Request Body
+#### Request Body
 
 | 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
@@ -73,7 +73,7 @@
 
 
 
-##### 请求示例
+#### 请求示例
 
 请通过POST方式调用，示例如下：
 
@@ -87,11 +87,11 @@ Content-Type: application/json
 
 
 
-##### 响应参数
+#### 响应参数
 
 
 
-##### Response Header
+#### Response Header
 
 | 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
@@ -100,7 +100,7 @@ Content-Type: application/json
 
 
 
-##### Response Body
+#### Response Body
 
 调用成功时，响应消息返回如下：
 
@@ -124,11 +124,11 @@ Content-Type: application/json
 
 
 
-##### 响应示例
+#### 响应示例
 
 
 
-##### 请求成功时
+#### 请求成功时
 
 ```json
 HTTP/1.1 200 OK
@@ -149,7 +149,7 @@ Content-Type: application/json
 
 
 
-##### 请求失败时
+#### 请求失败时
 
 ```json
 HTTP/1.1 200 OK
@@ -163,7 +163,7 @@ Content-Type: application/json
 
 
 
-##### 示例代码
+#### 示例代码
 
 Java示例代码如下，运行前需要进行[示例代码环境配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-common#示例代码环境配置)（请将此示例代码与工具类CallUtils放于同一路径下，如不在同一路径，请手动添加import）
 
@@ -219,7 +219,7 @@ public class GetQuickLoginMobilePhoneByCodeDemo {
 
 
 
-##### 错误码
+#### 错误码
 
 | HTTP响应码 | 描述 | 解决方法 |
 | --- | --- | --- |

@@ -7,7 +7,7 @@
 在标准输出中打印有效的 oh_modules 目录路径信息。
  
 
-##### 命令格式
+#### 命令格式
 
 ```text
 ohpm root
@@ -15,17 +15,17 @@ ohpm root
  
  
 
-##### 功能描述
+#### 功能描述
 
 可以在模块的任意子目录下执行，用于打印命令工作路径下所在包的有效 oh_modules 目录路径信息。
  
  
 
-##### Options
+#### Options
 
  
 
-##### prefix
+#### prefix
 
 - 默认值：""
 - 类型： string
@@ -35,7 +35,7 @@ ohpm root
  
  
 
-##### log_level
+#### log_level
 
 - 默认值：无
 - 类型： String
@@ -45,7 +45,7 @@ ohpm root
  
  
 
-##### debug
+#### debug
 
 - 默认值：false
 - 类型： Boolean
@@ -55,7 +55,7 @@ ohpm root
  
  
 
-##### 示例
+#### 示例
 
 项目结构为：
  

@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getdatatype
 
-##### 函数功能
+#### 函数功能
 
 获取Tensor的数据类型。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 ge::DataType GetDataType() const
@@ -18,13 +18,13 @@ ge::DataType GetDataType() const
  
   
 
-##### 参数说明
+#### 参数说明
 
 无
  
   
 
-##### 返回值
+#### 返回值
 
 返回Tensor中的数据类型。
  
@@ -32,13 +32,13 @@ ge::DataType GetDataType() const
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 StorageShape sh({1, 2, 3}, {1, 2, 3});

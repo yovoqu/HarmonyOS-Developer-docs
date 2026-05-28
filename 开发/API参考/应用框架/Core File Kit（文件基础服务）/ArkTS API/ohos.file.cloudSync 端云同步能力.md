@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { cloudSync } from '@kit.CoreFileKit';
 
 
 
-##### SyncState12+
+#### SyncState12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -46,7 +46,7 @@ import { cloudSync } from '@kit.CoreFileKit';
 
 
 
-##### ErrorType12+
+#### ErrorType12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -75,7 +75,7 @@ import { cloudSync } from '@kit.CoreFileKit';
 
 
 
-##### SyncProgress12+
+#### SyncProgress12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -83,7 +83,7 @@ import { cloudSync } from '@kit.CoreFileKit';
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -97,7 +97,7 @@ import { cloudSync } from '@kit.CoreFileKit';
 
 
 
-##### State11+
+#### State11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -115,7 +115,7 @@ import { cloudSync } from '@kit.CoreFileKit';
 
 
 
-##### DownloadProgress11+
+#### DownloadProgress11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -123,7 +123,7 @@ import { cloudSync } from '@kit.CoreFileKit';
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -140,7 +140,7 @@ import { cloudSync } from '@kit.CoreFileKit';
 
 
 
-##### FileSync12+
+#### FileSync12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -150,7 +150,7 @@ import { cloudSync } from '@kit.CoreFileKit';
 
 
 
-##### constructor12+
+#### constructor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -177,7 +177,7 @@ let fileSync = new cloudSync.FileSync()
 
 
 
-##### on('progress')12+
+#### on('progress')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -218,7 +218,7 @@ fileSync.on('progress', callback);
 
 
 
-##### off('progress')12+
+#### off('progress')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -262,7 +262,7 @@ fileSync.off('progress', callback);
 
 
 
-##### start12+
+#### start12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -314,7 +314,7 @@ fileSync.start().then(() => {
 
 
 
-##### start12+
+#### start12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -362,7 +362,7 @@ fileSync.start((err: BusinessError) => {
 
 
 
-##### stop12+
+#### stop12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -407,7 +407,7 @@ fileSync.stop().then(() => {
 
 
 
-##### stop12+
+#### stop12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -454,7 +454,7 @@ fileSync.stop((err: BusinessError) => {
 
 
 
-##### getLastSyncTime12+
+#### getLastSyncTime12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -498,7 +498,7 @@ fileSync.getLastSyncTime().then((timeStamp: number) => {
 
 
 
-##### getLastSyncTime12+
+#### getLastSyncTime12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -544,7 +544,7 @@ fileSync.getLastSyncTime((err: BusinessError, timeStamp: number) => {
 
 
 
-##### CloudFileCache11+
+#### CloudFileCache11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -554,7 +554,7 @@ fileSync.getLastSyncTime((err: BusinessError, timeStamp: number) => {
 
 
 
-##### construct11+
+#### construct11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -581,7 +581,7 @@ let fileCache = new cloudSync.CloudFileCache();
 
 
 
-##### on('progress')11+
+#### on('progress')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -629,7 +629,7 @@ try {
 
 
 
-##### on('batchDownload')20+
+#### on('batchDownload')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -682,7 +682,7 @@ try {
 
 
 
-##### off('progress')11+
+#### off('progress')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -732,7 +732,7 @@ try {
 
 
 
-##### off('batchDownload')20+
+#### off('batchDownload')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -781,7 +781,7 @@ try {
 
 
 
-##### start11+
+#### start11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -846,7 +846,7 @@ fileCache.start(uri).then(() => {
 
 
 
-##### start11+
+#### start11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -898,7 +898,7 @@ fileCache.start(uri, (err: BusinessError) => {
 
 
 
-##### startBatch20+
+#### startBatch20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -963,7 +963,7 @@ fileCache.startBatch(uriList, cloudSync.DownloadFileType.CONTENT).then((download
 
 
 
-##### stop11+
+#### stop11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1021,7 +1021,7 @@ fileCache.stop(uri, true).then(() => {
 
 
 
-##### stop11+
+#### stop11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1074,7 +1074,7 @@ fileCache.stop(uri, (err: BusinessError) => {
 
 
 
-##### stopBatch20+
+#### stopBatch20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1139,7 +1139,7 @@ if (needStop && taskId > 0) {
 
 
 
-##### cleanFileCache20+
+#### cleanFileCache20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1191,7 +1191,7 @@ try {
 
 
 
-##### DownloadErrorType11+
+#### DownloadErrorType11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1211,7 +1211,7 @@ try {
 
 
 
-##### DownloadFileType20+
+#### DownloadFileType20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1228,7 +1228,7 @@ try {
 
 
 
-##### FailedFileInfo20+
+#### FailedFileInfo20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1244,7 +1244,7 @@ try {
 
 
 
-##### MultiDownloadProgress20+
+#### MultiDownloadProgress20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1252,7 +1252,7 @@ try {
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1272,7 +1272,7 @@ try {
 
 
 
-##### getFailedFiles20+
+#### getFailedFiles20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1332,7 +1332,7 @@ fileCache.startBatch(uriList, cloudSync.DownloadFileType.CONTENT).then((download
 
 
 
-##### getSuccessfulFiles20+
+#### getSuccessfulFiles20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1390,7 +1390,7 @@ fileCache.startBatch(uriList, cloudSync.DownloadFileType.CONTENT).then((download
 
 
 
-##### cloudSync.registerChange12+
+#### cloudSync.registerChange12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1443,7 +1443,7 @@ cloudSync.unregisterChange(uri);
 
 
 
-##### cloudSync.unregisterChange12+
+#### cloudSync.unregisterChange12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1494,7 +1494,7 @@ cloudSync.unregisterChange(uri);
 
 
 
-##### NotifyType12+
+#### NotifyType12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1512,7 +1512,7 @@ cloudSync.unregisterChange(uri);
 
 
 
-##### ChangeData12+
+#### ChangeData12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1529,7 +1529,7 @@ cloudSync.unregisterChange(uri);
 
 
 
-##### HistoryVersion20+
+#### HistoryVersion20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1537,7 +1537,7 @@ cloudSync.unregisterChange(uri);
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1569,7 +1569,7 @@ cloudSync.unregisterChange(uri);
 
 
 
-##### VersionDownloadProgress20+
+#### VersionDownloadProgress20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1577,7 +1577,7 @@ cloudSync.unregisterChange(uri);
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1592,7 +1592,7 @@ cloudSync.unregisterChange(uri);
 
 
 
-##### FileVersion20+
+#### FileVersion20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1600,7 +1600,7 @@ cloudSync.unregisterChange(uri);
 
 
 
-##### construct20+
+#### construct20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1627,7 +1627,7 @@ let fileVersion = new cloudSync.FileVersion();
 
 
 
-##### getHistoryVersionList20+
+#### getHistoryVersionList20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1695,7 +1695,7 @@ fileVersion.getHistoryVersionList(uri, limit).then((versionList: Array<cloudSync
 
 
 
-##### downloadHistoryVersion20+
+#### downloadHistoryVersion20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1768,7 +1768,7 @@ fileVersion.downloadHistoryVersion(uri, versionId, callback).then((fileUri: stri
 
 
 
-##### replaceFileWithHistoryVersion20+
+#### replaceFileWithHistoryVersion20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1849,7 +1849,7 @@ fileVersion.replaceFileWithHistoryVersion(uri, versionUri).then(() => {
 
 
 
-##### isFileConflict20+
+#### isFileConflict20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1910,7 +1910,7 @@ fileVersion.isFileConflict(uri).then((isConflict: boolean) => {
 
 
 
-##### clearFileConflict20+
+#### clearFileConflict20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1976,7 +1976,7 @@ fileVersion.clearFileConflict(uri).then(() => {
 
 
 
-##### cloudSync.getCoreFileSyncState20+
+#### cloudSync.getCoreFileSyncState20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2035,7 +2035,7 @@ try {
 
 
 
-##### FileState20+
+#### FileState20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

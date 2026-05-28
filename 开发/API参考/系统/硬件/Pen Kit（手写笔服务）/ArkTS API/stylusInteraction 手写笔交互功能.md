@@ -12,7 +12,7 @@
 **起始版本：** 5.1.1(19)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { stylusInteraction } from '@kit.Penkit';
  
   
 
-##### stylusInteraction.on('squeeze')
+#### stylusInteraction.on('squeeze')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -58,7 +58,7 @@ try {
  
   
 
-##### stylusInteraction.off('squeeze')
+#### stylusInteraction.off('squeeze')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -93,7 +93,7 @@ try {
  
   
 
-##### stylusInteraction.on('doubleTap')
+#### stylusInteraction.on('doubleTap')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -128,7 +128,7 @@ try {
  
   
 
-##### stylusInteraction.off('doubleTap')
+#### stylusInteraction.off('doubleTap')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -163,7 +163,7 @@ try {
  
   
 
-##### SqueezeEvent
+#### SqueezeEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -182,7 +182,7 @@ try {
  
   
 
-##### DoubleTapEvent
+#### DoubleTapEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { print } from '@kit.BasicServicesKit';
 
 
 
-##### PrintTask
+#### PrintTask
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -30,7 +30,7 @@ import { print } from '@kit.BasicServicesKit';
 
 
 
-##### on
+#### on
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -80,7 +80,7 @@ print.print([fileUri.getUriFromPath(filePath)]).then((printTask: print.PrintTask
 
 
 
-##### on
+#### on
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -130,7 +130,7 @@ print.print([fileUri.getUriFromPath(filePath)]).then((printTask: print.PrintTask
 
 
 
-##### on
+#### on
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -180,7 +180,7 @@ print.print([fileUri.getUriFromPath(filePath)]).then((printTask: print.PrintTask
 
 
 
-##### on
+#### on
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -230,7 +230,7 @@ print.print([fileUri.getUriFromPath(filePath)]).then((printTask: print.PrintTask
 
 
 
-##### off
+#### off
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -280,7 +280,7 @@ print.print([fileUri.getUriFromPath(filePath)]).then((printTask: print.PrintTask
 
 
 
-##### off
+#### off
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -330,7 +330,7 @@ print.print([fileUri.getUriFromPath(filePath)]).then((printTask: print.PrintTask
 
 
 
-##### off
+#### off
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -380,7 +380,7 @@ print.print([fileUri.getUriFromPath(filePath)]).then((printTask: print.PrintTask
 
 
 
-##### off
+#### off
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -430,7 +430,7 @@ print.print([fileUri.getUriFromPath(filePath)]).then((printTask: print.PrintTask
 
 
 
-##### PrintDocumentAdapter11+
+#### PrintDocumentAdapter11+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -438,7 +438,7 @@ print.print([fileUri.getUriFromPath(filePath)]).then((printTask: print.PrintTask
 
 
 
-##### onStartLayoutWrite11+
+#### onStartLayoutWrite11+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -499,7 +499,7 @@ class MyPrintDocumentAdapter implements print.PrintDocumentAdapter {
 
 
 
-##### onJobStateChanged11+
+#### onJobStateChanged11+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -558,7 +558,7 @@ class MyPrintDocumentAdapter implements print.PrintDocumentAdapter {
 
 
 
-##### print.print
+#### print.print
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -611,7 +611,7 @@ print.print([fileUri.getUriFromPath(filePath)], (err: BusinessError, printTask: 
 
 
 
-##### print.print
+#### print.print
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -668,7 +668,7 @@ print.print([fileUri.getUriFromPath(filePath)]).then((printTask: print.PrintTask
 
 
 
-##### print.print11+
+#### print.print11+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -738,7 +738,7 @@ struct Index {
 
 
 
-##### print.print11+
+#### print.print11+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -812,7 +812,7 @@ struct Index {
 
 
 
-##### print.print11+
+#### print.print11+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -901,7 +901,7 @@ struct Index {
 
 
 
-##### PrintAttributes11+
+#### PrintAttributes11+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -923,7 +923,7 @@ struct Index {
 
 
 
-##### PrintPageRange11+
+#### PrintPageRange11+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -942,7 +942,7 @@ struct Index {
 
 
 
-##### PrintPageSize11+
+#### PrintPageSize11+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -962,7 +962,7 @@ struct Index {
 
 
 
-##### PrintDirectionMode11+
+#### PrintDirectionMode11+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -979,7 +979,7 @@ struct Index {
 
 
 
-##### PrintColorMode11+
+#### PrintColorMode11+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -995,7 +995,7 @@ struct Index {
 
 
 
-##### PrintDuplexMode11+
+#### PrintDuplexMode11+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1012,7 +1012,7 @@ struct Index {
 
 
 
-##### PrintPageType11+
+#### PrintPageType11+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1038,7 +1038,7 @@ struct Index {
 
 
 
-##### PrintDocumentAdapterState11+
+#### PrintDocumentAdapterState11+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1057,7 +1057,7 @@ struct Index {
 
 
 
-##### PrintFileCreationState11+
+#### PrintFileCreationState11+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1074,7 +1074,7 @@ struct Index {
 
 
 
-##### PrinterState14+
+#### PrinterState14+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1094,7 +1094,7 @@ struct Index {
 
 
 
-##### PrintJobState14+
+#### PrintJobState14+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1113,7 +1113,7 @@ struct Index {
 
 
 
-##### PrintJobSubState14+
+#### PrintJobSubState14+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1160,7 +1160,7 @@ struct Index {
 
 
 
-##### PrintErrorCode14+
+#### PrintErrorCode14+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1188,7 +1188,7 @@ struct Index {
 
 
 
-##### ApplicationEvent14+
+#### ApplicationEvent14+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1205,7 +1205,7 @@ struct Index {
 
 
 
-##### print.addPrinterToDiscovery14+
+#### print.addPrinterToDiscovery14+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1265,7 +1265,7 @@ print.addPrinterToDiscovery(printerInformation).then(() => {
 
 
 
-##### print.updatePrinterInDiscovery14+
+#### print.updatePrinterInDiscovery14+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1343,7 +1343,7 @@ print.updatePrinterInDiscovery(printerInformation).then(() => {
 
 
 
-##### print.removePrinterFromDiscovery14+
+#### print.removePrinterFromDiscovery14+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1395,7 +1395,7 @@ print.removePrinterFromDiscovery(printerId).then(() => {
 
 
 
-##### print.getPrinterInformationById14+
+#### print.getPrinterInformationById14+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1447,7 +1447,7 @@ print.getPrinterInformationById(printerId).then((printerInformation : print.Prin
 
 
 
-##### PrinterInformation14+
+#### PrinterInformation14+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1475,7 +1475,7 @@ print.getPrinterInformationById(printerId).then((printerInformation : print.Prin
 
 
 
-##### PrinterCapabilities14+
+#### PrinterCapabilities14+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1498,7 +1498,7 @@ print.getPrinterInformationById(printerId).then((printerInformation : print.Prin
 
 
 
-##### PrintQuality14+
+#### PrintQuality14+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1515,7 +1515,7 @@ print.getPrinterInformationById(printerId).then((printerInformation : print.Prin
 
 
 
-##### PrintOrientationMode14+
+#### PrintOrientationMode14+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1534,7 +1534,7 @@ print.getPrinterInformationById(printerId).then((printerInformation : print.Prin
 
 
 
-##### PrinterStatus14+
+#### PrinterStatus14+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1551,7 +1551,7 @@ print.getPrinterInformationById(printerId).then((printerInformation : print.Prin
 
 
 
-##### PrinterPreferences18+
+#### PrinterPreferences18+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1577,7 +1577,7 @@ print.getPrinterInformationById(printerId).then((printerInformation : print.Prin
 
 
 
-##### PrinterEvent18+
+#### PrinterEvent18+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1597,7 +1597,7 @@ print.getPrinterInformationById(printerId).then((printerInformation : print.Prin
 
 
 
-##### DefaultPrinterType18+
+#### DefaultPrinterType18+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1613,7 +1613,7 @@ print.getPrinterInformationById(printerId).then((printerInformation : print.Prin
 
 
 
-##### print.getAddedPrinters18+
+#### print.getAddedPrinters18+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1657,7 +1657,7 @@ print.getAddedPrinters().then((printers: string[]) => {
 
 
 
-##### PrinterChangeCallback18+
+#### PrinterChangeCallback18+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1677,7 +1677,7 @@ type PrinterChangeCallback = (event: PrinterEvent, printerInformation: PrinterIn
 
 
 
-##### print.on18+
+#### print.on18+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1722,7 +1722,7 @@ print.on('printerChange', onPrinterChange);
 
 
 
-##### print.off18+
+#### print.off18+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1768,7 +1768,7 @@ print.off('printerChange');
 
 
 
-##### print.startDiscoverPrinter20+
+#### print.startDiscoverPrinter20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1818,7 +1818,7 @@ print.startDiscoverPrinter(extensionList, (err: BusinessError) => {
 
 
 
-##### print.startDiscoverPrinter20+
+#### print.startDiscoverPrinter20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1872,7 +1872,7 @@ print.startDiscoverPrinter(extensionList).then(() => {
 
 
 
-##### print.stopDiscoverPrinter20+
+#### print.stopDiscoverPrinter20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1917,7 +1917,7 @@ print.stopDiscoverPrinter((err: BusinessError) => {
 
 
 
-##### print.stopDiscoverPrinter20+
+#### print.stopDiscoverPrinter20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1960,7 +1960,7 @@ print.stopDiscoverPrinter().then(() => {
 
 
 
-##### print.connectPrinter20+
+#### print.connectPrinter20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2007,7 +2007,7 @@ print.connectPrinter(printerId, (err: BusinessError) => {
 
 
 
-##### print.connectPrinter20+
+#### print.connectPrinter20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2058,7 +2058,7 @@ print.connectPrinter(printerId).then(() => {
 
 
 
-##### print.startPrint23+
+#### print.startPrint23+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2127,7 +2127,7 @@ print.startPrint(printJobData).then(() => {
 
 
 
-##### PrintDocumentFormat23+
+#### PrintDocumentFormat23+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2149,7 +2149,7 @@ print.startPrint(printJobData).then(() => {
 
 
 
-##### DocFlavor23+
+#### DocFlavor23+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2167,7 +2167,7 @@ print.startPrint(printJobData).then(() => {
 
 
 
-##### PrintJobData23+
+#### PrintJobData23+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2203,7 +2203,7 @@ print.startPrint(printJobData).then(() => {
 
 
 
-##### PrintMargin24+
+#### PrintMargin24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2223,7 +2223,7 @@ print.startPrint(printJobData).then(() => {
 
 
 
-##### PrinterRange24+
+#### PrinterRange24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2242,7 +2242,7 @@ print.startPrint(printJobData).then(() => {
 
 
 
-##### PreviewAttribute24+
+#### PreviewAttribute24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2260,7 +2260,7 @@ print.startPrint(printJobData).then(() => {
 
 
 
-##### PrintResolution24+
+#### PrintResolution24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2279,7 +2279,7 @@ print.startPrint(printJobData).then(() => {
 
 
 
-##### PrinterCapability24+
+#### PrinterCapability24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2301,7 +2301,7 @@ print.startPrint(printJobData).then(() => {
 
 
 
-##### PrinterInfo24+
+#### PrinterInfo24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2324,7 +2324,7 @@ print.startPrint(printJobData).then(() => {
 
 
 
-##### PrintJob24+
+#### PrintJob24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2355,7 +2355,7 @@ print.startPrint(printJobData).then(() => {
 
 
 
-##### print.updatePrintJobState24+
+#### print.updatePrintJobState24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2407,7 +2407,7 @@ print.updatePrintJobState(jobId, state, subState, (err: BusinessError) => {
 
 
 
-##### print.updatePrintJobState24+
+#### print.updatePrintJobState24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2463,7 +2463,7 @@ print.updatePrintJobState(jobId, state, subState).then(() => {
 
 
 
-##### print.updatePrinterInformation24+
+#### print.updatePrinterInformation24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2541,7 +2541,7 @@ print.updatePrinterInformation(printerInformation).then(() => {
 
 
 
-##### PpdInfo24+
+#### PpdInfo24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2562,7 +2562,7 @@ print.updatePrinterInformation(printerInformation).then(() => {
 
 
 
-##### SharedHost24+
+#### SharedHost24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2583,7 +2583,7 @@ print.updatePrinterInformation(printerInformation).then(() => {
 
 
 
-##### print.addPrinter24+
+#### print.addPrinter24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2642,7 +2642,7 @@ print.addPrinter(printerName, uri, ppdName).then(() => {
 
 
 
-##### WatermarkHandleResult24+
+#### WatermarkHandleResult24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2660,7 +2660,7 @@ print.addPrinter(printerName, uri, ppdName).then(() => {
 
 
 
-##### print.WatermarkCallback24+
+#### print.WatermarkCallback24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2682,7 +2682,7 @@ type WatermarkCallback = (jobId: string, fd: number) => void
 
 
 
-##### print.registerWatermarkCallback24+
+#### print.registerWatermarkCallback24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2732,7 +2732,7 @@ try {
 
 
 
-##### print.unregisterWatermarkCallback24+
+#### print.unregisterWatermarkCallback24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2785,7 +2785,7 @@ try {
 
 
 
-##### print.notifyWatermarkComplete24+
+#### print.notifyWatermarkComplete24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

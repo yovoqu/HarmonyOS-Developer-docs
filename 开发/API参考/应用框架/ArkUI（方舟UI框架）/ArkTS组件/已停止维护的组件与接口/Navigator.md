@@ -12,7 +12,7 @@
 
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,13 +20,13 @@
  
   
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### Navigator(deprecated)
+#### Navigator(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -50,7 +50,7 @@ Navigator(value?: {target: string, type?: NavigationType})
  
   
 
-##### Navigator(deprecated)
+#### Navigator(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -66,7 +66,7 @@ Navigator()
  
   
 
-##### NavigationType(deprecated)枚举说明
+#### NavigationType(deprecated)枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -85,13 +85,13 @@ Navigator()
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### active(deprecated)
+#### active(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -116,7 +116,7 @@ active(value: boolean)
  
   
 
-##### params(deprecated)
+#### params(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -141,7 +141,7 @@ params(value: object)
  
   
 
-##### target(deprecated)
+#### target(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -166,7 +166,7 @@ target(value: string)
  
   
 
-##### type(deprecated)
+#### type(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -191,7 +191,7 @@ type(value: NavigationType)
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -277,4 +277,4 @@ struct BackExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/dPC_CaGGSwmTemXcJm-uaA/zh-cn_image_0000002611756245.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024224Z&HW-CC-Expire=86400&HW-CC-Sign=0965FB77C111A81E8BBD9C5E4D666DB8FD7D7A7188973DC6214C489C643A559F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/dPC_CaGGSwmTemXcJm-uaA/zh-cn_image_0000002611756245.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025558Z&HW-CC-Expire=86400&HW-CC-Sign=1FC08C53C145BE415EA231335AFA75C3C10F132C2C1BD44449BB2D648266A7B8)

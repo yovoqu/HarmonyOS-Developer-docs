@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-relational-store-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -52,7 +52,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -72,7 +72,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -159,7 +159,7 @@
  
   
 
-##### 宏定义
+#### 宏定义
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -172,13 +172,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Rdb_SecurityLevel
+#### OH_Rdb_SecurityLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -202,7 +202,7 @@ enum OH_Rdb_SecurityLevel
  
   
 
-##### Rdb_SecurityArea
+#### Rdb_SecurityArea
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -227,7 +227,7 @@ enum Rdb_SecurityArea
  
   
 
-##### Rdb_DBType
+#### Rdb_DBType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -250,7 +250,7 @@ enum Rdb_DBType
  
   
 
-##### Rdb_Tokenizer
+#### Rdb_Tokenizer
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -273,7 +273,7 @@ enum Rdb_Tokenizer
  
   
 
-##### Rdb_DistributedType
+#### Rdb_DistributedType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -294,7 +294,7 @@ enum Rdb_DistributedType
  
   
 
-##### Rdb_ChangeType
+#### Rdb_ChangeType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -316,7 +316,7 @@ enum Rdb_ChangeType
  
   
 
-##### Rdb_SubscribeType
+#### Rdb_SubscribeType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -339,7 +339,7 @@ enum Rdb_SubscribeType
  
   
 
-##### Rdb_SyncMode
+#### Rdb_SyncMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -362,7 +362,7 @@ enum Rdb_SyncMode
  
   
 
-##### Rdb_Progress
+#### Rdb_Progress
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -385,7 +385,7 @@ enum Rdb_Progress
  
   
 
-##### Rdb_ProgressCode
+#### Rdb_ProgressCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -412,13 +412,13 @@ enum Rdb_ProgressCode
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Rdb_SetSemanticIndex()
+#### OH_Rdb_SetSemanticIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -449,7 +449,7 @@ int OH_Rdb_SetSemanticIndex(OH_Rdb_ConfigV2 *config, bool enableSemanticIndex)
  
   
 
-##### OH_Rdb_CreateConfig()
+#### OH_Rdb_CreateConfig()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -476,7 +476,7 @@ OH_Rdb_ConfigV2
  
   
 
-##### OH_Rdb_DestroyConfig()
+#### OH_Rdb_DestroyConfig()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -506,7 +506,7 @@ int OH_Rdb_DestroyConfig(OH_Rdb_ConfigV2 *config)
  
   
 
-##### OH_Rdb_SetDatabaseDir()
+#### OH_Rdb_SetDatabaseDir()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -537,7 +537,7 @@ int OH_Rdb_SetDatabaseDir(OH_Rdb_ConfigV2 *config, const char *databaseDir)
  
   
 
-##### OH_Rdb_SetStoreName()
+#### OH_Rdb_SetStoreName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -568,7 +568,7 @@ int OH_Rdb_SetStoreName(OH_Rdb_ConfigV2 *config, const char *storeName)
  
   
 
-##### OH_Rdb_SetBundleName()
+#### OH_Rdb_SetBundleName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -599,7 +599,7 @@ int OH_Rdb_SetBundleName(OH_Rdb_ConfigV2 *config, const char *bundleName)
  
   
 
-##### OH_Rdb_SetModuleName()
+#### OH_Rdb_SetModuleName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -630,7 +630,7 @@ int OH_Rdb_SetModuleName(OH_Rdb_ConfigV2 *config, const char *moduleName)
  
   
 
-##### OH_Rdb_SetEncrypted()
+#### OH_Rdb_SetEncrypted()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -661,7 +661,7 @@ int OH_Rdb_SetEncrypted(OH_Rdb_ConfigV2 *config, bool isEncrypted)
  
   
 
-##### OH_Rdb_SetSecurityLevel()
+#### OH_Rdb_SetSecurityLevel()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -694,7 +694,7 @@ int OH_Rdb_SetSecurityLevel(OH_Rdb_ConfigV2 *config, int securityLevel)
  
   
 
-##### OH_Rdb_SetArea()
+#### OH_Rdb_SetArea()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -727,7 +727,7 @@ int OH_Rdb_SetArea(OH_Rdb_ConfigV2 *config, int area)
  
   
 
-##### OH_Rdb_SetDbType()
+#### OH_Rdb_SetDbType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -758,7 +758,7 @@ int OH_Rdb_SetDbType(OH_Rdb_ConfigV2 *config, int dbType)
  
   
 
-##### OH_Rdb_SetCustomDir()
+#### OH_Rdb_SetCustomDir()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -789,7 +789,7 @@ int OH_Rdb_SetCustomDir(OH_Rdb_ConfigV2 *config, const char *customDir)
  
   
 
-##### OH_Rdb_SetReadOnly()
+#### OH_Rdb_SetReadOnly()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -820,7 +820,7 @@ int OH_Rdb_SetReadOnly(OH_Rdb_ConfigV2 *config, bool readOnly)
  
   
 
-##### OH_Rdb_SetPlugins()
+#### OH_Rdb_SetPlugins()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -852,7 +852,7 @@ int OH_Rdb_SetPlugins(OH_Rdb_ConfigV2 *config, const char **plugins, int32_t len
  
   
 
-##### OH_Rdb_SetCryptoParam()
+#### OH_Rdb_SetCryptoParam()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -883,7 +883,7 @@ int OH_Rdb_SetCryptoParam(OH_Rdb_ConfigV2 *config, const OH_Rdb_CryptoParam *cry
  
   
 
-##### OH_Rdb_IsTokenizerSupported()
+#### OH_Rdb_IsTokenizerSupported()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -914,7 +914,7 @@ int OH_Rdb_IsTokenizerSupported(Rdb_Tokenizer tokenizer, bool *isSupported)
  
   
 
-##### OH_Rdb_SetTokenizer()
+#### OH_Rdb_SetTokenizer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -945,7 +945,7 @@ int OH_Rdb_SetTokenizer(OH_Rdb_ConfigV2 *config, Rdb_Tokenizer tokenizer)
  
   
 
-##### OH_Rdb_SetPersistent()
+#### OH_Rdb_SetPersistent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -976,7 +976,7 @@ int OH_Rdb_SetPersistent(OH_Rdb_ConfigV2 *config, bool isPersistent)
  
   
 
-##### OH_Rdb_GetSupportedDbType()
+#### OH_Rdb_GetSupportedDbType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1006,7 +1006,7 @@ const int *OH_Rdb_GetSupportedDbType(int *typeCount)
  
   
 
-##### OH_Rdb_CreateValueObject()
+#### OH_Rdb_CreateValueObject()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1033,7 +1033,7 @@ OH_VObject
  
   
 
-##### OH_Rdb_CreateValuesBucket()
+#### OH_Rdb_CreateValuesBucket()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1060,7 +1060,7 @@ OH_VBucket
  
   
 
-##### OH_Rdb_CreatePredicates()
+#### OH_Rdb_CreatePredicates()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1094,7 +1094,7 @@ OH_Predicates
  
   
 
-##### OH_Rdb_GetOrOpen()
+#### OH_Rdb_GetOrOpen()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1125,7 +1125,7 @@ OH_Rdb_Store *OH_Rdb_GetOrOpen(const OH_Rdb_Config *config, int *errCode)
  
   
 
-##### OH_Rdb_CreateOrOpen()
+#### OH_Rdb_CreateOrOpen()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1156,7 +1156,7 @@ OH_Rdb_Store *OH_Rdb_CreateOrOpen(const OH_Rdb_ConfigV2 *config, int *errCode)
  
   
 
-##### OH_Rdb_CloseStore()
+#### OH_Rdb_CloseStore()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1186,7 +1186,7 @@ int OH_Rdb_CloseStore(OH_Rdb_Store *store)
  
   
 
-##### OH_Rdb_DeleteStore()
+#### OH_Rdb_DeleteStore()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1216,7 +1216,7 @@ int OH_Rdb_DeleteStore(const OH_Rdb_Config *config)
  
   
 
-##### OH_Rdb_DeleteStoreV2()
+#### OH_Rdb_DeleteStoreV2()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1248,7 +1248,7 @@ int OH_Rdb_DeleteStoreV2(const OH_Rdb_ConfigV2 *config)
  
   
 
-##### OH_Rdb_Insert()
+#### OH_Rdb_Insert()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1280,7 +1280,7 @@ int OH_Rdb_Insert(OH_Rdb_Store *store, const char *table, OH_VBucket *valuesBuck
  
   
 
-##### OH_Rdb_InsertWithConflictResolution()
+#### OH_Rdb_InsertWithConflictResolution()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1314,7 +1314,7 @@ int OH_Rdb_InsertWithConflictResolution(OH_Rdb_Store *store, const char *table, 
  
   
 
-##### OH_Rdb_BatchInsert()
+#### OH_Rdb_BatchInsert()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1354,7 +1354,7 @@ int OH_Rdb_BatchInsert(OH_Rdb_Store *store, const char *table,const OH_Data_VBuc
  
   
 
-##### OH_Rdb_Update()
+#### OH_Rdb_Update()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1386,7 +1386,7 @@ int OH_Rdb_Update(OH_Rdb_Store *store, OH_VBucket *valuesBucket, OH_Predicates *
  
   
 
-##### OH_Rdb_UpdateWithConflictResolution()
+#### OH_Rdb_UpdateWithConflictResolution()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1420,7 +1420,7 @@ int OH_Rdb_UpdateWithConflictResolution(OH_Rdb_Store *store, OH_VBucket *row, OH
  
   
 
-##### OH_Rdb_Delete()
+#### OH_Rdb_Delete()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1451,7 +1451,7 @@ int OH_Rdb_Delete(OH_Rdb_Store *store, OH_Predicates *predicates)
  
   
 
-##### OH_Rdb_Query()
+#### OH_Rdb_Query()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1484,7 +1484,7 @@ OH_Cursor *OH_Rdb_Query(OH_Rdb_Store *store, OH_Predicates *predicates, const ch
  
   
 
-##### OH_Rdb_Execute()
+#### OH_Rdb_Execute()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1519,7 +1519,7 @@ OH_Rdb_Store
  
   
 
-##### OH_Rdb_ExecuteV2()
+#### OH_Rdb_ExecuteV2()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1558,7 +1558,7 @@ OH_Value_Destroy
  
   
 
-##### OH_Rdb_ExecuteByTrxId()
+#### OH_Rdb_ExecuteByTrxId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1596,7 +1596,7 @@ OH_Rdb_Store
  
   
 
-##### OH_Rdb_ExecuteQuery()
+#### OH_Rdb_ExecuteQuery()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1631,7 +1631,7 @@ OH_Rdb_Store
  
   
 
-##### OH_Rdb_ExecuteQueryV2()
+#### OH_Rdb_ExecuteQueryV2()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1667,7 +1667,7 @@ OH_Rdb_Store
  
   
 
-##### OH_Rdb_BeginTransaction()
+#### OH_Rdb_BeginTransaction()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1697,7 +1697,7 @@ int OH_Rdb_BeginTransaction(OH_Rdb_Store *store)
  
   
 
-##### OH_Rdb_RollBack()
+#### OH_Rdb_RollBack()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1727,7 +1727,7 @@ int OH_Rdb_RollBack(OH_Rdb_Store *store)
  
   
 
-##### OH_Rdb_Commit()
+#### OH_Rdb_Commit()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1757,7 +1757,7 @@ int OH_Rdb_Commit(OH_Rdb_Store *store)
  
   
 
-##### OH_Rdb_BeginTransWithTrxId()
+#### OH_Rdb_BeginTransWithTrxId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1788,7 +1788,7 @@ int OH_Rdb_BeginTransWithTrxId(OH_Rdb_Store *store, int64_t *trxId)
  
   
 
-##### OH_Rdb_RollBackByTrxId()
+#### OH_Rdb_RollBackByTrxId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1819,7 +1819,7 @@ int OH_Rdb_RollBackByTrxId(OH_Rdb_Store *store, int64_t trxId)
  
   
 
-##### OH_Rdb_CommitByTrxId()
+#### OH_Rdb_CommitByTrxId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1854,7 +1854,7 @@ OH_Rdb_Store
  
   
 
-##### OH_Rdb_Backup()
+#### OH_Rdb_Backup()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1889,7 +1889,7 @@ OH_Rdb_Store
  
   
 
-##### OH_Rdb_Restore()
+#### OH_Rdb_Restore()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1920,7 +1920,7 @@ int OH_Rdb_Restore(OH_Rdb_Store *store, const char *databasePath)
  
   
 
-##### OH_Rdb_GetVersion()
+#### OH_Rdb_GetVersion()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1951,7 +1951,7 @@ int OH_Rdb_GetVersion(OH_Rdb_Store *store, int *version)
  
   
 
-##### OH_Rdb_SetVersion()
+#### OH_Rdb_SetVersion()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1986,7 +1986,7 @@ OH_Rdb_Store
  
   
 
-##### OH_Rdb_SetDistributedTables()
+#### OH_Rdb_SetDistributedTables()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2024,7 +2024,7 @@ OH_Rdb_Store
  
   
 
-##### OH_Rdb_FindModifyTime()
+#### OH_Rdb_FindModifyTime()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2057,7 +2057,7 @@ OH_Cursor *OH_Rdb_FindModifyTime(OH_Rdb_Store *store, const char *tableName, con
  
   
 
-##### Rdb_BriefObserver()
+#### Rdb_BriefObserver()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2082,7 +2082,7 @@ typedef void (*Rdb_BriefObserver)(void *context, const char *values[], uint32_t 
  
   
 
-##### Rdb_DetailsObserver()
+#### Rdb_DetailsObserver()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2107,7 +2107,7 @@ typedef void (*Rdb_DetailsObserver)(void *context, const Rdb_ChangeInfo **change
  
   
 
-##### OH_Rdb_Subscribe()
+#### OH_Rdb_Subscribe()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2139,7 +2139,7 @@ int OH_Rdb_Subscribe(OH_Rdb_Store *store, Rdb_SubscribeType type, const Rdb_Data
  
   
 
-##### OH_Rdb_Unsubscribe()
+#### OH_Rdb_Unsubscribe()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2171,7 +2171,7 @@ int OH_Rdb_Unsubscribe(OH_Rdb_Store *store, Rdb_SubscribeType type, const Rdb_Da
  
   
 
-##### OH_Rdb_GetTableDetails()
+#### OH_Rdb_GetTableDetails()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2206,7 +2206,7 @@ Rdb_TableDetails
  
   
 
-##### Rdb_ProgressCallback()
+#### Rdb_ProgressCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2230,7 +2230,7 @@ typedef void (*Rdb_ProgressCallback)(void *context, Rdb_ProgressDetails *progres
  
   
 
-##### Rdb_SyncCallback()
+#### Rdb_SyncCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2253,7 +2253,7 @@ typedef void (*Rdb_SyncCallback)(Rdb_ProgressDetails *progressDetails)
  
   
 
-##### OH_Rdb_CloudSync()
+#### OH_Rdb_CloudSync()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2287,7 +2287,7 @@ int OH_Rdb_CloudSync(OH_Rdb_Store *store, Rdb_SyncMode mode, const char *tables[
  
   
 
-##### OH_Rdb_SubscribeAutoSyncProgress()
+#### OH_Rdb_SubscribeAutoSyncProgress()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2320,7 +2320,7 @@ int OH_Rdb_SubscribeAutoSyncProgress(OH_Rdb_Store *store, const Rdb_ProgressObse
  
   
 
-##### OH_Rdb_UnsubscribeAutoSyncProgress()
+#### OH_Rdb_UnsubscribeAutoSyncProgress()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2351,7 +2351,7 @@ int OH_Rdb_UnsubscribeAutoSyncProgress(OH_Rdb_Store *store, const Rdb_ProgressOb
  
   
 
-##### OH_Rdb_LockRow()
+#### OH_Rdb_LockRow()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2382,7 +2382,7 @@ int OH_Rdb_LockRow(OH_Rdb_Store *store, OH_Predicates *predicates)
  
   
 
-##### OH_Rdb_UnlockRow()
+#### OH_Rdb_UnlockRow()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2413,7 +2413,7 @@ int OH_Rdb_UnlockRow(OH_Rdb_Store *store, OH_Predicates *predicates)
  
   
 
-##### OH_Rdb_QueryLockedRow()
+#### OH_Rdb_QueryLockedRow()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2446,7 +2446,7 @@ OH_Cursor *OH_Rdb_QueryLockedRow(OH_Rdb_Store *store, OH_Predicates *predicates,
  
   
 
-##### OH_Rdb_CreateTransaction()
+#### OH_Rdb_CreateTransaction()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2478,7 +2478,7 @@ int OH_Rdb_CreateTransaction(OH_Rdb_Store *store, const OH_RDB_TransOptions *opt
  
   
 
-##### OH_Rdb_Attach()
+#### OH_Rdb_Attach()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2512,7 +2512,7 @@ int OH_Rdb_Attach(OH_Rdb_Store *store, const OH_Rdb_ConfigV2 *config, const char
  
   
 
-##### OH_Rdb_Detach()
+#### OH_Rdb_Detach()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2545,7 +2545,7 @@ int OH_Rdb_Detach(OH_Rdb_Store *store, const char *attachName, int64_t waitTime,
  
   
 
-##### OH_Rdb_SetLocale()
+#### OH_Rdb_SetLocale()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2576,7 +2576,7 @@ int OH_Rdb_SetLocale(OH_Rdb_Store *store, const char *locale)
  
   
 
-##### OH_Rdb_RekeyEx()
+#### OH_Rdb_RekeyEx()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2617,7 +2617,7 @@ int OH_Rdb_RekeyEx(OH_Rdb_Store *store, OH_Rdb_CryptoParam *param)
  
   
 
-##### Rdb_CorruptedHandler()
+#### Rdb_CorruptedHandler()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2642,7 +2642,7 @@ typedef void (*Rdb_CorruptedHandler)(void *context, OH_Rdb_ConfigV2 *config, OH_
  
   
 
-##### OH_Rdb_RegisterCorruptedHandler()
+#### OH_Rdb_RegisterCorruptedHandler()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2678,7 +2678,7 @@ int OH_Rdb_RegisterCorruptedHandler(const OH_Rdb_ConfigV2 *config, void *context
  
   
 
-##### OH_Rdb_UnregisterCorruptedHandler()
+#### OH_Rdb_UnregisterCorruptedHandler()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2712,7 +2712,7 @@ handler和context必须要和订阅时保持一致，否则取消失败。
  
   
 
-##### OH_Rdb_QueryWithoutRowCount()
+#### OH_Rdb_QueryWithoutRowCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2745,7 +2745,7 @@ OH_Cursor *OH_Rdb_QueryWithoutRowCount(OH_Rdb_Store *store, OH_Predicates *predi
  
   
 
-##### OH_Rdb_QuerySqlWithoutRowCount()
+#### OH_Rdb_QuerySqlWithoutRowCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2777,7 +2777,7 @@ OH_Cursor *OH_Rdb_QuerySqlWithoutRowCount(OH_Rdb_Store *store, const char *sql, 
  
   
 
-##### OH_Rdb_BatchInsertWithReturning()
+#### OH_Rdb_BatchInsertWithReturning()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2819,7 +2819,7 @@ int OH_Rdb_BatchInsertWithReturning(OH_Rdb_Store *store, const char *table, cons
  
   
 
-##### OH_Rdb_UpdateWithReturning()
+#### OH_Rdb_UpdateWithReturning()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2853,7 +2853,7 @@ int OH_Rdb_UpdateWithReturning(OH_Rdb_Store *store, OH_VBucket *row, OH_Predicat
  
   
 
-##### OH_Rdb_DeleteWithReturning()
+#### OH_Rdb_DeleteWithReturning()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -12,7 +12,7 @@
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -43,7 +43,7 @@ Marquee(options: MarqueeOptions)
 
 
 
-##### MarqueeOptions18+对象说明
+#### MarqueeOptions18+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -68,7 +68,7 @@ Marquee初始化参数。
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -76,7 +76,7 @@ Marquee初始化参数。
 
 
 
-##### fontColor
+#### fontColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -99,7 +99,7 @@ fontColor(value: ResourceColor)
 
 
 
-##### fontSize
+#### fontSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -122,7 +122,7 @@ fontSize(value: Length)
 
 
 
-##### fontWeight
+#### fontWeight
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -145,7 +145,7 @@ fontWeight(value: number | FontWeight | string)
 
 
 
-##### fontFamily
+#### fontFamily
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -168,7 +168,7 @@ fontFamily(value: string | Resource)
 
 
 
-##### allowScale
+#### allowScale
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -191,7 +191,7 @@ allowScale(value: boolean)
 
 
 
-##### marqueeUpdateStrategy12+
+#### marqueeUpdateStrategy12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -212,13 +212,13 @@ marqueeUpdateStrategy(value: MarqueeUpdateStrategy)
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### onStart
+#### onStart
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -241,7 +241,7 @@ onStart(event: () => void)
 
 
 
-##### onBounce
+#### onBounce
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -264,7 +264,7 @@ onBounce(event: () => void)
 
 
 
-##### onFinish
+#### onFinish
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -287,7 +287,7 @@ onFinish(event: () => void)
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -374,4 +374,4 @@ struct MarqueeExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/4zCtYjbURb6-x8u6Ou_9lg/zh-cn_image_0000002611835875.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024223Z&HW-CC-Expire=86400&HW-CC-Sign=12D7B0158E40D421E53E0271006E9AEE51FB0BAC8F6365DC0D442BEA17AFBCFC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/4zCtYjbURb6-x8u6Ou_9lg/zh-cn_image_0000002611835875.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025556Z&HW-CC-Expire=86400&HW-CC-Sign=C03CDBBD9C1FD4B9BEF14F267345B6AAA77A07BC80AADEAACD6C4C3CD3867503)

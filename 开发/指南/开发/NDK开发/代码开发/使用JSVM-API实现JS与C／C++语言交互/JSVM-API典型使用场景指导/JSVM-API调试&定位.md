@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/jsvm-debugger-cpuprofiler-heapsnapshot
 
-## JSVM-API调试&定位
+# JSVM-API调试&定位
    
 
 JSVM，即标准JS引擎，是严格遵守ECMAScript规范的JavaScript代码执行引擎。详情参考：[JSVM](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-jsvm)。
@@ -27,11 +27,11 @@ JSVM，即标准JS引擎，是严格遵守ECMAScript规范的JavaScript代码执
 本文将介绍调试方法、CPU Profiler使用方法和Heap Snapshot使用方法。
 
 
-##### 调试能力使用方法
+#### 调试能力使用方法
 
 
 
-##### 使用 OH_JSVM_OpenInspector
+#### 使用 OH_JSVM_OpenInspector
 1. 在应用工程配置文件module.json中配置网络权限：
 
   
@@ -147,7 +147,7 @@ void TestJSVM() {
 
 
 
-##### 使用 OH_JSVM_OpenInspectorWithName
+#### 使用 OH_JSVM_OpenInspectorWithName
 1. 在应用工程配置文件module.json中配置网络权限：
 
   
@@ -189,7 +189,7 @@ static void EnableInspector(JSVM_Env env) {
 
 
 
-##### 使用 Chrome inspect 页面进行调试
+#### 使用 Chrome inspect 页面进行调试
 
 推荐通过Chrome浏览器的 chrome://inspect/#devices 页面进行调试。方法如下：
 1. Chrome浏览器中打开 chrome://inspect/#devices，勾选以下内容：
@@ -218,7 +218,7 @@ static void EnableInspector(JSVM_Env env) {
 
 
 
-##### 使用 websocket 端口进行调试
+#### 使用 websocket 端口进行调试
 
 除了使用上述Chrome inspect页面和打开 "devtoolsFrontendUrl" 字段url的方法通过网页端 chrome devtools 调试代码之外，如果读者了解如何使用 CDP 协议代替网页端 devtools 功能，也可以通过连接 inspector 提供的 websocket 端口进行调试。
 
@@ -228,24 +228,24 @@ CDP 协议可以参考 chrome 的[官方文档](https://chromedevtools.github.io
 
 
 
-##### CPU Profiler及Heap Snapshot使用方法
+#### CPU Profiler及Heap Snapshot使用方法
 
 
 
-##### CPU Profiler接口使用方法
+#### CPU Profiler接口使用方法
 1. 在执行JS代码之前，调用OH_JSVM_StartCpuProfiler开始采样并返回JSVM_CpuProfiler。
 2. 在执行JS代码后，调用OH_JSVM_StopCpuProfiler，传入1中返回的JSVM_CpuProfiler，传入输出流回调及输出流指针。数据将会写入指定的输出流中。
 3. 输出数据为JSON字符串。可存入.cpuprofile文件中。该文件类型可导入Chrome浏览器-DevTools-JavaScript Profiler工具中解析成性能分析视图。
 
 
 
-##### Heap Snapshot接口使用方法
+#### Heap Snapshot接口使用方法
 1. 为分析某段JS代码的堆对象创建情况，可在执行JS代码前后，分别调用一次OH_JSVM_TakeHeapSnapshot。传入输出流回调及输出流指针。数据将会写入指定的输出流中。
 2. 输出数据可存入.heapsnapshot文件中。该文件类型可导入Chrome浏览器-DevTools-Memory工具中解析成内存分析视图。
 
 
 
-##### 示例代码
+#### 示例代码
 
 JSVM-API接口开发流程参考[使用JSVM-API实现JS与C/C++语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-process)，本文仅对接口对应C++相关代码进行展示。
 

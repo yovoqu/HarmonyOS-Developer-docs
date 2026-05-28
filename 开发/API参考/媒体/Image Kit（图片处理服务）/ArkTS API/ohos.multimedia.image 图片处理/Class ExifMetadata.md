@@ -14,7 +14,7 @@ Exif（Exchangeable image file format）元数据。
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { image } from '@kit.ImageKit';
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -180,7 +180,7 @@ import { image } from '@kit.ImageKit';
  
   
 
-##### createInstance
+#### createInstance
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -212,7 +212,7 @@ async function exifMetadataCreateInstance(context: Context) {
  
   
 
-##### getProperties
+#### getProperties
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -280,7 +280,7 @@ async function exifMetadataGetProperties(context: Context) {
  
   
 
-##### setProperties
+#### setProperties
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -352,7 +352,7 @@ async function exifMetadataSetProperties(context: Context) {
  
   
 
-##### getAllProperties
+#### getAllProperties
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -404,7 +404,7 @@ async function exifMetadataGetAllProperties(context: Context) {
  
   
 
-##### clone
+#### clone
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -455,7 +455,7 @@ async function exifMetadataClone(context: Context) {
  
   
 
-##### getBlob
+#### getBlob
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -501,7 +501,7 @@ async function exifMetadataGetBlob(context: Context) {
  
   
 
-##### setBlob
+#### setBlob
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

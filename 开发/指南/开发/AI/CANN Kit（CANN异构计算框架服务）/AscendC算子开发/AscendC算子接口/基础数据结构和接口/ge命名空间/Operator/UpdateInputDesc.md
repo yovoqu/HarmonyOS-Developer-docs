@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-updateinputdesc
 
-##### 函数功能
+#### 函数功能
 
 根据算子Input名称更新Input的TensorDesc。
  
   
 
-##### 函数原型
+#### 函数原型
 
 > [!NOTE]
 > 数据类型为string的接口后续版本会废弃，建议使用数据类型为非string的接口。
@@ -23,7 +23,7 @@ graphStatus UpdateInputDesc(const char_t *name, const TensorDesc &tensor_desc);
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数名 | 输入/输出 | 描述 |
 | --- | --- | --- |
@@ -33,7 +33,7 @@ graphStatus UpdateInputDesc(const char_t *name, const TensorDesc &tensor_desc);
  
   
 
-##### 返回值
+#### 返回值
  
 | 类型 | 描述 |
 | --- | --- |
@@ -42,7 +42,7 @@ graphStatus UpdateInputDesc(const char_t *name, const TensorDesc &tensor_desc);
  
   
 
-##### 异常处理
+#### 异常处理
  
 | 异常场景 | 说明 |
 | --- | --- |
@@ -51,6 +51,6 @@ graphStatus UpdateInputDesc(const char_t *name, const TensorDesc &tensor_desc);
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

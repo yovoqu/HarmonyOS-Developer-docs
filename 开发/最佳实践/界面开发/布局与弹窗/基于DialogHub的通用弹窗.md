@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-hadss_dialoghub
 
-##### 概述
+#### 概述
 
 在HarmonyOS开发中，弹窗是每个应用都会遇到的场景，其重要性不容忽视。一方面，弹窗可以作为一种即时反馈机制，向用户传递重要的信息或提示，如登录提示、网络请求状态、操作确认等。这些弹窗通常具有模态或半模态特性，能够暂时阻断用户的其他操作，确保用户能够注意到并处理这些信息。另一方面，弹窗还可以用于展示广告、推广内容或引导用户进行下一步操作。例如，在App首页或某些关键页面，通过弹窗展示全屏广告或引导用户参与某项活动，可以有效地提升用户参与度。为了方便开发者在HarmonyOS上高效使用不同的弹窗能力，DialogHub解决方案应运而生。
  
@@ -34,7 +34,7 @@ DialogHub作为ArkUI弹窗能力的解决方案，提供了以下功能特性：
  
  
 
-##### 实现原理
+#### 实现原理
 
 - **弹窗能力****：**基于ArkUI框架中的OverlayManager和BindSheet能力实现。[OverlayManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-overlaymanager)为弹窗提供一个可以覆盖在其他UI元素之上的显示层，而[BindSheet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition#bindsheet)则支持将弹窗与特定的页面或组件绑定，实现更精细的控制。
 - **页面级弹窗控制：**通过[UIObserver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uiobserver)实时监听应用内的路由变化，当路由发生变化时，触发相应的回调，从而允许DialogHub根据当前页面的状态来决定是否显示或隐藏弹窗。
@@ -42,7 +42,7 @@ DialogHub作为ArkUI弹窗能力的解决方案，提供了以下功能特性：
  
  
 
-##### 开发流程
+#### 开发流程
 
 **前提**
  
@@ -56,7 +56,7 @@ DialogHub.init(this.getUIContext());
  
  
 
-##### 弹窗能力开发流程
+#### 弹窗能力开发流程
 
 通过DialogHub直接创建弹窗然后进行显示或者销毁。
  1. **获取弹窗构造器：**
@@ -110,7 +110,7 @@ dialog.dismiss()
  
  
 
-##### 模板复用能力开发流程
+#### 模板复用能力开发流程
 
 开发者自定义模板并注册到模板库中，便于后续复用。
  1. **创建弹窗模板构造器：**
@@ -195,11 +195,11 @@ DialogHub.isTemplateExist('SimpleToast')
  
  
 
-##### 常见业务弹窗
+#### 常见业务弹窗
 
  
 
-##### 纯文本有持续时间的提示窗
+#### 纯文本有持续时间的提示窗
 
 一个简单的文本Toast弹窗，到达指定时间后消失。setDuration()设置Toast持续时间。
  
@@ -218,7 +218,7 @@ DialogHub.getToast()
  
  
 
-##### 指定位置弹窗的非模态弹窗
+#### 指定位置弹窗的非模态弹窗
 
 在屏幕底部弹出SnackBar，该弹窗可以响应用户点击跳转页面或者关闭弹窗。
  
@@ -248,7 +248,7 @@ this.specifiedLocationDialog.show();
  
  
 
-##### 会定时消失且带弹出动效的弹窗
+#### 会定时消失且带弹出动效的弹窗
 
 实现一个定时弹窗，6s自动关闭。
  
@@ -292,7 +292,7 @@ intervalID = setInterval(() => {
  
  
 
-##### 会避让键盘的弹窗
+#### 会避让键盘的弹窗
 
 通过setConfig()的keyboardAvoidMode可以配置避让模式，CustomKeyboardAvoidMode.CONTENT_AVOID为弹窗内容避让。
  
@@ -323,7 +323,7 @@ this.avoidKeyboardDialog.show();
  
  
 
-##### 指向选定组件的带箭头弹窗
+#### 指向选定组件的带箭头弹窗
 
 通过getPopup()构造Popup弹窗实例，setStyle()中enableArrow、arrowOffset、arrowWidth、arrowHeight可配置箭头属性；
  
@@ -360,7 +360,7 @@ DialogHub.getPopup()
  
  
 
-##### 点击蒙层自动关闭的弹窗
+#### 点击蒙层自动关闭的弹窗
 
 弹出此类型弹窗需要打开isModal蒙层开关，并将autoDismiss设置为true
  
@@ -378,7 +378,7 @@ this.maskCloseDialog.show();
  
  
 
-##### 可主动关闭的弹窗
+#### 可主动关闭的弹窗
 
 能够通过点击弹窗按钮关闭弹窗，设置弹窗Content时，调用setOperableContent()，并将DialogHub的Dismiss事件作为参数传递给Builder。
  
@@ -409,7 +409,7 @@ this.activelyCloseDialog.show();
  
  
 
-##### 能够动态调整高度的底部弹窗
+#### 能够动态调整高度的底部弹窗
 
 实现动态调整弹窗高度，不同高度展示不同弹窗内容。
  
@@ -457,7 +457,7 @@ this.adjustSheetDialog.addLifeCycleListener({
  
  
 
-##### 应用感知弹窗的打开、关闭
+#### 应用感知弹窗的打开、关闭
 
 - 对弹窗实例增加生命周期，拦截弹窗的展示与销毁。
 ```ArkTS
@@ -489,11 +489,11 @@ this.sensorDialog?.getStatus();
  
  
 
-##### 弹窗与周边的交互
+#### 弹窗与周边的交互
 
  
 
-##### 弹窗存在时如何定义返回手势是退出页面或关闭弹窗
+#### 弹窗存在时如何定义返回手势是退出页面或关闭弹窗
 
 配置状态变量backCloseDialog，设置true表示返回手势作用于弹窗，false表示作用于页面。
  
@@ -518,7 +518,7 @@ this.sensorDialog?.getStatus();
  
  
 
-##### 用户可以透过弹窗内容操作页面
+#### 用户可以透过弹窗内容操作页面
 
 弹出Toast类型的弹窗，或者主动调用setConfig()设置passThroughGesture为true，可实现弹窗内容透传手势。
  
@@ -551,7 +551,7 @@ DialogHub.createCustomTemplate(CommonConstant.CUSTOM_TEMPLATE_SIMPLE)
  
  
 
-##### 需要向页面返回数据的弹窗
+#### 需要向页面返回数据的弹窗
 
 给Builder参数传递修改页面数据的回调函数，在Builder里面进行调用。
  
@@ -581,7 +581,7 @@ this.returnDataDialog.show();
  
  
 
-##### 父页面刷新正在展示的弹窗内容
+#### 父页面刷新正在展示的弹窗内容
 
 修改Builder参数内容，再调用updateContent()进行修改。
  
@@ -611,7 +611,7 @@ this.intervalID = setInterval(() => {
  
  
 
-##### 页面需要感知当前页面是否存在弹窗
+#### 页面需要感知当前页面是否存在弹窗
 
 DialogHub注册页面弹窗数监听，当前页面弹窗数量发生变化会触发。
  
@@ -625,7 +625,7 @@ DialogHub.addEventListener({
  
  
 
-##### 存在跳转链接的弹窗
+#### 存在跳转链接的弹窗
 
 点击弹窗上特定内容，跳转到其他页面。
  
@@ -650,7 +650,7 @@ this.skipDialog?.show();
  
  
 
-##### 折叠屏展开态不同位置的弹窗
+#### 折叠屏展开态不同位置的弹窗
 
 弹窗默认在屏幕中间；通过设置弹窗偏移量可以在不同位置进行弹窗。
  
@@ -690,11 +690,11 @@ this.skipDialog?.show();
  
  
 
-##### 弹窗内容复用场景
+#### 弹窗内容复用场景
 
  
 
-##### 通过自定义弹窗模版进行弹窗
+#### 通过自定义弹窗模版进行弹窗
 
 - 创建弹窗模板
 ```ArkTS
@@ -737,7 +737,7 @@ DialogHub.getToastTemplate(CommonConstant.MY_TEMPLATE_NAME)?.setAnimation({
  
  
 
-##### 定义一个可复用的弹窗
+#### 定义一个可复用的弹窗
 
 将弹窗实例对象记录，下次弹窗复用。
  
@@ -756,11 +756,11 @@ this.originalTemplateDialog?.show();
  
  
 
-##### 多个弹窗并存场景
+#### 多个弹窗并存场景
 
  
 
-##### 新弹窗被已有弹窗抑制
+#### 新弹窗被已有弹窗抑制
 
 - **弹窗A弹出时抑制弹窗B的弹出**可以通过弹窗A对象的getStatus()方法获取弹窗A的状态，以判断是否允许弹窗B弹出。
 
@@ -786,7 +786,7 @@ if (DialogHub.getCurrentPageDialogs().length === 0) {
  
  
 
-##### 开发者可以控制弹窗层级实现弹窗的相互覆盖
+#### 开发者可以控制弹窗层级实现弹窗的相互覆盖
 
 - 设置弹窗层级setLayerIndex()
 ```ArkTS
@@ -824,11 +824,11 @@ this.createMessageBuilder(CommonConstant.DIALOG_H, CommonConstant.DIALOG_H_CONTE
  
  
 
-##### 常见问题
+#### 常见问题
 
  
 
-##### 如何处理弹窗的获焦问题
+#### 如何处理弹窗的获焦问题
 
 - 对于Sheet类别的弹窗，弹窗弹出后的焦点行为与系统BindSheet保持一致；
 - DialogHub提供的其他类别弹窗，如CustomDialog，在弹窗弹出时父页面的焦点默认不会转移到弹窗上。开发者可以配置弹窗的requestFocusWhenShow属性实现：弹窗弹出时，将页面的焦点转移到弹窗中。进而实现[会避让键盘的弹窗](#section395448164119)的效果。
@@ -836,7 +836,7 @@ this.createMessageBuilder(CommonConstant.DIALOG_H, CommonConstant.DIALOG_H_CONTE
  
  
 
-##### Popup绑定组件，id报错
+#### Popup绑定组件，id报错
 
 [组件标识id](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-component-id#id)需要开发者保证唯一性。setComponentTargetId()设置绑定的组件id后，如果id有问题，会导致在show的时候报错且弹窗位置异常。
  
@@ -845,19 +845,19 @@ this.createMessageBuilder(CommonConstant.DIALOG_H, CommonConstant.DIALOG_H_CONTE
  
  
 
-##### 调用build()与show()接口后，无法继续添加属性
+#### 调用build()与show()接口后，无法继续添加属性
 
 调用build()接口后返回的是Dialog实例，只提供更新配置的接口。
  
  
 
-##### removeTemplate()后，使用模板创建的弹窗实例可以继续显示
+#### removeTemplate()后，使用模板创建的弹窗实例可以继续显示
 
 删除模板不影响之前通过模板已经创建的弹窗的显示和相关调用。
  
  
 
-##### 调用isTemplateExist()判断模板存在，getxxxTemplate模板报错50000003
+#### 调用isTemplateExist()判断模板存在，getxxxTemplate模板报错50000003
 
 模板创建和获取时，需要保证弹窗类型一致，否则无法获取模板并报错，错误码50000003。
  
@@ -865,19 +865,19 @@ this.createMessageBuilder(CommonConstant.DIALOG_H, CommonConstant.DIALOG_H_CONTE
  
  
 
-##### Toast弹窗置顶策略
+#### Toast弹窗置顶策略
 
 Toast弹窗默认为置顶弹窗，且置顶冲突策略为TopDialogPriority.NEW_FIRST。
  
  
 
-##### 键盘避让模式变化
+#### 键盘避让模式变化
 
 在使用DialogHub进行弹窗后，会将页面键盘避让模式修改为RESIZE，当页面无弹窗或者页面跳转时，避让模式还原。
  
  
 
-##### 弹窗如何处理用户的返回手势
+#### 弹窗如何处理用户的返回手势
 
 开发者可以通过Dialoghub.init(xxx，xx)设置不同的[弹窗模式](https://gitcode.com/openharmony-sig/dialoghub/blob/master/docs/Reference.md#dialogmode枚举说明)，不同的模式下处理措施不同。
  
@@ -897,6 +897,6 @@ Toast弹窗默认为置顶弹窗，且置顶冲突策略为TopDialogPriority.NEW
  
  
 
-##### 示例代码
+#### 示例代码
 
 - [基于DialogHub实现通用弹窗库案例](https://gitcode.com/harmonyos_samples/DialogHub)

@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hitracechain-guidelines-ndk
 
-##### 接口说明
+#### 接口说明
 
 分布式跟踪接口由HiTraceChain模块提供，详细API请参考[trace.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-trace-h)。
 
@@ -43,7 +43,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 std::thread不支持自动传递HiTraceId，开发示例展示了该场景下分布式跟踪的使用方法。开发者可参考[约束与限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hitracechain-intro#约束与限制)，了解常见的支持与不支持HiTraceChain自动传递的机制。
 1. 在DevEco Studio中新建工程，选择“Native C++”，工程的目录结构如下：

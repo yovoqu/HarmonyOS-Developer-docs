@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-interface-focus-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -25,13 +25,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -42,7 +42,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -57,13 +57,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### ArkUI_KeyProcessingMode
+#### ArkUI_KeyProcessingMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -85,13 +85,13 @@ enum ArkUI_KeyProcessingMode
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_ArkUI_FocusRequest()
+#### OH_ArkUI_FocusRequest()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -121,7 +121,7 @@ ArkUI_ErrorCode OH_ArkUI_FocusRequest(ArkUI_NodeHandle node)
  
   
 
-##### OH_ArkUI_FocusClear()
+#### OH_ArkUI_FocusClear()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -144,7 +144,7 @@ void OH_ArkUI_FocusClear(ArkUI_ContextHandle uiContext)
  
   
 
-##### OH_ArkUI_FocusActivate()
+#### OH_ArkUI_FocusActivate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -169,7 +169,7 @@ void OH_ArkUI_FocusActivate(ArkUI_ContextHandle uiContext, bool isActive, bool i
  
   
 
-##### OH_ArkUI_FocusSetAutoTransfer()
+#### OH_ArkUI_FocusSetAutoTransfer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -193,7 +193,7 @@ void OH_ArkUI_FocusSetAutoTransfer(ArkUI_ContextHandle uiContext, bool autoTrans
  
   
 
-##### OH_ArkUI_FocusSetKeyProcessingMode()
+#### OH_ArkUI_FocusSetKeyProcessingMode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

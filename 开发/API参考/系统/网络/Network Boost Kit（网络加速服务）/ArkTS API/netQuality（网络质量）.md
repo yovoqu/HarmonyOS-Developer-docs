@@ -10,7 +10,7 @@
 **起始版本：** 5.0.0(12)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -20,7 +20,7 @@ import { netQuality } from '@kit.NetworkBoostKit';
  
   
 
-##### netQuality.on( 'netQosChange')
+#### netQuality.on( 'netQosChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -74,7 +74,7 @@ try {
  
   
 
-##### netQuality.off( 'netQosChange')
+#### netQuality.off( 'netQosChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -121,7 +121,7 @@ try {
  
   
 
-##### netQuality.on( 'netSceneChange')
+#### netQuality.on( 'netSceneChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -178,7 +178,7 @@ try {
  
   
 
-##### netQuality.off( 'netSceneChange')
+#### netQuality.off( 'netSceneChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -225,7 +225,7 @@ try {
  
   
 
-##### netQuality.reportQoe
+#### netQuality.reportQoe
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -277,7 +277,7 @@ try {
  
   
 
-##### AppQoe
+#### AppQoe
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -295,7 +295,7 @@ try {
  
   
 
-##### NetworkQos
+#### NetworkQos
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -319,7 +319,7 @@ try {
  
   
 
-##### PathType
+#### PathType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -339,7 +339,7 @@ try {
  
   
 
-##### RateBps
+#### RateBps
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -358,7 +358,7 @@ type RateBps = number
  
   
 
-##### ServiceType
+#### ServiceType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -400,7 +400,7 @@ type ServiceType = 'default' | 'background' | 'realtimeVoice' | 'realtimeVideo' 
  
   
 
-##### QoeType
+#### QoeType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -420,7 +420,7 @@ type QoeType = 'good' | BadQoeCause
  
   
 
-##### BadQoeCause
+#### BadQoeCause
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -445,7 +445,7 @@ type BadQoeCause = 'unknown' | 'serverErr' | 'noData' | 'packetLost' | 'packetOu
  
   
 
-##### 速率带宽级别
+#### 速率带宽级别
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -466,7 +466,7 @@ type BadQoeCause = 'unknown' | 'serverErr' | 'noData' | 'packetLost' | 'packetOu
  
   
 
-##### NetworkScene
+#### NetworkScene
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -486,7 +486,7 @@ type BadQoeCause = 'unknown' | 'serverErr' | 'noData' | 'packetLost' | 'packetOu
  
   
 
-##### WeakSignalPrediction
+#### WeakSignalPrediction
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -505,7 +505,7 @@ type BadQoeCause = 'unknown' | 'serverErr' | 'noData' | 'packetLost' | 'packetOu
  
   
 
-##### Scene
+#### Scene
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -527,7 +527,7 @@ type Scene = 'normal' | 'congestion' | 'frequentHandover' | 'weakSignal'
  
   
 
-##### DataSpeedSimpleAction
+#### DataSpeedSimpleAction
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -549,7 +549,7 @@ type DataSpeedSimpleAction = 'suspendData' | 'decreaseData' | 'increaseData' | '
  
   
 
-##### RecommendedAction
+#### RecommendedAction
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

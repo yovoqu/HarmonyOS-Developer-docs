@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/access-control-by-device-and-data-level
 
-##### 基本概念
+#### 基本概念
 
 分布式数据管理对数据实施分类分级保护，提供基于数据安全标签以及设备安全等级的访问控制机制。
 
@@ -12,7 +12,7 @@
 
 
 
-##### 数据安全标签
+#### 数据安全标签
 
 按照数据分类分级规范要求，可将数据分为S1、S2、S3、S4四个安全等级。
 
@@ -26,7 +26,7 @@
 
 
 
-##### 设备安全等级
+#### 设备安全等级
 
 根据设备安全能力，比如是否有TEE、是否有安全存储芯片等，将设备安全等级分为SL1、SL2、SL3、SL4、SL5五个等级。例如，手表通常为低安全的SL1设备，手机、平板通常为高安全的SL4设备。
 
@@ -34,7 +34,7 @@
 
 
 
-##### 跨设备同步访问控制机制
+#### 跨设备同步访问控制机制
 
 数据跨设备同步时，基于数据安全标签和设备安全等级进行访问控制。数据库的数据安全标签不高于对端设备的设备安全等级时，数据才能同步。具体访问控制矩阵如下：
 
@@ -51,13 +51,13 @@
 
 
 
-##### 场景介绍
+#### 场景介绍
 
 分布式数据库的访问控制机制确保了数据存储和同步时的安全能力。在创建数据库时，应当基于数据分类分级规范合理地设置数据库的安全标签，确保数据库内容和数据标签的一致性。
 
 
 
-##### 使用键值型数据库实现数据分级
+#### 使用键值型数据库实现数据分级
 
 键值型数据库，通过securityLevel参数设置数据库的安全等级，安全等级具体可见[SecurityLevel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributedkvstore#securitylevel)枚举。此处以创建安全等级为S3的数据库为例。
 
@@ -166,7 +166,7 @@ public GetKvStore = (() => {
 
 
 
-##### 使用关系型数据库实现数据分级
+#### 使用关系型数据库实现数据分级
 
 关系型数据库，通过securityLevel参数设置数据库的安全等级，安全等级具体可见[SecurityLevel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-e#securitylevel)枚举。此处以创建安全等级为S3的数据库为例。
 

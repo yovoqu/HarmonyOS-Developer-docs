@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { certificateManagerDialog } from '@kit.DeviceCertificateKit';
 
 
 
-##### CertificateDialogPageType
+#### CertificateDialogPageType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -42,7 +42,7 @@ import { certificateManagerDialog } from '@kit.DeviceCertificateKit';
 
 
 
-##### CertificateType14+
+#### CertificateType14+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -63,7 +63,7 @@ import { certificateManagerDialog } from '@kit.DeviceCertificateKit';
 
 
 
-##### CertificateScope14+
+#### CertificateScope14+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -82,7 +82,7 @@ import { certificateManagerDialog } from '@kit.DeviceCertificateKit';
 
 
 
-##### CertificateDialogErrorCode
+#### CertificateDialogErrorCode
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -105,7 +105,7 @@ import { certificateManagerDialog } from '@kit.DeviceCertificateKit';
 
 
 
-##### CertificateDialogProperty18+
+#### CertificateDialogProperty18+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -122,7 +122,7 @@ import { certificateManagerDialog } from '@kit.DeviceCertificateKit';
 
 
 
-##### CertReference22+
+#### CertReference22+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -140,7 +140,7 @@ import { certificateManagerDialog } from '@kit.DeviceCertificateKit';
 
 
 
-##### UkeyAuthRequest22+
+#### UkeyAuthRequest22+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -157,7 +157,7 @@ USB证书凭据授权请求信息。
 
 
 
-##### AuthorizeRequest22+
+#### AuthorizeRequest22+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -175,7 +175,7 @@ USB证书凭据授权请求信息。
 
 
 
-##### certificateManagerDialog.openCertificateManagerDialog
+#### certificateManagerDialog.openCertificateManagerDialog
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -240,7 +240,7 @@ try {
 
 
 
-##### certificateManagerDialog.openInstallCertificateDialog14+
+#### certificateManagerDialog.openInstallCertificateDialog14+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -319,7 +319,7 @@ try {
 
 
 
-##### certificateManagerDialog.openUninstallCertificateDialog18+
+#### certificateManagerDialog.openUninstallCertificateDialog18+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -393,7 +393,7 @@ try {
 
 
 
-##### certificateManagerDialog.openCertificateDetailDialog18+
+#### certificateManagerDialog.openCertificateDetailDialog18+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -468,7 +468,7 @@ try {
 
 
 
-##### certificateManagerDialog.openAuthorizeDialog20+
+#### certificateManagerDialog.openAuthorizeDialog20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -532,7 +532,7 @@ try {
 
 
 
-##### certificateManagerDialog.openAuthorizeDialog22+
+#### certificateManagerDialog.openAuthorizeDialog22+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -609,7 +609,7 @@ try {
 
 
 
-##### certificateManagerDialog.openUkeyAuthDialog22+
+#### certificateManagerDialog.openUkeyAuthDialog22+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

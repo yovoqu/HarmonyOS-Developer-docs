@@ -12,7 +12,7 @@ linkEnhance模块提供高效的蓝牙连接和数据传输功能，增强设备
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { linkEnhance } from '@kit.DistributedServiceKit';
 
 
 
-##### linkEnhance.createServer
+#### linkEnhance.createServer
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -83,7 +83,7 @@ try {
 
 
 
-##### linkEnhance.createConnection
+#### linkEnhance.createConnection
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -145,7 +145,7 @@ try {
 
 
 
-##### Server
+#### Server
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -159,7 +159,7 @@ try {
 
 
 
-##### start()
+#### start()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -206,7 +206,7 @@ try {
 
 
 
-##### stop()
+#### stop()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -252,7 +252,7 @@ try {
 
 
 
-##### close()
+#### close()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -298,7 +298,7 @@ try {
 
 
 
-##### on('connectionAccepted')
+#### on('connectionAccepted')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -359,7 +359,7 @@ try {
 
 
 
-##### off('connectionAccepted')
+#### off('connectionAccepted')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -420,7 +420,7 @@ try {
 
 
 
-##### on('serverStopped')
+#### on('serverStopped')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -481,7 +481,7 @@ try {
 
 
 
-##### off('serverStopped')
+#### off('serverStopped')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -542,7 +542,7 @@ try {
 
 
 
-##### ConnectResult
+#### ConnectResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -561,7 +561,7 @@ try {
 
 
 
-##### Connection
+#### Connection
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -573,7 +573,7 @@ try {
 
 
 
-##### connect()
+#### connect()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -627,7 +627,7 @@ try {
 
 
 
-##### disconnect()
+#### disconnect()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -678,7 +678,7 @@ try {
 
 
 
-##### close()
+#### close()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -729,7 +729,7 @@ try {
 
 
 
-##### getPeerDeviceId()
+#### getPeerDeviceId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -782,7 +782,7 @@ try {
 
 
 
-##### sendData()
+#### sendData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -847,7 +847,7 @@ try {
 
 
 
-##### on('connectResult')
+#### on('connectResult')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -907,7 +907,7 @@ try {
 
 
 
-##### off('connectResult')
+#### off('connectResult')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -967,7 +967,7 @@ try {
 
 
 
-##### on('disconnected')
+#### on('disconnected')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1024,7 +1024,7 @@ try {
 
 
 
-##### off('disconnected')
+#### off('disconnected')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1084,7 +1084,7 @@ try {
 
 
 
-##### on('dataReceived')
+#### on('dataReceived')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1143,7 +1143,7 @@ try {
 
 
 
-##### off('dataReceived')
+#### off('dataReceived')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { shortcutManager } from '@kit.AbilityKit';
 
 
 
-##### shortcutManager.setShortcutVisibleForSelf
+#### shortcutManager.setShortcutVisibleForSelf
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -73,7 +73,7 @@ shortcutManager.setShortcutVisibleForSelf("shortcut_id", false)
 
 
 
-##### shortcutManager.getAllShortcutInfoForSelf
+#### shortcutManager.getAllShortcutInfoForSelf
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -106,7 +106,7 @@ shortcutManager.getAllShortcutInfoForSelf()
 
 
 
-##### ShortcutInfo
+#### ShortcutInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -123,7 +123,7 @@ type ShortcutInfo = _ShortcutInfo
 
 
 
-##### ShortcutWant
+#### ShortcutWant
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -140,7 +140,7 @@ type ShortcutWant = _ShortcutWant
 
 
 
-##### ParameterItem
+#### ParameterItem
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

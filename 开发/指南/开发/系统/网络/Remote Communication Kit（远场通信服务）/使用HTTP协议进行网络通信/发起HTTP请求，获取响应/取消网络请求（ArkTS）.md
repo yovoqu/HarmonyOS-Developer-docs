@@ -7,13 +7,13 @@
 在远场通信服务的框架中，没有明确指定任何request的情况下，通过调用session.cancel，可以取消所有正在进行的网络请求。当开发者需要取消特定的一个网络请求时，可以使用session.cancel方法，并传入需要取消的请求，以实现这一目标。这样，开发者们就能根据具体需求，灵活地管理和控制网络请求的执行。
 
 
-##### 约束与限制
+#### 约束与限制
 
 取消网络请求能力支持Phone、2in1、Tablet、Wearable设备。并且从5.1.1(19)开始，新增支持TV设备。
 
 
 
-##### 接口说明
+#### 接口说明
 
 具体API说明详见[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#cancel)。
 
@@ -24,7 +24,7 @@
 
 
 
-##### 使用示例
+#### 使用示例
 1. 导入模块。
 
   

@@ -11,7 +11,7 @@
 
 
 
-##### 概述
+#### 概述
 
 与状态管理V1不同的是，状态管理V2修改完状态变量后不会立即[标脏](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-glossary#标脏mark-dirty)，而是抛出一个Promise微任务（优先级低于宏任务），该微任务在当前宏任务执行完成后才会处理自定义组件标脏，具体差异可参考[V1状态变量更新和V2状态变量更新差异](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-v1-v2-update-difference#v1状态变量更新和v2状态变量更新差异)。而animateTo动效会立刻刷新已标脏节点来决定动效首帧。如果动效中使用了V2状态变量，并且在动效前修改了该状态变量，由于调用animateTo时状态变量的变化尚未标脏，这会导致animateTo的动效首帧不符合预期。为此，引入applySync、flushUpdates和flushUIUpdates接口，实现状态管理V2的同步标脏，确保动效达到预期效果。
 
@@ -23,7 +23,7 @@ import { UIUtils } from '@kit.ArkUI';
 
 
 
-##### 使用规则
+#### 使用规则
 
  - applySync接口用于同步刷新指定的状态变量，该接口接收一个闭包函数，仅刷新闭包函数内的修改，包括更新[@Computed](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-computed)计算、[@Monitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-monitor)回调以及重新渲染UI节点。
 
@@ -178,7 +178,7 @@ struct Index {
 
 
 
-##### 限制条件
+#### 限制条件
 
  - 在applySync闭包函数中嵌套调用applySync，内层的applySync将会被跳过并返回undefined，同时打印出警告信息UIUtils.applySync will be skipped when called within another UIUtils.applySync. The inner UIUtils.applySync will return undefined。
 
@@ -344,11 +344,11 @@ struct Page {
 
 
 
-##### 使用场景
+#### 使用场景
 
 
 
-##### 动效场景
+#### 动效场景
 
 状态管理V2的异步标脏逻辑与animateTo立即刷新脏节点的逻辑存在冲突，导致在@Monitor中触发animateTo时不显示动画。使用applySync接口同步刷新状态变量的改变能够实现预期效果，示例如下。
 
@@ -410,7 +410,7 @@ struct Index {
 
 
 
-##### 路由场景
+#### 路由场景
 
 在路由场景下设置[共享元素转场](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-transition-animation-shared-elements)，使用applySync接口可以使得转场时同步刷新name值，实现转场动效效果。在如下示例代码中，从Index页面向PageTransitionTwo页面跳转时，两个页面的id值不匹配，没有转场动效。从PageTransitionTwo页面返回Index页面时，两个页面的id值匹配，有转场动效。
 

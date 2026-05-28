@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hicollie-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@ HiCollie模块对外提供检测业务线程卡死、卡顿，以及上报卡死
 
 
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@ HiCollie模块对外提供检测业务线程卡死、卡顿，以及上报卡死
 
 
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -54,7 +54,7 @@ HiCollie模块对外提供检测业务线程卡死、卡顿，以及上报卡死
 
 
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -78,13 +78,13 @@ HiCollie模块对外提供检测业务线程卡死、卡顿，以及上报卡死
 
 
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### HiCollie_ErrorCode
+#### HiCollie_ErrorCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -113,7 +113,7 @@ enum HiCollie_ErrorCode
 
 
 
-##### HiCollie_Flag
+#### HiCollie_Flag
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -137,7 +137,7 @@ enum HiCollie_Flag
 
 
 
-##### OH_HiCollie_Freeze_Type
+#### OH_HiCollie_Freeze_Type
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -165,13 +165,13 @@ enum OH_HiCollie_Freeze_Type
 
 
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### OH_HiCollie_Task()
+#### OH_HiCollie_Task()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -191,7 +191,7 @@ HiCollie将在业务线程中每3秒调用一次该函数。
 
 
 
-##### OH_HiCollie_BeginFunc()
+#### OH_HiCollie_BeginFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -218,7 +218,7 @@ typedef void (*OH_HiCollie_BeginFunc)(const char* eventName)
 
 
 
-##### OH_HiCollie_EndFunc()
+#### OH_HiCollie_EndFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -245,7 +245,7 @@ typedef void (*OH_HiCollie_EndFunc)(const char* eventName)
 
 
 
-##### OH_HiCollie_Init_StuckDetection()
+#### OH_HiCollie_Init_StuckDetection()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -281,7 +281,7 @@ HiCollie_ErrorCode OH_HiCollie_Init_StuckDetection(OH_HiCollie_Task task)
 
 
 
-##### OH_HiCollie_Init_StuckDetectionWithTimeout()
+#### OH_HiCollie_Init_StuckDetectionWithTimeout()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -318,7 +318,7 @@ HiCollie_ErrorCode OH_HiCollie_Init_StuckDetectionWithTimeout(OH_HiCollie_Task t
 
 
 
-##### OH_HiCollie_Init_JankDetection()
+#### OH_HiCollie_Init_JankDetection()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -356,7 +356,7 @@ HiCollie_ErrorCode OH_HiCollie_Init_JankDetection(OH_HiCollie_BeginFunc* beginFu
 
 
 
-##### OH_HiCollie_Report()
+#### OH_HiCollie_Report()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -394,7 +394,7 @@ HiCollie_ErrorCode OH_HiCollie_Report(bool* isSixSecond)
 
 
 
-##### OH_HiCollie_ReportInputBlock()
+#### OH_HiCollie_ReportInputBlock()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -425,7 +425,7 @@ HiCollie_ErrorCode OH_HiCollie_ReportInputBlock()
 
 
 
-##### OH_HiCollie_Callback()
+#### OH_HiCollie_Callback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -441,7 +441,7 @@ typedef void (*OH_HiCollie_Callback)(void*)
 
 
 
-##### OH_HiCollie_SetTimer()
+#### OH_HiCollie_SetTimer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -474,7 +474,7 @@ HiCollie_ErrorCode OH_HiCollie_SetTimer(HiCollie_SetTimerParam param, int *id)
 
 
 
-##### OH_HiCollie_CancelTimer()
+#### OH_HiCollie_CancelTimer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -501,7 +501,7 @@ void OH_HiCollie_CancelTimer(int id)
 
 
 
-##### OH_HiCollie_FreezeCallback()
+#### OH_HiCollie_FreezeCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -532,7 +532,7 @@ typedef size_t (*OH_HiCollie_FreezeCallback)(OH_HiCollie_Freeze_Type type, void*
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f/v3/mr8LiVnYTU2Z-P8A1oJdvg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023833Z&HW-CC-Expire=86400&HW-CC-Sign=10525EC3F84B77630FF7877AE6EC3124C4AD965764717CC943E79860B95202A1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f/v3/mr8LiVnYTU2Z-P8A1oJdvg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025208Z&HW-CC-Expire=86400&HW-CC-Sign=BE44F7792877578A7453C69742F88CA68145780AC9D52CBD0EF8FFB233B9D488)
 
 
 返回值超过64KB时，日志内容可能为空。
@@ -541,7 +541,7 @@ typedef size_t (*OH_HiCollie_FreezeCallback)(OH_HiCollie_Freeze_Type type, void*
 
 
 
-##### OH_HiCollie_SetFreezeCallback()
+#### OH_HiCollie_SetFreezeCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -571,7 +571,7 @@ void* OH_HiCollie_SetFreezeCallback(OH_HiCollie_FreezeCallback callback)
 
 
 
-##### OH_HiCollie_AssociateProcessReport()
+#### OH_HiCollie_AssociateProcessReport()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

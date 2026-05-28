@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-parseparamsbyoperatorfn
 
-##### 函数功能
+#### 函数功能
 
 注册解析开发者自定义算子属性的函数。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 OpRegistrationData &ParseParamsByOperatorFn(const ParseParamByOpFunc &parse_param_by_op_fn)
@@ -18,7 +18,7 @@ OpRegistrationData &ParseParamsByOperatorFn(const ParseParamByOpFunc &parse_para
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -27,7 +27,7 @@ OpRegistrationData &ParseParamsByOperatorFn(const ParseParamByOpFunc &parse_para
  
   
 
-##### 回调函数ParseParamByOpFunc
+#### 回调函数ParseParamByOpFunc
 
 开发者自定义并实现ParseParamByOpFunc类函数，完成原始模型中算子属性到适配AI处理器的模型中属性的映射，将结果填入Operator类中。
  
@@ -45,13 +45,13 @@ Status ParseParamByOpFunc(const ge::Operator &op_origin, ge::Operator &op_dest)
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 原始TensorFlow算子与适配AI处理器的算子属性一一映射的场景：
  

@@ -10,7 +10,7 @@
 
 
 
-##### 201 权限校验失败
+#### 201 权限校验失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -32,7 +32,7 @@ Permission denied.
 
 
 
-##### 1010800001 内部异常
+#### 1010800001 内部异常
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -54,7 +54,7 @@ Internal error.
 
 
 
-##### 1010800002 设备网络异常
+#### 1010800002 设备网络异常
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -76,7 +76,7 @@ The network is unreachable.
 
 
 
-##### 1010800003 访问云端服务器异常
+#### 1010800003 访问云端服务器异常
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -98,7 +98,7 @@ Access cloud server fail.
 
 
 
-##### 1010800004 校验capability失败
+#### 1010800004 校验capability失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -122,7 +122,7 @@ Verify capability fail.
 
 
 
-##### 1010800005 调用数量超过并行阈值
+#### 1010800005 调用数量超过并行阈值
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -148,7 +148,7 @@ The number of calls exceeds the parallel threshold.
 
 
 
-##### 1010800006 调用频率超过阈值
+#### 1010800006 调用频率超过阈值
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -174,7 +174,7 @@ The invoking frequency exceeds the threshold.
 
 
 
-##### 1010800007 操作超时
+#### 1010800007 操作超时
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -198,7 +198,7 @@ Operation timeout.
 
 
 
-##### 1010800008 云服务流量超过阈值
+#### 1010800008 云服务流量超过阈值
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

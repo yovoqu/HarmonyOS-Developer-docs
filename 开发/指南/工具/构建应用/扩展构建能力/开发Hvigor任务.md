@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-task
 
-##### 了解任务
+#### 了解任务
 
 任务是Hvigor构建过程中的基本执行单元，通常包含一段可执行代码；一个任务可以依赖其他多个任务。Hvigor任务调度执行时通过解析依赖关系确定任务执行时序。
  
@@ -36,7 +36,7 @@ Finished
  
  
 
-##### 注册任务
+#### 注册任务
 
 使用HvigorNode节点对象注册任务。
  1. 编辑工程下hvigorfile.ts文件。

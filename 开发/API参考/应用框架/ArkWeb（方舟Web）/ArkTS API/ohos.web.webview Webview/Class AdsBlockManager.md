@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { webview } from '@kit.ArkWeb';
 
 
 
-##### setAdsBlockRules12+
+#### setAdsBlockRules12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -100,7 +100,7 @@ struct WebComponent {
 
 
 
-##### addAdsBlockDisallowedList12+
+#### addAdsBlockDisallowedList12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -188,7 +188,7 @@ struct WebComponent {
 
 
 
-##### removeAdsBlockDisallowedList12+
+#### removeAdsBlockDisallowedList12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -276,7 +276,7 @@ struct WebComponent {
 
 
 
-##### clearAdsBlockDisallowedList12+
+#### clearAdsBlockDisallowedList12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -348,7 +348,7 @@ struct WebComponent {
 
 
 
-##### addAdsBlockAllowedList12+
+#### addAdsBlockAllowedList12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -439,7 +439,7 @@ struct WebComponent {
 
 
 
-##### removeAdsBlockAllowedList12+
+#### removeAdsBlockAllowedList12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -527,7 +527,7 @@ struct WebComponent {
 
 
 
-##### clearAdsBlockAllowedList12+
+#### clearAdsBlockAllowedList12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

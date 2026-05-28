@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-tilingparse
 
-##### 函数功能
+#### 函数功能
 
 注册算子的TilingParse函数，用于解析算子编译阶段生成的算子信息json文件，在注册时需要注册算子自行指定数据类型T，该数据类型用于保存解析后的算子信息。
  
@@ -24,7 +24,7 @@ using TilingParseFunc = UINT32 (*)(TilingParseContext *context);
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 template<typename T>
@@ -35,7 +35,7 @@ OpImplRegisterV2 &TilingParse(TilingParseFunc const tiling_parse_func);
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -44,12 +44,12 @@ OpImplRegisterV2 &TilingParse(TilingParseFunc const tiling_parse_func);
  
   
 
-##### 返回值
+#### 返回值
 
 返回算子的OpImplRegisterV2对象，该对象新增注册了TilingParse函数。
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

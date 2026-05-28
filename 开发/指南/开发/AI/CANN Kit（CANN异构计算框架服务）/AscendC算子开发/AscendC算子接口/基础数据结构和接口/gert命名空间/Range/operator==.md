@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-range-operator
 
-##### 函数功能
+#### 函数功能
 
 判断与另外一个range对象是否相等，如果两个range的上下界的地址相同，或者上下界的值相同，这两个对象相等。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 bool operator==(const Range<T>&rht) const
@@ -18,7 +18,7 @@ bool operator==(const Range<T>&rht) const
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -27,7 +27,7 @@ bool operator==(const Range<T>&rht) const
  
   
 
-##### 返回值
+#### 返回值
 
 true：相等。
  
@@ -35,13 +35,13 @@ false：不相等。
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 int min = 0;

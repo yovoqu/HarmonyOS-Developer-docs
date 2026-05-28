@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getresourcecontext
 
-##### 函数功能
+#### 函数功能
 
 通过资源标识key来获取对应的资源上下文对象。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 ResourceContext *GetResourceContext(const ge::AscendString &key)
@@ -18,7 +18,7 @@ ResourceContext *GetResourceContext(const ge::AscendString &key)
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数名 | 输入/输出 | 描述 |
 | --- | --- | --- |
@@ -27,7 +27,7 @@ ResourceContext *GetResourceContext(const ge::AscendString &key)
  
   
 
-##### 返回值
+#### 返回值
  
 | 类型 | 描述 |
 | --- | --- |
@@ -36,6 +36,6 @@ ResourceContext *GetResourceContext(const ge::AscendString &key)
  
   
 
-##### 约束说明
+#### 约束说明
 
 若使用[Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-create)接口创建InferenceContext时未传入resource context管理器指针，则该接口返回空指针，因此使用其返回值之前需要判空。

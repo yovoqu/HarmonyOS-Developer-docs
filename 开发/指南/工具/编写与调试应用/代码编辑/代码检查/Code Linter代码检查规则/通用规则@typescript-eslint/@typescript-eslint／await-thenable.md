@@ -7,7 +7,7 @@
 不允许对不是“Thenable”对象的值使用await关键字（“Thenable”表示某个对象拥有“then”方法，比如Promise）。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 async function test() {
@@ -38,7 +38,7 @@ export { test };
  
  
 
-##### 反例
+#### 反例
 
 ```text
 async function test() {
@@ -50,7 +50,7 @@ export { test };
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/recommended</span>

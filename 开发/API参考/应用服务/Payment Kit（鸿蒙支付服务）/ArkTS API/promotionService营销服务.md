@@ -16,7 +16,7 @@
 **起始版本：** 6.1.0(23)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -26,7 +26,7 @@ import { promotionService } from "@kit.PaymentKit";
 
 
 
-##### UserAction
+#### UserAction
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -49,7 +49,7 @@ import { promotionService } from "@kit.PaymentKit";
 
 
 
-##### OrderContext
+#### OrderContext
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -74,7 +74,7 @@ import { promotionService } from "@kit.PaymentKit";
 
 
 
-##### CouponCategory
+#### CouponCategory
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -95,7 +95,7 @@ import { promotionService } from "@kit.PaymentKit";
 
 
 
-##### CouponType
+#### CouponType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -116,7 +116,7 @@ import { promotionService } from "@kit.PaymentKit";
 
 
 
-##### CouponDetail
+#### CouponDetail
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -145,7 +145,7 @@ import { promotionService } from "@kit.PaymentKit";
 
 
 
-##### PromotionComponentController
+#### PromotionComponentController
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -161,7 +161,7 @@ import { promotionService } from "@kit.PaymentKit";
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -210,7 +210,7 @@ struct StartPromotionEntryDialogDemo {
 
 
 
-##### startPromotionEntryDialog
+#### startPromotionEntryDialog
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -284,7 +284,7 @@ struct StartPromotionEntryDialogDemo {
 
 
 
-##### startUserChooseCouponsPopup
+#### startUserChooseCouponsPopup
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -366,7 +366,7 @@ export struct StartUserChooseCouponsPopupDemo {
 
 
 
-##### startPromotionDetailPopup
+#### startPromotionDetailPopup
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -439,7 +439,7 @@ export struct StartPromotionDetailPopupDemo {
 
 
 
-##### getOrderAvailableCoupons
+#### getOrderAvailableCoupons
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

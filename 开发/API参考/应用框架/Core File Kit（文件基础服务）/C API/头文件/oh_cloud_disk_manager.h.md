@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-cloud-disk-manager-h
 **支持设备：** PC/2in1 | Tablet
 
-##### 概述
+#### 概述
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** PC/2in1 | Tablet
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** PC/2in1 | Tablet
  
@@ -47,7 +47,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** PC/2in1 | Tablet
  
@@ -61,7 +61,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** PC/2in1 | Tablet
  
@@ -82,13 +82,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** PC/2in1 | Tablet
 
   
 
-##### CloudDisk_SyncState
+#### CloudDisk_SyncState
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -114,7 +114,7 @@ enum CloudDisk_SyncState
  
   
 
-##### CloudDisk_OperationType
+#### CloudDisk_OperationType
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -140,7 +140,7 @@ enum CloudDisk_OperationType
  
   
 
-##### CloudDisk_ErrorReason
+#### CloudDisk_ErrorReason
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -165,7 +165,7 @@ enum CloudDisk_ErrorReason
  
   
 
-##### CloudDisk_SyncFolderState
+#### CloudDisk_SyncFolderState
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -187,13 +187,13 @@ enum CloudDisk_SyncFolderState
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** PC/2in1 | Tablet
 
   
 
-##### OH_CloudDisk_RegisterSyncFolderChanges()
+#### OH_CloudDisk_RegisterSyncFolderChanges()
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -224,7 +224,7 @@ CloudDisk_ErrorCode OH_CloudDisk_RegisterSyncFolderChanges(const CloudDisk_SyncF
  
   
 
-##### OH_CloudDisk_UnregisterSyncFolderChanges()
+#### OH_CloudDisk_UnregisterSyncFolderChanges()
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -254,7 +254,7 @@ CloudDisk_ErrorCode OH_CloudDisk_UnregisterSyncFolderChanges(const CloudDisk_Syn
  
   
 
-##### OH_CloudDisk_GetSyncFolderChanges()
+#### OH_CloudDisk_GetSyncFolderChanges()
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -287,7 +287,7 @@ CloudDisk_ErrorCode OH_CloudDisk_GetSyncFolderChanges(const CloudDisk_SyncFolder
  
   
 
-##### OH_CloudDisk_SetFileSyncStates()
+#### OH_CloudDisk_SetFileSyncStates()
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -321,7 +321,7 @@ CloudDisk_ErrorCode OH_CloudDisk_SetFileSyncStates(const CloudDisk_SyncFolderPat
  
   
 
-##### OH_CloudDisk_GetFileSyncStates()
+#### OH_CloudDisk_GetFileSyncStates()
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -355,7 +355,7 @@ CloudDisk_ErrorCode OH_CloudDisk_GetFileSyncStates(const CloudDisk_SyncFolderPat
  
   
 
-##### OH_CloudDisk_RegisterSyncFolder()
+#### OH_CloudDisk_RegisterSyncFolder()
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -385,7 +385,7 @@ CloudDisk_ErrorCode OH_CloudDisk_RegisterSyncFolder(const CloudDisk_SyncFolder *
  
   
 
-##### OH_CloudDisk_UnregisterSyncFolder()
+#### OH_CloudDisk_UnregisterSyncFolder()
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -415,7 +415,7 @@ CloudDisk_ErrorCode OH_CloudDisk_UnregisterSyncFolder(const CloudDisk_SyncFolder
  
   
 
-##### OH_CloudDisk_ActiveSyncFolder()
+#### OH_CloudDisk_ActiveSyncFolder()
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -445,7 +445,7 @@ CloudDisk_ErrorCode OH_CloudDisk_ActiveSyncFolder(const CloudDisk_SyncFolderPath
  
   
 
-##### OH_CloudDisk_DeactiveSyncFolder()
+#### OH_CloudDisk_DeactiveSyncFolder()
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -475,7 +475,7 @@ CloudDisk_ErrorCode OH_CloudDisk_DeactiveSyncFolder(const CloudDisk_SyncFolderPa
  
   
 
-##### OH_CloudDisk_GetSyncFolders()
+#### OH_CloudDisk_GetSyncFolders()
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -506,7 +506,7 @@ CloudDisk_ErrorCode OH_CloudDisk_GetSyncFolders(CloudDisk_SyncFolder **syncFolde
  
   
 
-##### OH_CloudDisk_UpdateCustomAlias()
+#### OH_CloudDisk_UpdateCustomAlias()
 
 **支持设备：** PC/2in1 | Tablet
 

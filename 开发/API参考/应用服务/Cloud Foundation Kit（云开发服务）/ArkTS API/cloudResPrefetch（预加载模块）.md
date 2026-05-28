@@ -10,7 +10,7 @@
 起始版本：5.0.3(15)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -20,7 +20,7 @@ import { cloudResPrefetch } from '@kit.CloudFoundationKit';
  
   
 
-##### registerPrefetchTask
+#### registerPrefetchTask
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -72,7 +72,7 @@ try {
  
   
 
-##### PrefetchOptions
+#### PrefetchOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -94,7 +94,7 @@ try {
  
   
 
-##### getPrefetchResult
+#### getPrefetchResult
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -175,7 +175,7 @@ cloudResPrefetch.getPrefetchResult(cloudResPrefetch.PrefetchMode.LINK_PREFETCH,
  
   
 
-##### getPrefetchResult
+#### getPrefetchResult
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -256,7 +256,7 @@ cloudResPrefetch.getPrefetchResult(cloudResPrefetch.PrefetchMode.LINK_PREFETCH, 
  
   
 
-##### PrefetchMode
+#### PrefetchMode
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -277,7 +277,7 @@ cloudResPrefetch.getPrefetchResult(cloudResPrefetch.PrefetchMode.LINK_PREFETCH, 
  
   
 
-##### PrefetchParams
+#### PrefetchParams
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -296,7 +296,7 @@ cloudResPrefetch.getPrefetchResult(cloudResPrefetch.PrefetchMode.LINK_PREFETCH, 
  
   
 
-##### PrefetchResult
+#### PrefetchResult
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

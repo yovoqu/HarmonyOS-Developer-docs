@@ -21,13 +21,13 @@
 
   
 
-##### 约束与限制
+#### 约束与限制
 
 支持的设备类型：Phone，从5.0.2(14)版本开始，新增支持Tablet、PC/2in1设备，从5.1.0(18)版本开始新增支持TV设备。
  
   
 
-##### 接口说明
+#### 接口说明
 
 通过Vulkan扩展接口[VK_HUAWEI_subpass_shading](https://registry.khronos.org/vulkan/specs/latest/man/html/VK_HUAWEI_subpass_shading.html)提供Subpass Shading API，该扩展支持在Subpass中使用Compute Shader，并在Compute Shader中使用SubpassLoad从Tile buffer中直接读取数据，可用于降低DDR带宽，适用于TBDR和Forward+管线。
  

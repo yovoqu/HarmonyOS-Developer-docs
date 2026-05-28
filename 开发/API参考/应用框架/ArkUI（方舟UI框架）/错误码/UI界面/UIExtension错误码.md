@@ -10,7 +10,7 @@
 
 
 
-##### 1011 Ability启动失败
+#### 1011 Ability启动失败
 
 **错误信息**
 
@@ -31,7 +31,7 @@ Failed to start the UIExtension ability.
 
 
 
-##### 1012 Ability切后台失败
+#### 1012 Ability切后台失败
 
 **错误信息**
 
@@ -51,7 +51,7 @@ Failed to switch the UIExtension ability to the background.
 
 
 
-##### 1013 Ability终止失败
+#### 1013 Ability终止失败
 
 **错误信息**
 
@@ -71,7 +71,7 @@ Failed to destroy the UIExtension ability.
 
 
 
-##### 100011 未注册同步回调
+#### 100011 未注册同步回调
 
 **错误信息**
 
@@ -91,7 +91,7 @@ No callback has been registered to respond to this request.
 
 
 
-##### 100012 数据发送失败
+#### 100012 数据发送失败
 
 **错误信息**
 
@@ -111,7 +111,7 @@ Transferring data failed.
 
 
 
-##### 100013 禁止嵌套
+#### 100013 禁止嵌套
 
 **错误信息**
 
@@ -131,7 +131,7 @@ Cascading UIExtension components is not allowed.
 
 
 
-##### 100014 Ability退出异常
+#### 100014 Ability退出异常
 
 **错误信息**
 
@@ -151,7 +151,7 @@ The UIExtension ability exited unexpectedly.
 
 
 
-##### 100015 生命周期超时
+#### 100015 生命周期超时
 
 **错误信息**
 
@@ -171,7 +171,7 @@ The lifecycle of the UIExtension ability has timed out.
 
 
 
-##### 100016 Key事件处理超时
+#### 100016 Key事件处理超时
 
 **错误信息**
 
@@ -191,7 +191,7 @@ Key event processing by the UIExtension ability has timed out.
 
 
 
-##### 100018 Ability启动失败
+#### 100018 Ability启动失败
 
 **错误信息**
 
@@ -213,7 +213,7 @@ Failed to start the UIExtension ability.
 
 
 
-##### 100019 Ability切后台失败
+#### 100019 Ability切后台失败
 
 **错误信息**
 
@@ -233,7 +233,7 @@ Failed to switch the UIExtension ability to the background.
 
 
 
-##### 100020 Ability终止失败
+#### 100020 Ability终止失败
 
 **错误信息**
 
@@ -253,7 +253,7 @@ Failed to destroy the UIExtension ability.
 
 
 
-##### 100021 窗口透明检测
+#### 100021 窗口透明检测
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

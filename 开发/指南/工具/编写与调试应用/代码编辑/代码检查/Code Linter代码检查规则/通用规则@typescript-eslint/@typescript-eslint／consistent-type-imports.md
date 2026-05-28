@@ -9,7 +9,7 @@
 该规则仅支持对.js/.ts文件进行检查。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -22,13 +22,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/consistent-type-imports选项](https://typescript-eslint.nodejs.cn/rules/consistent-type-imports/#options)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 // 默认推荐使用import type Foo from '...'
@@ -40,7 +40,7 @@ export const x: Bar = 1;
  
  
 
-##### 反例
+#### 反例
 
 ```text
 // 默认推荐使用import type Foo from '...'
@@ -52,7 +52,7 @@ export const x: Bar = 1;
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/recommended</span>

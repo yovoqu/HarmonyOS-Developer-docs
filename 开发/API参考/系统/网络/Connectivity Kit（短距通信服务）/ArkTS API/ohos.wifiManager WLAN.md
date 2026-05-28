@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.isWifiActive
+#### wifiManager.isWifiActive
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -66,7 +66,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.enableWifi15+
+#### wifiManager.enableWifi15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -104,7 +104,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.disableWifi20+
+#### wifiManager.disableWifi20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -142,7 +142,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.scan(deprecated)
+#### wifiManager.scan(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -183,7 +183,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.startScan21+
+#### wifiManager.startScan21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -225,7 +225,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.getScanResults(deprecated)
+#### wifiManager.getScanResults(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -264,7 +264,7 @@ getScanResults(): Promise<Array&lt;WifiScanInfo&gt;>
 
 
 
-##### wifiManager.getScanResults(deprecated)
+#### wifiManager.getScanResults(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -348,7 +348,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.getScanResultsSync(deprecated)
+#### wifiManager.getScanResultsSync(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -412,7 +412,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.getScanInfoList10+
+#### wifiManager.getScanInfoList10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -476,7 +476,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### WifiScanInfo
+#### WifiScanInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -505,7 +505,7 @@ WLAN热点信息。
 
 
 
-##### DeviceAddressType10+
+#### DeviceAddressType10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -525,7 +525,7 @@ WLAN设备地址（MAC/BSSID）类型。是标识WLAN设备或接入点的唯一
 
 
 
-##### WifiSecurityType
+#### WifiSecurityType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -549,7 +549,7 @@ WLAN设备地址（MAC/BSSID）类型。是标识WLAN设备或接入点的唯一
 
 
 
-##### WifiBandType10+
+#### WifiBandType10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -568,7 +568,7 @@ WLAN设备地址（MAC/BSSID）类型。是标识WLAN设备或接入点的唯一
 
 
 
-##### WifiStandard10+
+#### WifiStandard10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -590,7 +590,7 @@ WLAN设备地址（MAC/BSSID）类型。是标识WLAN设备或接入点的唯一
 
 
 
-##### WifiInfoElem
+#### WifiInfoElem
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -606,7 +606,7 @@ WLAN热点信息。
 
 
 
-##### WifiChannelWidth
+#### WifiChannelWidth
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -626,7 +626,7 @@ WLAN热点信息。
 
 
 
-##### WifiDeviceConfig
+#### WifiDeviceConfig
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -649,7 +649,7 @@ WLAN配置信息。
 
 
 
-##### WifiEapConfig10+
+#### WifiEapConfig10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -682,7 +682,7 @@ WLAN配置信息。
 
 
 
-##### WifiWapiConfig12+
+#### WifiWapiConfig12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -715,7 +715,7 @@ preSharedKey传参为路由器上设置的密码;
 
 
 
-##### WapiPskType12+
+#### WapiPskType12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -731,7 +731,7 @@ WAPI认证方式的枚举。
 
 
 
-##### EapMethod10+
+#### EapMethod10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -754,7 +754,7 @@ WAPI认证方式的枚举。
 
 
 
-##### Phase2Method10+
+#### Phase2Method10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -776,7 +776,7 @@ WAPI认证方式的枚举。
 
 
 
-##### WifiCategory12+
+#### WifiCategory12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -795,7 +795,7 @@ WAPI认证方式的枚举。
 
 
 
-##### wifiManager.addCandidateConfig
+#### wifiManager.addCandidateConfig
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -862,7 +862,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.addCandidateConfig
+#### wifiManager.addCandidateConfig
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -921,7 +921,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.removeCandidateConfig
+#### wifiManager.removeCandidateConfig
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -985,7 +985,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.removeCandidateConfig
+#### wifiManager.removeCandidateConfig
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1041,7 +1041,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.removeDevice15+
+#### wifiManager.removeDevice15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1092,7 +1092,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.getCandidateConfigs
+#### wifiManager.getCandidateConfigs
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1154,7 +1154,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.connectToCandidateConfig
+#### wifiManager.connectToCandidateConfig
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1203,7 +1203,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.connectToCandidateConfigWithUserAction20+
+#### wifiManager.connectToCandidateConfigWithUserAction20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1274,7 +1274,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.addDeviceConfig15+
+#### wifiManager.addDeviceConfig15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1336,7 +1336,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.addDeviceConfig15+
+#### wifiManager.addDeviceConfig15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1390,7 +1390,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.getDeviceConfigs15+
+#### wifiManager.getDeviceConfigs15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1435,7 +1435,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.connectToNetwork15+
+#### wifiManager.connectToNetwork15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1482,7 +1482,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.getSignalLevel
+#### wifiManager.getSignalLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1538,7 +1538,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.getLinkedInfo
+#### wifiManager.getLinkedInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1575,7 +1575,7 @@ getLinkedInfo(): Promise&lt;WifiLinkedInfo&gt;
 
 
 
-##### wifiManager.getLinkedInfo
+#### wifiManager.getLinkedInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1625,7 +1625,7 @@ wifiManager.getLinkedInfo().then((data: wifiManager.WifiLinkedInfo) => {
 
 
 
-##### wifiManager.getLinkedInfoSync18+
+#### wifiManager.getLinkedInfoSync18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1674,7 +1674,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### WifiLinkedInfo
+#### WifiLinkedInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1708,7 +1708,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### WifiLinkType18+
+#### WifiLinkType18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1727,7 +1727,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### ConnState
+#### ConnState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1749,7 +1749,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.isConnected
+#### wifiManager.isConnected
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1796,7 +1796,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.disconnect15+
+#### wifiManager.disconnect15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1836,7 +1836,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.isFeatureSupported
+#### wifiManager.isFeatureSupported
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1906,7 +1906,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.getDeviceMacAddress15+
+#### wifiManager.getDeviceMacAddress15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1954,7 +1954,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.getIpInfo
+#### wifiManager.getIpInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1999,7 +1999,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### IpInfo
+#### IpInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2020,7 +2020,7 @@ IPV4信息。
 
 
 
-##### wifiManager.getIpv6Info10+
+#### wifiManager.getIpv6Info10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2065,7 +2065,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### Ipv6Info10+
+#### Ipv6Info10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2088,7 +2088,7 @@ Ipv6信息。
 
 
 
-##### wifiManager.getCountryCode
+#### wifiManager.getCountryCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2133,7 +2133,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.isBandTypeSupported10+
+#### wifiManager.isBandTypeSupported10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2186,7 +2186,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.isMeteredHotspot11+
+#### wifiManager.isMeteredHotspot11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2232,7 +2232,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.isHotspotActive15+
+#### wifiManager.isHotspotActive15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2277,7 +2277,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.getP2pLinkedInfo
+#### wifiManager.getP2pLinkedInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2311,7 +2311,7 @@ getP2pLinkedInfo(): Promise&lt;WifiP2pLinkedInfo&gt;
 
 
 
-##### wifiManager.getP2pLinkedInfo
+#### wifiManager.getP2pLinkedInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2364,7 +2364,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### WifiP2pLinkedInfo
+#### WifiP2pLinkedInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2381,7 +2381,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### P2pConnectState
+#### P2pConnectState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2397,7 +2397,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.getCurrentGroup
+#### wifiManager.getCurrentGroup
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2431,7 +2431,7 @@ API 10起：ohos.permission.GET_WIFI_INFO
 
 
 
-##### wifiManager.getCurrentGroup
+#### wifiManager.getCurrentGroup
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2483,7 +2483,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.getP2pPeerDevices
+#### wifiManager.getP2pPeerDevices
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2517,7 +2517,7 @@ API 10起：ohos.permission.GET_WIFI_INFO
 
 
 
-##### wifiManager.getP2pPeerDevices
+#### wifiManager.getP2pPeerDevices
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2570,7 +2570,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### WifiP2pDevice
+#### WifiP2pDevice
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2590,7 +2590,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### P2pDeviceStatus
+#### P2pDeviceStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2609,7 +2609,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.getP2pLocalDevice
+#### wifiManager.getP2pLocalDevice
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2643,7 +2643,7 @@ API 11起：ohos.permission.GET_WIFI_INFO
 
 
 
-##### wifiManager.getP2pLocalDevice
+#### wifiManager.getP2pLocalDevice
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2694,7 +2694,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.createGroup
+#### wifiManager.createGroup
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2748,7 +2748,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### WifiP2PConfig
+#### WifiP2PConfig
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2769,7 +2769,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### GroupOwnerBand
+#### GroupOwnerBand
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2786,7 +2786,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.removeGroup
+#### wifiManager.removeGroup
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2824,7 +2824,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.p2pConnect
+#### wifiManager.p2pConnect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2928,7 +2928,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.p2pCancelConnect
+#### wifiManager.p2pCancelConnect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2966,7 +2966,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.startDiscoverDevices
+#### wifiManager.startDiscoverDevices
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3006,7 +3006,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.stopDiscoverDevices
+#### wifiManager.stopDiscoverDevices
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3044,7 +3044,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.getMultiLinkedInfo18+
+#### wifiManager.getMultiLinkedInfo18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3094,7 +3094,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### WifiP2pGroupInfo
+#### WifiP2pGroupInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3117,7 +3117,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.on('wifiStateChange')
+#### wifiManager.on('wifiStateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3163,7 +3163,7 @@ on(type: 'wifiStateChange', callback: Callback&lt;number&gt;): void
 
 
 
-##### wifiManager.off('wifiStateChange')
+#### wifiManager.off('wifiStateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3215,7 +3215,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.on('wifiConnectionChange')
+#### wifiManager.on('wifiConnectionChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3259,7 +3259,7 @@ on(type: 'wifiConnectionChange', callback: Callback&lt;number&gt;): void
 
 
 
-##### wifiManager.off('wifiConnectionChange')
+#### wifiManager.off('wifiConnectionChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3311,7 +3311,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.on('wifiScanStateChange')
+#### wifiManager.on('wifiScanStateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3355,7 +3355,7 @@ on(type: 'wifiScanStateChange', callback: Callback&lt;number&gt;): void
 
 
 
-##### wifiManager.off('wifiScanStateChange')
+#### wifiManager.off('wifiScanStateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3407,7 +3407,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.on('wifiRssiChange')
+#### wifiManager.on('wifiRssiChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3441,7 +3441,7 @@ on(type: 'wifiRssiChange', callback: Callback&lt;number&gt;): void
 
 
 
-##### wifiManager.off('wifiRssiChange')
+#### wifiManager.off('wifiRssiChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3491,7 +3491,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.on('hotspotStateChange')
+#### wifiManager.on('hotspotStateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3535,7 +3535,7 @@ on(type: 'hotspotStateChange', callback: Callback&lt;number&gt;): void
 
 
 
-##### wifiManager.off('hotspotStateChange')
+#### wifiManager.off('hotspotStateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3585,7 +3585,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.on('p2pStateChange')
+#### wifiManager.on('p2pStateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3630,7 +3630,7 @@ on(type: 'p2pStateChange', callback: Callback&lt;number&gt;): void
 
 
 
-##### wifiManager.off('p2pStateChange')
+#### wifiManager.off('p2pStateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3680,7 +3680,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.on('p2pConnectionChange')
+#### wifiManager.on('p2pConnectionChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3714,7 +3714,7 @@ on(type: 'p2pConnectionChange', callback: Callback&lt;WifiP2pLinkedInfo&gt;): vo
 
 
 
-##### wifiManager.off('p2pConnectionChange')
+#### wifiManager.off('p2pConnectionChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3764,7 +3764,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.on('p2pDeviceChange')
+#### wifiManager.on('p2pDeviceChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3800,7 +3800,7 @@ API 10起：ohos.permission.GET_WIFI_INFO
 
 
 
-##### wifiManager.off('p2pDeviceChange')
+#### wifiManager.off('p2pDeviceChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3848,7 +3848,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.on('p2pPeerDeviceChange')
+#### wifiManager.on('p2pPeerDeviceChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3884,7 +3884,7 @@ API 10起：ohos.permission.GET_WIFI_INFO
 
 
 
-##### wifiManager.off('p2pPeerDeviceChange')
+#### wifiManager.off('p2pPeerDeviceChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3932,7 +3932,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.on('p2pPersistentGroupChange')
+#### wifiManager.on('p2pPersistentGroupChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3966,7 +3966,7 @@ on(type: 'p2pPersistentGroupChange', callback: Callback&lt;void&gt;): void
 
 
 
-##### wifiManager.off('p2pPersistentGroupChange')
+#### wifiManager.off('p2pPersistentGroupChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4016,7 +4016,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
-##### wifiManager.on('p2pDiscoveryChange')
+#### wifiManager.on('p2pDiscoveryChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4058,7 +4058,7 @@ on(type: 'p2pDiscoveryChange', callback: Callback&lt;number&gt;): void
 
 
 
-##### wifiManager.off('p2pDiscoveryChange')
+#### wifiManager.off('p2pDiscoveryChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

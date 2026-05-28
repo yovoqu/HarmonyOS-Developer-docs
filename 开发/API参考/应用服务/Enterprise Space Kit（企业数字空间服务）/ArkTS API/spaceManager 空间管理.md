@@ -10,7 +10,7 @@
 **起始版本：** 6.0.0(20)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** PC/2in1
 
@@ -20,7 +20,7 @@ import { spaceManager } from '@kit.EnterpriseSpaceKit';
  
   
 
-##### CreateWorkspaceParams
+#### CreateWorkspaceParams
 
 **支持设备：** PC/2in1
 
@@ -39,7 +39,7 @@ import { spaceManager } from '@kit.EnterpriseSpaceKit';
  
   
 
-##### WorkspaceDomainInfo
+#### WorkspaceDomainInfo
 
 **支持设备：** PC/2in1
 
@@ -63,7 +63,7 @@ import { spaceManager } from '@kit.EnterpriseSpaceKit';
  
   
 
-##### WorkspaceInfo
+#### WorkspaceInfo
 
 **支持设备：** PC/2in1
 
@@ -93,7 +93,7 @@ import { spaceManager } from '@kit.EnterpriseSpaceKit';
  
   
 
-##### ProcessConfigInfo
+#### ProcessConfigInfo
 
 **支持设备：** PC/2in1
 
@@ -113,7 +113,7 @@ import { spaceManager } from '@kit.EnterpriseSpaceKit';
  
   
 
-##### WorkspaceType
+#### WorkspaceType
 
 **支持设备：** PC/2in1
 
@@ -132,7 +132,7 @@ import { spaceManager } from '@kit.EnterpriseSpaceKit';
  
   
 
-##### QueryType
+#### QueryType
 
 **支持设备：** PC/2in1
 
@@ -152,7 +152,7 @@ import { spaceManager } from '@kit.EnterpriseSpaceKit';
  
   
 
-##### EventType
+#### EventType
 
 **支持设备：** PC/2in1
 
@@ -171,7 +171,7 @@ import { spaceManager } from '@kit.EnterpriseSpaceKit';
  
   
 
-##### UserDataEnum
+#### UserDataEnum
 
 **支持设备：** PC/2in1
 
@@ -191,7 +191,7 @@ import { spaceManager } from '@kit.EnterpriseSpaceKit';
  
   
 
-##### EventData
+#### EventData
 
 **支持设备：** PC/2in1
 
@@ -211,7 +211,7 @@ import { spaceManager } from '@kit.EnterpriseSpaceKit';
  
   
 
-##### LockdownModePolicy
+#### LockdownModePolicy
 
 **支持设备：** PC/2in1
 
@@ -231,7 +231,7 @@ import { spaceManager } from '@kit.EnterpriseSpaceKit';
  
   
 
-##### SpaceGuidePolicy
+#### SpaceGuidePolicy
 
 **支持设备：** PC/2in1
 
@@ -251,7 +251,7 @@ import { spaceManager } from '@kit.EnterpriseSpaceKit';
  
   
 
-##### AuthResult
+#### AuthResult
 
 **支持设备：** PC/2in1
 
@@ -271,7 +271,7 @@ import { spaceManager } from '@kit.EnterpriseSpaceKit';
  
   
 
-##### StatusBarIcon
+#### StatusBarIcon
 
 **支持设备：** PC/2in1
 
@@ -291,7 +291,7 @@ import { spaceManager } from '@kit.EnterpriseSpaceKit';
  
   
 
-##### createWorkspace
+#### createWorkspace
 
 **支持设备：** PC/2in1
 
@@ -362,7 +362,7 @@ try {
  
   
 
-##### enableWorkspace
+#### enableWorkspace
 
 **支持设备：** PC/2in1
 
@@ -425,7 +425,7 @@ try {
  
   
 
-##### queryWorkspace
+#### queryWorkspace
 
 **支持设备：** PC/2in1
 
@@ -482,7 +482,7 @@ try {
  
   
 
-##### removeWorkspace
+#### removeWorkspace
 
 **支持设备：** PC/2in1
 
@@ -541,7 +541,7 @@ try {
  
   
 
-##### setWorkspaceInfo
+#### setWorkspaceInfo
 
 **支持设备：** PC/2in1
 
@@ -610,7 +610,7 @@ try {
  
   
 
-##### setWorkspaceProfilePhoto
+#### setWorkspaceProfilePhoto
 
 **支持设备：** PC/2in1
 
@@ -671,7 +671,7 @@ try {
  
   
 
-##### subscribeEvent
+#### subscribeEvent
 
 **支持设备：** PC/2in1
 
@@ -738,7 +738,7 @@ try {
  
   
 
-##### unsubscribeEvent
+#### unsubscribeEvent
 
 **支持设备：** PC/2in1
 
@@ -789,7 +789,7 @@ try {
  
   
 
-##### setRestrictedAccessBackgroundUserdata
+#### setRestrictedAccessBackgroundUserdata
 
 **支持设备：** PC/2in1
 
@@ -849,7 +849,7 @@ try {
  
   
 
-##### getRestrictedAccessBackgroundUserdataStatus
+#### getRestrictedAccessBackgroundUserdataStatus
 
 **支持设备：** PC/2in1
 
@@ -907,7 +907,7 @@ try {
  
   
 
-##### getRestrictedAccessBackgroundUserdataProcessList
+#### getRestrictedAccessBackgroundUserdataProcessList
 
 **支持设备：** PC/2in1
 
@@ -965,7 +965,7 @@ try {
  
   
 
-##### addRestrictedAccessBackgroundUserdataProcessList
+#### addRestrictedAccessBackgroundUserdataProcessList
 
 **支持设备：** PC/2in1
 
@@ -1027,7 +1027,7 @@ try {
  
   
 
-##### deleteRestrictedAccessBackgroundUserdataProcessList
+#### deleteRestrictedAccessBackgroundUserdataProcessList
 
 **支持设备：** PC/2in1
 
@@ -1087,7 +1087,7 @@ try {
  
   
 
-##### setWorkspacePolicy
+#### setWorkspacePolicy
 
 **支持设备：** PC/2in1
 
@@ -1148,7 +1148,7 @@ try {
  
   
 
-##### getWorkspacePolicy
+#### getWorkspacePolicy
 
 **支持设备：** PC/2in1
 
@@ -1208,7 +1208,7 @@ try {
  
   
 
-##### setLockdownExemptionApps
+#### setLockdownExemptionApps
 
 **支持设备：** PC/2in1
 
@@ -1271,7 +1271,7 @@ try {
  
   
 
-##### getLockdownExemptionApps
+#### getLockdownExemptionApps
 
 **支持设备：** PC/2in1
 
@@ -1329,7 +1329,7 @@ try {
  
   
 
-##### authenticate
+#### authenticate
 
 **支持设备：** PC/2in1
 
@@ -1396,7 +1396,7 @@ try {
  
   
 
-##### getAccessToken
+#### getAccessToken
 
 **支持设备：** PC/2in1
 
@@ -1458,7 +1458,7 @@ try {
  
   
 
-##### setWorkspaceStatusBarIcon
+#### setWorkspaceStatusBarIcon
 
 **支持设备：** PC/2in1
 
@@ -1541,7 +1541,7 @@ try {
  
   
 
-##### setWorkspaceLocalName
+#### setWorkspaceLocalName
 
 **支持设备：** PC/2in1
 

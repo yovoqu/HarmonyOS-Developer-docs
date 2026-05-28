@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avmemory-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -40,7 +40,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -54,13 +54,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_AVMemory_Create()
+#### OH_AVMemory_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -96,7 +96,7 @@ OH_AVMemory *OH_AVMemory_Create(int32_t size)
  
   
 
-##### OH_AVMemory_GetAddr()
+#### OH_AVMemory_GetAddr()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -132,7 +132,7 @@ uint8_t *OH_AVMemory_GetAddr(struct OH_AVMemory *mem)
  
   
 
-##### OH_AVMemory_GetSize()
+#### OH_AVMemory_GetSize()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -168,7 +168,7 @@ int32_t OH_AVMemory_GetSize(struct OH_AVMemory *mem)
  
   
 
-##### OH_AVMemory_Destroy()
+#### OH_AVMemory_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

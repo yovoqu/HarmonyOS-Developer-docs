@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { userStatus } from '@kit.MultimodalAwarenessKit';
 
 
 
-##### UserAgeGroup(deprecated)
+#### UserAgeGroup(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -38,7 +38,7 @@ import { userStatus } from '@kit.MultimodalAwarenessKit';
 
 
 
-##### UserClassification(deprecated)
+#### UserClassification(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -54,7 +54,7 @@ import { userStatus } from '@kit.MultimodalAwarenessKit';
 
 
 
-##### userStatus.on('userAgeGroupDetected')(deprecated)
+#### userStatus.on('userAgeGroupDetected')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -109,7 +109,7 @@ try {
 
 
 
-##### userStatus.off('userAgeGroupDetected')(deprecated)
+#### userStatus.off('userAgeGroupDetected')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

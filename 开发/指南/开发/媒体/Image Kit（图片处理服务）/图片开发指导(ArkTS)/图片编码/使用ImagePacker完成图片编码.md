@@ -11,13 +11,13 @@
 从API version 18开始，支持使用[PackToDataFromPixelmapSequence](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagepacker#packtodatafrompixelmapsequence18)和[PackToFileFromPixelmapSequence](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagepacker#packtofilefrompixelmapsequence18)将多个PixelMap编码为GIF格式。
 
 
-##### 开发步骤
+#### 开发步骤
 
 图片编码相关API的详细介绍请参见[ImagePacker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagepacker)。
 
 
 
-##### 图片编码进文件流
+#### 图片编码进文件流
 1. 导入相关模块包。
 
   
@@ -144,7 +144,7 @@ async function packToFileFromImageSource(context : Context, imageSource : image.
 
   
 
-  ##### 示例代码
+  #### 示例代码
 
   
 [图片压缩](https://gitcode.com/HarmonyOS_Samples/image-compression)

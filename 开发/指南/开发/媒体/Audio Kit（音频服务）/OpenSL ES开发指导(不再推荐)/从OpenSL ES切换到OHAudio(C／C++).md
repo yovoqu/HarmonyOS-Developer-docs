@@ -7,7 +7,7 @@
 由于OpenSL ES无法满足音频系统的能力拓展，建议开发者使用OHAudio替代OpenSL ES开发音频业务。本文将介绍如何从使用OpenSL ES接口开发音频业务，切换为使用OHAudio接口。
   
 
-##### 支持的功能差异
+#### 支持的功能差异
 
 两者支持的功能范围略有差异，OHAudio增加支持低时延播放/录制、监听业务变化等功能。
  
@@ -31,7 +31,7 @@
  
   
 
-##### 开发模式差异
+#### 开发模式差异
 
 此小节将结合开发步骤，对比介绍OHAudio和OpenSL ES在开发模式上的差异。
  
@@ -39,7 +39,7 @@
  
   
 
-##### 构造实例
+#### 构造实例
 
 OpenSL ES:
  
@@ -97,7 +97,7 @@ OH_AudioStreamBuilder_GenerateRenderer(builder, &audioRenderer);
  
   
 
-##### 状态切换
+#### 状态切换
 
 OpenSL ES:
  
@@ -126,7 +126,7 @@ OH_AudioRenderer_Stop(audioRenderer);
  
   
 
-##### 数据处理
+#### 数据处理
 
 OpenSL ES:
  
@@ -178,7 +178,7 @@ OH_AudioStreamBuilder_SetRendererCallback(builder, callbacks, userData);
  
   
 
-##### 资源释放
+#### 资源释放
 
 OpenSL ES:
  

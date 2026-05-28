@@ -7,7 +7,7 @@
 对于三方库@ohos/crypto-js所提供的大部分接口，SDK中若有对应的系统原生实现（@ohos.security.cryptoFramework），建议使用系统原生接口。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 import cryptoFramework from '@ohos.security.cryptoFramework';
@@ -36,7 +36,7 @@ let md = cryptoFramework.createMd('MD5');
  
  
 
-##### 反例
+#### 反例
 
 ```text
 import { CryptoJS } from '@ohos/crypto-js';
@@ -51,7 +51,7 @@ let mdOutput = CryptoJS.MD5('Message');
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 plugin:@performance/recommended

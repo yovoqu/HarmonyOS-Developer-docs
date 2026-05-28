@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_g___image_format___v_k
 **支持设备：** Phone | Tablet | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | Tablet | TV
 
@@ -19,13 +19,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | Tablet | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | Tablet | TV
  
@@ -38,13 +38,13 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** Phone | Tablet | TV
 
   
 
-##### inputColorFormat
+#### inputColorFormat
 
 **支持设备：** Phone | Tablet | TV
 
@@ -58,7 +58,7 @@ VkFormat FG_ImageFormat_VK::inputColorFormat
  
   
 
-##### inputDepthStencilFormat
+#### inputDepthStencilFormat
 
 **支持设备：** Phone | Tablet | TV
 
@@ -72,7 +72,7 @@ VkFormat FG_ImageFormat_VK::inputDepthStencilFormat
  
   
 
-##### outputColorFormat
+#### outputColorFormat
 
 **支持设备：** Phone | Tablet | TV
 

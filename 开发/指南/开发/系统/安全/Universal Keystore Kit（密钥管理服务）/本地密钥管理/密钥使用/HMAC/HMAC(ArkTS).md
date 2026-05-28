@@ -7,7 +7,7 @@
 HMAC是密钥相关的哈希运算消息认证码（Hash-based Message Authentication Code）。具体的场景介绍及支持的算法规格，请参考[HMAC介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-hmac-overview)。
 
 
-##### 开发步骤
+#### 开发步骤
 
 **生成密钥**
 1. 指定密钥别名，密钥别名命名规范参考[密钥生成介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。

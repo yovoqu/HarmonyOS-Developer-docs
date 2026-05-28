@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getsizeinbytes
 
-##### 函数功能
+#### 函数功能
 
 根据传入的element_count和data_type，获取element_count个该data_type所占用的内存总大小。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 int64_t GetSizeInBytes(int64_t element_count, DataType data_type)
@@ -18,7 +18,7 @@ int64_t GetSizeInBytes(int64_t element_count, DataType data_type)
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -28,18 +28,18 @@ int64_t GetSizeInBytes(int64_t element_count, DataType data_type)
  
   
 
-##### 返回值
+#### 返回值
 
 如果传入个数为非法值或传入不支持的数据类型，返回-1。
  
   
 
-##### 异常处理
+#### 异常处理
 
 无
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

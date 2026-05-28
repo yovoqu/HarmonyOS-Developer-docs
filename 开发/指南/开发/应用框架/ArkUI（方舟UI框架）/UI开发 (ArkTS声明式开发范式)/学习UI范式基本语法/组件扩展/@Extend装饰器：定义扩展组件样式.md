@@ -11,11 +11,11 @@
 
 
 
-##### 装饰器使用说明
+#### 装饰器使用说明
 
 
 
-##### 语法
+#### 语法
 
 ```text
 @Extend(UIComponentName) function functionName { ... }
@@ -23,7 +23,7 @@
 
 
 
-##### 使用规则
+#### 使用规则
 
  - 和@Styles不同，@Extend支持封装指定组件的私有属性、私有事件和自身定义的全局方法。
 
@@ -151,7 +151,7 @@ struct FancyUse {
 
 
 
-##### 限制条件
+#### 限制条件
 
  - 和@Styles不同，@Extend仅支持在全局定义，不支持在组件内部定义。
 
@@ -290,7 +290,7 @@ struct FancyUse {
 
 
 
-##### 使用场景
+#### 使用场景
 
 以下示例声明了3个Text组件，每个Text组件均设置了[fontStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#fontstyle)、[fontWeight](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#fontweight) 和[backgroundColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundcolor)样式。
 
@@ -320,7 +320,7 @@ struct FancyUse {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/6qH46vcSQEWcR3axcyUmBw/zh-cn_image_0000002611753577.png?HW-CC-KV=V1&HW-CC-Date=20260528T014803Z&HW-CC-Expire=86400&HW-CC-Sign=640AC044CEC996BC7F3A5E7C55623DA3144212479E5453117F8D45D67B168584)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/6qH46vcSQEWcR3axcyUmBw/zh-cn_image_0000002611753577.png?HW-CC-KV=V1&HW-CC-Date=20260528T030435Z&HW-CC-Expire=86400&HW-CC-Sign=70633679FBC9A8D2A69ACFA37C4D5AC25C65F0FC1711D3FEC84D7742107DAB53)
 
 
 使用@Extend将样式组合复用，示例如下。

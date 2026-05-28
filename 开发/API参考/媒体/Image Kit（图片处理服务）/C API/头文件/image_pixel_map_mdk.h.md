@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-pixel-map-mdk-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -42,7 +42,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -55,7 +55,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -85,13 +85,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### PixelMap透明度类型
+#### PixelMap透明度类型
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -115,7 +115,7 @@ PixelMap 透明度类型的枚举。
  
   
 
-##### PixelMap编辑类型
+#### PixelMap编辑类型
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -137,7 +137,7 @@ PixelMap编辑类型的枚举。
  
   
 
-##### OH_PixelMap_AntiAliasingLevel
+#### OH_PixelMap_AntiAliasingLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -161,13 +161,13 @@ Pixelmap缩放时采用的缩放算法。
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_PixelMap_CreatePixelMap()
+#### OH_PixelMap_CreatePixelMap()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -205,7 +205,7 @@ int32_t OH_PixelMap_CreatePixelMap(napi_env env, OhosPixelMapCreateOps info,void
  
   
 
-##### OH_PixelMap_CreatePixelMapWithStride()
+#### OH_PixelMap_CreatePixelMapWithStride()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -242,7 +242,7 @@ int32_t OH_PixelMap_CreatePixelMapWithStride(napi_env env, OhosPixelMapCreateOps
  
   
 
-##### OH_PixelMap_CreateAlphaPixelMap()
+#### OH_PixelMap_CreateAlphaPixelMap()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -274,7 +274,7 @@ int32_t OH_PixelMap_CreateAlphaPixelMap(napi_env env, napi_value source, napi_va
  
   
 
-##### OH_PixelMap_InitNativePixelMap()
+#### OH_PixelMap_InitNativePixelMap()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -305,7 +305,7 @@ NativePixelMap* OH_PixelMap_InitNativePixelMap(napi_env env, napi_value source)
  
   
 
-##### OH_PixelMap_GetBytesNumberPerRow()
+#### OH_PixelMap_GetBytesNumberPerRow()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -336,7 +336,7 @@ int32_t OH_PixelMap_GetBytesNumberPerRow(const NativePixelMap* native, int32_t* 
  
   
 
-##### OH_PixelMap_GetIsEditable()
+#### OH_PixelMap_GetIsEditable()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -367,7 +367,7 @@ int32_t OH_PixelMap_GetIsEditable(const NativePixelMap* native, int32_t* editabl
  
   
 
-##### OH_PixelMap_IsSupportAlpha()
+#### OH_PixelMap_IsSupportAlpha()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -398,7 +398,7 @@ int32_t OH_PixelMap_IsSupportAlpha(const NativePixelMap* native, int32_t* alpha)
  
   
 
-##### OH_PixelMap_SetAlphaAble()
+#### OH_PixelMap_SetAlphaAble()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -429,7 +429,7 @@ int32_t OH_PixelMap_SetAlphaAble(const NativePixelMap* native, int32_t alpha)
  
   
 
-##### OH_PixelMap_GetDensity()
+#### OH_PixelMap_GetDensity()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -460,7 +460,7 @@ int32_t OH_PixelMap_GetDensity(const NativePixelMap* native, int32_t* density)
  
   
 
-##### OH_PixelMap_SetDensity()
+#### OH_PixelMap_SetDensity()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -491,7 +491,7 @@ int32_t OH_PixelMap_SetDensity(const NativePixelMap* native, int32_t density)
  
   
 
-##### OH_PixelMap_SetOpacity()
+#### OH_PixelMap_SetOpacity()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -522,7 +522,7 @@ int32_t OH_PixelMap_SetOpacity(const NativePixelMap* native, float opacity)
  
   
 
-##### OH_PixelMap_Scale()
+#### OH_PixelMap_Scale()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -556,7 +556,7 @@ int32_t OH_PixelMap_Scale(const NativePixelMap* native, float x, float y)
  
   
 
-##### OH_PixelMap_ScaleWithAntiAliasing()
+#### OH_PixelMap_ScaleWithAntiAliasing()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -591,7 +591,7 @@ int32_t OH_PixelMap_ScaleWithAntiAliasing(const NativePixelMap* native, float x,
  
   
 
-##### OH_PixelMap_Translate()
+#### OH_PixelMap_Translate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -625,7 +625,7 @@ int32_t OH_PixelMap_Translate(const NativePixelMap* native, float x, float y)
  
   
 
-##### OH_PixelMap_Rotate()
+#### OH_PixelMap_Rotate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -658,7 +658,7 @@ int32_t OH_PixelMap_Rotate(const NativePixelMap* native, float angle)
  
   
 
-##### OH_PixelMap_Flip()
+#### OH_PixelMap_Flip()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -692,7 +692,7 @@ int32_t OH_PixelMap_Flip(const NativePixelMap* native, int32_t x, int32_t y)
  
   
 
-##### OH_PixelMap_Crop()
+#### OH_PixelMap_Crop()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -728,7 +728,7 @@ int32_t OH_PixelMap_Crop(const NativePixelMap* native, int32_t x, int32_t y, int
  
   
 
-##### OH_PixelMap_GetImageInfo()
+#### OH_PixelMap_GetImageInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -761,7 +761,7 @@ int32_t OH_PixelMap_GetImageInfo(const NativePixelMap* native, OhosPixelMapInfos
  
   
 
-##### OH_PixelMap_AccessPixels()
+#### OH_PixelMap_AccessPixels()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -792,7 +792,7 @@ int32_t OH_PixelMap_AccessPixels(const NativePixelMap* native, void** addr)
  
   
 
-##### OH_PixelMap_UnAccessPixels()
+#### OH_PixelMap_UnAccessPixels()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

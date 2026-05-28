@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import prompt from '@system.prompt';
  
   
 
-##### prompt.showToast
+#### prompt.showToast
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -56,7 +56,7 @@ export default new A()
  
   
 
-##### prompt.showDialog
+#### prompt.showDialog
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -102,7 +102,7 @@ export default new B()
  
   
 
-##### prompt.showActionMenu6+
+#### prompt.showActionMenu6+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -151,7 +151,7 @@ export default new C()
  
   
 
-##### ShowToastOptions
+#### ShowToastOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -168,7 +168,7 @@ export default new C()
  
   
 
-##### Button
+#### Button
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -184,7 +184,7 @@ export default new C()
  
   
 
-##### ShowDialogSuccessResponse
+#### ShowDialogSuccessResponse
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -199,7 +199,7 @@ export default new C()
  
   
 
-##### ShowDialogOptions
+#### ShowDialogOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -219,7 +219,7 @@ export default new C()
  
   
 
-##### ShowActionMenuOptions6+
+#### ShowActionMenuOptions6+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -22,7 +22,7 @@ import { accessibility } from '@kit.AccessibilityKit';
 
 
 
-##### AbilityState
+#### AbilityState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -45,7 +45,7 @@ type AbilityState = 'enable' | 'disable' | 'install'
 
 
 
-##### AbilityType
+#### AbilityType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -71,7 +71,7 @@ type AbilityType = 'audible' | 'generic' | 'haptic' | 'spoken' | 'visual' | 'all
 
 
 
-##### AccessibilityAbilityInfo
+#### AccessibilityAbilityInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -85,7 +85,7 @@ type AbilityType = 'audible' | 'generic' | 'haptic' | 'spoken' | 'visual' | 'all
 
 
 
-##### 属性
+#### 属性
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -103,7 +103,7 @@ type AbilityType = 'audible' | 'generic' | 'haptic' | 'spoken' | 'visual' | 'all
 
 
 
-##### Action
+#### Action
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -152,7 +152,7 @@ type Action = 'accessibilityFocus' | 'clearAccessibilityFocus' | 'focus' | 'clea
 
 
 
-##### Capability
+#### Capability
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -177,7 +177,7 @@ type Capability = 'retrieve' | 'touchGuide' | 'keyEventObserver' | 'zoom' | 'ges
 
 
 
-##### CaptionsFontEdgeType8+
+#### CaptionsFontEdgeType8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -202,7 +202,7 @@ type CaptionsFontEdgeType = 'none' | 'raised' | 'depressed' | 'uniform' | 'dropS
 
 
 
-##### CaptionsFontFamily8+
+#### CaptionsFontFamily8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -232,7 +232,7 @@ type CaptionsFontFamily = 'default' | 'monospacedSerif' | 'serif' | 'monospacedS
 
 
 
-##### CaptionsStyle8+
+#### CaptionsStyle8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -256,7 +256,7 @@ type CaptionsFontFamily = 'default' | 'monospacedSerif' | 'serif' | 'monospacedS
 
 
 
-##### CaptionsManager8+
+#### CaptionsManager8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -270,7 +270,7 @@ type CaptionsFontFamily = 'default' | 'monospacedSerif' | 'serif' | 'monospacedS
 
 
 
-##### 属性
+#### 属性
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -280,7 +280,7 @@ type CaptionsFontFamily = 'default' | 'monospacedSerif' | 'serif' | 'monospacedS
 
 
 
-##### on('enableChange')(deprecated)
+#### on('enableChange')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -338,7 +338,7 @@ struct Index {
 
 
 
-##### on('styleChange')(deprecated)
+#### on('styleChange')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -396,7 +396,7 @@ struct Index {
 
 
 
-##### off('enableChange')(deprecated)
+#### off('enableChange')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -459,7 +459,7 @@ struct Index {
 
 
 
-##### off('styleChange')(deprecated)
+#### off('styleChange')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -522,7 +522,7 @@ struct Index {
 
 
 
-##### EventInfo
+#### EventInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -536,7 +536,7 @@ struct Index {
 
 
 
-##### 属性
+#### 属性
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -562,7 +562,7 @@ struct Index {
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -597,7 +597,7 @@ let eventInfo: accessibility.EventInfo = ({
 
 
 
-##### constructor11+
+#### constructor11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -630,7 +630,7 @@ let eventInfo = new accessibility.EventInfo('click', 'com.example.MyApplication'
 
 
 
-##### EventType
+#### EventType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -675,7 +675,7 @@ type EventType = 'accessibilityFocus' | 'accessibilityFocusClear' |
 
 
 
-##### TextMoveUnit
+#### TextMoveUnit
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -700,7 +700,7 @@ type TextMoveUnit = 'char' | 'word' | 'line' | 'page' | 'paragraph'
 
 
 
-##### WindowUpdateType
+#### WindowUpdateType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -725,7 +725,7 @@ type WindowUpdateType = 'add' | 'remove' | 'bounds' | 'active' | 'focus'
 
 
 
-##### accessibility.getAbilityLists(deprecated)
+#### accessibility.getAbilityLists(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -772,7 +772,7 @@ accessibility.getAbilityLists(abilityType, abilityState).then((data: accessibili
 
 
 
-##### accessibility.getAbilityLists(deprecated)
+#### accessibility.getAbilityLists(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -815,7 +815,7 @@ accessibility.getAbilityLists(abilityType, abilityState, (err: BusinessError, da
 
 
 
-##### accessibility.getAccessibilityExtensionList9+
+#### accessibility.getAccessibilityExtensionList9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -909,7 +909,7 @@ accessibility.getAccessibilityExtensionList(abilityType, abilityState).then((dat
 
 
 
-##### accessibility.getAccessibilityExtensionList9+
+#### accessibility.getAccessibilityExtensionList9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1001,7 +1001,7 @@ accessibility.getAccessibilityExtensionList(abilityType, abilityState,(err: Busi
 
 
 
-##### accessibility.getAccessibilityExtensionListSync12+
+#### accessibility.getAccessibilityExtensionListSync12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1127,7 +1127,7 @@ try {
 
 
 
-##### accessibility.getCaptionsManager(deprecated)
+#### accessibility.getCaptionsManager(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1158,7 +1158,7 @@ let captionsManager = accessibility.getCaptionsManager();
 
 
 
-##### accessibility.on('accessibilityStateChange')
+#### accessibility.on('accessibilityStateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1244,7 +1244,7 @@ accessibility.on('accessibilityStateChange', onAccessibilityStateChangeListener)
 
 
 
-##### accessibility.on('touchGuideStateChange')
+#### accessibility.on('touchGuideStateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1294,7 +1294,7 @@ accessibility.on('touchGuideStateChange', (data: boolean) => {
 
 
 
-##### accessibility.on('screenReaderStateChange')18+
+#### accessibility.on('screenReaderStateChange')18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1341,7 +1341,7 @@ accessibility.on('screenReaderStateChange', (data: boolean) => {
 
 
 
-##### accessibility.on('touchModeChange')20+
+#### accessibility.on('touchModeChange')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1402,7 +1402,7 @@ struct Index {
 
 
 
-##### accessibility.onAnimationReduceStateChange23+
+#### accessibility.onAnimationReduceStateChange23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1451,7 +1451,7 @@ struct Index {
 
 
 
-##### accessibility.onFlashReminderStateChange23+
+#### accessibility.onFlashReminderStateChange23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1500,7 +1500,7 @@ struct Index {
 
 
 
-##### accessibility.onAudioMonoStateChange23+
+#### accessibility.onAudioMonoStateChange23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1549,7 +1549,7 @@ struct Index {
 
 
 
-##### accessibility.off('accessibilityStateChange')
+#### accessibility.off('accessibilityStateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1592,7 +1592,7 @@ accessibility.off('accessibilityStateChange', (data: boolean) => {
 
 
 
-##### accessibility.off('touchGuideStateChange')
+#### accessibility.off('touchGuideStateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1635,7 +1635,7 @@ accessibility.off('touchGuideStateChange', (data: boolean) => {
 
 
 
-##### accessibility.off('screenReaderStateChange')18+
+#### accessibility.off('screenReaderStateChange')18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1678,7 +1678,7 @@ accessibility.off('screenReaderStateChange', (data: boolean) => {
 
 
 
-##### accessibility.off('touchModeChange')20+
+#### accessibility.off('touchModeChange')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1739,7 +1739,7 @@ struct Index {
 
 
 
-##### accessibility.offAnimationReduceStateChange23+
+#### accessibility.offAnimationReduceStateChange23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1788,7 +1788,7 @@ struct Index {
 
 
 
-##### accessibility.offFlashReminderStateChange23+
+#### accessibility.offFlashReminderStateChange23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1837,7 +1837,7 @@ struct Index {
 
 
 
-##### accessibility.offAudioMonoStateChange23+
+#### accessibility.offAudioMonoStateChange23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1886,7 +1886,7 @@ struct Index {
 
 
 
-##### accessibility.isOpenAccessibility(deprecated)
+#### accessibility.isOpenAccessibility(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1922,7 +1922,7 @@ accessibility.isOpenAccessibility().then((data: boolean) => {
 
 
 
-##### accessibility.isOpenAccessibility(deprecated)
+#### accessibility.isOpenAccessibility(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1960,7 +1960,7 @@ accessibility.isOpenAccessibility((err: BusinessError, data: boolean) => {
 
 
 
-##### accessibility.isOpenAccessibilitySync10+
+#### accessibility.isOpenAccessibilitySync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1994,7 +1994,7 @@ let status: boolean = accessibility.isOpenAccessibilitySync();
 
 
 
-##### accessibility.isOpenTouchGuide(deprecated)
+#### accessibility.isOpenTouchGuide(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2030,7 +2030,7 @@ accessibility.isOpenTouchGuide().then((data: boolean) => {
 
 
 
-##### accessibility.isOpenTouchGuide(deprecated)
+#### accessibility.isOpenTouchGuide(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2068,7 +2068,7 @@ accessibility.isOpenTouchGuide((err: BusinessError, data: boolean) => {
 
 
 
-##### accessibility.isOpenTouchGuideSync10+
+#### accessibility.isOpenTouchGuideSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2099,7 +2099,7 @@ let status: boolean = accessibility.isOpenTouchGuideSync();
 
 
 
-##### accessibility.isScreenReaderOpenSync18+
+#### accessibility.isScreenReaderOpenSync18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2130,7 +2130,7 @@ let status: boolean = accessibility.isScreenReaderOpenSync();
 
 
 
-##### accessibility.isAnimationReduceEnabled23+
+#### accessibility.isAnimationReduceEnabled23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2175,7 +2175,7 @@ struct Index {
 
 
 
-##### accessibility.isAnimationReduceEnabledSync23+
+#### accessibility.isAnimationReduceEnabledSync23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2216,7 +2216,7 @@ struct Index {
 
 
 
-##### accessibility.isFlashReminderEnabled23+
+#### accessibility.isFlashReminderEnabled23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2261,7 +2261,7 @@ struct Index {
 
 
 
-##### accessibility.isFlashReminderEnabledSync23+
+#### accessibility.isFlashReminderEnabledSync23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2302,7 +2302,7 @@ struct Index {
 
 
 
-##### accessibility.isAudioMonoEnabled23+
+#### accessibility.isAudioMonoEnabled23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2347,7 +2347,7 @@ struct Index {
 
 
 
-##### accessibility.isAudioMonoEnabledSync23+
+#### accessibility.isAudioMonoEnabledSync23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2388,7 +2388,7 @@ struct Index {
 
 
 
-##### accessibility.sendEvent(deprecated)
+#### accessibility.sendEvent(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2437,7 +2437,7 @@ accessibility.sendEvent(eventInfo).then(() => {
 
 
 
-##### accessibility.sendEvent(deprecated)
+#### accessibility.sendEvent(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2482,7 +2482,7 @@ accessibility.sendEvent(eventInfo, (err: BusinessError) => {
 
 
 
-##### accessibility.sendAccessibilityEvent9+
+#### accessibility.sendAccessibilityEvent9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2540,7 +2540,7 @@ accessibility.sendAccessibilityEvent(eventInfo).then(() => {
 
 
 
-##### accessibility.sendAccessibilityEvent9+
+#### accessibility.sendAccessibilityEvent9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2652,7 +2652,7 @@ accessibility.sendAccessibilityEvent(eventInfo, (err: BusinessError) => {
 
 
 
-##### accessibility.getTouchModeSync20+
+#### accessibility.getTouchModeSync20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

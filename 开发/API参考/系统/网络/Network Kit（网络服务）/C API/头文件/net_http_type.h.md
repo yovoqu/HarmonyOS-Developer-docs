@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-http-type-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -51,7 +51,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -67,7 +67,7 @@
  
   
 
-##### 宏定义
+#### 宏定义
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -88,7 +88,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -103,13 +103,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### Http_ErrCode
+#### Http_ErrCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -163,7 +163,7 @@ enum Http_ErrCode
  
   
 
-##### Http_ResponseCode
+#### Http_ResponseCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -219,7 +219,7 @@ enum Http_ResponseCode
  
   
 
-##### Http_AddressFamilyType
+#### Http_AddressFamilyType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -242,7 +242,7 @@ enum Http_AddressFamilyType
  
   
 
-##### Http_HttpProtocol
+#### Http_HttpProtocol
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -266,7 +266,7 @@ HTTP协议版本号枚举定义。
  
   
 
-##### Http_CertType
+#### Http_CertType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -289,7 +289,7 @@ enum Http_CertType
  
   
 
-##### Http_ProxyType
+#### Http_ProxyType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -312,13 +312,13 @@ enum Http_ProxyType
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### Http_ResponseCallback()
+#### Http_ResponseCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -342,7 +342,7 @@ typedef void (*Http_ResponseCallback)(struct Http_Response *response, uint32_t e
  
   
 
-##### Http_OnDataReceiveCallback()
+#### Http_OnDataReceiveCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -366,7 +366,7 @@ typedef void (*Http_OnDataReceiveCallback)(const char *data, size_t length)
  
   
 
-##### Http_OnProgressCallback()
+#### Http_OnProgressCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -390,7 +390,7 @@ typedef void (*Http_OnProgressCallback)(uint64_t totalSize, uint64_t transferred
  
   
 
-##### Http_OnHeaderReceiveCallback()
+#### Http_OnHeaderReceiveCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -413,7 +413,7 @@ typedef void (*Http_OnHeaderReceiveCallback)(Http_Headers *headers)
  
   
 
-##### Http_OnVoidCallback()
+#### Http_OnVoidCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

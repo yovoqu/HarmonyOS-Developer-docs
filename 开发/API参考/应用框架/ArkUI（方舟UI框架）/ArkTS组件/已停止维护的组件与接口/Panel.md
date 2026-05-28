@@ -12,7 +12,7 @@
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -45,7 +45,7 @@ Panel(show: boolean)
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -53,7 +53,7 @@ Panel(show: boolean)
 
 
 
-##### type
+#### type
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -76,7 +76,7 @@ type(value: PanelType)
 
 
 
-##### mode
+#### mode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -99,7 +99,7 @@ mode(value: PanelMode)
 
 
 
-##### dragBar
+#### dragBar
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -122,7 +122,7 @@ dragBar(value: boolean)
 
 
 
-##### customHeight10+
+#### customHeight10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -145,7 +145,7 @@ customHeight(value: Dimension | PanelHeight)
 
 
 
-##### fullHeight
+#### fullHeight
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -168,7 +168,7 @@ fullHeight(value: number | string)
 
 
 
-##### halfHeight
+#### halfHeight
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -191,7 +191,7 @@ halfHeight(value: number | string)
 
 
 
-##### miniHeight
+#### miniHeight
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -214,7 +214,7 @@ miniHeight(value: number | string)
 
 
 
-##### show
+#### show
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -237,7 +237,7 @@ show(value: boolean)
 
 
 
-##### backgroundMask9+
+#### backgroundMask9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -260,7 +260,7 @@ backgroundMask(color: ResourceColor)
 
 
 
-##### showCloseIcon10+
+#### showCloseIcon10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -283,7 +283,7 @@ showCloseIcon(value: boolean)
 
 
 
-##### PanelType枚举说明
+#### PanelType枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -303,7 +303,7 @@ showCloseIcon(value: boolean)
 
 
 
-##### PanelMode枚举说明
+#### PanelMode枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -322,7 +322,7 @@ showCloseIcon(value: boolean)
 
 
 
-##### PanelHeight10+枚举说明
+#### PanelHeight10+枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -339,7 +339,7 @@ showCloseIcon(value: boolean)
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -347,7 +347,7 @@ showCloseIcon(value: boolean)
 
 
 
-##### onChange
+#### onChange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -372,7 +372,7 @@ onChange(event: (width: number, height: number, mode: PanelMode) => void)
 
 
 
-##### onHeightChange9+
+#### onHeightChange9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -395,7 +395,7 @@ onHeightChange(callback: (value: number) => void)
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -438,4 +438,4 @@ struct PanelExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/r3Dk1zm9Tjiu8RD0ixVY8A/zh-cn_image_0000002611836133.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024224Z&HW-CC-Expire=86400&HW-CC-Sign=8333399BE763BDA8C6BFE5EED61BA58A87E587B78B4CA993C6BCB07351F33CE7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/r3Dk1zm9Tjiu8RD0ixVY8A/zh-cn_image_0000002611836133.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025558Z&HW-CC-Expire=86400&HW-CC-Sign=B86485CE67B8E9560A62DAB6B0EA263E9FDB0A75B033754E5E2A039592670927)

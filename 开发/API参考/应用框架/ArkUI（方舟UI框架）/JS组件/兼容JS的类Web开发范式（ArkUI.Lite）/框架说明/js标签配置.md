@@ -18,7 +18,7 @@ js标签中包含了实例名称、页面路由信息。
 
   
 
-##### pages
+#### pages
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -41,7 +41,7 @@ js标签中包含了实例名称、页面路由信息。
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 

@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-registerreliedonresourcekey
 
-##### 函数功能
+#### 函数功能
 
 注册依赖的资源。
  
@@ -14,7 +14,7 @@
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 graphStatus RegisterReliedOnResourceKey(const ge::AscendString &key)
@@ -22,7 +22,7 @@ graphStatus RegisterReliedOnResourceKey(const ge::AscendString &key)
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数名 | 输入/输出 | 描述 |
 | --- | --- | --- |
@@ -31,12 +31,12 @@ graphStatus RegisterReliedOnResourceKey(const ge::AscendString &key)
  
   
 
-##### 返回值
+#### 返回值
 
 graphStatus：GRAPH_SUCCESS，代表成功；GRAPH_FAILED，代表失败。
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

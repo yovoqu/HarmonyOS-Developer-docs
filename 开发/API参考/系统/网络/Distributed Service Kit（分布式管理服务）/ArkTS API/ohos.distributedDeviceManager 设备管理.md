@@ -21,7 +21,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -31,7 +31,7 @@ import { distributedDeviceManager } from '@kit.DistributedServiceKit';
 
 
 
-##### distributedDeviceManager.createDeviceManager
+#### distributedDeviceManager.createDeviceManager
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -80,7 +80,7 @@ try {
 
 
 
-##### distributedDeviceManager.releaseDeviceManager
+#### distributedDeviceManager.releaseDeviceManager
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -124,7 +124,7 @@ try {
 
 
 
-##### DeviceBasicInfo
+#### DeviceBasicInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -142,7 +142,7 @@ try {
 
 
 
-##### DeviceStateChange
+#### DeviceStateChange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -159,7 +159,7 @@ try {
 
 
 
-##### DeviceManager
+#### DeviceManager
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -169,7 +169,7 @@ try {
 
 
 
-##### getAvailableDeviceListSync
+#### getAvailableDeviceListSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -215,7 +215,7 @@ try {
 
 
 
-##### getAvailableDeviceList
+#### getAvailableDeviceList
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -267,7 +267,7 @@ try {
 
 
 
-##### getAvailableDeviceList
+#### getAvailableDeviceList
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -312,7 +312,7 @@ dmInstance.getAvailableDeviceList().then((data: Array<distributedDeviceManager.D
 
 
 
-##### getLocalDeviceNetworkId
+#### getLocalDeviceNetworkId
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -359,7 +359,7 @@ try {
 
 
 
-##### getLocalDeviceName
+#### getLocalDeviceName
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -406,7 +406,7 @@ try {
 
 
 
-##### getLocalDeviceType
+#### getLocalDeviceType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -453,7 +453,7 @@ try {
 
 
 
-##### getLocalDeviceId
+#### getLocalDeviceId
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -500,7 +500,7 @@ try {
 
 
 
-##### getDeviceName
+#### getDeviceName
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -557,7 +557,7 @@ try {
 
 
 
-##### getDeviceType
+#### getDeviceType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -614,7 +614,7 @@ try {
 
 
 
-##### startDiscovering
+#### startDiscovering
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -681,7 +681,7 @@ try {
 
 
 
-##### stopDiscovering
+#### stopDiscovering
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -720,7 +720,7 @@ try {
 
 
 
-##### bindTarget
+#### bindTarget
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -790,7 +790,7 @@ try {
 
 
 
-##### unbindTarget
+#### unbindTarget
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -838,7 +838,7 @@ try {
 
 
 
-##### on('deviceStateChange')
+#### on('deviceStateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -897,7 +897,7 @@ try {
 
 
 
-##### off('deviceStateChange')
+#### off('deviceStateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -956,7 +956,7 @@ try {
 
 
 
-##### on('discoverSuccess')
+#### on('discoverSuccess')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1014,7 +1014,7 @@ try {
 
 
 
-##### off('discoverSuccess')
+#### off('discoverSuccess')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1072,7 +1072,7 @@ try {
 
 
 
-##### on('deviceNameChange')
+#### on('deviceNameChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1125,7 +1125,7 @@ try {
 
 
 
-##### off('deviceNameChange')
+#### off('deviceNameChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1178,7 +1178,7 @@ try {
 
 
 
-##### on('discoverFailure')
+#### on('discoverFailure')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1231,7 +1231,7 @@ try {
 
 
 
-##### off('discoverFailure')
+#### off('discoverFailure')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1284,7 +1284,7 @@ try {
 
 
 
-##### on('serviceDie')
+#### on('serviceDie')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1333,7 +1333,7 @@ try {
 
 
 
-##### off('serviceDie')
+#### off('serviceDie')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

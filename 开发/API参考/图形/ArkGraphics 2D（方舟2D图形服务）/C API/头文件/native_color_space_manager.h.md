@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-color-space-manager-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -42,7 +42,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -53,7 +53,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -69,13 +69,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### ColorSpaceName
+#### ColorSpaceName
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -126,13 +126,13 @@ enum ColorSpaceName
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_NativeColorSpaceManager_CreateFromName()
+#### OH_NativeColorSpaceManager_CreateFromName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -166,7 +166,7 @@ OH_NativeColorSpaceManager* OH_NativeColorSpaceManager_CreateFromName(ColorSpace
  
   
 
-##### OH_NativeColorSpaceManager_CreateFromPrimariesAndGamma()
+#### OH_NativeColorSpaceManager_CreateFromPrimariesAndGamma()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -201,7 +201,7 @@ OH_NativeColorSpaceManager* OH_NativeColorSpaceManager_CreateFromPrimariesAndGam
  
   
 
-##### OH_NativeColorSpaceManager_Destroy()
+#### OH_NativeColorSpaceManager_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -226,7 +226,7 @@ void OH_NativeColorSpaceManager_Destroy(OH_NativeColorSpaceManager* nativeColorS
  
   
 
-##### OH_NativeColorSpaceManager_GetColorSpaceName()
+#### OH_NativeColorSpaceManager_GetColorSpaceName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -258,7 +258,7 @@ int OH_NativeColorSpaceManager_GetColorSpaceName(OH_NativeColorSpaceManager* nat
  
   
 
-##### OH_NativeColorSpaceManager_GetWhitePoint()
+#### OH_NativeColorSpaceManager_GetWhitePoint()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -290,7 +290,7 @@ WhitePointArray OH_NativeColorSpaceManager_GetWhitePoint(OH_NativeColorSpaceMana
  
   
 
-##### OH_NativeColorSpaceManager_GetGamma()
+#### OH_NativeColorSpaceManager_GetGamma()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

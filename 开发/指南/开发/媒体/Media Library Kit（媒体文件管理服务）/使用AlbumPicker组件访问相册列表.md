@@ -15,7 +15,7 @@
 
   
 
-##### 开发步骤
+#### 开发步骤
 1. 导入相册组件模块文件。
 
   
@@ -84,7 +84,7 @@ private onAlbumClick(albumInfo: AlbumInfo): boolean {
  
   
 
-##### 完整示例
+#### 完整示例
 
 ```text
 import {

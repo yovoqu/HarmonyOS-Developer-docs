@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_g___dispatch_description___g_l_e_s
 **支持设备：** Phone | Tablet | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | Tablet | TV
 
@@ -19,13 +19,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | Tablet | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | Tablet | TV
  
@@ -40,13 +40,13 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** Phone | Tablet | TV
 
   
 
-##### inputColor
+#### inputColor
 
 **支持设备：** Phone | Tablet | TV
 
@@ -60,7 +60,7 @@ uint32_t FG_DispatchDescription_GLES::inputColor
  
   
 
-##### inputDepthStencil
+#### inputDepthStencil
 
 **支持设备：** Phone | Tablet | TV
 
@@ -74,7 +74,7 @@ uint32_t FG_DispatchDescription_GLES::inputDepthStencil
  
   
 
-##### invViewProj
+#### invViewProj
 
 **支持设备：** Phone | Tablet | TV
 
@@ -88,7 +88,7 @@ FG_Mat4x4 FG_DispatchDescription_GLES::invViewProj
  
   
 
-##### outputColor
+#### outputColor
 
 **支持设备：** Phone | Tablet | TV
 
@@ -102,7 +102,7 @@ uint32_t FG_DispatchDescription_GLES::outputColor
  
   
 
-##### viewProj
+#### viewProj
 
 **支持设备：** Phone | Tablet | TV
 

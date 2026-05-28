@@ -9,7 +9,7 @@
 例如，在消息类App中，用户收到快递单号，应用能够识别快递单号信息并提供快递查询的链接。用户点击链接后，应用将通过调用[UIAbilityContext.startAbilityByType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#startabilitybytype11)或[UIExtensionContentSession.startAbilityByType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiextensioncontentsession#startabilitybytype11)接口，拉起快递类应用的扩展面板。面板上将展示设备上所有支持快递查询的应用，供用户选择并跳转至所需应用。
 
 
-##### 快递类应用扩展面板参数说明
+#### 快递类应用扩展面板参数说明
 
 startAbilityByType接口中type字段为express，支持查询快递意图，对应的wantParam参数如下：
 
@@ -21,7 +21,7 @@ startAbilityByType接口中type字段为express，支持查询快递意图，对
 
 
 
-##### 拉起方开发步骤
+#### 拉起方开发步骤
 1. 导入相关模块。
 
   
@@ -83,7 +83,7 @@ struct Index {
 
 
 
-##### 目标方开发步骤
+#### 目标方开发步骤
 1. 在module.json5中配置[uris](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#skills标签)：
 
   

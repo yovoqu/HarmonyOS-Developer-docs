@@ -7,7 +7,7 @@
 禁止使用不必要的括号。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/no-extra-parens选项](https://eslint.nodejs.cn/docs/rules/no-extra-parens#选项)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 // 默认不允许在任何表达式中使用不必要的括号
@@ -41,7 +41,7 @@ const result = (() => {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 // 默认不允许在任何表达式中使用不必要的括号
@@ -56,7 +56,7 @@ export const myType = typeof (a);
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

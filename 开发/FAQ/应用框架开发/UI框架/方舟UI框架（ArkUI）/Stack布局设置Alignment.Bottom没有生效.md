@@ -9,7 +9,7 @@
 在build()中使用Stack作为容器，设置alignContent为Alignment.Bottom，同时设置align为Alignment.Center。但alignContent为Alignment.Bottom未生效。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/WnQvOBGITZKJEa8rZ7K2hg/zh-cn_image_0000002229604149.png?HW-CC-KV=V1&HW-CC-Date=20260528T013311Z&HW-CC-Expire=86400&HW-CC-Sign=8ACB9CEC35E46FA24F0BBE7BCA3758FA9E1304EA6E00FA93389AC1B273E9BF73)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/WnQvOBGITZKJEa8rZ7K2hg/zh-cn_image_0000002229604149.png?HW-CC-KV=V1&HW-CC-Date=20260528T024950Z&HW-CC-Expire=86400&HW-CC-Sign=C170640A6D4B80C1BF662FE710A4CEA5A409927278F12DB995D32E6CAE3C4DDE)
 
  
 **解决措施**

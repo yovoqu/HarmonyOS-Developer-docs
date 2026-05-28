@@ -14,7 +14,7 @@ ForEach接口基于数组类型数据来进行循环渲染。
 开发者指南见：[ForEach开发者指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-foreach)。
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -57,7 +57,7 @@ ForEach(this.arr, (item: Type1 | Type2) => {...}, (item: Type1 | Type2) => item.
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

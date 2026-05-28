@@ -10,7 +10,7 @@
 
   
 
-##### KeyboardAvoidMode11+
+#### KeyboardAvoidMode11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -29,7 +29,7 @@
  
   
 
-##### SwiperDynamicSyncSceneType12+
+#### SwiperDynamicSyncSceneType12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -47,7 +47,7 @@
  
   
 
-##### MarqueeDynamicSyncSceneType14+
+#### MarqueeDynamicSyncSceneType14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -64,7 +64,7 @@
  
   
 
-##### NodeRenderState20+
+#### NodeRenderState20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -82,7 +82,7 @@
  
   
 
-##### GestureActionPhase20+
+#### GestureActionPhase20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -100,7 +100,7 @@
  
   
 
-##### GestureListenerType20+
+#### GestureListenerType20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -122,7 +122,7 @@
  
   
 
-##### ResolveStrategy22+
+#### ResolveStrategy22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -144,7 +144,7 @@ UIContext对象的解析策略。
  
   
 
-##### CustomKeyboardContinueFeature23+
+#### CustomKeyboardContinueFeature23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

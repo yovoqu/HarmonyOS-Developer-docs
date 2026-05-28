@@ -14,7 +14,7 @@
 **装饰器类型：**@Sendable
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { collections } from '@kit.ArkTS';
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -43,7 +43,7 @@ import { collections } from '@kit.ArkTS';
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -72,7 +72,7 @@ let uint8ClampedArray: collections.Uint8ClampedArray = new collections.Uint8Clam
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -110,7 +110,7 @@ let uint8ClampedArray: collections.Uint8ClampedArray = new collections.Uint8Clam
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -150,7 +150,7 @@ let array: collections.Uint8ClampedArray = new collections.Uint8ClampedArray(set
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -204,7 +204,7 @@ let uint8ClampedArray2: collections.Uint8ClampedArray = new collections.Uint8Cla
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -247,7 +247,7 @@ console.info("[" + uint8ClampedArray1 + "]"); // [2, 3, 4, 5, 6]
 
 
 
-##### from
+#### from
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -291,7 +291,7 @@ let array: collections.Uint8ClampedArray = collections.Uint8ClampedArray.from(ar
 
 
 
-##### from
+#### from
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -352,7 +352,7 @@ let array: collections.Uint8ClampedArray = collections.Uint8ClampedArray.from<st
 
 
 
-##### from
+#### from
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -407,7 +407,7 @@ let array: collections.Uint8ClampedArray = collections.Uint8ClampedArray.from(
 
 
 
-##### of18+
+#### of18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -451,7 +451,7 @@ console.info(arr.toString()); // 预期输出：1,2,3,4
 
 
 
-##### toString18+
+#### toString18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -490,7 +490,7 @@ console.info(stringArray); // 预期输出：1,2,3,4,5
 
 
 
-##### toLocaleString18+
+#### toLocaleString18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -530,7 +530,7 @@ console.info(stringArray); // 预期输出：100,110,120
 
 
 
-##### copyWithin
+#### copyWithin
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -579,7 +579,7 @@ let copied: collections.Uint8ClampedArray = array.copyWithin(3, 1, 3);
 
 
 
-##### some
+#### some
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -626,7 +626,7 @@ uint8ClampedArray.some((element: number) => element < 1); // false
 
 
 
-##### every
+#### every
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -673,7 +673,7 @@ uint8ClampedArray.every((element: number) => element > 10);  // false
 
 
 
-##### fill
+#### fill
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -723,7 +723,7 @@ new collections.Uint8ClampedArray(arrayLike).fill(4, 1, 2); // Uint8ClampedArray
 
 
 
-##### filter
+#### filter
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -770,7 +770,7 @@ let filtered: collections.Uint8ClampedArray = array.filter((element: number) => 
 
 
 
-##### find
+#### find
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -817,7 +817,7 @@ array.find((element: number) => element > 4); // undefined
 
 
 
-##### findIndex
+#### findIndex
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -863,7 +863,7 @@ let foundIndex: number = array.findIndex((element: number) => element % 2 === 0)
 
 
 
-##### forEach
+#### forEach
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -904,7 +904,7 @@ uint8ClampedArray.forEach((value: number, index: number, array: collections.Uint
 
 
 
-##### indexOf
+#### indexOf
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -954,7 +954,7 @@ array.indexOf(9, -2); // 2
 
 
 
-##### lastIndexOf18+
+#### lastIndexOf18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1003,7 +1003,7 @@ console.info(array.lastIndexOf(9, -2) + ''); // 预期输出：-1
 
 
 
-##### join
+#### join
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1049,7 +1049,7 @@ let joined: string = array.join('-'); // "1-2-3-4-5"
 
 
 
-##### map
+#### map
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1095,7 +1095,7 @@ const mapped: collections.Uint8ClampedArray = array.map(Math.sqrt); // Uint8Clam
 
 
 
-##### reduce
+#### reduce
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1142,7 +1142,7 @@ let reducedValue: number = array.reduce((accumulator: number, value: number) => 
 
 
 
-##### reduceRight18+
+#### reduceRight18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1189,7 +1189,7 @@ console.info(reducedValue + ''); // 预期输出： 15
 
 
 
-##### reduce
+#### reduce
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1237,7 +1237,7 @@ let reducedValue: number = array.reduce((accumulator: number, value: number) => 
 
 
 
-##### reduceRight18+
+#### reduceRight18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1285,7 +1285,7 @@ console.info(reducedValue + ''); // 预期输出： 16
 
 
 
-##### reverse
+#### reverse
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1323,7 +1323,7 @@ let reversed: collections.Uint8ClampedArray = array.reverse(); // Uint8ClampedAr
 
 
 
-##### set
+#### set
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1364,7 +1364,7 @@ array.set([1, 2, 3], 3); // Uint8ClampedArray [0, 0, 0, 1, 2, 3, 0, 0]
 
 
 
-##### slice
+#### slice
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1413,7 +1413,7 @@ array.slice(-2); // Uint8ClampedArray [4, 5]
 
 
 
-##### sort
+#### sort
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1461,7 +1461,7 @@ array.sort((a: number, b: number) => b - a); // Uint8ClampedArray [5, 4, 3, 2, 1
 
 
 
-##### subarray
+#### subarray
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1509,7 +1509,7 @@ subArray.set([10, 20, 30]); // Uint8ClampedArray [10, 20, 30, 4, 5]
 
 
 
-##### at
+#### at
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1557,7 +1557,7 @@ console.info("element: " + array.at(6));  // element: undefined
 
 
 
-##### includes
+#### includes
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1606,7 +1606,7 @@ console.info("includes: " + array.includes(3, 3)); // includes: false
 
 
 
-##### entries
+#### entries
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1647,7 +1647,7 @@ console.info("value: " + iterator.next().value); // value: 2,33
 
 
 
-##### keys
+#### keys
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1688,7 +1688,7 @@ for (const key of iterator) {
 
 
 
-##### values
+#### values
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1729,7 +1729,7 @@ for (const value of iterator) {
 
 
 
-##### [Symbol.iterator]
+#### [Symbol.iterator]
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1773,7 +1773,7 @@ for (let item of uint8ClampedArray) {
 
 
 
-##### [index: number]
+#### [index: number]
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

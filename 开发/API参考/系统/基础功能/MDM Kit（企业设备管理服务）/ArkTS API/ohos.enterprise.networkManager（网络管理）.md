@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { networkManager } from '@kit.MDMKit';
 
 
 
-##### networkManager.getAllNetworkInterfacesSync
+#### networkManager.getAllNetworkInterfacesSync
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -84,7 +84,7 @@ try {
 
 
 
-##### networkManager.getIpAddressSync
+#### networkManager.getIpAddressSync
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -148,7 +148,7 @@ try {
 
 
 
-##### networkManager.getMacSync
+#### networkManager.getMacSync
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -212,7 +212,7 @@ try {
 
 
 
-##### networkManager.isNetworkInterfaceDisabledSync
+#### networkManager.isNetworkInterfaceDisabledSync
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -276,7 +276,7 @@ try {
 
 
 
-##### networkManager.setNetworkInterfaceDisabledSync
+#### networkManager.setNetworkInterfaceDisabledSync
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -336,7 +336,7 @@ try {
 
 
 
-##### networkManager.setGlobalProxySync
+#### networkManager.setGlobalProxySync
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -404,7 +404,7 @@ try {
 
 
 
-##### networkManager.setGlobalProxyForAccount15+
+#### networkManager.setGlobalProxyForAccount15+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -475,7 +475,7 @@ try {
 
 
 
-##### networkManager.getGlobalProxySync
+#### networkManager.getGlobalProxySync
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -538,7 +538,7 @@ try {
 
 
 
-##### networkManager.getGlobalProxyForAccount15+
+#### networkManager.getGlobalProxyForAccount15+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -605,7 +605,7 @@ try {
 
 
 
-##### networkManager.addFirewallRule
+#### networkManager.addFirewallRule
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -684,7 +684,7 @@ try {
 
 
 
-##### networkManager.removeFirewallRule
+#### networkManager.removeFirewallRule
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -771,7 +771,7 @@ try {
 
 
 
-##### networkManager.getFirewallRules
+#### networkManager.getFirewallRules
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -837,7 +837,7 @@ try {
 
 
 
-##### networkManager.addDomainFilterRule
+#### networkManager.addDomainFilterRule
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -915,7 +915,7 @@ try {
 
 
 
-##### networkManager.removeDomainFilterRule
+#### networkManager.removeDomainFilterRule
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -997,7 +997,7 @@ try {
 
 
 
-##### networkManager.getDomainFilterRules
+#### networkManager.getDomainFilterRules
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1063,7 +1063,7 @@ try {
 
 
 
-##### networkManager.turnOnMobileData20+
+#### networkManager.turnOnMobileData20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1119,7 +1119,7 @@ try {
 
 
 
-##### networkManager.turnOffMobileData20+
+#### networkManager.turnOffMobileData20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1174,7 +1174,7 @@ try {
 
 
 
-##### networkManager.addApn20+
+#### networkManager.addApn20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1237,7 +1237,7 @@ try {
 
 
 
-##### networkManager.deleteApn20+
+#### networkManager.deleteApn20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1294,7 +1294,7 @@ try {
 
 
 
-##### networkManager.updateApn20+
+#### networkManager.updateApn20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1359,7 +1359,7 @@ try {
 
 
 
-##### networkManager.setPreferredApn20+
+#### networkManager.setPreferredApn20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1416,7 +1416,7 @@ try {
 
 
 
-##### networkManager.queryApn20+
+#### networkManager.queryApn20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1484,7 +1484,7 @@ try {
 
 
 
-##### networkManager.queryApn20+
+#### networkManager.queryApn20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1546,7 +1546,7 @@ try {
 
 
 
-##### networkManager.setEthernetConfig23+
+#### networkManager.setEthernetConfig23+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1614,7 +1614,7 @@ try {
 
 
 
-##### FirewallRule
+#### FirewallRule
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1642,7 +1642,7 @@ API version 21及之前版本，仅支持IPv4。从API version 22开始，支持
 
 
 
-##### DomainFilterRule
+#### DomainFilterRule
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1666,7 +1666,7 @@ API version 21及之前版本，仅支持IPv4。从API version 22开始，支持
 
 
 
-##### Direction
+#### Direction
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1683,7 +1683,7 @@ API version 21及之前版本，仅支持IPv4。从API version 22开始，支持
 
 
 
-##### Action
+#### Action
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1700,7 +1700,7 @@ API version 21及之前版本，仅支持IPv4。从API version 22开始，支持
 
 
 
-##### Protocol
+#### Protocol
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1718,7 +1718,7 @@ API version 21及之前版本，仅支持IPv4。从API version 22开始，支持
 
 
 
-##### LogType23+
+#### LogType23+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1733,7 +1733,7 @@ API version 21及之前版本，仅支持IPv4。从API version 22开始，支持
 
 
 
-##### InterfaceConfig23+
+#### InterfaceConfig23+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1752,7 +1752,7 @@ API version 21及之前版本，仅支持IPv4。从API version 22开始，支持
 
 
 
-##### IpSetMode23+
+#### IpSetMode23+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

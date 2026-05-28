@@ -16,7 +16,7 @@
 **起始版本：** 5.0.1(13)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -26,7 +26,7 @@ import { ecnyPaymentService } from '@kit.PaymentKit';
 
 
 
-##### EcnyOrderInfo
+#### EcnyOrderInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -59,7 +59,7 @@ import { ecnyPaymentService } from '@kit.PaymentKit';
 
 
 
-##### EcnyPayResult
+#### EcnyPayResult
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -81,7 +81,7 @@ import { ecnyPaymentService } from '@kit.PaymentKit';
 
 
 
-##### requestEcnyPayment
+#### requestEcnyPayment
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

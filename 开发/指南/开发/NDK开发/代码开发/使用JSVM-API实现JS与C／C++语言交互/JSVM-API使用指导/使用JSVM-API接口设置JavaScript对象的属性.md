@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-about-property
 
-##### 简介
+#### 简介
 
 使用JSVM-API接口获取和设置JavaScript对象的属性。通过合理使用这些函数，实现更复杂的功能和逻辑。
  
   
 
-##### 基本概念
+#### 基本概念
 
 在JavaScript对象属性的相关开发中，需要处理JavaScript对象属性，确保正确地访问、设置、删除属性，并了解属性的继承关系和枚举特性。以下是一些关键概念：
  
@@ -22,7 +22,7 @@
  
   
 
-##### 接口说明
+#### 接口说明
  
 | 接口 | 功能说明 |
 | --- | --- |
@@ -41,13 +41,13 @@
  
   
 
-##### 使用示例
+#### 使用示例
 
 参考[使用JSVM-API实现JS与C/C++语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-process)，本文仅展示接口对应的C++代码。
  
   
 
-##### OH_JSVM_GetPropertyNames
+#### OH_JSVM_GetPropertyNames
 
 以字符串数组的形式获取对象的可枚举属性的名称，如果接口调用成功则返回JSVM_OK。
  
@@ -97,7 +97,7 @@ JSVM OH_JSVM_GetPropertyNames success
  
   
 
-##### OH_JSVM_SetProperty
+#### OH_JSVM_SetProperty
 
 将给定的属性与值设置入给定的Object。
  
@@ -151,7 +151,7 @@ JSVM OH_JSVM_SetProperty success
  
   
 
-##### OH_JSVM_GetProperty
+#### OH_JSVM_GetProperty
 
 获取给定Object的给定属性对应的值。
  
@@ -201,7 +201,7 @@ JSVM OH_JSVM_GetProperty success
  
   
 
-##### OH_JSVM_HasProperty
+#### OH_JSVM_HasProperty
 
 检查对象中是否存在指定的属性，可以避免访问不存在属性导致的异常或错误。
  
@@ -258,7 +258,7 @@ JSVM OH_JSVM_HasProperty success:0
  
   
 
-##### OH_JSVM_DeleteProperty
+#### OH_JSVM_DeleteProperty
 
 尝试从给定的Object中删除由key指定的属性，并返回操作的结果。
  
@@ -319,7 +319,7 @@ JSVM OH_JSVM_DeleteProperty success:1
  
   
 
-##### OH_JSVM_HasOwnProperty
+#### OH_JSVM_HasOwnProperty
 
 用于检查传入的Object是否具有自己的命名属性，不包括从原型链上继承的属性。
  
@@ -391,7 +391,7 @@ JSVM OH_JSVM_HasOwnProperty success:0
  
   
 
-##### OH_JSVM_SetNamedProperty
+#### OH_JSVM_SetNamedProperty
 
 用于在传入的Javascript对象上设置一个命名属性。
  
@@ -451,7 +451,7 @@ JSVM OH_JSVM_SetNamedProperty success
  
   
 
-##### OH_JSVM_GetNamedProperty
+#### OH_JSVM_GetNamedProperty
 
 用于从Javascript对象中获取命名属性的值。
  
@@ -505,7 +505,7 @@ JSVM OH_JSVM_GetNamedProperty success
  
   
 
-##### OH_JSVM_HasNamedProperty
+#### OH_JSVM_HasNamedProperty
 
 用于检查Javascript对象中是否包含指定的命名属性。
  
@@ -562,7 +562,7 @@ JSVM OH_JSVM_HasNamedProperty success:1
  
   
 
-##### OH_JSVM_DefineProperties
+#### OH_JSVM_DefineProperties
 
 用于定义对象的自定义属性，可一次性为对象设置若干个属性。
  
@@ -707,7 +707,7 @@ JSVM getterCallback success:Hello world!
  
   
 
-##### OH_JSVM_GetAllPropertyNames
+#### OH_JSVM_GetAllPropertyNames
 
 获取给定对象的所有可枚举属性名称，结果变量将存储一个包含这些属性名称的JavaScript数组。
  

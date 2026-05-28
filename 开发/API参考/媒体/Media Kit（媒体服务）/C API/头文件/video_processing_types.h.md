@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-types-h
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  
@@ -44,7 +44,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  
@@ -58,7 +58,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  
@@ -71,7 +71,7 @@
  
   
 
-##### 变量
+#### 变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  
@@ -86,13 +86,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### VideoDetailEnhancer_QualityLevel
+#### VideoDetailEnhancer_QualityLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -122,7 +122,7 @@ enum VideoDetailEnhancer_QualityLevel
  
   
 
-##### VideoMetadataGeneratorStyleControl
+#### VideoMetadataGeneratorStyleControl
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -152,7 +152,7 @@ enum VideoMetadataGeneratorStyleControl
  
   
 
-##### VideoProcessing_ErrorCode
+#### VideoProcessing_ErrorCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -183,7 +183,7 @@ enum VideoProcessing_ErrorCode
  
   
 
-##### VideoProcessing_State
+#### VideoProcessing_State
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -205,13 +205,13 @@ enum VideoProcessing_State
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### OH_VideoProcessingCallback_OnError()
+#### OH_VideoProcessingCallback_OnError()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -246,7 +246,7 @@ VIDEO_PROCESSING_ERROR_PROCESS_FAILED，处理过程中出错。
  
   
 
-##### OH_VideoProcessingCallback_OnState()
+#### OH_VideoProcessingCallback_OnState()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -273,7 +273,7 @@ typedef void (*OH_VideoProcessingCallback_OnState)(OH_VideoProcessing* videoProc
  
   
 
-##### OH_VideoProcessingCallback_OnNewOutputBuffer()
+#### OH_VideoProcessingCallback_OnNewOutputBuffer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

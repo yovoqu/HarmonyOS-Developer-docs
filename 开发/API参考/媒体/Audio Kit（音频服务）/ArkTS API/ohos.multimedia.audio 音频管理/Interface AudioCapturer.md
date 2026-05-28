@@ -14,7 +14,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { audio } from '@kit.AudioKit';
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -45,7 +45,7 @@ let state: audio.AudioState = audioCapturer.state;
 
 
 
-##### getCapturerInfo8+
+#### getCapturerInfo8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -80,7 +80,7 @@ audioCapturer.getCapturerInfo((err: BusinessError, capturerInfo: audio.AudioCapt
 
 
 
-##### getCapturerInfo8+
+#### getCapturerInfo8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -118,7 +118,7 @@ audioCapturer.getCapturerInfo().then((audioParamsGet: audio.AudioCapturerInfo) =
 
 
 
-##### getCapturerInfoSync10+
+#### getCapturerInfoSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -152,7 +152,7 @@ try {
 
 
 
-##### getStreamInfo8+
+#### getStreamInfo8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -189,7 +189,7 @@ audioCapturer.getStreamInfo((err: BusinessError, streamInfo: audio.AudioStreamIn
 
 
 
-##### getStreamInfo8+
+#### getStreamInfo8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -224,7 +224,7 @@ audioCapturer.getStreamInfo().then((audioParamsGet: audio.AudioStreamInfo) => {
 
 
 
-##### getStreamInfoSync10+
+#### getStreamInfoSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -260,7 +260,7 @@ try {
 
 
 
-##### getAudioStreamId9+
+#### getAudioStreamId9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -289,7 +289,7 @@ audioCapturer.getAudioStreamId((err: BusinessError, streamId: number) => {
 
 
 
-##### getAudioStreamId9+
+#### getAudioStreamId9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -320,7 +320,7 @@ audioCapturer.getAudioStreamId().then((streamId: number) => {
 
 
 
-##### getAudioStreamIdSync10+
+#### getAudioStreamIdSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -353,7 +353,7 @@ try {
 
 
 
-##### start8+
+#### start8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -386,7 +386,7 @@ audioCapturer.start((err: BusinessError) => {
 
 
 
-##### start8+
+#### start8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -420,7 +420,7 @@ audioCapturer.start().then(() => {
 
 
 
-##### stop8+
+#### stop8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -453,7 +453,7 @@ audioCapturer.stop((err: BusinessError) => {
 
 
 
-##### stop8+
+#### stop8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -487,7 +487,7 @@ audioCapturer.stop().then(() => {
 
 
 
-##### release8+
+#### release8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -520,7 +520,7 @@ audioCapturer.release((err: BusinessError) => {
 
 
 
-##### release8+
+#### release8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -553,7 +553,7 @@ audioCapturer.release().then(() => {
 
 
 
-##### getAudioTime8+
+#### getAudioTime8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -582,7 +582,7 @@ audioCapturer.getAudioTime((err: BusinessError, timestamp: number) => {
 
 
 
-##### getAudioTime8+
+#### getAudioTime8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -613,7 +613,7 @@ audioCapturer.getAudioTime().then((timestamp: number) => {
 
 
 
-##### getAudioTimeSync10+
+#### getAudioTimeSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -646,7 +646,7 @@ try {
 
 
 
-##### getAudioTimestampInfo19+
+#### getAudioTimestampInfo19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -688,7 +688,7 @@ audioCapturer.getAudioTimestampInfo().then((audioTimestampInfo: audio.AudioTimes
 
 
 
-##### getAudioTimestampInfoSync19+
+#### getAudioTimestampInfoSync19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -730,7 +730,7 @@ try {
 
 
 
-##### getBufferSize8+
+#### getBufferSize8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -763,7 +763,7 @@ audioCapturer.getBufferSize((err: BusinessError, bufferSize: number) => {
 
 
 
-##### getBufferSize8+
+#### getBufferSize8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -794,7 +794,7 @@ audioCapturer.getBufferSize().then((bufferSize: number) => {
 
 
 
-##### getBufferSizeSync10+
+#### getBufferSizeSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -827,7 +827,7 @@ try {
 
 
 
-##### getCurrentInputDevices11+
+#### getCurrentInputDevices11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -863,7 +863,7 @@ if (deviceDescriptors[0].encodingTypes) {
 
 
 
-##### getCurrentAudioCapturerChangeInfo11+
+#### getCurrentAudioCapturerChangeInfo11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -902,7 +902,7 @@ if (info.deviceDescriptors[0].encodingTypes) {
 
 
 
-##### on('audioInterrupt')10+
+#### on('audioInterrupt')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -982,7 +982,7 @@ audioCapturer.on('audioInterrupt', (interruptEvent: audio.InterruptEvent) => {
 
 
 
-##### off('audioInterrupt')10+
+#### off('audioInterrupt')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1017,7 +1017,7 @@ audioCapturer.off('audioInterrupt');
 
 
 
-##### on('inputDeviceChange')11+
+#### on('inputDeviceChange')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1057,7 +1057,7 @@ audioCapturer.on('inputDeviceChange', (deviceChangeInfo: audio.AudioDeviceDescri
 
 
 
-##### off('inputDeviceChange')11+
+#### off('inputDeviceChange')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1105,7 +1105,7 @@ audioCapturer.off('inputDeviceChange', inputDeviceChangeCallback);
 
 
 
-##### on('audioCapturerChange')11+
+#### on('audioCapturerChange')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1143,7 +1143,7 @@ audioCapturer.on('audioCapturerChange', (capturerChangeInfo: audio.AudioCapturer
 
 
 
-##### off('audioCapturerChange')11+
+#### off('audioCapturerChange')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1189,7 +1189,7 @@ audioCapturer.off('audioCapturerChange', audioCapturerChangeCallback);
 
 
 
-##### on('markReach')8+
+#### on('markReach')8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1222,7 +1222,7 @@ audioCapturer.on('markReach', 1000, (position: number) => {
 
 
 
-##### off('markReach')8+
+#### off('markReach')8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1260,7 +1260,7 @@ audioCapturer.off('markReach', markReachCallback);
 
 
 
-##### on('periodReach')8+
+#### on('periodReach')8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1293,7 +1293,7 @@ audioCapturer.on('periodReach', 1000, (position: number) => {
 
 
 
-##### off('periodReach')8+
+#### off('periodReach')8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1331,7 +1331,7 @@ audioCapturer.off('periodReach', periodReachCallback);
 
 
 
-##### on('stateChange')8+
+#### on('stateChange')8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1364,7 +1364,7 @@ audioCapturer.on('stateChange', (state: audio.AudioState) => {
 
 
 
-##### off('stateChange')18+
+#### off('stateChange')18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1414,7 +1414,7 @@ audioCapturer.off('stateChange', stateChangeCallback);
 
 
 
-##### on('readData')11+
+#### on('readData')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1486,7 +1486,7 @@ audioCapturer.start((err: BusinessError) => {
 
 
 
-##### off('readData')11+
+#### off('readData')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1532,7 +1532,7 @@ audioCapturer.off('readData', readDataCallback);
 
 
 
-##### getOverflowCount12+
+#### getOverflowCount12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1563,7 +1563,7 @@ audioCapturer.getOverflowCount().then((value: number) => {
 
 
 
-##### getOverflowCountSync12+
+#### getOverflowCountSync12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1596,7 +1596,7 @@ try {
 
 
 
-##### setWillMuteWhenInterrupted20+
+#### setWillMuteWhenInterrupted20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1643,7 +1643,7 @@ audioCapturer.setWillMuteWhenInterrupted(true).then(() => {
 
 
 
-##### setMuteHint24+
+#### setMuteHint24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1696,7 +1696,7 @@ audioCapturer.setMuteHint(true).then(() => {
 
 
 
-##### read(deprecated)
+#### read(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1740,7 +1740,7 @@ audioCapturer.getBufferSize().then((bufferSize: number) => {
 
 
 
-##### read(deprecated)
+#### read(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1788,7 +1788,7 @@ audioCapturer.getBufferSize().then((bufferSize: number) => {
 
 
 
-##### setIndependentAudioSessionStrategy24+
+#### setIndependentAudioSessionStrategy24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

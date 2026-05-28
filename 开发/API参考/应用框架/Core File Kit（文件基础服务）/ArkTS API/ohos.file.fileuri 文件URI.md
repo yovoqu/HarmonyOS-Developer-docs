@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -36,13 +36,13 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### FileUri10+
+#### FileUri10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -56,7 +56,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### constructor10+
+#### constructor10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -98,7 +98,7 @@ console.info("The name of FileUri is " + fileUriObject.name);
 
 
 
-##### toString10+
+#### toString10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -125,7 +125,7 @@ console.info("The uri of FileUri is " + fileUriObject.toString());
 
 
 
-##### getFullDirectoryUri11+
+#### getFullDirectoryUri11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -175,7 +175,7 @@ try {
 
 
 
-##### isRemoteUri12+
+#### isRemoteUri12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -219,7 +219,7 @@ function isRemoteUriExample() {
 
 
 
-##### fileUri.getUriFromPath
+#### fileUri.getUriFromPath
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

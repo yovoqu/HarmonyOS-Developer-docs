@@ -10,7 +10,7 @@
 **起始版本：** 5.0.0(12)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@ import { cloudDatabase } from '@kit.CloudFoundationKit';
  
   
 
-##### zone
+#### zone
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -60,7 +60,7 @@ let databaseZone = cloudDatabase.zone("storageArea");
  
   
 
-##### DatabaseZone
+#### DatabaseZone
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -76,7 +76,7 @@ let databaseZone = cloudDatabase.zone("storageArea");
  
   
 
-##### query
+#### query
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -168,7 +168,7 @@ try {
  
   
 
-##### query
+#### query
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -232,7 +232,7 @@ databaseZone.query(condition, (err: BusinessError, bookInfoArray) => {
  
   
 
-##### calculateQuery
+#### calculateQuery
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -302,7 +302,7 @@ try {
  
   
 
-##### calculateQuery
+#### calculateQuery
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -369,7 +369,7 @@ databaseZone.calculateQuery(condition, 'key_integer', cloudDatabase.QueryCalcula
  
   
 
-##### upsert
+#### upsert
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -441,7 +441,7 @@ try {
  
   
 
-##### upsert
+#### upsert
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -509,7 +509,7 @@ databaseZone.upsert([book, book1], (err: BusinessError, num) => {
  
   
 
-##### delete
+#### delete
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -578,7 +578,7 @@ try {
  
   
 
-##### delete
+#### delete
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -647,7 +647,7 @@ try {
  
   
 
-##### DatabaseObject
+#### DatabaseObject
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -663,7 +663,7 @@ try {
  
   
 
-##### naturalbase_ClassName
+#### naturalbase_ClassName
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -703,7 +703,7 @@ export { BookInfo };
  
   
 
-##### FieldType
+#### FieldType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -730,7 +730,7 @@ type FieldType = string | number | boolean | Uint8Array | Date
  
   
 
-##### QueryCalculate
+#### QueryCalculate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -755,7 +755,7 @@ type FieldType = string | number | boolean | Uint8Array | Date
  
   
 
-##### DatabaseQuery<T extends DatabaseObject>
+#### DatabaseQuery<T extends DatabaseObject>
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -771,7 +771,7 @@ type FieldType = string | number | boolean | Uint8Array | Date
  
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -796,7 +796,7 @@ constructor(entityClass: new () => T)
  
   
 
-##### equalTo
+#### equalTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -847,7 +847,7 @@ try {
  
   
 
-##### notEqualTo
+#### notEqualTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -898,7 +898,7 @@ try {
  
   
 
-##### beginsWith
+#### beginsWith
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -949,7 +949,7 @@ try {
  
   
 
-##### endsWith
+#### endsWith
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1000,7 +1000,7 @@ try {
  
   
 
-##### contains
+#### contains
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1051,7 +1051,7 @@ try {
  
   
 
-##### greaterThan
+#### greaterThan
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1102,7 +1102,7 @@ try {
  
   
 
-##### greaterThanOrEqualTo
+#### greaterThanOrEqualTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1153,7 +1153,7 @@ try {
  
   
 
-##### lessThan
+#### lessThan
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1204,7 +1204,7 @@ try {
  
   
 
-##### lessThanOrEqualTo
+#### lessThanOrEqualTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1255,7 +1255,7 @@ try {
  
   
 
-##### in
+#### in
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1306,7 +1306,7 @@ try {
  
   
 
-##### isNull
+#### isNull
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1356,7 +1356,7 @@ try {
  
   
 
-##### isNotNull
+#### isNotNull
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1406,7 +1406,7 @@ try {
  
   
 
-##### orderByAsc
+#### orderByAsc
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1456,7 +1456,7 @@ try {
  
   
 
-##### orderByDesc
+#### orderByDesc
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1506,7 +1506,7 @@ try {
  
   
 
-##### orderByRandom
+#### orderByRandom
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1553,7 +1553,7 @@ try {
  
   
 
-##### limit
+#### limit
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1605,7 +1605,7 @@ try {
  
   
 
-##### beginGroup
+#### beginGroup
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1652,7 +1652,7 @@ try {
  
   
 
-##### endGroup
+#### endGroup
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1699,7 +1699,7 @@ try {
  
   
 
-##### or
+#### or
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1746,7 +1746,7 @@ try {
  
   
 
-##### and
+#### and
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

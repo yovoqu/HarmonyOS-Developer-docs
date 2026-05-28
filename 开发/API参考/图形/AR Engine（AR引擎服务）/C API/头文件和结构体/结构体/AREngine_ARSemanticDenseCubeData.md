@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-struct-arsemanticdensecubedata
 **支持设备：** Phone | Tablet | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | Tablet | TV
 
@@ -21,13 +21,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | Tablet | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | Tablet | TV
  
@@ -42,13 +42,13 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** Phone | Tablet | TV
 
   
 
-##### id
+#### id
 
 **支持设备：** Phone | Tablet | TV
 
@@ -62,7 +62,7 @@ int32_t AREngine_ARSemanticDenseCubeData::id
  
   
 
-##### vertexSize
+#### vertexSize
 
 **支持设备：** Phone | Tablet | TV
 
@@ -76,7 +76,7 @@ int32_t AREngine_ARSemanticDenseCubeData::vertexSize
  
   
 
-##### vertexData
+#### vertexData
 
 **支持设备：** Phone | Tablet | TV
 
@@ -90,7 +90,7 @@ float* AREngine_ARSemanticDenseCubeData::vertexData
  
   
 
-##### confidence
+#### confidence
 
 **支持设备：** Phone | Tablet | TV
 
@@ -104,7 +104,7 @@ float AREngine_ARSemanticDenseCubeData::confidence
  
   
 
-##### label
+#### label
 
 **支持设备：** Phone | Tablet | TV
 

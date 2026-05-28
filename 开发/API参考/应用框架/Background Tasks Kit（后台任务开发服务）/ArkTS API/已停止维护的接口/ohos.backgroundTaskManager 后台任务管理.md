@@ -18,7 +18,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -28,7 +28,7 @@ import backgroundTaskManager from '@ohos.backgroundTaskManager';
  
   
 
-##### backgroundTaskManager.requestSuspendDelay(deprecated)
+#### backgroundTaskManager.requestSuspendDelay(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -80,7 +80,7 @@ console.info("The actualDelayTime is: " + time);
  
   
 
-##### backgroundTaskManager.getRemainingDelayTime(deprecated)
+#### backgroundTaskManager.getRemainingDelayTime(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -120,7 +120,7 @@ backgroundTaskManager.getRemainingDelayTime(delayInfo.requestId, (err: BusinessE
  
   
 
-##### backgroundTaskManager.getRemainingDelayTime(deprecated)
+#### backgroundTaskManager.getRemainingDelayTime(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -164,7 +164,7 @@ let delayInfo = backgroundTaskManager.requestSuspendDelay("test", () => {});
  
   
 
-##### backgroundTaskManager.cancelSuspendDelay(deprecated)
+#### backgroundTaskManager.cancelSuspendDelay(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -194,7 +194,7 @@ backgroundTaskManager.cancelSuspendDelay(delayInfo.requestId);
  
   
 
-##### backgroundTaskManager.startBackgroundRunning(deprecated)
+#### backgroundTaskManager.startBackgroundRunning(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -298,7 +298,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### backgroundTaskManager.startBackgroundRunning(deprecated)
+#### backgroundTaskManager.startBackgroundRunning(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -402,7 +402,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### backgroundTaskManager.stopBackgroundRunning(deprecated)
+#### backgroundTaskManager.stopBackgroundRunning(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -470,7 +470,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### backgroundTaskManager.stopBackgroundRunning(deprecated)
+#### backgroundTaskManager.stopBackgroundRunning(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -538,7 +538,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### DelaySuspendInfo(deprecated)
+#### DelaySuspendInfo(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -558,7 +558,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### BackgroundMode(deprecated)
+#### BackgroundMode(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

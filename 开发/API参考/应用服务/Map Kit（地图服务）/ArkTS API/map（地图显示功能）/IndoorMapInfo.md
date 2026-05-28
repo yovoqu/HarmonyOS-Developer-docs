@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-indoormapinfo
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -15,7 +15,7 @@ import { map } from '@kit.MapKit';
  
   
 
-##### IndoorMapInfo
+#### IndoorMapInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

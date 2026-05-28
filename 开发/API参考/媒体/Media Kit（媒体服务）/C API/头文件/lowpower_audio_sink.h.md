@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-lowpower-audio-sink-h
 **支持设备：** Phone | PC/2in1 | Tablet
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -64,13 +64,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### OH_LowPowerAudioSink_CreateByMime()
+#### OH_LowPowerAudioSink_CreateByMime()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -100,7 +100,7 @@ OH_LowPowerAudioSink* OH_LowPowerAudioSink_CreateByMime(const char* mime)
  
   
 
-##### OH_LowPowerAudioSink_Configure()
+#### OH_LowPowerAudioSink_Configure()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -131,7 +131,7 @@ OH_AVErrCode OH_LowPowerAudioSink_Configure(OH_LowPowerAudioSink* sink, const OH
  
   
 
-##### OH_LowPowerAudioSink_SetParameter()
+#### OH_LowPowerAudioSink_SetParameter()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -162,7 +162,7 @@ OH_AVErrCode OH_LowPowerAudioSink_SetParameter(OH_LowPowerAudioSink* sink, const
  
   
 
-##### OH_LowPowerAudioSink_GetParameter()
+#### OH_LowPowerAudioSink_GetParameter()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -193,7 +193,7 @@ OH_AVErrCode OH_LowPowerAudioSink_GetParameter(OH_LowPowerAudioSink* sink, OH_AV
  
   
 
-##### OH_LowPowerAudioSink_Prepare()
+#### OH_LowPowerAudioSink_Prepare()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -225,7 +225,7 @@ OH_AVErrCode OH_LowPowerAudioSink_Prepare(OH_LowPowerAudioSink* sink)
  
   
 
-##### OH_LowPowerAudioSink_Start()
+#### OH_LowPowerAudioSink_Start()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -257,7 +257,7 @@ OH_AVErrCode OH_LowPowerAudioSink_Start(OH_LowPowerAudioSink* sink)
  
   
 
-##### OH_LowPowerAudioSink_Pause()
+#### OH_LowPowerAudioSink_Pause()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -289,7 +289,7 @@ OH_AVErrCode OH_LowPowerAudioSink_Pause(OH_LowPowerAudioSink* sink)
  
   
 
-##### OH_LowPowerAudioSink_Resume()
+#### OH_LowPowerAudioSink_Resume()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -321,7 +321,7 @@ OH_AVErrCode OH_LowPowerAudioSink_Resume(OH_LowPowerAudioSink* sink)
  
   
 
-##### OH_LowPowerAudioSink_Flush()
+#### OH_LowPowerAudioSink_Flush()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -355,7 +355,7 @@ OH_AVErrCode OH_LowPowerAudioSink_Flush(OH_LowPowerAudioSink* sink)
  
   
 
-##### OH_LowPowerAudioSink_Stop()
+#### OH_LowPowerAudioSink_Stop()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -385,7 +385,7 @@ OH_AVErrCode OH_LowPowerAudioSink_Stop(OH_LowPowerAudioSink* sink)
  
   
 
-##### OH_LowPowerAudioSink_Reset()
+#### OH_LowPowerAudioSink_Reset()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -417,7 +417,7 @@ OH_AVErrCode OH_LowPowerAudioSink_Reset(OH_LowPowerAudioSink* sink)
  
   
 
-##### OH_LowPowerAudioSink_Destroy()
+#### OH_LowPowerAudioSink_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -447,7 +447,7 @@ OH_AVErrCode OH_LowPowerAudioSink_Destroy(OH_LowPowerAudioSink* sink)
  
   
 
-##### OH_LowPowerAudioSink_SetVolume()
+#### OH_LowPowerAudioSink_SetVolume()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -478,7 +478,7 @@ OH_AVErrCode OH_LowPowerAudioSink_SetVolume(OH_LowPowerAudioSink* sink, const fl
  
   
 
-##### OH_LowPowerAudioSink_SetLoudnessGain()
+#### OH_LowPowerAudioSink_SetLoudnessGain()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -509,7 +509,7 @@ OH_AVErrCode OH_LowPowerAudioSink_SetLoudnessGain(OH_LowPowerAudioSink* sink, fl
  
   
 
-##### OH_LowPowerAudioSink_SetPlaybackSpeed()
+#### OH_LowPowerAudioSink_SetPlaybackSpeed()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -540,7 +540,7 @@ OH_AVErrCode OH_LowPowerAudioSink_SetPlaybackSpeed(OH_LowPowerAudioSink* sink, c
  
   
 
-##### OH_LowPowerAudioSink_ReturnSamples()
+#### OH_LowPowerAudioSink_ReturnSamples()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -571,7 +571,7 @@ OH_AVErrCode OH_LowPowerAudioSink_ReturnSamples(OH_LowPowerAudioSink* sink, OH_A
  
   
 
-##### OH_LowPowerAudioSink_RegisterCallback()
+#### OH_LowPowerAudioSink_RegisterCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -602,7 +602,7 @@ OH_AVErrCode OH_LowPowerAudioSink_RegisterCallback(OH_LowPowerAudioSink* sink, O
  
   
 
-##### OH_LowPowerAudioSinkCallback_Create()
+#### OH_LowPowerAudioSinkCallback_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -625,7 +625,7 @@ OH_LowPowerAudioSinkCallback* OH_LowPowerAudioSinkCallback_Create(void)
  
   
 
-##### OH_LowPowerAudioSinkCallback_Destroy()
+#### OH_LowPowerAudioSinkCallback_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -655,7 +655,7 @@ OH_AVErrCode OH_LowPowerAudioSinkCallback_Destroy(OH_LowPowerAudioSinkCallback* 
  
   
 
-##### OH_LowPowerAudioSinkCallback_SetPositionUpdateListener()
+#### OH_LowPowerAudioSinkCallback_SetPositionUpdateListener()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -687,7 +687,7 @@ OH_AVErrCode OH_LowPowerAudioSinkCallback_SetPositionUpdateListener(OH_LowPowerA
  
   
 
-##### OH_LowPowerAudioSinkCallback_SetDataNeededListener()
+#### OH_LowPowerAudioSinkCallback_SetDataNeededListener()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -719,7 +719,7 @@ OH_AVErrCode OH_LowPowerAudioSinkCallback_SetDataNeededListener(OH_LowPowerAudio
  
   
 
-##### OH_LowPowerAudioSinkCallback_SetErrorListener()
+#### OH_LowPowerAudioSinkCallback_SetErrorListener()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -751,7 +751,7 @@ OH_AVErrCode OH_LowPowerAudioSinkCallback_SetErrorListener(OH_LowPowerAudioSinkC
  
   
 
-##### OH_LowPowerAudioSinkCallback_SetInterruptListener()
+#### OH_LowPowerAudioSinkCallback_SetInterruptListener()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -783,7 +783,7 @@ OH_AVErrCode OH_LowPowerAudioSinkCallback_SetInterruptListener(OH_LowPowerAudioS
  
   
 
-##### OH_LowPowerAudioSinkCallback_SetDeviceChangeListener()
+#### OH_LowPowerAudioSinkCallback_SetDeviceChangeListener()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -815,7 +815,7 @@ OH_AVErrCode OH_LowPowerAudioSinkCallback_SetDeviceChangeListener(OH_LowPowerAud
  
   
 
-##### OH_LowPowerAudioSinkCallback_SetEosListener()
+#### OH_LowPowerAudioSinkCallback_SetEosListener()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

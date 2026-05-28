@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/canvas-operation-state-c
 
-##### 场景介绍
+#### 场景介绍
 
 创建或获取Canvas画布之后，可以基于画布进一步地进行图形操作和状态处理。画布操作属于可选操作，开发者可以根据场景需要进行。需要先进行画布操作，再进行后续绘制，只有这样画布操作才有效果。
 
@@ -17,7 +17,7 @@
 
 
 
-##### 裁剪操作
+#### 裁剪操作
 
 裁剪是图形处理中的常见操作，裁剪针对的是画布本身，可以用于限制绘图区域，只在指定的区域内进行绘制。需要先进行裁剪操作，再进行绘制，才会有对应效果。
 
@@ -31,7 +31,7 @@
 
 
 
-##### 接口说明
+#### 接口说明
 
 裁剪操作常用接口如下表所示，详细的使用和参数说明请见[drawing_canvas.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-canvas-h)。
 
@@ -45,7 +45,7 @@
 
 
 
-##### 开发示例
+#### 开发示例
 
 此处以在画布上裁剪矩形为例给出示例和效果图，其他裁剪操作的逻辑基本相同，注意调用对应的接口并确保要裁剪的数据类型对应准确即可，此处不再一一展开。详细的使用和参数说明请见[drawing_canvas.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-canvas-h)。
 
@@ -83,7 +83,7 @@ OH_Drawing_BrushDestroy(brush);
 
 
 
-##### 矩阵变换操作
+#### 矩阵变换操作
 
 矩阵变换也是常见的画布操作，是一种坐标系的转换，用于进行图形的变化。
 
@@ -96,7 +96,7 @@ OH_Drawing_BrushDestroy(brush);
 
 
 
-##### 接口说明
+#### 接口说明
 
 矩阵变换操作常用接口如下表所示，详细的使用和参数说明请见[drawing_canvas.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-canvas-h)。
 
@@ -110,7 +110,7 @@ OH_Drawing_BrushDestroy(brush);
 
 
 
-##### 平移
+#### 平移
 
 使用OH_Drawing_MatrixCreateTranslation()接口实现画布平移。接口接受2个参数，分别为水平方向和垂直方向的平移量，单位为px。
 
@@ -143,7 +143,7 @@ OH_Drawing_MatrixDestroy(matrix);
 
 
 
-##### 旋转
+#### 旋转
 
 使用OH_Drawing_MatrixCreateRotation()接口实现画布旋转，接口接受3个参数，分别为：旋转角度、旋转中心的x坐标和y坐标。
 
@@ -176,7 +176,7 @@ OH_Drawing_MatrixDestroy(matrix);
 
 
 
-##### 缩放
+#### 缩放
 
 使用OH_Drawing_MatrixCreateScale()接口进行画布缩放，接口接受4个参数，分别为沿x轴和y轴的缩放因子、旋转中心的x轴和y轴坐标。
 
@@ -208,13 +208,13 @@ OH_Drawing_RectDestroy(rect);
 
 
 
-##### 画布状态保存与恢复
+#### 画布状态保存与恢复
 
 保存操作用于保存当前画布的状态到一个栈顶，恢复操作用于恢复保存在栈顶的画布状态，恢复操作一旦执行，保存和恢复操作中间一系列平移、缩放、裁剪等操作都会被清除。
 
 
 
-##### 接口说明
+#### 接口说明
 
 画布状态保存与恢复使用的接口如下表所示，详细的使用和参数说明请见[drawing_canvas.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-canvas-h)。
 
@@ -227,7 +227,7 @@ OH_Drawing_RectDestroy(rect);
 
 
 
-##### 开发示例
+#### 开发示例
 
 ```cpp
 // 创建画笔对象
@@ -259,11 +259,11 @@ OH_Drawing_MatrixDestroy(matrix);
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/moP9iX2tSaKU3bm18Okh3w/zh-cn_image_0000002611834563.png?HW-CC-KV=V1&HW-CC-Date=20260528T014903Z&HW-CC-Expire=86400&HW-CC-Sign=4A1722E5302836DE20467339CEF0150E37920E33B4A39774FF89CEDC1FC18CAF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/moP9iX2tSaKU3bm18Okh3w/zh-cn_image_0000002611834563.png?HW-CC-KV=V1&HW-CC-Date=20260528T030532Z&HW-CC-Expire=86400&HW-CC-Sign=D4EF14CCA647F3EE06F3D0F070E5208F80C7E4D91BB03115638DB6B3270AF223)
 
 
 
 
-##### 示例代码
+#### 示例代码
 
  - [图形绘制（C/C++）](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/ArkGraphics2D/Drawing/NDKGraphicsDraw)

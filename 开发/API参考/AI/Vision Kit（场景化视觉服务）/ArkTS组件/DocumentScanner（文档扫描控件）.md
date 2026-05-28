@@ -10,7 +10,7 @@
 **起始版本：** 5.0.0(12)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Tablet
 
@@ -20,7 +20,7 @@ import { DocType, DocumentScanner, DocumentScannerConfig, SaveOption, FilterId, 
  
   
 
-##### DocumentScanner
+#### DocumentScanner
 
 **支持设备：** Phone | Tablet
 
@@ -44,7 +44,7 @@ import { DocType, DocumentScanner, DocumentScannerConfig, SaveOption, FilterId, 
  
   
 
-##### DocumentScannerConfig
+#### DocumentScannerConfig
 
 **支持设备：** Phone | Tablet
 
@@ -71,7 +71,7 @@ import { DocType, DocumentScanner, DocumentScannerConfig, SaveOption, FilterId, 
  
   
 
-##### DocType
+#### DocType
 
 **支持设备：** Phone | Tablet
 
@@ -91,7 +91,7 @@ import { DocType, DocumentScanner, DocumentScannerConfig, SaveOption, FilterId, 
  
   
 
-##### FilterId
+#### FilterId
 
 **支持设备：** Phone | Tablet
 
@@ -112,7 +112,7 @@ import { DocType, DocumentScanner, DocumentScannerConfig, SaveOption, FilterId, 
  
   
 
-##### ShootingMode
+#### ShootingMode
 
 **支持设备：** Phone | Tablet
 
@@ -132,7 +132,7 @@ import { DocType, DocumentScanner, DocumentScannerConfig, SaveOption, FilterId, 
  
   
 
-##### EditTab
+#### EditTab
 
 **支持设备：** Phone | Tablet
 
@@ -153,7 +153,7 @@ Tab栏按钮枚举。
  
   
 
-##### SaveOption
+#### SaveOption
 
 **支持设备：** Phone | Tablet
 
@@ -174,7 +174,7 @@ Tab栏按钮枚举。
  
   
 
-##### DocumentScannerResultCallback
+#### DocumentScannerResultCallback
 
 **支持设备：** Phone | Tablet
 

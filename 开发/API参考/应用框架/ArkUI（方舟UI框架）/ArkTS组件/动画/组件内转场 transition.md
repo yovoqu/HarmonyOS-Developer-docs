@@ -12,7 +12,7 @@
 
   
 
-##### transition
+#### transition
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -42,7 +42,7 @@ transition(value: TransitionOptions | TransitionEffect): T
  
   
 
-##### transition12+
+#### transition12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -77,7 +77,7 @@ transition(effect: TransitionEffect, onFinish: Optional&lt;TransitionFinishCallb
  
   
 
-##### TransitionEdge10+
+#### TransitionEdge10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -99,7 +99,7 @@ transition(effect: TransitionEffect, onFinish: Optional&lt;TransitionFinishCallb
  
   
 
-##### TransitionEffect10+对象说明
+#### TransitionEffect10+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -113,7 +113,7 @@ TransitionEffect以函数的形式指定转场效果。提供了以下接口：
  
   
 
-##### 属性
+#### 属性
  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -129,7 +129,7 @@ TransitionEffect以函数的形式指定转场效果。提供了以下接口：
  
   
 
-##### translate10+
+#### translate10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -159,7 +159,7 @@ translate(options: TranslateOptions): TransitionEffect<"translate">
  
   
 
-##### rotate10+
+#### rotate10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -189,7 +189,7 @@ rotate(options: RotateOptions): TransitionEffect<"rotate">
  
   
 
-##### scale10+
+#### scale10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -219,7 +219,7 @@ scale(options: ScaleOptions): TransitionEffect<"scale">
  
   
 
-##### opacity10+
+#### opacity10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -249,7 +249,7 @@ opacity(alpha: number): TransitionEffect<"opacity">
  
   
 
-##### move10+
+#### move10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -279,7 +279,7 @@ move(edge: TransitionEdge): TransitionEffect<"move">
  
   
 
-##### asymmetric10+
+#### asymmetric10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -310,7 +310,7 @@ asymmetric(appear: TransitionEffect, disappear: TransitionEffect): TransitionEff
  
   
 
-##### constructor10+
+#### constructor10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -334,7 +334,7 @@ constructor(type: Type, effect: Effect)
  
   
 
-##### combine10+
+#### combine10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -364,7 +364,7 @@ combine(transitionEffect: TransitionEffect): TransitionEffect
  
   
 
-##### animation10+
+#### animation10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -394,7 +394,7 @@ animation(value: AnimateParam): TransitionEffect
  
   
 
-##### TransitionFinishCallback12+
+#### TransitionFinishCallback12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -421,7 +421,7 @@ type TransitionFinishCallback = (transitionIn: boolean) => void
  
   
 
-##### TransitionOptions(deprecated)
+#### TransitionOptions(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -448,13 +448,13 @@ TransitionOptions通过指定结构体内的参数来指定转场效果。
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 示例1（使用同一接口实现图片出现消失）
+#### 示例1（使用同一接口实现图片出现消失）
 
 该示例主要演示如何通过同一[TransitionEffect](#transitioneffect10对象说明)来实现图片的出现与消失，出现和消失互为逆过程。
  
@@ -496,12 +496,12 @@ struct TransitionEffectExample1 {
 示意图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c/v3/VCLSLZcZRXORmpLEAaa_wg/zh-cn_image_0000002581276246.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024159Z&HW-CC-Expire=86400&HW-CC-Sign=9837DDC951C6A9655D01660343DB6262000147C873010ABF039E3EFB72480943)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c/v3/VCLSLZcZRXORmpLEAaa_wg/zh-cn_image_0000002581276246.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025532Z&HW-CC-Expire=86400&HW-CC-Sign=4E601D0CCA013229363A334466D93EEE65B416B156FFE29AC09A6A40B0E39E48)
 
  
   
 
-##### 示例2（使用不同接口实现图片出现消失）
+#### 示例2（使用不同接口实现图片出现消失）
 
 该示例主要演示使用不同[TransitionEffect](#transitioneffect10对象说明)来实现图片的出现和消失。
  
@@ -563,12 +563,12 @@ struct TransitionEffectExample2 {
 示意图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/VVOchgMLRUChIN_tgtpE6w/zh-cn_image_0000002611756101.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024159Z&HW-CC-Expire=86400&HW-CC-Sign=E3B43C2773EA8641AE3D06455940BB3FDD3BE75394FEAD4F773AABBD93DD1D07)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/VVOchgMLRUChIN_tgtpE6w/zh-cn_image_0000002611756101.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025532Z&HW-CC-Expire=86400&HW-CC-Sign=E78339B9CA728FB1B2FC92269ED71BE2F44BF7B67CADA2EF0406373B3AB3C044)
 
  
   
 
-##### 示例3（设置父子组件为transition）
+#### 示例3（设置父子组件为transition）
 
 该示例主要演示通过父子组件都配置[transition](#transition)来实现图片的出现和消失。
  
@@ -627,4 +627,4 @@ struct TransitionEffectExample3 {
 示意图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/eABVGBZqRa68KTjhDq3N8w/zh-cn_image_0000002581436164.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024159Z&HW-CC-Expire=86400&HW-CC-Sign=13B707295CFCA73C53AFED87746AC1CA5412D281862FE851BED638F8FA0F17EE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/eABVGBZqRa68KTjhDq3N8w/zh-cn_image_0000002581436164.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025532Z&HW-CC-Expire=86400&HW-CC-Sign=002FB7F3E1814B3C05C89C2413F7D823DFBD50A6D7DDA6DC12E716D4FC829307)

@@ -12,7 +12,7 @@
 
   
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -35,7 +35,7 @@ TapGesture(value?: TapGestureParameters)
  
   
 
-##### TapGestureParameters12+对象说明
+#### TapGestureParameters12+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -56,7 +56,7 @@ TapGesture(value?: TapGestureParameters)
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -66,7 +66,7 @@ TapGesture(value?: TapGestureParameters)
  
   
 
-##### onAction
+#### onAction
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -87,7 +87,7 @@ onAction(event: (event: GestureEvent) => void)
  
   
 
-##### EventLocationInfo20+
+#### EventLocationInfo20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -109,13 +109,13 @@ onAction(event: (event: GestureEvent) => void)
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 示例1（双击手势识别）
+#### 示例1（双击手势识别）
 
 该示例通过TapGesture实现了双击手势的识别。
  
@@ -150,12 +150,12 @@ struct TapGestureExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/PEAZoaB-SNaQ5P1MsssDqA/zh-cn_image_0000002611835539.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024201Z&HW-CC-Expire=86400&HW-CC-Sign=AD6C7EB9E144A9D78915737B52F962428A808FDE68537CE4283636AE224D066F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/PEAZoaB-SNaQ5P1MsssDqA/zh-cn_image_0000002611835539.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025534Z&HW-CC-Expire=86400&HW-CC-Sign=AA3AC84742EA5F159D71565ACE4399B0A515ECD099B2C9D8756AAE075DAE8544)
 
  
   
 
-##### 示例2（获取单击手势坐标）
+#### 示例2（获取单击手势坐标）
 
 该示例通过TapGesture获取单击手势点击位置的坐标。
  
@@ -195,4 +195,4 @@ struct TapGestureExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/7vZ5dKJ6RZS4SMOXsXU32g/zh-cn_image_0000002581275792.png?HW-CC-KV=V1&HW-CC-Date=20260528T024201Z&HW-CC-Expire=86400&HW-CC-Sign=7791FE9E464DE153054645A319FA851CE77346CC7BD0B7E1299AA4ADE95C4316)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/7vZ5dKJ6RZS4SMOXsXU32g/zh-cn_image_0000002581275792.png?HW-CC-KV=V1&HW-CC-Date=20260528T025534Z&HW-CC-Expire=86400&HW-CC-Sign=260B174D6380B30FED7DC788BACC9E46C01C27BE844F0535DCC82C1B51D01954)

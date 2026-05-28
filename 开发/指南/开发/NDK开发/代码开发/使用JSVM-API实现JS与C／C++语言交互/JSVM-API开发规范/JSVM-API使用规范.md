@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/jsvm-guidelines
 
-##### 生命周期管理
+#### 生命周期管理
 
 **【规则】** 合理使用OH_JSVM_OpenHandleScope和OH_JSVM_CloseHandleScope管理JSVM_Value的生命周期，做到生命周期最小化，避免发生内存泄漏问题。
  
@@ -78,7 +78,7 @@ for (int i = 0; i < 100000; i++)
  
   
 
-##### 多引擎实例上下文敏感
+#### 多引擎实例上下文敏感
 
 **【规则】** 多引擎实例（VM）场景下，禁止通过JSVM-API跨引擎实例访问JS对象。
  
@@ -107,7 +107,7 @@ if (status != JSVM_OK)
  
   
 
-##### 多线程共享引擎实例
+#### 多线程共享引擎实例
 
 **【规则】** 多线程同时使用同一个引擎实例的场景下，需要加锁使用。保证一个引擎实例在同一时刻只能在一个线程执行。多线程同一时刻同时使用引擎实例可能造成应用崩溃。
  
@@ -220,7 +220,7 @@ static napi_value Add([[maybe_unused]] napi_env _env, [[maybe_unused]] napi_call
  
   
 
-##### 获取JS传入参数及其数量
+#### 获取JS传入参数及其数量
 
 **【规则】** 当传入OH_JSVM_GetCbInfo的argv不为nullptr时，argv的长度必须大于等于传入argc声明的大小。
  
@@ -280,7 +280,7 @@ static JSVM_Value GetArgvDemo2(napi_env env, JSVM_CallbackInfo info) {
  
   
 
-##### 异常处理
+#### 异常处理
 
 **【建议】** JSVM-API接口调用发生异常需要及时处理，不能遗漏异常到后续逻辑，否则程序可能发生不可预期行为。
  
@@ -404,7 +404,7 @@ if (status != JSVM_OK) {
  
   
 
-##### 上下文绑定对象
+#### 上下文绑定对象
 
 **【规则】**：调用JSVM-API生成的JS函数、对象需绑定到上下文中才能从JS侧访问，OH_JSVM_CreateFunction接口中的const char *参数为创建函数的属性name，不代表上下文中指向该函数的名称。调用JSVM-API生成的类、对象同理。
  

@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avmetadata-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -41,7 +41,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -70,13 +70,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_AVMetadataBuilder_Create()
+#### OH_AVMetadataBuilder_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -106,7 +106,7 @@ AVMetadata_Result OH_AVMetadataBuilder_Create(OH_AVMetadataBuilder** builder)
  
   
 
-##### OH_AVMetadataBuilder_Destroy()
+#### OH_AVMetadataBuilder_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -136,7 +136,7 @@ AVMetadata_Result OH_AVMetadataBuilder_Destroy(OH_AVMetadataBuilder* builder)
  
   
 
-##### OH_AVMetadataBuilder_SetAssetId()
+#### OH_AVMetadataBuilder_SetAssetId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -167,7 +167,7 @@ AVMetadata_Result OH_AVMetadataBuilder_SetAssetId(OH_AVMetadataBuilder* builder,
  
   
 
-##### OH_AVMetadataBuilder_SetTitle()
+#### OH_AVMetadataBuilder_SetTitle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -198,7 +198,7 @@ AVMetadata_Result OH_AVMetadataBuilder_SetTitle(OH_AVMetadataBuilder* builder, c
  
   
 
-##### OH_AVMetadataBuilder_SetArtist()
+#### OH_AVMetadataBuilder_SetArtist()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -229,7 +229,7 @@ AVMetadata_Result OH_AVMetadataBuilder_SetArtist(OH_AVMetadataBuilder* builder, 
  
   
 
-##### OH_AVMetadataBuilder_SetAuthor()
+#### OH_AVMetadataBuilder_SetAuthor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -260,7 +260,7 @@ AVMetadata_Result OH_AVMetadataBuilder_SetAuthor(OH_AVMetadataBuilder* builder, 
  
   
 
-##### OH_AVMetadataBuilder_SetAlbum()
+#### OH_AVMetadataBuilder_SetAlbum()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -291,7 +291,7 @@ AVMetadata_Result OH_AVMetadataBuilder_SetAlbum(OH_AVMetadataBuilder* builder, c
  
   
 
-##### OH_AVMetadataBuilder_SetWriter()
+#### OH_AVMetadataBuilder_SetWriter()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -322,7 +322,7 @@ AVMetadata_Result OH_AVMetadataBuilder_SetWriter(OH_AVMetadataBuilder* builder, 
  
   
 
-##### OH_AVMetadataBuilder_SetComposer()
+#### OH_AVMetadataBuilder_SetComposer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -353,7 +353,7 @@ AVMetadata_Result OH_AVMetadataBuilder_SetComposer(OH_AVMetadataBuilder* builder
  
   
 
-##### OH_AVMetadataBuilder_SetDuration()
+#### OH_AVMetadataBuilder_SetDuration()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -384,7 +384,7 @@ AVMetadata_Result OH_AVMetadataBuilder_SetDuration(OH_AVMetadataBuilder* builder
  
   
 
-##### OH_AVMetadataBuilder_SetMediaImageUri()
+#### OH_AVMetadataBuilder_SetMediaImageUri()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -415,7 +415,7 @@ AVMetadata_Result OH_AVMetadataBuilder_SetMediaImageUri(OH_AVMetadataBuilder* bu
  
   
 
-##### OH_AVMetadataBuilder_SetSubtitle()
+#### OH_AVMetadataBuilder_SetSubtitle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -446,7 +446,7 @@ AVMetadata_Result OH_AVMetadataBuilder_SetSubtitle(OH_AVMetadataBuilder* builder
  
   
 
-##### OH_AVMetadataBuilder_SetDescription()
+#### OH_AVMetadataBuilder_SetDescription()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -477,7 +477,7 @@ AVMetadata_Result OH_AVMetadataBuilder_SetDescription(OH_AVMetadataBuilder* buil
  
   
 
-##### OH_AVMetadataBuilder_SetLyric()
+#### OH_AVMetadataBuilder_SetLyric()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -508,7 +508,7 @@ AVMetadata_Result OH_AVMetadataBuilder_SetLyric(OH_AVMetadataBuilder* builder, c
  
   
 
-##### OH_AVMetadataBuilder_SetSkipIntervals()
+#### OH_AVMetadataBuilder_SetSkipIntervals()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -539,7 +539,7 @@ AVMetadata_Result OH_AVMetadataBuilder_SetSkipIntervals(OH_AVMetadataBuilder* bu
  
   
 
-##### OH_AVMetadataBuilder_SetDisplayTags()
+#### OH_AVMetadataBuilder_SetDisplayTags()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -570,7 +570,7 @@ AVMetadata_Result OH_AVMetadataBuilder_SetDisplayTags(OH_AVMetadataBuilder* buil
  
   
 
-##### OH_AVMetadataBuilder_SetFilter()
+#### OH_AVMetadataBuilder_SetFilter()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -601,7 +601,7 @@ AVMetadata_Result OH_AVMetadataBuilder_SetFilter(OH_AVMetadataBuilder* builder, 
  
   
 
-##### OH_AVMetadataBuilder_GenerateAVMetadata()
+#### OH_AVMetadataBuilder_GenerateAVMetadata()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -632,7 +632,7 @@ AVMetadata_Result OH_AVMetadataBuilder_GenerateAVMetadata(OH_AVMetadataBuilder* 
  
   
 
-##### OH_AVMetadata_Destroy()
+#### OH_AVMetadata_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

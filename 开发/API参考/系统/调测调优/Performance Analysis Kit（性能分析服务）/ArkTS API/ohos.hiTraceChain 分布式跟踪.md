@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { hiTraceChain } from '@kit.PerformanceAnalysisKit';
  
   
 
-##### HiTraceFlag
+#### HiTraceFlag
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -44,7 +44,7 @@ import { hiTraceChain } from '@kit.PerformanceAnalysisKit';
  
   
 
-##### HiTraceTracepointType
+#### HiTraceTracepointType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -63,7 +63,7 @@ import { hiTraceChain } from '@kit.PerformanceAnalysisKit';
  
   
 
-##### HiTraceCommunicationMode
+#### HiTraceCommunicationMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -81,7 +81,7 @@ import { hiTraceChain } from '@kit.PerformanceAnalysisKit';
  
   
 
-##### HiTraceId
+#### HiTraceId
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -99,7 +99,7 @@ import { hiTraceChain } from '@kit.PerformanceAnalysisKit';
  
   
 
-##### hiTraceChain.begin
+#### hiTraceChain.begin
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -139,7 +139,7 @@ hiTraceChain.end(traceId);
  
   
 
-##### hiTraceChain.end
+#### hiTraceChain.end
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -171,7 +171,7 @@ hiTraceChain.end(traceId);
  
   
 
-##### hiTraceChain.getId
+#### hiTraceChain.getId
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -207,7 +207,7 @@ hiTraceChain.end(traceId);
  
   
 
-##### hiTraceChain.setId
+#### hiTraceChain.setId
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -237,7 +237,7 @@ hiTraceChain.setId(traceId);
  
   
 
-##### hiTraceChain.clearId
+#### hiTraceChain.clearId
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -262,7 +262,7 @@ hiTraceChain.end(traceId);
  
   
 
-##### hiTraceChain.createSpan
+#### hiTraceChain.createSpan
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -298,7 +298,7 @@ hiTraceChain.end(traceId);
  
   
 
-##### hiTraceChain.tracepoint
+#### hiTraceChain.tracepoint
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -335,7 +335,7 @@ hiTraceChain.end(traceId);
  
   
 
-##### hiTraceChain.isValid
+#### hiTraceChain.isValid
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -375,7 +375,7 @@ hiTraceChain.end(traceId);
  
   
 
-##### hiTraceChain.isFlagEnabled
+#### hiTraceChain.isFlagEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -416,7 +416,7 @@ hiTraceChain.end(traceId);
  
   
 
-##### hiTraceChain.enableFlag
+#### hiTraceChain.enableFlag
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

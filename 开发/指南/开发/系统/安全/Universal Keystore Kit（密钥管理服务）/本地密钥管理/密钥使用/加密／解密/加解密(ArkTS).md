@@ -7,7 +7,7 @@
 以AES128、RSA2048、SM2和DES64为例，完成加解密。具体的场景介绍及支持的算法规格，请参考[加解密支持的算法](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-encryption-decryption-overview#支持的算法)。
 
 
-##### 开发步骤
+#### 开发步骤
 
 **生成密钥**
 1. 指定密钥别名，密钥别名命名规范参考[密钥生成介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。
@@ -51,11 +51,11 @@
 
 
 
-##### 开发案例
+#### 开发案例
 
 
 
-##### AES/CBC/PKCS7
+#### AES/CBC/PKCS7
 
 ```ArkTS
 /*
@@ -257,7 +257,7 @@ async function deleteKey() {
 
 
 
-##### AES/GCM/NoPadding
+#### AES/GCM/NoPadding
 
 ```ArkTS
 /*
@@ -468,7 +468,7 @@ async function deleteKey() {
 
 
 
-##### AES/CCM/NoPadding
+#### AES/CCM/NoPadding
 
 ```text
 /*
@@ -703,7 +703,7 @@ async function TestEncryptDecrypt() {
 
 
 
-##### RSA/ECB/PKCS1_V1_5
+#### RSA/ECB/PKCS1_V1_5
 
 ```ArkTS
 /*
@@ -902,7 +902,7 @@ async function deleteKey() {
 
 
 
-##### RSA/ECB/OAEP/SHA256
+#### RSA/ECB/OAEP/SHA256
 
 ```ArkTS
 /*
@@ -1101,7 +1101,7 @@ async function deleteKey() {
 
 
 
-##### SM2
+#### SM2
 
 ```ArkTS
 /*

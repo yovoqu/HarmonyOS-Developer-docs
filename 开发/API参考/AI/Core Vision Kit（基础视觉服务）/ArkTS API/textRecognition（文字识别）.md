@@ -10,7 +10,7 @@
 **起始版本：** 4.0.0(10)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -20,7 +20,7 @@ import { textRecognition } from '@kit.CoreVisionKit';
 
 
 
-##### TextRecognitionConfiguration
+#### TextRecognitionConfiguration
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -37,7 +37,7 @@ import { textRecognition } from '@kit.CoreVisionKit';
 
 
 
-##### VisionInfo
+#### VisionInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -54,7 +54,7 @@ import { textRecognition } from '@kit.CoreVisionKit';
 
 
 
-##### PixelPoint
+#### PixelPoint
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -72,7 +72,7 @@ import { textRecognition } from '@kit.CoreVisionKit';
 
 
 
-##### TextWord
+#### TextWord
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -90,7 +90,7 @@ import { textRecognition } from '@kit.CoreVisionKit';
 
 
 
-##### TextLine
+#### TextLine
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -109,7 +109,7 @@ import { textRecognition } from '@kit.CoreVisionKit';
 
 
 
-##### TextBlock
+#### TextBlock
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -127,7 +127,7 @@ import { textRecognition } from '@kit.CoreVisionKit';
 
 
 
-##### TextRecognitionResult
+#### TextRecognitionResult
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -145,7 +145,7 @@ import { textRecognition } from '@kit.CoreVisionKit';
 
 
 
-##### textRecognition.init
+#### textRecognition.init
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -206,7 +206,7 @@ struct Page {
 
 
 
-##### textRecognition.release
+#### textRecognition.release
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -267,7 +267,7 @@ struct Page {
 
 
 
-##### textRecognition.recognizeText
+#### textRecognition.recognizeText
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -373,7 +373,7 @@ struct Page {
 
 
 
-##### textRecognition.recognizeText
+#### textRecognition.recognizeText
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -481,7 +481,7 @@ struct Page {
 
 
 
-##### textRecognition.recognizeText
+#### textRecognition.recognizeText
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -595,7 +595,7 @@ struct Page {
 
 
 
-##### textRecognition.getSupportedLanguages
+#### textRecognition.getSupportedLanguages
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -651,7 +651,7 @@ struct Page {
 
 
 
-##### textRecognition.getSupportedLanguages
+#### textRecognition.getSupportedLanguages
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -708,7 +708,7 @@ struct Page {
 
 
 
-##### 语言类型列表
+#### 语言类型列表
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-structs-securityaudit-filter
 **支持设备：** PC/2in1
 
-##### 概述
+#### 概述
 
 **支持设备：** PC/2in1
 
@@ -19,13 +19,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** PC/2in1
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** PC/2in1
  
@@ -39,13 +39,13 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** PC/2in1
 
   
 
-##### isInclude
+#### isInclude
 
 **支持设备：** PC/2in1
 
@@ -59,7 +59,7 @@ TRUE: 符合条件的事件被返回给客户端。 FALSE: 符合条件的事件
  
   
 
-##### type
+#### type
 
 **支持设备：** PC/2in1
 
@@ -73,7 +73,7 @@ SecurityAudit_FilterType SecurityAudit_Filter::type
  
   
 
-##### value
+#### value
 
 **支持设备：** PC/2in1
 
@@ -87,7 +87,7 @@ const char** SecurityAudit_Filter::value
  
   
 
-##### valueCount
+#### valueCount
 
 **支持设备：** PC/2in1
 

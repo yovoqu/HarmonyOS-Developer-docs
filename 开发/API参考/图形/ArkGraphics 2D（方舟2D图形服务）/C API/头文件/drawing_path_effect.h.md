@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-path-effect-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -40,7 +40,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -57,13 +57,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Drawing_PathDashStyle
+#### OH_Drawing_PathDashStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -86,13 +86,13 @@ enum OH_Drawing_PathDashStyle
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Drawing_CreateComposePathEffect()
+#### OH_Drawing_CreateComposePathEffect()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -125,7 +125,7 @@ OH_Drawing_PathEffect* OH_Drawing_CreateComposePathEffect(OH_Drawing_PathEffect*
  
   
 
-##### OH_Drawing_CreateCornerPathEffect()
+#### OH_Drawing_CreateCornerPathEffect()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -157,7 +157,7 @@ OH_Drawing_PathEffect* OH_Drawing_CreateCornerPathEffect(float radius)
  
   
 
-##### OH_Drawing_CreateDashPathEffect()
+#### OH_Drawing_CreateDashPathEffect()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -195,7 +195,7 @@ intervals为NULL或者count小于等于0时返回OH_DRAWING_ERROR_INVALID_PARAME
  
   
 
-##### OH_Drawing_CreateDiscretePathEffect()
+#### OH_Drawing_CreateDiscretePathEffect()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -228,7 +228,7 @@ OH_Drawing_PathEffect* OH_Drawing_CreateDiscretePathEffect(float segLength, floa
  
   
 
-##### OH_Drawing_CreatePathDashEffect()
+#### OH_Drawing_CreatePathDashEffect()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -263,7 +263,7 @@ OH_Drawing_PathEffect* OH_Drawing_CreatePathDashEffect(const OH_Drawing_Path* pa
  
   
 
-##### OH_Drawing_CreateSumPathEffect()
+#### OH_Drawing_CreateSumPathEffect()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -296,7 +296,7 @@ OH_Drawing_PathEffect* OH_Drawing_CreateSumPathEffect(OH_Drawing_PathEffect* fir
  
   
 
-##### OH_Drawing_PathEffectDestroy()
+#### OH_Drawing_PathEffectDestroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

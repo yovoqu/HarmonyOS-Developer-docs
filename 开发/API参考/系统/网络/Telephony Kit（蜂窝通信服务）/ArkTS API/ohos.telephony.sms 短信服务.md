@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -22,7 +22,7 @@ import { sms } from '@kit.TelephonyKit';
 
 
 
-##### sms.createMessage
+#### sms.createMessage
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -70,7 +70,7 @@ sms.createMessage(pdu, specification, (err: BusinessError, data: sms.ShortMessag
 
 
 
-##### sms.createMessage
+#### sms.createMessage
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -126,7 +126,7 @@ sms.createMessage(pdu, specification).then((data: sms.ShortMessage) => {
 
 
 
-##### sms.sendMessage(deprecated)
+#### sms.sendMessage(deprecated)
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -189,7 +189,7 @@ sms.sendMessage(options);
 
 
 
-##### sms.sendShortMessage10+
+#### sms.sendShortMessage10+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -251,7 +251,7 @@ sms.sendShortMessage(options, (err: BusinessError) => {
 
 
 
-##### sms.sendShortMessage10+
+#### sms.sendShortMessage10+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -322,7 +322,7 @@ promise.then(() => {
 
 
 
-##### sms.getDefaultSmsSlotId7+
+#### sms.getDefaultSmsSlotId7+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -352,7 +352,7 @@ sms.getDefaultSmsSlotId((err: BusinessError, data: number) => {
 
 
 
-##### sms.getDefaultSmsSlotId7+
+#### sms.getDefaultSmsSlotId7+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -384,7 +384,7 @@ sms.getDefaultSmsSlotId().then((data: number) => {
 
 
 
-##### sms.hasSmsCapability7+
+#### sms.hasSmsCapability7+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -410,7 +410,7 @@ console.info(`hasSmsCapability: ${JSON.stringify(result)}`);
 
 
 
-##### sms.getDefaultSmsSimId10+
+#### sms.getDefaultSmsSimId10+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -455,7 +455,7 @@ sms.getDefaultSmsSimId((err: BusinessError, data: number) => {
 
 
 
-##### sms.getDefaultSmsSimId10+
+#### sms.getDefaultSmsSimId10+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -502,7 +502,7 @@ promise.then((data: number) => {
 
 
 
-##### ShortMessage
+#### ShortMessage
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -527,7 +527,7 @@ promise.then((data: number) => {
 
 
 
-##### ShortMessageClass
+#### ShortMessageClass
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -546,7 +546,7 @@ promise.then((data: number) => {
 
 
 
-##### SendMessageOptions
+#### SendMessageOptions
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -567,7 +567,7 @@ promise.then((data: number) => {
 
 
 
-##### ISendShortMessageCallback
+#### ISendShortMessageCallback
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -584,7 +584,7 @@ promise.then((data: number) => {
 
 
 
-##### IDeliveryShortMessageCallback
+#### IDeliveryShortMessageCallback
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -599,7 +599,7 @@ promise.then((data: number) => {
 
 
 
-##### SendSmsResult
+#### SendSmsResult
 
 **支持设备：** Phone | Tablet | Wearable
 

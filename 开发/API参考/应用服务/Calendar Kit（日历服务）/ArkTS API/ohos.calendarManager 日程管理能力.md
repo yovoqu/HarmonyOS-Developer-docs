@@ -26,7 +26,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -36,7 +36,7 @@ import { calendarManager } from '@kit.CalendarKit';
 
 
 
-##### calendarManager.getCalendarManager
+#### calendarManager.getCalendarManager
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -140,7 +140,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### CalendarManager
+#### CalendarManager
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -150,7 +150,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### createCalendar
+#### createCalendar
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -212,7 +212,7 @@ try {
 
 
 
-##### createCalendar
+#### createCalendar
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -275,7 +275,7 @@ calendarMgr?.createCalendar(calendarAccount).then((data: calendarManager.Calenda
 
 
 
-##### deleteCalendar
+#### deleteCalendar
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -346,7 +346,7 @@ calendarMgr?.createCalendar(calendarAccount).then((data: calendarManager.Calenda
 
 
 
-##### deleteCalendar
+#### deleteCalendar
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -420,7 +420,7 @@ calendarMgr?.createCalendar(calendarAccount).then((data: calendarManager.Calenda
 
 
 
-##### getCalendar
+#### getCalendar
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -475,7 +475,7 @@ calendarMgr?.getCalendar((err: BusinessError, data:calendarManager.Calendar) => 
 
 
 
-##### getCalendar
+#### getCalendar
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -542,7 +542,7 @@ calendarMgr?.createCalendar(calendarAccount).then((data: calendarManager.Calenda
 
 
 
-##### getCalendar
+#### getCalendar
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -603,7 +603,7 @@ calendarMgr?.getCalendar().then((data: calendarManager.Calendar) => {
 
 
 
-##### getAllCalendars
+#### getAllCalendars
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -659,7 +659,7 @@ calendarMgr?.getAllCalendars((err: BusinessError, data: calendarManager.Calendar
 
 
 
-##### getAllCalendars
+#### getAllCalendars
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -715,7 +715,7 @@ calendarMgr?.getAllCalendars().then((data: calendarManager.Calendar[]) => {
 
 
 
-##### editEvent12+
+#### editEvent12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -765,7 +765,7 @@ calendarMgr?.editEvent(event).then((eventId: number): void => {
 
 
 
-##### Calendar
+#### Calendar
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -775,7 +775,7 @@ calendarMgr?.editEvent(event).then((eventId: number): void => {
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -790,7 +790,7 @@ calendarMgr?.editEvent(event).then((eventId: number): void => {
 
 
 
-##### addEvent
+#### addEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -858,7 +858,7 @@ calendarMgr?.getCalendar().then((data: calendarManager.Calendar) => {
 
 
 
-##### addEvent
+#### addEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -932,7 +932,7 @@ calendarMgr?.getCalendar((err: BusinessError, data:calendarManager.Calendar) => 
 
 
 
-##### addEvents
+#### addEvents
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1007,7 +1007,7 @@ calendarMgr?.getCalendar((err: BusinessError, data:calendarManager.Calendar) => 
 
 
 
-##### addEvents
+#### addEvents
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1086,7 +1086,7 @@ calendarMgr?.getCalendar((err: BusinessError, data:calendarManager.Calendar) => 
 
 
 
-##### deleteEvent
+#### deleteEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1150,7 +1150,7 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 
 
-##### deleteEvent
+#### deleteEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1216,7 +1216,7 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 
 
-##### deleteEvents
+#### deleteEvents
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1293,7 +1293,7 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 
 
-##### deleteEvents
+#### deleteEvents
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1372,7 +1372,7 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 
 
-##### updateEvent
+#### updateEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1436,7 +1436,7 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 
 
-##### updateEvent
+#### updateEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1504,7 +1504,7 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 
 
-##### getEvents
+#### getEvents
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1566,7 +1566,7 @@ calendarMgr?.getCalendar((err: BusinessError, data:calendarManager.Calendar) => 
 
 
 
-##### getEvents
+#### getEvents
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1655,7 +1655,7 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 
 
-##### getEvents
+#### getEvents
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1741,7 +1741,7 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 
 
-##### getConfig
+#### getConfig
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1782,7 +1782,7 @@ calendarMgr?.getCalendar((err: BusinessError, data:calendarManager.Calendar) => 
 
 
 
-##### setConfig
+#### setConfig
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1843,7 +1843,7 @@ calendarMgr?.getCalendar((err: BusinessError, data:calendarManager.Calendar) => 
 
 
 
-##### setConfig
+#### setConfig
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1908,7 +1908,7 @@ calendarMgr?.getCalendar((err: BusinessError, data:calendarManager.Calendar) => 
 
 
 
-##### getAccount
+#### getAccount
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1949,7 +1949,7 @@ calendarMgr?.getCalendar((err: BusinessError, data:calendarManager.Calendar) => 
 
 
 
-##### queryEventInstances18+
+#### queryEventInstances18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2034,7 +2034,7 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 
 
-##### CalendarAccount
+#### CalendarAccount
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2053,7 +2053,7 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 
 
-##### CalendarConfig
+#### CalendarConfig
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2069,7 +2069,7 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 
 
-##### Event
+#### Event
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2100,7 +2100,7 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 
 
-##### CalendarType
+#### CalendarType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2121,7 +2121,7 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 
 
-##### Location
+#### Location
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2140,7 +2140,7 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 
 
-##### EventFilter
+#### EventFilter
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2152,7 +2152,7 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 
 
-##### filterById
+#### filterById
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2232,7 +2232,7 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 
 
-##### filterByTime
+#### filterByTime
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2308,7 +2308,7 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 
 
-##### filterByTitle
+#### filterByTitle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2373,7 +2373,7 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 
 
-##### EventType
+#### EventType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2391,7 +2391,7 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 
 
-##### RecurrenceRule
+#### RecurrenceRule
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2416,7 +2416,7 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 
 
-##### RecurrenceFrequency
+#### RecurrenceFrequency
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2436,7 +2436,7 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 
 
-##### Attendee
+#### Attendee
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2455,7 +2455,7 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 
 
-##### EventService
+#### EventService
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2474,7 +2474,7 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 
 
-##### ServiceType
+#### ServiceType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2499,7 +2499,7 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 
 
-##### AttendeeRole12+
+#### AttendeeRole12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2517,7 +2517,7 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 
 
-##### AttendeeStatus18+
+#### AttendeeStatus18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2538,7 +2538,7 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 
 
-##### AttendeeType18+
+#### AttendeeType18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

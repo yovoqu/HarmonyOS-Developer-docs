@@ -12,7 +12,7 @@ avCastPickerParam提供了[@ohos.multimedia.avCastPicker](https://developer.huaw
 
   
 
-##### AVCastPickerState
+#### AVCastPickerState
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -30,7 +30,7 @@ avCastPickerParam提供了[@ohos.multimedia.avCastPicker](https://developer.huaw
  
   
 
-##### AVCastPickerStyle12+
+#### AVCastPickerStyle12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -48,7 +48,7 @@ avCastPickerParam提供了[@ohos.multimedia.avCastPicker](https://developer.huaw
  
   
 
-##### AVCastPickerColorMode12+
+#### AVCastPickerColorMode12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

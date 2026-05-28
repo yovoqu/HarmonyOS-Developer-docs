@@ -12,7 +12,7 @@
 **起始版本：** 5.1.0(18)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Tablet | TV
 
@@ -22,7 +22,7 @@ import { arEngine } from '@kit.AREngine';
 
 
 
-##### ARFeatureType
+#### ARFeatureType
 
 **支持设备：** Phone | Tablet | TV
 
@@ -48,7 +48,7 @@ import { arEngine } from '@kit.AREngine';
 
 
 
-##### ARAddAugmentedImageMode
+#### ARAddAugmentedImageMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -68,7 +68,7 @@ import { arEngine } from '@kit.AREngine';
 
 
 
-##### ARAddAugmentedImageReason
+#### ARAddAugmentedImageReason
 
 **支持设备：** Phone | Tablet | TV
 
@@ -131,7 +131,7 @@ import { arEngine } from '@kit.AREngine';
 
 
 
-##### ARAnimojiTriangleLabel
+#### ARAnimojiTriangleLabel
 
 **支持设备：** Phone | Tablet | TV
 
@@ -159,7 +159,7 @@ import { arEngine } from '@kit.AREngine';
 
 
 
-##### ARBlendShapeType
+#### ARBlendShapeType
 
 **支持设备：** Phone | Tablet | TV
 
@@ -241,7 +241,7 @@ import { arEngine } from '@kit.AREngine';
 
 
 
-##### ARCameraLensFacing
+#### ARCameraLensFacing
 
 **支持设备：** Phone | Tablet | TV
 
@@ -261,7 +261,7 @@ import { arEngine } from '@kit.AREngine';
 
 
 
-##### ARDepthMode
+#### ARDepthMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -281,7 +281,7 @@ import { arEngine } from '@kit.AREngine';
 
 
 
-##### ARFocusMode
+#### ARFocusMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -301,7 +301,7 @@ import { arEngine } from '@kit.AREngine';
 
 
 
-##### ARImageFormat
+#### ARImageFormat
 
 **支持设备：** Phone | Tablet | TV
 
@@ -323,7 +323,7 @@ import { arEngine } from '@kit.AREngine';
 
 
 
-##### ARMeshMode
+#### ARMeshMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -343,7 +343,7 @@ import { arEngine } from '@kit.AREngine';
 
 
 
-##### ARMultiFaceMode
+#### ARMultiFaceMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -363,7 +363,7 @@ import { arEngine } from '@kit.AREngine';
 
 
 
-##### ARBodyLandmarkType
+#### ARBodyLandmarkType
 
 **支持设备：** Phone | Tablet | TV
 
@@ -401,7 +401,7 @@ import { arEngine } from '@kit.AREngine';
 
 
 
-##### ARPlaneFindingMode
+#### ARPlaneFindingMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -423,7 +423,7 @@ import { arEngine } from '@kit.AREngine';
 
 
 
-##### ARPlaneType
+#### ARPlaneType
 
 **支持设备：** Phone | Tablet | TV
 
@@ -445,7 +445,7 @@ import { arEngine } from '@kit.AREngine';
 
 
 
-##### ARPointOrientationMode
+#### ARPointOrientationMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -465,7 +465,7 @@ import { arEngine } from '@kit.AREngine';
 
 
 
-##### ARPoseMode
+#### ARPoseMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -485,7 +485,7 @@ import { arEngine } from '@kit.AREngine';
 
 
 
-##### ARPoseType
+#### ARPoseType
 
 **支持设备：** Phone | Tablet | TV
 
@@ -507,7 +507,7 @@ import { arEngine } from '@kit.AREngine';
 
 
 
-##### ARPowerMode
+#### ARPowerMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -530,7 +530,7 @@ import { arEngine } from '@kit.AREngine';
 
 
 
-##### ARSemanticDenseMode
+#### ARSemanticDenseMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -552,7 +552,7 @@ import { arEngine } from '@kit.AREngine';
 
 
 
-##### ARSemanticMode
+#### ARSemanticMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -572,7 +572,7 @@ import { arEngine } from '@kit.AREngine';
 
 
 
-##### ARSemanticPlaneLabel
+#### ARSemanticPlaneLabel
 
 **支持设备：** Phone | Tablet | TV
 
@@ -602,7 +602,7 @@ import { arEngine } from '@kit.AREngine';
 
 
 
-##### ARTrackingState
+#### ARTrackingState
 
 **支持设备：** Phone | Tablet | TV
 
@@ -623,7 +623,7 @@ import { arEngine } from '@kit.AREngine';
 
 
 
-##### ARTrackingStateReason
+#### ARTrackingStateReason
 
 **支持设备：** Phone | Tablet | TV
 
@@ -644,7 +644,7 @@ import { arEngine } from '@kit.AREngine';
 
 
 
-##### ARTrackableType
+#### ARTrackableType
 
 **支持设备：** Phone | Tablet | TV
 
@@ -668,7 +668,7 @@ import { arEngine } from '@kit.AREngine';
 
 
 
-##### ARType
+#### ARType
 
 **支持设备：** Phone | Tablet | TV
 
@@ -690,7 +690,7 @@ import { arEngine } from '@kit.AREngine';
 
 
 
-##### Distortion
+#### Distortion
 
 **支持设备：** Phone | Tablet | TV
 
@@ -713,7 +713,7 @@ type Distortion = [number, number, number, number, number]
 
 
 
-##### ARAugmentedImageDatabase
+#### ARAugmentedImageDatabase
 
 **支持设备：** Phone | Tablet | TV
 
@@ -729,7 +729,7 @@ type Distortion = [number, number, number, number, number]
 
 
 
-##### ARAugmentedImageDatabase.deserialize
+#### ARAugmentedImageDatabase.deserialize
 
 **支持设备：** Phone | Tablet | TV
 
@@ -784,7 +784,7 @@ await imageDatabase.deserialize(buffer);
 
 
 
-##### ARAugmentedImageDatabase.serialize
+#### ARAugmentedImageDatabase.serialize
 
 **支持设备：** Phone | Tablet | TV
 
@@ -825,7 +825,7 @@ await imageDatabase.serialize();
 
 
 
-##### ARAugmentedImageDatabase.addImage
+#### ARAugmentedImageDatabase.addImage
 
 **支持设备：** Phone | Tablet | TV
 
@@ -887,7 +887,7 @@ await imageDatabase.addImage('xx', pixelMap, 0.3);
 
 
 
-##### ARAugmentedImageDatabase.getImageCount
+#### ARAugmentedImageDatabase.getImageCount
 
 **支持设备：** Phone | Tablet | TV
 
@@ -928,7 +928,7 @@ imageDatabase.getImageCount();
 
 
 
-##### ARAugmentedImageDatabase.getCapacity
+#### ARAugmentedImageDatabase.getCapacity
 
 **支持设备：** Phone | Tablet | TV
 
@@ -969,7 +969,7 @@ imageDatabase.getCapacity();
 
 
 
-##### ARAugmentedImageDatabase.getImageAddMode
+#### ARAugmentedImageDatabase.getImageAddMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1010,7 +1010,7 @@ imageDatabase.getImageAddMode();
 
 
 
-##### ARAugmentedImageDatabase.setImageAddMode
+#### ARAugmentedImageDatabase.setImageAddMode
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1051,7 +1051,7 @@ imageDatabase.setImageAddMode(arEngine.ARAddAugmentedImageMode.UPDATE);
 
 
 
-##### ARAugmentedImageDatabase.release
+#### ARAugmentedImageDatabase.release
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1092,7 +1092,7 @@ await imageDatabase.release();
 
 
 
-##### ARCameraIntrinsics
+#### ARCameraIntrinsics
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1119,7 +1119,7 @@ await imageDatabase.release();
 
 
 
-##### ARConfig
+#### ARConfig
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1153,7 +1153,7 @@ await imageDatabase.release();
 
 
 
-##### ARPointCloud
+#### ARPointCloud
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1175,7 +1175,7 @@ await imageDatabase.release();
 
 
 
-##### ARSemanticDenseCubeData
+#### ARSemanticDenseCubeData
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1200,7 +1200,7 @@ await imageDatabase.release();
 
 
 
-##### ARSemanticDensePointData
+#### ARSemanticDensePointData
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1223,7 +1223,7 @@ await imageDatabase.release();
 
 
 
-##### ARSession
+#### ARSession
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1239,7 +1239,7 @@ await imageDatabase.release();
 
 
 
-##### ARSession.getFrame
+#### ARSession.getFrame
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1301,7 +1301,7 @@ class ARViewCallbackImpl extends arViewController.ARViewCallback {
 
 
 
-##### ARSession.createAnchor
+#### ARSession.createAnchor
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1361,7 +1361,7 @@ arSession.createAnchor(pose);
 
 
 
-##### ARSession.detachAnchor
+#### ARSession.detachAnchor
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1411,7 +1411,7 @@ arSession.detachAnchor(anchor);
 
 
 
-##### ARSession.getAllAnchors
+#### ARSession.getAllAnchors
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1453,7 +1453,7 @@ arSession.getAllAnchors();
 
 
 
-##### ARSession.getAllTrackables
+#### ARSession.getAllTrackables
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1503,7 +1503,7 @@ arSession.getAllTrackables(arEngine.ARTrackableType.BASE);
 
 
 
-##### ARSession.openFlash
+#### ARSession.openFlash
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1544,7 +1544,7 @@ await arSession.openFlash();
 
 
 
-##### ARSession.closeFlash
+#### ARSession.closeFlash
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1585,7 +1585,7 @@ await arSession.closeFlash();
 
 
 
-##### ARSession.release
+#### ARSession.release
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1626,7 +1626,7 @@ await arSession.release();
 
 
 
-##### ImageComponent
+#### ImageComponent
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1649,7 +1649,7 @@ await arSession.release();
 
 
 
-##### ARAddAugmentedImageResult
+#### ARAddAugmentedImageResult
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1672,7 +1672,7 @@ await arSession.release();
 
 
 
-##### ARAnchor
+#### ARAnchor
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1698,7 +1698,7 @@ await arSession.release();
 
 
 
-##### ARAnchor.getPose
+#### ARAnchor.getPose
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1742,7 +1742,7 @@ anchors[0].getPose();
 
 
 
-##### ARAnchor.detach
+#### ARAnchor.detach
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1783,7 +1783,7 @@ anchors[0].detach();
 
 
 
-##### ARAnchor.release
+#### ARAnchor.release
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1827,7 +1827,7 @@ await anchors[0].release();
 
 
 
-##### ARAugmentedImage
+#### ARAugmentedImage
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1853,7 +1853,7 @@ await anchors[0].release();
 
 
 
-##### ARBlendShapes
+#### ARBlendShapes
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1874,7 +1874,7 @@ await anchors[0].release();
 
 
 
-##### ARBlendShapes.getData
+#### ARBlendShapes.getData
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1920,7 +1920,7 @@ faceBlendShapes.getData();
 
 
 
-##### ARBlendShapes.getTypes
+#### ARBlendShapes.getTypes
 
 **支持设备：** Phone | Tablet | TV
 
@@ -1966,7 +1966,7 @@ faceBlendShapes.getTypes();
 
 
 
-##### ARBlendShapes.release
+#### ARBlendShapes.release
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2012,7 +2012,7 @@ faceBlendShapes.release();
 
 
 
-##### ARLandmark
+#### ARLandmark
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2033,7 +2033,7 @@ faceBlendShapes.release();
 
 
 
-##### ARLandmark.getVertices2D
+#### ARLandmark.getVertices2D
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2079,7 +2079,7 @@ faceLandmark.getVertices2D();
 
 
 
-##### ARLandmark.getVertices3D
+#### ARLandmark.getVertices3D
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2125,7 +2125,7 @@ faceLandmark.getVertices3D();
 
 
 
-##### ARLandmark.release
+#### ARLandmark.release
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2171,7 +2171,7 @@ await faceLandmark.release();
 
 
 
-##### ARCamera
+#### ARCamera
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2196,7 +2196,7 @@ await faceLandmark.release();
 
 
 
-##### ARCamera.getPose
+#### ARCamera.getPose
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2245,7 +2245,7 @@ camera.getPose();
 
 
 
-##### ARCamera.getDisplayOrientedPose
+#### ARCamera.getDisplayOrientedPose
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2294,7 +2294,7 @@ camera.getDisplayOrientedPose();
 
 
 
-##### ARCamera.getProjectionMatrix
+#### ARCamera.getProjectionMatrix
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2348,7 +2348,7 @@ camera.getProjectionMatrix(0, 1);
 
 
 
-##### ARCamera.getImageIntrinsics
+#### ARCamera.getImageIntrinsics
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2395,7 +2395,7 @@ camera.getImageIntrinsics();
 
 
 
-##### ARFace
+#### ARFace
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2411,7 +2411,7 @@ camera.getImageIntrinsics();
 
 
 
-##### ARFace.getGeometry
+#### ARFace.getGeometry
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2456,7 +2456,7 @@ face.getGeometry();
 
 
 
-##### ARFace.getBlendShapes
+#### ARFace.getBlendShapes
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2501,7 +2501,7 @@ face.getBlendShapes();
 
 
 
-##### ARFace.getLandmark
+#### ARFace.getLandmark
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2546,7 +2546,7 @@ face.getLandmark();
 
 
 
-##### ARFaceAnchor
+#### ARFaceAnchor
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2562,7 +2562,7 @@ face.getLandmark();
 
 
 
-##### ARFaceAnchor.getFace
+#### ARFaceAnchor.getFace
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2610,7 +2610,7 @@ async onAnchorAdd(ctx: arViewController.ARViewContext, node: Node, anchor: arEng
 
 
 
-##### ARBodyLandmark2D
+#### ARBodyLandmark2D
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2633,7 +2633,7 @@ async onAnchorAdd(ctx: arViewController.ARViewContext, node: Node, anchor: arEng
 
 
 
-##### ARBody
+#### ARBody
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2653,7 +2653,7 @@ async onAnchorAdd(ctx: arViewController.ARViewContext, node: Node, anchor: arEng
 
 
 
-##### ARBody.getLandmarks2D
+#### ARBody.getLandmarks2D
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2700,7 +2700,7 @@ if (arbodys.length > 0) {
 
 
 
-##### ARFrame
+#### ARFrame
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2722,7 +2722,7 @@ AR Engine处理的一帧数据。
 
 
 
-##### ARFrame.getCamera
+#### ARFrame.getCamera
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2766,7 +2766,7 @@ frame.getCamera();
 
 
 
-##### ARFrame.getUpdatedTrackables
+#### ARFrame.getUpdatedTrackables
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2818,7 +2818,7 @@ frame.getUpdatedTrackables(arEngine.ARTrackableType.BASE);
 
 
 
-##### ARFrame.hitTest
+#### ARFrame.hitTest
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2872,7 +2872,7 @@ frame.hitTest(0, 0);
 
 
 
-##### ARFrame.acquireSceneMesh
+#### ARFrame.acquireSceneMesh
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2917,7 +2917,7 @@ frame.acquireSceneMesh();
 
 
 
-##### ARFrame.acquireDepthImage16Bits
+#### ARFrame.acquireDepthImage16Bits
 
 **支持设备：** Phone | Tablet | TV
 
@@ -2963,7 +2963,7 @@ frame.acquireDepthImage16Bits();
 
 
 
-##### ARFrame.acquireDepthConfidenceImage
+#### ARFrame.acquireDepthConfidenceImage
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3009,7 +3009,7 @@ frame.acquireDepthConfidenceImage();
 
 
 
-##### ARFrame.acquireSemanticDense
+#### ARFrame.acquireSemanticDense
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3053,7 +3053,7 @@ frame.acquireSemanticDense();
 
 
 
-##### ARFrame.acquireBodySkeleton
+#### ARFrame.acquireBodySkeleton
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3097,7 +3097,7 @@ frame.acquireBodySkeleton();
 
 
 
-##### ARFrame.release
+#### ARFrame.release
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3141,7 +3141,7 @@ await frame.release();
 
 
 
-##### ARGeometry
+#### ARGeometry
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3166,7 +3166,7 @@ await frame.release();
 
 
 
-##### ARGeometry.getVertices
+#### ARGeometry.getVertices
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3212,7 +3212,7 @@ faceGeometry.getVertices();
 
 
 
-##### ARGeometry.getTexCoord
+#### ARGeometry.getTexCoord
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3258,7 +3258,7 @@ faceGeometry.getTexCoord();
 
 
 
-##### ARGeometry.getIndices
+#### ARGeometry.getIndices
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3304,7 +3304,7 @@ faceGeometry.getIndices();
 
 
 
-##### ARGeometry.getTriangleLabels
+#### ARGeometry.getTriangleLabels
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3350,7 +3350,7 @@ faceGeometry.getTriangleLabels();
 
 
 
-##### ARGeometry.release
+#### ARGeometry.release
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3396,7 +3396,7 @@ await faceGeometry.release();
 
 
 
-##### ARHitResult
+#### ARHitResult
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3419,7 +3419,7 @@ await faceGeometry.release();
 
 
 
-##### ARHitResult.getHitPose
+#### ARHitResult.getHitPose
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3470,7 +3470,7 @@ hitResult[0].getHitPose();
 
 
 
-##### ARHitResult.getTrackable
+#### ARHitResult.getTrackable
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3515,7 +3515,7 @@ hitResult[0].getTrackable();
 
 
 
-##### ARHitResult.createAnchor
+#### ARHitResult.createAnchor
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3560,7 +3560,7 @@ hitResult[0].createAnchor();
 
 
 
-##### ARHitResult.release
+#### ARHitResult.release
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3605,7 +3605,7 @@ await hitResult[0].release();
 
 
 
-##### ARImage
+#### ARImage
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3630,7 +3630,7 @@ await hitResult[0].release();
 
 
 
-##### ARImage.release
+#### ARImage.release
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3675,7 +3675,7 @@ await image.release();
 
 
 
-##### ARPlane
+#### ARPlane
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3701,7 +3701,7 @@ await image.release();
 
 
 
-##### ARPlane.getPolygonXZ
+#### ARPlane.getPolygonXZ
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3746,7 +3746,7 @@ plane.getPolygonXZ();
 
 
 
-##### ARPlane.getSubsumedBy
+#### ARPlane.getSubsumedBy
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3791,7 +3791,7 @@ plane.getSubsumedBy();
 
 
 
-##### ARPlane.isPoseInExtents
+#### ARPlane.isPoseInExtents
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3845,7 +3845,7 @@ plane.isPoseInExtents(pose);
 
 
 
-##### ARPlane.isPoseInPolygon
+#### ARPlane.isPoseInPolygon
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3899,7 +3899,7 @@ plane.isPoseInPolygon(pose);
 
 
 
-##### ARPlaneAnchor
+#### ARPlaneAnchor
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3917,7 +3917,7 @@ plane.isPoseInPolygon(pose);
 
 
 
-##### ARPlaneAnchor.getPlane
+#### ARPlaneAnchor.getPlane
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3964,7 +3964,7 @@ async onAnchorAdd(ctx: arViewController.ARViewContext, node: Node, anchor: arEng
 
 
 
-##### ARPoint
+#### ARPoint
 
 **支持设备：** Phone | Tablet | TV
 
@@ -3987,7 +3987,7 @@ async onAnchorAdd(ctx: arViewController.ARViewContext, node: Node, anchor: arEng
 
 
 
-##### ARPose
+#### ARPose
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4011,7 +4011,7 @@ async onAnchorAdd(ctx: arViewController.ARViewContext, node: Node, anchor: arEng
 
 
 
-##### ARPose.getMatrix
+#### ARPose.getMatrix
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4057,7 +4057,7 @@ pose.getMatrix();
 
 
 
-##### ARPose.release
+#### ARPose.release
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4103,7 +4103,7 @@ await pose.release();
 
 
 
-##### ARSceneMesh
+#### ARSceneMesh
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4125,7 +4125,7 @@ await pose.release();
 
 
 
-##### ARSceneMesh.getVertices
+#### ARSceneMesh.getVertices
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4170,7 +4170,7 @@ sceneMesh.getVertices();
 
 
 
-##### ARSceneMesh.getVertexNormals
+#### ARSceneMesh.getVertexNormals
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4215,7 +4215,7 @@ sceneMesh.getVertexNormals();
 
 
 
-##### ARSceneMesh.getTriangleIndices
+#### ARSceneMesh.getTriangleIndices
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4260,7 +4260,7 @@ sceneMesh.getTriangleIndices();
 
 
 
-##### ARSceneMesh.release
+#### ARSceneMesh.release
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4305,7 +4305,7 @@ await sceneMesh.release();
 
 
 
-##### ARSemanticDenseData
+#### ARSemanticDenseData
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4328,7 +4328,7 @@ await sceneMesh.release();
 
 
 
-##### ARSemanticDenseData.acquirePointData
+#### ARSemanticDenseData.acquirePointData
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4373,7 +4373,7 @@ semanticData.acquirePointData();
 
 
 
-##### ARSemanticDenseData.acquireCubeData
+#### ARSemanticDenseData.acquireCubeData
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4418,7 +4418,7 @@ semanticData.acquireCubeData();
 
 
 
-##### ARSemanticDenseData.release
+#### ARSemanticDenseData.release
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4463,7 +4463,7 @@ await semanticData.release();
 
 
 
-##### ARTrackable
+#### ARTrackable
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4485,7 +4485,7 @@ await semanticData.release();
 
 
 
-##### ARTrackable.getPose
+#### ARTrackable.getPose
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4529,7 +4529,7 @@ trackables[0].getPose();
 
 
 
-##### ARTrackable.getAnchors
+#### ARTrackable.getAnchors
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4573,7 +4573,7 @@ trackables[0].getAnchors();
 
 
 
-##### ARTrackable.createAnchor
+#### ARTrackable.createAnchor
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4626,7 +4626,7 @@ trackables[0].createAnchor(pose);
 
 
 
-##### ARTrackable.release
+#### ARTrackable.release
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4670,7 +4670,7 @@ await trackables[0].release();
 
 
 
-##### arEngine.createARAugmentedImageDatabase
+#### arEngine.createARAugmentedImageDatabase
 
 **支持设备：** Phone | Tablet | TV
 
@@ -4710,7 +4710,7 @@ await arEngine.createARAugmentedImageDatabase();
 
 
 
-##### arEngine.createARPose
+#### arEngine.createARPose
 
 **支持设备：** Phone | Tablet | TV
 

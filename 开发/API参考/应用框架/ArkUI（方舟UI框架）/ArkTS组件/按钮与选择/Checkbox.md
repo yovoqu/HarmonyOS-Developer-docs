@@ -12,7 +12,7 @@
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -43,7 +43,7 @@ Checkbox(options?: CheckboxOptions)
 
 
 
-##### CheckboxOptions对象说明
+#### CheckboxOptions对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -60,7 +60,7 @@ Checkbox(options?: CheckboxOptions)
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -68,7 +68,7 @@ Checkbox(options?: CheckboxOptions)
 
 
 
-##### select
+#### select
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -95,7 +95,7 @@ select(value: boolean)
 
 
 
-##### select18+
+#### select18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -120,7 +120,7 @@ select(isSelected: Optional&lt;boolean&gt;)
 
 
 
-##### selectedColor
+#### selectedColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -143,7 +143,7 @@ selectedColor(value: ResourceColor)
 
 
 
-##### selectedColor18+
+#### selectedColor18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -166,7 +166,7 @@ selectedColor(resColor: Optional&lt;ResourceColor&gt;)
 
 
 
-##### unselectedColor10+
+#### unselectedColor10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -187,7 +187,7 @@ unselectedColor(value: ResourceColor)
 
 
 
-##### unselectedColor18+
+#### unselectedColor18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -208,7 +208,7 @@ unselectedColor(resColor: Optional&lt;ResourceColor&gt;)
 
 
 
-##### mark10+
+#### mark10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -229,7 +229,7 @@ mark(value: MarkStyle)
 
 
 
-##### mark18+
+#### mark18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -250,7 +250,7 @@ mark(style: Optional&lt;MarkStyle&gt;)
 
 
 
-##### shape11+
+#### shape11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -273,7 +273,7 @@ shape(value: CheckBoxShape)
 
 
 
-##### shape18+
+#### shape18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -296,7 +296,7 @@ shape(shape: Optional&lt;CheckBoxShape&gt;)
 
 
 
-##### contentModifier12+
+#### contentModifier12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -317,7 +317,7 @@ contentModifier(modifier: ContentModifier&lt;CheckBoxConfiguration&gt;)
 
 
 
-##### contentModifier18+
+#### contentModifier18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -338,7 +338,7 @@ contentModifier(modifier: Optional<ContentModifier&lt;CheckBoxConfiguration&gt;>
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -346,7 +346,7 @@ contentModifier(modifier: Optional<ContentModifier&lt;CheckBoxConfiguration&gt;>
 
 
 
-##### onChange
+#### onChange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -369,7 +369,7 @@ onChange(callback: OnCheckboxChangeCallback)
 
 
 
-##### onChange18+
+#### onChange18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -392,7 +392,7 @@ onChange(callback: Optional&lt;OnCheckboxChangeCallback&gt;)
 
 
 
-##### OnCheckboxChangeCallback18+
+#### OnCheckboxChangeCallback18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -415,7 +415,7 @@ type OnCheckboxChangeCallback = (value: boolean) => void
 
 
 
-##### CheckBoxConfiguration12+对象说明
+#### CheckBoxConfiguration12+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -434,13 +434,13 @@ type OnCheckboxChangeCallback = (value: boolean) => void
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1（设置多选框形状）
+#### 示例1（设置多选框形状）
 
 该示例通过配置CheckBoxShape实现圆形和圆角方形多选框样式。
 
@@ -476,7 +476,7 @@ struct CheckboxExample {
 
 
 
-##### 示例2（设置多选框颜色）
+#### 示例2（设置多选框颜色）
 
 该示例通过配置mark实现自定义多选框的颜色。
 
@@ -531,7 +531,7 @@ struct Index {
 
 
 
-##### 示例3（自定义多选框样式）
+#### 示例3（自定义多选框样式）
 
 该示例通过[contentModifier](#contentmodifier12)属性实现了自定义多选框样式的功能，自定义样式实现了一个五边形多选框，如果选中，内部会出现红色三角图案，标题会显示选中字样，如果取消选中，红色三角图案消失，标题会显示非选中字样。
 
@@ -626,7 +626,7 @@ struct Index {
 
 
 
-##### 示例4（设置文本多选框样式）
+#### 示例4（设置文本多选框样式）
 
 该示例通过配置indicatorBuilder实现选中样式为Text。
 
@@ -687,7 +687,7 @@ struct CheckboxExample {
 
 
 
-##### 示例5（获取多选框选中信息）
+#### 示例5（获取多选框选中信息）
 
 该示例通过选中Checkbox以及CheckboxGroup多选框来获取选中的信息。
 
@@ -851,7 +851,7 @@ struct CheckboxExample {
 
 
 
-##### 示例6（设置滑动多选）
+#### 示例6（设置滑动多选）
 
 该示例通过设置手势事件实现Checkbox滑动多选。
 
@@ -1065,4 +1065,4 @@ enum SelectedState {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/1yNpfQeSRamES9UXktkc5Q/zh-cn_image_0000002611755769.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=42BDF16C9C4ADE9D7446434E814A85C51EFE8130AC1F36E7D805126A15D2C4CD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/1yNpfQeSRamES9UXktkc5Q/zh-cn_image_0000002611755769.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=D039C91823716E2FB77AC2EFFBF07CD44AE731BF6D3557D98BE55363B611C0A2)

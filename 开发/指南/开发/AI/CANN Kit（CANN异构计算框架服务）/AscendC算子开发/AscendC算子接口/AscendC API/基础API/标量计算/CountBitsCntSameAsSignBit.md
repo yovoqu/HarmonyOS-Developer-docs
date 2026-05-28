@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-countbitscntsameassignbit
 
-##### 功能说明
+#### 功能说明
 
 计算一个int64_t类型数字的二进制中，从最高数值位开始与符号位相同的连续比特位的个数。
  
@@ -12,7 +12,7 @@
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 __aicore__ inline int64_t CountBitsCntSameAsSignBit(int64_t valueIn)
@@ -20,7 +20,7 @@ __aicore__ inline int64_t CountBitsCntSameAsSignBit(int64_t valueIn)
  
   
 
-##### 参数说明
+#### 参数说明
 
 **表1** 参数说明
   
@@ -31,13 +31,13 @@ __aicore__ inline int64_t CountBitsCntSameAsSignBit(int64_t valueIn)
  
   
 
-##### 返回值
+#### 返回值
 
 返回从最高数值位开始和符号位相同的连续比特位的个数。
  
   
 
-##### 支持的型号
+#### 支持的型号
 
 Kirin9020系列处理器
  
@@ -45,13 +45,13 @@ KirinX90系列处理器
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 int64_t valueIn = 0x0f00000000000000;

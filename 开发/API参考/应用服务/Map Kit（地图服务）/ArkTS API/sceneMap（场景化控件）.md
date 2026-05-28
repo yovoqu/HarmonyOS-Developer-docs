@@ -10,7 +10,7 @@
 **起始版本：** 4.1.0(11)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -20,7 +20,7 @@ import { sceneMap } from '@kit.MapKit';
 
 
 
-##### queryLocation
+#### queryLocation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -89,7 +89,7 @@ sceneMap.queryLocation(this.getUIContext().getHostContext() as common.UIAbilityC
 
 
 
-##### chooseLocation
+#### chooseLocation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -162,7 +162,7 @@ sceneMap.chooseLocation(this.getUIContext().getHostContext() as common.UIAbility
 
 
 
-##### selectDistrict
+#### selectDistrict
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -231,7 +231,7 @@ sceneMap.selectDistrict(this.getUIContext().getHostContext(), districtSelectOpti
 
 
 
-##### LocationQueryOptions
+#### LocationQueryOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -270,7 +270,7 @@ let queryLocationOptions: sceneMap.LocationQueryOptions = { siteId: "92220715406
 
 
 
-##### LocationChoosingOptions
+#### LocationChoosingOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -307,7 +307,7 @@ let locationChoosingOptions: sceneMap.LocationChoosingOptions = {
 
 
 
-##### LocationChoosingResult
+#### LocationChoosingResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -334,7 +334,7 @@ let locationChoosingOptions: sceneMap.LocationChoosingOptions = {
 
 
 
-##### DistrictSelectOptions
+#### DistrictSelectOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -373,7 +373,7 @@ let districtSelectOptions: sceneMap.DistrictSelectOptions = {
 
 
 
-##### DistrictSelectResult
+#### DistrictSelectResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -397,7 +397,7 @@ let districtSelectOptions: sceneMap.DistrictSelectOptions = {
 
 
 
-##### District
+#### District
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

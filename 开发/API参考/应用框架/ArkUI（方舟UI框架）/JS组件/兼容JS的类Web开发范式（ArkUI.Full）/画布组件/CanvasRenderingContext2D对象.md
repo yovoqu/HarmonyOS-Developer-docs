@@ -55,7 +55,7 @@ export default {
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -82,7 +82,7 @@ export default {
 
 
 
-##### fillStyle
+#### fillStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -111,7 +111,7 @@ export default {
 
 
 
-##### lineWidth
+#### lineWidth
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -140,7 +140,7 @@ export default {
 
 
 
-##### strokeStyle
+#### strokeStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -170,7 +170,7 @@ export default {
 
 
 
-##### lineCap
+#### lineCap
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -203,7 +203,7 @@ export default {
 
 
 
-##### lineJoin
+#### lineJoin
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -237,7 +237,7 @@ export default {
 
 
 
-##### miterLimit
+#### miterLimit
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -271,7 +271,7 @@ export default {
 
 
 
-##### font
+#### font
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -300,7 +300,7 @@ export default {
 
 
 
-##### textAlign
+#### textAlign
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -343,7 +343,7 @@ export default {
 
 
 
-##### textBaseline
+#### textBaseline
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -385,7 +385,7 @@ export default {
 
 
 
-##### globalAlpha
+#### globalAlpha
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -418,7 +418,7 @@ export default {
 
 
 
-##### lineDashOffset
+#### lineDashOffset
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -449,7 +449,7 @@ export default {
 
 
 
-##### globalCompositeOperation
+#### globalCompositeOperation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -508,7 +508,7 @@ export default {
 
 
 
-##### shadowBlur
+#### shadowBlur
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -539,7 +539,7 @@ export default {
 
 
 
-##### shadowColor
+#### shadowColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -570,7 +570,7 @@ export default {
 
 
 
-##### shadowOffsetX
+#### shadowOffsetX
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -602,7 +602,7 @@ export default {
 
 
 
-##### shadowOffsetY
+#### shadowOffsetY
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -634,7 +634,7 @@ export default {
 
 
 
-##### imageSmoothingEnabled
+#### imageSmoothingEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -668,13 +668,13 @@ export default {
 
 
 
-##### 方法
+#### 方法
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### fillRect
+#### fillRect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -720,7 +720,7 @@ export default {
 
 
 
-##### clearRect
+#### clearRect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -768,7 +768,7 @@ export default {
 
 
 
-##### strokeRect
+#### strokeRect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -814,7 +814,7 @@ export default {
 
 
 
-##### fillText
+#### fillText
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -860,7 +860,7 @@ export default {
 
 
 
-##### strokeText
+#### strokeText
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -906,7 +906,7 @@ export default {
 
 
 
-##### measureText
+#### measureText
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -959,7 +959,7 @@ export default {
 
 
 
-##### stroke
+#### stroke
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -999,7 +999,7 @@ export default {
 
 
 
-##### beginPath
+#### beginPath
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1040,7 +1040,7 @@ export default {
 
 
 
-##### moveTo
+#### moveTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1087,7 +1087,7 @@ export default {
 
 
 
-##### lineTo
+#### lineTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1134,7 +1134,7 @@ export default {
 
 
 
-##### closePath
+#### closePath
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1175,7 +1175,7 @@ export default {
 
 
 
-##### createPattern
+#### createPattern
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1231,7 +1231,7 @@ export default {
 
 
 
-##### bezierCurveTo
+#### bezierCurveTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1282,7 +1282,7 @@ export default {
 
 
 
-##### quadraticCurveTo
+#### quadraticCurveTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1331,7 +1331,7 @@ export default {
 
 
 
-##### arc
+#### arc
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1381,7 +1381,7 @@ export default {
 
 
 
-##### arcTo
+#### arcTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1430,7 +1430,7 @@ export default {
 
 
 
-##### ellipse
+#### ellipse
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1482,7 +1482,7 @@ export default {
 
 
 
-##### rect
+#### rect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1529,7 +1529,7 @@ export default {
 
 
 
-##### fill
+#### fill
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1566,7 +1566,7 @@ export default {
 
 
 
-##### clip
+#### clip
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1607,7 +1607,7 @@ export default {
 
 
 
-##### rotate
+#### rotate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1651,7 +1651,7 @@ export default {
 
 
 
-##### scale
+#### scale
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1697,7 +1697,7 @@ export default {
 
 
 
-##### transform
+#### transform
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1756,7 +1756,7 @@ export default {
 
 
 
-##### setTransform
+#### setTransform
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1808,7 +1808,7 @@ export default {
 
 
 
-##### translate
+#### translate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1854,7 +1854,7 @@ export default {
 
 
 
-##### createPath2D6+
+#### createPath2D6+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1911,7 +1911,7 @@ export default {
 
 
 
-##### drawImage
+#### drawImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1965,7 +1965,7 @@ export default {
 
 
 
-##### restore
+#### restore
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1997,7 +1997,7 @@ export default {
 
 
 
-##### save
+#### save
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2029,7 +2029,7 @@ export default {
 
 
 
-##### createLinearGradient6+
+#### createLinearGradient6+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2091,7 +2091,7 @@ export default {
 
 
 
-##### createRadialGradient6+
+#### createRadialGradient6+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2155,7 +2155,7 @@ export default {
 
 
 
-##### createImageData
+#### createImageData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2202,7 +2202,7 @@ export default {
 
 
 
-##### createImageData
+#### createImageData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2249,7 +2249,7 @@ export default {
 
 
 
-##### getImageData
+#### getImageData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2298,7 +2298,7 @@ export default {
 
 
 
-##### putImageData
+#### putImageData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2354,7 +2354,7 @@ export default {
 
 
 
-##### putImageData
+#### putImageData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2406,7 +2406,7 @@ export default {
 
 
 
-##### getPixelMap9+
+#### getPixelMap9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2455,7 +2455,7 @@ export default {
 
 
 
-##### setLineDash
+#### setLineDash
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2500,7 +2500,7 @@ export default {
 
 
 
-##### getLineDash
+#### getLineDash
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2539,7 +2539,7 @@ export default {
 
 
 
-##### transferFromImageBitmap7+
+#### transferFromImageBitmap7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -7,7 +7,7 @@
 创建 oh-package.json5 文件。
  
 
-##### 命令格式
+#### 命令格式
 
 ```text
 ohpm init [options]
@@ -15,7 +15,7 @@ ohpm init [options]
  
  
 
-##### 功能描述
+#### 功能描述
 
 在工作目录下，生成一个新的 oh-package.json5 文件，初始化一个 package。
  
@@ -23,11 +23,11 @@ ohpm init [options]
  
  
 
-##### Options
+#### Options
 
  
 
-##### yes
+#### yes
 
 - 默认值：null
 - 类型：null 或 Boolean
@@ -56,7 +56,7 @@ ohpm init [options]
  
  
 
-##### group
+#### group
 
 - 默认值：当前项目的命名空间 或 ""
 - 类型：String
@@ -67,7 +67,7 @@ ohpm init [options]
  
  
 
-##### log_level
+#### log_level
 
 - 默认值：无
 - 类型： string
@@ -77,7 +77,7 @@ ohpm init [options]
  
  
 
-##### debug
+#### debug
 
 - 默认值：false
 - 类型： Boolean
@@ -87,7 +87,7 @@ ohpm init [options]
  
  
 
-##### 示例
+#### 示例
 
 - 当前工作目录下不存在 oh-package.json5 文件。
 

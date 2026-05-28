@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/network-boost-c-struct-network_qos
 **支持设备：** Phone | PC/2in1 | Tablet
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -19,13 +19,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -43,13 +43,13 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### linkDownBandwidth
+#### linkDownBandwidth
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -63,7 +63,7 @@ uint64_t NetworkBoost_NetworkQos::linkDownBandwidth
  
   
 
-##### linkDownRate
+#### linkDownRate
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -77,7 +77,7 @@ uint64_t NetworkBoost_NetworkQos::linkDownRate
  
   
 
-##### linkUpBandwidth
+#### linkUpBandwidth
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -91,7 +91,7 @@ uint64_t NetworkBoost_NetworkQos::linkUpBandwidth
  
   
 
-##### linkUpBufferCongestionPercent
+#### linkUpBufferCongestionPercent
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -105,7 +105,7 @@ uint32_t NetworkBoost_NetworkQos::linkUpBufferCongestionPercent
  
   
 
-##### linkUpBufferDelayMs
+#### linkUpBufferDelayMs
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -119,7 +119,7 @@ uint32_t NetworkBoost_NetworkQos::linkUpBufferDelayMs
  
   
 
-##### linkUpRate
+#### linkUpRate
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -133,7 +133,7 @@ uint64_t NetworkBoost_NetworkQos::linkUpRate
  
   
 
-##### pathType
+#### pathType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -147,7 +147,7 @@ NetworkBoost_PathType NetworkBoost_NetworkQos::pathType
  
   
 
-##### rttMs
+#### rttMs
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

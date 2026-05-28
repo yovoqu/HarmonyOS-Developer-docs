@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ddk-api-h
 **支持设备：** PC/2in1
 
-##### 概述
+#### 概述
 
 **支持设备：** PC/2in1
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** PC/2in1
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** PC/2in1
  
@@ -43,13 +43,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** PC/2in1
 
   
 
-##### OH_DDK_CreateAshmem()
+#### OH_DDK_CreateAshmem()
 
 **支持设备：** PC/2in1
 
@@ -81,7 +81,7 @@ DDK_RetCode OH_DDK_CreateAshmem(const uint8_t *name, uint32_t size, DDK_Ashmem *
  
   
 
-##### OH_DDK_MapAshmem()
+#### OH_DDK_MapAshmem()
 
 **支持设备：** PC/2in1
 
@@ -112,7 +112,7 @@ DDK_RetCode OH_DDK_MapAshmem(DDK_Ashmem *ashmem, const uint8_t ashmemMapType)
  
   
 
-##### OH_DDK_UnmapAshmem()
+#### OH_DDK_UnmapAshmem()
 
 **支持设备：** PC/2in1
 
@@ -142,7 +142,7 @@ DDK_RetCode OH_DDK_UnmapAshmem(DDK_Ashmem *ashmem)
  
   
 
-##### OH_DDK_DestroyAshmem()
+#### OH_DDK_DestroyAshmem()
 
 **支持设备：** PC/2in1
 

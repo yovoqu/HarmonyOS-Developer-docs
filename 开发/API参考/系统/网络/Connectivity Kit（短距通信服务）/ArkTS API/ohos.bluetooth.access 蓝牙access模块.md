@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { access } from '@kit.ConnectivityKit';
 
 
 
-##### access.enableBluetooth
+#### access.enableBluetooth
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -67,7 +67,7 @@ try {
 
 
 
-##### access.enableBluetoothAsync20+
+#### access.enableBluetoothAsync20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -125,7 +125,7 @@ try {
 
 
 
-##### access.disableBluetooth
+#### access.disableBluetooth
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -170,7 +170,7 @@ try {
 
 
 
-##### access.disableBluetoothAsync20+
+#### access.disableBluetoothAsync20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -228,7 +228,7 @@ try {
 
 
 
-##### access.getState
+#### access.getState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -272,7 +272,7 @@ try {
 
 
 
-##### access.on('stateChange')
+#### access.on('stateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -320,7 +320,7 @@ try {
 
 
 
-##### access.off('stateChange')
+#### access.off('stateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -369,7 +369,7 @@ try {
 
 
 
-##### access.addPersistentDeviceId16+
+#### access.addPersistentDeviceId16+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -432,7 +432,7 @@ try {
 
 
 
-##### access.deletePersistentDeviceId16+
+#### access.deletePersistentDeviceId16+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -491,7 +491,7 @@ try {
 
 
 
-##### access.getPersistentDeviceIds16+
+#### access.getPersistentDeviceIds16+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -538,7 +538,7 @@ try {
 
 
 
-##### access.isValidRandomDeviceId16+
+#### access.isValidRandomDeviceId16+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -598,7 +598,7 @@ try {
 
 
 
-##### access.convertUuid22+
+#### access.convertUuid22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -646,7 +646,7 @@ try {
 
 
 
-##### BluetoothState
+#### BluetoothState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

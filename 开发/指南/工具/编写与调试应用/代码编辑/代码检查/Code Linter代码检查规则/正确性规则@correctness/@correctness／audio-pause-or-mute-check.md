@@ -9,7 +9,7 @@
 改善[音视频播放](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-output-device-change#音频流输出设备变更原因)体验场景下，建议优先修改。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -22,13 +22,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 import { media } from '@kit.MediaKit';
@@ -82,7 +82,7 @@ export class AudioPauseNoReport {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 import { media } from '@kit.MediaKit';
@@ -130,7 +130,7 @@ function demoCallBack() {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@correctness/all</span>

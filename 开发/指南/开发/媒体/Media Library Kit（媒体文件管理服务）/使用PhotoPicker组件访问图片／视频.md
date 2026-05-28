@@ -14,7 +14,7 @@
  
   
 
-##### 开发步骤
+#### 开发步骤
 1. 导入PhotoPicker模块文件。
 
   
@@ -116,7 +116,7 @@ PhotoPickerComponent({
  
   
 
-##### 完整示例
+#### 完整示例
 
 ```json
 import {

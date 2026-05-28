@@ -9,7 +9,7 @@
 从DevEco Studio 6.1.0 Beta2版本开始，在API 23及以上工程，支持Car设备添加Map Page和Payment Page。
  
 
-##### 操作步骤
+#### 操作步骤
 1. 在Stage工程中选中ets文件夹下的**pages**，单击鼠标右键，选择**New > Page**，当前提供如下Page类型：
 
   
@@ -20,4 +20,4 @@ Empty Page：创建一个普通页面，展示基础的Hello World功能；
 5. 输入Page name（由大小写字母、数字和下划线组成），单击**Finish**完成添加。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/eklyozzAQJ6VH4Hr0rjTHQ/zh-cn_image_0000002602066499.png?HW-CC-KV=V1&HW-CC-Date=20260528T015015Z&HW-CC-Expire=86400&HW-CC-Sign=5EF79E1CFA6D2027EBC498BEE68979033224084C0116D69FEDE417C7B594780B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/jDj8vM22RbayqjS-CObyAA/zh-cn_image_0000002602066499.png?HW-CC-KV=V1&HW-CC-Date=20260528T030645Z&HW-CC-Expire=86400&HW-CC-Sign=F13F0C0F7F929517C49B4A3D130A7A807D3B375B1C1C18412C5C1105498CC592)

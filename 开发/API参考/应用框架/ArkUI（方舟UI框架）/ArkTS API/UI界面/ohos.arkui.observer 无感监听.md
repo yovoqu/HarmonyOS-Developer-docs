@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { uiObserver } from '@kit.ArkUI';
  
   
 
-##### NavDestinationState
+#### NavDestinationState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -47,7 +47,7 @@ NavDestination组件状态。
  
   
 
-##### ScrollEventType12+
+#### ScrollEventType12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -65,7 +65,7 @@ NavDestination组件状态。
  
   
 
-##### RouterPageState
+#### RouterPageState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -86,7 +86,7 @@ routerPage生命周期触发时对应的状态。RouterPageState用于[RouterPag
  
   
 
-##### TabContentState12+
+#### TabContentState12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -104,7 +104,7 @@ TabContent组件的状态。
  
   
 
-##### NavDestinationInfo
+#### NavDestinationInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -127,7 +127,7 @@ NavDestination组件信息，由系统返回给开发者。
  
   
 
-##### NavigationInfo12+
+#### NavigationInfo12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -144,7 +144,7 @@ Navigation组件信息。
  
   
 
-##### ScrollEventInfo12+
+#### ScrollEventInfo12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -163,7 +163,7 @@ ScrollEvent滚动信息。
  
   
 
-##### ObserverOptions12+
+#### ObserverOptions12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -180,7 +180,7 @@ Observer选项。
  
   
 
-##### RouterPageInfo
+#### RouterPageInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -201,7 +201,7 @@ RouterPageInfo包含的信息，由系统返回给开发者。
  
   
 
-##### DensityInfo12+
+#### DensityInfo12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -219,7 +219,7 @@ RouterPageInfo包含的信息，由系统返回给开发者。
  
   
 
-##### NavDestinationSwitchInfo12+
+#### NavDestinationSwitchInfo12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -239,7 +239,7 @@ Navigation组件页面切换的信息。
  
   
 
-##### NavDestinationSwitchObserverOptions12+
+#### NavDestinationSwitchObserverOptions12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -256,7 +256,7 @@ Navigation组件页面切换事件的监听选项。
  
   
 
-##### TextChangeEventInfo22+
+#### TextChangeEventInfo22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -275,7 +275,7 @@ Navigation组件页面切换事件的监听选项。
  
   
 
-##### TabContentInfo12+
+#### TabContentInfo12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -296,7 +296,7 @@ TabContent页面的切换信息。
  
   
 
-##### WindowSizeLayoutBreakpointInfo22+
+#### WindowSizeLayoutBreakpointInfo22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -314,7 +314,7 @@ TabContent页面的切换信息。
  
   
 
-##### uiObserver.on('navDestinationUpdate')
+#### uiObserver.on('navDestinationUpdate')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -391,7 +391,7 @@ struct Index {
  
   
 
-##### uiObserver.off('navDestinationUpdate')
+#### uiObserver.off('navDestinationUpdate')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -417,7 +417,7 @@ off(type: 'navDestinationUpdate', callback?: Callback&lt;NavDestinationInfo&gt;)
  
   
 
-##### uiObserver.on('navDestinationUpdate')
+#### uiObserver.on('navDestinationUpdate')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -496,7 +496,7 @@ struct Index {
  
   
 
-##### uiObserver.off('navDestinationUpdate')
+#### uiObserver.off('navDestinationUpdate')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -523,7 +523,7 @@ off(type: 'navDestinationUpdate', options: { navigationId: ResourceStr }, callba
  
   
 
-##### uiObserver.on('scrollEvent')12+
+#### uiObserver.on('scrollEvent')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -549,7 +549,7 @@ on(type: 'scrollEvent', callback: Callback&lt;ScrollEventInfo&gt;): void
  
   
 
-##### uiObserver.off('scrollEvent')12+
+#### uiObserver.off('scrollEvent')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -575,7 +575,7 @@ off(type: 'scrollEvent', callback?: Callback&lt;ScrollEventInfo&gt;): void
  
   
 
-##### uiObserver.on('scrollEvent')12+
+#### uiObserver.on('scrollEvent')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -602,7 +602,7 @@ on(type: 'scrollEvent', options: ObserverOptions, callback: Callback&lt;ScrollEv
  
   
 
-##### uiObserver.off('scrollEvent')12+
+#### uiObserver.off('scrollEvent')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -694,7 +694,7 @@ struct Index {
  
   
 
-##### uiObserver.on('routerPageUpdate')11+
+#### uiObserver.on('routerPageUpdate')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -753,7 +753,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### uiObserver.off('routerPageUpdate')11+
+#### uiObserver.off('routerPageUpdate')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -803,7 +803,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### uiObserver.on('densityUpdate')12+
+#### uiObserver.on('densityUpdate')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -857,7 +857,7 @@ struct Index {
  
   
 
-##### uiObserver.off('densityUpdate')12+
+#### uiObserver.off('densityUpdate')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -915,7 +915,7 @@ struct Index {
  
   
 
-##### uiObserver.on('willDraw')12+
+#### uiObserver.on('willDraw')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -960,7 +960,7 @@ struct Index {
  
   
 
-##### uiObserver.off('willDraw')12+
+#### uiObserver.off('willDraw')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1009,7 +1009,7 @@ struct Index {
  
   
 
-##### uiObserver.on('didLayout')12+
+#### uiObserver.on('didLayout')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1054,7 +1054,7 @@ struct Index {
  
   
 
-##### uiObserver.off('didLayout')12+
+#### uiObserver.off('didLayout')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1103,7 +1103,7 @@ struct Index {
  
   
 
-##### uiObserver.on('navDestinationSwitch')12+
+#### uiObserver.on('navDestinationSwitch')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1234,7 +1234,7 @@ struct Index {
  
   
 
-##### uiObserver.off('navDestinationSwitch')12+
+#### uiObserver.off('navDestinationSwitch')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1261,7 +1261,7 @@ off(type: 'navDestinationSwitch', context: UIAbilityContext | UIContext, callbac
  
   
 
-##### uiObserver.on('navDestinationSwitch')12+
+#### uiObserver.on('navDestinationSwitch')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1398,7 +1398,7 @@ struct Index {
  
   
 
-##### uiObserver.off('navDestinationSwitch')12+
+#### uiObserver.off('navDestinationSwitch')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1426,7 +1426,7 @@ off(type: 'navDestinationSwitch', context: UIAbilityContext | UIContext, observe
  
   
 
-##### uiObserver.on('tabContentUpdate')12+
+#### uiObserver.on('tabContentUpdate')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1499,7 +1499,7 @@ struct TabsExample {
  
   
 
-##### uiObserver.off('tabContentUpdate')12+
+#### uiObserver.off('tabContentUpdate')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1525,7 +1525,7 @@ off(type: 'tabContentUpdate', callback?: Callback&lt;TabContentInfo&gt;): void
  
   
 
-##### uiObserver.on('tabContentUpdate')12+
+#### uiObserver.on('tabContentUpdate')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1599,7 +1599,7 @@ struct TabsExample {
  
   
 
-##### uiObserver.off('tabContentUpdate')12+
+#### uiObserver.off('tabContentUpdate')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

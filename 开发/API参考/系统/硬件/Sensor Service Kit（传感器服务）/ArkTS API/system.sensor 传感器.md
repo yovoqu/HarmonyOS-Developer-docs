@@ -14,7 +14,7 @@ sensor模块提供订阅传感器数据基本能力，主要包含查询传感�
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Wearable | lite_wearable
 
@@ -24,7 +24,7 @@ import { Sensor } from '@kit.SensorServiceKit';
  
   
 
-##### Sensor.subscribeAccelerometer
+#### Sensor.subscribeAccelerometer
 
 **支持设备：** Wearable | lite_wearable
 
@@ -70,7 +70,7 @@ Sensor.subscribeAccelerometer(accelerometerOptions);
  
   
 
-##### Sensor.unsubscribeAccelerometer
+#### Sensor.unsubscribeAccelerometer
 
 **支持设备：** Wearable | lite_wearable
 
@@ -92,7 +92,7 @@ Sensor.unsubscribeAccelerometer();
  
   
 
-##### Sensor.subscribeCompass
+#### Sensor.subscribeCompass
 
 **支持设备：** Wearable | lite_wearable
 
@@ -133,7 +133,7 @@ Sensor.subscribeCompass(subscribeCompassOptions);
  
   
 
-##### Sensor.unsubscribeCompass
+#### Sensor.unsubscribeCompass
 
 **支持设备：** Wearable | lite_wearable
 
@@ -153,7 +153,7 @@ Sensor.unsubscribeCompass();
  
   
 
-##### Sensor.subscribeProximity
+#### Sensor.subscribeProximity
 
 **支持设备：** Wearable | lite_wearable
 
@@ -196,7 +196,7 @@ Sensor.subscribeProximity(subscribeProximityOptions);
  
   
 
-##### Sensor.unsubscribeProximity
+#### Sensor.unsubscribeProximity
 
 **支持设备：** Wearable | lite_wearable
 
@@ -218,7 +218,7 @@ Sensor.unsubscribeProximity();
  
   
 
-##### Sensor.subscribeLight
+#### Sensor.subscribeLight
 
 **支持设备：** Wearable | lite_wearable
 
@@ -261,7 +261,7 @@ Sensor.subscribeLight(subscribeLightOptions);
  
   
 
-##### Sensor.unsubscribeLight
+#### Sensor.unsubscribeLight
 
 **支持设备：** Wearable | lite_wearable
 
@@ -283,7 +283,7 @@ Sensor.unsubscribeLight();
  
   
 
-##### Sensor.subscribeStepCounter
+#### Sensor.subscribeStepCounter
 
 **支持设备：** Wearable | lite_wearable
 
@@ -326,7 +326,7 @@ Sensor.subscribeStepCounter(subscribeStepCounterOptions);
  
   
 
-##### Sensor.unsubscribeStepCounter
+#### Sensor.unsubscribeStepCounter
 
 **支持设备：** Wearable | lite_wearable
 
@@ -348,7 +348,7 @@ Sensor.unsubscribeStepCounter();
  
   
 
-##### Sensor.subscribeBarometer
+#### Sensor.subscribeBarometer
 
 **支持设备：** Wearable | lite_wearable
 
@@ -389,7 +389,7 @@ Sensor.subscribeBarometer(subscribeBarometerOptions);
  
   
 
-##### Sensor.unsubscribeBarometer
+#### Sensor.unsubscribeBarometer
 
 **支持设备：** Wearable | lite_wearable
 
@@ -409,7 +409,7 @@ Sensor.unsubscribeBarometer();
  
   
 
-##### Sensor.subscribeHeartRate
+#### Sensor.subscribeHeartRate
 
 **支持设备：** Wearable | lite_wearable
 
@@ -452,7 +452,7 @@ Sensor.subscribeHeartRate(subscribeHeartRateOptions);
  
   
 
-##### Sensor.unsubscribeHeartRate
+#### Sensor.unsubscribeHeartRate
 
 **支持设备：** Wearable | lite_wearable
 
@@ -474,7 +474,7 @@ Sensor.unsubscribeHeartRate();
  
   
 
-##### Sensor.subscribeOnBodyState
+#### Sensor.subscribeOnBodyState
 
 **支持设备：** Wearable | lite_wearable
 
@@ -515,7 +515,7 @@ Sensor.subscribeOnBodyState(subscribeOnBodyStateOptions);
  
   
 
-##### Sensor.unsubscribeOnBodyState
+#### Sensor.unsubscribeOnBodyState
 
 **支持设备：** Wearable | lite_wearable
 
@@ -535,7 +535,7 @@ Sensor.unsubscribeOnBodyState();
  
   
 
-##### Sensor.getOnBodyState
+#### Sensor.getOnBodyState
 
 **支持设备：** Wearable | lite_wearable
 
@@ -570,7 +570,7 @@ Sensor.getOnBodyState(getOnBodyStateOptions);
  
   
 
-##### Sensor.subscribeDeviceOrientation6+
+#### Sensor.subscribeDeviceOrientation6+
 
 **支持设备：** Wearable | lite_wearable
 
@@ -618,7 +618,7 @@ Sensor.subscribeDeviceOrientation(subscribeDeviceOrientationOptions);
  
   
 
-##### Sensor.unsubscribeDeviceOrientation6+
+#### Sensor.unsubscribeDeviceOrientation6+
 
 **支持设备：** Wearable | lite_wearable
 
@@ -640,7 +640,7 @@ Sensor.unsubscribeDeviceOrientation();
  
   
 
-##### Sensor.subscribeGyroscope6+
+#### Sensor.subscribeGyroscope6+
 
 **支持设备：** Wearable | lite_wearable
 
@@ -688,7 +688,7 @@ Sensor.subscribeGyroscope(subscribeGyroscopeOptions);
  
   
 
-##### Sensor.unsubscribeGyroscope6+
+#### Sensor.unsubscribeGyroscope6+
 
 **支持设备：** Wearable | lite_wearable
 
@@ -710,7 +710,7 @@ Sensor.unsubscribeGyroscope();
  
   
 
-##### subscribeAccelerometerOptions
+#### subscribeAccelerometerOptions
 
 **支持设备：** Wearable | lite_wearable
 
@@ -729,7 +729,7 @@ Sensor.unsubscribeGyroscope();
  
   
 
-##### AccelerometerResponse
+#### AccelerometerResponse
 
 **支持设备：** Wearable | lite_wearable
 
@@ -748,7 +748,7 @@ Sensor.unsubscribeGyroscope();
  
   
 
-##### SubscribeCompassOptions
+#### SubscribeCompassOptions
 
 **支持设备：** Wearable | lite_wearable
 
@@ -764,7 +764,7 @@ Sensor.unsubscribeGyroscope();
  
   
 
-##### CompassResponse
+#### CompassResponse
 
 **支持设备：** Wearable | lite_wearable
 
@@ -779,7 +779,7 @@ Sensor.unsubscribeGyroscope();
  
   
 
-##### SubscribeProximityOptions
+#### SubscribeProximityOptions
 
 **支持设备：** Wearable | lite_wearable
 
@@ -797,7 +797,7 @@ Sensor.unsubscribeGyroscope();
  
   
 
-##### ProximityResponse
+#### ProximityResponse
 
 **支持设备：** Wearable | lite_wearable
 
@@ -814,7 +814,7 @@ Sensor.unsubscribeGyroscope();
  
   
 
-##### SubscribeLightOptions
+#### SubscribeLightOptions
 
 **支持设备：** Wearable | lite_wearable
 
@@ -832,7 +832,7 @@ Sensor.unsubscribeGyroscope();
  
   
 
-##### LightResponse
+#### LightResponse
 
 **支持设备：** Wearable | lite_wearable
 
@@ -849,7 +849,7 @@ Sensor.unsubscribeGyroscope();
  
   
 
-##### SubscribeStepCounterOptions
+#### SubscribeStepCounterOptions
 
 **支持设备：** Wearable | lite_wearable
 
@@ -867,7 +867,7 @@ Sensor.unsubscribeGyroscope();
  
   
 
-##### StepCounterResponse
+#### StepCounterResponse
 
 **支持设备：** Wearable | lite_wearable
 
@@ -884,7 +884,7 @@ Sensor.unsubscribeGyroscope();
  
   
 
-##### SubscribeBarometerOptions
+#### SubscribeBarometerOptions
 
 **支持设备：** Wearable | lite_wearable
 
@@ -900,7 +900,7 @@ Sensor.unsubscribeGyroscope();
  
   
 
-##### BarometerResponse
+#### BarometerResponse
 
 **支持设备：** Wearable | lite_wearable
 
@@ -915,7 +915,7 @@ Sensor.unsubscribeGyroscope();
  
   
 
-##### SubscribeHeartRateOptions
+#### SubscribeHeartRateOptions
 
 **支持设备：** Wearable | lite_wearable
 
@@ -933,7 +933,7 @@ Sensor.unsubscribeGyroscope();
  
   
 
-##### HeartRateResponse
+#### HeartRateResponse
 
 **支持设备：** Wearable | lite_wearable
 
@@ -950,7 +950,7 @@ Sensor.unsubscribeGyroscope();
  
   
 
-##### SubscribeOnBodyStateOptions
+#### SubscribeOnBodyStateOptions
 
 **支持设备：** Wearable | lite_wearable
 
@@ -966,7 +966,7 @@ Sensor.unsubscribeGyroscope();
  
   
 
-##### OnBodyStateResponse
+#### OnBodyStateResponse
 
 **支持设备：** Wearable | lite_wearable
 
@@ -981,7 +981,7 @@ Sensor.unsubscribeGyroscope();
  
   
 
-##### GetOnBodyStateOptions
+#### GetOnBodyStateOptions
 
 **支持设备：** Wearable | lite_wearable
 
@@ -998,7 +998,7 @@ Sensor.unsubscribeGyroscope();
  
   
 
-##### SubscribeDeviceOrientationOptions6+
+#### SubscribeDeviceOrientationOptions6+
 
 **支持设备：** Wearable | lite_wearable
 
@@ -1017,7 +1017,7 @@ Sensor.unsubscribeGyroscope();
  
   
 
-##### DeviceOrientationResponse6+
+#### DeviceOrientationResponse6+
 
 **支持设备：** Wearable | lite_wearable
 
@@ -1036,7 +1036,7 @@ Sensor.unsubscribeGyroscope();
  
   
 
-##### SubscribeGyroscopeOptions6+
+#### SubscribeGyroscopeOptions6+
 
 **支持设备：** Wearable | lite_wearable
 
@@ -1055,7 +1055,7 @@ Sensor.unsubscribeGyroscope();
  
   
 
-##### GyroscopeResponse6+
+#### GyroscopeResponse6+
 
 **支持设备：** Wearable | lite_wearable
 

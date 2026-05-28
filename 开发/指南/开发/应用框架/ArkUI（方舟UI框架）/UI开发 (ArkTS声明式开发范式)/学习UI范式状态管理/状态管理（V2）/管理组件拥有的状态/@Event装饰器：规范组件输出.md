@@ -13,7 +13,7 @@
 
   
 
-##### 概述
+#### 概述
 
 由于@Param装饰的变量在本地无法更改，使用@Event装饰器装饰回调方法并调用，可以实现更新数据源的变量，再通过[@Local](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-local)的同步机制，将修改同步回@Param装饰的变量，以此达到主动更新@Param装饰变量的效果。
  
@@ -28,7 +28,7 @@
  
   
 
-##### 装饰器说明
+#### 装饰器说明
  
 | @Event属性装饰器 | 说明 |
 | --- | --- |
@@ -39,7 +39,7 @@
  
   
 
-##### 限制条件
+#### 限制条件
 
 - @Event只能用在[@ComponentV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#componentv2)装饰的自定义组件中。当装饰非方法类型的变量时，不会有任何作用。
 
@@ -60,11 +60,11 @@ struct Index {
  
   
 
-##### 使用场景
+#### 使用场景
 
   
 
-##### 更改父组件中变量
+#### 更改父组件中变量
 
 使用@Event可以更改父组件中变量，当该变量作为子组件@Param变量的数据源时，该变化会同步回子组件的@Param变量。
  

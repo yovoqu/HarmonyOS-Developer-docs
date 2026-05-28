@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-datacopypad
 
-##### 功能说明
+#### 功能说明
 
 该接口提供数据非对齐搬运的功能，支持的数据传输通路如下。
  
@@ -17,7 +17,7 @@
  
   
 
-##### 函数原型
+#### 函数原型
 
 - dataCopyParams为DataCopyExtParams类型，相比于DataCopyParams类型，支持的操作数步长等参数取值范围更大
 
@@ -55,7 +55,7 @@ __aicore__ inline void DataCopyPad(const GlobalTensor<T>& dstGlobal, const Local
  
   
 
-##### 参数说明
+#### 参数说明
 
 **表1** 模板参数说明
   
@@ -183,13 +183,13 @@ __aicore__ inline void DataCopyPad(const GlobalTensor<T>& dstGlobal, const Local
  
   
 
-##### 返回值
+#### 返回值
 
 无
  
   
 
-##### 支持的型号
+#### 支持的型号
 
 Kirin9020系列处理器。
  
@@ -197,13 +197,13 @@ KirinX90系列处理器
  
   
 
-##### 约束说明
+#### 约束说明
 
 leftPadding、rightPadding的字节数均不能超过32Bytes。
  
   
 
-##### 调用示例
+#### 调用示例
 
 本示例实现了GM->VECIN->GM的非对齐搬运过程。
  

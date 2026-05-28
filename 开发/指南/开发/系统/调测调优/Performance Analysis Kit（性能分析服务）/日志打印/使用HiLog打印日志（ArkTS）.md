@@ -9,7 +9,7 @@
 系统提供不同的API供开发者调用并输出日志信息，即HiLog与Console。两个API在使用时略有差异，本文重点介绍HiLog的用法，Console的具体用法可查看API参考[Console](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-logs)。
 
 
-##### 接口说明
+#### 接口说明
 
 HiLog中定义了DEBUG、INFO、WARN、ERROR、FATAL五种日志级别，并提供了对应的方法输出不同级别的日志，接口如下表所示，具体说明可查阅[@ohos.hilog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hilog)。
 
@@ -37,7 +37,7 @@ debug版本应用下，setMinLogLevel()和setLogLevel()函数均不生效。
 
 
 
-##### 参数解析
+#### 参数解析
 
  - **domain**：用于指定输出日志所对应的业务领域，取值范围为0x0000~0xFFFF，开发者可以根据需要进行自定义。
  - **tag**：用于指定日志标识，可以为任意字符串，建议标识调用所在的类或者业务行为。tag最多为31字节，超出后会截断。不建议使用中文字符，可能出现乱码或者对齐问题。
@@ -77,13 +77,13 @@ debug版本应用下，setMinLogLevel()和setLogLevel()函数均不生效。
 
 
 
-##### 约束与限制
+#### 约束与限制
 
 日志最多打印4096字节，超出限制文本将被截断。
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 在按钮中增加一个单击事件，单击按钮时打印一条日志。
 1. 新建一个工程，选择“Empty Ability”。
@@ -179,6 +179,6 @@ struct Index {
 
 
 
-##### 示例代码
+#### 示例代码
 
  - [Logger](https://gitcode.com/HarmonyOS_Samples/logger)

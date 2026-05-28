@@ -7,7 +7,7 @@
 [Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas)提供画布组件，用于自定义绘制图形，开发者使用[CanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d)对象和[OffscreenCanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-offscreencanvasrenderingcontext2d)对象在Canvas组件上进行绘制，绘制对象可以是基础形状、文本、图片等。
 
 
-##### 使用画布组件绘制自定义图形
+#### 使用画布组件绘制自定义图形
 
 可以由以下三种形式在画布绘制自定义图形：
 
@@ -104,7 +104,7 @@ import lottie from '@ohos/lottie'
 
 
 
-##### 初始化画布组件
+#### 初始化画布组件
 
 onReady(event: () => void)是Canvas组件初始化完成时的事件回调，调用该事件后，可获取Canvas组件的确定宽度[width](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#width)和高度[height](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#height)，进一步使用CanvasRenderingContext2D对象和OffscreenCanvasRenderingContext2D对象调用相关API进行图形绘制。
 
@@ -125,7 +125,7 @@ Canvas(this.context)
 
 
 
-##### 画布组件绘制方式
+#### 画布组件绘制方式
 
 在Canvas组件的事件回调[onReady](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas#onready)()被调用之后，开发者可以直接使用Canvas组件进行绘制。或者可以脱离Canvas组件和onReady()生命周期，单独定义[Path2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-path2d)对象构造理想的路径，并在onReady()调用之后使用Canvas组件进行绘制。
 
@@ -170,7 +170,7 @@ Canvas(this.context2)
 
 
 
-##### 画布组件常用方法
+#### 画布组件常用方法
 
 OffscreenCanvasRenderingContext2D对象和CanvasRenderingContext2D对象提供了大量的属性和方法，可以用来绘制文本、图形，处理像素等，是Canvas组件的核心。常用接口有[fill](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#fill)（对封闭路径进行填充）、[clip](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#clip)（设置当前路径为剪切路径）、[stroke](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#stroke)（进行边框绘制操作）等等，同时提供了[fillStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#fillstyle)（指定绘制的填充色）、[globalAlpha](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#globalalpha)（设置透明度）与[strokeStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#strokestyle)（设置描边的颜色）等属性修改绘制内容的样式。将通过以下几个方面简单介绍画布组件常见使用方法：
 
@@ -389,7 +389,7 @@ Canvas(this.context)
 
 
 
-##### 使用状态变量驱动画布刷新
+#### 使用状态变量驱动画布刷新
 
 可以使用状态变量来驱动Canvas刷新，将变化的数据通过[@Watch](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-watch)监听，并绑定自定义的draw()方法。当数据刷新时，@Watch绑定的方法会执行绘制逻辑，使Canvas刷新。
 
@@ -433,7 +433,7 @@ struct CanvasContentUpdate {
 
 
 
-##### 控制在画布组件不可见时不进行绘制
+#### 控制在画布组件不可见时不进行绘制
 
 可以使用以下两种方式监听Canvas组件可见性，避免不可见时仍在无效绘制。
 
@@ -578,7 +578,7 @@ struct Page {
 
 
 
-##### 场景示例
+#### 场景示例
 
  - 绘制规则基础形状。
 
@@ -856,6 +856,6 @@ export interface Position {
 
 
 
-##### 示例代码
+#### 示例代码
 
  - [自定义Canvas画布](https://gitcode.com/HarmonyOS_Samples/custom-canvas)

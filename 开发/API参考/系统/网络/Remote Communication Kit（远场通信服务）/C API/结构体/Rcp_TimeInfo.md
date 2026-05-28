@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___time_info
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -21,13 +21,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -45,13 +45,13 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### connectTime
+#### connectTime
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -65,7 +65,7 @@ double Rcp_TimeInfo::connectTime
  
   
 
-##### fileTime
+#### fileTime
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -79,7 +79,7 @@ double Rcp_TimeInfo::fileTime
  
   
 
-##### nameLookUpTime
+#### nameLookUpTime
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -93,7 +93,7 @@ double Rcp_TimeInfo::nameLookUpTime
  
   
 
-##### preTransferTime
+#### preTransferTime
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -107,7 +107,7 @@ double Rcp_TimeInfo::preTransferTime
  
   
 
-##### redirectTime
+#### redirectTime
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -121,7 +121,7 @@ double Rcp_TimeInfo::redirectTime
  
   
 
-##### startTransferTime
+#### startTransferTime
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -135,7 +135,7 @@ double Rcp_TimeInfo::startTransferTime
  
   
 
-##### tlsHandshakeTime
+#### tlsHandshakeTime
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -149,7 +149,7 @@ double Rcp_TimeInfo::tlsHandshakeTime
  
   
 
-##### totalTime
+#### totalTime
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

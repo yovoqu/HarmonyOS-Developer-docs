@@ -7,7 +7,7 @@
 此规则禁止使用不安全的非对称密钥类型ECC。推荐使用ECC256算法，详情参见：[密钥生成算法](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/aegis-key-generation-0000001819355432)。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 import cryptoFramework from '@ohos.security.cryptoFramework';
@@ -35,7 +35,7 @@ cryptoFramework.createAsyKeyGenerator('ECC256');
  
  
 
-##### 反例
+#### 反例
 
 ```text
 import cryptoFramework from '@ohos.security.cryptoFramework';
@@ -44,7 +44,7 @@ cryptoFramework.createAsyKeyGenerator('ECC');
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 plugin:@security/all

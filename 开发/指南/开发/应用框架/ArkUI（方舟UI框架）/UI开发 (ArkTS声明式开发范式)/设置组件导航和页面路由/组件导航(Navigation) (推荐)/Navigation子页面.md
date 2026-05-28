@@ -7,7 +7,7 @@
 [NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)是Navigation子页面的根容器，用于承载子页面的特殊属性和生命周期。NavDestination可以配置独立的标题栏、菜单栏与工具栏等属性，使用方法与Navigation一致。NavDestination还支持通过mode属性设置不同的显示模式，以适应不同页面的需求。
 
 
-##### 页面显示类型
+#### 页面显示类型
 
 NavDestination提供了两种类型。
 
@@ -83,7 +83,7 @@ export struct DialogPage {
 
 
 
-##### 页面生命周期
+#### 页面生命周期
 
 页面生命周期承载在NavDestination组件上，可分为三类：自定义组件生命周期、通用组件生命周期和[NavDestination生命周期](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#事件)。其中，[aboutToAppear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#abouttoappear)和[aboutToDisappear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#abouttodisappear)是自定义组件的生命周期（NavDestination外层包含的自定义组件），[onAppear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-show-hide#onappear)和[onDisAppear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-show-hide#ondisappear)是组件的通用生命周期。剩下的生命周期为NavDestination独有。
 
@@ -115,7 +115,7 @@ export struct DialogPage {
 
 
 
-##### 页面监听和查询
+#### 页面监听和查询
 
 在NavDestination子页面内部的自定义组件可以通过全局方法监听或查询到页面的一些状态信息，从而实现组件与页面解耦。
 

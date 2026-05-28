@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 
-##### ApplicationInfo
+#### ApplicationInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -66,7 +66,7 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 
-##### MultiAppMode12+
+#### MultiAppMode12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -82,7 +82,7 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 
-##### ModuleMetadata10+
+#### ModuleMetadata10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/graphics-accelerate-fg-extrapolation-gles
 
-##### 业务流程
+#### 业务流程
 
 基于OpenGL ES图形API平台，超帧外插模式的主要业务流程如下：
 
@@ -24,7 +24,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 
 ![](assets/OpenGL%20ES平台/file-20260514131655879-1.png)

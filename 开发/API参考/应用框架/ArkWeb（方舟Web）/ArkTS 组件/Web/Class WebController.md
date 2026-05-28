@@ -12,7 +12,7 @@
 
   
 
-##### 创建对象
+#### 创建对象
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ let webController: WebController = new WebController()
  
   
 
-##### constructor(deprecated)
+#### constructor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -38,7 +38,7 @@ WebController的构造函数。
  
   
 
-##### getCookieManager(deprecated)
+#### getCookieManager(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -82,7 +82,7 @@ struct WebComponent {
  
   
 
-##### requestFocus(deprecated)
+#### requestFocus(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -119,7 +119,7 @@ struct WebComponent {
  
   
 
-##### accessBackward(deprecated)
+#### accessBackward(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -164,7 +164,7 @@ struct WebComponent {
  
   
 
-##### accessForward(deprecated)
+#### accessForward(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -209,7 +209,7 @@ struct WebComponent {
  
   
 
-##### accessStep(deprecated)
+#### accessStep(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -262,7 +262,7 @@ struct WebComponent {
  
   
 
-##### backward(deprecated)
+#### backward(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -299,7 +299,7 @@ struct WebComponent {
  
   
 
-##### forward(deprecated)
+#### forward(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -336,7 +336,7 @@ struct WebComponent {
  
   
 
-##### deleteJavaScriptRegister(deprecated)
+#### deleteJavaScriptRegister(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -381,7 +381,7 @@ struct WebComponent {
  
   
 
-##### getHitTest(deprecated)
+#### getHitTest(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -426,7 +426,7 @@ struct WebComponent {
  
   
 
-##### loadData(deprecated)
+#### loadData(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -482,7 +482,7 @@ struct WebComponent {
  
   
 
-##### loadUrl(deprecated)
+#### loadUrl(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -531,7 +531,7 @@ struct WebComponent {
  
   
 
-##### onActive(deprecated)
+#### onActive(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -568,7 +568,7 @@ struct WebComponent {
  
   
 
-##### onInactive(deprecated)
+#### onInactive(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -605,7 +605,7 @@ struct WebComponent {
  
   
 
-##### zoom(deprecated)
+#### zoom(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -650,7 +650,7 @@ struct WebComponent {
  
   
 
-##### refresh(deprecated)
+#### refresh(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -687,7 +687,7 @@ struct WebComponent {
  
   
 
-##### registerJavaScriptProxy(deprecated)
+#### registerJavaScriptProxy(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -773,7 +773,7 @@ struct Index {
  
   
 
-##### runJavaScript(deprecated)
+#### runJavaScript(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -848,7 +848,7 @@ struct WebComponent {
  
   
 
-##### stop(deprecated)
+#### stop(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -885,7 +885,7 @@ struct WebComponent {
  
   
 
-##### clearHistory(deprecated)
+#### clearHistory(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

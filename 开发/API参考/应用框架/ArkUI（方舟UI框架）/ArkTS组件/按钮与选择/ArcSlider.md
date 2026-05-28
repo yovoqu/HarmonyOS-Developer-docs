@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -33,7 +33,7 @@ import {
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@ import {
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -49,7 +49,7 @@ import {
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -57,7 +57,7 @@ import {
  
   
 
-##### ArcSlider
+#### ArcSlider
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -80,7 +80,7 @@ ArcSlider({ options: ArcSliderOptions })
  
   
 
-##### ArcSliderOptions
+#### ArcSliderOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -94,7 +94,7 @@ ArcSlider({ options: ArcSliderOptions })
  
   
 
-##### 属性
+#### 属性
  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -109,7 +109,7 @@ ArcSlider({ options: ArcSliderOptions })
  
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -130,7 +130,7 @@ ArcSliderOptions的构造函数。
  
   
 
-##### ArcSliderValueOptions
+#### ArcSliderValueOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -144,7 +144,7 @@ ArcSliderOptions的构造函数。
  
   
 
-##### 属性
+#### 属性
  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -155,7 +155,7 @@ ArcSliderOptions的构造函数。
  
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -176,7 +176,7 @@ ArcSliderValueOptions的构造函数。
  
   
 
-##### ArcSliderLayoutOptions
+#### ArcSliderLayoutOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -190,7 +190,7 @@ ArcSliderValueOptions的构造函数。
  
   
 
-##### 属性
+#### 属性
  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -200,7 +200,7 @@ ArcSliderValueOptions的构造函数。
  
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -221,7 +221,7 @@ ArcSliderLayoutOptions的构造函数。
  
   
 
-##### ArcSliderStyleOptions
+#### ArcSliderStyleOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -235,7 +235,7 @@ ArcSliderLayoutOptions的构造函数。
  
   
 
-##### 属性
+#### 属性
  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -248,7 +248,7 @@ ArcSliderLayoutOptions的构造函数。
  
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -269,7 +269,7 @@ ArcSliderStyleOptions的构造函数。
  
   
 
-##### ArcSliderPosition
+#### ArcSliderPosition
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -287,7 +287,7 @@ ArcSliderStyleOptions的构造函数。
  
   
 
-##### ArcSliderTouchHandler
+#### ArcSliderTouchHandler
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -308,7 +308,7 @@ type ArcSliderTouchHandler = (event: TouchEvent) => void
  
   
 
-##### ArcSliderChangeHandler
+#### ArcSliderChangeHandler
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -329,7 +329,7 @@ type ArcSliderChangeHandler = (progress: number) => void
  
   
 
-##### ArcSliderEnlargeHandler
+#### ArcSliderEnlargeHandler
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -350,7 +350,7 @@ type ArcSliderEnlargeHandler = (isEnlarged: boolean) => void
  
   
 
-##### ArcSliderOptionsConstructorOptions
+#### ArcSliderOptionsConstructorOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -373,7 +373,7 @@ ArcSliderOptions的构造信息。
  
   
 
-##### ArcSliderValueOptionsConstructorOptions
+#### ArcSliderValueOptionsConstructorOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -392,7 +392,7 @@ ArcSliderValueOptions的构造信息。
  
   
 
-##### ArcSliderLayoutOptionsConstructorOptions
+#### ArcSliderLayoutOptionsConstructorOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -410,7 +410,7 @@ ArcSliderLayoutValueOptions的构造信息。
  
   
 
-##### ArcSliderStyleOptionsConstructorOptions
+#### ArcSliderStyleOptionsConstructorOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -431,7 +431,7 @@ ArcSliderStyleOptions的构造信息。
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -498,4 +498,4 @@ struct ArcSliderExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/_eXd_2fJT0uNUoHtyM576w/zh-cn_image_0000002581435864.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024221Z&HW-CC-Expire=86400&HW-CC-Sign=22F462F63A19C9818F91503FC0E3A00D9AC9B6161F659C2749C29D974F2F0362)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/_eXd_2fJT0uNUoHtyM576w/zh-cn_image_0000002581435864.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025555Z&HW-CC-Expire=86400&HW-CC-Sign=7FA875F5650E6E3F9001E609ECCDEA91801873CF1800317ECFB91B8B55131416)

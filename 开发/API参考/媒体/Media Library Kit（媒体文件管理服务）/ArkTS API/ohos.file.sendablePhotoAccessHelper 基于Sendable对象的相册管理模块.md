@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { sendablePhotoAccessHelper } from '@kit.MediaLibraryKit';
 
 
 
-##### sendablePhotoAccessHelper.getPhotoAccessHelper
+#### sendablePhotoAccessHelper.getPhotoAccessHelper
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -83,7 +83,7 @@ struct Index {
 
 
 
-##### PhotoAccessHelper
+#### PhotoAccessHelper
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -91,7 +91,7 @@ struct Index {
 
 
 
-##### getAssets
+#### getAssets
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -162,7 +162,7 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 
-##### getBurstAssets
+#### getBurstAssets
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -241,7 +241,7 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 
-##### createAsset
+#### createAsset
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -310,7 +310,7 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 
-##### getAlbums
+#### getAlbums
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -385,7 +385,7 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 
-##### getAlbums
+#### getAlbums
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -458,7 +458,7 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 
-##### release
+#### release
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -508,7 +508,7 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 
-##### PhotoAsset
+#### PhotoAsset
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -516,7 +516,7 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -531,7 +531,7 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 
-##### convertToPhotoAsset
+#### convertToPhotoAsset
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -586,7 +586,7 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 
-##### get
+#### get
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -652,7 +652,7 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 
-##### set
+#### set
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -707,7 +707,7 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 
-##### commitModify
+#### commitModify
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -772,7 +772,7 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 
-##### getThumbnail
+#### getThumbnail
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -844,7 +844,7 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 
-##### FetchResult
+#### FetchResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -852,7 +852,7 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 
-##### getCount
+#### getCount
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -901,7 +901,7 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 
-##### isAfterLast
+#### isAfterLast
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -955,7 +955,7 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 
-##### close
+#### close
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1001,7 +1001,7 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 
-##### getFirstObject
+#### getFirstObject
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1050,7 +1050,7 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 
-##### getNextObject
+#### getNextObject
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1102,7 +1102,7 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 
-##### getLastObject
+#### getLastObject
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1151,7 +1151,7 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 
-##### getObjectByPosition
+#### getObjectByPosition
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1208,7 +1208,7 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 
-##### getAllObjects
+#### getAllObjects
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1257,7 +1257,7 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 
-##### Album
+#### Album
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1265,7 +1265,7 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1285,7 +1285,7 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 
-##### convertToPhotoAlbum
+#### convertToPhotoAlbum
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1345,7 +1345,7 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 
-##### getAssets
+#### getAssets
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1414,7 +1414,7 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 
-##### commitModify
+#### commitModify
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1472,7 +1472,7 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 
-##### PhotoType
+#### PhotoType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1490,7 +1490,7 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 
-##### PhotoSubtype14+
+#### PhotoSubtype14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1509,7 +1509,7 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 
-##### DynamicRangeType14+
+#### DynamicRangeType14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1525,7 +1525,7 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 
-##### AlbumType
+#### AlbumType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1541,7 +1541,7 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 
-##### AlbumSubtype
+#### AlbumSubtype
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

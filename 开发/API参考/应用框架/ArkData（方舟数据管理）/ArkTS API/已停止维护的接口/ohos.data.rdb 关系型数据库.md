@@ -18,7 +18,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -28,7 +28,7 @@ import data_rdb from '@ohos.data.rdb';
 
 
 
-##### data_rdb.getRdbStore
+#### data_rdb.getRdbStore
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -91,7 +91,7 @@ class EntryAbility extends UIAbility {
 
 
 
-##### data_rdb.getRdbStore
+#### data_rdb.getRdbStore
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -158,7 +158,7 @@ promise.then(async (rdbStore: data_rdb.RdbStore) => {
 
 
 
-##### data_rdb.deleteRdbStore
+#### data_rdb.deleteRdbStore
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -217,7 +217,7 @@ data_rdb.deleteRdbStore(this.context, "RdbTest.db", (err) => {
 
 
 
-##### data_rdb.deleteRdbStore
+#### data_rdb.deleteRdbStore
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -281,7 +281,7 @@ promise.then(()=>{
 
 
 
-##### ValueType
+#### ValueType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -300,7 +300,7 @@ type ValueType = number | string | boolean
 
 
 
-##### ValuesBucket
+#### ValuesBucket
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -317,7 +317,7 @@ type ValuesBucket = { [key: string]: ValueType | Uint8Array | null }
 
 
 
-##### SyncMode8+
+#### SyncMode8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -333,7 +333,7 @@ type ValuesBucket = { [key: string]: ValueType | Uint8Array | null }
 
 
 
-##### SubscribeType8+
+#### SubscribeType8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -350,7 +350,7 @@ type ValuesBucket = { [key: string]: ValueType | Uint8Array | null }
 
 
 
-##### StoreConfig
+#### StoreConfig
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -365,7 +365,7 @@ type ValuesBucket = { [key: string]: ValueType | Uint8Array | null }
 
 
 
-##### RdbPredicates
+#### RdbPredicates
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -373,7 +373,7 @@ type ValuesBucket = { [key: string]: ValueType | Uint8Array | null }
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -398,7 +398,7 @@ let predicates = new data_rdb.RdbPredicates("EMPLOYEE")
 
 
 
-##### inDevices8+
+#### inDevices8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -456,7 +456,7 @@ predicates.inDevices(deviceIds);
 
 
 
-##### inAllDevices8+
+#### inAllDevices8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -482,7 +482,7 @@ predicates.inAllDevices()
 
 
 
-##### equalTo
+#### equalTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -516,7 +516,7 @@ predicates.equalTo("NAME", "lisi")
 
 
 
-##### notEqualTo
+#### notEqualTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -550,7 +550,7 @@ predicates.notEqualTo("NAME", "lisi")
 
 
 
-##### beginWrap
+#### beginWrap
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -581,7 +581,7 @@ predicates.equalTo("NAME", "lisi")
 
 
 
-##### endWrap
+#### endWrap
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -612,7 +612,7 @@ predicates.equalTo("NAME", "lisi")
 
 
 
-##### or
+#### or
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -640,7 +640,7 @@ predicates.equalTo("NAME", "Lisa")
 
 
 
-##### and
+#### and
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -668,7 +668,7 @@ predicates.equalTo("NAME", "Lisa")
 
 
 
-##### contains
+#### contains
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -702,7 +702,7 @@ predicates.contains("NAME", "os")
 
 
 
-##### beginsWith
+#### beginsWith
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -736,7 +736,7 @@ predicates.beginsWith("NAME", "os")
 
 
 
-##### endsWith
+#### endsWith
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -770,7 +770,7 @@ predicates.endsWith("NAME", "se")
 
 
 
-##### isNull
+#### isNull
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -803,7 +803,7 @@ predicates.isNull("NAME")
 
 
 
-##### isNotNull
+#### isNotNull
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -845,7 +845,7 @@ predicates.isNotNull("NAME")
 
 
 
-##### like
+#### like
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -879,7 +879,7 @@ predicates.like("NAME", "%os%")
 
 
 
-##### glob
+#### glob
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -913,7 +913,7 @@ predicates.glob("NAME", "?h*g")
 
 
 
-##### between
+#### between
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -948,7 +948,7 @@ predicates.between("AGE", 10, 50)
 
 
 
-##### notBetween
+#### notBetween
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -983,7 +983,7 @@ predicates.notBetween("AGE", 10, 50)
 
 
 
-##### greaterThan
+#### greaterThan
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1017,7 +1017,7 @@ predicates.greaterThan("AGE", 18)
 
 
 
-##### lessThan
+#### lessThan
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1051,7 +1051,7 @@ predicates.lessThan("AGE", 20)
 
 
 
-##### greaterThanOrEqualTo
+#### greaterThanOrEqualTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1085,7 +1085,7 @@ predicates.greaterThanOrEqualTo("AGE", 18)
 
 
 
-##### lessThanOrEqualTo
+#### lessThanOrEqualTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1119,7 +1119,7 @@ predicates.lessThanOrEqualTo("AGE", 20)
 
 
 
-##### orderByAsc
+#### orderByAsc
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1152,7 +1152,7 @@ predicates.orderByAsc("NAME")
 
 
 
-##### orderByDesc
+#### orderByDesc
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1185,7 +1185,7 @@ predicates.orderByDesc("AGE")
 
 
 
-##### distinct
+#### distinct
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1211,7 +1211,7 @@ predicates.equalTo("NAME", "Rose").distinct()
 
 
 
-##### limitAs
+#### limitAs
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1244,7 +1244,7 @@ predicates.equalTo("NAME", "Rose").limitAs(3)
 
 
 
-##### offsetAs
+#### offsetAs
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1277,7 +1277,7 @@ predicates.equalTo("NAME", "Rose").limitAs(-1).offsetAs(3)
 
 
 
-##### groupBy
+#### groupBy
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1310,7 +1310,7 @@ predicates.groupBy(["AGE", "NAME"])
 
 
 
-##### indexedBy
+#### indexedBy
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1343,7 +1343,7 @@ predicates.indexedBy("SALARY_INDEX")
 
 
 
-##### in
+#### in
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1377,7 +1377,7 @@ predicates.in("AGE", [18, 20])
 
 
 
-##### notIn
+#### notIn
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1411,7 +1411,7 @@ predicates.notIn("NAME", ["Lisa", "Rose"])
 
 
 
-##### RdbStore
+#### RdbStore
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1421,7 +1421,7 @@ predicates.notIn("NAME", ["Lisa", "Rose"])
 
 
 
-##### insert
+#### insert
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1471,7 +1471,7 @@ rdbStore.insert("EMPLOYEE", valueBucket, (status: number, rowId: number) => {
 
 
 
-##### insert
+#### insert
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1526,7 +1526,7 @@ promise.then((rowId: BusinessError) => {
 
 
 
-##### batchInsert
+#### batchInsert
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1597,7 +1597,7 @@ rdbStore.batchInsert("EMPLOYEE", valueBuckets, (status: number, insertNum: numbe
 
 
 
-##### batchInsert
+#### batchInsert
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1673,7 +1673,7 @@ promise.then((insertNum: number) => {
 
 
 
-##### update
+#### update
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1725,7 +1725,7 @@ rdbStore.update(valueBucket, predicates, (err: BusinessError, rows: number) => {
 
 
 
-##### update
+#### update
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1782,7 +1782,7 @@ promise.then(async (rows: number) => {
 
 
 
-##### delete
+#### delete
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1816,7 +1816,7 @@ rdbStore.delete(predicates, (err: BusinessError, rows: number) => {
 
 
 
-##### delete
+#### delete
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1855,7 +1855,7 @@ promise.then((rows: number) => {
 
 
 
-##### query
+#### query
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1891,7 +1891,7 @@ rdbStore.query(predicates, ["ID", "NAME", "AGE", "SALARY", "CODES"], (err: Busin
 
 
 
-##### query
+#### query
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1932,7 +1932,7 @@ promise.then((resultSet: void) => {
 
 
 
-##### querySql8+
+#### querySql8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1966,7 +1966,7 @@ rdbStore.querySql("SELECT * FROM EMPLOYEE CROSS JOIN BOOK WHERE BOOK.NAME = ?", 
 
 
 
-##### querySql8+
+#### querySql8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2005,7 +2005,7 @@ promise.then((resultSet: void) => {
 
 
 
-##### executeSql8+
+#### executeSql8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2039,7 +2039,7 @@ rdbStore.executeSql(SQL_DELETE_TABLE, ['zhangsan'], (err: BusinessError) => {
 
 
 
-##### executeSql8+
+#### executeSql8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2078,7 +2078,7 @@ promise.then(() => {
 
 
 
-##### beginTransaction8+
+#### beginTransaction8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2119,7 +2119,7 @@ data_rdb.getRdbStore(this.context, "RdbTest.db", 1, async (err: BusinessError, r
 
 
 
-##### commit8+
+#### commit8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2160,7 +2160,7 @@ data_rdb.getRdbStore(this.context, "RdbTest.db", 1, async (err: BusinessError, r
 
 
 
-##### rollBack8+
+#### rollBack8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2206,7 +2206,7 @@ data_rdb.getRdbStore(this,context, "RdbTest.db", 1, async (err: BusinessError, r
 
 
 
-##### setDistributedTables8+
+#### setDistributedTables8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2240,7 +2240,7 @@ rdbStore.setDistributedTables(["EMPLOYEE"], (err: BusinessError) => {
 
 
 
-##### setDistributedTables8+
+#### setDistributedTables8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2279,7 +2279,7 @@ promise.then(() => {
 
 
 
-##### obtainDistributedTableName8+
+#### obtainDistributedTableName8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2332,7 +2332,7 @@ rdbStore.obtainDistributedTableName(deviceId, "EMPLOYEE", (err: BusinessError, t
 
 
 
-##### obtainDistributedTableName8+
+#### obtainDistributedTableName8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2390,7 +2390,7 @@ promise.then((tableName: String) => {
 
 
 
-##### sync8+
+#### sync8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2446,7 +2446,7 @@ rdbStore.sync(data_rdb.SyncMode.SYNC_MODE_PUSH, predicates, (err: BusinessError,
 
 
 
-##### sync8+
+#### sync8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2507,7 +2507,7 @@ promise.then((result: void) =>{
 
 
 
-##### on('dataChange')8+
+#### on('dataChange')8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2544,7 +2544,7 @@ try {
 
 
 
-##### off('dataChange')8+
+#### off('dataChange')8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

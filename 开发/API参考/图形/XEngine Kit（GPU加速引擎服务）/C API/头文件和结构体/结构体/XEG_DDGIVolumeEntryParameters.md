@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-ddgivolumeentryparameters
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -19,13 +19,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  
@@ -57,13 +57,13 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### bForceUpdate
+#### bForceUpdate
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -77,7 +77,7 @@ bool XEG_DDGIVolumeEntryParameters::bForceUpdate
  
   
 
-##### emissiveMultiplier
+#### emissiveMultiplier
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -91,7 +91,7 @@ float XEG_DDGIVolumeEntryParameters::emissiveMultiplier
  
   
 
-##### lightingMultiplier
+#### lightingMultiplier
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -105,7 +105,7 @@ float XEG_DDGIVolumeEntryParameters::lightingMultiplier
  
   
 
-##### probeBackfaceThreshold
+#### probeBackfaceThreshold
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -119,7 +119,7 @@ float XEG_DDGIVolumeEntryParameters::probeBackfaceThreshold
  
   
 
-##### probeBrightnessThreshold
+#### probeBrightnessThreshold
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -133,7 +133,7 @@ float XEG_DDGIVolumeEntryParameters::probeBrightnessThreshold
  
   
 
-##### probeChangeThreshold
+#### probeChangeThreshold
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -147,7 +147,7 @@ float XEG_DDGIVolumeEntryParameters::probeChangeThreshold
  
   
 
-##### probeHysteresis
+#### probeHysteresis
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -161,7 +161,7 @@ float XEG_DDGIVolumeEntryParameters::probeHysteresis
  
   
 
-##### probeIrradianceSH
+#### probeIrradianceSH
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -175,7 +175,7 @@ VkImageView XEG_DDGIVolumeEntryParameters::probeIrradianceSH
  
   
 
-##### probeMaxRayDistance
+#### probeMaxRayDistance
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -189,7 +189,7 @@ float XEG_DDGIVolumeEntryParameters::probeMaxRayDistance
  
   
 
-##### probeMinFrontfaceDistance
+#### probeMinFrontfaceDistance
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -203,7 +203,7 @@ float XEG_DDGIVolumeEntryParameters::probeMinFrontfaceDistance
  
   
 
-##### probeSpacing
+#### probeSpacing
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -217,7 +217,7 @@ float XEG_DDGIVolumeEntryParameters::probeSpacing[3]
  
   
 
-##### raysPerProbe
+#### raysPerProbe
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -231,7 +231,7 @@ uint32_t XEG_DDGIVolumeEntryParameters::raysPerProbe
  
   
 
-##### volumeBlendDistance
+#### volumeBlendDistance
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -245,7 +245,7 @@ float XEG_DDGIVolumeEntryParameters::volumeBlendDistance
  
   
 
-##### volumeBlendDistanceBlack
+#### volumeBlendDistanceBlack
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -259,7 +259,7 @@ float XEG_DDGIVolumeEntryParameters::volumeBlendDistanceBlack
  
   
 
-##### volumeIndex
+#### volumeIndex
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -273,7 +273,7 @@ uint32_t XEG_DDGIVolumeEntryParameters::volumeIndex
  
   
 
-##### volumeIrradianceScalar
+#### volumeIrradianceScalar
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -287,7 +287,7 @@ float XEG_DDGIVolumeEntryParameters::volumeIrradianceScalar
  
   
 
-##### volumeLightingChannelMask
+#### volumeLightingChannelMask
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -301,7 +301,7 @@ uint32_t XEG_DDGIVolumeEntryParameters::volumeLightingChannelMask
  
   
 
-##### volumeNormalBias
+#### volumeNormalBias
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -315,7 +315,7 @@ float XEG_DDGIVolumeEntryParameters::volumeNormalBias
  
   
 
-##### volumePosition
+#### volumePosition
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -329,7 +329,7 @@ float XEG_DDGIVolumeEntryParameters::volumePosition[3]
  
   
 
-##### volumeProbeGridCounts
+#### volumeProbeGridCounts
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -343,7 +343,7 @@ uint32_t XEG_DDGIVolumeEntryParameters::volumeProbeGridCounts[3]
  
   
 
-##### volumeProbeIrradianceEncodingGamma
+#### volumeProbeIrradianceEncodingGamma
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -357,7 +357,7 @@ float XEG_DDGIVolumeEntryParameters::volumeProbeIrradianceEncodingGamma
  
   
 
-##### volumeViewBias
+#### volumeViewBias
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

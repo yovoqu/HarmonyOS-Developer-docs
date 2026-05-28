@@ -10,9 +10,9 @@
 3. 在左侧导航栏中选择“增长 > App Linking > 应用链接”或者“增长 > App Linking > 聚合链接”，进入App Linking页面，点击“立即开通”。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/Qyu82eIrSDCvj4RAbNe49w/zh-cn_image_0000002611754833.png?HW-CC-KV=V1&HW-CC-Date=20260528T014423Z&HW-CC-Expire=86400&HW-CC-Sign=3F1AAC5EB4389FF5A664EE43B7A83E8ECCD6CE5F48FA00084F64B6FBE028EA2D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/Qyu82eIrSDCvj4RAbNe49w/zh-cn_image_0000002611754833.png?HW-CC-KV=V1&HW-CC-Date=20260528T030051Z&HW-CC-Expire=86400&HW-CC-Sign=5EC16C32D0EDD250B0591358E515E924FF10F7E625F2548E59F74E28E30FCB10)
 
 4. 如果项目此时未设置数据处理位置，请在提示框内启用数据处理位置和设置默认数据处理位置，点击“确定”。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/bZXmxXorR5eTe5QQ_JKntg/zh-cn_image_0000002581434896.png?HW-CC-KV=V1&HW-CC-Date=20260528T014423Z&HW-CC-Expire=86400&HW-CC-Sign=36404EE166E34904486B7477D81CB42F3F4A4D90026623079A764B208CFB1692)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/bZXmxXorR5eTe5QQ_JKntg/zh-cn_image_0000002581434896.png?HW-CC-KV=V1&HW-CC-Date=20260528T030051Z&HW-CC-Expire=86400&HW-CC-Sign=57E1AE823F447632BF2AF6FC8DB1605B56C368E54BF9C4B3A233A34AF8A8C95A)

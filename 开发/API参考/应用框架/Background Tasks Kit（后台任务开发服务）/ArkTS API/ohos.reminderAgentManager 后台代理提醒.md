@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { reminderAgentManager } from '@kit.BackgroundTasksKit';
 
 
 
-##### reminderAgentManager.publishReminder
+#### reminderAgentManager.publishReminder
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -79,7 +79,7 @@ reminderAgentManager.publishReminder(timer, (err: BusinessError, reminderId: num
 
 
 
-##### reminderAgentManager.publishReminder
+#### reminderAgentManager.publishReminder
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -140,7 +140,7 @@ reminderAgentManager.publishReminder(timer).then((reminderId: number) => {
 
 
 
-##### reminderAgentManager.cancelReminder
+#### reminderAgentManager.cancelReminder
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -187,7 +187,7 @@ reminderAgentManager.cancelReminder(reminderId, (err: BusinessError) => {
 
 
 
-##### reminderAgentManager.cancelReminder
+#### reminderAgentManager.cancelReminder
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -238,7 +238,7 @@ reminderAgentManager.cancelReminder(reminderId).then(() => {
 
 
 
-##### reminderAgentManager.getValidReminders
+#### reminderAgentManager.getValidReminders
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -302,7 +302,7 @@ reminderAgentManager.getValidReminders((err: BusinessError, reminders: Array<rem
 
 
 
-##### reminderAgentManager.getValidReminders
+#### reminderAgentManager.getValidReminders
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -364,7 +364,7 @@ reminderAgentManager.getValidReminders().then((reminders: Array<reminderAgentMan
 
 
 
-##### reminderAgentManager.cancelAllReminders
+#### reminderAgentManager.cancelAllReminders
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -408,7 +408,7 @@ reminderAgentManager.cancelAllReminders((err: BusinessError) =>{
 
 
 
-##### reminderAgentManager.cancelAllReminders
+#### reminderAgentManager.cancelAllReminders
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -450,7 +450,7 @@ reminderAgentManager.cancelAllReminders().then(() => {
 
 
 
-##### reminderAgentManager.addNotificationSlot
+#### reminderAgentManager.addNotificationSlot
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -499,7 +499,7 @@ reminderAgentManager.addNotificationSlot(mySlot, (err: BusinessError) => {
 
 
 
-##### reminderAgentManager.addNotificationSlot
+#### reminderAgentManager.addNotificationSlot
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -551,7 +551,7 @@ reminderAgentManager.addNotificationSlot(mySlot).then(() => {
 
 
 
-##### reminderAgentManager.removeNotificationSlot
+#### reminderAgentManager.removeNotificationSlot
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -597,7 +597,7 @@ reminderAgentManager.removeNotificationSlot(notificationManager.SlotType.CONTENT
 
 
 
-##### reminderAgentManager.removeNotificationSlot
+#### reminderAgentManager.removeNotificationSlot
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -646,7 +646,7 @@ reminderAgentManager.removeNotificationSlot(notificationManager.SlotType.CONTENT
 
 
 
-##### reminderAgentManager.getAllValidReminders12+
+#### reminderAgentManager.getAllValidReminders12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -707,7 +707,7 @@ reminderAgentManager.getAllValidReminders().then((reminders: Array<reminderAgent
 
 
 
-##### reminderAgentManager.addExcludeDate12+
+#### reminderAgentManager.addExcludeDate12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -760,7 +760,7 @@ reminderAgentManager.addExcludeDate(reminderId, date).then(() => {
 
 
 
-##### reminderAgentManager.deleteExcludeDates12+
+#### reminderAgentManager.deleteExcludeDates12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -810,7 +810,7 @@ reminderAgentManager.deleteExcludeDates(reminderId).then(() => {
 
 
 
-##### reminderAgentManager.getExcludeDates12+
+#### reminderAgentManager.getExcludeDates12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -863,7 +863,7 @@ reminderAgentManager.getExcludeDates(reminderId).then((dates) => {
 
 
 
-##### reminderAgentManager.updateReminder20+
+#### reminderAgentManager.updateReminder20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -922,7 +922,7 @@ reminderAgentManager.updateReminder(reminderId, timer).then(() => {
 
 
 
-##### reminderAgentManager.cancelReminderOnDisplay23+
+#### reminderAgentManager.cancelReminderOnDisplay23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -972,7 +972,7 @@ reminderAgentManager.cancelReminderOnDisplay(reminderId).then(() => {
 
 
 
-##### reminderAgentManager.subscribeReminderState23+
+#### reminderAgentManager.subscribeReminderState23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1029,7 +1029,7 @@ reminderAgentManager.subscribeReminderState(reminderStateCallback).then(() => {
 
 
 
-##### reminderAgentManager.unsubscribeReminderState23+
+#### reminderAgentManager.unsubscribeReminderState23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1083,7 +1083,7 @@ reminderAgentManager.unsubscribeReminderState(reminderStateCallback).then(() => 
 
 
 
-##### ActionButtonType
+#### ActionButtonType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1099,7 +1099,7 @@ reminderAgentManager.unsubscribeReminderState(reminderStateCallback).then(() => 
 
 
 
-##### ReminderType
+#### ReminderType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1116,7 +1116,7 @@ reminderAgentManager.unsubscribeReminderState(reminderStateCallback).then(() => 
 
 
 
-##### RingChannel20+
+#### RingChannel20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1133,7 +1133,7 @@ reminderAgentManager.unsubscribeReminderState(reminderStateCallback).then(() => 
 
 
 
-##### ActionButton
+#### ActionButton
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1150,7 +1150,7 @@ reminderAgentManager.unsubscribeReminderState(reminderStateCallback).then(() => 
 
 
 
-##### WantAgent
+#### WantAgent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1168,7 +1168,7 @@ reminderAgentManager.unsubscribeReminderState(reminderStateCallback).then(() => 
 
 
 
-##### MaxScreenWantAgent
+#### MaxScreenWantAgent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1184,7 +1184,7 @@ reminderAgentManager.unsubscribeReminderState(reminderStateCallback).then(() => 
 
 
 
-##### ReminderRequest
+#### ReminderRequest
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1221,7 +1221,7 @@ reminderAgentManager.unsubscribeReminderState(reminderStateCallback).then(() => 
 
 
 
-##### ReminderRequestCalendar
+#### ReminderRequestCalendar
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1242,7 +1242,7 @@ ReminderRequestCalendar extends ReminderRequest
 
 
 
-##### ReminderRequestAlarm
+#### ReminderRequestAlarm
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1261,7 +1261,7 @@ ReminderRequestAlarm extends ReminderRequest
 
 
 
-##### ReminderRequestTimer
+#### ReminderRequestTimer
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1278,7 +1278,7 @@ ReminderRequestTimer extends ReminderRequest
 
 
 
-##### LocalDateTime
+#### LocalDateTime
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1298,7 +1298,7 @@ ReminderRequestTimer extends ReminderRequest
 
 
 
-##### ReminderInfo12+
+#### ReminderInfo12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1314,7 +1314,7 @@ ReminderRequestTimer extends ReminderRequest
 
 
 
-##### ReminderState23+
+#### ReminderState23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-setblockdim
 
-##### 函数功能
+#### 函数功能
 
 设置blockDim，即参与计算的Vector或者Cube核数。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 ge::graphStatus SetBlockDim(const uint32_t block_dim);
@@ -18,7 +18,7 @@ ge::graphStatus SetBlockDim(const uint32_t block_dim);
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -27,7 +27,7 @@ ge::graphStatus SetBlockDim(const uint32_t block_dim);
  
   
 
-##### 返回值
+#### 返回值
 
 设置成功时返回“ge::GRAPH_SUCCESS”。
  
@@ -35,13 +35,13 @@ ge::graphStatus SetBlockDim(const uint32_t block_dim);
  
   
 
-##### 约束说明
+#### 约束说明
 
 当前支持的Kirin9020和KirinX90系列处理器是分离架构。
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 ge::graphStatus Tiling4XXX(TilingContext* context) {

@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nce-on-ndk-libc-interfaces-affected-by-permissions
 
-##### 概述
+#### 概述
 
 开发者使用DevEco Studio或者NDK进行应用开发时，可能涉及到使用musl libc的接口能力，因为musl libc的个别接口可能受多种系统和环境的限制而无法使用，此时可以通过本文档进行接口问题排查。
 
@@ -12,11 +12,11 @@
 
 
 
-##### Seccomp机制影响的musl接口
+#### Seccomp机制影响的musl接口
 
 
 
-##### 确定进程因为Seccomp机制终止的方法
+#### 确定进程因为Seccomp机制终止的方法
 
  - 查看进程faultlog日志，如果报错原因是signal:SIGSYS，且栈顶在ld-musl-{架构}.so.1库里，则进程终止可能是由Seccomp机制引起的。       
 ```bash
@@ -36,7 +36,7 @@ Tid:13893, Name:e.myapplication
 
 
 
-##### 常见可能受Seccomp机制影响的接口列表如下
+#### 常见可能受Seccomp机制影响的接口列表如下
 
 | 头文件 | musl接口名称 |
 | --- | --- |
@@ -95,7 +95,7 @@ Tid:13893, Name:e.myapplication
 
 
 
-##### 内核没有对外开放影响的musl接口
+#### 内核没有对外开放影响的musl接口
 
 | 头文件 | musl接口名称 |
 | --- | --- |
@@ -106,18 +106,18 @@ Tid:13893, Name:e.myapplication
 
 
 
-##### SELinux机制影响的musl接口
+#### SELinux机制影响的musl接口
 
 
 
-##### 确定接口因为SELinux机制报错的方法
+#### 确定接口因为SELinux机制报错的方法
 
  - 引入errno.h头文件，检查errno错误状态码，如果错误状态码是EACCES，则接口报错可能是由SELinux机制引起的。
 
 
 
 
-##### 常见可能受SELinux机制影响的接口列表如下
+#### 常见可能受SELinux机制影响的接口列表如下
 
 | 头文件 | musl接口名称 |
 | --- | --- |
@@ -175,7 +175,7 @@ Tid:13893, Name:e.myapplication
 
 
 
-##### 沙箱机制影响的musl接口
+#### 沙箱机制影响的musl接口
 
 沙箱机制可参考 [应用沙箱目录](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-sandbox-directory)。
 
@@ -199,7 +199,7 @@ Tid:13893, Name:e.myapplication
 
 
 
-##### 空实现或默认失败的musl接口
+#### 空实现或默认失败的musl接口
 
 | 头文件 | musl接口名称 |
 | --- | --- |
@@ -216,7 +216,7 @@ Tid:13893, Name:e.myapplication
 
 
 
-##### 需要特殊权限才能执行的musl接口
+#### 需要特殊权限才能执行的musl接口
 
 引入errno.h头文件，检查errno错误状态码，如果错误状态码是EPERM，则接口报错可能是由系统Capabilities安全机制引起的，也有可能是内核其他安全管控引起的。
 

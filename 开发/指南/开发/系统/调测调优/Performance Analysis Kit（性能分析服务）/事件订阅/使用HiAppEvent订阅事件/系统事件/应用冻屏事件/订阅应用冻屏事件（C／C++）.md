@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-freeze-events-ndk
 
-##### 简介
+#### 简介
 
 本文介绍如何使用HiAppEvent提供的C/C++接口订阅应用冻屏事件。接口的详细使用说明（参数限制、取值范围等）请参考[hiappevent.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hiappevent-h)。
 
 
 
-##### 接口说明
+#### 接口说明
 
 | 接口名 | 描述 |
 | --- | --- |
@@ -20,11 +20,11 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 
 
-##### 添加事件观察者
+#### 添加事件观察者
 
 以订阅应用冻屏事件为例，说明开发步骤。
 1. 获取该示例工程依赖的jsoncpp文件，从[三方开源库jsoncpp代码仓](https://github.com/open-source-parsers/jsoncpp)下载源码的压缩包，并按照README的**Amalgamated source**中介绍的操作步骤得到jsoncpp.cpp、json.h和json-forwards.h三个文件。
@@ -302,7 +302,7 @@ Button("appFreeze").onClick(() => {
 
 
 
-##### 验证观察者是否订阅到应用无响应事件
+#### 验证观察者是否订阅到应用无响应事件
 1. 应用工程崩溃退出后再次运行可以在Log窗口看到对系统事件数据的处理日志。
 
   
@@ -337,7 +337,7 @@ HiAppEvent eventInfo.params.external_callback_log=THREAD_BLOCK_3S:log3s THREAD_B
 
 
 
-##### 移除并销毁事件观察者
+#### 移除并销毁事件观察者
 1. 移除事件观察者。
 
   

@@ -7,7 +7,7 @@
 本文档展示了Image Kit接口的典型错误用法案例，帮助开发者避免常见的开发问题，提高应用的稳定性和性能。
 
 
-##### 编码过程中PixelMap被释放/修改导致崩溃
+#### 编码过程中PixelMap被释放/修改导致崩溃
 
 **典型崩溃堆栈示例：**
 
@@ -109,7 +109,7 @@ async function correctPackingExample(pixelMap: image.PixelMap, fd: number): Prom
 
 
 
-##### 多个异步操作共享同一个ImageSource对象
+#### 多个异步操作共享同一个ImageSource对象
 
 **典型崩溃堆栈示例：**
 

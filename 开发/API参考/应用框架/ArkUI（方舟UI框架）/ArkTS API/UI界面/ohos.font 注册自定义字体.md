@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { font } from '@kit.ArkUI';
 
 
 
-##### font.registerFont(deprecated)
+#### font.registerFont(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -49,7 +49,7 @@ registerFont(options: FontOptions): void
 
 
 
-##### FontOptions
+#### FontOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -137,7 +137,7 @@ struct FontExample {
 
 
 
-##### font.getSystemFontList(deprecated)
+#### font.getSystemFontList(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -194,7 +194,7 @@ struct FontExample {
 
 
 
-##### font.getFontByName(deprecated)
+#### font.getFontByName(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -226,7 +226,7 @@ getFontByName(fontName: string): FontInfo
 
 
 
-##### FontInfo10+
+#### FontInfo10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -291,7 +291,7 @@ struct FontExample {
 
 
 
-##### font.getUIFontConfig11+
+#### font.getUIFontConfig11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -314,7 +314,7 @@ getUIFontConfig() : UIFontConfig
 
 
 
-##### UIFontConfig11+
+#### UIFontConfig11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -333,7 +333,7 @@ getUIFontConfig() : UIFontConfig
 
 
 
-##### UIFontGenericInfo11+
+#### UIFontGenericInfo11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -352,7 +352,7 @@ getUIFontConfig() : UIFontConfig
 
 
 
-##### UIFontFallbackGroupInfo11+
+#### UIFontFallbackGroupInfo11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -370,7 +370,7 @@ getUIFontConfig() : UIFontConfig
 
 
 
-##### UIFontAliasInfo11+
+#### UIFontAliasInfo11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -388,7 +388,7 @@ getUIFontConfig() : UIFontConfig
 
 
 
-##### UIFontAdjustInfo11+
+#### UIFontAdjustInfo11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -406,7 +406,7 @@ getUIFontConfig() : UIFontConfig
 
 
 
-##### UIFontFallbackInfo11+
+#### UIFontFallbackInfo11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

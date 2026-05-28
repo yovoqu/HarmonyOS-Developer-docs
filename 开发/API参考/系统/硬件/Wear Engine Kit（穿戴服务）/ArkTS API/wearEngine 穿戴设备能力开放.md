@@ -18,7 +18,7 @@
 **起始版本**：5.0.0(12)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -28,7 +28,7 @@ import { wearEngine } from '@kit.WearEngine';
 
 
 
-##### wearEngine.getAuthClient
+#### wearEngine.getAuthClient
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -80,7 +80,7 @@ console.info(`Succeeded in getting auth client`);
 
 
 
-##### AuthClient
+#### AuthClient
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -94,7 +94,7 @@ console.info(`Succeeded in getting auth client`);
 
 
 
-##### requestAuthorization
+#### requestAuthorization
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -161,7 +161,7 @@ authClient.requestAuthorization(request).then(result => {
 
 
 
-##### getAuthorization
+#### getAuthorization
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -216,7 +216,7 @@ authClient.getAuthorization().then(result => {
 
 
 
-##### AuthorizationBase
+#### AuthorizationBase
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -235,7 +235,7 @@ authClient.getAuthorization().then(result => {
 
 
 
-##### Permission
+#### Permission
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -257,7 +257,7 @@ authClient.getAuthorization().then(result => {
 
 
 
-##### AuthorizationRequest
+#### AuthorizationRequest
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -271,7 +271,7 @@ authClient.getAuthorization().then(result => {
 
 
 
-##### AuthorizationResponse
+#### AuthorizationResponse
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -285,7 +285,7 @@ authClient.getAuthorization().then(result => {
 
 
 
-##### wearEngine.getDeviceClient
+#### wearEngine.getDeviceClient
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -334,7 +334,7 @@ console.info(`Succeeded in getting device client.`);
 
 
 
-##### DeviceClient
+#### DeviceClient
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -348,7 +348,7 @@ Device客户端类。由接口[wearEngine.getDeviceClient](#wearenginegetdevicec
 
 
 
-##### getConnectedDevices
+#### getConnectedDevices
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -399,7 +399,7 @@ deviceClient.getConnectedDevices().then((devices) => {
 
 
 
-##### Device
+#### Device
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -413,7 +413,7 @@ deviceClient.getConnectedDevices().then((devices) => {
 
 
 
-##### 属性
+#### 属性
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -428,7 +428,7 @@ deviceClient.getConnectedDevices().then((devices) => {
 
 
 
-##### isWearEngineCapabilitySupported
+#### isWearEngineCapabilitySupported
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -499,7 +499,7 @@ if (devices.length > 0) {
 
 
 
-##### isDeviceCapabilitySupported
+#### isDeviceCapabilitySupported
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -570,7 +570,7 @@ if (devices.length > 0) {
 
 
 
-##### getSerialNumber
+#### getSerialNumber
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -634,7 +634,7 @@ if (devices.length > 0) {
 
 
 
-##### WearEngineCapability
+#### WearEngineCapability
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -656,7 +656,7 @@ WearEngine能力集枚举类型。
 
 
 
-##### DeviceCapability
+#### DeviceCapability
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -676,7 +676,7 @@ Device能力集枚举类型。
 
 
 
-##### DeviceCategory
+#### DeviceCategory
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -698,7 +698,7 @@ Device能力集枚举类型。
 
 
 
-##### OsCategory
+#### OsCategory
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -719,7 +719,7 @@ Device能力集枚举类型。
 
 
 
-##### wearEngine.getMonitorClient
+#### wearEngine.getMonitorClient
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -771,7 +771,7 @@ console.info(`Succeeded in getting monitor client.`);
 
 
 
-##### MonitorClient
+#### MonitorClient
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -785,7 +785,7 @@ Monitor客户端类。由接口[wearEngine.getMonitorClient](#wearenginegetmonit
 
 
 
-##### queryStatus
+#### queryStatus
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -861,7 +861,7 @@ if (devices.length > 0) {
 
 
 
-##### subscribeEvent
+#### subscribeEvent
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -942,7 +942,7 @@ if (devices.length > 0) {
 
 
 
-##### unsubscribeEvent
+#### unsubscribeEvent
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1026,7 +1026,7 @@ if (devices.length > 0) {
 
 
 
-##### MonitorItem
+#### MonitorItem
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1050,7 +1050,7 @@ if (devices.length > 0) {
 
 
 
-##### MonitorEvent
+#### MonitorEvent
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1074,7 +1074,7 @@ if (devices.length > 0) {
 
 
 
-##### MonitorData
+#### MonitorData
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1094,7 +1094,7 @@ if (devices.length > 0) {
 
 
 
-##### MonitorEventData
+#### MonitorEventData
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1114,7 +1114,7 @@ if (devices.length > 0) {
 
 
 
-##### wearEngine.getP2pClient
+#### wearEngine.getP2pClient
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1163,7 +1163,7 @@ console.info(`Succeeded in getting p2p client.`);
 
 
 
-##### P2pClient
+#### P2pClient
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1177,7 +1177,7 @@ P2p客户端类。由接口[wearEngine.getP2pClient](#wearenginegetp2pclient)返
 
 
 
-##### isRemoteAppInstalled
+#### isRemoteAppInstalled
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1257,7 +1257,7 @@ deviceList.forEach(async (device, idx, arr) => {
 
 
 
-##### getRemoteAppVersion
+#### getRemoteAppVersion
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1340,7 +1340,7 @@ deviceList.forEach(async (device, idx, arr) => {
 
 
 
-##### startRemoteApp
+#### startRemoteApp
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1425,7 +1425,7 @@ deviceList.forEach(async (device, idx, arr) => {
 
 
 
-##### startRemoteApp
+#### startRemoteApp
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1512,7 +1512,7 @@ if (devices.length > 0) {
 
 
 
-##### sendMessage
+#### sendMessage
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1609,7 +1609,7 @@ deviceList.forEach(async (device, idx, arr) => {
 
 
 
-##### transferFile
+#### transferFile
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1711,7 +1711,7 @@ deviceList.forEach(async (device, idx, arr) => {
 
 
 
-##### cancelFileTransfer
+#### cancelFileTransfer
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1816,7 +1816,7 @@ deviceList.forEach(async (device, idx, arr) => {
 
 
 
-##### registerMessageReceiver
+#### registerMessageReceiver
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1910,7 +1910,7 @@ deviceList.forEach(async (device, idx, arr) => {
 
 
 
-##### registerFileReceiver
+#### registerFileReceiver
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2004,7 +2004,7 @@ deviceList.forEach(async (device, idx, arr) => {
 
 
 
-##### registerFileReceiverWithProgress
+#### registerFileReceiverWithProgress
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2101,7 +2101,7 @@ deviceList.forEach(async (device, idx, arr) => {
 
 
 
-##### unregisterMessageReceiver
+#### unregisterMessageReceiver
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2200,7 +2200,7 @@ deviceList.forEach(async (device, idx, arr) => {
 
 
 
-##### unregisterFileReceiver
+#### unregisterFileReceiver
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2299,7 +2299,7 @@ deviceList.forEach(async (device, idx, arr) => {
 
 
 
-##### AppInfo
+#### AppInfo
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2319,7 +2319,7 @@ deviceList.forEach(async (device, idx, arr) => {
 
 
 
-##### P2pResultCode
+#### P2pResultCode
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2343,7 +2343,7 @@ deviceList.forEach(async (device, idx, arr) => {
 
 
 
-##### P2pResult
+#### P2pResult
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2363,7 +2363,7 @@ deviceList.forEach(async (device, idx, arr) => {
 
 
 
-##### P2pMessage
+#### P2pMessage
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2382,7 +2382,7 @@ deviceList.forEach(async (device, idx, arr) => {
 
 
 
-##### P2pFile
+#### P2pFile
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2402,7 +2402,7 @@ deviceList.forEach(async (device, idx, arr) => {
 
 
 
-##### P2pAppParam
+#### P2pAppParam
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2422,7 +2422,7 @@ P2p通信过程中可用的设备侧应用参数类。
 
 
 
-##### StartConfig
+#### StartConfig
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2442,7 +2442,7 @@ P2p通信过程中可用的设备侧应用参数类。
 
 
 
-##### EntryType
+#### EntryType
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2463,7 +2463,7 @@ P2p通信过程中可用的设备侧应用参数类。
 
 
 
-##### wearEngine.getNotifyClient
+#### wearEngine.getNotifyClient
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2515,7 +2515,7 @@ console.info(`Succeeded in getting notify client`);
 
 
 
-##### NotifyClient
+#### NotifyClient
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2529,7 +2529,7 @@ Notify客户端类，由[wearEngine.getNotifyClient](#wearenginegetnotifyclient)
 
 
 
-##### notify
+#### notify
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2622,7 +2622,7 @@ if (devices.length > 0) {
 
 
 
-##### NotificationOptions
+#### NotificationOptions
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2636,7 +2636,7 @@ if (devices.length > 0) {
 
 
 
-##### 属性
+#### 属性
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -2645,7 +2645,7 @@ if (devices.length > 0) {
 
 
 
-##### onAction
+#### onAction
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2670,7 +2670,7 @@ onAction(feedback: NotificationFeedback): void
 
 
 
-##### Notification
+#### Notification
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2693,7 +2693,7 @@ onAction(feedback: NotificationFeedback): void
 
 
 
-##### NotificationType
+#### NotificationType
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2715,7 +2715,7 @@ onAction(feedback: NotificationFeedback): void
 
 
 
-##### NotificationButton
+#### NotificationButton
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2735,7 +2735,7 @@ onAction(feedback: NotificationFeedback): void
 
 
 
-##### ButtonId
+#### ButtonId
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2756,7 +2756,7 @@ onAction(feedback: NotificationFeedback): void
 
 
 
-##### NotificationFeedback
+#### NotificationFeedback
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2776,7 +2776,7 @@ onAction(feedback: NotificationFeedback): void
 
 
 
-##### NotificationAction
+#### NotificationAction
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2799,7 +2799,7 @@ onAction(feedback: NotificationFeedback): void
 
 
 
-##### NotificationErrorCode
+#### NotificationErrorCode
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2818,7 +2818,7 @@ onAction(feedback: NotificationFeedback): void
 
 
 
-##### wearEngine.getSensorClient
+#### wearEngine.getSensorClient
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2870,7 +2870,7 @@ console.info(`Succeeded in getting sensor client`);
 
 
 
-##### SensorClient
+#### SensorClient
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2884,7 +2884,7 @@ Sensor客户端类。由接口[wearEngine.getSensorClient](#wearenginegetsensorc
 
 
 
-##### getSensorList
+#### getSensorList
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2958,7 +2958,7 @@ if (devices.length > 0) {
 
 
 
-##### subscribeSensor
+#### subscribeSensor
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -3043,7 +3043,7 @@ if (devices.length > 0) {
 
 
 
-##### unsubscribeSensor
+#### unsubscribeSensor
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -3133,7 +3133,7 @@ if (devices.length > 0) {
 
 
 
-##### SensorType
+#### SensorType
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -3157,7 +3157,7 @@ if (devices.length > 0) {
 
 
 
-##### Sensor
+#### Sensor
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -3181,7 +3181,7 @@ if (devices.length > 0) {
 
 
 
-##### SensorData
+#### SensorData
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -3204,7 +3204,7 @@ if (devices.length > 0) {
 
 
 
-##### SensorErrorCode
+#### SensorErrorCode
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -3227,7 +3227,7 @@ if (devices.length > 0) {
 
 
 
-##### SensorResult
+#### SensorResult
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -3247,13 +3247,13 @@ if (devices.length > 0) {
 
 
 
-##### on/off订阅事件
+#### on/off订阅事件
 
 **支持设备：** Phone | Tablet | Wearable
 
 
 
-##### wearEngine.on
+#### wearEngine.on
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -3306,7 +3306,7 @@ try {
 
 
 
-##### wearEngine.off
+#### wearEngine.off
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -3360,7 +3360,7 @@ try {
 
 
 
-##### wearEngine.destroy
+#### wearEngine.destroy
 
 **支持设备：** Phone | Tablet | Wearable
 

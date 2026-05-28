@@ -16,7 +16,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -26,7 +26,7 @@ import { webSocket } from '@kit.NetworkKit';
 
 
 
-##### webSocket.createWebSocket
+#### webSocket.createWebSocket
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -53,7 +53,7 @@ let ws: webSocket.WebSocket = webSocket.createWebSocket();
 
 
 
-##### WebSocket
+#### WebSocket
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -61,7 +61,7 @@ let ws: webSocket.WebSocket = webSocket.createWebSocket();
 
 
 
-##### connect
+#### connect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -80,7 +80,7 @@ connect(url: string, callback: AsyncCallback&lt;boolean&gt;): void
 **系统能力**：SystemCapability.Communication.NetStack
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/17cxYTNSTYWGTenMfZVZWQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023838Z&HW-CC-Expire=86400&HW-CC-Sign=68113F2547333418C77FAEB211BD6A1ADE0ACF4C320B526DCD7F9A5715BF2012)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/17cxYTNSTYWGTenMfZVZWQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025213Z&HW-CC-Expire=86400&HW-CC-Sign=A1DD1223D56770987CAE3D018CBFBC3D6F20C8F9445F677CB31883593617D32F)
 
 
 URL地址长度不能超过1024个字符，否则会连接失败。从API version 15开始，URL地址长度限制由1024修改为2048。
@@ -129,7 +129,7 @@ ws.connect(url, (err: BusinessError, value: boolean) => {
 
 
 
-##### connect
+#### connect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -148,7 +148,7 @@ connect(url: string, options: WebSocketRequestOptions, callback: AsyncCallback&l
 **系统能力**：SystemCapability.Communication.NetStack
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/dJi0o9GFRxuiD3m0opnZyw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023838Z&HW-CC-Expire=86400&HW-CC-Sign=F1D910BC514D52664208D0CAA55AA32D2A80092705A87A5C30EBC5BF4B00BB05)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/dJi0o9GFRxuiD3m0opnZyw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025213Z&HW-CC-Expire=86400&HW-CC-Sign=AA17AAD8FC69538D87123AF98E5543F5A4B320EE70FA7CB48ECE24DCAAC3BE0A)
 
 
 URL地址长度不能超过1024个字符，否则会连接失败。从API version 15开始，URL地址长度限制由1024修改为2048。
@@ -207,7 +207,7 @@ ws.connect(url, options, (err: BusinessError, value: Object) => {
 
 
 
-##### connect
+#### connect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -226,7 +226,7 @@ connect(url: string, options?: WebSocketRequestOptions): Promise&lt;boolean&gt;
 **系统能力**：SystemCapability.Communication.NetStack
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/6gLWXfdGQi2DUw8zlwXE7A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023838Z&HW-CC-Expire=86400&HW-CC-Sign=2A5E0B118C61D2961DA55B0F876B8C055159DE1679046BA914105DD768FEA5B6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/6gLWXfdGQi2DUw8zlwXE7A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025213Z&HW-CC-Expire=86400&HW-CC-Sign=0FA60760A29B941A41EE99180842D7E59CE3A3F67FCB106010AF6A399020CCF6)
 
 
 URL地址长度不能超过1024个字符，否则会连接失败。从API version 15开始，URL地址长度限制由1024修改为2048。
@@ -280,7 +280,7 @@ promise.then((value: boolean) => {
 
 
 
-##### send
+#### send
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -349,7 +349,7 @@ ws.on('open', (err: BusinessError, value: Object) => {
 
 
 
-##### send
+#### send
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -424,7 +424,7 @@ ws.on('open', (err: BusinessError, value: Object) => {
 
 
 
-##### close
+#### close
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -473,7 +473,7 @@ ws.close((err: BusinessError) => {
 
 
 
-##### close
+#### close
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -529,7 +529,7 @@ ws.close(options, (err: BusinessError) => {
 
 
 
-##### close
+#### close
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -588,7 +588,7 @@ promise.then((value: boolean) => {
 
 
 
-##### on('open')
+#### on('open')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -626,7 +626,7 @@ ws.on('open', (err: BusinessError, value: Object) => {
 
 
 
-##### off('open')
+#### off('open')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -671,7 +671,7 @@ ws.off('open', callback1);
 
 
 
-##### on('message')
+#### on('message')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -709,7 +709,7 @@ ws.on('message', (err: BusinessError<void>, value: string | ArrayBuffer) => {
 
 
 
-##### off('message')
+#### off('message')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -744,7 +744,7 @@ ws.off('message');
 
 
 
-##### on('close')
+#### on('close')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -778,7 +778,7 @@ ws.on('close', (err: BusinessError, value: webSocket.CloseResult) => {
 
 
 
-##### off('close')
+#### off('close')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -813,7 +813,7 @@ ws.off('close');
 
 
 
-##### on('error')
+#### on('error')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -849,7 +849,7 @@ ws.on('error', (err: BusinessError) => {
 
 
 
-##### off('error')
+#### off('error')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -884,7 +884,7 @@ ws.off('error');
 
 
 
-##### on('dataEnd')11+
+#### on('dataEnd')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -915,7 +915,7 @@ ws.on('dataEnd', () => {
 
 
 
-##### off('dataEnd')11+
+#### off('dataEnd')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -948,7 +948,7 @@ ws.off('dataEnd');
 
 
 
-##### on('headerReceive')12+
+#### on('headerReceive')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -979,7 +979,7 @@ ws.on('headerReceive', (data) => {
 
 
 
-##### off('headerReceive')12+
+#### off('headerReceive')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1012,7 +1012,7 @@ ws.off('headerReceive');
 
 
 
-##### webSocket.createWebSocketServer19+
+#### webSocket.createWebSocketServer19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1041,7 +1041,7 @@ let ws: webSocket.WebSocketServer = webSocket.createWebSocketServer();
 
 
 
-##### WebSocketServer19+
+#### WebSocketServer19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1049,7 +1049,7 @@ let ws: webSocket.WebSocketServer = webSocket.createWebSocketServer();
 
 
 
-##### start19+
+#### start19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1120,7 +1120,7 @@ localServer.start(config).then((success: boolean) => {
 
 
 
-##### send19+
+#### send19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1202,7 +1202,7 @@ localServer.on('connect', async (connection: webSocket.WebSocketConnection) => {
 
 
 
-##### listAllConnections19+
+#### listAllConnections19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1276,7 +1276,7 @@ localServer.on('connect', async (connection: webSocket.WebSocketConnection) => {
 
 
 
-##### close19+
+#### close19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1351,7 +1351,7 @@ localServer.on('connect', (connection: webSocket.WebSocketConnection) => {
 
 
 
-##### stop19+
+#### stop19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1414,7 +1414,7 @@ localServer.stop().then((success: boolean) => {
 
 
 
-##### on('connect')19+
+#### on('connect')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1446,7 +1446,7 @@ localServer.on('connect', (connection: webSocket.WebSocketConnection) => {
 
 
 
-##### off('connect')19+
+#### off('connect')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1480,7 +1480,7 @@ localServer.off('connect');
 
 
 
-##### on('messageReceive')19+
+#### on('messageReceive')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1512,7 +1512,7 @@ localServer.on('messageReceive', (message: webSocket.WebSocketMessage) => {
 
 
 
-##### off('messageReceive')19+
+#### off('messageReceive')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1546,7 +1546,7 @@ localServer.off('messageReceive');
 
 
 
-##### on('close')19+
+#### on('close')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1578,7 +1578,7 @@ localServer.on('close', (clientConnection: webSocket.WebSocketConnection, closeR
 
 
 
-##### off('close')19+
+#### off('close')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1612,7 +1612,7 @@ localServer.off('close');
 
 
 
-##### on('error')19+
+#### on('error')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1644,7 +1644,7 @@ wsServer.on('error', (err: BusinessError) => {
 
 
 
-##### off('error')19+
+#### off('error')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1678,7 +1678,7 @@ localServer.off('error');
 
 
 
-##### WebSocketRequestOptions
+#### WebSocketRequestOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1700,7 +1700,7 @@ localServer.off('error');
 
 
 
-##### ClientCert11+
+#### ClientCert11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1717,7 +1717,7 @@ localServer.off('error');
 
 
 
-##### ProxyConfiguration12+
+#### ProxyConfiguration12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1736,7 +1736,7 @@ type ProxyConfiguration = 'system' | 'no-proxy' | HttpProxy
 
 
 
-##### WebSocketCloseOptions
+#### WebSocketCloseOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1754,7 +1754,7 @@ type ProxyConfiguration = 'system' | 'no-proxy' | HttpProxy
 
 
 
-##### CloseResult10+
+#### CloseResult10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1772,7 +1772,7 @@ type ProxyConfiguration = 'system' | 'no-proxy' | HttpProxy
 
 
 
-##### ResponseHeaders12+
+#### ResponseHeaders12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1789,7 +1789,7 @@ type ResponseHeaders = { [k: string]: string | string[] | undefined; }
 
 
 
-##### close错误码说明
+#### close错误码说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1808,7 +1808,7 @@ type ResponseHeaders = { [k: string]: string | string[] | undefined; }
 
 
 
-##### HttpProxy12+
+#### HttpProxy12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1825,7 +1825,7 @@ type HttpProxy = connection.HttpProxy
 
 
 
-##### WebSocketServerConfig19+
+#### WebSocketServerConfig19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1845,7 +1845,7 @@ type HttpProxy = connection.HttpProxy
 
 
 
-##### ServerCert19+
+#### ServerCert19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1861,7 +1861,7 @@ type HttpProxy = connection.HttpProxy
 
 
 
-##### WebSocketMessage19+
+#### WebSocketMessage19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1877,7 +1877,7 @@ type HttpProxy = connection.HttpProxy
 
 
 
-##### WebSocketConnection19+
+#### WebSocketConnection19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1893,7 +1893,7 @@ type HttpProxy = connection.HttpProxy
 
 
 
-##### ClientConnectionCloseCallback19+
+#### ClientConnectionCloseCallback19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

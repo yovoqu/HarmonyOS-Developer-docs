@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { appAccount } from '@kit.BasicServicesKit';
 
 
 
-##### appAccount.createAppAccountManager
+#### appAccount.createAppAccountManager
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -47,7 +47,7 @@ let appAccountManager: appAccount.AppAccountManager = appAccount.createAppAccoun
 
 
 
-##### AppAccountManager
+#### AppAccountManager
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -55,7 +55,7 @@ let appAccountManager: appAccount.AppAccountManager = appAccount.createAppAccoun
 
 
 
-##### createAccount9+
+#### createAccount9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -107,7 +107,7 @@ try {
 
 
 
-##### createAccount9+
+#### createAccount9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -165,7 +165,7 @@ try {
 
 
 
-##### createAccount9+
+#### createAccount9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -227,7 +227,7 @@ try {
 
 
 
-##### createAccountImplicitly9+
+#### createAccountImplicitly9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -307,7 +307,7 @@ struct Index {
 
 
 
-##### createAccountImplicitly9+
+#### createAccountImplicitly9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -392,7 +392,7 @@ struct Index {
 
 
 
-##### removeAccount9+
+#### removeAccount9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -443,7 +443,7 @@ try {
 
 
 
-##### removeAccount9+
+#### removeAccount9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -498,7 +498,7 @@ try {
 
 
 
-##### setAppAccess9+
+#### setAppAccess9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -552,7 +552,7 @@ try {
 
 
 
-##### setAppAccess9+
+#### setAppAccess9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -610,7 +610,7 @@ try {
 
 
 
-##### checkAppAccess9+
+#### checkAppAccess9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -663,7 +663,7 @@ try {
 
 
 
-##### checkAppAccess9+
+#### checkAppAccess9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -719,7 +719,7 @@ try {
 
 
 
-##### setDataSyncEnabled9+
+#### setDataSyncEnabled9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -770,7 +770,7 @@ try {
 
 
 
-##### setDataSyncEnabled9+
+#### setDataSyncEnabled9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -829,7 +829,7 @@ try {
 
 
 
-##### checkDataSyncEnabled9+
+#### checkDataSyncEnabled9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -883,7 +883,7 @@ try {
 
 
 
-##### checkDataSyncEnabled9+
+#### checkDataSyncEnabled9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -941,7 +941,7 @@ try {
 
 
 
-##### setCredential9+
+#### setCredential9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -994,7 +994,7 @@ try {
 
 
 
-##### setCredential9+
+#### setCredential9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1051,7 +1051,7 @@ try {
 
 
 
-##### getCredential9+
+#### getCredential9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1104,7 +1104,7 @@ try {
 
 
 
-##### getCredential9+
+#### getCredential9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1161,7 +1161,7 @@ try {
 
 
 
-##### setCustomData9+
+#### setCustomData9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1215,7 +1215,7 @@ try {
 
 
 
-##### setCustomData9+
+#### setCustomData9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1273,7 +1273,7 @@ try {
 
 
 
-##### getCustomData9+
+#### getCustomData9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1326,7 +1326,7 @@ try {
 
 
 
-##### getCustomData9+
+#### getCustomData9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1383,7 +1383,7 @@ try {
 
 
 
-##### getCustomDataSync9+
+#### getCustomDataSync9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1437,7 +1437,7 @@ try {
 
 
 
-##### getAllAccounts9+
+#### getAllAccounts9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1485,7 +1485,7 @@ try {
 
 
 
-##### getAllAccounts9+
+#### getAllAccounts9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1530,7 +1530,7 @@ try {
 
 
 
-##### getAccountsByOwner9+
+#### getAccountsByOwner9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1581,7 +1581,7 @@ try {
 
 
 
-##### getAccountsByOwner9+
+#### getAccountsByOwner9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1636,7 +1636,7 @@ try {
 
 
 
-##### on('accountChange')9+
+#### on('accountChange')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1685,7 +1685,7 @@ try {
 
 
 
-##### off('accountChange')9+
+#### off('accountChange')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1739,7 +1739,7 @@ try {
 
 
 
-##### auth9+
+#### auth9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1822,7 +1822,7 @@ struct Index {
 
 
 
-##### auth9+
+#### auth9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1909,7 +1909,7 @@ struct Index {
 
 
 
-##### getAuthToken9+
+#### getAuthToken9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1964,7 +1964,7 @@ try {
 
 
 
-##### getAuthToken9+
+#### getAuthToken9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2022,7 +2022,7 @@ try {
 
 
 
-##### setAuthToken9+
+#### setAuthToken9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2076,7 +2076,7 @@ try {
 
 
 
-##### setAuthToken9+
+#### setAuthToken9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2134,7 +2134,7 @@ try {
 
 
 
-##### deleteAuthToken9+
+#### deleteAuthToken9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2190,7 +2190,7 @@ try {
 
 
 
-##### deleteAuthToken9+
+#### deleteAuthToken9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2249,7 +2249,7 @@ try {
 
 
 
-##### setAuthTokenVisibility9+
+#### setAuthTokenVisibility9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2306,7 +2306,7 @@ try {
 
 
 
-##### setAuthTokenVisibility9+
+#### setAuthTokenVisibility9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2366,7 +2366,7 @@ try {
 
 
 
-##### checkAuthTokenVisibility9+
+#### checkAuthTokenVisibility9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2421,7 +2421,7 @@ try {
 
 
 
-##### checkAuthTokenVisibility9+
+#### checkAuthTokenVisibility9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2480,7 +2480,7 @@ try {
 
 
 
-##### getAllAuthTokens9+
+#### getAllAuthTokens9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2533,7 +2533,7 @@ try {
 
 
 
-##### getAllAuthTokens9+
+#### getAllAuthTokens9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2590,7 +2590,7 @@ try {
 
 
 
-##### getAuthList9+
+#### getAuthList9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2643,7 +2643,7 @@ try {
 
 
 
-##### getAuthList9+
+#### getAuthList9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2700,7 +2700,7 @@ try {
 
 
 
-##### getAuthCallback9+
+#### getAuthCallback9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2767,7 +2767,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getAuthCallback9+
+#### getAuthCallback9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2838,7 +2838,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### queryAuthenticatorInfo9+
+#### queryAuthenticatorInfo9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2890,7 +2890,7 @@ try {
 
 
 
-##### queryAuthenticatorInfo9+
+#### queryAuthenticatorInfo9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2946,7 +2946,7 @@ try {
 
 
 
-##### checkAccountLabels9+
+#### checkAccountLabels9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3004,7 +3004,7 @@ try {
 
 
 
-##### checkAccountLabels9+
+#### checkAccountLabels9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3066,7 +3066,7 @@ try {
 
 
 
-##### deleteCredential9+
+#### deleteCredential9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3119,7 +3119,7 @@ try {
 
 
 
-##### deleteCredential9+
+#### deleteCredential9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3176,7 +3176,7 @@ try {
 
 
 
-##### selectAccountsByOptions9+
+#### selectAccountsByOptions9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3233,7 +3233,7 @@ try {
 
 
 
-##### selectAccountsByOptions9+
+#### selectAccountsByOptions9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3292,7 +3292,7 @@ try {
 
 
 
-##### verifyCredential9+
+#### verifyCredential9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3350,7 +3350,7 @@ try {
 
 
 
-##### verifyCredential9+
+#### verifyCredential9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3413,7 +3413,7 @@ try {
 
 
 
-##### setAuthenticatorProperties9+
+#### setAuthenticatorProperties9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3469,7 +3469,7 @@ try {
 
 
 
-##### setAuthenticatorProperties9+
+#### setAuthenticatorProperties9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3529,7 +3529,7 @@ try {
 
 
 
-##### addAccount(deprecated)
+#### addAccount(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3563,7 +3563,7 @@ appAccountManager.addAccount('WangWu', (err: BusinessError) => {
 
 
 
-##### addAccount(deprecated)
+#### addAccount(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3598,7 +3598,7 @@ appAccountManager.addAccount('LiSi', 'token101', (err: BusinessError) => {
 
 
 
-##### addAccount(deprecated)
+#### addAccount(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3641,7 +3641,7 @@ appAccountManager.addAccount('LiSi', 'token101').then(()=> {
 
 
 
-##### addAccountImplicitly(deprecated)
+#### addAccountImplicitly(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3708,7 +3708,7 @@ struct Index {
 
 
 
-##### deleteAccount(deprecated)
+#### deleteAccount(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3742,7 +3742,7 @@ appAccountManager.deleteAccount('ZhaoLiu', (err: BusinessError) => {
 
 
 
-##### deleteAccount(deprecated)
+#### deleteAccount(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3784,7 +3784,7 @@ appAccountManager.deleteAccount('ZhaoLiu').then(() => {
 
 
 
-##### disableAppAccess(deprecated)
+#### disableAppAccess(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3819,7 +3819,7 @@ appAccountManager.disableAppAccess('ZhangSan', 'com.example.accountjsdemo', (err
 
 
 
-##### disableAppAccess(deprecated)
+#### disableAppAccess(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3862,7 +3862,7 @@ appAccountManager.disableAppAccess('ZhangSan', 'com.example.accountjsdemo').then
 
 
 
-##### enableAppAccess(deprecated)
+#### enableAppAccess(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3901,7 +3901,7 @@ appAccountManager.enableAppAccess('ZhangSan', 'com.example.accountjsdemo', (err:
 
 
 
-##### enableAppAccess(deprecated)
+#### enableAppAccess(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3944,7 +3944,7 @@ appAccountManager.enableAppAccess('ZhangSan', 'com.example.accountjsdemo').then(
 
 
 
-##### checkAppAccountSyncEnable(deprecated)
+#### checkAppAccountSyncEnable(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3984,7 +3984,7 @@ appAccountManager.checkAppAccountSyncEnable('ZhangSan', (err: BusinessError, res
 
 
 
-##### checkAppAccountSyncEnable(deprecated)
+#### checkAppAccountSyncEnable(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4028,7 +4028,7 @@ appAccountManager.checkAppAccountSyncEnable('ZhangSan').then((data: boolean) => 
 
 
 
-##### setAccountCredential(deprecated)
+#### setAccountCredential(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4068,7 +4068,7 @@ appAccountManager.setAccountCredential('ZhangSan', 'credentialType001', 'credent
 
 
 
-##### setAccountCredential(deprecated)
+#### setAccountCredential(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4112,7 +4112,7 @@ appAccountManager.setAccountCredential('ZhangSan', 'credentialType001', 'credent
 
 
 
-##### setAccountExtraInfo(deprecated)
+#### setAccountExtraInfo(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4151,7 +4151,7 @@ appAccountManager.setAccountExtraInfo('ZhangSan', 'Tk002', (err: BusinessError) 
 
 
 
-##### setAccountExtraInfo(deprecated)
+#### setAccountExtraInfo(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4194,7 +4194,7 @@ appAccountManager.setAccountExtraInfo('ZhangSan', 'Tk002').then(() => {
 
 
 
-##### setAppAccountSyncEnable(deprecated)
+#### setAppAccountSyncEnable(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4235,7 +4235,7 @@ appAccountManager.setAppAccountSyncEnable('ZhangSan', true, (err: BusinessError)
 
 
 
-##### setAppAccountSyncEnable(deprecated)
+#### setAppAccountSyncEnable(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4280,7 +4280,7 @@ appAccountManager.setAppAccountSyncEnable('ZhangSan', true).then(() => {
 
 
 
-##### setAssociatedData(deprecated)
+#### setAssociatedData(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4320,7 +4320,7 @@ appAccountManager.setAssociatedData('ZhangSan', 'k001', 'v001', (err: BusinessEr
 
 
 
-##### setAssociatedData(deprecated)
+#### setAssociatedData(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4364,7 +4364,7 @@ appAccountManager.setAssociatedData('ZhangSan', 'k001', 'v001').then(() => {
 
 
 
-##### getAllAccessibleAccounts(deprecated)
+#### getAllAccessibleAccounts(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4403,7 +4403,7 @@ appAccountManager.getAllAccessibleAccounts((err: BusinessError, data: appAccount
 
 
 
-##### getAllAccessibleAccounts(deprecated)
+#### getAllAccessibleAccounts(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4440,7 +4440,7 @@ appAccountManager.getAllAccessibleAccounts().then((data: appAccount.AppAccountIn
 
 
 
-##### getAllAccounts(deprecated)
+#### getAllAccounts(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4481,7 +4481,7 @@ appAccountManager.getAllAccounts(selfBundle, (err: BusinessError, data: appAccou
 
 
 
-##### getAllAccounts(deprecated)
+#### getAllAccounts(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4526,7 +4526,7 @@ appAccountManager.getAllAccounts(selfBundle).then((data: appAccount.AppAccountIn
 
 
 
-##### getAccountCredential(deprecated)
+#### getAccountCredential(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4565,7 +4565,7 @@ appAccountManager.getAccountCredential('ZhangSan', 'credentialType001', (err: Bu
 
 
 
-##### getAccountCredential(deprecated)
+#### getAccountCredential(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4608,7 +4608,7 @@ appAccountManager.getAccountCredential('ZhangSan', 'credentialType001').then((da
 
 
 
-##### getAccountExtraInfo(deprecated)
+#### getAccountExtraInfo(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4646,7 +4646,7 @@ appAccountManager.getAccountExtraInfo('ZhangSan', (err: BusinessError, result: s
 
 
 
-##### getAccountExtraInfo(deprecated)
+#### getAccountExtraInfo(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4688,7 +4688,7 @@ appAccountManager.getAccountExtraInfo('ZhangSan').then((data: string) => {
 
 
 
-##### getAssociatedData(deprecated)
+#### getAssociatedData(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4727,7 +4727,7 @@ appAccountManager.getAssociatedData('ZhangSan', 'k001', (err: BusinessError, res
 
 
 
-##### getAssociatedData(deprecated)
+#### getAssociatedData(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4770,7 +4770,7 @@ appAccountManager.getAssociatedData('ZhangSan', 'k001').then((data: string) => {
 
 
 
-##### on('change')(deprecated)
+#### on('change')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4812,7 +4812,7 @@ try {
 
 
 
-##### off('change')(deprecated)
+#### off('change')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4856,7 +4856,7 @@ try {
 
 
 
-##### authenticate(deprecated)
+#### authenticate(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4924,7 +4924,7 @@ struct Index {
 
 
 
-##### getOAuthToken(deprecated)
+#### getOAuthToken(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4965,7 +4965,7 @@ appAccountManager.getOAuthToken('LiSi', 'com.example.accountjsdemo', 'getSocialD
 
 
 
-##### getOAuthToken(deprecated)
+#### getOAuthToken(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5009,7 +5009,7 @@ appAccountManager.getOAuthToken('LiSi', 'com.example.accountjsdemo', 'getSocialD
 
 
 
-##### setOAuthToken(deprecated)
+#### setOAuthToken(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5049,7 +5049,7 @@ appAccountManager.setOAuthToken('LiSi', 'getSocialData', 'xxxx', (err: BusinessE
 
 
 
-##### setOAuthToken(deprecated)
+#### setOAuthToken(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5093,7 +5093,7 @@ appAccountManager.setOAuthToken('LiSi', 'getSocialData', 'xxxx').then(() => {
 
 
 
-##### deleteOAuthToken(deprecated)
+#### deleteOAuthToken(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5135,7 +5135,7 @@ appAccountManager.deleteOAuthToken('LiSi', 'com.example.accountjsdemo', 'getSoci
 
 
 
-##### deleteOAuthToken(deprecated)
+#### deleteOAuthToken(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5180,7 +5180,7 @@ appAccountManager.deleteOAuthToken('LiSi', 'com.example.accountjsdemo', 'getSoci
 
 
 
-##### setOAuthTokenVisibility(deprecated)
+#### setOAuthTokenVisibility(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5222,7 +5222,7 @@ appAccountManager.setOAuthTokenVisibility('LiSi', 'getSocialData', 'com.example.
 
 
 
-##### setOAuthTokenVisibility(deprecated)
+#### setOAuthTokenVisibility(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5267,7 +5267,7 @@ appAccountManager.setOAuthTokenVisibility('LiSi', 'getSocialData', 'com.example.
 
 
 
-##### checkOAuthTokenVisibility(deprecated)
+#### checkOAuthTokenVisibility(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5308,7 +5308,7 @@ appAccountManager.checkOAuthTokenVisibility('LiSi', 'getSocialData', 'com.exampl
 
 
 
-##### checkOAuthTokenVisibility(deprecated)
+#### checkOAuthTokenVisibility(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5353,7 +5353,7 @@ appAccountManager.checkOAuthTokenVisibility('LiSi', 'getSocialData', 'com.exampl
 
 
 
-##### getAllOAuthTokens(deprecated)
+#### getAllOAuthTokens(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5393,7 +5393,7 @@ appAccountManager.getAllOAuthTokens('LiSi', 'com.example.accountjsdemo',
 
 
 
-##### getAllOAuthTokens(deprecated)
+#### getAllOAuthTokens(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5437,7 +5437,7 @@ appAccountManager.getAllOAuthTokens('LiSi', 'com.example.accountjsdemo').then((
 
 
 
-##### getOAuthList(deprecated)
+#### getOAuthList(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5476,7 +5476,7 @@ appAccountManager.getOAuthList('LiSi', 'getSocialData', (err: BusinessError, dat
 
 
 
-##### getOAuthList(deprecated)
+#### getOAuthList(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5519,7 +5519,7 @@ appAccountManager.getOAuthList('LiSi', 'getSocialData').then((data: string[]) =>
 
 
 
-##### getAuthenticatorCallback(deprecated)
+#### getAuthenticatorCallback(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5569,7 +5569,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getAuthenticatorCallback(deprecated)
+#### getAuthenticatorCallback(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5623,7 +5623,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getAuthenticatorInfo(deprecated)
+#### getAuthenticatorInfo(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5662,7 +5662,7 @@ appAccountManager.getAuthenticatorInfo('com.example.accountjsdemo',
 
 
 
-##### getAuthenticatorInfo(deprecated)
+#### getAuthenticatorInfo(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5705,7 +5705,7 @@ appAccountManager.getAuthenticatorInfo('com.example.accountjsdemo').then((
 
 
 
-##### AppAccountInfo
+#### AppAccountInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5721,7 +5721,7 @@ appAccountManager.getAuthenticatorInfo('com.example.accountjsdemo').then((
 
 
 
-##### AuthTokenInfo9+
+#### AuthTokenInfo9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5738,7 +5738,7 @@ appAccountManager.getAuthenticatorInfo('com.example.accountjsdemo').then((
 
 
 
-##### OAuthTokenInfo(deprecated)
+#### OAuthTokenInfo(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5758,7 +5758,7 @@ appAccountManager.getAuthenticatorInfo('com.example.accountjsdemo').then((
 
 
 
-##### AuthenticatorInfo8+
+#### AuthenticatorInfo8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5775,7 +5775,7 @@ appAccountManager.getAuthenticatorInfo('com.example.accountjsdemo').then((
 
 
 
-##### AuthResult9+
+#### AuthResult9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5791,7 +5791,7 @@ appAccountManager.getAuthenticatorInfo('com.example.accountjsdemo').then((
 
 
 
-##### CreateAccountOptions9+
+#### CreateAccountOptions9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5806,7 +5806,7 @@ appAccountManager.getAuthenticatorInfo('com.example.accountjsdemo').then((
 
 
 
-##### CreateAccountImplicitlyOptions9+
+#### CreateAccountImplicitlyOptions9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5823,7 +5823,7 @@ appAccountManager.getAuthenticatorInfo('com.example.accountjsdemo').then((
 
 
 
-##### SelectAccountsOptions9+
+#### SelectAccountsOptions9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5840,7 +5840,7 @@ appAccountManager.getAuthenticatorInfo('com.example.accountjsdemo').then((
 
 
 
-##### VerifyCredentialOptions9+
+#### VerifyCredentialOptions9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5857,7 +5857,7 @@ appAccountManager.getAuthenticatorInfo('com.example.accountjsdemo').then((
 
 
 
-##### SetPropertiesOptions9+
+#### SetPropertiesOptions9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5873,7 +5873,7 @@ appAccountManager.getAuthenticatorInfo('com.example.accountjsdemo').then((
 
 
 
-##### Constants8+
+#### Constants8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5904,7 +5904,7 @@ appAccountManager.getAuthenticatorInfo('com.example.accountjsdemo').then((
 
 
 
-##### ResultCode(deprecated)
+#### ResultCode(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5941,7 +5941,7 @@ appAccountManager.getAuthenticatorInfo('com.example.accountjsdemo').then((
 
 
 
-##### AuthCallback9+
+#### AuthCallback9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5949,7 +5949,7 @@ appAccountManager.getAuthenticatorInfo('com.example.accountjsdemo').then((
 
 
 
-##### onResult9+
+#### onResult9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5993,7 +5993,7 @@ appAccountManager.getAuthCallback(sessionId).then((callback: appAccount.AuthCall
 
 
 
-##### onRequestRedirected9+
+#### onRequestRedirected9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6044,7 +6044,7 @@ class MyAuthenticator extends appAccount.Authenticator {
 
 
 
-##### onRequestContinued9+
+#### onRequestContinued9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6072,7 +6072,7 @@ appAccountManager.getAuthCallback(sessionId).then((callback: appAccount.AuthCall
 
 
 
-##### AuthenticatorCallback(deprecated)
+#### AuthenticatorCallback(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6084,7 +6084,7 @@ OAuth认证器回调接口。
 
 
 
-##### onResult(deprecated)
+#### onResult(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6127,7 +6127,7 @@ appAccountManager.getAuthenticatorCallback(sessionId).then((callback: appAccount
 
 
 
-##### onRequestRedirected(deprecated)
+#### onRequestRedirected(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6176,7 +6176,7 @@ class MyAuthenticator extends appAccount.Authenticator {
 
 
 
-##### Authenticator8+
+#### Authenticator8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6184,7 +6184,7 @@ class MyAuthenticator extends appAccount.Authenticator {
 
 
 
-##### createAccountImplicitly9+
+#### createAccountImplicitly9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6204,7 +6204,7 @@ createAccountImplicitly(options: CreateAccountImplicitlyOptions, callback: AuthC
 
 
 
-##### addAccountImplicitly(deprecated)
+#### addAccountImplicitly(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6230,7 +6230,7 @@ addAccountImplicitly(authType: string, callerBundleName: string, options: {[key:
 
 
 
-##### auth9+
+#### auth9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6252,7 +6252,7 @@ auth(name: string, authType: string, options: Record<string, Object>, callback: 
 
 
 
-##### authenticate(deprecated)
+#### authenticate(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6279,7 +6279,7 @@ authenticate(name: string, authType: string, callerBundleName: string, options: 
 
 
 
-##### verifyCredential9+
+#### verifyCredential9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6304,7 +6304,7 @@ verifyCredential(name: string, options: VerifyCredentialOptions, callback: AuthC
 
 
 
-##### setProperties9+
+#### setProperties9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6328,7 +6328,7 @@ setProperties(options: SetPropertiesOptions, callback: AuthCallback): void
 
 
 
-##### checkAccountLabels9+
+#### checkAccountLabels9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6353,7 +6353,7 @@ checkAccountLabels(name: string, labels: Array&lt;string&gt;, callback: AuthCall
 
 
 
-##### checkAccountRemovable9+
+#### checkAccountRemovable9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6377,7 +6377,7 @@ checkAccountRemovable(name: string, callback: AuthCallback): void
 
 
 
-##### getRemoteObject9+
+#### getRemoteObject9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

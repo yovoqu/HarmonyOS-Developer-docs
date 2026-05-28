@@ -10,7 +10,7 @@
 **起始版本：** 5.0.0(12)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@ import { cloudCommon } from '@kit.CloudFoundationKit';
  
   
 
-##### cloudCommon.init
+#### cloudCommon.init
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -75,7 +75,7 @@ cloudCommon.init({
  
   
 
-##### CloudOptions
+#### CloudOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -100,7 +100,7 @@ cloudCommon.init({
  
   
 
-##### CloudRegion
+#### CloudRegion
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -124,7 +124,7 @@ cloudCommon.init({
  
   
 
-##### AuthProvider
+#### AuthProvider
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -140,7 +140,7 @@ cloudCommon.init({
  
   
 
-##### getAccessToken
+#### getAccessToken
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -261,7 +261,7 @@ cloudCommon.init({
  
   
 
-##### FunctionOptions
+#### FunctionOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -282,7 +282,7 @@ cloudCommon.init({
  
   
 
-##### StorageOptions
+#### StorageOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -304,7 +304,7 @@ cloudCommon.init({
  
   
 
-##### DatabaseOptions
+#### DatabaseOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

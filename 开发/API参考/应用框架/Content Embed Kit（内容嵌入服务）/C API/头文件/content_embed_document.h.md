@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-content-embed-document-h
 **支持设备：** Phone | PC/2in1 | Tablet
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -44,7 +44,7 @@
  
   
 
-##### 宏定义
+#### 宏定义
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -55,7 +55,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -101,13 +101,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### OH_ContentEmbed_CreateDocumentByOEid()
+#### OH_ContentEmbed_CreateDocumentByOEid()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -140,7 +140,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_CreateDocumentByOEid(const char *oeid, Co
  
   
 
-##### OH_ContentEmbed_CreateDocumentByFile()
+#### OH_ContentEmbed_CreateDocumentByFile()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -175,7 +175,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_CreateDocumentByFile(const char *srcFileP
  
   
 
-##### OH_ContentEmbed_LoadDocumentFromFile()
+#### OH_ContentEmbed_LoadDocumentFromFile()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -209,7 +209,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_LoadDocumentFromFile(const char *srcFileP
  
   
 
-##### OH_ContentEmbed_Document_Read()
+#### OH_ContentEmbed_Document_Read()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -243,7 +243,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Document_Read(uint8_t *buffer, size_t len
  
   
 
-##### OH_ContentEmbed_Document_GetOEid()
+#### OH_ContentEmbed_Document_GetOEid()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -274,7 +274,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Document_GetOEid(const ContentEmbed_Docum
  
   
 
-##### OH_ContentEmbed_Document_IsLinking()
+#### OH_ContentEmbed_Document_IsLinking()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -305,7 +305,7 @@ OE文档是否以链接方式创建。
  
   
 
-##### OH_ContentEmbed_Document_GetNativeFilePath()
+#### OH_ContentEmbed_Document_GetNativeFilePath()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -336,7 +336,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Document_GetNativeFilePath(const ContentE
  
   
 
-##### OH_ContentEmbed_Document_GetRootStorage()
+#### OH_ContentEmbed_Document_GetRootStorage()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -369,7 +369,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Document_GetRootStorage(ContentEmbed_Docu
  
   
 
-##### OH_ContentEmbed_Document_Flush()
+#### OH_ContentEmbed_Document_Flush()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -399,7 +399,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Document_Flush(const ContentEmbed_Documen
  
   
 
-##### OH_ContentEmbed_Storage_CreateStorage()
+#### OH_ContentEmbed_Storage_CreateStorage()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -433,7 +433,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Storage_CreateStorage(const ContentEmbed_
  
   
 
-##### OH_ContentEmbed_Storage_GetStorage()
+#### OH_ContentEmbed_Storage_GetStorage()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -467,7 +467,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Storage_GetStorage(const ContentEmbed_Sto
  
   
 
-##### OH_ContentEmbed_Storage_CreateStream()
+#### OH_ContentEmbed_Storage_CreateStream()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -501,7 +501,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Storage_CreateStream(ContentEmbed_Storage
  
   
 
-##### OH_ContentEmbed_Storage_GetStream()
+#### OH_ContentEmbed_Storage_GetStream()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -535,7 +535,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Storage_GetStream(ContentEmbed_Storage *p
  
   
 
-##### OH_ContentEmbed_Storage_DeleteEntry()
+#### OH_ContentEmbed_Storage_DeleteEntry()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -566,7 +566,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Storage_DeleteEntry(ContentEmbed_Storage 
  
   
 
-##### OH_ContentEmbed_Storage_DeleteAllEntry()
+#### OH_ContentEmbed_Storage_DeleteAllEntry()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -596,7 +596,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Storage_DeleteAllEntry(ContentEmbed_Stora
  
   
 
-##### OH_ContentEmbed_DestroyStorage()
+#### OH_ContentEmbed_DestroyStorage()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -626,7 +626,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_DestroyStorage(ContentEmbed_Storage *stor
  
   
 
-##### OH_ContentEmbed_Stream_Read()
+#### OH_ContentEmbed_Stream_Read()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -659,7 +659,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Stream_Read(ContentEmbed_Stream *stream, 
  
   
 
-##### OH_ContentEmbed_Stream_Write()
+#### OH_ContentEmbed_Stream_Write()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -692,7 +692,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Stream_Write(ContentEmbed_Stream *stream,
  
   
 
-##### OH_ContentEmbed_Stream_Seek()
+#### OH_ContentEmbed_Stream_Seek()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -723,7 +723,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Stream_Seek(ContentEmbed_Stream *stream, 
  
   
 
-##### OH_ContentEmbed_Stream_GetPosition()
+#### OH_ContentEmbed_Stream_GetPosition()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -754,7 +754,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Stream_GetPosition(ContentEmbed_Stream *s
  
   
 
-##### OH_ContentEmbed_Stream_GetSize()
+#### OH_ContentEmbed_Stream_GetSize()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -785,7 +785,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Stream_GetSize(ContentEmbed_Stream *strea
  
   
 
-##### OH_ContentEmbed_DestroyStream()
+#### OH_ContentEmbed_DestroyStream()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -815,7 +815,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_DestroyStream(ContentEmbed_Stream *stream
  
   
 
-##### OH_ContentEmbed_DestroyDocument()
+#### OH_ContentEmbed_DestroyDocument()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -845,7 +845,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_DestroyDocument(ContentEmbed_Document *do
  
   
 
-##### OH_ContentEmbed_Storage_GetOEid()
+#### OH_ContentEmbed_Storage_GetOEid()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -877,7 +877,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Storage_GetOEid(ContentEmbed_Storage *sto
  
   
 
-##### OH_ContentEmbed_Storage_SetOEid()
+#### OH_ContentEmbed_Storage_SetOEid()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -909,7 +909,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Storage_SetOEid(ContentEmbed_Storage *sto
  
   
 
-##### OH_ContentEmbed_StorageElements_Create()
+#### OH_ContentEmbed_StorageElements_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -941,7 +941,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_StorageElements_Create(ContentEmbed_Stora
  
   
 
-##### OH_ContentEmbed_StorageElements_Destroy()
+#### OH_ContentEmbed_StorageElements_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -971,7 +971,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_StorageElements_Destroy(ContentEmbed_Stor
  
   
 
-##### OH_ContentEmbed_Storage_GetElements()
+#### OH_ContentEmbed_Storage_GetElements()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1002,7 +1002,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Storage_GetElements(const ContentEmbed_St
  
   
 
-##### OH_ContentEmbed_StorageElements_GetCount()
+#### OH_ContentEmbed_StorageElements_GetCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1033,7 +1033,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_StorageElements_GetCount(const ContentEmb
  
   
 
-##### OH_ContentEmbed_StorageElements_GetElement()
+#### OH_ContentEmbed_StorageElements_GetElement()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1065,7 +1065,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_StorageElements_GetElement(const ContentE
  
   
 
-##### OH_ContentEmbed_StorageElement_GetName()
+#### OH_ContentEmbed_StorageElement_GetName()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1097,7 +1097,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_StorageElement_GetName(const ContentEmbed
  
   
 
-##### OH_ContentEmbed_StorageElement_GetCTime()
+#### OH_ContentEmbed_StorageElement_GetCTime()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1128,7 +1128,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_StorageElement_GetCTime(const ContentEmbe
  
   
 
-##### OH_ContentEmbed_StorageElement_GetMTime()
+#### OH_ContentEmbed_StorageElement_GetMTime()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1159,7 +1159,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_StorageElement_GetMTime(const ContentEmbe
  
   
 
-##### OH_ContentEmbed_StorageElement_IsStorage()
+#### OH_ContentEmbed_StorageElement_IsStorage()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1190,7 +1190,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_StorageElement_IsStorage(const ContentEmb
  
   
 
-##### OH_ContentEmbed_StorageElement_IsStream()
+#### OH_ContentEmbed_StorageElement_IsStream()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1221,7 +1221,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_StorageElement_IsStream(const ContentEmbe
  
   
 
-##### OH_ContentEmbed_Storage_CopyTo()
+#### OH_ContentEmbed_Storage_CopyTo()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

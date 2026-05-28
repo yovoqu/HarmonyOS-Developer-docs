@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/experience-suggestions-ux
 
-##### 背景及目的
+#### 背景及目的
 
  
 本章节从影响用户体验的各个维度定义了相应的UX质量建议，规定了HarmonyOS NEXT应用需达到的UX基础体验建议，以保证应用良好的交互体验。
  
 
-##### 适用范围
+#### 适用范围
 
  
 本章节制定了应用的UX体验建议，适用于应用软件的设计、开发及测试。详见：[应用UX体验建议](https://developer.huawei.com/consumer/cn/doc/design-guides/ux-guidelines-overview-0000001760867048)

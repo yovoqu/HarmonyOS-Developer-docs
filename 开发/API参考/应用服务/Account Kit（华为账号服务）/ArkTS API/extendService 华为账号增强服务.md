@@ -14,7 +14,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { extendService } from '@kit.AccountKit';
 
 
 
-##### IdType
+#### IdType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -47,7 +47,7 @@ import { extendService } from '@kit.AccountKit';
 
 
 
-##### RiskLevel
+#### RiskLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -69,7 +69,7 @@ import { extendService } from '@kit.AccountKit';
 
 
 
-##### VerifyRequest
+#### VerifyRequest
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -110,7 +110,7 @@ const request: extendService.VerifyRequest = {
 
 
 
-##### VerifyResult
+#### VerifyResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -171,7 +171,7 @@ function dealAllError(error: BusinessError): void {
 
 
 
-##### ExtendErrorCode
+#### ExtendErrorCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -198,7 +198,7 @@ function dealAllError(error: BusinessError): void {
 
 
 
-##### verifyAccount
+#### verifyAccount
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -281,7 +281,7 @@ function dealAllError(error: BusinessError): void {
 
 
 
-##### verifyAccount
+#### verifyAccount
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -364,7 +364,7 @@ function dealAllError(error: BusinessError): void {
 
 
 
-##### startAccountCenter
+#### startAccountCenter
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -432,7 +432,7 @@ function dealAllError(error: BusinessError): void {
 
 
 
-##### startAccountCenter
+#### startAccountCenter
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

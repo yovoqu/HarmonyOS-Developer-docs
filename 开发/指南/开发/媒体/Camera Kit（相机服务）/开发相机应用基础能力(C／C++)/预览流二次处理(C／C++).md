@@ -7,7 +7,7 @@
 通过ImageReceiver创建预览输出，获取预览流实时数据，以供后续进行图像二次处理，比如应用可以对其添加滤镜算法等。
 
 
-##### 开发步骤
+#### 开发步骤
 
 详细的API说明请参考[OH_Camera](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera)。
 1. 导入NDK接口，接口中提供了相机相关的属性和方法，导入方法如下。

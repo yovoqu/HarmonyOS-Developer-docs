@@ -7,13 +7,13 @@
 批量下载ohpm-repo或OpenHarmony三方库中心仓的包文件。
  
 
-##### 前提条件
+#### 前提条件
 
 已成功执行[export_pkginfo 命令](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-repo-export-pkginfo)，生成pkgInfo_xxx.json文件。
  
  
 
-##### 命令格式
+#### 命令格式
 
 ```text
 ohpm-repo batch_download <pkg_list>
@@ -21,7 +21,7 @@ ohpm-repo batch_download <pkg_list>
  
  
 
-##### 功能描述
+#### 功能描述
 
 根据提供的包名列表用于批量下载ohpm-repo或OpenHarmony三方库中心仓的包文件，并导出zip文件。
  
@@ -29,11 +29,11 @@ ohpm-repo batch_download <pkg_list>
  
  
 
-##### 参数
+#### 参数
 
  
 
-##### &lt;pkg_list&gt;
+#### &lt;pkg_list&gt;
 
 - 类型： String
 - 必填参数
@@ -43,11 +43,11 @@ ohpm-repo batch_download <pkg_list>
  
  
 
-##### 选项
+#### 选项
 
  
 
-##### --public-registry
+#### --public-registry
 
 - 默认值：无
 - 类型：URL
@@ -57,7 +57,7 @@ ohpm-repo batch_download <pkg_list>
  
  
 
-##### --http-proxy
+#### --http-proxy
 
 - 默认值：无
 - 类型：String
@@ -67,7 +67,7 @@ ohpm-repo batch_download <pkg_list>
  
  
 
-##### --not-use-proxy
+#### --not-use-proxy
 
 - 默认值：无
 - 类型：String
@@ -77,7 +77,7 @@ ohpm-repo batch_download <pkg_list>
  
  
 
-##### 示例
+#### 示例
 
 执行以下命令从ohpm-repo中批量下载包文件：
  

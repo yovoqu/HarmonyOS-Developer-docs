@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-spatial-recon-interface-h
 
-##### 概述
+#### 概述
 
 3D空间重建任务设计模块，通过处理多视角图像输入来生成立体场景。
  
@@ -20,11 +20,11 @@
  
   
 
-##### 汇总
+#### 汇总
 
   
 
-##### 结构体
+#### 结构体
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -37,7 +37,7 @@
  
   
 
-##### 枚举
+#### 枚举
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -51,7 +51,7 @@
  
   
 
-##### 函数
+#### 函数
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -72,11 +72,11 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
   
 
-##### HMS_SpatialReconStatus
+#### HMS_SpatialReconStatus
 
 ```text
 enum HMS_SpatialReconStatus
@@ -103,7 +103,7 @@ enum HMS_SpatialReconStatus
  
   
 
-##### HMS_SpatialReconOutputFormat
+#### HMS_SpatialReconOutputFormat
 
 ```text
 enum HMS_SpatialReconOutputFormat
@@ -123,7 +123,7 @@ enum HMS_SpatialReconOutputFormat
  
   
 
-##### HMS_SpatialReconRunningMode
+#### HMS_SpatialReconRunningMode
 
 ```text
 enum HMS_SpatialReconRunningMode
@@ -147,7 +147,7 @@ enum HMS_SpatialReconRunningMode
  
   
 
-##### HMS_SpatialReconStage
+#### HMS_SpatialReconStage
 
 ```text
 enum HMS_SpatialReconStage
@@ -171,7 +171,7 @@ enum HMS_SpatialReconStage
  
   
 
-##### HMS_SpatialReconModelType
+#### HMS_SpatialReconModelType
 
 ```text
 enum HMS_SpatialReconModelType
@@ -190,7 +190,7 @@ enum HMS_SpatialReconModelType
  
   
 
-##### HMS_SpatialReconImageDataFormat
+#### HMS_SpatialReconImageDataFormat
 
 ```text
 enum HMS_SpatialReconImageDataFormat
@@ -209,11 +209,11 @@ enum HMS_SpatialReconImageDataFormat
  
   
 
-##### 函数说明
+#### 函数说明
 
   
 
-##### HMS_SpatialReconCallbackFunc()
+#### HMS_SpatialReconCallbackFunc()
 
 ```text
 typedef void (*HMS_SpatialReconCallbackFunc)(HMS_SpatialReconStatus)
@@ -234,7 +234,7 @@ typedef void (*HMS_SpatialReconCallbackFunc)(HMS_SpatialReconStatus)
  
   
 
-##### HMS_SpatialRecon_IsSupport()
+#### HMS_SpatialRecon_IsSupport()
 
 ```text
 HMS_SpatialReconStatus HMS_SpatialRecon_IsSupport(HMS_SpatialReconModelType type)
@@ -266,7 +266,7 @@ HMS_SpatialReconStatus HMS_SpatialRecon_IsSupport(HMS_SpatialReconModelType type
  
   
 
-##### HMS_SpatialRecon_CreateSession()
+#### HMS_SpatialRecon_CreateSession()
 
 ```text
 HMS_SpatialReconStatus HMS_SpatialRecon_CreateSession(HMS_SpatialReconModelType type, const char* workPath, HMS_SpatialRecon_Session **outSpatialReconSession)
@@ -300,7 +300,7 @@ HMS_SpatialReconStatus HMS_SpatialRecon_CreateSession(HMS_SpatialReconModelType 
  
   
 
-##### HMS_SpatialRecon_DestroySession()
+#### HMS_SpatialRecon_DestroySession()
 
 ```text
 HMS_SpatialReconStatus HMS_SpatialRecon_DestroySession(HMS_SpatialRecon_Session *spatialReconSession)
@@ -311,7 +311,7 @@ HMS_SpatialReconStatus HMS_SpatialRecon_DestroySession(HMS_SpatialRecon_Session 
 销毁一个空间重建会话并释放其资源。该函数终止空间重建会话并释放与其关联的所有内存和系统资源。调用此函数后，提供的会话指针将失效，不应再次使用。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/7j6bEk08TUu8eFBGB9UTfg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024357Z&HW-CC-Expire=86400&HW-CC-Sign=5872602850DAE7BCCFD4E2C1525C03DC39B141E69C0D22F861459B55EA44420D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/7j6bEk08TUu8eFBGB9UTfg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025734Z&HW-CC-Expire=86400&HW-CC-Sign=9D47CF93E79960B54F55C3385A038A7368A301C159DC33FC659E021DD878A027)
  
  
 一旦销毁会话，将无法恢复。所有未保存的重建数据将会丢失。如果需要数据持久化，请在销毁前调用HMS_SpatialRecon_SaveResultToFile()进行保存。
@@ -336,7 +336,7 @@ HMS_SpatialReconStatus HMS_SpatialRecon_DestroySession(HMS_SpatialRecon_Session 
  
   
 
-##### HMS_SpatialRecon_PushFrame()
+#### HMS_SpatialRecon_PushFrame()
 
 ```text
 HMS_SpatialReconStatus HMS_SpatialRecon_PushFrame(HMS_SpatialRecon_Session *spatialReconSession, HMS_SpatialRecon_DataFrame *inputFrame)
@@ -369,7 +369,7 @@ HMS_SpatialReconStatus HMS_SpatialRecon_PushFrame(HMS_SpatialRecon_Session *spat
  
   
 
-##### HMS_SpatialRecon_PushARFrame()
+#### HMS_SpatialRecon_PushARFrame()
 
 ```text
 HMS_SpatialReconStatus HMS_SpatialRecon_PushARFrame(HMS_SpatialRecon_Session *spatialReconSession, AREngine_ARSession* arSession, AREngine_ARFrame *arFrame)
@@ -403,7 +403,7 @@ HMS_SpatialReconStatus HMS_SpatialRecon_PushARFrame(HMS_SpatialRecon_Session *sp
  
   
 
-##### HMS_SpatialRecon_StartSession()
+#### HMS_SpatialRecon_StartSession()
 
 ```text
 HMS_SpatialReconStatus HMS_SpatialRecon_StartSession(HMS_SpatialRecon_Session *spatialReconSession, HMS_SpatialRecon_ModelWriteInfo* writeInfo, HMS_SpatialReconCallbackFunc onSpatialReconFinished)
@@ -433,7 +433,7 @@ HMS_SpatialReconStatus HMS_SpatialRecon_StartSession(HMS_SpatialRecon_Session *s
  
   
 
-##### HMS_SpatialRecon_SetRunningMode()
+#### HMS_SpatialRecon_SetRunningMode()
 
 ```text
 HMS_SpatialReconStatus HMS_SpatialRecon_SetRunningMode(HMS_SpatialRecon_Session *spatialReconSession, HMS_SpatialReconRunningMode runningMode)
@@ -466,7 +466,7 @@ HMS_SpatialReconStatus HMS_SpatialRecon_SetRunningMode(HMS_SpatialRecon_Session 
  
   
 
-##### HMS_SpatialRecon_PauseSession()
+#### HMS_SpatialRecon_PauseSession()
 
 ```text
 HMS_SpatialReconStatus HMS_SpatialRecon_PauseSession(HMS_SpatialRecon_Session *spatialReconSession)
@@ -494,7 +494,7 @@ HMS_SpatialReconStatus HMS_SpatialRecon_PauseSession(HMS_SpatialRecon_Session *s
  
   
 
-##### HMS_SpatialRecon_ResumeSession()
+#### HMS_SpatialRecon_ResumeSession()
 
 ```text
 HMS_SpatialReconStatus HMS_SpatialRecon_ResumeSession(HMS_SpatialRecon_Session *spatialReconSession)
@@ -522,7 +522,7 @@ HMS_SpatialReconStatus HMS_SpatialRecon_ResumeSession(HMS_SpatialRecon_Session *
  
   
 
-##### HMS_SpatialRecon_GetProgress()
+#### HMS_SpatialRecon_GetProgress()
 
 ```text
 HMS_SpatialReconStatus HMS_SpatialRecon_GetProgress(HMS_SpatialRecon_Session *spatialReconSession, float* progress, HMS_SpatialReconStage* stage)
@@ -556,7 +556,7 @@ HMS_SpatialReconStatus HMS_SpatialRecon_GetProgress(HMS_SpatialRecon_Session *sp
  
   
 
-##### HMS_SpatialRecon_GetRefinedFrame()
+#### HMS_SpatialRecon_GetRefinedFrame()
 
 ```text
 HMS_SpatialReconStatus HMS_SpatialRecon_GetRefinedFrame(HMS_SpatialRecon_Session *spatialReconSession, int iFrame, HMS_SpatialRecon_DataFrame *outFrame)
@@ -590,7 +590,7 @@ HMS_SpatialReconStatus HMS_SpatialRecon_GetRefinedFrame(HMS_SpatialRecon_Session
  
   
 
-##### HMS_SpatialRecon_SaveResultToFile()
+#### HMS_SpatialRecon_SaveResultToFile()
 
 ```text
 HMS_SpatialReconStatus HMS_SpatialRecon_SaveResultToFile(HMS_SpatialRecon_Session *spatialReconSession, HMS_SpatialRecon_ModelWriteInfo *writeInfo, HMS_SpatialReconCallbackFunc onSaved)

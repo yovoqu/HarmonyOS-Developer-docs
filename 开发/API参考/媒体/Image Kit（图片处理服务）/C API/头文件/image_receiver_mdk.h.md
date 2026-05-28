@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-receiver-mdk-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -41,7 +41,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -62,13 +62,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Image_Receiver_On_Callback()
+#### OH_Image_Receiver_On_Callback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -84,7 +84,7 @@ typedef void (*OH_Image_Receiver_On_Callback)(void)
  
   
 
-##### OH_Image_Receiver_CreateImageReceiver()
+#### OH_Image_Receiver_CreateImageReceiver()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -116,7 +116,7 @@ int32_t OH_Image_Receiver_CreateImageReceiver(napi_env env, struct OhosImageRece
  
   
 
-##### OH_Image_Receiver_InitImageReceiverNative()
+#### OH_Image_Receiver_InitImageReceiverNative()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -151,7 +151,7 @@ ImageReceiverNative* OH_Image_Receiver_InitImageReceiverNative(napi_env env, nap
  
   
 
-##### OH_Image_Receiver_GetReceivingSurfaceId()
+#### OH_Image_Receiver_GetReceivingSurfaceId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -183,7 +183,7 @@ int32_t OH_Image_Receiver_GetReceivingSurfaceId(const ImageReceiverNative* nativ
  
   
 
-##### OH_Image_Receiver_ReadLatestImage()
+#### OH_Image_Receiver_ReadLatestImage()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -216,7 +216,7 @@ int32_t OH_Image_Receiver_ReadLatestImage(const ImageReceiverNative* native, nap
  
   
 
-##### OH_Image_Receiver_ReadNextImage()
+#### OH_Image_Receiver_ReadNextImage()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -249,7 +249,7 @@ int32_t OH_Image_Receiver_ReadNextImage(const ImageReceiverNative* native, napi_
  
   
 
-##### OH_Image_Receiver_On()
+#### OH_Image_Receiver_On()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -280,7 +280,7 @@ int32_t OH_Image_Receiver_On(const ImageReceiverNative* native, OH_Image_Receive
  
   
 
-##### OH_Image_Receiver_GetSize()
+#### OH_Image_Receiver_GetSize()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -311,7 +311,7 @@ int32_t OH_Image_Receiver_GetSize(const ImageReceiverNative* native, struct Ohos
  
   
 
-##### OH_Image_Receiver_GetCapacity()
+#### OH_Image_Receiver_GetCapacity()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -342,7 +342,7 @@ int32_t OH_Image_Receiver_GetCapacity(const ImageReceiverNative* native, int32_t
  
   
 
-##### OH_Image_Receiver_GetFormat()
+#### OH_Image_Receiver_GetFormat()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -373,7 +373,7 @@ int32_t OH_Image_Receiver_GetFormat(const ImageReceiverNative* native, int32_t* 
  
   
 
-##### OH_Image_Receiver_Release()
+#### OH_Image_Receiver_Release()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

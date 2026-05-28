@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { drawing } from '@kit.ArkGraphics2D';
 
 
 
-##### constructor12+
+#### constructor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -44,7 +44,7 @@ let path: drawing.Path = new drawing.Path();
 
 
 
-##### constructor12+
+#### constructor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -78,7 +78,7 @@ let path1: drawing.Path =  new drawing.Path(path);
 
 
 
-##### set20+
+#### set20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -112,7 +112,7 @@ path1.set(path);
 
 
 
-##### moveTo
+#### moveTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -152,7 +152,7 @@ path.moveTo(10,10);
 
 
 
-##### lineTo
+#### lineTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -193,7 +193,7 @@ path.lineTo(10, 15);
 
 
 
-##### arcTo
+#### arcTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -238,7 +238,7 @@ path.arcTo(10, 15, 10, 10, 10, 10);
 
 
 
-##### quadTo
+#### quadTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -281,7 +281,7 @@ path.quadTo(10, 15, 10, 10);
 
 
 
-##### conicTo12+
+#### conicTo12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -324,7 +324,7 @@ path.conicTo(200, 400, 100, 200, 0);
 
 
 
-##### cubicTo
+#### cubicTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -369,7 +369,7 @@ path.cubicTo(100, 100, 80, 150, 300, 150);
 
 
 
-##### rMoveTo12+
+#### rMoveTo12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -409,7 +409,7 @@ path.rMoveTo(10, 10);
 
 
 
-##### rLineTo12+
+#### rLineTo12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -449,7 +449,7 @@ path.rLineTo(400, 200);
 
 
 
-##### rQuadTo12+
+#### rQuadTo12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -491,7 +491,7 @@ path.rQuadTo(100, 0, 0, 200);
 
 
 
-##### rConicTo12+
+#### rConicTo12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -534,7 +534,7 @@ path.rConicTo(200, 400, 100, 200, 0);
 
 
 
-##### rCubicTo12+
+#### rCubicTo12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -578,7 +578,7 @@ path.rCubicTo(200, 0, 0, 200, -20, 0);
 
 
 
-##### addArc12+
+#### addArc12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -626,7 +626,7 @@ path.addArc(rect, 90, 180);
 
 
 
-##### addCircle12+
+#### addCircle12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -666,7 +666,7 @@ path.addCircle(100, 200, 50, drawing.PathDirection.CLOCKWISE);
 
 
 
-##### addOval12+
+#### addOval12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -706,7 +706,7 @@ path.addOval(rect, 5, drawing.PathDirection.CLOCKWISE);
 
 
 
-##### addRect12+
+#### addRect12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -745,7 +745,7 @@ path.addRect(rect, drawing.PathDirection.CLOCKWISE);
 
 
 
-##### addRoundRect12+
+#### addRoundRect12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -785,7 +785,7 @@ path.addRoundRect(roundRect, drawing.PathDirection.CLOCKWISE);
 
 
 
-##### addPath12+
+#### addPath12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -828,7 +828,7 @@ dstPath.addPath(path, matrix);
 
 
 
-##### transform12+
+#### transform12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -870,7 +870,7 @@ path.transform(matrix);
 
 
 
-##### contains12+
+#### contains12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -918,7 +918,7 @@ console.info("test contains: " + path.contains(60, 60));
 
 
 
-##### setLastPoint20+
+#### setLastPoint20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -955,7 +955,7 @@ console.info('isEmpty:', isEmpty);
 
 
 
-##### setFillType12+
+#### setFillType12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -992,7 +992,7 @@ path.setFillType(drawing.PathFillType.WINDING);
 
 
 
-##### getFillType20+
+#### getFillType20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1021,7 +1021,7 @@ console.info("type :" + type);
 
 
 
-##### getBounds12+
+#### getBounds12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1055,7 +1055,7 @@ console.info("test rect.bottom: " + rect.bottom);
 
 
 
-##### addPolygon12+
+#### addPolygon12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1102,7 +1102,7 @@ path.addPolygon(pointsArray, false);
 
 
 
-##### offset12+
+#### offset12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1149,7 +1149,7 @@ const dst = path.offset(200, 200);
 
 
 
-##### op12+
+#### op12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1196,7 +1196,7 @@ console.info("get pathOp: ", path2.op(path, drawing.PathOp.DIFFERENCE));
 
 
 
-##### close
+#### close
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1219,7 +1219,7 @@ path.close();
 
 
 
-##### reset
+#### reset
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1242,7 +1242,7 @@ path.reset();
 
 
 
-##### rewind20+
+#### rewind20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1266,7 +1266,7 @@ console.info('empty : ', empty);
 
 
 
-##### isEmpty20+
+#### isEmpty20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1296,7 +1296,7 @@ console.info('isEmpty:', isEmpty);
 
 
 
-##### isRect20+
+#### isRect20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1340,7 +1340,7 @@ console.info('isRect: ', isRect);
 
 
 
-##### getLength12+
+#### getLength12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1377,7 +1377,7 @@ console.info("path length = " + len);
 
 
 
-##### getPositionAndTangent12+
+#### getPositionAndTangent12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1434,7 +1434,7 @@ if (path.getPositionAndTangent(false, 0.1, position, tangent)) {
 
 
 
-##### getSegment18+
+#### getSegment18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1477,7 +1477,7 @@ console.info("getSegment-----result:  "+ path.getSegment(true, 10.0, 20.0, true,
 
 
 
-##### isClosed12+
+#### isClosed12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1511,7 +1511,7 @@ if (path.isClosed()) {
 
 
 
-##### getMatrix12+
+#### getMatrix12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1563,7 +1563,7 @@ if(path.getMatrix(false, 10, matrix, drawing.PathMeasureMatrixFlags.GET_TANGENT_
 
 
 
-##### buildFromSvgString12+
+#### buildFromSvgString12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1612,7 +1612,7 @@ if(path.buildFromSvgString(svgStr)) {
 
 
 
-##### getPathIterator18+
+#### getPathIterator18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1640,7 +1640,7 @@ let iter = path.getPathIterator();
 
 
 
-##### approximate20+
+#### approximate20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1693,7 +1693,7 @@ for (let i = 0; i < points.length; i += 3) {
 
 
 
-##### interpolate20+
+#### interpolate20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1750,7 +1750,7 @@ if (path.interpolate(other, 0.0, interpolatedPath)) {
 
 
 
-##### isInterpolate20+
+#### isInterpolate20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1794,7 +1794,7 @@ if (path.isInterpolate(other)) {
 
 
 
-##### isInverseFillType23+
+#### isInverseFillType23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1827,7 +1827,7 @@ if (path.isInverseFillType()) {
 
 
 
-##### toggleInverseFillType23+
+#### toggleInverseFillType23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

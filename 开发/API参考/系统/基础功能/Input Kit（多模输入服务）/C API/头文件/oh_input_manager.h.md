@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-input-manager-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
 
 
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -53,7 +53,7 @@
 
 
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -74,7 +74,7 @@
 
 
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -268,13 +268,13 @@
 
 
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### Input_KeyStateAction
+#### Input_KeyStateAction
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -299,7 +299,7 @@ enum Input_KeyStateAction
 
 
 
-##### Input_KeyEventAction
+#### Input_KeyEventAction
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -322,7 +322,7 @@ enum Input_KeyEventAction
 
 
 
-##### Input_MouseEventAction
+#### Input_MouseEventAction
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -349,7 +349,7 @@ enum Input_MouseEventAction
 
 
 
-##### InputEvent_MouseAxis
+#### InputEvent_MouseAxis
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -371,7 +371,7 @@ enum InputEvent_MouseAxis
 
 
 
-##### Input_MouseEventButton
+#### Input_MouseEventButton
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -397,7 +397,7 @@ enum Input_MouseEventButton
 
 
 
-##### Input_TouchEventAction
+#### Input_TouchEventAction
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -421,7 +421,7 @@ enum Input_TouchEventAction
 
 
 
-##### Input_InjectionStatus
+#### Input_InjectionStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -444,7 +444,7 @@ enum Input_InjectionStatus
 
 
 
-##### InputEvent_SourceType
+#### InputEvent_SourceType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -467,7 +467,7 @@ enum InputEvent_SourceType
 
 
 
-##### Input_KeyboardType
+#### Input_KeyboardType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -493,7 +493,7 @@ enum Input_KeyboardType
 
 
 
-##### Input_Result
+#### Input_Result
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -530,7 +530,7 @@ enum Input_Result
 
 
 
-##### Input_TouchEventToolType
+#### Input_TouchEventToolType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -558,13 +558,13 @@ enum Input_TouchEventToolType
 
 
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### Input_HotkeyCallback()
+#### Input_HotkeyCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -587,7 +587,7 @@ typedef void (*Input_HotkeyCallback)(Input_Hotkey* hotkey)
 
 
 
-##### Input_KeyEventCallback()
+#### Input_KeyEventCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -610,7 +610,7 @@ typedef void (*Input_KeyEventCallback)(const Input_KeyEvent* keyEvent)
 
 
 
-##### Input_MouseEventCallback()
+#### Input_MouseEventCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -633,7 +633,7 @@ typedef void (*Input_MouseEventCallback)(const Input_MouseEvent* mouseEvent)
 
 
 
-##### Input_TouchEventCallback()
+#### Input_TouchEventCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -656,7 +656,7 @@ typedef void (*Input_TouchEventCallback)(const Input_TouchEvent* touchEvent)
 
 
 
-##### Input_AxisEventCallback()
+#### Input_AxisEventCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -679,7 +679,7 @@ typedef void (*Input_AxisEventCallback)(const Input_AxisEvent* axisEvent)
 
 
 
-##### Input_DeviceAddedCallback()
+#### Input_DeviceAddedCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -702,7 +702,7 @@ typedef void (*Input_DeviceAddedCallback)(int32_t deviceId)
 
 
 
-##### Input_DeviceRemovedCallback()
+#### Input_DeviceRemovedCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -725,7 +725,7 @@ typedef void (*Input_DeviceRemovedCallback)(int32_t deviceId)
 
 
 
-##### Input_InjectAuthorizeCallback()
+#### Input_InjectAuthorizeCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -748,7 +748,7 @@ typedef void (*Input_InjectAuthorizeCallback)(Input_InjectionStatus authorizedSt
 
 
 
-##### OH_Input_GetKeyState()
+#### OH_Input_GetKeyState()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -780,7 +780,7 @@ Input_Result OH_Input_GetKeyState(struct Input_KeyState* keyState)
 
 
 
-##### OH_Input_CreateKeyState()
+#### OH_Input_CreateKeyState()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -805,7 +805,7 @@ struct Input_KeyState* OH_Input_CreateKeyState()
 
 
 
-##### OH_Input_DestroyKeyState()
+#### OH_Input_DestroyKeyState()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -830,7 +830,7 @@ void OH_Input_DestroyKeyState(struct Input_KeyState** keyState)
 
 
 
-##### OH_Input_SetKeyCode()
+#### OH_Input_SetKeyCode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -856,7 +856,7 @@ void OH_Input_SetKeyCode(struct Input_KeyState* keyState, int32_t keyCode)
 
 
 
-##### OH_Input_GetKeyCode()
+#### OH_Input_GetKeyCode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -888,7 +888,7 @@ int32_t OH_Input_GetKeyCode(const struct Input_KeyState* keyState)
 
 
 
-##### OH_Input_SetKeyPressed()
+#### OH_Input_SetKeyPressed()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -914,7 +914,7 @@ void OH_Input_SetKeyPressed(struct Input_KeyState* keyState, int32_t keyAction)
 
 
 
-##### OH_Input_GetKeyPressed()
+#### OH_Input_GetKeyPressed()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -946,7 +946,7 @@ int32_t OH_Input_GetKeyPressed(const struct Input_KeyState* keyState)
 
 
 
-##### OH_Input_SetKeySwitch()
+#### OH_Input_SetKeySwitch()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -972,7 +972,7 @@ void OH_Input_SetKeySwitch(struct Input_KeyState* keyState, int32_t keySwitch)
 
 
 
-##### OH_Input_GetKeySwitch()
+#### OH_Input_GetKeySwitch()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1004,7 +1004,7 @@ int32_t OH_Input_GetKeySwitch(const struct Input_KeyState* keyState)
 
 
 
-##### OH_Input_InjectKeyEvent()
+#### OH_Input_InjectKeyEvent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1042,7 +1042,7 @@ int32_t OH_Input_InjectKeyEvent(const struct Input_KeyEvent* keyEvent)
 
 
 
-##### OH_Input_CreateKeyEvent()
+#### OH_Input_CreateKeyEvent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1067,7 +1067,7 @@ struct Input_KeyEvent* OH_Input_CreateKeyEvent()
 
 
 
-##### OH_Input_DestroyKeyEvent()
+#### OH_Input_DestroyKeyEvent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1092,7 +1092,7 @@ void OH_Input_DestroyKeyEvent(struct Input_KeyEvent** keyEvent)
 
 
 
-##### OH_Input_SetKeyEventAction()
+#### OH_Input_SetKeyEventAction()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1118,7 +1118,7 @@ void OH_Input_SetKeyEventAction(struct Input_KeyEvent* keyEvent, int32_t action)
 
 
 
-##### OH_Input_GetKeyEventAction()
+#### OH_Input_GetKeyEventAction()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1150,7 +1150,7 @@ int32_t OH_Input_GetKeyEventAction(const struct Input_KeyEvent* keyEvent)
 
 
 
-##### OH_Input_SetKeyEventKeyCode()
+#### OH_Input_SetKeyEventKeyCode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1176,7 +1176,7 @@ void OH_Input_SetKeyEventKeyCode(struct Input_KeyEvent* keyEvent, int32_t keyCod
 
 
 
-##### OH_Input_GetKeyEventKeyCode()
+#### OH_Input_GetKeyEventKeyCode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1208,7 +1208,7 @@ int32_t OH_Input_GetKeyEventKeyCode(const struct Input_KeyEvent* keyEvent)
 
 
 
-##### OH_Input_SetKeyEventActionTime()
+#### OH_Input_SetKeyEventActionTime()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1234,7 +1234,7 @@ void OH_Input_SetKeyEventActionTime(struct Input_KeyEvent* keyEvent, int64_t act
 
 
 
-##### OH_Input_GetKeyEventActionTime()
+#### OH_Input_GetKeyEventActionTime()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1266,7 +1266,7 @@ int64_t OH_Input_GetKeyEventActionTime(const struct Input_KeyEvent* keyEvent)
 
 
 
-##### OH_Input_SetKeyEventWindowId()
+#### OH_Input_SetKeyEventWindowId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1292,7 +1292,7 @@ void OH_Input_SetKeyEventWindowId(struct Input_KeyEvent* keyEvent, int32_t windo
 
 
 
-##### OH_Input_GetKeyEventWindowId()
+#### OH_Input_GetKeyEventWindowId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1324,7 +1324,7 @@ int32_t OH_Input_GetKeyEventWindowId(const struct Input_KeyEvent* keyEvent)
 
 
 
-##### OH_Input_GetKeyEventDisplayId()
+#### OH_Input_GetKeyEventDisplayId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1356,7 +1356,7 @@ int32_t OH_Input_GetKeyEventDisplayId(const struct Input_KeyEvent* keyEvent)
 
 
 
-##### OH_Input_SetKeyEventDisplayId()
+#### OH_Input_SetKeyEventDisplayId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1382,7 +1382,7 @@ void OH_Input_SetKeyEventDisplayId(struct Input_KeyEvent* keyEvent, int32_t disp
 
 
 
-##### OH_Input_CreateMouseEvent()
+#### OH_Input_CreateMouseEvent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1407,7 +1407,7 @@ struct Input_MouseEvent* OH_Input_CreateMouseEvent()
 
 
 
-##### OH_Input_DestroyMouseEvent()
+#### OH_Input_DestroyMouseEvent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1432,7 +1432,7 @@ void OH_Input_DestroyMouseEvent(struct Input_MouseEvent** mouseEvent)
 
 
 
-##### OH_Input_SetMouseEventAction()
+#### OH_Input_SetMouseEventAction()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1458,7 +1458,7 @@ void OH_Input_SetMouseEventAction(struct Input_MouseEvent* mouseEvent, int32_t a
 
 
 
-##### OH_Input_GetMouseEventAction()
+#### OH_Input_GetMouseEventAction()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1490,7 +1490,7 @@ int32_t OH_Input_GetMouseEventAction(const struct Input_MouseEvent* mouseEvent)
 
 
 
-##### OH_Input_SetMouseEventDisplayX()
+#### OH_Input_SetMouseEventDisplayX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1516,7 +1516,7 @@ void OH_Input_SetMouseEventDisplayX(struct Input_MouseEvent* mouseEvent, int32_t
 
 
 
-##### OH_Input_GetMouseEventDisplayX()
+#### OH_Input_GetMouseEventDisplayX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1548,7 +1548,7 @@ int32_t OH_Input_GetMouseEventDisplayX(const struct Input_MouseEvent* mouseEvent
 
 
 
-##### OH_Input_SetMouseEventDisplayY()
+#### OH_Input_SetMouseEventDisplayY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1574,7 +1574,7 @@ void OH_Input_SetMouseEventDisplayY(struct Input_MouseEvent* mouseEvent, int32_t
 
 
 
-##### OH_Input_GetMouseEventDisplayY()
+#### OH_Input_GetMouseEventDisplayY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1606,7 +1606,7 @@ int32_t OH_Input_GetMouseEventDisplayY(const struct Input_MouseEvent* mouseEvent
 
 
 
-##### OH_Input_SetMouseEventButton()
+#### OH_Input_SetMouseEventButton()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1632,7 +1632,7 @@ void OH_Input_SetMouseEventButton(struct Input_MouseEvent* mouseEvent, int32_t b
 
 
 
-##### OH_Input_GetMouseEventButton()
+#### OH_Input_GetMouseEventButton()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1664,7 +1664,7 @@ int32_t OH_Input_GetMouseEventButton(const struct Input_MouseEvent* mouseEvent)
 
 
 
-##### OH_Input_SetMouseEventAxisType()
+#### OH_Input_SetMouseEventAxisType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1690,7 +1690,7 @@ void OH_Input_SetMouseEventAxisType(struct Input_MouseEvent* mouseEvent, int32_t
 
 
 
-##### OH_Input_GetMouseEventAxisType()
+#### OH_Input_GetMouseEventAxisType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1722,7 +1722,7 @@ int32_t OH_Input_GetMouseEventAxisType(const struct Input_MouseEvent* mouseEvent
 
 
 
-##### OH_Input_SetMouseEventAxisValue()
+#### OH_Input_SetMouseEventAxisValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1748,7 +1748,7 @@ void OH_Input_SetMouseEventAxisValue(struct Input_MouseEvent* mouseEvent, float 
 
 
 
-##### OH_Input_GetMouseEventAxisValue()
+#### OH_Input_GetMouseEventAxisValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1780,7 +1780,7 @@ float OH_Input_GetMouseEventAxisValue(const struct Input_MouseEvent* mouseEvent)
 
 
 
-##### OH_Input_SetMouseEventActionTime()
+#### OH_Input_SetMouseEventActionTime()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1806,7 +1806,7 @@ void OH_Input_SetMouseEventActionTime(struct Input_MouseEvent* mouseEvent, int64
 
 
 
-##### OH_Input_GetMouseEventActionTime()
+#### OH_Input_GetMouseEventActionTime()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1838,7 +1838,7 @@ int64_t OH_Input_GetMouseEventActionTime(const struct Input_MouseEvent* mouseEve
 
 
 
-##### OH_Input_SetMouseEventWindowId()
+#### OH_Input_SetMouseEventWindowId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1864,7 +1864,7 @@ void OH_Input_SetMouseEventWindowId(struct Input_MouseEvent* mouseEvent, int32_t
 
 
 
-##### OH_Input_GetMouseEventWindowId()
+#### OH_Input_GetMouseEventWindowId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1896,7 +1896,7 @@ int32_t OH_Input_GetMouseEventWindowId(const struct Input_MouseEvent* mouseEvent
 
 
 
-##### OH_Input_SetMouseEventDisplayId()
+#### OH_Input_SetMouseEventDisplayId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1922,7 +1922,7 @@ void OH_Input_SetMouseEventDisplayId(struct Input_MouseEvent* mouseEvent, int32_
 
 
 
-##### OH_Input_CreateTouchEvent()
+#### OH_Input_CreateTouchEvent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1947,7 +1947,7 @@ struct Input_TouchEvent* OH_Input_CreateTouchEvent()
 
 
 
-##### OH_Input_DestroyTouchEvent()
+#### OH_Input_DestroyTouchEvent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1972,7 +1972,7 @@ void OH_Input_DestroyTouchEvent(struct Input_TouchEvent** touchEvent)
 
 
 
-##### OH_Input_SetTouchEventAction()
+#### OH_Input_SetTouchEventAction()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1998,7 +1998,7 @@ void OH_Input_SetTouchEventAction(struct Input_TouchEvent* touchEvent, int32_t a
 
 
 
-##### OH_Input_GetTouchEventAction()
+#### OH_Input_GetTouchEventAction()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2030,7 +2030,7 @@ int32_t OH_Input_GetTouchEventAction(const struct Input_TouchEvent* touchEvent)
 
 
 
-##### OH_Input_SetTouchEventFingerId()
+#### OH_Input_SetTouchEventFingerId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2056,7 +2056,7 @@ void OH_Input_SetTouchEventFingerId(struct Input_TouchEvent* touchEvent, int32_t
 
 
 
-##### OH_Input_GetTouchEventFingerId()
+#### OH_Input_GetTouchEventFingerId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2088,7 +2088,7 @@ int32_t OH_Input_GetTouchEventFingerId(const struct Input_TouchEvent* touchEvent
 
 
 
-##### OH_Input_SetTouchEventDisplayX()
+#### OH_Input_SetTouchEventDisplayX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2114,7 +2114,7 @@ void OH_Input_SetTouchEventDisplayX(struct Input_TouchEvent* touchEvent, int32_t
 
 
 
-##### OH_Input_GetTouchEventDisplayX()
+#### OH_Input_GetTouchEventDisplayX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2146,7 +2146,7 @@ int32_t OH_Input_GetTouchEventDisplayX(const struct Input_TouchEvent* touchEvent
 
 
 
-##### OH_Input_SetTouchEventDisplayY()
+#### OH_Input_SetTouchEventDisplayY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2172,7 +2172,7 @@ void OH_Input_SetTouchEventDisplayY(struct Input_TouchEvent* touchEvent, int32_t
 
 
 
-##### OH_Input_GetTouchEventDisplayY()
+#### OH_Input_GetTouchEventDisplayY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2204,7 +2204,7 @@ int32_t OH_Input_GetTouchEventDisplayY(const struct Input_TouchEvent* touchEvent
 
 
 
-##### OH_Input_SetTouchEventActionTime()
+#### OH_Input_SetTouchEventActionTime()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2230,7 +2230,7 @@ void OH_Input_SetTouchEventActionTime(struct Input_TouchEvent* touchEvent, int64
 
 
 
-##### OH_Input_GetTouchEventActionTime()
+#### OH_Input_GetTouchEventActionTime()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2262,7 +2262,7 @@ int64_t OH_Input_GetTouchEventActionTime(const struct Input_TouchEvent* touchEve
 
 
 
-##### OH_Input_SetTouchEventWindowId()
+#### OH_Input_SetTouchEventWindowId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2288,7 +2288,7 @@ void OH_Input_SetTouchEventWindowId(struct Input_TouchEvent* touchEvent, int32_t
 
 
 
-##### OH_Input_GetTouchEventWindowId()
+#### OH_Input_GetTouchEventWindowId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2320,7 +2320,7 @@ int32_t OH_Input_GetTouchEventWindowId(const struct Input_TouchEvent* touchEvent
 
 
 
-##### OH_Input_SetTouchEventDisplayId()
+#### OH_Input_SetTouchEventDisplayId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2346,7 +2346,7 @@ void OH_Input_SetTouchEventDisplayId(struct Input_TouchEvent* touchEvent, int32_
 
 
 
-##### OH_Input_GetTouchEventDisplayId()
+#### OH_Input_GetTouchEventDisplayId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2378,7 +2378,7 @@ int32_t OH_Input_GetTouchEventDisplayId(const struct Input_TouchEvent* touchEven
 
 
 
-##### OH_Input_CancelInjection()
+#### OH_Input_CancelInjection()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2396,7 +2396,7 @@ void OH_Input_CancelInjection()
 
 
 
-##### OH_Input_RequestInjection()
+#### OH_Input_RequestInjection()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2430,7 +2430,7 @@ Input_Result OH_Input_RequestInjection(Input_InjectAuthorizeCallback callback)
 
 
 
-##### OH_Input_QueryAuthorizedStatus()
+#### OH_Input_QueryAuthorizedStatus()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2460,7 +2460,7 @@ Input_Result OH_Input_QueryAuthorizedStatus(Input_InjectionStatus* status)
 
 
 
-##### OH_Input_CreateAxisEvent()
+#### OH_Input_CreateAxisEvent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2485,7 +2485,7 @@ Input_AxisEvent* OH_Input_CreateAxisEvent(void)
 
 
 
-##### OH_Input_DestroyAxisEvent()
+#### OH_Input_DestroyAxisEvent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2517,7 +2517,7 @@ Input_Result OH_Input_DestroyAxisEvent(Input_AxisEvent** axisEvent)
 
 
 
-##### OH_Input_SetAxisEventAction()
+#### OH_Input_SetAxisEventAction()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2550,7 +2550,7 @@ Input_Result OH_Input_SetAxisEventAction(Input_AxisEvent* axisEvent, InputEvent_
 
 
 
-##### OH_Input_GetAxisEventAction()
+#### OH_Input_GetAxisEventAction()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2583,7 +2583,7 @@ Input_Result OH_Input_GetAxisEventAction(const Input_AxisEvent* axisEvent, Input
 
 
 
-##### OH_Input_SetAxisEventDisplayX()
+#### OH_Input_SetAxisEventDisplayX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2616,7 +2616,7 @@ Input_Result OH_Input_SetAxisEventDisplayX(Input_AxisEvent* axisEvent, float dis
 
 
 
-##### OH_Input_GetAxisEventDisplayX()
+#### OH_Input_GetAxisEventDisplayX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2649,7 +2649,7 @@ Input_Result OH_Input_GetAxisEventDisplayX(const Input_AxisEvent* axisEvent, flo
 
 
 
-##### OH_Input_SetAxisEventDisplayY()
+#### OH_Input_SetAxisEventDisplayY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2682,7 +2682,7 @@ Input_Result OH_Input_SetAxisEventDisplayY(Input_AxisEvent* axisEvent, float dis
 
 
 
-##### OH_Input_GetAxisEventDisplayY()
+#### OH_Input_GetAxisEventDisplayY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2715,7 +2715,7 @@ Input_Result OH_Input_GetAxisEventDisplayY(const Input_AxisEvent* axisEvent, flo
 
 
 
-##### OH_Input_SetAxisEventAxisValue()
+#### OH_Input_SetAxisEventAxisValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2749,7 +2749,7 @@ Input_Result OH_Input_SetAxisEventAxisValue(Input_AxisEvent* axisEvent,InputEven
 
 
 
-##### OH_Input_GetAxisEventAxisValue()
+#### OH_Input_GetAxisEventAxisValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2783,7 +2783,7 @@ Input_Result OH_Input_GetAxisEventAxisValue(const Input_AxisEvent* axisEvent,Inp
 
 
 
-##### OH_Input_SetAxisEventActionTime()
+#### OH_Input_SetAxisEventActionTime()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2816,7 +2816,7 @@ Input_Result OH_Input_SetAxisEventActionTime(Input_AxisEvent* axisEvent, int64_t
 
 
 
-##### OH_Input_GetAxisEventActionTime()
+#### OH_Input_GetAxisEventActionTime()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2849,7 +2849,7 @@ Input_Result OH_Input_GetAxisEventActionTime(const Input_AxisEvent* axisEvent, i
 
 
 
-##### OH_Input_SetAxisEventType()
+#### OH_Input_SetAxisEventType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2882,7 +2882,7 @@ Input_Result OH_Input_SetAxisEventType(Input_AxisEvent* axisEvent, InputEvent_Ax
 
 
 
-##### OH_Input_GetAxisEventType()
+#### OH_Input_GetAxisEventType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2915,7 +2915,7 @@ Input_Result OH_Input_GetAxisEventType(const Input_AxisEvent* axisEvent, InputEv
 
 
 
-##### OH_Input_SetAxisEventSourceType()
+#### OH_Input_SetAxisEventSourceType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2948,7 +2948,7 @@ Input_Result OH_Input_SetAxisEventSourceType(Input_AxisEvent* axisEvent, InputEv
 
 
 
-##### OH_Input_GetAxisEventSourceType()
+#### OH_Input_GetAxisEventSourceType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2981,7 +2981,7 @@ Input_Result OH_Input_GetAxisEventSourceType(const Input_AxisEvent* axisEvent, I
 
 
 
-##### OH_Input_SetAxisEventWindowId()
+#### OH_Input_SetAxisEventWindowId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3014,7 +3014,7 @@ Input_Result OH_Input_SetAxisEventWindowId(Input_AxisEvent* axisEvent, int32_t w
 
 
 
-##### OH_Input_GetAxisEventWindowId()
+#### OH_Input_GetAxisEventWindowId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3047,7 +3047,7 @@ Input_Result OH_Input_GetAxisEventWindowId(const Input_AxisEvent* axisEvent, int
 
 
 
-##### OH_Input_SetAxisEventDisplayId()
+#### OH_Input_SetAxisEventDisplayId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3080,7 +3080,7 @@ Input_Result OH_Input_SetAxisEventDisplayId(Input_AxisEvent* axisEvent, int32_t 
 
 
 
-##### OH_Input_GetAxisEventDisplayId()
+#### OH_Input_GetAxisEventDisplayId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3113,7 +3113,7 @@ Input_Result OH_Input_GetAxisEventDisplayId(const Input_AxisEvent* axisEvent, in
 
 
 
-##### OH_Input_AddKeyEventMonitor()
+#### OH_Input_AddKeyEventMonitor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3149,7 +3149,7 @@ Input_Result OH_Input_AddKeyEventMonitor(Input_KeyEventCallback callback)
 
 
 
-##### OH_Input_AddMouseEventMonitor()
+#### OH_Input_AddMouseEventMonitor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3187,7 +3187,7 @@ Input_Result OH_Input_AddMouseEventMonitor(Input_MouseEventCallback callback)
 
 
 
-##### OH_Input_AddTouchEventMonitor()
+#### OH_Input_AddTouchEventMonitor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3223,7 +3223,7 @@ Input_Result OH_Input_AddTouchEventMonitor(Input_TouchEventCallback callback)
 
 
 
-##### OH_Input_AddAxisEventMonitorForAll()
+#### OH_Input_AddAxisEventMonitorForAll()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3259,7 +3259,7 @@ Input_Result OH_Input_AddAxisEventMonitorForAll(Input_AxisEventCallback callback
 
 
 
-##### OH_Input_AddAxisEventMonitor()
+#### OH_Input_AddAxisEventMonitor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3296,7 +3296,7 @@ Input_Result OH_Input_AddAxisEventMonitor(InputEvent_AxisEventType axisEventType
 
 
 
-##### OH_Input_RemoveKeyEventMonitor()
+#### OH_Input_RemoveKeyEventMonitor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3332,7 +3332,7 @@ Input_Result OH_Input_RemoveKeyEventMonitor(Input_KeyEventCallback callback)
 
 
 
-##### OH_Input_RemoveMouseEventMonitor()
+#### OH_Input_RemoveMouseEventMonitor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3368,7 +3368,7 @@ Input_Result OH_Input_RemoveMouseEventMonitor(Input_MouseEventCallback callback)
 
 
 
-##### OH_Input_RemoveTouchEventMonitor()
+#### OH_Input_RemoveTouchEventMonitor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3404,7 +3404,7 @@ Input_Result OH_Input_RemoveTouchEventMonitor(Input_TouchEventCallback callback)
 
 
 
-##### OH_Input_RemoveAxisEventMonitorForAll()
+#### OH_Input_RemoveAxisEventMonitorForAll()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3440,7 +3440,7 @@ Input_Result OH_Input_RemoveAxisEventMonitorForAll(Input_AxisEventCallback callb
 
 
 
-##### OH_Input_RemoveAxisEventMonitor()
+#### OH_Input_RemoveAxisEventMonitor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3477,7 +3477,7 @@ Input_Result OH_Input_RemoveAxisEventMonitor(InputEvent_AxisEventType axisEventT
 
 
 
-##### OH_Input_AddKeyEventInterceptor()
+#### OH_Input_AddKeyEventInterceptor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3514,7 +3514,7 @@ Input_Result OH_Input_AddKeyEventInterceptor(Input_KeyEventCallback callback, In
 
 
 
-##### OH_Input_AddInputEventInterceptor()
+#### OH_Input_AddInputEventInterceptor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3551,7 +3551,7 @@ Input_Result OH_Input_AddInputEventInterceptor(Input_InterceptorEventCallback *c
 
 
 
-##### OH_Input_RemoveKeyEventInterceptor()
+#### OH_Input_RemoveKeyEventInterceptor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3580,7 +3580,7 @@ Input_Result OH_Input_RemoveKeyEventInterceptor(void)
 
 
 
-##### OH_Input_RemoveInputEventInterceptor()
+#### OH_Input_RemoveInputEventInterceptor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3609,7 +3609,7 @@ Input_Result OH_Input_RemoveInputEventInterceptor(void)
 
 
 
-##### OH_Input_GetIntervalSinceLastInput()
+#### OH_Input_GetIntervalSinceLastInput()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3641,7 +3641,7 @@ Input_Result OH_Input_GetIntervalSinceLastInput(int64_t *timeInterval)
 
 
 
-##### OH_Input_CreateHotkey()
+#### OH_Input_CreateHotkey()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3666,7 +3666,7 @@ Input_Hotkey *OH_Input_CreateHotkey(void)
 
 
 
-##### OH_Input_DestroyHotkey()
+#### OH_Input_DestroyHotkey()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3691,7 +3691,7 @@ void OH_Input_DestroyHotkey(Input_Hotkey **hotkey)
 
 
 
-##### OH_Input_SetPreKeys()
+#### OH_Input_SetPreKeys()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3718,7 +3718,7 @@ void OH_Input_SetPreKeys(Input_Hotkey *hotkey, int32_t *preKeys, int32_t size)
 
 
 
-##### OH_Input_GetPreKeys()
+#### OH_Input_GetPreKeys()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3752,7 +3752,7 @@ Input_Result OH_Input_GetPreKeys(const Input_Hotkey *hotkey, int32_t **preKeys, 
 
 
 
-##### OH_Input_SetFinalKey()
+#### OH_Input_SetFinalKey()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3778,7 +3778,7 @@ void OH_Input_SetFinalKey(Input_Hotkey* hotkey, int32_t finalKey)
 
 
 
-##### OH_Input_GetFinalKey()
+#### OH_Input_GetFinalKey()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3811,7 +3811,7 @@ Input_Result OH_Input_GetFinalKey(const Input_Hotkey* hotkey, int32_t *finalKeyC
 
 
 
-##### OH_Input_CreateAllSystemHotkeys()
+#### OH_Input_CreateAllSystemHotkeys()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3845,7 +3845,7 @@ Input_Hotkey **OH_Input_CreateAllSystemHotkeys(int32_t count)
 
 
 
-##### OH_Input_DestroyAllSystemHotkeys()
+#### OH_Input_DestroyAllSystemHotkeys()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3871,7 +3871,7 @@ void OH_Input_DestroyAllSystemHotkeys(Input_Hotkey **hotkeys, int32_t count)
 
 
 
-##### OH_Input_GetAllSystemHotkeys()
+#### OH_Input_GetAllSystemHotkeys()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3906,7 +3906,7 @@ Input_Result OH_Input_GetAllSystemHotkeys(Input_Hotkey **hotkey, int32_t *count)
 
 
 
-##### OH_Input_SetRepeat()
+#### OH_Input_SetRepeat()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3932,7 +3932,7 @@ void OH_Input_SetRepeat(Input_Hotkey* hotkey, bool isRepeat)
 
 
 
-##### OH_Input_GetRepeat()
+#### OH_Input_GetRepeat()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3965,7 +3965,7 @@ Input_Result OH_Input_GetRepeat(const Input_Hotkey* hotkey, bool *isRepeat)
 
 
 
-##### OH_Input_AddHotkeyMonitor()
+#### OH_Input_AddHotkeyMonitor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4004,7 +4004,7 @@ Input_Result OH_Input_AddHotkeyMonitor(const Input_Hotkey* hotkey, Input_HotkeyC
 
 
 
-##### OH_Input_RemoveHotkeyMonitor()
+#### OH_Input_RemoveHotkeyMonitor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4037,7 +4037,7 @@ Input_Result OH_Input_RemoveHotkeyMonitor(const Input_Hotkey* hotkey, Input_Hotk
 
 
 
-##### OH_Input_RegisterDeviceListener()
+#### OH_Input_RegisterDeviceListener()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4069,7 +4069,7 @@ Input_Result OH_Input_RegisterDeviceListener(Input_DeviceListener* listener)
 
 
 
-##### OH_Input_UnregisterDeviceListener()
+#### OH_Input_UnregisterDeviceListener()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4101,7 +4101,7 @@ Input_Result OH_Input_UnregisterDeviceListener(Input_DeviceListener* listener)
 
 
 
-##### OH_Input_UnregisterDeviceListeners()
+#### OH_Input_UnregisterDeviceListeners()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4126,7 +4126,7 @@ Input_Result OH_Input_UnregisterDeviceListeners()
 
 
 
-##### OH_Input_GetDeviceIds()
+#### OH_Input_GetDeviceIds()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4160,7 +4160,7 @@ Input_Result OH_Input_GetDeviceIds(int32_t *deviceIds, int32_t inSize, int32_t *
 
 
 
-##### OH_Input_GetDevice()
+#### OH_Input_GetDevice()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4193,7 +4193,7 @@ Input_Result OH_Input_GetDevice(int32_t deviceId, Input_DeviceInfo **deviceInfo)
 
 
 
-##### OH_Input_CreateDeviceInfo()
+#### OH_Input_CreateDeviceInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4218,7 +4218,7 @@ Input_DeviceInfo* OH_Input_CreateDeviceInfo(void)
 
 
 
-##### OH_Input_DestroyDeviceInfo()
+#### OH_Input_DestroyDeviceInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4243,7 +4243,7 @@ void OH_Input_DestroyDeviceInfo(Input_DeviceInfo **deviceInfo)
 
 
 
-##### OH_Input_GetKeyboardType()
+#### OH_Input_GetKeyboardType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4276,7 +4276,7 @@ Input_Result OH_Input_GetKeyboardType(int32_t deviceId, int32_t *keyboardType)
 
 
 
-##### OH_Input_GetDeviceId()
+#### OH_Input_GetDeviceId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4309,7 +4309,7 @@ Input_Result OH_Input_GetDeviceId(Input_DeviceInfo *deviceInfo, int32_t *id)
 
 
 
-##### OH_Input_GetDeviceName()
+#### OH_Input_GetDeviceName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4342,7 +4342,7 @@ Input_Result OH_Input_GetDeviceName(Input_DeviceInfo *deviceInfo, char **name)
 
 
 
-##### OH_Input_GetCapabilities()
+#### OH_Input_GetCapabilities()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4375,7 +4375,7 @@ Input_Result OH_Input_GetCapabilities(Input_DeviceInfo *deviceInfo, int32_t *cap
 
 
 
-##### OH_Input_GetDeviceVersion()
+#### OH_Input_GetDeviceVersion()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4408,7 +4408,7 @@ Input_Result OH_Input_GetDeviceVersion(Input_DeviceInfo *deviceInfo, int32_t *ve
 
 
 
-##### OH_Input_GetDeviceProduct()
+#### OH_Input_GetDeviceProduct()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4441,7 +4441,7 @@ Input_Result OH_Input_GetDeviceProduct(Input_DeviceInfo *deviceInfo, int32_t *pr
 
 
 
-##### OH_Input_GetDeviceVendor()
+#### OH_Input_GetDeviceVendor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4474,7 +4474,7 @@ Input_Result OH_Input_GetDeviceVendor(Input_DeviceInfo *deviceInfo, int32_t *ven
 
 
 
-##### OH_Input_GetDeviceAddress()
+#### OH_Input_GetDeviceAddress()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4507,7 +4507,7 @@ Input_Result OH_Input_GetDeviceAddress(Input_DeviceInfo *deviceInfo, char **addr
 
 
 
-##### OH_Input_GetFunctionKeyState()
+#### OH_Input_GetFunctionKeyState()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4538,7 +4538,7 @@ Input_Result OH_Input_GetFunctionKeyState(int32_t keyCode, int32_t *state)
 
 
 
-##### OH_Input_InjectTouchEvent()
+#### OH_Input_InjectTouchEvent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4574,7 +4574,7 @@ int32_t OH_Input_InjectTouchEvent(const struct Input_TouchEvent* touchEvent)
 
 
 
-##### OH_Input_InjectMouseEvent()
+#### OH_Input_InjectMouseEvent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4610,7 +4610,7 @@ int32_t OH_Input_InjectMouseEvent(const struct Input_MouseEvent* mouseEvent)
 
 
 
-##### OH_Input_GetMouseEventDisplayId()
+#### OH_Input_GetMouseEventDisplayId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4642,7 +4642,7 @@ int32_t OH_Input_GetMouseEventDisplayId(const struct Input_MouseEvent* mouseEven
 
 
 
-##### OH_Input_QueryMaxTouchPoints()
+#### OH_Input_QueryMaxTouchPoints()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4672,7 +4672,7 @@ Input_Result OH_Input_QueryMaxTouchPoints(int32_t *count)
 
 
 
-##### OH_Input_InjectMouseEventGlobal()
+#### OH_Input_InjectMouseEventGlobal()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4706,7 +4706,7 @@ int32_t OH_Input_InjectMouseEventGlobal(const struct Input_MouseEvent* mouseEven
 
 
 
-##### OH_Input_SetMouseEventGlobalX()
+#### OH_Input_SetMouseEventGlobalX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4730,7 +4730,7 @@ void OH_Input_SetMouseEventGlobalX(struct Input_MouseEvent* mouseEvent, int32_t 
 
 
 
-##### OH_Input_GetMouseEventGlobalX()
+#### OH_Input_GetMouseEventGlobalX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4760,7 +4760,7 @@ int32_t OH_Input_GetMouseEventGlobalX(const struct Input_MouseEvent* mouseEvent)
 
 
 
-##### OH_Input_SetMouseEventGlobalY()
+#### OH_Input_SetMouseEventGlobalY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4784,7 +4784,7 @@ void OH_Input_SetMouseEventGlobalY(struct Input_MouseEvent* mouseEvent, int32_t 
 
 
 
-##### OH_Input_GetMouseEventGlobalY()
+#### OH_Input_GetMouseEventGlobalY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4814,7 +4814,7 @@ int32_t OH_Input_GetMouseEventGlobalY(const struct Input_MouseEvent* mouseEvent)
 
 
 
-##### OH_Input_InjectTouchEventGlobal()
+#### OH_Input_InjectTouchEventGlobal()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4848,7 +4848,7 @@ int32_t OH_Input_InjectTouchEventGlobal(const struct Input_TouchEvent* touchEven
 
 
 
-##### OH_Input_SetTouchEventGlobalX()
+#### OH_Input_SetTouchEventGlobalX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4872,7 +4872,7 @@ void OH_Input_SetTouchEventGlobalX(struct Input_TouchEvent* touchEvent, int32_t 
 
 
 
-##### OH_Input_GetTouchEventGlobalX()
+#### OH_Input_GetTouchEventGlobalX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4902,7 +4902,7 @@ int32_t OH_Input_GetTouchEventGlobalX(const struct Input_TouchEvent* touchEvent)
 
 
 
-##### OH_Input_SetTouchEventGlobalY()
+#### OH_Input_SetTouchEventGlobalY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4926,7 +4926,7 @@ void OH_Input_SetTouchEventGlobalY(struct Input_TouchEvent* touchEvent, int32_t 
 
 
 
-##### OH_Input_GetTouchEventGlobalY()
+#### OH_Input_GetTouchEventGlobalY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4956,7 +4956,7 @@ int32_t OH_Input_GetTouchEventGlobalY(const struct Input_TouchEvent* touchEvent)
 
 
 
-##### OH_Input_SetAxisEventGlobalX()
+#### OH_Input_SetAxisEventGlobalX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4987,7 +4987,7 @@ Input_Result OH_Input_SetAxisEventGlobalX(struct Input_AxisEvent* axisEvent, int
 
 
 
-##### OH_Input_GetAxisEventGlobalX()
+#### OH_Input_GetAxisEventGlobalX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5018,7 +5018,7 @@ Input_Result OH_Input_GetAxisEventGlobalX(const Input_AxisEvent* axisEvent, int3
 
 
 
-##### OH_Input_SetAxisEventGlobalY()
+#### OH_Input_SetAxisEventGlobalY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5049,7 +5049,7 @@ Input_Result OH_Input_SetAxisEventGlobalY(struct Input_AxisEvent* axisEvent, int
 
 
 
-##### OH_Input_GetAxisEventGlobalY()
+#### OH_Input_GetAxisEventGlobalY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5080,7 +5080,7 @@ Input_Result OH_Input_GetAxisEventGlobalY(const Input_AxisEvent* axisEvent, int3
 
 
 
-##### OH_Input_GetPointerLocation()
+#### OH_Input_GetPointerLocation()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5114,7 +5114,7 @@ Input_Result OH_Input_GetPointerLocation(int32_t *displayId, double *displayX, d
 
 
 
-##### OH_Input_GetKeyEventId()
+#### OH_Input_GetKeyEventId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5145,7 +5145,7 @@ Input_Result OH_Input_GetKeyEventId(const struct Input_KeyEvent* keyEvent, int32
 
 
 
-##### OH_Input_AddKeyEventHook()
+#### OH_Input_AddKeyEventHook()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5183,7 +5183,7 @@ Input_Result OH_Input_AddKeyEventHook(Input_KeyEventCallback callback)
 
 
 
-##### OH_Input_RemoveKeyEventHook()
+#### OH_Input_RemoveKeyEventHook()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5217,7 +5217,7 @@ Input_Result OH_Input_RemoveKeyEventHook(Input_KeyEventCallback callback)
 
 
 
-##### OH_Input_DispatchToNextHandler()
+#### OH_Input_DispatchToNextHandler()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5259,7 +5259,7 @@ Input_Result OH_Input_DispatchToNextHandler(int32_t eventId)
 
 
 
-##### OH_Input_SetPointerVisible()
+#### OH_Input_SetPointerVisible()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5291,7 +5291,7 @@ Input_Result OH_Input_SetPointerVisible(bool visible)
 
 
 
-##### OH_Input_GetPointerStyle()
+#### OH_Input_GetPointerStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5324,7 +5324,7 @@ Input_Result OH_Input_GetPointerStyle(int32_t windowId, int32_t *pointerStyle)
 
 
 
-##### OH_Input_SetPointerStyle()
+#### OH_Input_SetPointerStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5357,7 +5357,7 @@ Input_Result OH_Input_SetPointerStyle(int32_t windowId, int32_t pointerStyle)
 
 
 
-##### OH_Input_CustomCursor_Create()
+#### OH_Input_CustomCursor_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5389,7 +5389,7 @@ Input_CustomCursor* OH_Input_CustomCursor_Create(OH_PixelmapNative* pixelMap, in
 
 
 
-##### OH_Input_CustomCursor_Destroy()
+#### OH_Input_CustomCursor_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5412,7 +5412,7 @@ void OH_Input_CustomCursor_Destroy(Input_CustomCursor** customCursor)
 
 
 
-##### OH_Input_CustomCursor_GetPixelMap()
+#### OH_Input_CustomCursor_GetPixelMap()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5443,7 +5443,7 @@ Input_Result OH_Input_CustomCursor_GetPixelMap(Input_CustomCursor* customCursor,
 
 
 
-##### OH_Input_CustomCursor_GetAnchor()
+#### OH_Input_CustomCursor_GetAnchor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5475,7 +5475,7 @@ Input_Result OH_Input_CustomCursor_GetAnchor(Input_CustomCursor* customCursor, i
 
 
 
-##### OH_Input_CursorConfig_Create()
+#### OH_Input_CursorConfig_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5505,7 +5505,7 @@ Input_CursorConfig* OH_Input_CursorConfig_Create(bool followSystem)
 
 
 
-##### OH_Input_CursorConfig_Destroy()
+#### OH_Input_CursorConfig_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5528,7 +5528,7 @@ void OH_Input_CursorConfig_Destroy(Input_CursorConfig** cursorConfig)
 
 
 
-##### OH_Input_CursorConfig_IsFollowSystem()
+#### OH_Input_CursorConfig_IsFollowSystem()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5559,7 +5559,7 @@ Input_Result OH_Input_CursorConfig_IsFollowSystem(Input_CursorConfig *cursorConf
 
 
 
-##### OH_Input_SetCustomCursor()
+#### OH_Input_SetCustomCursor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5595,7 +5595,7 @@ Input_Result OH_Input_SetCustomCursor(int32_t windowId, Input_CustomCursor* cust
 
 
 
-##### OH_Input_CursorInfo_Create()
+#### OH_Input_CursorInfo_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5618,7 +5618,7 @@ struct Input_CursorInfo* OH_Input_CursorInfo_Create()
 
 
 
-##### OH_Input_CursorInfo_Destroy()
+#### OH_Input_CursorInfo_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5641,7 +5641,7 @@ void OH_Input_CursorInfo_Destroy(Input_CursorInfo** cursorInfo)
 
 
 
-##### OH_Input_CursorInfo_IsVisible()
+#### OH_Input_CursorInfo_IsVisible()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5672,7 +5672,7 @@ Input_Result OH_Input_CursorInfo_IsVisible(Input_CursorInfo* cursorInfo, bool* v
 
 
 
-##### OH_Input_CursorInfo_GetStyle()
+#### OH_Input_CursorInfo_GetStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5703,7 +5703,7 @@ Input_Result OH_Input_CursorInfo_GetStyle(Input_CursorInfo* cursorInfo, Input_Po
 
 
 
-##### OH_Input_CursorInfo_GetSizeLevel()
+#### OH_Input_CursorInfo_GetSizeLevel()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5734,7 +5734,7 @@ Input_Result OH_Input_CursorInfo_GetSizeLevel(Input_CursorInfo* cursorInfo, int3
 
 
 
-##### OH_Input_CursorInfo_GetColor()
+#### OH_Input_CursorInfo_GetColor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5765,7 +5765,7 @@ Input_Result OH_Input_CursorInfo_GetColor(Input_CursorInfo* cursorInfo, uint32_t
 
 
 
-##### OH_Input_GetMouseEventCursorInfo()
+#### OH_Input_GetMouseEventCursorInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5796,7 +5796,7 @@ Input_Result OH_Input_GetMouseEventCursorInfo(const struct Input_MouseEvent* mou
 
 
 
-##### OH_Input_GetCursorInfo()
+#### OH_Input_GetCursorInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5829,7 +5829,7 @@ Input_Result OH_Input_GetCursorInfo(Input_CursorInfo* cursorInfo, OH_PixelmapNat
 
 
 
-##### OH_Input_SetTouchEventPressure()
+#### OH_Input_SetTouchEventPressure()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5860,7 +5860,7 @@ Input_Result OH_Input_SetTouchEventPressure(struct Input_TouchEvent* touchEvent,
 
 
 
-##### OH_Input_GetTouchEventPressure()
+#### OH_Input_GetTouchEventPressure()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5890,7 +5890,7 @@ double OH_Input_GetTouchEventPressure(const struct Input_TouchEvent* touchEvent)
 
 
 
-##### OH_Input_SetTouchEventWindowX()
+#### OH_Input_SetTouchEventWindowX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5914,7 +5914,7 @@ void OH_Input_SetTouchEventWindowX(struct Input_TouchEvent* touchEvent, int32_t 
 
 
 
-##### OH_Input_GetTouchEventWindowX()
+#### OH_Input_GetTouchEventWindowX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5944,7 +5944,7 @@ int32_t OH_Input_GetTouchEventWindowX(const struct Input_TouchEvent* touchEvent)
 
 
 
-##### OH_Input_SetTouchEventWindowY()
+#### OH_Input_SetTouchEventWindowY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5968,7 +5968,7 @@ void OH_Input_SetTouchEventWindowY(struct Input_TouchEvent* touchEvent, int32_t 
 
 
 
-##### OH_Input_GetTouchEventWindowY()
+#### OH_Input_GetTouchEventWindowY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5998,7 +5998,7 @@ int32_t OH_Input_GetTouchEventWindowY(const struct Input_TouchEvent* touchEvent)
 
 
 
-##### OH_Input_SetTouchEventDownTime()
+#### OH_Input_SetTouchEventDownTime()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6022,7 +6022,7 @@ void OH_Input_SetTouchEventDownTime(struct Input_TouchEvent* touchEvent, int64_t
 
 
 
-##### OH_Input_GetTouchEventDownTime()
+#### OH_Input_GetTouchEventDownTime()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6052,7 +6052,7 @@ int64_t OH_Input_GetTouchEventDownTime(const struct Input_TouchEvent* touchEvent
 
 
 
-##### OH_Input_SetTouchEventToolType()
+#### OH_Input_SetTouchEventToolType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6083,7 +6083,7 @@ Input_Result OH_Input_SetTouchEventToolType(struct Input_TouchEvent* touchEvent,
 
 
 
-##### OH_Input_GetTouchEventToolType()
+#### OH_Input_GetTouchEventToolType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

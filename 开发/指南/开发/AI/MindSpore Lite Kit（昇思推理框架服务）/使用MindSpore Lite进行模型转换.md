@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mindspore-lite-converter-guidelines
 
-##### 场景介绍
+#### 场景介绍
 
 MindSpore Lite AI模型部署流程是：
  1. 开发者首先将原始模型（如：ONNX、CAFFE等）用MindSpore Lite模型转换工具，生成后缀为.ms的模型文件。MindSpore Lite Kit所支持的ONNX算子，可查询[MindSpore Lite Kit算子支持列表](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mindspore-lite-supported-operators)，以确保模型转换成功。
@@ -12,13 +12,13 @@ MindSpore Lite AI模型部署流程是：
  
   
 
-##### 获取模型转换工具
+#### 获取模型转换工具
 
 对于MindSpore Lite模型转换工具，有以下两种方式可以获取：
  
   
 
-##### 通过下载获取
+#### 通过下载获取
  
 | 组件 | 硬件平台 | 操作系统 | 链接 | SHA-256 |
 | --- | --- | --- | --- | --- |
@@ -27,7 +27,7 @@ MindSpore Lite AI模型部署流程是：
  
   
 
-##### 通过源码编译
+#### 通过源码编译
 
 > [!WARNING]
 > 由于支持转换PyTorch模型的编译选项默认关闭，因此下载的安装包不支持转换PyTorch模型，只能通过源码编译方式获取。 模型中有transpose与convolution算子融合，需要通过源码编译方式获取。否则可能会发生类似警告：node infer shape failed, node is Default/Conv2DFusion-xxx。 当指定NPU后端进行推理时，需要自定义 关闭clip算子融合 ，模型转换工具需要通过源码编译方式获取。否则可能会发生类似报错：BuildKirinNPUModel# Create full model kernel failed。
@@ -59,7 +59,7 @@ bash build.sh -I x86_64 -j 8
 
   
 
-  ##### 配置环境变量
+  #### 配置环境变量
 
   获取到模型转换工具之后，还需要将转换工具需要的动态链接库加入环境变量LD_LIBRARY_PATH。
 
@@ -71,7 +71,7 @@ export LD_LIBRARY_PATH=${PACKAGE_PATH}/tools/converter/lib:${LD_LIBRARY_PATH}
 
   
 
-  ##### 参数说明
+  #### 参数说明
 
   MindSpore Lite模型转换工具提供了多种参数设置，用户可根据需要来选择使用。此外，用户可输入./converter_lite --help获取实时帮助信息。
 
@@ -112,7 +112,7 @@ export LD_LIBRARY_PATH=${PACKAGE_PATH}/tools/converter/lib:${LD_LIBRARY_PATH}
 
   
 
-  ##### 使用示例
+  #### 使用示例
 
   以CAFFE模型LeNet为例，执行转换命令。
 
@@ -132,7 +132,7 @@ CONVERT RESULT SUCCESS:0
 
   
 
-  ##### 离线模型转换（可选）
+  #### 离线模型转换（可选）
 
   当部署场景对加载时延要求严格时，开发者希望进一步降低加载时延，可采用另一种部署方案，即基于离线模型的推理。离线模型是使用硬件厂商的离线模型转换工具转换得到的模型，由硬件厂商负责解析和推理。
 
@@ -140,7 +140,7 @@ CONVERT RESULT SUCCESS:0
 
   
 
-  ##### 约束与限制
+  #### 约束与限制
 
   
 离线模型仅支持在NNRt后端推理，硬件厂商需接入NNRt且支持离线模型推理。
@@ -151,7 +151,7 @@ CONVERT RESULT SUCCESS:0
  
   
 
-##### 扩展配置文件说明
+#### 扩展配置文件说明
 
 扩展配置样例如下：
  
@@ -189,11 +189,11 @@ extended_parameters=key_foo:value_foo;key_bar:value_bar
  
   
 
-##### 附录
+#### 附录
 
   
 
-##### 关闭指定算子融合
+#### 关闭指定算子融合
 
 如果用户需要关闭指定算子融合功能，可新建配置文件，如converter.cfg，配置文件内容如下：
  

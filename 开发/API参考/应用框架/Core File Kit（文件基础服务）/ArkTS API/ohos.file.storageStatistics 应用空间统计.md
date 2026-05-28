@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -22,7 +22,7 @@ import { storageStatistics } from '@kit.CoreFileKit';
 
 
 
-##### storageStatistics.getCurrentBundleStats9+
+#### storageStatistics.getCurrentBundleStats9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -63,7 +63,7 @@ storageStatistics.getCurrentBundleStats().then((BundleStats: storageStatistics.B
 
 
 
-##### storageStatistics.getCurrentBundleStats9+
+#### storageStatistics.getCurrentBundleStats9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -107,7 +107,7 @@ storageStatistics.getCurrentBundleStats((error: BusinessError, bundleStats: stor
 
 
 
-##### storageStatistics.getTotalSize15+
+#### storageStatistics.getTotalSize15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -147,7 +147,7 @@ storageStatistics.getTotalSize().then((number: number) => {
 
 
 
-##### storageStatistics.getTotalSize15+
+#### storageStatistics.getTotalSize15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -191,7 +191,7 @@ storageStatistics.getTotalSize((error: BusinessError, number: number) => {
 
 
 
-##### storageStatistics.getTotalSizeSync15+
+#### storageStatistics.getTotalSizeSync15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -233,7 +233,7 @@ try {
 
 
 
-##### storageStatistics.getFreeSize15+
+#### storageStatistics.getFreeSize15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -273,7 +273,7 @@ storageStatistics.getFreeSize().then((number: number) => {
 
 
 
-##### storageStatistics.getFreeSize15+
+#### storageStatistics.getFreeSize15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -317,7 +317,7 @@ storageStatistics.getFreeSize((error: BusinessError, number: number) => {
 
 
 
-##### storageStatistics.getFreeSizeSync15+
+#### storageStatistics.getFreeSizeSync15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -359,7 +359,7 @@ try {
 
 
 
-##### BundleStats9+
+#### BundleStats9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -374,7 +374,7 @@ try {
 
 
 
-##### storageStatistics.getTotalInodes24+
+#### storageStatistics.getTotalInodes24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -417,7 +417,7 @@ storageStatistics.getTotalInodes().then((totalInodes: number) => {
 
 
 
-##### storageStatistics.getFreeInodes24+
+#### storageStatistics.getFreeInodes24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -460,7 +460,7 @@ storageStatistics.getFreeInodes().then((freeInodes: number) => {
 
 
 
-##### storageStatistics.getCurrentBundleInodes24+
+#### storageStatistics.getCurrentBundleInodes24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

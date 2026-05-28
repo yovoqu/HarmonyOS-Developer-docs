@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-v1-v2-mixusage
 
-##### 概述
+#### 概述
 
 为了帮助开发者顺利地向状态管理V2迁移，从API version 19开始，减少了对状态管理V1和V2混用场景的约束。具体变更可参考[限制条件](#限制条件)。同时提供新的方法[enableV2Compatibility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#enablev2compatibility19)和[makeV1Observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#makev1observed19)来帮助开发者解决在迁移过程中遇到的混用问题。
 
@@ -14,18 +14,18 @@
 
 
 
-##### 限制条件
+#### 限制条件
 1. V1装饰器不能和[@ObservedV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)一起使用。因为@ObservedV2/@Trace有自己独立的观察能力，不仅可以在[@ComponentV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#componentv2)中使用，也可以独立在[@Component](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#component)中使用，状态管理框架不希望其观察能力和V1的观察能力混合使用，所以依旧维持禁止现状。
 2. V2->V1，V1不支持用装饰器接收@ObservedV2装饰的class，否则编译报错。
 3. V1中[@Link](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-link)遵循其原本初始化规则，只能被V1状态变量初始化，详情见[@Link初始化规则示意图](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-link#变量的传递访问规则说明)。因为V1中[@Link](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-link)仅能和V1状态变量建立双向同步关系，而V2中如果想实现双向同步，可以使用@Param、@Event，具体例子见[@Link -> @Param/@Event迁移场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-v1-v2-migration-inner-component#link---paramevent)。
 
 
 
-##### 新增接口
+#### 新增接口
 
 
 
-##### makeV1Observed
+#### makeV1Observed
 
 [makeV1Observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#makev1observed19)将不可观察的对象包装成状态管理V1可观察的对象，能力等同于@Observed，其返回值可初始化@ObjectLink。
 
@@ -51,7 +51,7 @@
 
 
 
-##### enableV2Compatibility
+#### enableV2Compatibility
 
 [enableV2Compatibility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#enablev2compatibility19)将V1的状态变量使能V2的观察能力，即让V1状态变量可以在@ComponentV2中观察到变化。
 
@@ -76,7 +76,7 @@
 
 
 
-##### 混用规则
+#### 混用规则
 
  - V1->V2传递复杂类型数据，需要调用enableV2Compatibility，否则无法实现V1和V2的数据联动，建议在V2组件的构造处调用，否则当变量被整体赋值时，需要再次手动调用enableV2Compatibility。
 
@@ -127,16 +127,16 @@ arr.push(UIUtils.makeV1Observed(new ArrayItem())); // 新增数据是V1的状态
 开发者在使用这两个接口混用V1V2时，可遵循下图逻辑。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/bfaUZCUCR2iMHLmNcQpLBQ/zh-cn_image_0000002581433690.png?HW-CC-KV=V1&HW-CC-Date=20260528T014820Z&HW-CC-Expire=86400&HW-CC-Sign=050F01E4550116CD0F90CF97795DB345A821CA24DC0D1AE4C74541E50546082F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/bfaUZCUCR2iMHLmNcQpLBQ/zh-cn_image_0000002581433690.png?HW-CC-KV=V1&HW-CC-Date=20260528T030450Z&HW-CC-Expire=86400&HW-CC-Sign=7600904E3C17CBDFA6666BC3711338FDD85489A95E52669AC885550A5AB601B2)
 
 
 
 
-##### V1中使用V2的自定义组件
+#### V1中使用V2的自定义组件
 
 
 
-##### 传递class类型（V1->V2）
+#### 传递class类型（V1->V2）
 
 **普通class**
 
@@ -244,7 +244,7 @@ struct CompV2 {
 
 
 
-##### 传递内置类型（V1->V2）
+#### 传递内置类型（V1->V2）
 
 以Array为例。建议调用enableV2Compatibility和makeV1Observed，避免造成V1和V2双重代理的问题。
 
@@ -288,7 +288,7 @@ struct ArrayCompV2 {
 
 
 
-##### 传递二维数组（V1->V2）
+#### 传递二维数组（V1->V2）
 
 下面的例子中：
 
@@ -356,7 +356,7 @@ struct IndexPage {
 
 
 
-##### 传递嵌套类型（V1->V2）
+#### 传递嵌套类型（V1->V2）
 
 开发者在状态管理V1中基于@Observed和@ObjectLink实现深度观测，以下代码示例是嵌套场景：
 
@@ -491,11 +491,11 @@ struct NestedClassV2 {
 
 
 
-##### V2中使用V1的自定义组件
+#### V2中使用V1的自定义组件
 
 
 
-##### 传递class类型（V2->V1）
+#### 传递class类型（V2->V1）
 
 **普通class**
 
@@ -598,7 +598,7 @@ struct CompV2 {
 
 
 
-##### 传递内置类型（V2->V1）
+#### 传递内置类型（V2->V1）
 
 如果在V2中定义@Local arr: Array&lt;number&gt; = UIUtils.enableV2Compatibility(UIUtils.makeV1Observed([1, 2, 3]))，由于用了@Local装饰器V2可以观察属性的变化。但是没有调用enableV2Compatibility和makeV1Observed，V1无法观察属性的变化。所以正确做法调用UIUtils.enableV2Compatibility(UIUtils.makeV1Observed())，使V1中可以观察属性的变化。
 
@@ -640,7 +640,7 @@ struct ArrayCompV1 {
 
 
 
-##### 传递二维数组（V2->V1）
+#### 传递二维数组（V2->V1）
 
 下面的例子中：
 
@@ -709,7 +709,7 @@ struct IndexPage {
 
 
 
-##### 传递嵌套类型（V2->V1）
+#### 传递嵌套类型（V2->V1）
 
 下面例子中：
 

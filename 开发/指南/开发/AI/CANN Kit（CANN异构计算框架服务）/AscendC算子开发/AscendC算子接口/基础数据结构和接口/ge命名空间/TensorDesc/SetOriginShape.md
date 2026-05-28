@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-setoriginshape
 
-##### 函数功能
+#### 函数功能
 
 向TensorDesc中设置Tensor的原始Shape。
  
@@ -12,7 +12,7 @@
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 void SetOriginShape(const Shape &originShape);
@@ -20,7 +20,7 @@ void SetOriginShape(const Shape &originShape);
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数名 | 输入/输出 | 描述 |
 | --- | --- | --- |
@@ -29,18 +29,18 @@ void SetOriginShape(const Shape &originShape);
  
   
 
-##### 返回值
+#### 返回值
 
 无
  
   
 
-##### 异常处理
+#### 异常处理
 
 无
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

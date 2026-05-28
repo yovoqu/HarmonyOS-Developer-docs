@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,13 +22,13 @@ import { XComponentNode } from "@kit.ArkUI";
 
 
 
-##### XComponentNode(deprecated)
+#### XComponentNode(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### constructor(deprecated)
+#### constructor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -59,7 +59,7 @@ XComponentNode的构造函数。
 
 
 
-##### onCreate(deprecated)
+#### onCreate(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -82,7 +82,7 @@ XComponentNode加载完成时触发该回调。
 
 
 
-##### onDestroy(deprecated)
+#### onDestroy(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -98,7 +98,7 @@ XComponentNode销毁时触发该回调。
 
 
 
-##### changeRenderType(deprecated)
+#### changeRenderType(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -128,7 +128,7 @@ changeRenderType(type: NodeRenderType): boolean
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -184,4 +184,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/8mw9vT3RQjqeohnZelmp-g/zh-cn_image_0000002581275672.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T024113Z&HW-CC-Expire=86400&HW-CC-Sign=4F74DEC6CBA9C5FE42C2DC58CE32889001755F1A92BB0E7108AAF86488ED0D2F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/8mw9vT3RQjqeohnZelmp-g/zh-cn_image_0000002581275672.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T025447Z&HW-CC-Expire=86400&HW-CC-Sign=F7926936FA735D483FABF3613F63664D06E99FA3659152F8C850F77B0E5B4CE3)

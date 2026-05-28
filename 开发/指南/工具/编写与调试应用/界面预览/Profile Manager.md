@@ -20,16 +20,16 @@
  1. 在预览器界面，打开Profile Manager界面。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/eohZDrIKTlacB0yAS2JnNQ/zh-cn_image_0000002571386802.png?HW-CC-KV=V1&HW-CC-Date=20260528T014957Z&HW-CC-Expire=86400&HW-CC-Sign=46807123C96A4907BFA2F25A44F4339C8B705A0BC73994E6570C4F0EEDBB71FF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/RBEafB9nQgiZfzyC382sTw/zh-cn_image_0000002571386802.png?HW-CC-KV=V1&HW-CC-Date=20260528T030627Z&HW-CC-Expire=86400&HW-CC-Sign=09A16D6E85044FB571BD5BB60B208F662BD09C3F778211A1FDC20E992021A4CB)
 
 2. 在Profile Manager界面，单击**+ New Profile**按钮，添加设备。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/Q2JvkHATSImxhKx5SN8amg/zh-cn_image_0000002602065917.png?HW-CC-KV=V1&HW-CC-Date=20260528T014957Z&HW-CC-Expire=86400&HW-CC-Sign=D94EDCFF80F2E51E5B204D95427CA3255E624682D4B70C015CB2B6B746673DCD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/6ZyxGuZbQSWHkNwHjQ_CGw/zh-cn_image_0000002602065917.png?HW-CC-KV=V1&HW-CC-Date=20260528T030627Z&HW-CC-Expire=86400&HW-CC-Sign=8251523AC57C999DC17ED027B9D2BABE3F8AAACD73106C012BB6D9F54F5DF1A3)
 
 3. 在**Create Profile**界面，填写新增设备的信息，如**Profile ID**（设备型号）、**Device type**（设备类型）、**Resolution**（分辨率）和**Language and region**（语言和区域）等。其中Device type只能选择module.json5中deviceTypes字段已定义的设备。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/Nf7Ems1BTRGq0etGwIPRCg/zh-cn_image_0000002571386800.png?HW-CC-KV=V1&HW-CC-Date=20260528T014957Z&HW-CC-Expire=86400&HW-CC-Sign=90271D7C3E9B6C9189706380EE9271EA42F501B995D185536450EE68872CC9D7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/pML_MqwNQBClMu4R8S7_yA/zh-cn_image_0000002571386800.png?HW-CC-KV=V1&HW-CC-Date=20260528T030627Z&HW-CC-Expire=86400&HW-CC-Sign=1BB2DBA99ABA5B12A97E92FB5F000F77DF57BCCC13CFFC4212306F40DCE0135F)
 
 4. 设备信息填写完成后，单击**OK**完成创建。

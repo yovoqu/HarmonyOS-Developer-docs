@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-automappingfndynamic
 
-##### 函数功能
+#### 函数功能
 
 动态输入/输出算子的自动映射回调函数。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 Status AutoMappingFnDynamic(const google::protobuf::Message *op_src, ge::Operator &op, std::map<std::string, std::pair<std::string, std::string>> dynamic_name_attr_value, int32_t in_pos = -1, int32_t out_pos = -1)
@@ -18,7 +18,7 @@ Status AutoMappingFnDynamic(const google::protobuf::Message *op_src, ge::Operato
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -31,13 +31,13 @@ Status AutoMappingFnDynamic(const google::protobuf::Message *op_src, ge::Operato
  
   
 
-##### 约束说明
+#### 约束说明
 
 若原始TensorFlow算子与适配AI处理器的算子属性无法一一映射，AutoMappingFnDynamic函数无法应用于回调函数[ParseParamsByOperatorFn](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-parseparamsbyoperatorfn)中，此种场景下，请在回调函数中使用[AutoMappingByOpFnDynamic](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-automappingbyopfndynamic)接口进行可以映射成功的属性的自动解析，使用示例请参见[调用示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-automappingbyopfndynamic#调用示例)。
  
   
 
-##### 调用示例
+#### 调用示例
 
 动态输入的代码示例：
  

@@ -7,7 +7,7 @@
 本章节介绍如何拉起金融类应用扩展面板。
 
 
-##### 金融类应用扩展面板参数说明
+#### 金融类应用扩展面板参数说明
 
 startAbilityByType接口中type字段为finance，对应的wantParam参数：
 
@@ -19,7 +19,7 @@ startAbilityByType接口中type字段为finance，对应的wantParam参数：
 
 
 
-##### 拉起方开发步骤
+#### 拉起方开发步骤
 1. 导入相关模块。
 
   
@@ -81,7 +81,7 @@ struct Index {
 
 
 
-##### 目标方开发步骤
+#### 目标方开发步骤
 1. 在module.json5中配置[uris](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#skills标签)，步骤如下：
 
   

@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uitest-guidelines
 
-##### 概述
+#### 概述
 
 UI测试框架（UITest）为开发者提供UI界面查找和模拟操作能力，可覆盖UI自动化测试的关键场景，包括界面控件精准查找、UI交互操作（如点击、滑动、文本输入等）、外设行为模拟（如键盘输入、鼠标操作、触控板手势、手写笔动作等），助力开发者开发高效可靠的界面自动化测试用例。
  
   
 
-##### 功能全景
+#### 功能全景
 
 UITest支持采用ArkTS API与命令行两种方式，为界面自动化测试提供灵活高效的技术支撑，其中：
  
@@ -40,7 +40,7 @@ UITest分为客户端和服务端。
  
   
 
-##### 使用ArkTS接口进行UI测试
+#### 使用ArkTS接口进行UI测试
 
 本章节介绍UI测试框架ArkTS API的具体使用方法。
  
@@ -48,7 +48,7 @@ UI测试是在[单元测试](https://developer.huawei.com/consumer/cn/doc/harmon
  
   
 
-##### UI测试示例
+#### UI测试示例
 
 下面提供一个UI测试的简单示例，介绍如何在单元测试脚本基础上进行UI测试的增量开发，具体实现功能如下：
  1. 调用[程序框架服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitydelegator)能力，启动目标被测应用，并确认应用运行状态。
@@ -137,7 +137,7 @@ export default function abilityTest() {
  
   
 
-##### 控件查找与操作
+#### 控件查找与操作
 
 UITest支持[依据多种属性构造匹配器](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-uitest#on9)进行控件查找；支持查找当前页面符合匹配条件的单个或多个目标控件，并返回控件对象；支持在滚动组件内部进行滚动查找目标控件；支持[对控件对象进行操作或获取控件的属性信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-uitest#component9)。
  
@@ -183,7 +183,7 @@ export default function abilityTest() {
  
   
 
-##### 模拟触摸屏手指操作
+#### 模拟触摸屏手指操作
 
 UITest支持模拟包括点击、双击、长按、滑动、拖拽、多指操作等事件。
  
@@ -231,7 +231,7 @@ export default function abilityTest() {
  
   
 
-##### 页面加载等待
+#### 页面加载等待
 
 在与页面进行交互后，可通过在指定时间内等待某控件的出现或等待页面空闲来判断页面跳转是否完成。
  
@@ -266,7 +266,7 @@ export default function abilityTest() {
  
   
 
-##### 模拟文本输入
+#### 模拟文本输入
 
 UITest支持向指定坐标点或指定控件输入文本内容，同时支持[指定输入方式](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-uitest#inputtextmode20)：输入文本时是否以复制粘贴方式输入、是否以追加的方式进行输入。
  
@@ -340,7 +340,7 @@ export default function abilityTest() {
  
   
 
-##### 截图
+#### 截图
 
 > [!NOTE]
 > 指定截图文件保存路径，路径需为当前应用的 沙箱路径 。 测试HAP的 APL等级级别 为normal，对应要求使用用户级加密区的应用沙箱路径。且需指定将文件保存在应用在本设备上存放持久化数据的子目录。
@@ -389,7 +389,7 @@ export default function abilityTest() {
  
   
 
-##### UI事件监听
+#### UI事件监听
 
 如下给出UI界面事件的监听的示例，设置监听回调函数，监听toast、dialog等控件的出现，等待事件发生后进行下一步操作。下面代码执行前请参考UI测试示例，实现对应的Index.ets页面代码。
  
@@ -417,7 +417,7 @@ export default function abilityTest() {
  
   
 
-##### 模拟键鼠操作
+#### 模拟键鼠操作
 
 如下给出键鼠模拟操作，包括键盘按键、组合键输入操作的示例，包括鼠标点击、移动、拖拽操作和键鼠组合操作等。下面代码执行前请参考UI测试示例，实现对应的Index.ets页面代码。
  
@@ -463,7 +463,7 @@ export default function abilityTest() {
  
   
 
-##### 窗口查找与操作
+#### 窗口查找与操作
 
 如下给出窗口查找和操作的示例，根据窗口属性查找窗口，并进行窗口最小化等操作。下面代码执行前请参考UI测试示例，实现对应的Index.ets页面代码。
  
@@ -494,7 +494,7 @@ export default function abilityTest() {
  
   
 
-##### 模拟触摸板操作
+#### 模拟触摸板操作
 
 如下给出触摸板模拟操作的示例，触摸板三指上滑返回桌面，三指下滑恢复应用窗口。下面代码执行前请参考UI测试示例，实现对应的Index.ets页面代码。
  
@@ -527,7 +527,7 @@ export default function abilityTest() {
  
   
 
-##### 模拟手写笔操作
+#### 模拟手写笔操作
 
 如下给出手写笔模拟操作，包括点击、滑动等操作的示例，支持设置操作时的压力值大小。下面代码执行前请参考UI测试示例，实现对应的Index.ets页面代码。
  
@@ -556,7 +556,7 @@ export default function abilityTest() {
  
   
 
-##### 模拟表冠操作
+#### 模拟表冠操作
 
 如下给出表冠模拟操作的示例，包括表冠的顺/逆时针旋转。下面代码执行前请参考UI测试示例，实现对应的Index.ets页面代码。
  
@@ -589,7 +589,7 @@ export default function abilityTest() {
  
   
 
-##### 屏幕显示操作
+#### 屏幕显示操作
 
 如下给出屏幕显示操作的示例，包括获取屏幕大小、分辨率等属性和屏幕唤醒、屏幕旋转等操作。下面代码执行前请参考UI测试示例，实现对应的Index.ets页面代码。
  
@@ -618,19 +618,19 @@ export default function abilityTest() {
  
   
 
-##### 基于命令行进行UI测试
+#### 基于命令行进行UI测试
 
 在开发阶段，如果需要快速执行截图、界面操作录制、UI模拟操作注入、控件树获取等测试相关操作，可借助命令行实现，提升测试效率。
  
   
 
-##### 环境要求
+#### 环境要求
 
 根据hdc命令行工具指导，完成[环境准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdc#环境准备)。确保设备已成功连接，并执行hdc shell。
  
   
 
-##### 命令列表
+#### 命令列表
  
 | 命令 | 参数 | 说明 |
 | --- | --- | --- |
@@ -645,7 +645,7 @@ export default function abilityTest() {
  
   
 
-##### 获取截图
+#### 获取截图
  
 | 参数 | 二级参数 | 说明 |
 | --- | --- | --- |
@@ -662,7 +662,7 @@ hdc shell uitest screenCap -p /data/local/tmp/1.png
  
   
 
-##### 获取控件树
+#### 获取控件树
  
 | 参数 | 二级参数 | 说明 |
 | --- | --- | --- |
@@ -682,7 +682,7 @@ hdc shell uitest dumpLayout -p /data/local/tmp/1.json
  
   
 
-##### 录制界面操作
+#### 录制界面操作
 
 > [!NOTE]
 > 录制过程中，需等待当前操作的识别结果在命令行输出后，再进行下一步操作。
@@ -752,7 +752,7 @@ hdc shell uitest uiRecord read
  
   
 
-##### 注入UI模拟操作
+#### 注入UI模拟操作
  
 | 参数 | 说明 |
 | --- | --- |
@@ -901,7 +901,7 @@ hdc shell uitest uiInput keyEvent 2047 2038
  
   
 
-##### 获取版本信息
+#### 获取版本信息
 
 ```bash
 hdc shell uitest --version
@@ -909,7 +909,7 @@ hdc shell uitest --version
  
   
 
-##### 拉起UITest测试进程
+#### 拉起UITest测试进程
 
 > [!NOTE]
 > 仅元能力aa test拉起的测试HAP才能调用Uitest的能力，且测试HAP的 APL等级级别 需为normal。
@@ -921,11 +921,11 @@ hdc shell uitest start-daemon
  
   
 
-##### 常见问题
+#### 常见问题
 
   
 
-##### 失败日志有“uitest-api does not allow calling concurrently”错误信息
+#### 失败日志有“uitest-api does not allow calling concurrently”错误信息
 
 **问题描述**
  
@@ -941,7 +941,7 @@ UI测试用例执行失败，查看hilog日志发现日志中有“uitest-api do
  
   
 
-##### 失败日志有“does not exist on current UI! Check if the UI has changed after you got the widget object”错误信息
+#### 失败日志有“does not exist on current UI! Check if the UI has changed after you got the widget object”错误信息
 
 **问题描述**
  
@@ -957,7 +957,7 @@ UI测试用例执行失败，查看hilog日志发现日志中有“does not exis
  
   
 
-##### 失败日志有“Cannot connect to AAMS, RET_ERR_CONNECTION_EXIST”错误信息
+#### 失败日志有“Cannot connect to AAMS, RET_ERR_CONNECTION_EXIST”错误信息
 
 **问题描述**
  

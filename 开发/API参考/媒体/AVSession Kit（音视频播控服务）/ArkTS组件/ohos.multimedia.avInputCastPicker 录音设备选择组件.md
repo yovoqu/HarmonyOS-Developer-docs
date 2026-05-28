@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** PC/2in1
 
@@ -22,7 +22,7 @@ import { AVInputCastPicker } from '@kit.AVSessionKit';
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** PC/2in1
 
@@ -30,7 +30,7 @@ import { AVInputCastPicker } from '@kit.AVSessionKit';
 
 
 
-##### AVInputCastPicker
+#### AVInputCastPicker
 
 **支持设备：** PC/2in1
 
@@ -61,7 +61,7 @@ AVInputCastPicker({
 
 
 
-##### OnPickerStateCallback
+#### OnPickerStateCallback
 
 **支持设备：** PC/2in1
 
@@ -80,7 +80,7 @@ type OnPickerStateCallback = (state: AVCastPickerState) => void
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** PC/2in1
 
@@ -88,7 +88,7 @@ type OnPickerStateCallback = (state: AVCastPickerState) => void
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** PC/2in1
 

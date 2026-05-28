@@ -12,7 +12,7 @@
 
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@ Polyline(options?: PolylineOptions)
  
   
 
-##### PolylineOptions18+对象说明
+#### PolylineOptions18+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -65,7 +65,7 @@ Polyline(options?: PolylineOptions)
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -73,7 +73,7 @@ Polyline(options?: PolylineOptions)
  
   
 
-##### points
+#### points
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -96,7 +96,7 @@ points(value: Array&lt;any&gt;)
  
   
 
-##### fill
+#### fill
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -119,7 +119,7 @@ fill(value: ResourceColor)
  
   
 
-##### fillOpacity
+#### fillOpacity
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -142,7 +142,7 @@ fillOpacity(value: number | string | Resource)
  
   
 
-##### stroke
+#### stroke
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -165,7 +165,7 @@ stroke(value: ResourceColor)
  
   
 
-##### strokeDashArray
+#### strokeDashArray
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -188,7 +188,7 @@ strokeDashArray(value: Array&lt;any&gt;)
  
   
 
-##### strokeDashOffset
+#### strokeDashOffset
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -211,7 +211,7 @@ strokeDashOffset(value: number | string)
  
   
 
-##### strokeLineCap
+#### strokeLineCap
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -234,7 +234,7 @@ strokeLineCap(value: LineCapStyle)
  
   
 
-##### strokeLineJoin
+#### strokeLineJoin
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -257,7 +257,7 @@ strokeLineJoin(value: LineJoinStyle)
  
   
 
-##### strokeMiterLimit
+#### strokeMiterLimit
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -280,7 +280,7 @@ strokeMiterLimit(value: number | string)
  
   
 
-##### strokeOpacity
+#### strokeOpacity
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -303,7 +303,7 @@ strokeOpacity(value: number | string | Resource)
  
   
 
-##### strokeWidth
+#### strokeWidth
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -326,7 +326,7 @@ strokeWidth(value: Length)
  
   
 
-##### antiAlias
+#### antiAlias
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -349,13 +349,13 @@ antiAlias(value: boolean)
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 示例1（组件属性绘制）
+#### 示例1（组件属性绘制）
 
 通过points、fillOpacity、stroke、strokeLineJoin、strokeLineCap属性分别绘制折线的经过坐标、透明度、边框颜色、拐角样式、端点样式。
  
@@ -395,7 +395,7 @@ struct PolylineExample {
  
   
 
-##### 示例2（宽和高使用不同参数类型绘制折线）
+#### 示例2（宽和高使用不同参数类型绘制折线）
 
 width、height属性分别使用不同的长度类型绘制图形。
  
@@ -428,12 +428,12 @@ struct PolylineTypeExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/zLtUxvpgQd62IjKvRAUiYQ/zh-cn_image_0000002581436146.png?HW-CC-KV=V1&HW-CC-Date=20260528T024200Z&HW-CC-Expire=86400&HW-CC-Sign=8B58013641426223D66A063E04078C0A02D2F614DE1E9AE8A632E5B434782AEF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/zLtUxvpgQd62IjKvRAUiYQ/zh-cn_image_0000002581436146.png?HW-CC-KV=V1&HW-CC-Date=20260528T025533Z&HW-CC-Expire=86400&HW-CC-Sign=D2C13C8D99DE2A340F596E472495C642EDF55B964803967FE9B41FF70542C709)
 
  
   
 
-##### 示例3（使用attributeModifier动态设置Polyline组件的属性）
+#### 示例3（使用attributeModifier动态设置Polyline组件的属性）
 
 以下示例展示了如何使用attributeModifier动态设置Polyline组件的points、fill、fillOpacity、stroke、strokeDashArray、strokeDashOffset、strokeLineCap、strokeLineJoin、strokeMiterLimit、strokeOpacity、strokeWidth和antiAlias属性。
  
@@ -475,4 +475,4 @@ struct PolylineModifierDemo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/HhqdE0WBR5SDQ1ZGLOb2Mw/zh-cn_image_0000002611835975.png?HW-CC-KV=V1&HW-CC-Date=20260528T024200Z&HW-CC-Expire=86400&HW-CC-Sign=51DFDCEC4CFE7A6DAADC6DC52A9D7CFF9002D66BF02A4607C4CB852C53D9C45E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/HhqdE0WBR5SDQ1ZGLOb2Mw/zh-cn_image_0000002611835975.png?HW-CC-KV=V1&HW-CC-Date=20260528T025533Z&HW-CC-Expire=86400&HW-CC-Sign=237C012EAD756A652DAF9F73B1E91862C68FD8839ABD6F295C6CFDA78301EFC4)

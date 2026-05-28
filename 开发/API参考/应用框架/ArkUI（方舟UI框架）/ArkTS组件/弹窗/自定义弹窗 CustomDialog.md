@@ -12,7 +12,7 @@
 
 
 
-##### CustomDialogController
+#### CustomDialogController
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@
 
 
 
-##### 导入对象
+#### 导入对象
 
 ```text
 dialogController : CustomDialogController | null = new CustomDialogController(CustomDialogControllerOptions)
@@ -36,7 +36,7 @@ dialogController : CustomDialogController | null = new CustomDialogController(Cu
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -61,7 +61,7 @@ constructor(value: CustomDialogControllerOptions)
 
 
 
-##### open
+#### open
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -79,7 +79,7 @@ open()
 
 
 
-##### close
+#### close
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -93,7 +93,7 @@ close()
 
 
 
-##### getState20+
+#### getState20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -114,7 +114,7 @@ getState(): PromptActionCommonState
 
 
 
-##### PromptActionCommonState20+
+#### PromptActionCommonState20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -133,7 +133,7 @@ type PromptActionCommonState = promptAction.CommonState
 
 
 
-##### CustomDialogControllerOptions对象说明
+#### CustomDialogControllerOptions对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -189,7 +189,7 @@ type PromptActionCommonState = promptAction.CommonState
 
 
 
-##### DismissDialogAction12+
+#### DismissDialogAction12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -201,7 +201,7 @@ Dialog关闭的信息。
 
 
 
-##### 属性
+#### 属性
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -211,13 +211,13 @@ Dialog关闭的信息。
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1（弹出嵌套弹窗）
+#### 示例1（弹出嵌套弹窗）
 
 该示例实现了在CustomDialog中打开另一个或另一些CustomDialog。
 
@@ -370,7 +370,7 @@ struct CustomDialogUser {
 
 
 
-##### 示例2（可在主窗外弹出的弹窗）
+#### 示例2（可在主窗外弹出的弹窗）
 
 在2in1设备上设置[showInSubWindow](#customdialogcontrolleroptions对象说明)为true时，可以弹出在主窗外显示的弹窗。
 
@@ -463,7 +463,7 @@ struct CustomDialogUser {
 
 
 
-##### 示例3（设置弹窗的样式）
+#### 示例3（设置弹窗的样式）
 
 该示例定义了CustomDialog的样式，包括宽度、高度、背景色、阴影等。
 
@@ -559,7 +559,7 @@ struct CustomDialogUser {
 
 
 
-##### 示例4（悬停态弹窗）
+#### 示例4（悬停态弹窗）
 
 该示例展示了在折叠屏悬停态下设置dialog布局区域的效果。
 
@@ -657,7 +657,7 @@ struct CustomDialogUser {
 
 
 
-##### 示例5（获取弹窗的状态）
+#### 示例5（获取弹窗的状态）
 
 该示例实现了在[CustomDialogController](#customdialogcontroller)中调用[getState](#getstate20)获取弹窗当前状态。
 
@@ -720,7 +720,7 @@ struct CustomDialogUser {
 
 
 
-##### 示例6（使用@Link和@Consume监听数据变化）
+#### 示例6（使用@Link和@Consume监听数据变化）
 
 该示例使用[@Link](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-link)和[@Consume](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-provide-and-consume)实现页面与弹窗内数据的双向绑定。
 
@@ -828,7 +828,7 @@ struct CustomDialogUser {
 
 
 
-##### 示例7（自定义带loading的弹窗）
+#### 示例7（自定义带loading的弹窗）
 
 该示例使用[maskColor](#customdialogcontrolleroptions对象说明)，[maskRect](#customdialogcontrolleroptions对象说明)和[LoadingProgress](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-loadingprogress)，实现带loading的弹窗，并展示不在maskRect区域的事件透传效果。
 
@@ -937,7 +937,7 @@ struct CustomDialogUser {
 
 
 
-##### 示例8（不使用keyboardAvoidDistance调整弹窗与软键盘的间距）
+#### 示例8（不使用keyboardAvoidDistance调整弹窗与软键盘的间距）
 
 该示例通过监听键盘变化，调整布局[margin](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#margin)的[bottom](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#margin)，实现与使用[keyboardAvoidDistance](#customdialogcontrolleroptions对象说明)调整弹窗与软键盘的间距一样的效果。
 
@@ -1080,7 +1080,7 @@ struct CustomDialogUser {
 
 
 
-##### 示例9（弹窗生命周期）
+#### 示例9（弹窗生命周期）
 
 该示例为弹窗配置生命周期回调。
 
@@ -1176,12 +1176,12 @@ struct Example3 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/NCEh58xuQBaf9msGGnWssg/zh-cn_image_0000002581436182.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024203Z&HW-CC-Expire=86400&HW-CC-Sign=306FCC6B80BB6C58E80FD21D5D5DB5BC7729A55AABF5D1212EC8854577330C2B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/NCEh58xuQBaf9msGGnWssg/zh-cn_image_0000002581436182.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025536Z&HW-CC-Expire=86400&HW-CC-Sign=EBC0E17139C2DA02472FD59C52129A444A3173F05C2414100CDA5A23CD711EF3)
 
 
 
 
-##### 示例10（不同customStyle下的弹窗示例）
+#### 示例10（不同customStyle下的弹窗示例）
 
 该示例是在对齐方式为[DialogAlignment.Bottom](#customdialogcontrolleroptions对象说明)时，展示[customStyle](#customdialogcontrolleroptions对象说明)不同值下，弹窗内容与安全区域的效果。
 
@@ -1266,12 +1266,12 @@ struct CustomDialogUser {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/S4q5CFNzQMeJT22Hp04L0A/zh-cn_image_0000002611836013.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024203Z&HW-CC-Expire=86400&HW-CC-Sign=03D39BC0EAC964520CA6DED886453831E3E0156F445AF6D99F183A6BC62ADD91)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/S4q5CFNzQMeJT22Hp04L0A/zh-cn_image_0000002611836013.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025536Z&HW-CC-Expire=86400&HW-CC-Sign=9029BCF201C04A7EFBA17041C01E8982B7931A0152FE32765EAF1D169912EC81)
 
 
 
 
-##### 示例11（自定义背景模糊效果参数）
+#### 示例11（自定义背景模糊效果参数）
 
 该示例通过配置[backgroundBlurStyleOptions](#customdialogcontrolleroptions对象说明)，实现自定义背景模糊效果。
 
@@ -1332,12 +1332,12 @@ struct CustomDialogUser {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/__XU-dvxSC24ULDrhQPsOg/zh-cn_image_0000002581276266.png?HW-CC-KV=V1&HW-CC-Date=20260528T024203Z&HW-CC-Expire=86400&HW-CC-Sign=7375D59C49B10F4FA51262CBBCFF838D57371FB2EC6BD3882E68FC7FD478CDB8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/__XU-dvxSC24ULDrhQPsOg/zh-cn_image_0000002581276266.png?HW-CC-KV=V1&HW-CC-Date=20260528T025536Z&HW-CC-Expire=86400&HW-CC-Sign=63C327FBF6CF4BEFD270314BBC3F071AAD8C78688A05D85F15A4B0DBE4777FA5)
 
 
 
 
-##### 示例12（自定义背景效果参数）
+#### 示例12（自定义背景效果参数）
 
 该示例通过配置[backgroundEffect](#customdialogcontrolleroptions对象说明)，实现自定义背景效果。
 
@@ -1399,12 +1399,12 @@ struct CustomDialogUser {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/MX7_qjcDTUmCj6PWRRSlWQ/zh-cn_image_0000002611756121.png?HW-CC-KV=V1&HW-CC-Date=20260528T024203Z&HW-CC-Expire=86400&HW-CC-Sign=77E30717B515D550BE0A54CC0C501FFB7B237A5A49000E9677484B9BEEBE815B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/MX7_qjcDTUmCj6PWRRSlWQ/zh-cn_image_0000002611756121.png?HW-CC-KV=V1&HW-CC-Date=20260528T025536Z&HW-CC-Expire=86400&HW-CC-Sign=01B8DE6AC115F312EB701F269D0106AE5EE18A72D8EC99EB23F80F928BC35062)
 
 
 
 
-##### 示例13（自定义弹窗动态刷新宽度）
+#### 示例13（自定义弹窗动态刷新宽度）
 
 该示例通过状态变量同步自定义组件的宽度，实现自定义弹窗宽度动态切换。
 
@@ -1470,4 +1470,4 @@ struct CustomDialogUser {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/5jc9mJB5RX2dpaWW_D1-0g/zh-cn_image_0000002581436184.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024203Z&HW-CC-Expire=86400&HW-CC-Sign=7AA109F72BD1C6C89F74BF0E024C3D9BD964D36C31D1B291033E420B2A38A1EA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/5jc9mJB5RX2dpaWW_D1-0g/zh-cn_image_0000002581436184.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025536Z&HW-CC-Expire=86400&HW-CC-Sign=6D4C632F43794CB602154BBC804E7B675876BBCCB090EB5325F2416027927E6E)

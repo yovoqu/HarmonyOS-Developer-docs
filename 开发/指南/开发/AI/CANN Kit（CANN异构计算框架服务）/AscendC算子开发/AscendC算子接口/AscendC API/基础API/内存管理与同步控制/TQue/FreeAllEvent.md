@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-tque-freeallevent
 
-##### 功能说明
+#### 功能说明
 
 释放对应队列中的所有事件，防止出现同步事件未匹配的情况，是一种额外的保护机制。建议优先保证AllocTensor/FreeTensor和EnQue/DeQue配对使用，配对使用情况下不需要调用该接口。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 __aicore__ inline void FreeAllEvent()
@@ -18,13 +18,13 @@ __aicore__ inline void FreeAllEvent()
  
   
 
-##### 参数说明
+#### 参数说明
 
 无
  
   
 
-##### 支持的型号
+#### 支持的型号
 
 Kirin9020系列处理器
  
@@ -32,19 +32,19 @@ KirinX90系列处理器
  
   
 
-##### 注意事项
+#### 注意事项
 
 无
  
   
 
-##### 返回值
+#### 返回值
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 // 接口：DeQue Tensor

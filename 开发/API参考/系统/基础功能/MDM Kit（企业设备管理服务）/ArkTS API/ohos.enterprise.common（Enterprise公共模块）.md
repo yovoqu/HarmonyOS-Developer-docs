@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { common } from '@kit.MDMKit';
 
 
 
-##### ManagedPolicy
+#### ManagedPolicy
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -39,7 +39,7 @@ import { common } from '@kit.MDMKit';
 
 
 
-##### ApplicationInstance
+#### ApplicationInstance
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -58,7 +58,7 @@ import { common } from '@kit.MDMKit';
 
 
 
-##### InstallationResult
+#### InstallationResult
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -76,7 +76,7 @@ import { common } from '@kit.MDMKit';
 
 
 
-##### Result
+#### Result
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -92,7 +92,7 @@ import { common } from '@kit.MDMKit';
 
 
 
-##### EnterpriseAdminExtensionContext23+
+#### EnterpriseAdminExtensionContext23+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -111,7 +111,7 @@ EnterpriseAdminExtensionContext是[EnterpriseAdminExtensionAbility](https://deve
 
 
 
-##### StartupScene24+
+#### StartupScene24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

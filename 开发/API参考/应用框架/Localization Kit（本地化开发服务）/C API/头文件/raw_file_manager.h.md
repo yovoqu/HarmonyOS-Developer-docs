@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-raw-file-manager-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -40,7 +40,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -56,13 +56,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_ResourceManager_InitNativeResourceManager()
+#### OH_ResourceManager_InitNativeResourceManager()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -93,7 +93,7 @@ NativeResourceManager *OH_ResourceManager_InitNativeResourceManager(napi_env env
  
   
 
-##### OH_ResourceManager_ReleaseNativeResourceManager()
+#### OH_ResourceManager_ReleaseNativeResourceManager()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -116,7 +116,7 @@ void OH_ResourceManager_ReleaseNativeResourceManager(NativeResourceManager *resM
  
   
 
-##### OH_ResourceManager_OpenRawDir()
+#### OH_ResourceManager_OpenRawDir()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -153,7 +153,7 @@ RawDir *OH_ResourceManager_OpenRawDir(const NativeResourceManager *mgr, const ch
  
   
 
-##### OH_ResourceManager_OpenRawFile()
+#### OH_ResourceManager_OpenRawFile()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -190,7 +190,7 @@ RawFile *OH_ResourceManager_OpenRawFile(const NativeResourceManager *mgr, const 
  
   
 
-##### OH_ResourceManager_OpenRawFile64()
+#### OH_ResourceManager_OpenRawFile64()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -227,7 +227,7 @@ RawFile64 *OH_ResourceManager_OpenRawFile64(const NativeResourceManager *mgr, co
  
   
 
-##### OH_ResourceManager_IsRawDir()
+#### OH_ResourceManager_IsRawDir()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/napi
 
-##### 简介
+#### 简介
 
 Node-API是用于封装JavaScript能力为Native插件的API，独立于底层JavaScript，并作为Node.js的一部分。
 
 
 
-##### 支持的能力
+#### 支持的能力
 
 Node-API可以去除底层的JavaScript引擎的差异，提供一套稳定的接口。
 
@@ -18,7 +18,7 @@ HarmonyOS的Node-API组件对Node-API的接口进行了重新实现，底层对�
 
 
 
-##### 引入Node-API能力
+#### 引入Node-API能力
 
 如果开发者需要使用Node-API相关功能，首先请添加头文件：
 
@@ -34,7 +34,7 @@ libace_napi.z.so
 
 
 
-##### 已从Node-API组件标准库中导出的符号列表
+#### 已从Node-API组件标准库中导出的符号列表
 
 从Node-API标准库导出的接口，其使用方法及行为基于[Node.js](https://nodejs.org/docs/latest-v12.x/api/n-api.html)，并进行了部分[能力拓展](#node-api组件扩展的符号列表)。
 
@@ -189,21 +189,11 @@ libace_napi.z.so
 
 
 
-##### 已导出符号列表与标准库对应符号的差异
+#### 已导出符号列表与标准库对应符号的差异
 
 
 
-##### napi_throw_error
-
-**返回：**
-
- - 当code为空指针时，标准库会返回napi_invalid_arg，而HarmonyOS中未做判断。
- - 该导出接口允许code属性设置失败。
-
-
-
-
-##### napi_throw_type_error
+#### napi_throw_error
 
 **返回：**
 
@@ -213,7 +203,7 @@ libace_napi.z.so
 
 
 
-##### napi_throw_range_error
+#### napi_throw_type_error
 
 **返回：**
 
@@ -223,7 +213,17 @@ libace_napi.z.so
 
 
 
-##### napi_create_error
+#### napi_throw_range_error
+
+**返回：**
+
+ - 当code为空指针时，标准库会返回napi_invalid_arg，而HarmonyOS中未做判断。
+ - 该导出接口允许code属性设置失败。
+
+
+
+
+#### napi_create_error
 
 **参数：**
 
@@ -238,7 +238,7 @@ libace_napi.z.so
 
 
 
-##### napi_create_type_error
+#### napi_create_type_error
 
 **参数：**
 
@@ -254,7 +254,7 @@ libace_napi.z.so
 
 
 
-##### napi_create_range_error
+#### napi_create_range_error
 
 **参数：**
 
@@ -270,7 +270,7 @@ libace_napi.z.so
 
 
 
-##### napi_create_reference
+#### napi_create_reference
 
 **参数：**
 
@@ -279,7 +279,7 @@ libace_napi.z.so
 
 
 
-##### napi_delete_reference
+#### napi_delete_reference
 
 **说明：**
 
@@ -288,7 +288,7 @@ libace_napi.z.so
 
 
 
-##### napi_create_symbol
+#### napi_create_symbol
 
 **返回：**
 
@@ -297,7 +297,7 @@ libace_napi.z.so
 
 
 
-##### napi_create_typedarray
+#### napi_create_typedarray
 
 **返回：**
 
@@ -306,7 +306,7 @@ libace_napi.z.so
 
 
 
-##### napi_create_dataview
+#### napi_create_dataview
 
 **返回：**
 
@@ -316,7 +316,7 @@ libace_napi.z.so
 
 
 
-##### napi_get_typedarray_info
+#### napi_get_typedarray_info
 
 **参数：**
 
@@ -330,7 +330,7 @@ libace_napi.z.so
 
 
 
-##### napi_coerce_to_object
+#### napi_coerce_to_object
 
 **返回：**
 
@@ -339,7 +339,7 @@ libace_napi.z.so
 
 
 
-##### napi_instanceof
+#### napi_instanceof
 
 **返回：**
 
@@ -349,7 +349,7 @@ libace_napi.z.so
 
 
 
-##### napi_is_typedarray
+#### napi_is_typedarray
 
 **参数：**
 
@@ -358,7 +358,7 @@ libace_napi.z.so
 
 
 
-##### napi_get_property_names
+#### napi_get_property_names
 
 **返回：**
 
@@ -367,7 +367,7 @@ libace_napi.z.so
 
 
 
-##### napi_set_property
+#### napi_set_property
 
 **返回：**
 
@@ -376,7 +376,7 @@ libace_napi.z.so
 
 
 
-##### napi_get_property
+#### napi_get_property
 
 **返回：**
 
@@ -385,7 +385,7 @@ libace_napi.z.so
 
 
 
-##### napi_has_property
+#### napi_has_property
 
 **返回：**
 
@@ -394,7 +394,7 @@ libace_napi.z.so
 
 
 
-##### napi_delete_property
+#### napi_delete_property
 
 **返回：**
 
@@ -403,7 +403,7 @@ libace_napi.z.so
 
 
 
-##### napi_has_own_property
+#### napi_has_own_property
 
 **返回：**
 
@@ -412,7 +412,7 @@ libace_napi.z.so
 
 
 
-##### napi_set_named_property
+#### napi_set_named_property
 
 **返回：**
 
@@ -421,7 +421,7 @@ libace_napi.z.so
 
 
 
-##### napi_get_named_property
+#### napi_get_named_property
 
 **返回：**
 
@@ -430,7 +430,7 @@ libace_napi.z.so
 
 
 
-##### napi_has_named_property
+#### napi_has_named_property
 
 **返回：**
 
@@ -439,7 +439,7 @@ libace_napi.z.so
 
 
 
-##### napi_set_element
+#### napi_set_element
 
 **返回：**
 
@@ -449,7 +449,7 @@ libace_napi.z.so
 
 
 
-##### napi_get_element
+#### napi_get_element
 
 **返回：**
 
@@ -458,7 +458,7 @@ libace_napi.z.so
 
 
 
-##### napi_has_element
+#### napi_has_element
 
 **返回：**
 
@@ -467,7 +467,7 @@ libace_napi.z.so
 
 
 
-##### napi_delete_element
+#### napi_delete_element
 
 **返回：**
 
@@ -476,7 +476,7 @@ libace_napi.z.so
 
 
 
-##### napi_define_properties
+#### napi_define_properties
 
 **返回：**
 
@@ -486,7 +486,7 @@ libace_napi.z.so
 
 
 
-##### napi_type_tag_object
+#### napi_type_tag_object
 
 **返回：**
 
@@ -495,7 +495,7 @@ libace_napi.z.so
 
 
 
-##### napi_check_object_type_tag
+#### napi_check_object_type_tag
 
 **返回：**
 
@@ -504,7 +504,7 @@ libace_napi.z.so
 
 
 
-##### napi_call_function
+#### napi_call_function
 
 **返回：**
 
@@ -514,7 +514,7 @@ libace_napi.z.so
 
 
 
-##### napi_new_instance
+#### napi_new_instance
 
 **返回：**
 
@@ -523,7 +523,7 @@ libace_napi.z.so
 
 
 
-##### napi_define_class
+#### napi_define_class
 
 **返回：**
 
@@ -532,7 +532,7 @@ libace_napi.z.so
 
 
 
-##### napi_wrap
+#### napi_wrap
 
 **参数：**
 
@@ -547,7 +547,7 @@ libace_napi.z.so
 
 
 
-##### napi_unwrap
+#### napi_unwrap
 
 **返回：**
 
@@ -556,7 +556,7 @@ libace_napi.z.so
 
 
 
-##### napi_remove_wrap
+#### napi_remove_wrap
 
 **返回：**
 
@@ -570,7 +570,7 @@ libace_napi.z.so
 
 
 
-##### napi_create_async_work
+#### napi_create_async_work
 
 **参数：**
 
@@ -581,7 +581,7 @@ libace_napi.z.so
 
 
 
-##### napi_delete_async_work
+#### napi_delete_async_work
 
 **参数：**
 
@@ -590,7 +590,7 @@ libace_napi.z.so
 
 
 
-##### napi_queue_async_work
+#### napi_queue_async_work
 
 **参数：**
 
@@ -599,7 +599,7 @@ libace_napi.z.so
 
 
 
-##### napi_cancel_async_work
+#### napi_cancel_async_work
 
 **返回：**
 
@@ -608,7 +608,7 @@ libace_napi.z.so
 
 
 
-##### napi_async_init
+#### napi_async_init
 
 **说明：**
 
@@ -617,7 +617,7 @@ libace_napi.z.so
 
 
 
-##### napi_make_callback
+#### napi_make_callback
 
 **说明：**
 
@@ -626,7 +626,7 @@ libace_napi.z.so
 
 
 
-##### napi_async_destroy
+#### napi_async_destroy
 
 **说明：**
 
@@ -635,7 +635,7 @@ libace_napi.z.so
 
 
 
-##### napi_get_node_version
+#### napi_get_node_version
 
 **说明：**
 
@@ -644,7 +644,7 @@ libace_napi.z.so
 
 
 
-##### napi_resolve_deferred
+#### napi_resolve_deferred
 
 **说明：**
 
@@ -653,7 +653,7 @@ libace_napi.z.so
 
 
 
-##### napi_reject_deferred
+#### napi_reject_deferred
 
 **说明：**
 
@@ -662,7 +662,7 @@ libace_napi.z.so
 
 
 
-##### napi_create_threadsafe_function
+#### napi_create_threadsafe_function
 
 **参数：**
 
@@ -679,7 +679,7 @@ libace_napi.z.so
 
 
 
-##### napi_call_threadsafe_function
+#### napi_call_threadsafe_function
 
 **说明：**
 
@@ -689,7 +689,7 @@ libace_napi.z.so
 
 
 
-##### napi_release_threadsafe_function
+#### napi_release_threadsafe_function
 
 **说明：**
 
@@ -699,7 +699,7 @@ libace_napi.z.so
 
 
 
-##### napi_ref_threadsafe_function
+#### napi_ref_threadsafe_function
 
 **说明：**
 
@@ -708,7 +708,7 @@ libace_napi.z.so
 
 
 
-##### napi_unref_threadsafe_function
+#### napi_unref_threadsafe_function
 
 **说明：**
 
@@ -717,7 +717,7 @@ libace_napi.z.so
 
 
 
-##### napi_create_date
+#### napi_create_date
 
 **返回：**
 
@@ -726,7 +726,7 @@ libace_napi.z.so
 
 
 
-##### napi_create_bigint_words
+#### napi_create_bigint_words
 
 **返回：**
 
@@ -735,7 +735,7 @@ libace_napi.z.so
 
 
 
-##### napi_get_value_bigint_words
+#### napi_get_value_bigint_words
 
 **返回：**
 
@@ -744,7 +744,7 @@ libace_napi.z.so
 
 
 
-##### napi_create_buffer
+#### napi_create_buffer
 
 **返回：**
 
@@ -757,7 +757,7 @@ libace_napi.z.so
 
 
 
-##### napi_create_buffer_copy
+#### napi_create_buffer_copy
 
 **返回：**
 
@@ -770,7 +770,7 @@ libace_napi.z.so
 
 
 
-##### napi_create_external_buffer
+#### napi_create_external_buffer
 
 **返回：**
 
@@ -782,7 +782,7 @@ libace_napi.z.so
 
 
 
-##### napi_get_buffer_info
+#### napi_get_buffer_info
 
 **返回：**
 
@@ -791,7 +791,7 @@ libace_napi.z.so
 
 
 
-##### napi_detach_arraybuffer
+#### napi_detach_arraybuffer
 
 **返回：**
 
@@ -800,7 +800,7 @@ libace_napi.z.so
 
 
 
-##### napi_add_env_cleanup_hook
+#### napi_add_env_cleanup_hook
 
 **说明：**
 
@@ -809,7 +809,7 @@ libace_napi.z.so
 
 
 
-##### napi_add_finalizer
+#### napi_add_finalizer
 
 **返回：**
 
@@ -825,7 +825,7 @@ libace_napi.z.so
 
 
 
-##### napi_fatal_exception
+#### napi_fatal_exception
 
 **参数：**
 
@@ -834,7 +834,7 @@ libace_napi.z.so
 
 
 
-##### napi_get_uv_event_loop
+#### napi_get_uv_event_loop
 
 **返回：**
 
@@ -843,7 +843,7 @@ libace_napi.z.so
 
 
 
-##### napi_create_array_with_length
+#### napi_create_array_with_length
 
 **返回：**
 
@@ -852,7 +852,7 @@ libace_napi.z.so
 
 
 
-##### napi_create_arraybuffer
+#### napi_create_arraybuffer
 
 **返回：**
 
@@ -861,7 +861,7 @@ libace_napi.z.so
 
 
 
-##### 未从Node-API组件标准库中导出的符号列表
+#### 未从Node-API组件标准库中导出的符号列表
 
 | 符号类型 | 符号名 | 说明 |
 | --- | --- | --- |
@@ -870,7 +870,7 @@ libace_napi.z.so
 
 
 
-##### Node-API组件扩展的符号列表
+#### Node-API组件扩展的符号列表
 
 | 符号类型 | 符号名 | 说明 | 起始支持API版本 |
 | --- | --- | --- | --- |
@@ -924,7 +924,7 @@ libace_napi.z.so
 
 
 
-##### napi_qos_t
+#### napi_qos_t
 
 ```text
 typedef enum {
@@ -941,7 +941,7 @@ typedef enum {
 
 
 
-##### napi_event_mode
+#### napi_event_mode
 
 ```text
 typedef enum {
@@ -956,7 +956,7 @@ typedef enum {
 
 
 
-##### napi_queue_async_work_with_qos
+#### napi_queue_async_work_with_qos
 
 ```text
 napi_status napi_queue_async_work_with_qos(napi_env env,
@@ -981,7 +981,7 @@ napi_status napi_queue_async_work_with_qos(napi_env env,
 
 
 
-##### napi_run_script_path
+#### napi_run_script_path
 
 ```text
 napi_status napi_run_script_path(napi_env env,
@@ -1006,7 +1006,7 @@ napi_status napi_run_script_path(napi_env env,
 
 
 
-##### napi_load_module
+#### napi_load_module
 
 ```text
 napi_status napi_load_module(napi_env env,
@@ -1031,7 +1031,7 @@ napi_status napi_load_module(napi_env env,
 
 
 
-##### napi_create_object_with_properties
+#### napi_create_object_with_properties
 
 ```text
 napi_status napi_create_object_with_properties(napi_env env,
@@ -1060,7 +1060,7 @@ napi_status napi_create_object_with_properties(napi_env env,
 
 
 
-##### napi_create_object_with_named_properties
+#### napi_create_object_with_named_properties
 
 ```text
 napi_status napi_create_object_with_named_properties(napi_env env,
@@ -1089,7 +1089,7 @@ napi_status napi_create_object_with_named_properties(napi_env env,
 
 
 
-##### napi_coerce_to_native_binding_object
+#### napi_coerce_to_native_binding_object
 
 ```text
 napi_status napi_coerce_to_native_binding_object(napi_env env,
@@ -1120,7 +1120,7 @@ napi_status napi_coerce_to_native_binding_object(napi_env env,
 
 
 
-##### napi_create_ark_runtime
+#### napi_create_ark_runtime
 
 ```text
 napi_status napi_create_ark_runtime(napi_env *env)
@@ -1141,7 +1141,7 @@ napi_status napi_create_ark_runtime(napi_env *env)
 
 
 
-##### napi_destroy_ark_runtime
+#### napi_destroy_ark_runtime
 
 ```text
 napi_status napi_destroy_ark_runtime(napi_env *env)
@@ -1162,7 +1162,7 @@ napi_status napi_destroy_ark_runtime(napi_env *env)
 
 
 
-##### napi_run_event_loop
+#### napi_run_event_loop
 
 ```text
 napi_status napi_run_event_loop(napi_env env, napi_event_mode mode)
@@ -1184,7 +1184,7 @@ napi_status napi_run_event_loop(napi_env env, napi_event_mode mode)
 
 
 
-##### napi_stop_event_loop
+#### napi_stop_event_loop
 
 ```text
 napi_status napi_stop_event_loop(napi_env env)
@@ -1205,7 +1205,7 @@ napi_status napi_stop_event_loop(napi_env env)
 
 
 
-##### napi_load_module_with_info
+#### napi_load_module_with_info
 
 ```text
 napi_status napi_load_module_with_info(napi_env env,
@@ -1232,7 +1232,7 @@ napi_status napi_load_module_with_info(napi_env env,
 
 
 
-##### napi_serialize
+#### napi_serialize
 
 ```text
 napi_status napi_serialize(napi_env env,
@@ -1261,7 +1261,7 @@ napi_status napi_serialize(napi_env env,
 
 
 
-##### napi_deserialize
+#### napi_deserialize
 
 ```text
 napi_status napi_deserialize(napi_env env, void* buffer, napi_value* object)
@@ -1284,7 +1284,7 @@ napi_status napi_deserialize(napi_env env, void* buffer, napi_value* object)
 
 
 
-##### napi_delete_serialization_data
+#### napi_delete_serialization_data
 
 ```text
 napi_status napi_delete_serialization_data(napi_env env, void* buffer)
@@ -1306,7 +1306,7 @@ napi_status napi_delete_serialization_data(napi_env env, void* buffer)
 
 
 
-##### napi_call_threadsafe_function_with_priority
+#### napi_call_threadsafe_function_with_priority
 
 ```text
 napi_status napi_call_threadsafe_function_with_priority(napi_threadsafe_function func,
@@ -1333,7 +1333,7 @@ napi_status napi_call_threadsafe_function_with_priority(napi_threadsafe_function
 
 
 
-##### napi_is_sendable
+#### napi_is_sendable
 
 ```text
 napi_status napi_is_sendable(napi_env env, napi_value value, bool* result)
@@ -1356,7 +1356,7 @@ napi_status napi_is_sendable(napi_env env, napi_value value, bool* result)
 
 
 
-##### napi_define_sendable_class
+#### napi_define_sendable_class
 
 ```text
 napi_status napi_define_sendable_class(napi_env env,
@@ -1393,7 +1393,7 @@ napi_status napi_define_sendable_class(napi_env env,
 
 
 
-##### napi_create_sendable_object_with_properties
+#### napi_create_sendable_object_with_properties
 
 ```text
 napi_status napi_create_sendable_object_with_properties(napi_env env,
@@ -1420,7 +1420,7 @@ napi_status napi_create_sendable_object_with_properties(napi_env env,
 
 
 
-##### napi_create_sendable_array
+#### napi_create_sendable_array
 
 ```text
 napi_status napi_create_sendable_array(napi_env env, napi_value* result)
@@ -1442,7 +1442,7 @@ napi_status napi_create_sendable_array(napi_env env, napi_value* result)
 
 
 
-##### napi_create_sendable_array_with_length
+#### napi_create_sendable_array_with_length
 
 ```text
 napi_status napi_create_sendable_array_with_length(napi_env env, size_t length, napi_value* result)
@@ -1465,7 +1465,7 @@ napi_status napi_create_sendable_array_with_length(napi_env env, size_t length, 
 
 
 
-##### napi_create_sendable_arraybuffer
+#### napi_create_sendable_arraybuffer
 
 ```text
 napi_status napi_create_sendable_arraybuffer(napi_env env, size_t byte_length, void** data, napi_value* result)
@@ -1489,7 +1489,7 @@ napi_status napi_create_sendable_arraybuffer(napi_env env, size_t byte_length, v
 
 
 
-##### napi_create_sendable_typedarray
+#### napi_create_sendable_typedarray
 
 ```text
 napi_status napi_create_sendable_typedarray(napi_env env,
@@ -1520,7 +1520,7 @@ napi_status napi_create_sendable_typedarray(napi_env env,
 
 
 
-##### napi_wrap_sendable
+#### napi_wrap_sendable
 
 ```text
 napi_status napi_wrap_sendable(napi_env env,
@@ -1549,7 +1549,7 @@ napi_status napi_wrap_sendable(napi_env env,
 
 
 
-##### napi_wrap_sendable_with_size
+#### napi_wrap_sendable_with_size
 
 ```text
 napi_status napi_wrap_sendable_with_size(napi_env env,
@@ -1580,7 +1580,7 @@ napi_status napi_wrap_sendable_with_size(napi_env env,
 
 
 
-##### napi_unwrap_sendable
+#### napi_unwrap_sendable
 
 ```text
 napi_status napi_unwrap_sendable(napi_env env, napi_value js_object, void** result)
@@ -1603,7 +1603,7 @@ napi_status napi_unwrap_sendable(napi_env env, napi_value js_object, void** resu
 
 
 
-##### napi_remove_wrap_sendable
+#### napi_remove_wrap_sendable
 
 ```text
 napi_status napi_remove_wrap_sendable(napi_env env, napi_value js_object, void** result)
@@ -1626,7 +1626,7 @@ napi_status napi_remove_wrap_sendable(napi_env env, napi_value js_object, void**
 
 
 
-##### napi_wrap_enhance
+#### napi_wrap_enhance
 
 ```text
 napi_status napi_wrap_enhance(napi_env env,
@@ -1665,7 +1665,7 @@ napi_status napi_wrap_enhance(napi_env env,
 
 
 
-##### napi_create_ark_context
+#### napi_create_ark_context
 
 ```text
 napi_status napi_create_ark_context(napi_env env, napi_env* newEnv);
@@ -1695,7 +1695,7 @@ napi_status napi_create_ark_context(napi_env env, napi_env* newEnv);
 
 
 
-##### napi_switch_ark_context
+#### napi_switch_ark_context
 
 ```text
 napi_status napi_switch_ark_context(napi_env env)
@@ -1718,7 +1718,7 @@ napi_status napi_switch_ark_context(napi_env env)
 
 
 
-##### napi_destroy_ark_context
+#### napi_destroy_ark_context
 
 ```text
 napi_status napi_destroy_ark_context(napi_env env)
@@ -1742,7 +1742,7 @@ napi_status napi_destroy_ark_context(napi_env env)
 
 
 
-##### napi_open_critical_scope
+#### napi_open_critical_scope
 
 ```text
 napi_status napi_open_critical_scope(napi_env env, napi_critical_scope* scope);
@@ -1766,7 +1766,7 @@ napi_status napi_open_critical_scope(napi_env env, napi_critical_scope* scope);
 
 
 
-##### napi_close_critical_scope
+#### napi_close_critical_scope
 
 ```text
 napi_status napi_close_critical_scope(napi_env env, napi_critical_scope scope);
@@ -1790,7 +1790,7 @@ napi_status napi_close_critical_scope(napi_env env, napi_critical_scope scope);
 
 
 
-##### napi_get_buffer_string_utf16_in_critical_scope
+#### napi_get_buffer_string_utf16_in_critical_scope
 
 ```text
 napi_status napi_get_buffer_string_utf16_in_critical_scope(napi_env env,
@@ -1818,7 +1818,7 @@ napi_status napi_get_buffer_string_utf16_in_critical_scope(napi_env env,
 
 
 
-##### napi_create_strong_reference
+#### napi_create_strong_reference
 
 ```text
 napi_status napi_create_strong_reference(napi_env env, napi_value value, napi_strong_ref* result);
@@ -1841,7 +1841,7 @@ napi_status napi_create_strong_reference(napi_env env, napi_value value, napi_st
 
 
 
-##### napi_delete_strong_reference
+#### napi_delete_strong_reference
 
 ```text
 napi_status napi_delete_strong_reference(napi_env env, napi_value value, napi_strong_ref ref);
@@ -1865,7 +1865,7 @@ napi_status napi_delete_strong_reference(napi_env env, napi_value value, napi_st
 
 
 
-##### napi_get_strong_reference_value
+#### napi_get_strong_reference_value
 
 ```text
 napi_status napi_get_strong_reference_value(napi_env env, napi_strong_ref ref, napi_value* result)
@@ -1889,7 +1889,7 @@ napi_status napi_get_strong_reference_value(napi_env env, napi_strong_ref ref, n
 
 
 
-##### napi_finalize回调函数说明
+#### napi_finalize回调函数说明
 
 ```text
 typedef void (*napi_finalize)(napi_env env,
@@ -1915,7 +1915,7 @@ typedef void (*napi_finalize)(napi_env env,
 
 
 
-##### napi_finalize_callback回调函数说明
+#### napi_finalize_callback回调函数说明
 
 ```text
 typedef void (*napi_finalize_callback)(void* finalize_data,
@@ -1939,7 +1939,7 @@ typedef void (*napi_finalize_callback)(void* finalize_data,
 
 
 
-##### napi_create_external_string_utf16
+#### napi_create_external_string_utf16
 
 ```text
 napi_status napi_create_external_string_utf16(napi_env env,
@@ -1974,7 +1974,7 @@ napi_status napi_create_external_string_utf16(napi_env env,
 
 
 
-##### napi_create_external_string_ascii
+#### napi_create_external_string_ascii
 
 ```text
 napi_status napi_create_external_string_ascii(napi_env env,
@@ -2010,7 +2010,7 @@ napi_status napi_create_external_string_ascii(napi_env env,
 
 
 
-##### napi_create_strong_sendable_reference
+#### napi_create_strong_sendable_reference
 
 ```text
 napi_status napi_create_strong_sendable_reference(napi_env env,
@@ -2039,7 +2039,7 @@ napi_status napi_create_strong_sendable_reference(napi_env env,
 
 
 
-##### napi_delete_strong_sendable_reference
+#### napi_delete_strong_sendable_reference
 
 ```text
 napi_status napi_delete_strong_sendable_reference(napi_env env, napi_sendable_ref ref);
@@ -2063,7 +2063,7 @@ napi_status napi_delete_strong_sendable_reference(napi_env env, napi_sendable_re
 
 
 
-##### napi_get_strong_sendable_reference_value
+#### napi_get_strong_sendable_reference_value
 
 ```text
 napi_status napi_get_strong_sendable_reference_value(napi_env env,
@@ -2090,7 +2090,7 @@ napi_status napi_get_strong_sendable_reference_value(napi_env env,
 
 
 
-##### napi_throw_business_error
+#### napi_throw_business_error
 
 ```text
 napi_status napi_throw_business_error(napi_env env,

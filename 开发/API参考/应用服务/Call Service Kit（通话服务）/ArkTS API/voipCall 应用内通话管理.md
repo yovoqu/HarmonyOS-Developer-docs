@@ -12,7 +12,7 @@
 **起始版本：** 4.1.0(11)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -22,7 +22,7 @@ import { voipCall } from '@kit.CallServiceKit';
  
   
 
-##### VoipCallType
+#### VoipCallType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -40,7 +40,7 @@ import { voipCall } from '@kit.CallServiceKit';
  
   
 
-##### VoipCallState
+#### VoipCallState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -64,7 +64,7 @@ import { voipCall } from '@kit.CallServiceKit';
  
   
 
-##### VoipCallUiEvent
+#### VoipCallUiEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -90,7 +90,7 @@ import { voipCall } from '@kit.CallServiceKit';
  
   
 
-##### ErrorReason
+#### ErrorReason
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -111,7 +111,7 @@ import { voipCall } from '@kit.CallServiceKit';
  
   
 
-##### VoipCallUiEventInfo
+#### VoipCallUiEventInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -130,7 +130,7 @@ import { voipCall } from '@kit.CallServiceKit';
  
   
 
-##### VoipCallFailureCause
+#### VoipCallFailureCause
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -149,7 +149,7 @@ import { voipCall } from '@kit.CallServiceKit';
  
   
 
-##### VoipCallAttribute
+#### VoipCallAttribute
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -176,7 +176,7 @@ import { voipCall } from '@kit.CallServiceKit';
  
   
 
-##### CallAudioEvent
+#### CallAudioEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -197,7 +197,7 @@ import { voipCall } from '@kit.CallServiceKit';
  
   
 
-##### voipCall.on('voipCallUiEvent')
+#### voipCall.on('voipCallUiEvent')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -243,7 +243,7 @@ voipCall.on('voipCallUiEvent', (data: voipCall.VoipCallUiEventInfo) => {
  
   
 
-##### voipCall.off('voipCallUiEvent')
+#### voipCall.off('voipCallUiEvent')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -289,7 +289,7 @@ voipCall.off('voipCallUiEvent', (data: voipCall.VoipCallUiEventInfo) => {
  
   
 
-##### voipCall.reportIncomingCall
+#### voipCall.reportIncomingCall
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -392,7 +392,7 @@ export default class VoipAbility extends UIAbility {
  
   
 
-##### voipCall.reportOutgoingCall
+#### voipCall.reportOutgoingCall
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -494,7 +494,7 @@ export default class VoipExtAbility extends UIAbility {
  
   
 
-##### voipCall.reportCallAudioEventChange
+#### voipCall.reportCallAudioEventChange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -568,7 +568,7 @@ export default class VoipExtAbility extends UIAbility {
  
   
 
-##### voipCall.reportCallStateChange
+#### voipCall.reportCallStateChange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -623,7 +623,7 @@ voipCall.reportCallStateChange("callId123", voipCall.VoipCallState.VOIP_CALL_STA
  
   
 
-##### voipCall.reportCallStateChange
+#### voipCall.reportCallStateChange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -679,7 +679,7 @@ voipCall.reportCallStateChange("callId123", voipCall.VoipCallState.VOIP_CALL_STA
  
   
 
-##### voipCall.reportIncomingCallError
+#### voipCall.reportIncomingCallError
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

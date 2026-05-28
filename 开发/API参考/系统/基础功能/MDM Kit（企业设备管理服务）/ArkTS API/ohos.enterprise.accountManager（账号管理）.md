@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { accountManager } from '@kit.MDMKit';
 
 
 
-##### accountManager.disallowOsAccountAddition
+#### accountManager.disallowOsAccountAddition
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -82,7 +82,7 @@ try {
 
 
 
-##### accountManager.isOsAccountAdditionDisallowed
+#### accountManager.isOsAccountAdditionDisallowed
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -146,7 +146,7 @@ try {
 
 
 
-##### accountManager.addOsAccountAsync
+#### accountManager.addOsAccountAsync
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -218,7 +218,7 @@ accountManager.addOsAccountAsync(wantTemp, "TestAccountName", osAccount.OsAccoun
 
 
 
-##### accountManager.setDomainAccountPolicy19+
+#### accountManager.setDomainAccountPolicy19+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -313,7 +313,7 @@ async function setDomainAccountPolicy() {
 
 
 
-##### accountManager.getDomainAccountPolicy19+
+#### accountManager.getDomainAccountPolicy19+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -409,7 +409,7 @@ async function getDomainAccountPolicy() {
 
 
 
-##### DomainAccountPolicy19+
+#### DomainAccountPolicy19+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

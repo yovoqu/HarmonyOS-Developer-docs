@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { pluginComponentManager } from '@kit.ArkUI';
  
   
 
-##### PluginComponentTemplate
+#### PluginComponentTemplate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -40,7 +40,7 @@ Plugin组件模板参数。
  
   
 
-##### pluginComponentManager
+#### pluginComponentManager
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -48,7 +48,7 @@ Plugin组件模板参数。
  
   
 
-##### KVObject
+#### KVObject
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -67,7 +67,7 @@ type KVObject = { [key: string]: number | string | boolean | [] | KVObject }
  
   
 
-##### PushParameters
+#### PushParameters
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -88,7 +88,7 @@ type KVObject = { [key: string]: number | string | boolean | [] | KVObject }
  
   
 
-##### RequestParameters
+#### RequestParameters
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -108,7 +108,7 @@ type KVObject = { [key: string]: number | string | boolean | [] | KVObject }
  
   
 
-##### RequestCallbackParameters
+#### RequestCallbackParameters
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -127,7 +127,7 @@ PluginManager.Request方法接收到的回调结果。
  
   
 
-##### RequestEventResult
+#### RequestEventResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -146,7 +146,7 @@ PluginManager.Request方法接收到的回调结果。
  
   
 
-##### OnPushEventCallback
+#### OnPushEventCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -185,7 +185,7 @@ function onPushListener(source: Want, template: PluginComponentTemplate, data: p
  
   
 
-##### OnRequestEventCallback
+#### OnRequestEventCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -234,7 +234,7 @@ function onRequestListener(source: Want, name: string, data: pluginComponentMana
  
   
 
-##### pluginComponentManager.push
+#### pluginComponentManager.push
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -283,7 +283,7 @@ pluginComponentManager.push(
  
   
 
-##### pluginComponentManager.request
+#### pluginComponentManager.request
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -332,7 +332,7 @@ pluginComponentManager.request(
  
   
 
-##### pluginComponentManager.on
+#### pluginComponentManager.on
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -379,7 +379,7 @@ pluginComponentManager.on("request", onRequestListener);
  
   
 
-##### external.json文件说明
+#### external.json文件说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

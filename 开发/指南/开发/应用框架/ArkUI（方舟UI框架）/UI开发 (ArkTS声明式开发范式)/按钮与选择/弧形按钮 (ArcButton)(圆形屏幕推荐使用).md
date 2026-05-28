@@ -7,7 +7,7 @@
 从API version 18开始支持ArcButton。ArcButton是弧形按钮组件，推荐用于圆形屏幕。为用户提供强调、普通、警告等样式按钮。具体用法请参考[ArcButton](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton)。
 
 
-##### 创建按钮
+#### 创建按钮
 
 ArcButton通过调用以下接口来创建。
 
@@ -30,7 +30,7 @@ ArcButton({
 
 
 
-##### 设置按钮类型
+#### 设置按钮类型
 
 ArcButton有上弧形按钮和下弧形按钮两种类型。使用[position](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)设置按钮类型。
 
@@ -75,7 +75,7 @@ ArcButton({
 
 
 
-##### 自定义样式
+#### 自定义样式
 
  - 设置背景色。
 
@@ -133,7 +133,7 @@ ArcButton({
 
 
 
-##### 添加事件
+#### 添加事件
 
  - 绑定onClick事件来响应点击操作后的自定义行为。        
 ```ArkTS
@@ -166,7 +166,7 @@ ArcButton({
 
 
 
-##### 场景示例
+#### 场景示例
 
 在亮度设置界面，进度条显示当前亮度为30%。点击重置后，亮度值将被重置为默认的50%。
 

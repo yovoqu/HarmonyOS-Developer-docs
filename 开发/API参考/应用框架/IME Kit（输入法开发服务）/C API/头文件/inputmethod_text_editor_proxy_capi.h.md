@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-inputmethod-text-editor-proxy-capi-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -40,7 +40,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -97,13 +97,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_TextEditorProxy_GetTextConfigFunc()
+#### OH_TextEditorProxy_GetTextConfigFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -127,7 +127,7 @@ typedef void (*OH_TextEditorProxy_GetTextConfigFunc)(InputMethod_TextEditorProxy
  
   
 
-##### OH_TextEditorProxy_InsertTextFunc()
+#### OH_TextEditorProxy_InsertTextFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -152,7 +152,7 @@ typedef void (*OH_TextEditorProxy_InsertTextFunc)(InputMethod_TextEditorProxy *t
  
   
 
-##### OH_TextEditorProxy_DeleteForwardFunc()
+#### OH_TextEditorProxy_DeleteForwardFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -176,7 +176,7 @@ typedef void (*OH_TextEditorProxy_DeleteForwardFunc)(InputMethod_TextEditorProxy
  
   
 
-##### OH_TextEditorProxy_DeleteBackwardFunc()
+#### OH_TextEditorProxy_DeleteBackwardFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -200,7 +200,7 @@ typedef void (*OH_TextEditorProxy_DeleteBackwardFunc)(InputMethod_TextEditorProx
  
   
 
-##### OH_TextEditorProxy_SendKeyboardStatusFunc()
+#### OH_TextEditorProxy_SendKeyboardStatusFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -224,7 +224,7 @@ typedef void (*OH_TextEditorProxy_SendKeyboardStatusFunc)(InputMethod_TextEditor
  
   
 
-##### OH_TextEditorProxy_SendEnterKeyFunc()
+#### OH_TextEditorProxy_SendEnterKeyFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -248,7 +248,7 @@ typedef void (*OH_TextEditorProxy_SendEnterKeyFunc)(InputMethod_TextEditorProxy 
  
   
 
-##### OH_TextEditorProxy_MoveCursorFunc()
+#### OH_TextEditorProxy_MoveCursorFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -272,7 +272,7 @@ typedef void (*OH_TextEditorProxy_MoveCursorFunc)(InputMethod_TextEditorProxy *t
  
   
 
-##### OH_TextEditorProxy_HandleSetSelectionFunc()
+#### OH_TextEditorProxy_HandleSetSelectionFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -297,7 +297,7 @@ typedef void (*OH_TextEditorProxy_HandleSetSelectionFunc)(InputMethod_TextEditor
  
   
 
-##### OH_TextEditorProxy_HandleExtendActionFunc()
+#### OH_TextEditorProxy_HandleExtendActionFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -321,7 +321,7 @@ typedef void (*OH_TextEditorProxy_HandleExtendActionFunc)(InputMethod_TextEditor
  
   
 
-##### OH_TextEditorProxy_GetLeftTextOfCursorFunc()
+#### OH_TextEditorProxy_GetLeftTextOfCursorFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -347,7 +347,7 @@ typedef void (*OH_TextEditorProxy_GetLeftTextOfCursorFunc)(InputMethod_TextEdito
  
   
 
-##### OH_TextEditorProxy_GetRightTextOfCursorFunc()
+#### OH_TextEditorProxy_GetRightTextOfCursorFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -373,7 +373,7 @@ typedef void (*OH_TextEditorProxy_GetRightTextOfCursorFunc)(InputMethod_TextEdit
  
   
 
-##### OH_TextEditorProxy_GetTextIndexAtCursorFunc()
+#### OH_TextEditorProxy_GetTextIndexAtCursorFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -403,7 +403,7 @@ typedef int32_t (*OH_TextEditorProxy_GetTextIndexAtCursorFunc)(InputMethod_TextE
  
   
 
-##### OH_TextEditorProxy_ReceivePrivateCommandFunc()
+#### OH_TextEditorProxy_ReceivePrivateCommandFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -435,7 +435,7 @@ typedef int32_t (*OH_TextEditorProxy_ReceivePrivateCommandFunc)(InputMethod_Text
  
   
 
-##### OH_TextEditorProxy_SetPreviewTextFunc()
+#### OH_TextEditorProxy_SetPreviewTextFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -469,7 +469,7 @@ typedef int32_t (*OH_TextEditorProxy_SetPreviewTextFunc)(InputMethod_TextEditorP
  
   
 
-##### OH_TextEditorProxy_FinishTextPreviewFunc()
+#### OH_TextEditorProxy_FinishTextPreviewFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -492,7 +492,7 @@ typedef void (*OH_TextEditorProxy_FinishTextPreviewFunc)(InputMethod_TextEditorP
  
   
 
-##### OH_TextEditorProxy_Create()
+#### OH_TextEditorProxy_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -515,7 +515,7 @@ InputMethod_TextEditorProxy *OH_TextEditorProxy_Create(void)
  
   
 
-##### OH_TextEditorProxy_Destroy()
+#### OH_TextEditorProxy_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -538,7 +538,7 @@ void OH_TextEditorProxy_Destroy(InputMethod_TextEditorProxy *proxy)
  
   
 
-##### OH_TextEditorProxy_SetGetTextConfigFunc()
+#### OH_TextEditorProxy_SetGetTextConfigFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -569,7 +569,7 @@ InputMethod_ErrorCode OH_TextEditorProxy_SetGetTextConfigFunc(InputMethod_TextEd
  
   
 
-##### OH_TextEditorProxy_SetInsertTextFunc()
+#### OH_TextEditorProxy_SetInsertTextFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -600,7 +600,7 @@ InputMethod_ErrorCode OH_TextEditorProxy_SetInsertTextFunc(InputMethod_TextEdito
  
   
 
-##### OH_TextEditorProxy_SetDeleteForwardFunc()
+#### OH_TextEditorProxy_SetDeleteForwardFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -631,7 +631,7 @@ InputMethod_ErrorCode OH_TextEditorProxy_SetDeleteForwardFunc(InputMethod_TextEd
  
   
 
-##### OH_TextEditorProxy_SetDeleteBackwardFunc()
+#### OH_TextEditorProxy_SetDeleteBackwardFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -662,7 +662,7 @@ InputMethod_ErrorCode OH_TextEditorProxy_SetDeleteBackwardFunc(InputMethod_TextE
  
   
 
-##### OH_TextEditorProxy_SetSendKeyboardStatusFunc()
+#### OH_TextEditorProxy_SetSendKeyboardStatusFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -693,7 +693,7 @@ InputMethod_ErrorCode OH_TextEditorProxy_SetSendKeyboardStatusFunc(InputMethod_T
  
   
 
-##### OH_TextEditorProxy_SetSendEnterKeyFunc()
+#### OH_TextEditorProxy_SetSendEnterKeyFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -724,7 +724,7 @@ InputMethod_ErrorCode OH_TextEditorProxy_SetSendEnterKeyFunc(InputMethod_TextEdi
  
   
 
-##### OH_TextEditorProxy_SetMoveCursorFunc()
+#### OH_TextEditorProxy_SetMoveCursorFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -755,7 +755,7 @@ InputMethod_ErrorCode OH_TextEditorProxy_SetMoveCursorFunc(InputMethod_TextEdito
  
   
 
-##### OH_TextEditorProxy_SetHandleSetSelectionFunc()
+#### OH_TextEditorProxy_SetHandleSetSelectionFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -786,7 +786,7 @@ InputMethod_ErrorCode OH_TextEditorProxy_SetHandleSetSelectionFunc(InputMethod_T
  
   
 
-##### OH_TextEditorProxy_SetHandleExtendActionFunc()
+#### OH_TextEditorProxy_SetHandleExtendActionFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -817,7 +817,7 @@ InputMethod_ErrorCode OH_TextEditorProxy_SetHandleExtendActionFunc(InputMethod_T
  
   
 
-##### OH_TextEditorProxy_SetGetLeftTextOfCursorFunc()
+#### OH_TextEditorProxy_SetGetLeftTextOfCursorFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -848,7 +848,7 @@ InputMethod_ErrorCode OH_TextEditorProxy_SetGetLeftTextOfCursorFunc(InputMethod_
  
   
 
-##### OH_TextEditorProxy_SetGetRightTextOfCursorFunc()
+#### OH_TextEditorProxy_SetGetRightTextOfCursorFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -879,7 +879,7 @@ InputMethod_ErrorCode OH_TextEditorProxy_SetGetRightTextOfCursorFunc(InputMethod
  
   
 
-##### OH_TextEditorProxy_SetGetTextIndexAtCursorFunc()
+#### OH_TextEditorProxy_SetGetTextIndexAtCursorFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -910,7 +910,7 @@ InputMethod_ErrorCode OH_TextEditorProxy_SetGetTextIndexAtCursorFunc(InputMethod
  
   
 
-##### OH_TextEditorProxy_SetReceivePrivateCommandFunc()
+#### OH_TextEditorProxy_SetReceivePrivateCommandFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -941,7 +941,7 @@ InputMethod_ErrorCode OH_TextEditorProxy_SetReceivePrivateCommandFunc(InputMetho
  
   
 
-##### OH_TextEditorProxy_SetSetPreviewTextFunc()
+#### OH_TextEditorProxy_SetSetPreviewTextFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -972,7 +972,7 @@ InputMethod_ErrorCode OH_TextEditorProxy_SetSetPreviewTextFunc(InputMethod_TextE
  
   
 
-##### OH_TextEditorProxy_SetFinishTextPreviewFunc()
+#### OH_TextEditorProxy_SetFinishTextPreviewFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1003,7 +1003,7 @@ InputMethod_ErrorCode OH_TextEditorProxy_SetFinishTextPreviewFunc(InputMethod_Te
  
   
 
-##### OH_TextEditorProxy_GetGetTextConfigFunc()
+#### OH_TextEditorProxy_GetGetTextConfigFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1034,7 +1034,7 @@ InputMethod_ErrorCode OH_TextEditorProxy_GetGetTextConfigFunc(InputMethod_TextEd
  
   
 
-##### OH_TextEditorProxy_GetInsertTextFunc()
+#### OH_TextEditorProxy_GetInsertTextFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1065,7 +1065,7 @@ InputMethod_ErrorCode OH_TextEditorProxy_GetInsertTextFunc(InputMethod_TextEdito
  
   
 
-##### OH_TextEditorProxy_GetDeleteForwardFunc()
+#### OH_TextEditorProxy_GetDeleteForwardFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1096,7 +1096,7 @@ InputMethod_ErrorCode OH_TextEditorProxy_GetDeleteForwardFunc(InputMethod_TextEd
  
   
 
-##### OH_TextEditorProxy_GetDeleteBackwardFunc()
+#### OH_TextEditorProxy_GetDeleteBackwardFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1127,7 +1127,7 @@ InputMethod_ErrorCode OH_TextEditorProxy_GetDeleteBackwardFunc(InputMethod_TextE
  
   
 
-##### OH_TextEditorProxy_GetSendKeyboardStatusFunc()
+#### OH_TextEditorProxy_GetSendKeyboardStatusFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1158,7 +1158,7 @@ InputMethod_ErrorCode OH_TextEditorProxy_GetSendKeyboardStatusFunc(InputMethod_T
  
   
 
-##### OH_TextEditorProxy_GetSendEnterKeyFunc()
+#### OH_TextEditorProxy_GetSendEnterKeyFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1189,7 +1189,7 @@ InputMethod_ErrorCode OH_TextEditorProxy_GetSendEnterKeyFunc(InputMethod_TextEdi
  
   
 
-##### OH_TextEditorProxy_GetMoveCursorFunc()
+#### OH_TextEditorProxy_GetMoveCursorFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1220,7 +1220,7 @@ InputMethod_ErrorCode OH_TextEditorProxy_GetMoveCursorFunc(InputMethod_TextEdito
  
   
 
-##### OH_TextEditorProxy_GetHandleSetSelectionFunc()
+#### OH_TextEditorProxy_GetHandleSetSelectionFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1251,7 +1251,7 @@ InputMethod_ErrorCode OH_TextEditorProxy_GetHandleSetSelectionFunc(InputMethod_T
  
   
 
-##### OH_TextEditorProxy_GetHandleExtendActionFunc()
+#### OH_TextEditorProxy_GetHandleExtendActionFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1282,7 +1282,7 @@ InputMethod_ErrorCode OH_TextEditorProxy_GetHandleExtendActionFunc(InputMethod_T
  
   
 
-##### OH_TextEditorProxy_GetGetLeftTextOfCursorFunc()
+#### OH_TextEditorProxy_GetGetLeftTextOfCursorFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1313,7 +1313,7 @@ InputMethod_ErrorCode OH_TextEditorProxy_GetGetLeftTextOfCursorFunc(InputMethod_
  
   
 
-##### OH_TextEditorProxy_GetGetRightTextOfCursorFunc()
+#### OH_TextEditorProxy_GetGetRightTextOfCursorFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1344,7 +1344,7 @@ InputMethod_ErrorCode OH_TextEditorProxy_GetGetRightTextOfCursorFunc(InputMethod
  
   
 
-##### OH_TextEditorProxy_GetGetTextIndexAtCursorFunc()
+#### OH_TextEditorProxy_GetGetTextIndexAtCursorFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1375,7 +1375,7 @@ InputMethod_ErrorCode OH_TextEditorProxy_GetGetTextIndexAtCursorFunc(InputMethod
  
   
 
-##### OH_TextEditorProxy_GetReceivePrivateCommandFunc()
+#### OH_TextEditorProxy_GetReceivePrivateCommandFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1406,7 +1406,7 @@ InputMethod_ErrorCode OH_TextEditorProxy_GetReceivePrivateCommandFunc(InputMetho
  
   
 
-##### OH_TextEditorProxy_GetSetPreviewTextFunc()
+#### OH_TextEditorProxy_GetSetPreviewTextFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1437,7 +1437,7 @@ InputMethod_ErrorCode OH_TextEditorProxy_GetSetPreviewTextFunc(InputMethod_TextE
  
   
 
-##### OH_TextEditorProxy_GetFinishTextPreviewFunc()
+#### OH_TextEditorProxy_GetFinishTextPreviewFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1468,7 +1468,7 @@ InputMethod_ErrorCode OH_TextEditorProxy_GetFinishTextPreviewFunc(InputMethod_Te
  
   
 
-##### OH_TextEditorProxy_SetCallbackInMainThread()
+#### OH_TextEditorProxy_SetCallbackInMainThread()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

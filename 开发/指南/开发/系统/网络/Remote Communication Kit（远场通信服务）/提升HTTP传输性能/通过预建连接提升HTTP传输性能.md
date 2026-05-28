@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-pre-connect
 
-##### 概述
+#### 概述
 
 从6.1.1(24)版本开始，新增支持预建连接功能。
 
@@ -19,13 +19,13 @@
 
 
 
-##### 约束与限制
+#### 约束与限制
 
 通过预建连接提升HTTP传输性能，支持Phone、PC/2in1、Tablet、Wearable和TV设备。
 
 
 
-##### 使用预建连接能力（ArkTS）
+#### 使用预建连接能力（ArkTS）
 
 ```text
 import { rcp } from '@kit.RemoteCommunicationKit';
@@ -53,7 +53,7 @@ export async function startConnectionOnlyByRequest() {
 
 
 
-##### 使用预建连接能力（C++）
+#### 使用预建连接能力（C++）
 
 ```text
 #include "RemoteCommunicationKit/rcp.h"
@@ -109,7 +109,7 @@ void dataTransRequest() {
 
 
 
-##### 通过DefaultSession使用连接复用能力
+#### 通过DefaultSession使用连接复用能力
 
 不同的session之间不支持连接复用。可以通过默认session在同一个session上方便地发起请求。通过[getDefaultSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#getdefaultsession)（ArkTS）和[HMS_Rcp_GetDefaultSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-overview#hms_rcp_getdefaultsession)（C API）获得的默认session在系统内实际上是同一个session。
 

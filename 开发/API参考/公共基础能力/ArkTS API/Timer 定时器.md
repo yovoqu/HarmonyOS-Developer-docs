@@ -12,7 +12,7 @@
 
   
 
-##### setTimeout
+#### setTimeout
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -89,7 +89,7 @@ setTimeout(myFunction, 1000, 'hello');
  
   
 
-##### clearTimeout
+#### clearTimeout
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -121,7 +121,7 @@ clearTimeout(timeoutID);
  
   
 
-##### setInterval
+#### setInterval
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -161,7 +161,7 @@ setInterval(() => {
  
   
 
-##### clearInterval
+#### clearInterval
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -193,13 +193,13 @@ clearInterval(intervalID);
  
   
 
-##### 其他说明
+#### 其他说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 超时延迟
+#### 超时延迟
 
 如果页面正忙于其他任务，超时可能比预期晚。setTimeout的函数或代码片段在下一个时间周期执行。例如：
  
@@ -219,18 +219,18 @@ OH test foo is called
  
   
 
-##### 最大延迟值
+#### 最大延迟值
 
 定时器内部使用32位带符号整数存储延时。因此，当延时超过2147483647毫秒（约24.8天）时，定时器会溢出并立即执行。
  
   
 
-##### 定时器冻结
+#### 定时器冻结
 
 定时器的触发受底层任务调度。当前应用被切换到后台后，定时器到期不会触发。应用被重新拉起到前台后，到期定时器会按序触发。可以使用trace查看进程是否还存在调度，如果没有调度，定时器会被冻结。
  
   
 
-##### 定时器ID
+#### 定时器ID
 
 setTimeout()和setInterval()使用相同的ID池，因此技术上可以互相调用clearTimeout()和clearInterval()来清除。然而，为了提高代码的可读性和可维护性，建议分别使用各自对应的清除方法，以避免混淆。

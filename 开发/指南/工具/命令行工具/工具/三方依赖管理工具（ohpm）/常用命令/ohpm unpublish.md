@@ -7,7 +7,7 @@
 下架已发布的三方库。
  
 
-##### 命令格式
+#### 命令格式
 
 ```text
 ohpm unpublish [options] [<@group>]<pkg>[@<version>]
@@ -19,7 +19,7 @@ ohpm unpublish [options] [<@group>]<pkg>[@<version>]
  
  
 
-##### 功能描述
+#### 功能描述
 
 - 从 OpenHarmony 三方库中心仓下架已经发布并审核通过上架的三方库。
 - 若不指定版本，则默认下架三方库的所有版本，并且需要加上 -f  配置参数；全部版本均下架后，在 24h 内则不允许重新发布相同名称的三方库。
@@ -29,11 +29,11 @@ ohpm unpublish [options] [<@group>]<pkg>[@<version>]
  
  
 
-##### Options
+#### Options
 
  
 
-##### force
+#### force
 
 - 默认值：false
 - 类型：Boolean
@@ -44,7 +44,7 @@ ohpm unpublish [options] [<@group>]<pkg>[@<version>]
  
  
 
-##### publish_registry
+#### publish_registry
 
 - 默认值：""
 - 类型：URL
@@ -54,7 +54,7 @@ ohpm unpublish [options] [<@group>]<pkg>[@<version>]
  
  
 
-##### publish_id
+#### publish_id
 
 - 默认值：""
 - 类型：String
@@ -64,7 +64,7 @@ ohpm unpublish [options] [<@group>]<pkg>[@<version>]
  
  
 
-##### key_path
+#### key_path
 
 - 默认值：""
 - 类型：String
@@ -74,7 +74,7 @@ ohpm unpublish [options] [<@group>]<pkg>[@<version>]
  
  
 
-##### fetch_timeout
+#### fetch_timeout
 
 - 默认值：60000
 - 类型： Number
@@ -85,7 +85,7 @@ ohpm unpublish [options] [<@group>]<pkg>[@<version>]
  
  
 
-##### strict_ssl
+#### strict_ssl
 
 - 默认值：true
 - 类型： Boolean
@@ -95,7 +95,7 @@ ohpm unpublish [options] [<@group>]<pkg>[@<version>]
  
  
 
-##### log_level
+#### log_level
 
 - 默认值：无
 - 类型： String
@@ -105,7 +105,7 @@ ohpm unpublish [options] [<@group>]<pkg>[@<version>]
  
  
 
-##### debug
+#### debug
 
 - 默认值：false
 - 类型： Boolean
@@ -115,7 +115,7 @@ ohpm unpublish [options] [<@group>]<pkg>[@<version>]
  
  
 
-##### 示例
+#### 示例
 
 下架已发布的三方库，执行以下命令：
  
@@ -126,4 +126,4 @@ ohpm unpublish demo@1.0.0 -f
 结果示例：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/uzOmbtixTtuujclwCCGwLg/zh-cn_image_0000002602186783.png?HW-CC-KV=V1&HW-CC-Date=20260528T015002Z&HW-CC-Expire=86400&HW-CC-Sign=D11ED9D403F3B532AF51E93926B3DCC9718A176C993CDDCBA715F9901705428A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/bei7TpZIQ4mDpfTBU_w9cw/zh-cn_image_0000002602186783.png?HW-CC-KV=V1&HW-CC-Date=20260528T030632Z&HW-CC-Expire=86400&HW-CC-Sign=6C8DA2D7E85DEA523C3278A510E565ADAEEBB4458DC2B39349268E513955AFFB)

@@ -23,7 +23,7 @@
 
   
 
-##### 规格说明
+#### 规格说明
 
 系统提供了4种预配置类型（[PreconfigType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#preconfigtype12)），分别为PRECONFIG_720P、PRECONFIG_1080P、PRECONFIG_4K、PRECONFIG_HIGH_QUALITY。以及3种画幅比例规格（[PreconfigRatio](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#preconfigratio12)），1:1画幅（PRECONFIG_RATIO_1_1）、4:3画幅（PRECONFIG_RATIO_4_3）、16:9画幅（PRECONFIG_RATIO_16_9）。
  
@@ -106,7 +106,7 @@
  
   
 
-##### 开发步骤
+#### 开发步骤
 
 详细的API说明请参考[Camera API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-camera)。
  1. 导入相关接口。
@@ -302,7 +302,7 @@ async function startCamera(photoSession: camera.PhotoSession) : Promise<void> {
  
   
 
-##### 完整示例
+#### 完整示例
 
 Context获取方式请参考：[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
  

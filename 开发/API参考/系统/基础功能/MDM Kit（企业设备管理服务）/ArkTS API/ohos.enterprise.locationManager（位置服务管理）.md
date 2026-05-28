@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { locationManager } from '@kit.MDMKit';
 
 
 
-##### locationManager.setLocationPolicy
+#### locationManager.setLocationPolicy
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -80,7 +80,7 @@ try {
 
 
 
-##### locationManager.getLocationPolicy
+#### locationManager.getLocationPolicy
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -142,7 +142,7 @@ try {
 
 
 
-##### LocationPolicy
+#### LocationPolicy
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

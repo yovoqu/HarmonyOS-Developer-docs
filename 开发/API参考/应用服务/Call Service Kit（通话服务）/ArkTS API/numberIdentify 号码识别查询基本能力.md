@@ -10,7 +10,7 @@ numberIdentify模块提供企业来电相关能力查询，包括查询是否有
 **起始版本：** 6.1.0(23)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -20,7 +20,7 @@ import { numberIdentify } from '@kit.CallServiceKit';
  
   
 
-##### isSupportEnterpriseNumberIdentify
+#### isSupportEnterpriseNumberIdentify
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -74,7 +74,7 @@ hilog.info(0, 'TAG',`isSupport：${isSupport}`);
  
   
 
-##### queryNumberIdentifySwitchState
+#### queryNumberIdentifySwitchState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -127,7 +127,7 @@ hilog.info(0, 'TAG',`switchState is:${JSON.stringify(switchState)}`);
  
   
 
-##### SwitchState
+#### SwitchState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -148,7 +148,7 @@ hilog.info(0, 'TAG',`switchState is:${JSON.stringify(switchState)}`);
  
   
 
-##### BusinessServiceData
+#### BusinessServiceData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -168,7 +168,7 @@ hilog.info(0, 'TAG',`switchState is:${JSON.stringify(switchState)}`);
  
   
 
-##### BusinessServiceType
+#### BusinessServiceType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -187,7 +187,7 @@ hilog.info(0, 'TAG',`switchState is:${JSON.stringify(switchState)}`);
  
   
 
-##### DeliveryData
+#### DeliveryData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -211,7 +211,7 @@ hilog.info(0, 'TAG',`switchState is:${JSON.stringify(switchState)}`);
  
   
 
-##### DeliveryStatusColor
+#### DeliveryStatusColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

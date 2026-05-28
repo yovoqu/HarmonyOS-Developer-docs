@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-window-stage
 
-##### 基本概念
+#### 基本概念
 
  - 窗口沉浸式能力：指对状态栏、导航栏等系统窗口进行控制，减少状态栏导航栏等系统界面的突兀感，从而使用户获得最佳体验的能力。沉浸式能力只在应用主窗口作为全屏窗口时生效。通常情况下，应用的辅助窗口（子窗、全局悬浮窗等）和处于自由窗口下的应用主窗口无法使用沉浸式能力。
  - 全局悬浮窗：全局悬浮窗是一种特殊的应用辅助窗口，具备在应用主窗口和对应Ability退至后台后仍然可以在前台显示的能力。全局悬浮窗可以用于应用退至后台后，使用小窗继续显示UI，例如音乐应用用于显示桌面歌词等。应用在创建全局悬浮窗前，需要申请对应的权限。
@@ -12,7 +12,7 @@
 
 
 
-##### 场景介绍
+#### 场景介绍
 
 在Stage模型下，管理应用窗口的典型场景有：
 
@@ -27,7 +27,7 @@
 
 
 
-##### 接口说明
+#### 接口说明
 
 上述场景涉及的常用接口如下表所示。更多API说明请参见[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window)。
 
@@ -53,13 +53,13 @@
 
 
 
-##### 设置应用主窗口
+#### 设置应用主窗口
 
 在Stage模型下，应用主窗口由UIAbility创建并维护生命周期。在UIAbility的onWindowStageCreate回调中，通过WindowStage获取应用主窗口，即可对其进行属性设置等操作。还可以在应用配置文件中设置应用主窗口的属性，如最大窗口宽度maxWindowWidth等，详见[module.json5配置文件中的abilities标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#abilities标签)。
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 获取应用主窗口。
 
   通过getMainWindow接口获取应用主窗口。
@@ -117,7 +117,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### 设置应用子窗口
+#### 设置应用子窗口
 
 开发者可以按需创建应用子窗口，如弹窗等，并对其进行属性设置等操作。
 
@@ -127,7 +127,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 创建应用子窗口。
 
   通过createSubWindow接口创建应用子窗口。
@@ -428,7 +428,7 @@ struct SubWindow {
 
 
 
-##### 体验窗口沉浸式能力
+#### 体验窗口沉浸式能力
 
 在看视频、玩游戏等场景下，用户往往希望隐藏状态栏、导航栏等不必要的系统窗口，从而获得更佳的沉浸式体验。此时可以借助窗口沉浸式能力（窗口沉浸式能力都是针对应用主窗口而言的），达到预期效果。从API version 10开始，沉浸式窗口默认配置为全屏大小并由组件模块控制布局，状态栏、导航栏背景颜色为透明，文字颜色为黑色；应用窗口调用setWindowLayoutFullScreen接口，设置为true表示由组件模块控制忽略状态栏、导航栏的沉浸式全屏布局，设置为false表示由组件模块控制避让状态栏、导航栏的非沉浸式全屏布局。
 
@@ -438,7 +438,7 @@ struct SubWindow {
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 获取应用主窗口。
 
   通过getMainWindow接口获取应用主窗口。
@@ -521,20 +521,20 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### 设置全局悬浮窗（受限开放）
+#### 设置全局悬浮窗（受限开放）
 
 全局悬浮窗可以在已有的任务基础上，创建一个始终在前台显示的窗口。即使创建全局悬浮窗的任务退至后台，全局悬浮窗仍然可以在前台显示。通常全局悬浮窗位于所有应用窗口之上，开发者可以创建全局悬浮窗，并对全局悬浮窗进行属性设置等操作。
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 **前提条件：** 创建WindowType.TYPE_FLOAT即全局悬浮窗类型的窗口，需要申请ohos.permission.SYSTEM_FLOAT_WINDOW权限，该权限为受控开放权限，仅符合[指定场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/restricted-permissions#ohospermissionsystem_float_window)的在2in1设备上的应用可申请该权限。申请方式请参考：[申请使用受限权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions-in-acl)。
 
 在其他设备或场景下，请使用画中画功能，使用方式参考：[画中画开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-pipwindow)。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/6DC7D9xLTyaYr-k4vXDmtg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T014749Z&HW-CC-Expire=86400&HW-CC-Sign=49C66A3E8EAA511C9D41D9251DEA424F47565F185E83494A49BA23F7A0913321)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/6DC7D9xLTyaYr-k4vXDmtg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030421Z&HW-CC-Expire=86400&HW-CC-Sign=DDB142A2B5CB6141B8207D8043E079591D521962EE99BD75767AA6ECF8901DDC)
 
 
 如果应用未在AppGallery Connect申请相应的权限证书，却试图在配置文件中声明此类权限，将会导致应用安装失败。
@@ -620,13 +620,13 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### 监听窗口不可交互与可交互事件
+#### 监听窗口不可交互与可交互事件
 
 应用在前台显示过程中可能会进入某些不可交互的场景，比较典型的是进入多任务界面。此时，对于一些应用可能需要选择暂停某个与用户正在交互的业务，如视频类应用暂停正在播放的视频或者相机暂停预览流等。而当该应用从多任务又切回前台时，又变成了可交互的状态，此时需要恢复被暂停中断的业务，如恢复视频播放或相机预览流等。
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 在创建WindowStage对象后可通过监听'windowStageEvent'事件类型，监听到窗口进入前台、后台、前台可交互、前台不可交互等事件，应用可根据这些上报的事件状态进行相应的业务处理。
 

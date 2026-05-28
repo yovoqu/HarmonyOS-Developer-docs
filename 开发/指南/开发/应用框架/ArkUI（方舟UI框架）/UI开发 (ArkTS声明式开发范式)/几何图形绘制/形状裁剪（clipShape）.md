@@ -11,7 +11,7 @@
 
 
 
-##### 裁剪圆形
+#### 裁剪圆形
 
 通过设置CircleShape，将图片裁剪为圆形。
 
@@ -48,7 +48,7 @@ struct ClipShapeExample {
 
 
 
-##### 裁剪椭圆形
+#### 裁剪椭圆形
 
 通过设置EllipseShape，将图片裁剪为椭圆形。
 
@@ -83,7 +83,7 @@ struct ClipShapeExample {
 
 
 
-##### 裁剪矩形
+#### 裁剪矩形
 
 通过设置RectShape，将图片裁剪为矩形。
 
@@ -118,7 +118,7 @@ struct ClipShapeExample {
 
 
 
-##### 裁剪不规则形状
+#### 裁剪不规则形状
 
 通过设置PathShape，将图片裁剪为不规则形状。
 
@@ -147,4 +147,4 @@ struct ClipShapeExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/o79rf0HmThSaviFMxt7NLA/zh-cn_image_0000002581434002.png?HW-CC-KV=V1&HW-CC-Date=20260528T014827Z&HW-CC-Expire=86400&HW-CC-Sign=1446C170A8DAD191E013E15C4497219A66519669EA8B6FC48504598462001A8D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/o79rf0HmThSaviFMxt7NLA/zh-cn_image_0000002581434002.png?HW-CC-KV=V1&HW-CC-Date=20260528T030456Z&HW-CC-Expire=86400&HW-CC-Sign=BF5B40CA3D62233C9B720DF860B24E16897609FE90DDA5716CCDCEF54AB1F018)

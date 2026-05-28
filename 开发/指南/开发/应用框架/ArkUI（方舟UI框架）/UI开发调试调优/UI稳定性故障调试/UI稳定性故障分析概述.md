@@ -9,7 +9,7 @@
 应用稳定性问题主要包括应用崩溃、应用无响应、应用资源泄漏等问题。性能问题不属于稳定性范畴，要了解性能相关内容可以参考[UI性能优化概览](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-performance-overview)。
 
 
-##### 应用崩溃
+#### 应用崩溃
 
 应用崩溃有时也被称为应用闪退，指应用在运行过程中意外终止。应用异常退出的主要原因可以归纳为：
 
@@ -23,7 +23,7 @@
 
 
 
-##### jscrash
+#### jscrash
 
 发生jscrash问题后，系统的FaultLogger模块会收集问题有关的各种故障信息，可参考[日志获取](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/jscrash-guidelines#日志获取)了解如何获取日志。
 
@@ -34,7 +34,7 @@
 
 
 
-##### cppcrash
+#### cppcrash
 
 发生cppcrash问题后，系统的FaultLogger模块会收集问题有关的各种故障信息，可参考[日志获取](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cppcrash-guidelines#日志获取)了解如何获取日志。
 
@@ -46,7 +46,7 @@
 
 
 
-##### 应用无响应
+#### 应用无响应
 
 应用无响应问题也被称为AppFreeze问题，以下是一些关于AppFreeze问题的参考帮助：
 
@@ -56,7 +56,7 @@
 
 
 
-##### 应用资源泄漏
+#### 应用资源泄漏
 
 以下是一些关于应用资源泄漏问题的参考帮助：
 

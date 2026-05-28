@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-imageoverlay
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -15,7 +15,7 @@ import { mapCommon } from '@kit.MapKit';
  
   
 
-##### ImageOverlay
+#### ImageOverlay
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -54,7 +54,7 @@ let bearing: number = imageOverlay.getBearing();
  
   
 
-##### getBearing
+#### getBearing
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -85,7 +85,7 @@ let bearing: number = imageOverlay.getBearing();
  
   
 
-##### getBounds
+#### getBounds
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -116,7 +116,7 @@ let bounds: mapCommon.LatLngBounds = imageOverlay.getBounds();
  
   
 
-##### getHeight
+#### getHeight
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -147,7 +147,7 @@ let height: number = imageOverlay.getHeight();
  
   
 
-##### getWidth
+#### getWidth
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -178,7 +178,7 @@ let width: number = imageOverlay.getWidth();
  
   
 
-##### getPosition
+#### getPosition
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -209,7 +209,7 @@ let position: mapCommon.LatLng = imageOverlay.getPosition();
  
   
 
-##### getTransparency
+#### getTransparency
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -240,7 +240,7 @@ let transparency: number = imageOverlay.getTransparency();
  
   
 
-##### isClickable
+#### isClickable
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -271,7 +271,7 @@ let click: boolean = imageOverlay.isClickable();
  
   
 
-##### setBearing
+#### setBearing
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -302,7 +302,7 @@ imageOverlay.setBearing(180);
  
   
 
-##### setClickable
+#### setClickable
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -333,7 +333,7 @@ imageOverlay.setClickable(false);
  
   
 
-##### setDimensions
+#### setDimensions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -365,7 +365,7 @@ imageOverlay.setDimensions(100000, 100000);
  
   
 
-##### setImage
+#### setImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -404,7 +404,7 @@ await imageOverlay.setImage("icon.png");
  
   
 
-##### setBounds
+#### setBounds
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -439,7 +439,7 @@ imageOverlay.setBounds(bounds);
  
   
 
-##### setPosition
+#### setPosition
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -471,7 +471,7 @@ imageOverlay.setPosition(position);
  
   
 
-##### setTransparency
+#### setTransparency
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

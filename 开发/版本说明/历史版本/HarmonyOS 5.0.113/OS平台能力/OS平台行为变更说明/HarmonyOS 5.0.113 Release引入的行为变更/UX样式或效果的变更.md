@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/changelogs-ux-b112
 
-##### Tabs组件底部页签默认高度由52vp变更为48vp
+#### Tabs组件底部页签默认高度由52vp变更为48vp
 
 **变更原因**
  
@@ -62,7 +62,7 @@ struct barHeightTest {
  
  
 
-##### 画布组件在绘制文本时设置globalCompositeOperation、fillStyle和globalAlpha属性的效果变更
+#### 画布组件在绘制文本时设置globalCompositeOperation、fillStyle和globalAlpha属性的效果变更
 
 **变更原因**
  
@@ -139,7 +139,7 @@ struct FillText {
  
  
 
-##### NavDestination的Dialog模式默认支持系统动画
+#### NavDestination的Dialog模式默认支持系统动画
 
 **变更原因**
  

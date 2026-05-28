@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-manager-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -40,7 +40,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -55,13 +55,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_AudioManager_OnAudioSceneChangeCallback()
+#### OH_AudioManager_OnAudioSceneChangeCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -85,7 +85,7 @@ typedef void (*OH_AudioManager_OnAudioSceneChangeCallback) (void *userData, OH_A
  
   
 
-##### OH_GetAudioManager()
+#### OH_GetAudioManager()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -117,7 +117,7 @@ OH_AudioCommon_Result OH_GetAudioManager(OH_AudioManager **audioManager)
  
   
 
-##### OH_GetAudioScene()
+#### OH_GetAudioScene()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -148,7 +148,7 @@ OH_AudioCommon_Result OH_GetAudioScene(OH_AudioManager* manager, OH_AudioScene *
  
   
 
-##### OH_AudioManager_RegisterAudioSceneChangeCallback()
+#### OH_AudioManager_RegisterAudioSceneChangeCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -180,7 +180,7 @@ OH_AudioCommon_Result OH_AudioManager_RegisterAudioSceneChangeCallback(OH_AudioM
  
   
 
-##### OH_AudioManager_UnregisterAudioSceneChangeCallback()
+#### OH_AudioManager_UnregisterAudioSceneChangeCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

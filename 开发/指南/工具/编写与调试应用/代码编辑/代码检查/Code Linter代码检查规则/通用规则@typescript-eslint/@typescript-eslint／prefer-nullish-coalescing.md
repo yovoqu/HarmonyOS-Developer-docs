@@ -7,7 +7,7 @@
 强制使用空值合并运算符（??）而不是逻辑运算符。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/prefer-nullish-coalescing选项](https://typescript-eslint.nodejs.cn/rules/prefer-nullish-coalescing/#options)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 function getText1(): string | undefined {
@@ -46,7 +46,7 @@ export const v2 = foo2 ?? 'a string';
  
  
 
-##### 反例
+#### 反例
 
 ```text
 declare const a: string | null;
@@ -57,7 +57,7 @@ export const c = a || b;
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

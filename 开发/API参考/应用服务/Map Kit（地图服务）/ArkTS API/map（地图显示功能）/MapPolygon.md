@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mappolygon
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -15,7 +15,7 @@ import { map, mapCommon } from '@kit.MapKit';
  
   
 
-##### MapPolygon
+#### MapPolygon
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -46,7 +46,7 @@ let mapPolygon = await this.mapController.addPolygon(polygonOptions);
  
   
 
-##### getFillColor
+#### getFillColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -77,7 +77,7 @@ let fillColor: number = mapPolygon.getFillColor();
  
   
 
-##### getHoles
+#### getHoles
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -112,7 +112,7 @@ let holes: Array<Array<mapCommon.LatLng>> = mapPolygon.getHoles();
  
   
 
-##### getPoints
+#### getPoints
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -143,7 +143,7 @@ let points: Array<mapCommon.LatLng> = mapPolygon.getPoints();
  
   
 
-##### getStrokeColor
+#### getStrokeColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -174,7 +174,7 @@ let strokeColor: number = mapPolygon.getStrokeColor();
  
   
 
-##### getJointType
+#### getJointType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -205,7 +205,7 @@ let jointType: mapCommon.JointType = mapPolygon.getJointType();
  
   
 
-##### getPatterns
+#### getPatterns
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -236,7 +236,7 @@ let patterns: Array<mapCommon.PatternItem> = mapPolygon.getPatterns();
  
   
 
-##### getStrokeWidth
+#### getStrokeWidth
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -267,7 +267,7 @@ let strokeWidth: number = mapPolygon.getStrokeWidth();
  
   
 
-##### isClickable
+#### isClickable
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -298,7 +298,7 @@ let clickable: boolean = mapPolygon.isClickable();
  
   
 
-##### isGeodesic
+#### isGeodesic
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -329,7 +329,7 @@ let geodesic: boolean = mapPolygon.isGeodesic();
  
   
 
-##### setClickable
+#### setClickable
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -360,7 +360,7 @@ mapPolygon.setClickable(true);
  
   
 
-##### setFillColor
+#### setFillColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -391,7 +391,7 @@ mapPolygon.setFillColor(0xff000FFF);
  
   
 
-##### setGeodesic
+#### setGeodesic
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -422,7 +422,7 @@ mapPolygon.setGeodesic(true);
  
   
 
-##### setHoles
+#### setHoles
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -481,7 +481,7 @@ mapPolygon.setHoles(holes);
  
   
 
-##### setPoints
+#### setPoints
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -530,7 +530,7 @@ mapPolygon.setPoints(points);
  
   
 
-##### setStrokeColor
+#### setStrokeColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -561,7 +561,7 @@ mapPolygon.setStrokeColor(0xff00DB93);
  
   
 
-##### setJointType
+#### setJointType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -592,7 +592,7 @@ mapPolygon.setJointType(mapCommon.JointType.ROUND);
  
   
 
-##### setPatterns
+#### setPatterns
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -637,7 +637,7 @@ mapPolygon.setPatterns(linePatterns);
  
   
 
-##### setStrokeWidth
+#### setStrokeWidth
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

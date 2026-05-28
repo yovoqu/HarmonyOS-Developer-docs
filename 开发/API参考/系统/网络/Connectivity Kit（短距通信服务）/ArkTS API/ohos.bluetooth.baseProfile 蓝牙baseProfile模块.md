@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { baseProfile } from '@kit.ConnectivityKit';
 
 
 
-##### BaseProfile
+#### BaseProfile
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -30,7 +30,7 @@ import { baseProfile } from '@kit.ConnectivityKit';
 
 
 
-##### ProfileConnectionState
+#### ProfileConnectionState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -47,7 +47,7 @@ type ProfileConnectionState = constant.ProfileConnectionState
 
 
 
-##### StateChangeParam
+#### StateChangeParam
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -64,7 +64,7 @@ type ProfileConnectionState = constant.ProfileConnectionState
 
 
 
-##### DisconnectCause12+
+#### DisconnectCause12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -84,7 +84,7 @@ type ProfileConnectionState = constant.ProfileConnectionState
 
 
 
-##### BaseProfile.getConnectedDevices
+#### BaseProfile.getConnectedDevices
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -133,7 +133,7 @@ try {
 
 
 
-##### BaseProfile.getConnectionState
+#### BaseProfile.getConnectionState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -193,7 +193,7 @@ try {
 
 
 
-##### BaseProfile.on('connectionStateChange')
+#### BaseProfile.on('connectionStateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -243,7 +243,7 @@ try {
 
 
 
-##### BaseProfile.off('connectionStateChange')
+#### BaseProfile.off('connectionStateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -7,7 +7,7 @@
 用户文件URI是文件的唯一标识，在对用户文件进行访问与修改等操作时往往都会使用到URI，不建议开发者解析URI中的片段用于业务代码开发，不同类型的URI使用方式将在下文详细介绍。
 
 
-##### URI的类型
+#### URI的类型
 
 URI类型可以归纳为文档类URI和媒体文件URI两类
 
@@ -21,11 +21,11 @@ URI类型可以归纳为文档类URI和媒体文件URI两类
 
 
 
-##### 文档类URI
+#### 文档类URI
 
 
 
-##### 文档类URI介绍
+#### 文档类URI介绍
 
 **文档类URI的格式类型为：**
 
@@ -42,23 +42,23 @@ URI类型可以归纳为文档类URI和媒体文件URI两类
 
 
 
-##### 文档类URI获取方式
+#### 文档类URI获取方式
 1. 通过[DocumentViewPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-picker#documentviewpicker)接口选择或保存文件，返回选择或保存的文件URI。
 2. 通过[AudioViewPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-picker#audioviewpicker)接口选择或保存文件，返回选择或保存的文件URI。
 
 
 
-##### 文档类URI的使用方式
+#### 文档类URI的使用方式
 
 应用使用此类URI可通过[文件管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs)进行进一步处理。示例代码参见picker中的[选择文档类文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/select-user-file#选择文档类文件)和[保存文档类文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/save-user-file#保存文档类文件)。
 
 
 
-##### 媒体文件URI
+#### 媒体文件URI
 
 
 
-##### 媒体文件URI介绍
+#### 媒体文件URI介绍
 
 **媒体文件URI的格式类型为：**
 
@@ -92,13 +92,13 @@ URI类型可以归纳为文档类URI和媒体文件URI两类
 
 
 
-##### 媒体文件URI获取方式
+#### 媒体文件URI获取方式
 1. 通过PhotoAccessHelper的[PhotoViewPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoviewpicker)选择媒体文件，返回选择的媒体文件的URI。
 2. 通过[photoAccessHelper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper)模块中的[getAssets](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#getassets)或[createAsset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#createasset)接口获取媒体文件对应文件的URI。
 
 
 
-##### 媒体文件URI的使用方式
+#### 媒体文件URI的使用方式
 
 normal等级的应用使用此类URI可以通过[photoAccessHelper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper)模块进行进一步处理。示例代码参见媒体资源使用指导中的[指定URI获取图片或视频资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-photoviewpicker#指定uri获取图片或视频资源)。此接口需要申请相册管理模块读权限（[ohos.permission.READ_IMAGEVIDEO](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-overview#能力范围)），在使用中需要注意应用是否有此权限。
 

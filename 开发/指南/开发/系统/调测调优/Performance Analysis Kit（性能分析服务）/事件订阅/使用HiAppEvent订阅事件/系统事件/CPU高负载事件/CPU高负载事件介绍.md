@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-cpu-usage-high-event
 
-##### 简介
+#### 简介
 
 CPU高负载事件用于检测应用在前台或后台时，应用相关的进程使用CPU资源超过系统的门限，导致手机发热等问题。
  
@@ -24,13 +24,13 @@ CPU高负载事件包含以下3类：
  
   
 
-##### 检测原理
+#### 检测原理
 
 CPU高负载事件检测原理详见[功耗检测](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/power-detection)章节。
  
   
 
-##### 自定义参数
+#### 自定义参数
 
 configEventPolicy接口说明
   
@@ -55,7 +55,7 @@ EventPolicy接口参数设置
  
   
 
-##### 事件字段说明
+#### 事件字段说明
 
 params字段说明
   
@@ -76,7 +76,7 @@ params字段说明
  
   
 
-##### threads字段说明
+#### threads字段说明
  
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |

@@ -10,7 +10,7 @@ typedef struct ImageEffect_Any {...} ImageEffect_Any
 ```
   
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -24,13 +24,13 @@ typedef struct ImageEffect_Any {...} ImageEffect_Any
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

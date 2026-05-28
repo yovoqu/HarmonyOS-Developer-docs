@@ -13,7 +13,7 @@
 
 
 
-##### 概述
+#### 概述
 
 @Local表示组件内部的状态，使得自定义组件内部的变量具有观察变化的能力：
 
@@ -26,7 +26,7 @@
 
 
 
-##### 状态管理V1版本@State装饰器的局限性
+#### 状态管理V1版本@State装饰器的局限性
 
 状态管理V1使用[@State装饰器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state)定义组件中的基础状态变量，该状态变量常用来作为组件内部状态，在组件内使用。但由于@State装饰器又能够从外部初始化，因此无法确保@State装饰变量的初始值一定为组件内部定义的值。
 
@@ -69,7 +69,7 @@ struct Index {
 
 
 
-##### 装饰器说明
+#### 装饰器说明
 
 | @Local变量装饰器 | 说明 |
 | --- | --- |
@@ -80,7 +80,7 @@ struct Index {
 
 
 
-##### 变量传递
+#### 变量传递
 
 | 传递规则 | 说明 |
 | --- | --- |
@@ -90,7 +90,7 @@ struct Index {
 
 
 
-##### 观察变化
+#### 观察变化
 
 使用@Local装饰的变量具有观察变化的能力。当装饰的变量发生变化时，会触发该变量绑定的UI组件刷新。
 
@@ -289,7 +289,7 @@ struct Index {
 
 
 
-##### 限制条件
+#### 限制条件
 
 @Local装饰器存在以下使用限制：
 
@@ -333,7 +333,7 @@ struct MyComponent {
 
 
 
-##### @Local与@State对比
+#### @Local与@State对比
 
 @Local与@State的用法、功能对比如下：
 
@@ -347,11 +347,11 @@ struct MyComponent {
 
 
 
-##### 使用场景
+#### 使用场景
 
 
 
-##### 观测对象整体变化
+#### 观测对象整体变化
 
 被@ObservedV2与@Trace装饰的类对象实例，具有深度观测对象属性的能力。但当对对象整体赋值时，UI却无法刷新。使用@Local装饰对象，可以达到观测对象本身变化的效果。
 
@@ -400,7 +400,7 @@ struct Index {
 
 
 
-##### 装饰Array类型变量
+#### 装饰Array类型变量
 
 当装饰的对象是Array时，可以观察到Array整体的赋值，同时可以通过调用Array的接口push, pop, shift, unshift, splice, copyWithin, fill, reverse, sort更新Array中的数据。
 
@@ -468,7 +468,7 @@ struct Index {
 
 
 
-##### 装饰Date类型变量
+#### 装饰Date类型变量
 
 当装饰的对象是Date时，可以观察到Date整体的赋值，同时可通过调用Date的接口setFullYear, setMonth, setDate, setHours, setMinutes, setSeconds, setMilliseconds, setTime, setUTCFullYear, setUTCMonth, setUTCDate, setUTCHours, setUTCMinutes, setUTCSeconds, setUTCMilliseconds更新Date的属性。
 
@@ -528,7 +528,7 @@ struct DatePickerExample {
 
 
 
-##### 装饰Map类型变量
+#### 装饰Map类型变量
 
 当装饰的对象是Map时，可以观察到对Map整体的赋值，同时可以通过调用Map的接口set, clear, delete更新Map中的数据。
 
@@ -595,7 +595,7 @@ struct MapSample {
 
 
 
-##### 装饰Set类型变量
+#### 装饰Set类型变量
 
 当装饰的对象是Set时，可以观察到对Set整体的赋值，同时可以通过调用Set的接口add, clear, delete更新Set中的数据。
 
@@ -655,7 +655,7 @@ struct SetSample {
 
 
 
-##### 联合类型
+#### 联合类型
 
 @Local支持null、undefined以及联合类型。在下面的示例中，count类型为number | undefined，点击改变count的类型，UI会随之刷新。
 
@@ -697,11 +697,11 @@ struct Index {
 
 
 
-##### 常见问题
+#### 常见问题
 
 
 
-##### 在状态管理V2中使用animateTo动画效果异常
+#### 在状态管理V2中使用animateTo动画效果异常
 
 在下面的场景中，[animateTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#animateto)暂不支持直接在状态管理V2中使用。
 
@@ -792,4 +792,4 @@ struct Index {
 原理为使用applySync接口同步刷新闭包函数内的状态变量变化，再执行原来的动画达成预期的效果。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/9YtAKp7ESXaQLPygErEyRQ/zh-cn_image_0000002581433674.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014816Z&HW-CC-Expire=86400&HW-CC-Sign=71DB7ADF5F8BD155F622C88FF1CDA034F6B9D2C2CAB8271B966E77B2C51113D6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/9YtAKp7ESXaQLPygErEyRQ/zh-cn_image_0000002581433674.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030447Z&HW-CC-Expire=86400&HW-CC-Sign=6FF60D6169917C4D273FF2A03C56F70A23A05D54BB77D85EC70F82F68E5D3BAF)

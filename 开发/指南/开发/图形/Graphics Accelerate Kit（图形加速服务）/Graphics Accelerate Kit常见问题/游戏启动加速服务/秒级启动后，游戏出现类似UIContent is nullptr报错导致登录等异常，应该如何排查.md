@@ -15,7 +15,7 @@
   以[示例工程](https://gitcode.com/HarmonyOS_Codelabs/graphics-accelerate-kit-launch-acceleration-codelab-arkts/blob/master/entry/src/main/ets/ability/TuanjiePlayerAbilityBase.ets)为例，AbilityContext的赋值应放在isFirstLaunchFlag判断之外，以确保每次启动（包括秒级启动）都能更新为当前UIAbility的UIAbilityContext。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2/v3/m4yeIytRQj6yKtL2JLhbgA/zh-cn_image_0000002611754765.png?HW-CC-KV=V1&HW-CC-Date=20260528T014911Z&HW-CC-Expire=86400&HW-CC-Sign=7F6CB8E6E5E17669BEDE7F2B6ADA7846836282384C24A0517116BCE610FCAE3E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2/v3/m4yeIytRQj6yKtL2JLhbgA/zh-cn_image_0000002611754765.png?HW-CC-KV=V1&HW-CC-Date=20260528T030540Z&HW-CC-Expire=86400&HW-CC-Sign=CF6F0FF8133C9456ADBD664E597A4D377E4E123FA39B10EC433A0A6D6AE8274A)
 
 2. 对于依赖UIAbilityContext的三方SDK，是否在每次启动时同步更新Context。
 

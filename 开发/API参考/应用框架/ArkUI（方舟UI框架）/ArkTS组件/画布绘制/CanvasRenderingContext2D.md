@@ -12,13 +12,13 @@ CanvasRenderingContext2D对象与Canvas组件绑定后，可在Canvas组件上�
 
 
 
-##### 构造函数
+#### 构造函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@ constructor(settings?: RenderingContextSettings)
 
 
 
-##### constructor12+
+#### constructor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -110,7 +110,7 @@ struct LengthMetricsUnitDemo {
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -120,7 +120,7 @@ struct LengthMetricsUnitDemo {
 
 
 
-##### fillStyle
+#### fillStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -168,7 +168,7 @@ struct FillStyleExample {
 
 
 
-##### lineWidth
+#### lineWidth
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -216,7 +216,7 @@ struct LineWidthExample {
 
 
 
-##### strokeStyle
+#### strokeStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -265,7 +265,7 @@ struct StrokeStyleExample {
 
 
 
-##### lineCap
+#### lineCap
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -317,7 +317,7 @@ struct LineCapExample {
 
 
 
-##### lineJoin
+#### lineJoin
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -370,7 +370,7 @@ struct LineJoinExample {
 
 
 
-##### miterLimit
+#### miterLimit
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -423,7 +423,7 @@ struct MiterLimit {
 
 
 
-##### font
+#### font
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -491,7 +491,7 @@ struct FontDemo {
 
 
 
-##### textAlign
+#### textAlign
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -552,7 +552,7 @@ struct CanvasExample {
 
 
 
-##### textBaseline
+#### textBaseline
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -613,7 +613,7 @@ struct TextBaseline {
 
 
 
-##### globalAlpha
+#### globalAlpha
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -664,7 +664,7 @@ struct GlobalAlpha {
 
 
 
-##### lineDashOffset
+#### lineDashOffset
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -740,7 +740,7 @@ struct LineDashOffset {
 
 
 
-##### globalCompositeOperation
+#### globalCompositeOperation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -922,7 +922,7 @@ struct GlobalCompositeOperation {
 
 
 
-##### shadowBlur
+#### shadowBlur
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -972,7 +972,7 @@ struct ShadowBlur {
 
 
 
-##### shadowColor
+#### shadowColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1022,7 +1022,7 @@ struct ShadowColor {
 
 
 
-##### shadowOffsetX
+#### shadowOffsetX
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1073,7 +1073,7 @@ struct ShadowOffsetX {
 
 
 
-##### shadowOffsetY
+#### shadowOffsetY
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1124,7 +1124,7 @@ struct ShadowOffsetY {
 
 
 
-##### imageSmoothingEnabled
+#### imageSmoothingEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1178,7 +1178,7 @@ struct ImageSmoothingEnabled {
 
 
 
-##### height
+#### height
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1226,7 +1226,7 @@ struct HeightExample {
 
 
 
-##### width
+#### width
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1274,7 +1274,7 @@ struct WidthExample {
 
 
 
-##### canvas13+
+#### canvas13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1335,7 +1335,7 @@ struct CanvasExample {
 
 
 
-##### imageSmoothingQuality
+#### imageSmoothingQuality
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1391,7 +1391,7 @@ struct ImageSmoothingQualityDemo {
 
 
 
-##### direction
+#### direction
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1444,7 +1444,7 @@ struct DirectionDemo {
 
 
 
-##### filter
+#### filter
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1530,7 +1530,7 @@ struct FilterDemo {
 
 
 
-##### letterSpacing18+
+#### letterSpacing18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1581,7 +1581,7 @@ struct letterSpacingDemo {
 
 
 
-##### antialias24+
+#### antialias24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1652,7 +1652,7 @@ struct AntialiasDemo {
 
 
 
-##### 方法
+#### 方法
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1660,7 +1660,7 @@ struct AntialiasDemo {
 
 
 
-##### fillRect
+#### fillRect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1716,7 +1716,7 @@ struct FillRect {
 
 
 
-##### strokeRect
+#### strokeRect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1772,7 +1772,7 @@ struct StrokeRect {
 
 
 
-##### clearRect
+#### clearRect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1830,7 +1830,7 @@ struct ClearRect {
 
 
 
-##### fillText
+#### fillText
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1887,7 +1887,7 @@ struct FillText {
 
 
 
-##### strokeText
+#### strokeText
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1944,7 +1944,7 @@ struct StrokeText {
 
 
 
-##### measureText
+#### measureText
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2006,7 +2006,7 @@ struct MeasureText {
 
 
 
-##### stroke
+#### stroke
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2057,7 +2057,7 @@ struct Stroke {
 
 
 
-##### stroke
+#### stroke
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2116,7 +2116,7 @@ struct Stroke {
 
 
 
-##### beginPath
+#### beginPath
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2170,7 +2170,7 @@ struct BeginPath {
 
 
 
-##### moveTo
+#### moveTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2231,7 +2231,7 @@ struct MoveTo {
 
 
 
-##### lineTo
+#### lineTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2288,7 +2288,7 @@ struct LineTo {
 
 
 
-##### closePath
+#### closePath
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2339,7 +2339,7 @@ struct ClosePath {
 
 
 
-##### createPattern
+#### createPattern
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2410,7 +2410,7 @@ struct CreatePattern {
 
 
 
-##### bezierCurveTo
+#### bezierCurveTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2493,7 +2493,7 @@ struct BezierCurveTo {
 
 
 
-##### quadraticCurveTo
+#### quadraticCurveTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2572,7 +2572,7 @@ struct QuadraticCurveTo {
 
 
 
-##### arc
+#### arc
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2632,7 +2632,7 @@ struct Arc {
 
 
 
-##### arcTo
+#### arcTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2721,7 +2721,7 @@ struct ArcTo {
 
 
 
-##### ellipse
+#### ellipse
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2786,7 +2786,7 @@ struct CanvasExample {
 
 
 
-##### rect
+#### rect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2843,7 +2843,7 @@ struct CanvasExample {
 
 
 
-##### roundRect20+
+#### roundRect20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2940,7 +2940,7 @@ struct CanvasExample {
 
 
 
-##### fill
+#### fill
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2994,7 +2994,7 @@ struct Fill {
 
 
 
-##### fill
+#### fill
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3058,7 +3058,7 @@ struct Fill {
 
 
 
-##### clip
+#### clip
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3115,7 +3115,7 @@ struct Clip {
 
 
 
-##### clip
+#### clip
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3179,7 +3179,7 @@ struct Clip {
 
 
 
-##### reset12+
+#### reset12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3224,7 +3224,7 @@ struct Reset {
 
 
 
-##### saveLayer12+
+#### saveLayer12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3277,7 +3277,7 @@ build() {
 
 
 
-##### restoreLayer12+
+#### restoreLayer12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3289,7 +3289,7 @@ restoreLayer(): void
 
 
 
-##### resetTransform
+#### resetTransform
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3340,7 +3340,7 @@ struct ResetTransform {
 
 
 
-##### rotate
+#### rotate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3394,7 +3394,7 @@ struct Rotate {
 
 
 
-##### scale
+#### scale
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3451,7 +3451,7 @@ struct Scale {
 
 
 
-##### transform
+#### transform
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3520,7 +3520,7 @@ struct Transform {
 
 
 
-##### setTransform
+#### setTransform
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3589,7 +3589,7 @@ struct SetTransform {
 
 
 
-##### setTransform
+#### setTransform
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3657,7 +3657,7 @@ struct TransFormDemo {
 
 
 
-##### getTransform
+#### getTransform
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3726,7 +3726,7 @@ struct TransFormDemo {
 
 
 
-##### translate
+#### translate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3782,7 +3782,7 @@ struct Translate {
 
 
 
-##### drawImage
+#### drawImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3843,7 +3843,7 @@ struct ImageExample {
 
 
 
-##### drawImage
+#### drawImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3906,7 +3906,7 @@ struct ImageExample {
 
 
 
-##### drawImage
+#### drawImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3973,7 +3973,7 @@ struct ImageExample {
 
 
 
-##### createImageData
+#### createImageData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4004,7 +4004,7 @@ createImageData(sw: number, sh: number): ImageData
 
 
 
-##### createImageData
+#### createImageData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4034,7 +4034,7 @@ createImageData(imageData: ImageData): ImageData
 
 
 
-##### getPixelMap
+#### getPixelMap
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4103,7 +4103,7 @@ struct GetPixelMap {
 
 
 
-##### setPixelMap
+#### setPixelMap
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4124,7 +4124,7 @@ setPixelMap(value?: PixelMap): void
 
 
 
-##### getImageData
+#### getImageData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4195,7 +4195,7 @@ struct GetImageData {
 
 
 
-##### putImageData
+#### putImageData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4258,7 +4258,7 @@ struct PutImageData {
 
 
 
-##### putImageData
+#### putImageData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4325,7 +4325,7 @@ struct PutImageData {
 
 
 
-##### setLineDash
+#### setLineDash
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4380,7 +4380,7 @@ struct SetLineDash {
 
 
 
-##### getLineDash
+#### getLineDash
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4443,7 +4443,7 @@ struct CanvasGetLineDash {
 
 
 
-##### transferFromImageBitmap
+#### transferFromImageBitmap
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4506,7 +4506,7 @@ struct TransferFromImageBitmap {
 
 
 
-##### toDataURL
+#### toDataURL
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4571,7 +4571,7 @@ struct CanvasExample {
 
 
 
-##### restore
+#### restore
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4625,7 +4625,7 @@ struct CanvasExample {
 
 
 
-##### save
+#### save
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4675,7 +4675,7 @@ struct CanvasExample {
 
 
 
-##### createLinearGradient
+#### createLinearGradient
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4743,7 +4743,7 @@ struct CreateLinearGradient {
 
 
 
-##### createRadialGradient
+#### createRadialGradient
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4813,7 +4813,7 @@ struct CreateRadialGradient {
 
 
 
-##### createConicGradient10+
+#### createConicGradient10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4878,7 +4878,7 @@ struct CanvasExample {
 
 
 
-##### on('onAttach')13+
+#### on('onAttach')13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4904,7 +4904,7 @@ on(type: 'onAttach', callback: () => void): void
 
 
 
-##### on('onDetach')13+
+#### on('onDetach')13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4930,7 +4930,7 @@ on(type: 'onDetach', callback: () => void): void
 
 
 
-##### off('onAttach')13+
+#### off('onAttach')13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4952,7 +4952,7 @@ off(type: 'onAttach', callback?: () => void): void
 
 
 
-##### off('onDetach')13+
+#### off('onDetach')13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5071,7 +5071,7 @@ struct AttachDetachExample {
 
 
 
-##### startImageAnalyzer12+
+#### startImageAnalyzer12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5118,7 +5118,7 @@ startImageAnalyzer(config: ImageAnalyzerConfig): Promise&lt;void&gt;
 
 
 
-##### stopImageAnalyzer12+
+#### stopImageAnalyzer12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5206,7 +5206,7 @@ struct ImageAnalyzerExample {
 
 
 
-##### getContext2DFromDrawingContext23+
+#### getContext2DFromDrawingContext23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5282,7 +5282,7 @@ struct CanvasExample {
 
 
 
-##### RenderingContextOptions23+
+#### RenderingContextOptions23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5301,7 +5301,7 @@ struct CanvasExample {
 
 
 
-##### CanvasDirection类型说明
+#### CanvasDirection类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5324,7 +5324,7 @@ type CanvasDirection = "inherit" | "ltr" | "rtl"
 
 
 
-##### CanvasFillRule类型说明
+#### CanvasFillRule类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5393,7 +5393,7 @@ struct Index {
 
 
 
-##### CanvasLineCap类型说明
+#### CanvasLineCap类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5416,7 +5416,7 @@ type CanvasLineCap = "butt" | "round" | "square"
 
 
 
-##### CanvasLineJoin类型说明
+#### CanvasLineJoin类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5439,7 +5439,7 @@ type CanvasLineJoin = "bevel" | "miter" | "round"
 
 
 
-##### CanvasTextAlign类型说明
+#### CanvasTextAlign类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5464,7 +5464,7 @@ type CanvasTextAlign = "center" | "end" | "left" | "right" | "start"
 
 
 
-##### CanvasTextBaseline类型说明
+#### CanvasTextBaseline类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5490,7 +5490,7 @@ type CanvasTextBaseline = "alphabetic" | "bottom" | "hanging" | "ideographic" | 
 
 
 
-##### ImageSmoothingQuality类型说明
+#### ImageSmoothingQuality类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5513,7 +5513,7 @@ type ImageSmoothingQuality = "high" | "low" | "medium"
 
 
 
-##### TextMetrics
+#### TextMetrics
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5542,7 +5542,7 @@ type ImageSmoothingQuality = "high" | "low" | "medium"
 
 
 
-##### RenderingContextSettings
+#### RenderingContextSettings
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5550,7 +5550,7 @@ type ImageSmoothingQuality = "high" | "low" | "medium"
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5573,7 +5573,7 @@ constructor(antialias?: boolean)
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { SplitLayout } from '@kit.ArkUI';
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -30,7 +30,7 @@ import { SplitLayout } from '@kit.ArkUI';
  
   
 
-##### SplitLayout
+#### SplitLayout
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -55,7 +55,7 @@ SplitLayout({mainImage: Resource, primaryText: string, secondaryText?: string, t
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -63,7 +63,7 @@ SplitLayout({mainImage: Resource, primaryText: string, secondaryText?: string, t
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -111,4 +111,4 @@ struct Index {
 大于840vp布局：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/nwZRSuPcRoihoHfiRv1QHg/zh-cn_image_0000002581436268.png?HW-CC-KV=V1&HW-CC-Date=20260528T024154Z&HW-CC-Expire=86400&HW-CC-Sign=D3E9F43B5939B00C09B0E27DA5E47D1592B3DFF356E771992C688115AC7BF652)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/nwZRSuPcRoihoHfiRv1QHg/zh-cn_image_0000002581436268.png?HW-CC-KV=V1&HW-CC-Date=20260528T025527Z&HW-CC-Expire=86400&HW-CC-Sign=BB5E77FB8218530D484AB8D04359AD60CCC78730399F723743EC2ACA9CDEB3C8)

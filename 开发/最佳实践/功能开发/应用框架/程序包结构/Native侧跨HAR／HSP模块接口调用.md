@@ -7,7 +7,7 @@
 **   
 
 
-##### 概述
+#### 概述
 
 在大型应用开发中，应用通常会分为多个业务模块，业务模块常会以HSP或HAR包的形式提供SDK能力，这些SDK往往会提供Native接口给HAP模块的Native层直接调用，从而实现应用的复杂功能。而如何在Native侧跨HAR/HSP模块进行接口调用，是开发者经常遇到的问题。本文将介绍Native侧跨HAR/HSP模块调用两种典型场景，包括调用Native方法和调用ArkTS方法，以方便开发者更好的掌握Native侧跨模块调用的能力。
  
@@ -17,7 +17,7 @@
  
  
 
-##### 实现原理
+#### 实现原理
 
 如图1所示，Native侧跨HAR/HSP模块调用原理主要包括以下步骤。
  1. 在Module1（HAP）模块中，ArkTS侧通过Node-API调用Native接口。
@@ -41,7 +41,7 @@
  
  
 
-##### Native侧跨HAR/HSP模块调用Native方法
+#### Native侧跨HAR/HSP模块调用Native方法
 
  
 如下图所示，Native侧跨HAR/HSP模块调用Native方法的调用链路为Module1 ArkTS -> Module1 Native -> Module2 Native。在HarmonyOS项目中，Native侧跨模块调用Native方法实际就是C++侧调用，需要配置编译链接依赖。其实现的关键是在Module2（HSP/HAR）模块的build-profile.json5中，配置头文件导出，并在CMakeLists.txt中进行配置，将源文件配置到so中。
@@ -51,7 +51,7 @@
 
  
 
-##### 开发流程
+#### 开发流程
 
 Native侧跨HAR/HSP模块调用Native方法时，需要实现Module1（HAP）的ArkTS 侧调用Module1（HSP/HAR）的Native 侧、Module1（HAP）的Native 侧调用Module2（HSP/HAR）的Native 侧。在当前场景下，跨模块调用HAR模块和HSP模块的方式相同，当前以跨模块调用HAR模块为例，详细流程如下所示。
  1. 开发者需要创建Module2（HAR）模块staticModule，详细创建流程可以参考[创建库模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-har#section643521083015)。
@@ -177,7 +177,7 @@ Button($r('app.string.call_har_native_method'))
  
  
 
-##### 实现效果
+#### 实现效果
 
 图3 **Native侧调用HAR模块的Native方法**
 ![](assets/Native侧跨HAR／HSP模块接口调用/file-20260515114548345-3.png)
@@ -185,7 +185,7 @@ Button($r('app.string.call_har_native_method'))
  
  
 
-##### Native侧跨HAR/HSP模块调用ArkTS方法
+#### Native侧跨HAR/HSP模块调用ArkTS方法
 
 如下图所示，Native侧跨HAR/HSP模块调用ArkTS方法是[Native侧跨HAR/HSP模块调用Native方法](#section470062115417)的基础上调用ArkTS方法。其关键是在Module2中获取Module1中的上下文napi_env，并根据上下文napi_env加载模块、调用对应的ArkTS方法。
  
@@ -197,7 +197,7 @@ Button($r('app.string.call_har_native_method'))
  
  
 
-##### 开发流程
+#### 开发流程
 
 Native侧跨HAR/HSP模块调用ArkTS方法具体实现方法如下所示。
  1. 在完成[Native侧跨HAR/HSP模块调用Native方法](#section470062115417)后，在Module1中新增invokeHarArkTS()方法以准备调用HAR模块的ArkTS方法。
@@ -347,7 +347,7 @@ Button($r('app.string.call_har_ArkTS_method'))
  
  
 
-##### 实现效果
+#### 实现效果
 
 **图5 **Native侧调用HAR模块的ArkTS方法
 
@@ -356,11 +356,11 @@ Button($r('app.string.call_har_ArkTS_method'))
  
  
 
-##### 常见问题
+#### 常见问题
 
  
 
-##### 跨HSP模块调用和跨HAR模块调用的区别
+#### 跨HSP模块调用和跨HAR模块调用的区别
 
 HSP模块和HAR模块被调用时，主要的区别在Module2 Native调用Module2 ArkTS中，在调用napi_load_module_with_info加载模块时的入参有一些区别，其他的流程都是一样的。
  1. 被调用模块Module2是HAR
@@ -368,7 +368,7 @@ HSP模块和HAR模块被调用时，主要的区别在Module2 Native调用Module
 如图所示，编译构建后，HAR模块被打包到各个模块之中，所以其入口模块仍然是HAP模块，napi_load_module_with_info中第2个参数的模块名称要填HAP模块中oh-package.json5中定义的依赖HAR的名称，而不是HAR模块的实际名称。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/MrJxDuh5SMy6fdsWiewlFw/zh-cn_image_0000002194010548.png?HW-CC-KV=V1&HW-CC-Date=20260528T013109Z&HW-CC-Expire=86400&HW-CC-Sign=B2CF56B1FBF3D5FD44B6AFBCF2210504ED75B0C574FF2693C701806395EB84D6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/MrJxDuh5SMy6fdsWiewlFw/zh-cn_image_0000002194010548.png?HW-CC-KV=V1&HW-CC-Date=20260528T024751Z&HW-CC-Expire=86400&HW-CC-Sign=7867EBF2C2326E086C595E89B60103AAA9F572A3EADC49BD13E6FEC0427F1640)
 
  1. 被调用模块Module2是HSP
  
@@ -376,13 +376,13 @@ HSP模块和HAR模块被调用时，主要的区别在Module2 Native调用Module
  
  
 
-##### 是否支持直接依赖HAR模块和HSP模块的三方so（即依赖传递问题）？
+#### 是否支持直接依赖HAR模块和HSP模块的三方so（即依赖传递问题）？
 
 当前HAR模块和HSP模块都不支持依赖传递。
  
  
 
-##### 多包依赖同一so时，最终打包后的so有多少份？
+#### 多包依赖同一so时，最终打包后的so有多少份？
 
 如果多个HAR模块同时依赖commonHar的so，同一模块的同名so在打包后可以通过覆盖策略只保留一份。
  
@@ -390,7 +390,7 @@ HSP模块和HAR模块被调用时，主要的区别在Module2 Native调用Module
  
  
 
-##### 报错找不到HAR/HSP模块的ArkTS文件
+#### 报错找不到HAR/HSP模块的ArkTS文件
 
 **问题现象**
  
@@ -425,6 +425,6 @@ Error message:Cannot find module 'staticModule/src/main/ets/utils/Util' imported
  
  
 
-##### 示例代码
+#### 示例代码
 
 - [Native侧跨HAR/HSP模块调用](https://gitcode.com/harmonyos_samples/CrossModuleReference)

@@ -9,7 +9,7 @@
 视频录制的主要流程是“相机采集 > 编码 > 封装成mp4文件”。
   
 
-##### HDR Vivid视频编码
+#### HDR Vivid视频编码
 
 应用创建H.265编码器，配置profile(main 10)相机底层包含HDR Vivid的surfacebuffer内容，编码器消费surfacebuffer编码生成对应码流。
  
@@ -19,7 +19,7 @@
  
   
 
-##### 在 CMake 脚本中链接动态库
+#### 在 CMake 脚本中链接动态库
 
 ```text
 target_link_libraries(sample PUBLIC libnative_media_codecbase.so)
@@ -34,7 +34,7 @@ target_link_libraries(sample PUBLIC libnative_media_core.so)
  
   
 
-##### 开发步骤
+#### 开发步骤
 1. 添加头文件。
 
   
@@ -126,13 +126,13 @@ OH_AVFormat_Destroy(format);
  
   
 
-##### HDR Vivid视频封装
+#### HDR Vivid视频封装
 
 调用Muxer可以将HDR Vivid码流封装成文件，码流格式需指定为hevc码流，并设置宽、高、isHDRVivid信息。Color信息通常需要从编码获取并设置给封装器。
  
   
 
-##### 在 CMake 脚本中链接动态库
+#### 在 CMake 脚本中链接动态库
 
 ```text
 target_link_libraries(sample PUBLIC libnative_media_avmuxer.so)
@@ -145,7 +145,7 @@ target_link_libraries(sample PUBLIC libnative_media_core.so)
  
   
 
-##### 开发步骤
+#### 开发步骤
 1. 添加头文件。
 
   
@@ -199,7 +199,7 @@ OH_AVFormat_Destroy(formatVideo); // 销毁。
  
   
 
-##### 处理视频帧数据
+#### 处理视频帧数据
 1. 写入封装数据。
 
   

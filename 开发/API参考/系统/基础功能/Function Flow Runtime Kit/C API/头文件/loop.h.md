@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-loop-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -40,7 +40,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -57,13 +57,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### ffrt_loop_create()
+#### ffrt_loop_create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -93,7 +93,7 @@ FFRT_C_API ffrt_loop_t ffrt_loop_create(ffrt_queue_t queue)
  
   
 
-##### ffrt_loop_destroy()
+#### ffrt_loop_destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -123,7 +123,7 @@ FFRT_C_API int ffrt_loop_destroy(ffrt_loop_t loop)
  
   
 
-##### ffrt_loop_run()
+#### ffrt_loop_run()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -153,7 +153,7 @@ FFRT_C_API int ffrt_loop_run(ffrt_loop_t loop)
  
   
 
-##### ffrt_loop_stop()
+#### ffrt_loop_stop()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -176,7 +176,7 @@ FFRT_C_API void ffrt_loop_stop(ffrt_loop_t loop)
  
   
 
-##### ffrt_loop_epoll_ctl()
+#### ffrt_loop_epoll_ctl()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -213,7 +213,7 @@ FFRT_C_API int ffrt_loop_epoll_ctl(ffrt_loop_t loop, int op, int fd, uint32_t ev
  
   
 
-##### ffrt_loop_timer_start()
+#### ffrt_loop_timer_start()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -249,7 +249,7 @@ FFRT_C_API ffrt_timer_t ffrt_loop_timer_start(ffrt_loop_t loop, uint64_t timeout
  
   
 
-##### ffrt_loop_timer_stop()
+#### ffrt_loop_timer_stop()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

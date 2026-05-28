@@ -17,7 +17,7 @@
 ```
 
 
-##### 加载网络页面
+#### 加载网络页面
 
 开发者可以在Web组件创建时，指定默认加载的网络页面。在默认页面加载完成后，如果需要变更此Web组件显示的网络页面，可以通过调用[loadUrl()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#loadurl)接口加载指定的网页。[Web组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web)的第一个参数变量src不能通过状态变量（例如：[@State](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state)）动态更改地址，如需更改，请通过[loadUrl()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#loadurl)重新加载。
 
@@ -52,7 +52,7 @@ struct WebComponent {
 
 
 
-##### 加载本地页面
+#### 加载本地页面
 
 为了在启动、跳转、弱网等场景下减少用户等待感知，同时为动态内容加载争取时间，可以加载本地页面优化用户体验。
 
@@ -216,7 +216,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### 加载HTML格式的文本数据
+#### 加载HTML格式的文本数据
 
 Web组件可以通过[loadData()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#loaddata)接口实现加载HTML格式的文本数据。当开发者不需要加载整个页面，只需要显示一些页面片段时，可通过此功能来快速加载页面，当加载大量html文件时，需设置第四个参数baseUrl为"data"。
 
@@ -274,7 +274,7 @@ struct WebComponent {
 
 
 
-##### resource协议加载本地资源
+#### resource协议加载本地资源
 
 resource协议允许访问应用资源目录中的文件。
 

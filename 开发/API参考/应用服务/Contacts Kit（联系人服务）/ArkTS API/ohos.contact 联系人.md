@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -22,7 +22,7 @@ import { contact } from '@kit.ContactsKit';
 
 
 
-##### contact.addContact10+
+#### contact.addContact10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -85,7 +85,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 
-##### contact.addContact(deprecated)
+#### contact.addContact(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -135,7 +135,7 @@ contact.addContact(context, {
 
 
 
-##### contact.addContact10+
+#### contact.addContact10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -203,7 +203,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 
-##### contact.addContact(deprecated)
+#### contact.addContact(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -255,7 +255,7 @@ promise.then((data) => {
 
 
 
-##### contact.deleteContact10+
+#### contact.deleteContact10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -313,7 +313,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 
-##### contact.deleteContact(deprecated)
+#### contact.deleteContact(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -361,7 +361,7 @@ contact.selectContacts().then((data) => {
 
 
 
-##### contact.deleteContact10+
+#### contact.deleteContact10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -424,7 +424,7 @@ contact.selectContacts().then((data) => {
 
 
 
-##### contact.deleteContact(deprecated)
+#### contact.deleteContact(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -475,7 +475,7 @@ contact.selectContacts().then((data) => {
 
 
 
-##### contact.updateContact10+
+#### contact.updateContact10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -540,7 +540,7 @@ contact.selectContacts().then((data) => {
 
 
 
-##### contact.updateContact(deprecated)
+#### contact.updateContact(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -595,7 +595,7 @@ contact.selectContacts().then((data) => {
 
 
 
-##### contact.updateContact10+
+#### contact.updateContact10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -663,7 +663,7 @@ contact.selectContacts().then((data) => {
 
 
 
-##### contact.updateContact(deprecated)
+#### contact.updateContact(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -719,7 +719,7 @@ contact.selectContacts().then((data) => {
 
 
 
-##### contact.updateContact10+
+#### contact.updateContact10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -792,7 +792,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 
-##### contact.updateContact(deprecated)
+#### contact.updateContact(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -853,7 +853,7 @@ contact.selectContacts().then((data) => {
 
 
 
-##### contact.isLocalContact10+
+#### contact.isLocalContact10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -907,7 +907,7 @@ contact.isLocalContact(context, 1, (err: BusinessError, data) => {
 
 
 
-##### contact.isLocalContact(deprecated)
+#### contact.isLocalContact(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -947,7 +947,7 @@ contact.isLocalContact(1, (err: BusinessError, data) => {
 
 
 
-##### contact.isLocalContact10+
+#### contact.isLocalContact10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1006,7 +1006,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 
-##### contact.isLocalContact(deprecated)
+#### contact.isLocalContact(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1051,7 +1051,7 @@ promise.then((data) => {
 
 
 
-##### contact.isMyCard10+
+#### contact.isMyCard10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1105,7 +1105,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 
-##### contact.isMyCard(deprecated)
+#### contact.isMyCard(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1145,7 +1145,7 @@ contact.isMyCard(1, (err: BusinessError, data) => {
 
 
 
-##### contact.isMyCard10+
+#### contact.isMyCard10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1204,7 +1204,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 
-##### contact.isMyCard(deprecated)
+#### contact.isMyCard(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1249,7 +1249,7 @@ promise.then((data) => {
 
 
 
-##### contact.queryMyCard10+
+#### contact.queryMyCard10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1302,7 +1302,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 
-##### contact.queryMyCard(deprecated)
+#### contact.queryMyCard(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1341,7 +1341,7 @@ contact.queryMyCard((err: BusinessError, data) => {
 
 
 
-##### contact.queryMyCard10+
+#### contact.queryMyCard10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1397,7 +1397,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 
-##### contact.queryMyCard(deprecated)
+#### contact.queryMyCard(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1439,7 +1439,7 @@ contact.queryMyCard({
 
 
 
-##### contact.queryMyCard10+
+#### contact.queryMyCard10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1500,7 +1500,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 
-##### contact.queryMyCard(deprecated)
+#### contact.queryMyCard(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1547,7 +1547,7 @@ promise.then((data) => {
 
 
 
-##### contact.selectContact(deprecated)
+#### contact.selectContact(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1584,7 +1584,7 @@ contact.selectContact((err: BusinessError, data) => {
 
 
 
-##### contact.selectContact(deprecated)
+#### contact.selectContact(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1620,7 +1620,7 @@ promise.then((data) => {
 
 
 
-##### contact.selectContacts10+
+#### contact.selectContacts10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1664,7 +1664,7 @@ contact.selectContacts((err: BusinessError, data) => {
 
 
 
-##### contact.selectContacts10+
+#### contact.selectContacts10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1698,7 +1698,7 @@ promise.then((data) => {
 
 
 
-##### contact.selectContacts10+
+#### contact.selectContacts10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1745,7 +1745,7 @@ contact.selectContacts({
 
 
 
-##### contact.selectContacts10+
+#### contact.selectContacts10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1795,7 +1795,7 @@ promise.then((data) => {
 
 
 
-##### contact.queryContact10+
+#### contact.queryContact10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1849,7 +1849,7 @@ contact.queryContact(context, 'xxx', (err: BusinessError, data) => {
 
 
 
-##### contact.queryContact(deprecated)
+#### contact.queryContact(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1889,7 +1889,7 @@ contact.queryContact('xxx', (err: BusinessError, data) => {
 
 
 
-##### contact.queryContact10+
+#### contact.queryContact10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1948,7 +1948,7 @@ contact.queryContact(context, 'xxx', {
 
 
 
-##### contact.queryContact(deprecated)
+#### contact.queryContact(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1993,7 +1993,7 @@ contact.queryContact('xxx', {
 
 
 
-##### contact.queryContact10+
+#### contact.queryContact10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2050,7 +2050,7 @@ contact.queryContact(context, 'xxx', {
 
 
 
-##### contact.queryContact(deprecated)
+#### contact.queryContact(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2093,7 +2093,7 @@ contact.queryContact('xxx', {
 
 
 
-##### contact.queryContact10+
+#### contact.queryContact10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2155,7 +2155,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 
-##### contact.queryContact(deprecated)
+#### contact.queryContact(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2203,7 +2203,7 @@ contact.queryContact('xxx', {
 
 
 
-##### contact.queryContact10+
+#### contact.queryContact10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2270,7 +2270,7 @@ promise.then((data) => {
 
 
 
-##### contact.queryContact(deprecated)
+#### contact.queryContact(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2323,7 +2323,7 @@ promise.then((data) => {
 
 
 
-##### contact.queryContacts10+
+#### contact.queryContacts10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2376,7 +2376,7 @@ contact.queryContacts(context, (err: BusinessError, data) => {
 
 
 
-##### contact.queryContacts(deprecated)
+#### contact.queryContacts(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2415,7 +2415,7 @@ contact.queryContacts((err: BusinessError, data) => {
 
 
 
-##### contact.queryContacts10+
+#### contact.queryContacts10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2473,7 +2473,7 @@ contact.queryContacts(context, {
 
 
 
-##### contact.queryContacts(deprecated)
+#### contact.queryContacts(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2517,7 +2517,7 @@ contact.queryContacts({
 
 
 
-##### contact.queryContacts10+
+#### contact.queryContacts10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2573,7 +2573,7 @@ contact.queryContacts(context, {
 
 
 
-##### contact.queryContacts(deprecated)
+#### contact.queryContacts(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2615,7 +2615,7 @@ contact.queryContacts({
 
 
 
-##### contact.queryContacts10+
+#### contact.queryContacts10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2676,7 +2676,7 @@ contact.queryContacts(context, {
 
 
 
-##### contact.queryContacts(deprecated)
+#### contact.queryContacts(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2723,7 +2723,7 @@ contact.queryContacts({
 
 
 
-##### contact.queryContacts10+
+#### contact.queryContacts10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2789,7 +2789,7 @@ promise.then((data) => {
 
 
 
-##### contact.queryContacts(deprecated)
+#### contact.queryContacts(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2841,7 +2841,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 
-##### contact.queryContactsByPhoneNumber10+
+#### contact.queryContactsByPhoneNumber10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2895,7 +2895,7 @@ contact.queryContactsByPhoneNumber(context, '138xxxxxxxx', (err: BusinessError, 
 
 
 
-##### contact.queryContactsByPhoneNumber(deprecated)
+#### contact.queryContactsByPhoneNumber(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2935,7 +2935,7 @@ contact.queryContactsByPhoneNumber('138xxxxxxxx', (err: BusinessError, data) => 
 
 
 
-##### contact.queryContactsByPhoneNumber10+
+#### contact.queryContactsByPhoneNumber10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2994,7 +2994,7 @@ contact.queryContactsByPhoneNumber(context, '138xxxxxxxx', {
 
 
 
-##### contact.queryContactsByPhoneNumber(deprecated)
+#### contact.queryContactsByPhoneNumber(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -3039,7 +3039,7 @@ contact.queryContactsByPhoneNumber('138xxxxxxxx', {
 
 
 
-##### contact.queryContactsByPhoneNumber10+
+#### contact.queryContactsByPhoneNumber10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -3096,7 +3096,7 @@ contact.queryContactsByPhoneNumber(context, '138xxxxxxxx', {
 
 
 
-##### contact.queryContactsByPhoneNumber(deprecated)
+#### contact.queryContactsByPhoneNumber(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -3139,7 +3139,7 @@ contact.queryContactsByPhoneNumber('138xxxxxxxx', {
 
 
 
-##### contact.queryContactsByPhoneNumber10+
+#### contact.queryContactsByPhoneNumber10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -3201,7 +3201,7 @@ contact.queryContactsByPhoneNumber(context, '138xxxxxxxx', {
 
 
 
-##### contact.queryContactsByPhoneNumber(deprecated)
+#### contact.queryContactsByPhoneNumber(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -3249,7 +3249,7 @@ contact.queryContactsByPhoneNumber('138xxxxxxxx', {
 
 
 
-##### contact.queryContactsByPhoneNumber10+
+#### contact.queryContactsByPhoneNumber10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -3316,7 +3316,7 @@ promise.then((data) => {
 
 
 
-##### contact.queryContactsByPhoneNumber(deprecated)
+#### contact.queryContactsByPhoneNumber(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -3369,7 +3369,7 @@ promise.then((data) => {
 
 
 
-##### contact.queryContactsByEmail10+
+#### contact.queryContactsByEmail10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -3423,7 +3423,7 @@ contact.queryContactsByEmail(context, 'xxx@email.com', (err: BusinessError, data
 
 
 
-##### contact.queryContactsByEmail(deprecated)
+#### contact.queryContactsByEmail(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -3463,7 +3463,7 @@ contact.queryContactsByEmail('xxx@email.com', (err: BusinessError, data) => {
 
 
 
-##### contact.queryContactsByEmail10+
+#### contact.queryContactsByEmail10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -3522,7 +3522,7 @@ contact.queryContactsByEmail(context, 'xxx@email.com', {
 
 
 
-##### contact.queryContactsByEmail(deprecated)
+#### contact.queryContactsByEmail(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -3567,7 +3567,7 @@ contact.queryContactsByEmail('xxx@email.com', {
 
 
 
-##### contact.queryContactsByEmail10+
+#### contact.queryContactsByEmail10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -3624,7 +3624,7 @@ contact.queryContactsByEmail(context, 'xxx@email.com', {
 
 
 
-##### contact.queryContactsByEmail(deprecated)
+#### contact.queryContactsByEmail(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -3667,7 +3667,7 @@ contact.queryContactsByEmail('xxx@email.com', {
 
 
 
-##### contact.queryContactsByEmail10+
+#### contact.queryContactsByEmail10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -3729,7 +3729,7 @@ contact.queryContactsByEmail(context, 'xxx@email.com', {
 
 
 
-##### contact.queryContactsByEmail(deprecated)
+#### contact.queryContactsByEmail(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -3777,7 +3777,7 @@ contact.queryContactsByEmail('xxx@email.com', {
 
 
 
-##### contact.queryContactsByEmail10+
+#### contact.queryContactsByEmail10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -3844,7 +3844,7 @@ promise.then((data) => {
 
 
 
-##### contact.queryContactsByEmail(deprecated)
+#### contact.queryContactsByEmail(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -3897,7 +3897,7 @@ promise.then((data) => {
 
 
 
-##### contact.queryGroups10+
+#### contact.queryGroups10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -3948,7 +3948,7 @@ contact.queryGroups(context, (err: BusinessError, data) => {
 
 
 
-##### contact.queryGroups(deprecated)
+#### contact.queryGroups(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -3987,7 +3987,7 @@ contact.queryGroups((err: BusinessError, data) => {
 
 
 
-##### contact.queryGroups10+
+#### contact.queryGroups10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4045,7 +4045,7 @@ contact.queryGroups(context, {
 
 
 
-##### contact.queryGroups(deprecated)
+#### contact.queryGroups(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4089,7 +4089,7 @@ contact.queryGroups({
 
 
 
-##### contact.queryGroups10+
+#### contact.queryGroups10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4152,7 +4152,7 @@ promise.then((data) => {
 
 
 
-##### contact.queryGroups(deprecated)
+#### contact.queryGroups(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4201,7 +4201,7 @@ promise.then((data) => {
 
 
 
-##### contact.queryHolders10+
+#### contact.queryHolders10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4254,7 +4254,7 @@ contact.queryHolders(context, (err: BusinessError, data) => {
 
 
 
-##### contact.queryHolders(deprecated)
+#### contact.queryHolders(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4293,7 +4293,7 @@ contact.queryHolders((err: BusinessError, data) => {
 
 
 
-##### contact.queryHolders10+
+#### contact.queryHolders10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4351,7 +4351,7 @@ promise.then((data) => {
 
 
 
-##### contact.queryHolders(deprecated)
+#### contact.queryHolders(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4389,7 +4389,7 @@ promise.then((data) => {
 
 
 
-##### contact.queryKey10+
+#### contact.queryKey10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4443,7 +4443,7 @@ contact.queryKey(context, 1, (err: BusinessError, data) => {
 
 
 
-##### contact.queryKey(deprecated)
+#### contact.queryKey(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4483,7 +4483,7 @@ contact.queryKey(1, (err: BusinessError, data) => {
 
 
 
-##### contact.queryKey10+
+#### contact.queryKey10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4542,7 +4542,7 @@ contact.queryKey(context, 1, {
 
 
 
-##### contact.queryKey(deprecated)
+#### contact.queryKey(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4587,7 +4587,7 @@ contact.queryKey(1, {
 
 
 
-##### contact.queryKey10+
+#### contact.queryKey10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4651,7 +4651,7 @@ promise.then((data) => {
 
 
 
-##### contact.queryKey(deprecated)
+#### contact.queryKey(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4701,7 +4701,7 @@ promise.then((data) => {
 
 
 
-##### contact.queryContactsCount22+
+#### contact.queryContactsCount22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4757,7 +4757,7 @@ promise.then((data) => {
 
 
 
-##### contact.addContactViaUI15+
+#### contact.addContactViaUI15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4827,7 +4827,7 @@ promise.then((data) => {
 
 
 
-##### contact.saveToExistingContactViaUI15+
+#### contact.saveToExistingContactViaUI15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4899,7 +4899,7 @@ promise.then((data) => {
 
 
 
-##### contact.addContacts23+
+#### contact.addContacts23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -4967,7 +4967,7 @@ contact.addContacts(context, [contactInfo1, contactInfo2]).then((data) => {
 
 
 
-##### contact.hasMatchedCallLog24+
+#### contact.hasMatchedCallLog24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5036,7 +5036,7 @@ contact.hasMatchedCallLog(context, phoneNumber, minDuration, withinTime).then((h
 
 
 
-##### contact.hasMatchedCallLog24+
+#### contact.hasMatchedCallLog24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5102,7 +5102,7 @@ contact.hasMatchedCallLog(context, phoneNumber, minDuration).then((hasMatch:bool
 
 
 
-##### ContactSelectionOptions10+
+#### ContactSelectionOptions10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5120,7 +5120,7 @@ contact.hasMatchedCallLog(context, phoneNumber, minDuration).then((hasMatch:bool
 
 
 
-##### ContactSelectionFilter15+
+#### ContactSelectionFilter15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5138,7 +5138,7 @@ contact.hasMatchedCallLog(context, phoneNumber, minDuration).then((hasMatch:bool
 
 
 
-##### FilterType15+
+#### FilterType15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5157,7 +5157,7 @@ contact.hasMatchedCallLog(context, phoneNumber, minDuration).then((hasMatch:bool
 
 
 
-##### FilterClause15+
+#### FilterClause15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5177,7 +5177,7 @@ contact.hasMatchedCallLog(context, phoneNumber, minDuration).then((hasMatch:bool
 
 
 
-##### FilterOptions15+
+#### FilterOptions15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5195,7 +5195,7 @@ contact.hasMatchedCallLog(context, phoneNumber, minDuration).then((hasMatch:bool
 
 
 
-##### FilterCondition15+
+#### FilterCondition15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5217,7 +5217,7 @@ contact.hasMatchedCallLog(context, phoneNumber, minDuration).then((hasMatch:bool
 
 
 
-##### DataFilter15+
+#### DataFilter15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5235,7 +5235,7 @@ contact.hasMatchedCallLog(context, phoneNumber, minDuration).then((hasMatch:bool
 
 
 
-##### DataField15+
+#### DataField15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5254,7 +5254,7 @@ contact.hasMatchedCallLog(context, phoneNumber, minDuration).then((hasMatch:bool
 
 
 
-##### Contact
+#### Contact
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5266,7 +5266,7 @@ contact.hasMatchedCallLog(context, phoneNumber, minDuration).then((hasMatch:bool
 
 
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5281,7 +5281,7 @@ contact.hasMatchedCallLog(context, phoneNumber, minDuration).then((hasMatch:bool
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5331,7 +5331,7 @@ let myContact: contact.Contact = {
 
 
 
-##### ContactAttributes
+#### ContactAttributes
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5364,7 +5364,7 @@ let contactAttributes: contact.ContactAttributes = {
 
 
 
-##### Attribute
+#### Attribute
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5402,7 +5402,7 @@ let attributes = [contact.Attribute.ATTR_EMAIL, contact.Attribute.ATTR_NAME, con
 
 
 
-##### Email
+#### Email
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5414,7 +5414,7 @@ let attributes = [contact.Attribute.ATTR_EMAIL, contact.Attribute.ATTR_NAME, con
 
 
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5433,7 +5433,7 @@ let attributes = [contact.Attribute.ATTR_EMAIL, contact.Attribute.ATTR_NAME, con
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5469,7 +5469,7 @@ email.email = "xxx@email.com";
 
 
 
-##### Holder
+#### Holder
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5498,7 +5498,7 @@ let holder: contact.Holder = {
 
 
 
-##### Event
+#### Event
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5510,7 +5510,7 @@ let holder: contact.Holder = {
 
 
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5529,7 +5529,7 @@ let holder: contact.Holder = {
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5563,7 +5563,7 @@ event.eventDate = "2000-01-01";
 
 
 
-##### Group
+#### Group
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5592,7 +5592,7 @@ let group: contact.Group = {
 
 
 
-##### ImAddress
+#### ImAddress
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5604,7 +5604,7 @@ let group: contact.Group = {
 
 
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5627,7 +5627,7 @@ let group: contact.Group = {
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5662,7 +5662,7 @@ imAddress.imAddress = "imAddress";
 
 
 
-##### Name
+#### Name
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5697,7 +5697,7 @@ let name: contact.Name = {
 
 
 
-##### NickName
+#### NickName
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5724,7 +5724,7 @@ let nickName: contact.NickName = {
 
 
 
-##### Note
+#### Note
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5751,7 +5751,7 @@ let note: contact.Note = {
 
 
 
-##### Organization
+#### Organization
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5780,7 +5780,7 @@ let organization: contact.Organization = {
 
 
 
-##### PhoneNumber
+#### PhoneNumber
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5792,7 +5792,7 @@ let organization: contact.Organization = {
 
 
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5828,7 +5828,7 @@ let organization: contact.Organization = {
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5863,7 +5863,7 @@ phoneNumber.phoneNumber = "138xxxxxxxx";
 
 
 
-##### Portrait
+#### Portrait
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5905,7 +5905,7 @@ async function SetPortraitPixelMap(photo: image.PixelMap) {
 
 
 
-##### PostalAddress
+#### PostalAddress
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5917,7 +5917,7 @@ async function SetPortraitPixelMap(photo: image.PixelMap) {
 
 
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5936,7 +5936,7 @@ async function SetPortraitPixelMap(photo: image.PixelMap) {
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5979,7 +5979,7 @@ postalAddress.postalAddress = "postalAddress";
 
 
 
-##### Relation
+#### Relation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -5991,7 +5991,7 @@ postalAddress.postalAddress = "postalAddress";
 
 
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -6021,7 +6021,7 @@ postalAddress.postalAddress = "postalAddress";
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -6057,7 +6057,7 @@ relation.labelId = contact.Relation.RELATION_ASSISTANT;
 
 
 
-##### SipAddress
+#### SipAddress
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -6069,7 +6069,7 @@ relation.labelId = contact.Relation.RELATION_ASSISTANT;
 
 
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -6088,7 +6088,7 @@ relation.labelId = contact.Relation.RELATION_ASSISTANT;
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -6122,7 +6122,7 @@ sipAddress.sipAddress = "sipAddress";
 
 
 
-##### Website
+#### Website
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

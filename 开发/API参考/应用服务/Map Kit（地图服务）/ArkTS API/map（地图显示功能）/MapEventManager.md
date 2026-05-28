@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapeventmanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -15,7 +15,7 @@ import { map, mapCommon } from '@kit.MapKit';
  
   
 
-##### MapEventManager
+#### MapEventManager
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -37,7 +37,7 @@ let mapEventManager: map.MapEventManager = this.mapController.getEventManager();
  
   
 
-##### on('cameraChange')
+#### on('cameraChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -80,7 +80,7 @@ mapEventManager.on("cameraChange", callback3);
  
   
 
-##### off('cameraChange')
+#### off('cameraChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -127,7 +127,7 @@ mapEventManager.off('cameraChange');
  
   
 
-##### on('cameraIdle')
+#### on('cameraIdle')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -170,7 +170,7 @@ mapEventManager.on("cameraIdle", callback3);
  
   
 
-##### off('cameraIdle')
+#### off('cameraIdle')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -217,7 +217,7 @@ mapEventManager.off('cameraIdle');
  
   
 
-##### on('cameraMoveCancel')
+#### on('cameraMoveCancel')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -260,7 +260,7 @@ mapEventManager.on("cameraMoveCancel", callback3);
  
   
 
-##### off('cameraMoveCancel')
+#### off('cameraMoveCancel')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -307,7 +307,7 @@ mapEventManager.off('cameraMoveCancel');
  
   
 
-##### on('cameraMove')
+#### on('cameraMove')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -350,7 +350,7 @@ mapEventManager.on("cameraMove", callback3);
  
   
 
-##### off('cameraMove')
+#### off('cameraMove')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -397,7 +397,7 @@ mapEventManager.off('cameraMove');
  
   
 
-##### on('cameraMoveStart')
+#### on('cameraMoveStart')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -440,7 +440,7 @@ mapEventManager.on("cameraMoveStart", callback3);
  
   
 
-##### off('cameraMoveStart')
+#### off('cameraMoveStart')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -488,7 +488,7 @@ mapEventManager.off('cameraMoveStart');
  
   
 
-##### on('mapClick')
+#### on('mapClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -531,7 +531,7 @@ mapEventManager.on("mapClick", callback3);
  
   
 
-##### off('mapClick')
+#### off('mapClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -579,7 +579,7 @@ mapEventManager.off('mapClick');
  
   
 
-##### on('mapLoad')
+#### on('mapLoad')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -622,7 +622,7 @@ mapEventManager.on("mapLoad", callback3);
  
   
 
-##### off('mapLoad')
+#### off('mapLoad')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -670,7 +670,7 @@ mapEventManager.off('mapLoad');
  
   
 
-##### on('mapLongClick')
+#### on('mapLongClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -713,7 +713,7 @@ mapEventManager.on("mapLongClick", callback3);
  
   
 
-##### off('mapLongClick')
+#### off('mapLongClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -761,7 +761,7 @@ mapEventManager.off('mapLongClick');
  
   
 
-##### on('myLocationButtonClick')
+#### on('myLocationButtonClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -804,7 +804,7 @@ mapEventManager.on("myLocationButtonClick", callback3);
  
   
 
-##### off('myLocationButtonClick')
+#### off('myLocationButtonClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -852,7 +852,7 @@ mapEventManager.off('myLocationButtonClick');
  
   
 
-##### on('myLocationClick')
+#### on('myLocationClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -895,7 +895,7 @@ mapEventManager.on("myLocationClick", callback3);
  
   
 
-##### off('myLocationClick')
+#### off('myLocationClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -943,7 +943,7 @@ mapEventManager.off('myLocationClick');
  
   
 
-##### on('poiClick')
+#### on('poiClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -986,7 +986,7 @@ mapEventManager.on("poiClick", callback3);
  
   
 
-##### off('poiClick')
+#### off('poiClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1034,7 +1034,7 @@ mapEventManager.off('poiClick');
  
   
 
-##### on('markerClick')
+#### on('markerClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1077,7 +1077,7 @@ mapEventManager.on("markerClick", callback3);
  
   
 
-##### off('markerClick')
+#### off('markerClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1125,7 +1125,7 @@ mapEventManager.off('markerClick');
  
   
 
-##### on('markerDragStart')
+#### on('markerDragStart')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1168,7 +1168,7 @@ mapEventManager.on("markerDragStart", callback3);
  
   
 
-##### off('markerDragStart')
+#### off('markerDragStart')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1216,7 +1216,7 @@ mapEventManager.off('markerDragStart');
  
   
 
-##### on('markerDrag')
+#### on('markerDrag')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1259,7 +1259,7 @@ mapEventManager.on("markerDrag", callback3);
  
   
 
-##### off('markerDrag')
+#### off('markerDrag')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1307,7 +1307,7 @@ mapEventManager.off('markerDrag');
  
   
 
-##### on('markerDragEnd')
+#### on('markerDragEnd')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1350,7 +1350,7 @@ mapEventManager.on("markerDragEnd", callback3);
  
   
 
-##### off('markerDragEnd')
+#### off('markerDragEnd')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1398,7 +1398,7 @@ mapEventManager.off('markerDragEnd');
  
   
 
-##### on('circleClick')
+#### on('circleClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1441,7 +1441,7 @@ mapEventManager.on("circleClick", callback3);
  
   
 
-##### off('circleClick')
+#### off('circleClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1489,7 +1489,7 @@ mapEventManager.off('circleClick');
  
   
 
-##### on('polylineClick')
+#### on('polylineClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1532,7 +1532,7 @@ mapEventManager.on("polylineClick", callback3);
  
   
 
-##### off('polylineClick')
+#### off('polylineClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1580,7 +1580,7 @@ mapEventManager.off('polylineClick');
  
   
 
-##### on('polygonClick')
+#### on('polygonClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1623,7 +1623,7 @@ mapEventManager.on("polygonClick", callback3);
  
   
 
-##### off('polygonClick')
+#### off('polygonClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1671,7 +1671,7 @@ mapEventManager.off('polygonClick');
  
   
 
-##### on('infoWindowClick')
+#### on('infoWindowClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1714,7 +1714,7 @@ mapEventManager.on("infoWindowClick", callback3);
  
   
 
-##### off('infoWindowClick')
+#### off('infoWindowClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1762,7 +1762,7 @@ mapEventManager.off('infoWindowClick');
  
   
 
-##### on('infoWindowClose')
+#### on('infoWindowClose')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1805,7 +1805,7 @@ mapEventManager.on("infoWindowClose", callback3);
  
   
 
-##### off('infoWindowClose')
+#### off('infoWindowClose')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1853,7 +1853,7 @@ mapEventManager.off('infoWindowClose');
  
   
 
-##### on('pointAnnotationClick')
+#### on('pointAnnotationClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1896,7 +1896,7 @@ mapEventManager.on("pointAnnotationClick", callback3);
  
   
 
-##### off('pointAnnotationClick')
+#### off('pointAnnotationClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1944,7 +1944,7 @@ mapEventManager.off('pointAnnotationClick');
  
   
 
-##### on('bubbleClick')
+#### on('bubbleClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1987,7 +1987,7 @@ mapEventManager.on("bubbleClick", callback3);
  
   
 
-##### off('bubbleClick')
+#### off('bubbleClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2035,7 +2035,7 @@ mapEventManager.off('bubbleClick');
  
   
 
-##### on('imageOverlayClick')
+#### on('imageOverlayClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2078,7 +2078,7 @@ mapEventManager.on("imageOverlayClick", callback3);
  
   
 
-##### off('imageOverlayClick')
+#### off('imageOverlayClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2126,7 +2126,7 @@ mapEventManager.off('imageOverlayClick');
  
   
 
-##### on('error')
+#### on('error')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2171,7 +2171,7 @@ mapEventManager.on("error", callback3);
  
   
 
-##### off('error')
+#### off('error')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2221,7 +2221,7 @@ mapEventManager.off('error');
  
   
 
-##### on('indoorMapEnter')
+#### on('indoorMapEnter')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2267,7 +2267,7 @@ mapEventManager.on("indoorMapEnter", callback);
  
   
 
-##### off('indoorMapEnter')
+#### off('indoorMapEnter')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2316,7 +2316,7 @@ mapEventManager.off('indoorMapEnter', callback);
  
   
 
-##### on('indoorMapExit')
+#### on('indoorMapExit')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2362,7 +2362,7 @@ mapEventManager.on("indoorMapExit", callback);
  
   
 
-##### off('indoorMapExit')
+#### off('indoorMapExit')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2411,7 +2411,7 @@ mapEventManager.off('indoorMapExit', callback);
  
   
 
-##### on('massPointOverlayClick')
+#### on('massPointOverlayClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2449,7 +2449,7 @@ mapEventManager.on('massPointOverlayClick', massCallback);
  
   
 
-##### off('massPointOverlayClick')
+#### off('massPointOverlayClick')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2491,7 +2491,7 @@ mapEventManager.off('massPointOverlayClick');
  
   
 
-##### onMarkerLongClick
+#### onMarkerLongClick
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2533,7 +2533,7 @@ mapEventManager.onMarkerLongClick(callback3);
  
   
 
-##### offMarkerLongClick
+#### offMarkerLongClick
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2580,7 +2580,7 @@ mapEventManager.offMarkerLongClick();
  
   
 
-##### onPoiLongClick
+#### onPoiLongClick
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2622,7 +2622,7 @@ mapEventManager.onPoiLongClick(callback3);
  
   
 
-##### offPoiLongClick
+#### offPoiLongClick
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

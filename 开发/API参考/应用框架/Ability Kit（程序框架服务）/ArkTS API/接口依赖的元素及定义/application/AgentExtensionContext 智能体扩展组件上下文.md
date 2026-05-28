@@ -14,7 +14,7 @@ AgentExtensionContext为开发者提供访问当前[AgentExtensionAbility](https
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,13 +24,13 @@ import { common } from '@kit.AbilityKit';
  
   
 
-##### AgentExtensionContext
+#### AgentExtensionContext
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

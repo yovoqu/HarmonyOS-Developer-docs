@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-malloc
 
-##### 函数功能
+#### 函数功能
 
 在开发者内存池中根据指定size大小申请device内存。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 virtual MemBlock *Malloc(size_t size) = 0
@@ -18,7 +18,7 @@ virtual MemBlock *Malloc(size_t size) = 0
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数名 | 输入/输出 | 描述 |
 | --- | --- | --- |
@@ -27,7 +27,7 @@ virtual MemBlock *Malloc(size_t size) = 0
  
   
 
-##### 返回值
+#### 返回值
  
 | 类型 | 描述 |
 | --- | --- |
@@ -36,12 +36,12 @@ virtual MemBlock *Malloc(size_t size) = 0
  
   
 
-##### 异常处理
+#### 异常处理
 
 无
  
   
 
-##### 约束说明
+#### 约束说明
 
 纯虚函数开发者必须实现。

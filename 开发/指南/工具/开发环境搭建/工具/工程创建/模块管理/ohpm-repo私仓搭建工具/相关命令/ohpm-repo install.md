@@ -7,7 +7,7 @@
 安装ohpm-repo服务。
  
 
-##### 命令格式
+#### 命令格式
 
 ```text
 ohpm-repo install [options]
@@ -15,17 +15,17 @@ ohpm-repo install [options]
  
  
 
-##### 功能描述
+#### 功能描述
 
 在启动服务之前做好准备工作，包括：检查ohpm-repo配置文件的合法性和数据库的初始化等。
  
  
 
-##### 选项
+#### 选项
 
  
 
-##### config
+#### config
 
 - 默认值："&lt;binary_root&gt;/conf/config.yaml"
 
@@ -41,7 +41,7 @@ ohpm-repo install [options]
  
  
 
-##### skip-db
+#### skip-db
 
 - 默认值：false
 - 类型：Boolean
@@ -62,7 +62,7 @@ ohpm-repo install [options]
  
  
 
-##### diagnosis-and-repair
+#### diagnosis-and-repair
 
 - 默认值：false
 - 类型：Boolean
@@ -73,7 +73,7 @@ ohpm-repo install [options]
  
  
 
-##### 示例
+#### 示例
 
 执行以下命令：
  
@@ -84,12 +84,12 @@ ohpm-repo install  --config D:\config.yaml
 结果示例：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/hG7-iy8wRBCd5s7WuAb7Eg/zh-cn_image_0000002602064947.png?HW-CC-KV=V1&HW-CC-Date=20260528T015018Z&HW-CC-Expire=86400&HW-CC-Sign=F0CD2FB29071FEA8FC18EA6118F2B208FE3A892E74C85580AFA4896EF918AC76)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/8Ing6dg4RBaUuN2xq509MA/zh-cn_image_0000002602064947.png?HW-CC-KV=V1&HW-CC-Date=20260528T030648Z&HW-CC-Expire=86400&HW-CC-Sign=9FE798A112A350B89F397F409ED279A3B51B04BB22FC1A274011FC5ACBC747CF)
 
  
  
 
-##### 注意
+#### 注意
 
 安装成功后，必须根据给出的提示信息刷新环境变量，针对Windows系统和Linux/Mac系统，有不同处理方式：
  

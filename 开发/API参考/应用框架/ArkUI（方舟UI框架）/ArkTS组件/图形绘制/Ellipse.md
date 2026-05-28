@@ -12,7 +12,7 @@
 
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -43,7 +43,7 @@ Ellipse(options?: EllipseOptions)
  
   
 
-##### EllipseOptions18+对象说明
+#### EllipseOptions18+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -67,7 +67,7 @@ Ellipse(options?: EllipseOptions)
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -75,7 +75,7 @@ Ellipse(options?: EllipseOptions)
  
   
 
-##### fill
+#### fill
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -98,7 +98,7 @@ fill(value: ResourceColor)
  
   
 
-##### fillOpacity
+#### fillOpacity
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -121,7 +121,7 @@ fillOpacity(value: number | string | Resource)
  
   
 
-##### stroke
+#### stroke
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -144,7 +144,7 @@ stroke(value: ResourceColor)
  
   
 
-##### strokeDashArray
+#### strokeDashArray
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -167,7 +167,7 @@ strokeDashArray(value: Array&lt;any&gt;)
  
   
 
-##### strokeDashOffset
+#### strokeDashOffset
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -190,7 +190,7 @@ strokeDashOffset(value: number | string)
  
   
 
-##### strokeLineCap
+#### strokeLineCap
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -213,7 +213,7 @@ strokeLineCap(value: LineCapStyle)
  
   
 
-##### strokeLineJoin
+#### strokeLineJoin
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -236,7 +236,7 @@ strokeLineJoin(value: LineJoinStyle)
  
   
 
-##### strokeMiterLimit
+#### strokeMiterLimit
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -259,7 +259,7 @@ strokeMiterLimit(value: number | string)
  
   
 
-##### strokeOpacity
+#### strokeOpacity
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -282,7 +282,7 @@ strokeOpacity(value: number | string | Resource)
  
   
 
-##### strokeWidth
+#### strokeWidth
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -305,7 +305,7 @@ strokeWidth(value: Length)
  
   
 
-##### antiAlias
+#### antiAlias
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -328,13 +328,13 @@ antiAlias(value: boolean)
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 示例1（组件属性绘制）
+#### 示例1（组件属性绘制）
 
 通过fillOpacity、stroke属性分别绘制椭圆的透明度、边框颜色。
  
@@ -365,7 +365,7 @@ struct EllipseExample {
  
   
 
-##### 示例2（宽和高使用不同参数类型绘制椭圆）
+#### 示例2（宽和高使用不同参数类型绘制椭圆）
 
 width、height属性分别使用不同的长度类型绘制椭圆。
  
@@ -388,12 +388,12 @@ struct EllipseTypeExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/qBEji2K5SAu5nIt5JByBTg/zh-cn_image_0000002581436142.png?HW-CC-KV=V1&HW-CC-Date=20260528T024200Z&HW-CC-Expire=86400&HW-CC-Sign=FE943A347A4D7F8788EE54BFE466266E7CFB8680978C88ADA5C90FFA47E70D8F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/qBEji2K5SAu5nIt5JByBTg/zh-cn_image_0000002581436142.png?HW-CC-KV=V1&HW-CC-Date=20260528T025532Z&HW-CC-Expire=86400&HW-CC-Sign=E47A8BAEA5723670E235B2B0302AEBC4A3237019C4E4C34200FD9758EBB901BB)
 
  
   
 
-##### 示例3（使用attributeModifier动态设置Ellipse组件的属性）
+#### 示例3（使用attributeModifier动态设置Ellipse组件的属性）
 
 以下示例展示了如何使用attributeModifier动态设置Ellipse组件的fill、fillOpacity、stroke、strokeDashArray、strokeDashOffset、strokeLineCap、strokeOpacity、strokeWidth和antiAlias属性。
  
@@ -430,4 +430,4 @@ struct EllipseModifierDemo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/tGiBGjIeQOeYdFM04TIcTw/zh-cn_image_0000002611835971.png?HW-CC-KV=V1&HW-CC-Date=20260528T024200Z&HW-CC-Expire=86400&HW-CC-Sign=629250349F9517DCBFD10E20374F01D63D56C0AB4406EC842BD9B87440911CF1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/tGiBGjIeQOeYdFM04TIcTw/zh-cn_image_0000002611835971.png?HW-CC-KV=V1&HW-CC-Date=20260528T025532Z&HW-CC-Expire=86400&HW-CC-Sign=89B42DF16A8A18C22721725E3168AD81963B75AB3FF1B8C560BD142C410C5B35)

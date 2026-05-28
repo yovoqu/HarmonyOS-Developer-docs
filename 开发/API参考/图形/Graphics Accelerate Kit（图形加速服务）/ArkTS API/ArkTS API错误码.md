@@ -10,7 +10,7 @@
 
 
 
-##### 1016600000 当前API不允许在资源加速ExtensionAbility中调用
+#### 1016600000 当前API不允许在资源加速ExtensionAbility中调用
 
 **支持设备：** Phone | Tablet
 
@@ -42,7 +42,7 @@ The API call from an ExtensionAbility is not allowed.
 
 
 
-##### 1016600001 下载任务的域名不在域名白名单中
+#### 1016600001 下载任务的域名不在域名白名单中
 
 **支持设备：** Phone | Tablet
 
@@ -66,7 +66,7 @@ The domain name of the download task is not in the domain name trustlist.
 
 
 
-##### 1016600002 暂停/恢复/获取下载任务时任务ID或组ID不存在
+#### 1016600002 暂停/恢复/获取下载任务时任务ID或组ID不存在
 
 **支持设备：** Phone | Tablet
 
@@ -88,7 +88,7 @@ The task ID or group ID entered during operations such as pause, resume, and fet
 
 
 
-##### 1016600003 当前任务状态不支持当前操作
+#### 1016600003 当前任务状态不支持当前操作
 
 **支持设备：** Phone | Tablet
 
@@ -110,7 +110,7 @@ The current task status does not support the current operator.
 
 
 
-##### 1016600004 任务队列已满
+#### 1016600004 任务队列已满
 
 **支持设备：** Phone | Tablet
 
@@ -132,7 +132,7 @@ The application task queue is full.
 
 
 
-##### 1016600005 资源加速ExtensionAbility方法执行超时
+#### 1016600005 资源加速ExtensionAbility方法执行超时
 
 **错误信息**
 
@@ -152,7 +152,7 @@ Extension life cycle callback execution timed out.
 
 
 
-##### 1016600006 资源加速ExtensionAbility生命周期方法出现异常
+#### 1016600006 资源加速ExtensionAbility生命周期方法出现异常
 
 **错误信息**
 
@@ -172,7 +172,7 @@ An exception occurs in the callback extension js.
 
 
 
-##### 1016600094 服务异常
+#### 1016600094 服务异常
 
 **支持设备：** Phone | Tablet
 
@@ -194,7 +194,7 @@ Task service ability error.
 
 
 
-##### 1016600401 参数错误
+#### 1016600401 参数错误
 
 **支持设备：** Phone | Tablet
 

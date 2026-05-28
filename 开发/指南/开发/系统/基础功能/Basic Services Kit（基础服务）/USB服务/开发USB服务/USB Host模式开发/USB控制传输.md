@@ -4,17 +4,17 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/controltransfer
 
-##### 场景介绍
+#### 场景介绍
 
 控制传输主要用于主机（Host）和设备（Device）进行设备状态的获取和设置，进行设备属性状态的控制。根据设备支持的端点类型支持控制传输读和写。
 
 
 
-##### 环境准备
+#### 环境准备
 
 
 
-##### 环境要求
+#### 环境要求
 
  - 开发工具及配置：
 
@@ -29,7 +29,7 @@
 
 
 
-##### 搭建环境
+#### 搭建环境
 
  - 在PC上安装[DevEco Studio](https://developer.huawei.com/consumer/cn/download/deveco-studio)，要求版本在4.1及以上。
  - 将public-SDK更新到API 16或以上。
@@ -39,11 +39,11 @@
 
 
 
-##### 开发指导
+#### 开发指导
 
 
 
-##### 接口说明
+#### 接口说明
 
 | 接口名 | 描述 |
 | --- | --- |
@@ -54,7 +54,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 主机（Host）连接设备（Device），通过usbControlTransfer接口进行数据传输。以下步骤描述了如何使用控制传输方式来传输数据：
 

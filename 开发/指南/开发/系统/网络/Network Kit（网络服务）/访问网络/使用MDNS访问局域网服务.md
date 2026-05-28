@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/net-mdns
 
-##### 简介
+#### 简介
 
 MDNS即多播DNS（Multicast DNS），提供局域网内的本地服务添加、移除、发现、解析等能力。
 
@@ -29,7 +29,7 @@ MDNS管理的典型场景有：
 
 
 
-##### 管理本地服务
+#### 管理本地服务
 1. 设备连接WiFi。
 2. 从@kit.NetworkKit里导入mdns、错误码、以及[common命名空间](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-common)。
 
@@ -91,7 +91,7 @@ mdns.removeLocalService(context, this.localServiceInfo).then((data: mdns.LocalSe
 
 
 
-##### 发现本地服务
+#### 发现本地服务
 1. 设备连接WiFi。
 2. 从@kit.NetworkKit里导入mdns的命名空间。
 

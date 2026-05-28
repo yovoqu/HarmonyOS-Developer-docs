@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -22,7 +22,7 @@ import { identifySensitiveContent } from '@kit.DataProtectionKit';
 
 
 
-##### identifySensitiveContent.scanFile
+#### identifySensitiveContent.scanFile
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -85,7 +85,7 @@ try {
 
 
 
-##### Policy
+#### Policy
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -102,7 +102,7 @@ try {
 
 
 
-##### MatchResult
+#### MatchResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

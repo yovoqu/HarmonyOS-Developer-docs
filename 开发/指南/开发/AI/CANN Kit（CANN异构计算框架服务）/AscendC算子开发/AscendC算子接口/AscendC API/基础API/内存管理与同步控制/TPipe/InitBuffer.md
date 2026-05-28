@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-tpipe-initbuffer
 
-##### 功能说明
+#### 功能说明
 
 TPipe是用来管理全局内存的框架，开发者可以调用TPipe中的InitBuffer接口为TQue/TBuf进行内存分配。
  
   
 
-##### 函数原型
+#### 函数原型
 
 - 为TQue分配内存
 
@@ -32,7 +32,7 @@ __aicore__ inline bool InitBuffer(TBuf<bufPos>& buf, uint32_t len)
  
   
 
-##### 参数说明
+#### 参数说明
 
 **表1** bool InitBuffer(T& que, uint8_t num, uint32_t len) 原型定义参数说明
   
@@ -53,7 +53,7 @@ __aicore__ inline bool InitBuffer(TBuf<bufPos>& buf, uint32_t len)
  
   
 
-##### 支持的型号
+#### 支持的型号
 
 Kirin9020系列处理器
  
@@ -61,7 +61,7 @@ KirinX90系列处理器
  
   
 
-##### 注意事项
+#### 注意事项
 
 同一个TPosition上QUE Buffer的数量根据AI处理器型号的不同，有数量约束。申请Buffer时，需要满足该约束。
  
@@ -96,13 +96,13 @@ AscendC::LocalTensor<T> local3 = local1[offset2];
  
   
 
-##### 返回值
+#### 返回值
 
 返回Buffer初始化的结果。
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 // 为TQue分配内存，分配内存块数为2，每块大小为128Bytes

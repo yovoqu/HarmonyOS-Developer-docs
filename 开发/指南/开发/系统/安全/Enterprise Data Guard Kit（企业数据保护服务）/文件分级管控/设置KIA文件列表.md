@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fileguard-kia-file-list
 
-##### 场景介绍
+#### 场景介绍
 
 Enterprise Data Guard Kit为应用提供设置KIA文件列表的能力，HarmonyOS系统根据管控策略对KIA文件列表中的文件实行管控。
 
 
 
-##### 接口说明
+#### 接口说明
 
 详细接口说明可参考[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard)。
 
@@ -22,7 +22,7 @@ Enterprise Data Guard Kit为应用提供设置KIA文件列表的能力，Harmony
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 导入模块。
 
   

@@ -7,7 +7,7 @@
 相机框架提供对设备对焦的能力，业务应用可以根据使用场景进行对焦模式和对焦点的设置。
   
 
-##### 开发步骤
+#### 开发步骤
 
 详细的API说明请参考[Camera API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera)。
  1. 导入相关接口，导入方法如下。
@@ -70,7 +70,7 @@ function setFocusMode(photoSession: camera.PhotoSession): void {
  
   
 
-##### 状态监听
+#### 状态监听
 
 在相机应用开发过程中，可以随时监听相机聚焦的状态变化。
  

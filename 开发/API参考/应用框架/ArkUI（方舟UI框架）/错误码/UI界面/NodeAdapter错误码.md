@@ -9,7 +9,7 @@
 
 
 
-##### 106104 适配器未绑定
+#### 106104 适配器未绑定
 
 **错误信息**
 
@@ -29,7 +29,7 @@ The lazy loading adapter is not bound to the component.
 
 
 
-##### 106105 适配器已存在
+#### 106105 适配器已存在
 
 **错误信息**
 
@@ -49,7 +49,7 @@ NodeAdapter已经存在，不支持添加删除子节点。
 
 
 
-##### 106106 子节点已存在
+#### 106106 子节点已存在
 
 **错误信息**
 
@@ -69,7 +69,7 @@ The corresponding node already has a child node and cannot add an adapter.
 
 
 
-##### 106107 参数下标越界
+#### 106107 参数下标越界
 
 **错误信息**
 
@@ -89,7 +89,7 @@ The parameter length in the parameter event exceeds the limit.
 
 
 
-##### 106108 数据不存在
+#### 106108 数据不存在
 
 **错误信息**
 
@@ -109,7 +109,7 @@ The data does not exist in the component event.
 
 
 
-##### 106109 不支持返回值
+#### 106109 不支持返回值
 
 **错误信息**
 
@@ -129,7 +129,7 @@ The component event does not support return values.
 
 
 
-##### 106110 暂不支持该事件类型
+#### 106110 暂不支持该事件类型
 
 **错误信息**
 

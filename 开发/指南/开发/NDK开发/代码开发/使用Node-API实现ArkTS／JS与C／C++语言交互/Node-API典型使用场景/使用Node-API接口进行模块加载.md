@@ -7,7 +7,7 @@
 Node-API中的napi_load_module_with_info接口的功能是进行模块的加载，当模块加载出来之后，可以使用函数napi_get_property获取模块导出的变量，也可以使用napi_get_named_property获取模块导出的函数，该函数可以在[新创建的ArkTS基础运行时环境](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-ark-runtime)中使用，即napi_create_ark_runtime接口创建的运行时环境。
   
 
-##### 函数说明
+#### 函数说明
 
 ```text
 napi_status napi_load_module_with_info(napi_env env, const char* path, const char* module_info, napi_value* result);
@@ -31,7 +31,7 @@ napi_status napi_load_module_with_info(napi_env env, const char* path, const cha
  
   
 
-##### napi_load_module_with_info支持的场景
+#### napi_load_module_with_info支持的场景
  
 | 场景 | 详细分类 | 说明 |
 | --- | --- | --- |
@@ -55,7 +55,7 @@ napi_status napi_load_module_with_info(napi_env env, const char* path, const cha
  
   
 
-##### 异常场景
+#### 异常场景
 1. 在模块加载过程中，若出现包内未找到对应文件或build-profile.json5配置错误等问题，返回错误码napi_generic_failure，并打印报错日志。
 
   
@@ -65,7 +65,7 @@ napi_status napi_load_module_with_info(napi_env env, const char* path, const cha
  
   
 
-##### 使用示例
+#### 使用示例
 
 - **加载模块内文件路径**
 

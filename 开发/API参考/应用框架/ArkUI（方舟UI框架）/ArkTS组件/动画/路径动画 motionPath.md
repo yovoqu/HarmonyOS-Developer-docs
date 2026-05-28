@@ -12,7 +12,7 @@
 
 
 
-##### motionPath
+#### motionPath
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -40,7 +40,7 @@ motionPath(value: MotionPathOptions): T
 
 
 
-##### MotionPathOptions
+#### MotionPathOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -60,7 +60,7 @@ motionPath(value: MotionPathOptions): T
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -93,4 +93,4 @@ struct MotionPathExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/MvpGWuYLT4CYSsyO9L_vkQ/zh-cn_image_0000002611756103.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024159Z&HW-CC-Expire=86400&HW-CC-Sign=E66E305ECF888D5218B31CC300BAC6EAAA585A6B2398AB6DA927C8868C921301)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/MvpGWuYLT4CYSsyO9L_vkQ/zh-cn_image_0000002611756103.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025532Z&HW-CC-Expire=86400&HW-CC-Sign=64CE4C205ECFB3611A31E79DEB127BE34C77285E56FE3F607006E40CB78E48FE)

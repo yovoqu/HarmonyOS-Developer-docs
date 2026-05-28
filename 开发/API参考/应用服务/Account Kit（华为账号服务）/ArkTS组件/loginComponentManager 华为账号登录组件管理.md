@@ -10,7 +10,7 @@
 **起始版本：** 4.1.0(11)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -20,7 +20,7 @@ import { loginComponentManager } from '@kit.AccountKit';
 
 
 
-##### LoginType
+#### LoginType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -42,7 +42,7 @@ import { loginComponentManager } from '@kit.AccountKit';
 
 
 
-##### AppInfo
+#### AppInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -63,7 +63,7 @@ import { loginComponentManager } from '@kit.AccountKit';
 
 
 
-##### TextType
+#### TextType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -83,7 +83,7 @@ import { loginComponentManager } from '@kit.AccountKit';
 
 
 
-##### PrivacyText
+#### PrivacyText
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -104,7 +104,7 @@ import { loginComponentManager } from '@kit.AccountKit';
 
 
 
-##### LoginIcon
+#### LoginIcon
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -124,7 +124,7 @@ import { loginComponentManager } from '@kit.AccountKit';
 
 
 
-##### OptionalLoginButtonAttr
+#### OptionalLoginButtonAttr
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -143,7 +143,7 @@ import { loginComponentManager } from '@kit.AccountKit';
 
 
 
-##### OptionalLoginAreaAttr
+#### OptionalLoginAreaAttr
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -162,7 +162,7 @@ import { loginComponentManager } from '@kit.AccountKit';
 
 
 
-##### LoginPanelParams
+#### LoginPanelParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -189,7 +189,7 @@ import { loginComponentManager } from '@kit.AccountKit';
 
 
 
-##### ClickEvent
+#### ClickEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -208,7 +208,7 @@ import { loginComponentManager } from '@kit.AccountKit';
 
 
 
-##### AgreementStatus
+#### AgreementStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -228,7 +228,7 @@ import { loginComponentManager } from '@kit.AccountKit';
 
 
 
-##### HuaweiIDCredential
+#### HuaweiIDCredential
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -251,7 +251,7 @@ import { loginComponentManager } from '@kit.AccountKit';
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -259,7 +259,7 @@ import { loginComponentManager } from '@kit.AccountKit';
 
 
 
-##### LoginPanelController
+#### LoginPanelController
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -273,7 +273,7 @@ import { loginComponentManager } from '@kit.AccountKit';
 
 
 
-##### onClickLoginWithHuaweiIDButton
+#### onClickLoginWithHuaweiIDButton
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -328,7 +328,7 @@ onClickLoginWithHuaweiIDButton(callback: AsyncCallback&lt;HuaweiIDCredential&gt;
 
 
 
-##### onClickOptionalLoginButton
+#### onClickOptionalLoginButton
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -362,7 +362,7 @@ onClickOptionalLoginButton(callback: AsyncCallback&lt;void&gt;): LoginPanelContr
 
 
 
-##### onClickOptionalLoginIcon
+#### onClickOptionalLoginIcon
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -396,7 +396,7 @@ onClickOptionalLoginIcon(callback: AsyncCallback&lt;string&gt;): LoginPanelContr
 
 
 
-##### onClickPrivacyText
+#### onClickPrivacyText
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -430,7 +430,7 @@ onClickPrivacyText(callback: AsyncCallback&lt;string&gt;): LoginPanelController
 
 
 
-##### onChangeAgreementStatus
+#### onChangeAgreementStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -464,7 +464,7 @@ onChangeAgreementStatus(callback: AsyncCallback&lt;AgreementStatus&gt;): LoginPa
 
 
 
-##### setAgreementStatus
+#### setAgreementStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -498,7 +498,7 @@ setAgreementStatus(agreementStatus: AgreementStatus): LoginPanelController
 
 
 
-##### setShowAgreementForOptionalLogin
+#### setShowAgreementForOptionalLogin
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -525,7 +525,7 @@ setShowAgreementForOptionalLogin(): LoginPanelController
 
 
 
-##### onClickEvent
+#### onClickEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -559,7 +559,7 @@ onClickEvent(callback: AsyncCallback&lt;ClickEvent&gt;): LoginPanelController
 
 
 
-##### onClickCloseButton
+#### onClickCloseButton
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -755,7 +755,7 @@ export enum ErrorCode {
 
 
 
-##### LoginWithHuaweiIDButtonParams
+#### LoginWithHuaweiIDButtonParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -785,7 +785,7 @@ export enum ErrorCode {
 
 
 
-##### Style
+#### Style
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -816,7 +816,7 @@ export enum ErrorCode {
 
 
 
-##### LoginButtonTextType
+#### LoginButtonTextType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -836,7 +836,7 @@ export enum ErrorCode {
 
 
 
-##### CustomButtonParams
+#### CustomButtonParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -856,7 +856,7 @@ export enum ErrorCode {
 
 
 
-##### FontColor
+#### FontColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -876,7 +876,7 @@ export enum ErrorCode {
 
 
 
-##### ExtraStyle
+#### ExtraStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -898,7 +898,7 @@ export enum ErrorCode {
 
 
 
-##### RadialGradient
+#### RadialGradient
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -920,7 +920,7 @@ export enum ErrorCode {
 
 
 
-##### SweepGradient
+#### SweepGradient
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -944,7 +944,7 @@ export enum ErrorCode {
 
 
 
-##### ButtonStyle
+#### ButtonStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -958,7 +958,7 @@ export enum ErrorCode {
 
 
 
-##### buttonSize
+#### buttonSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -992,7 +992,7 @@ buttonSize(value: ButtonSize): ButtonStyle
 
 
 
-##### fontSize
+#### fontSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1026,7 +1026,7 @@ fontSize(value: Length): ButtonStyle
 
 
 
-##### fontColor
+#### fontColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1060,7 +1060,7 @@ fontColor(value: ResourceColor | FontColor): ButtonStyle
 
 
 
-##### fontWeight
+#### fontWeight
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1094,7 +1094,7 @@ fontWeight(value: string | number | FontWeight): ButtonStyle
 
 
 
-##### fontFamily
+#### fontFamily
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1128,7 +1128,7 @@ fontFamily(value: ResourceStr): ButtonStyle
 
 
 
-##### backgroundColor
+#### backgroundColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1162,7 +1162,7 @@ backgroundColor(value: ResourceColor): ButtonStyle
 
 
 
-##### backgroundEffect
+#### backgroundEffect
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1196,7 +1196,7 @@ backgroundEffect(value: BackgroundEffectOptions): ButtonStyle
 
 
 
-##### backgroundBrightness
+#### backgroundBrightness
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1230,7 +1230,7 @@ backgroundBrightness(value: BackgroundBrightnessOptions): ButtonStyle
 
 
 
-##### linearGradient
+#### linearGradient
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1264,7 +1264,7 @@ linearGradient(value: LinearGradient): ButtonStyle
 
 
 
-##### sweepGradient
+#### sweepGradient
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1298,7 +1298,7 @@ sweepGradient(value: SweepGradient): ButtonStyle
 
 
 
-##### radialGradient
+#### radialGradient
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1332,7 +1332,7 @@ radialGradient(value: RadialGradient): ButtonStyle
 
 
 
-##### shadow
+#### shadow
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1366,7 +1366,7 @@ shadow(value: ShadowOptions | ShadowStyle): ButtonStyle
 
 
 
-##### opacity
+#### opacity
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1400,7 +1400,7 @@ opacity(value: number | Resource): ButtonStyle
 
 
 
-##### border
+#### border
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1434,7 +1434,7 @@ border(value: BorderOptions): ButtonStyle
 
 
 
-##### borderImage
+#### borderImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1468,7 +1468,7 @@ borderImage(value: BorderImageOption): ButtonStyle
 
 
 
-##### outline
+#### outline
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1502,7 +1502,7 @@ outline(value: OutlineOptions): ButtonStyle
 
 
 
-##### hoverEffect
+#### hoverEffect
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1536,7 +1536,7 @@ hoverEffect(value: HoverEffect): ButtonStyle
 
 
 
-##### clickEffect
+#### clickEffect
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1570,7 +1570,7 @@ clickEffect(value: ClickEffect): ButtonStyle
 
 
 
-##### loadingStyle
+#### loadingStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1666,7 +1666,7 @@ struct QuickLoginButtonComponent {
 
 
 
-##### ButtonSize
+#### ButtonSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1686,7 +1686,7 @@ struct QuickLoginButtonComponent {
 
 
 
-##### LoadingStyle
+#### LoadingStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1705,7 +1705,7 @@ struct QuickLoginButtonComponent {
 
 
 
-##### TextAndIconButtonParams
+#### TextAndIconButtonParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1724,7 +1724,7 @@ struct QuickLoginButtonComponent {
 
 
 
-##### IconButtonParams
+#### IconButtonParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1743,7 +1743,7 @@ struct QuickLoginButtonComponent {
 
 
 
-##### StateStyles
+#### StateStyles
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1765,7 +1765,7 @@ struct QuickLoginButtonComponent {
 
 
 
-##### LoginWithHuaweiIDButtonController
+#### LoginWithHuaweiIDButtonController
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1779,7 +1779,7 @@ struct QuickLoginButtonComponent {
 
 
 
-##### setAgreementStatus
+#### setAgreementStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1813,7 +1813,7 @@ setAgreementStatus(agreementStatus: AgreementStatus): LoginWithHuaweiIDButtonCon
 
 
 
-##### onClickEvent
+#### onClickEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1847,7 +1847,7 @@ onClickEvent(callback: AsyncCallback&lt;ClickEvent&gt;): LoginWithHuaweiIDButton
 
 
 
-##### onClickLoginWithHuaweiIDButton
+#### onClickLoginWithHuaweiIDButton
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1902,7 +1902,7 @@ onClickLoginWithHuaweiIDButton(callback: AsyncCallback&lt;HuaweiIDCredential&gt;
 
 
 
-##### setEnabled
+#### setEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1936,7 +1936,7 @@ setEnabled(enabled: boolean): LoginWithHuaweiIDButtonController
 
 
 
-##### continueLogin
+#### continueLogin
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

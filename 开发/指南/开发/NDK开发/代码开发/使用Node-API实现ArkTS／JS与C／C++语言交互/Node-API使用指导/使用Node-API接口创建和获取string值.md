@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-string
 
-##### 简介
+#### 简介
 
 使用Node-API的八个关于string的接口，可以实现Node-API模块与ArkTS字符串的交互。
  
   
 
-##### 基本概念
+#### 基本概念
 
 字符串是编程中常用的数据类型，用于存储和操作文本数据。它可以表示和处理字符序列，构建用户界面元素（如标签、按钮和文本框），处理用户输入，验证和格式化数据。不同编码支持的字符集和语言不同，以下是一些主要编码方案及其区别：
  
@@ -22,7 +22,7 @@
  
   
 
-##### 场景和功能介绍
+#### 场景和功能介绍
 
 以下Node-API接口主要用于string值的创建和获取，使用场景如下：
   
@@ -40,13 +40,13 @@
  
   
 
-##### 使用示例
+#### 使用示例
 
 Node-API接口开发流程参考[使用Node-API实现跨语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-process)，本文仅对接口对应C++及ArkTS相关代码进行展示。
  
   
 
-##### napi_get_value_string_utf8
+#### napi_get_value_string_utf8
 
 将ArkTS的字符类型的数据转换为UTF-8编码的字符。
  
@@ -108,7 +108,7 @@ hilog.info(0x0000, 'testTag', 'Test Node-API get_value_string_utf8_not_string %{
  
   
 
-##### napi_create_string_utf8
+#### napi_create_string_utf8
 
 用于创建一个UTF-8编码的ArkTS字符串。
  
@@ -144,7 +144,7 @@ hilog.info(0x0000, 'testTag', 'Test Node-API napi_create_string_utf8:%{public}s'
  
   
 
-##### napi_get_value_string_utf16
+#### napi_get_value_string_utf16
 
 将ArkTS的字符类型的数据转换为UTF-16编码的字符。
  
@@ -187,7 +187,7 @@ hilog.info(0x0000, 'testTag', 'Node-API napi_get_value_string_utf16:%{public}s',
  
   
 
-##### napi_create_string_utf16
+#### napi_create_string_utf16
 
 创建一个UTF-16编码的ArkTS字符串。
  
@@ -223,7 +223,7 @@ hilog.info(0x0000, 'testTag', 'Test Node-API napi_create_string_utf16:%{public}s
  
   
 
-##### napi_get_value_string_latin1
+#### napi_get_value_string_latin1
 
 将ArkTS的字符类型数据转换为ISO-8859-1编码。
  
@@ -270,7 +270,7 @@ hilog.info(0x0000, 'testTag', 'Test Node-API get_value_string_latin1_string %{pu
  
   
 
-##### napi_create_string_latin1
+#### napi_create_string_latin1
 
 创建一个Latin-1编码的ArkTS字符串。
  
@@ -307,7 +307,7 @@ hilog.info(0x0000, 'testTag', 'Test Node-API  napi_create_string_latin1:%{public
  
   
 
-##### napi_create_external_string_utf16
+#### napi_create_external_string_utf16
 
 创建一个引用外部资源的UTF-16编码的ArkTS字符串。
  
@@ -371,7 +371,7 @@ hilog.info(0x0000, 'testTag', 'Test Node-API  napi_create_external_string_utf16:
  
   
 
-##### napi_create_external_string_ascii
+#### napi_create_external_string_ascii
 
 创建一个引用外部资源的ASCII编码的ArkTS字符串。
  

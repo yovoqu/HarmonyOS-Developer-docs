@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -22,7 +22,7 @@ import usb from "@ohos.usb";
  
   
 
-##### usb.getDevices
+#### usb.getDevices
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -100,7 +100,7 @@ console.info(`devicesList = ${devicesList}`);
  
   
 
-##### usb.connectDevice
+#### usb.connectDevice
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -135,7 +135,7 @@ console.info(`devicepipe = ${devicepipe}`);
  
   
 
-##### usb.hasRight
+#### usb.hasRight
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -169,7 +169,7 @@ console.info(`hasRight = ${bool}`);
  
   
 
-##### usb.requestRight
+#### usb.requestRight
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -204,7 +204,7 @@ usb.requestRight(devicesName).then((ret) => {
  
   
 
-##### usb.claimInterface
+#### usb.claimInterface
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -241,7 +241,7 @@ console.info(`claimInterface = ${ret}`);
  
   
 
-##### usb.releaseInterface
+#### usb.releaseInterface
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -277,7 +277,7 @@ console.info(`releaseInterface = ${ret}`);
  
   
 
-##### usb.setConfiguration
+#### usb.setConfiguration
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -313,7 +313,7 @@ console.info(`setConfiguration = ${ret}`);
  
   
 
-##### usb.setInterface
+#### usb.setInterface
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -349,7 +349,7 @@ console.info(`setInterface = ${ret}`);
  
   
 
-##### usb.getRawDescriptor
+#### usb.getRawDescriptor
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -383,7 +383,7 @@ let ret = usb.getRawDescriptor(devicepipe);
  
   
 
-##### usb.getFileDescriptor
+#### usb.getFileDescriptor
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -417,7 +417,7 @@ let ret = usb.getFileDescriptor(devicepipe);
  
   
 
-##### usb.controlTransfer
+#### usb.controlTransfer
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -463,7 +463,7 @@ usb.controlTransfer(devicepipe, param).then((ret) => {
  
   
 
-##### usb.bulkTransfer
+#### usb.bulkTransfer
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -505,7 +505,7 @@ usb.bulkTransfer(devicepipe, endpoint, buffer).then((ret) => {
  
   
 
-##### usb.closePipe
+#### usb.closePipe
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -540,7 +540,7 @@ console.info(`closePipe = ${ret}`);
  
   
 
-##### USBEndpoint
+#### USBEndpoint
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -562,7 +562,7 @@ console.info(`closePipe = ${ret}`);
  
   
 
-##### USBInterface
+#### USBInterface
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -583,7 +583,7 @@ console.info(`closePipe = ${ret}`);
  
   
 
-##### USBConfig
+#### USBConfig
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -604,7 +604,7 @@ USB配置，一个[USBDevice](#usbdevice)中可以含有多个配置。
  
   
 
-##### USBDevice
+#### USBDevice
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -631,7 +631,7 @@ USB设备信息。
  
   
 
-##### USBDevicePipe
+#### USBDevicePipe
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -647,7 +647,7 @@ USB设备消息传输通道，用于确定设备。
  
   
 
-##### USBControlParams
+#### USBControlParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -667,7 +667,7 @@ USB设备消息传输通道，用于确定设备。
  
   
 
-##### USBRequestTargetType
+#### USBRequestTargetType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -685,7 +685,7 @@ USB设备消息传输通道，用于确定设备。
  
   
 
-##### USBControlRequestType
+#### USBControlRequestType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -702,7 +702,7 @@ USB设备消息传输通道，用于确定设备。
  
   
 
-##### USBRequestDirection
+#### USBRequestDirection
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

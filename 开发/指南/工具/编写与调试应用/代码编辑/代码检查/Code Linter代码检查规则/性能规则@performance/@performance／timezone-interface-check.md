@@ -7,7 +7,7 @@
 在获取非本地时间时，建议使用统一标准的i18n.Calendar接口获取时间时区相关信息。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例1
+#### 正例1
 
 ```text
 import i18n from '@ohos.i18n';
@@ -37,7 +37,7 @@ calendar.setTimeZone(i18n.getTimeZone().getID());
  
  
 
-##### 正例2
+#### 正例2
 
 ```text
 import i18n from '@ohos.i18n';
@@ -51,7 +51,7 @@ calendar1.get('dst_offset');
  
  
 
-##### 反例1
+#### 反例1
 
 ```text
 import i18n from '@ohos.i18n';
@@ -66,7 +66,7 @@ calendar1.get('zone_offset');
  
  
 
-##### 反例2
+#### 反例2
 
 ```text
 import moment from '@hview/moment';
@@ -82,7 +82,7 @@ moment().utcOffset(-5, true);
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(106,135,89);">plugin:@performance/all</span>

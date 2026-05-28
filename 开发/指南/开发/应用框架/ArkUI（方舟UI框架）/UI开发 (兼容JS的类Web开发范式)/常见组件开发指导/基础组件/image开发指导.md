@@ -7,7 +7,7 @@
 image是图片组件，用来渲染展示图片。具体用法请参考[image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-image)组件。
 
 
-##### 创建image组件
+#### 创建image组件
 
 在pages/index目录下的hml文件中创建一个image组件。
 
@@ -36,7 +36,7 @@ image是图片组件，用来渲染展示图片。具体用法请参考[image](h
 
 
 
-##### 设置image样式
+#### 设置image样式
 
 通过设置width、height和object-fit属性定义图片的宽、高和缩放样式。
 
@@ -73,7 +73,7 @@ image{
 
 
 
-##### 加载图片
+#### 加载图片
 
 图片成功加载时触发complete事件，返回加载的图源尺寸。加载失败则触发error事件，打印图片加载失败。
 
@@ -134,7 +134,7 @@ export default {
 
 
 
-##### 场景示例
+#### 场景示例
 
 在本场景中，开发者长按图片后将慢慢隐藏图片，当完全隐藏后再重新显示原始图片。定时器setInterval每隔一段时间改变图片透明度,实现慢慢隐藏的效果，当透明度为0时清除定时器，设置透明度为1。
 

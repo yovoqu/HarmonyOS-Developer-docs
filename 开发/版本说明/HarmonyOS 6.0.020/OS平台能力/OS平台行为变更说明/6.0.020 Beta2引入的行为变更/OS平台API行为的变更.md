@@ -4,11 +4,11 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/changelogs-for-all-apps-6002
 
-##### Ability Kit
+#### Ability Kit
 
  
 
-##### Ability Kit相关公共事件行为变更，增加管控
+#### Ability Kit相关公共事件行为变更，增加管控
 
 **变更原因**
  
@@ -49,11 +49,11 @@ Ability Kit部分公共事件中包含应用信息，需要增加管控措施。
  
  
 
-##### ArkTS
+#### ArkTS
 
  
 
-##### TreeSet/TreeMap扩容导致比较器丢失问题正向修复
+#### TreeSet/TreeMap扩容导致比较器丢失问题正向修复
 
 **变更原因**
  
@@ -132,11 +132,11 @@ TreeSet、TreeMap
  
  
 
-##### ArkUI
+#### ArkUI
 
  
 
-##### 位置控件功能变更
+#### 位置控件功能变更
 
 **变更原因**
  
@@ -170,7 +170,7 @@ TreeSet、TreeMap
  
  
 
-##### 通用属性drawModifier接口行为变更
+#### 通用属性drawModifier接口行为变更
 
 **变更原因**
  
@@ -287,7 +287,7 @@ struct DrawModifierExample {
  
  
 
-##### 半模态SIDE侧边样式新增避让软键盘能力
+#### 半模态SIDE侧边样式新增避让软键盘能力
 
 **变更原因**
  
@@ -321,7 +321,7 @@ struct DrawModifierExample {
  
  
 
-##### CanvasRenderer的font接口支持自定义字体行为变更
+#### CanvasRenderer的font接口支持自定义字体行为变更
 
 **变更原因**
  
@@ -383,7 +383,7 @@ CanvasRenderingContext2D和OffscreenCanvasRenderingContext2D的font接口。
  
  
 
-##### 去除保存控件系统提示弹框变更
+#### 去除保存控件系统提示弹框变更
 
 **变更原因**
  
@@ -392,7 +392,7 @@ CanvasRenderingContext2D和OffscreenCanvasRenderingContext2D的font接口。
 保存控件系统提示弹框：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c/v3/Wu6W2SCfTFS-O-yM2fv8LA/zh-cn_image_0000002394557509.png?HW-CC-KV=V1&HW-CC-Date=20260528T014108Z&HW-CC-Expire=86400&HW-CC-Sign=ACDC17F838921BBDE73A86BD1794938243444C68DAD0C11955A42372FF144977)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c/v3/Wu6W2SCfTFS-O-yM2fv8LA/zh-cn_image_0000002394557509.png?HW-CC-KV=V1&HW-CC-Date=20260528T025736Z&HW-CC-Expire=86400&HW-CC-Sign=A0FF429ABBBB366C1A40BC86FAF1FA8C388E7F5E3BA687BDD30CD3180FC66D23)
 
  
 经评估，强制弹出系统弹框会与应用内已有弹框冲突，体验不够友好，系统将取消该系统强制弹框的行为。
@@ -432,11 +432,11 @@ CanvasRenderingContext2D和OffscreenCanvasRenderingContext2D的font接口。
  
  
 
-##### Basic Services Kit
+#### Basic Services Kit
 
  
 
-##### zlib.unzipFile和zlib.decompressFile解压文件接口变更
+#### zlib.unzipFile和zlib.decompressFile解压文件接口变更
 
 **变更原因**
  
@@ -466,11 +466,11 @@ zlib.decompressFile
  
  
 
-##### Data Augmentation Kit
+#### Data Augmentation Kit
 
  
 
-##### retrieval.VectorQuery接口value字段变更为可选
+#### retrieval.VectorQuery接口value字段变更为可选
 
 **变更原因**
  
@@ -514,11 +514,11 @@ let value2:Float32Array | undefined = vectorQuery.value;   // 正确写法
  
  
 
-##### Localization Kit
+#### Localization Kit
 
  
 
-##### 泰国、沙特阿拉伯、阿富汗和伊朗的默认历法变更
+#### 泰国、沙特阿拉伯、阿富汗和伊朗的默认历法变更
 
 **变更原因**
  
@@ -552,11 +552,11 @@ let value2:Float32Array | undefined = vectorQuery.value;   // 正确写法
  
  
 
-##### NDK开发
+#### NDK开发
 
  
 
-##### libc++ condition_variable::wait_for接口变更
+#### libc++ condition_variable::wait_for接口变更
 
 **变更原因**
  
@@ -619,11 +619,11 @@ libc++库以二进制的形式发布在NDK中（libc++_shared.so）。condition_
  
  
 
-##### Share Kit
+#### Share Kit
 
  
 
-##### on('dataReceive')接口新增必填参数capabilities
+#### on('dataReceive')接口新增必填参数capabilities
 
 **变更原因**
  

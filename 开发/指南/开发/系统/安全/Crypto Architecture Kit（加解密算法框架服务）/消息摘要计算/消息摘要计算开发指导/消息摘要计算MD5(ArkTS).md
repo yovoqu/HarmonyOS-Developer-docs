@@ -11,7 +11,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 在调用update接口传入数据时，可以[一次性传入所有数据](#摘要算法一次性传入)，也可以把数据人工分段，然后[分段update](#分段摘要算法)。对于同一段数据而言，计算结果没有差异。对于数据量较大的数据，开发者可以根据实际需求选择是否分段传入。
 
@@ -19,7 +19,7 @@
 
 
 
-##### 摘要算法（一次性传入）
+#### 摘要算法（一次性传入）
 1. 调用[cryptoFramework.createMd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatemd)，指定摘要算法MD5，生成摘要实例（Md）。
 2. 调用[Md.update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#update-6)，传入自定义消息，进行摘要更新计算。单次update长度没有限制。
 3. 调用[Md.digest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#digest)，获取摘要计算结果。
@@ -69,7 +69,7 @@ function doMdBySync() {
 
 
 
-##### 分段摘要算法
+#### 分段摘要算法
 1. 调用[cryptoFramework.createMd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatemd)，指定摘要算法MD5，生成摘要实例（Md）。
 2. 传入自定义消息，将一次传入数据量设置为20字节，多次调用[Md.update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#update-7)，进行摘要更新计算。
 3. 调用[Md.digest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#digest-1)，获取摘要计算结果。

@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -22,7 +22,7 @@ import {batteryInfo} from '@kit.BasicServicesKit';
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -82,7 +82,7 @@ console.info("The nowCurrentInfo is: " + nowCurrentInfo);
  
   
 
-##### BatteryPluggedType
+#### BatteryPluggedType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -100,7 +100,7 @@ console.info("The nowCurrentInfo is: " + nowCurrentInfo);
  
   
 
-##### BatteryChargeState
+#### BatteryChargeState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -120,7 +120,7 @@ console.info("The nowCurrentInfo is: " + nowCurrentInfo);
  
   
 
-##### BatteryHealthState
+#### BatteryHealthState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -140,7 +140,7 @@ console.info("The nowCurrentInfo is: " + nowCurrentInfo);
  
   
 
-##### BatteryCapacityLevel9+
+#### BatteryCapacityLevel9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -162,7 +162,7 @@ console.info("The nowCurrentInfo is: " + nowCurrentInfo);
  
   
 
-##### CommonEventBatteryChangedKey9+
+#### CommonEventBatteryChangedKey9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

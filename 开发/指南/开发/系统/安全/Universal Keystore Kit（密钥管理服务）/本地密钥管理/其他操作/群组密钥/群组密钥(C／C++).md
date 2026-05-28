@@ -7,7 +7,7 @@
 从API 23开始，HUKS支持群组密钥功能。群组密钥支持的HUKS密钥操作及详细介绍参考[群组密钥介绍](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-group-key-overview)，本文档以[AES/CBC/PKCS7加解密](#aescbcpkcs7加解密)、[X25519非对称密钥协商](#x25519非对称密钥协商)、[PBKDF2派生密钥](#pbkdf2派生密钥)为例展示群组密钥使用方法。
 
 
-##### 在CMake脚本中链接相关动态库
+#### 在CMake脚本中链接相关动态库
 
 ```text
 target_link_libraries(entry PUBLIC libhuks_ndk.z.so)
@@ -19,11 +19,11 @@ target_link_libraries(entry PUBLIC libhuks_ndk.z.so)
 
 
 
-##### AES/CBC/PKCS7加解密
+#### AES/CBC/PKCS7加解密
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 **生成密钥**
 1. 指定密钥别名，密钥别名命名规范参考[密钥生成介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。
@@ -55,7 +55,7 @@ target_link_libraries(entry PUBLIC libhuks_ndk.z.so)
 
 
 
-##### 开发示例
+#### 开发示例
 
 ```json
 #include "huks/native_huks_api.h"
@@ -328,11 +328,11 @@ static napi_value EncDecKey(napi_env env, napi_callback_info info)
 
 
 
-##### X25519非对称密钥协商
+#### X25519非对称密钥协商
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 **生成密钥**
 
@@ -360,7 +360,7 @@ static napi_value EncDecKey(napi_env env, napi_callback_info info)
 
 
 
-##### 开发示例
+#### 开发示例
 
 ```text
 #include "huks/native_huks_api.h"
@@ -637,11 +637,11 @@ napi_value X25519AgreeKey(napi_env env, napi_callback_info info)
 
 
 
-##### PBKDF2派生密钥
+#### PBKDF2派生密钥
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 **生成密钥**
 1. 指定密钥别名，密钥别名命名规范参考[密钥生成介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。
@@ -665,7 +665,7 @@ napi_value X25519AgreeKey(napi_env env, napi_callback_info info)
 
 
 
-##### 开发示例
+#### 开发示例
 
 ```text
 #include "huks/native_huks_api.h"

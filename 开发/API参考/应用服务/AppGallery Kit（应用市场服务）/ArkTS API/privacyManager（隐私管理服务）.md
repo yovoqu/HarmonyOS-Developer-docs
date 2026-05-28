@@ -14,7 +14,7 @@
 **起始版本：** 5.0.0(12)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -24,7 +24,7 @@ import { privacyManager } from '@kit.AppGalleryKit';
  
   
 
-##### AppPrivacyMgmtType
+#### AppPrivacyMgmtType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -46,7 +46,7 @@ import { privacyManager } from '@kit.AppGalleryKit';
  
   
 
-##### AppPrivacyResultType
+#### AppPrivacyResultType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -69,7 +69,7 @@ import { privacyManager } from '@kit.AppGalleryKit';
  
   
 
-##### AppPrivacyLinkType
+#### AppPrivacyLinkType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -91,7 +91,7 @@ import { privacyManager } from '@kit.AppGalleryKit';
  
   
 
-##### AppPrivacyType
+#### AppPrivacyType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -113,7 +113,7 @@ import { privacyManager } from '@kit.AppGalleryKit';
  
   
 
-##### AppPrivacyMgmtInfo
+#### AppPrivacyMgmtInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -135,7 +135,7 @@ import { privacyManager } from '@kit.AppGalleryKit';
  
   
 
-##### AppPrivacyLink
+#### AppPrivacyLink
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -160,7 +160,7 @@ import { privacyManager } from '@kit.AppGalleryKit';
  
   
 
-##### AppPrivacyResult
+#### AppPrivacyResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -185,7 +185,7 @@ import { privacyManager } from '@kit.AppGalleryKit';
  
   
 
-##### ConsentResult
+#### ConsentResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -206,7 +206,7 @@ import { privacyManager } from '@kit.AppGalleryKit';
  
   
 
-##### privacyManager.getAppPrivacyMgmtInfo
+#### privacyManager.getAppPrivacyMgmtInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -292,7 +292,7 @@ struct GetAppPrivacyMgmtInfo {
  
   
 
-##### privacyManager.getAppPrivacyResult
+#### privacyManager.getAppPrivacyResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -379,7 +379,7 @@ struct GetAppPrivacyResult {
  
   
 
-##### privacyManager.disableService
+#### privacyManager.disableService
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -422,7 +422,7 @@ try {
  
   
 
-##### privacyManager.requestAppPrivacyConsent
+#### privacyManager.requestAppPrivacyConsent
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

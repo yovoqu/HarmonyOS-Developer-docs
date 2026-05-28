@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-devicesecuritymode
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -17,13 +17,13 @@ DeviceSecurityMode模块用于管理设备安全模式。
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
   
 
-##### 文件
+#### 文件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
  
@@ -34,7 +34,7 @@ DeviceSecurityMode模块用于管理设备安全模式。
  
   
 
-##### 类型定义
+#### 类型定义
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
  
@@ -45,7 +45,7 @@ DeviceSecurityMode模块用于管理设备安全模式。
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
  
@@ -56,7 +56,7 @@ DeviceSecurityMode模块用于管理设备安全模式。
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
  
@@ -67,13 +67,13 @@ DeviceSecurityMode模块用于管理设备安全模式。
  
   
 
-##### 类型定义说明
+#### 类型定义说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
   
 
-##### DSM_DeviceSecurityMode
+#### DSM_DeviceSecurityMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -89,13 +89,13 @@ typedef enum DSM_DeviceSecurityMode DSM_DeviceSecurityMode
  
   
 
-##### 枚举说明
+#### 枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
   
 
-##### DSM_DeviceSecurityMode
+#### DSM_DeviceSecurityMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -117,13 +117,13 @@ enum DSM_DeviceSecurityMode
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
   
 
-##### HMS_DSM_GetDeviceSecurityMode()
+#### HMS_DSM_GetDeviceSecurityMode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

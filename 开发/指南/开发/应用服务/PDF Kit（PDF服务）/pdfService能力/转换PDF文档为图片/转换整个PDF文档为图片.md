@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-convert-img
 
-##### 场景介绍
+#### 场景介绍
 
 将整个PDF文档的页面转换为图片，每页为一张图片，并且所有图片存放在指定的同一个文件夹下。
 
@@ -12,7 +12,7 @@
 
 
 
-##### 接口说明
+#### 接口说明
 
 | 接口名 | 描述 |
 | --- | --- |
@@ -21,7 +21,7 @@
 
 
 
-##### 示例代码
+#### 示例代码
 1. 调用loadDocument方法，加载PDF文档。
 2. 设置要输出图片的文件夹，调用convertToImage方法转化PDF文档所有页面为图片。
 

@@ -9,7 +9,7 @@
 例如，折叠设备拥有三颗摄像头：后置摄像头A、前置摄像头B和前置摄像头C。在展开状态下，通过[CameraManager.getSupportedCameras](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#getsupportedcameras)接口可获取到后置摄像头A和前置摄像头B；在折叠状态下，可获取到后置摄像头A和前置摄像头C。在当前折叠状态下启用前置摄像头，并调用[enableAutoDeviceSwitch](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-autodeviceswitch#enableautodeviceswitch13)开启自动切换镜头；这样，在下次折叠屏状态变化时，会自动切换到对应折叠状态下的前置摄像头。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/XJ6xTC9gSZ68OWcKaZ1YdQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T014701Z&HW-CC-Expire=86400&HW-CC-Sign=880343CB5FE8922A0DB556374DD1514381C3C63ABE27301F650127E80FB86EEA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/XJ6xTC9gSZ68OWcKaZ1YdQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030330Z&HW-CC-Expire=86400&HW-CC-Sign=1E8071DFD6775FEE8E7BEA3D121C18B0CB4A0F5C9225298030E9E4B8450B71CB)
 
 
 自动切换镜头功能由系统自动完成输入设备切换，会话配置和参数接续。当系统发现镜头切换时，两颗镜头的变焦范围不一致，则会通过AutoDeviceSwitchStatus中的isDeviceCapabilityChanged字段告知应用，此时需要应用自己处理UX的变更（如变焦范围的调整，需要重新通过getZoomRatioRange接口获取数据并更新UX）。因此如相机拍照或录像等复杂场景的镜头选择，请参阅[适配不同折叠状态的摄像头变更](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-foldable-display)。
@@ -23,7 +23,7 @@ Context获取方式请参考：[获取UIAbility的上下文信息](https://devel
 在开发相机应用时，需要先[申请相关权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-preparation)。
 
 
-##### 导入相关依赖
+#### 导入相关依赖
 
 ```text
 import { camera } from '@kit.CameraKit';
@@ -33,7 +33,7 @@ import { abilityAccessCtrl } from '@kit.AbilityKit';
 
 
 
-##### 创建XComponent
+#### 创建XComponent
 
 使用[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)展示摄像头的预览画面。
 
@@ -80,7 +80,7 @@ struct Index {
 
 
 
-##### 开启自动切换摄像头
+#### 开启自动切换摄像头
 
 调用[enableAutoDeviceSwitch](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-autodeviceswitch#enableautodeviceswitch13)接口前需要通过[isAutoDeviceSwitchSupported](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-autodeviceswitchquery#isautodeviceswitchsupported13)接口查询当前设备是否支持自动切换摄像头能力。
 
@@ -99,7 +99,7 @@ function enableAutoDeviceSwitch(session: camera.PhotoSession) {
 
 
 
-##### 监听或解监听自动切换摄像头状态
+#### 监听或解监听自动切换摄像头状态
 
 可以通过[on('autoDeviceSwitchStatusChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-photosession#onautodeviceswitchstatuschange13)监听自动切换摄像头的结果。系统自动切换镜头结束后会触发该回调。
 
@@ -124,7 +124,7 @@ function unregisterAutoDeviceSwitchStatus(photoSession: camera.PhotoSession): vo
 
 
 
-##### 完整示例代码
+#### 完整示例代码
 
 ```json
 import { camera } from '@kit.CameraKit';

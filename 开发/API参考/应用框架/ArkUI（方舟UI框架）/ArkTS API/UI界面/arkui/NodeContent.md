@@ -12,7 +12,7 @@ NodeContent是ArkUI提供的[ContentSlot](https://developer.huawei.com/consumer/
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { NodeContent } from '@kit.ArkUI';
  
   
 
-##### NodeContent
+#### NodeContent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -34,7 +34,7 @@ NodeContent是节点内容的实体封装。
  
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -74,7 +74,7 @@ struct Parent {
  
   
 
-##### addFrameNode12+
+#### addFrameNode12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -104,7 +104,7 @@ addFrameNode(node: FrameNode): void
  
   
 
-##### removeFrameNode12+
+#### removeFrameNode12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

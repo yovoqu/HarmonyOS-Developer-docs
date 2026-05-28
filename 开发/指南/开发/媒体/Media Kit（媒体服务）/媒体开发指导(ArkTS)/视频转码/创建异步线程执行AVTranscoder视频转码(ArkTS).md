@@ -15,7 +15,7 @@
 
 
 
-##### 基础概念
+#### 基础概念
 
 视频的码率（Bitrate）和分辨率（宽×高）是影响视频画质和文件大小的两个关键因素。它们之间的关系并非简单的线性对应，而是受到编码效率、内容复杂度等多种因素的共同影响。
 
@@ -54,7 +54,7 @@
 
 
 
-##### 选择合适的码率和分辨率
+#### 选择合适的码率和分辨率
 
  - **码率转换**
 
@@ -122,7 +122,7 @@
 
 
 
-##### 视频转码压缩开发样例
+#### 视频转码压缩开发样例
 
 ```text
 import { media } from '@kit.MediaKit';
@@ -222,7 +222,7 @@ export class AVTranscoderDemo {
 
 
 
-##### 使用异步线程的方式进行转码
+#### 使用异步线程的方式进行转码
 
 本示例使用的是worker线程的方式来实现异步线程进行转码，worker线程的详细使用方式，可以参见文档:
 
@@ -232,7 +232,7 @@ export class AVTranscoderDemo {
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 引入头文件，创建worker线程，并注册回调。
 
   
@@ -430,7 +430,7 @@ this.workerInstance.onmessage = (e: MessageEvents) => {
 
 
 
-##### 运行示例工程
+#### 运行示例工程
 
 参考以下示例，使用worker线程的方式来实现异步线程进行转码。
 1. 新建工程，下载[完整示例工程](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/Media/AVTranscoder/AsyncTranscoder)，并将示例工程的资源复制到对应目录。       

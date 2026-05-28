@@ -12,7 +12,7 @@
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,13 +41,13 @@ Rating(options?: RatingOptions)
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### stars
+#### stars
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -70,7 +70,7 @@ stars(value: number)
 
 
 
-##### stars18+
+#### stars18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -93,7 +93,7 @@ stars(starCount: Optional&lt;number&gt;)
 
 
 
-##### stepSize
+#### stepSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -116,7 +116,7 @@ stepSize(value: number)
 
 
 
-##### stepSize18+
+#### stepSize18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -139,7 +139,7 @@ stepSize(size: Optional&lt;number&gt;)
 
 
 
-##### starStyle
+#### starStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -166,7 +166,7 @@ starStyle(options: StarStyleOptions)
 
 
 
-##### starStyle18+
+#### starStyle18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -199,7 +199,7 @@ starStyle(options: Optional&lt;StarStyleOptions&gt;)
 
 
 
-##### contentModifier12+
+#### contentModifier12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -220,7 +220,7 @@ contentModifier(modifier: ContentModifier&lt;RatingConfiguration&gt;)
 
 
 
-##### contentModifier18+
+#### contentModifier18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -241,13 +241,13 @@ contentModifier(modifier: Optional<ContentModifier&lt;RatingConfiguration&gt;>)
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### onChange
+#### onChange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -270,7 +270,7 @@ onChange(callback:(value: number) => void)
 
 
 
-##### onChange18+
+#### onChange18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -293,7 +293,7 @@ onChange(callback:Optional&lt;OnRatingChangeCallback&gt;)
 
 
 
-##### OnRatingChangeCallback18+
+#### OnRatingChangeCallback18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -314,7 +314,7 @@ type OnRatingChangeCallback = (rating: number) => void
 
 
 
-##### 键盘走焦规格
+#### 键盘走焦规格
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -329,7 +329,7 @@ type OnRatingChangeCallback = (rating: number) => void
 
 
 
-##### RatingConfiguration12+对象说明
+#### RatingConfiguration12+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -350,7 +350,7 @@ type OnRatingChangeCallback = (rating: number) => void
 
 
 
-##### RatingOptions18+对象说明
+#### RatingOptions18+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -374,7 +374,7 @@ type OnRatingChangeCallback = (rating: number) => void
 
 
 
-##### StarStyleOptions18+对象说明
+#### StarStyleOptions18+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -403,13 +403,13 @@ type OnRatingChangeCallback = (rating: number) => void
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1（设置默认评分样式）
+#### 示例1（设置默认评分样式）
 
 以下示例展示了如何创建默认星型评分样式。
 
@@ -466,12 +466,12 @@ struct RatingExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/05/v3/xIrY0sNuQxWevRP59LUbZg/zh-cn_image_0000002581435852.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=4681A72BB1BAAD022690C0DC6E9A29F1C8DCD5DEC4DBE2140699DF34A1AF39C7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/05/v3/xIrY0sNuQxWevRP59LUbZg/zh-cn_image_0000002581435852.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025554Z&HW-CC-Expire=86400&HW-CC-Sign=87B43C53D3CA460F1840271A7EFCAE1477ADB6985806772E58904C7791BF6102)
 
 
 
 
-##### 示例2（自定义评分条）
+#### 示例2（自定义评分条）
 
 以下示例实现了自定义评分条的功能，其中每个圆圈表示0.5分。当ratingIndicator为true时，评分条作为指示器使用，不可改变评分；当为false时，可进行评分。ratingStars用于设置评分总数，ratingStepsize用于设置评分步长。
 
@@ -675,12 +675,12 @@ struct ratingExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/mzRr2Kf2RqWcGZzBpq06hA/zh-cn_image_0000002611835683.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=FE5B6CA19EDF298313C9FC1631598433487D3D58F546DC66388C6CD56740F79E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/mzRr2Kf2RqWcGZzBpq06hA/zh-cn_image_0000002611835683.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025554Z&HW-CC-Expire=86400&HW-CC-Sign=4CC585DDEFC88895296E6E84AC3ED7A2ECD5E170F688EB6350FEA5BF2ECC3828)
 
 
 
 
-##### 示例3（通过Resource资源设置评分的样式）
+#### 示例3（通过Resource资源设置评分的样式）
 
 该示例通过Resource资源配置starStyle，实现自定义星级图片链接，API version 20之后推荐使用该方法设置样式。
 
@@ -716,12 +716,12 @@ struct RatingExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/wLXDnTovSgmaygAlEHlKPQ/zh-cn_image_0000002581275934.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=6157BCC29C95FBDA27D9947A83CC6D665B81CF4DD8518E1B0718A590ED083380)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/wLXDnTovSgmaygAlEHlKPQ/zh-cn_image_0000002581275934.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025554Z&HW-CC-Expire=86400&HW-CC-Sign=57D3F546A0E9DBEF88A99900B410F5613D1C124AB08FF3B64892F7C72C4B67E1)
 
 
 
 
-##### 示例4（设置评分的样式）
+#### 示例4（设置评分的样式）
 
 以下示例展示了如何通过配置starStyle实现自定义星级的图片链接。
 
@@ -760,4 +760,4 @@ struct RatingExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/EQxerdU2RzyZ325OcbfrVg/zh-cn_image_0000002581275934.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=C55C1355E29AAC11709B60B43BC1860D8D0595930EE327577AB07DD8D7BE8B8A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/EQxerdU2RzyZ325OcbfrVg/zh-cn_image_0000002581275934.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025554Z&HW-CC-Expire=86400&HW-CC-Sign=C0407F9740CCA53614FC28BFC25F013C5533E0A92B31CCF18FA5BB5D45C5BB37)

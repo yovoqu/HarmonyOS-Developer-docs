@@ -9,7 +9,7 @@
 Metadata主要是通过一个TAG（Key），去找对应的Data（Value），用于传递参数和配置信息，减少内存拷贝操作。
 
 
-##### 开发步骤
+#### 开发步骤
 
 详细的API说明请参考[OH_Camera](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera)。
 1. 导入NDK接口，导入方法如下。
@@ -159,7 +159,7 @@ Camera_ErrorCode StopMetadataOutput(Camera_MetadataOutput* metadataOutput)
 
 
 
-##### 状态监听
+#### 状态监听
 
 在相机应用开发过程中，可以随时监听metadata数据以及输出流的状态。
 

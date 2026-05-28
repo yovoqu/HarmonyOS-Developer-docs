@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fileguard-kia-event
 
-##### 场景介绍
+#### 场景介绍
 
 为应用提供监听或取消监听KIA文件拷贝、重命名和压缩事件的能力，当KIA文件发生变种时，通过回调函数，返回KIA变种信息。
 
 
 
-##### 接口说明
+#### 接口说明
 
 详细接口说明可参考[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard)。
 
@@ -26,7 +26,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 导入模块。
 
   

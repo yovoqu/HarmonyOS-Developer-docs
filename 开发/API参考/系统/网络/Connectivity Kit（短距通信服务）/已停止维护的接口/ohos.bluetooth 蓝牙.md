@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import bluetooth from '@ohos.bluetooth';
  
   
 
-##### bluetooth.enableBluetooth(deprecated)
+#### bluetooth.enableBluetooth(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -53,7 +53,7 @@ let enable : boolean = bluetooth.enableBluetooth();
  
   
 
-##### bluetooth.disableBluetooth(deprecated)
+#### bluetooth.disableBluetooth(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -84,7 +84,7 @@ let disable : boolean = bluetooth.disableBluetooth();
  
   
 
-##### bluetooth.getLocalName(deprecated)
+#### bluetooth.getLocalName(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -115,7 +115,7 @@ let localName : string = bluetooth.getLocalName();
  
   
 
-##### bluetooth.getState(deprecated)
+#### bluetooth.getState(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -146,7 +146,7 @@ let state : bluetooth.BluetoothState = bluetooth.getState();
  
   
 
-##### bluetooth.getBtConnectionState(deprecated)
+#### bluetooth.getBtConnectionState(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -177,7 +177,7 @@ let connectionState : bluetooth.ProfileConnectionState = bluetooth.getBtConnecti
  
   
 
-##### bluetooth.setLocalName(deprecated)
+#### bluetooth.setLocalName(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -215,7 +215,7 @@ let ret : boolean = bluetooth.setLocalName('device_name');
  
   
 
-##### bluetooth.pairDevice(deprecated)
+#### bluetooth.pairDevice(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -254,7 +254,7 @@ let result : boolean = bluetooth.pairDevice("XX:XX:XX:XX:XX:XX");
  
   
 
-##### bluetooth.getProfileConnState(deprecated)
+#### bluetooth.getProfileConnState(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -292,7 +292,7 @@ let result : bluetooth.ProfileConnectionState = bluetooth.getProfileConnState(bl
  
   
 
-##### bluetooth.getRemoteDeviceName(deprecated)
+#### bluetooth.getRemoteDeviceName(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -330,7 +330,7 @@ let remoteDeviceName : string = bluetooth.getRemoteDeviceName("XX:XX:XX:XX:XX:XX
  
   
 
-##### bluetooth.getRemoteDeviceClass(deprecated)
+#### bluetooth.getRemoteDeviceClass(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -368,7 +368,7 @@ let remoteDeviceClass : bluetooth.DeviceClass = bluetooth.getRemoteDeviceClass("
  
   
 
-##### bluetooth.getPairedDevices(deprecated)
+#### bluetooth.getPairedDevices(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -399,7 +399,7 @@ let devices : Array<string> = bluetooth.getPairedDevices();
  
   
 
-##### bluetooth.setBluetoothScanMode(deprecated)
+#### bluetooth.setBluetoothScanMode(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -440,7 +440,7 @@ let result : boolean = bluetooth.setBluetoothScanMode(bluetooth.ScanMode
  
   
 
-##### bluetooth.getBluetoothScanMode(deprecated)
+#### bluetooth.getBluetoothScanMode(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -471,7 +471,7 @@ let scanMode : bluetooth.ScanMode = bluetooth.getBluetoothScanMode();
  
   
 
-##### bluetooth.startBluetoothDiscovery(deprecated)
+#### bluetooth.startBluetoothDiscovery(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -507,7 +507,7 @@ let result : boolean = bluetooth.startBluetoothDiscovery();
  
   
 
-##### bluetooth.stopBluetoothDiscovery(deprecated)
+#### bluetooth.stopBluetoothDiscovery(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -538,7 +538,7 @@ let result : boolean = bluetooth.stopBluetoothDiscovery();
  
   
 
-##### bluetooth.setDevicePairingConfirmation(deprecated)
+#### bluetooth.setDevicePairingConfirmation(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -582,7 +582,7 @@ bluetooth.on("pinRequired", onReceivePinRequiredEvent);
  
   
 
-##### bluetooth.on('bluetoothDeviceFind')(deprecated)
+#### bluetooth.on('bluetoothDeviceFind')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -621,7 +621,7 @@ bluetooth.on('bluetoothDeviceFind', onReceiveEvent);
  
   
 
-##### bluetooth.off('bluetoothDeviceFind')(deprecated)
+#### bluetooth.off('bluetoothDeviceFind')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -661,7 +661,7 @@ bluetooth.off('bluetoothDeviceFind', onReceiveEvent);
  
   
 
-##### bluetooth.on('pinRequired')(deprecated)
+#### bluetooth.on('pinRequired')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -700,7 +700,7 @@ bluetooth.on('pinRequired', onReceiveEvent);
  
   
 
-##### bluetooth.off('pinRequired')(deprecated)
+#### bluetooth.off('pinRequired')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -740,7 +740,7 @@ bluetooth.off('pinRequired', onReceiveEvent);
  
   
 
-##### bluetooth.on('bondStateChange')(deprecated)
+#### bluetooth.on('bondStateChange')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -779,7 +779,7 @@ bluetooth.on('bondStateChange', onReceiveEvent);
  
   
 
-##### bluetooth.off('bondStateChange')(deprecated)
+#### bluetooth.off('bondStateChange')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -819,7 +819,7 @@ bluetooth.off('bondStateChange', onReceiveEvent);
  
   
 
-##### bluetooth.on('stateChange')(deprecated)
+#### bluetooth.on('stateChange')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -858,7 +858,7 @@ bluetooth.on('stateChange', onReceiveEvent);
  
   
 
-##### bluetooth.off('stateChange')(deprecated)
+#### bluetooth.off('stateChange')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -898,7 +898,7 @@ bluetooth.off('stateChange', onReceiveEvent);
  
   
 
-##### bluetooth.sppListen(deprecated)
+#### bluetooth.sppListen(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -942,7 +942,7 @@ bluetooth.sppListen('server1', sppOption, serverSocket);
  
   
 
-##### bluetooth.sppAccept(deprecated)
+#### bluetooth.sppAccept(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -990,7 +990,7 @@ bluetooth.sppAccept(serverNumber, acceptClientSocket);
  
   
 
-##### bluetooth.sppConnect(deprecated)
+#### bluetooth.sppConnect(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1034,7 +1034,7 @@ bluetooth.sppConnect('XX:XX:XX:XX:XX:XX', sppOption, clientSocket);
  
   
 
-##### bluetooth.sppCloseServerSocket(deprecated)
+#### bluetooth.sppCloseServerSocket(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1072,7 +1072,7 @@ bluetooth.sppCloseServerSocket(serverNumber);
  
   
 
-##### bluetooth.sppCloseClientSocket(deprecated)
+#### bluetooth.sppCloseClientSocket(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1111,7 +1111,7 @@ bluetooth.sppCloseClientSocket(clientNumber);
  
   
 
-##### bluetooth.sppWrite(deprecated)
+#### bluetooth.sppWrite(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1166,7 +1166,7 @@ if (ret) {
  
   
 
-##### bluetooth.on('sppRead')(deprecated)
+#### bluetooth.on('sppRead')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1214,7 +1214,7 @@ bluetooth.on('sppRead', clientNumber, dataRead);
  
   
 
-##### bluetooth.off('sppRead')(deprecated)
+#### bluetooth.off('sppRead')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1259,7 +1259,7 @@ bluetooth.off('sppRead', clientNumber);
  
   
 
-##### bluetooth.getProfile(deprecated)
+#### bluetooth.getProfile(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1295,13 +1295,13 @@ let a2dpSrc : bluetooth.A2dpSourceProfile = bluetooth.getProfile(bluetooth.Profi
  
   
 
-##### BLE
+#### BLE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### createGattServer(deprecated)
+#### createGattServer(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1330,7 +1330,7 @@ let gattServer : bluetooth.GattServer = bluetooth.BLE.createGattServer();
  
   
 
-##### createGattClientDevice(deprecated)
+#### createGattClientDevice(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1366,7 +1366,7 @@ let device : bluetooth.GattClientDevice = bluetooth.BLE.createGattClientDevice('
  
   
 
-##### getConnectedBLEDevices(deprecated)
+#### getConnectedBLEDevices(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1397,7 +1397,7 @@ let result : Array<string> = bluetooth.BLE.getConnectedBLEDevices();
  
   
 
-##### startBLEScan(deprecated)
+#### startBLEScan(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1450,7 +1450,7 @@ bluetooth.BLE.startBLEScan(
  
   
 
-##### stopBLEScan(deprecated)
+#### stopBLEScan(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1478,7 +1478,7 @@ bluetooth.BLE.stopBLEScan();
  
   
 
-##### on('BLEDeviceFind')(deprecated)
+#### on('BLEDeviceFind')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1517,7 +1517,7 @@ bluetooth.BLE.on('BLEDeviceFind', onReceiveEvent);
  
   
 
-##### off('BLEDeviceFind')(deprecated)
+#### off('BLEDeviceFind')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1557,7 +1557,7 @@ bluetooth.BLE.off('BLEDeviceFind', onReceiveEvent);
  
   
 
-##### BaseProfile
+#### BaseProfile
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1565,7 +1565,7 @@ profile基类。
  
   
 
-##### getConnectionDevices(deprecated)
+#### getConnectionDevices(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1597,7 +1597,7 @@ let retArray : Array<string> = a2dpSrc.getConnectionDevices();
  
   
 
-##### getDeviceState(deprecated)
+#### getDeviceState(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1636,7 +1636,7 @@ let ret : bluetooth.ProfileConnectionState = a2dpSrc.getDeviceState('XX:XX:XX:XX
  
   
 
-##### A2dpSourceProfile
+#### A2dpSourceProfile
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1644,7 +1644,7 @@ let ret : bluetooth.ProfileConnectionState = a2dpSrc.getDeviceState('XX:XX:XX:XX
  
   
 
-##### connect(deprecated)
+#### connect(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1683,7 +1683,7 @@ let ret : boolean = a2dpSrc.connect('XX:XX:XX:XX:XX:XX');
  
   
 
-##### disconnect(deprecated)
+#### disconnect(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1722,7 +1722,7 @@ let ret : boolean = a2dpSrc.disconnect('XX:XX:XX:XX:XX:XX');
  
   
 
-##### on('connectionStateChange')(deprecated)
+#### on('connectionStateChange')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1760,7 +1760,7 @@ a2dpSrc.on('connectionStateChange', onReceiveEvent);
  
   
 
-##### off('connectionStateChange')(deprecated)
+#### off('connectionStateChange')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1799,7 +1799,7 @@ a2dpSrc.off('connectionStateChange', onReceiveEvent);
  
   
 
-##### getPlayingState(deprecated)
+#### getPlayingState(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1836,7 +1836,7 @@ let state : bluetooth.PlayingState = a2dpSrc.getPlayingState('XX:XX:XX:XX:XX:XX'
  
   
 
-##### HandsFreeAudioGatewayProfile
+#### HandsFreeAudioGatewayProfile
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1844,7 +1844,7 @@ let state : bluetooth.PlayingState = a2dpSrc.getPlayingState('XX:XX:XX:XX:XX:XX'
  
   
 
-##### connect(deprecated)
+#### connect(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1884,7 +1884,7 @@ let ret : boolean = hfpAg.connect('XX:XX:XX:XX:XX:XX');
  
   
 
-##### disconnect(deprecated)
+#### disconnect(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1924,7 +1924,7 @@ let ret : boolean = hfpAg.disconnect('XX:XX:XX:XX:XX:XX');
  
   
 
-##### on('connectionStateChange')(deprecated)
+#### on('connectionStateChange')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1963,7 +1963,7 @@ hfpAg.on('connectionStateChange', onReceiveEvent);
  
   
 
-##### off('connectionStateChange')(deprecated)
+#### off('connectionStateChange')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2003,7 +2003,7 @@ hfpAg.off('connectionStateChange', onReceiveEvent);
  
   
 
-##### GattServer
+#### GattServer
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2011,7 +2011,7 @@ server端类，使用server端方法之前需要创建该类的实例进行操�
  
   
 
-##### startAdvertising(deprecated)
+#### startAdvertising(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2089,7 +2089,7 @@ gattServer.startAdvertising(setting, advData, advResponse);
  
   
 
-##### stopAdvertising(deprecated)
+#### stopAdvertising(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2118,7 +2118,7 @@ server.stopAdvertising();
  
   
 
-##### addService(deprecated)
+#### addService(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2186,7 +2186,7 @@ if (ret) {
  
   
 
-##### removeService(deprecated)
+#### removeService(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2225,7 +2225,7 @@ server.removeService('00001810-0000-1000-8000-00805F9B34FB');
  
   
 
-##### close(deprecated)
+#### close(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2250,7 +2250,7 @@ server.close();
  
   
 
-##### notifyCharacteristicChanged(deprecated)
+#### notifyCharacteristicChanged(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2304,7 +2304,7 @@ server.notifyCharacteristicChanged('XX:XX:XX:XX:XX:XX', notifyCharacteristic);
  
   
 
-##### sendResponse(deprecated)
+#### sendResponse(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2360,7 +2360,7 @@ if (ret) {
  
   
 
-##### on('characteristicRead')(deprecated)
+#### on('characteristicRead')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2417,7 +2417,7 @@ gattServer.on("characteristicRead", ReadCharacteristicReq);
  
   
 
-##### off('characteristicRead')(deprecated)
+#### off('characteristicRead')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2454,7 +2454,7 @@ gattServer.off("characteristicRead");
  
   
 
-##### on('characteristicWrite')(deprecated)
+#### on('characteristicWrite')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2514,7 +2514,7 @@ gattServer.on("characteristicWrite", WriteCharacteristicReq);
  
   
 
-##### off('characteristicWrite')(deprecated)
+#### off('characteristicWrite')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2551,7 +2551,7 @@ gattServer.off("characteristicWrite");
  
   
 
-##### on('descriptorRead')(deprecated)
+#### on('descriptorRead')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2608,7 +2608,7 @@ gattServer.on("descriptorRead", ReadDescriptorReq);
  
   
 
-##### off('descriptorRead')(deprecated)
+#### off('descriptorRead')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2645,7 +2645,7 @@ gattServer.off("descriptorRead");
  
   
 
-##### on('descriptorWrite')(deprecated)
+#### on('descriptorWrite')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2704,7 +2704,7 @@ gattServer.on("descriptorWrite", WriteDescriptorReq);
  
   
 
-##### off('descriptorWrite')(deprecated)
+#### off('descriptorWrite')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2741,7 +2741,7 @@ gattServer.off("descriptorWrite");
  
   
 
-##### on('connectStateChange')(deprecated)
+#### on('connectStateChange')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2783,7 +2783,7 @@ gattServer.on("connectStateChange", Connected);
  
   
 
-##### off('connectStateChange')(deprecated)
+#### off('connectStateChange')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2820,7 +2820,7 @@ gattServer.off("connectStateChange");
  
   
 
-##### GattClientDevice
+#### GattClientDevice
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2828,7 +2828,7 @@ client端类，使用client端方法之前需要创建该类的实例进行操�
  
   
 
-##### connect(deprecated)
+#### connect(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2860,7 +2860,7 @@ let ret : boolean = device.connect();
  
   
 
-##### disconnect(deprecated)
+#### disconnect(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2892,7 +2892,7 @@ let ret : boolean = device.disconnect();
  
   
 
-##### close(deprecated)
+#### close(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2924,7 +2924,7 @@ let ret : boolean = device.close();
  
   
 
-##### getServices(deprecated)
+#### getServices(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2974,7 +2974,7 @@ device.getServices(getServices);
  
   
 
-##### getServices(deprecated)
+#### getServices(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3010,7 +3010,7 @@ device.getServices().then((result : Array<bluetooth.GattService>) => {
  
   
 
-##### readCharacteristicValue(deprecated)
+#### readCharacteristicValue(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3072,7 +3072,7 @@ device.readCharacteristicValue(characteristic, readCcc);
  
   
 
-##### readCharacteristicValue(deprecated)
+#### readCharacteristicValue(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3127,7 +3127,7 @@ device.readCharacteristicValue(characteristic);
  
   
 
-##### readDescriptorValue(deprecated)
+#### readDescriptorValue(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3179,7 +3179,7 @@ device.readDescriptorValue(descriptor, readDesc);
  
   
 
-##### readDescriptorValue(deprecated)
+#### readDescriptorValue(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3224,7 +3224,7 @@ device.readDescriptorValue(descriptor);
  
   
 
-##### writeCharacteristicValue(deprecated)
+#### writeCharacteristicValue(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3283,7 +3283,7 @@ if (retWriteCcc) {
  
   
 
-##### writeDescriptorValue(deprecated)
+#### writeDescriptorValue(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3333,7 +3333,7 @@ if (retWriteDesc) {
  
   
 
-##### setBLEMtuSize(deprecated)
+#### setBLEMtuSize(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3372,7 +3372,7 @@ device.setBLEMtuSize(128);
  
   
 
-##### setNotifyCharacteristicChanged(deprecated)
+#### setNotifyCharacteristicChanged(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3424,7 +3424,7 @@ device.setNotifyCharacteristicChanged(characteristic, false);
  
   
 
-##### on('BLECharacteristicChange')(deprecated)
+#### on('BLECharacteristicChange')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3466,7 +3466,7 @@ device.on('BLECharacteristicChange', CharacteristicChange);
  
   
 
-##### off('BLECharacteristicChange')(deprecated)
+#### off('BLECharacteristicChange')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3503,7 +3503,7 @@ device.off('BLECharacteristicChange');
  
   
 
-##### on('BLEConnectionStateChange')(deprecated)
+#### on('BLEConnectionStateChange')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3544,7 +3544,7 @@ device.on('BLEConnectionStateChange', ConnectStateChanged);
  
   
 
-##### off('BLEConnectionStateChange')(deprecated)
+#### off('BLEConnectionStateChange')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3581,7 +3581,7 @@ device.off('BLEConnectionStateChange');
  
   
 
-##### getDeviceName(deprecated)
+#### getDeviceName(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3622,7 +3622,7 @@ let deviceName : void = gattClient.getDeviceName((err : BusinessError, data : st
  
   
 
-##### getDeviceName(deprecated)
+#### getDeviceName(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3657,7 +3657,7 @@ gattClient.getDeviceName().then((data) => {
  
   
 
-##### getRssiValue(deprecated)
+#### getRssiValue(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3699,7 +3699,7 @@ gattClient.getRssiValue((err : BusinessError, data : number)=> {
  
   
 
-##### getRssiValue(deprecated)
+#### getRssiValue(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3734,7 +3734,7 @@ gattClient.getRssiValue().then((data : number) => {
  
   
 
-##### ScanMode(deprecated)
+#### ScanMode(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3758,7 +3758,7 @@ gattClient.getRssiValue().then((data : number) => {
  
   
 
-##### BondState(deprecated)
+#### BondState(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3779,7 +3779,7 @@ gattClient.getRssiValue().then((data : number) => {
  
   
 
-##### SppOption(deprecated)
+#### SppOption(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3800,7 +3800,7 @@ gattClient.getRssiValue().then((data : number) => {
  
   
 
-##### SppType(deprecated)
+#### SppType(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3819,7 +3819,7 @@ gattClient.getRssiValue().then((data : number) => {
  
   
 
-##### GattService(deprecated)
+#### GattService(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3841,7 +3841,7 @@ gattClient.getRssiValue().then((data : number) => {
  
   
 
-##### BLECharacteristic(deprecated)
+#### BLECharacteristic(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3863,7 +3863,7 @@ gattClient.getRssiValue().then((data : number) => {
  
   
 
-##### BLEDescriptor(deprecated)
+#### BLEDescriptor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3885,7 +3885,7 @@ gattClient.getRssiValue().then((data : number) => {
  
   
 
-##### NotifyCharacteristic(deprecated)
+#### NotifyCharacteristic(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3907,7 +3907,7 @@ gattClient.getRssiValue().then((data : number) => {
  
   
 
-##### CharacteristicReadReq(deprecated)
+#### CharacteristicReadReq(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3930,7 +3930,7 @@ gattClient.getRssiValue().then((data : number) => {
  
   
 
-##### CharacteristicWriteReq(deprecated)
+#### CharacteristicWriteReq(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3956,7 +3956,7 @@ gattClient.getRssiValue().then((data : number) => {
  
   
 
-##### DescriptorReadReq(deprecated)
+#### DescriptorReadReq(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3980,7 +3980,7 @@ gattClient.getRssiValue().then((data : number) => {
  
   
 
-##### DescriptorWriteReq(deprecated)
+#### DescriptorWriteReq(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4007,7 +4007,7 @@ gattClient.getRssiValue().then((data : number) => {
  
   
 
-##### ServerResponse(deprecated)
+#### ServerResponse(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4030,7 +4030,7 @@ gattClient.getRssiValue().then((data : number) => {
  
   
 
-##### BLEConnectChangedState(deprecated)
+#### BLEConnectChangedState(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4050,7 +4050,7 @@ gattClient.getRssiValue().then((data : number) => {
  
   
 
-##### ProfileConnectionState(deprecated)
+#### ProfileConnectionState(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4072,7 +4072,7 @@ gattClient.getRssiValue().then((data : number) => {
  
   
 
-##### ScanFilter(deprecated)
+#### ScanFilter(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4093,7 +4093,7 @@ gattClient.getRssiValue().then((data : number) => {
  
   
 
-##### ScanOptions(deprecated)
+#### ScanOptions(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4114,7 +4114,7 @@ gattClient.getRssiValue().then((data : number) => {
  
   
 
-##### ScanDuty(deprecated)
+#### ScanDuty(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4135,7 +4135,7 @@ gattClient.getRssiValue().then((data : number) => {
  
   
 
-##### MatchMode(deprecated)
+#### MatchMode(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4155,7 +4155,7 @@ gattClient.getRssiValue().then((data : number) => {
  
   
 
-##### ScanResult(deprecated)
+#### ScanResult(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4176,7 +4176,7 @@ gattClient.getRssiValue().then((data : number) => {
  
   
 
-##### BluetoothState(deprecated)
+#### BluetoothState(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4201,7 +4201,7 @@ gattClient.getRssiValue().then((data : number) => {
  
   
 
-##### AdvertiseSetting(deprecated)
+#### AdvertiseSetting(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4222,7 +4222,7 @@ gattClient.getRssiValue().then((data : number) => {
  
   
 
-##### AdvertiseData(deprecated)
+#### AdvertiseData(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4243,7 +4243,7 @@ gattClient.getRssiValue().then((data : number) => {
  
   
 
-##### ManufactureData(deprecated)
+#### ManufactureData(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4263,7 +4263,7 @@ gattClient.getRssiValue().then((data : number) => {
  
   
 
-##### ServiceData(deprecated)
+#### ServiceData(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4283,7 +4283,7 @@ gattClient.getRssiValue().then((data : number) => {
  
   
 
-##### PinRequiredParam(deprecated)
+#### PinRequiredParam(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4303,7 +4303,7 @@ gattClient.getRssiValue().then((data : number) => {
  
   
 
-##### BondStateParam(deprecated)
+#### BondStateParam(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4323,7 +4323,7 @@ gattClient.getRssiValue().then((data : number) => {
  
   
 
-##### StateChangeParam(deprecated)
+#### StateChangeParam(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4343,7 +4343,7 @@ gattClient.getRssiValue().then((data : number) => {
  
   
 
-##### DeviceClass(deprecated)
+#### DeviceClass(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4364,7 +4364,7 @@ gattClient.getRssiValue().then((data : number) => {
  
   
 
-##### MajorClass(deprecated)
+#### MajorClass(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4393,7 +4393,7 @@ gattClient.getRssiValue().then((data : number) => {
  
   
 
-##### MajorMinorClass(deprecated)
+#### MajorMinorClass(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4497,7 +4497,7 @@ gattClient.getRssiValue().then((data : number) => {
  
   
 
-##### PlayingState(deprecated)
+#### PlayingState(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4517,7 +4517,7 @@ gattClient.getRssiValue().then((data : number) => {
  
   
 
-##### ProfileId(deprecated)
+#### ProfileId(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

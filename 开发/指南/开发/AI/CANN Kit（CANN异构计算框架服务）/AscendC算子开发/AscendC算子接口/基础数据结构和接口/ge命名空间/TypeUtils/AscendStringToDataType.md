@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-ascendstringtodatatype
 
-##### 函数功能
+#### 函数功能
 
 将DataType的字符串表达转换为DataType枚举值。
  
@@ -16,7 +16,7 @@
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 static DataType AscendStringToDataType(const AscendString &str);
@@ -24,7 +24,7 @@ static DataType AscendStringToDataType(const AscendString &str);
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -33,19 +33,19 @@ static DataType AscendStringToDataType(const AscendString &str);
  
   
 
-##### 返回值
+#### 返回值
 
 输入合法时，返回转换后的DataType enum值，枚举定义请参考[DataType](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-ge-datatype)；输入不合法时，返回DT_UNDEFINED并打印报错日志。
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 ge::AscendString type_str("DT_UINT32");

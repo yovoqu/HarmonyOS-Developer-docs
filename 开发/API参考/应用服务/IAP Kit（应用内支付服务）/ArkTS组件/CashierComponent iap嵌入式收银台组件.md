@@ -12,7 +12,7 @@ CashierComponent需要配合[cashierComponentManager](https://developer.huawei.c
 **起始版本：** 6.1.0(23)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** TV
 
@@ -22,7 +22,7 @@ import { CashierComponent, cashierComponentManager } from '@kit.IAPKit';
  
   
 
-##### CashierComponent
+#### CashierComponent
 
 **支持设备：** TV
 
@@ -49,7 +49,7 @@ import { CashierComponent, cashierComponentManager } from '@kit.IAPKit';
  
   
 
-##### build
+#### build
 
 **支持设备：** TV
 

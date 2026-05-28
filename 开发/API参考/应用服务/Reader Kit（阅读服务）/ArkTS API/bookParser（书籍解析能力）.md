@@ -10,7 +10,7 @@
 **起始版本：** 5.0.4(16)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -20,7 +20,7 @@ import { bookParser } from '@kit.ReaderKit';
 
 
 
-##### BookInfo
+#### BookInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -49,7 +49,7 @@ import { bookParser } from '@kit.ReaderKit';
 
 
 
-##### SpineItem
+#### SpineItem
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -71,7 +71,7 @@ import { bookParser } from '@kit.ReaderKit';
 
 
 
-##### CatalogItem
+#### CatalogItem
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -100,7 +100,7 @@ import { bookParser } from '@kit.ReaderKit';
 
 
 
-##### CallbackRes
+#### CallbackRes
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -189,7 +189,7 @@ struct Reader {
 
 
 
-##### getDefaultHandler
+#### getDefaultHandler
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -258,7 +258,7 @@ struct Reader {
 
 
 
-##### BookParserHandler
+#### BookParserHandler
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -272,7 +272,7 @@ struct Reader {
 
 
 
-##### getBookInfo
+#### getBookInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -333,7 +333,7 @@ struct Reader {
 
 
 
-##### getCatalogList
+#### getCatalogList
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -394,7 +394,7 @@ struct Reader {
 
 
 
-##### getSpineList
+#### getSpineList
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -455,7 +455,7 @@ struct Reader {
 
 
 
-##### getSpineItemContent
+#### getSpineItemContent
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -526,7 +526,7 @@ struct Reader {
 
 
 
-##### getResourceContent
+#### getResourceContent
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -604,7 +604,7 @@ struct Reader {
 
 
 
-##### getDomPosByCatalogHref
+#### getDomPosByCatalogHref
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -675,7 +675,7 @@ struct Reader {
 
 
 
-##### getAbsoluteResourcePath
+#### getAbsoluteResourcePath
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

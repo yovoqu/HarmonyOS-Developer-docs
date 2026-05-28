@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-rdb-transaction-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -41,7 +41,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -52,7 +52,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -82,13 +82,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_RDB_TransType
+#### OH_RDB_TransType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -112,13 +112,13 @@ enum OH_RDB_TransType
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_RdbTrans_CreateOptions()
+#### OH_RdbTrans_CreateOptions()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -141,7 +141,7 @@ OH_RDB_TransOptions *OH_RdbTrans_CreateOptions(void)
  
   
 
-##### OH_RdbTrans_DestroyOptions()
+#### OH_RdbTrans_DestroyOptions()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -171,7 +171,7 @@ int OH_RdbTrans_DestroyOptions(OH_RDB_TransOptions *options)
  
   
 
-##### OH_RdbTransOption_SetType()
+#### OH_RdbTransOption_SetType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -202,7 +202,7 @@ int OH_RdbTransOption_SetType(OH_RDB_TransOptions *options, OH_RDB_TransType typ
  
   
 
-##### OH_RdbTrans_Commit()
+#### OH_RdbTrans_Commit()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -232,7 +232,7 @@ int OH_RdbTrans_Commit(OH_Rdb_Transaction *trans)
  
   
 
-##### OH_RdbTrans_Rollback()
+#### OH_RdbTrans_Rollback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -262,7 +262,7 @@ int OH_RdbTrans_Rollback(OH_Rdb_Transaction *trans)
  
   
 
-##### OH_RdbTrans_Insert()
+#### OH_RdbTrans_Insert()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -295,7 +295,7 @@ int OH_RdbTrans_Insert(OH_Rdb_Transaction *trans, const char *table, const OH_VB
  
   
 
-##### OH_RdbTrans_InsertWithConflictResolution()
+#### OH_RdbTrans_InsertWithConflictResolution()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -329,7 +329,7 @@ int OH_RdbTrans_InsertWithConflictResolution(OH_Rdb_Transaction *trans, const ch
  
   
 
-##### OH_RdbTrans_BatchInsert()
+#### OH_RdbTrans_BatchInsert()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -369,7 +369,7 @@ int OH_RdbTrans_BatchInsert(OH_Rdb_Transaction *trans, const char *table, const 
  
   
 
-##### OH_RdbTrans_Update()
+#### OH_RdbTrans_Update()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -402,7 +402,7 @@ int OH_RdbTrans_Update(OH_Rdb_Transaction *trans, const OH_VBucket *row, const O
  
   
 
-##### OH_RdbTrans_UpdateWithConflictResolution()
+#### OH_RdbTrans_UpdateWithConflictResolution()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -436,7 +436,7 @@ int OH_RdbTrans_UpdateWithConflictResolution(OH_Rdb_Transaction *trans, const OH
  
   
 
-##### OH_RdbTrans_Delete()
+#### OH_RdbTrans_Delete()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -468,7 +468,7 @@ int OH_RdbTrans_Delete(OH_Rdb_Transaction *trans, const OH_Predicates *predicate
  
   
 
-##### OH_RdbTrans_Query()
+#### OH_RdbTrans_Query()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -501,7 +501,7 @@ OH_Cursor *OH_RdbTrans_Query(OH_Rdb_Transaction *trans, const OH_Predicates *pre
  
   
 
-##### OH_RdbTrans_QuerySql()
+#### OH_RdbTrans_QuerySql()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -533,7 +533,7 @@ OH_Cursor *OH_RdbTrans_QuerySql(OH_Rdb_Transaction *trans, const char *sql, cons
  
   
 
-##### OH_RdbTrans_Execute()
+#### OH_RdbTrans_Execute()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -568,7 +568,7 @@ int OH_RdbTrans_Execute(OH_Rdb_Transaction *trans, const char *sql, const OH_Dat
  
   
 
-##### OH_RdbTrans_Destroy()
+#### OH_RdbTrans_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -598,7 +598,7 @@ int OH_RdbTrans_Destroy(OH_Rdb_Transaction *trans)
  
   
 
-##### OH_RdbTrans_QueryWithoutRowCount()
+#### OH_RdbTrans_QueryWithoutRowCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -631,7 +631,7 @@ OH_Cursor *OH_RdbTrans_QueryWithoutRowCount(OH_Rdb_Transaction *trans, const OH_
  
   
 
-##### OH_RdbTrans_QuerySqlWithoutRowCount()
+#### OH_RdbTrans_QuerySqlWithoutRowCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -663,7 +663,7 @@ OH_Cursor *OH_RdbTrans_QuerySqlWithoutRowCount(OH_Rdb_Transaction *trans, const 
  
   
 
-##### OH_RdbTrans_BatchInsertWithReturning()
+#### OH_RdbTrans_BatchInsertWithReturning()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -705,7 +705,7 @@ int OH_RdbTrans_BatchInsertWithReturning(OH_Rdb_Transaction *trans, const char *
  
   
 
-##### OH_RdbTrans_UpdateWithReturning()
+#### OH_RdbTrans_UpdateWithReturning()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -739,7 +739,7 @@ int OH_RdbTrans_UpdateWithReturning(OH_Rdb_Transaction *trans, OH_VBucket *row, 
  
   
 
-##### OH_RdbTrans_DeleteWithReturning()
+#### OH_RdbTrans_DeleteWithReturning()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

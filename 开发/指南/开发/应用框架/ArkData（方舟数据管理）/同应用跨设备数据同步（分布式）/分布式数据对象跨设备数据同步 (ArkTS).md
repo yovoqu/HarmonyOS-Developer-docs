@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-sync-of-distributed-data-object
 
-##### 场景介绍
+#### 场景介绍
 
 传统方式下，设备之间的数据同步，需要开发者完成消息处理逻辑，包括：建立通信链接、消息收发处理、错误重试、数据冲突解决等操作，工作量非常大。而且设备越多，调试复杂度也将同步增加。
 
@@ -16,7 +16,7 @@
 
 
 
-##### 基本概念
+#### 基本概念
 
  - **分布式内存数据库**：分布式内存数据库将数据缓存在内存中，以便应用获得更快的数据存取速度，不会将数据进行持久化。若数据库关闭，则数据不会保留。
  - **分布式数据对象**：分布式数据对象是一个JS对象型的封装。每一个分布式数据对象实例会创建一个内存数据库中的数据表，每个应用程序创建的内存数据库相互隔离，对分布式数据对象的“读取”或“赋值”会自动映射到对应数据库的get/put操作。
@@ -32,7 +32,7 @@
 
 
 
-##### 运作机制
+#### 运作机制
 
 **图1** 分布式数据对象运作机制
 
@@ -44,7 +44,7 @@
 
 
 
-##### JS对象型存储与封装机制
+#### JS对象型存储与封装机制
 
  - 为每个分布式数据对象实例创建一个内存数据库，通过sessionId标识，每个应用程序创建的内存数据库相互隔离。
  - 在分布式数据对象实例化的时候，（递归）遍历对象所有属性，使用“Object.defineProperty”定义所有属性的set和get方法，set和get中分别对应数据库一条记录的put和get操作，Key对应属性名，Value对应属性值。
@@ -60,7 +60,7 @@
 
 
 
-##### 跨设备同步和数据变更通知机制
+#### 跨设备同步和数据变更通知机制
 
 分布式数据对象，最重要的功能就是对象之间的数据同步。可信组网内的设备可以在本地创建分布式数据对象，并设置sessionId。不同设备上的分布式数据对象，通过设置相同的sessionId，建立对象之间的同步关系。
 
@@ -86,7 +86,7 @@
 
 
 
-##### 同步的最小单位
+#### 同步的最小单位
 
 关于分布式数据对象的数据同步，值得注意的是，同步的最小单位是“属性”。比如，下图中对象1包含三个属性：name、age和parents。当其中一个属性变更时，则数据同步时只需同步此变更的属性。
 
@@ -105,7 +105,7 @@ dataObject['parents']['mom'] = "amy"; // 不支持的修改
 
 
 
-##### 对象持久化缓存机制
+#### 对象持久化缓存机制
 
 分布式对象主要运行在应用程序的进程空间。当调用分布式对象持久化接口时，通过分布式数据库对对象进行持久化和同步，进程退出后数据也不会丢失。分布式数据库会自动实现同步，可调用[on('change')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-distributedobject#onchange20)监听数据变更。
 
@@ -117,7 +117,7 @@ dataObject['parents']['mom'] = "amy"; // 不支持的修改
 
 
 
-##### 资产同步机制
+#### 资产同步机制
 
 在分布式对象中，可以使用[资产类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-commontype#asset)来描述本地实体资产文件，分布式对象跨设备同步时，该文件会和数据一起同步到其他设备上。
 
@@ -127,7 +127,7 @@ dataObject['parents']['mom'] = "amy"; // 不支持的修改
 
 
 
-##### 约束限制
+#### 约束限制
 
  - 目前分布式数据对象只能在[跨端迁移](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-continue-data)和[通过跨设备Call调用实现多端协同](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-cross-device-interaction)的场景中使用。跨端迁移场景下，每个分布式数据对象大小不超过150KB；多端协同场景下，每个分布式数据对象大小不超过500KB。
  - 分布式数据对象的数据同步发生在同一个应用程序下，且同sessionId之间。
@@ -140,7 +140,7 @@ dataObject['parents']['mom'] = "amy"; // 不支持的修改
 
 
 
-##### 接口说明
+#### 接口说明
 
 以下是分布式对象跨设备数据同步功能的相关接口，更多接口及使用方式请见[分布式数据对象](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-distributedobject)。
 
@@ -167,11 +167,11 @@ dataObject['parents']['mom'] = "amy"; // 不支持的修改
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 
 
-##### 在跨端迁移中使用分布式数据对象迁移数据
+#### 在跨端迁移中使用分布式数据对象迁移数据
 1. 迁移发起端在onContinue接口中创建分布式数据对象并保存数据到接收端：
 
   1.1 调用create接口创建并得到一个分布式数据对象实例。
@@ -359,7 +359,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### 在多端协同中使用分布式数据对象
+#### 在多端协同中使用分布式数据对象
 1. 调用端调用startAbilityByCall接口拉起对端Ability：
 
   1.1 调用genSessionId接口创建一个sessionId，通过分布式设备管理接口获取对端设备networkId。

@@ -7,7 +7,7 @@
 要求或不允许使用分号。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/semi选项](https://eslint.nodejs.cn/docs/rules/semi#选项)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 export const name = 'ESLint';
@@ -38,7 +38,7 @@ export class Foo {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 // 默认在语句末尾需要加分号
@@ -52,7 +52,7 @@ export class Foo {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

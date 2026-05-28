@@ -11,7 +11,7 @@
 
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -24,7 +24,7 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则默认检查代码文件和资源文件的命名风格，也可以接受一个对象作为参数{selector: string}，来指定只检查代码文件或者资源文件。"selector"支持配置为"resources"或者"code"。
  
@@ -54,7 +54,7 @@
 ```
  
 
-##### 正例
+#### 正例
 
 ```ArkTS
 // 代码文件名：Index.ets、EntryAbility.ets、index.js
@@ -63,7 +63,7 @@
  
  
 
-##### 反例
+#### 反例
 
 ```ArkTS
 // 代码文件名：index.ets、ability.ets、Index.js
@@ -72,7 +72,7 @@
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">"plugin:@hw-stylistic/recommended"</span>

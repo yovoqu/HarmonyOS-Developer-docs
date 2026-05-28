@@ -10,7 +10,7 @@
 **起始版本：** 5.0.1(13)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@ import { advertising } from '@kit.NearLinkKit';
 
 
 
-##### AdvertisingParams
+#### AdvertisingParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -38,7 +38,7 @@ import { advertising } from '@kit.NearLinkKit';
 
 
 
-##### AdvertisingSettings
+#### AdvertisingSettings
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -57,7 +57,7 @@ import { advertising } from '@kit.NearLinkKit';
 
 
 
-##### AdvertisingData
+#### AdvertisingData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -77,7 +77,7 @@ import { advertising } from '@kit.NearLinkKit';
 
 
 
-##### ManufacturerData
+#### ManufacturerData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -95,7 +95,7 @@ import { advertising } from '@kit.NearLinkKit';
 
 
 
-##### ServiceData
+#### ServiceData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -113,7 +113,7 @@ import { advertising } from '@kit.NearLinkKit';
 
 
 
-##### AdvertisingStateChangeInfo
+#### AdvertisingStateChangeInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -131,7 +131,7 @@ import { advertising } from '@kit.NearLinkKit';
 
 
 
-##### TxPowerMode
+#### TxPowerMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -150,7 +150,7 @@ import { advertising } from '@kit.NearLinkKit';
 
 
 
-##### AdvertisingState
+#### AdvertisingState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -168,7 +168,7 @@ import { advertising } from '@kit.NearLinkKit';
 
 
 
-##### startAdvertising
+#### startAdvertising
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -261,7 +261,7 @@ try {
 
 
 
-##### stopAdvertising
+#### stopAdvertising
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -320,7 +320,7 @@ try {
 
 
 
-##### on( 'advertisingStateChange')
+#### on( 'advertisingStateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -372,7 +372,7 @@ try {
 
 
 
-##### off( 'advertisingStateChange')
+#### off( 'advertisingStateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

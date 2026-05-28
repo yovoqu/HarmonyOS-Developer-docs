@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-render-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -25,13 +25,13 @@
 
 
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -59,7 +59,7 @@
 
 
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -206,13 +206,13 @@
 
 
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### OH_ArkUI_RenderNodeUtils_AddRenderNode()
+#### OH_ArkUI_RenderNodeUtils_AddRenderNode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -245,7 +245,7 @@ int32_t OH_ArkUI_RenderNodeUtils_AddRenderNode(ArkUI_NodeHandle node, ArkUI_Rend
 
 
 
-##### OH_ArkUI_RenderNodeUtils_RemoveRenderNode()
+#### OH_ArkUI_RenderNodeUtils_RemoveRenderNode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -276,7 +276,7 @@ int32_t OH_ArkUI_RenderNodeUtils_RemoveRenderNode(ArkUI_NodeHandle node, ArkUI_R
 
 
 
-##### OH_ArkUI_RenderNodeUtils_ClearRenderNodeChildren()
+#### OH_ArkUI_RenderNodeUtils_ClearRenderNodeChildren()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -306,7 +306,7 @@ int32_t OH_ArkUI_RenderNodeUtils_ClearRenderNodeChildren(ArkUI_NodeHandle node)
 
 
 
-##### OH_ArkUI_RenderNodeUtils_Invalidate()
+#### OH_ArkUI_RenderNodeUtils_Invalidate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -336,7 +336,7 @@ int32_t OH_ArkUI_RenderNodeUtils_Invalidate(ArkUI_NodeHandle node)
 
 
 
-##### OH_ArkUI_RenderNodeUtils_CreateNode()
+#### OH_ArkUI_RenderNodeUtils_CreateNode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -359,7 +359,7 @@ ArkUI_RenderNodeHandle OH_ArkUI_RenderNodeUtils_CreateNode()
 
 
 
-##### OH_ArkUI_RenderNodeUtils_DisposeNode()
+#### OH_ArkUI_RenderNodeUtils_DisposeNode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -389,7 +389,7 @@ int32_t OH_ArkUI_RenderNodeUtils_DisposeNode(ArkUI_RenderNodeHandle node)
 
 
 
-##### OH_ArkUI_RenderNodeUtils_AddChild()
+#### OH_ArkUI_RenderNodeUtils_AddChild()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -420,7 +420,7 @@ int32_t OH_ArkUI_RenderNodeUtils_AddChild(ArkUI_RenderNodeHandle node, ArkUI_Ren
 
 
 
-##### OH_ArkUI_RenderNodeUtils_InsertChildAfter()
+#### OH_ArkUI_RenderNodeUtils_InsertChildAfter()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -451,7 +451,7 @@ int32_t OH_ArkUI_RenderNodeUtils_InsertChildAfter(ArkUI_RenderNodeHandle node, A
 
 
 
-##### OH_ArkUI_RenderNodeUtils_RemoveChild()
+#### OH_ArkUI_RenderNodeUtils_RemoveChild()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -482,7 +482,7 @@ int32_t OH_ArkUI_RenderNodeUtils_RemoveChild(ArkUI_RenderNodeHandle node, ArkUI_
 
 
 
-##### OH_ArkUI_RenderNodeUtils_ClearChildren()
+#### OH_ArkUI_RenderNodeUtils_ClearChildren()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -512,7 +512,7 @@ int32_t OH_ArkUI_RenderNodeUtils_ClearChildren(ArkUI_RenderNodeHandle node)
 
 
 
-##### OH_ArkUI_RenderNodeUtils_GetChild()
+#### OH_ArkUI_RenderNodeUtils_GetChild()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -544,7 +544,7 @@ int32_t OH_ArkUI_RenderNodeUtils_GetChild(ArkUI_RenderNodeHandle node, int32_t i
 
 
 
-##### OH_ArkUI_RenderNodeUtils_GetFirstChild()
+#### OH_ArkUI_RenderNodeUtils_GetFirstChild()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -575,7 +575,7 @@ int32_t OH_ArkUI_RenderNodeUtils_GetFirstChild(ArkUI_RenderNodeHandle node, ArkU
 
 
 
-##### OH_ArkUI_RenderNodeUtils_GetNextSibling()
+#### OH_ArkUI_RenderNodeUtils_GetNextSibling()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -606,7 +606,7 @@ int32_t OH_ArkUI_RenderNodeUtils_GetNextSibling(ArkUI_RenderNodeHandle node, Ark
 
 
 
-##### OH_ArkUI_RenderNodeUtils_GetPreviousSibling()
+#### OH_ArkUI_RenderNodeUtils_GetPreviousSibling()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -637,7 +637,7 @@ int32_t OH_ArkUI_RenderNodeUtils_GetPreviousSibling(ArkUI_RenderNodeHandle node,
 
 
 
-##### OH_ArkUI_RenderNodeUtils_GetChildren()
+#### OH_ArkUI_RenderNodeUtils_GetChildren()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -669,7 +669,7 @@ int32_t OH_ArkUI_RenderNodeUtils_GetChildren(ArkUI_RenderNodeHandle node, ArkUI_
 
 
 
-##### OH_ArkUI_RenderNodeUtils_GetChildrenCount()
+#### OH_ArkUI_RenderNodeUtils_GetChildrenCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -700,7 +700,7 @@ int32_t OH_ArkUI_RenderNodeUtils_GetChildrenCount(ArkUI_RenderNodeHandle node, i
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetBackgroundColor()
+#### OH_ArkUI_RenderNodeUtils_SetBackgroundColor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -731,7 +731,7 @@ int32_t OH_ArkUI_RenderNodeUtils_SetBackgroundColor(ArkUI_RenderNodeHandle node,
 
 
 
-##### OH_ArkUI_RenderNodeUtils_GetBackgroundColor()
+#### OH_ArkUI_RenderNodeUtils_GetBackgroundColor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -762,7 +762,7 @@ int32_t OH_ArkUI_RenderNodeUtils_GetBackgroundColor(ArkUI_RenderNodeHandle node,
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetClipToFrame()
+#### OH_ArkUI_RenderNodeUtils_SetClipToFrame()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -793,7 +793,7 @@ int32_t OH_ArkUI_RenderNodeUtils_SetClipToFrame(ArkUI_RenderNodeHandle node, int
 
 
 
-##### OH_ArkUI_RenderNodeUtils_GetClipToFrame()
+#### OH_ArkUI_RenderNodeUtils_GetClipToFrame()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -824,7 +824,7 @@ int32_t OH_ArkUI_RenderNodeUtils_GetClipToFrame(ArkUI_RenderNodeHandle node, int
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetClipToBounds()
+#### OH_ArkUI_RenderNodeUtils_SetClipToBounds()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -855,7 +855,7 @@ int32_t OH_ArkUI_RenderNodeUtils_SetClipToBounds(ArkUI_RenderNodeHandle node, in
 
 
 
-##### OH_ArkUI_RenderNodeUtils_GetClipToBounds()
+#### OH_ArkUI_RenderNodeUtils_GetClipToBounds()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -886,7 +886,7 @@ int32_t OH_ArkUI_RenderNodeUtils_GetClipToBounds(ArkUI_RenderNodeHandle node, in
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetOpacity()
+#### OH_ArkUI_RenderNodeUtils_SetOpacity()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -917,7 +917,7 @@ int32_t OH_ArkUI_RenderNodeUtils_SetOpacity(ArkUI_RenderNodeHandle node, float o
 
 
 
-##### OH_ArkUI_RenderNodeUtils_GetOpacity()
+#### OH_ArkUI_RenderNodeUtils_GetOpacity()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -948,7 +948,7 @@ int32_t OH_ArkUI_RenderNodeUtils_GetOpacity(ArkUI_RenderNodeHandle node, float* 
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetSize()
+#### OH_ArkUI_RenderNodeUtils_SetSize()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -980,7 +980,7 @@ int32_t OH_ArkUI_RenderNodeUtils_SetSize(ArkUI_RenderNodeHandle node, int32_t wi
 
 
 
-##### OH_ArkUI_RenderNodeUtils_GetSize()
+#### OH_ArkUI_RenderNodeUtils_GetSize()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1012,7 +1012,7 @@ int32_t OH_ArkUI_RenderNodeUtils_GetSize(ArkUI_RenderNodeHandle node, int32_t* w
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetPosition()
+#### OH_ArkUI_RenderNodeUtils_SetPosition()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1044,7 +1044,7 @@ int32_t OH_ArkUI_RenderNodeUtils_SetPosition(ArkUI_RenderNodeHandle node, int32_
 
 
 
-##### OH_ArkUI_RenderNodeUtils_GetPosition()
+#### OH_ArkUI_RenderNodeUtils_GetPosition()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1076,7 +1076,7 @@ int32_t OH_ArkUI_RenderNodeUtils_GetPosition(ArkUI_RenderNodeHandle node, int32_
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetPivot()
+#### OH_ArkUI_RenderNodeUtils_SetPivot()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1108,7 +1108,7 @@ int32_t OH_ArkUI_RenderNodeUtils_SetPivot(ArkUI_RenderNodeHandle node, float x, 
 
 
 
-##### OH_ArkUI_RenderNodeUtils_GetPivot()
+#### OH_ArkUI_RenderNodeUtils_GetPivot()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1140,7 +1140,7 @@ int32_t OH_ArkUI_RenderNodeUtils_GetPivot(ArkUI_RenderNodeHandle node, float* x,
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetScale()
+#### OH_ArkUI_RenderNodeUtils_SetScale()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1172,7 +1172,7 @@ int32_t OH_ArkUI_RenderNodeUtils_SetScale(ArkUI_RenderNodeHandle node, float x, 
 
 
 
-##### OH_ArkUI_RenderNodeUtils_GetScale()
+#### OH_ArkUI_RenderNodeUtils_GetScale()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1204,7 +1204,7 @@ int32_t OH_ArkUI_RenderNodeUtils_GetScale(ArkUI_RenderNodeHandle node, float* x,
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetTranslation()
+#### OH_ArkUI_RenderNodeUtils_SetTranslation()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1236,7 +1236,7 @@ int32_t OH_ArkUI_RenderNodeUtils_SetTranslation(ArkUI_RenderNodeHandle node, flo
 
 
 
-##### OH_ArkUI_RenderNodeUtils_GetTranslation()
+#### OH_ArkUI_RenderNodeUtils_GetTranslation()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1268,7 +1268,7 @@ int32_t OH_ArkUI_RenderNodeUtils_GetTranslation(ArkUI_RenderNodeHandle node, flo
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetRotation()
+#### OH_ArkUI_RenderNodeUtils_SetRotation()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1301,7 +1301,7 @@ int32_t OH_ArkUI_RenderNodeUtils_SetRotation(ArkUI_RenderNodeHandle node, float 
 
 
 
-##### OH_ArkUI_RenderNodeUtils_GetRotation()
+#### OH_ArkUI_RenderNodeUtils_GetRotation()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1334,7 +1334,7 @@ int32_t OH_ArkUI_RenderNodeUtils_GetRotation(ArkUI_RenderNodeHandle node, float*
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetTransform()
+#### OH_ArkUI_RenderNodeUtils_SetTransform()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1407,7 +1407,7 @@ m30, m31, m32, m33]
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetShadowColor()
+#### OH_ArkUI_RenderNodeUtils_SetShadowColor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1438,7 +1438,7 @@ int32_t OH_ArkUI_RenderNodeUtils_SetShadowColor(ArkUI_RenderNodeHandle node, uin
 
 
 
-##### OH_ArkUI_RenderNodeUtils_GetShadowColor()
+#### OH_ArkUI_RenderNodeUtils_GetShadowColor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1469,7 +1469,7 @@ int32_t OH_ArkUI_RenderNodeUtils_GetShadowColor(ArkUI_RenderNodeHandle node, uin
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetShadowOffset()
+#### OH_ArkUI_RenderNodeUtils_SetShadowOffset()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1501,7 +1501,7 @@ int32_t OH_ArkUI_RenderNodeUtils_SetShadowOffset(ArkUI_RenderNodeHandle node, in
 
 
 
-##### OH_ArkUI_RenderNodeUtils_GetShadowOffset()
+#### OH_ArkUI_RenderNodeUtils_GetShadowOffset()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1533,7 +1533,7 @@ int32_t OH_ArkUI_RenderNodeUtils_GetShadowOffset(ArkUI_RenderNodeHandle node, in
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetShadowAlpha()
+#### OH_ArkUI_RenderNodeUtils_SetShadowAlpha()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1564,7 +1564,7 @@ int32_t OH_ArkUI_RenderNodeUtils_SetShadowAlpha(ArkUI_RenderNodeHandle node, flo
 
 
 
-##### OH_ArkUI_RenderNodeUtils_GetShadowAlpha()
+#### OH_ArkUI_RenderNodeUtils_GetShadowAlpha()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1595,7 +1595,7 @@ int32_t OH_ArkUI_RenderNodeUtils_GetShadowAlpha(ArkUI_RenderNodeHandle node, flo
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetShadowElevation()
+#### OH_ArkUI_RenderNodeUtils_SetShadowElevation()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1626,7 +1626,7 @@ int32_t OH_ArkUI_RenderNodeUtils_SetShadowElevation(ArkUI_RenderNodeHandle node,
 
 
 
-##### OH_ArkUI_RenderNodeUtils_GetShadowElevation()
+#### OH_ArkUI_RenderNodeUtils_GetShadowElevation()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1657,7 +1657,7 @@ int32_t OH_ArkUI_RenderNodeUtils_GetShadowElevation(ArkUI_RenderNodeHandle node,
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetShadowRadius()
+#### OH_ArkUI_RenderNodeUtils_SetShadowRadius()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1688,7 +1688,7 @@ int32_t OH_ArkUI_RenderNodeUtils_SetShadowRadius(ArkUI_RenderNodeHandle node, fl
 
 
 
-##### OH_ArkUI_RenderNodeUtils_GetShadowRadius()
+#### OH_ArkUI_RenderNodeUtils_GetShadowRadius()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1719,7 +1719,7 @@ int32_t OH_ArkUI_RenderNodeUtils_GetShadowRadius(ArkUI_RenderNodeHandle node, fl
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetBorderStyle()
+#### OH_ArkUI_RenderNodeUtils_SetBorderStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1750,7 +1750,7 @@ int32_t OH_ArkUI_RenderNodeUtils_SetBorderStyle(ArkUI_RenderNodeHandle node, Ark
 
 
 
-##### OH_ArkUI_RenderNodeUtils_GetBorderStyle()
+#### OH_ArkUI_RenderNodeUtils_GetBorderStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1781,7 +1781,7 @@ int32_t OH_ArkUI_RenderNodeUtils_GetBorderStyle(ArkUI_RenderNodeHandle node, Ark
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetBorderWidth()
+#### OH_ArkUI_RenderNodeUtils_SetBorderWidth()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1812,7 +1812,7 @@ int32_t OH_ArkUI_RenderNodeUtils_SetBorderWidth(ArkUI_RenderNodeHandle node, Ark
 
 
 
-##### OH_ArkUI_RenderNodeUtils_GetBorderWidth()
+#### OH_ArkUI_RenderNodeUtils_GetBorderWidth()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1843,7 +1843,7 @@ int32_t OH_ArkUI_RenderNodeUtils_GetBorderWidth(ArkUI_RenderNodeHandle node, Ark
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetBorderColor()
+#### OH_ArkUI_RenderNodeUtils_SetBorderColor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1874,7 +1874,7 @@ int32_t OH_ArkUI_RenderNodeUtils_SetBorderColor(ArkUI_RenderNodeHandle node, Ark
 
 
 
-##### OH_ArkUI_RenderNodeUtils_GetBorderColor()
+#### OH_ArkUI_RenderNodeUtils_GetBorderColor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1905,7 +1905,7 @@ int32_t OH_ArkUI_RenderNodeUtils_GetBorderColor(ArkUI_RenderNodeHandle node, Ark
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetBorderRadius()
+#### OH_ArkUI_RenderNodeUtils_SetBorderRadius()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1936,7 +1936,7 @@ int32_t OH_ArkUI_RenderNodeUtils_SetBorderRadius(ArkUI_RenderNodeHandle node, Ar
 
 
 
-##### OH_ArkUI_RenderNodeUtils_GetBorderRadius()
+#### OH_ArkUI_RenderNodeUtils_GetBorderRadius()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1967,7 +1967,7 @@ int32_t OH_ArkUI_RenderNodeUtils_GetBorderRadius(ArkUI_RenderNodeHandle node, Ar
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetMask()
+#### OH_ArkUI_RenderNodeUtils_SetMask()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2003,7 +2003,7 @@ int32_t OH_ArkUI_RenderNodeUtils_SetMask(ArkUI_RenderNodeHandle node, ArkUI_Rend
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetClip()
+#### OH_ArkUI_RenderNodeUtils_SetClip()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2034,7 +2034,7 @@ int32_t OH_ArkUI_RenderNodeUtils_SetClip(ArkUI_RenderNodeHandle node, ArkUI_Rend
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetMarkNodeGroup()
+#### OH_ArkUI_RenderNodeUtils_SetMarkNodeGroup()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2065,7 +2065,7 @@ int32_t OH_ArkUI_RenderNodeUtils_SetMarkNodeGroup(ArkUI_RenderNodeHandle node, b
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetBounds()
+#### OH_ArkUI_RenderNodeUtils_SetBounds()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2099,7 +2099,7 @@ int32_t OH_ArkUI_RenderNodeUtils_SetBounds(ArkUI_RenderNodeHandle node, int32_t 
 
 
 
-##### OH_ArkUI_RenderNodeUtils_GetBounds()
+#### OH_ArkUI_RenderNodeUtils_GetBounds()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2133,7 +2133,7 @@ int32_t OH_ArkUI_RenderNodeUtils_GetBounds(ArkUI_RenderNodeHandle node, int32_t*
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetDrawRegion()
+#### OH_ArkUI_RenderNodeUtils_SetDrawRegion()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2167,7 +2167,7 @@ int32_t OH_ArkUI_RenderNodeUtils_SetDrawRegion(ArkUI_RenderNodeHandle node, floa
 
 
 
-##### OH_ArkUI_RenderNodeUtils_AttachContentModifier()
+#### OH_ArkUI_RenderNodeUtils_AttachContentModifier()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2198,7 +2198,7 @@ int32_t OH_ArkUI_RenderNodeUtils_AttachContentModifier(ArkUI_RenderNodeHandle no
 
 
 
-##### OH_ArkUI_RenderNodeUtils_CreateContentModifier()
+#### OH_ArkUI_RenderNodeUtils_CreateContentModifier()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2221,7 +2221,7 @@ ArkUI_RenderContentModifierHandle OH_ArkUI_RenderNodeUtils_CreateContentModifier
 
 
 
-##### OH_ArkUI_RenderNodeUtils_DisposeContentModifier()
+#### OH_ArkUI_RenderNodeUtils_DisposeContentModifier()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2244,7 +2244,7 @@ void OH_ArkUI_RenderNodeUtils_DisposeContentModifier(ArkUI_RenderContentModifier
 
 
 
-##### OH_ArkUI_RenderNodeUtils_AttachFloatProperty()
+#### OH_ArkUI_RenderNodeUtils_AttachFloatProperty()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2275,7 +2275,7 @@ int32_t OH_ArkUI_RenderNodeUtils_AttachFloatProperty(ArkUI_RenderContentModifier
 
 
 
-##### OH_ArkUI_RenderNodeUtils_AttachVector2Property()
+#### OH_ArkUI_RenderNodeUtils_AttachVector2Property()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2306,7 +2306,7 @@ int32_t OH_ArkUI_RenderNodeUtils_AttachVector2Property(ArkUI_RenderContentModifi
 
 
 
-##### OH_ArkUI_RenderNodeUtils_AttachColorProperty()
+#### OH_ArkUI_RenderNodeUtils_AttachColorProperty()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2337,7 +2337,7 @@ int32_t OH_ArkUI_RenderNodeUtils_AttachColorProperty(ArkUI_RenderContentModifier
 
 
 
-##### OH_ArkUI_RenderNodeUtils_AttachFloatAnimatableProperty()
+#### OH_ArkUI_RenderNodeUtils_AttachFloatAnimatableProperty()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2368,7 +2368,7 @@ int32_t OH_ArkUI_RenderNodeUtils_AttachFloatAnimatableProperty(ArkUI_RenderConte
 
 
 
-##### OH_ArkUI_RenderNodeUtils_AttachVector2AnimatableProperty()
+#### OH_ArkUI_RenderNodeUtils_AttachVector2AnimatableProperty()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2399,7 +2399,7 @@ int32_t OH_ArkUI_RenderNodeUtils_AttachVector2AnimatableProperty(ArkUI_RenderCon
 
 
 
-##### OH_ArkUI_RenderNodeUtils_AttachColorAnimatableProperty()
+#### OH_ArkUI_RenderNodeUtils_AttachColorAnimatableProperty()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2430,7 +2430,7 @@ int32_t OH_ArkUI_RenderNodeUtils_AttachColorAnimatableProperty(ArkUI_RenderConte
 
 
 
-##### OH_ArkUI_RenderNodeUtils_CreateFloatProperty()
+#### OH_ArkUI_RenderNodeUtils_CreateFloatProperty()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2460,7 +2460,7 @@ ArkUI_FloatPropertyHandle OH_ArkUI_RenderNodeUtils_CreateFloatProperty(float val
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetFloatPropertyValue()
+#### OH_ArkUI_RenderNodeUtils_SetFloatPropertyValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2491,7 +2491,7 @@ int32_t OH_ArkUI_RenderNodeUtils_SetFloatPropertyValue(ArkUI_FloatPropertyHandle
 
 
 
-##### OH_ArkUI_RenderNodeUtils_GetFloatPropertyValue()
+#### OH_ArkUI_RenderNodeUtils_GetFloatPropertyValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2522,7 +2522,7 @@ int32_t OH_ArkUI_RenderNodeUtils_GetFloatPropertyValue(ArkUI_FloatPropertyHandle
 
 
 
-##### OH_ArkUI_RenderNodeUtils_DisposeFloatProperty()
+#### OH_ArkUI_RenderNodeUtils_DisposeFloatProperty()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2545,7 +2545,7 @@ void OH_ArkUI_RenderNodeUtils_DisposeFloatProperty(ArkUI_FloatPropertyHandle pro
 
 
 
-##### OH_ArkUI_RenderNodeUtils_CreateVector2Property()
+#### OH_ArkUI_RenderNodeUtils_CreateVector2Property()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2576,7 +2576,7 @@ ArkUI_Vector2PropertyHandle OH_ArkUI_RenderNodeUtils_CreateVector2Property(float
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetVector2PropertyValue()
+#### OH_ArkUI_RenderNodeUtils_SetVector2PropertyValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2608,7 +2608,7 @@ int32_t OH_ArkUI_RenderNodeUtils_SetVector2PropertyValue(ArkUI_Vector2PropertyHa
 
 
 
-##### OH_ArkUI_RenderNodeUtils_GetVector2PropertyValue()
+#### OH_ArkUI_RenderNodeUtils_GetVector2PropertyValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2640,7 +2640,7 @@ int32_t OH_ArkUI_RenderNodeUtils_GetVector2PropertyValue(ArkUI_Vector2PropertyHa
 
 
 
-##### OH_ArkUI_RenderNodeUtils_DisposeVector2Property()
+#### OH_ArkUI_RenderNodeUtils_DisposeVector2Property()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2663,7 +2663,7 @@ void OH_ArkUI_RenderNodeUtils_DisposeVector2Property(ArkUI_Vector2PropertyHandle
 
 
 
-##### OH_ArkUI_RenderNodeUtils_CreateColorProperty()
+#### OH_ArkUI_RenderNodeUtils_CreateColorProperty()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2693,7 +2693,7 @@ ArkUI_ColorPropertyHandle OH_ArkUI_RenderNodeUtils_CreateColorProperty(uint32_t 
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetColorPropertyValue()
+#### OH_ArkUI_RenderNodeUtils_SetColorPropertyValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2724,7 +2724,7 @@ int32_t OH_ArkUI_RenderNodeUtils_SetColorPropertyValue(ArkUI_ColorPropertyHandle
 
 
 
-##### OH_ArkUI_RenderNodeUtils_GetColorPropertyValue()
+#### OH_ArkUI_RenderNodeUtils_GetColorPropertyValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2755,7 +2755,7 @@ int32_t OH_ArkUI_RenderNodeUtils_GetColorPropertyValue(ArkUI_ColorPropertyHandle
 
 
 
-##### OH_ArkUI_RenderNodeUtils_DisposeColorProperty()
+#### OH_ArkUI_RenderNodeUtils_DisposeColorProperty()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2778,7 +2778,7 @@ void OH_ArkUI_RenderNodeUtils_DisposeColorProperty(ArkUI_ColorPropertyHandle pro
 
 
 
-##### OH_ArkUI_RenderNodeUtils_CreateFloatAnimatableProperty()
+#### OH_ArkUI_RenderNodeUtils_CreateFloatAnimatableProperty()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2808,7 +2808,7 @@ ArkUI_FloatAnimatablePropertyHandle OH_ArkUI_RenderNodeUtils_CreateFloatAnimatab
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetFloatAnimatablePropertyValue()
+#### OH_ArkUI_RenderNodeUtils_SetFloatAnimatablePropertyValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2839,7 +2839,7 @@ int32_t OH_ArkUI_RenderNodeUtils_SetFloatAnimatablePropertyValue(ArkUI_FloatAnim
 
 
 
-##### OH_ArkUI_RenderNodeUtils_GetFloatAnimatablePropertyValue()
+#### OH_ArkUI_RenderNodeUtils_GetFloatAnimatablePropertyValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2870,7 +2870,7 @@ int32_t OH_ArkUI_RenderNodeUtils_GetFloatAnimatablePropertyValue(ArkUI_FloatAnim
 
 
 
-##### OH_ArkUI_RenderNodeUtils_DisposeFloatAnimatableProperty()
+#### OH_ArkUI_RenderNodeUtils_DisposeFloatAnimatableProperty()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2893,7 +2893,7 @@ void OH_ArkUI_RenderNodeUtils_DisposeFloatAnimatableProperty(ArkUI_FloatAnimatab
 
 
 
-##### OH_ArkUI_RenderNodeUtils_CreateVector2AnimatableProperty()
+#### OH_ArkUI_RenderNodeUtils_CreateVector2AnimatableProperty()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2924,7 +2924,7 @@ ArkUI_Vector2AnimatablePropertyHandle OH_ArkUI_RenderNodeUtils_CreateVector2Anim
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetVector2AnimatablePropertyValue()
+#### OH_ArkUI_RenderNodeUtils_SetVector2AnimatablePropertyValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2956,7 +2956,7 @@ int32_t OH_ArkUI_RenderNodeUtils_SetVector2AnimatablePropertyValue(ArkUI_Vector2
 
 
 
-##### OH_ArkUI_RenderNodeUtils_GetVector2AnimatablePropertyValue()
+#### OH_ArkUI_RenderNodeUtils_GetVector2AnimatablePropertyValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2988,7 +2988,7 @@ int32_t OH_ArkUI_RenderNodeUtils_GetVector2AnimatablePropertyValue(ArkUI_Vector2
 
 
 
-##### OH_ArkUI_RenderNodeUtils_DisposeVector2AnimatableProperty()
+#### OH_ArkUI_RenderNodeUtils_DisposeVector2AnimatableProperty()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3011,7 +3011,7 @@ void OH_ArkUI_RenderNodeUtils_DisposeVector2AnimatableProperty(ArkUI_Vector2Anim
 
 
 
-##### OH_ArkUI_RenderNodeUtils_CreateColorAnimatableProperty()
+#### OH_ArkUI_RenderNodeUtils_CreateColorAnimatableProperty()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3041,7 +3041,7 @@ ArkUI_ColorAnimatablePropertyHandle OH_ArkUI_RenderNodeUtils_CreateColorAnimatab
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetColorAnimatablePropertyValue()
+#### OH_ArkUI_RenderNodeUtils_SetColorAnimatablePropertyValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3072,7 +3072,7 @@ int32_t OH_ArkUI_RenderNodeUtils_SetColorAnimatablePropertyValue(ArkUI_ColorAnim
 
 
 
-##### OH_ArkUI_RenderNodeUtils_GetColorAnimatablePropertyValue()
+#### OH_ArkUI_RenderNodeUtils_GetColorAnimatablePropertyValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3103,7 +3103,7 @@ int32_t OH_ArkUI_RenderNodeUtils_GetColorAnimatablePropertyValue(ArkUI_ColorAnim
 
 
 
-##### OH_ArkUI_RenderNodeUtils_DisposeColorAnimatableProperty()
+#### OH_ArkUI_RenderNodeUtils_DisposeColorAnimatableProperty()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3126,7 +3126,7 @@ void OH_ArkUI_RenderNodeUtils_DisposeColorAnimatableProperty(ArkUI_ColorAnimatab
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetContentModifierOnDraw()
+#### OH_ArkUI_RenderNodeUtils_SetContentModifierOnDraw()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3158,7 +3158,7 @@ int32_t OH_ArkUI_RenderNodeUtils_SetContentModifierOnDraw(ArkUI_RenderContentMod
 
 
 
-##### OH_ArkUI_RenderNodeUtils_CreateRectShapeOption()
+#### OH_ArkUI_RenderNodeUtils_CreateRectShapeOption()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3181,7 +3181,7 @@ ArkUI_RectShapeOption* OH_ArkUI_RenderNodeUtils_CreateRectShapeOption()
 
 
 
-##### OH_ArkUI_RenderNodeUtils_DisposeRectShapeOption()
+#### OH_ArkUI_RenderNodeUtils_DisposeRectShapeOption()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3204,7 +3204,7 @@ void OH_ArkUI_RenderNodeUtils_DisposeRectShapeOption(ArkUI_RectShapeOption* opti
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetRectShapeOptionEdgeValue()
+#### OH_ArkUI_RenderNodeUtils_SetRectShapeOptionEdgeValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3229,7 +3229,7 @@ void OH_ArkUI_RenderNodeUtils_SetRectShapeOptionEdgeValue(ArkUI_RectShapeOption*
 
 
 
-##### OH_ArkUI_RenderNodeUtils_CreateNodeBorderStyleOption()
+#### OH_ArkUI_RenderNodeUtils_CreateNodeBorderStyleOption()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3252,7 +3252,7 @@ ArkUI_NodeBorderStyleOption* OH_ArkUI_RenderNodeUtils_CreateNodeBorderStyleOptio
 
 
 
-##### OH_ArkUI_RenderNodeUtils_DisposeNodeBorderStyleOption()
+#### OH_ArkUI_RenderNodeUtils_DisposeNodeBorderStyleOption()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3275,7 +3275,7 @@ void OH_ArkUI_RenderNodeUtils_DisposeNodeBorderStyleOption(ArkUI_NodeBorderStyle
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetNodeBorderStyleOptionEdgeStyle()
+#### OH_ArkUI_RenderNodeUtils_SetNodeBorderStyleOptionEdgeStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3300,7 +3300,7 @@ void OH_ArkUI_RenderNodeUtils_SetNodeBorderStyleOptionEdgeStyle(ArkUI_NodeBorder
 
 
 
-##### OH_ArkUI_RenderNodeUtils_CreateNodeBorderWidthOption()
+#### OH_ArkUI_RenderNodeUtils_CreateNodeBorderWidthOption()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3323,7 +3323,7 @@ ArkUI_NodeBorderWidthOption* OH_ArkUI_RenderNodeUtils_CreateNodeBorderWidthOptio
 
 
 
-##### OH_ArkUI_RenderNodeUtils_DisposeNodeBorderWidthOption()
+#### OH_ArkUI_RenderNodeUtils_DisposeNodeBorderWidthOption()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3346,7 +3346,7 @@ void OH_ArkUI_RenderNodeUtils_DisposeNodeBorderWidthOption(ArkUI_NodeBorderWidth
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetNodeBorderWidthOptionEdgeWidth()
+#### OH_ArkUI_RenderNodeUtils_SetNodeBorderWidthOptionEdgeWidth()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3371,7 +3371,7 @@ void OH_ArkUI_RenderNodeUtils_SetNodeBorderWidthOptionEdgeWidth(ArkUI_NodeBorder
 
 
 
-##### OH_ArkUI_RenderNodeUtils_CreateNodeBorderColorOption()
+#### OH_ArkUI_RenderNodeUtils_CreateNodeBorderColorOption()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3394,7 +3394,7 @@ ArkUI_NodeBorderColorOption* OH_ArkUI_RenderNodeUtils_CreateNodeBorderColorOptio
 
 
 
-##### OH_ArkUI_RenderNodeUtils_DisposeNodeBorderColorOption()
+#### OH_ArkUI_RenderNodeUtils_DisposeNodeBorderColorOption()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3417,7 +3417,7 @@ void OH_ArkUI_RenderNodeUtils_DisposeNodeBorderColorOption(ArkUI_NodeBorderColor
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetNodeBorderColorOptionEdgeColor()
+#### OH_ArkUI_RenderNodeUtils_SetNodeBorderColorOptionEdgeColor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3442,7 +3442,7 @@ void OH_ArkUI_RenderNodeUtils_SetNodeBorderColorOptionEdgeColor(ArkUI_NodeBorder
 
 
 
-##### OH_ArkUI_RenderNodeUtils_CreateNodeBorderRadiusOption()
+#### OH_ArkUI_RenderNodeUtils_CreateNodeBorderRadiusOption()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3465,7 +3465,7 @@ ArkUI_NodeBorderRadiusOption* OH_ArkUI_RenderNodeUtils_CreateNodeBorderRadiusOpt
 
 
 
-##### OH_ArkUI_RenderNodeUtils_DisposeNodeBorderRadiusOption()
+#### OH_ArkUI_RenderNodeUtils_DisposeNodeBorderRadiusOption()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3488,7 +3488,7 @@ void OH_ArkUI_RenderNodeUtils_DisposeNodeBorderRadiusOption(ArkUI_NodeBorderRadi
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetNodeBorderRadiusOptionCornerRadius()
+#### OH_ArkUI_RenderNodeUtils_SetNodeBorderRadiusOptionCornerRadius()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3513,7 +3513,7 @@ void OH_ArkUI_RenderNodeUtils_SetNodeBorderRadiusOptionCornerRadius(ArkUI_NodeBo
 
 
 
-##### OH_ArkUI_RenderNodeUtils_CreateCircleShapeOption()
+#### OH_ArkUI_RenderNodeUtils_CreateCircleShapeOption()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3536,7 +3536,7 @@ ArkUI_CircleShapeOption* OH_ArkUI_RenderNodeUtils_CreateCircleShapeOption()
 
 
 
-##### OH_ArkUI_RenderNodeUtils_DisposeCircleShapeOption()
+#### OH_ArkUI_RenderNodeUtils_DisposeCircleShapeOption()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3559,7 +3559,7 @@ void OH_ArkUI_RenderNodeUtils_DisposeCircleShapeOption(ArkUI_CircleShapeOption* 
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetCircleShapeOptionCenterX()
+#### OH_ArkUI_RenderNodeUtils_SetCircleShapeOptionCenterX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3583,7 +3583,7 @@ void OH_ArkUI_RenderNodeUtils_SetCircleShapeOptionCenterX(ArkUI_CircleShapeOptio
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetCircleShapeOptionCenterY()
+#### OH_ArkUI_RenderNodeUtils_SetCircleShapeOptionCenterY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3607,7 +3607,7 @@ void OH_ArkUI_RenderNodeUtils_SetCircleShapeOptionCenterY(ArkUI_CircleShapeOptio
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetCircleShapeOptionRadius()
+#### OH_ArkUI_RenderNodeUtils_SetCircleShapeOptionRadius()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3631,7 +3631,7 @@ void OH_ArkUI_RenderNodeUtils_SetCircleShapeOptionRadius(ArkUI_CircleShapeOption
 
 
 
-##### OH_ArkUI_RenderNodeUtils_CreateRoundRectShapeOption()
+#### OH_ArkUI_RenderNodeUtils_CreateRoundRectShapeOption()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3654,7 +3654,7 @@ ArkUI_RoundRectShapeOption* OH_ArkUI_RenderNodeUtils_CreateRoundRectShapeOption(
 
 
 
-##### OH_ArkUI_RenderNodeUtils_DisposeRoundRectShapeOption()
+#### OH_ArkUI_RenderNodeUtils_DisposeRoundRectShapeOption()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3677,7 +3677,7 @@ void OH_ArkUI_RenderNodeUtils_DisposeRoundRectShapeOption(ArkUI_RoundRectShapeOp
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetRoundRectShapeOptionEdgeValue()
+#### OH_ArkUI_RenderNodeUtils_SetRoundRectShapeOptionEdgeValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3702,7 +3702,7 @@ void OH_ArkUI_RenderNodeUtils_SetRoundRectShapeOptionEdgeValue(ArkUI_RoundRectSh
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetRoundRectShapeOptionCornerXY()
+#### OH_ArkUI_RenderNodeUtils_SetRoundRectShapeOptionCornerXY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3728,7 +3728,7 @@ void OH_ArkUI_RenderNodeUtils_SetRoundRectShapeOptionCornerXY(ArkUI_RoundRectSha
 
 
 
-##### OH_ArkUI_RenderNodeUtils_CreateCommandPathOption()
+#### OH_ArkUI_RenderNodeUtils_CreateCommandPathOption()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3751,7 +3751,7 @@ ArkUI_CommandPathOption* OH_ArkUI_RenderNodeUtils_CreateCommandPathOption()
 
 
 
-##### OH_ArkUI_RenderNodeUtils_DisposeCommandPathOption()
+#### OH_ArkUI_RenderNodeUtils_DisposeCommandPathOption()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3774,7 +3774,7 @@ void OH_ArkUI_RenderNodeUtils_DisposeCommandPathOption(ArkUI_CommandPathOption* 
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetCommandPathOptionCommands()
+#### OH_ArkUI_RenderNodeUtils_SetCommandPathOptionCommands()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3798,7 +3798,7 @@ void OH_ArkUI_RenderNodeUtils_SetCommandPathOptionCommands(ArkUI_CommandPathOpti
 
 
 
-##### OH_ArkUI_RenderNodeUtils_CreateRenderNodeMaskOptionFromRectShape()
+#### OH_ArkUI_RenderNodeUtils_CreateRenderNodeMaskOptionFromRectShape()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3828,7 +3828,7 @@ ArkUI_RenderNodeMaskOption* OH_ArkUI_RenderNodeUtils_CreateRenderNodeMaskOptionF
 
 
 
-##### OH_ArkUI_RenderNodeUtils_CreateRenderNodeMaskOptionFromRoundRectShape()
+#### OH_ArkUI_RenderNodeUtils_CreateRenderNodeMaskOptionFromRoundRectShape()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3858,7 +3858,7 @@ ArkUI_RenderNodeMaskOption* OH_ArkUI_RenderNodeUtils_CreateRenderNodeMaskOptionF
 
 
 
-##### OH_ArkUI_RenderNodeUtils_CreateRenderNodeMaskOptionFromCircleShape()
+#### OH_ArkUI_RenderNodeUtils_CreateRenderNodeMaskOptionFromCircleShape()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3888,7 +3888,7 @@ ArkUI_RenderNodeMaskOption* OH_ArkUI_RenderNodeUtils_CreateRenderNodeMaskOptionF
 
 
 
-##### OH_ArkUI_RenderNodeUtils_CreateRenderNodeMaskOptionFromOvalShape()
+#### OH_ArkUI_RenderNodeUtils_CreateRenderNodeMaskOptionFromOvalShape()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3918,7 +3918,7 @@ ArkUI_RenderNodeMaskOption* OH_ArkUI_RenderNodeUtils_CreateRenderNodeMaskOptionF
 
 
 
-##### OH_ArkUI_RenderNodeUtils_CreateRenderNodeMaskOptionFromCommandPath()
+#### OH_ArkUI_RenderNodeUtils_CreateRenderNodeMaskOptionFromCommandPath()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3948,7 +3948,7 @@ ArkUI_RenderNodeMaskOption* OH_ArkUI_RenderNodeUtils_CreateRenderNodeMaskOptionF
 
 
 
-##### OH_ArkUI_RenderNodeUtils_DisposeRenderNodeMaskOption()
+#### OH_ArkUI_RenderNodeUtils_DisposeRenderNodeMaskOption()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3971,7 +3971,7 @@ void OH_ArkUI_RenderNodeUtils_DisposeRenderNodeMaskOption(ArkUI_RenderNodeMaskOp
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetRenderNodeMaskOptionFillColor()
+#### OH_ArkUI_RenderNodeUtils_SetRenderNodeMaskOptionFillColor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3995,7 +3995,7 @@ void OH_ArkUI_RenderNodeUtils_SetRenderNodeMaskOptionFillColor(ArkUI_RenderNodeM
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetRenderNodeMaskOptionStrokeColor()
+#### OH_ArkUI_RenderNodeUtils_SetRenderNodeMaskOptionStrokeColor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4019,7 +4019,7 @@ void OH_ArkUI_RenderNodeUtils_SetRenderNodeMaskOptionStrokeColor(ArkUI_RenderNod
 
 
 
-##### OH_ArkUI_RenderNodeUtils_SetRenderNodeMaskOptionStrokeWidth()
+#### OH_ArkUI_RenderNodeUtils_SetRenderNodeMaskOptionStrokeWidth()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4043,7 +4043,7 @@ void OH_ArkUI_RenderNodeUtils_SetRenderNodeMaskOptionStrokeWidth(ArkUI_RenderNod
 
 
 
-##### OH_ArkUI_RenderNodeUtils_CreateRenderNodeClipOptionFromRectShape()
+#### OH_ArkUI_RenderNodeUtils_CreateRenderNodeClipOptionFromRectShape()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4073,7 +4073,7 @@ ArkUI_RenderNodeClipOption* OH_ArkUI_RenderNodeUtils_CreateRenderNodeClipOptionF
 
 
 
-##### OH_ArkUI_RenderNodeUtils_CreateRenderNodeClipOptionFromRoundRectShape()
+#### OH_ArkUI_RenderNodeUtils_CreateRenderNodeClipOptionFromRoundRectShape()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4103,7 +4103,7 @@ ArkUI_RenderNodeClipOption* OH_ArkUI_RenderNodeUtils_CreateRenderNodeClipOptionF
 
 
 
-##### OH_ArkUI_RenderNodeUtils_CreateRenderNodeClipOptionFromCircleShape()
+#### OH_ArkUI_RenderNodeUtils_CreateRenderNodeClipOptionFromCircleShape()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4133,7 +4133,7 @@ ArkUI_RenderNodeClipOption* OH_ArkUI_RenderNodeUtils_CreateRenderNodeClipOptionF
 
 
 
-##### OH_ArkUI_RenderNodeUtils_CreateRenderNodeClipOptionFromOvalShape()
+#### OH_ArkUI_RenderNodeUtils_CreateRenderNodeClipOptionFromOvalShape()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4163,7 +4163,7 @@ ArkUI_RenderNodeClipOption* OH_ArkUI_RenderNodeUtils_CreateRenderNodeClipOptionF
 
 
 
-##### OH_ArkUI_RenderNodeUtils_CreateRenderNodeClipOptionFromCommandPath()
+#### OH_ArkUI_RenderNodeUtils_CreateRenderNodeClipOptionFromCommandPath()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4193,7 +4193,7 @@ ArkUI_RenderNodeClipOption* OH_ArkUI_RenderNodeUtils_CreateRenderNodeClipOptionF
 
 
 
-##### OH_ArkUI_RenderNodeUtils_DisposeRenderNodeClipOption()
+#### OH_ArkUI_RenderNodeUtils_DisposeRenderNodeClipOption()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4216,7 +4216,7 @@ void OH_ArkUI_RenderNodeUtils_DisposeRenderNodeClipOption(ArkUI_RenderNodeClipOp
 
 
 
-##### OH_ArkUI_RenderNodeUtils_GetRenderNode()
+#### OH_ArkUI_RenderNodeUtils_GetRenderNode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

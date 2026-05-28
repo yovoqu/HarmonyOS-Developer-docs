@@ -14,7 +14,7 @@
 **起始版本：** 5.0.0(12)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -43,7 +43,7 @@ import { InstantShapeGenerator, ShapeInfo } from '@kit.Penkit';
  
   
 
-##### ShapeInfo
+#### ShapeInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -76,7 +76,7 @@ shapeType: 0
  
   
 
-##### processTouchEvent
+#### processTouchEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -124,7 +124,7 @@ Canvas() {
  
   
 
-##### getPathFromString
+#### getPathFromString
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -173,7 +173,7 @@ private shapeInfoCallback(shapeInfo: ShapeInfo) {
  
   
 
-##### notifyAreaChange
+#### notifyAreaChange
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -220,7 +220,7 @@ notifyAreaChange(width: number, height: number): void
  
   
 
-##### setPauseTime
+#### setPauseTime
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -265,7 +265,7 @@ aboutToAppear() {
  
   
 
-##### release
+#### release
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -290,7 +290,7 @@ aboutToDisappear(){
  
   
 
-##### onShapeRecognized
+#### onShapeRecognized
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

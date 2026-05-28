@@ -7,13 +7,13 @@
 本章节给出了关键开发步骤，完整代码可以参考[示例代码](https://gitcode.com/harmonyos_samples/arengine_-sample-code_-clientdemo_cpp)。
 
 
-##### 约束与限制
+#### 约束与限制
 
 从5.1.0(18)开始，图像跟踪能力支持部分Phone、部分Tablet设备。请参考[硬件要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-preparations#硬件要求)判断设备是否支持图像跟踪特性（[ARENGINE_FEATURE_TYPE_IMAGE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_featuretype)）。
 
 
 
-##### 接口说明
+#### 接口说明
 
 以下接口为AR图像跟踪相关接口。详细接口和说明，请参考[AR Engine API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine)。
 
@@ -43,17 +43,17 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 
 
-##### 声明Native接口
+#### 声明Native接口
 
 开发者可参考AR物体摆放章节的[声明Native接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-arworld#声明native接口)。
 
 
 
-##### 创建UI界面
+#### 创建UI界面
 
 首先创建一个起始UI页面“ARImage.ets”，设置两个按钮，用于实现“添加本地图片”和“读取本地数据库”两个功能，分别命名“ARImageByAdd.ets”和“ARImageByDatabase.ets”。配置路由进行页面间跳转，页面路由配置详细可查看[组件导航(Navigation) (推荐)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-navigation)。
 
@@ -503,13 +503,13 @@ struct ARImageByDatabase {
 
 
 
-##### 引入AR Engine
+#### 引入AR Engine
 
 开发者可参考AR物体摆放章节的[引入AR Engine](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-arworld#引入ar-engine)。
 
 
 
-##### 创建AR会话
+#### 创建AR会话
 
 创建AR会话并配置ARType为图像跟踪。
 
@@ -528,7 +528,7 @@ HMS_AREngine_ARSession_Configure(arSession, arConfig);
 
 
 
-##### 创建跟踪图像数据库并添加图像
+#### 创建跟踪图像数据库并添加图像
 
 1.调用[HMS_AREngine_ARAugmentedImageDatabase_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_araugmentedimagedatabase_create)函数，创建跟踪图像数据库。
 
@@ -551,7 +551,7 @@ auto addRet = HMS_AREngine_ARAugmentedImageDatabase_AddImage(mDataBase, &image, 
 
 
 
-##### 识别环境中的可跟踪图像
+#### 识别环境中的可跟踪图像
 
 调用[HMS_AREngine_ARSession_GetAllTrackables](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_getalltrackables)函数，检测当前环境中的所有跟踪图像，并将结果存放在augmentList中。
 
@@ -563,7 +563,7 @@ HMS_AREngine_ARSession_GetAllTrackables(arSession, ARENGINE_TRACKABLE_AUGMENTED_
 
 
 
-##### 获取环境中的可跟踪图像数量
+#### 获取环境中的可跟踪图像数量
 
 调用[HMS_AREngine_ARTrackableList_GetSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_artrackablelist_getsize)函数获取平面数量，结果存放在augmentSize中。
 
@@ -582,7 +582,7 @@ HMS_AREngine_ARTrackableList_GetSize(arSession, augmentList, &augmentSize);
 
 
 
-##### 获取跟踪图像示例
+#### 获取跟踪图像示例
 
 当存在1个或多个跟踪图像时，可以依次遍历augmentList获取所有跟踪图像。
 
@@ -602,7 +602,7 @@ AREngine_ARAugmentedImage *arImage = reinterpret_cast<AREngine_ARAugmentedImage*
 
 
 
-##### 获取跟踪图像中心点在世界坐标系中的位姿信息
+#### 获取跟踪图像中心点在世界坐标系中的位姿信息
 
 调用[HMS_AREngine_ARAugmentedImage_GetCenterPose](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_araugmentedimage_getcenterpose)函数，获取跟踪图像中心点的位姿信息，位姿信息可参考[获取设备位姿](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-get-pose)。
 
@@ -614,7 +614,7 @@ HMS_AREngine_ARAugmentedImage_GetCenterPose(arSession, arImage, imagePose);
 
 
 
-##### 获取跟踪图像的宽度
+#### 获取跟踪图像的宽度
 
 调用[HMS_AREngine_ARAugmentedImage_GetExtendX](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_araugmentedimage_getextendx)函数，获取图像的中心点为坐标原点，物理图像的宽度（单位为米），得到X轴上的估计值。
 

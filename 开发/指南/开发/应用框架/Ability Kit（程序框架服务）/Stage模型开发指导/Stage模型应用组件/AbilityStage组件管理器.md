@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/abilitystage
 
-##### 概述
+#### 概述
 
 [AbilityStage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-abilitystage)是一个[Module](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-package-overview#应用的多module设计机制)级别的组件管理器，应用的[HAP](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hap-package)在首次加载时会创建一个AbilityStage实例，可以对该Module进行初始化等操作。AbilityStage与HAP一一对应，即每个HAP拥有一个AbilityStage实例。
 
@@ -21,11 +21,11 @@ AbilityStage拥有[onCreate()](https://developer.huawei.com/consumer/cn/doc/harm
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 
 
-##### 创建AbilityStage文件
+#### 创建AbilityStage文件
 
 DevEco Studio默认工程中未自动生成AbilityStage，如需要使用AbilityStage的能力，可以手动新建一个AbilityStage文件，具体步骤如下。
 1. 在工程Module对应的ets目录下，右键选择“New > Directory”，新建一个目录并命名为exampleabilitystage。
@@ -65,7 +65,7 @@ export default class MyAbilityStage extends AbilityStage {
 
 
 
-##### 监听系统环境变量的变化
+#### 监听系统环境变量的变化
 
 下面以监听系统环境变量的变化的开发场景为例，介绍AbilityStage组件回调函数的使用。
 

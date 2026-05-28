@@ -9,7 +9,7 @@ ArkWeb为应用提供广告过滤功能，支持通过云端推送默认的easyl
 当前配置文件格式为[easylist规则](https://easylist-downloads.adblockplus.org/easylist.txt)。
 
 
-##### 常用easylist语法规则
+#### 常用easylist语法规则
 
 | 规则类别 | 说明 | 示例 |
 | --- | --- | --- |
@@ -27,7 +27,7 @@ ArkWeb为应用提供广告过滤功能，支持通过云端推送默认的easyl
 
 
 
-##### 约束与限制
+#### 约束与限制
 
  - 在[WebviewController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller)类中，增加开启/关闭广告过滤特性的接口[enableAdsBlock()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#enableadsblock12)，支持Web实例级的特性开关。
  - 新增[AdsBlockManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-adsblockmanager)全局单例类，提供自定义广告过滤配置、控制网站级特性开关的能力。
@@ -42,11 +42,11 @@ ArkWeb为应用提供广告过滤功能，支持通过云端推送默认的easyl
 
 
 
-##### 使用场景
+#### 使用场景
 
 
 
-##### 开启广告过滤
+#### 开启广告过滤
 
 应用可以通过AdsBlockManager提供的[setAdsBlockRules()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-adsblockmanager#setadsblockrules12)接口设置自定义的easylist过滤规则，并通过Web组件的[enableAdsBlock()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#enableadsblock12)接口使能广告过滤特性。
 
@@ -104,7 +104,7 @@ struct WebComponent {
 
 
 
-##### 关闭特定域名页面的广告过滤
+#### 关闭特定域名页面的广告过滤
 
 在Web组件的广告过滤开关开启后，应用有时候会期望关闭一些特定页面的广告过滤功能，除了可以使用自定义的easylist规则，AdsBlockManager还提供了[addAdsBlockDisallowedList()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-adsblockmanager#addadsblockdisallowedlist12)接口完成此功能。
 
@@ -222,7 +222,7 @@ struct WebComponent {
 
 
 
-##### 收集广告过滤的信息
+#### 收集广告过滤的信息
 
 在Web组件的广告过滤开关开启后，访问的网页如果发生了广告过滤，会通过Web组件的[onAdsBlocked()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#onadsblocked12)回调接口通知到应用，应用可根据需要进行过滤信息的收集和统计。
 

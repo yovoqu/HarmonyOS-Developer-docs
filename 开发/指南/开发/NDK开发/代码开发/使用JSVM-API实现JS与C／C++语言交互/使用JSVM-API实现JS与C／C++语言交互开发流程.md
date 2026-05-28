@@ -13,13 +13,13 @@
 此处以在ArkTS/JS侧和Native侧实现RunTest()接口实现跨语言交互为例，展示使用JSVM-API进行跨语言交互的流程。
   
 
-##### 创建Native C++工程
+#### 创建Native C++工程
 
 具体见[创建NDK工程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/create-with-ndk)
  
   
 
-##### Native侧方法的实现
+#### Native侧方法的实现
 
 参考[使用Node-API实现跨语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-process#native侧方法的实现)，以下代码提供了“使用JSVM-API实现JS与C/C++语言交互开发流程”Native侧方法实现的一个demo。
  
@@ -218,7 +218,7 @@ extern "C" __attribute__((constructor)) void RegisterEntryModule(void) { napi_mo
  
   
 
-##### ArkTS侧调用C/C++方法实现
+#### ArkTS侧调用C/C++方法实现
 
 ```ArkTS
 import napitest from 'libentry.so';

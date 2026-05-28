@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { SelectTitleBar } from '@kit.ArkUI';
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -30,7 +30,7 @@ import { SelectTitleBar } from '@kit.ArkUI';
  
   
 
-##### SelectTitleBar
+#### SelectTitleBar
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -61,7 +61,7 @@ SelectTitleBar({selected: number, options: Array&lt;SelectOption&gt;, menuItems?
  
   
 
-##### SelectTitleBarMenuItem
+#### SelectTitleBarMenuItem
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -83,7 +83,7 @@ SelectTitleBar({selected: number, options: Array&lt;SelectOption&gt;, menuItems?
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -91,13 +91,13 @@ SelectTitleBar({selected: number, options: Array&lt;SelectOption&gt;, menuItems?
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 示例1（下拉菜单标题栏）
+#### 示例1（下拉菜单标题栏）
 
 该示例实现了简单的下拉菜单标题栏，带有返回箭头的下拉菜单标题栏和带有右侧菜单项目列表的下拉菜单标题栏。
  
@@ -216,7 +216,7 @@ struct Index {
  
   
 
-##### 示例2（右侧自定义按钮播报）
+#### 示例2（右侧自定义按钮播报）
 
 从API version 18开始，该示例通过设置标题栏右侧自定义按钮属性accessibilityText、accessibilityDescription、accessibilityLevel自定义屏幕朗读播报文本。
  
@@ -346,12 +346,12 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/kmbjldfYRjOstRP5U2RW9w/zh-cn_image_0000002581276350.png?HW-CC-KV=V1&HW-CC-Date=20260528T024157Z&HW-CC-Expire=86400&HW-CC-Sign=538662089BFDE8187C0EE648B2C75359A7F4297E09D22EA4F0BA83B83A4D4AD6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/kmbjldfYRjOstRP5U2RW9w/zh-cn_image_0000002581276350.png?HW-CC-KV=V1&HW-CC-Date=20260528T025530Z&HW-CC-Expire=86400&HW-CC-Sign=58EC8114E1C07EC71EC84F739BDBD8FCDC1382429FC05E8B76D18F925F3C5E1E)
 
  
   
 
-##### 示例3（设置Symbol类型图标）
+#### 示例3（设置Symbol类型图标）
 
 从API version 18开始，该示例通过设置SelectTitleBarMenuItem的属性symbolStyle，展示了自定义Symbol类型图标。
  
@@ -487,4 +487,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/SvcV_tahRx65R8fDUoDPfw/zh-cn_image_0000002611756207.png?HW-CC-KV=V1&HW-CC-Date=20260528T024157Z&HW-CC-Expire=86400&HW-CC-Sign=9DE8E3060866A93974EE1F0380FDA0963C6B379C56C1008E9C46FDE02933A927)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/SvcV_tahRx65R8fDUoDPfw/zh-cn_image_0000002611756207.png?HW-CC-KV=V1&HW-CC-Date=20260528T025530Z&HW-CC-Expire=86400&HW-CC-Sign=88F5F952E022701F36D9D7CB884D9021FA8C52F47FA5A7A85AA3C7CC797FC358)

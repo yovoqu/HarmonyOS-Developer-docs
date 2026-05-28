@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { formBindingData } from '@kit.FormKit';
 
 
 
-##### ProxyData10+
+#### ProxyData10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -42,7 +42,7 @@ import { formBindingData } from '@kit.FormKit';
 
 
 
-##### FormBindingData
+#### FormBindingData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -60,7 +60,7 @@ FormBindingData相关描述。
 
 
 
-##### formBindingData.createFormBindingData
+#### formBindingData.createFormBindingData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

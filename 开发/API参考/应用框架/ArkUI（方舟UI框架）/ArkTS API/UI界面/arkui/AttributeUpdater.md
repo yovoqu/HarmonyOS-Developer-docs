@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -26,7 +26,7 @@ import { AttributeUpdater } from '@kit.ArkUI';
 
 
 
-##### Initializer&lt;T&gt;
+#### Initializer&lt;T&gt;
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -47,7 +47,7 @@ type Initializer&lt;T&gt; = () => T
 
 
 
-##### AttributeUpdater<T, C = Initializer&lt;T&gt;>
+#### AttributeUpdater<T, C = Initializer&lt;T&gt;>
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -61,7 +61,7 @@ type Initializer&lt;T&gt; = () => T
 
 
 
-##### applyNormalAttribute
+#### applyNormalAttribute
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -82,7 +82,7 @@ applyNormalAttribute?(instance: T): void
 
 
 
-##### initializeModifier
+#### initializeModifier
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -160,7 +160,7 @@ struct Index {
 
 
 
-##### attribute
+#### attribute
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -222,7 +222,7 @@ struct updaterDemo2 {
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -273,12 +273,12 @@ struct attributeDemo3 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/0XAs07NuR2SOXcUujYlV5Q/zh-cn_image_0000002611835417.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024116Z&HW-CC-Expire=86400&HW-CC-Sign=3E0BC6A37ECEE7846C5C7DB542A8FEE384B613A0929530AFE109D04E6FD7B554)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/0XAs07NuR2SOXcUujYlV5Q/zh-cn_image_0000002611835417.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025450Z&HW-CC-Expire=86400&HW-CC-Sign=FF749C9A813ECFD5E16531E0E62D6B0D32FAC850E8FE444E55EF62C6A4699A22)
 
 
 
 
-##### onComponentChanged
+#### onComponentChanged
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -347,4 +347,4 @@ struct updaterDemo4 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/QpbzmdiLR_K2ksGHqQ94pg/zh-cn_image_0000002581275670.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024116Z&HW-CC-Expire=86400&HW-CC-Sign=4D7F413C0384DA3D22DBF46279F2DCD5838D6A137E7DD6181EA1F97038AA3AB0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/QpbzmdiLR_K2ksGHqQ94pg/zh-cn_image_0000002581275670.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025450Z&HW-CC-Expire=86400&HW-CC-Sign=1BAD0BF4C805801B84B88A9D0C3D7E4B93B4667F0BCEF190C4887731ED84B786)

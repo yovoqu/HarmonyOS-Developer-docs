@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/toolchain-cmake-build-project
 
-##### 概述
+#### 概述
 
 CMake是一个跨平台的构建工具，用于管理构建过程、编译、链接和打包软件项目，它可以生成Makefile等用于不同操作系统和编译器的构建脚本。CMake的配置过程是跨平台的，因此可以在不同的操作系统上运行，例如Linux、Windows和macOS。
  
@@ -17,13 +17,13 @@ CMake构建过程可分为以下三个主要步骤：
  
   
 
-##### CMake构建三方库适配流程
+#### CMake构建三方库适配流程
 
 本小节介绍如何在Linux环境下，使用CMake构建工具通过ohos sdk编译cJSON三方库源码，生成ohos平台三方库的so及二进制文件。
  
   
 
-##### 环境准备
+#### 环境准备
 1. 首先需要Linux编译环境。
 
   开发者可以选择熟悉的发行版来进行环境搭建，这里以Ubuntu为例，Ubuntu目前主要支持Ubuntu18.04和Ubuntu20.04。
@@ -84,7 +84,7 @@ Turn off this advice by setting config variable advice.detachedHead to false
  
   
 
-##### 编译三方库
+#### 编译三方库
 1. 新建编译目录。
 
   为防止污染源码目录文件，推荐在三方库源码目录新建一个编译目录，用于生成需要编译的配置文件。
@@ -188,6 +188,6 @@ cmake  libcjson.so  libcjson.so.1  libcjson.so.1.7.18  pkgconfig
  
   
 
-##### 应用中集成使用三方库
+#### 应用中集成使用三方库
 
 请参考：[三方动态链接库（.so）集成开发实践](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-dynamic-link-library)。

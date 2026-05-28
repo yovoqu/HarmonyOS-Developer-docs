@@ -10,7 +10,7 @@
 
   
 
-##### 默认插槽
+#### 默认插槽
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -38,7 +38,7 @@
  
   
 
-##### 具名插槽
+#### 具名插槽
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

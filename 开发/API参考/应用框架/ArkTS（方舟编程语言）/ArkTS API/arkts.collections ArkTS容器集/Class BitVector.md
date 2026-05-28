@@ -14,7 +14,7 @@ BitVector是一种线性数据结构，底层基于数组实现。BitVector中�
 **装饰器类型：**@Sendable
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { collections } from '@kit.ArkTS';
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -39,7 +39,7 @@ import { collections } from '@kit.ArkTS';
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -66,7 +66,7 @@ let bitVector: collections.BitVector = new collections.BitVector(0); // 初始�
 
 
 
-##### push
+#### push
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -116,7 +116,7 @@ bitVector.push(0); // bitVector: [0, 1, 0, 1, 0]
 
 
 
-##### pop
+#### pop
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -160,7 +160,7 @@ console.info("bitVector pop:", res); // 0
 
 
 
-##### has
+#### has
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -214,7 +214,7 @@ console.info("bitVector has 0:", res0); // true
 
 
 
-##### setBitsByRange
+#### setBitsByRange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -261,7 +261,7 @@ bitVector.setBitsByRange(1, 1, 3); // bitVector: [0, 1, 1, 1, 0]
 
 
 
-##### setAllBits
+#### setAllBits
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -305,7 +305,7 @@ bitVector.setAllBits(1); // bitVector: [1, 1, 1, 1, 1]
 
 
 
-##### getBitsByRange
+#### getBitsByRange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -359,7 +359,7 @@ console.info("bitVector2 length:", bitVector2.length); // 2
 
 
 
-##### resize
+#### resize
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -410,7 +410,7 @@ console.info("bitVector get bit vector's length:", bitVector.length); // 3
 
 
 
-##### getBitCountByRange
+#### getBitCountByRange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -465,7 +465,7 @@ console.info("bitVector getBitCountByRange:", res); // 2
 
 
 
-##### getIndexOf
+#### getIndexOf
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -520,7 +520,7 @@ console.info("bitVector getIndexOf:", res); // 2
 
 
 
-##### getLastIndexOf
+#### getLastIndexOf
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -575,7 +575,7 @@ console.info("bitVector getLastIndexOf:", res); // 2
 
 
 
-##### flipBitByIndex
+#### flipBitByIndex
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -620,7 +620,7 @@ bitVector.flipBitByIndex(3); // bitVector: [0, 1, 0, 0, 0]
 
 
 
-##### flipBitsByRange
+#### flipBitsByRange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -666,7 +666,7 @@ bitVector.flipBitsByRange(1, 4); // bitVector: [0, 0, 1, 0, 0]
 
 
 
-##### values
+#### values
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -714,7 +714,7 @@ while (!temp.done) {
 
 
 
-##### [Symbol.iterator]
+#### [Symbol.iterator]
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -763,7 +763,7 @@ for (let item of bitVector) {
 
 
 
-##### [index: number]
+#### [index: number]
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

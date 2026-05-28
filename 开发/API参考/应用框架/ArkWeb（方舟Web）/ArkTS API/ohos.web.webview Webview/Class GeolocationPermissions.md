@@ -12,7 +12,7 @@ Web组件地理位置权限管理对象。
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { webview } from '@kit.ArkWeb';
 
 
 
-##### 需要权限
+#### 需要权限
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -30,7 +30,7 @@ import { webview } from '@kit.ArkWeb';
 
 
 
-##### allowGeolocation
+#### allowGeolocation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -89,7 +89,7 @@ struct WebComponent {
 
 
 
-##### deleteGeolocation
+#### deleteGeolocation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -148,7 +148,7 @@ struct WebComponent {
 
 
 
-##### getAccessibleGeolocation
+#### getAccessibleGeolocation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -214,7 +214,7 @@ struct WebComponent {
 
 
 
-##### getAccessibleGeolocation
+#### getAccessibleGeolocation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -285,7 +285,7 @@ struct WebComponent {
 
 
 
-##### getStoredGeolocation
+#### getStoredGeolocation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -349,7 +349,7 @@ struct WebComponent {
 
 
 
-##### getStoredGeolocation
+#### getStoredGeolocation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -418,7 +418,7 @@ struct WebComponent {
 
 
 
-##### deleteAllGeolocation
+#### deleteAllGeolocation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -12,7 +12,7 @@
 
   
 
-##### addComponentContent12+
+#### addComponentContent12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -132,7 +132,7 @@ struct OverlayExample {
  
   
 
-##### addComponentContentWithOrder18+
+#### addComponentContentWithOrder18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -236,12 +236,12 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/un-YRfHgRzabzu9l9XdUYw/zh-cn_image_0000002581275620.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024118Z&HW-CC-Expire=86400&HW-CC-Sign=E89B01EA5BE72CA583B7457F3BFF28B9035C0084D00BFAC6E4E87CF9B927A487)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/un-YRfHgRzabzu9l9XdUYw/zh-cn_image_0000002581275620.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025452Z&HW-CC-Expire=86400&HW-CC-Sign=F0CE1EDF30DB97B64401514041B3878647A3A1D62A263E16C9AA6B64439853A1)
 
  
   
 
-##### removeComponentContent12+
+#### removeComponentContent12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -266,7 +266,7 @@ removeComponentContent(content: ComponentContent): void
  
   
 
-##### showComponentContent12+
+#### showComponentContent12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -291,7 +291,7 @@ showComponentContent(content: ComponentContent): void
  
   
 
-##### hideComponentContent12+
+#### hideComponentContent12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -316,7 +316,7 @@ hideComponentContent(content: ComponentContent): void
  
   
 
-##### showAllComponentContents12+
+#### showAllComponentContents12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -334,7 +334,7 @@ showAllComponentContents(): void
  
   
 
-##### hideAllComponentContents12+
+#### hideAllComponentContents12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

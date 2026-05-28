@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-convert-errorcode
 
-##### 00636001 无子目录
+#### 00636001 无子目录
 
 **错误信息**
  
@@ -24,7 +24,7 @@ No Subdirectories.
  
  
 
-##### 00636002 未找到artifactType属性
+#### 00636002 未找到artifactType属性
 
 **错误信息**
  
@@ -44,7 +44,7 @@ Not Found Attribute Name.
  
  
 
-##### 00636003 RuleType无效
+#### 00636003 RuleType无效
 
 **错误信息**
  
@@ -64,7 +64,7 @@ Invalid Rule Type.
  
  
 
-##### 00636004 未找到package.json文件
+#### 00636004 未找到package.json文件
 
 **错误信息**
  
@@ -84,7 +84,7 @@ Not Found Constants.PackageJson.
  
  
 
-##### 00636005 包转换失败
+#### 00636005 包转换失败
 
 **错误信息**
  
@@ -104,7 +104,7 @@ npm包中package.json配置文件字段缺失。
  
  
 
-##### 00636006 Node_modules目录配置错误
+#### 00636006 Node_modules目录配置错误
 
 **错误信息**
  

@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/performance-cpu-usage
 
-##### 应用或元服务后台CPU占用峰值
+#### 应用或元服务后台CPU占用峰值
 
   
 | 描述 | 应用或元服务后台CPU占用峰值应< 2%。 |

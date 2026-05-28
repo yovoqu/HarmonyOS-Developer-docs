@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { DownloadFileButton } from '@kit.ArkUI';
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -30,7 +30,7 @@ import { DownloadFileButton } from '@kit.ArkUI';
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -38,7 +38,7 @@ import { DownloadFileButton } from '@kit.ArkUI';
  
   
 
-##### DownloadFileButton
+#### DownloadFileButton
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -58,7 +58,7 @@ import { DownloadFileButton } from '@kit.ArkUI';
  
   
 
-##### DownloadContentOptions
+#### DownloadContentOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -76,7 +76,7 @@ import { DownloadFileButton } from '@kit.ArkUI';
  
   
 
-##### DownloadStyleOptions
+#### DownloadStyleOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -101,7 +101,7 @@ import { DownloadFileButton } from '@kit.ArkUI';
  
   
 
-##### DownloadIconStyle
+#### DownloadIconStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -119,7 +119,7 @@ import { DownloadFileButton } from '@kit.ArkUI';
  
   
 
-##### DownloadDescription
+#### DownloadDescription
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -143,7 +143,7 @@ import { DownloadFileButton } from '@kit.ArkUI';
  
   
 
-##### DownloadLayoutDirection
+#### DownloadLayoutDirection
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -161,7 +161,7 @@ import { DownloadFileButton } from '@kit.ArkUI';
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -169,7 +169,7 @@ import { DownloadFileButton } from '@kit.ArkUI';
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -239,4 +239,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/AjcfmzzlSgqeNt3T-t4kcA/zh-cn_image_0000002581436238.png?HW-CC-KV=V1&HW-CC-Date=20260528T024157Z&HW-CC-Expire=86400&HW-CC-Sign=88DD713B1EE99A457BCAF767A1B05F94AB903E502D5AE05E77A9E597239BC362)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/AjcfmzzlSgqeNt3T-t4kcA/zh-cn_image_0000002581436238.png?HW-CC-KV=V1&HW-CC-Date=20260528T025529Z&HW-CC-Expire=86400&HW-CC-Sign=3D6F790B2E2E9D114BD6B6A64E3826C86C426818B3BD1A17B53E6D2A6796D50A)

@@ -10,7 +10,7 @@
 **起始版本：** 6.0.2(22)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** PC/2in1
 
@@ -20,7 +20,7 @@ import { quickBarManager } from '@kit.DeskTopExtensionKit';
  
   
 
-##### QuickTaskInfo
+#### QuickTaskInfo
 
 **支持设备：** PC/2in1
 
@@ -42,7 +42,7 @@ import { quickBarManager } from '@kit.DeskTopExtensionKit';
  
   
 
-##### QuickTask
+#### QuickTask
 
 **支持设备：** PC/2in1
 
@@ -61,7 +61,7 @@ import { quickBarManager } from '@kit.DeskTopExtensionKit';
  
   
 
-##### ParameterItem
+#### ParameterItem
 
 **支持设备：** PC/2in1
 
@@ -79,7 +79,7 @@ import { quickBarManager } from '@kit.DeskTopExtensionKit';
  
   
 
-##### CustomCategory
+#### CustomCategory
 
 **支持设备：** PC/2in1
 
@@ -97,7 +97,7 @@ import { quickBarManager } from '@kit.DeskTopExtensionKit';
  
   
 
-##### QuickBarGroup
+#### QuickBarGroup
 
 **支持设备：** PC/2in1
 
@@ -115,7 +115,7 @@ import { quickBarManager } from '@kit.DeskTopExtensionKit';
  
   
 
-##### quickBarManager.addCustomCategory
+#### quickBarManager.addCustomCategory
 
 **支持设备：** PC/2in1
 
@@ -177,7 +177,7 @@ async function addCustomCategory(context: Context) {
  
   
 
-##### quickBarManager.addQuickTask
+#### quickBarManager.addQuickTask
 
 **支持设备：** PC/2in1
 
@@ -267,7 +267,7 @@ async function addQuickTask(context: Context) {
  
   
 
-##### quickBarManager.getCustomCategories
+#### quickBarManager.getCustomCategories
 
 **支持设备：** PC/2in1
 
@@ -326,7 +326,7 @@ async function getCustomCategories(context: Context) {
  
   
 
-##### quickBarManager.getTasksFromCategory
+#### quickBarManager.getTasksFromCategory
 
 **支持设备：** PC/2in1
 
@@ -390,7 +390,7 @@ async function getTasksFromCategory(context: Context) {
  
   
 
-##### quickBarManager.updateCustomCategory
+#### quickBarManager.updateCustomCategory
 
 **支持设备：** PC/2in1
 
@@ -455,7 +455,7 @@ async function updateCustomCategory(context: Context) {
  
   
 
-##### quickBarManager.updateQuickTask
+#### quickBarManager.updateQuickTask
 
 **支持设备：** PC/2in1
 
@@ -547,7 +547,7 @@ async function updateQuickTask(context: Context) {
  
   
 
-##### quickBarManager.deleteQuickTask
+#### quickBarManager.deleteQuickTask
 
 **支持设备：** PC/2in1
 
@@ -607,7 +607,7 @@ async function deleteQuickTask(context: Context) {
  
   
 
-##### quickBarManager.deleteCustomCategory
+#### quickBarManager.deleteCustomCategory
 
 **支持设备：** PC/2in1
 
@@ -667,7 +667,7 @@ async function deleteCustomCategory(context: Context) {
  
   
 
-##### quickBarManager.addQuickBarGroup
+#### quickBarManager.addQuickBarGroup
 
 **支持设备：** PC/2in1
 
@@ -730,7 +730,7 @@ try {
  
   
 
-##### quickBarManager.deleteQuickBarGroup
+#### quickBarManager.deleteQuickBarGroup
 
 **支持设备：** PC/2in1
 
@@ -781,7 +781,7 @@ try {
  
   
 
-##### quickBarManager.getQuickBarGroups
+#### quickBarManager.getQuickBarGroups
 
 **支持设备：** PC/2in1
 
@@ -831,7 +831,7 @@ try {
  
   
 
-##### quickBarManager.setWindowToGroup
+#### quickBarManager.setWindowToGroup
 
 **支持设备：** PC/2in1
 

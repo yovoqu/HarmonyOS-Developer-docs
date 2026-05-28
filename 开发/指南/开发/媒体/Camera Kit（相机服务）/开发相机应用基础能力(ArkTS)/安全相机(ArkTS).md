@@ -19,11 +19,11 @@
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/78Xhz4eVSj2IXlNbi8HFdg/zh-cn_image_0000002581434672.png?HW-CC-KV=V1&HW-CC-Date=20260528T014702Z&HW-CC-Expire=86400&HW-CC-Sign=F58BC374AE3551F6473E2714DDC3E96DB73A48FE41BAE4F7F180ACF8864ADBE6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/78Xhz4eVSj2IXlNbi8HFdg/zh-cn_image_0000002581434672.png?HW-CC-KV=V1&HW-CC-Date=20260528T030331Z&HW-CC-Expire=86400&HW-CC-Sign=8EE7744F59FB10B924496AAE127BDCDE495FD07FE3A95AEB0A9723F1BE72462C)
 
   
 
-##### 开发步骤
+#### 开发步骤
 
 详细的API说明请参考[Camera API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-camera)。
  1. 导入依赖，需要导入相机框架相关领域依赖。

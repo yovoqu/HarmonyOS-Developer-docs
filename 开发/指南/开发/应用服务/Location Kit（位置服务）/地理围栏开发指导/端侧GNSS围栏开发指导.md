@@ -9,7 +9,7 @@
 应用场景举例：开发者可以使用地理围栏技术，在企业周围创建一个区域围栏，当用户进入这个区域，在移动设备上进行有针对性的提醒。
 
 
-##### 接口说明
+#### 接口说明
 
 地理围栏所使用的接口如下，详细说明参见：[Location Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-geolocationmanager)。
 
@@ -21,7 +21,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 使用地理围栏功能，需要有权限ohos.permission.APPROXIMATELY_LOCATION，位置权限申请的方法和步骤见[申请位置权限开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/location-permission-guidelines)。
 2. 导入geoLocationManager模块、wantAgent模块和BusinessError模块。
 

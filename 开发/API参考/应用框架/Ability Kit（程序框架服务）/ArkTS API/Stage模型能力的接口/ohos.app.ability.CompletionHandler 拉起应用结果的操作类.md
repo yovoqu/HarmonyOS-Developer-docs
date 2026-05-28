@@ -12,7 +12,7 @@ CompletionHandler作为[StartOptions](https://developer.huawei.com/consumer/cn/d
 
   
 
-##### 约束限制
+#### 约束限制
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -25,7 +25,7 @@ CompletionHandler作为[StartOptions](https://developer.huawei.com/consumer/cn/d
  
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -35,7 +35,7 @@ import { CompletionHandler } from '@kit.AbilityKit';
  
   
 
-##### CompletionHandler
+#### CompletionHandler
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -43,7 +43,7 @@ CompletionHandler提供了[onRequestSuccess](#onrequestsuccess)和[onRequestFail
  
   
 
-##### onRequestSuccess
+#### onRequestSuccess
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -69,7 +69,7 @@ onRequestSuccess(elementName: ElementName, message: string): void
  
   
 
-##### onRequestFailure
+#### onRequestFailure
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -95,7 +95,7 @@ onRequestFailure(elementName: ElementName, message: string): void
  
   
 
-##### CompletionHandler使用
+#### CompletionHandler使用
 
 ```text
 import { UIAbility, Want, StartOptions, CompletionHandler, bundleManager } from '@kit.AbilityKit';

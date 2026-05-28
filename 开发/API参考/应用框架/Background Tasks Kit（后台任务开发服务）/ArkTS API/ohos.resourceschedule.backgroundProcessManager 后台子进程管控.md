@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { backgroundProcessManager } from '@kit.BackgroundTasksKit';
 
 
 
-##### backgroundProcessManager.setProcessPriority
+#### backgroundProcessManager.setProcessPriority
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -73,7 +73,7 @@ try {
 
 
 
-##### backgroundProcessManager.resetProcessPriority
+#### backgroundProcessManager.resetProcessPriority
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -113,7 +113,7 @@ try {
 
 
 
-##### backgroundProcessManager.setPowerSaveMode20+
+#### backgroundProcessManager.setPowerSaveMode20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -178,7 +178,7 @@ try {
 
 
 
-##### backgroundProcessManager.isPowerSaveMode20+
+#### backgroundProcessManager.isPowerSaveMode20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -235,7 +235,7 @@ try {
 
 
 
-##### backgroundProcessManager.getPowerSaveMode23+
+#### backgroundProcessManager.getPowerSaveMode23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -292,7 +292,7 @@ try {
 
 
 
-##### ProcessPriority
+#### ProcessPriority
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -308,7 +308,7 @@ try {
 
 
 
-##### PowerSaveMode20+
+#### PowerSaveMode20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

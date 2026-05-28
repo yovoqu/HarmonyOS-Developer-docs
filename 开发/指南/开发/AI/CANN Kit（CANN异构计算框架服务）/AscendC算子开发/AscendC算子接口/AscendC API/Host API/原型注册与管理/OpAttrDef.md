@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-opattrdef
 
-##### 功能说明
+#### 功能说明
 
 定义算子属性。
  
   
 
-##### 定义原型
+#### 定义原型
 
 ```text
 class OpAttrDef {
@@ -43,7 +43,7 @@ private:
  
   
 
-##### 函数说明
+#### 函数说明
 
 **表1** OpAttrDef类成员函数说明
   

@@ -7,7 +7,7 @@
 卡片使用方（例如：桌面）和卡片提供方均可主动触发卡片页面刷新。此外，卡片管理服务会根据开发者声明的定时信息，按需通知卡片提供方进行卡片刷新。因此，卡片刷新方式包括：卡片提供方主动触发刷新、卡片使用方主动触发刷新以及卡片定时定点刷新。这些刷新方式均需由卡片提供方推送需要刷新的卡片数据。
 
 
-##### 卡片数据交互
+#### 卡片数据交互
 
 ArkTS卡片管理服务支持卡片提供方（例如：应用）和卡片之间的数据交互。卡片通过[postCardAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-postcardaction#postcardaction-1)传递数据给卡片提供方，卡片提供方则通过[updateForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formprovider#formproviderupdateform)接口传递数据给卡片。卡片提供方将数据提供给卡片后，可以用于卡片页面刷新等。
 
@@ -15,13 +15,13 @@ ArkTS卡片管理服务支持卡片提供方（例如：应用）和卡片之间
 
 
 
-##### 页面刷新分类
+#### 页面刷新分类
 
 根据触发方式的差异，卡片刷新分为主动刷新和被动刷新。
 
 
 
-##### 主动刷新
+#### 主动刷新
 
 主动刷新包括卡片提供方主动刷新卡片和卡片使用方主动刷新卡片。开发指导请参考[ArkTS卡片主动刷新](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-active-refresh)。
 
@@ -43,7 +43,7 @@ ArkTS卡片管理服务支持卡片提供方（例如：应用）和卡片之间
 
 
 
-##### 被动刷新
+#### 被动刷新
 
 被动刷新包括定时刷新、定点刷新。开发指导请参考[ArkTS卡片被动刷新](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-passive-refresh)。
 
@@ -61,7 +61,7 @@ ArkTS卡片管理服务支持卡片提供方（例如：应用）和卡片之间
 
 
 
-##### 约束与限制
+#### 约束与限制
 1. 卡片提供方仅允许刷新自己的卡片，其他提供方的卡片无法刷新。
 2. 卡片使用方仅允许刷新添加到自己的卡片，添加到其他使用方的卡片无法刷新。
 3. 从API version 20开始，如果卡片刷新的数据通过共享内存更新，刷新数据总大小不超过10MB，刷新图片数量不超过20张。API version 19及之前的版本，图片文件数量上限为5张，每张限制内存2MB，超出限制的图片会显示异常。

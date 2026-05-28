@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurity-urlthreat-check
 
-##### 场景介绍
+#### 场景介绍
 
 应用通过调用Device Security Kit的checkUrlThreat接口检测URL是否为恶意的，并且根据检测结果来提示或拦截该URL。
 
@@ -12,7 +12,7 @@
 
 
 
-##### 约束与限制
+#### 约束与限制
 
  - URL检测能力支持Phone、Tablet、PC/2in1设备。并且从5.1.0(18)版本开始，新增支持Wearable设备。
  - 每个应用在每个设备上每天最多可以调用1万次接口；每个设备上最多支持5个并发调用。
@@ -20,7 +20,7 @@
 
 
 
-##### 业务流程
+#### 业务流程
 
 
 ![](assets/URL检测/file-20260514131128567-0.png)
@@ -34,7 +34,7 @@
 
 
 
-##### 接口说明
+#### 接口说明
 
 以下是URL检测相关接口，包括ArkTS API，更多接口及使用方法请参见[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-safetydetectenhanced-api#checkurlthreat)。
 
@@ -45,7 +45,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 > [!NOTE]
 > 请确保已打开“ 安全检测服务 ”开关并 申请Profile 。
@@ -62,7 +62,7 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 2. 调用接口获取URL检测结果。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/EYCUcc6RSgi1ekCb_C_QIg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T014631Z&HW-CC-Expire=86400&HW-CC-Sign=C688746B878A579B0A6EF76481A672A80B368B2D88CFA149A5CF0C3133E8E360)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/EYCUcc6RSgi1ekCb_C_QIg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030302Z&HW-CC-Expire=86400&HW-CC-Sign=BA6030A5B9732FDB2888F1DCC24FD689701CD0342EE62CD76615C04431AA407F)
  
 
   该接口涉及端云协同，需要联网等耗时操作，因此不要在UI线程中执行，避免阻塞UI线程。

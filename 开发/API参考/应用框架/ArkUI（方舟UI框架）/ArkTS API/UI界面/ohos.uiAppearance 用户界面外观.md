@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { uiAppearance } from '@kit.ArkUI';
  
   
 
-##### DarkMode
+#### DarkMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -38,7 +38,7 @@ import { uiAppearance } from '@kit.ArkUI';
  
   
 
-##### uiAppearance.getDarkMode
+#### uiAppearance.getDarkMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -81,7 +81,7 @@ try {
  
   
 
-##### uiAppearance.getFontScale
+#### uiAppearance.getFontScale
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -124,7 +124,7 @@ try {
  
   
 
-##### uiAppearance.getFontWeightScale
+#### uiAppearance.getFontWeightScale
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

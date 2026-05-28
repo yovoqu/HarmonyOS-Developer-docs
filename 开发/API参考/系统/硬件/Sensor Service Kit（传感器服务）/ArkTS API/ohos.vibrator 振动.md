@@ -12,7 +12,7 @@ vibrator模块提供控制设备马达振动的能力。包括启动指定时长
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { vibrator } from '@kit.SensorServiceKit';
 
 
 
-##### vibrator.startVibration9+
+#### vibrator.startVibration9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -185,7 +185,7 @@ try {
 
 
 
-##### vibrator.startVibration9+
+#### vibrator.startVibration9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -352,7 +352,7 @@ try {
 
 
 
-##### vibrator.stopVibration9+
+#### vibrator.stopVibration9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -472,7 +472,7 @@ try {
 
 
 
-##### vibrator.stopVibration9+
+#### vibrator.stopVibration9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -590,7 +590,7 @@ try {
 
 
 
-##### vibrator.stopVibration10+
+#### vibrator.stopVibration10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -644,7 +644,7 @@ try {
 
 
 
-##### vibrator.stopVibration10+
+#### vibrator.stopVibration10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -696,7 +696,7 @@ try {
 
 
 
-##### vibrator.stopVibration19+
+#### vibrator.stopVibration19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -768,7 +768,7 @@ function vibratorDemo() {
 
 
 
-##### vibrator.stopVibrationSync12+
+#### vibrator.stopVibrationSync12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -811,7 +811,7 @@ try {
 
 
 
-##### vibrator.isSupportEffect10+
+#### vibrator.isSupportEffect10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -884,7 +884,7 @@ try {
 
 
 
-##### vibrator.isSupportEffect10+
+#### vibrator.isSupportEffect10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -958,7 +958,7 @@ try {
 
 
 
-##### vibrator.isSupportEffectSync12+
+#### vibrator.isSupportEffectSync12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1011,7 +1011,7 @@ try {
 
 
 
-##### vibrator.getEffectInfoSync19+
+#### vibrator.getEffectInfoSync19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1063,7 +1063,7 @@ try {
 
 
 
-##### vibrator.getVibratorInfoSync19+
+#### vibrator.getVibratorInfoSync19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1104,7 +1104,7 @@ try {
 
 
 
-##### vibrator.on19+
+#### vibrator.on19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1154,7 +1154,7 @@ try {
 
 
 
-##### vibrator.off19+
+#### vibrator.off19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1205,7 +1205,7 @@ try {
 
 
 
-##### VibratorStatusEvent19+
+#### VibratorStatusEvent19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1223,7 +1223,7 @@ try {
 
 
 
-##### VibratorInfoParam19+
+#### VibratorInfoParam19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1239,7 +1239,7 @@ try {
 
 
 
-##### EffectInfo19+
+#### EffectInfo19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1254,7 +1254,7 @@ try {
 
 
 
-##### VibratorInfo19+
+#### VibratorInfo19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1273,7 +1273,7 @@ try {
 
 
 
-##### vibrator.isHdHapticSupported12+
+#### vibrator.isHdHapticSupported12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1318,13 +1318,13 @@ try {
 
 
 
-##### VibratorPatternBuilder18+
+#### VibratorPatternBuilder18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### vibrator('addContinuousEvent')18+
+#### vibrator('addContinuousEvent')18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1397,7 +1397,7 @@ try {
 
 
 
-##### vibrator('addTransientEvent')18+
+#### vibrator('addTransientEvent')18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1455,7 +1455,7 @@ try {
 
 
 
-##### vibrator('build')18+
+#### vibrator('build')18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1513,7 +1513,7 @@ try {
 
 
 
-##### EffectId
+#### EffectId
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1532,7 +1532,7 @@ try {
 
 
 
-##### HapticFeedback12+
+#### HapticFeedback12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1552,7 +1552,7 @@ try {
 
 
 
-##### VibratorStopMode
+#### VibratorStopMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1568,7 +1568,7 @@ try {
 
 
 
-##### VibrateEffect9+
+#### VibrateEffect9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1588,7 +1588,7 @@ type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile | VibrateFrom
 
 
 
-##### VibrateTime9+
+#### VibrateTime9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1606,7 +1606,7 @@ type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile | VibrateFrom
 
 
 
-##### VibratePreset9+
+#### VibratePreset9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1624,7 +1624,7 @@ type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile | VibrateFrom
 
 
 
-##### VibrateFromFile10+
+#### VibrateFromFile10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1640,7 +1640,7 @@ type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile | VibrateFrom
 
 
 
-##### HapticFileDescriptor10+
+#### HapticFileDescriptor10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1657,7 +1657,7 @@ type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile | VibrateFrom
 
 
 
-##### VibratorEventType18+
+#### VibratorEventType18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1673,7 +1673,7 @@ type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile | VibrateFrom
 
 
 
-##### VibratorCurvePoint18+
+#### VibratorCurvePoint18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1690,7 +1690,7 @@ type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile | VibrateFrom
 
 
 
-##### VibratorEvent18+
+#### VibratorEvent18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1711,7 +1711,7 @@ type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile | VibrateFrom
 
 
 
-##### VibratorPattern18+
+#### VibratorPattern18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1727,7 +1727,7 @@ type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile | VibrateFrom
 
 
 
-##### ContinuousParam18+
+#### ContinuousParam18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1745,7 +1745,7 @@ type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile | VibrateFrom
 
 
 
-##### TransientParam18+
+#### TransientParam18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1762,7 +1762,7 @@ type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile | VibrateFrom
 
 
 
-##### VibrateFromPattern18+
+#### VibrateFromPattern18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1778,7 +1778,7 @@ type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile | VibrateFrom
 
 
 
-##### VibrateAttribute9+
+#### VibrateAttribute9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1797,7 +1797,7 @@ type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile | VibrateFrom
 
 
 
-##### Usage9+
+#### Usage9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1824,7 +1824,7 @@ type Usage = 'unknown' | 'alarm' | 'ring' | 'notification' | 'communication' | '
 
 
 
-##### vibrator.vibrate(deprecated)
+#### vibrator.vibrate(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1867,7 +1867,7 @@ vibrator.vibrate(1000).then(() => {
 
 
 
-##### vibrator.vibrate(deprecated)
+#### vibrator.vibrate(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1906,7 +1906,7 @@ vibrator.vibrate(1000, (error: BusinessError) => {
 
 
 
-##### vibrator.vibrate(deprecated)
+#### vibrator.vibrate(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1949,7 +1949,7 @@ vibrator.vibrate(vibrator.EffectId.EFFECT_CLOCK_TIMER).then(() => {
 
 
 
-##### vibrator.vibrate(deprecated)
+#### vibrator.vibrate(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1988,7 +1988,7 @@ vibrator.vibrate(vibrator.EffectId.EFFECT_CLOCK_TIMER, (error: BusinessError) =>
 
 
 
-##### vibrator.stop(deprecated)
+#### vibrator.stop(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2040,7 +2040,7 @@ vibrator.stop(vibrator.VibratorStopMode.VIBRATOR_STOP_MODE_PRESET).then(() => {
 
 
 
-##### vibrator.stop(deprecated)
+#### vibrator.stop(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

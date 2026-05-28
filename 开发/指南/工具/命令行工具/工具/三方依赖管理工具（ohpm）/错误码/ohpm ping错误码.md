@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-ping-errorcode
 
-##### 00632001 ping仓库失败
+#### 00632001 ping仓库失败
 
 **错误信息**
  
@@ -24,7 +24,7 @@ ping仓库地址失败。
  
  
 
-##### 00632002 仓库地址为空
+#### 00632002 仓库地址为空
 
 **错误信息**
  
@@ -44,7 +44,7 @@ Registry Is Empty.
  
  
 
-##### 00638001 命令行中使用了无效选项
+#### 00638001 命令行中使用了无效选项
 
 **错误信息**
  

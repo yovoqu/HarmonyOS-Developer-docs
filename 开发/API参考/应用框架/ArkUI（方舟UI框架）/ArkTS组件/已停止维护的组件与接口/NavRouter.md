@@ -12,7 +12,7 @@
 
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,13 +24,13 @@
  
   
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### NavRouter(deprecated)
+#### NavRouter(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -46,7 +46,7 @@ NavRouter()
  
   
 
-##### NavRouter(deprecated)
+#### NavRouter(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -71,7 +71,7 @@ NavRouter(value: RouteInfo)
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -79,7 +79,7 @@ NavRouter(value: RouteInfo)
  
   
 
-##### mode(deprecated)
+#### mode(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -104,7 +104,7 @@ mode(mode: NavRouteMode)
  
   
 
-##### RouteInfo(deprecated)对象说明
+#### RouteInfo(deprecated)对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -122,7 +122,7 @@ mode(mode: NavRouteMode)
  
   
 
-##### NavRouteMode(deprecated)枚举说明
+#### NavRouteMode(deprecated)枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -145,13 +145,13 @@ mode(mode: NavRouteMode)
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### onStateChange(deprecated)
+#### onStateChange(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -176,7 +176,7 @@ onStateChange(callback: (isActivated: boolean) => void)
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -261,4 +261,4 @@ struct NavRouterExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/s7WZm4opRSq9sBGoiyiSxg/zh-cn_image_0000002581276388.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024225Z&HW-CC-Expire=86400&HW-CC-Sign=3BE27DCA17CA3FF48F6A636C1628A398E28444BCF54F1499FD4FDB4FD99FEC7F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/s7WZm4opRSq9sBGoiyiSxg/zh-cn_image_0000002581276388.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025558Z&HW-CC-Expire=86400&HW-CC-Sign=832292AFF73521D38A5E4A13925C11AEC27063171CB7A5DB146613FACAD4A182)

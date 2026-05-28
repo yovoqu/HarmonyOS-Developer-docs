@@ -7,13 +7,13 @@
 从API version 22开始，[OHAudioSuite](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite)给开发者提供音频实时渲染能力，即音频实时播放时可进行自定义音效（仅支持均衡器节点）。例如，可以使用均衡器中预置的音效，改变音乐的风格。
 
 
-##### 开发基础配置
+#### 开发基础配置
 
 开发者使用[OHAudioSuite](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite)提供的实时渲染能力，添加对应的头文件。
 
 
 
-##### 在CMake脚本中链接动态库
+#### 在CMake脚本中链接动态库
 
 ```text
 target_link_libraries(sample PUBLIC libohaudio.so libohaudiosuite.so)
@@ -21,7 +21,7 @@ target_link_libraries(sample PUBLIC libohaudio.so libohaudiosuite.so)
 
 
 
-##### 添加头文件
+#### 添加头文件
 
 开发者通过引入头文件<[native_audio_suite_base.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-base-h)>、<[native_audio_suite_engine.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h)>、<[native_audiostreambuilder.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostreambuilder-h)>和<[native_audiorenderer.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiorenderer-h)>使用音频编创和音频播放相关API。
 
@@ -34,17 +34,17 @@ target_link_libraries(sample PUBLIC libohaudio.so libohaudiosuite.so)
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 
 
-##### 接口调用
+#### 接口调用
 
 详细的API说明请参考[OHAudioSuite](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite)。
 
 
 
-##### 均衡器效果
+#### 均衡器效果
 
 **图1**：实时播放示意图
 
@@ -248,7 +248,7 @@ OH_AudioSuiteEngine_Destroy(audioSuiteEngine);
 
   
 
-  ##### 注意事项
+  #### 注意事项
 
   
 音频实时渲染过程中，不支持重新创建新的效果节点，只支持修改效果节点的参数。

@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-scsi-peripheral-api-h
 **支持设备：** PC/2in1
 
-##### 概述
+#### 概述
 
 **支持设备：** PC/2in1
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** PC/2in1
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** PC/2in1
  
@@ -54,13 +54,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** PC/2in1
 
   
 
-##### OH_ScsiPeripheral_Init()
+#### OH_ScsiPeripheral_Init()
 
 **支持设备：** PC/2in1
 
@@ -85,7 +85,7 @@ int32_t OH_ScsiPeripheral_Init(void)
  
   
 
-##### OH_ScsiPeripheral_Release()
+#### OH_ScsiPeripheral_Release()
 
 **支持设备：** PC/2in1
 
@@ -110,7 +110,7 @@ int32_t OH_ScsiPeripheral_Release(void)
  
   
 
-##### OH_ScsiPeripheral_Open()
+#### OH_ScsiPeripheral_Open()
 
 **支持设备：** PC/2in1
 
@@ -144,7 +144,7 @@ int32_t OH_ScsiPeripheral_Open(uint64_t deviceId, uint8_t interfaceIndex, ScsiPe
  
   
 
-##### OH_ScsiPeripheral_Close()
+#### OH_ScsiPeripheral_Close()
 
 **支持设备：** PC/2in1
 
@@ -176,7 +176,7 @@ int32_t OH_ScsiPeripheral_Close(ScsiPeripheral_Device **dev)
  
   
 
-##### OH_ScsiPeripheral_TestUnitReady()
+#### OH_ScsiPeripheral_TestUnitReady()
 
 **支持设备：** PC/2in1
 
@@ -210,7 +210,7 @@ int32_t OH_ScsiPeripheral_TestUnitReady(ScsiPeripheral_Device *dev, ScsiPeripher
  
   
 
-##### OH_ScsiPeripheral_Inquiry()
+#### OH_ScsiPeripheral_Inquiry()
 
 **支持设备：** PC/2in1
 
@@ -245,7 +245,7 @@ int32_t OH_ScsiPeripheral_Inquiry(ScsiPeripheral_Device *dev, ScsiPeripheral_Inq
  
   
 
-##### OH_ScsiPeripheral_ReadCapacity10()
+#### OH_ScsiPeripheral_ReadCapacity10()
 
 **支持设备：** PC/2in1
 
@@ -280,7 +280,7 @@ int32_t OH_ScsiPeripheral_ReadCapacity10(ScsiPeripheral_Device *dev, ScsiPeriphe
  
   
 
-##### OH_ScsiPeripheral_RequestSense()
+#### OH_ScsiPeripheral_RequestSense()
 
 **支持设备：** PC/2in1
 
@@ -314,7 +314,7 @@ int32_t OH_ScsiPeripheral_RequestSense(ScsiPeripheral_Device *dev, ScsiPeriphera
  
   
 
-##### OH_ScsiPeripheral_Read10()
+#### OH_ScsiPeripheral_Read10()
 
 **支持设备：** PC/2in1
 
@@ -348,7 +348,7 @@ int32_t OH_ScsiPeripheral_Read10(ScsiPeripheral_Device *dev, ScsiPeripheral_IORe
  
   
 
-##### OH_ScsiPeripheral_Write10()
+#### OH_ScsiPeripheral_Write10()
 
 **支持设备：** PC/2in1
 
@@ -382,7 +382,7 @@ int32_t OH_ScsiPeripheral_Write10(ScsiPeripheral_Device *dev, ScsiPeripheral_IOR
  
   
 
-##### OH_ScsiPeripheral_Verify10()
+#### OH_ScsiPeripheral_Verify10()
 
 **支持设备：** PC/2in1
 
@@ -416,7 +416,7 @@ int32_t OH_ScsiPeripheral_Verify10(ScsiPeripheral_Device *dev, ScsiPeripheral_Ve
  
   
 
-##### OH_ScsiPeripheral_SendRequestByCdb()
+#### OH_ScsiPeripheral_SendRequestByCdb()
 
 **支持设备：** PC/2in1
 
@@ -450,7 +450,7 @@ int32_t OH_ScsiPeripheral_SendRequestByCdb(ScsiPeripheral_Device *dev, ScsiPerip
  
   
 
-##### OH_ScsiPeripheral_CreateDeviceMemMap()
+#### OH_ScsiPeripheral_CreateDeviceMemMap()
 
 **支持设备：** PC/2in1
 
@@ -482,7 +482,7 @@ int32_t OH_ScsiPeripheral_CreateDeviceMemMap(ScsiPeripheral_Device *dev, size_t 
  
   
 
-##### OH_ScsiPeripheral_DestroyDeviceMemMap()
+#### OH_ScsiPeripheral_DestroyDeviceMemMap()
 
 **支持设备：** PC/2in1
 
@@ -512,7 +512,7 @@ int32_t OH_ScsiPeripheral_DestroyDeviceMemMap(ScsiPeripheral_DeviceMemMap *devMm
  
   
 
-##### OH_ScsiPeripheral_ParseBasicSenseInfo()
+#### OH_ScsiPeripheral_ParseBasicSenseInfo()
 
 **支持设备：** PC/2in1
 

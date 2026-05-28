@@ -10,7 +10,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@ import { relationalStore } from '@kit.ArkData';
 
 
 
-##### relationalStore.getRdbStore
+#### relationalStore.getRdbStore
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -132,7 +132,7 @@ class EntryAbility extends UIAbility {
 
 
 
-##### relationalStore.getRdbStore
+#### relationalStore.getRdbStore
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -244,7 +244,7 @@ class EntryAbility extends UIAbility {
 
 
 
-##### relationalStore.getRdbStoreSync24+
+#### relationalStore.getRdbStoreSync24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -331,7 +331,7 @@ class EntryAbility extends UIAbility {
 
 
 
-##### relationalStore.deleteRdbStore
+#### relationalStore.deleteRdbStore
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -410,7 +410,7 @@ class EntryAbility extends UIAbility {
 
 
 
-##### relationalStore.getRdbStoreSync24+
+#### relationalStore.getRdbStoreSync24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -501,7 +501,7 @@ class EntryAbility extends UIAbility {
 
 
 
-##### relationalStore.deleteRdbStore
+#### relationalStore.deleteRdbStore
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -582,7 +582,7 @@ class EntryAbility extends UIAbility {
 
 
 
-##### relationalStore.deleteRdbStore10+
+#### relationalStore.deleteRdbStore10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -672,7 +672,7 @@ class EntryAbility extends UIAbility {
 
 
 
-##### relationalStore.deleteRdbStore10+
+#### relationalStore.deleteRdbStore10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -765,7 +765,7 @@ class EntryAbility extends UIAbility {
 
 
 
-##### relationalStore.isVectorSupported18+
+#### relationalStore.isVectorSupported18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -821,7 +821,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### relationalStore.isTokenizerSupported18+
+#### relationalStore.isTokenizerSupported18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -866,7 +866,7 @@ console.info("custom tokenizer supported on current platform: " + customTypeSupp
 
 
 
-##### relationalStore.getInsertSqlInfo20+
+#### relationalStore.getInsertSqlInfo20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -919,7 +919,7 @@ const sqlInfo: relationalStore.SqlInfo = relationalStore.getInsertSqlInfo(
 
 
 
-##### relationalStore.getUpdateSqlInfo20+
+#### relationalStore.getUpdateSqlInfo20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -973,7 +973,7 @@ const sqlInfo: relationalStore.SqlInfo = relationalStore.getUpdateSqlInfo(
 
 
 
-##### relationalStore.getDeleteSqlInfo20+
+#### relationalStore.getDeleteSqlInfo20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1017,7 +1017,7 @@ const sqlInfo: relationalStore.SqlInfo = relationalStore.getDeleteSqlInfo(predic
 
 
 
-##### relationalStore.getQuerySqlInfo20+
+#### relationalStore.getQuerySqlInfo20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

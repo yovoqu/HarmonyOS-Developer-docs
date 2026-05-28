@@ -14,7 +14,7 @@ Album extends [AbsAlbum](https://developer.huawei.com/consumer/cn/doc/harmonyos-
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -38,7 +38,7 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
 
 
-##### commitModify
+#### commitModify
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -106,7 +106,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### commitModify
+#### commitModify
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -173,7 +173,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### addAssets(deprecated)
+#### addAssets(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -247,7 +247,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### addAssets(deprecated)
+#### addAssets(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -326,7 +326,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### removeAssets(deprecated)
+#### removeAssets(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -400,7 +400,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### removeAssets(deprecated)
+#### removeAssets(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-basepriorityoverlay
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -15,7 +15,7 @@ import { map, mapCommon } from '@kit.MapKit';
  
   
 
-##### BasePriorityOverlay
+#### BasePriorityOverlay
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -31,7 +31,7 @@ import { map, mapCommon } from '@kit.MapKit';
  
   
 
-##### getMaxZoom
+#### getMaxZoom
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -75,7 +75,7 @@ let maxZoom: number = pointAnnotation.getMaxZoom();
  
   
 
-##### getMinZoom
+#### getMinZoom
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -107,7 +107,7 @@ let minZoom: number = pointAnnotation.getMinZoom();
  
   
 
-##### setPriority
+#### setPriority
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -139,7 +139,7 @@ pointAnnotation.setPriority(100);
  
   
 
-##### setZoom
+#### setZoom
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -172,7 +172,7 @@ pointAnnotation.setZoom(3, 10);
  
   
 
-##### setAnimation
+#### setAnimation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -226,7 +226,7 @@ pointAnnotation.setAnimation(animation);
  
   
 
-##### startAnimation
+#### startAnimation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -275,7 +275,7 @@ pointAnnotation.startAnimation();
  
   
 
-##### clearAnimation
+#### clearAnimation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

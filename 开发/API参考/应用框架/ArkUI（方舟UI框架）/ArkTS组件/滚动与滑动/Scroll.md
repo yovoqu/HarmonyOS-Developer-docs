@@ -12,7 +12,7 @@
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -43,7 +43,7 @@ Scroll(scroller?: Scroller)
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -51,7 +51,7 @@ Scroll(scroller?: Scroller)
 
 
 
-##### scrollable
+#### scrollable
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -74,7 +74,7 @@ scrollable(value: ScrollDirection)
 
 
 
-##### scrollBar
+#### scrollBar
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -97,7 +97,7 @@ scrollBar(barState: BarState)
 
 
 
-##### scrollBarColor
+#### scrollBarColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -118,7 +118,7 @@ scrollBarColor(color: Color | number | string)
 
 
 
-##### scrollBarColor22+
+#### scrollBarColor22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -139,7 +139,7 @@ scrollBarColor(color: Color | number | string | Resource)
 
 
 
-##### scrollBarWidth
+#### scrollBarWidth
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -160,7 +160,7 @@ scrollBarWidth(value: number | string)
 
 
 
-##### scrollSnap10+
+#### scrollSnap10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -183,7 +183,7 @@ scrollSnap(value: ScrollSnapOptions)
 
 
 
-##### edgeEffect
+#### edgeEffect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -205,7 +205,7 @@ edgeEffect(edgeEffect: EdgeEffect, options?: EdgeEffectOptions)
 
 
 
-##### enableScrollInteraction10+
+#### enableScrollInteraction10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -230,7 +230,7 @@ enableScrollInteraction(value: boolean)
 
 
 
-##### nestedScroll10+
+#### nestedScroll10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -251,7 +251,7 @@ nestedScroll(value: NestedScrollOptions)
 
 
 
-##### friction10+
+#### friction10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -272,7 +272,7 @@ friction(value: number | Resource)
 
 
 
-##### enablePaging11+
+#### enablePaging11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -293,7 +293,7 @@ enablePaging(value: boolean)
 
 
 
-##### initialOffset12+
+#### initialOffset12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -314,7 +314,7 @@ initialOffset(value: OffsetOptions)
 
 
 
-##### maxZoomScale20+
+#### maxZoomScale20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -335,7 +335,7 @@ maxZoomScale(scale: number)
 
 
 
-##### minZoomScale20+
+#### minZoomScale20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -360,7 +360,7 @@ minZoomScale(scale: number)
 
 
 
-##### zoomScale20+
+#### zoomScale20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -381,7 +381,7 @@ zoomScale(scale: number)
 
 
 
-##### enableBouncesZoom20+
+#### enableBouncesZoom20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -402,7 +402,7 @@ enableBouncesZoom(enable: boolean)
 
 
 
-##### ScrollDirection枚举说明
+#### ScrollDirection枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -441,7 +441,7 @@ FREE（自由滚动）模式下支持的能力：
 
 
 
-##### ScrollSnapOptions10+对象说明
+#### ScrollSnapOptions10+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -461,7 +461,7 @@ FREE（自由滚动）模式下支持的能力：
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -473,7 +473,7 @@ FREE（自由滚动）模式下支持的能力：
 
 
 
-##### onScrollFrameBegin9+
+#### onScrollFrameBegin9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -508,7 +508,7 @@ onScrollFrameBegin(event: OnScrollFrameBeginCallback)
 
 
 
-##### onScroll(deprecated)
+#### onScroll(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -542,7 +542,7 @@ onScroll(event: (xOffset: number, yOffset: number) => void)
 
 
 
-##### onWillScroll12+
+#### onWillScroll12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -577,7 +577,7 @@ onWillScroll(handler: ScrollOnWillScrollCallback)
 
 
 
-##### onDidScroll12+
+#### onDidScroll12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -608,7 +608,7 @@ onDidScroll(handler: ScrollOnScrollCallback)
 
 
 
-##### onScrollEdge
+#### onScrollEdge
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -637,7 +637,7 @@ onScrollEdge(event: OnScrollEdgeCallback)
 
 
 
-##### onScrollEnd(deprecated)
+#### onScrollEnd(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -666,7 +666,7 @@ onScrollEnd(event: () => void)
 
 
 
-##### onScrollStart9+
+#### onScrollStart9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -693,7 +693,7 @@ onScrollStart(event: VoidCallback)
 
 
 
-##### onScrollStop9+
+#### onScrollStop9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -720,7 +720,7 @@ onScrollStop(event: VoidCallback)
 
 
 
-##### onDidZoom20+
+#### onDidZoom20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -741,7 +741,7 @@ onDidZoom(event: ScrollOnDidZoomCallback)
 
 
 
-##### onZoomStart20+
+#### onZoomStart20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -762,7 +762,7 @@ onZoomStart(event: VoidCallback)
 
 
 
-##### onZoomStop20+
+#### onZoomStop20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -783,7 +783,7 @@ onZoomStop(event: VoidCallback)
 
 
 
-##### ScrollOnScrollCallback12+
+#### ScrollOnScrollCallback12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -810,7 +810,7 @@ Scroll滚动时触发的回调。
 
 
 
-##### ScrollOnWillScrollCallback12+
+#### ScrollOnWillScrollCallback12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -841,7 +841,7 @@ Scroll滚动前触发的回调。
 
 
 
-##### OnScrollEdgeCallback18+
+#### OnScrollEdgeCallback18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -862,7 +862,7 @@ type OnScrollEdgeCallback = (side: Edge) => void
 
 
 
-##### OnScrollFrameBeginCallback18+
+#### OnScrollFrameBeginCallback18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -891,7 +891,7 @@ Scroll每帧滚动前触发的回调。
 
 
 
-##### OnScrollFrameBeginHandlerResult18+对象说明
+#### OnScrollFrameBeginHandlerResult18+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -912,7 +912,7 @@ Scroll每帧滚动前触发的回调。
 
 
 
-##### ScrollOnDidZoomCallback20+
+#### ScrollOnDidZoomCallback20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -933,7 +933,7 @@ Scroll每帧缩放完成时触发的回调。
 
 
 
-##### Scroller
+#### Scroller
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -945,7 +945,7 @@ Scroll每帧缩放完成时触发的回调。
 
 
 
-##### 导入对象
+#### 导入对象
 
 ```text
 scroller: Scroller = new Scroller();
@@ -953,7 +953,7 @@ scroller: Scroller = new Scroller();
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -967,7 +967,7 @@ Scroller的构造函数。
 
 
 
-##### scrollTo
+#### scrollTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -992,7 +992,7 @@ scrollTo(options: ScrollOptions)
 
 
 
-##### scrollEdge
+#### scrollEdge
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1016,7 +1016,7 @@ Scroll组件默认有动画，Grid、List、WaterFlow组件默认无动画。
 
 
 
-##### fling12+
+#### fling12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1047,7 +1047,7 @@ fling(velocity: number): void
 
 
 
-##### scrollPage9+
+#### scrollPage9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1068,7 +1068,7 @@ scrollPage(value: ScrollPageOptions)
 
 
 
-##### scrollPage(deprecated)
+#### scrollPage(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1092,7 +1092,7 @@ scrollPage(value: { next: boolean, direction?: Axis })
 
 
 
-##### currentOffset
+#### currentOffset
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1117,7 +1117,7 @@ currentOffset(): OffsetResult
 
 
 
-##### offset23+
+#### offset23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1138,7 +1138,7 @@ offset(): OffsetResult | undefined
 
 
 
-##### scrollToIndex
+#### scrollToIndex
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1168,7 +1168,7 @@ scrollToIndex(value: number, smooth?: boolean, align?: ScrollAlign, options?: Sc
 
 
 
-##### scrollBy9+
+#### scrollBy9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1194,7 +1194,7 @@ scrollBy(dx: Length, dy: Length)
 
 
 
-##### isAtEnd10+
+#### isAtEnd10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1219,7 +1219,7 @@ isAtEnd(): boolean
 
 
 
-##### getItemRect11+
+#### getItemRect11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1265,7 +1265,7 @@ getItemRect(index: number): RectResult
 
 
 
-##### getItemIndex14+
+#### getItemIndex14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1312,7 +1312,7 @@ getItemIndex(x: number, y: number): number
 
 
 
-##### contentSize22+
+#### contentSize22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1346,7 +1346,7 @@ contentSize(): SizeResult
 
 
 
-##### OffsetResult11+对象说明
+#### OffsetResult11+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1364,7 +1364,7 @@ contentSize(): SizeResult
 
 
 
-##### ScrollAnimationOptions12+对象说明
+#### ScrollAnimationOptions12+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1383,7 +1383,7 @@ contentSize(): SizeResult
 
 
 
-##### ScrollAlign10+枚举说明
+#### ScrollAlign10+枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1403,7 +1403,7 @@ contentSize(): SizeResult
 
 
 
-##### ScrollToIndexOptions12+对象说明
+#### ScrollToIndexOptions12+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1420,7 +1420,7 @@ contentSize(): SizeResult
 
 
 
-##### ScrollPageOptions14+对象说明
+#### ScrollPageOptions14+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1438,7 +1438,7 @@ contentSize(): SizeResult
 
 
 
-##### OffsetOptions12+对象说明
+#### OffsetOptions12+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1456,7 +1456,7 @@ contentSize(): SizeResult
 
 
 
-##### ScrollEdgeOptions12+对象说明
+#### ScrollEdgeOptions12+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1473,7 +1473,7 @@ contentSize(): SizeResult
 
 
 
-##### ScrollOptions18+对象说明
+#### ScrollOptions18+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1497,7 +1497,7 @@ contentSize(): SizeResult
 
 
 
-##### UIScrollEvent19+
+#### UIScrollEvent19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1507,7 +1507,7 @@ UIScrollEvent继承于[UIScrollableCommonEvent](https://developer.huawei.com/con
 
 
 
-##### setOnWillScroll19+
+#### setOnWillScroll19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1530,7 +1530,7 @@ setOnWillScroll(callback: ScrollOnWillScrollCallback | undefined): void
 
 
 
-##### setOnDidScroll19+
+#### setOnDidScroll19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1553,13 +1553,13 @@ setOnDidScroll(callback: ScrollOnScrollCallback | undefined): void
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1（设置scroller控制器）
+#### 示例1（设置scroller控制器）
 
 该示例展示了Scroll组件部分属性和scroller控制器的使用。
 
@@ -1665,7 +1665,7 @@ struct ScrollExample {
 
 
 
-##### 示例2（嵌套滚动实现方式一）
+#### 示例2（嵌套滚动实现方式一）
 
 该示例使用onScrollFrameBegin事件实现了内层List组件和外层Scroll组件的嵌套滚动。
 
@@ -1741,12 +1741,12 @@ struct NestedScroll {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/ILCsFmK6RImwVf7MQDVX4A/zh-cn_image_0000002581275846.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024215Z&HW-CC-Expire=86400&HW-CC-Sign=338B4B33A364888DA6906086A62F7134C135ED50B78125E6E6C0D3FA2CDA5E9E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/ILCsFmK6RImwVf7MQDVX4A/zh-cn_image_0000002581275846.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025548Z&HW-CC-Expire=86400&HW-CC-Sign=631B853E1C3B71ADE2B135B7123417D35980BEACE0BB19E9C9FC8466B23557A0)
 
 
 
 
-##### 示例3（嵌套滚动实现方式二）
+#### 示例3（嵌套滚动实现方式二）
 
 该示例使用[nestedScroll](#nestedscroll10)属性实现了内层List组件和外层Scroll组件的嵌套滚动。
 
@@ -1813,12 +1813,12 @@ struct StickyNestedScroll {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/Km9D0Y1LSlSxHUP_hp_M6w/zh-cn_image_0000002611755703.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024215Z&HW-CC-Expire=86400&HW-CC-Sign=E424863A830076194E6CC9D14F289C62C2669A3CBA6FDB4FEF524CDB595EC1B7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/Km9D0Y1LSlSxHUP_hp_M6w/zh-cn_image_0000002611755703.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025548Z&HW-CC-Expire=86400&HW-CC-Sign=4868969A5EBD0C3C30ABF54D7BEAD1C36CA7A40373C9D0BD73DCCB594EB08528)
 
 
 
 
-##### 示例4（嵌套滚动父组件向子组件传递滚动）
+#### 示例4（嵌套滚动父组件向子组件传递滚动）
 
 该示例使用[enableScrollInteraction](#enablescrollinteraction10)属性和[onScrollFrameBegin](#onscrollframebegin9)事件实现了父组件向子组件传递滚动。
 
@@ -1912,12 +1912,12 @@ struct NestedScroll {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/xj5QQGSuQUum5VzmjYPMDw/zh-cn_image_0000002581435766.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024215Z&HW-CC-Expire=86400&HW-CC-Sign=314A4FA494ACCA2223B1B75032A6EDE05D1547D3DD2005D54C7B6993E3BCA545)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/xj5QQGSuQUum5VzmjYPMDw/zh-cn_image_0000002581435766.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025548Z&HW-CC-Expire=86400&HW-CC-Sign=B44CF2E60F6EE689330F9B5A024CA81DA714B7E6E7696696A70F48A2B76B257B)
 
 
 
 
-##### 示例5（设置限位滚动）
+#### 示例5（设置限位滚动）
 
 该示例实现了Scroll组件的限位滚动。
 
@@ -1952,12 +1952,12 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/Ft1jG66yRgiCTbiBSBQkFA/zh-cn_image_0000002611835595.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024215Z&HW-CC-Expire=86400&HW-CC-Sign=15064D87BBFFFC56AC90A7F33E4D69A9822C47322F1AAD2741DEE9A77C415784)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/Ft1jG66yRgiCTbiBSBQkFA/zh-cn_image_0000002611835595.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025548Z&HW-CC-Expire=86400&HW-CC-Sign=ABF7B483EA98941292DD48334C76B5CAEB6CD97CAE9B5AE17A4A69D1EDC7F475)
 
 
 
 
-##### 示例6（获取子组件索引）
+#### 示例6（获取子组件索引）
 
 该示例展示了如何获得List组件的子组件索引。
 
@@ -2034,12 +2034,12 @@ struct ListExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/kSq5alTnRDuIwDfFlggroA/zh-cn_image_0000002581275848.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024215Z&HW-CC-Expire=86400&HW-CC-Sign=130A00ADA65BB0DB17977C2E26FB77BC19D19AA626420D6451A32D3C0C69E274)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/kSq5alTnRDuIwDfFlggroA/zh-cn_image_0000002581275848.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025548Z&HW-CC-Expire=86400&HW-CC-Sign=D4A5285808505455F005FF95D2F4280AC06CF278791E4D121FB630CA0E370EA6)
 
 
 
 
-##### 示例7（设置边缘渐隐）
+#### 示例7（设置边缘渐隐）
 
 该示例实现了Scroll组件开启边缘渐隐效果并设置边缘渐隐长度。
 
@@ -2078,12 +2078,12 @@ struct ScrollExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/OSuxEs6IR-irJiNPV3Ht_Q/zh-cn_image_0000002611755705.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024215Z&HW-CC-Expire=86400&HW-CC-Sign=0CD4A6470F3CFDF33D5E7E7773C0800AF94E799C861F049A16662A5292A22ABF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/OSuxEs6IR-irJiNPV3Ht_Q/zh-cn_image_0000002611755705.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025548Z&HW-CC-Expire=86400&HW-CC-Sign=62B7833C8B1A75EE7C39222BB7C4525D86D3CDDFEC5A409FD3F37B97C2275134)
 
 
 
 
-##### 示例8（单边边缘效果）
+#### 示例8（单边边缘效果）
 
 该示例通过[edgeEffect](#edgeeffect)接口，实现了Scroll组件设置单边边缘效果。
 
@@ -2118,12 +2118,12 @@ struct ScrollExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/hTsttc9vQdmoGKTmqG1TYQ/zh-cn_image_0000002581435768.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024215Z&HW-CC-Expire=86400&HW-CC-Sign=D416C65DA75068B10968CEC373910E389F83D005DBB9860718327439DBE1F784)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/hTsttc9vQdmoGKTmqG1TYQ/zh-cn_image_0000002581435768.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025548Z&HW-CC-Expire=86400&HW-CC-Sign=50EE3C4B41A86EF7021592DBEFDD124DBBA316487A8D5D4F8FADDE8242C292D6)
 
 
 
 
-##### 示例9（划动翻页效果）
+#### 示例9（划动翻页效果）
 
 该示例通过[enablePaging](#enablepaging11)接口，实现了Scroll组件滑动翻页效果。
 
@@ -2156,12 +2156,12 @@ struct EnablePagingExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/vuIL1RcnQf6VJThRRDu8wA/zh-cn_image_0000002611835597.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024215Z&HW-CC-Expire=86400&HW-CC-Sign=8EC9D319F28DFF111E8F5CEE383FFE2ABB8F249F9088239CF0499D4B59A083E1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/vuIL1RcnQf6VJThRRDu8wA/zh-cn_image_0000002611835597.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025548Z&HW-CC-Expire=86400&HW-CC-Sign=136CE4AB5977E1D3F5AF0C9F3FBE794CB43B94942237D12296A0F001A38A5D18)
 
 
 
 
-##### 示例10（设置过界停留）
+#### 示例10（设置过界停留）
 
 该示例通过[scrollTo](#scrollto)接口，实现了Scroll组件设置过界停留效果。
 
@@ -2223,12 +2223,12 @@ struct StickyNestedScroll {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/A8psgFD4QrSRRYRl6tUy9A/zh-cn_image_0000002581275850.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024215Z&HW-CC-Expire=86400&HW-CC-Sign=D3280398D7E1FF40417D42124324C9E100E647D6DD0B9792A05A0B533DACC4C7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/A8psgFD4QrSRRYRl6tUy9A/zh-cn_image_0000002581275850.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025548Z&HW-CC-Expire=86400&HW-CC-Sign=B98A6A9B891B641B6F5C1A8A4F677977849819C7BCAD32E57B3B0806D31D57A2)
 
 
 
 
-##### 示例11（自由滚动和缩放）
+#### 示例11（自由滚动和缩放）
 
 从API version 20开始，该示例实现了Scroll组件自由滚动和缩放效果。
 
@@ -2263,12 +2263,12 @@ struct ScrollZoomExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/vhv3vTQJSVCyP5iSATE0ug/zh-cn_image_0000002611755707.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024215Z&HW-CC-Expire=86400&HW-CC-Sign=E9F5D6FFFE327F1478C83F9E3C3C239A9A60047639FBAC219F23252D23C78686)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/vhv3vTQJSVCyP5iSATE0ug/zh-cn_image_0000002611755707.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025548Z&HW-CC-Expire=86400&HW-CC-Sign=4B625AA7211EE762D64DC624FA60C7C834F3CD2E6BC1E2E6473018168353FFA3)
 
 
 
 
-##### 示例12（获取内容总大小）
+#### 示例12（获取内容总大小）
 
 从API version 22 开始，该示例实现了获取内容总大小的功能。
 
@@ -2342,12 +2342,12 @@ struct ScrollExample1 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/pKsjfZUYRv6S_bJtvCCPvg/zh-cn_image_0000002581435770.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024215Z&HW-CC-Expire=86400&HW-CC-Sign=D606B3C9F9142969D8999599C454B015E12C6F594ABBC1A646E9FFB03227DE77)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/pKsjfZUYRv6S_bJtvCCPvg/zh-cn_image_0000002581435770.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025548Z&HW-CC-Expire=86400&HW-CC-Sign=CEA8038E5F3836C5E7844E9693FAE1314D3FEC45603998587B44BB932CAA22C8)
 
 
 
 
-##### 示例13（设置滚动事件）
+#### 示例13（设置滚动事件）
 
 该示例通过FrameNode中的[getEvent('Scroll')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#geteventscroll19)获取[UIScrollEvent](#uiscrollevent19)，并为Scroll设置滚动事件回调，用于事件监听方因无法直接修改页面代码而无法使用声明式接口设置回调的场景。
 

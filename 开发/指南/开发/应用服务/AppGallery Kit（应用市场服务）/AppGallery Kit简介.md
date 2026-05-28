@@ -27,11 +27,11 @@ AppGallery Kit（应用市场服务）提供应用市场业务的对外开放能
 **[应用评论服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appgallery-comment)**：您可以通过本服务对应用进行评论，在应用内拉起应用评分弹窗。
   
 
-##### 约束和限制
+#### 约束和限制
 
   
 
-##### 支持的设备
+#### 支持的设备
  
 | 能力 | 支持设备 |
 | --- | --- |
@@ -48,7 +48,7 @@ AppGallery Kit（应用市场服务）提供应用市场业务的对外开放能
  
   
 
-##### 支持的国家/地区
+#### 支持的国家/地区
  
 | 能力 | 支持的国家/地区 |
 | --- | --- |
@@ -65,7 +65,7 @@ AppGallery Kit（应用市场服务）提供应用市场业务的对外开放能
  
   
 
-##### 模拟器支持情况
+#### 模拟器支持情况
 
 本Kit支持模拟器，但与真机存在部分能力差异，具体差异如下：
  
@@ -75,6 +75,6 @@ AppGallery Kit（应用市场服务）提供应用市场业务的对外开放能
  
   
 
-##### 示例代码
+#### 示例代码
 
 该指南涉及到的示例代码均为片段，全量示例代码请参考：[Samplecode](https://gitcode.com/HarmonyOS_Samples/appgallerykit-samplecode-clientdemo-arkts)。

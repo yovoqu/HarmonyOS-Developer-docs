@@ -7,7 +7,7 @@
 禁止重复的模块导入。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[eslint/no-duplicate-imports选项](https://eslint.nodejs.cn/docs/latest/rules/no-duplicate-imports#选项)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 // foo和bar代表两个文件
@@ -36,7 +36,7 @@ import bar from './bar';
  
  
 
-##### 反例
+#### 反例
 
 ```text
 // foo代表文件
@@ -46,7 +46,7 @@ import { bar } from './foo';
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

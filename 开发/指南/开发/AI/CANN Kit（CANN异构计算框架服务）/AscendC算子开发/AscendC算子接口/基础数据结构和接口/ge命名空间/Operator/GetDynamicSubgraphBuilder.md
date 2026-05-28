@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getdynamicsubgraphbuilder
 
-##### 函数功能
+#### 函数功能
 
 根据子图名称和子图索引获取算子对应的动态输入子图的构建函数对象。
  
   
 
-##### 函数原型
+#### 函数原型
 
 > [!NOTE]
 > 数据类型为string的接口后续版本会废弃，建议使用数据类型为非string的接口。
@@ -23,7 +23,7 @@ SubgraphBuilder GetDynamicSubgraphBuilder(const char_t *name, uint32_t index) co
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 描述 |
 | --- | --- | --- |
@@ -33,18 +33,18 @@ SubgraphBuilder GetDynamicSubgraphBuilder(const char_t *name, uint32_t index) co
  
   
 
-##### 返回值
+#### 返回值
 
 SubgraphBuilder对象。
  
   
 
-##### 异常处理
+#### 异常处理
 
 无
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

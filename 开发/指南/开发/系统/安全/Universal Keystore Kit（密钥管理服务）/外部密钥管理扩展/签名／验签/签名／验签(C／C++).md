@@ -12,7 +12,7 @@
 具体的场景介绍及支持的算法规格，请参考[签名/验签介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-ukey-signing-signature-verification-overview)。
 
 
-##### 在CMake脚本中链接相关动态库
+#### 在CMake脚本中链接相关动态库
 
 ```text
 target_link_libraries(entry PUBLIC libhuks_ndk.z.so libhuks_external_crypto.z.so)
@@ -20,7 +20,7 @@ target_link_libraries(entry PUBLIC libhuks_ndk.z.so libhuks_external_crypto.z.so
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 **签名**
 1. 通过证书管理系统能力提供的[证书选择接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certificatemanagerdialogopenauthorizedialog22)获取[keyUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certreference22)作为resourceId，并作为密钥别名，[打开资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-open-close-resource-ndk#打开资源)后完成PIN码认证。
@@ -39,11 +39,11 @@ target_link_libraries(entry PUBLIC libhuks_ndk.z.so libhuks_external_crypto.z.so
 
 
 
-##### 开发案例
+#### 开发案例
 
 
 
-##### RSA/SHA384/PSS
+#### RSA/SHA384/PSS
 
 ```text
 #include "huks/native_huks_api.h"

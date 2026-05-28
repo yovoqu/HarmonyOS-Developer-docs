@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-gdb
 
-##### 功能介绍
+#### 功能介绍
 
 可使用gdb单步调试算子计算精度。由于cpu调测已转为多进程调试，每个核都会拉起独立的子进程，故gdb需要转换成子进程调试的方式。
  
   
 
-##### 使用方法（命令行）
+#### 使用方法（命令行）
 
 - 调试单独一个子进程
 

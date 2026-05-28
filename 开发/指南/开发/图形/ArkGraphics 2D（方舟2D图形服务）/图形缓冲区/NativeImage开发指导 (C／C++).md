@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-image-guidelines
 
-##### 场景介绍
+#### 场景介绍
 
 NativeImage是提供**Surface与OpenGL外部纹理相互绑定**的模块，表示图形队列的消费者端。开发者可以通过NativeImage接口接收和使用Buffer，并将Buffer关联输出到绑定的OpenGL外部纹理。
 
@@ -15,7 +15,7 @@ NativeImage常见的开发场景如下：
 
 
 
-##### 接口说明
+#### 接口说明
 
 | 接口名 | 描述 |
 | --- | --- |
@@ -33,7 +33,7 @@ NativeImage常见的开发场景如下：
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 以下步骤描述了如何使用NativeImage提供的Native API接口，创建OH_NativeImage实例作为消费者端，将数据内容更新到OpenGL外部纹理上。
 

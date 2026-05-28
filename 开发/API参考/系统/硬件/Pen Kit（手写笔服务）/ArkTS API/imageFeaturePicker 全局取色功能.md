@@ -12,7 +12,7 @@
 **起始版本：** 5.0.0(12)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { imageFeaturePicker } from '@kit.Penkit';
  
   
 
-##### PickedColorInfo
+#### PickedColorInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -43,7 +43,7 @@ import { imageFeaturePicker } from '@kit.Penkit';
  
   
 
-##### pickForResult
+#### pickForResult
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -104,7 +104,7 @@ try {
  
   
 
-##### pickForResult
+#### pickForResult
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

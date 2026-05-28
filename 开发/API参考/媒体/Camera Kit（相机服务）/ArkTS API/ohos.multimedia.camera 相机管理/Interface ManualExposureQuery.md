@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { camera } from '@kit.CameraKit';
  
   
 
-##### getSupportedExposureDurationRange24+
+#### getSupportedExposureDurationRange24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -70,7 +70,7 @@ function getSupportedExposureDurationRange(photoSession: camera.PhotoSession): A
  
   
 
-##### getExposureBiasStep24+
+#### getExposureBiasStep24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

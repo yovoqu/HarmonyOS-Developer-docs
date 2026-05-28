@@ -9,7 +9,7 @@ Web组件为开发者提供了启用和配置前进后退缓存（以下简称BF
 BFCache功能启用后，Web组件会在用户离开当前页面时在内存中保存该页面的快照。当用户在短期内通过Web组件的前进或后退功能重新访问同一页面时，能够迅速恢复页面状态，避免重复发起HTTP请求。
 
 
-##### Web组件开启BFCache
+#### Web组件开启BFCache
 
 开发者需要在调用[initializeWebEngine()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#initializewebengine)初始化ArkWeb内核之前调用[enableBackForwardCache()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#enablebackforwardcache12)来开启BFCache。enableBackForwardCache可以接收一个[BackForwardCacheSupportedFeatures](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/kts-apis-webview-backforwardcachesupportedfeatures)参数，用于控制是否允许具备同层渲染特性和视频托管特性的页面进入BFCache。
 
@@ -34,7 +34,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### 设置缓存的页面数量和页面留存的时间
+#### 设置缓存的页面数量和页面留存的时间
 
 启用BFCache后默认仅能存储一个页面，Web组件默认进入BFCache的页面可保持存活状态600秒。开发者可通过调用[setBackForwardCacheOptions()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#setbackforwardcacheoptions12)设置每个Web实例的前进后退缓存策略。包括调整缓存中页面的最大数量，使BFCache能够容纳更多页面，从而在用户连续进行前进后退操作时，提供更快的加载速度。同时，开发者还能修改每个页面在缓存中的停留时间，延长页面在BFCache中的驻留期限，进而优化用户的浏览体验。
 

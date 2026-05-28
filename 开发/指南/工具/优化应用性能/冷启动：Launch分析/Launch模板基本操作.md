@@ -13,7 +13,7 @@
 
  
 
-##### 启动模式
+#### 启动模式
 
 启动模式分为
 ![](assets/Launch模板基本操作/file-20260514133139387-1.png)
@@ -27,7 +27,7 @@
  
  
 
-##### 查看启动过程中各阶段的耗时情况
+#### 查看启动过程中各阶段的耗时情况
 1. 创建Launch场景调优分析任务并录制相关数据，操作方法可参考[性能问题定位：深度录制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/deep-recording)，或在会话区选择**Open File**，导入历史数据。
 
   
@@ -66,35 +66,35 @@ Category：该ETS文件在应用启动过程中是否被使用。
  
  
 
-##### 分析静态资源库加载耗时
+#### 分析静态资源库加载耗时
 1. 展开“Launch”泳道，其中的“Static Initialization”子泳道展示启动过程中各静态资源库的加载耗时。
 2. 单击单个静态资源库色块，或框选多个静态资源库，下方的“Details”区域展示所选对象的耗时统计信息。
 
   针对耗时超过预期的加载任务，可单击跳转按钮，跳转至相关线程打点任务中进行深度分析。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/pWE1JkTWTWe3juaXCT0XpQ/zh-cn_image_0000002571386920.png?HW-CC-KV=V1&HW-CC-Date=20260528T015027Z&HW-CC-Expire=86400&HW-CC-Sign=0E39116B5570967483890AA1AF786105D6A2C31826E57AFD6C331C240AA03D05)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/vDjYFCjiSSS6TAtLjH3q5Q/zh-cn_image_0000002571386920.png?HW-CC-KV=V1&HW-CC-Date=20260528T030658Z&HW-CC-Expire=86400&HW-CC-Sign=A7D6605A642596C90B5F4CC73C30457AC4C0F6F91FFCD1E917DE7EC6BBD5F1D0)
 
  
 
  
  
 
-##### 查看核心线程在CPU Core的运行情况
+#### 查看核心线程在CPU Core的运行情况
 1. 展开“Launch”泳道，其中的“Running CPU Cores”子泳道展示启动过程中的关键线程具体运行在哪个CPU核心。
 2. 单击单个进程色块，或框选多个进程，下方的“Details”区域展示所选对象的运行情况统计信息。
 
   单击对应CPU的跳转按钮，可进一步跳转到CPU Core泳道查看详细的调度信息。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/hIeTaLVPRo-RW9LykPNDoQ/zh-cn_image_0000002571546558.png?HW-CC-KV=V1&HW-CC-Date=20260528T015027Z&HW-CC-Expire=86400&HW-CC-Sign=79D6CCDCAAB5BC4052204FA558A3B69EC2EE8C426273432CFBABA5A2B09FED53)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/6rK4hEeTQ6qn2l5lmbTS-Q/zh-cn_image_0000002571546558.png?HW-CC-KV=V1&HW-CC-Date=20260528T030658Z&HW-CC-Expire=86400&HW-CC-Sign=BC22156AA1F7D8B550562DB0879B8D88B011804B727347B548D467150AD40291)
 
  
 
  
  
 
-##### 查看启动过程相关的线程Trace数据
+#### 查看启动过程相关的线程Trace数据
 1. 展开“Launch”泳道，除“Static Initialization”、“Running CPU Cores”外，还包含启动过程的关键线程的状态和Trace数据。
 2. 单击单个切片色块，或框选多个切片，可查看所选对象的详情。
 

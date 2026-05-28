@@ -12,7 +12,7 @@
 
   
 
-##### onFrame12+
+#### onFrame12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -73,7 +73,7 @@ struct Index {
  
   
 
-##### onIdle12+
+#### onIdle12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

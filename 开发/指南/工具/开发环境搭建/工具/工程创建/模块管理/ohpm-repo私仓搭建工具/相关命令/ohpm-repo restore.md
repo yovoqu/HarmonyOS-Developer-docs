@@ -7,7 +7,7 @@
 将ohpm-repo pack打包产物替换&lt;deploy_root&gt;目录下相应文件，重启服务。
  
 
-##### 前提条件
+#### 前提条件
 
 - 已成功执行[start 命令](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-repo-start)或者[restart 命令](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-repo-restart)，ohpm-repo服务启动成功。
 - 已获得由[pack 命令](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-repo-pack)打包的.zip 文件。
@@ -15,7 +15,7 @@
  
  
 
-##### 命令格式
+#### 命令格式
 
 ```text
 ohpm-repo restore <file_path>
@@ -23,7 +23,7 @@ ohpm-repo restore <file_path>
  
  
 
-##### 功能描述
+#### 功能描述
 
 该命令会停止当前ohpm-repo服务，并用打包文件&lt;file_path&gt;中的内容替换ohpm-repo部署根目录&lt;deploy_root&gt;的相应文件，然后重启ohpm-repo服务。该命令执行前必须已执行过ohpm-repo实例启动命令ohpm-repo start。
  
@@ -33,11 +33,11 @@ ohpm-repo restore <file_path>
  
  
 
-##### 参数
+#### 参数
 
  
 
-##### &lt;file_path&gt;
+#### &lt;file_path&gt;
 
 - 类型：String
 - 必填参数
@@ -47,7 +47,7 @@ ohpm-repo restore <file_path>
  
  
 
-##### 示例
+#### 示例
 
 执行以下命令：
  
@@ -58,4 +58,4 @@ ohpm-repo restore "D:\pack_1702625827995.zip"
 结果示例：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/dnoZA9KASHGvGKsxYoUaHg/zh-cn_image_0000002602184995.png?HW-CC-KV=V1&HW-CC-Date=20260528T015018Z&HW-CC-Expire=86400&HW-CC-Sign=FFA04B6FD1D381175262A0C4BF2CBC424DA957654735166307B2ABEB474CA0B2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/FbXBsxJ5RyuTu6Zpipo_NQ/zh-cn_image_0000002602184995.png?HW-CC-KV=V1&HW-CC-Date=20260528T030648Z&HW-CC-Expire=86400&HW-CC-Sign=F24A597D838313F312FF79B7EBC84CD08687C747F2D3BB8D5AF5BD4424A5018E)

@@ -9,7 +9,7 @@
 该规则仅支持对.js/.ts文件进行检查。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -22,13 +22,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/prefer-literal-enum-member选项](https://typescript-eslint.nodejs.cn/rules/prefer-literal-enum-member/#options)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 export enum Valid {
@@ -39,7 +39,7 @@ export enum Valid {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 const str = 'Test';
@@ -54,7 +54,7 @@ export enum Invalid {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/recommended</span>

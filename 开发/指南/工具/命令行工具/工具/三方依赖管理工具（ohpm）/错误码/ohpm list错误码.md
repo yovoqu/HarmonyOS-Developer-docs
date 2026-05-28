@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-list-errorcode
 
-##### 00622014  parameterFile配置问题
+#### 00622014  parameterFile配置问题
 
 **错误信息**
  
@@ -24,7 +24,7 @@ parameterFile配置问题。
  
  
 
-##### 00608001 包未找到
+#### 00608001 包未找到
 
 **错误信息**
  
@@ -44,7 +44,7 @@ Pkg Not Found.
  
  
 
-##### 00618005 存在循环依赖
+#### 00618005 存在循环依赖
 
 **错误信息**
  

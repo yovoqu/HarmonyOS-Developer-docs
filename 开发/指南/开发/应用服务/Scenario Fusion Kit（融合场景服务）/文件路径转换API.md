@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-api-path-conversion
 
-##### 场景介绍
+#### 场景介绍
 
 Scenario Fusion Kit提供文件路径转换的API，在HarmonyOS 4及以下到HarmonyOS 5及以上的升级场景和克隆场景，调用该接口可以将源文件路径转换为目标文件路径。
 
 
 
-##### 接口说明
+#### 接口说明
 
 以下是获取转换文件uri信息的接口说明，更多接口及使用方法请参见[fileUriService（文件路径转换API）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scenario-fusion-fileuriresult)。
 
@@ -21,7 +21,7 @@ Scenario Fusion Kit提供文件路径转换的API，在HarmonyOS 4及以下到Ha
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 导入Scenario Fusion Kit模块以及相关公共模块。
 
   

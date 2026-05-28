@@ -29,7 +29,7 @@
 
   
 
-##### 引入ICU4C国际化能力
+#### 引入ICU4C国际化能力
 
 如果开发者需要使用ICU4C相关功能，请按需要添加对应的头文件。本模块头文件需要添加unicode目录前缀，例如：
  
@@ -45,6 +45,6 @@ libicu.so
  
   
 
-##### 标准库中导出的符号列表
+#### 标准库中导出的符号列表
 
 [native api中导出的ICU4C符号列表](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/icu4c-symbol)

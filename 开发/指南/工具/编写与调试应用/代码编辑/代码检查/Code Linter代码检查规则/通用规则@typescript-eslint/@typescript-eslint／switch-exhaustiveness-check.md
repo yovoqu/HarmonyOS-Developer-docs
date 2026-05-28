@@ -9,7 +9,7 @@
 当switch语句中的判断条件是字面量值的集合或者是一个枚举类型，如果case语句中缺少任何一个值的判断，并且没有default语句时，此规则会告警。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -22,23 +22,23 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/switch-exhaustiveness-check选项](https://typescript-eslint.nodejs.cn/rules/switch-exhaustiveness-check/#options)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 type Day =
-| 'Monday'
-| 'Tuesday'
-| 'Wednesday'
-| 'Thursday'
-| 'Friday'
-| 'Saturday'
-| 'Sunday';
+  | 'Monday'
+  | 'Tuesday'
+  | 'Wednesday'
+  | 'Thursday'
+  | 'Friday'
+  | 'Saturday'
+  | 'Sunday';
 
 declare const day1: Day;
 
@@ -106,17 +106,17 @@ switch (fruit) {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 type Day =
-| 'Monday'
-| 'Tuesday'
-| 'Wednesday'
-| 'Thursday'
-| 'Friday'
-| 'Saturday'
-| 'Sunday';
+  | 'Monday'
+  | 'Tuesday'
+  | 'Wednesday'
+  | 'Thursday'
+  | 'Friday'
+  | 'Saturday'
+  | 'Sunday';
 
 declare const day: Day;
 let result = '0';
@@ -132,7 +132,7 @@ console.info(result);
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

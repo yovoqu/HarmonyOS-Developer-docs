@@ -7,7 +7,7 @@
 如果组件的属性支持本地初始化，需要设置一个合法的不依赖运行时的默认值。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 @Builder
@@ -58,7 +58,7 @@ struct Index {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 @Entry
@@ -79,7 +79,7 @@ struct Index {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(106,135,89);">plugin:@previewer/recommended</span>

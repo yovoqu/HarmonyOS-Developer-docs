@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-extension-drawmodifier
 
-##### 概述
+#### 概述
 
 当某些组件本身的绘制内容不满足需求时，可使用组件自定义绘制功能，在原有组件基础上部分绘制、或者全部自行绘制，以达到预期效果。例如：独特的按钮形状、文字和图像混合的图标等。组件自定义绘制提供了自定义绘制修改器DrawModifier，来实现更自由的组件绘制。
 
 
 
-##### 使用DrawModifier接口
+#### 使用DrawModifier接口
 
 ```text
 declare class DrawModifier {
@@ -43,7 +43,7 @@ DrawModifier还提供主动触发重绘的方法[invalidate](https://developer.h
 
 
 
-##### 通过drawFront、drawContent、drawBehind进行自定义绘制
+#### 通过drawFront、drawContent、drawBehind进行自定义绘制
 
 通过drawFront、drawContent、drawBehind接口，在内容前景、内容和内容背景三个层级上对Text组件进行了自定义绘制，从而按需改变组件的绘制效果。
 
@@ -254,7 +254,7 @@ struct DrawModifierExample {
 
 
 
-##### 通过drawForeground进行自定义绘制
+#### 通过drawForeground进行自定义绘制
 
 通过drawForeground接口，在组件前景层级上对Column组件进行了自定义绘制，从而改变组件前景的绘制效果。
 
@@ -323,7 +323,7 @@ struct DrawModifierExample {
 
 
 
-##### 调整自定义绘制Canvas的变换矩阵
+#### 调整自定义绘制Canvas的变换矩阵
 
 从API version 12开始，通过重写DrawModifier中的[drawContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-draw-modifier#drawcontent)方法，可以替换组件原本的内容绘制函数。
 
@@ -444,4 +444,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/u9XJfUuZRc6ztCaadAnAuQ/zh-cn_image_0000002581434094.png?HW-CC-KV=V1&HW-CC-Date=20260528T014812Z&HW-CC-Expire=86400&HW-CC-Sign=A7542C715C91372192C585482C9891DFB65626298FD16AE65CB7F3649A45B315)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/u9XJfUuZRc6ztCaadAnAuQ/zh-cn_image_0000002581434094.png?HW-CC-KV=V1&HW-CC-Date=20260528T030443Z&HW-CC-Expire=86400&HW-CC-Sign=6666CD385343246DAC2F6FF516AB8250F6EBC15D1B879E6A18BD226BCBCC6E15)

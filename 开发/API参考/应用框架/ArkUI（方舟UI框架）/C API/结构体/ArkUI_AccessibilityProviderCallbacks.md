@@ -10,7 +10,7 @@ typedef struct {...} ArkUI_AccessibilityProviderCallbacks
 ```
   
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,13 +24,13 @@ typedef struct {...} ArkUI_AccessibilityProviderCallbacks
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 成员函数
+#### 成员函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -47,13 +47,13 @@ typedef struct {...} ArkUI_AccessibilityProviderCallbacks
  
   
 
-##### 成员函数说明
+#### 成员函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### findAccessibilityNodeInfosById()
+#### findAccessibilityNodeInfosById()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -86,7 +86,7 @@ int32_t (*findAccessibilityNodeInfosById)(int64_t elementId, ArkUI_Accessibility
  
   
 
-##### findAccessibilityNodeInfosByText()
+#### findAccessibilityNodeInfosByText()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -119,7 +119,7 @@ int32_t (*findAccessibilityNodeInfosByText)(int64_t elementId, const char* text,
  
   
 
-##### findFocusedAccessibilityNode()
+#### findFocusedAccessibilityNode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -152,7 +152,7 @@ int32_t (*findFocusedAccessibilityNode)(int64_t elementId, ArkUI_AccessibilityFo
  
   
 
-##### findNextFocusAccessibilityNode()
+#### findNextFocusAccessibilityNode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -185,7 +185,7 @@ int32_t (*findNextFocusAccessibilityNode)(int64_t elementId, ArkUI_Accessibility
  
   
 
-##### executeAccessibilityAction()
+#### executeAccessibilityAction()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -218,7 +218,7 @@ int32_t (*executeAccessibilityAction)(int64_t elementId, ArkUI_Accessibility_Act
  
   
 
-##### clearFocusedFocusAccessibilityNode()
+#### clearFocusedFocusAccessibilityNode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -241,7 +241,7 @@ int32_t (*clearFocusedFocusAccessibilityNode)()
  
   
 
-##### getAccessibilityNodeCursorPosition()
+#### getAccessibilityNodeCursorPosition()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

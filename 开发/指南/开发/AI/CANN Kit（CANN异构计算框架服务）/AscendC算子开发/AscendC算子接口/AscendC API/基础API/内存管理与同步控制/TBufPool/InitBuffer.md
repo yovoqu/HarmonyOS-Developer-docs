@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-initbuffer
 
-##### 功能说明
+#### 功能说明
 
 调用TBufPool::InitBuffer接口为TQue/TBuf进行内存分配。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 template <class T> __aicore__ inline bool InitBuffer(T& que, uint8_t num, uint32_t len);
@@ -19,7 +19,7 @@ template <TPosition pos> __aicore__ inline bool InitBuffer(TBuf<pos>& buf, uint3
  
   
 
-##### 参数说明
+#### 参数说明
 
 **表1** InitBuffer(T& que, uint8_t num, uint32_t len) 原型定义参数说明
   
@@ -40,7 +40,7 @@ template <TPosition pos> __aicore__ inline bool InitBuffer(TBuf<pos>& buf, uint3
  
   
 
-##### 支持的型号
+#### 支持的型号
 
 Kirin9020系列处理器
  
@@ -48,18 +48,18 @@ KirinX90系列处理器
  
   
 
-##### 注意事项
+#### 注意事项
 
 声明TBufPool时，可以通过bufIDSize指定可分配Buffer的最大数量，默认上限为4，最大为16。TQue或TBuf的物理内存需要和TBufPool一致。
  
   
 
-##### 返回值
+#### 返回值
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 参考[InitBufPool](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-initbufpool)。

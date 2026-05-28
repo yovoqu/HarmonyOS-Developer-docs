@@ -10,7 +10,7 @@
 **起始版本：** 5.0.0(12)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone
 
@@ -20,7 +20,7 @@ import { walletTransitCard } from '@kit.WalletKit';
  
   
 
-##### TransitCardClient
+#### TransitCardClient
 
 **支持设备：** Phone
 
@@ -34,7 +34,7 @@ import { walletTransitCard } from '@kit.WalletKit';
  
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone
 
@@ -75,7 +75,7 @@ struct Index {
  
   
 
-##### getCardMetadataInDevice
+#### getCardMetadataInDevice
 
 **支持设备：** Phone
 
@@ -154,7 +154,7 @@ struct Index {
  
   
 
-##### getTransitCardInfo
+#### getTransitCardInfo
 
 **支持设备：** Phone
 
@@ -241,7 +241,7 @@ struct Index {
  
   
 
-##### canAddTransitCard
+#### canAddTransitCard
 
 **支持设备：** Phone
 
@@ -330,7 +330,7 @@ struct Index {
  
   
 
-##### setupWalletEnvironment
+#### setupWalletEnvironment
 
 **支持设备：** Phone
 
@@ -396,7 +396,7 @@ struct Index {
  
   
 
-##### addTransitCard
+#### addTransitCard
 
 **支持设备：** Phone
 
@@ -479,7 +479,7 @@ struct Index {
  
   
 
-##### rechargeTransitCard
+#### rechargeTransitCard
 
 **支持设备：** Phone
 
@@ -567,7 +567,7 @@ struct Index {
  
   
 
-##### updateTransitCard
+#### updateTransitCard
 
 **支持设备：** Phone
 
@@ -655,7 +655,7 @@ struct Index {
  
   
 
-##### deleteTransitCard
+#### deleteTransitCard
 
 **支持设备：** Phone
 
@@ -741,7 +741,7 @@ struct Index {
  
   
 
-##### CardMetadata
+#### CardMetadata
 
 **支持设备：** Phone
 
@@ -764,7 +764,7 @@ struct Index {
  
   
 
-##### CardMetadataInDevice
+#### CardMetadataInDevice
 
 **支持设备：** Phone
 
@@ -786,7 +786,7 @@ struct Index {
  
   
 
-##### TransitCardInfo
+#### TransitCardInfo
 
 **支持设备：** Phone
 
@@ -806,7 +806,7 @@ struct Index {
  
   
 
-##### DeviceType
+#### DeviceType
 
 **支持设备：** Phone
 

@@ -29,7 +29,7 @@
 
 
 
-##### 支持的算法与规格
+#### 支持的算法与规格
 
 随机数生成算法使用OpenSSL的RAND_priv_bytes接口生成安全随机数。
 
@@ -40,7 +40,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 调用[OH_CryptoRand_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-rand-h#oh_cryptorand_create)，创建随机数生成器。
 2. （可选）调用[OH_CryptoRand_SetSeed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-rand-h#oh_cryptorand_setseed)，为随机数生成器设置种子。
 3. 调用[OH_CryptoRand_GenerateRandom](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-rand-h#oh_cryptorand_generaterandom)，生成指定长度的安全随机数。指定字节长度范围为1~INT_MAX。

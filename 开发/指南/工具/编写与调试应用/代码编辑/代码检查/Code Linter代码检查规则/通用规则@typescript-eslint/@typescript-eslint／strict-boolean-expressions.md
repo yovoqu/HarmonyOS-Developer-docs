@@ -7,7 +7,7 @@
 不允许在布尔表达式中使用非布尔类型。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/strict-boolean-expressions选项](https://typescript-eslint.nodejs.cn/rules/strict-boolean-expressions/#options)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 // nullable values should be checked explicitly against null or undefined
@@ -51,7 +51,7 @@ if (str !== null) {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 // nullable values should be checked explicitly against null or undefined
@@ -76,7 +76,7 @@ if (str) {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

@@ -9,7 +9,7 @@
 
   
 
-##### 前提条件
+#### 前提条件
 
 - 设备智能填充开关必须处于打开状态，请前往“设置 > 隐私和安全 > 智能填充”页面开启开关。
 - 设备已连接互联网并且登录华为账号。
@@ -18,21 +18,21 @@
  
   
 
-##### 开发准备
+#### 开发准备
 
 配置Weex已适配HarmonyOS的工程。
  
   
 
-##### 效果图
+#### 效果图
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0b/v3/_s18WwkaRUO95YvwnLkXJg/zh-cn_image_0000002581275340.png?HW-CC-KV=V1&HW-CC-Date=20260528T014512Z&HW-CC-Expire=86400&HW-CC-Sign=752E74342321787BE2D7D0AE6CC63A334903990FD9C799A96F2EC25DC608DEED)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0b/v3/_s18WwkaRUO95YvwnLkXJg/zh-cn_image_0000002581275340.png?HW-CC-KV=V1&HW-CC-Date=20260528T030143Z&HW-CC-Expire=86400&HW-CC-Sign=9D5836DCDAAE0BB93AE3791B087FF70A9AE526DB9F4FA9D1C57E05DB769E3CAF)
 
  
   
 
-##### 示例代码
+#### 示例代码
 
 在Weex的form表单中给input输入框（form表单的子节点）配置[autocomplete](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-mappingrelationship#h5-autocomplete和harmonyos的contenttype的映射关系)属性以实现智能填充，代码中action需要配置表单提交接口链接，当form表单提交后，页面导航发生变化时，满足历史表单输入保存的条件时会触发对应弹窗。代码如下：
  

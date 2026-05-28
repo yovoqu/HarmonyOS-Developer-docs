@@ -10,7 +10,7 @@
 
 
 
-##### 9800001 内存操作失败
+#### 9800001 内存操作失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -32,7 +32,7 @@ Memory operation failed.
 
 
 
-##### 9800002 Parcel读写操作失败
+#### 9800002 Parcel读写操作失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -56,7 +56,7 @@ Failed to write data into parcel. Possible reasons: 1. Invalid parameters; 2. Fa
 
 
 
-##### 9800003 IPC通信失败
+#### 9800003 IPC通信失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -78,7 +78,7 @@ IPC通信失败。
 
 
 
-##### 9800004 系统服务失败
+#### 9800004 系统服务失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -100,7 +100,7 @@ System service operation failed.
 
 
 
-##### 9800005 长时任务校验失败
+#### 9800005 长时任务校验失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -148,7 +148,7 @@ Continuous task verification failed.
 
 
 
-##### 9800006 长时任务通知信息校验失败
+#### 9800006 长时任务通知信息校验失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -170,7 +170,7 @@ Notification verification failed for a continuous task.
 
 
 
-##### 9800007 长时任务信息存储失败
+#### 9800007 长时任务信息存储失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -193,7 +193,7 @@ Continuous task storage failed.
 
 
 
-##### 9900001 短时任务调用方信息校验失败
+#### 9900001 短时任务调用方信息校验失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -217,7 +217,7 @@ Caller information verification failed for a transient task.
 
 
 
-##### 9900002 短时任务校验失败
+#### 9900002 短时任务校验失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -242,7 +242,7 @@ Transient task verification failed.
 
 
 
-##### 9900003 Parcel读写操作失败
+#### 9900003 Parcel读写操作失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -266,7 +266,7 @@ Failed to write data into parcel. Possible reasons: 1. Invalid parameters; 2. Fa
 
 
 
-##### 9900004 系统服务失败
+#### 9900004 系统服务失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

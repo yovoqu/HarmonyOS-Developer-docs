@@ -29,7 +29,7 @@
 
 
 
-##### 支持的算法与规格
+#### 支持的算法与规格
 
 随机数生成算法使用OpenSSL的RAND_priv_bytes接口生成安全随机数。
 
@@ -40,7 +40,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 调用[cryptoFramework.createRandom](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreaterandom)，生成随机数实例。
 2. （可选）设置DataBlob数据，调用[Random.setSeed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#setseed)，为随机数生成池设置种子。
 3. 设置指定字节长度，调用[Random.generateRandom](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generaterandom)或[Random.generateRandomSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generaterandomsync10)，生成安全随机数。

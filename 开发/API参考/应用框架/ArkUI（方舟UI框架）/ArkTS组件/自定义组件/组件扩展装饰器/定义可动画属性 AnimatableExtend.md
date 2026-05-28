@@ -18,7 +18,7 @@
 
   
 
-##### 语法
+#### 语法
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -35,7 +35,7 @@
  
   
 
-##### AnimatableArithmetic&lt;T&gt;
+#### AnimatableArithmetic&lt;T&gt;
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -47,7 +47,7 @@
  
   
 
-##### plus
+#### plus
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -75,7 +75,7 @@ plus(rhs: AnimatableArithmetic&lt;T&gt;): AnimatableArithmetic&lt;T&gt;
  
   
 
-##### subtract
+#### subtract
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -103,7 +103,7 @@ subtract(rhs: AnimatableArithmetic&lt;T&gt;): AnimatableArithmetic&lt;T&gt;
  
   
 
-##### multiply
+#### multiply
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -131,7 +131,7 @@ multiply(scale: number): AnimatableArithmetic&lt;T&gt;
  
   
 
-##### equals
+#### equals
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -159,13 +159,13 @@ equals(rhs: AnimatableArithmetic&lt;T&gt;): boolean
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 示例1（逐帧布局的效果）
+#### 示例1（逐帧布局的效果）
 
 以下示例通过改变Text组件宽度实现逐帧布局的效果。
  
@@ -201,7 +201,7 @@ struct AnimatablePropertyExample {
  
   
 
-##### 示例2（折线的动画效果）
+#### 示例2（折线的动画效果）
 
 以下示例实现折线的动画效果。
  
@@ -327,4 +327,4 @@ struct AnimatablePropertyExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/85-Wvu3_Q4yfTnj29DMhsQ/zh-cn_image_0000002581436230.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024222Z&HW-CC-Expire=86400&HW-CC-Sign=CB49BF99EF0965A66F1B24D6FFB8A3C54A270326DE7B65CAD600989DBDA94ADB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/85-Wvu3_Q4yfTnj29DMhsQ/zh-cn_image_0000002581436230.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025556Z&HW-CC-Expire=86400&HW-CC-Sign=D999788D3B7D3C394C51BFBB6020262B8C860B8BE6903ED27F2186722CCD10B3)

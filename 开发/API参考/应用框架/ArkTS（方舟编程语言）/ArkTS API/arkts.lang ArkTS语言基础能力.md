@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { lang, Retention, RetentionPolicy } from '@kit.ArkTS';
 
 
 
-##### lang.ISendable
+#### lang.ISendable
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -53,7 +53,7 @@ class CustomData implements lang.ISendable {
 
 
 
-##### RetentionPolicy24+
+#### RetentionPolicy24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -71,7 +71,7 @@ class CustomData implements lang.ISendable {
 
 
 
-##### Retention24+
+#### Retention24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

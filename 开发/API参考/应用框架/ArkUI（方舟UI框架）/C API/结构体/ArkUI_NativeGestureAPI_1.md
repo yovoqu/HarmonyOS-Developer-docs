@@ -10,7 +10,7 @@ typedef struct {...} ArkUI_NativeGestureAPI_1
 ```
   
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,13 +24,13 @@ typedef struct {...} ArkUI_NativeGestureAPI_1
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -41,7 +41,7 @@ typedef struct {...} ArkUI_NativeGestureAPI_1
  
   
 
-##### 成员函数
+#### 成员函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -68,13 +68,13 @@ typedef struct {...} ArkUI_NativeGestureAPI_1
  
   
 
-##### 成员函数说明
+#### 成员函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### createTapGesture()
+#### createTapGesture()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -108,7 +108,7 @@ ArkUI_GestureRecognizer* (*createTapGesture)(int32_t countNum, int32_t fingersNu
  
   
 
-##### createLongPressGesture()
+#### createLongPressGesture()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -147,7 +147,7 @@ ArkUI_GestureRecognizer* (*createLongPressGesture)(int32_t fingersNum, bool repe
  
   
 
-##### createPanGesture()
+#### createPanGesture()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -179,7 +179,7 @@ ArkUI_GestureRecognizer* (*createPanGesture)(int32_t fingersNum, ArkUI_GestureDi
  
   
 
-##### createPinchGesture()
+#### createPinchGesture()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -210,7 +210,7 @@ ArkUI_GestureRecognizer* (*createPinchGesture)(int32_t fingersNum, double distan
  
   
 
-##### createRotationGesture()
+#### createRotationGesture()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -241,7 +241,7 @@ ArkUI_GestureRecognizer* (*createRotationGesture)(int32_t fingersNum, double ang
  
   
 
-##### createSwipeGesture()
+#### createSwipeGesture()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -272,7 +272,7 @@ ArkUI_GestureRecognizer* (*createSwipeGesture)(int32_t fingersNum, ArkUI_Gesture
  
   
 
-##### createGroupGesture()
+#### createGroupGesture()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -300,7 +300,7 @@ ArkUI_GestureRecognizer* (*createGroupGesture)(ArkUI_GroupGestureMode gestureMod
  
   
 
-##### dispose()
+#### dispose()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -321,7 +321,7 @@ void (*dispose)(ArkUI_GestureRecognizer* recognizer)
  
   
 
-##### addChildGesture()
+#### addChildGesture()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -350,7 +350,7 @@ int32_t (*addChildGesture)(ArkUI_GestureRecognizer* group, ArkUI_GestureRecogniz
  
   
 
-##### removeChildGesture()
+#### removeChildGesture()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -379,7 +379,7 @@ int32_t (*removeChildGesture)(ArkUI_GestureRecognizer* group, ArkUI_GestureRecog
  
   
 
-##### setGestureEventTarget()
+#### setGestureEventTarget()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -410,7 +410,7 @@ int32_t (*setGestureEventTarget)(ArkUI_GestureRecognizer* recognizer, ArkUI_Gest
  
   
 
-##### addGestureToNode()
+#### addGestureToNode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -441,7 +441,7 @@ int32_t (*addGestureToNode)(ArkUI_NodeHandle node, ArkUI_GestureRecognizer* reco
  
   
 
-##### removeGestureFromNode()
+#### removeGestureFromNode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -470,7 +470,7 @@ int32_t (*removeGestureFromNode)(ArkUI_NodeHandle node, ArkUI_GestureRecognizer*
  
   
 
-##### setGestureInterrupterToNode()
+#### setGestureInterrupterToNode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -499,7 +499,7 @@ int32_t (*setGestureInterrupterToNode)(ArkUI_NodeHandle node, ArkUI_GestureInter
  
   
 
-##### getGestureType()
+#### getGestureType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -527,7 +527,7 @@ ArkUI_GestureRecognizerType (*getGestureType)(ArkUI_GestureRecognizer* recognize
  
   
 
-##### setInnerGestureParallelTo()
+#### setInnerGestureParallelTo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -557,7 +557,7 @@ int32_t (*setInnerGestureParallelTo)(ArkUI_NodeHandle node, void* userData, ArkU
  
   
 
-##### createTapGestureWithDistanceThreshold()
+#### createTapGestureWithDistanceThreshold()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

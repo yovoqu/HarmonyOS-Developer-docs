@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { camera } from '@kit.CameraKit';
 
 
 
-##### on('frameStart')
+#### on('frameStart')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -66,7 +66,7 @@ function registerPreviewOutputFrameStart(previewOutput: camera.PreviewOutput): v
 
 
 
-##### off('frameStart')
+#### off('frameStart')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -96,7 +96,7 @@ function unregisterPreviewOutputFrameStart(previewOutput: camera.PreviewOutput):
 
 
 
-##### on('frameEnd')
+#### on('frameEnd')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -140,7 +140,7 @@ function registerPreviewOutputFrameEnd(previewOutput: camera.PreviewOutput): voi
 
 
 
-##### off('frameEnd')
+#### off('frameEnd')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -170,7 +170,7 @@ function unregisterPreviewOutputFrameEnd(previewOutput: camera.PreviewOutput): v
 
 
 
-##### on('error')
+#### on('error')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -210,7 +210,7 @@ function registerPreviewOutputError(previewOutput: camera.PreviewOutput): void {
 
 
 
-##### off('error')
+#### off('error')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -240,7 +240,7 @@ function unregisterPreviewOutputError(previewOutput: camera.PreviewOutput): void
 
 
 
-##### getSupportedFrameRates12+
+#### getSupportedFrameRates12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -270,7 +270,7 @@ function getSupportedFrameRates(previewOutput: camera.PreviewOutput): Array<came
 
 
 
-##### setFrameRate12+
+#### setFrameRate12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -316,7 +316,7 @@ function setFrameRateRange(previewOutput: camera.PreviewOutput, frameRateRange: 
 
 
 
-##### getActiveFrameRate12+
+#### getActiveFrameRate12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -348,7 +348,7 @@ function getActiveFrameRate(previewOutput: camera.PreviewOutput): camera.FrameRa
 
 
 
-##### getActiveProfile12+
+#### getActiveProfile12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -396,7 +396,7 @@ function testGetActiveProfile(previewOutput: camera.PreviewOutput): camera.Profi
 
 
 
-##### getPreviewRotation12+
+#### getPreviewRotation12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -472,7 +472,7 @@ function testGetPreviewRotationWithOutParam(previewOutput: camera.PreviewOutput)
 
 
 
-##### setPreviewRotation12+
+#### setPreviewRotation12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -521,7 +521,7 @@ function testSetPreviewRotation(previewOutput: camera.PreviewOutput, previewRota
 
 
 
-##### start(deprecated)
+#### start(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -569,7 +569,7 @@ function startPreviewOutput(previewOutput: camera.PreviewOutput): void {
 
 
 
-##### start(deprecated)
+#### start(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -615,7 +615,7 @@ function startPreviewOutput(previewOutput: camera.PreviewOutput): void {
 
 
 
-##### stop(deprecated)
+#### stop(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -654,7 +654,7 @@ function stopPreviewOutput(previewOutput: camera.PreviewOutput): void {
 
 
 
-##### stop(deprecated)
+#### stop(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -691,7 +691,7 @@ function stopPreviewOutput(previewOutput: camera.PreviewOutput): void {
 
 
 
-##### isBandwidthCompressionSupported23+
+#### isBandwidthCompressionSupported23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -730,7 +730,7 @@ function isBandwidthCompressionSupported(previewOutput: camera.PreviewOutput): b
 
 
 
-##### enableBandwidthCompression23+
+#### enableBandwidthCompression23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -784,7 +784,7 @@ function enableBandwidthCompression(previewOutput: camera.PreviewOutput, enabled
 
 
 
-##### addDeferredSurface24+
+#### addDeferredSurface24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

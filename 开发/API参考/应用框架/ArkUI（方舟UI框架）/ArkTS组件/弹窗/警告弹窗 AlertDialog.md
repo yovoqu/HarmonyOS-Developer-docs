@@ -12,7 +12,7 @@
 
 
 
-##### AlertDialogParam对象说明
+#### AlertDialogParam对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -61,7 +61,7 @@
 
 
 
-##### LevelOrder18+
+#### LevelOrder18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -80,7 +80,7 @@ type LevelOrder = LevelOrder
 
 
 
-##### AlertDialogParamWithConfirm对象说明
+#### AlertDialogParamWithConfirm对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -116,7 +116,7 @@ confirm参数优先级：fontColor、backgroundColor > style > defaultFocus
 
 
 
-##### AlertDialogParamWithButtons对象说明
+#### AlertDialogParamWithButtons对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -134,7 +134,7 @@ confirm参数优先级：fontColor、backgroundColor > style > defaultFocus
 
 
 
-##### AlertDialogParamWithOptions10+对象说明
+#### AlertDialogParamWithOptions10+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -152,7 +152,7 @@ confirm参数优先级：fontColor、backgroundColor > style > defaultFocus
 
 
 
-##### AlertDialogButtonOptions10+对象说明
+#### AlertDialogButtonOptions10+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -167,7 +167,7 @@ confirm参数优先级：fontColor、backgroundColor > style > defaultFocus
 
 
 
-##### AlertDialogButtonBaseOptions18+对象说明
+#### AlertDialogButtonBaseOptions18+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -194,7 +194,7 @@ confirm参数优先级：fontColor、backgroundColor > style > defaultFocus
 
 
 
-##### DialogButtonDirection10+枚举说明
+#### DialogButtonDirection10+枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -213,7 +213,7 @@ confirm参数优先级：fontColor、backgroundColor > style > defaultFocus
 
 
 
-##### DialogAlignment枚举说明
+#### DialogAlignment枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -239,7 +239,7 @@ confirm参数优先级：fontColor、backgroundColor > style > defaultFocus
 
 
 
-##### Rectangle8+类型说明
+#### Rectangle8+类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -265,7 +265,7 @@ Rectangle是各种Dialog中maskRect参数的类型。
 
 
 
-##### DismissDialogAction12+
+#### DismissDialogAction12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -277,7 +277,7 @@ Dialog关闭的信息。
 
 
 
-##### 属性
+#### 属性
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -287,7 +287,7 @@ Dialog关闭的信息。
 
 
 
-##### TextStyle12+对象说明
+#### TextStyle12+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -304,13 +304,13 @@ Dialog关闭的信息。
 
 
 
-##### AlertDialog
+#### AlertDialog
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### show(deprecated)
+#### show(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -335,7 +335,7 @@ static show(value: AlertDialogParamWithConfirm | AlertDialogParamWithButtons | A
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -345,7 +345,7 @@ static show(value: AlertDialogParamWithConfirm | AlertDialogParamWithButtons | A
 
 
 
-##### 示例1（弹出多个按钮的弹窗）
+#### 示例1（弹出多个按钮的弹窗）
 
 该示例通过[AlertDialogParamWithConfirm](#alertdialogparamwithconfirm对象说明)、[AlertDialogParamWithButtons](#alertdialogparamwithbuttons对象说明)和[AlertDialogParamWithOptions](#alertdialogparamwithoptions10对象说明)实现了分别弹出一、二、三个按钮的弹窗。
 
@@ -493,7 +493,7 @@ struct AlertDialogExample {
 
 
 
-##### 示例2（可在主窗外弹出的弹窗）
+#### 示例2（可在主窗外弹出的弹窗）
 
 在2in1设备上设置[AlertDialogParam](#alertdialogparam对象说明)中showInSubWindow属性的值为true时，可以弹出在主窗外显示的弹窗。
 
@@ -567,7 +567,7 @@ struct AlertDialogExample {
 
 
 
-##### 示例3（设置弹窗的动画）
+#### 示例3（设置弹窗的动画）
 
 该示例通过配置[AlertDialogParam](#alertdialogparam对象说明)中的transition属性来实现弹窗的显示和消失动画。
 
@@ -618,7 +618,7 @@ struct AlertDialogExample {
 
 
 
-##### 示例4（设置弹窗的样式）
+#### 示例4（设置弹窗的样式）
 
 示例定义了AlertDialog的样式，包括宽度、高度、背景色、阴影等。
 
@@ -682,12 +682,12 @@ struct AlertDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/ILyLAPlnQqe4ZrOsghhkSQ/zh-cn_image_0000002581436172.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024203Z&HW-CC-Expire=86400&HW-CC-Sign=67DADF59F9EC723F9C0BE051E5F63CFB1A28ACFDBE1F4FA4EA2F153E360D4CCB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/ILyLAPlnQqe4ZrOsghhkSQ/zh-cn_image_0000002581436172.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025536Z&HW-CC-Expire=86400&HW-CC-Sign=884E8DD3BE09101D063FCCE3E87F4FDC898B229B42B221E230BE98F2AD8F83FC)
 
 
 
 
-##### 示例5（悬停态弹窗）
+#### 示例5（悬停态弹窗）
 
 该示例展示了在折叠屏悬停态下设置dialog布局区域的效果。
 
@@ -738,12 +738,12 @@ struct AlertDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/7mjagJ6xTjaBEs2kNXJiGQ/zh-cn_image_0000002611836003.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024203Z&HW-CC-Expire=86400&HW-CC-Sign=0AD245B8E711CD8FC5ED7AC56B92109CC0D8011724E562604A893A514D4F05AF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/7mjagJ6xTjaBEs2kNXJiGQ/zh-cn_image_0000002611836003.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025536Z&HW-CC-Expire=86400&HW-CC-Sign=5B1D69584E52C72DBA6C7E4FABE070486DB48DCEB0071ACDCBC0FCC9568FE63A)
 
 
 
 
-##### 示例6（弹窗生命周期）
+#### 示例6（弹窗生命周期）
 
 该示例展示了弹窗生命周期的相关接口的使用方法。
 
@@ -798,12 +798,12 @@ struct Example2 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/_y24HFxQTLWWe4Gb8PjrMA/zh-cn_image_0000002581276256.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024203Z&HW-CC-Expire=86400&HW-CC-Sign=95D2BA345C7E72C800F8B4C5BC5AC3FABFA8CB7F4807C7358985F3414026DCD5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/_y24HFxQTLWWe4Gb8PjrMA/zh-cn_image_0000002581276256.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025536Z&HW-CC-Expire=86400&HW-CC-Sign=C761ABE69AE35A04BA0482C0242EE2E9933D52690A4D544618D8F3A7E925F2A6)
 
 
 
 
-##### 示例7（自定义背景模糊效果参数）
+#### 示例7（自定义背景模糊效果参数）
 
 该示例通过配置[AlertDialogParam](#alertdialogparam对象说明)中的backgroundBlurStyleOptions属性，实现了自定义背景模糊效果。
 
@@ -853,12 +853,12 @@ struct AlertDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/zxZikaQlToSEm4jZmfBmmg/zh-cn_image_0000002611756111.png?HW-CC-KV=V1&HW-CC-Date=20260528T024203Z&HW-CC-Expire=86400&HW-CC-Sign=83AE68056A508DDFA444A52C9458D903F5C0BC5107F551FA9329E6DD5E46AE81)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/zxZikaQlToSEm4jZmfBmmg/zh-cn_image_0000002611756111.png?HW-CC-KV=V1&HW-CC-Date=20260528T025536Z&HW-CC-Expire=86400&HW-CC-Sign=1D4CD8D1281E4E6463B04450F2F0DC48D7AF6210FC1BEDF638C76BFAE05C3CF6)
 
 
 
 
-##### 示例8（自定义背景效果参数）
+#### 示例8（自定义背景效果参数）
 
 该示例通过配置[AlertDialogParam](#alertdialogparam对象说明)中的backgroundEffect属性，实现自定义背景效果。
 
@@ -909,4 +909,4 @@ struct AlertDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/ep_HVjW7QqiRz8z5ttexfQ/zh-cn_image_0000002581436174.png?HW-CC-KV=V1&HW-CC-Date=20260528T024203Z&HW-CC-Expire=86400&HW-CC-Sign=84433C34516EECD7F22C8A13F67A0AC482170A262CBEAE094C524E53B75BFD85)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/ep_HVjW7QqiRz8z5ttexfQ/zh-cn_image_0000002581436174.png?HW-CC-KV=V1&HW-CC-Date=20260528T025536Z&HW-CC-Expire=86400&HW-CC-Sign=155B493D761EFC7A09B76EB6E271F88D0463CB13823CA72CA3816493379404A2)

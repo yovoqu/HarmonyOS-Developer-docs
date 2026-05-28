@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -28,7 +28,7 @@ import {
 
 
 
-##### DrawableDescriptorLoadedResult21+
+#### DrawableDescriptorLoadedResult21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -62,7 +62,7 @@ try {
 
 
 
-##### DrawableDescriptor
+#### DrawableDescriptor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -70,7 +70,7 @@ try {
 
 
 
-##### getPixelMap
+#### getPixelMap
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -95,7 +95,7 @@ getPixelMap(): image.PixelMap
 
 
 
-##### loadSync21+
+#### loadSync21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -139,7 +139,7 @@ try {
 
 
 
-##### load21+
+#### load21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -186,7 +186,7 @@ drawable.load().then((result: DrawableDescriptorLoadedResult) => {
 
 
 
-##### PixelMapDrawableDescriptor12+
+#### PixelMapDrawableDescriptor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -194,7 +194,7 @@ drawable.load().then((result: DrawableDescriptorLoadedResult) => {
 
 
 
-##### constructor12+
+#### constructor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -215,7 +215,7 @@ PixelMapDrawableDescriptor的构造函数。
 
 
 
-##### LayeredDrawableDescriptor
+#### LayeredDrawableDescriptor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -318,7 +318,7 @@ struct Index {
 
 
 
-##### constructor12+
+#### constructor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -341,7 +341,7 @@ LayeredDrawableDescriptor的构造函数。
 
 
 
-##### getForeground
+#### getForeground
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -406,7 +406,7 @@ struct Index {
 
 
 
-##### getBackground
+#### getBackground
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -466,7 +466,7 @@ struct Index {
 
 
 
-##### getMask
+#### getMask
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -526,7 +526,7 @@ struct Index {
 
 
 
-##### getMaskClipPath
+#### getMaskClipPath
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -573,7 +573,7 @@ struct Index {
 
 
 
-##### setBlendMode23+
+#### setBlendMode23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -636,7 +636,7 @@ struct Index {
 
 
 
-##### AnimationStopMode24+
+#### AnimationStopMode24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -656,7 +656,7 @@ struct Index {
 
 
 
-##### AnimationOptions12+
+#### AnimationOptions12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -728,7 +728,7 @@ struct Example {
 
 
 
-##### AnimatedDrawableDescriptor12+
+#### AnimatedDrawableDescriptor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -736,7 +736,7 @@ struct Example {
 
 
 
-##### constructor12+
+#### constructor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -758,7 +758,7 @@ AnimatedDrawableDescriptor的构造函数。
 
 
 
-##### constructor21+
+#### constructor21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -812,7 +812,7 @@ struct Example {
 
 
 
-##### getAnimationController21+
+#### getAnimationController21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -916,7 +916,7 @@ struct Example {
 
 
 
-##### AnimationController21+
+#### AnimationController21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -924,7 +924,7 @@ struct Example {
 
 
 
-##### start21+
+#### start21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -965,7 +965,7 @@ struct Example {
 
 
 
-##### stop21+
+#### stop21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1006,7 +1006,7 @@ struct Example {
 
 
 
-##### resume21+
+#### resume21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1047,7 +1047,7 @@ struct Example {
 
 
 
-##### pause21+
+#### pause21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1088,7 +1088,7 @@ struct Example {
 
 
 
-##### getStatus21+
+#### getStatus21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

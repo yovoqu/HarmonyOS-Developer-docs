@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-output-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -41,7 +41,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -69,13 +69,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_VideoOutput_OnFrameStart()
+#### OH_VideoOutput_OnFrameStart()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -98,7 +98,7 @@ typedef void (*OH_VideoOutput_OnFrameStart)(Camera_VideoOutput* videoOutput)
  
   
 
-##### OH_VideoOutput_OnFrameEnd()
+#### OH_VideoOutput_OnFrameEnd()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -122,7 +122,7 @@ typedef void (*OH_VideoOutput_OnFrameEnd)(Camera_VideoOutput* videoOutput, int32
  
   
 
-##### OH_VideoOutput_OnError()
+#### OH_VideoOutput_OnError()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -150,7 +150,7 @@ typedef void (*OH_VideoOutput_OnError)(Camera_VideoOutput* videoOutput, Camera_E
  
   
 
-##### OH_VideoOutput_RegisterCallback()
+#### OH_VideoOutput_RegisterCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -181,7 +181,7 @@ Camera_ErrorCode OH_VideoOutput_RegisterCallback(Camera_VideoOutput* videoOutput
  
   
 
-##### OH_VideoOutput_UnregisterCallback()
+#### OH_VideoOutput_UnregisterCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -212,7 +212,7 @@ Camera_ErrorCode OH_VideoOutput_UnregisterCallback(Camera_VideoOutput* videoOutp
  
   
 
-##### OH_VideoOutput_Start()
+#### OH_VideoOutput_Start()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -242,7 +242,7 @@ Camera_ErrorCode OH_VideoOutput_Start(Camera_VideoOutput* videoOutput)
  
   
 
-##### OH_VideoOutput_Stop()
+#### OH_VideoOutput_Stop()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -272,7 +272,7 @@ Camera_ErrorCode OH_VideoOutput_Stop(Camera_VideoOutput* videoOutput)
  
   
 
-##### OH_VideoOutput_Release()
+#### OH_VideoOutput_Release()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -302,7 +302,7 @@ Camera_ErrorCode OH_VideoOutput_Release(Camera_VideoOutput* videoOutput)
  
   
 
-##### OH_VideoOutput_GetActiveProfile()
+#### OH_VideoOutput_GetActiveProfile()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -333,7 +333,7 @@ Camera_ErrorCode OH_VideoOutput_GetActiveProfile(Camera_VideoOutput* videoOutput
  
   
 
-##### OH_VideoOutput_DeleteProfile()
+#### OH_VideoOutput_DeleteProfile()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -363,7 +363,7 @@ Camera_ErrorCode OH_VideoOutput_DeleteProfile(Camera_VideoProfile* profile)
  
   
 
-##### OH_VideoOutput_IsMirrorSupported()
+#### OH_VideoOutput_IsMirrorSupported()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -394,7 +394,7 @@ Camera_ErrorCode OH_VideoOutput_IsMirrorSupported(Camera_VideoOutput* videoOutpu
  
   
 
-##### OH_VideoOutput_EnableMirror()
+#### OH_VideoOutput_EnableMirror()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -425,7 +425,7 @@ Camera_ErrorCode OH_VideoOutput_EnableMirror(Camera_VideoOutput* videoOutput, bo
  
   
 
-##### OH_VideoOutput_GetVideoRotation()
+#### OH_VideoOutput_GetVideoRotation()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -457,7 +457,7 @@ Camera_ErrorCode OH_VideoOutput_GetVideoRotation(Camera_VideoOutput* videoOutput
  
   
 
-##### OH_VideoOutput_GetVideoRotationWithoutDeviceDegree()
+#### OH_VideoOutput_GetVideoRotationWithoutDeviceDegree()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -488,7 +488,7 @@ Camera_ErrorCode OH_VideoOutput_GetVideoRotationWithoutDeviceDegree(Camera_Video
  
   
 
-##### OH_VideoOutput_GetSupportedFrameRates()
+#### OH_VideoOutput_GetSupportedFrameRates()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -520,7 +520,7 @@ Camera_ErrorCode OH_VideoOutput_GetSupportedFrameRates(Camera_VideoOutput* video
  
   
 
-##### OH_VideoOutput_DeleteFrameRates()
+#### OH_VideoOutput_DeleteFrameRates()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -551,7 +551,7 @@ Camera_ErrorCode OH_VideoOutput_DeleteFrameRates(Camera_VideoOutput* videoOutput
  
   
 
-##### OH_VideoOutput_SetFrameRate()
+#### OH_VideoOutput_SetFrameRate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -583,7 +583,7 @@ Camera_ErrorCode OH_VideoOutput_SetFrameRate(Camera_VideoOutput* videoOutput, in
  
   
 
-##### OH_VideoOutput_GetActiveFrameRate()
+#### OH_VideoOutput_GetActiveFrameRate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

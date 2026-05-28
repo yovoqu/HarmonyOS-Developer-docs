@@ -7,7 +7,7 @@
 使用了Web预渲染技术的应用，建议在预渲染完成后（onFirstMeaningfulPaint），调用停止渲染接口（onInactive）。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 import { webview } from '@kit.ArkWeb';
@@ -90,7 +90,7 @@ struct WebComponent {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 import { webview } from '@kit.ArkWeb';
@@ -150,7 +150,7 @@ struct WebComponent {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(106,135,89);">plugin:@performance/</span><span style="color: rgb(4,81,165);">recommended</span>

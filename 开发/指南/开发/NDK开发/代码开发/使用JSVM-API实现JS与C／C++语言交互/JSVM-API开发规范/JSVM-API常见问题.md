@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/jsvm-frequently-questions
 
-##### 定位方法
+#### 定位方法
 
 程序崩溃类问题：通过C++崩溃时调用栈查询FAQ的方式定位代码问题
 
@@ -12,7 +12,7 @@
 
 
 
-##### 程序崩溃类
+#### 程序崩溃类
 1. Q：在OH_JSVM_RunScript或OH_JSVM_CallFunction时crash，调用栈顶层为SetReturnValue
 
   
@@ -120,7 +120,7 @@ A: 这两种报错可能指向同一问题，即应用侧执行[OH_JSVM_DestroyE
 
 
 
-##### JSVM-API执行失败类
+#### JSVM-API执行失败类
 1. Q：OH_JSVM_GetCbInfo无法获取JS函数参数
 
   A：检查函数传递的参数是否正确，见[获取JS传入参数及其数量](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/jsvm-guidelines#获取js传入参数及其数量)

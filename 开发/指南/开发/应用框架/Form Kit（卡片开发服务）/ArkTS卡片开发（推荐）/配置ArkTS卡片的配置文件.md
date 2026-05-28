@@ -11,7 +11,7 @@
 
 
 
-##### FormExtensionAbility配置
+#### FormExtensionAbility配置
 
 卡片需要在[module.json5配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)的extensionAbilities标签下，配置FormExtensionAbility相关信息。FormExtensionAbility需要填写metadata元信息标签，其中键名称为固定字符串 “ohos.extension.form”，资源为[卡片具体配置信息的资源索引](#卡片配置)。
 
@@ -44,7 +44,7 @@
 
 
 
-##### 独立卡片包配置
+#### 独立卡片包配置
 
 相对应地，在卡片包的[module.json5配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)中，formExtensionModule字段用来关联应用包的module。
 
@@ -68,13 +68,13 @@
 
 
 
-##### 卡片配置
+#### 卡片配置
 
 在上述FormExtensionAbility的元信息metadata配置项中，可以指定卡片具体配置信息的资源索引。例如当resource指定为$profile:form_config时，会使用开发视图的resources/base/profile/目录下的form_config.json作为卡片profile配置文件。在[创建卡片](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-creation)时会自动生成form_config.json配置文件。
 
 
 
-##### 配置文件字段说明
+#### 配置文件字段说明
 
 **表1** 卡片form_config.json配置文件
 
@@ -116,7 +116,7 @@
 
 
 
-##### supportDeviceTypes标签
+#### supportDeviceTypes标签
 
 此标签标识卡片支持的设备类型。
 
@@ -132,7 +132,7 @@
 
 
 
-##### supportDevicePerformanceClasses标签
+#### supportDevicePerformanceClasses标签
 
 此标签标识卡片支持的设备性能等级信息。
 
@@ -145,7 +145,7 @@
 
 
 
-##### window标签
+#### window标签
 
 此标签标识window对象的内部结构说明。只支持在JS卡片中使用。
 
@@ -157,7 +157,7 @@
 
 
 
-##### funInteractionParams标签
+#### funInteractionParams标签
 
 此标签标识趣味交互类型互动卡片配置。funInteractionParams 和 sceneAnimationParams 同时配置时识别为趣味交互类型互动卡片。
 
@@ -185,7 +185,7 @@
 
 
 
-##### sceneAnimationParams标签
+#### sceneAnimationParams标签
 
 此标签标识场景动效类型互动卡片配置。funInteractionParams 和 sceneAnimationParams 同时配置时识别为趣味交互类型互动卡片。
 
@@ -209,7 +209,7 @@
 
 
 
-##### standby标签
+#### standby标签
 
 此标签标识standby对象的内部结构说明。应用通过开放能力申请，且卡片isSupported配置为true才支持在待机屏保显示界面展示。
 
@@ -237,7 +237,7 @@
 
 
 
-##### 配置文件示例
+#### 配置文件示例
 
 ```ArkTS
 {

@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-round-rect-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -40,7 +40,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -56,13 +56,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Drawing_CornerPos
+#### OH_Drawing_CornerPos
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -86,13 +86,13 @@ enum OH_Drawing_CornerPos
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Drawing_RoundRectCreate()
+#### OH_Drawing_RoundRectCreate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -128,7 +128,7 @@ rect为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
  
   
 
-##### OH_Drawing_RoundRectCopy()
+#### OH_Drawing_RoundRectCopy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -160,7 +160,7 @@ OH_Drawing_RoundRect* OH_Drawing_RoundRectCopy(const OH_Drawing_RoundRect* round
  
   
 
-##### OH_Drawing_RoundRectSetCorner()
+#### OH_Drawing_RoundRectSetCorner()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -191,7 +191,7 @@ roundRect为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
  
   
 
-##### OH_Drawing_RoundRectGetCorner()
+#### OH_Drawing_RoundRectGetCorner()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -228,7 +228,7 @@ roundRect为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
  
   
 
-##### OH_Drawing_RoundRectDestroy()
+#### OH_Drawing_RoundRectDestroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -253,7 +253,7 @@ void OH_Drawing_RoundRectDestroy(OH_Drawing_RoundRect* roundRect)
  
   
 
-##### OH_Drawing_RoundRectOffset()
+#### OH_Drawing_RoundRectOffset()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

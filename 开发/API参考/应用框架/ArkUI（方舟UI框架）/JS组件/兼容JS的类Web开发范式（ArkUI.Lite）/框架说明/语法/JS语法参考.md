@@ -8,7 +8,7 @@
 JS文件用来定义HML页面的业务逻辑，支持ECMA规范的JavaScript语言。基于JavaScript语言的动态化能力，可以使应用更加富有表现力，具备更加灵活的设计。下面讲述JS文件的编译和运行的支持情况。
   
 
-##### 语法
+#### 语法
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -46,7 +46,7 @@ import utils from '../../common/utils.js';
  
   
 
-##### 对象
+#### 对象
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -63,7 +63,7 @@ import utils from '../../common/utils.js';
  
   
 
-##### 获取DOM元素
+#### 获取DOM元素
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 1. 通过$refs获取DOM元素

@@ -12,7 +12,7 @@ system.request部件主要给应用提供上传下载文件的基础能力。
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { Request } from '@kit.BasicServicesKit';
  
   
 
-##### request.upload(deprecated)
+#### request.upload(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -82,7 +82,7 @@ try {
  
   
 
-##### UploadRequestOptions(deprecated)
+#### UploadRequestOptions(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -106,7 +106,7 @@ try {
  
   
 
-##### UploadResponse(deprecated)
+#### UploadResponse(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -121,7 +121,7 @@ try {
  
   
 
-##### RequestFile(deprecated)
+#### RequestFile(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -137,7 +137,7 @@ try {
  
   
 
-##### RequestData(deprecated)
+#### RequestData(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -151,7 +151,7 @@ try {
  
   
 
-##### request.download(deprecated)
+#### request.download(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -199,7 +199,7 @@ try {
  
   
 
-##### DownloadRequestOptions(deprecated)
+#### DownloadRequestOptions(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -224,7 +224,7 @@ try {
  
   
 
-##### DownloadResponse(deprecated)
+#### DownloadResponse(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -237,7 +237,7 @@ try {
  
   
 
-##### request.onDownloadComplete(deprecated)
+#### request.onDownloadComplete(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -277,7 +277,7 @@ Request.onDownloadComplete(onDownloadCompleteOptions);
  
   
 
-##### OnDownloadCompleteOptions(deprecated)
+#### OnDownloadCompleteOptions(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -293,7 +293,7 @@ Request.onDownloadComplete(onDownloadCompleteOptions);
  
   
 
-##### OnDownloadCompleteResponse(deprecated)
+#### OnDownloadCompleteResponse(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/asset-js-add
 
-##### 接口介绍
+#### 接口介绍
 
 开发者可以查阅API文档，获取关键资产新增接口的详细说明：[add(attributes: AssetMap)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-asset#assetadd)、同步接口[addSync(attributes: AssetMap)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-asset#assetaddsync12)。
 
@@ -47,7 +47,7 @@
 
 
 
-##### 约束和限制
+#### 约束和限制
 
  - 基于别名的访问
 
@@ -61,7 +61,7 @@
 
 
 
-##### 代码示例
+#### 代码示例
 
 > [!NOTE]
 > 本模块提供了异步和同步两套接口，以下为异步接口的使用示例，同步接口详见 @ohos.security.asset (关键资产存储服务) API文档。 在指定群组中新增一条关键资产的使用示例详见 新增群组关键资产 。

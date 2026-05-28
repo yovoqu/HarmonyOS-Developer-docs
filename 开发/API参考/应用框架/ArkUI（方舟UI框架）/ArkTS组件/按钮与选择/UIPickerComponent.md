@@ -12,7 +12,7 @@ UIPickerComponent容器是用于实现用户选择操作的组件。它支持从
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -27,7 +27,7 @@ UIPickerComponent容器是用于实现用户选择操作的组件。它支持从
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -50,7 +50,7 @@ UIPickerComponent(options?: UIPickerComponentOptions)
 
 
 
-##### UIPickerComponentOptions对象说明
+#### UIPickerComponentOptions对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -69,7 +69,7 @@ UIPickerComponent容器的参数说明。
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -77,7 +77,7 @@ UIPickerComponent容器的参数说明。
 
 
 
-##### canLoop
+#### canLoop
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -100,7 +100,7 @@ canLoop(isLoop: Optional&lt;boolean&gt;)
 
 
 
-##### enableHapticFeedback
+#### enableHapticFeedback
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -133,7 +133,7 @@ enableHapticFeedback(enable: Optional&lt;boolean&gt;)
 
 
 
-##### selectionIndicator
+#### selectionIndicator
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -156,7 +156,7 @@ selectionIndicator(style: Optional&lt;PickerIndicatorStyle&gt;)
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -164,7 +164,7 @@ selectionIndicator(style: Optional&lt;PickerIndicatorStyle&gt;)
 
 
 
-##### onChange
+#### onChange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -191,7 +191,7 @@ onChange(callback: Optional&lt;OnUIPickerComponentCallback&gt;)
 
 
 
-##### onScrollStop
+#### onScrollStop
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -214,7 +214,7 @@ onScrollStop(callback: Optional&lt;OnUIPickerComponentCallback&gt;)
 
 
 
-##### PickerIndicatorStyle对象说明
+#### PickerIndicatorStyle对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -239,7 +239,7 @@ onScrollStop(callback: Optional&lt;OnUIPickerComponentCallback&gt;)
 
 
 
-##### PickerIndicatorType枚举说明
+#### PickerIndicatorType枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -259,7 +259,7 @@ onScrollStop(callback: Optional&lt;OnUIPickerComponentCallback&gt;)
 
 
 
-##### OnUIPickerComponentCallback
+#### OnUIPickerComponentCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -282,13 +282,13 @@ type OnUIPickerComponentCallback = (selectedIndex: number) => void
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1（切换循环滚动和开关触控反馈）
+#### 示例1（切换循环滚动和开关触控反馈）
 
 从API version 22开始，该示例通过点击按钮的方式实现切换UIPickerComponent容器的循环滚动和开启/关闭触控反馈功能。
 
@@ -355,7 +355,7 @@ struct UIPickerComponentAttrsExample {
 
 
 
-##### 示例2（设置事件回调）
+#### 示例2（设置事件回调）
 
 从API version 22开始，该示例基于状态选择，实现了UIPickerComponent容器的onChange和onScrollStop事件回调。
 
@@ -405,7 +405,7 @@ struct UIPickerComponentEventsExample {
 
 
 
-##### 示例3（设置选中项索引值）
+#### 示例3（设置选中项索引值）
 
 从API version 22开始，该示例实现了设置UIPickerComponent容器的选中项索引值。
 
@@ -460,7 +460,7 @@ struct UIPickerComponentSelectedIndexExample {
 
 
 
-##### 示例4（设置选中项指示器）
+#### 示例4（设置选中项指示器）
 
 从API version 22开始，该示例实现了设置UIPickerComponent容器的选中项指示器。具体包括：在使用背景指示器时，设置背景颜色、背景圆角；在使用分割线指示器时，设置分割线颜色、分割线宽度、起始侧边距、结束侧边距。
 
@@ -763,7 +763,7 @@ struct UIPickerComponentIndicatorExample {
 
 
 
-##### 示例5（自定义月份选择器）
+#### 示例5（自定义月份选择器）
 
 从API version 22开始，该示例使用UIPickerComponent容器嵌套文本子组件的方式实现月份选择器。
 
@@ -819,7 +819,7 @@ struct MonthUIPickerComponentExample {
 
 
 
-##### 示例6（自定义地区选择器）
+#### 示例6（自定义地区选择器）
 
 从API version 22开始，该示例使用多列UIPickerComponent容器组合实现地区选择器。
 
@@ -936,12 +936,12 @@ struct RegionUIPickerComponentExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/-Adp5hxhTT65AtWyVVZMEw/zh-cn_image_0000002611835667.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=A5E631EFDFA06566D95ED3C166B638E6DE201F2A876EE0C373B12E01498672B1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/-Adp5hxhTT65AtWyVVZMEw/zh-cn_image_0000002611835667.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025554Z&HW-CC-Expire=86400&HW-CC-Sign=D3415DA0A121E443CAB5D4651AEFE50366E72F80E27EBB9EAA53030CCA1650B5)
 
 
 
 
-##### 示例7（自定义选项类型）
+#### 示例7（自定义选项类型）
 
 从API version 22开始，该示例使用UIPickerComponent容器实现不同选项类型的选择器，包含文本选择器、图片选择器、图文组合选择器。
 
@@ -1037,12 +1037,12 @@ struct UIPickerComponentExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a/v3/h6bcxfv0QmKr9yry-usvCA/zh-cn_image_0000002581275918.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=3BE0BCEB3D56EFF5E81D13485A3B4EBEC9CA30940BD2D5A3077221118B3E435D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a/v3/h6bcxfv0QmKr9yry-usvCA/zh-cn_image_0000002581275918.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025554Z&HW-CC-Expire=86400&HW-CC-Sign=71CF92E74DE77F69A883EB179EE63EAFDBA6F1879D5901A755369211C8EF82F8)
 
 
 
 
-##### 示例8（自定义时间选择器）
+#### 示例8（自定义时间选择器）
 
 从API version 22开始，该示例实现了一个时间选择器，功能包含设置切换是否循环滚动、切换是否显示秒数、切换是否使用24小时制、切换是否显示前导0，还可按照当前系统语言显示对应语言的内容，并根据语言习惯调整各列的显示顺序。
 
@@ -1502,4 +1502,4 @@ struct TimeUIPickerComponentExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/ezWlv2SpQPWiZkz77vDCPA/zh-cn_image_0000002611755775.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=F9370B0F5BDF88FFE7C2F88D7A69539817F250960AE217425E6C0B7A7D4DC2E9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/ezWlv2SpQPWiZkz77vDCPA/zh-cn_image_0000002611755775.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025554Z&HW-CC-Expire=86400&HW-CC-Sign=584BA85C4194A221BDEB9008EE1E4B76BDCC61AFF2C89E56DDE4C2C5BAFA4952)

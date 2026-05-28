@@ -4,11 +4,11 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/changelogs-for-all-apps-6004
 
-##### ArkTS
+#### ArkTS
 
  
 
-##### 禁止在编译产物为JS的HAR包中使用注解
+#### 禁止在编译产物为JS的HAR包中使用注解
 
 **变更原因**
  

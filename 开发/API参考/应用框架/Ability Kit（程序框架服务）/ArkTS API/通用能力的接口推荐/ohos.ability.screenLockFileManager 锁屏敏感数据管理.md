@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { screenLockFileManager } from '@kit.AbilityKit';
 
 
 
-##### DataType
+#### DataType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -38,7 +38,7 @@ import { screenLockFileManager } from '@kit.AbilityKit';
 
 
 
-##### AccessStatus
+#### AccessStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -54,7 +54,7 @@ import { screenLockFileManager } from '@kit.AbilityKit';
 
 
 
-##### ReleaseStatus
+#### ReleaseStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -70,7 +70,7 @@ import { screenLockFileManager } from '@kit.AbilityKit';
 
 
 
-##### KeyStatus18+
+#### KeyStatus18+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -87,7 +87,7 @@ import { screenLockFileManager } from '@kit.AbilityKit';
 
 
 
-##### screenLockFileManager.acquireAccess
+#### screenLockFileManager.acquireAccess
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -137,7 +137,7 @@ try {
 
 
 
-##### screenLockFileManager.releaseAccess
+#### screenLockFileManager.releaseAccess
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -187,7 +187,7 @@ try {
 
 
 
-##### screenLockFileManager.queryAppKeyState18+
+#### screenLockFileManager.queryAppKeyState18+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

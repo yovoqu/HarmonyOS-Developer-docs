@@ -10,7 +10,7 @@
 
   
 
-##### 1012600001 并发任务忙碌
+#### 1012600001 并发任务忙碌
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -32,7 +32,7 @@ Task is busy.
  
   
 
-##### 1012600002 资源大小超过规格限制
+#### 1012600002 资源大小超过规格限制
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -56,7 +56,7 @@ Resource size error. The json resource out of size.
  
   
 
-##### 1012600003 资源解析失败
+#### 1012600003 资源解析失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

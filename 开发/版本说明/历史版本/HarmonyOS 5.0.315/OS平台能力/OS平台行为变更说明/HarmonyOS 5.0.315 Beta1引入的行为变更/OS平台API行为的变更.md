@@ -4,11 +4,11 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/changelogs-for-all-apps-5031
 
-##### Ability
+#### Ability
 
  
 
-##### installSource字段规格变更
+#### installSource字段规格变更
 
 **变更原因**
  
@@ -58,11 +58,11 @@ ApplicationInfo中的installSource字段。
  
  
 
-##### AppGallery Kit
+#### AppGallery Kit
 
  
 
-##### kit.StoreKit.d.ts文件废弃，替换为kit.AppGalleryKit.d.ts文件
+#### kit.StoreKit.d.ts文件废弃，替换为kit.AppGalleryKit.d.ts文件
 
 **变更原因**
  
@@ -94,11 +94,11 @@ ApplicationInfo中的installSource字段。
  
  
 
-##### ArkTS
+#### ArkTS
 
  
 
-##### 信号处理方法注册接口sigaction支持SA_RESETHAND标志位变更
+#### 信号处理方法注册接口sigaction支持SA_RESETHAND标志位变更
 
 **变更原因**
  
@@ -164,11 +164,11 @@ if (ret < 0) {
  
  
 
-##### ArkUI
+#### ArkUI
 
  
 
-##### FrameNode被UINode包裹时isVisible接口返回值发生变更
+#### FrameNode被UINode包裹时isVisible接口返回值发生变更
 
 **变更原因**
  
@@ -239,7 +239,7 @@ FrameNode.d.ts文件isVisible接口。
  
  
 
-##### 富文本组件RichEditor的onCopy回调中设置preventDefault()时的行为变更
+#### 富文本组件RichEditor的onCopy回调中设置preventDefault()时的行为变更
 
 **变更原因**
  
@@ -267,11 +267,11 @@ FrameNode.d.ts文件isVisible接口。
  
  
 
-##### AVCodec Kit
+#### AVCodec Kit
 
  
 
-##### OH_AVCodecOnStreamChanged在音频解码场景的默认行为变更
+#### OH_AVCodecOnStreamChanged在音频解码场景的默认行为变更
 
 **变更原因**
  
@@ -303,11 +303,11 @@ native_avcodec_audiocodec.h 下的接口OH_AudioCodec_RegisterCallback注册的n
  
  
 
-##### Localization Kit
+#### Localization Kit
 
  
 
-##### 变更缅甸文，马来文和泰文的显示名称
+#### 变更缅甸文，马来文和泰文的显示名称
 
 **变更原因**
  
@@ -335,11 +335,11 @@ i18n.System.getDisplayLanguage
  
  
 
-##### Media Kit
+#### Media Kit
 
  
 
-##### 系统录屏应用调用的截屏接口变更
+#### 系统录屏应用调用的截屏接口变更
 
 **变更原因**
  
@@ -373,11 +373,11 @@ i18n.System.getDisplayLanguage
  
  
 
-##### 应用配置文件
+#### 应用配置文件
 
  
 
-##### supportWindowMode选项配置fullscreen和split时，窗口全屏启动
+#### supportWindowMode选项配置fullscreen和split时，窗口全屏启动
 
 **变更原因**
  
@@ -417,11 +417,11 @@ API version 15及之后的版本, 开发者需要关注在module.json5的support
  
  
 
-##### 调试工具
+#### 调试工具
 
  
 
-##### hilog日志在商用版本（nolog版本）开发者模式下默认日志级别由info变为warning
+#### hilog日志在商用版本（nolog版本）开发者模式下默认日志级别由info变为warning
 
 **变更原因**
  

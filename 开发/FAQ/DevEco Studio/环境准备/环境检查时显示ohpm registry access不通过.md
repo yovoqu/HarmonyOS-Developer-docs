@@ -53,7 +53,7 @@ ohpm info @ohos/lottie
 registry证书地址校验不通过，详细信息提示“UNABLE_TO_VERIFY_LEAF_SIGNATURE”。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/niUWbq0uQHqazcIygiZipg/zh-cn_image_0000002358279041.png?HW-CC-KV=V1&HW-CC-Date=20260528T013159Z&HW-CC-Expire=86400&HW-CC-Sign=1385DA75D04BCFF8827087D6DCADA14B3CF4D8E9A2BEECEF58804CF80CECCF73)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/niUWbq0uQHqazcIygiZipg/zh-cn_image_0000002358279041.png?HW-CC-KV=V1&HW-CC-Date=20260528T024840Z&HW-CC-Expire=86400&HW-CC-Sign=529A075FA299293A47A661101B89027A0BBF1C6C08ADD3587B2C9CC2D5D3D388)
 
  
 **解决措施**

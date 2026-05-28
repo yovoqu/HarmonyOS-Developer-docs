@@ -7,7 +7,7 @@
 管理模块版本。
  
 
-##### 命令格式
+#### 命令格式
 
 ```text
 ohpm version [options] [<newversion> | major | minor | patch]
@@ -15,29 +15,29 @@ ohpm version [options] [<newversion> | major | minor | patch]
  
  
 
-##### 功能描述
+#### 功能描述
 
 在模块目录中运行此命令以获取或升级版本号，同时将数据回写入 oh-package.json5 中。
  
  
 
-##### 参数说明
+#### 参数说明
 
  
 
-##### 无参数
+#### 无参数
 
 当无参数使用ohpm version命令时，则会将当前模块的版本号打印至标准输出中。
  
  
 
-##### newversion
+#### newversion
 
 newversion 参数应为一个合法的语义化版本，命令会将当前模块版本改写为 newversion 并打印在标准输出中。
  
  
 
-##### major
+#### major
 
 当参数为 major 时，有以下几种情况：
  
@@ -50,7 +50,7 @@ newversion 参数应为一个合法的语义化版本，命令会将当前模块
  
  
 
-##### minor
+#### minor
 
 当参数为 minor 时，固定主版本号，变化次版本号与修订号，有以下几种情况：
  
@@ -63,7 +63,7 @@ newversion 参数应为一个合法的语义化版本，命令会将当前模块
  
  
 
-##### patch
+#### patch
 
 当参数为 patch 时，固定主版本号与次版本号，变化修订号，有以下几种情况：
  
@@ -73,11 +73,11 @@ newversion 参数应为一个合法的语义化版本，命令会将当前模块
  
  
 
-##### Options
+#### Options
 
  
 
-##### prefix
+#### prefix
 
 - 默认值：""
 - 类型： string
@@ -87,7 +87,7 @@ newversion 参数应为一个合法的语义化版本，命令会将当前模块
  
  
 
-##### parameterFile
+#### parameterFile
 
 - 默认值：无
 - 类型： string
@@ -98,7 +98,7 @@ newversion 参数应为一个合法的语义化版本，命令会将当前模块
  
  
 
-##### log_level
+#### log_level
 
 - 默认值：无
 - 类型： String
@@ -108,7 +108,7 @@ newversion 参数应为一个合法的语义化版本，命令会将当前模块
  
  
 
-##### debug
+#### debug
 
 - 默认值：false
 - 类型： Boolean
@@ -118,7 +118,7 @@ newversion 参数应为一个合法的语义化版本，命令会将当前模块
  
  
 
-##### 示例
+#### 示例
 
 当前模块为 entry，版本号为 1.0.0，在当前模块的根目录执行：
  

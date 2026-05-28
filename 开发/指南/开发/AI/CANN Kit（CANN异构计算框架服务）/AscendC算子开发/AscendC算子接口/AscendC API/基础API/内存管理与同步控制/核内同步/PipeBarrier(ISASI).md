@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-pipebarrier
 
-##### 功能说明
+#### 功能说明
 
 阻塞相同流水，具有数据依赖的相同流水之间需要插入此同步。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 template <pipe_t pipe>
@@ -19,7 +19,7 @@ __aicore__ inline void PipeBarrier()
  
   
 
-##### 参数说明
+#### 参数说明
 
 **表1** 模板参数说明
   
@@ -43,31 +43,31 @@ __aicore__ inline void PipeBarrier()
  
   
 
-##### 返回值
+#### 返回值
 
 无
  
   
 
-##### 支持的型号
+#### 支持的型号
 
 KirinX90系列处理器
  
   
 
-##### 注意事项
+#### 注意事项
 
 无
  
   
 
-##### 约束说明
+#### 约束说明
 
 Scalar流水之间的同步由硬件自动保证，调用PipeBarrier&lt;PIPE_S&gt;()会引发硬件错误。
  
   
 
-##### 调用示例
+#### 调用示例
 
 如下示例，Mul指令的输入dst0Local是Add指令的输出，两个矢量运算指令产生依赖，需要插入PipeBarrier保证两条指令的执行顺序。
  

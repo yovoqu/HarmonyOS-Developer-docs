@@ -9,7 +9,7 @@
 低时延音频播放是一种通过软硬芯协同设计实现的音频渲染方案。其核心机制是通过减少buffer大小、优化读写数据架构，使该模式下音频播放具有更低的时延。
 
 
-##### 使用前提
+#### 使用前提
 
  - 支持低时延模式的音频输出设备。
  - 可通过[OH_AudioRenderer_GetFastStatus()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiorenderer-h#oh_audiorenderer_getfaststatus)验证当前设备是否支持低时延模式。
@@ -17,13 +17,13 @@
 
 
 
-##### 开发指导
+#### 开发指导
 
 以下各步骤示例为片段代码，可通过示例代码右下方链接获取[完整示例](https://gitcode.com/openharmony/applications_app_samples/blob/master/code/DocsSample/Media/Audio/AudioRendererSampleC)。
 
 
 
-##### 简介
+#### 简介
 
 为使用低时延模式，开发者需要参考[推荐使用OHAudio开发音频播放功能(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-ohaudio-for-playback)进行音频开发。
 
@@ -31,7 +31,7 @@
 
 
 
-##### 设置低时延模式
+#### 设置低时延模式
 
 开发者通过调用[OH_AudioStreamBuilder_SetLatencyMode()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostreambuilder-h#oh_audiostreambuilder_setlatencymode)，设置[OH_AudioStream_LatencyMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostream-base-h#oh_audiostream_latencymode)来决定音频流使用的模式。
 
@@ -49,11 +49,11 @@ OH_AudioStreamBuilder_SetLatencyMode(builder, latencyMode);
 
 
 
-##### 注意事项
+#### 注意事项
 
 
 
-##### 低时延模式限制
+#### 低时延模式限制
 
 在以下场景中，即使设置了低时延模式，系统仍会使用普通模式。
 
@@ -79,7 +79,7 @@ OH_AudioStreamBuilder_SetLatencyMode(builder, latencyMode);
 
 
 
-##### 使用低时延流的场景
+#### 使用低时延流的场景
 
  - 游戏、k歌、直播等对时延要求较高的场景，建议使用低时延模式。
  - 视频播放、音乐播放等没有实时要求的场景，不建议使用低时延模式。
@@ -87,13 +87,13 @@ OH_AudioStreamBuilder_SetLatencyMode(builder, latencyMode);
 
 
 
-##### 确保数据及时提供
+#### 确保数据及时提供
 
 低时延模式下，应用提供数据的频次比普通播放模式高，如果传送数据不及时可能导致杂音等问题。开发者应避免在数据回调线程中做耗时操作，确保数据回调线程可以及时返回。
 
 
 
-##### 数据回调线程
+#### 数据回调线程
 
 播放的音频数据需要通过回调接口写入。开发者要实现回调接口，使用[OH_AudioStreamBuilder_SetRendererWriteDataCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostreambuilder-h#oh_audiostreambuilder_setrendererwritedatacallback)设置写入音频数据的回调函数，在设置音频回调函数时，回调函数[OH_AudioRenderer_OnWriteDataCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostream-base-h#oh_audiorenderer_onwritedatacallback)（从API version 12开始支持）用于写入音频数据。
 

@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-interface-accessibility-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -25,13 +25,13 @@
 
 
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -54,7 +54,7 @@
 
 
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -70,7 +70,7 @@
 
 
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -137,13 +137,13 @@
 
 
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### ArkUI_Accessibility_ActionType
+#### ArkUI_Accessibility_ActionType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -178,7 +178,7 @@ Accessibility操作类型的枚举。
 
 
 
-##### ArkUI_AccessibilityEventType
+#### ArkUI_AccessibilityEventType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -213,7 +213,7 @@ Accessibility事件类型的枚举。
 
 
 
-##### ArkUI_AcessbilityErrorCode
+#### ArkUI_AcessbilityErrorCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -237,7 +237,7 @@ Accessibility错误代码状态的枚举。
 
 
 
-##### ArkUI_AccessibilitySearchMode
+#### ArkUI_AccessibilitySearchMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -262,7 +262,7 @@ Accessibility搜索类型的枚举。
 
 
 
-##### ArkUI_AccessibilityFocusType
+#### ArkUI_AccessibilityFocusType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -285,7 +285,7 @@ Accessibility焦点类型的枚举。
 
 
 
-##### ArkUI_AccessibilityFocusMoveDirection
+#### ArkUI_AccessibilityFocusMoveDirection
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -312,13 +312,13 @@ Accessibility焦点移动方向的枚举。
 
 
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### OH_ArkUI_AccessibilityProviderRegisterCallback()
+#### OH_ArkUI_AccessibilityProviderRegisterCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -349,7 +349,7 @@ int32_t OH_ArkUI_AccessibilityProviderRegisterCallback(ArkUI_AccessibilityProvid
 
 
 
-##### OH_ArkUI_AccessibilityProviderRegisterCallbackWithInstance()
+#### OH_ArkUI_AccessibilityProviderRegisterCallbackWithInstance()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -381,7 +381,7 @@ int32_t OH_ArkUI_AccessibilityProviderRegisterCallbackWithInstance(const char* i
 
 
 
-##### OH_ArkUI_SendAccessibilityAsyncEvent()
+#### OH_ArkUI_SendAccessibilityAsyncEvent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -406,7 +406,7 @@ void OH_ArkUI_SendAccessibilityAsyncEvent(ArkUI_AccessibilityProvider* provider,
 
 
 
-##### OH_ArkUI_AddAndGetAccessibilityElementInfo()
+#### OH_ArkUI_AddAndGetAccessibilityElementInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -436,7 +436,7 @@ ArkUI_AccessibilityElementInfo* OH_ArkUI_AddAndGetAccessibilityElementInfo(ArkUI
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetElementId()
+#### OH_ArkUI_AccessibilityElementInfoSetElementId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -467,7 +467,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetElementId(ArkUI_AccessibilityElement
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetParentId()
+#### OH_ArkUI_AccessibilityElementInfoSetParentId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -498,7 +498,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetParentId(ArkUI_AccessibilityElementI
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetComponentType()
+#### OH_ArkUI_AccessibilityElementInfoSetComponentType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -529,7 +529,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetComponentType(ArkUI_AccessibilityEle
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetContents()
+#### OH_ArkUI_AccessibilityElementInfoSetContents()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -560,7 +560,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetContents(ArkUI_AccessibilityElementI
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetHintText()
+#### OH_ArkUI_AccessibilityElementInfoSetHintText()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -591,7 +591,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetHintText(ArkUI_AccessibilityElementI
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetAccessibilityText()
+#### OH_ArkUI_AccessibilityElementInfoSetAccessibilityText()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -622,7 +622,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetAccessibilityText(ArkUI_Accessibilit
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetAccessibilityDescription()
+#### OH_ArkUI_AccessibilityElementInfoSetAccessibilityDescription()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -653,7 +653,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetAccessibilityDescription(ArkUI_Acces
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetChildNodeIds()
+#### OH_ArkUI_AccessibilityElementInfoSetChildNodeIds()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -685,7 +685,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetChildNodeIds(ArkUI_AccessibilityElem
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetOperationActions()
+#### OH_ArkUI_AccessibilityElementInfoSetOperationActions()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -717,7 +717,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetOperationActions(ArkUI_Accessibility
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetScreenRect()
+#### OH_ArkUI_AccessibilityElementInfoSetScreenRect()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -748,7 +748,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetScreenRect(ArkUI_AccessibilityElemen
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetCheckable()
+#### OH_ArkUI_AccessibilityElementInfoSetCheckable()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -779,7 +779,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetCheckable(ArkUI_AccessibilityElement
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetChecked()
+#### OH_ArkUI_AccessibilityElementInfoSetChecked()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -810,7 +810,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetChecked(ArkUI_AccessibilityElementIn
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetFocusable()
+#### OH_ArkUI_AccessibilityElementInfoSetFocusable()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -841,7 +841,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetFocusable(ArkUI_AccessibilityElement
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetFocused()
+#### OH_ArkUI_AccessibilityElementInfoSetFocused()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -872,7 +872,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetFocused(ArkUI_AccessibilityElementIn
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetVisible()
+#### OH_ArkUI_AccessibilityElementInfoSetVisible()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -903,7 +903,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetVisible(ArkUI_AccessibilityElementIn
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetAccessibilityFocused()
+#### OH_ArkUI_AccessibilityElementInfoSetAccessibilityFocused()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -934,7 +934,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetAccessibilityFocused(ArkUI_Accessibi
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetSelected()
+#### OH_ArkUI_AccessibilityElementInfoSetSelected()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -965,7 +965,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetSelected(ArkUI_AccessibilityElementI
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetClickable()
+#### OH_ArkUI_AccessibilityElementInfoSetClickable()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -996,7 +996,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetClickable(ArkUI_AccessibilityElement
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetLongClickable()
+#### OH_ArkUI_AccessibilityElementInfoSetLongClickable()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1027,7 +1027,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetLongClickable(ArkUI_AccessibilityEle
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetEnabled()
+#### OH_ArkUI_AccessibilityElementInfoSetEnabled()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1058,7 +1058,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetEnabled(ArkUI_AccessibilityElementIn
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetIsPassword()
+#### OH_ArkUI_AccessibilityElementInfoSetIsPassword()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1089,7 +1089,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetIsPassword(ArkUI_AccessibilityElemen
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetScrollable()
+#### OH_ArkUI_AccessibilityElementInfoSetScrollable()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1120,7 +1120,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetScrollable(ArkUI_AccessibilityElemen
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetEditable()
+#### OH_ArkUI_AccessibilityElementInfoSetEditable()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1151,7 +1151,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetEditable(ArkUI_AccessibilityElementI
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetIsHint()
+#### OH_ArkUI_AccessibilityElementInfoSetIsHint()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1182,7 +1182,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetIsHint(ArkUI_AccessibilityElementInf
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetRangeInfo()
+#### OH_ArkUI_AccessibilityElementInfoSetRangeInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1213,7 +1213,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetRangeInfo(ArkUI_AccessibilityElement
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetGridInfo()
+#### OH_ArkUI_AccessibilityElementInfoSetGridInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1244,7 +1244,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetGridInfo(ArkUI_AccessibilityElementI
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetGridItemInfo()
+#### OH_ArkUI_AccessibilityElementInfoSetGridItemInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1275,7 +1275,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetGridItemInfo(ArkUI_AccessibilityElem
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetSelectedTextStart()
+#### OH_ArkUI_AccessibilityElementInfoSetSelectedTextStart()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1306,7 +1306,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetSelectedTextStart(ArkUI_Accessibilit
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetSelectedTextEnd()
+#### OH_ArkUI_AccessibilityElementInfoSetSelectedTextEnd()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1337,7 +1337,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetSelectedTextEnd(ArkUI_AccessibilityE
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetCurrentItemIndex()
+#### OH_ArkUI_AccessibilityElementInfoSetCurrentItemIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1368,7 +1368,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetCurrentItemIndex(ArkUI_Accessibility
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetStartItemIndex()
+#### OH_ArkUI_AccessibilityElementInfoSetStartItemIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1399,7 +1399,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetStartItemIndex(ArkUI_AccessibilityEl
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetEndItemIndex()
+#### OH_ArkUI_AccessibilityElementInfoSetEndItemIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1430,7 +1430,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetEndItemIndex(ArkUI_AccessibilityElem
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetItemCount()
+#### OH_ArkUI_AccessibilityElementInfoSetItemCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1461,7 +1461,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetItemCount(ArkUI_AccessibilityElement
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetAccessibilityOffset()
+#### OH_ArkUI_AccessibilityElementInfoSetAccessibilityOffset()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1492,7 +1492,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetAccessibilityOffset(ArkUI_Accessibil
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetAccessibilityGroup()
+#### OH_ArkUI_AccessibilityElementInfoSetAccessibilityGroup()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1523,7 +1523,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetAccessibilityGroup(ArkUI_Accessibili
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetAccessibilityLevel()
+#### OH_ArkUI_AccessibilityElementInfoSetAccessibilityLevel()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1554,7 +1554,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetAccessibilityLevel(ArkUI_Accessibili
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetZIndex()
+#### OH_ArkUI_AccessibilityElementInfoSetZIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1585,7 +1585,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetZIndex(ArkUI_AccessibilityElementInf
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetAccessibilityOpacity()
+#### OH_ArkUI_AccessibilityElementInfoSetAccessibilityOpacity()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1616,7 +1616,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetAccessibilityOpacity(ArkUI_Accessibi
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetBackgroundColor()
+#### OH_ArkUI_AccessibilityElementInfoSetBackgroundColor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1647,7 +1647,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetBackgroundColor(ArkUI_AccessibilityE
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetBackgroundImage()
+#### OH_ArkUI_AccessibilityElementInfoSetBackgroundImage()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1678,7 +1678,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetBackgroundImage(ArkUI_AccessibilityE
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetBlur()
+#### OH_ArkUI_AccessibilityElementInfoSetBlur()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1709,7 +1709,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetBlur(ArkUI_AccessibilityElementInfo*
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetHitTestBehavior()
+#### OH_ArkUI_AccessibilityElementInfoSetHitTestBehavior()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1740,7 +1740,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetHitTestBehavior(ArkUI_AccessibilityE
 
 
 
-##### OH_ArkUI_AccessibilityElementInfoSetComponentIdentifier()
+#### OH_ArkUI_AccessibilityElementInfoSetComponentIdentifier()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1771,7 +1771,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetComponentIdentifier(ArkUI_Accessibil
 
 
 
-##### OH_ArkUI_CreateAccessibilityElementInfo()
+#### OH_ArkUI_CreateAccessibilityElementInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1794,7 +1794,7 @@ ArkUI_AccessibilityElementInfo* OH_ArkUI_CreateAccessibilityElementInfo(void)
 
 
 
-##### OH_ArkUI_DestoryAccessibilityElementInfo()
+#### OH_ArkUI_DestoryAccessibilityElementInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1817,7 +1817,7 @@ void OH_ArkUI_DestoryAccessibilityElementInfo(ArkUI_AccessibilityElementInfo* el
 
 
 
-##### OH_ArkUI_CreateAccessibilityEventInfo()
+#### OH_ArkUI_CreateAccessibilityEventInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1840,7 +1840,7 @@ ArkUI_AccessibilityEventInfo* OH_ArkUI_CreateAccessibilityEventInfo(void)
 
 
 
-##### OH_ArkUI_DestoryAccessibilityEventInfo()
+#### OH_ArkUI_DestoryAccessibilityEventInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1863,7 +1863,7 @@ void OH_ArkUI_DestoryAccessibilityEventInfo(ArkUI_AccessibilityEventInfo* eventI
 
 
 
-##### OH_ArkUI_AccessibilityEventSetEventType()
+#### OH_ArkUI_AccessibilityEventSetEventType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1894,7 +1894,7 @@ int32_t OH_ArkUI_AccessibilityEventSetEventType(ArkUI_AccessibilityEventInfo* ev
 
 
 
-##### OH_ArkUI_AccessibilityEventSetTextAnnouncedForAccessibility()
+#### OH_ArkUI_AccessibilityEventSetTextAnnouncedForAccessibility()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1925,7 +1925,7 @@ int32_t OH_ArkUI_AccessibilityEventSetTextAnnouncedForAccessibility(ArkUI_Access
 
 
 
-##### OH_ArkUI_AccessibilityEventSetRequestFocusId()
+#### OH_ArkUI_AccessibilityEventSetRequestFocusId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1956,7 +1956,7 @@ int32_t OH_ArkUI_AccessibilityEventSetRequestFocusId(ArkUI_AccessibilityEventInf
 
 
 
-##### OH_ArkUI_AccessibilityEventSetElementInfo()
+#### OH_ArkUI_AccessibilityEventSetElementInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1987,7 +1987,7 @@ int32_t OH_ArkUI_AccessibilityEventSetElementInfo(ArkUI_AccessibilityEventInfo* 
 
 
 
-##### OH_ArkUI_FindAccessibilityActionArgumentByKey()
+#### OH_ArkUI_FindAccessibilityActionArgumentByKey()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2019,7 +2019,7 @@ int32_t OH_ArkUI_FindAccessibilityActionArgumentByKey(ArkUI_AccessibilityActionA
 
 
 
-##### OH_ArkUI_NativeModule_GetNativeAccessibilityProvider()
+#### OH_ArkUI_NativeModule_GetNativeAccessibilityProvider()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

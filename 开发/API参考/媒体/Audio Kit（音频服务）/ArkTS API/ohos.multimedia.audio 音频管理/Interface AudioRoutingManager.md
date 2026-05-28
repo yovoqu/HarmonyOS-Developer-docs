@@ -14,7 +14,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { audio } from '@kit.AudioKit';
 
 
 
-##### getDevices9+
+#### getDevices9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -58,7 +58,7 @@ audioRoutingManager.getDevices(audio.DeviceFlag.OUTPUT_DEVICES_FLAG, (err: Busin
 
 
 
-##### getDevices9+
+#### getDevices9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -96,7 +96,7 @@ audioRoutingManager.getDevices(audio.DeviceFlag.OUTPUT_DEVICES_FLAG).then((audio
 
 
 
-##### getDevicesSync10+
+#### getDevicesSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -146,7 +146,7 @@ try {
 
 
 
-##### isMicBlockDetectionSupported13+
+#### isMicBlockDetectionSupported13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -173,7 +173,7 @@ audioRoutingManager.isMicBlockDetectionSupported().then((value: boolean) => {
 
 
 
-##### on('micBlockStatusChanged')13+
+#### on('micBlockStatusChanged')13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -219,7 +219,7 @@ audioRoutingManager.isMicBlockDetectionSupported().then((value: boolean) => {
 
 
 
-##### off('micBlockStatusChanged')13+
+#### off('micBlockStatusChanged')13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -265,7 +265,7 @@ audioRoutingManager.off('micBlockStatusChanged', micBlockStatusCallback);
 
 
 
-##### on('deviceChange')9+
+#### on('deviceChange')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -307,7 +307,7 @@ audioRoutingManager.on('deviceChange', audio.DeviceFlag.OUTPUT_DEVICES_FLAG, (de
 
 
 
-##### off('deviceChange')9+
+#### off('deviceChange')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -356,7 +356,7 @@ audioRoutingManager.off('deviceChange', deviceChangeCallback);
 
 
 
-##### setCommunicationDevice9+
+#### setCommunicationDevice9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -395,7 +395,7 @@ audioRoutingManager.setCommunicationDevice(audio.CommunicationDeviceType.SPEAKER
 
 
 
-##### getAvailableDevices12+
+#### getAvailableDevices12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -445,7 +445,7 @@ try {
 
 
 
-##### on('availableDeviceChange')12+
+#### on('availableDeviceChange')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -487,7 +487,7 @@ audioRoutingManager.on('availableDeviceChange', audio.DeviceUsage.MEDIA_OUTPUT_D
 
 
 
-##### off('availableDeviceChange')12+
+#### off('availableDeviceChange')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -536,7 +536,7 @@ audioRoutingManager.off('availableDeviceChange', availableDeviceChangeCallback);
 
 
 
-##### setCommunicationDevice9+
+#### setCommunicationDevice9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -575,7 +575,7 @@ audioRoutingManager.setCommunicationDevice(audio.CommunicationDeviceType.SPEAKER
 
 
 
-##### isCommunicationDeviceActive9+
+#### isCommunicationDeviceActive9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -609,7 +609,7 @@ audioRoutingManager.isCommunicationDeviceActive(audio.CommunicationDeviceType.SP
 
 
 
-##### isCommunicationDeviceActive9+
+#### isCommunicationDeviceActive9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -643,7 +643,7 @@ audioRoutingManager.isCommunicationDeviceActive(audio.CommunicationDeviceType.SP
 
 
 
-##### isCommunicationDeviceActiveSync10+
+#### isCommunicationDeviceActiveSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -693,7 +693,7 @@ try {
 
 
 
-##### getPreferOutputDeviceForRendererInfo10+
+#### getPreferOutputDeviceForRendererInfo10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -743,7 +743,7 @@ audioRoutingManager.getPreferOutputDeviceForRendererInfo(rendererInfo, (err: Bus
 
 
 
-##### getPreferOutputDeviceForRendererInfo10+
+#### getPreferOutputDeviceForRendererInfo10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -797,7 +797,7 @@ audioRoutingManager.getPreferOutputDeviceForRendererInfo(rendererInfo).then((aud
 
 
 
-##### getPreferredOutputDeviceForRendererInfoSync10+
+#### getPreferredOutputDeviceForRendererInfoSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -852,7 +852,7 @@ try {
 
 
 
-##### on('preferOutputDeviceChangeForRendererInfo')10+
+#### on('preferOutputDeviceChangeForRendererInfo')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -896,7 +896,7 @@ audioRoutingManager.on('preferOutputDeviceChangeForRendererInfo', rendererInfo, 
 
 
 
-##### off('preferOutputDeviceChangeForRendererInfo')10+
+#### off('preferOutputDeviceChangeForRendererInfo')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -944,7 +944,7 @@ audioRoutingManager.off('preferOutputDeviceChangeForRendererInfo', preferOutputD
 
 
 
-##### getPreferredInputDeviceForCapturerInfo10+
+#### getPreferredInputDeviceForCapturerInfo10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -994,7 +994,7 @@ audioRoutingManager.getPreferredInputDeviceForCapturerInfo(capturerInfo, (err: B
 
 
 
-##### getPreferredInputDeviceForCapturerInfo10+
+#### getPreferredInputDeviceForCapturerInfo10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1048,7 +1048,7 @@ audioRoutingManager.getPreferredInputDeviceForCapturerInfo(capturerInfo).then((a
 
 
 
-##### getPreferredInputDeviceForCapturerInfoSync10+
+#### getPreferredInputDeviceForCapturerInfoSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1103,7 +1103,7 @@ try {
 
 
 
-##### on('preferredInputDeviceChangeForCapturerInfo')10+
+#### on('preferredInputDeviceChangeForCapturerInfo')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1147,7 +1147,7 @@ audioRoutingManager.on('preferredInputDeviceChangeForCapturerInfo', capturerInfo
 
 
 
-##### off('preferredInputDeviceChangeForCapturerInfo')10+
+#### off('preferredInputDeviceChangeForCapturerInfo')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -11,7 +11,7 @@
 
 
 
-##### 业务流程
+#### 业务流程
 
 
 ![](assets/开发指导(ArkTS)/file-20260514131909613-0.png)
@@ -32,7 +32,7 @@
 
 
 
-##### 接口说明
+#### 接口说明
 
 具体API说明详见[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameperformance)。
 
@@ -48,11 +48,11 @@
 
 
 
-##### 接入步骤
+#### 接入步骤
 
 
 
-##### 导入模块
+#### 导入模块
 
 导入Game Service Kit及公共模块。
 
@@ -64,7 +64,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 
-##### 初始化
+#### 初始化
 
 导入相关模块后，需先调用[init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameperformance#gameperformanceinit)接口对游戏场景感知进行初始化。
 
@@ -92,7 +92,7 @@ try {
 
 
 
-##### 订阅设备状态变化
+#### 订阅设备状态变化
 
 调用[on](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameperformance#gameperformanceondevicestatechanged)接口可以订阅设备状态变化事件，获取设备状态变化的通知（如设备温控档位）。
 
@@ -133,7 +133,7 @@ try {
 
 
 
-##### 上报游戏信息
+#### 上报游戏信息
 
 初始化成功后，可以通过调用[updateGameInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameperformance#gameperformanceupdategameinfo)接口上报游戏信息（包信息、配置信息、场景信息和网络信息等）。若需上报自定义数据，可调用[addGameCustomData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameperformance#gameperformanceaddgamecustomdata)接口。
 
@@ -158,7 +158,7 @@ try {
 
 
 
-##### 取消订阅设备状态
+#### 取消订阅设备状态
 
 如不再需要订阅，则可以通过调用[off](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameperformance#gameperformanceoffdevicestatechanged)接口取消订阅设备状态。
 
@@ -189,7 +189,7 @@ try {
 
 
 
-##### 查询设备状态信息
+#### 查询设备状态信息
 
 除订阅设备状态变化的方式外，也可以通过调用[getDeviceInfoByScope](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameperformance#gameperformancegetdeviceinfobyscope)接口主动查询设备状态：
 

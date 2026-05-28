@@ -13,7 +13,7 @@
 
 
 
-##### 混合模式
+#### 混合模式
 
 混合模式可以用于画笔或画刷，它定义了如何将源像素（要绘制的内容）与目标像素（已存在于画布上的内容）进行组合。
 
@@ -57,7 +57,7 @@ function drawRenderNode(canvas: drawing.Canvas) {
 
 
 
-##### 路径效果
+#### 路径效果
 
 路径效果如虚线效果，只用于画笔。
 
@@ -103,7 +103,7 @@ canvas.detachPen();
 
 
 
-##### 着色器效果
+#### 着色器效果
 
 着色器效果基于画刷或画笔实现，可使用setShaderEffect()接口设置画刷或画笔的着色器效果。当前支持不同的着色器效果，如线性渐变着色器效果、径向渐变着色器效果、扇形渐变着色器效果。
 
@@ -111,7 +111,7 @@ canvas.detachPen();
 
 
 
-##### 线性渐变着色器效果
+#### 线性渐变着色器效果
 
 可使用createLinearGradient()接口创建想要设置的线性渐变着色器效果。接口接受6个参数，分别是开始点、结束点、颜色数组、平铺模式、相对位置数组以及矩阵对象。
 
@@ -161,7 +161,7 @@ canvas.detachBrush();
 
 
 
-##### 径向渐变着色器效果
+#### 径向渐变着色器效果
 
 可使用createRadialGradient()接口创建想要设置的径向渐变着色器效果。接口接受6个参数，分别是圆心坐标（centerPt）、半径（radius）、颜色数组（colors）、平铺模式（TileMode）、相对位置数组（pos）以及矩阵对象（matrix）。
 
@@ -193,12 +193,12 @@ canvas.detachBrush();
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/HbJ0R2ntTMyy2ZwN2twdgQ/zh-cn_image_0000002581434738.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T014902Z&HW-CC-Expire=86400&HW-CC-Sign=27C1C1C2C5D9578D8E194162E18F6C244CB0533964825CB7EC62C44CDC02063D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/HbJ0R2ntTMyy2ZwN2twdgQ/zh-cn_image_0000002581434738.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T030531Z&HW-CC-Expire=86400&HW-CC-Sign=83CE3850B01DA489CBF5A53E2C00CCCF598DB24643867E9481AA9064B82DDDE1)
 
 
 
 
-##### 扇形渐变着色器效果
+#### 扇形渐变着色器效果
 
 可使用createSweepGradient()接口创建想要设置的扇形渐变着色器效果。接口接受7个参数，分别是圆心坐标（centerPt）、颜色数组（colors）、平铺模式（TileMode）、扇形渐变的起始角度（startAngle）、扇形渐变的结束角度（endAngle）、相对位置数组（pos）以及矩阵对象（matrix）。
 
@@ -230,12 +230,12 @@ canvas.detachBrush();
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/07/v3/JqG_q2iDSainlI1L43MASA/zh-cn_image_0000002611834569.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T014902Z&HW-CC-Expire=86400&HW-CC-Sign=858A97B59C8B776CF059681670C37F3AFDCFE36E02A8EE0C117EAAC1D353345B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/07/v3/JqG_q2iDSainlI1L43MASA/zh-cn_image_0000002611834569.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T030531Z&HW-CC-Expire=86400&HW-CC-Sign=CDA5D7D0A809002B72FE40EEED66AFD2E1F35D79331124BD12F119ED5E41457A)
 
 
 
 
-##### 滤波器效果
+#### 滤波器效果
 
 滤波器效果可基于画刷或画笔实现。当前支持不同的滤波器效果，比如图像滤波器、颜色滤波器、蒙版滤波器。
 
@@ -243,7 +243,7 @@ canvas.detachBrush();
 
 
 
-##### 颜色滤波器效果
+#### 颜色滤波器效果
 
 颜色滤波器可基于画笔或画刷实现，颜色滤波器的相关接口和具体参数的说明请见[ColorFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-colorfilter)。
 
@@ -318,7 +318,7 @@ canvas.detachBrush();
 
 
 
-##### 图像滤波器效果
+#### 图像滤波器效果
 
 图像滤波器可基于画笔或画刷来实现，图像滤波器的相关接口和具体参数的说明请见[ImageFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-imagefilter)。
 
@@ -368,7 +368,7 @@ canvas.detachPen();
 
 
 
-##### 蒙版滤波器效果
+#### 蒙版滤波器效果
 
 蒙版滤波器的模糊效果仅对透明度和形状边缘进行模糊处理，相对于图像滤波器的模糊效果来说计算成本更低。
 
@@ -414,6 +414,6 @@ canvas.detachPen();
 
 
 
-##### 示例代码
+#### 示例代码
 
  - [图形绘制（ArkTS）](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/ArkGraphics2D/Drawing/ArkTSGraphicsDraw)

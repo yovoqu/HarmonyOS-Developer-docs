@@ -11,7 +11,7 @@
 半模态在不同宽度的设备上存在不同的形态能力，开发者对不同宽度的设备上有不同的形态诉求请参考([preferType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition#sheetoptions))属性。可以使用bindSheet构建半模态转场效果，详见[模态转场](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-modal-transition#使用bindsheet构建半模态转场效果)。对于复杂或者冗长的用户流程，建议考虑其他的转场方式替代半模态。如[全模态转场](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-contentcover-page)和[Navigation转场](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-animation)。
 
 
-##### 使用约束
+#### 使用约束
 
  - 半模态内嵌[UIExtension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-uiextension)时，不支持再在UIExtension内拉起半模态/弹窗。
  - 若无二次确认或者自定义关闭行为的场景，不建议使用[shouldDismiss/onWillDismiss](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition#sheetoptions)接口。
@@ -19,7 +19,7 @@
 
 
 
-##### 生命周期
+#### 生命周期
 
 半模态页面提供了生命周期函数，用于通知用户该弹窗的生命周期状态。生命周期的触发顺序依次为：onWillAppear -> onAppear -> onWillDisappear -> onDisappear。
 
@@ -33,7 +33,7 @@
 
 
 
-##### 使用嵌套滚动交互
+#### 使用嵌套滚动交互
 
 在半模态面板内容区域滑动时的操作优先级：
 1. 内容处于最顶部（内容不可滚动时以此状态处理）
@@ -127,7 +127,7 @@ struct SheetDemo {
 
 
 
-##### 二次确认能力
+#### 二次确认能力
 
 推荐使用onWillDismiss接口，此接口支持在回调中处理二次确认，或自定义关闭行为。
 
@@ -212,7 +212,7 @@ struct OnWillDismiss_Dismiss {
 
 
 
-##### 屏蔽部分关闭行为
+#### 屏蔽部分关闭行为
 
 由于声明了onWillDismiss接口，半模态的关闭行为都需要dismiss处理。可以通过if等逻辑自定义处理关闭逻辑。
 
@@ -246,7 +246,7 @@ onWillSpringBackWhenDismiss: ((SpringBackAction: SpringBackAction) => {
 
 
 
-##### 半模态支持避让中轴
+#### 半模态支持避让中轴
 
 半模态从API version 14开始支持中轴避让，当前在2in1设备默认开启（仅窗口处于瀑布模式时产生避让）中轴避让能力，且在2in1设备默认避让区域为上半屏。开发者可以通过[SheetOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition#sheetoptions)的enableHoverMode主动设置是否避让中轴，及[SheetOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition#sheetoptions)的hoverModeArea设置避让中轴后显示区域。
 
@@ -320,4 +320,4 @@ struct SheetTransitionExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/YL_-vyuZT5-X66aMuN6rYg/zh-cn_image_0000002611833817.png?HW-CC-KV=V1&HW-CC-Date=20260528T014809Z&HW-CC-Expire=86400&HW-CC-Sign=7AC381067A4076299D1303BE5284960347B45FAA6AAE2D5BDA7D4640476A9C5A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/YL_-vyuZT5-X66aMuN6rYg/zh-cn_image_0000002611833817.png?HW-CC-KV=V1&HW-CC-Date=20260528T030441Z&HW-CC-Expire=86400&HW-CC-Sign=89939AC7AC9A7BDCB261F90EBF04D5F5E847C055206C8925A65C0A06F2B19971)

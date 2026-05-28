@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-free
 
-##### 函数功能
+#### 函数功能
 
 释放tensor。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 ge::graphStatus Free()
@@ -18,13 +18,13 @@ ge::graphStatus Free()
  
   
 
-##### 参数说明
+#### 参数说明
 
 无
  
   
 
-##### 返回值
+#### 返回值
 
 成功时返回：ge::GRAPH_SUCCESS。
  
@@ -34,13 +34,13 @@ ge::graphStatus Free()
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 std::vector<int> a = {10};

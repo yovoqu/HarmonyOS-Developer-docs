@@ -17,7 +17,7 @@ ArkUI在Native侧提供的能力作为ArkTS的子集，部分能力不会在Nati
 **图1** Refresh组件挂载文本列表
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/6i2XEaFqShOtCJNtRXXmew/zh-cn_image_0000002611754073.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014759Z&HW-CC-Expire=86400&HW-CC-Sign=55F9644F00D549A319B32B2553151B32372B28057A680167D4D41F89F70AE57F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/6i2XEaFqShOtCJNtRXXmew/zh-cn_image_0000002611754073.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030432Z&HW-CC-Expire=86400&HW-CC-Sign=5690B302D33C4607051D51CF7BF8F56218AD76FF28C36B892623230AEB7E8D40)
 
 1. 注册ArkTS组件创建函数给Native侧，以便Native侧调用，创建函数使用ComponentContent能力进行封装。
 

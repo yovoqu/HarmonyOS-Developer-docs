@@ -12,7 +12,7 @@
 使用OffscreenCanvasRenderingContext2D在[OffscreenCanvas对象](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-canvas-offscreencanvas)上进行绘制，绘制对象可以是矩形、文本、图片等。
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -84,7 +84,7 @@ export default {
  
   
 
-##### 方法
+#### 方法
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -92,7 +92,7 @@ export default {
  
   
 
-##### isPointInPath
+#### isPointInPath
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -177,7 +177,7 @@ export default {
  
   
 
-##### isPointInStroke
+#### isPointInStroke
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -262,7 +262,7 @@ export default {
  
   
 
-##### resetTransform
+#### resetTransform
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -333,4 +333,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/FHmjd6AuTAencSMcTmOSfQ/zh-cn_image_0000002611836209.png?HW-CC-KV=V1&HW-CC-Date=20260528T024101Z&HW-CC-Expire=86400&HW-CC-Sign=ED9318F097BCA75FA947161A303FCDECB7D1FBCD8F5B980811E9063A550DA2BF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/FHmjd6AuTAencSMcTmOSfQ/zh-cn_image_0000002611836209.png?HW-CC-KV=V1&HW-CC-Date=20260528T025436Z&HW-CC-Expire=86400&HW-CC-Sign=478FD54F1AD83109F2DED6F2676B9D620964C263C69AB6AEE840DF5BEDC7B666)

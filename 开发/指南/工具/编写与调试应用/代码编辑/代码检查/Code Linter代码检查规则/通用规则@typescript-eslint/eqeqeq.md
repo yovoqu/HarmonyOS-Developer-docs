@@ -7,7 +7,7 @@
 要求使用===和!==。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[eslint/eqeqeq选项](https://eslint.nodejs.cn/docs/latest/rules/eqeqeq#选项)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 export function test(a: string, b: string) {
@@ -36,7 +36,7 @@ export function test(a: string, b: string) {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 export function test(a: string, b: string) {
@@ -47,7 +47,7 @@ export function test(a: string, b: string) {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

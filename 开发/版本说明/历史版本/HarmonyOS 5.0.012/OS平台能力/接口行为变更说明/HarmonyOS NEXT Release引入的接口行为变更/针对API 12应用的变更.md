@@ -4,11 +4,11 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/changelogs-targeting-api12-b071
 
-##### ArkUI
+#### ArkUI
 
  
 
-##### Navigation嵌套使用时的生命周期行为优化
+#### Navigation嵌套使用时的生命周期行为优化
 
 **变更原因**
  

@@ -9,7 +9,7 @@
 
   
 
-##### InvalidBundleName
+#### InvalidBundleName
 
 **错误信息**
  
@@ -37,7 +37,7 @@ bundleName缺失或不合法。
  
   
 
-##### InvalidDeviceToken
+#### InvalidDeviceToken
 
 **错误信息**
  
@@ -61,7 +61,7 @@ deviceToken缺失或不合法。
  
   
 
-##### DeviceTokenExpired
+#### DeviceTokenExpired
 
 **错误信息**
  
@@ -85,7 +85,7 @@ deviceToken有效期为1小时，重新生成token后尝试即可。
  
   
 
-##### InvalidTimeStamp
+#### InvalidTimeStamp
 
 **错误信息**
  
@@ -109,7 +109,7 @@ timeStamp缺失或不合法。
  
   
 
-##### NotFound
+#### NotFound
 
 **错误信息**
  
@@ -135,7 +135,7 @@ timeStamp缺失或不合法。
  
   
 
-##### InvalidMode
+#### InvalidMode
 
 **错误信息**
  
@@ -159,7 +159,7 @@ mode不合法。
  
   
 
-##### InvalidBits
+#### InvalidBits
 
 **错误信息**
  
@@ -183,7 +183,7 @@ bit值缺失或不合法。
  
   
 
-##### InternalServerError
+#### InternalServerError
 
 **错误信息**
  

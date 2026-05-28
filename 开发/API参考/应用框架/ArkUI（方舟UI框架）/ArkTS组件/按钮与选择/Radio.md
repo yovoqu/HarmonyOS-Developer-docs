@@ -12,7 +12,7 @@
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -43,7 +43,7 @@ Radio(options: RadioOptions)
 
 
 
-##### RadioOptions对象说明
+#### RadioOptions对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -61,7 +61,7 @@ Radio(options: RadioOptions)
 
 
 
-##### RadioIndicatorType12+枚举说明
+#### RadioIndicatorType12+枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -82,7 +82,7 @@ Radio(options: RadioOptions)
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -90,7 +90,7 @@ Radio(options: RadioOptions)
 
 
 
-##### checked
+#### checked
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -117,7 +117,7 @@ checked(value: boolean)
 
 
 
-##### checked18+
+#### checked18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -142,7 +142,7 @@ checked(isChecked: Optional&lt;boolean&gt;)
 
 
 
-##### radioStyle10+
+#### radioStyle10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -165,7 +165,7 @@ radioStyle(value?: RadioStyle)
 
 
 
-##### contentModifier12+
+#### contentModifier12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -186,7 +186,7 @@ contentModifier(modifier: ContentModifier&lt;RadioConfiguration&gt;)
 
 
 
-##### contentModifier18+
+#### contentModifier18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -207,7 +207,7 @@ contentModifier(modifier: Optional<ContentModifier&lt;RadioConfiguration&gt;>)
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -215,7 +215,7 @@ contentModifier(modifier: Optional<ContentModifier&lt;RadioConfiguration&gt;>)
 
 
 
-##### onChange
+#### onChange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -238,7 +238,7 @@ onChange(callback: (isChecked: boolean) => void)
 
 
 
-##### onChange18+
+#### onChange18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -261,7 +261,7 @@ onChange(callback: Optional&lt;OnRadioChangeCallback&gt;)
 
 
 
-##### OnRadioChangeCallback18+
+#### OnRadioChangeCallback18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -282,7 +282,7 @@ type OnRadioChangeCallback = (isChecked: boolean) => void
 
 
 
-##### RadioStyle10+对象说明
+#### RadioStyle10+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -301,7 +301,7 @@ type OnRadioChangeCallback = (isChecked: boolean) => void
 
 
 
-##### RadioConfiguration12+对象说明
+#### RadioConfiguration12+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -320,13 +320,13 @@ type OnRadioChangeCallback = (isChecked: boolean) => void
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1 （设置底板颜色）
+#### 示例1 （设置底板颜色）
 
 该示例通过配置checkedBackgroundColor实现自定义单选框的底板颜色。
 
@@ -384,7 +384,7 @@ struct RadioExample {
 
 
 
-##### 示例2 （设置选中样式）
+#### 示例2 （设置选中样式）
 
 该示例通过配置indicatorType、indicatorBuilder实现自定义选中样式。
 
@@ -445,7 +445,7 @@ struct RadioExample {
 
 
 
-##### 示例3（设置自定义样式）
+#### 示例3（设置自定义样式）
 
 该示例通过contentModifier实现自定义单选框样式。
 
@@ -510,4 +510,4 @@ struct refreshExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/02/v3/2FqbHo6uR9-MaNZeDRKDVg/zh-cn_image_0000002611755789.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024219Z&HW-CC-Expire=86400&HW-CC-Sign=7B5864C4B245F9527B21607A84057DC650BE61807D5C312AD015DCA68BB7A4BA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/02/v3/2FqbHo6uR9-MaNZeDRKDVg/zh-cn_image_0000002611755789.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=B749C7A119429BD9B7DE8BE0FD0F28FB82FAC86BA04654D49774F19978BA34CC)

@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { cameraPicker } from '@kit.CameraKit';
 
 
 
-##### cameraPicker.pick
+#### cameraPicker.pick
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -78,7 +78,7 @@ async function demo(context: Context) {
 
 
 
-##### PickerMediaType
+#### PickerMediaType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -96,7 +96,7 @@ async function demo(context: Context) {
 
 
 
-##### PickerProfile
+#### PickerProfile
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -115,7 +115,7 @@ async function demo(context: Context) {
 
 
 
-##### PickerResult
+#### PickerResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

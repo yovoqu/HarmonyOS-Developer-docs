@@ -9,7 +9,7 @@
 通用丢帧场景下，建议优先修改。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -22,13 +22,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 import hilog from '@ohos.hilog'
@@ -65,7 +65,7 @@ struct MyComponent{
  
  
 
-##### 反例
+#### 反例
 
 ```text
 import hilog from '@ohos.hilog'
@@ -100,7 +100,7 @@ struct MyComponent{
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(106,135,89);">plugin:@performance/recommended</span>

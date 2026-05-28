@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-dlp-permission-api-h
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  
@@ -41,7 +41,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  
@@ -57,13 +57,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### DLP_ErrCode
+#### DLP_ErrCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -90,7 +90,7 @@ DLP错误码的枚举。
  
   
 
-##### DLP_FileAccess
+#### DLP_FileAccess
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -114,13 +114,13 @@ DLP文件授权类型的枚举。
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### OH_DLP_GetDlpPermissionInfo()
+#### OH_DLP_GetDlpPermissionInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -151,7 +151,7 @@ DLP_ErrCode OH_DLP_GetDlpPermissionInfo(DLP_FileAccess *dlpFileAccess, uint32_t 
  
   
 
-##### OH_DLP_GetOriginalFileName()
+#### OH_DLP_GetOriginalFileName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -182,7 +182,7 @@ DLP_ErrCode OH_DLP_GetOriginalFileName(const char *fileName, char **originalFile
  
   
 
-##### OH_DLP_IsInSandbox()
+#### OH_DLP_IsInSandbox()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -212,7 +212,7 @@ DLP_ErrCode OH_DLP_IsInSandbox(bool *isInSandbox)
  
   
 
-##### OH_DLP_SetSandboxAppConfig()
+#### OH_DLP_SetSandboxAppConfig()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -242,7 +242,7 @@ DLP_ErrCode OH_DLP_SetSandboxAppConfig(const char *configInfo)
  
   
 
-##### OH_DLP_GetSandboxAppConfig()
+#### OH_DLP_GetSandboxAppConfig()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -272,7 +272,7 @@ DLP_ErrCode OH_DLP_GetSandboxAppConfig(char **configInfo)
  
   
 
-##### OH_DLP_CleanSandboxAppConfig()
+#### OH_DLP_CleanSandboxAppConfig()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

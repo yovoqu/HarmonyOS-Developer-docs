@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/changelogs-ux-b106
 
-##### QRCode深浅色适配修改
+#### QRCode深浅色适配修改
 
 **变更原因**
  
@@ -32,7 +32,7 @@ QRcode组件
  
  
 
-##### 属性动画onFinish结束回调在UIAbility退后台时因有限循环动画被终止而提前触发
+#### 属性动画onFinish结束回调在UIAbility退后台时因有限循环动画被终止而提前触发
 
 **变更原因**
  
@@ -60,7 +60,7 @@ AnimateParam和KeyframeAnimateParam的onFinish接口。
  
  
 
-##### TextInput组件在非标准字体场景下showCounter接口布局变更
+#### TextInput组件在非标准字体场景下showCounter接口布局变更
 
 **变更原因**
  
@@ -116,7 +116,7 @@ TextInput组件showCounter接口。
  
  
 
-##### MenuItem组件在非PC/2in1设备上超长文本布局由缩略显示变更为换行显示
+#### MenuItem组件在非PC/2in1设备上超长文本布局由缩略显示变更为换行显示
 
 **变更原因**
  
@@ -153,7 +153,7 @@ MenuItem UX默认布局效果变更，应用无需适配。
  
  
 
-##### Tabs组件barOverlap接口默认效果变更
+#### Tabs组件barOverlap接口默认效果变更
 
 **变更原因**
  

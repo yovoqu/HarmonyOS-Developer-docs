@@ -10,7 +10,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Wearable | lite_wearable
 
@@ -20,7 +20,7 @@ import bluetooth from '@system.bluetooth';
  
   
 
-##### bluetooth.startBLEScan(OBJECT)
+#### bluetooth.startBLEScan(OBJECT)
 
 **支持设备：** Wearable | lite_wearable
 
@@ -59,7 +59,7 @@ bluetooth.startBLEScan({
  
   
 
-##### bluetooth.stopBLEScan(OBJECT)
+#### bluetooth.stopBLEScan(OBJECT)
 
 **支持设备：** Wearable | lite_wearable
 
@@ -96,7 +96,7 @@ bluetooth.stopBLEScan({
  
   
 
-##### bluetooth.subscribeBLEFound(OBJECT)
+#### bluetooth.subscribeBLEFound(OBJECT)
 
 **支持设备：** Wearable | lite_wearable
 
@@ -147,7 +147,7 @@ bluetooth.subscribeBLEFound({
  
   
 
-##### bluetooth.unsubscribeBLEFound()
+#### bluetooth.unsubscribeBLEFound()
 
 **支持设备：** Wearable | lite_wearable
 
@@ -163,7 +163,7 @@ bluetooth.unsubscribeBLEFound();
  
   
 
-##### 常见错误码
+#### 常见错误码
 
 **支持设备：** Wearable | lite_wearable
  

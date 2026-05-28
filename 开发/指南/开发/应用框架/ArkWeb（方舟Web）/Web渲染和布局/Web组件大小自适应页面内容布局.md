@@ -9,7 +9,7 @@
 多设备适配Web页面请参考[Web响应式布局](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-web-adaptation)。
 
 
-##### 使用场景
+#### 使用场景
 
 适用于Web组件需要根据网页高度撑开，与其他系统组件一起滚动的场景，如：
 
@@ -37,7 +37,7 @@
 
 
 
-##### 规格与约束
+#### 规格与约束
 1. 建议配置[渲染模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-render-mode)为[同步渲染模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-render-mode#同步渲染模式)，避免因为组件大小超出限制导致异常场景（白屏，布局错误）。
 2. 建议配置[overScrollMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#overscrollmode11)（过滚动模式）为关闭状态。当过滚动模式开启时，当用户在Web界面上滑动到边缘时，Web会通过弹性动画弹回界面，会与Scroll组件的回弹相互冲突，影响体验。
 3. [keyboardAvoidMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#keyboardavoidmode12)（键盘避让）属性配置为RESIZE_CONTENT时，该避让模式不生效。
@@ -48,7 +48,7 @@
 
 
 
-##### 示例代码
+#### 示例代码
 
 ```ArkTS
 import { webview } from '@kit.ArkWeb';
@@ -142,11 +142,11 @@ fit_content.html页面代码如下：
 
 
 
-##### 常见问题
+#### 常见问题
 
 
 
-##### 设置了FIT_CONTENT，但Web组件内仍出现滚动条
+#### 设置了FIT_CONTENT，但Web组件内仍出现滚动条
 
 **可能原因：**
 
@@ -162,7 +162,7 @@ fit_content.html页面代码如下：
 
 
 
-##### 设置FIT_CONTENT后，页面白屏或页面消失不显示
+#### 设置FIT_CONTENT后，页面白屏或页面消失不显示
 
 **可能的原因：**
 

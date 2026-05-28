@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-file-share-h
 **支持设备：** Phone | PC/2in1 | Tablet
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -41,7 +41,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -53,7 +53,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -69,13 +69,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### FileShare_OperationMode
+#### FileShare_OperationMode
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -97,7 +97,7 @@ URI操作模式枚举值。
  
   
 
-##### FileShare_PolicyErrorCode
+#### FileShare_PolicyErrorCode
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -121,13 +121,13 @@ enum FileShare_PolicyErrorCode
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### OH_FileShare_PersistPermission()
+#### OH_FileShare_PersistPermission()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -162,7 +162,7 @@ FileManagement_ErrCode OH_FileShare_PersistPermission(const FileShare_PolicyInfo
  
   
 
-##### OH_FileShare_RevokePermission()
+#### OH_FileShare_RevokePermission()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -197,7 +197,7 @@ FileManagement_ErrCode OH_FileShare_RevokePermission(const FileShare_PolicyInfo 
  
   
 
-##### OH_FileShare_ActivatePermission()
+#### OH_FileShare_ActivatePermission()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -232,7 +232,7 @@ FileManagement_ErrCode OH_FileShare_ActivatePermission(const FileShare_PolicyInf
  
   
 
-##### OH_FileShare_DeactivatePermission()
+#### OH_FileShare_DeactivatePermission()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -267,7 +267,7 @@ FileManagement_ErrCode OH_FileShare_DeactivatePermission(const FileShare_PolicyI
  
   
 
-##### OH_FileShare_CheckPersistentPermission()
+#### OH_FileShare_CheckPersistentPermission()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -302,7 +302,7 @@ FileManagement_ErrCode OH_FileShare_CheckPersistentPermission(const FileShare_Po
  
   
 
-##### OH_FileShare_ReleasePolicyErrorResult()
+#### OH_FileShare_ReleasePolicyErrorResult()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

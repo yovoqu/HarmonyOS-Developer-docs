@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-runtime-faq
 
-##### 正则运算与预期输出结果不一致场景
+#### 正则运算与预期输出结果不一致场景
 
 如果使用正则运算时结果与期望不符，请检查以下场景。
 
 
 
-##### 正则运算对于\b处理与预期不一致
+#### 正则运算对于\b处理与预期不一致
 
 ```ArkTS
 let str = '\u2642';
@@ -28,7 +28,7 @@ console.info('res = ' + res);
 
 
 
-##### 正则运算对于先行断言((?=pattern)或(?!pattern)) 嵌套在后行断言((?<=pattern)或(?<!pattern))内部的场景与预期不一致
+#### 正则运算对于先行断言((?=pattern)或(?!pattern)) 嵌套在后行断言((?<=pattern)或(?<!pattern))内部的场景与预期不一致
 
 ```ArkTS
 console.info(`res:${'abcdef'.match(/(?<=ab(?=c)cd)ef/)}`);
@@ -40,7 +40,7 @@ console.info(`res:${'abcdef'.match(/(?<=ab(?=c)cd)ef/)}`);
 
 
 
-##### 正则运算对于大小写的处理与预期不一致
+#### 正则运算对于大小写的处理与预期不一致
 
 ```ArkTS
 let res = /\u{10400}/ui.test('\u{10428}');
@@ -53,7 +53,7 @@ console.info('res = ' + res);
 
 
 
-##### 正则运算/()/ug匹配时lastIndex与预期不一致
+#### 正则运算/()/ug匹配时lastIndex与预期不一致
 
 ```ArkTS
 let L = '\ud800';
@@ -70,7 +70,7 @@ console.info('u.lastIndex = ' + u.lastIndex);
 
 
 
-##### 正则运算[]内部使用'-'与预期不一致
+#### 正则运算[]内部使用'-'与预期不一致
 
 ```ArkTS
 let str = 'a-b';
@@ -90,7 +90,7 @@ console.info('reg.exec(str) = ' + reg.exec(str));
 
 
 
-##### 正则运算具名捕获组获取与预期不一致
+#### 正则运算具名捕获组获取与预期不一致
 
 ```ArkTS
 let reg = new RegExp('(a)(?<b>b)');
@@ -110,7 +110,7 @@ console.info('JSON.stringify(res?.groups) = {\'b\':' + JSON.stringify(res[2]) + 
 
 
 
-##### 正则匹配使用'|'与预期不一致
+#### 正则匹配使用'|'与预期不一致
 
 在使用正则匹配时，如果'|'前是一个空匹配，会导致'|'后的匹配不成功。
 
@@ -132,7 +132,7 @@ let reg3 = /a(?:x){0,1}$/;
 
 
 
-##### TypedArray.prototype.map触发内联缓存优化后，在回调中将数值number转为浮点数number与期望不一致
+#### TypedArray.prototype.map触发内联缓存优化后，在回调中将数值number转为浮点数number与期望不一致
 
 ```ArkTS
 for(let i = 0; i < 1000; i++) {} // 触发内联缓存优化
@@ -165,7 +165,7 @@ console.info('result[0]:', result[0]);
 
 
 
-##### Number.parseFloat解析浮点数number类型非规格化数值与期望不一致
+#### Number.parseFloat解析浮点数number类型非规格化数值与期望不一致
 
 parseFloat接口不支持对非规格化数进行解析。当输入字符串表示一个浮点数number类型的非规格化数，一律输出0。
 
@@ -180,7 +180,7 @@ console.info('testcase: ', result);
 
 
 
-##### Set constructor入参为多维数组的解析与期望不一致
+#### Set constructor入参为多维数组的解析与期望不一致
 
 ```ArkTS
 const arr1: number[] = [1, 2];
@@ -196,7 +196,7 @@ console.info('res: ', result);
 
 
 
-##### Object.entries处理Uint8Array与Uint16Array数组结果与期望不一致
+#### Object.entries处理Uint8Array与Uint16Array数组结果与期望不一致
 
 ```text
 // TestArray.js
@@ -241,7 +241,7 @@ try {
 
 
 
-##### 字符串 replace 接口对于第一个参数为空字符串的场景与预期不一致
+#### 字符串 replace 接口对于第一个参数为空字符串的场景与预期不一致
 
 在使用字符串replace接口时，如果第一个参数是空字符串，则直接返回原始字符串。
 
@@ -262,7 +262,7 @@ let res = str.replace(/^/, 'abc');
 
 
 
-##### Async函数内部异常的处理机制
+#### Async函数内部异常的处理机制
 
 **场景**
 
@@ -302,18 +302,18 @@ hilog -b D
 然后点击DevEco Studio下方HiLog选项卡，输入过滤条件“Throw error:”，即可查看到Async函数内产生的异常信息。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/wLioiAvMRbuOwxHvzjrsAQ/zh-cn_image_0000002611833429.png?HW-CC-KV=V1&HW-CC-Date=20260528T014850Z&HW-CC-Expire=86400&HW-CC-Sign=66B0626C464BC1E5A40E60C4860C1A8E43B7DCD4FE2BBBD92440C86CA22F35F2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/wLioiAvMRbuOwxHvzjrsAQ/zh-cn_image_0000002611833429.png?HW-CC-KV=V1&HW-CC-Date=20260528T030518Z&HW-CC-Expire=86400&HW-CC-Sign=0A542D6CEA7389D5F0821E2EF7FFCC4EF8B21FD5A80B9DB31A801AA81E151161)
 
 
 
 
-##### Array.flatMap()接口常见问题
+#### Array.flatMap()接口常见问题
 
 Array.flatMap()接口在处理包含Proxy的Array时，未正确展平嵌套的Proxy Array，导致返回结果与预期不一致。
 
 
 
-##### ArkTS使用场景
+#### ArkTS使用场景
 
 ```ArkTS
 let arr1 = [0, 1];
@@ -334,7 +334,7 @@ console.info('res[0] is: ', res[0].toString());
 
 
 
-##### ArkUI使用场景
+#### ArkUI使用场景
 
 ArkUI状态管理框架会为使用状态变量装饰器（如@State、@Trace、@Local）装饰的Array添加一层代理，用于观测API调用产生的变化。如果状态装饰器与Array组合，并且调用Array.flatMap，会出现如下问题。
 
@@ -363,7 +363,7 @@ struct Index {
 
 
 
-##### Array.flatMap规避方案
+#### Array.flatMap规避方案
 
 避免使用Array.flatMap()接口，改为调用Array.map()接口后再调用深度为1的Array.flat()接口。以上文ArkTS使用场景为例：
 
@@ -377,7 +377,7 @@ let res = arr3.map(x => x).flat();
 
 
 
-##### Proxy的handler对象中key类型与EcmaScript规范定义不一致
+#### Proxy的handler对象中key类型与EcmaScript规范定义不一致
 
 在Proxy对象的handler函数中，对于数字类型的key，ArkTS当前实现是采用保持数字类型不变，但是按照EcmaScript规范，应当转为string类型。
 
@@ -469,7 +469,7 @@ let res = arr3.map(x => x).flat();
 
 
 
-##### JSON.stringify的replacer函数中数组索引的key类型与EcmaScript规范定义不一致
+#### JSON.stringify的replacer函数中数组索引的key类型与EcmaScript规范定义不一致
 
 JSON.stringify的replacer函数中，对于数组索引key的类型，ArkTS当前实现是采用保持数字类型不变，但是按照EcmaScript规范，应当转为string类型。
 

@@ -10,7 +10,7 @@
 **起始版本：** 5.0.0(12)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@ import { cloudFunction } from '@kit.CloudFoundationKit';
  
   
 
-##### call
+#### call
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -85,7 +85,7 @@ cloudFunction.call({
  
   
 
-##### call
+#### call
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -154,7 +154,7 @@ cloudFunction.call({
  
   
 
-##### FunctionParams
+#### FunctionParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -178,7 +178,7 @@ cloudFunction.call({
  
   
 
-##### LoadMode
+#### LoadMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -200,7 +200,7 @@ cloudFunction.call({
  
   
 
-##### FunctionResult
+#### FunctionResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

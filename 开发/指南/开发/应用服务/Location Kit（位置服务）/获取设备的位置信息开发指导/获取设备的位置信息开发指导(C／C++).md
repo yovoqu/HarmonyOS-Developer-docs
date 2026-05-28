@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/location-guidelines-capi
 
-##### 场景介绍
+#### 场景介绍
 
 开发者可以调用HarmonyOS位置相关接口，监听设备的位置变化。
  
   
 
-##### 函数说明
+#### 函数说明
  
 | 名称 | 描述 |
 | --- | --- |
@@ -29,7 +29,7 @@
  
   
 
-##### 开发步骤
+#### 开发步骤
 1. 新建一个Native C++工程。
 
   

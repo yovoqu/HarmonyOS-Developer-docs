@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-info-errorcode
 
-##### 00639001 获取包失败
+#### 00639001 获取包失败
 
 **错误信息**
  
@@ -24,7 +24,7 @@ Package Not Found Error.
  
  
 
-##### 00639002 包名称为空
+#### 00639002 包名称为空
 
 **错误信息**
  
@@ -44,7 +44,7 @@ Package Name Is Empty Error.
  
  
 
-##### 00639003 配置Field不支持的字段
+#### 00639003 配置Field不支持的字段
 
 **错误信息**
  
@@ -64,7 +64,7 @@ UnSupport Field Error.
  
  
 
-##### 00639004 PageNum页码错误
+#### 00639004 PageNum页码错误
 
 **错误信息**
  
@@ -84,7 +84,7 @@ Invalid PageNum Error.
  
  
 
-##### 00639005 PageSize无效错误
+#### 00639005 PageSize无效错误
 
 **错误信息**
  

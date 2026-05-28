@@ -10,7 +10,7 @@
 
 
 
-##### StoreConfig
+#### StoreConfig
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -37,7 +37,7 @@
 
 
 
-##### CryptoParam14+
+#### CryptoParam14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -57,7 +57,7 @@
 
 
 
-##### Asset10+
+#### Asset10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -78,7 +78,7 @@
 
 
 
-##### ChangeInfo10+
+#### ChangeInfo10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -97,7 +97,7 @@
 
 
 
-##### DistributedConfig10+
+#### DistributedConfig10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -115,7 +115,7 @@
 
 
 
-##### Statistic10+
+#### Statistic10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -133,7 +133,7 @@
 
 
 
-##### TableDetails10+
+#### TableDetails10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -149,7 +149,7 @@
 
 
 
-##### ProgressDetails10+
+#### ProgressDetails10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -166,7 +166,7 @@
 
 
 
-##### SqlExecutionInfo12+
+#### SqlExecutionInfo12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -185,7 +185,7 @@
 
 
 
-##### SqlInfo20+
+#### SqlInfo20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -201,7 +201,7 @@
 
 
 
-##### ExceptionMessage20+
+#### ExceptionMessage20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -218,7 +218,7 @@
 
 
 
-##### TransactionOptions14+
+#### TransactionOptions14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -233,7 +233,7 @@
 
 
 
-##### pluginLibs的使用约束和示例
+#### pluginLibs的使用约束和示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -308,7 +308,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### ReturningConfig23+
+#### ReturningConfig23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -326,7 +326,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### Result23+
+#### Result23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

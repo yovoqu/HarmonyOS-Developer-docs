@@ -12,7 +12,7 @@
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -34,7 +34,7 @@ ImageAnimator()
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -42,7 +42,7 @@ ImageAnimator()
 
 
 
-##### images
+#### images
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -65,7 +65,7 @@ images(value: Array&lt;ImageFrameInfo&gt;)
 
 
 
-##### state
+#### state
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -88,7 +88,7 @@ state(value: AnimationStatus)
 
 
 
-##### duration
+#### duration
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -111,7 +111,7 @@ duration(value: number)
 
 
 
-##### reverse
+#### reverse
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -134,7 +134,7 @@ reverse(value: boolean)
 
 
 
-##### fixedSize
+#### fixedSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -157,7 +157,7 @@ fixedSize(value: boolean)
 
 
 
-##### preDecode(deprecated)
+#### preDecode(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -180,7 +180,7 @@ preDecode(value: number)
 
 
 
-##### fillMode
+#### fillMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -203,7 +203,7 @@ fillMode(value: FillMode)
 
 
 
-##### iterations
+#### iterations
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -224,7 +224,7 @@ iterations(value: number)
 
 
 
-##### monitorInvisibleArea17+
+#### monitorInvisibleArea17+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -245,7 +245,7 @@ monitorInvisibleArea(monitorInvisibleArea: boolean)
 
 
 
-##### ImageFrameInfo对象说明
+#### ImageFrameInfo对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -267,7 +267,7 @@ monitorInvisibleArea(monitorInvisibleArea: boolean)
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -275,7 +275,7 @@ monitorInvisibleArea(monitorInvisibleArea: boolean)
 
 
 
-##### onStart
+#### onStart
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -298,7 +298,7 @@ onStart(event: () => void)
 
 
 
-##### onPause
+#### onPause
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -321,7 +321,7 @@ onPause(event: () => void)
 
 
 
-##### onRepeat
+#### onRepeat
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -342,7 +342,7 @@ onRepeat(event: () => void)
 
 
 
-##### onCancel
+#### onCancel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -365,7 +365,7 @@ onCancel(event: () => void)
 
 
 
-##### onFinish
+#### onFinish
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -388,13 +388,13 @@ onFinish(event: () => void)
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1（播放Resource动画）
+#### 示例1（播放Resource动画）
 
 通过ImageAnimator组件播放Resource动画。
 
@@ -486,7 +486,7 @@ struct ImageAnimatorExample {
 
 
 
-##### 示例2（播放PixelMap动画）
+#### 示例2（播放PixelMap动画）
 
 通过ImageAnimator组件播放PixelMap动画。
 
@@ -590,7 +590,7 @@ struct ImageAnimatorExample {
 
 
 
-##### 示例3（设置不可见自动停播）
+#### 示例3（设置不可见自动停播）
 
 通过[monitorInvisibleArea](#monitorinvisiblearea17)属性实现了当ImageAnimator的[state](#state)属性为AnimationStatus.Running时，控制组件在不可见时停止播放，在可见时恢复播放。
 

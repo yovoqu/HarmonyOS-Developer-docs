@@ -7,7 +7,7 @@
 设置ohpm用户级配置项。
  
 
-##### 命令格式
+#### 命令格式
 
 ```text
 ohpm config set <key> <value>
@@ -23,12 +23,12 @@ ohpm config encrypt [options]
  
  
 
-##### 功能描述
+#### 功能描述
 
 ohpm 从命令行和 .ohpmrc 文件中获取其配置设置。有关更多 .ohpmrc 文件信息和可用配置选项，请参阅 [ohpmrc](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpmrc) 章节。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/LYLW4KCNTBW5uFTDsaoI3w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T015004Z&HW-CC-Expire=86400&HW-CC-Sign=42CB368CA43F21DDD574247847492E7A01CFDF58F6AC28C835128B3F7CE233EF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/01/v3/NMikGM3SSeqDplL17lB5kw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030634Z&HW-CC-Expire=86400&HW-CC-Sign=A37686574D0D21CFA82FC260F9BEFAC5EA5A92DBAFF067BB4D5DD1C4A6A6562C)
  
 
 ohpm config 仅支持配置项字段（默认项字段请查阅 [ohpmrc](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpmrc#zh-cn_topic_0000001792216397_默认配置项) 章节），且仅支持修改**用户级目录**下的 .ohpmrc 文件。
@@ -37,11 +37,11 @@ ohpm config 仅支持配置项字段（默认项字段请查阅 [ohpmrc](https:/
  
  
 
-##### 子命令
+#### 子命令
 
  
 
-##### set
+#### set
 
 ```text
 ohpm config set <key> <value>
@@ -59,7 +59,7 @@ ohpm config set log_level debug
  
  
 
-##### get
+#### get
 
 ```text
 ohpm config get <key>
@@ -119,7 +119,7 @@ log_level = "debug"
  
  
 
-##### list
+#### list
 
 ```text
 ohpm config list
@@ -154,7 +154,7 @@ log_level = "debug"
  
  
 
-##### delete
+#### delete
 
 ```text
 ohpm config delete <key>
@@ -184,7 +184,7 @@ log_level=debug
  
  
 
-##### encrypt
+#### encrypt
 
 ```text
 ohpm config encrypt [options]
@@ -246,11 +246,11 @@ security:01:61AE9D3219664B7B785XXXXX:201f713d625daddafcb12198ea9d5121xxxxxx
  
  
 
-##### Options
+#### Options
 
  
 
-##### json
+#### json
 
 - 默认值：false
 - 类型： Boolean
@@ -274,7 +274,7 @@ ohpm config list -j 或 ohpm config list --json
  
  
 
-##### crypto_path
+#### crypto_path
 
 - 默认值：无
 - 类型： string
@@ -307,7 +307,7 @@ security:01:61AE9D3219664B7B785XXXXX:201f713d625daddafcb12198ea9d5121xxxxxx
  
  
 
-##### log_level
+#### log_level
 
 - 默认值：无
 - 类型： string
@@ -317,7 +317,7 @@ security:01:61AE9D3219664B7B785XXXXX:201f713d625daddafcb12198ea9d5121xxxxxx
  
  
 
-##### debug
+#### debug
 
 - 默认值：false
 - 类型： Boolean

@@ -11,7 +11,7 @@
 
 
 
-##### wrapBuilder不支持动态全局@Builder
+#### wrapBuilder不支持动态全局@Builder
 
 当前wrapBuilder不支持二次赋值， 更改@Builder，UI不会发生变化。
 
@@ -53,7 +53,7 @@ struct Index {
 
 
 
-##### 接口说明
+#### 接口说明
 
 mutableBuilder是一个模板函数，返回一个[MutableBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-mutablebuilder#mutablebuilder-2)对象。相比[WrappedBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-wrapbuilder#wrappedbuilder)，MutableBuilder可以实现动态切换全局@Builder。
 
@@ -81,7 +81,7 @@ let builderArr: MutableBuilder<[string, number]>[] = [mutableBuilder(MyBuilder)]
 
 
 
-##### 限制条件
+#### 限制条件
 1. mutableBuilder方法只能传入[全局@Builder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder#全局自定义构建函数)方法，传入局部@Builder方法编译时报错。
 
   
@@ -176,7 +176,7 @@ Button(`MutableBuilder`).onClick(() => {
 
 
 
-##### 动态更改全局@Builder实例
+#### 动态更改全局@Builder实例
 
 使用@Builder装饰器装饰的方法textBuilder作为mutableBuilder的参数，然后将mutableBuilder的返回值赋值给变量switchingBuilder，在Button的点击事件中，使用@Builder装饰器装饰的方法buttonBuilder作为mutableBuilder的参数，将mutableBuilder的返回值再次赋值给变量switchingBuilder，可实现textBuilder 更新为buttonBuilder，以解决wrapBuilder不支持二次赋值的问题。
 
@@ -223,12 +223,12 @@ struct MyApp {
 点击Button，可将textBuilder动态更改为buttonBuilder，如下图所示：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/TsPnavvxT6iewFFpvpXl7Q/zh-cn_image_0000002581273720.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014803Z&HW-CC-Expire=86400&HW-CC-Sign=2CFA9F5589C9FD999C589825C6F0CEB2AFEA5E69C233BC604B9969D3B0EDA87B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/TsPnavvxT6iewFFpvpXl7Q/zh-cn_image_0000002581273720.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030435Z&HW-CC-Expire=86400&HW-CC-Sign=96B584CBDAC374887A51481EB8C609F7D4B8861D1D6B29EB50AF75B203AF0A8A)
 
 
 
 
-##### 使用mutableBuilder显示弹出菜单
+#### 使用mutableBuilder显示弹出菜单
 
 由于MutableBuilder继承自WrappedBuilder，故mutableBuilder对应的@Builder具有跟WrappedBuilder同等能力，如下示例，mutableBuilder对应的@Builder方法可作为bindMenu入参，支持点击弹出菜单。
 
@@ -272,7 +272,7 @@ struct Index {
 
 
 
-##### 观察mutableBuilder中@Builder的变化
+#### 观察mutableBuilder中@Builder的变化
 
 mutableBuilder对应的@Builder函数中可使用[MutableBinding](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#mutablebindingt20)进行包裹来观察状态变量的变化，同时可通过[@Monitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-monitor)或[addMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-addmonitor-clearmonitor)监听mutableBuilder中@Builder的变化。
 
@@ -331,7 +331,7 @@ struct MyApp {
 点击Click to change按钮，可将textBuilder动态切换为buttonBuilder，this.message将自动加B，界面会显示initB按钮。点击initB按钮，buttonBuilder中的p.value将自动加b，如下图所示：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0b/v3/-zRyHSy3QGS81_NGvA6hDw/zh-cn_image_0000002611753575.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014803Z&HW-CC-Expire=86400&HW-CC-Sign=D7DA5FCB48F5CF6C6E11233BF05C86701E9C7252943FBB1FEFC80D58C11BC540)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0b/v3/-zRyHSy3QGS81_NGvA6hDw/zh-cn_image_0000002611753575.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030435Z&HW-CC-Expire=86400&HW-CC-Sign=A0851E462F8D5CC83E94E316C52C40BD36B985857165DAECDBE0C5753D7B53D9)
 
 
 点击Click to change按钮将textBuilder动态切换为buttonBuilder时，@Monitor将监听到全局@Builder的变化，并打印日志@Builder changed. is buttonBuilder: true。

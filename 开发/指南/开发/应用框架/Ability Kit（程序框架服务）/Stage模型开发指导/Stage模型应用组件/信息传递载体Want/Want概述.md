@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/want-overview
 
-##### Want的定义与用途
+#### Want的定义与用途
 
 [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want)是一种对象，用于在应用组件之间传递信息。
 
@@ -18,7 +18,7 @@
 
 
 
-##### Want的类型
+#### Want的类型
 
  - **显式Want**：在启动目标应用组件时，调用方传入的[want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want)参数中指定了abilityName和bundleName，称为显式Want。
 

@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fileguard-get-file-url
 
-##### 场景介绍
+#### 场景介绍
 
 Enterprise Data Guard Kit为应用提供获取文件路径信息的能力，该路径可被应用直接打开，从而辅助判断是否是KIA文件。
 
 
 
-##### 接口说明
+#### 接口说明
 
 详细接口说明可参考[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard)。
 
@@ -22,7 +22,7 @@ Enterprise Data Guard Kit为应用提供获取文件路径信息的能力，该�
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 导入模块。
 
   

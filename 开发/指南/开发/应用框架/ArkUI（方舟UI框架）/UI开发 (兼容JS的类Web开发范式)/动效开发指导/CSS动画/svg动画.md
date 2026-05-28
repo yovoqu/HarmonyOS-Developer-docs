@@ -7,7 +7,7 @@
 为svg组件添加动画效果。
 
 
-##### 属性样式动画
+#### 属性样式动画
 
 在svg的子组件[animate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-animate)中，通过attributeName设置需要进行动效的属性，from设置开始值，to设置结束值。
 
@@ -47,7 +47,7 @@
 
 
 
-##### 路径动画
+#### 路径动画
 
 在svg的子组件[animateMotion](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-animatemotion)中，通过path设置动画变化的路径。
 
@@ -71,7 +71,7 @@
 
 
 
-##### animateTransform动画
+#### animateTransform动画
 
 在svg的子组件[animateTransform](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-animatetransform)中，通过attributeName绑定transform属性，type设置动画类型，from设置开始值，to设置结束值。
 
@@ -112,4 +112,4 @@
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6/v3/7tg2ovRJQEKaafqEXrbc0Q/zh-cn_image_0000002581274296.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014758Z&HW-CC-Expire=86400&HW-CC-Sign=E752DAF3EDB89EF8AF3E748B9C72280CFCA417E6B4D0467C96D8EF7D63F9B753)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6/v3/7tg2ovRJQEKaafqEXrbc0Q/zh-cn_image_0000002581274296.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030430Z&HW-CC-Expire=86400&HW-CC-Sign=35701A3994B09DF5A09293D9618AE331A1BD03CE526FFCDCC632E6AD50977D99)

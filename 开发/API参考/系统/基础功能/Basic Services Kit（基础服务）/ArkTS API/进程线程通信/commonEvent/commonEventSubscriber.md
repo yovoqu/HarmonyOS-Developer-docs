@@ -10,7 +10,7 @@
 
 
 
-##### CommonEventSubscriber
+#### CommonEventSubscriber
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@
 
 
 
-##### 使用说明
+#### 使用说明
 
 在使用CommonEventSubscriber的功能前，需要通过commonEventManager.createSubscriber获取subscriber对象。
 
@@ -42,7 +42,7 @@ subscriber = commonEventManager.createSubscriberSync(subscribeInfo);
 
 
 
-##### getCode
+#### getCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -84,7 +84,7 @@ subscriber.getCode((err: BusinessError, code: number) => {
 
 
 
-##### getCode
+#### getCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -115,7 +115,7 @@ subscriber.getCode().then((code: number) => {
 
 
 
-##### getCodeSync10+
+#### getCodeSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -143,7 +143,7 @@ console.info(`Succeeded in getting code, code is ${JSON.stringify(code)}`);
 
 
 
-##### setCode
+#### setCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -186,7 +186,7 @@ subscriber.setCode(1, (err: BusinessError) => {
 
 
 
-##### setCode
+#### setCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -233,7 +233,7 @@ subscriber.setCode(1).then(() => {
 
 
 
-##### setCodeSync10+
+#### setCodeSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -274,7 +274,7 @@ try {
 
 
 
-##### getData
+#### getData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -317,7 +317,7 @@ subscriber.getData((err: BusinessError, data: string) => {
 
 
 
-##### getData
+#### getData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -348,7 +348,7 @@ subscriber.getData().then((data: string) => {
 
 
 
-##### getDataSync10+
+#### getDataSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -376,7 +376,7 @@ console.info(`Succeeded in getting data, data is ${data}`);
 
 
 
-##### setData
+#### setData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -419,7 +419,7 @@ subscriber.setData('publish_data_changed', (err: BusinessError) => {
 
 
 
-##### setData
+#### setData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -466,7 +466,7 @@ subscriber.setData('publish_data_changed').then(() => {
 
 
 
-##### setDataSync10+
+#### setDataSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -507,7 +507,7 @@ try {
 
 
 
-##### setCodeAndData
+#### setCodeAndData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -551,7 +551,7 @@ subscriber.setCodeAndData(1, 'publish_data_changed', (err: BusinessError) => {
 
 
 
-##### setCodeAndData
+#### setCodeAndData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -599,7 +599,7 @@ subscriber.setCodeAndData(1, 'publish_data_changed').then(() => {
 
 
 
-##### setCodeAndDataSync10+
+#### setCodeAndDataSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -641,7 +641,7 @@ try {
 
 
 
-##### isOrderedCommonEvent
+#### isOrderedCommonEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -681,7 +681,7 @@ subscriber.isOrderedCommonEvent((err: BusinessError, isOrdered:boolean) => {
 
 
 
-##### isOrderedCommonEvent
+#### isOrderedCommonEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -710,7 +710,7 @@ subscriber.isOrderedCommonEvent().then((isOrdered:boolean) => {
 
 
 
-##### isOrderedCommonEventSync10+
+#### isOrderedCommonEventSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -736,7 +736,7 @@ console.info(`isOrderedCommonEventSync ${JSON.stringify(isOrdered)}`);
 
 
 
-##### isStickyCommonEvent
+#### isStickyCommonEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -776,7 +776,7 @@ subscriber.isStickyCommonEvent((err: BusinessError, isSticky:boolean) => {
 
 
 
-##### isStickyCommonEvent
+#### isStickyCommonEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -805,7 +805,7 @@ subscriber.isStickyCommonEvent().then((isSticky:boolean) => {
 
 
 
-##### isStickyCommonEventSync10+
+#### isStickyCommonEventSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -831,7 +831,7 @@ console.info(`isStickyCommonEventSync ${JSON.stringify(isSticky)}`);
 
 
 
-##### abortCommonEvent
+#### abortCommonEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -878,7 +878,7 @@ subscriber.finishCommonEvent((err: BusinessError) => {
 
 
 
-##### abortCommonEvent
+#### abortCommonEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -912,7 +912,7 @@ subscriber.finishCommonEvent().then(() => {
 
 
 
-##### abortCommonEventSync10+
+#### abortCommonEventSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -935,7 +935,7 @@ subscriber.finishCommonEvent().then(() => {
 
 
 
-##### clearAbortCommonEvent
+#### clearAbortCommonEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -982,7 +982,7 @@ subscriber.finishCommonEvent((err: BusinessError) => {
 
 
 
-##### clearAbortCommonEvent
+#### clearAbortCommonEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1016,7 +1016,7 @@ subscriber.finishCommonEvent().then(() => {
 
 
 
-##### clearAbortCommonEventSync10+
+#### clearAbortCommonEventSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1039,7 +1039,7 @@ subscriber.finishCommonEvent().then(() => {
 
 
 
-##### getAbortCommonEvent
+#### getAbortCommonEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1079,7 +1079,7 @@ subscriber.getAbortCommonEvent((err: BusinessError, abortEvent: boolean) => {
 
 
 
-##### getAbortCommonEvent
+#### getAbortCommonEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1108,7 +1108,7 @@ subscriber.getAbortCommonEvent().then((abortEvent: boolean) => {
 
 
 
-##### getAbortCommonEventSync10+
+#### getAbortCommonEventSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1134,7 +1134,7 @@ console.info(`Succeeded in getting abort common event, abortEvent is ${JSON.stri
 
 
 
-##### getSubscribeInfo
+#### getSubscribeInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1176,7 +1176,7 @@ subscriber.getSubscribeInfo((err: BusinessError, subscribeInfo: commonEventManag
 
 
 
-##### getSubscribeInfo
+#### getSubscribeInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1207,7 +1207,7 @@ subscriber.getSubscribeInfo().then((subscribeInfo: commonEventManager.CommonEven
 
 
 
-##### getSubscribeInfoSync10+
+#### getSubscribeInfoSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1235,7 +1235,7 @@ console.info(`Succeeded in getting subscribe info, subscribe info is ${JSON.stri
 
 
 
-##### finishCommonEvent9+
+#### finishCommonEvent9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1275,7 +1275,7 @@ subscriber.finishCommonEvent((err: BusinessError) => {
 
 
 
-##### finishCommonEvent9+
+#### finishCommonEvent9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

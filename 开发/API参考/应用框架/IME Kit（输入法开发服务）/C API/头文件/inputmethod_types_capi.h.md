@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-inputmethod-types-capi-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -47,13 +47,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### InputMethod_KeyboardStatus
+#### InputMethod_KeyboardStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -76,7 +76,7 @@ enum InputMethod_KeyboardStatus
  
   
 
-##### InputMethod_EnterKeyType
+#### InputMethod_EnterKeyType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -105,7 +105,7 @@ enum InputMethod_EnterKeyType
  
   
 
-##### InputMethod_Direction
+#### InputMethod_Direction
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -130,7 +130,7 @@ enum InputMethod_Direction
  
   
 
-##### InputMethod_ExtendAction
+#### InputMethod_ExtendAction
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -154,7 +154,7 @@ enum InputMethod_ExtendAction
  
   
 
-##### InputMethod_TextInputType
+#### InputMethod_TextInputType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -189,7 +189,7 @@ enum InputMethod_TextInputType
  
   
 
-##### InputMethod_CommandValueType
+#### InputMethod_CommandValueType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -213,7 +213,7 @@ enum InputMethod_CommandValueType
  
   
 
-##### InputMethod_ErrorCode
+#### InputMethod_ErrorCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -246,7 +246,7 @@ enum InputMethod_ErrorCode
  
   
 
-##### InputMethod_RequestKeyboardReason
+#### InputMethod_RequestKeyboardReason
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

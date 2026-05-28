@@ -4,11 +4,11 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-js-memleak-detection
 
-##### 使用Snapshot检测虚拟机内存泄漏
+#### 使用Snapshot检测虚拟机内存泄漏
 
  
 
-##### 查看快照详情
+#### 查看快照详情
 1. 创建Snapshot场景调优分析任务，操作方法可参考[性能问题定位：深度录制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/deep-recording)。
 > [!NOTE]
 > 在任务分析窗口，可以通过“Ctrl+鼠标滚轮”缩放时间轴，通过“Shift+鼠标滚轮”左右移动时间轴。或使用快捷键W/S放大或缩小时间轴，使用A键/D键可以左右移动时间轴。 将鼠标悬停在泳道任意位置，可以通过M键添加单点时间标签。 鼠标框选要关注的时间段，可以通过“Shift+M”添加时间段标签。 在任务分析窗口，可以通过“ctrl+,”向前选中单点时间标签，通过“ctrl+.”向后选中单点时间标签。 在任务分析窗口，可以通过“ctrl+[”向前选中时间段标签，通过“ctrl+]”向后选中时间段标签。
@@ -48,7 +48,7 @@
 
  
 
-##### 节点属性与引用链
+#### 节点属性与引用链
 
  
 在“Snapshot”的“Statistics”页签和“Comparison”页签中，所有实例对象节点展开后会显示“&lt;fields&gt;”以及“&lt;references&gt;”，这两项节点分别代表该实例对象的属性以及该实例对象的引用链信息。
@@ -60,7 +60,7 @@
 
  
 
-##### 节点跳转
+#### 节点跳转
 
  
 在“Snapshot”的“Comparison”页签中，查看内存对象、对象属性及其引用链时，若要查看某一对象的详细信息，可以单击该对象所在行行尾的跳转图标跳转至该对象所在的“Statistics”页签并定位至该对象所在的位置，以查看该对象的详细信息。
@@ -70,7 +70,7 @@
 
  
 
-##### 历史节点前进/后退
+#### 历史节点前进/后退
 
 当在“Comparison”和“Statistics”之间进行节点跳转后，单击详情区域左下角的左右箭头可以前进或者后退至下一个或上一个历史节点，以便快速在多个历史节点之间跳转查看。当箭头为激活状态时，表示前进/后退功能可用，当箭头为灰色状态时则代表无法使用该功能。
  
@@ -80,7 +80,7 @@
 
  
 
-##### 比较快照差异
+#### 比较快照差异
 
  
 在“Snapshot”的“Comparison”页签中，以当前选择的快照为base，下拉框选择的快照为Target，即可得到两次快照信息的比较结果。
@@ -94,7 +94,7 @@
 
  
 
-##### Heap Snapshot离线导入
+#### Heap Snapshot离线导入
 
  
 DevEco Profiler提供Heap Snapshot离线导入能力，可导入一个或多个.heapsnapshot文件。
@@ -118,11 +118,11 @@ DevEco Profiler提供Heap Snapshot离线导入能力，可导入一个或多个.
 
  
 
-##### 使用IDE工具检测虚拟机内存泄漏的详细步骤
+#### 使用IDE工具检测虚拟机内存泄漏的详细步骤
 
  
 
-##### 检测步骤
+#### 检测步骤
 
 检测内存泄漏问题步骤如下：
  1. 在内存泄漏前拍摄快照；
@@ -132,7 +132,7 @@ DevEco Profiler提供Heap Snapshot离线导入能力，可导入一个或多个.
  
  
 
-##### 录制Snapshot模板数据
+#### 录制Snapshot模板数据
 
 1. 连接好设备后启动应用，点击应用选择框(下图中①处)选择需要录制的应用，选择Snapshot模板(下图中②处)，点击Create Session或双击Snapshot图标即可创建一个Snapshot的录制模板。
 ![](assets/JS内存泄漏问题检测方法/file-20260515115108246-24.png)
@@ -151,7 +151,7 @@ DevEco Profiler提供Heap Snapshot离线导入能力，可导入一个或多个.
 
  
 
-##### 常见虚拟机内存对象介绍
+#### 常见虚拟机内存对象介绍
 
  
 JSObject
@@ -211,7 +211,7 @@ JSFunction
 如果函数显示为anonymous()，则表示为匿名函数；如果函数显示为JSFunction()，则表示该函数可能为框架层函数，创建函数的时候未设置函数名。对于这两种函数名不可见的情况，可以通过查看其引用来间接确认其名称：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/ULuvQ5VdQQO5kvLBTZi80w/zh-cn_image_0000002370565456.png?HW-CC-KV=V1&HW-CC-Date=20260528T013037Z&HW-CC-Expire=86400&HW-CC-Sign=C68654F080A5527C6B4A87475F7E6781ED5E91D686DB43CF39545D350DE683E9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/ULuvQ5VdQQO5kvLBTZi80w/zh-cn_image_0000002370565456.png?HW-CC-KV=V1&HW-CC-Date=20260528T024722Z&HW-CC-Expire=86400&HW-CC-Sign=E8B8FA7F628E1A1CD38C762449A8E0D2CB1BE8D624F319CE1BFCD1EFC1A07259)
 
  
 LexicalEnv
@@ -219,7 +219,7 @@ LexicalEnv
 闭包变量上下文；闭包是一个链状结构，如下所示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/h2lgDsLpRqe9N2ahawHZZw/zh-cn_image_0000002404125129.png?HW-CC-KV=V1&HW-CC-Date=20260528T013037Z&HW-CC-Expire=86400&HW-CC-Sign=C0275BADEC76BAADAA066AEB8878C10025C906D452CC6410D65D0C588A758CB5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/h2lgDsLpRqe9N2ahawHZZw/zh-cn_image_0000002404125129.png?HW-CC-KV=V1&HW-CC-Date=20260528T024722Z&HW-CC-Expire=86400&HW-CC-Sign=4B182A658E331FFBEEF48DEA531B605CDA1E52E8952945C50A39CBB26B531F7E)
 
  
 733这个节点本身是一个闭包数组，其中0号元素是调用者（或者再往上的调用者，以此类推）的闭包；1号元素存储的是调试信息；2号及以后的元素存储的就是闭包传递的变量，上例传递了一个变量。
@@ -235,13 +235,13 @@ InternalAccessor
 对于声明对象，可以通过constructor属性来确定对象名称。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/TtaL56eSTh2os_65IUfb1g/zh-cn_image_0000002370405576.png?HW-CC-KV=V1&HW-CC-Date=20260528T013037Z&HW-CC-Expire=86400&HW-CC-Sign=B3E9835485F5950E47DB86D9B58C455C58C495B7A47BC5417194605D554BE209)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/TtaL56eSTh2os_65IUfb1g/zh-cn_image_0000002370405576.png?HW-CC-KV=V1&HW-CC-Date=20260528T024722Z&HW-CC-Expire=86400&HW-CC-Sign=8B696001347E45AE3416B91201A19AAC93629D7ED4F0BBADF26ACA945AAB6450)
 
  
 对于实例化对象，一般没有constructor，则需要展开_proto_属性后查找constructor；
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/X-Q6QwVjSga9pRbqDUzMSg/zh-cn_image_0000002404045289.png?HW-CC-KV=V1&HW-CC-Date=20260528T013037Z&HW-CC-Expire=86400&HW-CC-Sign=6D2E5507A382026F341AFA4A50C5EC1B7693089C549166911F4C322D6B43831C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/X-Q6QwVjSga9pRbqDUzMSg/zh-cn_image_0000002404045289.png?HW-CC-KV=V1&HW-CC-Date=20260528T024722Z&HW-CC-Expire=86400&HW-CC-Sign=5FE588BFA35CA93B0BC347EDDD2006624B7D8EB72430CF49D448A02315233DD1)
 
  
 若对象里有一些标志性属性，可以通过在代码里搜索属性名称来找到具体是哪个对象。
@@ -249,7 +249,7 @@ InternalAccessor
 如果对象间有继承关系，则可以继续展开_proto_：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/Sg3WgGZ5TMivOxcVNL6BoA/zh-cn_image_0000002370565460.png?HW-CC-KV=V1&HW-CC-Date=20260528T013037Z&HW-CC-Expire=86400&HW-CC-Sign=E2F66061A61C69BECCFCDC85F6D16628F459B2A45FE93AE45DBB99B95A25967D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/Sg3WgGZ5TMivOxcVNL6BoA/zh-cn_image_0000002370565460.png?HW-CC-KV=V1&HW-CC-Date=20260528T024722Z&HW-CC-Expire=86400&HW-CC-Sign=534714DD6AA496F24C71A6BB6801BD43A5292EC675C4D274A957695CF2D46B11)
 
  
 如上图则表明Man对象继承自People对象。

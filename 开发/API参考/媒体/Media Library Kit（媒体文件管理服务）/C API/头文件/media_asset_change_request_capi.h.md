@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-media-asset-change-request-capi-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -46,13 +46,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_MediaAssetChangeRequest_Create()
+#### OH_MediaAssetChangeRequest_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -82,7 +82,7 @@ OH_MediaAssetChangeRequest* OH_MediaAssetChangeRequest_Create(OH_MediaAsset* med
  
   
 
-##### OH_MediaAssetChangeRequest_AddResourceWithUri()
+#### OH_MediaAssetChangeRequest_AddResourceWithUri()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -114,7 +114,7 @@ MediaLibrary_ErrorCode OH_MediaAssetChangeRequest_AddResourceWithUri(OH_MediaAss
  
   
 
-##### OH_MediaAssetChangeRequest_AddResourceWithBuffer()
+#### OH_MediaAssetChangeRequest_AddResourceWithBuffer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -147,7 +147,7 @@ MediaLibrary_ErrorCode OH_MediaAssetChangeRequest_AddResourceWithBuffer(OH_Media
  
   
 
-##### OH_MediaAssetChangeRequest_GetWriteCacheHandler()
+#### OH_MediaAssetChangeRequest_GetWriteCacheHandler()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -180,7 +180,7 @@ MediaLibrary_ErrorCode OH_MediaAssetChangeRequest_GetWriteCacheHandler(OH_MediaA
  
   
 
-##### OH_MediaAssetChangeRequest_SaveCameraPhoto()
+#### OH_MediaAssetChangeRequest_SaveCameraPhoto()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -211,7 +211,7 @@ MediaLibrary_ErrorCode OH_MediaAssetChangeRequest_SaveCameraPhoto(OH_MediaAssetC
  
   
 
-##### OH_MediaAssetChangeRequest_DiscardCameraPhoto()
+#### OH_MediaAssetChangeRequest_DiscardCameraPhoto()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -241,7 +241,7 @@ MediaLibrary_ErrorCode OH_MediaAssetChangeRequest_DiscardCameraPhoto(OH_MediaAss
  
   
 
-##### OH_MediaAssetChangeRequest_Release()
+#### OH_MediaAssetChangeRequest_Release()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -9,13 +9,13 @@
 向量计算支持单精度（float）和双精度（double）两种数据类型，并针对ARM NEON指令集进行了优化，在步长为 1 的连续存储场景下可获得显著性能提升。需要注意的是，为了提升性能，部分接口对浮点数的计算顺序进行了调整，可能影响结果精度。
 
 
-##### 接口说明
+#### 接口说明
 
 具体API说明详见[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast)。
 
 
 
-##### 最大值与索引计算
+#### 最大值与索引计算
 
 | 名称 | 描述 |
 | --- | --- |
@@ -27,7 +27,7 @@
 
 
 
-##### 统计计算
+#### 统计计算
 
 | 名称 | 描述 |
 | --- | --- |
@@ -41,7 +41,7 @@
 
 
 
-##### 向量运算
+#### 向量运算
 
 | 名称 | 描述 |
 | --- | --- |
@@ -53,7 +53,7 @@
 
 
 
-##### 复数格式转换
+#### 复数格式转换
 
 | 名称 | 描述 |
 | --- | --- |
@@ -65,7 +65,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 在CMake脚本中链接相关动态库。
 
   
@@ -86,11 +86,11 @@ target_link_libraries(entry PUBLIC libfast_dsp.so)
 
 
 
-##### 代码示例
+#### 代码示例
 
 
 
-##### 最大值查找示例
+#### 最大值查找示例
 
 ```text
 #include <cstdio>
@@ -119,7 +119,7 @@ FAST_ErrorCode max_value_demo() {
 
 
 
-##### 统计计算示例
+#### 统计计算示例
 
 ```text
 #include <cstdio>
@@ -150,7 +150,7 @@ FAST_ErrorCode statistics_demo() {
 
 
 
-##### 向量运算示例
+#### 向量运算示例
 
 ```text
 #include <cstdio>
@@ -185,7 +185,7 @@ FAST_ErrorCode vector_operations_demo() {
 
 
 
-##### 复数格式转换示例
+#### 复数格式转换示例
 
 ```text
 #include <cstdio>
@@ -236,7 +236,7 @@ FAST_ErrorCode complex_conversion_demo() {
 
 
 
-##### 非连续存储示例
+#### 非连续存储示例
 
 ```text
 #include <cstdio>

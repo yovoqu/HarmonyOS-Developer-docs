@@ -7,7 +7,7 @@
 应用需要对应用文件目录下的应用文件进行查看、创建、读写、删除、移动、复制、获取属性等访问操作，下文介绍具体方法。
 
 
-##### 接口说明
+#### 接口说明
 
 开发者通过基础文件操作接口（[ohos.file.fs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs)）实现应用文件访问能力，主要功能如下表所示。
 
@@ -48,7 +48,7 @@
 
 
 
-##### 开发示例
+#### 开发示例
 
 在对应用文件开始访问前，开发者需要[获取应用文件路径](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-context-stage#获取应用文件路径)。以从UIAbilityContext获取HAP级别的文件路径为例进行说明，UIAbilityContext的获取方式请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
@@ -56,7 +56,7 @@
 
 
 
-##### 新建并读写一个文件
+#### 新建并读写一个文件
 
 以下示例代码演示了如何新建一个文件并对其读写。
 
@@ -108,7 +108,7 @@ function createFile(context: common.UIAbilityContext): void {
 
 
 
-##### 读取文件内容并写入到另一个文件
+#### 读取文件内容并写入到另一个文件
 
 以下示例代码演示了如何从一个文件读写内容到另一个文件。
 
@@ -177,7 +177,7 @@ function readWriteFile(context: common.UIAbilityContext): void {
 
 
 
-##### 以流的形式读写文件
+#### 以流的形式读写文件
 
 以下示例代码演示了如何使用流接口读取test.txt的文件内容并写入到destFile.txt文件中。
 
@@ -242,7 +242,7 @@ async function readWriteFileWithStream(context: common.UIAbilityContext): Promis
 
 
 
-##### 查看文件列表
+#### 查看文件列表
 
 以下示例代码演示了如何查看文件列表。
 
@@ -280,7 +280,7 @@ function getListFile(context: common.UIAbilityContext): void {
 
 
 
-##### 使用文件流
+#### 使用文件流
 
 以下示例代码演示了如何使用文件可读流，文件可写流。
 
@@ -364,7 +364,7 @@ function copyFileWithData(context: common.UIAbilityContext): void {
 
 
 
-##### 使用文件哈希流
+#### 使用文件哈希流
 
 哈希流是一种数据传输和存储技术，可以将任意长度的数据转换为固定长度的哈希值来验证数据的完整性和一致性。以下代码演示了如何使用文件哈希处理接口（[ohos.file.hash](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-hash)）来处理文件哈希流。
 

@@ -15,7 +15,7 @@
 
 
 
-##### 概述
+#### 概述
 
 @Provide/@Consume装饰的状态变量有以下特性：
 
@@ -46,7 +46,7 @@
 
 
 
-##### 装饰器说明
+#### 装饰器说明
 
 | @Provide变量装饰器 | 说明 |
 | --- | --- |
@@ -80,11 +80,11 @@
 
 
 
-##### 观察变化和行为表现
+#### 观察变化和行为表现
 
 
 
-##### 观察变化
+#### 观察变化
 
  - 当装饰的数据类型为boolean、string、number类型时，可以观察到数值的变化。
  - 当装饰的数据类型为class或者Object的时候，可以观察到赋值和属性赋值的变化（属性为Object.keys(observedObject)返回的所有属性）。
@@ -96,7 +96,7 @@
 
 
 
-##### 框架行为
+#### 框架行为
 1. 初始渲染：
 
   
@@ -123,7 +123,7 @@
 
 
 
-##### 限制条件
+#### 限制条件
 1. @Provide/@Consume的参数key必须为string类型，否则编译时会报错。
 
   
@@ -387,11 +387,11 @@ struct Child {
 
 
 
-##### 使用场景
+#### 使用场景
 
 
 
-##### @Provide变量与@Consume变量建立双向绑定
+#### @Provide变量与@Consume变量建立双向绑定
 
 以下示例是@Provide变量与后代组件中@Consume变量进行双向同步的场景。当分别点击ToDo和ToDoItem组件内的Button时，count的更改会双向同步在ToDo和ToDoItem中。
 
@@ -446,7 +446,7 @@ struct ToDo {
 
 
 
-##### 装饰Array类型变量
+#### 装饰Array类型变量
 
 以下示例中，message类型为number[]，点击Button改变message的值，视图会随之刷新。
 
@@ -517,7 +517,7 @@ struct Child {
 
 
 
-##### 装饰Map类型变量
+#### 装饰Map类型变量
 
 > [!NOTE]
 > 从API version 11开始，@Provide，@Consume支持Map类型。
@@ -589,7 +589,7 @@ struct MapSample {
 
 
 
-##### 装饰Set类型变量
+#### 装饰Set类型变量
 
 > [!NOTE]
 > 从API version 11开始，@Provide，@Consume支持Set类型。
@@ -656,7 +656,7 @@ struct SetSample {
 
 
 
-##### 装饰Date类型变量
+#### 装饰Date类型变量
 
 以下示例中，selectedDate类型为Date，点击Button改变selectedDate的值，视图会随之刷新。
 
@@ -717,7 +717,7 @@ struct Parent {
 
 
 
-##### Provide和Consume支持联合类型实例
+#### Provide和Consume支持联合类型实例
 
 @Provide和@Consume支持联合类型和undefined和null。以下示例中，count类型为string | undefined，当点击父组件Parent中的Button改变count的属性或者类型时，Child中也会对应刷新。
 
@@ -764,7 +764,7 @@ struct Ancestors {
 
 
 
-##### @Provide支持allowOverride参数
+#### @Provide支持allowOverride参数
 
 allowOverride：@Provide重写选项。
 
@@ -853,7 +853,7 @@ struct GrandParent {
 
 
 
-##### @Consume装饰的变量支持设置默认值
+#### @Consume装饰的变量支持设置默认值
 
 > [!NOTE]
 > 从API version 20开始，@Consume装饰的变量支持设置默认值。
@@ -950,7 +950,7 @@ struct Child {
 
 
 
-##### @Consume在跨BuilderNode场景下和@Provide建立双向同步
+#### @Consume在跨BuilderNode场景下和@Provide建立双向同步
 
 > [!NOTE]
 > 从API version 20开始，支持跨BuilderNode配对@Provide/@Consume。
@@ -1109,11 +1109,11 @@ struct Child {
 
 
 
-##### 常见问题
+#### 常见问题
 
 
 
-##### @BuilderParam尾随闭包情况下@Provide未定义错误
+#### @BuilderParam尾随闭包情况下@Provide未定义错误
 
 在此[尾随闭包](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builderparam#尾随闭包初始化组件)场景下，CustomWidget执行this.builder()创建子组件CustomWidgetChild时，this指向的是HomePage。因此找不到CustomWidget的@Provide变量，所以下面示例会报找不到@Provide错误，和@BuilderParam连用的时候要谨慎this的指向。
 

@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-basic-data-types
 
-##### 简介
+#### 简介
 
 在JavaScript中，整数类型是一种基本数据类型，用于表示没有小数部分的数值。Double类型用于表示有小数的数值。JavaScript的数值存储方式会导致在某些情况下无法准确表示非常大或非常小的数值，在这种情况下，需要使用BigInt对应的JSVM-API接口来处理更大范围的整数。
  
   
 
-##### 基本概念
+#### 基本概念
 
 当使用JSVM-API接口进行数值类型的创建和获取时，需要了解以下基本概念：
  
@@ -21,7 +21,7 @@
  
   
 
-##### 接口说明
+#### 接口说明
  
 | 接口 | 功能说明 |
 | --- | --- |
@@ -37,13 +37,13 @@
  
   
 
-##### 使用示例
+#### 使用示例
 
 JSVM-API接口开发流程参考[使用JSVM-API实现JS与C/C++语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-process)，本文仅对接口对应C++相关代码进行展示。
  
   
 
-##### OH_JSVM_GetValueUint32
+#### OH_JSVM_GetValueUint32
 
 将JavaScript value转为JSVM模块中的uint32类型数据。
  
@@ -97,7 +97,7 @@ JSVM GetValueUint32 success: 123
  
   
 
-##### OH_JSVM_GetValueInt32
+#### OH_JSVM_GetValueInt32
 
 将JavaScript value转为JSVM模块中的Int32类型数据。
  
@@ -152,7 +152,7 @@ JSVM GetValueInt32 success: -123
  
   
 
-##### OH_JSVM_GetValueInt64
+#### OH_JSVM_GetValueInt64
 
 将JavaScript value转为JSVM模块中的Int64类型数据。
  
@@ -204,7 +204,7 @@ JSVM GetValueInt64 success: -123
  
   
 
-##### OH_JSVM_GetValueDouble
+#### OH_JSVM_GetValueDouble
 
 将JavaScript value转为JSVM模块中的double类型数据。
  
@@ -254,7 +254,7 @@ JSVM GetDouble success: -110.045600
  
   
 
-##### OH_JSVM_CreateInt32
+#### OH_JSVM_CreateInt32
 
 根据int32_t数据创建JavaScript number对象。
  
@@ -305,7 +305,7 @@ JSVM CreateInt32 success: -20
  
   
 
-##### OH_JSVM_CreateUint32
+#### OH_JSVM_CreateUint32
 
 根据uint32_t数据创建JavaScript number对象。
  
@@ -360,7 +360,7 @@ JSVM CreateUInt32 success: 26
  
   
 
-##### OH_JSVM_CreateInt64
+#### OH_JSVM_CreateInt64
 
 根据int64_t数据创建JavaScript number对象。如果需要表示JS超大数，建议使用BigInt接口。
  
@@ -411,7 +411,7 @@ JSVM CreateInt64 success: 2147483648
  
   
 
-##### OH_JSVM_CreateDouble
+#### OH_JSVM_CreateDouble
 
 根据double数据创建JavaScript number对象。
  

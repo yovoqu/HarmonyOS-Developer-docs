@@ -12,7 +12,7 @@
 
   
 
-##### ResultSet
+#### ResultSet
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 使用说明
+#### 使用说明
 
 需要通过[RdbStore.query()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-rdb#query)获取resultSet对象。
  
@@ -37,7 +37,7 @@ promise.then((resultSet) => {
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -58,7 +58,7 @@ promise.then((resultSet) => {
  
   
 
-##### getColumnIndex
+#### getColumnIndex
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -96,7 +96,7 @@ if (success) {
  
   
 
-##### getColumnName
+#### getColumnName
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -130,7 +130,7 @@ const age = resultSet.getColumnName(2);
  
   
 
-##### goTo
+#### goTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -169,7 +169,7 @@ promisequerygoto.then((resultSet) => {
  
   
 
-##### goToRow
+#### goToRow
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -208,7 +208,7 @@ promisequerygotorow.then((resultSet) => {
  
   
 
-##### goToFirstRow
+#### goToFirstRow
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -240,7 +240,7 @@ promisequerygoFirst.then((resultSet) => {
  
   
 
-##### goToLastRow
+#### goToLastRow
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -272,7 +272,7 @@ promisequerygoLast.then((resultSet) => {
  
   
 
-##### goToNextRow
+#### goToNextRow
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -304,7 +304,7 @@ promisequerygoNext.then((resultSet) => {
  
   
 
-##### goToPreviousRow
+#### goToPreviousRow
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -336,7 +336,7 @@ promisequerygoPrev.then((resultSet) => {
  
   
 
-##### getBlob
+#### getBlob
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -368,7 +368,7 @@ const codes = resultSet.getBlob(resultSet.getColumnIndex("CODES"));
  
   
 
-##### getString
+#### getString
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -400,7 +400,7 @@ const name = resultSet.getString(resultSet.getColumnIndex("NAME"));
  
   
 
-##### getLong
+#### getLong
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -432,7 +432,7 @@ const age = resultSet.getLong(resultSet.getColumnIndex("AGE"));
  
   
 
-##### getDouble
+#### getDouble
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -464,7 +464,7 @@ const salary = resultSet.getDouble(resultSet.getColumnIndex("SALARY"));
  
   
 
-##### isColumnNull
+#### isColumnNull
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -496,7 +496,7 @@ const isColumnNull = resultSet.isColumnNull(resultSet.getColumnIndex("CODES"));
  
   
 
-##### close
+#### close
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

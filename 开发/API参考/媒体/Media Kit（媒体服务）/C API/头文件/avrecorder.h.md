@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avrecorder-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
 
 
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -55,13 +55,13 @@
 
 
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### OH_AVRecorder_Create()
+#### OH_AVRecorder_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -86,7 +86,7 @@ OH_AVRecorder *OH_AVRecorder_Create(void)
 
 
 
-##### OH_AVRecorder_Prepare()
+#### OH_AVRecorder_Prepare()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -121,7 +121,7 @@ OH_AVErrCode OH_AVRecorder_Prepare(OH_AVRecorder *recorder, OH_AVRecorder_Config
 
 
 
-##### OH_AVRecorder_GetAVRecorderConfig()
+#### OH_AVRecorder_GetAVRecorderConfig()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -156,7 +156,7 @@ OH_AVErrCode OH_AVRecorder_GetAVRecorderConfig(OH_AVRecorder *recorder, OH_AVRec
 
 
 
-##### OH_AVRecorder_GetInputSurface()
+#### OH_AVRecorder_GetInputSurface()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -191,7 +191,7 @@ OH_AVErrCode OH_AVRecorder_GetInputSurface(OH_AVRecorder *recorder, OHNativeWind
 
 
 
-##### OH_AVRecorder_UpdateRotation()
+#### OH_AVRecorder_UpdateRotation()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -224,7 +224,7 @@ OH_AVErrCode OH_AVRecorder_UpdateRotation(OH_AVRecorder *recorder, int32_t rotat
 
 
 
-##### OH_AVRecorder_Start()
+#### OH_AVRecorder_Start()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -256,7 +256,7 @@ OH_AVErrCode OH_AVRecorder_Start(OH_AVRecorder *recorder)
 
 
 
-##### OH_AVRecorder_Pause()
+#### OH_AVRecorder_Pause()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -290,7 +290,7 @@ OH_AVErrCode OH_AVRecorder_Pause(OH_AVRecorder *recorder)
 
 
 
-##### OH_AVRecorder_Resume()
+#### OH_AVRecorder_Resume()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -322,7 +322,7 @@ OH_AVErrCode OH_AVRecorder_Resume(OH_AVRecorder *recorder)
 
 
 
-##### OH_AVRecorder_Stop()
+#### OH_AVRecorder_Stop()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -358,7 +358,7 @@ OH_AVErrCode OH_AVRecorder_Stop(OH_AVRecorder *recorder)
 
 
 
-##### OH_AVRecorder_Reset()
+#### OH_AVRecorder_Reset()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -394,7 +394,7 @@ OH_AVErrCode OH_AVRecorder_Reset(OH_AVRecorder *recorder)
 
 
 
-##### OH_AVRecorder_Release()
+#### OH_AVRecorder_Release()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -428,7 +428,7 @@ OH_AVErrCode OH_AVRecorder_Release(OH_AVRecorder *recorder)
 
 
 
-##### OH_AVRecorder_GetAvailableEncoder()
+#### OH_AVRecorder_GetAvailableEncoder()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -464,7 +464,7 @@ OH_AVErrCode OH_AVRecorder_GetAvailableEncoder(OH_AVRecorder *recorder, OH_AVRec
 
 
 
-##### OH_AVRecorder_SetStateCallback()
+#### OH_AVRecorder_SetStateCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -498,7 +498,7 @@ OH_AVErrCode OH_AVRecorder_SetStateCallback(OH_AVRecorder *recorder, OH_AVRecord
 
 
 
-##### OH_AVRecorder_SetErrorCallback()
+#### OH_AVRecorder_SetErrorCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -532,7 +532,7 @@ OH_AVErrCode OH_AVRecorder_SetErrorCallback(OH_AVRecorder *recorder, OH_AVRecord
 
 
 
-##### OH_AVRecorder_SetUriCallback()
+#### OH_AVRecorder_SetUriCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -566,7 +566,7 @@ OH_AVErrCode OH_AVRecorder_SetUriCallback(OH_AVRecorder *recorder, OH_AVRecorder
 
 
 
-##### OH_AVRecorder_SetWillMuteWhenInterrupted()
+#### OH_AVRecorder_SetWillMuteWhenInterrupted()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

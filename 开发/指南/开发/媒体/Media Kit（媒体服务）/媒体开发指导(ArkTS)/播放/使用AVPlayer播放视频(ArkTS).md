@@ -23,7 +23,7 @@
 状态的详细说明请参考[AVPlayerState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-t#avplayerstate9)。当播放处于prepared / playing / paused / completed状态时，播放引擎处于工作状态，这需要占用系统较多的运行内存。当客户端暂时不使用播放器时，调用reset()或release()回收内存资源，做好资源释放。
 
 
-##### 开发建议
+#### 开发建议
 
 当前指导仅介绍如何实现媒体资源播放，在应用开发过程中可能会涉及后台播放、播放冲突等情况，请根据实际需要参考以下说明。
 
@@ -35,7 +35,7 @@
 
 
 
-##### 开发步骤及注意事项
+#### 开发步骤及注意事项
 
 详细的API说明请参考[AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer)。
 1. 调用createAVPlayer()创建AVPlayer实例，初始化进入idle状态。
@@ -248,7 +248,7 @@ avPlayer.release((err: BusinessError) => {
 
 
 
-##### 运行完整示例
+#### 运行完整示例
 1. 新建工程，下载[示例工程](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/Media/AVPlayer/AVPlayerArkTSVideo)，并将示例工程的以下资源复制到对应目录。       
 ```ArkTS
 AVPlayerArkTSVideo

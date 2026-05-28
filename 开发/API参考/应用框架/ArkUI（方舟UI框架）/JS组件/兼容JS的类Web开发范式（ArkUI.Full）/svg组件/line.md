@@ -12,7 +12,7 @@
 绘制线条。
   
 
-##### 权限列表
+#### 权限列表
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -28,7 +28,7 @@
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -45,7 +45,7 @@
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -68,4 +68,4 @@
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/I1t465YSSuqpZR-UMnZd5w/zh-cn_image_0000002611836213.png?HW-CC-KV=V1&HW-CC-Date=20260528T024106Z&HW-CC-Expire=86400&HW-CC-Sign=7950E40A73A71D565F3CFDF7C5C044564F3DAB4732ADB7D2DA85695862A5C9E2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/I1t465YSSuqpZR-UMnZd5w/zh-cn_image_0000002611836213.png?HW-CC-KV=V1&HW-CC-Date=20260528T025440Z&HW-CC-Expire=86400&HW-CC-Sign=94C5C87643063BD90DAD229C3C124D2C1E2F7C53654D8B9E11B94AA993B9B5AE)

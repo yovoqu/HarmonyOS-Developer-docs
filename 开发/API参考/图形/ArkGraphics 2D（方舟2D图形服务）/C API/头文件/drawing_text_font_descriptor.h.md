@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-text-font-descriptor-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -40,7 +40,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -54,7 +54,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -94,13 +94,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Drawing_SystemFontType
+#### OH_Drawing_SystemFontType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -125,7 +125,7 @@ enum OH_Drawing_SystemFontType
  
   
 
-##### OH_Drawing_FontFullDescriptorAttributeId
+#### OH_Drawing_FontFullDescriptorAttributeId
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -167,7 +167,7 @@ enum OH_Drawing_FontFullDescriptorAttributeId
  
   
 
-##### OH_Drawing_FontVariationAxisAttributeId
+#### OH_Drawing_FontVariationAxisAttributeId
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -194,7 +194,7 @@ enum OH_Drawing_FontVariationAxisAttributeId
  
   
 
-##### OH_Drawing_FontVariationInstanceAttributeId
+#### OH_Drawing_FontVariationInstanceAttributeId
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -216,13 +216,13 @@ enum OH_Drawing_FontVariationInstanceAttributeId
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Drawing_MatchFontDescriptors()
+#### OH_Drawing_MatchFontDescriptors()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -259,7 +259,7 @@ OH_Drawing_FontDescriptor* OH_Drawing_MatchFontDescriptors(OH_Drawing_FontDescri
  
   
 
-##### OH_Drawing_DestroyFontDescriptors()
+#### OH_Drawing_DestroyFontDescriptors()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -285,7 +285,7 @@ void OH_Drawing_DestroyFontDescriptors(OH_Drawing_FontDescriptor* descriptors, s
  
   
 
-##### OH_Drawing_GetFontDescriptorByFullName()
+#### OH_Drawing_GetFontDescriptorByFullName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -320,7 +320,7 @@ OH_Drawing_FontDescriptor* OH_Drawing_GetFontDescriptorByFullName(const OH_Drawi
  
   
 
-##### OH_Drawing_GetSystemFontFullNamesByType()
+#### OH_Drawing_GetSystemFontFullNamesByType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -352,7 +352,7 @@ OH_Drawing_Array* OH_Drawing_GetSystemFontFullNamesByType(OH_Drawing_SystemFontT
  
   
 
-##### OH_Drawing_GetSystemFontFullNameByIndex()
+#### OH_Drawing_GetSystemFontFullNameByIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -385,7 +385,7 @@ const OH_Drawing_String* OH_Drawing_GetSystemFontFullNameByIndex(OH_Drawing_Arra
  
   
 
-##### OH_Drawing_DestroySystemFontFullNames()
+#### OH_Drawing_DestroySystemFontFullNames()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -410,7 +410,7 @@ void OH_Drawing_DestroySystemFontFullNames(OH_Drawing_Array* fullNameArray)
  
   
 
-##### OH_Drawing_GetFontFullDescriptorsFromStream()
+#### OH_Drawing_GetFontFullDescriptorsFromStream()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -443,7 +443,7 @@ OH_Drawing_Array* OH_Drawing_GetFontFullDescriptorsFromStream(const void* data, 
  
   
 
-##### OH_Drawing_GetFontFullDescriptorsFromPath()
+#### OH_Drawing_GetFontFullDescriptorsFromPath()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -475,7 +475,7 @@ OH_Drawing_Array* OH_Drawing_GetFontFullDescriptorsFromPath(const char* path)
  
   
 
-##### OH_Drawing_GetFontFullDescriptorByIndex()
+#### OH_Drawing_GetFontFullDescriptorByIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -508,7 +508,7 @@ const OH_Drawing_FontFullDescriptor* OH_Drawing_GetFontFullDescriptorByIndex(OH_
  
   
 
-##### OH_Drawing_DestroyFontFullDescriptors()
+#### OH_Drawing_DestroyFontFullDescriptors()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -533,7 +533,7 @@ void OH_Drawing_DestroyFontFullDescriptors(OH_Drawing_Array* descriptorArray)
  
   
 
-##### OH_Drawing_DestroyFontFullDescriptor()
+#### OH_Drawing_DestroyFontFullDescriptor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -556,7 +556,7 @@ void OH_Drawing_DestroyFontFullDescriptor(const OH_Drawing_FontFullDescriptor* d
  
   
 
-##### OH_Drawing_GetFontFullDescriptorAttributeInt()
+#### OH_Drawing_GetFontFullDescriptorAttributeInt()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -590,7 +590,7 @@ OH_Drawing_ErrorCode OH_Drawing_GetFontFullDescriptorAttributeInt(const OH_Drawi
  
   
 
-##### OH_Drawing_GetFontFullDescriptorAttributeBool()
+#### OH_Drawing_GetFontFullDescriptorAttributeBool()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -624,7 +624,7 @@ OH_Drawing_ErrorCode OH_Drawing_GetFontFullDescriptorAttributeBool(const OH_Draw
  
   
 
-##### OH_Drawing_GetFontFullDescriptorAttributeString()
+#### OH_Drawing_GetFontFullDescriptorAttributeString()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -662,7 +662,7 @@ OH_Drawing_ErrorCode OH_Drawing_GetFontFullDescriptorAttributeString(const OH_Dr
  
   
 
-##### OH_Drawing_GetFontUnicodeArrayFromFile()
+#### OH_Drawing_GetFontUnicodeArrayFromFile()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -695,7 +695,7 @@ OH_Drawing_ErrorCode OH_Drawing_GetFontUnicodeArrayFromFile(const char* fontSrc,
  
   
 
-##### OH_Drawing_GetFontUnicodeArrayFromBuffer()
+#### OH_Drawing_GetFontUnicodeArrayFromBuffer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -729,7 +729,7 @@ OH_Drawing_ErrorCode OH_Drawing_GetFontUnicodeArrayFromBuffer(uint8_t* fontBuffe
  
   
 
-##### OH_Drawing_GetFontCountFromFile()
+#### OH_Drawing_GetFontCountFromFile()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -759,7 +759,7 @@ uint32_t OH_Drawing_GetFontCountFromFile(const char* fontSrc)
  
   
 
-##### OH_Drawing_GetFontCountFromBuffer()
+#### OH_Drawing_GetFontCountFromBuffer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -790,7 +790,7 @@ uint32_t OH_Drawing_GetFontCountFromBuffer(uint8_t* fontBuffer, size_t length)
  
   
 
-##### OH_Drawing_GetFontPathsByType()
+#### OH_Drawing_GetFontPathsByType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -821,7 +821,7 @@ OH_Drawing_String* OH_Drawing_GetFontPathsByType(OH_Drawing_SystemFontType fontT
  
   
 
-##### OH_Drawing_GetFontFullDescriptorAttributeArray()
+#### OH_Drawing_GetFontFullDescriptorAttributeArray()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -854,7 +854,7 @@ OH_Drawing_Array* OH_Drawing_GetFontFullDescriptorAttributeArray(const OH_Drawin
  
   
 
-##### OH_Drawing_GetFontVariationAxisByIndex()
+#### OH_Drawing_GetFontVariationAxisByIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -887,7 +887,7 @@ OH_Drawing_FontVariationAxis* OH_Drawing_GetFontVariationAxisByIndex(OH_Drawing_
  
   
 
-##### OH_Drawing_DestroyFontVariationAxis()
+#### OH_Drawing_DestroyFontVariationAxis()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -912,7 +912,7 @@ void OH_Drawing_DestroyFontVariationAxis(OH_Drawing_Array* fontVariaAxisArray)
  
   
 
-##### OH_Drawing_GetFontVariationAxisAttributeDouble()
+#### OH_Drawing_GetFontVariationAxisAttributeDouble()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -946,7 +946,7 @@ OH_Drawing_ErrorCode OH_Drawing_GetFontVariationAxisAttributeDouble(OH_Drawing_F
  
   
 
-##### OH_Drawing_GetFontVariationAxisAttributeInt()
+#### OH_Drawing_GetFontVariationAxisAttributeInt()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -980,7 +980,7 @@ OH_Drawing_ErrorCode OH_Drawing_GetFontVariationAxisAttributeInt(OH_Drawing_Font
  
   
 
-##### OH_Drawing_GetFontVariationAxisAttributeStr()
+#### OH_Drawing_GetFontVariationAxisAttributeStr()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1018,7 +1018,7 @@ OH_Drawing_ErrorCode OH_Drawing_GetFontVariationAxisAttributeStr(OH_Drawing_Font
  
   
 
-##### OH_Drawing_GetFontVariationInstanceByIndex()
+#### OH_Drawing_GetFontVariationInstanceByIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1051,7 +1051,7 @@ OH_Drawing_FontVariationInstance* OH_Drawing_GetFontVariationInstanceByIndex(OH_
  
   
 
-##### OH_Drawing_DestroyFontVariationInstance()
+#### OH_Drawing_DestroyFontVariationInstance()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1076,7 +1076,7 @@ void OH_Drawing_DestroyFontVariationInstance(OH_Drawing_Array* fontVariaAxisInst
  
   
 
-##### OH_Drawing_GetFontVariationInstanceAttributeStr()
+#### OH_Drawing_GetFontVariationInstanceAttributeStr()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1114,7 +1114,7 @@ OH_Drawing_ErrorCode OH_Drawing_GetFontVariationInstanceAttributeStr(OH_Drawing_
  
   
 
-##### OH_Drawing_GetFontVariationInstanceCoordinate()
+#### OH_Drawing_GetFontVariationInstanceCoordinate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1147,7 +1147,7 @@ OH_Drawing_FontVariationInstanceCoordinate* OH_Drawing_GetFontVariationInstanceC
  
   
 
-##### OH_Drawing_GetFontFullDescriptorByFullName()
+#### OH_Drawing_GetFontFullDescriptorByFullName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

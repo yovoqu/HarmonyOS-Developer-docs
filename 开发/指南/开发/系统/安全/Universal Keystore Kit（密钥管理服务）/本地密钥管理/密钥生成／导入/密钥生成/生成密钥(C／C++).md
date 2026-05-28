@@ -7,7 +7,7 @@
 以ECC算法为例，生成随机密钥。具体的场景介绍及支持的算法规格，请参考[密钥生成支持的算法](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview#支持的算法)。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/6TT6LBDtT-mISqsigPk2Lg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T014625Z&HW-CC-Expire=86400&HW-CC-Sign=F728513B9432E314B72403880277EB7C77514F6F8C9876F60978CAA42DFAE9CC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/6TT6LBDtT-mISqsigPk2Lg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030256Z&HW-CC-Expire=86400&HW-CC-Sign=785AE4CB02B6CB72187E00D8431DE3BC0D0601DC61DCF25ECF42FA4276751ED2)
 
 
 密钥别名中禁止包含个人数据等敏感信息。
@@ -15,7 +15,7 @@
 
 
 
-##### 在CMake脚本中链接相关动态库
+#### 在CMake脚本中链接相关动态库
 
 ```text
 target_link_libraries(entry PUBLIC libhuks_ndk.z.so)
@@ -23,7 +23,7 @@ target_link_libraries(entry PUBLIC libhuks_ndk.z.so)
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 指定密钥别名，密钥别名命名规范参考[密钥生成介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。
 2. 初始化密钥属性集。通过[OH_Huks_InitParamSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-param-h#oh_huks_initparamset)、[OH_Huks_AddParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-param-h#oh_huks_addparams)、[OH_Huks_BuildParamSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-param-h#oh_huks_buildparamset)构造密钥属性集paramSet。
 

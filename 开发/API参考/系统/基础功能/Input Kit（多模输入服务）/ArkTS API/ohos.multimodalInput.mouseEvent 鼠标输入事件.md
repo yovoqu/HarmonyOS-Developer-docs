@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { Action, Button, Axis, AxisValue, MouseEvent } from '@kit.InputKit';
  
   
 
-##### Action
+#### Action
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -45,7 +45,7 @@ import { Action, Button, Axis, AxisValue, MouseEvent } from '@kit.InputKit';
  
   
 
-##### Button
+#### Button
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -67,7 +67,7 @@ import { Action, Button, Axis, AxisValue, MouseEvent } from '@kit.InputKit';
  
   
 
-##### Axis
+#### Axis
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -84,7 +84,7 @@ import { Action, Button, Axis, AxisValue, MouseEvent } from '@kit.InputKit';
  
   
 
-##### AxisValue
+#### AxisValue
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -100,7 +100,7 @@ import { Action, Button, Axis, AxisValue, MouseEvent } from '@kit.InputKit';
  
   
 
-##### ToolType11+
+#### ToolType11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -118,7 +118,7 @@ import { Action, Button, Axis, AxisValue, MouseEvent } from '@kit.InputKit';
  
   
 
-##### MouseEvent
+#### MouseEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

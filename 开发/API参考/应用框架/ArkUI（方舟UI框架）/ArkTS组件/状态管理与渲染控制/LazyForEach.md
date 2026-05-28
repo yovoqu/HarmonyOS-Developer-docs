@@ -14,7 +14,7 @@
 在大量子组件的场景下，LazyForEach与缓存列表项、动态预加载、组件复用等方法配合使用，可以进一步提升滑动帧率并降低应用内存占用。最佳实践请参考[优化长列表加载慢丢帧问题](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-best-practices-long-list)。
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@ LazyForEach从提供的数据源中按需迭代数据，并在每次迭代过程
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -49,7 +49,7 @@ LazyForEach从提供的数据源中按需迭代数据，并在每次迭代过程
 
 
 
-##### IDataSource
+#### IDataSource
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -61,7 +61,7 @@ LazyForEach的数据源。
 
 
 
-##### totalCount
+#### totalCount
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -82,7 +82,7 @@ totalCount(): number
 
 
 
-##### getData
+#### getData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -114,7 +114,7 @@ getData(index: number): any
 
 
 
-##### registerDataChangeListener
+#### registerDataChangeListener
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -135,7 +135,7 @@ registerDataChangeListener(listener: DataChangeListener): void
 
 
 
-##### unregisterDataChangeListener
+#### unregisterDataChangeListener
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -156,7 +156,7 @@ unregisterDataChangeListener(listener: DataChangeListener): void
 
 
 
-##### DataChangeListener
+#### DataChangeListener
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -172,7 +172,7 @@ unregisterDataChangeListener(listener: DataChangeListener): void
 
 
 
-##### onDataReloaded
+#### onDataReloaded
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -186,7 +186,7 @@ onDataReloaded(): void
 
 
 
-##### onDataAdded(deprecated)
+#### onDataAdded(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -209,7 +209,7 @@ onDataAdded(index: number): void
 
 
 
-##### onDataMoved(deprecated)
+#### onDataMoved(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -233,7 +233,7 @@ onDataMoved(from: number, to: number): void
 
 
 
-##### onDataDeleted(deprecated)
+#### onDataDeleted(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -256,7 +256,7 @@ onDataDeleted(index: number): void
 
 
 
-##### onDataChanged(deprecated)
+#### onDataChanged(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -279,7 +279,7 @@ onDataChanged(index: number): void
 
 
 
-##### onDataAdd8+
+#### onDataAdd8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -300,7 +300,7 @@ onDataAdd(index: number): void
 
 
 
-##### onDataMove8+
+#### onDataMove8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -326,7 +326,7 @@ onDataMove(from: number, to: number): void
 
 
 
-##### onDataDelete8+
+#### onDataDelete8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -351,7 +351,7 @@ onDataDelete(index: number): void
 
 
 
-##### onDataChange8+
+#### onDataChange8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -372,7 +372,7 @@ onDataChange(index: number): void
 
 
 
-##### onDatasetChange12+
+#### onDatasetChange12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -397,7 +397,7 @@ onDatasetChange(dataOperations: DataOperation[]): void
 
 
 
-##### DataOperation12+
+#### DataOperation12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -411,7 +411,7 @@ onDatasetChange(dataOperations: DataOperation[]): void
 
 
 
-##### DataAddOperation
+#### DataAddOperation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -431,7 +431,7 @@ onDatasetChange(dataOperations: DataOperation[]): void
 
 
 
-##### DataDeleteOperation
+#### DataDeleteOperation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -450,7 +450,7 @@ onDatasetChange(dataOperations: DataOperation[]): void
 
 
 
-##### DataChangeOperation
+#### DataChangeOperation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -469,7 +469,7 @@ onDatasetChange(dataOperations: DataOperation[]): void
 
 
 
-##### DataMoveOperation
+#### DataMoveOperation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -488,7 +488,7 @@ onDatasetChange(dataOperations: DataOperation[]): void
 
 
 
-##### DataExchangeOperation
+#### DataExchangeOperation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -507,7 +507,7 @@ onDatasetChange(dataOperations: DataOperation[]): void
 
 
 
-##### DataReloadOperation
+#### DataReloadOperation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -524,7 +524,7 @@ onDatasetChange(dataOperations: DataOperation[]): void
 
 
 
-##### DataOperationType枚举说明
+#### DataOperationType枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -546,7 +546,7 @@ onDatasetChange(dataOperations: DataOperation[]): void
 
 
 
-##### MoveIndex12+
+#### MoveIndex12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -562,7 +562,7 @@ onDatasetChange(dataOperations: DataOperation[]): void
 
 
 
-##### ExchangeIndex12+
+#### ExchangeIndex12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -578,7 +578,7 @@ onDatasetChange(dataOperations: DataOperation[]): void
 
 
 
-##### ExchangeKey12+
+#### ExchangeKey12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

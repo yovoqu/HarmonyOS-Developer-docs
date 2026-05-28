@@ -16,7 +16,7 @@
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -47,7 +47,7 @@ Shape(value?: PixelMap)
 
 
 
-##### ViewportRect18+对象说明
+#### ViewportRect18+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -73,7 +73,7 @@ Shape(value?: PixelMap)
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -81,7 +81,7 @@ Shape(value?: PixelMap)
 
 
 
-##### viewPort
+#### viewPort
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -104,7 +104,7 @@ viewPort(value: ViewportRect)
 
 
 
-##### fill
+#### fill
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -127,7 +127,7 @@ fill(value: ResourceColor)
 
 
 
-##### fillOpacity
+#### fillOpacity
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -150,7 +150,7 @@ fillOpacity(value: number | string | Resource)
 
 
 
-##### stroke
+#### stroke
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -173,7 +173,7 @@ stroke(value: ResourceColor)
 
 
 
-##### strokeDashArray
+#### strokeDashArray
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -196,7 +196,7 @@ strokeDashArray(value: Array&lt;any&gt;)
 
 
 
-##### strokeDashOffset
+#### strokeDashOffset
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -219,7 +219,7 @@ strokeDashOffset(value: Length)
 
 
 
-##### strokeLineCap
+#### strokeLineCap
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -242,7 +242,7 @@ strokeLineCap(value: LineCapStyle)
 
 
 
-##### strokeLineJoin
+#### strokeLineJoin
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -265,7 +265,7 @@ strokeLineJoin(value: LineJoinStyle)
 
 
 
-##### strokeMiterLimit
+#### strokeMiterLimit
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -290,7 +290,7 @@ strokeMiterLimit(value: Length)
 
 
 
-##### strokeOpacity
+#### strokeOpacity
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -313,7 +313,7 @@ strokeOpacity(value: number | string | Resource)
 
 
 
-##### strokeWidth
+#### strokeWidth
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -336,7 +336,7 @@ strokeWidth(value: Length)
 
 
 
-##### antiAlias
+#### antiAlias
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -359,7 +359,7 @@ antiAlias(value: boolean)
 
 
 
-##### mesh8+
+#### mesh8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -388,13 +388,13 @@ mesh(value: Array&lt;any&gt;, column: number, row: number)
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1（组件属性绘制）
+#### 示例1（组件属性绘制）
 
 通过Shape组件绘制矩形、椭圆和直线路径。
 
@@ -557,7 +557,7 @@ struct ShapeExample {
 
 
 
-##### 示例2（使用不同参数类型绘制图形）
+#### 示例2（使用不同参数类型绘制图形）
 
 各属性通过不同的长度类型绘制图形。
 
@@ -599,12 +599,12 @@ struct ShapeTypeExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/jKgjihRIQGaMgNFCiHkjWw/zh-cn_image_0000002611835983.png?HW-CC-KV=V1&HW-CC-Date=20260528T024200Z&HW-CC-Expire=86400&HW-CC-Sign=F9BC500964BED069D216EED29699E8DEFEE9438C9CE8EA12DDA74EE8DE88CBAC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/jKgjihRIQGaMgNFCiHkjWw/zh-cn_image_0000002611835983.png?HW-CC-KV=V1&HW-CC-Date=20260528T025533Z&HW-CC-Expire=86400&HW-CC-Sign=42F8F48D24D7E610BCFF1C8D162F9B42442DA907EDAE48338053DBE1BCA180C1)
 
 
 
 
-##### 示例3（使用attributeModifier动态设置Shape组件的属性）
+#### 示例3（使用attributeModifier动态设置Shape组件的属性）
 
 以下示例展示了如何使用attributeModifier动态设置Shape组件的fill、fillOpacity、stroke、strokeDashArray、strokeDashOffset、strokeLineCap、strokeLineJoin、strokeMiterLimit、strokeOpacity、strokeWidth和antiAlias属性。
 
@@ -647,12 +647,12 @@ struct ShapeModifierDemo {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/_pNgcJu8QlqN-dQxxQLItw/zh-cn_image_0000002581276236.png?HW-CC-KV=V1&HW-CC-Date=20260528T024200Z&HW-CC-Expire=86400&HW-CC-Sign=7E30165C67908422C550B61D1ABCEA7B9DD7C42552232B0FA9B8756DEC2A4C1B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/_pNgcJu8QlqN-dQxxQLItw/zh-cn_image_0000002581276236.png?HW-CC-KV=V1&HW-CC-Date=20260528T025533Z&HW-CC-Expire=86400&HW-CC-Sign=C159CAF164D4246F9AE600005235A6541DBEE2350EE4A358C288FE911A4062B0)
 
 
 
 
-##### 示例4（使用mesh实现图像局部扭曲）
+#### 示例4（使用mesh实现图像局部扭曲）
 
 以下示例展示了如何使用mesh属性设置网格效果，实现图像局部扭曲。
 
@@ -692,4 +692,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/WT8zYUJOTTmDnF0_pVIXWQ/zh-cn_image_0000002611756091.png?HW-CC-KV=V1&HW-CC-Date=20260528T024200Z&HW-CC-Expire=86400&HW-CC-Sign=4CAFBCC000056AC36E1E0E37C18936BEA8519E90138DC7CAEE29DB6603E76F3E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/WT8zYUJOTTmDnF0_pVIXWQ/zh-cn_image_0000002611756091.png?HW-CC-KV=V1&HW-CC-Date=20260528T025533Z&HW-CC-Expire=86400&HW-CC-Sign=DD91B9D1DEE850E7655385393173BECE8ACF6D3C08D42713470CE8A05E656610)

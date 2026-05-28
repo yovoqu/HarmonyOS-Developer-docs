@@ -10,7 +10,7 @@
 **起始版本：** 5.0.3(15)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -20,7 +20,7 @@ import { petalMaps } from '@kit.MapKit';
  
   
 
-##### openMapHomePage
+#### openMapHomePage
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -69,7 +69,7 @@ await petalMaps.openMapHomePage(this.getUIContext().getHostContext());
  
   
 
-##### openMapPoiDetail
+#### openMapPoiDetail
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -125,7 +125,7 @@ await petalMaps.openMapPoiDetail(this.getUIContext().getHostContext(), params);
  
   
 
-##### openMapTextSearch
+#### openMapTextSearch
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -178,7 +178,7 @@ await petalMaps.openMapTextSearch(this.getUIContext().getHostContext(), params);
  
   
 
-##### openMapRoutePlan
+#### openMapRoutePlan
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -234,7 +234,7 @@ await petalMaps.openMapRoutePlan(this.getUIContext().getHostContext(), params);
  
   
 
-##### openMapNavi
+#### openMapNavi
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -290,7 +290,7 @@ await petalMaps.openMapNavi(this.getUIContext().getHostContext(), params);
  
   
 
-##### openMapTaxi
+#### openMapTaxi
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -345,7 +345,7 @@ await petalMaps.openMapTaxi(this.getUIContext().getHostContext(), params);
  
   
 
-##### openMapOfflineDataManagement
+#### openMapOfflineDataManagement
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -397,7 +397,7 @@ await petalMaps.openMapOfflineDataManagement(this.getUIContext().getHostContext(
  
   
 
-##### PoiDetailParams
+#### PoiDetailParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -438,7 +438,7 @@ let params: petalMaps.PoiDetailParams = {
  
   
 
-##### TextSearchParams
+#### TextSearchParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -467,7 +467,7 @@ let params: petalMaps.TextSearchParams = {
  
   
 
-##### RoutePlanParams
+#### RoutePlanParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -506,7 +506,7 @@ let params: petalMaps.RoutePlanParams = {
  
   
 
-##### NaviParams
+#### NaviParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -545,7 +545,7 @@ let params: petalMaps.NaviParams = {
  
   
 
-##### OfflineDataParams
+#### OfflineDataParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -575,7 +575,7 @@ let params: petalMaps.OfflineDataParams = {
  
   
 
-##### VehicleType
+#### VehicleType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -599,7 +599,7 @@ let params: petalMaps.OfflineDataParams = {
  
   
 
-##### TaxiParams
+#### TaxiParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

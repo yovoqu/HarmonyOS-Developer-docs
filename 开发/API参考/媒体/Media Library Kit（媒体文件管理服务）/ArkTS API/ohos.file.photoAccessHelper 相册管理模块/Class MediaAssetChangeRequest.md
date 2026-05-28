@@ -14,7 +14,7 @@ MediaAssetChangeRequest implements [MediaChangeRequest](https://developer.huawei
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
 
 
-##### constructor11+
+#### constructor11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -92,7 +92,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### createImageAssetRequest11+
+#### createImageAssetRequest11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -153,7 +153,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 
 
-##### createVideoAssetRequest11+
+#### createVideoAssetRequest11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -212,7 +212,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 
 
-##### createAssetRequest11+
+#### createAssetRequest11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -278,7 +278,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 
 
-##### deleteAssets11+
+#### deleteAssets11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -343,7 +343,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 
 
-##### deleteAssets11+
+#### deleteAssets11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -409,7 +409,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 
 
-##### getAsset11+
+#### getAsset11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -418,7 +418,7 @@ getAsset(): PhotoAsset
 获取当前资产变更请求中的资产。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/bZqcqZ0QTkenubZpVVTjhA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024002Z&HW-CC-Expire=86400&HW-CC-Sign=E1327D5EBFA1A2A80BAA716BFE5BA5BBB89ADB6F19249FD90CAF027E234BD903)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/bZqcqZ0QTkenubZpVVTjhA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025336Z&HW-CC-Expire=86400&HW-CC-Sign=3A740A86F6A63D53C746DA6405A73D49994EE3BCDE1DDB50923E2AB9ED8B7775)
 
 
 对于创建资产的变更请求，在调用接口[applyChanges](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#applychanges11)的提交生效之前，该接口会返回null。
@@ -468,7 +468,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 
 
-##### setTitle11+
+#### setTitle11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -536,7 +536,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### getWriteCacheHandler11+
+#### getWriteCacheHandler11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -545,7 +545,7 @@ getWriteCacheHandler(): Promise&lt;number&gt;
 获取临时文件写句柄。使用Promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/qnMusO_BRdeFxMSmX3jGaw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024002Z&HW-CC-Expire=86400&HW-CC-Sign=E78A6A52DD6377F1D66CCBA4566AD797BA62BA9AB69BE225BFB6A4B9AC2A3252)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/qnMusO_BRdeFxMSmX3jGaw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025336Z&HW-CC-Expire=86400&HW-CC-Sign=033D38074100EC95D6EA7DB5DEF79B32614C811F3C563F9FE192771B61C19892)
 
 
 对于同一个资产变更请求，不支持在成功获取临时文件写句柄后，重复调用该接口。
@@ -601,7 +601,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 
 
-##### addResource11+
+#### addResource11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -610,7 +610,7 @@ addResource(type: ResourceType, fileUri: string): void
 通过文件URI从应用沙箱添加资源，待添加资源的数据来源可参考[@ohos.file.fileuri (文件URI)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fileuri)。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/zMXVVQlCTFuBi4H5ll8nmg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024002Z&HW-CC-Expire=86400&HW-CC-Sign=3F013BE8D2EA6E5D1A4114BBA0FF58FD6BD5B684213B82755F6E3A05E49EE75D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/zMXVVQlCTFuBi4H5ll8nmg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025336Z&HW-CC-Expire=86400&HW-CC-Sign=EE94628A049C5329FA7FB03AEC7A3916B80AFCA01FDB6A347E1152C82A00FB5E)
 
 
 对于同一个资产变更请求，成功添加资源后不支持重复调用该接口。对于动态照片，可调用两次该接口分别添加图片和视频资源。
@@ -665,7 +665,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 
 
-##### addResource11+
+#### addResource11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -674,7 +674,7 @@ addResource(type: ResourceType, data: ArrayBuffer): void
 通过ArrayBuffer数据添加资源。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/wviHen1wSDGXIvgv0GNf_A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024002Z&HW-CC-Expire=86400&HW-CC-Sign=086C3DB3A8D88D63D1A8526511CDAEFF875B5630052F87467EAA05DC89D128F8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/wviHen1wSDGXIvgv0GNf_A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025336Z&HW-CC-Expire=86400&HW-CC-Sign=9905E95251CE948441338374E97C8B8FE38D7DA38AC60017E980033968F10A2C)
 
 
 对于同一个资产变更请求，成功添加资源后不支持重复调用该接口。对于动态照片，可调用两次该接口分别添加图片和视频资源。
@@ -727,7 +727,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 
 
-##### saveCameraPhoto12+
+#### saveCameraPhoto12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -767,7 +767,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, asse
 
 
 
-##### saveCameraPhoto13+
+#### saveCameraPhoto13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -818,7 +818,7 @@ async function example(context: Context, asset: photoAccessHelper.PhotoAsset) {
 
 
 
-##### discardCameraPhoto12+
+#### discardCameraPhoto12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -858,7 +858,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, asse
 
 
 
-##### setOrientation15+
+#### setOrientation15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -7,7 +7,7 @@
 从API version 19开始，支持设置微距能力。微距能力是指通过光学设计与算法优化，实现近距离对焦并清晰捕捉微小物体细节的相机功能。
 
 
-##### 开发步骤
+#### 开发步骤
 
 详细的API说明请参考[OH_Camera](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera)。
 1. 导入NDK接口。选择系统提供的NDK接口能力，导入NDK接口的方法如下。
@@ -113,7 +113,7 @@ void NDKCamera::EnableMacro(bool isMacro)
 
 
 
-##### 状态监听
+#### 状态监听
 
 从API version 20开始，支持监听微距能力是否发生改变。
 

@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-partner-combined-sys-query-order
 
-##### 功能介绍
+#### 功能介绍
 
 开发者可以调用此接口查询已经在华为支付创建成功的合单支付订单详细信息。
  
@@ -14,13 +14,13 @@
  
   
 
-##### 场景描述
+#### 场景描述
 
 用户已完成合单支付，开发者调此接口获取合单支付订单信息。
  
   
 
-##### 接口原型
+#### 接口原型
 
 - **承载协议：** HTTPS GET
 - **接口方向：** 开发者服务器 -> 华为支付服务器
@@ -34,7 +34,7 @@
  
   
 
-##### 请求参数
+#### 请求参数
 
 **Request Header**
   
@@ -62,7 +62,7 @@ PayMercAuth:
  
   
 
-##### 响应参数
+#### 响应参数
 
 **Response Header**
   
@@ -91,7 +91,7 @@ PayMercAuth:
  
   
 
-##### 响应示例
+#### 响应示例
 
 ```json
 HTTP/1.1 200 OK
@@ -121,7 +121,7 @@ Content-Type: application/json; charset=UTF-8
  
   
 
-##### 错误码
+#### 错误码
 
 **resultCode**非400000的错误码请查看[公共错误码说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-error-code-rest#公共错误码说明)。
   

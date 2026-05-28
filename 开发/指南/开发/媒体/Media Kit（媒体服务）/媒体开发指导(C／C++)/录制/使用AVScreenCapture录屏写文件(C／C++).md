@@ -25,7 +25,7 @@
 从API version 22开始，在PC/2in1设备上对应用进行录屏时，可通过申请权限**ohos.permission.CUSTOM_SCREEN_RECORDING**，实现在录制屏幕时不再弹出隐私告警弹窗。配置方式请参见[受限开放权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/restricted-permissions)。
 
 
-##### 开发步骤及注意事项
+#### 开发步骤及注意事项
 
 使用AVScreenCapture时要明确其状态的变化，在创建实例后，调用对应的方法可以进入指定的状态实现对应的行为。
 
@@ -140,7 +140,7 @@ OH_AVScreenCapture_Release(capture);
 
 
 
-##### 完整示例
+#### 完整示例
 
 下面展示了使用AVScreenCapture屏幕录制存文件的完整示例代码。
 

@@ -12,7 +12,7 @@
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -26,7 +26,7 @@
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -47,7 +47,7 @@ WaterFlow(options?: WaterFlowOptions)
 
 
 
-##### WaterFlowOptions对象说明
+#### WaterFlowOptions对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -66,7 +66,7 @@ WaterFlow(options?: WaterFlowOptions)
 
 
 
-##### WaterFlowSections12+
+#### WaterFlowSections12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -78,7 +78,7 @@ WaterFlow(options?: WaterFlowOptions)
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -92,7 +92,7 @@ constructor()
 
 
 
-##### splice12+
+#### splice12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -122,7 +122,7 @@ splice(start: number, deleteCount?: number, sections?: Array&lt;SectionOptions&g
 
 
 
-##### push12+
+#### push12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -150,7 +150,7 @@ push(section: SectionOptions): boolean
 
 
 
-##### update12+
+#### update12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -179,7 +179,7 @@ update(sectionIndex: number, section: SectionOptions): boolean
 
 
 
-##### values12+
+#### values12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -200,7 +200,7 @@ values(): Array&lt;SectionOptions&gt;
 
 
 
-##### length12+
+#### length12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -221,7 +221,7 @@ length(): number
 
 
 
-##### SectionOptions12+对象说明
+#### SectionOptions12+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -243,7 +243,7 @@ FlowItem分组配置信息。
 
 
 
-##### GetItemMainSizeByIndex12+
+#### GetItemMainSizeByIndex12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -271,7 +271,7 @@ type GetItemMainSizeByIndex = (index: number) => number
 
 
 
-##### WaterFlowLayoutMode12+枚举说明
+#### WaterFlowLayoutMode12+枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -301,7 +301,7 @@ type GetItemMainSizeByIndex = (index: number) => number
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -313,7 +313,7 @@ type GetItemMainSizeByIndex = (index: number) => number
 
 
 
-##### columnsTemplate
+#### columnsTemplate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -338,7 +338,7 @@ columnsTemplate(value: string)
 
 
 
-##### columnsTemplate22+
+#### columnsTemplate22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -365,7 +365,7 @@ columnsTemplate(value: string | ItemFillPolicy)
 
 
 
-##### rowsTemplate
+#### rowsTemplate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -390,7 +390,7 @@ rowsTemplate(value: string)
 
 
 
-##### itemConstraintSize
+#### itemConstraintSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -411,7 +411,7 @@ itemConstraintSize(value: ConstraintSizeOptions)
 
 
 
-##### columnsGap
+#### columnsGap
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -432,7 +432,7 @@ columnsGap(value: Length)
 
 
 
-##### rowsGap
+#### rowsGap
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -453,7 +453,7 @@ rowsGap(value: Length)
 
 
 
-##### layoutDirection
+#### layoutDirection
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -487,7 +487,7 @@ layoutDirection优先级高于rowsTemplate和columnsTemplate。根据layoutDirec
 
 
 
-##### enableScrollInteraction10+
+#### enableScrollInteraction10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -512,7 +512,7 @@ enableScrollInteraction(value: boolean)
 
 
 
-##### nestedScroll10+
+#### nestedScroll10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -533,7 +533,7 @@ nestedScroll(value: NestedScrollOptions)
 
 
 
-##### friction10+
+#### friction10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -554,7 +554,7 @@ friction(value: number | Resource)
 
 
 
-##### cachedCount11+
+#### cachedCount11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -577,7 +577,7 @@ cachedCount(value: number)
 
 
 
-##### cachedCount14+
+#### cachedCount14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -603,7 +603,7 @@ cachedCount(count: number, show: boolean)
 
 
 
-##### syncLoad20+
+#### syncLoad20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -624,7 +624,7 @@ syncLoad(enable: boolean)
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -632,7 +632,7 @@ syncLoad(enable: boolean)
 
 
 
-##### onReachStart
+#### onReachStart
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -653,7 +653,7 @@ onReachStart(event: () => void)
 
 
 
-##### onReachEnd
+#### onReachEnd
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -674,7 +674,7 @@ onReachEnd(event: () => void)
 
 
 
-##### onScrollFrameBegin10+
+#### onScrollFrameBegin10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -705,7 +705,7 @@ onScrollFrameBegin(event: OnScrollFrameBeginCallback)
 
 
 
-##### onScrollIndex11+
+#### onScrollIndex11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -744,7 +744,7 @@ onScrollIndex(event: (first: number, last: number) => void)
 
 
 
-##### UIWaterFlowEvent19+
+#### UIWaterFlowEvent19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -754,7 +754,7 @@ UIWaterFlowEvent继承于[UIScrollableCommonEvent](https://developer.huawei.com/
 
 
 
-##### setOnWillScroll19+
+#### setOnWillScroll19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -777,7 +777,7 @@ setOnWillScroll(callback: OnWillScrollCallback | undefined): void
 
 
 
-##### setOnDidScroll19+
+#### setOnDidScroll19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -800,7 +800,7 @@ setOnDidScroll(callback: OnScrollCallback | undefined): void
 
 
 
-##### setOnScrollIndex19+
+#### setOnScrollIndex19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -823,7 +823,7 @@ setOnScrollIndex(callback: OnWaterFlowScrollIndexCallback | undefined): void
 
 
 
-##### OnWaterFlowScrollIndexCallback19+
+#### OnWaterFlowScrollIndexCallback19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -845,13 +845,13 @@ WaterFlow组件可见区域item变化事件的回调类型。
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1（使用基本瀑布流）
+#### 示例1（使用基本瀑布流）
 
 该示例展示了WaterFlow组件数据加载处理、属性设置和事件回调等基本使用场景。
 
@@ -1151,7 +1151,7 @@ struct WaterFlowDemo {
 
 
 
-##### 示例2（自动计算列数）
+#### 示例2（自动计算列数）
 
 该示例通过auto-fill实现了自动计算列数的效果。
 
@@ -1227,7 +1227,7 @@ struct WaterFlowDemo {
 
 
 
-##### 示例3（使用分组）
+#### 示例3（使用分组）
 
 该示例展示了分组的初始化以及splice、push、update、values、length等接口的不同效果。
 
@@ -1488,7 +1488,7 @@ struct WaterFlowDemo {
 
 
 
-##### 示例4（双指缩放改变列数）
+#### 示例4（双指缩放改变列数）
 
 该示例通过[priorityGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-settings#prioritygesture)和[PinchGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pinchgesture)实现了双指缩放改变列数效果。
 
@@ -1692,7 +1692,7 @@ struct WaterFlowDemo {
 
 
 
-##### 示例5（设置边缘渐隐效果）
+#### 示例5（设置边缘渐隐效果）
 
 该示例通过[fadingEdge](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common#fadingedge14)实现了WaterFlow组件开启边缘渐隐效果，并通过fadingEdgeLength参数设置边缘渐隐长度。
 
@@ -1769,7 +1769,7 @@ struct WaterFlowDemo {
 
 
 
-##### 示例6（单边边缘效果）
+#### 示例6（单边边缘效果）
 
 该示例通过[edgeEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common#edgeeffect11)接口，实现了WaterFlow组件设置单边边缘效果。
 
@@ -1846,7 +1846,7 @@ struct WaterFlowDemo {
 
 
 
-##### 示例7（WaterFlow组件设置和改变尾部组件）
+#### 示例7（WaterFlow组件设置和改变尾部组件）
 
 从API version 18开始，该示例通过[WaterFlowOptions对象说明](#waterflowoptions对象说明)的footerContent接口，实现了WaterFlow组件设置尾部组件。通过[ComponentContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentcontent)的update函数更新尾部组件。
 
@@ -1961,7 +1961,7 @@ struct Index {
 
 
 
-##### 示例8（WaterFlow组件实现下拉刷新）
+#### 示例8（WaterFlow组件实现下拉刷新）
 
 该示例通过[Refresh](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-refresh)组件和WaterFlow组件，实现了下拉刷新瀑布流组件数据源。
 
@@ -2056,7 +2056,7 @@ struct WaterFlowDemo {
 
 
 
-##### 示例9（WaterFlow组件基于断点配置列数）
+#### 示例9（WaterFlow组件基于断点配置列数）
 
 从API version 22开始，该示例展示了WaterFlow组件支持基于断点配置列数效果。
 
@@ -2144,7 +2144,7 @@ WaterFlow宽度属于lg及更大的断点区间时显示5列。
 
 
 
-##### 示例10（WaterFlow组件实现获取内容高度）
+#### 示例10（WaterFlow组件实现获取内容高度）
 
 从API version 22 开始，该示例通过WaterFlow组件，实现了获取内容高度。
 
@@ -2253,7 +2253,7 @@ struct WaterFlowContentSizeDemo {
 
 
 
-##### 示例11（设置滚动事件）
+#### 示例11（设置滚动事件）
 
 该示例通过FrameNode中的[getEvent('WaterFlow')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#geteventwaterflow19)获取[UIWaterFlowEvent](#uiwaterflowevent19)，并为WaterFlow设置滚动事件回调，用于事件监听方因无法直接修改页面代码而无法使用声明式接口设置回调的场景。
 

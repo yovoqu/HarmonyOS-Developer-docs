@@ -9,7 +9,7 @@ typedef struct VkNativeBufferFormatPropertiesOHOS {...} VkNativeBufferFormatProp
 ```
   
 
-##### 概述
+#### 概述
 
 包含了NativeBuffer的一些格式属性。
  
@@ -21,11 +21,11 @@ typedef struct VkNativeBufferFormatPropertiesOHOS {...} VkNativeBufferFormatProp
  
   
 
-##### 汇总
+#### 汇总
 
   
 
-##### 成员变量
+#### 成员变量
  
 | 名称 | 描述 |
 | --- | --- |

@@ -18,7 +18,7 @@
 
 
 
-##### 接口说明
+#### 接口说明
 
 | 接口名 | 描述 |
 | --- | --- |
@@ -30,7 +30,7 @@
 
 
 
-##### 添加文本和图片
+#### 添加文本和图片
 1. 调用loadDocument方法，加载PDF文档。
 2. 在【addText】按钮中调用addTextObject的方法插入文本。
 3. 在【delText】按钮中调用deleteGraphicsObject方法来删除相应的页面文本。
@@ -101,7 +101,7 @@ struct PdfPage {
 
 
 
-##### 添加文本批注
+#### 添加文本批注
 1. 调用loadDocument方法，加载PDF文档。
 2. 调用getPage方法获取指定页。
 3. 实例化TextAnnotationInfo文本批注，并设置相关属性。

@@ -7,7 +7,7 @@
 Node-API中的napi_call_threadsafe_function_with_priority接口的功能是从异步线程向ArkTS线程投递指定优先级和入队方式的任务，底层队列会根据任务的优先级和入队方式来处理任务。
   
 
-##### 函数说明
+#### 函数说明
 
 ```text
 napi_status napi_call_threadsafe_function_with_priority(napi_threadsafe_function func, void *data,
@@ -24,17 +24,17 @@ napi_status napi_call_threadsafe_function_with_priority(napi_threadsafe_function
  
   
 
-##### 场景介绍
+#### 场景介绍
 
 异步线程向ArkTS主线程中投递的任务需要根据任务指定的优先级和入队方式进行处理。
  
   
 
-##### 调用异步的ArkTS接口示例
+#### 调用异步的ArkTS接口示例
 
   
 
-##### 示例代码
+#### 示例代码
 
 - 功能实现
 

@@ -17,7 +17,7 @@ request部件主要给应用提供上传下载文件、后台传输代理的基�
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -27,7 +27,7 @@ import { cacheDownload } from '@kit.BasicServicesKit';
 
 
 
-##### SslType21+
+#### SslType21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -43,7 +43,7 @@ import { cacheDownload } from '@kit.BasicServicesKit';
 
 
 
-##### ErrorCode23+
+#### ErrorCode23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -62,7 +62,7 @@ import { cacheDownload } from '@kit.BasicServicesKit';
 
 
 
-##### CacheStrategy23+
+#### CacheStrategy23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -78,7 +78,7 @@ import { cacheDownload } from '@kit.BasicServicesKit';
 
 
 
-##### CacheDownloadOptions
+#### CacheDownloadOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -96,7 +96,7 @@ import { cacheDownload } from '@kit.BasicServicesKit';
 
 
 
-##### ResourceInfo20+
+#### ResourceInfo20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -111,7 +111,7 @@ import { cacheDownload } from '@kit.BasicServicesKit';
 
 
 
-##### NetworkInfo20+
+#### NetworkInfo20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -127,7 +127,7 @@ import { cacheDownload } from '@kit.BasicServicesKit';
 
 
 
-##### PerformanceInfo20+
+#### PerformanceInfo20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -148,7 +148,7 @@ import { cacheDownload } from '@kit.BasicServicesKit';
 
 
 
-##### DownloadInfo20+
+#### DownloadInfo20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -165,7 +165,7 @@ import { cacheDownload } from '@kit.BasicServicesKit';
 
 
 
-##### DownloadError23+
+#### DownloadError23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -181,7 +181,7 @@ import { cacheDownload } from '@kit.BasicServicesKit';
 
 
 
-##### cacheDownload.download
+#### cacheDownload.download
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -240,7 +240,7 @@ try {
 
 
 
-##### cacheDownload.cancel
+#### cacheDownload.cancel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -297,7 +297,7 @@ try {
 
 
 
-##### cacheDownload.setMemoryCacheSize
+#### cacheDownload.setMemoryCacheSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -342,7 +342,7 @@ try {
 
 
 
-##### cacheDownload.setFileCacheSize
+#### cacheDownload.setFileCacheSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -392,7 +392,7 @@ try {
 
 
 
-##### cacheDownload.setDownloadInfoListSize20+
+#### cacheDownload.setDownloadInfoListSize20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -429,7 +429,7 @@ try {
 
 
 
-##### cacheDownload.getDownloadInfo20+
+#### cacheDownload.getDownloadInfo20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -507,7 +507,7 @@ try {
 
 
 
-##### cacheDownload.clearMemoryCache23+
+#### cacheDownload.clearMemoryCache23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -527,7 +527,7 @@ cacheDownload.clearMemoryCache();
 
 
 
-##### cacheDownload.clearFileCache23+
+#### cacheDownload.clearFileCache23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -547,7 +547,7 @@ cacheDownload.clearFileCache();
 
 
 
-##### cacheDownload.onDownloadSuccess23+
+#### cacheDownload.onDownloadSuccess23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -585,7 +585,7 @@ try {
 
 
 
-##### cacheDownload.onDownloadError23+
+#### cacheDownload.onDownloadError23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -623,7 +623,7 @@ try {
 
 
 
-##### cacheDownload.offDownloadSuccess23+
+#### cacheDownload.offDownloadSuccess23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -663,7 +663,7 @@ try {
 
 
 
-##### cacheDownload.offDownloadError23+
+#### cacheDownload.offDownloadError23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

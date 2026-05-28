@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-axpy
 
-##### 函数功能
+#### 函数功能
 
 源操作数(srcLocal)中每个元素与标量求积后和目的操作数(dstLocal)中的对应元素相加，计算公式如下，其中PAR表示矢量计算单元一个迭代能够处理的元素个数：
  
@@ -14,7 +14,7 @@
  
   
 
-##### 函数原型
+#### 函数原型
 
 tensor前n个数据计算：
  
@@ -25,7 +25,7 @@ __aicore__ inline void Axpy(const LocalTensor<T>& dstLocal, const LocalTensor<U>
  
   
 
-##### 参数说明
+#### 参数说明
 
 **表1** 模板参数说明
   
@@ -47,13 +47,13 @@ __aicore__ inline void Axpy(const LocalTensor<T>& dstLocal, const LocalTensor<U>
  
   
 
-##### 返回值
+#### 返回值
 
 无
  
   
 
-##### 支持的型号
+#### 支持的型号
 
 Kirin9020系列处理器
  
@@ -61,7 +61,7 @@ KirinX90系列处理器
  
   
 
-##### 约束说明
+#### 约束说明
 
 该接口支持的精度组合如下。
  
@@ -72,7 +72,7 @@ KirinX90系列处理器
  
   
 
-##### 调用示例
+#### 调用示例
 
 本样例中只展示Compute流程中的部分代码。如果开发者需要运行样例代码，请将该代码段拷贝并替换[更多样例](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scalar-ternaryinstructions-more-examples)完整样例模板中Compute函数的部分代码即可。
  

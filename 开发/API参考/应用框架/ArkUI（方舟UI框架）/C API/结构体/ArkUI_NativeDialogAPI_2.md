@@ -10,7 +10,7 @@ typedef struct {...} ArkUI_NativeDialogAPI_2
 ```
   
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,13 +24,13 @@ ArkUI提供的Native侧自定义弹窗接口集合。
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -41,7 +41,7 @@ ArkUI提供的Native侧自定义弹窗接口集合。
  
   
 
-##### 成员函数
+#### 成员函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -55,13 +55,13 @@ ArkUI提供的Native侧自定义弹窗接口集合。
  
   
 
-##### 成员函数说明
+#### 成员函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### setKeyboardAvoidDistance()
+#### setKeyboardAvoidDistance()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -97,7 +97,7 @@ int32_t (*setKeyboardAvoidDistance)(ArkUI_NativeDialogHandle handle, float dista
  
   
 
-##### setLevelMode()
+#### setLevelMode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -132,7 +132,7 @@ int32_t (*setLevelMode)(ArkUI_NativeDialogHandle handle, ArkUI_LevelMode levelMo
  
   
 
-##### setLevelUniqueId()
+#### setLevelUniqueId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -167,7 +167,7 @@ int32_t (*setLevelUniqueId)(ArkUI_NativeDialogHandle handle, int32_t uniqueId)
  
   
 
-##### setImmersiveMode()
+#### setImmersiveMode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-http-interceptor-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -31,13 +31,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -52,13 +52,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Http_AddReadOnlyInterceptor()
+#### OH_Http_AddReadOnlyInterceptor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -96,7 +96,7 @@ int32_t OH_Http_AddReadOnlyInterceptor(struct OH_Http_Interceptor *interceptor)
  
   
 
-##### OH_Http_RemoveInterceptor()
+#### OH_Http_RemoveInterceptor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -128,7 +128,7 @@ int32_t OH_Http_RemoveInterceptor(struct OH_Http_Interceptor *interceptor)
  
   
 
-##### OH_Http_RemoveAllInterceptors()
+#### OH_Http_RemoveAllInterceptors()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -165,7 +165,7 @@ int32_t OH_Http_RemoveAllInterceptors(int32_t groupId)
  
   
 
-##### OH_Http_StartAllInterceptors()
+#### OH_Http_StartAllInterceptors()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -200,7 +200,7 @@ int32_t OH_Http_StartAllInterceptors(int32_t groupId)
  
   
 
-##### OH_Http_StopAllInterceptors()
+#### OH_Http_StopAllInterceptors()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

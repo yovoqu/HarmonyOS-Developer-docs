@@ -10,7 +10,7 @@ typedef struct {...} ArkWeb_ComponentAPI
 ```
   
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,13 +24,13 @@ Component相关的Native API结构体。
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -41,7 +41,7 @@ Component相关的Native API结构体。
  
   
 
-##### 成员函数
+#### 成员函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -55,13 +55,13 @@ Component相关的Native API结构体。
  
   
 
-##### 成员函数说明
+#### 成员函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### onControllerAttached()
+#### onControllerAttached()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -84,7 +84,7 @@ void (*onControllerAttached)(const char* webTag, ArkWeb_OnComponentCallback call
  
   
 
-##### onPageBegin()
+#### onPageBegin()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -107,7 +107,7 @@ void (*onPageBegin)(const char* webTag, ArkWeb_OnComponentCallback callback, voi
  
   
 
-##### onPageEnd()
+#### onPageEnd()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -130,7 +130,7 @@ void (*onPageEnd)(const char* webTag, ArkWeb_OnComponentCallback callback, void*
  
   
 
-##### onDestroy()
+#### onDestroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-privateattr
 
-##### 函数功能
+#### 函数功能
 
 用于注册算子的私有属性。
  
@@ -18,7 +18,7 @@
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 // 仅设置私有属性名的接口
@@ -34,7 +34,7 @@ OpImplRegisterV2 &PrivateAttr(const ge::char_t *private_attr, const std::vector<
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -44,12 +44,12 @@ OpImplRegisterV2 &PrivateAttr(const ge::char_t *private_attr, const std::vector<
  
   
 
-##### 返回值
+#### 返回值
 
 返回算子的OpImplRegisterV2对象，该对象新增注册了私有属性。
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

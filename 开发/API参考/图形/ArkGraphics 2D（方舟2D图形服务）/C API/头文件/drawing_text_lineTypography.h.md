@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-text-linetypography-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -43,13 +43,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Drawing_CreateLineTypography()
+#### OH_Drawing_CreateLineTypography()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -81,7 +81,7 @@ OH_Drawing_LineTypography* OH_Drawing_CreateLineTypography(OH_Drawing_Typography
  
   
 
-##### OH_Drawing_DestroyLineTypography()
+#### OH_Drawing_DestroyLineTypography()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -106,7 +106,7 @@ void OH_Drawing_DestroyLineTypography(OH_Drawing_LineTypography* lineTypography)
  
   
 
-##### OH_Drawing_LineTypographyGetLineBreak()
+#### OH_Drawing_LineTypographyGetLineBreak()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -140,7 +140,7 @@ size_t OH_Drawing_LineTypographyGetLineBreak(OH_Drawing_LineTypography* lineTypo
  
   
 
-##### OH_Drawing_LineTypographyCreateLine()
+#### OH_Drawing_LineTypographyCreateLine()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

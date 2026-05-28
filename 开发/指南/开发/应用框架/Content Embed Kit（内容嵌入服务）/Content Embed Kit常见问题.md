@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/content-embed-faq
 
-##### 如何根据需求选择链接或嵌入模式来创建OE文档
+#### 如何根据需求选择链接或嵌入模式来创建OE文档
 
 客户端开发者在调用[OH_ContentEmbed_CreateDocumentByFile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-content-embed-document-h#oh_contentembed_createdocumentbyfile)创建OE文档时，可根据是否需要同步源文件变更来设置isLinking参数。
 
@@ -14,7 +14,7 @@
 
 
 
-##### 客户端基于文件创建OE文档时如何显示文档快照或应用图标
+#### 客户端基于文件创建OE文档时如何显示文档快照或应用图标
 
 客户端基于[OH_ContentEmbed_CreateDocumentByFile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-content-embed-document-h#oh_contentembed_createdocumentbyfile)创建文档时，客户端需要通过[OH_ContentEmbed_Proxy_GetCapability](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-content-embed-proxy-h#oh_contentembed_proxy_getcapability)查询OE Extension是否支持获取快照。
 

@@ -9,23 +9,23 @@
 
 
 
-##### 功能介绍
+#### 功能介绍
 
 Game Controller Kit提供游戏手柄轴事件和按键事件的监听能力。通过轴事件和按键事件的监听注册，在玩家操作手柄按键和摇杆时可获得对应回调通知。
 
 
 
-##### 按键
+#### 按键
 
 Game Controller Kit支持的手柄键位参考图如下：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/rpg29irBTKaXIqLTww3e0w/zh-cn_image_0000002581434980.png?HW-CC-KV=V1&HW-CC-Date=20260528T014422Z&HW-CC-Expire=86400&HW-CC-Sign=065E9E89576A2EB3CA5C5C4BCC5DC43F6029C4E575ABED8FCF0F5F635ACF4713)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/rpg29irBTKaXIqLTww3e0w/zh-cn_image_0000002581434980.png?HW-CC-KV=V1&HW-CC-Date=20260528T030050Z&HW-CC-Expire=86400&HW-CC-Sign=18E849B698752E8616786DD3BB428248CF17CECF60181547CD9506A22C8C8594)
 
 
 
 
-##### 接口说明
+#### 接口说明
 
 接口详细介绍请参考[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-game-controller)。
 
@@ -57,11 +57,11 @@ Game Controller Kit支持的手柄键位参考图如下：
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 
 
-##### 链接动态库
+#### 链接动态库
 
 ```text
 target_link_libraries(entry PUBLIC libohgame_controller.z.so)
@@ -69,7 +69,7 @@ target_link_libraries(entry PUBLIC libohgame_controller.z.so)
 
 
 
-##### 导入模块
+#### 导入模块
 
 ```text
 #include <GameControllerKit/game_pad.h>
@@ -77,7 +77,7 @@ target_link_libraries(entry PUBLIC libohgame_controller.z.so)
 
 
 
-##### 注册和取消注册轴事件的监听
+#### 注册和取消注册轴事件的监听
 
 调用相应接口注册或取消注册轴事件回调，通过回调函数获取轴值。
 
@@ -136,7 +136,7 @@ void GamePad::LeftThumbstick_OnAxisEvent(const struct GamePad_AxisEvent *axisEve
 
 
 
-##### 注册按键事件的监听和取消注册
+#### 注册按键事件的监听和取消注册
 
 调用相应接口注册或取消注册按键事件回调，从回调函数中获取按键值。
 

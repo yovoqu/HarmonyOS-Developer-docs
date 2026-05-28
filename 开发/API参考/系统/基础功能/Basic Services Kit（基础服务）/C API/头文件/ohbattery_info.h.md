@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohbattery-info-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
  
@@ -40,7 +40,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
  
@@ -52,7 +52,7 @@
  
   
 
-##### 变量
+#### 变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
  
@@ -65,13 +65,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
   
 
-##### BatteryInfo_BatteryPluggedType
+#### BatteryInfo_BatteryPluggedType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -96,13 +96,13 @@ enum BatteryInfo_BatteryPluggedType
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
   
 
-##### OH_BatteryInfo_GetCapacity()
+#### OH_BatteryInfo_GetCapacity()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -127,7 +127,7 @@ int32_t OH_BatteryInfo_GetCapacity()
  
   
 
-##### OH_BatteryInfo_GetPluggedType()
+#### OH_BatteryInfo_GetPluggedType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

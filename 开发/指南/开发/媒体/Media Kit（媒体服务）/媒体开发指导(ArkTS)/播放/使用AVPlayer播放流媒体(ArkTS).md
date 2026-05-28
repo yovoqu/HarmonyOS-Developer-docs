@@ -9,7 +9,7 @@
 本指导仅介绍流媒体播放功能。本地音视频播放等其他场景，请参考[视频播放](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-playback)。
 
 
-##### 流媒体支持的格式
+#### 流媒体支持的格式
 
 | 流媒体协议类型 | 典型链接 | 网络点播 | 网络直播 | 内容保护 |
 | --- | --- | --- | --- | --- |
@@ -21,7 +21,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 创建AVPlayer、设置播放资源和窗口、设置播放参数（音量/倍速/缩放模式）、进行播放控制（播放/暂停/跳转/停止）、重置资源、销毁资源。应用开发时，开发者可通过AVPlayer的state属性主动获取当前状态，或使用on('stateChange')方法监听状态变化。视频播放器处于错误状态时执行操作，可能导致异常或未定义行为。状态详细参见[AVPlayerState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-t#avplayerstate9)。具体步骤如下：
 1. 创建实例createAVPlayer()，初始化AVPlayer为idle状态。
@@ -64,13 +64,13 @@
 
 
 
-##### 注意事项
+#### 注意事项
 
 播放流媒体的标准流程如上述开发步骤所示。不同的流媒体格式在实际开发的过程中存在差异，本节将详细描述这些差异，包括视频起播策略的设置和音视频轨道的切换。
 
 
 
-##### 流媒体缓冲状态
+#### 流媒体缓冲状态
 
 当下载速率低于片源的码率时，会出现卡顿。此时，播放器检测到缓冲区数据不足，会先缓冲一些数据再播放，避免连续卡顿。一次卡顿对应的缓冲事件上报过程为：BUFFERING_START-> BUFFERING_PERCENT 0 -> ... -> BUFFERING_PERCENT 100 -> BUFFERING_END。CACHED_DURATION在卡顿过程和播放过程中都会持续上报，直至下载至资源末尾。详见[BufferingInfoType缓冲事件类型枚举](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-e#bufferinginfotype8)。
 
@@ -91,7 +91,7 @@ this.avPlayer.on('bufferingUpdate', (infoType : media.BufferingInfoType, value :
 
 
 
-##### HLS切换码率
+#### HLS切换码率
 
 当前流媒体HLS协议流支持多码率播放，默认情况下，播放器会根据网络下载速度选择合适的码率。
 1. 通过[on('availableBitrates')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#onavailablebitrates9)监听当前HLS协议流可用的码率。如果监听的码率列表长度为0，则不支持设置指定码率。
@@ -132,7 +132,7 @@ this.avPlayer.setBitrate(this.bitrate);
 
 
 
-##### DASH设置视频起播策略
+#### DASH设置视频起播策略
 
 为了保证在弱网环境下的播放体验，AVPlayer将默认选择最低的视频分辨率开始播放，随后依据网络状况自动调整。开发者可以根据具体需求，自定义DASH视频的起播策略，包括设定视频的宽度、高度以及色彩格式等参数。
 
@@ -148,7 +148,7 @@ this.avPlayer.setMediaSource(mediaSource, playbackStrategy);
 
 
 
-##### DASH切换音视频轨道
+#### DASH切换音视频轨道
 
 DASH流媒体资源包含多路不同分辨率、码率、采样率、编码格式的音频、视频及字幕资源。默认情况下，AVPlayer会依据网络状况自动切换不同码率的视频轨道。开发者可根据需求选择指定的音视频轨道播放，此时自适应码率切换策略将失效。
 1. 设置selectTrack生效的监听事件[trackChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#ontrackchange12)。
@@ -216,13 +216,13 @@ this.avPlayer.selectTrack(this.videoTrackIndex);
 
 
 
-##### 异常场景说明
+#### 异常场景说明
 
 使用AVPlayer播放流媒体过程中断网时，流媒体模块会根据返回的错误码、服务器响应时间和请求次数等因素综合处理。若错误码类型属于不进行请求重试的类型，会向应用上报对应的错误码。如果错误码类型需要进行请求重试，会在30s内进行至多10次的请求重试。如果请求重试次数超过10次，或重试总时长超过30秒，会向应用上报对应的错误码。如果请求重试成功，则继续播放。
 
 
 
-##### 运行完整示例
+#### 运行完整示例
 
 参考以下示例，完整地播放一个流媒体视频。
 1. 新建工程，下载[示例工程](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/Media/AVPlayer/AVPlayerArkTSStreamingMedia)，并将示例工程的以下资源复制到对应目录。
@@ -264,7 +264,7 @@ entry/src/main/resources/
 
 
 
-##### 开发示例
+#### 开发示例
 
 ```json
 import { media } from '@kit.MediaKit';

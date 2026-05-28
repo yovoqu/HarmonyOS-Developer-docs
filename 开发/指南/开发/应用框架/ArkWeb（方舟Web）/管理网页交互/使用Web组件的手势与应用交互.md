@@ -7,7 +7,7 @@
 在移动端或支持触控的Web应用中，用户通过触摸屏与页面交互，Web组件支持了常见的手势识别，例如长按、滑动、点击等，以支持丰富的用户交互体验。
 
 
-##### ArkWeb手势识别
+#### ArkWeb手势识别
 
 ArkWeb接收ArkUI的[触摸事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-interaction-development-guide-touch-screen#触摸事件)，并识别出手势（触摸事件的分发策略详见[交互基础机制说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-interaction-basic-principles)）。ArkWeb手势符合W3C标准：Touch Events、UI Events、Pointer Events。
 
@@ -29,7 +29,7 @@ ArkWeb接收ArkUI的[触摸事件](https://developer.huawei.com/consumer/cn/doc/
 
 
 
-##### ArkWeb手势与ArkUI手势
+#### ArkWeb手势与ArkUI手势
 
 ArkUI提供了[手势绑定](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-gesture-events-binding)，Web组件有独立的手势识别，因此需要区分两种手势：
 
@@ -87,12 +87,12 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/THdbFkAvTVmP_4mieyOvoA/zh-cn_image_0000002581434288.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014743Z&HW-CC-Expire=86400&HW-CC-Sign=5E95DA7231E3066E8C3B304050FC95A5A55F8C20BE39AE1AD036BF31780AC3D4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/THdbFkAvTVmP_4mieyOvoA/zh-cn_image_0000002581434288.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030414Z&HW-CC-Expire=86400&HW-CC-Sign=14B070273CB003E2B981F6F9BE6D0954C0E42C430A1331364F3E8663ABBB59DA)
 
 
 
 
-##### Web组件的手势拦截
+#### Web组件的手势拦截
 
  - ArkUI手势
 
@@ -108,17 +108,17 @@ struct Index {
 
 
 
-##### 常见问题
+#### 常见问题
 
 
 
-##### 如何禁用缩放手势
+#### 如何禁用缩放手势
 
 Web组件提供了接口[zoomAccess](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#zoomaccess)，控制是否可以缩放。网页上有user-scalable属性也会影响缩放。详见[使用Web组件管理网页缩放](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-scale-zoom)。
 
 
 
-##### Web组件中如何通过手势滑动返回上一个Web页面
+#### Web组件中如何通过手势滑动返回上一个Web页面
 
 **解决措施**
 
@@ -159,7 +159,7 @@ struct Index {
 
 
 
-##### 为什么Web组件加载后网页无法交互？
+#### 为什么Web组件加载后网页无法交互？
 
 网页可能基于其他平台的User-Agent进行判断。为解决此问题，可以使用[setCustomUserAgent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#setcustomuseragent10)在Web组件中设置自定义User-Agent，例如：
 
@@ -187,7 +187,7 @@ struct Index {
 
 
 
-##### 抛滑过快导致页面白屏的处理方法
+#### 抛滑过快导致页面白屏的处理方法
 
 Web组件扩展了viewport meta标签，新增了max-fling-speed-x和max-fling-speed-y两个属性，用于控制页面的抛滑速度，开发者可根据实际需求调整属性值。
 

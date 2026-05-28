@@ -12,7 +12,7 @@
 
   
 
-##### constructor9+
+#### constructor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ FileSelectorResult的构造函数。
  
   
 
-##### handleFileList9+
+#### handleFileList9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

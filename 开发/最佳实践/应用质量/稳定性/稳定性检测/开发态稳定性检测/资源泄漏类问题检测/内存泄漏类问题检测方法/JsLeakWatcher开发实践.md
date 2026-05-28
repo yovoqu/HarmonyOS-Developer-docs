@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-js-leak-watcher
 
-##### 概述
+#### 概述
 
 在JavaScript中常见的内存泄漏场景，在ArkTS开发中同样难以完全避免，其根本原因在于不合理的引用管理。尽管这两种语言都配备了垃圾回收器，但它们仅能回收“无任何根可达”的对象。若一个对象不再需要，但仍被某个引用链“意外”持有，则垃圾回收器无法回收该内存，从而导致内存泄漏。
  
@@ -25,11 +25,11 @@ ArkTS对象内存泄漏，通常会带来以下影响：
  
  
 
-##### 实现原理
+#### 实现原理
 
  
 
-##### JsLeakWatcher简介
+#### JsLeakWatcher简介
 
 为帮助开发人员快速定位ArkTS对象内存泄漏问题，HarmonyOS提供了JS泄漏检测能力（[@ohos.hiviewdfx.jsLeakWatcher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-jsleakwatcher)），开发者可轻松接入该API，实现对系统内具有生命周期的ArkTS组件对象定期执行泄漏自检测。当检测到ArkTS组件对象有内存泄漏时，会立即将泄漏对象记录到文件。
  
@@ -46,7 +46,7 @@ ArkTS对象内存泄漏，通常会带来以下影响：
  
  
 
-##### JsLeakWatcher泄漏检测流程
+#### JsLeakWatcher泄漏检测流程
 1. 应用在启动后调用enableLeakWatcher()接口（接口定义参考文档：[jsLeakWatcher.enableLeakWatcher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-jsleakwatcher#jsleakwatcherenableleakwatcher20)）开启ArkTS泄漏检测功能。
 2. 检测框架：
 - 创建FinalizationRegistry对象，用于监控系统内具有生命周期的5类常见ArkTS组件对象注册生命周期，并注册生命周期结束回调函数。（5类对象包括元能力-Ability、窗口-Window、NodeContainer、XComponent、自定义组件-CustomComponent）。
@@ -63,7 +63,7 @@ ArkTS对象内存泄漏，通常会带来以下影响：
  
  
 
-##### 生成文件类型介绍
+#### 生成文件类型介绍
  
 | 文件类型 | 介绍 |
 | --- | --- |
@@ -73,17 +73,17 @@ ArkTS对象内存泄漏，通常会带来以下影响：
  
  
 
-##### 场景案例
+#### 场景案例
 
  
 
-##### 场景描述
+#### 场景描述
 
 开发人员观测到应用进程的ArkTS内存持续增长，需要定位GC机制无法回收的ArkTS内存泄漏对象，分析对象的引用关系、基础属性、以及涉及代码行数。
  
  
 
-##### 开发步骤
+#### 开发步骤
 1. **添加依赖**
 
   
@@ -165,7 +165,7 @@ jsLeakWatcher.enableLeakWatcher(false, config, () => {});
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/CrZDxdOCSUyiWiS1VBxFxQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013037Z&HW-CC-Expire=86400&HW-CC-Sign=AB95E21C51C4EA829423AF7FF1268035BBE953F1FE375D7EB26AA89830CC67F1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/CrZDxdOCSUyiWiS1VBxFxQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024722Z&HW-CC-Expire=86400&HW-CC-Sign=00BFBA7C13A8E842A432155DEADDD94E1969063A5B7DF0AEBC200979AE5AD6B3)
  
 
 JsLeakWatcher对应用性能有影响，仅适用于开发调试和压力测试阶段。在应用上架前，请确保不使用JsLeakWatcher。
@@ -178,6 +178,6 @@ JsLeakWatcher目前规格机制无法保证和rawheap里面的数据完全同步
  
  
 
-##### 示例代码
+#### 示例代码
 
 - [性能分析工具](https://gitcode.com/HarmonyOS_Samples/guide-snippets/blob/master/PerformanceAnalysisKit/HiDebugTool/README_zh.md)

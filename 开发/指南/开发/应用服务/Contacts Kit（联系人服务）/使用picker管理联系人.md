@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/contacts-addcontactviaui
 
-##### 接口说明
+#### 接口说明
  
 | 接口名 | 描述 |
 | --- | --- |
@@ -14,7 +14,7 @@
  
   
 
-##### 使用picker新建联系人
+#### 使用picker新建联系人
 
 调用新建联系人接口，打开新建联系人UI界面，用户可在UI界面中填写并新建联系人。
  
@@ -58,7 +58,7 @@ struct Index {
  
   
 
-##### 使用picker更新联系人信息
+#### 使用picker更新联系人信息
 
 可以通过拉起picker，将选中的联系人信息更新到现有联系人中。
  

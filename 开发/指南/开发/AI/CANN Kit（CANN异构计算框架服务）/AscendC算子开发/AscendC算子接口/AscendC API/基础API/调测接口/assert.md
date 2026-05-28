@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-commissioning-interfaces-assert
 
-##### 函数功能
+#### 函数功能
 
 基于算子工程开发的算子，可以使用该接口实现CPU/NPU域assert断言功能。算子执行中，如果assert内部条件判断不为真，则输出assert条件并将输入的信息格式化打印在屏幕上。
  
@@ -30,7 +30,7 @@ assert(assertFlag == 10, "The assertFlag value is %d.\n", assertFlag);
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 assert(expr)
@@ -39,7 +39,7 @@ assert(expr, __gm__ const char *fmt, Args&&... args)
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数名 | 输入/输出 | 描述 |
 | --- | --- | --- |
@@ -50,13 +50,13 @@ assert(expr, __gm__ const char *fmt, Args&&... args)
  
   
 
-##### 返回值
+#### 返回值
 
 无
  
   
 
-##### 支持的型号
+#### 支持的型号
 
 Kirin9020系列处理器
  
@@ -64,7 +64,7 @@ KirinX90系列处理器
  
   
 
-##### 注意事项
+#### 注意事项
 
 - **该功能仅在如下场景支持：** 通过[工程化算子开发](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-overview-of-engineering-operator)方式调用算子。
 - kernel开发不要包含系统的assert.h，会导致宏定义冲突。
@@ -76,7 +76,7 @@ KirinX90系列处理器
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 int assertFlag = 10;

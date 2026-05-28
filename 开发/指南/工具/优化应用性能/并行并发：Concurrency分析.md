@@ -9,7 +9,7 @@
 DevEco Profiler提供的Concurrency场景分析能力，帮助开发者针对并行并发场景，录制并行并发关键数据，分析Task的生命周期、吞吐量、耗时等性能问题。Concurrency模板支持展示ArkTS异步接口、NAPI异步接口、TaskPool、FFRT并发模型相关信息，并集成ArkTS Callstack、Callstack、Process信息，支持用户从Task生命周期关联到具体调用栈信息，方便用户定位并行并发性能问题。
  
 
-##### 查看Task统计信息
+#### 查看Task统计信息
 1. 选择展开某个泳道，可以用options下拉框筛选不同进程。
 
   
@@ -24,7 +24,7 @@ DevEco Profiler提供的Concurrency场景分析能力，帮助开发者针对并
  
  
 
-##### 查看某一个Task的所有状态
+#### 查看某一个Task的所有状态
 1. 选择展开某个泳道，可以用options下拉框筛选不同进程。
 
   
@@ -49,7 +49,7 @@ DevEco Profiler提供的Concurrency场景分析能力，帮助开发者针对并
  
  
 
-##### 查看Task的某个状态
+#### 查看Task的某个状态
 
 点击Task子泳道的某个执行节点，Details详情区里会出现task在该状态下的详细信息。
  

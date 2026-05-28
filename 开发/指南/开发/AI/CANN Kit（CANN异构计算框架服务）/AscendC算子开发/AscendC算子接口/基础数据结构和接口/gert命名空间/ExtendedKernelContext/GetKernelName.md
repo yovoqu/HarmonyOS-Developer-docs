@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getkernelname
 
-##### 函数功能
+#### 函数功能
 
 获取当前内核的名称。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 const char *GetKernelName() const
@@ -18,25 +18,25 @@ const char *GetKernelName() const
  
   
 
-##### 参数说明
+#### 参数说明
 
 无
  
   
 
-##### 返回值
+#### 返回值
 
 当前内核的名称。
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 // 假设已存在KernelContext *context

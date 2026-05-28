@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { workScheduler } from '@kit.BackgroundTasksKit';
 
 
 
-##### workScheduler.startWork
+#### workScheduler.startWork
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -83,7 +83,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 
-##### workScheduler.stopWork
+#### workScheduler.stopWork
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -144,7 +144,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 
-##### workScheduler.getWorkStatus
+#### workScheduler.getWorkStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -192,7 +192,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 
-##### workScheduler.getWorkStatus
+#### workScheduler.getWorkStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -244,7 +244,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 
-##### workScheduler.obtainAllWorks(deprecated)
+#### workScheduler.obtainAllWorks(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -286,7 +286,7 @@ obtainAllWorks(callback: AsyncCallback&lt;void&gt;) : Array&lt;WorkInfo&gt;
 
 
 
-##### workScheduler.obtainAllWorks10+
+#### workScheduler.obtainAllWorks10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -332,7 +332,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 
-##### workScheduler.obtainAllWorks
+#### workScheduler.obtainAllWorks
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -376,7 +376,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 
-##### workScheduler.stopAndClearWorks
+#### workScheduler.stopAndClearWorks
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -414,7 +414,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 
-##### workScheduler.isLastWorkTimeOut(deprecated)
+#### workScheduler.isLastWorkTimeOut(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -456,7 +456,7 @@ isLastWorkTimeOut(workId: number, callback : AsyncCallback&lt;void&gt;): boolean
 
 
 
-##### workScheduler.isLastWorkTimeOut10+
+#### workScheduler.isLastWorkTimeOut10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -504,7 +504,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 
-##### workScheduler.isLastWorkTimeOut
+#### workScheduler.isLastWorkTimeOut
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -558,7 +558,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 
-##### WorkInfo
+#### WorkInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -593,7 +593,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 
-##### NetworkType
+#### NetworkType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -613,7 +613,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 
-##### ChargingType
+#### ChargingType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -631,7 +631,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 
-##### BatteryStatus
+#### BatteryStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -648,7 +648,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 
-##### StorageRequest
+#### StorageRequest
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

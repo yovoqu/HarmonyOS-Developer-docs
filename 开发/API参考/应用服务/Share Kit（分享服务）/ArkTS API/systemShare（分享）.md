@@ -16,7 +16,7 @@
 **起始版本：** 4.1.0(11)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -26,7 +26,7 @@ import { systemShare } from '@kit.ShareKit';
  
   
 
-##### SharedRecord
+#### SharedRecord
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -54,7 +54,7 @@ import { systemShare } from '@kit.ShareKit';
  
   
 
-##### ShareControllerOptions
+#### ShareControllerOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -79,7 +79,7 @@ import { systemShare } from '@kit.ShareKit';
  
   
 
-##### ShareControllerAnchor
+#### ShareControllerAnchor
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -103,7 +103,7 @@ import { systemShare } from '@kit.ShareKit';
  
   
 
-##### Offset
+#### Offset
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -123,7 +123,7 @@ import { systemShare } from '@kit.ShareKit';
  
   
 
-##### Size
+#### Size
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -143,7 +143,7 @@ import { systemShare } from '@kit.ShareKit';
  
   
 
-##### ShareOperationResult
+#### ShareOperationResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -162,7 +162,7 @@ shareCompleted事件的返回值，用于获知用户分享渠道信息。
  
   
 
-##### ShareAbilityInfo
+#### ShareAbilityInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -181,7 +181,7 @@ shareCompleted事件的返回值，用于获知用户分享渠道信息。
  
   
 
-##### ContactInfo
+#### ContactInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -201,7 +201,7 @@ shareCompleted事件的返回值，用于获知用户分享渠道信息。
  
   
 
-##### RevisitShareRecordData
+#### RevisitShareRecordData
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -223,7 +223,7 @@ shareCompleted事件的返回值，用于获知用户分享渠道信息。
  
   
 
-##### ReadingExtendedShareRecordData
+#### ReadingExtendedShareRecordData
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -257,7 +257,7 @@ shareCompleted事件的返回值，用于获知用户分享渠道信息。
  
   
 
-##### SharePreviewMode
+#### SharePreviewMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -277,7 +277,7 @@ shareCompleted事件的返回值，用于获知用户分享渠道信息。
  
   
 
-##### SelectionMode
+#### SelectionMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -297,7 +297,7 @@ shareCompleted事件的返回值，用于获知用户分享渠道信息。
  
   
 
-##### ShareAbilityType
+#### ShareAbilityType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -320,7 +320,7 @@ shareCompleted事件的返回值，用于获知用户分享渠道信息。
  
   
 
-##### ShareAbilityResultCode
+#### ShareAbilityResultCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -341,7 +341,7 @@ shareCompleted事件的返回值，用于获知用户分享渠道信息。
  
   
 
-##### ShareAbilityName
+#### ShareAbilityName
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -367,7 +367,7 @@ shareCompleted事件的返回值，用于获知用户分享渠道信息。
  
   
 
-##### RevisitShareRecordType
+#### RevisitShareRecordType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -386,7 +386,7 @@ shareCompleted事件的返回值，用于获知用户分享渠道信息。
  
   
 
-##### ReadingShareRecordStyle
+#### ReadingShareRecordStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -406,7 +406,7 @@ shareCompleted事件的返回值，用于获知用户分享渠道信息。
  
   
 
-##### SharedData
+#### SharedData
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -426,7 +426,7 @@ shareCompleted事件的返回值，用于获知用户分享渠道信息。
  
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -470,7 +470,7 @@ let data: systemShare.SharedData = new systemShare.SharedData({
  
   
 
-##### addRecord
+#### addRecord
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -520,7 +520,7 @@ data.addRecord({
  
   
 
-##### getRecords
+#### getRecords
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -560,7 +560,7 @@ records.forEach((record: systemShare.SharedRecord) => {
  
   
 
-##### ShareController
+#### ShareController
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -578,7 +578,7 @@ records.forEach((record: systemShare.SharedRecord) => {
  
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -624,7 +624,7 @@ let controller: systemShare.ShareController = new systemShare.ShareController(da
  
   
 
-##### show
+#### show
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -701,7 +701,7 @@ export struct ShareUtdText {
  
   
 
-##### on('dismiss')
+#### on('dismiss')
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -755,7 +755,7 @@ controller.on('dismiss', () => {
  
   
 
-##### off('dismiss')
+#### off('dismiss')
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -811,7 +811,7 @@ controller.off('dismiss', callback);
  
   
 
-##### on('shareCompleted')
+#### on('shareCompleted')
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -863,7 +863,7 @@ controller.on('shareCompleted', (result: systemShare.ShareOperationResult) => {
  
   
 
-##### off('shareCompleted')
+#### off('shareCompleted')
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -917,7 +917,7 @@ controller.off('shareCompleted', callback);
  
   
 
-##### getSharedData
+#### getSharedData
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -981,7 +981,7 @@ export default class TestShareAbility extends ShareExtensionAbility {
  
   
 
-##### getContactInfo
+#### getContactInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1045,7 +1045,7 @@ export default class TestShareAbility extends ShareExtensionAbility {
  
   
 
-##### getWant
+#### getWant
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

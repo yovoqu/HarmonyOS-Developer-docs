@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-volume-measurement
 
-##### 约束与限制
+#### 约束与限制
 
 从6.0.0(20)开始，高精几何重建能力支持部分Phone、部分Tablet设备。请参考[硬件要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-preparations#硬件要求)判断设备是否支持高精几何重建特性（[ARENGINE_FEATURE_TYPE_SEMANTIC_DENSE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arfeaturetype)）。
 
 
 
-##### 接口说明
+#### 接口说明
 
 高精几何重建主要依赖[ARSemanticDenseData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arsemanticdensedata)，以下接口为高精几何重建的相关接口。详细接口和说明，请参考[AR Engine API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine)。
 
@@ -24,13 +24,13 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 对于使用ArkTS的任何AR应用，首先需要创建一个AR会话[ARViewContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontext)，用于管理AR Engine的系统状态。AR会话[ARViewContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontext)的创建可以参考[管理AR会话](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-arsession)章节。
 
 
 
-##### 导入模块
+#### 导入模块
 
 高精几何重建能力所需要导入的模块如下：
 
@@ -42,7 +42,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 
-##### 定义变量
+#### 定义变量
 
 定义变量cubeVertexData接收立方体顶点数据，定义变量cubeConfidence接收识别出立方体的置信度数据，定义变量cubeLabel接收立方体的语义信息。
 
@@ -54,7 +54,7 @@ let cubeLabel: arEngine.ARSemanticPlaneLabel;
 
 
 
-##### 显示预览流
+#### 显示预览流
 
 首先初始化AR会话和AR场景，可以参考[初始化AR会话和AR场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-arsession#初始化ar会话和ar场景)章节。
 
@@ -139,7 +139,7 @@ struct ARSemanticDense {
 
 
 
-##### 获取立方体体积数据
+#### 获取立方体体积数据
 
 调用[ARViewCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcallback)，使用其中的[onFrameUpdate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcallbackonframeupdate)方法进行帧数据更新，通过[ARSession.getFrame](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arsessiongetframe)方法获取当前帧，通过[ARFrame.acquireSemanticDense](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arframeacquiresemanticdense)获得当前帧的高精几何重建对象数据，通过[ARSemanticDenseData.acquireCubeData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arsemanticdensedataacquirecubedata)从高精几何重建对象数据中获取识别到的立方体顶点数据，经过计算可以得到立方体的体积信息，相关变量定义参考[定义变量](#定义变量)。
 

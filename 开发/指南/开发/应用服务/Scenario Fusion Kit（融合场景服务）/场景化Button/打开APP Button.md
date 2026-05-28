@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-button-launchapp
 
-##### 场景介绍
+#### 场景介绍
 
 打开APP功能可以帮助调用对应Button组件打开另一个应用。
 
@@ -16,13 +16,13 @@
 
 
 
-##### 约束与限制
+#### 约束与限制
 
 打开APP Button支持Phone、Tablet和PC/2in1设备，并且从5.1.0(18)版本开始，新增支持TV设备。
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 导入Scenario Fusion Kit模块以及相关公共模块。
 
   

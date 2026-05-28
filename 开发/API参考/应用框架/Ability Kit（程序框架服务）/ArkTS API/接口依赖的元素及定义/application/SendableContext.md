@@ -12,7 +12,7 @@ SendableContext符合[Sendable协议](https://developer.huawei.com/consumer/cn/d
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { sendableContextManager } from '@kit.AbilityKit';
 
 
 
-##### SendableContext
+#### SendableContext
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

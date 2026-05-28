@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-programmingapi-basic-apis
 
-##### 数据搬运
+#### 数据搬运
 
 数据搬运接口，包括[普通数据搬运](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-common-data-movement)、[随路格式转换](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-channel-associated-format-conversion)。
  
@@ -14,7 +14,7 @@
  
   
 
-##### 内存管理与同步控制
+#### 内存管理与同步控制
 
 AscendC编程范式，把算子核内的处理程序，分成多个流水任务，通过队列(Queue)完成**任务间通信和同步**，并通过统一的**资源管理**模块(Pipe)来统一管理内存、事件等资源。
  

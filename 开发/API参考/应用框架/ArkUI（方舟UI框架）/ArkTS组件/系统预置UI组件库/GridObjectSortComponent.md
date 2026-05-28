@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { GridObjectSortComponent, GridObjectSortComponentItem, GridObjectSortCom
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -30,7 +30,7 @@ import { GridObjectSortComponent, GridObjectSortComponentItem, GridObjectSortCom
  
   
 
-##### GridObjectSortComponent
+#### GridObjectSortComponent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -56,7 +56,7 @@ GridObjectSortComponent({options: GridObjectSortComponentOptions, dataList: Arra
  
   
 
-##### GridObjectSortComponentOptions
+#### GridObjectSortComponentOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -80,7 +80,7 @@ GridObjectSortComponent({options: GridObjectSortComponentOptions, dataList: Arra
  
   
 
-##### GridObjectSortComponentType
+#### GridObjectSortComponentType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -100,7 +100,7 @@ GridObjectSortComponent({options: GridObjectSortComponentOptions, dataList: Arra
  
   
 
-##### GridObjectSortComponentItem
+#### GridObjectSortComponentItem
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -122,7 +122,7 @@ GridObjectSortComponent({options: GridObjectSortComponentOptions, dataList: Arra
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -130,7 +130,7 @@ GridObjectSortComponent({options: GridObjectSortComponentOptions, dataList: Arra
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -207,4 +207,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/PjmSjN65RBONTnJ7pRYFKg/zh-cn_image_0000002611756197.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024155Z&HW-CC-Expire=86400&HW-CC-Sign=6DA8B4DE57DE759E7CBDB22C8773F61696C7C432F32B7823BE086CBAA7102785)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/PjmSjN65RBONTnJ7pRYFKg/zh-cn_image_0000002611756197.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025527Z&HW-CC-Expire=86400&HW-CC-Sign=4A029F0F1BF54DF6AE362A3332222F7423E047B7061A74738CE7200548B31442)

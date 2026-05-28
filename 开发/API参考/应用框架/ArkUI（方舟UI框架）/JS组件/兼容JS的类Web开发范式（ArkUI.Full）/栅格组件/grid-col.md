@@ -12,7 +12,7 @@
 grid-col是栅格布局容器grid-row的子容器组件。
   
 
-##### 权限列表
+#### 权限列表
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@ grid-col是栅格布局容器grid-row的子容器组件。
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -28,7 +28,7 @@ grid-col是栅格布局容器grid-row的子容器组件。
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -46,7 +46,7 @@ grid-col是栅格布局容器grid-row的子容器组件。
  
   
 
-##### 样式
+#### 样式
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -72,7 +72,7 @@ grid-col是栅格布局容器grid-row的子容器组件。
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -80,7 +80,7 @@ grid-col是栅格布局容器grid-row的子容器组件。
  
   
 
-##### 方法
+#### 方法
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -88,7 +88,7 @@ grid-col是栅格布局容器grid-row的子容器组件。
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -144,4 +144,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/3Ry3RdzNQHC_OIFus45IOg/zh-cn_image_0000002611756319.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024105Z&HW-CC-Expire=86400&HW-CC-Sign=8FFF17D7CBE97542DE3BBABECFD9CD418FD4901B339C3FC615FEFA97515805AE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/3Ry3RdzNQHC_OIFus45IOg/zh-cn_image_0000002611756319.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025439Z&HW-CC-Expire=86400&HW-CC-Sign=1512591F67189B75F6EAA1E61558D7B84CC3AF299280F40629132BF8982102DD)

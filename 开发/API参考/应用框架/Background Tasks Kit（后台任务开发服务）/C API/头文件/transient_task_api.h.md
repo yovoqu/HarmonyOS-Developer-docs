@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-transient-task-api-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -43,13 +43,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_BackgroundTaskManager_RequestSuspendDelay()
+#### OH_BackgroundTaskManager_RequestSuspendDelay()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -83,7 +83,7 @@ int32_t OH_BackgroundTaskManager_RequestSuspendDelay(const char* reason, Transie
  
   
 
-##### OH_BackgroundTaskManager_GetRemainingDelayTime()
+#### OH_BackgroundTaskManager_GetRemainingDelayTime()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -116,7 +116,7 @@ int32_t OH_BackgroundTaskManager_GetRemainingDelayTime(int32_t requestId, int32_
  
   
 
-##### OH_BackgroundTaskManager_CancelSuspendDelay()
+#### OH_BackgroundTaskManager_CancelSuspendDelay()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -148,7 +148,7 @@ int32_t OH_BackgroundTaskManager_CancelSuspendDelay(int32_t requestId)
  
   
 
-##### OH_BackgroundTaskManager_GetTransientTaskInfo()
+#### OH_BackgroundTaskManager_GetTransientTaskInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

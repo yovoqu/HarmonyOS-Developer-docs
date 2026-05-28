@@ -7,7 +7,7 @@
 开发者能够通过Web组件和系统剪贴板进行交互，实现各种类型数据的复制和粘贴。支持通过[菜单](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-menu)、键盘快捷键以及[W3C剪贴板接口](https://www.w3.org/TR/clipboard-apis/)对网页内容执行剪切、复制和粘贴操作。
 
 
-##### 通过菜单或键盘快捷键与系统剪贴板交互
+#### 通过菜单或键盘快捷键与系统剪贴板交互
 
 开发者能够自定义菜单中的功能选项，当用户选择特定选项时，开发者可以通过调用[cut](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-webcontextmenuresult#cut9)、[copy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-webcontextmenuresult#copy9)、[copyImage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-webcontextmenuresult#copyimage9)、[paste](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-webcontextmenuresult#paste9)、[pasteAndMatchStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-webcontextmenuresult#pasteandmatchstyle20)等接口，将网页中的文本、HTML或图片数据复制到系统剪贴板，或从系统剪贴板粘贴到网页的可输入区域。
 
@@ -21,7 +21,7 @@
 
 
 
-##### 通过W3C异步剪贴板接口与系统剪贴板交互
+#### 通过W3C异步剪贴板接口与系统剪贴板交互
 
 [异步剪贴板接口（Async Clipboard API）](https://www.w3.org/TR/clipboard-apis/#async-clipboard-api)提供给网页开发者读写系统剪贴板的方法，这让Web应用程序可以实现剪切、复制和粘贴的功能。
 
@@ -200,12 +200,12 @@ module.json5权限配置：
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/mZzdwdKpRI2vhQH6gKnzRA/zh-cn_image_0000002611754243.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014744Z&HW-CC-Expire=86400&HW-CC-Sign=26C36E9B23DC4F04A3983C3C8EFBB185B89B358FE52FED7A2EF0F2AC34F823D2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/mZzdwdKpRI2vhQH6gKnzRA/zh-cn_image_0000002611754243.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030415Z&HW-CC-Expire=86400&HW-CC-Sign=1376FDA0794F638BF2E986F39D96B6674D2613051FDA6B0933DC4ECC5D162D97)
 
 
 
 
-##### 通过W3C剪贴板事件接口与系统剪贴板交互
+#### 通过W3C剪贴板事件接口与系统剪贴板交互
 
 [剪贴板事件（Clipboard Event）](https://www.w3.org/TR/clipboard-apis/#clipboard-events-and-interfaces)描述了与剪贴板相关的cut、copy和paste事件。当用户执行剪切、复制或粘贴操作时，相应的事件将被触发。开发者可以通过监听这些事件，对系统剪贴板进行读写操作，或拦截默认行为，以更改复制或粘贴的结果。
 
@@ -287,12 +287,12 @@ struct WebComponent {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/r5ddHZ4xTairutxJo1jp8A/zh-cn_image_0000002581434308.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014744Z&HW-CC-Expire=86400&HW-CC-Sign=93E678AD509932445EB07E1B150BC32802FA1E03D53B3DB2371E960CE59A3455)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/r5ddHZ4xTairutxJo1jp8A/zh-cn_image_0000002581434308.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030415Z&HW-CC-Expire=86400&HW-CC-Sign=C44F214B230BE07828C25B31BA74AC90A495B21A98E0F7F7CC167308C4AAB5B6)
 
 
 
 
-##### 设置剪贴板复制范围选项
+#### 设置剪贴板复制范围选项
 
 开发者可以通过设置Web组件的[copyOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#copyoptions11)属性，来指定Web组件上剪贴板复制的范围。可以指定的选项有：CopyOptions.None（不支持复制）、CopyOptions.InApp（支持应用内复制）以及CopyOptions.LocalDevice（支持设备内复制）。默认值为：CopyOptions.LocalDevice，即默认支持设备内部的复制。
 

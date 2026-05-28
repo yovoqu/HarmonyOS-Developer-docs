@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/usb-ddk-guidelines
 
-##### 简介
+#### 简介
 
 UsbDdk（USB Driver Development Kit）是为开发者提供的USB驱动程序开发套件，支持开发者基于用户态，在应用层开发USB设备驱动。提供了一系列主机侧访问设备的接口，包括主机侧打开和关闭接口、管道同步异步读写通信、控制传输、中断传输等。
 
@@ -12,7 +12,7 @@ UsbDdk（USB Driver Development Kit）是为开发者提供的USB驱动程序开
 
 
 
-##### 基本概念
+#### 基本概念
 
 在进行UsbDdk开发前，开发者应了解以下基本概念：
 
@@ -26,7 +26,7 @@ UsbDdk（USB Driver Development Kit）是为开发者提供的USB驱动程序开
 
 
 
-##### 实现原理
+#### 实现原理
 
 非标外设应用通过扩展外设管理服务获取USB设备的ID，通过RPC将ID和要操作的动作下发给USB驱动应用。USB驱动应用通过调用UsbDdk接口，可获取设备描述符与配置描述符，以及发送控制传输和中断传输等请求，DDK接口使用HDI服务将指令下发至内核驱动，内核驱动使用指令与设备通信。
 
@@ -38,7 +38,7 @@ UsbDdk（USB Driver Development Kit）是为开发者提供的USB驱动程序开
 
 
 
-##### 约束与限制
+#### 约束与限制
 
  - UsbDdk开放API支持USB接口非标外设扩展驱动开发场景。
  - UsbDdk开放API仅允许DriverExtensionAbility生命周期内使用。
@@ -47,17 +47,17 @@ UsbDdk（USB Driver Development Kit）是为开发者提供的USB驱动程序开
 
 
 
-##### 环境搭建
+#### 环境搭建
 
 请参考[环境准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/environmental-preparation)完成开发前的准备工作。
 
 
 
-##### 开发指导
+#### 开发指导
 
 
 
-##### 接口说明
+#### 接口说明
 
 | 名称 | 描述 |
 | --- | --- |
@@ -82,7 +82,7 @@ UsbDdk（USB Driver Development Kit）是为开发者提供的USB驱动程序开
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 以下步骤描述了如何使用 **UsbDdk**开发USB驱动：
 

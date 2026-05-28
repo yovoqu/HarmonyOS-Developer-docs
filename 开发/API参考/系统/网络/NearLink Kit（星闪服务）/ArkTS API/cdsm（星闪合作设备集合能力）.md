@@ -10,7 +10,7 @@
 **起始版本：** 6.1.1(24)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@ import { cdsm } from '@kit.NearLinkKit';
  
   
 
-##### createCdsmClient
+#### createCdsmClient
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -81,7 +81,7 @@ try {
  
   
 
-##### CdsmClient
+#### CdsmClient
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -97,7 +97,7 @@ try {
  
   
 
-##### getCdsmInfo
+#### getCdsmInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -150,7 +150,7 @@ let cdsmInformation: cdsm.CdsmInfo = client.getCdsmInfo();
  
   
 
-##### onCdsmInfoChange
+#### onCdsmInfoChange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -205,7 +205,7 @@ try {
  
   
 
-##### offCdsmInfoChange
+#### offCdsmInfoChange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -261,7 +261,7 @@ try {
  
   
 
-##### CdsmInfo
+#### CdsmInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -280,7 +280,7 @@ try {
  
   
 
-##### CdsmMemberInfo
+#### CdsmMemberInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -300,7 +300,7 @@ try {
  
   
 
-##### CdsmConnectionState
+#### CdsmConnectionState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

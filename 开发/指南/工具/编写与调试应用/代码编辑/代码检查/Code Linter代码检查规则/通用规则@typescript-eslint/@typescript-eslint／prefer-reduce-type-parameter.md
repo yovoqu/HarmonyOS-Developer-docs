@@ -9,7 +9,7 @@
 
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -22,13 +22,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 ['1', '2', '3'].reduce<readonly string[]>((arr, text) => {
@@ -40,7 +40,7 @@
  
  
 
-##### 反例
+#### 反例
 
 ```text
 ['1', '2', '3'].reduce((arr, text) => {
@@ -52,7 +52,7 @@
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

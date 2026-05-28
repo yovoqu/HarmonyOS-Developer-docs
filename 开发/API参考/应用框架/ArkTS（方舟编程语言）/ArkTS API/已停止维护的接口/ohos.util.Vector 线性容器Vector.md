@@ -21,7 +21,7 @@ Vector和[ArrayList](https://developer.huawei.com/consumer/cn/doc/harmonyos-refe
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -31,13 +31,13 @@ import { Vector } from '@kit.ArkTS';
  
   
 
-##### Vector
+#### Vector
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -50,7 +50,7 @@ import { Vector } from '@kit.ArkTS';
  
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -68,7 +68,7 @@ let vector : Vector<string | number | Array<number>> = new Vector();
  
   
 
-##### add
+#### add
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -110,7 +110,7 @@ let result3 = vector.add(c);
  
   
 
-##### insert
+#### insert
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -139,7 +139,7 @@ vector.insert(true, 2);
  
   
 
-##### has
+#### has
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -174,7 +174,7 @@ let result1 = vector.has("squirrel");
  
   
 
-##### getIndexOf
+#### getIndexOf
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -214,7 +214,7 @@ let result = vector.getIndexOf(2);
  
   
 
-##### getLastIndexOf
+#### getLastIndexOf
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -254,7 +254,7 @@ let result = vector.getLastIndexOf(2);
  
   
 
-##### removeByIndex
+#### removeByIndex
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -292,7 +292,7 @@ let result = vector.removeByIndex(2);
  
   
 
-##### remove
+#### remove
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -329,7 +329,7 @@ let result = vector.remove(2);
  
   
 
-##### removeByRange
+#### removeByRange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -360,7 +360,7 @@ vector.removeByRange(2,4);
  
   
 
-##### replaceAllElements
+#### replaceAllElements
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -403,7 +403,7 @@ vector.replaceAllElements((value : number) : number => {
  
   
 
-##### forEach
+#### forEach
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -445,7 +445,7 @@ vector.forEach((value : number, index ?: number) : void => {
  
   
 
-##### sort
+#### sort
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -485,7 +485,7 @@ vector.sort();
  
   
 
-##### subVector
+#### subVector
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -526,7 +526,7 @@ let result1 = vector.subVector(2,4);
  
   
 
-##### clear
+#### clear
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -549,7 +549,7 @@ vector.clear();
  
   
 
-##### clone
+#### clone
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -579,7 +579,7 @@ let result = vector.clone();
  
   
 
-##### getCapacity
+#### getCapacity
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -609,7 +609,7 @@ let result = vector.getCapacity();
  
   
 
-##### convertToArray
+#### convertToArray
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -639,7 +639,7 @@ let result = vector.convertToArray();
  
   
 
-##### isEmpty
+#### isEmpty
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -669,7 +669,7 @@ let result = vector.isEmpty();
  
   
 
-##### increaseCapacityTo
+#### increaseCapacityTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -700,7 +700,7 @@ vector.increaseCapacityTo(12);
  
   
 
-##### trimToCurrentLength
+#### trimToCurrentLength
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -723,7 +723,7 @@ vector.trimToCurrentLength();
  
   
 
-##### toString
+#### toString
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -753,7 +753,7 @@ let result = vector.toString();
  
   
 
-##### copyToArray
+#### copyToArray
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -772,7 +772,7 @@ copyToArray(array: Array&lt;T&gt;): void
  
   
 
-##### getFirstElement
+#### getFirstElement
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -802,7 +802,7 @@ let result = vector.getFirstElement();
  
   
 
-##### getLastElement
+#### getLastElement
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -832,7 +832,7 @@ let result = vector.getLastElement();
  
   
 
-##### getLastIndexFrom
+#### getLastIndexFrom
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -870,7 +870,7 @@ let result = vector.getLastIndexFrom(4,3);
  
   
 
-##### getIndexFrom
+#### getIndexFrom
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -908,7 +908,7 @@ let result = vector.getIndexFrom(4, 3);
  
   
 
-##### setLength
+#### setLength
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -939,7 +939,7 @@ vector.setLength(2);
  
   
 
-##### get
+#### get
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -976,7 +976,7 @@ let result = vector.get(2);
  
   
 
-##### set
+#### set
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1003,7 +1003,7 @@ set(index: number, element: T): T
  
   
 
-##### [Symbol.iterator]
+#### [Symbol.iterator]
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

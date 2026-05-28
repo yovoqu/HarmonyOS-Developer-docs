@@ -13,7 +13,7 @@
 
 
 
-##### 需要权限
+#### 需要权限
 
 若涉及网络文档获取，需在module.json5中配置网络访问权限。具体添加方法请参考[在配置文件中声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions#在配置文件中声明权限)。
 
@@ -27,7 +27,7 @@
 
 
 
-##### callback方式保存PDF
+#### callback方式保存PDF
 
 通过callback方式调用createPdf接口，获取到的result通过pdfArrayBuffer接口取得PDF二进制数据流，最后使用fileIo方法将二进制数据流保存为PDF文件。
 
@@ -87,7 +87,7 @@ struct Index {
 
 
 
-##### Promise方式保存PDF
+#### Promise方式保存PDF
 
 通过Promise方式调用createPdf接口，获取到的result通过pdfArrayBuffer接口取得PDF二进制数据流，最后使用fileIo方法将二进制数据流保存为PDF文件。
 

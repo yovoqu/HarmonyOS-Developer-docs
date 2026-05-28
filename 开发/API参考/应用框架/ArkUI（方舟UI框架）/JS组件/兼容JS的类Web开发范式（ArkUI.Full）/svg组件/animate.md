@@ -12,7 +12,7 @@
 设置svg组件的属性动画。
   
 
-##### 权限列表
+#### 权限列表
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -28,7 +28,7 @@
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -52,7 +52,7 @@
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -134,4 +134,4 @@
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/K2vbyUiqR6GgzWSOQn9w7Q/zh-cn_image_0000002581436394.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024105Z&HW-CC-Expire=86400&HW-CC-Sign=F7507DB50243F61682120AA0BE7D0E3D06DF7BBF792D83EB2D163F505D028CF0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/K2vbyUiqR6GgzWSOQn9w7Q/zh-cn_image_0000002581436394.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025440Z&HW-CC-Expire=86400&HW-CC-Sign=A25DE8C65FA7A15276CCED33511AA4483F743140624C810CDB84D10CF25E53BC)

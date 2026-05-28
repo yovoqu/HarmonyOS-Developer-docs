@@ -14,7 +14,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Tablet | Wearable | PC/2in1
 
@@ -24,7 +24,7 @@ import { call } from '@kit.TelephonyKit';
 
 
 
-##### call.dial(deprecated)
+#### call.dial(deprecated)
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -60,7 +60,7 @@ call.dial("138xxxxxxxx", (err: BusinessError, data: boolean) => {
 
 
 
-##### call.dial(deprecated)
+#### call.dial(deprecated)
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -100,7 +100,7 @@ call.dial("138xxxxxxxx", dialOptions, (err: BusinessError, data: boolean) => {
 
 
 
-##### call.dial(deprecated)
+#### call.dial(deprecated)
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -148,7 +148,7 @@ call.dial("138xxxxxxxx", dialOptions).then((data: boolean) => {
 
 
 
-##### call.makeCall7+
+#### call.makeCall7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -197,7 +197,7 @@ call.makeCall("138xxxxxxxx", (err: BusinessError) => {
 
 
 
-##### call.makeCall7+
+#### call.makeCall7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -250,7 +250,7 @@ call.makeCall("138xxxxxxxx").then(() => {
 
 
 
-##### call.makeCall24+
+#### call.makeCall24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -308,7 +308,7 @@ call.makeCall("138xxxxxxxx", makeOptions).then(() => {
 
 
 
-##### call.makeCall12+
+#### call.makeCall12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -366,7 +366,7 @@ call.makeCall(context, "138xxxxxxxx").then(() => {
 
 
 
-##### call.hasCall
+#### call.hasCall
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -399,7 +399,7 @@ call.hasCall((err: BusinessError, data: boolean) => {
 
 
 
-##### call.hasCall
+#### call.hasCall
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -430,7 +430,7 @@ call.hasCall().then(() => {
 
 
 
-##### call.hasCallSync10+
+#### call.hasCallSync10+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -456,7 +456,7 @@ console.info(`hasCallSync success, has call is ` + hasCall);
 
 
 
-##### call.getCallState
+#### call.getCallState
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -489,7 +489,7 @@ call.getCallState((err: BusinessError, data: call.CallState) => {
 
 
 
-##### call.getCallState
+#### call.getCallState
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -520,7 +520,7 @@ call.getCallState().then((data: call.CallState) => {
 
 
 
-##### call.getCallStateSync10+
+#### call.getCallStateSync10+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -546,7 +546,7 @@ console.info(`the call state is:` + callState);
 
 
 
-##### call.hasVoiceCapability7+
+#### call.hasVoiceCapability7+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -570,7 +570,7 @@ console.info(`hasVoiceCapability: ${JSON.stringify(result)}`);
 
 
 
-##### call.isEmergencyPhoneNumber7+
+#### call.isEmergencyPhoneNumber7+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -617,7 +617,7 @@ call.isEmergencyPhoneNumber("138xxxxxxxx", (err: BusinessError, data: boolean) =
 
 
 
-##### call.isEmergencyPhoneNumber7+
+#### call.isEmergencyPhoneNumber7+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -666,7 +666,7 @@ call.isEmergencyPhoneNumber("112", options, (err: BusinessError, data: boolean) 
 
 
 
-##### call.isEmergencyPhoneNumber7+
+#### call.isEmergencyPhoneNumber7+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -719,7 +719,7 @@ call.isEmergencyPhoneNumber("138xxxxxxxx", options).then((data: boolean) => {
 
 
 
-##### call.formatPhoneNumber7+
+#### call.formatPhoneNumber7+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -768,7 +768,7 @@ call.formatPhoneNumber("138xxxxxxxx", (err: BusinessError, data: string) => {
 
 
 
-##### call.formatPhoneNumber7+
+#### call.formatPhoneNumber7+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -821,7 +821,7 @@ call.formatPhoneNumber("138xxxxxxxx", options, (err: BusinessError, data: string
 
 
 
-##### call.formatPhoneNumber7+
+#### call.formatPhoneNumber7+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -878,7 +878,7 @@ call.formatPhoneNumber("138xxxxxxxx", options).then((data: string) => {
 
 
 
-##### call.formatPhoneNumberToE1647+
+#### call.formatPhoneNumberToE1647+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -928,7 +928,7 @@ call.formatPhoneNumberToE164("138xxxxxxxx", "CN", (err: BusinessError, data: str
 
 
 
-##### call.formatPhoneNumberToE1647+
+#### call.formatPhoneNumberToE1647+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -984,7 +984,7 @@ call.formatPhoneNumberToE164("138xxxxxxxx", "CN").then((data: string) => {
 
 
 
-##### call.answerCall23+
+#### call.answerCall23+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1036,7 +1036,7 @@ call.answerCall((err: BusinessError) => {
 
 
 
-##### call.hangUpCall23+
+#### call.hangUpCall23+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1088,7 +1088,7 @@ call.hangUpCall((err: BusinessError) => {
 
 
 
-##### call.rejectCall23+
+#### call.rejectCall23+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1140,7 +1140,7 @@ call.rejectCall((err: BusinessError) => {
 
 
 
-##### DialOptions
+#### DialOptions
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1155,7 +1155,7 @@ call.rejectCall((err: BusinessError) => {
 
 
 
-##### CallState
+#### CallState
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1174,7 +1174,7 @@ call.rejectCall((err: BusinessError) => {
 
 
 
-##### MakeCallOptions24+
+#### MakeCallOptions24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1191,7 +1191,7 @@ call.rejectCall((err: BusinessError) => {
 
 
 
-##### TelCallState21+
+#### TelCallState21+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1211,7 +1211,7 @@ call.rejectCall((err: BusinessError) => {
 
 
 
-##### CCallState23+
+#### CCallState23+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1236,7 +1236,7 @@ call.rejectCall((err: BusinessError) => {
 
 
 
-##### EmergencyNumberOptions7+
+#### EmergencyNumberOptions7+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1251,7 +1251,7 @@ call.rejectCall((err: BusinessError) => {
 
 
 
-##### NumberFormatOptions7+
+#### NumberFormatOptions7+
 
 **支持设备：** Phone | Tablet | Wearable
 

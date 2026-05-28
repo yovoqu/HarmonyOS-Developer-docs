@@ -7,7 +7,7 @@
 text是文本组件，用于呈现一段文本信息。具体用法请参考[text](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-text)的API文档。
 
 
-##### 创建text组件
+#### 创建text组件
 
 在pages/index目录下的hml文件中创建一个text组件。
 
@@ -36,7 +36,7 @@ text是文本组件，用于呈现一段文本信息。具体用法请参考[tex
 
 
 
-##### 设置text组件样式和属性
+#### 设置text组件样式和属性
 
  - 添加文本样式
 
@@ -170,7 +170,7 @@ text{
 
 
 
-##### 场景示例
+#### 场景示例
 
 text组件通过数据绑定展示文本内容，span组件通过设置show属性来实现文本内容的隐藏和显示。
 
@@ -226,4 +226,4 @@ export default {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/F3En7X0cRryuuZY0bDaCGQ/zh-cn_image_0000002611833997.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014754Z&HW-CC-Expire=86400&HW-CC-Sign=B8455AC88F7DCE081C452D1C0245024997F4B98ECBEDA5BD896D936588145CF1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/F3En7X0cRryuuZY0bDaCGQ/zh-cn_image_0000002611833997.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030426Z&HW-CC-Expire=86400&HW-CC-Sign=FB819BD0B9EE4EFA2FFB6E5F5AE08F758669BEE5B43FC0AE9E2D8F267D9D80B9)

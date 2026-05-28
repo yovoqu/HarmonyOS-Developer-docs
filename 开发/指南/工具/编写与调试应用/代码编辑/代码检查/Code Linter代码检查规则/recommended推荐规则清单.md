@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-coderlinter-recommended-rules
 
-##### 通用规则推荐规则集@typescript-eslint/recommended
+#### 通用规则推荐规则集@typescript-eslint/recommended
  
 | @typescript-eslint/await-thenable | 不允许对不是“Thenable”对象的值使用await关键字（“Thenable”表示某个对象拥有“then”方法，比如Promise）。 |
 | @typescript-eslint/consistent-type-imports | 强制使用一致的类型导入风格。 |
@@ -25,7 +25,7 @@
  
  
 
-##### 安全规则推荐规则集@security/recommended
+#### 安全规则推荐规则集@security/recommended
  
 | @security/no-commented-code | 不使用的代码段建议直接删除，不允许通过注释的方式保留。 |
 | @security/no-unsafe-aes | 该规则禁止在AES加密算法中使用不安全的ECB加密模式。 |
@@ -44,7 +44,7 @@
  
  
 
-##### 性能规则推荐规则集@performance/recommended
+#### 性能规则推荐规则集@performance/recommended
  
 | @performance/foreach-args-check | 建议在ForEach参数中设置keyGenerator。 |
 | @performance/high-frequency-log-check | 不建议在高频函数中使用Hilog。 |
@@ -86,7 +86,7 @@
  
  
 
-##### 预览规则集@previewer/recommended
+#### 预览规则集@previewer/recommended
  
 | @previewer/mandatory-default-value-for-local-initialization | 如果组件的属性支持本地初始化，需要设置一个合法的不依赖运行时的默认值。 |
 | @previewer/no-page-method-on-preview-component | 禁止在非路由组件上实例化onPageShow、onPageHide、onBackPress等页面级方法。 |
@@ -95,7 +95,7 @@
  
  
 
-##### 一次开发多端部署规则推荐规则集@cross-device-app-dev/recommended
+#### 一次开发多端部署规则推荐规则集@cross-device-app-dev/recommended
  
 | @cross-device-app-dev/color-contrast | 文本和背景之间的颜色对比度至少为4.5:1以确保可读性。 |
 | @cross-device-app-dev/color-value | 颜色值应当使用“\$r”从color.json中引用，以适配不同的系统颜色模式，禁止使用固定的值。 |
@@ -111,7 +111,7 @@
  
  
 
-##### ArkTS代码风格规则推荐规则集@hw-stylistic/recommended
+#### ArkTS代码风格规则推荐规则集@hw-stylistic/recommended
  
 | @hw-stylistic/array-bracket-spacing | 强制数组“[”之后和“]”之前加空格。该规则仅检查.ets文件类型。 |
 | @hw-stylistic/brace-style | 强制大括号和语句位于同一行。该规则仅检查.ets文件类型。 |

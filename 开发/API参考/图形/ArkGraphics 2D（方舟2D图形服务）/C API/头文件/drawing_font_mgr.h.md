@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-font-mgr-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -54,13 +54,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Drawing_FontMgrCreate()
+#### OH_Drawing_FontMgrCreate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -85,7 +85,7 @@ OH_Drawing_FontMgr* OH_Drawing_FontMgrCreate(void)
  
   
 
-##### OH_Drawing_FontMgrDestroy()
+#### OH_Drawing_FontMgrDestroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -110,7 +110,7 @@ void OH_Drawing_FontMgrDestroy(OH_Drawing_FontMgr* drawingFontMgr)
  
   
 
-##### OH_Drawing_FontMgrGetFamilyCount()
+#### OH_Drawing_FontMgrGetFamilyCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -142,7 +142,7 @@ int OH_Drawing_FontMgrGetFamilyCount(OH_Drawing_FontMgr* drawingFontMgr)
  
   
 
-##### OH_Drawing_FontMgrGetFamilyName()
+#### OH_Drawing_FontMgrGetFamilyName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -175,7 +175,7 @@ char* OH_Drawing_FontMgrGetFamilyName(OH_Drawing_FontMgr* drawingFontMgr, int in
  
   
 
-##### OH_Drawing_FontMgrDestroyFamilyName()
+#### OH_Drawing_FontMgrDestroyFamilyName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -200,7 +200,7 @@ void OH_Drawing_FontMgrDestroyFamilyName(char* familyName)
  
   
 
-##### OH_Drawing_FontMgrCreateFontStyleSet()
+#### OH_Drawing_FontMgrCreateFontStyleSet()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -233,7 +233,7 @@ OH_Drawing_FontStyleSet* OH_Drawing_FontMgrCreateFontStyleSet(OH_Drawing_FontMgr
  
   
 
-##### OH_Drawing_FontMgrDestroyFontStyleSet()
+#### OH_Drawing_FontMgrDestroyFontStyleSet()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -258,7 +258,7 @@ void OH_Drawing_FontMgrDestroyFontStyleSet(OH_Drawing_FontStyleSet* drawingFontS
  
   
 
-##### OH_Drawing_FontMgrMatchFamily()
+#### OH_Drawing_FontMgrMatchFamily()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -291,7 +291,7 @@ OH_Drawing_FontStyleSet* OH_Drawing_FontMgrMatchFamily(OH_Drawing_FontMgr* drawi
  
   
 
-##### OH_Drawing_FontMgrMatchFamilyStyle()
+#### OH_Drawing_FontMgrMatchFamilyStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -325,7 +325,7 @@ OH_Drawing_Typeface* OH_Drawing_FontMgrMatchFamilyStyle(OH_Drawing_FontMgr* draw
  
   
 
-##### OH_Drawing_FontMgrMatchFamilyStyleCharacter()
+#### OH_Drawing_FontMgrMatchFamilyStyleCharacter()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -362,7 +362,7 @@ OH_Drawing_Typeface* OH_Drawing_FontMgrMatchFamilyStyleCharacter(OH_Drawing_Font
  
   
 
-##### OH_Drawing_FontStyleSetCreateTypeface()
+#### OH_Drawing_FontStyleSetCreateTypeface()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -395,7 +395,7 @@ OH_Drawing_Typeface* OH_Drawing_FontStyleSetCreateTypeface(OH_Drawing_FontStyleS
  
   
 
-##### OH_Drawing_FontStyleSetGetStyle()
+#### OH_Drawing_FontStyleSetGetStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -429,7 +429,7 @@ OH_Drawing_FontStyleStruct OH_Drawing_FontStyleSetGetStyle(OH_Drawing_FontStyleS
  
   
 
-##### OH_Drawing_FontStyleSetFreeStyleName()
+#### OH_Drawing_FontStyleSetFreeStyleName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -454,7 +454,7 @@ void OH_Drawing_FontStyleSetFreeStyleName(char** styleName)
  
   
 
-##### OH_Drawing_FontStyleSetMatchStyle()
+#### OH_Drawing_FontStyleSetMatchStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -487,7 +487,7 @@ OH_Drawing_Typeface* OH_Drawing_FontStyleSetMatchStyle(OH_Drawing_FontStyleSet* 
  
   
 
-##### OH_Drawing_FontStyleSetCount()
+#### OH_Drawing_FontStyleSetCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

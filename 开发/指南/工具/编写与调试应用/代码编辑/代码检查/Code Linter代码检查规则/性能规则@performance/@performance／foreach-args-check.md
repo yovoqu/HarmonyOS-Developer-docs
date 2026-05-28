@@ -9,7 +9,7 @@
 [滑动丢帧场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-foreach#键值生成规则)下，建议优先修改。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -22,13 +22,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 @Entry
@@ -55,7 +55,7 @@ struct ForeachTest {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 @Entry
@@ -83,7 +83,7 @@ struct ForeachTest {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 plugin:@performance/recommended

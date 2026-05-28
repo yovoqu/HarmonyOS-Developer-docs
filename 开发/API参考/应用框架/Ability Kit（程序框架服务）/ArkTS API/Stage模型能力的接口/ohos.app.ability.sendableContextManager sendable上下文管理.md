@@ -12,7 +12,7 @@ sendableContextManager模块提供Context与[SendableContext](https://developer.
 
 
 
-##### 使用场景
+#### 使用场景
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -32,7 +32,7 @@ sendableContextManager模块提供Context与[SendableContext](https://developer.
 
 
 
-##### 约束限制
+#### 约束限制
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -42,7 +42,7 @@ sendableContextManager模块提供Context与[SendableContext](https://developer.
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -52,7 +52,7 @@ import { sendableContextManager } from '@kit.AbilityKit';
 
 
 
-##### SendableContext
+#### SendableContext
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -71,7 +71,7 @@ Sendable上下文，符合[Sendable协议](https://developer.huawei.com/consumer
 
 
 
-##### sendableContextManager.convertFromContext
+#### sendableContextManager.convertFromContext
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -145,7 +145,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### sendableContextManager.convertToContext
+#### sendableContextManager.convertToContext
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -268,7 +268,7 @@ workerPort.onerror = (e: ErrorEvent) => {
 
 
 
-##### sendableContextManager.convertToApplicationContext
+#### sendableContextManager.convertToApplicationContext
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -393,7 +393,7 @@ workerPort.onerror = (e: ErrorEvent) => {
 
 
 
-##### sendableContextManager.convertToAbilityStageContext
+#### sendableContextManager.convertToAbilityStageContext
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -516,7 +516,7 @@ workerPort.onerror = (e: ErrorEvent) => {
 
 
 
-##### sendableContextManager.convertToUIAbilityContext
+#### sendableContextManager.convertToUIAbilityContext
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -639,7 +639,7 @@ workerPort.onerror = (e: ErrorEvent) => {
 
 
 
-##### sendableContextManager.setEventHubMultithreadingEnabled20+
+#### sendableContextManager.setEventHubMultithreadingEnabled20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

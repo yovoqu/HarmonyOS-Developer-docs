@@ -26,7 +26,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -36,7 +36,7 @@ import { drawing } from '@kit.ArkGraphics2D';
 
 
 
-##### constructor12+
+#### constructor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -56,7 +56,7 @@ let matrix = new drawing.Matrix();
 
 
 
-##### constructor20+
+#### constructor20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -84,7 +84,7 @@ let matrix2 = new drawing.Matrix(matrix);
 
 
 
-##### isAffine20+
+#### isAffine20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -114,7 +114,7 @@ console.info('isAff :', isAff);
 
 
 
-##### rectStaysRect20+
+#### rectStaysRect20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -145,7 +145,7 @@ console.info('isRect :', isRect);
 
 
 
-##### setSkew20+
+#### setSkew20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -177,7 +177,7 @@ matrix.setSkew(2, 0.5, 0.5, 2);
 
 
 
-##### setSinCos20+
+#### setSinCos20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -209,7 +209,7 @@ matrix.setSinCos(0, 1, 1, 0);
 
 
 
-##### setRotation12+
+#### setRotation12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -248,7 +248,7 @@ matrix.setRotation(90, 100, 100);
 
 
 
-##### setScale12+
+#### setScale12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -288,7 +288,7 @@ matrix.setScale(100, 100, 150, 150);
 
 
 
-##### setTranslation12+
+#### setTranslation12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -326,7 +326,7 @@ matrix.setTranslation(100, 100);
 
 
 
-##### setMatrix12+
+#### setMatrix12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -364,7 +364,7 @@ matrix.setMatrix(value);
 
 
 
-##### preConcat12+
+#### preConcat12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -404,7 +404,7 @@ matrix1.preConcat(matrix2);
 
 
 
-##### setMatrix20+
+#### setMatrix20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -434,7 +434,7 @@ matrix1.setMatrix(matrix2);
 
 
 
-##### setConcat20+
+#### setConcat20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -466,7 +466,7 @@ matrix1.setConcat(matrix2, matrix1);
 
 
 
-##### postConcat20+
+#### postConcat20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -503,7 +503,7 @@ matrix1.postConcat(matrix2);
 
 
 
-##### isEqual12+
+#### isEqual12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -554,7 +554,7 @@ if (matrix1.isEqual(matrix2)) {
 
 
 
-##### invert12+
+#### invert12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -605,7 +605,7 @@ if (matrix1.invert(matrix2)) {
 
 
 
-##### isIdentity12+
+#### isIdentity12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -637,7 +637,7 @@ if (matrix.isIdentity()) {
 
 
 
-##### getValue12+
+#### getValue12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -683,7 +683,7 @@ for (let i = 0; i < 9; i++) {
 
 
 
-##### postRotate12+
+#### postRotate12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -726,7 +726,7 @@ console.info("matrix= "+matrix.getAll().toString());
 
 
 
-##### postScale12+
+#### postScale12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -771,7 +771,7 @@ console.info("matrix= "+matrix.getAll().toString());
 
 
 
-##### postTranslate12+
+#### postTranslate12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -812,7 +812,7 @@ console.info("matrix= "+matrix.getAll().toString());
 
 
 
-##### preRotate12+
+#### preRotate12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -855,7 +855,7 @@ console.info("matrix= "+matrix.getAll().toString());
 
 
 
-##### postSkew20+
+#### postSkew20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -886,7 +886,7 @@ matrix.postSkew(2.0, 1.0, 2.0, 1.0);
 
 
 
-##### preSkew20+
+#### preSkew20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -917,7 +917,7 @@ matrix.preSkew(2.0, 1.0, 2.0, 1.0);
 
 
 
-##### mapRadius20+
+#### mapRadius20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -954,7 +954,7 @@ console.info('radius', radius);
 
 
 
-##### preScale12+
+#### preScale12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -999,7 +999,7 @@ console.info("matrix"+matrix.getAll().toString());
 
 
 
-##### preTranslate12+
+#### preTranslate12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1040,7 +1040,7 @@ console.info("matrix"+matrix.getAll().toString());
 
 
 
-##### reset12+
+#### reset12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1063,7 +1063,7 @@ console.info("matrix= "+matrix.getAll().toString());
 
 
 
-##### mapPoints12+
+#### mapPoints12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1113,7 +1113,7 @@ console.info("matrix= dst: "+JSON.stringify(dst));
 
 
 
-##### getAll12+
+#### getAll12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1141,7 +1141,7 @@ console.info("matrix "+ matrix.getAll());
 
 
 
-##### mapRect12+
+#### mapRect12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1150,7 +1150,7 @@ mapRect(dst: common2D.Rect, src: common2D.Rect): boolean
 将目标矩形设置为源矩形通过矩阵变换后的图形的外接矩形。如下图所示，蓝色矩形为源矩形，假设黄色矩形为源矩形通过矩阵变换形成的图形，此时黄色矩形的边不与坐标轴平行，无法使用矩形对象表示，因此，将目标矩形设置为黄色矩形的外接矩形，即黑色矩形。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/7HCdFv8-Qtu3N23BG_E1hw/zh-cn_image_0000002611836837.png?HW-CC-KV=V1&HW-CC-Date=20260528T024333Z&HW-CC-Expire=86400&HW-CC-Sign=6CF83D4F0809E558F6B2900537C2749F7E9C66F07B8CEFED6711B17C70563C5D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/7HCdFv8-Qtu3N23BG_E1hw/zh-cn_image_0000002611836837.png?HW-CC-KV=V1&HW-CC-Date=20260528T025709Z&HW-CC-Expire=86400&HW-CC-Sign=F91E83098138BFDAE4500636BC73EB17C9215926BF22AFFBAEE2F719AF6C1133)
 
 
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -1194,7 +1194,7 @@ if (matrix.mapRect(dst, src)) {
 
 
 
-##### setRectToRect12+
+#### setRectToRect12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1245,7 +1245,7 @@ if (matrix.setRectToRect(src, dst, scaleToFit)) {
 
 
 
-##### setPolyToPoly12+
+#### setPolyToPoly12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

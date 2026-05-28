@@ -14,7 +14,7 @@ FormExtensionContext模块提供FormExtensionAbility具有的接口和能力。
 
   
 
-##### 使用说明
+#### 使用说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -39,7 +39,7 @@ export default class MyFormExtensionAbility extends FormExtensionAbility {
  
   
 
-##### FormExtensionContext
+#### FormExtensionContext
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

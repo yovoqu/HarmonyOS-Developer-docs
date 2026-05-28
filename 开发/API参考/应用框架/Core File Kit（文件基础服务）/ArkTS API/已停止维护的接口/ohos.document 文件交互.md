@@ -10,7 +10,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -20,7 +20,7 @@ import document from '@ohos.document';
  
   
 
-##### document.choose(deprecated)
+#### document.choose(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -53,7 +53,7 @@ document.choose(types);
  
   
 
-##### document.choose(deprecated)
+#### document.choose(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -81,7 +81,7 @@ document.choose((err: TypeError, uri: string) => {
  
   
 
-##### document.choose(deprecated)
+#### document.choose(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -111,7 +111,7 @@ document.choose(types, (err: TypeError, uri: string) => {
  
   
 
-##### document.show(deprecated)
+#### document.show(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -146,7 +146,7 @@ document.show(uri, type);
  
   
 
-##### document.show(deprecated)
+#### document.show(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

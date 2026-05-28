@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-parseparamsfn
 
-##### 函数功能
+#### 函数功能
 
 注册解析算子属性的函数。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 OpRegistrationData &ParseParamsFn(const ParseParamFunc &parseParamFn)
@@ -18,7 +18,7 @@ OpRegistrationData &ParseParamsFn(const ParseParamFunc &parseParamFn)
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -27,7 +27,7 @@ OpRegistrationData &ParseParamsFn(const ParseParamFunc &parseParamFn)
  
   
 
-##### 约束说明
+#### 约束说明
 
 对于自定义算子插件，ParseParamsFn后续版本将会废弃，请使用[ParseParamsByOperatorFn](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-parseparamsbyoperatorfn)接口进行算子属性的解析。
  
@@ -37,7 +37,7 @@ OpRegistrationData &ParseParamsFn(const ParseParamFunc &parseParamFn)
  
   
 
-##### 回调函数ParseParamFunc
+#### 回调函数ParseParamFunc
 
 开发者自定义并实现FusionParseParamFunc类函数，完成原始模型中算子属性到适配AI处理器的模型中算子属性映射，将结果填入Operator类中。
  

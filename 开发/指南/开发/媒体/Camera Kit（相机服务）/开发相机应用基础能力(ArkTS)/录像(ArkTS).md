@@ -11,7 +11,7 @@
 录像也是相机应用的最重要功能之一，录像是循环帧的捕获。对于录像的自定义配置，开发者可以参考[拍照](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-shooting)中的步骤4，设置分辨率、闪光灯、焦距、照片质量及旋转角度等信息。
 
 
-##### 开发步骤
+#### 开发步骤
 
 详细的API说明请参考[@ohos.multimedia.camera (相机管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera)。
 1. 导入media模块。
@@ -175,7 +175,7 @@ async function stopVideo(videoOutput: camera.VideoOutput, avRecorder: media.AVRe
 
 
 
-##### 状态监听
+#### 状态监听
 
 在相机应用开发过程中，可以随时监听录像输出流状态，包括录像开始、录像结束、录像流输出的错误。
 
@@ -222,6 +222,6 @@ function onVideoOutputError(videoOutput: camera.VideoOutput): void {
 
 
 
-##### 示例代码
+#### 示例代码
 
  - [基于CameraKit通过AVRecorder录像](https://gitcode.com/HarmonyOS_Samples/camera-kit-avrecorder)

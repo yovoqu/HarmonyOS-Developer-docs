@@ -12,7 +12,7 @@
 
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -28,7 +28,7 @@
  
   
 
-##### 样式
+#### 样式
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -36,7 +36,7 @@
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -44,7 +44,7 @@
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -92,4 +92,4 @@
 **4×4卡片**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/vMDJDrX9Skaav9ivOM2QNw/zh-cn_image_0000002581436566.png?HW-CC-KV=V1&HW-CC-Date=20260528T024056Z&HW-CC-Expire=86400&HW-CC-Sign=AFAF19D137523BF7D0C09E1DFAB761A40803FD52EF099CE0734B320A32B2EDC6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/vMDJDrX9Skaav9ivOM2QNw/zh-cn_image_0000002581436566.png?HW-CC-KV=V1&HW-CC-Date=20260528T025431Z&HW-CC-Expire=86400&HW-CC-Sign=27357C00110E4D991232FC1C94C4869B55F5D75193561FE8D390AD865083A5BA)

@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-effect-filter-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -48,13 +48,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Filter_CreateEffect()
+#### OH_Filter_CreateEffect()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -85,7 +85,7 @@ EffectErrorCode OH_Filter_CreateEffect(OH_PixelmapNative* pixelmap, OH_Filter** 
  
   
 
-##### OH_Filter_Release()
+#### OH_Filter_Release()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -115,7 +115,7 @@ EffectErrorCode OH_Filter_Release(OH_Filter* filter)
  
   
 
-##### OH_Filter_Blur()
+#### OH_Filter_Blur()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -146,7 +146,7 @@ EffectErrorCode OH_Filter_Blur(OH_Filter* filter, float radius)
  
   
 
-##### OH_Filter_BlurWithTileMode()
+#### OH_Filter_BlurWithTileMode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -178,7 +178,7 @@ EffectErrorCode OH_Filter_BlurWithTileMode(OH_Filter* filter, float radius, Effe
  
   
 
-##### OH_Filter_Brighten()
+#### OH_Filter_Brighten()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -209,7 +209,7 @@ EffectErrorCode OH_Filter_Brighten(OH_Filter* filter, float brightness)
  
   
 
-##### OH_Filter_GrayScale()
+#### OH_Filter_GrayScale()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -239,7 +239,7 @@ EffectErrorCode OH_Filter_GrayScale(OH_Filter* filter)
  
   
 
-##### OH_Filter_Invert()
+#### OH_Filter_Invert()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -269,7 +269,7 @@ EffectErrorCode OH_Filter_Invert(OH_Filter* filter)
  
   
 
-##### OH_Filter_SetColorMatrix()
+#### OH_Filter_SetColorMatrix()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -300,7 +300,7 @@ EffectErrorCode OH_Filter_SetColorMatrix(OH_Filter* filter, OH_Filter_ColorMatri
  
   
 
-##### OH_Filter_GetEffectPixelMap()
+#### OH_Filter_GetEffectPixelMap()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

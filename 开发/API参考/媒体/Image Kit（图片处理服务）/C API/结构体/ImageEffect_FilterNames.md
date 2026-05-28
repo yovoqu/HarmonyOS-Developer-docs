@@ -10,7 +10,7 @@ typedef struct ImageEffect_FilterNames {...} ImageEffect_FilterNames
 ```
   
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -24,13 +24,13 @@ typedef struct ImageEffect_FilterNames {...} ImageEffect_FilterNames
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -52,7 +52,7 @@ typedef struct ImageEffect_FilterNames {...} ImageEffect_FilterNames
  
   
 
-##### 成员函数
+#### 成员函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  
@@ -70,13 +70,13 @@ typedef struct ImageEffect_FilterNames {...} ImageEffect_FilterNames
  
   
 
-##### 成员函数说明
+#### 成员函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### OH_EffectFilterInfo_Create()
+#### OH_EffectFilterInfo_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -101,7 +101,7 @@ OH_EffectFilterInfo *OH_EffectFilterInfo_Create()
  
   
 
-##### OH_EffectFilterInfo_SetFilterName()
+#### OH_EffectFilterInfo_SetFilterName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -134,7 +134,7 @@ ImageEffect_ErrorCode OH_EffectFilterInfo_SetFilterName(OH_EffectFilterInfo *inf
  
   
 
-##### OH_EffectFilterInfo_GetFilterName()
+#### OH_EffectFilterInfo_GetFilterName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -167,7 +167,7 @@ ImageEffect_ErrorCode OH_EffectFilterInfo_GetFilterName(OH_EffectFilterInfo *inf
  
   
 
-##### OH_EffectFilterInfo_SetSupportedBufferTypes()
+#### OH_EffectFilterInfo_SetSupportedBufferTypes()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -201,7 +201,7 @@ ImageEffect_ErrorCode OH_EffectFilterInfo_SetSupportedBufferTypes(OH_EffectFilte
  
   
 
-##### OH_EffectFilterInfo_GetSupportedBufferTypes()
+#### OH_EffectFilterInfo_GetSupportedBufferTypes()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -235,7 +235,7 @@ ImageEffect_ErrorCode OH_EffectFilterInfo_GetSupportedBufferTypes(OH_EffectFilte
  
   
 
-##### OH_EffectFilterInfo_SetSupportedFormats()
+#### OH_EffectFilterInfo_SetSupportedFormats()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -269,7 +269,7 @@ ImageEffect_ErrorCode OH_EffectFilterInfo_SetSupportedFormats(OH_EffectFilterInf
  
   
 
-##### OH_EffectFilterInfo_GetSupportedFormats()
+#### OH_EffectFilterInfo_GetSupportedFormats()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -303,7 +303,7 @@ ImageEffect_ErrorCode OH_EffectFilterInfo_GetSupportedFormats(OH_EffectFilterInf
  
   
 
-##### OH_EffectFilterInfo_Release()
+#### OH_EffectFilterInfo_Release()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

@@ -14,7 +14,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 详细的API说明请参考[OH_Camera](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera)。
 1. 导入NDK接口。选择系统提供的NDK接口能力，导入NDK接口的方法如下。
@@ -105,7 +105,7 @@ Camera_ErrorCode SetTorchMode(Camera_Manager* cameraManager, Camera_TorchMode to
 
 
 
-##### 状态监听
+#### 状态监听
 
 在相机应用开发过程中，可以随时监听手电筒状态，包括手电筒打开、手电筒关闭、手电筒不可用、手电筒恢复可用。手电筒状态发生变化，可通过回调函数获取状态的变化。
 

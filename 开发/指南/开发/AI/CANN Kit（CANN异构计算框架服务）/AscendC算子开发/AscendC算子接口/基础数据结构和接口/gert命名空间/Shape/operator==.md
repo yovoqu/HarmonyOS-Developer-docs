@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-operatora
 
-##### 函数功能
+#### 函数功能
 
 判断与另外一个shape对象是否相等，如果两个shape的dim num相等，并且dim num内每个dim的值都相等，则认为两个shape相等。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 bool operator==(const Shape &rht) const
@@ -18,7 +18,7 @@ bool operator==(const Shape &rht) const
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -27,7 +27,7 @@ bool operator==(const Shape &rht) const
  
   
 
-##### 返回值
+#### 返回值
 
 true：相等。
  
@@ -35,13 +35,13 @@ false：不相等。
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 Shape shape0({3, 256, 256});

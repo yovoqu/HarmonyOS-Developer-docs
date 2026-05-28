@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/theme-font-c
 
-##### 场景介绍
+#### 场景介绍
 
 主题字体，特指系统**主题应用**中能使用的字体，属于一种特殊的自定义字体。可以通过相关接口调用使能主题应用中的主题字体。
 
 
 
-##### 实现机制
+#### 实现机制
 
 **图1** 主题字体的切换和使用
 
@@ -26,7 +26,7 @@
 
 
 
-##### 接口说明
+#### 接口说明
 
 注册使用主题字体的常用接口如下表所示，详细接口说明请参考[Drawing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing)。
 
@@ -38,7 +38,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 请确保在设备系统**主题应用**中，能成功应用一项主题字体。
 2. 在应用入口文件（默认工程中为EntryAbility.ets）中重写onConfigurationUpdate函数，以响应fontId变更，适配主题字体的切换和页面刷新，重写方式可参考[主题字变更事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/theme-font-arkts#开发步骤)。
 
@@ -107,7 +107,7 @@ OH_Drawing_Typography *typography = OH_Drawing_CreateTypography(handler);
 
 
 
-##### 效果展示
+#### 效果展示
 
 以下展示了在系统**主题应用**中切换使用不同主题字体后，对应的文字渲染效果。
 
@@ -116,10 +116,10 @@ OH_Drawing_Typography *typography = OH_Drawing_CreateTypography(handler);
 **图2** 主题字体1的效果
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/VgKaYYnOSyqd-VemANhtPA/zh-cn_image_0000002611834597.png?HW-CC-KV=V1&HW-CC-Date=20260528T014905Z&HW-CC-Expire=86400&HW-CC-Sign=494660FB318D959DC84486943FA5FD52EB8BD73A79D2D7F5F0B45BE6653500E3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/VgKaYYnOSyqd-VemANhtPA/zh-cn_image_0000002611834597.png?HW-CC-KV=V1&HW-CC-Date=20260528T030534Z&HW-CC-Expire=86400&HW-CC-Sign=DE379304A19E6C2A37A9CB26BCB60748A1E9F5B7D69EEE9977035D003EAE7E3F)
 
 
 **图3** 主题字体2的效果
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/Xiz6b-GWQrOnVgpzyFzKHw/zh-cn_image_0000002581274850.png?HW-CC-KV=V1&HW-CC-Date=20260528T014905Z&HW-CC-Expire=86400&HW-CC-Sign=D64B342DA9E16FC48ED793C4D081A976BDE8195A8AEC43CFCEB9E1D6D74B468C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/Xiz6b-GWQrOnVgpzyFzKHw/zh-cn_image_0000002581274850.png?HW-CC-KV=V1&HW-CC-Date=20260528T030534Z&HW-CC-Expire=86400&HW-CC-Sign=1AF0AE5E330856419F829D149FFDFACF1404DA31A9F9A8B4E7BCAC01FFA05B17)

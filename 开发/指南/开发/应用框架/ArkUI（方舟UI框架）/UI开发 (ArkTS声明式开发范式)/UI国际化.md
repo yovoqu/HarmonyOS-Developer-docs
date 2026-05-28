@@ -7,13 +7,13 @@
 本文介绍如何实现应用程序UI界面的国际化，包含资源配置和镜像布局，关于应用适配国际化的详细参考，请参考[Localization Kit（本地化开发服务）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/i18n-l10n)。
 
 
-##### 利用资源限定词配置国际化资源
+#### 利用资源限定词配置国际化资源
 
 在开发阶段，通过DevEco Studio，可以为应用在对应语言和地区的资源限定词目录下配置不同的资源，来实现UI国际化。详细介绍请参考[资源分类与访问](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/resource-categories-and-access)。
 
 
 
-##### 使用镜像能力
+#### 使用镜像能力
 
 不同国家对文本对齐方式和读取顺序有所不同，例如英语采用从左到右的顺序，阿拉伯语和希腊语则采用从右到左（RTL）的顺序。为满足不同用户的阅读习惯，ArkUI提供了镜像能力。在特定情况下将显示内容在X轴上进行镜像反转，由从左到右显示变成从右到左显示。
 
@@ -28,7 +28,7 @@
 
 
 
-##### 基本概念
+#### 基本概念
 
  - LTR：顺序为从左到右。
  - RTL：顺序为从右到左。
@@ -36,7 +36,7 @@
 
 
 
-##### 使用约束
+#### 使用约束
 
 ArkUI 如下能力已默认适配镜像：
 
@@ -55,7 +55,7 @@ ArkUI 如下能力已默认适配镜像：
 
 
 
-##### 界面布局和边框设置
+#### 界面布局和边框设置
 
 目前，以下三类通用属性需要使用新入参类型适配：
 
@@ -94,7 +94,7 @@ struct InterfaceLayoutBorderSettings {
 
 
 
-##### 自定义绘制Canvas组件
+#### 自定义绘制Canvas组件
 
 Canvas组件的绘制内容和坐标均不支持镜像能力。已绘制到Canvas组件上的内容并不会跟随系统语言的切换自动做镜像效果。
 
@@ -172,7 +172,7 @@ struct CustomizeCanvasComponentDrawing {
 
 
 
-##### 镜像状态字符对齐
+#### 镜像状态字符对齐
 
 [Direction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#direction)是指文字的方向，即文本在屏幕上呈现时字符的顺序。在从左到右（LTR）文本中，显示顺序是从左向右；在从右到左（RTL）文本中，显示顺序是从右到左。
 
@@ -181,7 +181,7 @@ struct CustomizeCanvasComponentDrawing {
 在LTR与RTL文本混排时，如一个英文句子中包含阿拉伯语的单词或短语，显示顺序将变得复杂。下图为数字和维吾尔语混合时对应的字符逻辑顺序。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/2zeyxePBTPSZzTczvbA1YQ/zh-cn_image_0000002581434100.png?HW-CC-KV=V1&HW-CC-Date=20260528T014801Z&HW-CC-Expire=86400&HW-CC-Sign=8CA659416128BAB8B826BF3325A7C61E6C9D7570C25349C31F25834F5364B8A0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/2zeyxePBTPSZzTczvbA1YQ/zh-cn_image_0000002581434100.png?HW-CC-KV=V1&HW-CC-Date=20260528T030433Z&HW-CC-Expire=86400&HW-CC-Sign=40F3A63FA9AC2E496C3E7D657EF6A948CDF6744304421D4CBD82A15402E2B91C)
 
 
 此时，文本渲染引擎会采用名为“双向算法”或“Unicode双向算法”（Unicode Bidirectional Algorithm）的方法来确定字符的显示顺序。下图展示了LTR与RTL文本混合时对应的字符显示顺序，确定字符方向的基本原则如下：
@@ -190,4 +190,4 @@ struct CustomizeCanvasComponentDrawing {
 3. 中性字符的方向性：中性字符无固定方向性，它们会继承其最近的强字符的方向；若附近无强字符，则采用全局方向。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/3vnHKawDQ7qjxnY4vUDC7A/zh-cn_image_0000002611833929.png?HW-CC-KV=V1&HW-CC-Date=20260528T014801Z&HW-CC-Expire=86400&HW-CC-Sign=2F3D3999E222EBEA69FE3231E63D923245F3543D90778D8EF1340FCDD99A5CAE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/3vnHKawDQ7qjxnY4vUDC7A/zh-cn_image_0000002611833929.png?HW-CC-KV=V1&HW-CC-Date=20260528T030433Z&HW-CC-Expire=86400&HW-CC-Sign=F50989633EF4BAC38DA955A52AD3AA24745B57692738B887ECD39F104F68986B)

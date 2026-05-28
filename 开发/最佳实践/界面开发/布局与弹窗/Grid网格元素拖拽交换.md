@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-grid-drag-swap
 
-##### 概述
+#### 概述
 
 Grid网格元素拖拽交换功能在应用中经常会被使用，如当编辑九宫格图片需要拖拽图片改变排序时，就会使用到该功能。当网格中图片进行拖拽交换时，元素排列会跟随图片拖拽的位置而发生变化，并且会有对应的动画效果，以达到良好的用户体验。
  
@@ -18,11 +18,11 @@ Grid网格布局一般由[Grid](https://developer.huawei.com/consumer/cn/doc/har
  
  
 
-##### 实现原理
+#### 实现原理
 
  
 
-##### 关键技术
+#### 关键技术
 
 Grid网格元素拖拽交换功能实现是通过[Grid](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid)容器组件、[组合手势](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-combined-gestures)、动画属性[animateTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#animateto)结合来实现的。
  
@@ -41,7 +41,7 @@ Grid组件当前支持GridItem拖拽动画，通过给Grid容器组件设置[sup
  
  
 
-##### 开发流程
+#### 开发流程
 
 在需要拖拽交换的场景中：
  
@@ -52,11 +52,11 @@ Grid组件当前支持GridItem拖拽动画，通过给Grid容器组件设置[sup
  
  
 
-##### 相同大小网格元素，长按拖拽
+#### 相同大小网格元素，长按拖拽
 
  
 
-##### 场景描述
+#### 场景描述
 
  
 在编辑九宫格等多图的场景中，长按图片（网格元素）可以拖拽交换排序，拖拽图片的过程中，旁边的图片也会即时移动，以产生新的宫格排布。
@@ -70,7 +70,7 @@ Grid组件当前支持GridItem拖拽动画，通过给Grid容器组件设置[sup
 
  
 
-##### 开发步骤
+#### 开发步骤
 
 1. Grid布局及相同大小的GridItem界面开发。其中，[scrollBar](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid#scrollbar)可设置滚动条状态，值为BarState.Off时，表示不显示滚动条；[columnsTemplate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid#columnstemplate)可设置当前网格布局列的数量、固定列宽或最小列宽值；[columnsGap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid#columnsgap)可设置列与列的间距；[rowsGap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid#rowsgap)可设置行与行的间距。
 ```ArkTS
@@ -125,11 +125,11 @@ changeIndex(index1: number, index2: number) {
 
  
 
-##### 不同大小网格元素，长按拖拽
+#### 不同大小网格元素，长按拖拽
 
  
 
-##### 场景描述
+#### 场景描述
 
  
 在一些展示设备的场景中，会有大小不同的网格元素。当用户想改变设备排序时，可以长按设备图片（网格元素）拖拽交换排序，拖拽的过程中，也会改变排列顺序，以产生新的宫格排布。
@@ -145,7 +145,7 @@ changeIndex(index1: number, index2: number) {
 
  
 
-##### 开发步骤
+#### 开发步骤
 
 1. Grid布局及不同大小的GridItem界面开发。
 ```ArkTS
@@ -349,17 +349,17 @@ isDraggable(index: number): boolean {
 
  
 
-##### 两个Grid之间网格元素交换
+#### 两个Grid之间网格元素交换
 
  
 当场景涉及两个Grid之间的网格元素交换时，可使用[GridObjectSortComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-gridobjectsortcomponent)组件来实现。可以点击添加或者移除按钮，对网格元素进行交换。详细实现步骤请参见：[示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-gridobjectsortcomponent#示例)。开发者也可以在[GridObjectSortComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-gridobjectsortcomponent)组件的[源码](https://gitcode.com/openharmony/arkui_ace_engine/blob/master/advanced_ui_component/gridobjectsortcomponent/source/GridObjectSortComponent.ets)基础上进行相应修改，实现更加丰富的功能。
  
 
-##### 网格元素直接拖拽，不需长按
+#### 网格元素直接拖拽，不需长按
 
  
 
-##### 场景描述
+#### 场景描述
 
  
 在不需要长按拖拽的场景下，开发者可以将元素设置成直接拖拽，无需长按，即可完成元素的拖拽交换。
@@ -371,7 +371,7 @@ isDraggable(index: number): boolean {
 
  
 
-##### 开发步骤
+#### 开发步骤
 
 1. 使用Grid布局及GridItem界面开发。
 ```ArkTS
@@ -572,11 +572,11 @@ isDraggable(index: number): boolean {
 
  
 
-##### 网格元素长按后，显示抖动动画
+#### 网格元素长按后，显示抖动动画
 
  
 
-##### 场景描述
+#### 场景描述
 
  
 在设备列表页面时，如果想要移除设备，在选中设备并长按后，可对网格元素进行编辑。此时，设备图片会有抖动的效果。
@@ -584,11 +584,11 @@ isDraggable(index: number): boolean {
 示意效果图如下。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/ZcHzH82wTuanLINyWtqrdA/zh-cn_image_0000002421306206.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013046Z&HW-CC-Expire=86400&HW-CC-Sign=03EA50E6230F358C6B6B884462835999FAA5D977CE8E5A1CFB51C5D7E2F36A09)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/ZcHzH82wTuanLINyWtqrdA/zh-cn_image_0000002421306206.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024730Z&HW-CC-Expire=86400&HW-CC-Sign=569CA7FBD1902CDD6E6C676A553368729966E3389B00F940CC43409CA6081411)
 
  
 
-##### 开发步骤
+#### 开发步骤
 
 1. 使用Grid布局及GridItem界面开发。
 ```ArkTS
@@ -766,6 +766,6 @@ private stopJump() {
 
  
 
-##### 示例代码
+#### 示例代码
 
 - [实现Grid网格元素拖拽交换排序能力](https://gitcode.com/harmonyos_samples/grid-drag-sort)

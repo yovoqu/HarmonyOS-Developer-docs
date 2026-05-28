@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,13 +22,13 @@ import { common } from '@kit.AbilityKit';
  
   
 
-##### AbilityStartCallback
+#### AbilityStartCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@ import { common } from '@kit.AbilityKit';
  
   
 
-##### onError
+#### onError
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -95,7 +95,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### onResult12+
+#### onResult12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

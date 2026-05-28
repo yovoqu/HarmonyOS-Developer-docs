@@ -16,7 +16,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -26,7 +26,7 @@ import { hiAppEvent } from '@kit.PerformanceAnalysisKit';
 
 
 
-##### hiAppEvent.addWatcher
+#### hiAppEvent.addWatcher
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -186,7 +186,7 @@ hiAppEvent.addWatcher({
 
 
 
-##### hiAppEvent.removeWatcher
+#### hiAppEvent.removeWatcher
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -232,7 +232,7 @@ hiAppEvent.removeWatcher(watcher);
 
 
 
-##### hiAppEvent.setEventParam12+
+#### hiAppEvent.setEventParam12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -296,7 +296,7 @@ hiAppEvent.setEventParam(params, "test_domain", "test_event").then(() => {
 
 
 
-##### hiAppEvent.setEventConfig15+
+#### hiAppEvent.setEventConfig15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -363,7 +363,7 @@ hiAppEvent.setEventConfig(hiAppEvent.event.MAIN_THREAD_JANK, params).then(() => 
 
 
 
-##### hiAppEvent.configEventPolicy22+
+#### hiAppEvent.configEventPolicy22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -418,7 +418,7 @@ hiAppEvent.configEventPolicy(policy).then(() => {
 
 
 
-##### Watcher
+#### Watcher
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -443,7 +443,7 @@ hiAppEvent.configEventPolicy(policy).then(() => {
 
 
 
-##### TriggerCondition
+#### TriggerCondition
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -462,7 +462,7 @@ hiAppEvent.configEventPolicy(policy).then(() => {
 
 
 
-##### AppEventFilter
+#### AppEventFilter
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -485,7 +485,7 @@ hiAppEvent.configEventPolicy(policy).then(() => {
 
 
 
-##### AppEventPackageHolder
+#### AppEventPackageHolder
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -493,7 +493,7 @@ hiAppEvent.configEventPolicy(policy).then(() => {
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -531,7 +531,7 @@ let holder1: hiAppEvent.AppEventPackageHolder = new hiAppEvent.AppEventPackageHo
 
 
 
-##### setSize
+#### setSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -571,7 +571,7 @@ holder2.setSize(1000);
 
 
 
-##### setRow12+
+#### setRow12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -611,7 +611,7 @@ holder3.setRow(1000);
 
 
 
-##### takeNext
+#### takeNext
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -645,7 +645,7 @@ let eventPkg: hiAppEvent.AppEventPackage | null = holder4.takeNext();
 
 
 
-##### AppEventInfo
+#### AppEventInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -665,7 +665,7 @@ let eventPkg: hiAppEvent.AppEventPackage | null = holder4.takeNext();
 
 
 
-##### AppEventPackage
+#### AppEventPackage
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -684,7 +684,7 @@ let eventPkg: hiAppEvent.AppEventPackage | null = holder4.takeNext();
 
 
 
-##### AppEventGroup11+
+#### AppEventGroup11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -702,7 +702,7 @@ let eventPkg: hiAppEvent.AppEventPackage | null = holder4.takeNext();
 
 
 
-##### hiAppEvent.write
+#### hiAppEvent.write
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -770,7 +770,7 @@ hiAppEvent.write({
 
 
 
-##### hiAppEvent.write
+#### hiAppEvent.write
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -842,7 +842,7 @@ hiAppEvent.write({
 
 
 
-##### hiAppEvent.addProcessor11+
+#### hiAppEvent.addProcessor11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -897,7 +897,7 @@ try {
 
 
 
-##### hiAppEvent.addProcessorFromConfig20+
+#### hiAppEvent.addProcessorFromConfig20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -950,7 +950,7 @@ hiAppEvent.addProcessorFromConfig("test_name").then((processorId) => {
 
 
 
-##### hiAppEvent.removeProcessor11+
+#### hiAppEvent.removeProcessor11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -997,7 +997,7 @@ try {
 
 
 
-##### hiAppEvent.setUserId11+
+#### hiAppEvent.setUserId11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1040,7 +1040,7 @@ try {
 
 
 
-##### hiAppEvent.getUserId11+
+#### hiAppEvent.getUserId11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1091,7 +1091,7 @@ try {
 
 
 
-##### hiAppEvent.setUserProperty11+
+#### hiAppEvent.setUserProperty11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1134,7 +1134,7 @@ try {
 
 
 
-##### hiAppEvent.getUserProperty11+
+#### hiAppEvent.getUserProperty11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1185,7 +1185,7 @@ try {
 
 
 
-##### hiAppEvent.clearData
+#### hiAppEvent.clearData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1205,7 +1205,7 @@ hiAppEvent.clearData();
 
 
 
-##### hiAppEvent.configure
+#### hiAppEvent.configure
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1252,7 +1252,7 @@ hiAppEvent.configure(config2);
 
 
 
-##### ConfigOption
+#### ConfigOption
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1270,7 +1270,7 @@ hiAppEvent.configure(config2);
 
 
 
-##### EventPolicy22+
+#### EventPolicy22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1290,7 +1290,7 @@ hiAppEvent.configure(config2);
 
 
 
-##### MainThreadJankPolicy22+
+#### MainThreadJankPolicy22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1312,14 +1312,14 @@ hiAppEvent.configure(config2);
 
 
 
-##### CpuUsageHighPolicy22+
+#### CpuUsageHighPolicy22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 提供CPU高负载事件配置策略的定义。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/1c_an7ZiTFeEwKaI6HBWyQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023831Z&HW-CC-Expire=86400&HW-CC-Sign=02ED728AE09C350E9111E9F18BDEBAD581764AB4EAA969921B8F5320EBE69AC8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/1c_an7ZiTFeEwKaI6HBWyQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025205Z&HW-CC-Expire=86400&HW-CC-Sign=A95BA5793B6BDC0117716407A8C7215425238CA9A369788B133F1B7FB738FB3F)
 
 
 该接口被调用后，会将设置值持久化。后续重复调用该接口时，若不设置对应参数，则取上一次系统取用的值。
@@ -1341,7 +1341,7 @@ hiAppEvent.configure(config2);
 
 
 
-##### AppCrashPolicy24+
+#### AppCrashPolicy24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1358,7 +1358,7 @@ hiAppEvent.configure(config2);
 
 
 
-##### AppFreezePolicy24+
+#### AppFreezePolicy24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1375,7 +1375,7 @@ hiAppEvent.configure(config2);
 
 
 
-##### ResourceOverlimitPolicy24+
+#### ResourceOverlimitPolicy24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1392,7 +1392,7 @@ hiAppEvent.configure(config2);
 
 
 
-##### AddressSanitizerPolicy24+
+#### AddressSanitizerPolicy24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1409,7 +1409,7 @@ hiAppEvent.configure(config2);
 
 
 
-##### Processor11+
+#### Processor11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1437,7 +1437,7 @@ hiAppEvent.configure(config2);
 
 
 
-##### AppEventReportConfig11+
+#### AppEventReportConfig11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1456,7 +1456,7 @@ hiAppEvent.configure(config2);
 
 
 
-##### ParamType12+
+#### ParamType12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1478,7 +1478,7 @@ type ParamType = number | string | boolean | Array&lt;string&gt;
 
 
 
-##### EventType
+#### EventType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1498,13 +1498,13 @@ type ParamType = number | string | boolean | Array&lt;string&gt;
 
 
 
-##### hiAppEvent.domain11+
+#### hiAppEvent.domain11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1521,13 +1521,13 @@ type ParamType = number | string | boolean | Array&lt;string&gt;
 
 
 
-##### hiAppEvent.event
+#### hiAppEvent.event
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1557,13 +1557,13 @@ type ParamType = number | string | boolean | Array&lt;string&gt;
 
 
 
-##### hiAppEvent.param
+#### hiAppEvent.param
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

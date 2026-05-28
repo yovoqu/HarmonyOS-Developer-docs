@@ -18,7 +18,7 @@
 **起始版本：** 4.1.0(11)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -31,7 +31,7 @@ import { fido } from '@kit.OnlineAuthenticationKit';
  
   
 
-##### ChannelBinding
+#### ChannelBinding
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -54,7 +54,7 @@ import { fido } from '@kit.OnlineAuthenticationKit';
  
   
 
-##### UAFMessage
+#### UAFMessage
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -90,7 +90,7 @@ UAF字典对象，包含原始的UAF协议消息和附加数据。
  
   
 
-##### Version
+#### Version
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -110,7 +110,7 @@ UAF协议版本信息。
  
   
 
-##### RgbPaletteEntry
+#### RgbPaletteEntry
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -131,7 +131,7 @@ RGB三元调色板。
  
   
 
-##### DisplayPNGCharacteristicsDescriptor
+#### DisplayPNGCharacteristicsDescriptor
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -157,7 +157,7 @@ PNG图片特征对象。
  
   
 
-##### Authenticator
+#### Authenticator
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -192,7 +192,7 @@ PNG图片特征对象。
  
   
 
-##### DiscoveryData
+#### DiscoveryData
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -214,7 +214,7 @@ FIDO UAF客户端软件状态和可用的认证器数据。
  
   
 
-##### discover
+#### discover
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -275,7 +275,7 @@ discover(context: common.Context): Promise&lt;DiscoveryData&gt;
  
   
 
-##### checkPolicy
+#### checkPolicy
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -344,7 +344,7 @@ checkPolicy(context: common.Context, uafRequest: UAFMessage): Promise&lt;void&gt
  
   
 
-##### processUAFOperation
+#### processUAFOperation
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -420,7 +420,7 @@ processUAFOperation(context: common.Context, uafRequest: UAFMessage, channelBind
  
   
 
-##### notifyUAFResult
+#### notifyUAFResult
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

@@ -12,7 +12,7 @@ NodeController用于实现自定义节点的创建、显示、更新等操作的
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import {  NodeController  } from '@kit.ArkUI';
 
 
 
-##### NodeController
+#### NodeController
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -34,7 +34,7 @@ import {  NodeController  } from '@kit.ArkUI';
 
 
 
-##### makeNode
+#### makeNode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -68,7 +68,7 @@ abstract makeNode(uiContext : UIContext): FrameNode | null
 
 
 
-##### aboutToAppear
+#### aboutToAppear
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -86,7 +86,7 @@ aboutToAppear?(): void
 
 
 
-##### aboutToDisappear
+#### aboutToDisappear
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -104,7 +104,7 @@ aboutToDisappear?(): void
 
 
 
-##### onAttach18+
+#### onAttach18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -122,7 +122,7 @@ onAttach?(): void
 
 
 
-##### onDetach18+
+#### onDetach18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -140,7 +140,7 @@ onDetach?(): void
 
 
 
-##### onWillBind18+
+#### onWillBind18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -161,7 +161,7 @@ onWillBind?(containerId: number): void
 
 
 
-##### onWillUnbind18+
+#### onWillUnbind18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -182,7 +182,7 @@ onWillUnbind?(containerId: number): void
 
 
 
-##### onBind18+
+#### onBind18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -203,7 +203,7 @@ onBind?(containerId: number): void
 
 
 
-##### onUnbind18+
+#### onUnbind18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -224,7 +224,7 @@ onUnbind?(containerId: number): void
 
 
 
-##### aboutToResize
+#### aboutToResize
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -245,7 +245,7 @@ aboutToResize?(size: Size): void
 
 
 
-##### onTouchEvent
+#### onTouchEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -266,7 +266,7 @@ onTouchEvent?(event: TouchEvent): void
 
 
 
-##### rebuild
+#### rebuild
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -284,13 +284,13 @@ rebuild(): void
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1（添加节点布局、Touch、挂载和卸载时的生命周期回调）
+#### 示例1（添加节点布局、Touch、挂载和卸载时的生命周期回调）
 
 该示例通过aboutToResize、onTouchEvent，实现了NodeContainer节点布局、收到Touch事件时的生命周期回调功能。
 
@@ -362,12 +362,12 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/WoCIlyIJQFiHJW5IbBBAwQ/zh-cn_image_0000002611835413.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T024117Z&HW-CC-Expire=86400&HW-CC-Sign=C876D793FA27C10F8B96BAD03437A32AACAF14885EBE1FEAD39466B218A4DA5F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/WoCIlyIJQFiHJW5IbBBAwQ/zh-cn_image_0000002611835413.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T025452Z&HW-CC-Expire=86400&HW-CC-Sign=08DF9BDC348D2DDB50981B869754D8F047372A3863041730DA80BBED3E0D7223)
 
 
 
 
-##### 示例2（添加节点上下树和绑定解绑前后的生命周期回调）
+#### 示例2（添加节点上下树和绑定解绑前后的生命周期回调）
 
 该示例通过onAttach、onDetach接口，实现了NodeContainer节点上下主节点树的生命周期回调功能。
 
@@ -462,4 +462,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/K45E3tNOROuIHmMnM4Qu5g/zh-cn_image_0000002581275666.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T024117Z&HW-CC-Expire=86400&HW-CC-Sign=378A22FAD9394B22339E1945F5B97A3D580650A04F2055FE6B007BA2BAFA45E0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/K45E3tNOROuIHmMnM4Qu5g/zh-cn_image_0000002581275666.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T025452Z&HW-CC-Expire=86400&HW-CC-Sign=AEA9C20D7A4F809D9245AD7464E9C48B85B92BEF24FD8FF4B850A66DB740B805)

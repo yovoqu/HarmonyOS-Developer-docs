@@ -14,7 +14,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { SubHeaderV2 } from '@kit.ArkUI';
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -32,7 +32,7 @@ import { SubHeaderV2 } from '@kit.ArkUI';
 
 
 
-##### SubHeaderV2
+#### SubHeaderV2
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -60,7 +60,7 @@ SubHeaderV2({ icon?: SubHeaderV2IconType, title?: SubHeaderV2Title, select?: Sub
 
 
 
-##### SubHeaderV2IconType
+#### SubHeaderV2IconType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -82,7 +82,7 @@ type SubHeaderV2IconType = ResourceStr | SymbolGlyphModifier
 
 
 
-##### SubHeaderV2Title
+#### SubHeaderV2Title
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -92,7 +92,7 @@ type SubHeaderV2IconType = ResourceStr | SymbolGlyphModifier
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -112,7 +112,7 @@ type SubHeaderV2IconType = ResourceStr | SymbolGlyphModifier
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -135,7 +135,7 @@ constructor(options: SubHeaderV2TitleOptions)
 
 
 
-##### SubHeaderV2TitleOptions
+#### SubHeaderV2TitleOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -157,7 +157,7 @@ constructor(options: SubHeaderV2TitleOptions)
 
 
 
-##### SubHeaderV2Select
+#### SubHeaderV2Select
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -167,7 +167,7 @@ select内容以及事件。
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -187,7 +187,7 @@ select内容以及事件。
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -210,7 +210,7 @@ select内容以及事件构造函数。
 
 
 
-##### SubHeaderV2SelectOptions
+#### SubHeaderV2SelectOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -232,7 +232,7 @@ select内容以及事件构造函数。
 
 
 
-##### SubHeaderV2SelectOnSelect
+#### SubHeaderV2SelectOnSelect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -256,7 +256,7 @@ type SubHeaderV2SelectOnSelect = (selectedIndex: number, selectedContent?: strin
 
 
 
-##### SubHeaderV2OperationType
+#### SubHeaderV2OperationType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -278,7 +278,7 @@ type SubHeaderV2SelectOnSelect = (selectedIndex: number, selectedContent?: strin
 
 
 
-##### SubHeaderV2OperationItemType
+#### SubHeaderV2OperationItemType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -300,7 +300,7 @@ type SubHeaderV2OperationItemType = ResourceStr | SymbolGlyphModifier
 
 
 
-##### SubHeaderV2OperationItem
+#### SubHeaderV2OperationItem
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -310,7 +310,7 @@ type SubHeaderV2OperationItemType = ResourceStr | SymbolGlyphModifier
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -331,7 +331,7 @@ type SubHeaderV2OperationItemType = ResourceStr | SymbolGlyphModifier
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -354,7 +354,7 @@ constructor(options: SubHeaderV2OperationItemOptions)
 
 
 
-##### SubHeaderV2OperationItemAction
+#### SubHeaderV2OperationItemAction
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -370,7 +370,7 @@ type SubHeaderV2OperationItemAction = () => void
 
 
 
-##### SubHeaderV2OperationItemOptions
+#### SubHeaderV2OperationItemOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -393,7 +393,7 @@ type SubHeaderV2OperationItemAction = () => void
 
 
 
-##### SubHeaderV2TitleBuilder
+#### SubHeaderV2TitleBuilder
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -409,7 +409,7 @@ type SubHeaderV2TitleBuilder= () => void
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -417,13 +417,13 @@ type SubHeaderV2TitleBuilder= () => void
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1（效率型子标题）
+#### 示例1（效率型子标题）
 
 该示例主要演示子标题左侧为icon、secondaryTitle，右侧operationType为按钮类型。
 
@@ -487,7 +487,7 @@ struct SubHeaderExample {
 
 
 
-##### 示例2（双行文本内容型子标题）
+#### 示例2（双行文本内容型子标题）
 
 该示例主要演示子标题左侧为primaryTitle、secondaryTitle，右侧operationType类型为TEXT_ARROW。
 
@@ -543,7 +543,7 @@ struct SubHeaderExample {
 
 
 
-##### 示例3（spinner型内容型子标题）
+#### 示例3（spinner型内容型子标题）
 
 该示例主要演示子标题左侧为select，右侧operationType类型为ICON_GROUP。
 
@@ -625,7 +625,7 @@ struct SubHeaderExample {
 
 
 
-##### 示例4（设置左侧symbol图标）
+#### 示例4（设置左侧symbol图标）
 
 该示例主要演示子标题左侧icon设置symbol图标。
 
@@ -673,7 +673,7 @@ struct SubHeaderExample {
 
 
 
-##### 示例5（设置右侧symbol图标）
+#### 示例5（设置右侧symbol图标）
 
 该示例主要演示子标题operationType设置为OperationType.ICON_GROUP，operationItem的value设置为symbol图标。
 
@@ -763,7 +763,7 @@ struct SubHeaderExample {
 
 
 
-##### 示例6（自定义标题内容）
+#### 示例6（自定义标题内容）
 
 该示例主要演示SubHeaderV2设置titleBuilder自定义标题内容的效果。
 
@@ -825,7 +825,7 @@ struct SubHeaderExample {
 
 
 
-##### 示例7（自定义标题样式）
+#### 示例7（自定义标题样式）
 
 该示例主要演示SubHeaderV2设置标题和副标题字体样式。
 
@@ -880,7 +880,7 @@ struct SubHeaderExample {
 
 
 
-##### 示例8（右侧按钮自定义播报）
+#### 示例8（右侧按钮自定义播报）
 
 该示例通过设置SubHeaderV2的右侧按钮属性accessibilityText、accessibilityDescription、accessibilityLevel自定义屏幕朗读播报文本。
 
@@ -984,7 +984,7 @@ struct SubHeaderExample {
 
 
 
-##### 示例9（右侧按钮设置默认获焦）
+#### 示例9（右侧按钮设置默认获焦）
 
 在获焦状态下，该示例通过设置SubHeaderV2的右侧按钮属性defaultFocus使其默认获焦。
 
@@ -1045,4 +1045,4 @@ struct SubHeaderExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/t5JGasBlRS2w_dPi6PN5ow/zh-cn_image_0000002611836103.png?HW-CC-KV=V1&HW-CC-Date=20260528T024155Z&HW-CC-Expire=86400&HW-CC-Sign=5C5CE11BECC720C67DC24ABFCB76573008E9F99234FFAB0A0279D36043187B10)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/t5JGasBlRS2w_dPi6PN5ow/zh-cn_image_0000002611836103.png?HW-CC-KV=V1&HW-CC-Date=20260528T025528Z&HW-CC-Expire=86400&HW-CC-Sign=320FA993B940E7B9B84FDC216B51A6F2E2A6B29C5C99E4D12C59309B154A8C59)

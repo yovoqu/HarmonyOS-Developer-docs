@@ -7,7 +7,7 @@
 建议在Component中新建自定义节点时主动释放节点，避免因未释放节点导致的内存泄露。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 import { BuilderNode } from '@kit.ArkUI';
@@ -61,7 +61,7 @@ struct BuilderNodeDisposeExample {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 import { BuilderNode } from '@kit.ArkUI';
@@ -91,7 +91,7 @@ struct LeakyBuilderExample {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 plugin:@performance/all

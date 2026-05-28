@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-environment-guidelines
 
-##### 场景介绍
+#### 场景介绍
 
 [Environment](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-environment-h)提供了获取公共文件用户目录路径的能力，以支持三方应用在公共文件用户目录下进行文件访问操作。
 
 
 
-##### 约束限制
+#### 约束限制
 
  - 使用此接口，需确认设备具有以下系统能力：SystemCapability.FileManagement.File.Environment.FolderObtain。
  - 此接口仅用作公共沙箱目录路径的获取接口，操作对应的公共目录及其子目录需获取通过弹窗授权方式向用户申请授予对应目录的权限，具体参考[访问控制-向用户申请授权](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/request-user-authorization)。
@@ -18,7 +18,7 @@
 
 
 
-##### 接口说明
+#### 接口说明
 
 接口的详细说明，请参考[oh_environment.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-environment-h)。
 
@@ -31,7 +31,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 **在CMake脚本中链接动态库**
 

@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-connection-type-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -51,7 +51,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -65,7 +65,7 @@
  
   
 
-##### 宏定义
+#### 宏定义
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -83,7 +83,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -101,13 +101,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### NetConn_NetCap
+#### NetConn_NetCap
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -134,7 +134,7 @@ enum NetConn_NetCap
  
   
 
-##### NetConn_NetBearerType
+#### NetConn_NetBearerType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -159,7 +159,7 @@ enum NetConn_NetBearerType
  
   
 
-##### NetConn_ErrorCode
+#### NetConn_ErrorCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -184,7 +184,7 @@ enum NetConn_ErrorCode
  
   
 
-##### NetConn_PacketsType
+#### NetConn_PacketsType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -206,13 +206,13 @@ enum NetConn_PacketsType
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_NetConn_CustomDnsResolver()
+#### OH_NetConn_CustomDnsResolver()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -238,7 +238,7 @@ typedef int (*OH_NetConn_CustomDnsResolver)(const char *host, const char *serv,c
  
   
 
-##### OH_NetConn_AppHttpProxyChange()
+#### OH_NetConn_AppHttpProxyChange()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -261,7 +261,7 @@ typedef void (*OH_NetConn_AppHttpProxyChange)(NetConn_HttpProxy *proxy)
  
   
 
-##### OH_NetConn_NetworkAvailable()
+#### OH_NetConn_NetworkAvailable()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -284,7 +284,7 @@ typedef void (*OH_NetConn_NetworkAvailable)(NetConn_NetHandle *netHandle)
  
   
 
-##### OH_NetConn_NetCapabilitiesChange()
+#### OH_NetConn_NetCapabilitiesChange()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -308,7 +308,7 @@ typedef void (*OH_NetConn_NetCapabilitiesChange)(NetConn_NetHandle *netHandle,Ne
  
   
 
-##### OH_NetConn_NetConnectionPropertiesChange()
+#### OH_NetConn_NetConnectionPropertiesChange()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -332,7 +332,7 @@ typedef void (*OH_NetConn_NetConnectionPropertiesChange)(NetConn_NetHandle *netH
  
   
 
-##### OH_NetConn_NetLost()
+#### OH_NetConn_NetLost()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -355,7 +355,7 @@ typedef void (*OH_NetConn_NetLost)(NetConn_NetHandle *netHandle)
  
   
 
-##### OH_NetConn_NetUnavailable()
+#### OH_NetConn_NetUnavailable()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -371,7 +371,7 @@ typedef void (*OH_NetConn_NetUnavailable)(void)
  
   
 
-##### OH_NetConn_NetBlockStatusChange()
+#### OH_NetConn_NetBlockStatusChange()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

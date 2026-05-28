@@ -7,7 +7,7 @@
 [EGL](https://registry.khronos.org/EGL/sdk/docs/man/) 是Khronos官方提供的渲染API (如[OpenGLES](https://registry.khronos.org/OpenGL-Refpages/es3/) 或 OpenVG) 与底层窗口系统之间的接口。HarmonyOS 现已支持 EGL。
 
 
-##### 引入EGL能力
+#### 引入EGL能力
 
 如果开发者需要使用EGL相关功能，首先请添加头文件：
 
@@ -33,7 +33,7 @@ EGL_EGLEXT_PROTOTYPES
 
 
 
-##### 部分扩展接口使用说明
+#### 部分扩展接口使用说明
 
 **eglGetNativeClientBufferANDROID**
 
@@ -147,7 +147,7 @@ OH_NativeWindow_DestroyNativeWindowBuffer((OHNativeWindowBuffer*)clientBuffer);
 
 
 
-##### 支持的接口说明
+#### 支持的接口说明
 
 HarmonyOS目前支持EGL部分接口，支持的接口会随着版本演进，持续更新。
 

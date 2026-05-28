@@ -10,7 +10,7 @@
 
   
 
-##### 1003500001 系统错误
+#### 1003500001 系统错误
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -32,7 +32,7 @@ Internal error.
  
   
 
-##### 1003500002 序列化或反序列化失败
+#### 1003500002 序列化或反序列化失败
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -54,7 +54,7 @@ Marshalling or unmarshalling error.
  
   
 
-##### 1003500003 连接服务失败
+#### 1003500003 连接服务失败
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -76,7 +76,7 @@ Failed to connect service.
  
   
 
-##### 1003500004 实况窗开关关闭
+#### 1003500004 实况窗开关关闭
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -98,7 +98,7 @@ LiveView is not enabled.
  
   
 
-##### 1003500005 实况窗权益未申请
+#### 1003500005 实况窗权益未申请
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -120,7 +120,7 @@ The right of liveView is not enabled.
  
   
 
-##### 1003500006 实况窗已存在
+#### 1003500006 实况窗已存在
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -142,7 +142,7 @@ The liveView already exists.
  
   
 
-##### 1003500007 无法连接服务器
+#### 1003500007 无法连接服务器
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -164,7 +164,7 @@ Couldn't connect to server.
  
   
 
-##### 1003500008 实况窗频度超过限制
+#### 1003500008 实况窗频度超过限制
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -186,7 +186,7 @@ Over max number liveViews per second.
  
   
 
-##### 1003500009 实况窗id不存在
+#### 1003500009 实况窗id不存在
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -208,7 +208,7 @@ The liveView does not exist.
  
   
 
-##### 1003500010 实况窗已结束
+#### 1003500010 实况窗已结束
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -230,7 +230,7 @@ The liveView has ended.
  
   
 
-##### 1003500011 实况窗顺序不正确
+#### 1003500011 实况窗顺序不正确
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -252,7 +252,7 @@ The liveView sequence is incorrect.
  
   
 
-##### 1003500012 订阅次数超出限制
+#### 1003500012 订阅次数超出限制
 
 **错误信息**
  
@@ -272,7 +272,7 @@ The number of subscription times exceeds the upper limit of 2000.
  
   
 
-##### 1003500013 无效的实况窗订阅场景
+#### 1003500013 无效的实况窗订阅场景
 
 **错误信息**
  
@@ -292,7 +292,7 @@ event传值不正确。
  
   
 
-##### 1003500014 实况窗提醒时间距当前时间过长
+#### 1003500014 实况窗提醒时间距当前时间过长
 
 **错误信息**
  
@@ -312,7 +312,7 @@ Time exceeds valid period.
  
   
 
-##### 1003500015 实况窗订阅失败
+#### 1003500015 实况窗订阅失败
 
 **错误信息**
  
@@ -332,7 +332,7 @@ Subscribe failed.
  
   
 
-##### 1003500016 请求频次超限
+#### 1003500016 请求频次超限
 
 **错误信息**
  
@@ -352,7 +352,7 @@ Request subscribe liveView exceed.
  
   
 
-##### 1003500017 超过条件实况窗次数限制
+#### 1003500017 超过条件实况窗次数限制
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -374,7 +374,7 @@ Over max number liveViews by trigger.
  
   
 
-##### 1003500018 基于地理位置的实况窗提醒开关关闭
+#### 1003500018 基于地理位置的实况窗提醒开关关闭
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -396,7 +396,7 @@ Geofencing-based liveView is not enabled.
  
   
 
-##### 1003500019 位置功能的开关关闭
+#### 1003500019 位置功能的开关关闭
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -418,7 +418,7 @@ The location switch is off.
  
   
 
-##### 1003500020 感知与提醒的开关关闭
+#### 1003500020 感知与提醒的开关关闭
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** PC/2in1
 
@@ -22,7 +22,7 @@ import { deviceManager } from '@kit.DriverDevelopmentKit';
 
 
 
-##### deviceManager.queryDevices
+#### deviceManager.queryDevices
 
 **支持设备：** PC/2in1
 
@@ -76,7 +76,7 @@ try {
 
 
 
-##### deviceManager.bindDriverWithDeviceId19+
+#### deviceManager.bindDriverWithDeviceId19+
 
 **支持设备：** PC/2in1
 
@@ -139,7 +139,7 @@ try {
 
 
 
-##### deviceManager.unbindDriverWithDeviceId19+
+#### deviceManager.unbindDriverWithDeviceId19+
 
 **支持设备：** PC/2in1
 
@@ -196,7 +196,7 @@ try {
 
 
 
-##### deviceManager.bindDevice(deprecated)
+#### deviceManager.bindDevice(deprecated)
 
 **支持设备：** PC/2in1
 
@@ -264,7 +264,7 @@ try {
 
 
 
-##### deviceManager.bindDeviceDriver(deprecated)
+#### deviceManager.bindDeviceDriver(deprecated)
 
 **支持设备：** PC/2in1
 
@@ -326,7 +326,7 @@ try {
 
 
 
-##### deviceManager.bindDevice(deprecated)
+#### deviceManager.bindDevice(deprecated)
 
 **支持设备：** PC/2in1
 
@@ -393,7 +393,7 @@ try {
 
 
 
-##### deviceManager.bindDeviceDriver(deprecated)
+#### deviceManager.bindDeviceDriver(deprecated)
 
 **支持设备：** PC/2in1
 
@@ -460,7 +460,7 @@ try {
 
 
 
-##### deviceManager.unbindDevice(deprecated)
+#### deviceManager.unbindDevice(deprecated)
 
 **支持设备：** PC/2in1
 
@@ -517,7 +517,7 @@ try {
 
 
 
-##### deviceManager.unbindDevice(deprecated)
+#### deviceManager.unbindDevice(deprecated)
 
 **支持设备：** PC/2in1
 
@@ -578,7 +578,7 @@ try {
 
 
 
-##### Device
+#### Device
 
 **支持设备：** PC/2in1
 
@@ -595,7 +595,7 @@ try {
 
 
 
-##### USBDevice
+#### USBDevice
 
 **支持设备：** PC/2in1
 
@@ -611,7 +611,7 @@ USB设备信息，继承自[Device](#device)。
 
 
 
-##### BusType
+#### BusType
 
 **支持设备：** PC/2in1
 
@@ -626,7 +626,7 @@ USB设备信息，继承自[Device](#device)。
 
 
 
-##### RemoteDeviceDriver11+
+#### RemoteDeviceDriver11+
 
 **支持设备：** PC/2in1
 

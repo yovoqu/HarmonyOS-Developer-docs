@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/asset-js-query
 
-##### 接口介绍
+#### 接口介绍
 
 开发者可以查阅API文档，获取关键资产查询接口的详细说明：[query(query: AssetMap)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-asset#assetquery)、同步接口[querySync(query: AssetMap)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-asset#assetquerysync12)。
 
@@ -50,13 +50,13 @@
 
 
 
-##### 约束和限制
+#### 约束和限制
 
 批量查询的关键资产需要通过IPC通道传输给业务。由于IPC缓冲区大小的限制，建议当查询超过40条关键资产时，进行分批查询，每次查询数量不超过40条。
 
 
 
-##### 代码示例
+#### 代码示例
 
 > [!NOTE]
 > 本模块提供了异步和同步两套接口，以下为异步接口的使用示例，同步接口详见 @ohos.security.asset (关键资产存储服务) 。 在指定群组中查询一条关键资产明文的使用示例详见 查询单条群组关键资产明文 ，在指定群组中查询一条关键资产属性的使用示例详见 查询单条群组关键资产属性 。 在查询前，需确保已有关键资产，可参考 指南文档 新增关键资产，否则将抛出NOT_FOUND错误（错误码24000002）。
@@ -64,7 +64,7 @@
 
 
 
-##### 查询单条关键资产明文
+#### 查询单条关键资产明文
 
 查询别名是demo_alias的关键资产明文。
 1. 引用头文件，定义工具函数。
@@ -117,7 +117,7 @@ try {
 
 
 
-##### 查询单条关键资产属性
+#### 查询单条关键资产属性
 
 查询别名是demo_alias的关键资产属性。
 1. 引用头文件，定义工具函数。
@@ -163,7 +163,7 @@ try {
 
 
 
-##### 批量查询关键资产属性
+#### 批量查询关键资产属性
 
 批量查询标签为demo_label的关键资产属性，共返回10条符合条件的查询结果，结果按DATA_LABEL_NORMAL_1属性内容排序。
 1. 引用头文件，定义工具函数。

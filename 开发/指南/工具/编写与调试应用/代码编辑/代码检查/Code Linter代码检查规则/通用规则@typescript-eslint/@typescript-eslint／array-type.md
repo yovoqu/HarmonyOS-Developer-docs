@@ -7,7 +7,7 @@
 定义数组类型时，建议使用相同的样式。比如都使用T[]或者都使用Array&lt;T&gt;。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[typescript/array-type 选项](https://typescript-eslint.nodejs.cn/rules/array-type#options)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 const x: string[] = ['a', 'b'];
@@ -37,7 +37,7 @@ export { x, y };
  
  
 
-##### 反例
+#### 反例
 
 ```text
 const x: Array<string> = ['a', 'b'];
@@ -48,7 +48,7 @@ export { x, y };
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

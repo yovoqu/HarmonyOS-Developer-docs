@@ -10,7 +10,7 @@ CallerInfoQueryExtensionContext为CallerInfoQueryExtensionAbility的上下文环
 **起始版本：** 5.0.2(14)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -20,7 +20,7 @@ import {CallerInfoQueryExtensionContext} from '@kit.CallServiceKit';
  
   
 
-##### CallerInfoQueryExtensionContext
+#### CallerInfoQueryExtensionContext
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

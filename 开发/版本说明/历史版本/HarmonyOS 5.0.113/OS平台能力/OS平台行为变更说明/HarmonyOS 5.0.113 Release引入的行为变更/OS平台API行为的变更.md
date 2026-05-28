@@ -4,11 +4,11 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/changelogs-for-all-apps-b112
 
-##### ArkUI
+#### ArkUI
 
  
 
-##### 鼠标按键处理行为变更
+#### 鼠标按键处理行为变更
 
 **变更原因**
  
@@ -40,7 +40,7 @@ ArkTS的onMouse接口，Native的OH_NativeXComponent_GetMouseEvent接口和regis
  
  
 
-##### 动画接口在播放次数为无限循环时的行为变更
+#### 动画接口在播放次数为无限循环时的行为变更
 
 **变更原因**
  
@@ -159,7 +159,7 @@ struct Example {
  
  
 
-##### 系统对单应用最大创建UIAbility数量限制变更
+#### 系统对单应用最大创建UIAbility数量限制变更
 
 **变更原因**
  
@@ -189,7 +189,7 @@ struct Example {
  
  
 
-##### Video组件不再默认解析并自动播放拖拽信息中的视频资源
+#### Video组件不再默认解析并自动播放拖拽信息中的视频资源
 
 **变更原因**
  
@@ -254,11 +254,11 @@ struct Index {
  
  
 
-##### ArkWeb
+#### ArkWeb
 
  
 
-##### onErrorReceive接口在首次加载woff等在线字体资源不再触发的行为变更
+#### onErrorReceive接口在首次加载woff等在线字体资源不再触发的行为变更
 
 **变更原因**
  
@@ -286,11 +286,11 @@ web.d.ts的onErrorReceive接口
  
  
 
-##### Form Kit
+#### Form Kit
 
  
 
-##### PostCardAction的router事件允许拉起Ability类型范围变更
+#### PostCardAction的router事件允许拉起Ability类型范围变更
 
 **变更原因**
  
@@ -322,11 +322,11 @@ PostCardAction
  
  
 
-##### 公共能力
+#### 公共能力
 
  
 
-##### app.json中bundleName字段正则匹配规则修改
+#### app.json中bundleName字段正则匹配规则修改
 
 **变更原因**
  
@@ -364,16 +364,16 @@ Openharmony SDK目录下toolchains/modulecheck/app.json scheme文件。
 升级SDK版本后，如果DevEco Studio编辑器中提示如下报错，请按照新规则修改应用的bundleName。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/9IgMyreGSgyqKVJbmQl53Q/zh-cn_image_0000002143569014.png?HW-CC-KV=V1&HW-CC-Date=20260528T014240Z&HW-CC-Expire=86400&HW-CC-Sign=877329FA22289AB83C4AF6BE12C0D6AA12784ED21A726BC4621A7B2D1171AF00)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/9IgMyreGSgyqKVJbmQl53Q/zh-cn_image_0000002143569014.png?HW-CC-KV=V1&HW-CC-Date=20260528T025908Z&HW-CC-Expire=86400&HW-CC-Sign=7694CFF35A185E08779F65C17CF38534751E2A89641118400ACB5E82B1AB4430)
 
  
  
 
-##### 工具
+#### 工具
 
  
 
-##### 应用发生OOM时Heapdump产物文件格式变更
+#### 应用发生OOM时Heapdump产物文件格式变更
 
 **变更原因**
  

@@ -7,7 +7,7 @@
 对代码块强制执行一致的括号样式。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/brace-style选项](https://eslint.nodejs.cn/docs/rules/brace-style#选项)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 function foo(): boolean {
@@ -48,7 +48,7 @@ export { C };
  
  
 
-##### 反例
+#### 反例
 
 ```text
 function foo(): boolean 
@@ -73,7 +73,7 @@ export { C };
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

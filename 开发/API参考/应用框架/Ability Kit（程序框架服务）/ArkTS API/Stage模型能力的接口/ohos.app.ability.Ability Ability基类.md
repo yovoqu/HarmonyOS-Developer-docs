@@ -12,7 +12,7 @@ Ability类是应用生命周期调度的基本单元，是[UIAbility](https://de
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { Ability } from '@kit.AbilityKit';
 
 
 
-##### Ability的继承关系说明
+#### Ability的继承关系说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -33,12 +33,12 @@ Ability基类及其子类的继承关系如下图所示。
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/e2h3pLh5QW2YGgbiD6b61w/zh-cn_image_0000002581275600.png?HW-CC-KV=V1&HW-CC-Date=20260528T024259Z&HW-CC-Expire=86400&HW-CC-Sign=107956C2A46F97E62DE1DB25C68B3F10BE51C994A420121EF4832A25BC593827)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/e2h3pLh5QW2YGgbiD6b61w/zh-cn_image_0000002581275600.png?HW-CC-KV=V1&HW-CC-Date=20260528T025634Z&HW-CC-Expire=86400&HW-CC-Sign=334218591A4B600350D0D67E63DC078AC861E7EDC446894A3BF75FBF4007A44E)
 
 
 
 
-##### Ability.onConfigurationUpdate
+#### Ability.onConfigurationUpdate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -76,7 +76,7 @@ class MyUIAbility extends UIAbility {
 
 
 
-##### Ability.onMemoryLevel
+#### Ability.onMemoryLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

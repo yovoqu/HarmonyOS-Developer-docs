@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-session-manager-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -25,13 +25,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -44,7 +44,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -59,7 +59,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -102,13 +102,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_AudioSession_Scene
+#### OH_AudioSession_Scene
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -131,7 +131,7 @@ enum OH_AudioSession_Scene
  
   
 
-##### OH_AudioSession_StateChangeHint
+#### OH_AudioSession_StateChangeHint
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -161,7 +161,7 @@ enum OH_AudioSession_StateChangeHint
  
   
 
-##### OH_AudioSession_OutputDeviceChangeRecommendedAction
+#### OH_AudioSession_OutputDeviceChangeRecommendedAction
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -185,7 +185,7 @@ enum OH_AudioSession_OutputDeviceChangeRecommendedAction
  
   
 
-##### OH_AudioSession_DeactivatedReason
+#### OH_AudioSession_DeactivatedReason
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -207,7 +207,7 @@ enum OH_AudioSession_DeactivatedReason
  
   
 
-##### OH_AudioSession_BluetoothAndNearlinkPreferredRecordCategory
+#### OH_AudioSession_BluetoothAndNearlinkPreferredRecordCategory
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -231,13 +231,13 @@ enum OH_AudioSession_BluetoothAndNearlinkPreferredRecordCategory
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_AudioSession_StateChangedCallback()
+#### OH_AudioSession_StateChangedCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -260,7 +260,7 @@ typedef void (*OH_AudioSession_StateChangedCallback)(OH_AudioSession_StateChange
  
   
 
-##### OH_AudioSession_AvailableDeviceChangedCallback()
+#### OH_AudioSession_AvailableDeviceChangedCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -284,7 +284,7 @@ typedef void (*OH_AudioSession_AvailableDeviceChangedCallback)(OH_AudioDevice_Ch
  
   
 
-##### OH_AudioSession_CurrentInputDeviceChangedCallback()
+#### OH_AudioSession_CurrentInputDeviceChangedCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -308,7 +308,7 @@ typedef void (*OH_AudioSession_CurrentInputDeviceChangedCallback)(OH_AudioDevice
  
   
 
-##### OH_AudioSession_CurrentOutputDeviceChangedCallback()
+#### OH_AudioSession_CurrentOutputDeviceChangedCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -333,7 +333,7 @@ typedef void (*OH_AudioSession_CurrentOutputDeviceChangedCallback)(OH_AudioDevic
  
   
 
-##### OH_AudioSession_DeactivatedCallback()
+#### OH_AudioSession_DeactivatedCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -356,7 +356,7 @@ typedef int32_t (*OH_AudioSession_DeactivatedCallback)(OH_AudioSession_Deactivat
  
   
 
-##### OH_AudioManager_GetAudioSessionManager()
+#### OH_AudioManager_GetAudioSessionManager()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -386,7 +386,7 @@ OH_AudioCommon_Result OH_AudioManager_GetAudioSessionManager(OH_AudioSessionMana
  
   
 
-##### OH_AudioSessionManager_ActivateAudioSession()
+#### OH_AudioSessionManager_ActivateAudioSession()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -417,7 +417,7 @@ OH_AudioCommon_Result OH_AudioSessionManager_ActivateAudioSession(OH_AudioSessio
  
   
 
-##### OH_AudioSessionManager_DeactivateAudioSession()
+#### OH_AudioSessionManager_DeactivateAudioSession()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -447,7 +447,7 @@ OH_AudioCommon_Result OH_AudioSessionManager_DeactivateAudioSession(OH_AudioSess
  
   
 
-##### OH_AudioSessionManager_IsAudioSessionActivated()
+#### OH_AudioSessionManager_IsAudioSessionActivated()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -477,7 +477,7 @@ bool OH_AudioSessionManager_IsAudioSessionActivated(OH_AudioSessionManager *audi
  
   
 
-##### OH_AudioSessionManager_RegisterSessionDeactivatedCallback()
+#### OH_AudioSessionManager_RegisterSessionDeactivatedCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -508,7 +508,7 @@ OH_AudioCommon_Result OH_AudioSessionManager_RegisterSessionDeactivatedCallback(
  
   
 
-##### OH_AudioSessionManager_UnregisterSessionDeactivatedCallback()
+#### OH_AudioSessionManager_UnregisterSessionDeactivatedCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -539,7 +539,7 @@ OH_AudioCommon_Result OH_AudioSessionManager_UnregisterSessionDeactivatedCallbac
  
   
 
-##### OH_AudioSessionManager_SetScene()
+#### OH_AudioSessionManager_SetScene()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -570,7 +570,7 @@ OH_AudioCommon_Result OH_AudioSessionManager_SetScene(OH_AudioSessionManager *au
  
   
 
-##### OH_AudioSessionManager_RegisterStateChangeCallback()
+#### OH_AudioSessionManager_RegisterStateChangeCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -601,7 +601,7 @@ OH_AudioCommon_Result OH_AudioSessionManager_RegisterStateChangeCallback(OH_Audi
  
   
 
-##### OH_AudioSessionManager_UnregisterStateChangeCallback()
+#### OH_AudioSessionManager_UnregisterStateChangeCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -632,7 +632,7 @@ OH_AudioCommon_Result OH_AudioSessionManager_UnregisterStateChangeCallback(OH_Au
  
   
 
-##### OH_AudioSessionManager_SetDefaultOutputDevice()
+#### OH_AudioSessionManager_SetDefaultOutputDevice()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -669,7 +669,7 @@ OH_AudioCommon_Result OH_AudioSessionManager_SetDefaultOutputDevice(OH_AudioSess
  
   
 
-##### OH_AudioSessionManager_GetDefaultOutputDevice()
+#### OH_AudioSessionManager_GetDefaultOutputDevice()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -700,7 +700,7 @@ OH_AudioCommon_Result OH_AudioSessionManager_GetDefaultOutputDevice(OH_AudioSess
  
   
 
-##### OH_AudioSessionManager_ReleaseDevices()
+#### OH_AudioSessionManager_ReleaseDevices()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -731,7 +731,7 @@ OH_AudioCommon_Result OH_AudioSessionManager_ReleaseDevices(OH_AudioSessionManag
  
   
 
-##### OH_AudioSessionManager_RegisterCurrentOutputDeviceChangeCallback()
+#### OH_AudioSessionManager_RegisterCurrentOutputDeviceChangeCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -762,7 +762,7 @@ OH_AudioCommon_Result OH_AudioSessionManager_RegisterCurrentOutputDeviceChangeCa
  
   
 
-##### OH_AudioSessionManager_UnregisterCurrentOutputDeviceChangeCallback()
+#### OH_AudioSessionManager_UnregisterCurrentOutputDeviceChangeCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -793,7 +793,7 @@ OH_AudioCommon_Result OH_AudioSessionManager_UnregisterCurrentOutputDeviceChange
  
   
 
-##### OH_AudioSessionManager_GetAvailableDevices()
+#### OH_AudioSessionManager_GetAvailableDevices()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -825,7 +825,7 @@ OH_AudioCommon_Result OH_AudioSessionManager_GetAvailableDevices(OH_AudioSession
  
   
 
-##### OH_AudioSessionManager_RegisterAvailableDevicesChangeCallback()
+#### OH_AudioSessionManager_RegisterAvailableDevicesChangeCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -857,7 +857,7 @@ OH_AudioCommon_Result OH_AudioSessionManager_RegisterAvailableDevicesChangeCallb
  
   
 
-##### OH_AudioSessionManager_UnregisterAvailableDevicesChangeCallback()
+#### OH_AudioSessionManager_UnregisterAvailableDevicesChangeCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -888,7 +888,7 @@ OH_AudioCommon_Result OH_AudioSessionManager_UnregisterAvailableDevicesChangeCal
  
   
 
-##### OH_AudioSessionManager_SelectMediaInputDevice()
+#### OH_AudioSessionManager_SelectMediaInputDevice()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -923,7 +923,7 @@ OH_AudioCommon_Result OH_AudioSessionManager_SelectMediaInputDevice(OH_AudioSess
  
   
 
-##### OH_AudioSessionManager_GetSelectedMediaInputDevice()
+#### OH_AudioSessionManager_GetSelectedMediaInputDevice()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -954,7 +954,7 @@ OH_AudioCommon_Result OH_AudioSessionManager_GetSelectedMediaInputDevice(OH_Audi
  
   
 
-##### OH_AudioSessionManager_SetBluetoothAndNearlinkPreferredRecordCategory()
+#### OH_AudioSessionManager_SetBluetoothAndNearlinkPreferredRecordCategory()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -989,7 +989,7 @@ OH_AudioCommon_Result OH_AudioSessionManager_SetBluetoothAndNearlinkPreferredRec
  
   
 
-##### OH_AudioSessionManager_GetBluetoothAndNearlinkPreferredRecordCategory()
+#### OH_AudioSessionManager_GetBluetoothAndNearlinkPreferredRecordCategory()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1020,7 +1020,7 @@ OH_AudioCommon_Result OH_AudioSessionManager_GetBluetoothAndNearlinkPreferredRec
  
   
 
-##### OH_AudioSessionManager_RegisterCurrentInputDeviceChangeCallback()
+#### OH_AudioSessionManager_RegisterCurrentInputDeviceChangeCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1051,7 +1051,7 @@ OH_AudioCommon_Result OH_AudioSessionManager_RegisterCurrentInputDeviceChangeCal
  
   
 
-##### OH_AudioSessionManager_UnregisterCurrentInputDeviceChangeCallback()
+#### OH_AudioSessionManager_UnregisterCurrentInputDeviceChangeCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1082,7 +1082,7 @@ OH_AudioCommon_Result OH_AudioSessionManager_UnregisterCurrentInputDeviceChangeC
  
   
 
-##### OH_AudioSessionManager_ReleaseDevice()
+#### OH_AudioSessionManager_ReleaseDevice()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1113,7 +1113,7 @@ OH_AudioCommon_Result OH_AudioSessionManager_ReleaseDevice(OH_AudioSessionManage
  
   
 
-##### OH_AudioSessionManager_EnableMuteSuggestionWhenMixWithOthers()
+#### OH_AudioSessionManager_EnableMuteSuggestionWhenMixWithOthers()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1148,7 +1148,7 @@ OH_AudioCommon_Result OH_AudioSessionManager_EnableMuteSuggestionWhenMixWithOthe
  
   
 
-##### OH_AudioSessionManager_SetCaptureMuteHint()
+#### OH_AudioSessionManager_SetCaptureMuteHint()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1179,7 +1179,7 @@ OH_AudioCommon_Result OH_AudioSessionManager_SetCaptureMuteHint(OH_AudioSessionM
  
   
 
-##### OH_AudioSessionManager_IsOtherMediaPlaying()
+#### OH_AudioSessionManager_IsOtherMediaPlaying()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1209,7 +1209,7 @@ bool OH_AudioSessionManager_IsOtherMediaPlaying(OH_AudioSessionManager *audioSes
  
   
 
-##### OH_AudioSessionManager_SetBehavior()
+#### OH_AudioSessionManager_SetBehavior()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -14,7 +14,7 @@ LiveViewLockScreenExtensionAbility为[锁屏沉浸实况窗](https://developer.h
 **起始版本：** 5.0.0(12)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -26,7 +26,7 @@ import { LiveViewLockScreenExtensionAbility } from '@kit.LiveViewKit';
  
   
 
-##### LiveViewLockScreenExtensionAbility
+#### LiveViewLockScreenExtensionAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

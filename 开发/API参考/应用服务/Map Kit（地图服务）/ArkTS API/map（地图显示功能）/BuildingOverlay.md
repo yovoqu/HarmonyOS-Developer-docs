@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-buildingoverlay
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -15,7 +15,7 @@ import { map, mapCommon } from '@kit.MapKit';
  
   
 
-##### BuildingOverlay
+#### BuildingOverlay
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -197,7 +197,7 @@ let buildingOverlay: map.BuildingOverlay= await this.mapController.addBuildingOv
  
   
 
-##### getId
+#### getId
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -228,7 +228,7 @@ let id: String = buildingOverlay.getId();
  
   
 
-##### remove
+#### remove
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -252,7 +252,7 @@ buildingOverlay.remove();
  
   
 
-##### setSideVisible
+#### setSideVisible
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -283,7 +283,7 @@ buildingOverlay.setSideVisible(true);
  
   
 
-##### setFloorVisible
+#### setFloorVisible
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -314,7 +314,7 @@ buildingOverlay.setFloorVisible(true);
  
   
 
-##### setFloorBottomHeight
+#### setFloorBottomHeight
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

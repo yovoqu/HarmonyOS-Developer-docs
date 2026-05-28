@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avrecorder-base-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -47,7 +47,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -64,7 +64,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -77,13 +77,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_AVRecorder_AudioSourceType
+#### OH_AVRecorder_AudioSourceType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -111,7 +111,7 @@ AVRecorder的音频源类型。
  
   
 
-##### OH_AVRecorder_VideoSourceType
+#### OH_AVRecorder_VideoSourceType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -135,7 +135,7 @@ AVRecorder的视频源类型。
  
   
 
-##### OH_AVRecorder_CodecMimeType
+#### OH_AVRecorder_CodecMimeType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -165,7 +165,7 @@ enum OH_AVRecorder_CodecMimeType
  
   
 
-##### OH_AVRecorder_ContainerFormatType
+#### OH_AVRecorder_ContainerFormatType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -193,7 +193,7 @@ enum OH_AVRecorder_ContainerFormatType
  
   
 
-##### OH_AVRecorder_State
+#### OH_AVRecorder_State
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -222,7 +222,7 @@ AVRecorder状态。
  
   
 
-##### OH_AVRecorder_StateChangeReason
+#### OH_AVRecorder_StateChangeReason
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -246,7 +246,7 @@ AVRecorder状态变化的原因。
  
   
 
-##### OH_AVRecorder_FileGenerationMode
+#### OH_AVRecorder_FileGenerationMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -270,13 +270,13 @@ enum OH_AVRecorder_FileGenerationMode
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_AVRecorder_OnStateChange()
+#### OH_AVRecorder_OnStateChange()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -304,7 +304,7 @@ typedef void (*OH_AVRecorder_OnStateChange)(OH_AVRecorder *recorder,OH_AVRecorde
  
   
 
-##### OH_AVRecorder_OnError()
+#### OH_AVRecorder_OnError()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -332,7 +332,7 @@ typedef void (*OH_AVRecorder_OnError)(OH_AVRecorder *recorder, int32_t errorCode
  
   
 
-##### OH_AVRecorder_OnUri()
+#### OH_AVRecorder_OnUri()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

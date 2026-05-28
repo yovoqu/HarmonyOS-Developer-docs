@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { drm } from '@kit.DrmKit';
 
 
 
-##### generateMediaKeyRequest
+#### generateMediaKeyRequest
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -78,7 +78,7 @@ mediaKeySession.generateMediaKeyRequest("video/avc", uint8pssh, drm.MediaKeyType
 
 
 
-##### processMediaKeyResponse
+#### processMediaKeyResponse
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -131,7 +131,7 @@ mediaKeySession.processMediaKeyResponse(mediaKeyResponse).then((mediaKeyId: Uint
 
 
 
-##### checkMediaKeyStatus
+#### checkMediaKeyStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -172,7 +172,7 @@ let keyStatus: drm.MediaKeyStatus[] =  mediaKeySession.checkMediaKeyStatus();
 
 
 
-##### clearMediaKeys
+#### clearMediaKeys
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -211,7 +211,7 @@ mediaKeySession.clearMediaKeys();
 
 
 
-##### generateOfflineReleaseRequest
+#### generateOfflineReleaseRequest
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -264,7 +264,7 @@ mediaKeySession.generateOfflineReleaseRequest(mediaKeyId).then((offlineReleaseRe
 
 
 
-##### processOfflineReleaseResponse
+#### processOfflineReleaseResponse
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -325,7 +325,7 @@ mediaKeySession.processOfflineReleaseResponse(mediaKeyId, offlineReleaseResponse
 
 
 
-##### restoreOfflineMediaKeys
+#### restoreOfflineMediaKeys
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -378,7 +378,7 @@ mediaKeySession.restoreOfflineMediaKeys(mediaKeyId).then(() => {
 
 
 
-##### getContentProtectionLevel
+#### getContentProtectionLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -420,7 +420,7 @@ console.info(`contentProtectionLevel: ${contentProtectionLevel}`);
 
 
 
-##### requireSecureDecoderModule
+#### requireSecureDecoderModule
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -469,7 +469,7 @@ let status: boolean = mediaKeySession.requireSecureDecoderModule("video/avc");
 
 
 
-##### on('keyRequired')
+#### on('keyRequired')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -513,7 +513,7 @@ mediaKeySession.on('keyRequired', (eventInfo: drm.EventInfo) => {
 
 
 
-##### off('keyRequired')
+#### off('keyRequired')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -557,7 +557,7 @@ mediaKeySession.off('keyRequired');
 
 
 
-##### on('keyExpired')
+#### on('keyExpired')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -601,7 +601,7 @@ mediaKeySession.on('keyExpired', (eventInfo: drm.EventInfo) => {
 
 
 
-##### off('keyExpired')
+#### off('keyExpired')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -643,7 +643,7 @@ mediaKeySession.off('keyExpired');
 
 
 
-##### on('vendorDefined')
+#### on('vendorDefined')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -687,7 +687,7 @@ mediaKeySession.on('vendorDefined', (eventInfo: drm.EventInfo) => {
 
 
 
-##### off('vendorDefined')
+#### off('vendorDefined')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -729,7 +729,7 @@ mediaKeySession.off('vendorDefined');
 
 
 
-##### on('expirationUpdate')
+#### on('expirationUpdate')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -773,7 +773,7 @@ mediaKeySession.on('expirationUpdate', (eventInfo: drm.EventInfo) => {
 
 
 
-##### off('expirationUpdate')
+#### off('expirationUpdate')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -815,7 +815,7 @@ mediaKeySession.off('expirationUpdate');
 
 
 
-##### on('keysChange')
+#### on('keysChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -861,7 +861,7 @@ mediaKeySession.on('keysChange', (keyInfo: drm.KeysInfo[], newKeyAvailable: bool
 
 
 
-##### off('keysChange')
+#### off('keysChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -903,7 +903,7 @@ mediaKeySession.off('keysChange');
 
 
 
-##### destroy
+#### destroy
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

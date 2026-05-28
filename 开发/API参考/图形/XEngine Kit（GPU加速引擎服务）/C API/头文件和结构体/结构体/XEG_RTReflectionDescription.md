@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-rtreflectiondescription
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -19,13 +19,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  
@@ -44,13 +44,13 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### accelerationStructure
+#### accelerationStructure
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -64,7 +64,7 @@ VkAccelerationStructureKHR XEG_RTReflectionDescription::accelerationStructure
  
   
 
-##### inputRayDirectionImage
+#### inputRayDirectionImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -78,7 +78,7 @@ VkImageView XEG_RTReflectionDescription::inputRayDirectionImage
  
   
 
-##### inputRayOriginImage
+#### inputRayOriginImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -92,7 +92,7 @@ VkImageView XEG_RTReflectionDescription::inputRayOriginImage
  
   
 
-##### outputReflectionInfoImage
+#### outputReflectionInfoImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -116,7 +116,7 @@ uint geomtryIndex = (outputReflectionInfoImage.y) & 0xffff;
  
   
 
-##### pNext
+#### pNext
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -130,7 +130,7 @@ const void* XEG_RTReflectionDescription::pNext
  
   
 
-##### rayMax
+#### rayMax
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -144,7 +144,7 @@ float XEG_RTReflectionDescription::rayMax
  
   
 
-##### rayMin
+#### rayMin
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -158,7 +158,7 @@ float XEG_RTReflectionDescription::rayMin
  
   
 
-##### reflectionCullMask
+#### reflectionCullMask
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -172,7 +172,7 @@ uint32_t XEG_RTReflectionDescription::reflectionCullMask
  
   
 
-##### sType
+#### sType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

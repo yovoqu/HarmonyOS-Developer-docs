@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { media } from '@kit.MediaKit';
  
   
 
-##### setMimeType12+
+#### setMimeType12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -43,7 +43,7 @@ setMimeType(mimeType: AVMimeTypes): void
  
   
 
-##### setMediaResourceLoaderDelegate18+
+#### setMediaResourceLoaderDelegate18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -104,7 +104,7 @@ mediaSource.setMediaResourceLoaderDelegate(resourceLoader);
  
   
 
-##### enableOfflineCache23+
+#### enableOfflineCache23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

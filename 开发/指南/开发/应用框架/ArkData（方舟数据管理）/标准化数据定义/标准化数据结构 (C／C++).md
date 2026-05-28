@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uniform-data-structure-c
 
-##### 场景介绍
+#### 场景介绍
 
 针对[UTD标准化数据类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-utd-h)中的部分常见类型，为了方便业务使用，提供了标准化数据结构。例如，系统定义的桌面图标类型（标准化数据类型标识为'OH_UdsAppItem'）明确定义了相关描述信息。
 
@@ -12,14 +12,14 @@
 
 
 
-##### 基本概念
+#### 基本概念
 
  - **标准化数据结构**：Unified Data Structure，简称UDS。主要针对部分标准化数据类型定义了统一的数据内容结构，并明确了对应的描述信息。应用间使用标准化数据结构进行数据交互后，将遵从统一的解析标准，可有效减少适配相关的工作量。一般用于跨应用跨设备间的数据交互，比如拖拽。
 
 
 
 
-##### 接口说明
+#### 接口说明
 
 详细的接口说明请参考[标准化数据结构相关接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-uds-h)。
 
@@ -44,7 +44,7 @@
 
 
 
-##### 添加动态链接库
+#### 添加动态链接库
 
 CMakeLists.txt中添加以下库。
 
@@ -54,7 +54,7 @@ libudmf.so, libhilog_ndk.z.so
 
 
 
-##### 引用头文件
+#### 引用头文件
 
 ```cpp
 #include <database/udmf/uds.h>
@@ -68,7 +68,7 @@ libudmf.so, libhilog_ndk.z.so
 
 
 
-##### 纯文本类型数据结构的使用
+#### 纯文本类型数据结构的使用
 1. 创建PlainText对象指针。
 2. 添加PlainText内容。
 3. 获取数据。
@@ -98,7 +98,7 @@ OH_UdsPlainText_Destroy(plainText2);
 
 
 
-##### fileUri类型的数据结构的使用
+#### fileUri类型的数据结构的使用
 1. 创建fileUri类型的数据结构。
 2. 设置fileUri中的URL和描述信息。
 3. 创建OH_UdmfRecord对象，并向OH_UdmfRecord中添加fileUri类型数据。

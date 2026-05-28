@@ -13,7 +13,7 @@ Popup属性可绑定在组件上显示气泡弹窗提示，设置弹窗内容、
 多个气泡同时弹出时，子窗内显示的气泡比主窗内显示的气泡层级高，所处窗口相同时，后面弹出的气泡层级比先弹出的气泡层级高。
 
 
-##### 文本提示气泡
+#### 文本提示气泡
 
 文本提示气泡常用于展示带有文本的信息提示，适用于无交互的场景。Popup属性需绑定组件，当bindPopup属性的参数show为true时，会弹出气泡提示。
 
@@ -50,7 +50,7 @@ export struct TextPopupExample {
 
 
 
-##### 添加气泡状态变化的事件
+#### 添加气泡状态变化的事件
 
 通过[PopupOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#popupoptions类型说明)中的onStateChange属性为气泡添加状态变化的事件回调，可以判断气泡的当前显示状态。
 
@@ -90,7 +90,7 @@ export struct StatePopupExample {
 
 
 
-##### 带按钮的提示气泡
+#### 带按钮的提示气泡
 
 通过[PopupOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#popupoptions类型说明)中的primaryButton、secondaryButton属性为气泡最多设置两个Button按钮，通过此按钮进行简单的交互，开发者可以通过配置action参数来设置想要触发的操作。
 
@@ -144,7 +144,7 @@ export struct ButtonPopupExample {
 
 
 
-##### 气泡的动画
+#### 气泡的动画
 
 通过[PopupOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#popupoptions类型说明)或[CustomPopupOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#custompopupoptions8类型说明)中的transition属性，可以控制气泡的进场和出场动画效果。
 
@@ -222,7 +222,7 @@ export struct AnimationPopupExample {
 
 
 
-##### 自定义气泡
+#### 自定义气泡
 
 开发者可以使用[CustomPopupOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#custompopupoptions8类型说明)的builder创建自定义气泡，@Builder中可以放自定义的内容。除此之外，还可以通过popupColor等参数控制气泡样式。
 
@@ -278,7 +278,7 @@ export struct CustomPopupExample {
 
 
 
-##### 气泡样式
+#### 气泡样式
 
 气泡除了可以通过builder实现自定义气泡，还可以通过接口设置气泡的样式和显示效果。
 
@@ -331,7 +331,7 @@ export struct StylePopupExample {
 
 
 
-##### 气泡避让软键盘
+#### 气泡避让软键盘
 
 当软键盘弹出时，气泡默认不会对其避让，可能导致气泡被软键盘覆盖，从API version 15开始，可以设置[CustomPopupOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#custompopupoptions8类型说明)中keyboardAvoidMode属性的值为KeyboardAvoidMode.DEFAULT，来使气泡避让键盘。这时如果当前没有位置放下气泡时，气泡会从预设位置平移覆盖宿主组件。
 
@@ -383,7 +383,7 @@ export struct AvoidSoftKeyboardPopupExample {
 
 
 
-##### 设置气泡内的多态效果
+#### 设置气泡内的多态效果
 
 目前使用@Builder自定义气泡内容时，默认不支持多态样式，可以使用@Component新建一个组件实现按下气泡中的内容时背景变色。
 
@@ -492,7 +492,7 @@ struct PopupItemChild {
 
 
 
-##### 气泡支持避让中轴
+#### 气泡支持避让中轴
 
 从API version 18起，气泡支持中轴避让功能。从API version 20开始，在2in1设备上默认启用（仅在窗口处于瀑布模式时产生避让）。开发者可通过[PopupOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#popupoptions类型说明)中的enableHoverMode属性，控制气泡是否启用中轴避让。
 

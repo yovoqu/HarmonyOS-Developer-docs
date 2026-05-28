@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
 
 
-##### select
+#### select
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -31,7 +31,7 @@ select(option?: PhotoSelectOptions) : Promise&lt;PhotoSelectResult&gt;
 通过选择模式拉起photoPicker界面，用户可以选择一个或多个图片/视频。使用Promise异步回调。传入可选参数PhotoSelectOptions对象，返回PhotoSelectResult对象。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/Oa-yGopvRqq829oxrovnXw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024005Z&HW-CC-Expire=86400&HW-CC-Sign=54189ED9A2FCC02C5026945D44FC472C38FEA3EFBAA93B322D1DBB22A80086C9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/Oa-yGopvRqq829oxrovnXw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025338Z&HW-CC-Expire=86400&HW-CC-Sign=A2B8011D82FAC6904F2E74E90B85E0B36F823780E53C7147D0B322444E7065C0)
 
 
 此接口返回的PhotoSelectResult对象中的photoUris具有永久授权，可通过调用接口[photoAccessHelper.getAssets](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#getassets)去使用。具体操作请参考[媒体文件URI的使用方式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/user-file-uri-intro#媒体文件uri的使用方式)。
@@ -92,7 +92,7 @@ async function example01(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### select
+#### select
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -101,7 +101,7 @@ select(option: PhotoSelectOptions, callback: AsyncCallback&lt;PhotoSelectResult&
 通过选择模式拉起photoPicker界面，用户可以选择一个或多个图片/视频。接口采用callback异步返回形式，传入参数PhotoSelectOptions对象，返回PhotoSelectResult对象。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/pcOJWIGKQPmKcZgerwMoYg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024005Z&HW-CC-Expire=86400&HW-CC-Sign=7205C5516C72E39C612FB6AB3F4BCD7E5305C8B858119BE4459D7991239F5C7A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/pcOJWIGKQPmKcZgerwMoYg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025338Z&HW-CC-Expire=86400&HW-CC-Sign=1C1E2F4F838F7A08C9A67663AAB5CB85AC691D1B6958314E965A569C22A6EF89)
 
 
 此接口返回的PhotoSelectResult对象中的photoUris具有永久授权，可通过调用接口[photoAccessHelper.getAssets](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#getassets)去使用。具体操作请参考[媒体文件URI的使用方式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/user-file-uri-intro#媒体文件uri的使用方式)。
@@ -158,7 +158,7 @@ async function example02(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### select
+#### select
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -167,7 +167,7 @@ select(callback: AsyncCallback&lt;PhotoSelectResult&gt;) : void
 通过选择模式拉起photoPicker界面，用户可以选择一个或多个图片/视频。接口采用callback异步返回形式，返回PhotoSelectResult对象。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/IWUgn7STRK-2mie89334pw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024005Z&HW-CC-Expire=86400&HW-CC-Sign=241326CAD2BF99D2079D555E8A4B00DB8615825D35233F63C1623B38A077F41F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/IWUgn7STRK-2mie89334pw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025338Z&HW-CC-Expire=86400&HW-CC-Sign=C4E7B4BD24D9BAC059153BAF876BD6944510EE536AFB6E713D4AD59621E5714B)
 
 
 此接口返回的PhotoSelectResult对象中的photoUris具有永久授权，可通过调用接口[photoAccessHelper.getAssets](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#getassets)去使用。具体操作请参考[媒体文件URI的使用方式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/user-file-uri-intro#媒体文件uri的使用方式)。

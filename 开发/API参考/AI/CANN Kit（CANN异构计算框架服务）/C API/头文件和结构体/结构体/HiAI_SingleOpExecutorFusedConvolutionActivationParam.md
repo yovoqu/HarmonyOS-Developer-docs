@@ -10,7 +10,7 @@ typedef struct HiAI_SingleOpExecutorFusedConvolutionActivationParam {...} HiAI_S
 ```
   
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -24,13 +24,13 @@ typedef struct HiAI_SingleOpExecutorFusedConvolutionActivationParam {...} HiAI_S
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  
@@ -47,13 +47,13 @@ typedef struct HiAI_SingleOpExecutorFusedConvolutionActivationParam {...} HiAI_S
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### actOpDesc
+#### actOpDesc
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -67,7 +67,7 @@ HiAI_SingleOpDescriptor* HiAI_SingleOpExecutorFusedConvolutionActivationParam::a
  
   
 
-##### bias
+#### bias
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -81,7 +81,7 @@ HiAI_SingleOpTensor* HiAI_SingleOpExecutorFusedConvolutionActivationParam::bias
  
   
 
-##### convOpDesc
+#### convOpDesc
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -95,7 +95,7 @@ HiAI_SingleOpDescriptor* HiAI_SingleOpExecutorFusedConvolutionActivationParam::c
  
   
 
-##### filter
+#### filter
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -109,7 +109,7 @@ HiAI_SingleOpTensor* HiAI_SingleOpExecutorFusedConvolutionActivationParam::filte
  
   
 
-##### input
+#### input
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -123,7 +123,7 @@ HiAI_SingleOpTensorDesc* HiAI_SingleOpExecutorFusedConvolutionActivationParam::i
  
   
 
-##### options
+#### options
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -137,7 +137,7 @@ HiAI_SingleOpOptions* HiAI_SingleOpExecutorFusedConvolutionActivationParam::opti
  
   
 
-##### output
+#### output
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

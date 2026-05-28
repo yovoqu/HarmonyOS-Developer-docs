@@ -9,7 +9,7 @@
 针对Web页面加载性能优化的详细内容请参考[Web页面加载优化性能指导](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-web-develop-optimization#section128761465256)。
 
 
-##### 预解析和预连接
+#### 预解析和预连接
 
 此方法可以针对域名级进行优化，通过[prepareForPageLoad()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#prepareforpageload10)来预解析或者预连接将要加载的页面。该方式仅对url进行DNS解析以及建立tcp连接，但不会获取主资源子资源。
 
@@ -66,7 +66,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### 预加载
+#### 预加载
 
 此方法可针对资源级进行优化。如果能够预测到Web组件将要加载的页面或者即将要跳转的页面。可以通过[prefetchPage()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#prefetchpage10)来预加载即将要加载的页面。
 
@@ -96,7 +96,7 @@ struct WebComponent {
 
 
 
-##### 预获取POST请求
+#### 预获取POST请求
 
 此方法可以针对请求级进行优化。可以通过[prefetchResource()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#prefetchresource12)预获取将要加载页面中的POST请求。在页面加载结束时，可以通过[clearPrefetchedResource()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#clearprefetchedresource12)清除后续不再使用的预获取资源缓存。
 
@@ -203,7 +203,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### 预编译生成编译缓存
+#### 预编译生成编译缓存
 
 可以通过[precompileJavaScript()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#precompilejavascript12)在页面加载前提前生成脚本文件的编译缓存。
 
@@ -419,7 +419,7 @@ struct Index {
 
 
 
-##### 离线资源免拦截注入
+#### 离线资源免拦截注入
 
 可以通过[injectOfflineResources()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#injectofflineresources12)在页面加载前提前将图片、样式表或脚本资源注入到应用的内存缓存中。
 

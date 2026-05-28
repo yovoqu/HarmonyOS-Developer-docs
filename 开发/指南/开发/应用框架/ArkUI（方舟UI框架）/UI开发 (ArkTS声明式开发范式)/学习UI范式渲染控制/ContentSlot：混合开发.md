@@ -13,11 +13,11 @@
 
 
 
-##### 接口
+#### 接口
 
 
 
-##### ArkTS侧接口
+#### ArkTS侧接口
 
 | 接口名 | 描述 |
 | --- | --- |
@@ -31,7 +31,7 @@ abstract class Content {
 
 
 
-##### Native侧接口
+#### Native侧接口
 
 | 接口名 | 描述 |
 | --- | --- |
@@ -49,11 +49,11 @@ abstract class Content {
 
 
 
-##### 开发实现
+#### 开发实现
 
 
 
-##### ArkTS侧代码实现
+#### ArkTS侧代码实现
 
 ```ArkTS
 import nativeNode from 'libentry.so'; // 开发者自己实现的so
@@ -83,7 +83,7 @@ struct Parent {
 
 
 
-##### Native侧代码实现
+#### Native侧代码实现
 
 Napi的基础开发知识请查看以下文档：[开发导读](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-development-overview)。
 
@@ -154,7 +154,7 @@ napi_value NodeManager::CreateNativeNode(napi_env env, napi_callback_info info)
 
 
 
-##### Native侧主要接口使用说明
+#### Native侧主要接口使用说明
 
  - 注册上下树事件，并通过事件获取对应的Content对象。
 
@@ -224,7 +224,7 @@ void *userData = OH_ArkUI_NodeContent_GetUserData(nodeContentHandle_);
 
 
 
-##### 绑定规则说明
+#### 绑定规则说明
 
 如果将同一个Content对象绑定到多个ContentSlot组件，最终该Content的内容仅在最后一个绑定的ContentSlot中显示，其他ContentSlot将不显示任何内容。
 

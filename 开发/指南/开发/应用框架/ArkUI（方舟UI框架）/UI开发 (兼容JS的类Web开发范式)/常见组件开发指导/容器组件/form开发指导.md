@@ -7,7 +7,7 @@
 form是一个表单容器，支持容器内[Input](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-input)组件内容的提交和重置。具体用法请参考[form API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-container-form)。
 
 
-##### 创建form组件
+#### 创建form组件
 
 在pages/index目录下的hml文件中创建一个form组件。
 
@@ -38,7 +38,7 @@ form是一个表单容器，支持容器内[Input](https://developer.huawei.com/
 
 
 
-##### 实现表单缩放
+#### 实现表单缩放
 
 为form组件添加click-effect属性，实现点击表单后的缩放效果，click-effect枚举值请参考[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-attributes)。
 
@@ -53,7 +53,7 @@ form是一个表单容器，支持容器内[Input](https://developer.huawei.com/
 
 
 
-##### 设置form样式
+#### 设置form样式
 
 通过为form添加background-color和border属性，来设置表单的背景颜色和边框。
 
@@ -81,7 +81,7 @@ form是一个表单容器，支持容器内[Input](https://developer.huawei.com/
 
 
 
-##### 添加响应事件
+#### 添加响应事件
 
 为form组件添加submit和reset事件，来提交表单内容或重置表单选项。
 
@@ -147,7 +147,7 @@ export default{
 
 
 
-##### 场景示例
+#### 场景示例
 
 在本场景中，开发者可以选择相应选项并提交或重置数据。
 

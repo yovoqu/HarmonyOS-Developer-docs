@@ -12,7 +12,7 @@
 
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -43,7 +43,7 @@ Circle(value?: CircleOptions)
  
   
 
-##### CircleOptions对象说明
+#### CircleOptions对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -63,7 +63,7 @@ Circle(value?: CircleOptions)
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -71,7 +71,7 @@ Circle(value?: CircleOptions)
  
   
 
-##### fill
+#### fill
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -94,7 +94,7 @@ fill(value: ResourceColor)
  
   
 
-##### fillOpacity
+#### fillOpacity
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -117,7 +117,7 @@ fillOpacity(value: number | string | Resource)
  
   
 
-##### stroke
+#### stroke
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -140,7 +140,7 @@ stroke(value: ResourceColor)
  
   
 
-##### strokeDashArray
+#### strokeDashArray
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -163,7 +163,7 @@ strokeDashArray(value: Array&lt;any&gt;)
  
   
 
-##### strokeDashOffset
+#### strokeDashOffset
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -186,7 +186,7 @@ strokeDashOffset(value: number | string)
  
   
 
-##### strokeLineCap
+#### strokeLineCap
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -209,7 +209,7 @@ strokeLineCap(value: LineCapStyle)
  
   
 
-##### strokeLineJoin
+#### strokeLineJoin
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -232,7 +232,7 @@ strokeLineJoin(value: LineJoinStyle)
  
   
 
-##### strokeMiterLimit
+#### strokeMiterLimit
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -255,7 +255,7 @@ strokeMiterLimit(value: number | string)
  
   
 
-##### strokeOpacity
+#### strokeOpacity
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -278,7 +278,7 @@ strokeOpacity(value: number | string | Resource)
  
   
 
-##### strokeWidth
+#### strokeWidth
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -301,7 +301,7 @@ strokeWidth(value: Length)
  
   
 
-##### antiAlias
+#### antiAlias
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -324,13 +324,13 @@ antiAlias(value: boolean)
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 示例1（组件属性绘制）
+#### 示例1（组件属性绘制）
 
 通过fillOpacity、stroke、strokeDashArray属性可分别设置圆的透明度、边框颜色和边框间隙样式。
  
@@ -362,7 +362,7 @@ struct CircleExample {
  
   
 
-##### 示例2（宽和高使用不同参数类型绘制圆）
+#### 示例2（宽和高使用不同参数类型绘制圆）
 
 width、height属性分别使用不同的长度类型绘制圆。
  
@@ -390,7 +390,7 @@ struct CircleTypeExample {
  
   
 
-##### 示例3（使用attributeModifier动态设置Circle组件的属性）
+#### 示例3（使用attributeModifier动态设置Circle组件的属性）
 
 以下示例展示了如何使用attributeModifier动态设置Circle组件的fill、fillOpacity、stroke、strokeDashArray、strokeDashOffset、strokeLineCap、strokeOpacity、strokeWidth和antiAlias属性。
  
@@ -427,4 +427,4 @@ struct CircleModifierDemo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/kD17yIznRjW4mbBOV-o63w/zh-cn_image_0000002581276224.png?HW-CC-KV=V1&HW-CC-Date=20260528T024200Z&HW-CC-Expire=86400&HW-CC-Sign=D8E864FF3B0728B2DE7987F2C50ABF1909DE9CCD5751A20951BD56818DAC8572)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/kD17yIznRjW4mbBOV-o63w/zh-cn_image_0000002581276224.png?HW-CC-KV=V1&HW-CC-Date=20260528T025532Z&HW-CC-Expire=86400&HW-CC-Sign=32E63D11746FF2E58DBEFCEF9D314AB353EB18CEF34AA2D568BA54FF800A16D9)

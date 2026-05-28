@@ -12,7 +12,7 @@
 ImageData对象可以存储[canvas组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-canvas-canvas)渲染的像素数据。
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -25,7 +25,7 @@ ImageData对象可以存储[canvas组件](https://developer.huawei.com/consumer/
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

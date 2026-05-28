@@ -14,7 +14,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { audio } from '@kit.AudioKit';
 
 
 
-##### getVolume(deprecated)
+#### getVolume(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -62,7 +62,7 @@ audioVolumeGroupManager.getVolume(audio.AudioVolumeType.MEDIA, (err: BusinessErr
 
 
 
-##### getVolume(deprecated)
+#### getVolume(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -100,7 +100,7 @@ audioVolumeGroupManager.getVolume(audio.AudioVolumeType.MEDIA).then((value: numb
 
 
 
-##### getVolumeSync(deprecated)
+#### getVolumeSync(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -154,7 +154,7 @@ try {
 
 
 
-##### getMinVolume(deprecated)
+#### getMinVolume(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -192,7 +192,7 @@ audioVolumeGroupManager.getMinVolume(audio.AudioVolumeType.MEDIA, (err: Business
 
 
 
-##### getMinVolume(deprecated)
+#### getMinVolume(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -230,7 +230,7 @@ audioVolumeGroupManager.getMinVolume(audio.AudioVolumeType.MEDIA).then((value: n
 
 
 
-##### getMinVolumeSync(deprecated)
+#### getMinVolumeSync(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -284,7 +284,7 @@ try {
 
 
 
-##### getMaxVolume(deprecated)
+#### getMaxVolume(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -322,7 +322,7 @@ audioVolumeGroupManager.getMaxVolume(audio.AudioVolumeType.MEDIA, (err: Business
 
 
 
-##### getMaxVolume(deprecated)
+#### getMaxVolume(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -360,7 +360,7 @@ audioVolumeGroupManager.getMaxVolume(audio.AudioVolumeType.MEDIA).then((value: n
 
 
 
-##### getMaxVolumeSync(deprecated)
+#### getMaxVolumeSync(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -414,7 +414,7 @@ try {
 
 
 
-##### isMute(deprecated)
+#### isMute(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -452,7 +452,7 @@ audioVolumeGroupManager.isMute(audio.AudioVolumeType.MEDIA, (err: BusinessError,
 
 
 
-##### isMute(deprecated)
+#### isMute(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -490,7 +490,7 @@ audioVolumeGroupManager.isMute(audio.AudioVolumeType.MEDIA).then((value: boolean
 
 
 
-##### isMuteSync(deprecated)
+#### isMuteSync(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -544,7 +544,7 @@ try {
 
 
 
-##### getRingerMode9+
+#### getRingerMode9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -577,7 +577,7 @@ audioVolumeGroupManager.getRingerMode((err: BusinessError, value: audio.AudioRin
 
 
 
-##### getRingerMode9+
+#### getRingerMode9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -608,7 +608,7 @@ audioVolumeGroupManager.getRingerMode().then((value: audio.AudioRingMode) => {
 
 
 
-##### getRingerModeSync10+
+#### getRingerModeSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -641,7 +641,7 @@ try {
 
 
 
-##### on('ringerModeChange')9+
+#### on('ringerModeChange')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -679,7 +679,7 @@ audioVolumeGroupManager.on('ringerModeChange', (ringerMode: audio.AudioRingMode)
 
 
 
-##### off('ringerModeChange')18+
+#### off('ringerModeChange')18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -724,7 +724,7 @@ audioVolumeGroupManager.off('ringerModeChange', ringerModeChangeCallback);
 
 
 
-##### isMicrophoneMute9+
+#### isMicrophoneMute9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -757,7 +757,7 @@ audioVolumeGroupManager.isMicrophoneMute((err: BusinessError, value: boolean) =>
 
 
 
-##### isMicrophoneMute9+
+#### isMicrophoneMute9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -788,7 +788,7 @@ audioVolumeGroupManager.isMicrophoneMute().then((value: boolean) => {
 
 
 
-##### isMicrophoneMuteSync10+
+#### isMicrophoneMuteSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -821,7 +821,7 @@ try {
 
 
 
-##### on('micStateChange')9+
+#### on('micStateChange')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -861,7 +861,7 @@ audioVolumeGroupManager.on('micStateChange', (micStateChange: audio.MicStateChan
 
 
 
-##### off('micStateChange')12+
+#### off('micStateChange')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -907,7 +907,7 @@ audioVolumeGroupManager.off('micStateChange', micStateChangeCallback);
 
 
 
-##### isVolumeUnadjustable10+
+#### isVolumeUnadjustable10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -933,7 +933,7 @@ console.info(`Succeeded in using isVolumeUnadjustable function. VolumeUnadjustab
 
 
 
-##### getSystemVolumeInDb(deprecated)
+#### getSystemVolumeInDb(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -984,7 +984,7 @@ audioVolumeGroupManager.getSystemVolumeInDb(audio.AudioVolumeType.MEDIA, 3, audi
 
 
 
-##### getSystemVolumeInDb(deprecated)
+#### getSystemVolumeInDb(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1039,7 +1039,7 @@ audioVolumeGroupManager.getSystemVolumeInDb(audio.AudioVolumeType.MEDIA, 3, audi
 
 
 
-##### getSystemVolumeInDbSync(deprecated)
+#### getSystemVolumeInDbSync(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1095,7 +1095,7 @@ try {
 
 
 
-##### getMaxAmplitudeForInputDevice12+
+#### getMaxAmplitudeForInputDevice12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1153,7 +1153,7 @@ audio.getAudioManager().getRoutingManager().getPreferredInputDeviceForCapturerIn
 
 
 
-##### getMaxAmplitudeForOutputDevice12+
+#### getMaxAmplitudeForOutputDevice12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1211,7 +1211,7 @@ audio.getAudioManager().getRoutingManager().getPreferOutputDeviceForRendererInfo
 
 
 
-##### setMicrophoneMute(deprecated)
+#### setMicrophoneMute(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1251,7 +1251,7 @@ audioVolumeGroupManager.setMicrophoneMute(true, (err: BusinessError) => {
 
 
 
-##### setMicrophoneMute(deprecated)
+#### setMicrophoneMute(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

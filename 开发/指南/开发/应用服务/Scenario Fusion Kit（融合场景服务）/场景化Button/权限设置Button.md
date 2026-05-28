@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-button-permissiononsetting
 
-##### 场景介绍
+#### 场景介绍
 
 权限设置Button可以帮助开发者调用对应Button组件，二次拉起权限设置弹框。
 
@@ -12,7 +12,7 @@
 
 
 
-##### 约束与限制
+#### 约束与限制
 
 权限设置Button支持Phone、Tablet和PC/2in1设备，并且从5.1.0(18)版本开始，新增支持TV设备。
 
@@ -22,7 +22,7 @@
 
 
 
-##### 前提条件
+#### 前提条件
 
  - 调用[requestPermissionsFromUser](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-abilityaccessctrl#requestpermissionsfromuser9)接口，用户在首次权限设置弹框时拒绝授权。
  - 参见[开发准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-preparations)。
@@ -30,7 +30,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 导入Scenario Fusion Kit模块以及相关公共模块。
 
   

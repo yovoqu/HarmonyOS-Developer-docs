@@ -12,7 +12,7 @@
 
 
 
-##### getType10+
+#### getType10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -31,7 +31,7 @@ getType(): WebMessageType
 
 
 
-##### getString10+
+#### getString10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -59,7 +59,7 @@ getString(): string
 
 
 
-##### getNumber10+
+#### getNumber10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -87,7 +87,7 @@ getNumber(): number
 
 
 
-##### getBoolean10+
+#### getBoolean10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -115,7 +115,7 @@ getBoolean(): boolean
 
 
 
-##### getArrayBuffer10+
+#### getArrayBuffer10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -143,7 +143,7 @@ getArrayBuffer(): ArrayBuffer
 
 
 
-##### getArray10+
+#### getArray10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -171,7 +171,7 @@ getArray(): Array<string | number | boolean>
 
 
 
-##### getError10+
+#### getError10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -199,7 +199,7 @@ getError(): Error
 
 
 
-##### setType10+
+#### setType10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -228,7 +228,7 @@ setType(type: WebMessageType): void
 
 
 
-##### setString10+
+#### setString10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -257,7 +257,7 @@ setString(message: string): void
 
 
 
-##### setNumber10+
+#### setNumber10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -286,7 +286,7 @@ setNumber(message: number): void
 
 
 
-##### setBoolean10+
+#### setBoolean10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -315,7 +315,7 @@ setBoolean(message: boolean): void
 
 
 
-##### setArrayBuffer10+
+#### setArrayBuffer10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -344,7 +344,7 @@ setArrayBuffer(message: ArrayBuffer): void
 
 
 
-##### setArray10+
+#### setArray10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -373,7 +373,7 @@ setArray(message: Array<string | number | boolean>): void
 
 
 
-##### setError10+
+#### setError10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

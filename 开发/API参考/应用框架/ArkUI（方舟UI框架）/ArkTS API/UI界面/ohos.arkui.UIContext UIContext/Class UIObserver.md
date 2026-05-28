@@ -12,7 +12,7 @@
 
   
 
-##### on('navDestinationUpdate')11+
+#### on('navDestinationUpdate')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -89,7 +89,7 @@ struct Index {
  
   
 
-##### off('navDestinationUpdate')11+
+#### off('navDestinationUpdate')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -115,7 +115,7 @@ off(type: 'navDestinationUpdate', callback?: Callback<observer.NavDestinationInf
  
   
 
-##### on('navDestinationUpdate')11+
+#### on('navDestinationUpdate')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -194,7 +194,7 @@ struct Index {
  
   
 
-##### off('navDestinationUpdate')11+
+#### off('navDestinationUpdate')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -221,7 +221,7 @@ off(type: 'navDestinationUpdate', options: { navigationId: ResourceStr }, callba
  
   
 
-##### on('navDestinationUpdateByUniqueId')20+
+#### on('navDestinationUpdateByUniqueId')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -313,7 +313,7 @@ struct Index {
  
   
 
-##### off('navDestinationUpdateByUniqueId')20+
+#### off('navDestinationUpdateByUniqueId')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -340,7 +340,7 @@ off(type: 'navDestinationUpdateByUniqueId', navigationUniqueId: number, callback
  
   
 
-##### on('scrollEvent')12+
+#### on('scrollEvent')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -437,7 +437,7 @@ struct Index {
  
   
 
-##### off('scrollEvent')12+
+#### off('scrollEvent')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -463,7 +463,7 @@ off(type: 'scrollEvent', callback?: Callback<observer.ScrollEventInfo>): void
  
   
 
-##### on('scrollEvent')12+
+#### on('scrollEvent')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -490,7 +490,7 @@ on(type: 'scrollEvent', options: observer.ObserverOptions, callback: Callback<ob
  
   
 
-##### off('scrollEvent')12+
+#### off('scrollEvent')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -517,7 +517,7 @@ off(type: 'scrollEvent', options: observer.ObserverOptions, callback?: Callback<
  
   
 
-##### on('routerPageUpdate')11+
+#### on('routerPageUpdate')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -588,7 +588,7 @@ struct Index {
  
   
 
-##### off('routerPageUpdate')11+
+#### off('routerPageUpdate')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -614,7 +614,7 @@ off(type: 'routerPageUpdate', callback?: Callback<observer.RouterPageInfo>): voi
  
   
 
-##### on('densityUpdate')12+
+#### on('densityUpdate')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -680,7 +680,7 @@ struct Index {
  
   
 
-##### off('densityUpdate')12+
+#### off('densityUpdate')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -706,7 +706,7 @@ off(type: 'densityUpdate', callback?: Callback<observer.DensityInfo>): void
  
   
 
-##### on('willDraw')12+
+#### on('willDraw')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -761,7 +761,7 @@ struct Index {
  
   
 
-##### off('willDraw')12+
+#### off('willDraw')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -787,7 +787,7 @@ off(type: 'willDraw', callback?: Callback&lt;void&gt;): void
  
   
 
-##### on('didLayout')12+
+#### on('didLayout')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -842,7 +842,7 @@ struct Index {
  
   
 
-##### off('didLayout')12+
+#### off('didLayout')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -868,7 +868,7 @@ off(type: 'didLayout', callback?: Callback&lt;void&gt;): void
  
   
 
-##### on('navDestinationSwitch')12+
+#### on('navDestinationSwitch')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -952,7 +952,7 @@ struct Index {
  
   
 
-##### off('navDestinationSwitch')12+
+#### off('navDestinationSwitch')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -978,7 +978,7 @@ off(type: 'navDestinationSwitch', callback?: Callback<observer.NavDestinationSwi
  
   
 
-##### on('navDestinationSwitch')12+
+#### on('navDestinationSwitch')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1064,7 +1064,7 @@ struct Index {
  
   
 
-##### off('navDestinationSwitch')12+
+#### off('navDestinationSwitch')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1091,7 +1091,7 @@ off(type: 'navDestinationSwitch', observerOptions: observer.NavDestinationSwitch
  
   
 
-##### on('willClick')12+
+#### on('willClick')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1201,7 +1201,7 @@ struct ClickExample {
  
   
 
-##### off('willClick')12+
+#### off('willClick')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1227,7 +1227,7 @@ off(type: 'willClick', callback?: GestureEventListenerCallback): void
  
   
 
-##### on('didClick')12+
+#### on('didClick')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1253,7 +1253,7 @@ on(type: 'didClick', callback: GestureEventListenerCallback): void
  
   
 
-##### off('didClick')12+
+#### off('didClick')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1279,7 +1279,7 @@ off(type: 'didClick', callback?: GestureEventListenerCallback): void
  
   
 
-##### on('willClick')12+
+#### on('willClick')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1305,7 +1305,7 @@ on(type: 'willClick', callback: ClickEventListenerCallback): void
  
   
 
-##### off('willClick')12+
+#### off('willClick')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1331,7 +1331,7 @@ off(type: 'willClick', callback?: ClickEventListenerCallback): void
  
   
 
-##### on('didClick')12+
+#### on('didClick')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1357,7 +1357,7 @@ on(type: 'didClick', callback: ClickEventListenerCallback): void
  
   
 
-##### off('didClick')12+
+#### off('didClick')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1383,7 +1383,7 @@ off(type: 'didClick', callback?: ClickEventListenerCallback): void
  
   
 
-##### on('tabContentUpdate')12+
+#### on('tabContentUpdate')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1463,7 +1463,7 @@ struct TabsExample {
  
   
 
-##### off('tabContentUpdate')12+
+#### off('tabContentUpdate')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1489,7 +1489,7 @@ off(type: 'tabContentUpdate', callback?: Callback<observer.TabContentInfo>): voi
  
   
 
-##### on('tabContentUpdate')12+
+#### on('tabContentUpdate')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1570,7 +1570,7 @@ struct TabsExample {
  
   
 
-##### off('tabContentUpdate')12+
+#### off('tabContentUpdate')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1597,7 +1597,7 @@ off(type: 'tabContentUpdate', options: observer.ObserverOptions, callback?: Call
  
   
 
-##### on('tabChange')22+
+#### on('tabChange')22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1700,7 +1700,7 @@ struct TabsExample {
  
   
 
-##### off('tabChange')22+
+#### off('tabChange')22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1726,7 +1726,7 @@ off(type: 'tabChange', callback?: Callback<observer.TabContentInfo>): void
  
   
 
-##### on('tabChange')22+
+#### on('tabChange')22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1827,7 +1827,7 @@ struct TabsExample {
  
   
 
-##### off('tabChange')22+
+#### off('tabChange')22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1854,7 +1854,7 @@ off(type: 'tabChange', config: observer.ObserverOptions, callback?: Callback<obs
  
   
 
-##### on('textChange')22+
+#### on('textChange')22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1964,7 +1964,7 @@ struct TextUiObserver {
  
   
 
-##### off('textChange')22+
+#### off('textChange')22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1990,7 +1990,7 @@ off(type: 'textChange', callback?: Callback<observer.TextChangeEventInfo>): void
  
   
 
-##### on('textChange')22+
+#### on('textChange')22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2017,7 +2017,7 @@ on(type: 'textChange', identity: observer.ObserverOptions, callback:Callback<obs
  
   
 
-##### off('textChange')22+
+#### off('textChange')22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2044,7 +2044,7 @@ off(type: 'textChange', identity: observer.ObserverOptions, callback?: Callback<
  
   
 
-##### on('beforePanStart')19+
+#### on('beforePanStart')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2177,7 +2177,7 @@ struct PanExample {
  
   
 
-##### off('beforePanStart')19+
+#### off('beforePanStart')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2203,7 +2203,7 @@ off(type: 'beforePanStart', callback?: PanListenerCallback): void
  
   
 
-##### on('afterPanStart')19+
+#### on('afterPanStart')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2229,7 +2229,7 @@ on(type: 'afterPanStart', callback: PanListenerCallback): void
  
   
 
-##### off('afterPanStart')19+
+#### off('afterPanStart')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2255,7 +2255,7 @@ off(type: 'afterPanStart', callback?: PanListenerCallback): void
  
   
 
-##### on('beforePanEnd')19+
+#### on('beforePanEnd')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2281,7 +2281,7 @@ on(type: 'beforePanEnd', callback: PanListenerCallback): void
  
   
 
-##### off('beforePanEnd')19+
+#### off('beforePanEnd')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2307,7 +2307,7 @@ off(type: 'beforePanEnd', callback?: PanListenerCallback): void
  
   
 
-##### on('afterPanEnd')19+
+#### on('afterPanEnd')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2333,7 +2333,7 @@ on(type: 'afterPanEnd', callback: PanListenerCallback): void
  
   
 
-##### off('afterPanEnd')19+
+#### off('afterPanEnd')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2359,7 +2359,7 @@ off(type: 'afterPanEnd', callback?: PanListenerCallback): void
  
   
 
-##### on('nodeRenderState')20+
+#### on('nodeRenderState')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2513,7 +2513,7 @@ struct Index {
  
   
 
-##### off('nodeRenderState')20+
+#### off('nodeRenderState')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2540,7 +2540,7 @@ off(type: 'nodeRenderState', nodeIdentity: NodeIdentity, callback?: NodeRenderSt
  
   
 
-##### addGlobalGestureListener20+
+#### addGlobalGestureListener20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2746,7 +2746,7 @@ struct Index {
  
   
 
-##### removeGlobalGestureListener20+
+#### removeGlobalGestureListener20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2772,7 +2772,7 @@ removeGlobalGestureListener(type: GestureListenerType, callback?: GestureListene
  
   
 
-##### on('windowSizeLayoutBreakpointChange')22+
+#### on('windowSizeLayoutBreakpointChange')22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2847,7 +2847,7 @@ struct Index {
  
   
 
-##### off('windowSizeLayoutBreakpointChange')22+
+#### off('windowSizeLayoutBreakpointChange')22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2873,7 +2873,7 @@ off(type: 'windowSizeLayoutBreakpointChange', callback?: Callback<observer.Windo
  
   
 
-##### onSwiperContentUpdate22+
+#### onSwiperContentUpdate22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2946,7 +2946,7 @@ struct SwiperExample {
  
   
 
-##### offSwiperContentUpdate22+
+#### offSwiperContentUpdate22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2971,7 +2971,7 @@ offSwiperContentUpdate(callback?: Callback&lt;SwiperContentInfo&gt;): void
  
   
 
-##### onSwiperContentUpdate22+
+#### onSwiperContentUpdate22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3046,7 +3046,7 @@ struct SwiperExample {
  
   
 
-##### offSwiperContentUpdate22+
+#### offSwiperContentUpdate22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3072,7 +3072,7 @@ offSwiperContentUpdate(config: observer.ObserverOptions, callback?: Callback&lt;
  
   
 
-##### onRouterPageSizeChange23+
+#### onRouterPageSizeChange23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3128,7 +3128,7 @@ struct QueryRouterPageSize {
  
   
 
-##### offRouterPageSizeChange23+
+#### offRouterPageSizeChange23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3153,7 +3153,7 @@ offRouterPageSizeChange(callback?: Callback<observer.RouterPageInfo>): void
  
   
 
-##### onNavDestinationSizeChange23+
+#### onNavDestinationSizeChange23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3242,7 +3242,7 @@ struct QueryNavDestinationSize {
  
   
 
-##### offNavDestinationSizeChange23+
+#### offNavDestinationSizeChange23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3267,7 +3267,7 @@ offNavDestinationSizeChange(callback?: Callback<observer.NavDestinationInfo>): v
  
   
 
-##### onNavDestinationSizeChangeByUniqueId23+
+#### onNavDestinationSizeChangeByUniqueId23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3363,7 +3363,7 @@ struct QueryNavDestinationSize {
  
   
 
-##### offNavDestinationSizeChangeByUniqueId23+
+#### offNavDestinationSizeChangeByUniqueId23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

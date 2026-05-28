@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_authentication_extensions_client_outputs
 
-##### 概述
+#### 概述
 
 身份认证扩展输出。
  
@@ -14,11 +14,11 @@
  
   
 
-##### 汇总
+#### 汇总
 
   
 
-##### 成员变量
+#### 成员变量
  
 | 名称 | 描述 |
 | --- | --- |
@@ -27,11 +27,11 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
   
 
-##### placeholder
+#### placeholder
 
 ```text
 char* AuthenticationExtensionsClientOutputs::placeholder

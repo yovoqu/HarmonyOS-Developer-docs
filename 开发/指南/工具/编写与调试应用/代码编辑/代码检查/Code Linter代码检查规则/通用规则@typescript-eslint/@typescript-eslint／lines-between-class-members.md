@@ -7,7 +7,7 @@
 禁止或者要求类成员之间有空行分隔。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,7 +20,7 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则有两个选项配置，第一个选项可以是字符串或者对象，第二个选项是对象。详情请参考[eslint/lines-between-class-members选项](https://eslint.nodejs.cn/docs/latest/rules/lines-between-class-members#选项)。
  
@@ -40,7 +40,7 @@
  
  
 
-##### 正例
+#### 正例
 
 ```text
 // 默认要求类成员之间有空行分隔
@@ -57,7 +57,7 @@ export class Foo {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 // 默认要求类成员之间有空行分隔
@@ -73,7 +73,7 @@ export class Foo {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

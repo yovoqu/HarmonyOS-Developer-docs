@@ -10,7 +10,7 @@ typedef struct ScsiPeripheral_BasicSenseInfo {...} ScsiPeripheral_BasicSenseInfo
 ```
   
 
-##### 概述
+#### 概述
 
 **支持设备：** PC/2in1
 
@@ -24,13 +24,13 @@ sense data的基本信息。
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** PC/2in1
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** PC/2in1
  

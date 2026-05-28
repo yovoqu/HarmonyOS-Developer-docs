@@ -9,7 +9,7 @@
 本开发指导将以“开始转码-暂停转码-恢复转码-转码完成”的一次流程为示例，向开发者讲解AVTranscoder视频转码相关功能。
 
 
-##### 开发步骤及注意事项
+#### 开发步骤及注意事项
 
 详细的API说明请参考[AVTranscoder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avtranscoder)。
 
@@ -307,7 +307,7 @@ async avTranscoderDemo() {
 
 
 
-##### 运行示例工程
+#### 运行示例工程
 
 参考以下示例，完成“开始转码-暂停转码-恢复转码-转码完成”的完整流程。
 1. 新建工程，下载[完整示例工程](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/Media/AVTranscoder/AVTranscoderArkTS)，并将示例工程的资源复制到对应目录。       

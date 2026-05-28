@@ -7,7 +7,7 @@
 将所支持格式的图片文件解码成[Picture](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-overview#基础概念)。当前支持的图片文件格式包括JPEG、HEIF。
 
 
-##### 开发步骤
+#### 开发步骤
 
 图片解码相关API的详细介绍请参见[ImageSource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource)。
 1. 全局导入Image模块。

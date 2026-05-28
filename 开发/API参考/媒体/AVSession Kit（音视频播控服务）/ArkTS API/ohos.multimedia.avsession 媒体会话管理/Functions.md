@@ -10,7 +10,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@ import { avSession } from '@kit.AVSessionKit';
 
 
 
-##### avSession.createAVSession10+
+#### avSession.createAVSession10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -97,7 +97,7 @@ struct Index {
 
 
 
-##### avSession.createAVSession10+
+#### avSession.createAVSession10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -167,7 +167,7 @@ struct Index {
 
 
 
-##### avSession.getAVSession22+
+#### avSession.getAVSession22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -241,7 +241,7 @@ struct Index {
 
 
 
-##### avSession.getAllSessionDescriptors23+
+#### avSession.getAllSessionDescriptors23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -303,7 +303,7 @@ struct Index {
 
 
 
-##### avSession.createController23+
+#### avSession.createController23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -374,7 +374,7 @@ struct Index {
 
 
 
-##### avSession.onSessionCreate23+
+#### avSession.onSessionCreate23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -432,7 +432,7 @@ struct Index {
 
 
 
-##### avSession.onSessionDestroy23+
+#### avSession.onSessionDestroy23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -487,7 +487,7 @@ struct Index {
 
 
 
-##### avSession.onTopSessionChange23+
+#### avSession.onTopSessionChange23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -544,7 +544,7 @@ struct Index {
 
 
 
-##### avSession.offSessionCreate23+
+#### avSession.offSessionCreate23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -599,7 +599,7 @@ struct Index {
 
 
 
-##### avSession.offSessionDestroy23+
+#### avSession.offSessionDestroy23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -654,7 +654,7 @@ struct Index {
 
 
 
-##### avSession.offTopSessionChange23+
+#### avSession.offTopSessionChange23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -709,7 +709,7 @@ struct Index {
 
 
 
-##### avSession.isDesktopLyricSupported23+
+#### avSession.isDesktopLyricSupported23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

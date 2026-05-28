@@ -14,7 +14,7 @@
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -45,7 +45,7 @@ GridRow(option?: GridRowOptions)
 
 
 
-##### GridRowOptions对象说明
+#### GridRowOptions对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -67,7 +67,7 @@ GridRow(option?: GridRowOptions)
 
 
 
-##### GutterOption
+#### GutterOption
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -87,7 +87,7 @@ GridRow(option?: GridRowOptions)
 
 
 
-##### GridRowColumnOption
+#### GridRowColumnOption
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -129,7 +129,7 @@ columns: {md:4, lg:8} // 等于配置 columns: {xs:4, sm:4, md:4, lg:8, xl:8, xx
 
 
 
-##### GridRowSizeOption
+#### GridRowSizeOption
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -153,7 +153,7 @@ columns: {md:4, lg:8} // 等于配置 columns: {xs:4, sm:4, md:4, lg:8, xl:8, xx
 
 
 
-##### BreakPoints
+#### BreakPoints
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -182,7 +182,7 @@ columns: {md:4, lg:8} // 等于配置 columns: {xs:4, sm:4, md:4, lg:8, xl:8, xx
 
 
 
-##### BreakpointsReference枚举说明
+#### BreakpointsReference枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -202,7 +202,7 @@ columns: {md:4, lg:8} // 等于配置 columns: {xs:4, sm:4, md:4, lg:8, xl:8, xx
 
 
 
-##### GridRowDirection枚举说明
+#### GridRowDirection枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -226,7 +226,7 @@ columns: {md:4, lg:8} // 等于配置 columns: {xs:4, sm:4, md:4, lg:8, xl:8, xx
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -234,7 +234,7 @@ columns: {md:4, lg:8} // 等于配置 columns: {xs:4, sm:4, md:4, lg:8, xl:8, xx
 
 
 
-##### alignItems10+
+#### alignItems10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -257,7 +257,7 @@ alignItems(value: ItemAlign)
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -265,7 +265,7 @@ alignItems(value: ItemAlign)
 
 
 
-##### onBreakpointChange
+#### onBreakpointChange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -292,13 +292,13 @@ onBreakpointChange(callback: (breakpoints: string) => void)
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1（栅格布局的基本用法）
+#### 示例1（栅格布局的基本用法）
 
 本示例展示GridRow组件的基本用法。
 
@@ -335,12 +335,12 @@ struct GridRowExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/LDteEXTTTW6brMZBS1UKqA/zh-cn_image_0000002611755669.png?HW-CC-KV=V1&HW-CC-Date=20260528T024219Z&HW-CC-Expire=86400&HW-CC-Sign=ED38CAF3C694271F574E281DA9E86EB269DBC388C8CFF445666077D1112D20DA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/LDteEXTTTW6brMZBS1UKqA/zh-cn_image_0000002611755669.png?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=5C57FF75E7D33FC0B3D050CD693078A2C5891B97D752713AA6A5D6861913830A)
 
 
 
 
-##### 示例2（AlignItems的基本用法）
+#### 示例2（AlignItems的基本用法）
 
 本示例展示GridCol组件在不同alignItems对齐方式下的效果。
 
@@ -407,4 +407,4 @@ struct GridRowExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/Lcd6FV9oRRWBLA3_DSqfyw/zh-cn_image_0000002581435730.png?HW-CC-KV=V1&HW-CC-Date=20260528T024219Z&HW-CC-Expire=86400&HW-CC-Sign=9D292239CB4AFB20C923B69DD17F8ECCCD0C4E7B641CF70EF38D22F61F1C879B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/Lcd6FV9oRRWBLA3_DSqfyw/zh-cn_image_0000002581435730.png?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=CBE6040D5AB07327E7BA2C6F29DEDB5098CA4466E6DADBE5617595AF33F88BAE)

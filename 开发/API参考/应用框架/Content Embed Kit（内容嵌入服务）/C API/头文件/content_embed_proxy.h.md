@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-content-embed-proxy-h
 **支持设备：** Phone | PC/2in1 | Tablet
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -23,13 +23,13 @@
 
 
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
 
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -44,7 +44,7 @@
 
 
 
-##### 宏定义
+#### 宏定义
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -56,7 +56,7 @@
 
 
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -95,13 +95,13 @@
 
 
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
 
 
-##### OH_ContentEmbed_CreateContentEmbedInfo()
+#### OH_ContentEmbed_CreateContentEmbedInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -133,7 +133,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_CreateContentEmbedInfo(ContentEmbed_Info 
 
 
 
-##### OH_ContentEmbed_DestroyContentEmbedInfo()
+#### OH_ContentEmbed_DestroyContentEmbedInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -163,7 +163,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_DestroyContentEmbedInfo(ContentEmbed_Info
 
 
 
-##### OH_ContentEmbed_GetContentEmbedInfo()
+#### OH_ContentEmbed_GetContentEmbedInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -196,7 +196,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_GetContentEmbedInfo(const char *locale, C
 
 
 
-##### OH_ContentEmbed_GetFormatCountFromInfo()
+#### OH_ContentEmbed_GetFormatCountFromInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -227,7 +227,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_GetFormatCountFromInfo(const ContentEmbed
 
 
 
-##### OH_ContentEmbed_GetFormatFromInfo()
+#### OH_ContentEmbed_GetFormatFromInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -259,7 +259,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_GetFormatFromInfo(const ContentEmbed_Info
 
 
 
-##### OH_ContentEmbed_CreateContentEmbedFormat()
+#### OH_ContentEmbed_CreateContentEmbedFormat()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -291,7 +291,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_CreateContentEmbedFormat(ContentEmbed_For
 
 
 
-##### OH_ContentEmbed_DestroyContentEmbedFormat()
+#### OH_ContentEmbed_DestroyContentEmbedFormat()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -321,7 +321,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_DestroyContentEmbedFormat(ContentEmbed_Fo
 
 
 
-##### OH_ContentEmbed_GetContentEmbedFormatByOEidAndLocale()
+#### OH_ContentEmbed_GetContentEmbedFormatByOEidAndLocale()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -355,7 +355,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_GetContentEmbedFormatByOEidAndLocale(cons
 
 
 
-##### OH_ContentEmbed_GetOEidFromFormat()
+#### OH_ContentEmbed_GetOEidFromFormat()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -386,7 +386,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_GetOEidFromFormat(const ContentEmbed_Form
 
 
 
-##### OH_ContentEmbed_GetNameAndDescriptionFromFormat()
+#### OH_ContentEmbed_GetNameAndDescriptionFromFormat()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -418,7 +418,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_GetNameAndDescriptionFromFormat(const Con
 
 
 
-##### OH_ContentEmbed_GetIconFromFormat()
+#### OH_ContentEmbed_GetIconFromFormat()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -449,7 +449,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_GetIconFromFormat(const ContentEmbed_Form
 
 
 
-##### OH_ContentEmbed_GetFileNameExtensionsFromFormat()
+#### OH_ContentEmbed_GetFileNameExtensionsFromFormat()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -480,7 +480,7 @@ char** OH_ContentEmbed_GetFileNameExtensionsFromFormat(const ContentEmbed_Format
 
 
 
-##### OH_ContentEmbed_CreateExtensionProxy()
+#### OH_ContentEmbed_CreateExtensionProxy()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -514,7 +514,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_CreateExtensionProxy(ContentEmbed_Documen
 
 
 
-##### OH_ContentEmbed_DestroyExtensionProxy()
+#### OH_ContentEmbed_DestroyExtensionProxy()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -544,7 +544,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_DestroyExtensionProxy(ContentEmbed_Extens
 
 
 
-##### OH_ContentEmbed_ClientCallbackOnUpdateFunc()
+#### OH_ContentEmbed_ClientCallbackOnUpdateFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -569,7 +569,7 @@ OE文档更新时通知客户端的回调函数类型。
 
 
 
-##### OH_ContentEmbed_ClientCallbackOnErrorFunc()
+#### OH_ContentEmbed_ClientCallbackOnErrorFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -595,7 +595,7 @@ OE文档错误时通知客户端的回调函数类型。
 
 
 
-##### OH_ContentEmbed_ClientCallbackOnEditingFinishedFunc()
+#### OH_ContentEmbed_ClientCallbackOnEditingFinishedFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -621,7 +621,7 @@ OE文档编辑完成时通知客户端的回调函数类型。
 
 
 
-##### OH_ContentEmbed_ClientCallbackOnExtensionStoppedFunc()
+#### OH_ContentEmbed_ClientCallbackOnExtensionStoppedFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -646,7 +646,7 @@ OE Extension停止时回调函数类型。
 
 
 
-##### OH_ContentEmbed_Proxy_RegisterOnUpdateFunc()
+#### OH_ContentEmbed_Proxy_RegisterOnUpdateFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -677,7 +677,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Proxy_RegisterOnUpdateFunc(ContentEmbed_E
 
 
 
-##### OH_ContentEmbed_Proxy_RegisterOnErrorFunc()
+#### OH_ContentEmbed_Proxy_RegisterOnErrorFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -708,7 +708,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Proxy_RegisterOnErrorFunc(ContentEmbed_Ex
 
 
 
-##### OH_ContentEmbed_Proxy_RegisterOnEditingFinishedFunc()
+#### OH_ContentEmbed_Proxy_RegisterOnEditingFinishedFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -739,7 +739,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Proxy_RegisterOnEditingFinishedFunc(Conte
 
 
 
-##### OH_ContentEmbed_Proxy_RegisterOnExtensionStoppedFunc()
+#### OH_ContentEmbed_Proxy_RegisterOnExtensionStoppedFunc()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -770,7 +770,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Proxy_RegisterOnExtensionStoppedFunc(Cont
 
 
 
-##### OH_ContentEmbed_Proxy_StartWork()
+#### OH_ContentEmbed_Proxy_StartWork()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -802,7 +802,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Proxy_StartWork(ContentEmbed_ExtensionPro
 
 
 
-##### OH_ContentEmbed_Proxy_StopWork()
+#### OH_ContentEmbed_Proxy_StopWork()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -834,7 +834,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Proxy_StopWork(ContentEmbed_ExtensionProx
 
 
 
-##### OH_ContentEmbed_Proxy_GetSnapshot()
+#### OH_ContentEmbed_Proxy_GetSnapshot()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -865,7 +865,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Proxy_GetSnapshot(ContentEmbed_ExtensionP
 
 
 
-##### OH_ContentEmbed_Proxy_DoEdit()
+#### OH_ContentEmbed_Proxy_DoEdit()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -895,7 +895,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Proxy_DoEdit(ContentEmbed_ExtensionProxy 
 
 
 
-##### OH_ContentEmbed_Proxy_GetEditStatus()
+#### OH_ContentEmbed_Proxy_GetEditStatus()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -927,7 +927,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Proxy_GetEditStatus(ContentEmbed_Extensio
 
 
 
-##### OH_ContentEmbed_Proxy_GetCapability()
+#### OH_ContentEmbed_Proxy_GetCapability()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -958,7 +958,7 @@ ContentEmbed_ErrorCode OH_ContentEmbed_Proxy_GetCapability(ContentEmbed_Extensio
 
 
 
-##### OH_ContentEmbed_Proxy_GetDocument()
+#### OH_ContentEmbed_Proxy_GetDocument()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

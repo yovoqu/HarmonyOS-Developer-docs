@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { securityManager } from '@kit.MDMKit';
 
 
 
-##### securityManager.uninstallUserCertificate
+#### securityManager.uninstallUserCertificate
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -87,7 +87,7 @@ securityManager.uninstallUserCertificate(wantTemp, aliasStr).then(() => {
 
 
 
-##### securityManager.installUserCertificate
+#### securityManager.installUserCertificate
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -162,7 +162,7 @@ context.resourceManager.getRawFileContent("test.cer").then((value) => {
 
 
 
-##### securityManager.installUserCertificate18+
+#### securityManager.installUserCertificate18+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -234,7 +234,7 @@ context.resourceManager.getRawFileContent("test.cer").then((value) => {
 
 
 
-##### securityManager.getUserCertificates18+
+#### securityManager.getUserCertificates18+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -297,7 +297,7 @@ try {
 
 
 
-##### securityManager.getSecurityStatus
+#### securityManager.getSecurityStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -360,7 +360,7 @@ try {
 
 
 
-##### securityManager.setPasswordPolicy
+#### securityManager.setPasswordPolicy
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -423,7 +423,7 @@ try {
 
 
 
-##### securityManager.getPasswordPolicy
+#### securityManager.getPasswordPolicy
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -485,7 +485,7 @@ try {
 
 
 
-##### securityManager.setAppClipboardPolicy
+#### securityManager.setAppClipboardPolicy
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -545,7 +545,7 @@ try {
 
 
 
-##### securityManager.getAppClipboardPolicy
+#### securityManager.getAppClipboardPolicy
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -609,7 +609,7 @@ try {
 
 
 
-##### securityManager.setAppClipboardPolicy18+
+#### securityManager.setAppClipboardPolicy18+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -670,7 +670,7 @@ try {
 
 
 
-##### securityManager.getAppClipboardPolicy18+
+#### securityManager.getAppClipboardPolicy18+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -735,7 +735,7 @@ try {
 
 
 
-##### securityManager.setWatermarkImage14+
+#### securityManager.setWatermarkImage14+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -802,7 +802,7 @@ try {
 
 
 
-##### securityManager.cancelWatermarkImage14+
+#### securityManager.cancelWatermarkImage14+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -861,7 +861,7 @@ try {
 
 
 
-##### securityManager.setPermissionManagedState20+
+#### securityManager.setPermissionManagedState20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -928,7 +928,7 @@ try {
 
 
 
-##### securityManager.getPermissionManagedState20+
+#### securityManager.getPermissionManagedState20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -998,7 +998,7 @@ try {
 
 
 
-##### securityManager.setExternalSourceExtensionsPolicy22+
+#### securityManager.setExternalSourceExtensionsPolicy22+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1069,7 +1069,7 @@ try {
 
 
 
-##### securityManager.getExternalSourceExtensionsPolicy22+
+#### securityManager.getExternalSourceExtensionsPolicy22+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1132,7 +1132,7 @@ try {
 
 
 
-##### securityManager.installEnterpriseReSignatureCertificate24+
+#### securityManager.installEnterpriseReSignatureCertificate24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1230,7 +1230,7 @@ try {
 
 
 
-##### securityManager.uninstallEnterpriseReSignatureCertificate24+
+#### securityManager.uninstallEnterpriseReSignatureCertificate24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1293,7 +1293,7 @@ try {
 
 
 
-##### CertBlob
+#### CertBlob
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1309,7 +1309,7 @@ try {
 
 
 
-##### PasswordPolicy
+#### PasswordPolicy
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1326,7 +1326,7 @@ try {
 
 
 
-##### ClipboardPolicy
+#### ClipboardPolicy
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1344,7 +1344,7 @@ try {
 
 
 
-##### ApplicationInstance20+
+#### ApplicationInstance20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1363,7 +1363,7 @@ try {
 
 
 
-##### PermissionManagedState20+
+#### PermissionManagedState20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

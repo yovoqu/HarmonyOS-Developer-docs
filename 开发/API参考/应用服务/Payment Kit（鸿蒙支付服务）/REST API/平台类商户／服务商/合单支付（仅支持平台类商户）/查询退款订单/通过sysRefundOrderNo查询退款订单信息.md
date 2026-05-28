@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-partner-combined-sys-query-refund
 
-##### 功能介绍
+#### 功能介绍
 
 开发者可以调用该接口查询某笔退款订单详细信息。
  
@@ -14,13 +14,13 @@
  
   
 
-##### 场景描述
+#### 场景描述
 
 该接口支持所有的华为支付退款订单查询，若开发者已有申请退款的订单，可以通过该接口查看具体退款订单的退款状态。
  
   
 
-##### 接口原型
+#### 接口原型
 
 - **承载协议：** HTTPS GET
 - **接口方向：** 开发者服务器 -> 华为支付服务器
@@ -34,7 +34,7 @@
  
   
 
-##### 请求参数
+#### 请求参数
 
 **Request Header**
   
@@ -53,7 +53,7 @@
  
   
 
-##### 请求示例
+#### 请求示例
 
 ```json
 GET /api/v1/partner/aggr/transactions/refunds/orders/{sysRefundOrderNo} HTTP/1.1
@@ -63,7 +63,7 @@ PayMercAuth: {"callerId":"10132120***","traceId":"202305151501075707669","time":
  
   
 
-##### 响应参数
+#### 响应参数
 
 **Response Header**
   
@@ -94,7 +94,7 @@ PayMercAuth: {"callerId":"10132120***","traceId":"202305151501075707669","time":
  
   
 
-##### 响应示例
+#### 响应示例
 
 ```json
 HTTP/1.1 200 OK
@@ -117,7 +117,7 @@ Content-Type: application/json; charset=UTF-8
  
   
 
-##### 错误码
+#### 错误码
 
 **resultCode**非400000的错误码请查看[公共错误码说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-error-code-rest#公共错误码说明)。
   

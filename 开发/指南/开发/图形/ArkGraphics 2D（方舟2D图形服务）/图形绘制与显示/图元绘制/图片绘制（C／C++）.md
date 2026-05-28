@@ -104,10 +104,10 @@ delete[] pixels;
 绘制效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/vYOY7OKkTXakFodmAN95_w/zh-cn_image_0000002611754697.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T014902Z&HW-CC-Expire=86400&HW-CC-Sign=6799100F764189A5917DA9C73EC775B18770B6376053D3D2C157B3112D6562FC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/vYOY7OKkTXakFodmAN95_w/zh-cn_image_0000002611754697.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T030531Z&HW-CC-Expire=86400&HW-CC-Sign=3D69AA20279615B1B0BB0181992585B7A786B4AB37D50A0DF5DF9019DA06C47B)
 
 
 
-##### 示例代码
+#### 示例代码
 
  - [图形绘制（C/C++）](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/ArkGraphics2D/Drawing/NDKGraphicsDraw)

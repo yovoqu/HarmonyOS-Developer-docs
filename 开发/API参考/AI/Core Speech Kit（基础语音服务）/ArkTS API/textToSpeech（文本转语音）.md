@@ -12,7 +12,7 @@
 **起始版本：** 4.1.0(11)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { textToSpeech } from '@kit.CoreSpeechKit';
 
 
 
-##### textToSpeech.createEngine
+#### textToSpeech.createEngine
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -94,7 +94,7 @@ struct Page {
 
 
 
-##### textToSpeech.createEngine
+#### textToSpeech.createEngine
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -171,7 +171,7 @@ struct Page {
 
 
 
-##### textToSpeech.listVoices
+#### textToSpeech.listVoices
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -241,7 +241,7 @@ struct Page {
 
 
 
-##### textToSpeech.downloadVoice
+#### textToSpeech.downloadVoice
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -368,7 +368,7 @@ struct Page {
 
 
 
-##### TextToSpeechEngine
+#### TextToSpeechEngine
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -382,7 +382,7 @@ struct Page {
 
 
 
-##### listVoices
+#### listVoices
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -449,7 +449,7 @@ struct Page {
 
 
 
-##### listVoices
+#### listVoices
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -520,7 +520,7 @@ struct Page {
 
 
 
-##### setListener
+#### setListener
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -587,7 +587,7 @@ struct Page {
 
 
 
-##### speak
+#### speak
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -658,7 +658,7 @@ struct Page {
 
 
 
-##### stop
+#### stop
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -719,7 +719,7 @@ struct Page {
 
 
 
-##### isBusy
+#### isBusy
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -788,7 +788,7 @@ struct Page {
 
 
 
-##### shutdown
+#### shutdown
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -849,7 +849,7 @@ struct Page {
 
 
 
-##### SpeakListener
+#### SpeakListener
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -863,7 +863,7 @@ struct Page {
 
 
 
-##### onStart
+#### onStart
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -931,7 +931,7 @@ struct Page {
 
 
 
-##### onStop
+#### onStop
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -999,7 +999,7 @@ struct Page {
 
 
 
-##### onComplete
+#### onComplete
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1071,7 +1071,7 @@ struct Page {
 
 
 
-##### onData
+#### onData
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1142,7 +1142,7 @@ struct Page {
 
 
 
-##### onError
+#### onError
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1211,7 +1211,7 @@ struct Page {
 
 
 
-##### OnDataCallback
+#### OnDataCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1236,7 +1236,7 @@ type OnDataCallback = (requestId: string, audio: ArrayBuffer, response: Synthesi
 
 
 
-##### CreateEngineParams
+#### CreateEngineParams
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1282,7 +1282,7 @@ struct Page {
 
 
 
-##### VoiceQuery
+#### VoiceQuery
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1326,7 +1326,7 @@ struct Page {
 
 
 
-##### VoiceDownload
+#### VoiceDownload
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1362,7 +1362,7 @@ let voicesDownload: textToSpeech.VoiceDownload = {
 
 
 
-##### DownloadResponse
+#### DownloadResponse
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1383,7 +1383,7 @@ let voicesDownload: textToSpeech.VoiceDownload = {
 
 
 
-##### on('start')
+#### on('start')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1422,7 +1422,7 @@ downloadResponse.off('start', startCallback);
 
 
 
-##### on('progress')
+#### on('progress')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1461,7 +1461,7 @@ downloadResponse.off('progress', progressCallback);
 
 
 
-##### on('complete')
+#### on('complete')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1501,7 +1501,7 @@ downloadResponse.off('complete', completeCallback);
 
 
 
-##### on('cancel')
+#### on('cancel')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1544,7 +1544,7 @@ downloadResponse.off('cancel', cancelCallback);
 
 
 
-##### on('error')
+#### on('error')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1584,7 +1584,7 @@ downloadResponse.off('error', errorCallback);
 
 
 
-##### off('start')
+#### off('start')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1623,7 +1623,7 @@ downloadResponse.off('start', startCallback);
 
 
 
-##### off('progress')
+#### off('progress')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1662,7 +1662,7 @@ downloadResponse.off('progress', progressCallback);
 
 
 
-##### off('complete')
+#### off('complete')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1702,7 +1702,7 @@ downloadResponse.off('complete', completeCallback);
 
 
 
-##### off('cancel')
+#### off('cancel')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1741,7 +1741,7 @@ downloadResponse.off('cancel', cancelCallback);
 
 
 
-##### off('error')
+#### off('error')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1781,7 +1781,7 @@ downloadResponse.off('error', errorCallback);
 
 
 
-##### SpeakParams
+#### SpeakParams
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1832,7 +1832,7 @@ struct Page {
 
 
 
-##### VoiceInfo
+#### VoiceInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1856,7 +1856,7 @@ struct Page {
 
 
 
-##### StartResponse
+#### StartResponse
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1879,7 +1879,7 @@ struct Page {
 
 
 
-##### StopResponse
+#### StopResponse
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1899,7 +1899,7 @@ struct Page {
 
 
 
-##### CompleteResponse
+#### CompleteResponse
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1919,7 +1919,7 @@ struct Page {
 
 
 
-##### SynthesisResponse
+#### SynthesisResponse
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

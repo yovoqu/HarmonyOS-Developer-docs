@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-introduction
 
-##### 场景介绍
+#### 场景介绍
 
 Account Kit（华为账号服务）提供简单、快速、安全的登录功能，让用户快捷地使用华为账号登录应用。用户授权后，Account Kit可提供头像、昵称、手机号码等信息，帮助应用更了解用户。
 
 
 
-##### 能力范围
+#### 能力范围
 
  - [登录](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-quick-login-overview)：提供登录服务，让用户使用华为账号快速登录应用。
  - [获取华为账号用户信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-get-user-info-overview)：获取用户的基本开放信息，如头像、昵称、手机号、收货地址、发票抬头、风险等级。
@@ -19,7 +19,7 @@ Account Kit（华为账号服务）提供简单、快速、安全的登录功能
 
 
 
-##### 亮点/特征
+#### 亮点/特征
 
 **一键登录**
 
@@ -40,13 +40,13 @@ Account Kit（华为账号服务）提供简单、快速、安全的登录功能
 
 
 
-##### 示例代码
+#### 示例代码
 
 Account Kit提供的[SampleCode示例工程](https://gitcode.com/HarmonyOS_Samples/accountkit-samplecode-clientdemo-arkts)体现了Account Kit的[华为账号一键登录](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-phone-unionid-login)、[静默登录](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-silent-login)、[获取头像昵称](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-get-avatar-nickname)、[快速验证手机号](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-get-phonenumber)、[收货地址](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-choose-address-dev)、[发票抬头](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-select-invoice-title)、[未成年人模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-overview-minorsprotection)等特性，可参考该工程进行应用的相关内容开发。
 
 
 
-##### 基本概念
+#### 基本概念
 
  - **OpenID**：应用维度用户标识符，是华为账号用户在应用/元服务的唯一标识。不同应用/元服务（不管是否在同一个开发者账号下）获取到用户的OpenID不同。OpenID严格区分大小写。
  - **UnionID**：开发者维度用户标识符，华为账号用户同一开发者账号下的唯一标识。开发者有多个应用/元服务时，同一个开发者账号下的应用/元服务获取到用户的UnionID相同。UnionID严格区分大小写。
@@ -60,7 +60,7 @@ Account Kit提供的[SampleCode示例工程](https://gitcode.com/HarmonyOS_Sampl
 
 
 
-##### 约束与限制
+#### 约束与限制
 
 | Account Kit提供的能力 | 支持的设备类型 |
 | --- | --- |
@@ -77,13 +77,13 @@ Account Kit提供的[SampleCode示例工程](https://gitcode.com/HarmonyOS_Sampl
 
 
 
-##### 支持的国家/地区
+#### 支持的国家/地区
 
 请参见[支持的国家/地区](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-appendix-support-regions)。
 
 
 
-##### 模拟器支持情况
+#### 模拟器支持情况
 
 本Kit支持模拟器，但与真机存在部分能力差异，具体差异如下。
 

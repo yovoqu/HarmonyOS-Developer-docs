@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { inspector } from '@kit.ArkUI';
  
   
 
-##### inspector.createComponentObserver(deprecated)
+#### inspector.createComponentObserver(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -60,7 +60,7 @@ let listener:inspector.ComponentObserver = inspector.createComponentObserver('CO
  
   
 
-##### ComponentObserver
+#### ComponentObserver
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -68,7 +68,7 @@ let listener:inspector.ComponentObserver = inspector.createComponentObserver('CO
  
   
 
-##### on('layout')
+#### on('layout')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -90,7 +90,7 @@ on(type: 'layout', callback: () => void): void
  
   
 
-##### off('layout')
+#### off('layout')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -112,7 +112,7 @@ off(type: 'layout', callback?: () => void): void
  
   
 
-##### on('draw')
+#### on('draw')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -134,7 +134,7 @@ on(type: 'draw', callback: () => void): void
  
   
 
-##### off('draw')
+#### off('draw')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -156,7 +156,7 @@ off(type: 'draw', callback?: () => void): void
  
   
 
-##### on('drawChildren')20+
+#### on('drawChildren')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -178,7 +178,7 @@ on(type: 'drawChildren', callback: Callback&lt;void&gt;): void
  
   
 
-##### off('drawChildren')20+
+#### off('drawChildren')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -200,7 +200,7 @@ off(type: 'drawChildren', callback?: Callback&lt;void&gt;): void
  
   
 
-##### onLayoutChildren23+
+#### onLayoutChildren23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -225,7 +225,7 @@ onLayoutChildren(callback: Callback&lt;void&gt;): void
  
   
 
-##### offLayoutChildren23+
+#### offLayoutChildren23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -319,7 +319,7 @@ struct ImageExample {
  
   
 
-##### onDrawChildren24+
+#### onDrawChildren24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -382,7 +382,7 @@ struct ImageExample {
  
   
 
-##### offDrawChildren24+
+#### offDrawChildren24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -14,7 +14,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -24,7 +24,7 @@ import { media } from '@kit.MediaKit';
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -40,7 +40,7 @@ import { media } from '@kit.MediaKit';
 
 
 
-##### prepare12+
+#### prepare12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -107,7 +107,7 @@ async function test() {
 
 
 
-##### start12+
+#### start12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -158,7 +158,7 @@ async function test() {
 
 
 
-##### pause12+
+#### pause12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -209,7 +209,7 @@ async function test() {
 
 
 
-##### resume12+
+#### resume12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -260,7 +260,7 @@ async function test() {
 
 
 
-##### cancel12+
+#### cancel12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -311,7 +311,7 @@ async function test() {
 
 
 
-##### release12+
+#### release12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -361,7 +361,7 @@ async function test() {
 
 
 
-##### on('progressUpdate')12+
+#### on('progressUpdate')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -397,7 +397,7 @@ async function test() {
 
 
 
-##### off('progressUpdate')12+
+#### off('progressUpdate')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -431,7 +431,7 @@ async function test() {
 
 
 
-##### on('error')12+
+#### on('error')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -486,7 +486,7 @@ async function test() {
 
 
 
-##### off('error')12+
+#### off('error')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -520,7 +520,7 @@ async function test() {
 
 
 
-##### on('complete')12+
+#### on('complete')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -565,7 +565,7 @@ async function test() {
 
 
 
-##### off('complete')12+
+#### off('complete')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

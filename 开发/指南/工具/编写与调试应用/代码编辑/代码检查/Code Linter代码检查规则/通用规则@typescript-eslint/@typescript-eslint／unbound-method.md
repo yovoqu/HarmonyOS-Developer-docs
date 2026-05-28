@@ -9,7 +9,7 @@
 类方法作为独立变量传递时，不会保留类作用域，“this”不再指代当前类。解决方法是定义为“this: void”或者使用箭头函数。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -22,13 +22,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/unbound-method选项](https://typescript-eslint.nodejs.cn/rules/unbound-method/#options)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 class MyClass {
@@ -50,7 +50,7 @@ logBound();
  
  
 
-##### 反例
+#### 反例
 
 ```text
 class MyClass {
@@ -72,7 +72,7 @@ logUnbound();
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

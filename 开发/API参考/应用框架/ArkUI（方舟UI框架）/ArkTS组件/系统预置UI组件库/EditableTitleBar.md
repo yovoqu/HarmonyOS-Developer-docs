@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { EditableTitleBar } from '@kit.ArkUI';
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -30,7 +30,7 @@ import { EditableTitleBar } from '@kit.ArkUI';
  
   
 
-##### EditableTitleBar
+#### EditableTitleBar
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -64,7 +64,7 @@ EditableTitleBar({leftIconStyle: EditableLeftIconType, imageItem?: EditableTitle
  
   
 
-##### EditableLeftIconType
+#### EditableLeftIconType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -82,7 +82,7 @@ EditableTitleBar({leftIconStyle: EditableLeftIconType, imageItem?: EditableTitle
  
   
 
-##### EditableTitleBarMenuItem
+#### EditableTitleBarMenuItem
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -105,7 +105,7 @@ EditableTitleBar({leftIconStyle: EditableLeftIconType, imageItem?: EditableTitle
  
   
 
-##### EditableTitleBarItem12+
+#### EditableTitleBarItem12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -124,7 +124,7 @@ type EditableTitleBarItem = EditableTitleBarMenuItem
  
   
 
-##### EditableTitleBarOptions12+
+#### EditableTitleBarOptions12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -144,7 +144,7 @@ type EditableTitleBarItem = EditableTitleBarMenuItem
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -152,13 +152,13 @@ type EditableTitleBarItem = EditableTitleBarMenuItem
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 示例1（右侧图标自定义标题栏）
+#### 示例1（右侧图标自定义标题栏）
 
  该示例主要演示EditableTitleBar设置左侧图标、主标题及自定义右侧图标区的效果。
  
@@ -215,7 +215,7 @@ struct Index {
  
   
 
-##### 示例2（头像与背景模糊标题栏）
+#### 示例2（头像与背景模糊标题栏）
 
 该示例主要演示EditableTitleBar设置背景模糊、头像；取消右侧保存图标及自定义标题栏外边距的效果。
  
@@ -324,7 +324,7 @@ struct Index {
  
   
 
-##### 示例3（右侧自定义按钮播报）
+#### 示例3（右侧自定义按钮播报）
 
 从API version 18开始，该示例通过设置标题栏的右侧自定义按钮属性accessibilityText、accessibilityDescription、accessibilityLevel自定义屏幕朗读播报文本。
  
@@ -391,7 +391,7 @@ struct Index1 {
  
   
 
-##### 示例4（左侧图标设置为默认焦点）
+#### 示例4（左侧图标设置为默认焦点）
 
 在获焦状态下，该示例通过设置标题栏属性leftIconDefaultFocus使左侧图标默认获焦。
  
@@ -427,7 +427,7 @@ struct Index {
  
   
 
-##### 示例5（右侧自定义图标设置为默认焦点）
+#### 示例5（右侧自定义图标设置为默认焦点）
 
 在获焦状态下，该示例通过设置标题栏右侧图标属性defaultFocus使右侧图标默认获焦。
  
@@ -475,12 +475,12 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/K3mDzW7FSWCoGiN_0YnY9w/zh-cn_image_0000002611836073.png?HW-CC-KV=V1&HW-CC-Date=20260528T024155Z&HW-CC-Expire=86400&HW-CC-Sign=F6C8ACCA284CF19BC524049F191A59E686320D4A842B7F6373E7C78F73A15034)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/K3mDzW7FSWCoGiN_0YnY9w/zh-cn_image_0000002611836073.png?HW-CC-KV=V1&HW-CC-Date=20260528T025527Z&HW-CC-Expire=86400&HW-CC-Sign=AA9464901C5ABD672747B41685274FFA2188562636F5DC65E80AECA3FBC1BB69)
 
  
   
 
-##### 示例6（设置Symbol类型图标）
+#### 示例6（设置Symbol类型图标）
 
 从API version 18开始，该示例通过设置EditableTitleBarMenuItem的属性symbolStyle，展示了自定义Symbol类型图标。
  
@@ -548,4 +548,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/q-WpuxmhTXCczT5iWWZ-Xw/zh-cn_image_0000002581276328.png?HW-CC-KV=V1&HW-CC-Date=20260528T024155Z&HW-CC-Expire=86400&HW-CC-Sign=A4E367FD063644AC396622C4328005B3D4F49C325FB15E857DC7BB1CA01C5684)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/q-WpuxmhTXCczT5iWWZ-Xw/zh-cn_image_0000002581276328.png?HW-CC-KV=V1&HW-CC-Date=20260528T025527Z&HW-CC-Expire=86400&HW-CC-Sign=B2C98244F9508F499C3A202450A0DCB00C1BB59DB77D2C639244EB14CC729A3D)

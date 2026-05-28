@@ -14,7 +14,7 @@ OffscreenCanvas组件用于绘制自定义图形。
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,13 +22,13 @@ OffscreenCanvas组件用于绘制自定义图形。
 
 
 
-##### 构造函数
+#### 构造函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -52,7 +52,7 @@ constructor(width: number, height: number)
 
 
 
-##### constructor12+
+#### constructor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -77,7 +77,7 @@ constructor(width: number, height: number, unit: LengthMetricsUnit)
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -97,7 +97,7 @@ OffscreenCanvas支持以下属性：
 
 
 
-##### width
+#### width
 
 ```ArkTS
 // xxx.ets
@@ -137,7 +137,7 @@ struct OffscreenCanvasPage {
 
 
 
-##### height
+#### height
 
 ```ArkTS
 // xxx.ets
@@ -177,13 +177,13 @@ struct OffscreenCanvasPage {
 
 
 
-##### 方法
+#### 方法
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### transferToImageBitmap
+#### transferToImageBitmap
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -246,7 +246,7 @@ struct OffscreenCanvasPage {
 
 
 
-##### getContext10+
+#### getContext10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -328,7 +328,7 @@ struct OffscreenCanvasExamplePage {
 
 
 
-##### OffscreenCanvas支持并发线程绘制
+#### OffscreenCanvas支持并发线程绘制
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

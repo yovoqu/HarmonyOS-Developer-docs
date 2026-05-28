@@ -7,7 +7,7 @@
 如果开发者需要以独立的帧率绘制更新操作UI界面时，可以通过DisplaySync来实现。应用中绘制内容的帧率可以使用DisplaySync实例来控制，具体请查阅[@ohos.graphics.displaySync (可变帧率)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-displaysync)。
 
 
-##### 开发步骤
+#### 开发步骤
 
 此处以不同帧率改变文本组件字体大小为例，来模拟不同UI绘制帧率的效果。
 1. 导入模块。

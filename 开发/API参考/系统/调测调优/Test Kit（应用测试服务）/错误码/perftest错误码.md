@@ -10,7 +10,7 @@
 
 
 
-##### 32400001 初始化失败
+#### 32400001 初始化失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -32,7 +32,7 @@ Initialization failed.
 
 
 
-##### 32400002 内部错误
+#### 32400002 内部错误
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -54,7 +54,7 @@ Internal error.
 
 
 
-##### 32400003 参数校验失败
+#### 32400003 参数校验失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -76,7 +76,7 @@ Parameter verification failed.
 
 
 
-##### 32400004 执行回调函数失败
+#### 32400004 执行回调函数失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -98,7 +98,7 @@ Failed to execute the callback.
 
 
 
-##### 32400005 采集性能数据失败
+#### 32400005 采集性能数据失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -120,7 +120,7 @@ Failed to collect metric data.
 
 
 
-##### 32400006 无法获取性能数据
+#### 32400006 无法获取性能数据
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -142,7 +142,7 @@ Failed to obtain the measurement result.
 
 
 
-##### 32400007 接口不支持并行调用
+#### 32400007 接口不支持并行调用
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

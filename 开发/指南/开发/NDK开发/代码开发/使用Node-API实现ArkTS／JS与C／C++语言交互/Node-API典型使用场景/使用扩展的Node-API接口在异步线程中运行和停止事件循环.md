@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-event-loop
 
-##### 场景介绍
+#### 场景介绍
 
 开发者在自己创建的ArkTS运行环境中调用异步的ArkTS接口时，可以通过使用Node-API中的扩展接口napi_run_event_loop和napi_stop_event_loop来运行和停止ArkTS实例中的事件循环。
  
   
 
-##### 调用异步的ArkTS接口示例
+#### 调用异步的ArkTS接口示例
 
 调用的ArkTS接口为异步接口时，需要通过扩展接口napi_run_event_loop将异步线程中的事件循环运行起来，底层事件队列中的异步任务将被处理执行。当前Node-API扩展了两种事件循环模式来运行异步线程的事件循环，分别为napi_event_mode_nowait模式和napi_event_mode_default模式。
  
@@ -20,7 +20,7 @@
  
   
 
-##### 示例代码
+#### 示例代码
 
 - 功能实现
 

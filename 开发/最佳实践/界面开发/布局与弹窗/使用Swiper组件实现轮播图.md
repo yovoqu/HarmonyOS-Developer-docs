@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-carousel-graphic-works
 
-##### 概述
+#### 概述
 
 在各类应用和网站中，轮播图的使用非常广泛，它在信息展示和用户交互方面扮演着重要角色。轮播图不仅能在有限的屏幕区域内展示更多内容，还能有效地将关键的信息传递给用户。在开发应用或网站时，可以通过轮播图优先展示重要内容，次要内容则随后呈现，用户能够自主控制浏览节奏，滑动交互也能为用户带来发现内容的愉悦感，从而提升用户体验。
  
@@ -16,11 +16,11 @@
  
  
 
-##### 使用Swiper实现图文作品合集
+#### 使用Swiper实现图文作品合集
 
  
 
-##### 场景描述
+#### 场景描述
 
 在一些短视频平台上，经常能看到由图片和文字组合而成的作品集。这些作品集通常由多张图片构成，支持自动轮播或手动切换。
  
@@ -34,7 +34,7 @@
 
  
 
-##### 实现原理
+#### 实现原理
 
 图文作品轮播可以通过Swiper组件及其指示器的联动效果来实现。由于Swiper组件的指示器不可自定义，因此需要分开实现。
  
@@ -51,7 +51,7 @@
  
  
 
-##### 开发步骤
+#### 开发步骤
 1. 为Swiper组件设置[loop](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#loop)、[autoPlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#autoplay)、[interval](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#interval)和[indicator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#indicator)属性。在手指未滑动的情况下，图片每3秒会进行一次切换，并且自动进行轮播。
 
   
@@ -167,11 +167,11 @@ aboutToAppear(): void {
  
  
 
-##### 实现轮播图的叠加效果
+#### 实现轮播图的叠加效果
 
  
 
-##### 场景描述
+#### 场景描述
 
 轮播图的叠加效果通过视觉层叠、内容交互动画，能显著提升信息传达的丰富性和用户体验的沉浸感。通常情况下，轮播图是按照顺序依次轮播，但是有时候也希望能够以一种重叠的方式进行展示，即当前展示的图片覆盖在前一个图片上方，给用户一种更加流畅的切换体验。
  
@@ -183,7 +183,7 @@ aboutToAppear(): void {
  
  
 
-##### 实现原理
+#### 实现原理
 
 使用[层叠布局 (Stack)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-stack-layout)可以实现图片的叠加，结合滑动手势来实现图片的切换，并通过[animateTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#animateto)添加相应的切换动画。通过给图片添加以下属性来实现。
  
@@ -194,7 +194,7 @@ aboutToAppear(): void {
  
  
 
-##### 开发步骤
+#### 开发步骤
 1. 使用Stack组件将图片进行层叠布局，并给其设置zIndex、visibility、scale等属性。
 
   
@@ -295,11 +295,11 @@ Stack({ alignContent: Alignment.Start }) {
  
  
 
-##### 常见问题
+#### 常见问题
 
  
 
-##### Swiper如何实现左滑加载更多效果
+#### Swiper如何实现左滑加载更多效果
 
 可以通过监听滑动到边缘后超过距离多少来实现左滑加载更多效果，当超过一定距离时添加对应业务逻辑。
  
@@ -361,7 +361,7 @@ struct MySwiper {
  
  
 
-##### 如何解决swiper嵌套swiper滑动手势冲突
+#### 如何解决swiper嵌套swiper滑动手势冲突
 
 父组件有机制可以干预子组件的手势响应，可以通过手势拦截增强能力解决手势冲突，在回调onGestureRecognizerJudgeBegin()中进行滑动手势判断，处理对应业务逻辑。
  
@@ -404,6 +404,6 @@ struct MySwiper {
  
  
 
-##### 示例代码
+#### 示例代码
 
 - [使用Swiper组件实现轮播布局](https://gitcode.com/harmonyos_samples/MultipleImage)

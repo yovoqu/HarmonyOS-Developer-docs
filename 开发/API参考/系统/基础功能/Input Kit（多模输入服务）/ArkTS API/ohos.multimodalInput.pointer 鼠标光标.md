@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -22,7 +22,7 @@ import { pointer } from '@kit.InputKit';
 
 
 
-##### pointer.setPointerVisible
+#### pointer.setPointerVisible
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -82,7 +82,7 @@ struct Index {
 
 
 
-##### pointer.setPointerVisible
+#### pointer.setPointerVisible
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -146,7 +146,7 @@ struct Index {
 
 
 
-##### pointer.setPointerVisibleSync10+
+#### pointer.setPointerVisibleSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -198,7 +198,7 @@ struct Index {
 
 
 
-##### pointer.isPointerVisible
+#### pointer.isPointerVisible
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -256,7 +256,7 @@ struct Index {
 
 
 
-##### pointer.isPointerVisible
+#### pointer.isPointerVisible
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -303,7 +303,7 @@ struct Index {
 
 
 
-##### pointer.isPointerVisibleSync10+
+#### pointer.isPointerVisibleSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -346,7 +346,7 @@ struct Index {
 
 
 
-##### pointer.getPointerStyle
+#### pointer.getPointerStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -413,7 +413,7 @@ struct Index {
 
 
 
-##### pointer.getPointerStyle
+#### pointer.getPointerStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -488,7 +488,7 @@ struct Index {
 
 
 
-##### pointer.getPointerStyleSync10+
+#### pointer.getPointerStyleSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -548,7 +548,7 @@ struct Index {
 
 
 
-##### pointer.setPointerStyle
+#### pointer.setPointerStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -616,7 +616,7 @@ struct Index {
 
 
 
-##### pointer.setPointerStyle
+#### pointer.setPointerStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -692,7 +692,7 @@ struct Index {
 
 
 
-##### pointer.setPointerStyleSync10+
+#### pointer.setPointerStyleSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -758,7 +758,7 @@ struct Index {
 
 
 
-##### PrimaryButton10+
+#### PrimaryButton10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -774,7 +774,7 @@ struct Index {
 
 
 
-##### RightClickType10+
+#### RightClickType10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -793,7 +793,7 @@ struct Index {
 
 
 
-##### PointerStyle
+#### PointerStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -860,7 +860,7 @@ struct Index {
 
 
 
-##### pointer.setCustomCursor11+
+#### pointer.setCustomCursor11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -940,7 +940,7 @@ struct Index {
 
 
 
-##### CustomCursor15+
+#### CustomCursor15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -957,7 +957,7 @@ struct Index {
 
 
 
-##### CursorConfig15+
+#### CursorConfig15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -972,7 +972,7 @@ struct Index {
 
 
 
-##### pointer.setCustomCursor15+
+#### pointer.setCustomCursor15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1055,7 +1055,7 @@ struct Index {
 
 
 
-##### pointer.setCustomCursorSync11+
+#### pointer.setCustomCursorSync11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

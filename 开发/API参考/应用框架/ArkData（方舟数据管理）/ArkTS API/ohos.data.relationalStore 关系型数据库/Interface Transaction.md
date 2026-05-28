@@ -60,7 +60,7 @@ export default class EntryAbility extends UIAbility {
 ```
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -70,7 +70,7 @@ import { relationalStore } from '@kit.ArkData';
 
 
 
-##### commit14+
+#### commit14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -127,7 +127,7 @@ if (store != undefined) {
 
 
 
-##### rollback14+
+#### rollback14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -184,7 +184,7 @@ if (store != undefined) {
 
 
 
-##### insert14+
+#### insert14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -266,7 +266,7 @@ if (store != undefined) {
 
 
 
-##### insertSync14+
+#### insertSync14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -355,7 +355,7 @@ if (store != undefined) {
 
 
 
-##### batchInsert14+
+#### batchInsert14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -451,7 +451,7 @@ if (store != undefined) {
 
 
 
-##### batchInsertSync14+
+#### batchInsertSync14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -547,7 +547,7 @@ if (store != undefined) {
 
 
 
-##### batchInsertWithConflictResolution18+
+#### batchInsertWithConflictResolution18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -656,7 +656,7 @@ if (store != undefined) {
 
 
 
-##### batchInsertWithConflictResolutionSync18+
+#### batchInsertWithConflictResolutionSync18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -764,7 +764,7 @@ if (store != undefined) {
 
 
 
-##### batchInsertWithReturning23+
+#### batchInsertWithReturning23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -846,7 +846,7 @@ async function transBatchInsertWithReturningExample(trans: relationalStore.Trans
 
 
 
-##### batchInsertWithReturningSync23+
+#### batchInsertWithReturningSync23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -928,7 +928,7 @@ function transBatchInsertWithReturningSyncExample(trans: relationalStore.Transac
 
 
 
-##### update14+
+#### update14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1010,7 +1010,7 @@ if (store != undefined) {
 
 
 
-##### updateSync14+
+#### updateSync14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1092,7 +1092,7 @@ if (store != undefined) {
 
 
 
-##### updateWithReturning23+
+#### updateWithReturning23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1170,7 +1170,7 @@ async function transUpdateWithReturningExample(trans: relationalStore.Transactio
 
 
 
-##### updateWithReturningSync23+
+#### updateWithReturningSync23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1248,7 +1248,7 @@ function transUpdateWithReturningSyncExample(trans: relationalStore.Transaction)
 
 
 
-##### delete14+
+#### delete14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1322,7 +1322,7 @@ if (store != undefined) {
 
 
 
-##### deleteSync14+
+#### deleteSync14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1395,7 +1395,7 @@ if (store != undefined) {
 
 
 
-##### deleteWithReturning23+
+#### deleteWithReturning23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1466,7 +1466,7 @@ async function transDeleteWithReturningExample(trans: relationalStore.Transactio
 
 
 
-##### deleteWithReturningSync23+
+#### deleteWithReturningSync23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1537,7 +1537,7 @@ function transDeleteWithReturningSyncExample(trans: relationalStore.Transaction)
 
 
 
-##### query14+
+#### query14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1617,7 +1617,7 @@ if (store != undefined) {
 
 
 
-##### querySync14+
+#### querySync14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1698,7 +1698,7 @@ if (store != undefined) {
 
 
 
-##### querySql14+
+#### querySql14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1776,7 +1776,7 @@ if (store != undefined) {
 
 
 
-##### querySqlSync14+
+#### querySqlSync14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1854,7 +1854,7 @@ if (store != undefined) {
 
 
 
-##### queryWithoutRowCount23+
+#### queryWithoutRowCount23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1932,7 +1932,7 @@ async function queryWithoutRowCountExample(store : relationalStore.RdbStore) {
 
 
 
-##### queryWithoutRowCountSync23+
+#### queryWithoutRowCountSync23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2010,7 +2010,7 @@ async function queryWithoutRowCountSyncExample(store : relationalStore.RdbStore)
 
 
 
-##### querySqlWithoutRowCount23+
+#### querySqlWithoutRowCount23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2087,7 +2087,7 @@ async function querySqlWithoutRowCountExample(store : relationalStore.RdbStore) 
 
 
 
-##### querySqlWithoutRowCountSync23+
+#### querySqlWithoutRowCountSync23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2164,7 +2164,7 @@ async function querySqlWithoutRowCountSyncExample(store : relationalStore.RdbSto
 
 
 
-##### execute14+
+#### execute14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2247,7 +2247,7 @@ if (store != undefined) {
 
 
 
-##### executeSync14+
+#### executeSync14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

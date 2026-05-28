@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-arktsnode-buildernode
 
-##### 概述
+#### 概述
 
 自定义声明式节点 ([BuilderNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode))提供能够挂载系统组件的能力，支持采用无状态的UI方式，通过[全局自定义构建函数](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder#全局自定义构建函数)@Builder定制组件树。组件树的根[FrameNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode)节点可通过[getFrameNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode#getframenode)获取，该节点既可直接由[NodeController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller)返回并挂载于[NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)节点下，亦可在FrameNode树与[RenderNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-rendernode)树中嵌入声明式组件，实现混合显示。同时，BuilderNode具备纹理导出功能，导出的纹理可在[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)中实现同层渲染。
 
@@ -18,7 +18,7 @@
 
 
 
-##### 基本概念
+#### 基本概念
 
  - 系统组件：组件是UI的必要元素，形成了在界面中的样子，由ArkUI直接提供的称为[系统组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-development-overview)。
  - 实体节点：由后端创建的Native节点。
@@ -32,13 +32,13 @@ BuilderNode仅可作为叶子节点进行使用。如有更新需要，建议通
 
 
 
-##### 创建BuilderNode对象
+#### 创建BuilderNode对象
 
 BuilderNode对象为一个模板类，需要在创建的时候指定类型。该类型需要与后续build方法中传入的[WrappedBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-wrapbuilder)的类型保持一致，否则会存在编译告警导致编译失败。
 
 
 
-##### 创建组件树
+#### 创建组件树
 
 通过BuilderNode的build可以实现组件树的创建。依照传入的WrappedBuilder对象创建组件树，并持有组件树的根节点。
 
@@ -184,7 +184,7 @@ struct RenderNodePage {
 
 
 
-##### 更新组件树
+#### 更新组件树
 
 通过BuilderNode对象的build创建组件树。依照传入的WrappedBuilder对象创建组件树，并持有组件树的根节点。
 
@@ -300,7 +300,7 @@ struct WrappedBuilderPage {
 
 
 
-##### 解除实体节点引用关系
+#### 解除实体节点引用关系
 
 由于BuilderNode对应的是后端的实体节点，正常的内存释放依赖前端对象的回收。如果期望直接释放后端的节点对象，则可以通过调用[dispose](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode#dispose12)与实体节点解除引用关系，此时持有的前端BuilderNode对象不再影响实体节点的生命周期。
 
@@ -310,7 +310,7 @@ struct WrappedBuilderPage {
 
 
 
-##### 注入触摸事件
+#### 注入触摸事件
 
 BuilderNode中提供了[postTouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode#posttouchevent)，可以通过该接口向BuilderNode中绑定的组件注入[触摸事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-touch)，实现事件的模拟转发。
 
@@ -397,7 +397,7 @@ struct postTouchEventPage {
 
 
 
-##### BuilderNode内的BuilderProxyNode导致树结构发生变化
+#### BuilderNode内的BuilderProxyNode导致树结构发生变化
 
 若传入的Builder的根节点为语法节点（if/else/foreach/…）或自定义组件，将额外生成一个FrameNode，在节点树中显示为“BuilderProxyNode”，这会导致树结构变化，影响某些测试的传递过程。
 
@@ -658,7 +658,7 @@ struct Index {
 
 
 
-##### BuilderNode调用reuse和recycle接口实现节点复用能力
+#### BuilderNode调用reuse和recycle接口实现节点复用能力
 
 调用[reuse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode#reuse12)接口和[recycle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode#recycle12)接口，将复用和回收事件传递至BuilderNode中的自定义组件，以实现BuilderNode节点内部的自定义组件的复用。
 
@@ -850,7 +850,7 @@ struct Index {
 
 
 
-##### BuilderNode在子自定义组件中使用@Reusable装饰器
+#### BuilderNode在子自定义组件中使用@Reusable装饰器
 
 BuilderNode节点的复用机制与使用[@Reusable](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-reusable)装饰器的自定义组件的复用机制会相互冲突。因此，当BuilderNode的子节点为自定义组件时，不支持该自定义组件使用@Reusable装饰器标记，否则将导致应用程序触发JSCrash。若需要使用@Reusable装饰器，应使用一个普通自定义组件包裹该自定义组件。
 
@@ -954,7 +954,7 @@ struct Index {
 
 
 
-##### 通过系统环境变化更新节点
+#### 通过系统环境变化更新节点
 
 使用[updateConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode#updateconfiguration12)来监听[系统环境变化](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-configuration)事件，以触发节点的全量更新。
 
@@ -1101,7 +1101,7 @@ struct Index {
 
 
 
-##### 跨页面复用注意事项
+#### 跨页面复用注意事项
 
 在使用[路由](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)接口[router.replaceUrl](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#replaceurl)、[router.back](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#back)、[router.clear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#clear)、[router.replaceNamedRoute](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#replacenamedroute)操作页面时，若某个被缓存的BuilderNode位于即将销毁的页面内，那么在新页面中复用该BuilderNode时，可能会存在数据无法更新或新创建节点无法显示的问题。以[router.replaceNamedRoute](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#replacenamedroute)为例，在以下示例代码中，当点击“router replace”按钮后，页面将切换至PageTwo，同时标志位isShowText会被设定为false。
 
@@ -1314,7 +1314,7 @@ struct Index {
 
 
 
-##### BuilderNode中使用LocalStorage
+#### BuilderNode中使用LocalStorage
 
 从API version 12开始，自定义组件支持接收[LocalStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localstorage)实例。可以通过[传递LocalStorage实例](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localstorage#自定义组件接收localstorage实例)来使用LocalStorage相关的装饰器[@LocalStorageProp](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localstorage#localstorageprop)、[@LocalStorageLink](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localstorage#localstoragelink)。
 
@@ -1395,7 +1395,7 @@ struct Child {
 
 
 
-##### 查询当前BuilderNode是否解除引用
+#### 查询当前BuilderNode是否解除引用
 
 前端节点均绑定有相应的后端实体节点，当节点调用dispose接口解除绑定后，再次调用接口可能会出现crash、返回默认值的情况。
 
@@ -1479,7 +1479,7 @@ struct Index {
 
 
 
-##### 设置BuilderNode继承冻结能力
+#### 设置BuilderNode继承冻结能力
 
 ArkUI支持[自定义组件冻结](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-custom-components-freeze)，该功能冻结非激活状态组件的刷新能力。当组件处于非激活状态时，即便其绑定状态变量发生变化，也不会触发组件UI的重新渲染，从而减少复杂UI场景的刷新负载。
 
@@ -1502,7 +1502,7 @@ BuilderNode节点只有通过以下方式上下树时，才会根据该节点是
 
 
 
-##### BuilderNode常用冻结场景（状态管理V1）
+#### BuilderNode常用冻结场景（状态管理V1）
 
 从API version 20开始，在状态管理V1中，当BuilderNode节点开启冻结（即[inheritFreezeOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode#inheritfreezeoptions20)设置为true）并继承父自定义组件的冻结策略时，如果父自定义组件的冻结策略设置为开启组件冻结（即freezeWhenInactive选项设为true），则BuilderNode节点在不活跃时将会冻结。当切换至活跃状态时，节点将解冻并使用缓存的数据进行更新，示例如下。
 
@@ -1707,7 +1707,7 @@ struct TextBuilder {
 
 
 
-##### BuilderNode常用冻结场景（状态管理V2）
+#### BuilderNode常用冻结场景（状态管理V2）
 
 从API version 22开始，在状态管理V2中，BuilderNode冻结开启方式和在状态管理V1中的开启方式一致，当BuilderNode节点开启冻结（即[inheritFreezeOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode#inheritfreezeoptions20)设置为true）并继承父自定义组件的冻结策略时，如果父自定义组件的冻结策略设置为开启组件冻结（即freezeWhenInactive选项设为true），则BuilderNode节点在不活跃时将会冻结。当切换至活跃状态时，节点将解冻并使用缓存的数据进行更新。以下示例展示了几种状态管理V2常用的BuilderNode冻结场景。
 
@@ -1839,7 +1839,7 @@ struct Page2 {
 图示如下：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/Ske7CLEISv20RzSl-gFzKw/zh-cn_image_0000002611753553.png?HW-CC-KV=V1&HW-CC-Date=20260528T014812Z&HW-CC-Expire=86400&HW-CC-Sign=7AAE1083312ACE55DCDCD943F8F107D37FEE4338884122866D56FADED06D66D5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/Ske7CLEISv20RzSl-gFzKw/zh-cn_image_0000002611753553.png?HW-CC-KV=V1&HW-CC-Date=20260528T030443Z&HW-CC-Expire=86400&HW-CC-Sign=97FDCE7B4C6B830D5519908C35D4F666E28EDB415A4C008D1F84485F56893F1B)
 
 
 ```text
@@ -1956,7 +1956,7 @@ struct buildNodeChild {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/cOEMHdxlRM-HRa8QwH992g/zh-cn_image_0000002581434082.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014812Z&HW-CC-Expire=86400&HW-CC-Sign=EFE8AD617BF85119A691BA5D62F2E52153A7F4BC12CEED693A9A98AED2DFF1A0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/cOEMHdxlRM-HRa8QwH992g/zh-cn_image_0000002581434082.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030443Z&HW-CC-Expire=86400&HW-CC-Sign=3D121E91F3EBFEA2036AA1B1939BA79D8598D5D20EF3D73BDD77CEF4384AF586)
 
 
 在上面的示例中：
@@ -2155,7 +2155,7 @@ struct TextBuilder {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/ZcsGdXgKS-q9hyDmpQKDUA/zh-cn_image_0000002611833911.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014812Z&HW-CC-Expire=86400&HW-CC-Sign=EEBC80E6512BD1002EF25385FEF82A10F423A307CCEEA2110C7BE01A40156C36)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/ZcsGdXgKS-q9hyDmpQKDUA/zh-cn_image_0000002611833911.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030443Z&HW-CC-Expire=86400&HW-CC-Sign=813A5641CC7BB127295DB60AB2D27818B894F77FC4E39C6C6A5268AB86A02455)
 
 
 在上面的示例中：
@@ -2305,7 +2305,7 @@ struct BuildNodeChild {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/e_2c_oKDSCeBCtHVWYOY2A/zh-cn_image_0000002581274164.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014812Z&HW-CC-Expire=86400&HW-CC-Sign=E6AE1F97FC9B3D38583854A2F53D208AFEFB4870FE44130A30208D28D445F778)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/e_2c_oKDSCeBCtHVWYOY2A/zh-cn_image_0000002581274164.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030443Z&HW-CC-Expire=86400&HW-CC-Sign=6769B41B35293C6AC49242276DC73ECB037E06640B505AAB951DCDB3658DA393)
 
 
 在上面的示例中：
@@ -2445,7 +2445,7 @@ struct FreezeBuildNode {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/WeDd4W6rRb-eIlJXlK_wNA/zh-cn_image_0000002611754019.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014812Z&HW-CC-Expire=86400&HW-CC-Sign=A37CE1042B8C8CEB943DC6FDB5AAE1E0265458BD60ADB0FF1AAA40F9023CA6A4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/WeDd4W6rRb-eIlJXlK_wNA/zh-cn_image_0000002611754019.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030443Z&HW-CC-Expire=86400&HW-CC-Sign=92F03B4DF5DBA131C36CDA15D22735FEB69D6FF39A80A40763A87CA77D4E31C1)
 
 
 在上面的示例中：
@@ -2458,7 +2458,7 @@ struct FreezeBuildNode {
 
 
 
-##### 设置BuilderNode支持内部@Consume接收外部的@Provide数据（状态管理V1）
+#### 设置BuilderNode支持内部@Consume接收外部的@Provide数据（状态管理V1）
 
 从API version 20开始，通过配置BuildOptions参数，BuilderNode内部自定义组件的[@Consume](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-provide-and-consume)支持接收所在页面的[@Provide](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-provide-and-consume)数据。
 
@@ -2466,7 +2466,7 @@ struct FreezeBuildNode {
 
 
 
-##### 设置BuilderNode支持内部@Consumer接收外部的@Provider数据（状态管理V2）
+#### 设置BuilderNode支持内部@Consumer接收外部的@Provider数据（状态管理V2）
 
 从API version 23开始，通过配置BuildOptions参数，BuilderNode内部自定义组件的[@Consumer](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-provider-and-consumer)支持接收所在页面的[@Provider](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-provider-and-consumer)数据。
 
@@ -2474,7 +2474,7 @@ struct FreezeBuildNode {
 
 
 
-##### BuilderNode结合ArkWeb组件实现预渲染页面
+#### BuilderNode结合ArkWeb组件实现预渲染页面
 
 预渲染适用于Web页面启动与跳转等场景。通过结合BuilderNode，可以将ArkWeb组件提前进行离线预渲染，组件不会即时挂载至页面，而是在需要时通过NodeController动态挂载与显示。此举能够提高页面切换的流畅度及用户体验。
 

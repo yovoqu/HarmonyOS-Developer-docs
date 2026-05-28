@@ -12,7 +12,7 @@
 开发者指南见：[@Env开发者指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-env-system-property)。
 
 
-##### @Env
+#### @Env
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -44,7 +44,7 @@ struct Index {
 
 
 
-##### EnvDecorator
+#### EnvDecorator
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -83,7 +83,7 @@ type EnvDecorator = (value: SystemProperties) => PropertyDecorator
 
 
 
-##### SystemProperties
+#### SystemProperties
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

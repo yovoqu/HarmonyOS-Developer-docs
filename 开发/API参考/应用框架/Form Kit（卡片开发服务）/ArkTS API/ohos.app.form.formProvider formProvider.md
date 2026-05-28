@@ -12,7 +12,7 @@ formProvider模块提供了获取卡片信息、更新卡片、设置卡片更�
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { formProvider } from '@kit.FormKit';
 
 
 
-##### formProvider.setFormNextRefreshTime
+#### formProvider.setFormNextRefreshTime
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -81,7 +81,7 @@ try {
 
 
 
-##### formProvider.setFormNextRefreshTime
+#### formProvider.setFormNextRefreshTime
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -144,7 +144,7 @@ try {
 
 
 
-##### formProvider.updateForm
+#### formProvider.updateForm
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -211,7 +211,7 @@ try {
 
 
 
-##### formProvider.updateForm
+#### formProvider.updateForm
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -282,7 +282,7 @@ try {
 
 
 
-##### formProvider.getFormsInfo
+#### formProvider.getFormsInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -334,7 +334,7 @@ try {
 
 
 
-##### formProvider.getFormsInfo
+#### formProvider.getFormsInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -391,7 +391,7 @@ try {
 
 
 
-##### formProvider.getFormsInfo
+#### formProvider.getFormsInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -452,7 +452,7 @@ try {
 
 
 
-##### formProvider.openFormEditAbility18+
+#### formProvider.openFormEditAbility18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -524,7 +524,7 @@ struct Page {
 
 
 
-##### formProvider.closeFormEditAbility23+
+#### formProvider.closeFormEditAbility23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -598,7 +598,7 @@ struct Page {
 
 
 
-##### formProvider.openFormManager18+
+#### formProvider.openFormManager18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -659,7 +659,7 @@ try {
 
 
 
-##### formProvider.getPublishedFormInfoById(deprecated)
+#### formProvider.getPublishedFormInfoById(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -720,7 +720,7 @@ try {
 
 
 
-##### formProvider.getPublishedFormInfos(deprecated)
+#### formProvider.getPublishedFormInfos(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -773,7 +773,7 @@ try {
 
 
 
-##### formProvider.requestOverflow20+
+#### formProvider.requestOverflow20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -851,7 +851,7 @@ try {
 
 
 
-##### formProvider.cancelOverflow20+
+#### formProvider.cancelOverflow20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -914,7 +914,7 @@ try {
 
 
 
-##### formProvider.getFormRect20+
+#### formProvider.getFormRect20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -974,7 +974,7 @@ try {
 
 
 
-##### formProvider.getPublishedRunningFormInfoById20+
+#### formProvider.getPublishedRunningFormInfoById20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1034,7 +1034,7 @@ try {
 
 
 
-##### formProvider.getPublishedRunningFormInfos20+
+#### formProvider.getPublishedRunningFormInfos20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1083,7 +1083,7 @@ try {
 
 
 
-##### formProvider.reloadForms22+
+#### formProvider.reloadForms22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1149,7 +1149,7 @@ try {
 
 
 
-##### formProvider.reloadAllForms22+
+#### formProvider.reloadAllForms22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

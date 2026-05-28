@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Wearable | lite_wearable
 
@@ -22,7 +22,7 @@ import device from '@system.device';
  
   
 
-##### device.getInfo(deprecated)
+#### device.getInfo(deprecated)
 
 **支持设备：** Wearable | lite_wearable
 
@@ -150,7 +150,7 @@ export default {
  
   
 
-##### GetDeviceOptions(deprecated)
+#### GetDeviceOptions(deprecated)
 
 **支持设备：** Wearable | lite_wearable
 
@@ -167,7 +167,7 @@ export default {
  
   
 
-##### DeviceResponse(deprecated)
+#### DeviceResponse(deprecated)
 
 **支持设备：** Wearable | lite_wearable
 

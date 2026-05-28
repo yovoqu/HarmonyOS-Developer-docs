@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-fusionparseparamsfn-overload
 
-##### 函数功能
+#### 函数功能
 
 注册解析融合算子属性的函数，为[FusionParseParamsFn](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-fusionparseparamsfn)的重载函数。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 OpRegistrationData &FusionParseParamsFn(const FusionParseParamByOpFunc &fusion_parse_param_fn)
@@ -18,7 +18,7 @@ OpRegistrationData &FusionParseParamsFn(const FusionParseParamByOpFunc &fusion_p
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -27,7 +27,7 @@ OpRegistrationData &FusionParseParamsFn(const FusionParseParamByOpFunc &fusion_p
  
   
 
-##### 回调函数FusionParseParamByOpFunc
+#### 回调函数FusionParseParamByOpFunc
 
 开发者自定义并实现FusionParseParamByOpFunc类函数，完成原始模型中属性到适配AI处理器的模型中的属性映射，将结果填入Operator类中。
  
@@ -45,7 +45,7 @@ Status FusionParseParamByOpFunc(const std::vector<ge::Operator> &op_src,  ge::Op
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 REGISTER_CUSTOM_OP(XXXXXX)

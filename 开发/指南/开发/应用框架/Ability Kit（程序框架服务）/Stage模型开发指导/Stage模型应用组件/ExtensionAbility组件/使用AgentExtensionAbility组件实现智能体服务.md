@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/agent-extension-ability
 
-##### 概述
+#### 概述
 
 从API version 24开始，支持开发者使用[AgentExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-agent-agentextensionability)类型的组件提供智能体服务。系统应用可以连接其他应用实现的[AgentExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-agent-agentextensionability)组件，并使用相应的智能体服务。
 
@@ -14,7 +14,7 @@
 
 
 
-##### 实现AgentExtensionAbility组件
+#### 实现AgentExtensionAbility组件
 
 在DevEco Studio工程中手动新建一个[AgentExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-agent-agentextensionability)，具体步骤如下：
 1. 在工程Module对应的ets目录下，右键选择"New > Directory"，新建一个目录并命名为agentextability。
@@ -114,7 +114,7 @@ export default class AgentExtAbility extends AgentExtensionAbility {
 
 
 
-##### 使用AgentExtensionAbility组件收发数据
+#### 使用AgentExtensionAbility组件收发数据
 
 应用可以在服务端AgentExtensionAbility组件的[onData()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-agent-agentextensionability#ondata)方法中接收客户端传递的数据和[AgentHostProxy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-agenthostproxy)对象，并且可以通过调用[AgentHostProxy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-agenthostproxy)对象的[sendData()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-agenthostproxy#senddata)方法将数据发送给客户端。
 
@@ -142,7 +142,7 @@ export default class AgentExtAbility extends AgentExtensionAbility {
 
 
 
-##### 使用AgentExtensionAbility组件接收和发送安全认证请求
+#### 使用AgentExtensionAbility组件接收和发送安全认证请求
 
 应用可以在服务端AgentExtensionAbility组件的[onAuth()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-agent-agentextensionability#onauth)方法中接收客户端的安全认证请求以及[AgentHostProxy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-agenthostproxy)对象，并且可以通过[AgentHostProxy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-agenthostproxy)的[authorize()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-agenthostproxy#authorize)方法向客户端发送安全认证请求。
 

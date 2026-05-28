@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-settiling
 
-##### 函数功能
+#### 函数功能
 
 注册Tiling函数。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 OpAICoreDef &SetTiling(gert::OpImplRegisterV2::TilingKernelFunc func);
@@ -18,7 +18,7 @@ OpAICoreDef &SetTiling(gert::OpImplRegisterV2::TilingKernelFunc func);
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -27,12 +27,12 @@ OpAICoreDef &SetTiling(gert::OpImplRegisterV2::TilingKernelFunc func);
  
   
 
-##### 返回值
+#### 返回值
 
 [OpAICoreDef](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-settiling)算子定义。
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

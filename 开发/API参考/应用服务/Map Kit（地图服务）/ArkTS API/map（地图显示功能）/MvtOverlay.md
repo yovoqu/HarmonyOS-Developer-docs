@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mvtoverlay
 **支持设备：** Phone | PC/2in1 | Tablet
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -15,7 +15,7 @@ import { map, mapCommon } from '@kit.MapKit';
  
   
 
-##### MvtOverlay
+#### MvtOverlay
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -61,7 +61,7 @@ let mvtOverlay = this.mapController?.addMvtOverlay(params);
  
   
 
-##### addLayers
+#### addLayers
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -113,7 +113,7 @@ mvtOverlay.addLayers(renderLayers);
  
   
 
-##### removeLayers
+#### removeLayers
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -145,7 +145,7 @@ mvtOverlay.removeLayers(layerIds);
  
   
 
-##### changeLayers
+#### changeLayers
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -199,7 +199,7 @@ mvtOverlay.changeLayers(renderLayers, layerIds);
  
   
 
-##### setBlur
+#### setBlur
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -230,7 +230,7 @@ mvtOverlay.setBlur(8);
  
   
 
-##### getBlur
+#### getBlur
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

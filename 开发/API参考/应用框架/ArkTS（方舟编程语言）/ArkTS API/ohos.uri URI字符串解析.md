@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { uri } from '@kit.ArkTS';
 
 
 
-##### URI
+#### URI
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -30,7 +30,7 @@ import { uri } from '@kit.ArkTS';
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -57,7 +57,7 @@ import { uri } from '@kit.ArkTS';
 
 
 
-##### 命名规则
+#### 命名规则
 
 **命名形式：**
 
@@ -150,7 +150,7 @@ console.info("result:", uriObj7.checkIsAbsolute()); // result: true
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -192,7 +192,7 @@ new uri.URI('https://username:password@host:8080');
 
 
 
-##### toString
+#### toString
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -220,7 +220,7 @@ let result1 = result.toString(); // https://username:password@host:8080/director
 
 
 
-##### equalsTo9+
+#### equalsTo9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -265,7 +265,7 @@ let result = uriInstance.equalsTo(uriInstance1); // true
 
 
 
-##### checkIsAbsolute
+#### checkIsAbsolute
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -295,7 +295,7 @@ console.info(`${uriInstance1.checkIsAbsolute()}`); // false
 
 
 
-##### normalize
+#### normalize
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -335,7 +335,7 @@ console.info(uri2.path); // /../../patch/path2/path3
 
 
 
-##### checkRelative12+
+#### checkRelative12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -365,7 +365,7 @@ console.info(`${uriInstance1.checkRelative()}`); // true
 
 
 
-##### checkOpaque12+
+#### checkOpaque12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -395,7 +395,7 @@ console.info(`${uriInstance1.checkOpaque()}`); // true
 
 
 
-##### checkHierarchical12+
+#### checkHierarchical12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -425,7 +425,7 @@ console.info(`${uriInstance1.checkHierarchical()}`); // false
 
 
 
-##### getQueryValue12+
+#### getQueryValue12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -474,7 +474,7 @@ console.info(uriInstance1.getQueryValue('abc')) // null
 
 
 
-##### addQueryValue12+
+#### addQueryValue12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -520,7 +520,7 @@ console.info(newRoute.toString()); // https://www.test.com?param1=hello%20world
 
 
 
-##### addSegment12+
+#### addSegment12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -565,7 +565,7 @@ console.info(newRoute.toString()); // http://www.test.com/my%20image.jpg
 
 
 
-##### addEncodedSegment12+
+#### addEncodedSegment12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -610,7 +610,7 @@ console.info(newRoute.toString()); // http://www.test.com/my%20image.jpg
 
 
 
-##### getQueryNames12+
+#### getQueryNames12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -639,7 +639,7 @@ console.info(paramNames.toString()); // param1,param2
 
 
 
-##### getQueryValues12+
+#### getQueryValues12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -686,7 +686,7 @@ console.info(JSON.stringify(uriInstance.getQueryValues("abc"))); // []
 
 
 
-##### getBooleanQueryValue12+
+#### getBooleanQueryValue12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -739,7 +739,7 @@ console.info(`${uriInstance4.getBooleanQueryValue("active", true)}`); // true
 
 
 
-##### clearQuery12+
+#### clearQuery12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -767,7 +767,7 @@ console.info(uriInstance.clearQuery().toString()); // https://www.test.com
 
 
 
-##### getLastSegment12+
+#### getLastSegment12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -795,7 +795,7 @@ console.info(uriInstance.getLastSegment()); // image.jpg
 
 
 
-##### getSegment12+
+#### getSegment12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -823,7 +823,7 @@ console.info(uriInstance.getSegment().toString()); // path,to,image.jpg
 
 
 
-##### createFromParts12+
+#### createFromParts12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -869,7 +869,7 @@ console.info(uriInstance.toString()); // mailto:no%20body#top
 
 
 
-##### equals(deprecated)
+#### equals(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

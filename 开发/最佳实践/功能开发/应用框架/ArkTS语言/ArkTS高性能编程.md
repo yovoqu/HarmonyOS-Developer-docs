@@ -4,17 +4,17 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-arkts-high-performance
 
-##### 概述
+#### 概述
 
 高性能编程指的是在语法使用过程中，通过优化一些影响性能的代码片段，使代码以最优的方式执行。以下实践是在开发过程中总结的高性能写法和建议，包括变量声明、属性访问、数值计算、数据结构使用以及函数声明与使用等内容。在实现业务功能时，应理解高性能写法的原理，并将其应用于代码逻辑中。
  
  
 
-##### 变量声明
+#### 变量声明
 
  
 
-##### 使用const声明常量
+#### 使用const声明常量
 
 对于初期明确不会改变的变量，尽量使用const进行初始化，这里的常量包含基础类型和引用类型。通过const保证地址不会发生变化，能够极大减少由于编码时误操作导致的赋值等行为，造成对原有逻辑的改变，声明为const能够在编译时及时发现错误。其中当const声明的是引用类型时，引用类型内部的属性变化是允许的，对于这种不存在地址变化的情况下，也建议使用const声明。
  
@@ -57,7 +57,7 @@ classA.propA = 'Property A';
  
  
 
-##### 指定number的类型
+#### 指定number的类型
 
 对于number类型，编译器在优化时会区分int和double类型。开发者在初始化number类型的变量时，如果预期是整数类型就初始化为0，小数类型就初始化为0.0，避免将一个number类型初始化为undefined或者null。
  
@@ -74,7 +74,7 @@ function calAddSum(addNum: number): number {
  
  
 
-##### 减少使用ESObject
+#### 减少使用ESObject
 
 ESObject主要用于在ArkTS和TS/JS跨语言调用的场景中作为类型标注，在非跨语言场景中使用ESObject标注类型，会引入不必要的跨语言调用，造成额外的性能开销，建议在非跨语言调用的场景下，避免使用ESObject，引入明确的类型进行标注。
  
@@ -121,11 +121,11 @@ let obj: TestA = getObject(123); // Explicitly introduce the label type
  
  
 
-##### 属性访问
+#### 属性访问
 
  
 
-##### 减少变量的属性查找
+#### 减少变量的属性查找
 
 在要求性能的场景下，建议通过将全局变量存储为局部变量的方式来减少全局查找，因为访问局部变量的速度要比访问全局变量的速度更快。重复的访问同一个变量，将造成不必要的消耗，尤其当类似的访问出现在循环过程中，其对于性能的影响更大。
  
@@ -173,7 +173,7 @@ function getDay(year: number): number {
  
  
 
-##### 给类属性添加访问修饰符
+#### 给类属性添加访问修饰符
 
 在ArkTS中，对于类结构的属性提供了private、protected和public可访问修饰符。默认情况下一个属性的可访问修饰符为public。选取适当的可访问修饰符可以提升代码的安全性、可读性。
  
@@ -218,11 +218,11 @@ let res = counter.getCount();
  
  
 
-##### 数值计算
+#### 数值计算
 
  
 
-##### 数值计算使用TypedArray
+#### 数值计算使用TypedArray
 
 如果是纯数值计算的场合，推荐使用TypedArray数据结构。TypedArray类型化数组是一种类似数组的对象，其提供了一种用于在内存缓冲中访问原始二进制数据的机制。在一些图像数据处理、加解密的数据计算过程中使用TypedArray可以提高数据处理的效率，因为TypedArray是基于ArrayBuffer实现，在性能方面也能够进行较大提升。
  
@@ -252,11 +252,11 @@ for (let i = 0; i < 3; i++) {
  
  
 
-##### 数据结构的使用
+#### 数据结构的使用
 
  
 
-##### 选取合适的数据结构
+#### 选取合适的数据结构
 
 有些时候会采用Record的方式作为临时容器来处理属性存取的逻辑，例如如下案例中，对于info执行的操作是set存储以及读取的操作，这里更好的方式是采用标准内置Map以及基础类库提供的高性能容器类如HashMap。HashMap是ArkTS提供的高性能容器类，底层基于哈希表实现（哈希冲突时会在链表与红黑树间动态切换以优化性能），提供了高性能的数据读写操作，可以用来实现键值对的快速读写。
  
@@ -312,7 +312,7 @@ class InfoUtil {
  
  
 
-##### 避免造成稀疏数组
+#### 避免造成稀疏数组
 
  
 分配数组时，需要避免使用如下的方式进行处理。当虚拟机在分配大小超过1024KB大小的数组时，会变成用哈希表来存储元素，相对数组用偏移来访问元素速度较慢，在开发时，尽量避免数组变成稀疏数组。
@@ -329,11 +329,11 @@ result[9999] = 0;
 ```
  
 
-##### 函数声明与使用
+#### 函数声明与使用
 
  
 
-##### 函数内部变量尽量使用参数传递
+#### 函数内部变量尽量使用参数传递
 
 能传递参数的尽量传递参数，不要使用闭包，闭包作为参数会多一次闭包的创建和访问。在普通函数中，修改外部作用域的变量时，建议通过函数的参数传递，因为在直接声明时引用外部作用域的变量，如果没有及时清理，可能有内存泄漏的风险。ArkTS中函数参数是引用类型时，作用于引用类型的修改会进行引用传递，函数内对形参的修改也会作用在实参上。
  
@@ -372,11 +372,11 @@ foo(arr);
 ```
  
 
-##### 高性能导入导出写法
+#### 高性能导入导出写法
 
  
 
-##### 减少多层间接导出方式
+#### 减少多层间接导出方式
 
  
 【反例】在使用export导出方法时，开发者会使用export ... from 'xxx' 的写法进行变量间接导出。特别地，会有开发者在Index文件中，加载非直接导出的文件。
@@ -433,7 +433,7 @@ export const one: number = 1;
 此时，实际查找过程为： '@har/Index' -> 'Numbers'。在解析变量导入导出时，ArkTS模块化会进行两步操作：1.通过模块名查找对应的模块；2.在对应模块中查找原始的导出变量。因此，如果中间层增加，会花费更多的时间查找每个模块，增加依赖解析阶段的耗时。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/SEirWdvpR6G7_tp5IcaZ6w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013110Z&HW-CC-Expire=86400&HW-CC-Sign=086AC199D8B82AA18321D84244C6ECB3E10D5489A64D29EAB13A5DDD67B60461)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/SEirWdvpR6G7_tp5IcaZ6w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024752Z&HW-CC-Expire=86400&HW-CC-Sign=7A7F1D4F04FB2E08ACA177BB0A9F2AFA35026AB3C7D157881A83E8569B88FC11)
  
 
 跳过的中间文件如果有顶层代码等写法，可能会对其他文件的执行产生影响，需修改。具体可参考：[模块加载副作用及优化](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/arkts-module-side-effects-V5)。
@@ -441,7 +441,7 @@ export const one: number = 1;
 
  
 
-##### 减少同文件大量export *导出方式
+#### 减少同文件大量export *导出方式
 
 export *对于开发者而言是非常简便的导出方式，尤其在Index文件中使用间接导出时，export *方式可以让开发者减少维护成本，只需要修改导出和导入文件即可，无需修改间接导出层。
  
@@ -491,7 +491,7 @@ export const one: number = 1;
 修改为具名导出后，整体查找流程为：'main -> @har/Index -> Numbers'，不再会去继续向下查找，减少耗时。同理，@har/Index.ets文件下其他export *导出也推荐改用具名导出。
  
 
-##### 延迟加载Lazy-Import使用指导
+#### 延迟加载Lazy-Import使用指导
 
 随着应用功能持续增加，应用规模不断扩大，依赖的模块文件逐渐变多，应用冷启动加载模块的时间也越来越长。而在实际冷启动过程中执行了很多应用整体依赖但当前未使用的文件，此时可以通过延迟加载（lazy-import）的方法延缓对这些冗余文件的加载，使待加载文件在冷启动阶段不被加载，而在后续导出变量被真正使用时再同步加载执行文件，节省资源以提高应用冷启动性能。
  
@@ -499,6 +499,6 @@ export const one: number = 1;
  
  
 
-##### 示例代码
+#### 示例代码
 
 - [ArkTS高性能编程代码片段](https://gitcode.com/harmonyos_samples/BestPracticeSnippets/tree/master/ArkTS_high_performance_segment)

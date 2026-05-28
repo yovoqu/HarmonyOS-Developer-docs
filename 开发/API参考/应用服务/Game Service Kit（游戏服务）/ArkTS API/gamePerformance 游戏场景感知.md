@@ -10,7 +10,7 @@
 **起始版本：** 5.0.0(12)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -20,7 +20,7 @@ import { gamePerformance } from '@kit.GameServiceKit';
  
   
 
-##### DeviceInfo
+#### DeviceInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -39,7 +39,7 @@ import { gamePerformance } from '@kit.GameServiceKit';
  
   
 
-##### GpuInfo
+#### GpuInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -61,7 +61,7 @@ GPU性能信息类。
  
   
 
-##### ThermalInfo
+#### ThermalInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -79,7 +79,7 @@ GPU性能信息类。
  
   
 
-##### BaseGameInfo
+#### BaseGameInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -97,7 +97,7 @@ GPU性能信息类。
  
   
 
-##### GamePackageInfo
+#### GamePackageInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -119,7 +119,7 @@ GPU性能信息类。
  
   
 
-##### GameConfigInfo
+#### GameConfigInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -146,7 +146,7 @@ GPU性能信息类。
  
   
 
-##### GameSceneInfo
+#### GameSceneInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -184,7 +184,7 @@ GPU性能信息类。
  
   
 
-##### GameNetInfo
+#### GameNetInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -202,7 +202,7 @@ GPU性能信息类。
  
   
 
-##### GamePlayerInfo
+#### GamePlayerInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -213,7 +213,7 @@ GPU性能信息类。
 **起始版本：** 5.0.0(12)
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/gC8bL37mS3iKCxJe6pFA2g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023717Z&HW-CC-Expire=86400&HW-CC-Sign=16DA93EEEB6CEE1851A05109194A819D2DF0F4B99BF7D3567923B4001D2964EE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/gC8bL37mS3iKCxJe6pFA2g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025050Z&HW-CC-Expire=86400&HW-CC-Sign=1165585DFFC9750B71EEFB09E1D0588E9D6CB12DA8612D53B27CBB01505E2873)
  
  
 gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
@@ -229,7 +229,7 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
  
   
 
-##### DeviceInfoParameter
+#### DeviceInfoParameter
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -247,7 +247,7 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
  
   
 
-##### DeviceInfoType
+#### DeviceInfoType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -265,7 +265,7 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
  
   
 
-##### DeviceInfoParameterKey
+#### DeviceInfoParameterKey
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -282,7 +282,7 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
  
   
 
-##### GameCustomTag
+#### GameCustomTag
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -299,7 +299,7 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
  
   
 
-##### GamePerformanceErrorCode
+#### GamePerformanceErrorCode
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -320,7 +320,7 @@ Game Service Kit错误码类。
  
   
 
-##### gamePerformance.init
+#### gamePerformance.init
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -382,7 +382,7 @@ try {
  
   
 
-##### gamePerformance.updateGameInfo
+#### gamePerformance.updateGameInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -445,7 +445,7 @@ try {
  
   
 
-##### gamePerformance.on('deviceStateChanged')
+#### gamePerformance.on('deviceStateChanged')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -502,7 +502,7 @@ try {
  
   
 
-##### gamePerformance.on('deviceStateChanged')
+#### gamePerformance.on('deviceStateChanged')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -562,7 +562,7 @@ try {
  
   
 
-##### gamePerformance.off('deviceStateChanged')
+#### gamePerformance.off('deviceStateChanged')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -624,7 +624,7 @@ try {
  
   
 
-##### gamePerformance.getDeviceInfoByScope
+#### gamePerformance.getDeviceInfoByScope
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -692,7 +692,7 @@ try {
  
   
 
-##### gamePerformance.addGameCustomData
+#### gamePerformance.addGameCustomData
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

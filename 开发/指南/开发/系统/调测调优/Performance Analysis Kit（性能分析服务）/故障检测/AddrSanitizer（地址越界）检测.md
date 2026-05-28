@@ -4,25 +4,25 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/address-sanitizer-guidelines
 
-##### 简介
+#### 简介
 
 地址越界问题是指访问了不合法的地址，导致程序运行出现异常，通常表现为应用崩溃（Crash），其故障原因为释放后使用（use after free）、重复释放（double-free）、栈溢出（stack-overflow）、堆溢出（heap-overflow）等。由于应用崩溃日志信息有限且非崩溃第一现场，地址越界问题定位较为困难，一般依赖ASan、HWASan、GWP-ASan等检测工具以获取更多内存操作信息。从API13开始推荐[使用HWASan检测工具](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-hwasan-detection)进行地址越界问题的分析。
  
   
 
-##### 常见越界类型与影响
+#### 常见越界类型与影响
 
 常见地址越界类型和影响可参看[地址越界经典问题类型](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-address-sanitizer-catagory)。
  
   
 
-##### 地址越界检测原理
+#### 地址越界检测原理
 
 检测原理和使用方法可参看[地址越界类问题检测](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-ram-detection)。
  
   
 
-##### 日志获取方式
+#### 日志获取方式
 
 地址越界日志和进程崩溃日志一致，都是由Faultlogger模块进行管理，可通过以下方式获取：
  
@@ -40,11 +40,11 @@ HiAppEvent给开发者提供了故障订阅接口，详见[HiAppEvent介绍](htt
  
   
 
-##### 日志规格
+#### 日志规格
 
   
 
-##### ASan日志规格
+#### ASan日志规格
 
 ASan日志规格如下，标题头会展示设备信息，故障发生时间，故障进程和故障原因等。日志详细描述了越界访问的地址（0x007fffd59768）、访问大小（WRITE of size 4）、发生的线程和进程信息。通过调用栈，展现了导致此次越界的函数调用路径，列出各个调用层的地址及对应的模块和偏移，帮助开发者快速定位代码位置。日志还提供影子内存（Shadow bytes）跟踪内存状态，帮助确认访问是否合法。同时，日志列出了进程的内存空间映射，帮助分析越界地址所处的具体内存区域。
  
@@ -124,7 +124,7 @@ Shadow byte legend (one shadow byte represents 8 application bytes):
  
   
 
-##### HWASan日志规格
+#### HWASan日志规格
 
 HWASan日志在格式上与ASan相近，也会在标题中展示设备信息、故障发生时间、故障进程及触发原因等关键信息。日志会详细记录越界访问的地址（如0x0002013c0100）和访问大小（如WRITE of size 4）。同时会记录发生时的线程和进程信息。完整的调用栈会展示触发越界的函数执行路径，列出各层地址、所属模块及偏移，便于开发者快速定位代码位置。不同于ASan的是，HWASan还会输出指针与内存块的标签（tags），并通过对比标签来辅助判断是否存在非法访问。
  
@@ -271,7 +271,7 @@ Process memory map follows: <- 故障时进程的内存空间
  
   
 
-##### MemDebug日志规格
+#### MemDebug日志规格
 
 MemDebug采用隔离区加投毒填充的机制，并复用HWASan的Tag校验的检测工具，对于Double Free类问题，其日志规格和HWASan一致。
  
@@ -357,7 +357,7 @@ ptrBeg was re-written after free 0x000100946540[1], 0x000100946548 5555555500000
  
   
 
-##### GWP-ASan日志规格
+#### GWP-ASan日志规格
 
 GWP-ASan的日志格式较为简洁，以下示例为典型的Use-After-Free问题日志，包含内存块的分配、释放及违规访问的调用栈信息。
  
@@ -415,11 +415,11 @@ Use After Free at 0x5b46ddaff0 (0 bytes into a 16-byte allocation at 0x5b46ddaff
  
   
 
-##### AddrSanitizer聚类
+#### AddrSanitizer聚类
 
   
 
-##### 聚类简介
+#### 聚类简介
 
 应用程序在不同版本或同一版本的不同时间，AddrSanitizer可能因同一原因产生故障，但AddrSanitizer故障日志中的大部分信息会随版本、时间等因素变化，导致难以快速判断是否为重复问题。此外，AddrSanitizer故障信息中包含系统侧和应用侧的调用栈，这不利于开发者快速定位和排查应用侧的问题。
  
@@ -435,7 +435,7 @@ Use After Free at 0x5b46ddaff0 (0 bytes into a 16-byte allocation at 0x5b46ddaff
  
   
 
-##### 提取聚类信息
+#### 提取聚类信息
 1. **提取故障类型**
 
   不同类型日志的故障类型提取方式如下：
@@ -473,7 +473,7 @@ ld-musl-aarch64.so
 
   
 
-  ##### 提取聚类特征
+  #### 提取聚类特征
 
   在完成标准化后，根据不同故障类型提取关键栈作为特征：
 
@@ -507,7 +507,7 @@ ld-musl-aarch64.so
 
   
 
-  ##### 生成聚类特征
+  #### 生成聚类特征
 
   最终聚类特征为：故障类型+若干条标准化业务栈帧，以GWP-ASan日志为例：
 

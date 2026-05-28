@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-image-filter-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -45,13 +45,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Drawing_ImageFilterCreateBlur()
+#### OH_Drawing_ImageFilterCreateBlur()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -86,7 +86,7 @@ OH_Drawing_ImageFilter* OH_Drawing_ImageFilterCreateBlur(float sigmaX, float sig
  
   
 
-##### OH_Drawing_ImageFilterCreateBlurWithCrop()
+#### OH_Drawing_ImageFilterCreateBlurWithCrop()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -124,7 +124,7 @@ OH_Drawing_ImageFilter* OH_Drawing_ImageFilterCreateBlurWithCrop(float sigmaX, f
  
   
 
-##### OH_Drawing_ImageFilterCreateFromColorFilter()
+#### OH_Drawing_ImageFilterCreateFromColorFilter()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -157,7 +157,7 @@ OH_Drawing_ImageFilter* OH_Drawing_ImageFilterCreateFromColorFilter(OH_Drawing_C
  
   
 
-##### OH_Drawing_ImageFilterCreateOffset()
+#### OH_Drawing_ImageFilterCreateOffset()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -191,7 +191,7 @@ OH_Drawing_ImageFilter* OH_Drawing_ImageFilterCreateOffset(float x, float y, OH_
  
   
 
-##### OH_Drawing_ImageFilterCreateFromShaderEffect()
+#### OH_Drawing_ImageFilterCreateFromShaderEffect()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -223,7 +223,7 @@ OH_Drawing_ImageFilter* OH_Drawing_ImageFilterCreateFromShaderEffect(OH_Drawing_
  
   
 
-##### OH_Drawing_ImageFilterDestroy()
+#### OH_Drawing_ImageFilterDestroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

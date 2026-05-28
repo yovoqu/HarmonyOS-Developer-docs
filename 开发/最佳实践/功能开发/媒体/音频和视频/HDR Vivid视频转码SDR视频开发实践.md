@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-hdrtosdr
 
-##### 概述
+#### 概述
 
 随着视频技术的发展，HDR（高动态范围）视频逐渐成为主流，其中HDR Vivid作为一种先进的HDR标准，能够提供更丰富的色彩和更广泛的亮度范围。然而，许多设备和平台仍然只支持SDR（标准动态范围）视频。因此，将HDR Vivid视频转码为SDR视频的需求日益增加，以确保内容在更多设备上能够正常播放。将HDR Vivid视频转码成SDR视频是一个涉及多个技术要点的复杂过程。通过合理的转码处理，可以确保视频内容在不同设备上都能呈现出更佳的效果，不仅优化了视频的播放体验，还能满足更广泛受众的需求，提高市场影响力。
  
@@ -22,11 +22,11 @@
  
  
 
-##### 基于AVTranscoder模块实现HDR Vivid视频到SDR视频转码
+#### 基于AVTranscoder模块实现HDR Vivid视频到SDR视频转码
 
  
 
-##### 实现原理
+#### 实现原理
 
  
 使用[AVTranscoder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/media-kit-intro#avtranscoder)可以实现视频转码功能，从API 20开始支持视频转码的C/C++开发，转码功能可在手机、平板、PC/2in1设备上作为系统提供的基础能力使用。可以通过调用[canIUse()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-syscap#caniuse)接口来判断当前设备是否支持AVTranscoder，当canIUse("SystemCapability.Multimedia.Media.AVTranscoder")的返回值为true时，表示可以使用转码能力。转码步骤如下：初始化与准备阶段，调用[OH_AVTranscoder_Create()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avtranscoder-h#oh_avtranscoder_create)创建`OH_AVTranscoder` 对象；启动与运行阶段，调用OH_AVTranscoder_Start()启动转码任务，此时可调用[OH_AVTranscoder_Pause()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avtranscoder-h#oh_avtranscoder_pause)暂停任务。在暂停状态下，可调用[OH_AVTranscoder_Resume()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avtranscoder-h#oh_avtranscoder_resume)恢复任务；任务进行时，若想取消该任务，可调用[OH_AVTranscoder_Cancel()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avtranscoder-h#oh_avtranscoder_cancel)终止转码任务。
@@ -36,7 +36,7 @@
 
  
 
-##### 开发步骤
+#### 开发步骤
 
 具体开发步骤，可参考[使用AVTranscoder实现视频转码(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-ndk-avtranscoder-for-transcodering)。
  
@@ -126,17 +126,17 @@ int32_t AVTranscoder::ReleaseAVTranscoder() {
  
  
 
-##### 基于AVCodec模块实现HDR Vivid视频到SDR视频转码
+#### 基于AVCodec模块实现HDR Vivid视频到SDR视频转码
 
  
 
-##### 实现原理
+#### 实现原理
 
 在视频分享或者编辑场景时，开发者有时需要将HDR Vivid视频转换为SDR视频，可以调用AVCodec原生能力实现该功能。
  
  
 
-##### 开发步骤
+#### 开发步骤
 
 使用AVCodec原生转码能力，主要的开发步骤为（详细开发步骤可参考[视频解码支持HDRVivid2SDR](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdrvivid2sdr)）：
  1. 创建解码器实例，查询系统支持的解码器能力，根据查询结果基于name创建硬解码器。
@@ -204,11 +204,11 @@ int32_t VideoDecoder::Configure(const SampleInfo &sampleInfo) {
  
  
 
-##### 基于VideoProcessing模块实现HDR Vivid视频到SDR视频转码
+#### 基于VideoProcessing模块实现HDR Vivid视频到SDR视频转码
 
  
 
-##### 实现原理
+#### 实现原理
 
 开发者可以调用[VideoProcessing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-videoprocessing)模块提供的C API接口，实现HDR2SDR的色彩空间转换。支持的转码范围如下：
   
@@ -228,7 +228,7 @@ int32_t VideoDecoder::Configure(const SampleInfo &sampleInfo) {
  
  
 
-##### 开发步骤
+#### 开发步骤
 
 HarmonyOS提供了Native侧的[VideoProcessing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-videoprocessing)模块，可以将HDR Vivid视频转码成SDR视频，主要的开发步骤为（详细开发步骤可参考[视频色彩空间转换](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-csc)）：
  1. 调用[OH_VideoProcessing_Create()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-h#oh_videoprocessing_create)创建视频处理实例。
@@ -322,11 +322,11 @@ void VideoProcessing::DestroyProcessing() {
  
  
 
-##### 基于VideoProcessing模块转换HDR色彩空间
+#### 基于VideoProcessing模块转换HDR色彩空间
 
  
 
-##### 实现原理
+#### 实现原理
 
 开发者可以调用[VideoProcessing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-videoprocessing)模块提供的C API接口，实现HDR2HDR的色彩空间转换。支持的转码范围如下：
   
@@ -346,7 +346,7 @@ void VideoProcessing::DestroyProcessing() {
  
  
 
-##### 开发步骤
+#### 开发步骤
 
 具体开发步骤，可参考[视频色彩空间转换](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-csc)。
  1. 初始化环境并查询是否支持视频颜色空间转换。
@@ -465,6 +465,6 @@ void VideoProcessing::DestroyProcessing() {
  
  
 
-##### 示例代码
+#### 示例代码
 
 - [实现HDR视频转码SDR视频功能](https://gitcode.com/harmonyos_samples/hdr2sdr/tree/master/)

@@ -28,7 +28,7 @@
 ，可以高效处理大规模输入数据。在网格数据处理和空间几何计算等优化场景中，可以使用矩形划分求解器提升区域处理效率，减少冗余空间。
 
 
-##### 接口说明
+#### 接口说明
 
 具体API说明详见[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast)。
 
@@ -42,7 +42,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 在CMake脚本中链接相关动态库。
 
   

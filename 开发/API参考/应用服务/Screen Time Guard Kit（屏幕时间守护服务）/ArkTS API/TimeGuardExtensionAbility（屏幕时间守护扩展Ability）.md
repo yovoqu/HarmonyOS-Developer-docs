@@ -14,7 +14,7 @@ TimeGuardExtensionAbility是屏幕时间守护扩展Ability，提供extension回
 **起始版本：** 6.0.0(20)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Tablet
 
@@ -24,7 +24,7 @@ import { TimeGuardExtensionAbility } from '@kit.ScreenTimeGuardKit';
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | Tablet
 
@@ -41,7 +41,7 @@ import { TimeGuardExtensionAbility } from '@kit.ScreenTimeGuardKit';
  
   
 
-##### onStart
+#### onStart
 
 **支持设备：** Phone | Tablet
 
@@ -84,7 +84,7 @@ export default class EntryAbility extends TimeGuardExtensionAbility {
  
   
 
-##### onStop
+#### onStop
 
 **支持设备：** Phone | Tablet
 
@@ -127,7 +127,7 @@ export default class EntryAbility extends TimeGuardExtensionAbility {
  
   
 
-##### onUserAuthSwitchOn
+#### onUserAuthSwitchOn
 
 **支持设备：** Phone | Tablet
 
@@ -163,7 +163,7 @@ export default class EntryAbility extends TimeGuardExtensionAbility {
  
   
 
-##### onUserAuthSwitchOff
+#### onUserAuthSwitchOff
 
 **支持设备：** Phone | Tablet
 

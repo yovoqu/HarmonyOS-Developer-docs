@@ -20,7 +20,7 @@ ImagePacker类，用于图片压缩和编码。
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -30,7 +30,7 @@ import { image } from '@kit.ImageKit';
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -43,7 +43,7 @@ import { image } from '@kit.ImageKit';
 
 
 
-##### packToData13+
+#### packToData13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -109,7 +109,7 @@ async function PackToData(context : Context) {
 
 
 
-##### packToData13+
+#### packToData13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -186,7 +186,7 @@ async function PackToData() {
 
 
 
-##### packing13+
+#### packing13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -254,7 +254,7 @@ async function Packing(context: Context) {
 
 
 
-##### packToDataFromPixelmapSequence18+
+#### packToDataFromPixelmapSequence18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -319,7 +319,7 @@ async function PackToDataFromPixelmapSequence(context : Context) {
 
 
 
-##### release
+#### release
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -359,7 +359,7 @@ async function Release() {
 
 
 
-##### release
+#### release
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -397,7 +397,7 @@ async function Release() {
 
 
 
-##### packToFile11+
+#### packToFile11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -460,7 +460,7 @@ async function PackToFile(context : Context) {
 
 
 
-##### packToFile11+
+#### packToFile11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -527,7 +527,7 @@ async function PackToFile(context : Context) {
 
 
 
-##### packToFile11+
+#### packToFile11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -599,7 +599,7 @@ async function PackToFile(context : Context) {
 
 
 
-##### packToFile11+
+#### packToFile11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -676,7 +676,7 @@ async function PackToFile(context : Context) {
 
 
 
-##### packToFile13+
+#### packToFile13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -749,7 +749,7 @@ async function PackToFile(context: Context) {
 
 
 
-##### packToFileFromPixelmapSequence18+
+#### packToFileFromPixelmapSequence18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -818,7 +818,7 @@ async function PackToFile(context : Context) {
 
 
 
-##### packing(deprecated)
+#### packing(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -866,7 +866,7 @@ async function Packing(context : Context) {
 
 
 
-##### packing(deprecated)
+#### packing(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -919,7 +919,7 @@ async function Packing(context : Context) {
 
 
 
-##### packing(deprecated)
+#### packing(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -932,7 +932,7 @@ packing(source: PixelMap, option: PackingOption, callback: AsyncCallback&lt;Arra
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/uQnB4kYhT5ebqdC9hXaszg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023952Z&HW-CC-Expire=86400&HW-CC-Sign=48EC7995E1C12C920FDB70616BDB9976D33158028700C029685EBC25D8C17C86)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/uQnB4kYhT5ebqdC9hXaszg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025326Z&HW-CC-Expire=86400&HW-CC-Sign=4C67CFDFF087F4BD74666F458D793448D74AD49A4A7BE283787A8057D7364B05)
 
 
 接口如果返回"PixelMap mismatch"，表明参数异常，可能是PixelMap对象被提前释放了。需要调用方排查，在该方法调用结束后再释放PixelMap对象。
@@ -978,7 +978,7 @@ async function Packing() {
 
 
 
-##### packing(deprecated)
+#### packing(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -991,7 +991,7 @@ packing(source: PixelMap, option: PackingOption): Promise&lt;ArrayBuffer&gt;
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/zS5pVm0RQA655-8ER39DtA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023952Z&HW-CC-Expire=86400&HW-CC-Sign=417A06E1A1065CC2181BF8CA1603BF52BFEE9E14515E63C72959D57AA894103B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/zS5pVm0RQA655-8ER39DtA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025326Z&HW-CC-Expire=86400&HW-CC-Sign=9B88BEA57A4F4E851D5FBC8EC4A3B3382BF0F4B58881CB4E0D5D74DC3443F4A1)
 
 
 接口如果返回"PixelMap mismatch"，表明参数异常，可能是PixelMap对象被提前释放了。需要调用方排查，在该方法调用结束后再释放PixelMap对象。

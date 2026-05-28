@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-usb-ddk-types-h
 **支持设备：** PC/2in1
 
-##### 概述
+#### 概述
 
 **支持设备：** PC/2in1
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** PC/2in1
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** PC/2in1
  
@@ -51,7 +51,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** PC/2in1
  
@@ -62,13 +62,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** PC/2in1
 
   
 
-##### UsbDdkErrCode
+#### UsbDdkErrCode
 
 **支持设备：** PC/2in1
 

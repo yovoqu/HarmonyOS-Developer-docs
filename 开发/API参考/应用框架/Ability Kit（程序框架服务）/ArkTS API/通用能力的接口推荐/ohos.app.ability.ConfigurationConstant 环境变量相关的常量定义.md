@@ -12,7 +12,7 @@ ConfigurationConstant模块提供了[Configuration](https://developer.huawei.com
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { ConfigurationConstant } from '@kit.AbilityKit';
  
   
 
-##### ColorMode
+#### ColorMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@ import { ConfigurationConstant } from '@kit.AbilityKit';
  
   
 
-##### Direction
+#### Direction
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -60,7 +60,7 @@ import { ConfigurationConstant } from '@kit.AbilityKit';
  
   
 
-##### ScreenDensity
+#### ScreenDensity
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

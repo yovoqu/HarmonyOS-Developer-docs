@@ -10,7 +10,7 @@
 3. 创建JWT格式的token
 
 
-##### 创建JWT Header
+#### 创建JWT Header
 
 Header参数如下：
 
@@ -23,7 +23,7 @@ Header参数如下：
 
 
 
-##### 创建JWT Payload
+#### 创建JWT Payload
 
 JWT负载包含访问服务端API的一些关键信息，例如密钥颁发者ID、JWT签发时间和JWT到期时间等。JWT负载参数如下：
 
@@ -39,13 +39,13 @@ JWT负载包含访问服务端API的一些关键信息，例如密钥颁发者ID
 
 
 
-##### 创建JWT格式的token
+#### 创建JWT格式的token
 
 使用Header中指定的算法（ES256）以及密钥ID关联的私钥进行签名生成JWT，可以使用各种开源库来创建JWT格式的token，具体请参见[jwt.io](https://jwt.io/)。
 
 
 
-##### 代码示例
+#### 代码示例
 
 > [!NOTE]
 > 以下示例代码仅以Java语言为例，Python、PHP、JS、Golang语言示例代码可通过在 IAP Kit-Sample-ServerDemo 中切换代码分支查看。
@@ -146,7 +146,7 @@ pom文件
 
 
 
-##### Authorization说明
+#### Authorization说明
 
 调用服务端API请求时，请求Header使用 Authorization: Bearer &lt;JWT格式的token&gt;传递鉴权信息，样例如下：
 

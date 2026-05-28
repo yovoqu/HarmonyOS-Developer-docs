@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { vpnExtension } from '@kit.NetworkKit';
 
 
 
-##### LinkAddress
+#### LinkAddress
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -39,7 +39,7 @@ type LinkAddress = connection.LinkAddress
 
 
 
-##### RouteInfo
+#### RouteInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -56,7 +56,7 @@ type RouteInfo = connection.RouteInfo
 
 
 
-##### VpnExtensionContext
+#### VpnExtensionContext
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -73,7 +73,7 @@ VPN扩展的上下文。它允许访问serviceExtension特定资源。
 
 
 
-##### vpnExtension.startVpnExtensionAbility
+#### vpnExtension.startVpnExtensionAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -158,7 +158,7 @@ struct Index {
 
 
 
-##### vpnExtension.stopVpnExtensionAbility
+#### vpnExtension.stopVpnExtensionAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -251,7 +251,7 @@ struct Index {
 
 
 
-##### vpnExtension.createVpnConnection
+#### vpnExtension.createVpnConnection
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -309,7 +309,7 @@ export default class MyVpnExtAbility extends VpnExtensionAbility {
 
 
 
-##### VpnConnection
+#### VpnConnection
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -317,7 +317,7 @@ VPN连接对象。在调用VpnConnection的方法前，需要先通过vpnExt.cre
 
 
 
-##### create
+#### create
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -440,7 +440,7 @@ export default class MyVpnExtAbility extends VpnExtensionAbility {
 
 
 
-##### protect
+#### protect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -511,7 +511,7 @@ export default class MyVpnExtAbility extends VpnExtensionAbility {
 
 
 
-##### destroy
+#### destroy
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -562,7 +562,7 @@ export default class MyVpnExtAbility extends VpnExtensionAbility {
 
 
 
-##### destroy20+
+#### destroy20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -619,7 +619,7 @@ export default class MyVpnExtAbility extends VpnExtensionAbility {
 
 
 
-##### generateVpnId20+
+#### generateVpnId20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -630,7 +630,7 @@ generateVpnId(): Promise&lt;string&gt;
 如需使用系统多VPN能力，需调用该接口生成vpnId，配置到VpnConfig中。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/0HGkO29lQcG7PSto2dtfUQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023836Z&HW-CC-Expire=86400&HW-CC-Sign=15E0787DD0DF3EFB020C03EC3CC226DA884F1E4A16DE46F97E02B8E8459C4821)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/0HGkO29lQcG7PSto2dtfUQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025211Z&HW-CC-Expire=86400&HW-CC-Sign=52AD86015E09A6625E2013CFB7D136C0B3F934DD23810F9734F0BF88FF27964C)
 
 
 当前系统多VPN能力仅支持IPv4。
@@ -678,7 +678,7 @@ export default class MyVpnExtAbility extends VpnExtensionAbility {
 
 
 
-##### protectProcessNet22+
+#### protectProcessNet22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -726,7 +726,7 @@ export default class MyVpnExtAbility  extends VpnExtensionAbility {
 
 
 
-##### VpnConfig
+#### VpnConfig
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { dataShare } from '@kit.ArkData';
 
 
 
-##### dataShare.createDataProxyHandle20+
+#### dataShare.createDataProxyHandle20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -67,7 +67,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### ChangeType20+
+#### ChangeType20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -84,7 +84,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### ProxyData20+
+#### ProxyData20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -101,7 +101,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### DataProxyChangeInfo20+
+#### DataProxyChangeInfo20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -118,7 +118,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### DataProxyErrorCode20+
+#### DataProxyErrorCode20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -136,7 +136,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### DataProxyResult20+
+#### DataProxyResult20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -152,7 +152,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### DataProxyGetResult20+
+#### DataProxyGetResult20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -170,7 +170,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### DataProxyType20+
+#### DataProxyType20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -185,7 +185,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### DataProxyConfig20+
+#### DataProxyConfig20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -200,7 +200,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### DataProxyHandle20+
+#### DataProxyHandle20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -208,7 +208,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### on('dataChange')20+
+#### on('dataChange')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -272,7 +272,7 @@ results.forEach((result) => {
 
 
 
-##### off('dataChange')20+
+#### off('dataChange')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -334,7 +334,7 @@ results.forEach((result) => {
 
 
 
-##### publish20+
+#### publish20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -395,7 +395,7 @@ dataProxyHandle.publish(newConfigData, config).then((results: dataShare.DataProx
 
 
 
-##### delete20+
+#### delete20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -449,7 +449,7 @@ dataProxyHandle.delete(urisToDelete, config).then((results: dataShare.DataProxyR
 
 
 
-##### get20+
+#### get20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

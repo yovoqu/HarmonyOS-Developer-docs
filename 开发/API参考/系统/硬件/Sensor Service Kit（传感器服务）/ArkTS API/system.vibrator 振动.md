@@ -14,7 +14,7 @@ vibrator模块提供控制马达振动的能力，主要包含灯的列表查询
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Wearable | lite_wearable
 
@@ -24,7 +24,7 @@ import { Vibrator } from '@kit.SensorServiceKit';
  
   
 
-##### Vibrator.vibrate
+#### Vibrator.vibrate
 
 **支持设备：** Wearable | lite_wearable
 
@@ -67,7 +67,7 @@ Vibrator.vibrate(vibrateOptions);
  
   
 
-##### VibrateOptions
+#### VibrateOptions
 
 **支持设备：** Wearable | lite_wearable
 

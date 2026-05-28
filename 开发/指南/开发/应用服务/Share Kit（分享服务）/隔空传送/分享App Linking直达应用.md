@@ -7,13 +7,13 @@
 提供如何通过隔空传送分享实现直达应用，应用需接入App Linking以确保端到端完整的体验。参考：[使用App Linking实现应用间跳转](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-linking-startup)。
 
 
-##### 注意事项
+#### 注意事项
 1. 当进入可分享页面时，使用[harmonyShare.on('gesturesShare')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/share-harmony-share#ongesturesshare)方法注册隔空传送监听事件。
 2. 当离开可分享页面（包括**应用退至后台**等场景）时，使用[harmonyShare.off('gesturesShare')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/share-harmony-share#offgesturesshare)方法取消隔空传送监听事件。
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 导入相关模块。
 
   

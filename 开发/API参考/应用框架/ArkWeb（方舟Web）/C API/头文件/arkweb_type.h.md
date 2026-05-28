@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkweb-type-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -54,7 +54,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -66,7 +66,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -82,7 +82,7 @@
  
   
 
-##### 宏定义
+#### 宏定义
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -94,13 +94,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### ArkWeb_WebMessageType
+#### ArkWeb_WebMessageType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -123,7 +123,7 @@ Post Message数据类型。
  
   
 
-##### ArkWeb_JavaScriptValueType
+#### ArkWeb_JavaScriptValueType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -146,13 +146,13 @@ JavaScript数据类型。
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### ArkWeb_OnJavaScriptCallback()
+#### ArkWeb_OnJavaScriptCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -177,7 +177,7 @@ typedef void (*ArkWeb_OnJavaScriptCallback)(const char* webTag, const ArkWeb_Jav
  
   
 
-##### ArkWeb_OnJavaScriptProxyCallback()
+#### ArkWeb_OnJavaScriptProxyCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -203,7 +203,7 @@ Proxy方法被执行的回调。
  
   
 
-##### ArkWeb_OnJavaScriptProxyCallbackWithResult()
+#### ArkWeb_OnJavaScriptProxyCallbackWithResult()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -229,7 +229,7 @@ Proxy方法被执行的回调。
  
   
 
-##### ArkWeb_OnComponentCallback()
+#### ArkWeb_OnComponentCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -253,7 +253,7 @@ typedef void (*ArkWeb_OnComponentCallback)(const char* webTag, void* userData)
  
   
 
-##### ArkWeb_OnScrollCallback()
+#### ArkWeb_OnScrollCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -279,7 +279,7 @@ typedef void (*ArkWeb_OnScrollCallback)(const char* webTag, void* userData, doub
  
   
 
-##### ArkWeb_OnMessageEventHandler()
+#### ArkWeb_OnMessageEventHandler()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

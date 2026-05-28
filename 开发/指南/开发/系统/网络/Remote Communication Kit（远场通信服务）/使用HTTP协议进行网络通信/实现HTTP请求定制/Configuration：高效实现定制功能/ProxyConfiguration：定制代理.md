@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-customproxyconfig
 
-##### 场景介绍
+#### 场景介绍
 
 在远场通信框架中，ProxyConfiguration配置会话代理设置，提供system、no-proxy和WebProxy三种选项。
  
@@ -15,19 +15,19 @@
  
   
 
-##### 约束与限制
+#### 约束与限制
 
 定制代理能力支持Phone、2in1、Tablet、Wearable设备。并且从5.1.1(19)开始，新增支持TV设备。
  
   
 
-##### 使用示例
+#### 使用示例
 
 下面将对框架提供的三种选项（'system'，'no-proxy'，'WebProxy'）以示例代码的方式进行说明。
  
   
 
-##### 'no-proxy'
+#### 'no-proxy'
 1. 导入需要的模块。
 
   
@@ -78,7 +78,7 @@ session.fetch(request).then((response: rcp.Response) => {
  
   
 
-##### 'system'
+#### 'system'
 1. 导入需要的模块。
 
   
@@ -129,7 +129,7 @@ session.fetch(request).then((response: rcp.Response) => {
  
   
 
-##### WebProxy（自定义代理设置）
+#### WebProxy（自定义代理设置）
 1. 导入需要的模块。
 
   

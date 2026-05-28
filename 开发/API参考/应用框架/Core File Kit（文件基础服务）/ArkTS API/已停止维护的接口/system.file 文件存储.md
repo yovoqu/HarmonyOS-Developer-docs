@@ -10,7 +10,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Wearable | lite_wearable
 
@@ -20,7 +20,7 @@ import file from '@system.file';
  
   
 
-##### file.move
+#### file.move
 
 **支持设备：** Wearable | lite_wearable
 
@@ -75,7 +75,7 @@ export default {
  
   
 
-##### file.copy
+#### file.copy
 
 **支持设备：** Wearable | lite_wearable
 
@@ -130,7 +130,7 @@ export default {
  
   
 
-##### file.list
+#### file.list
 
 **支持设备：** Wearable | lite_wearable
 
@@ -200,7 +200,7 @@ export default {
  
   
 
-##### file.get
+#### file.get
 
 **支持设备：** Wearable | lite_wearable
 
@@ -265,7 +265,7 @@ export default {
  
   
 
-##### file.delete
+#### file.delete
 
 **支持设备：** Wearable | lite_wearable
 
@@ -318,7 +318,7 @@ export default {
  
   
 
-##### file.writeText
+#### file.writeText
 
 **支持设备：** Wearable | lite_wearable
 
@@ -374,7 +374,7 @@ export default {
  
   
 
-##### file.writeArrayBuffer
+#### file.writeArrayBuffer
 
 **支持设备：** Wearable | lite_wearable
 
@@ -430,7 +430,7 @@ export default {
  
   
 
-##### file.readText
+#### file.readText
 
 **支持设备：** Wearable | lite_wearable
 
@@ -494,7 +494,7 @@ export default {
  
   
 
-##### file.readArrayBuffer
+#### file.readArrayBuffer
 
 **支持设备：** Wearable | lite_wearable
 
@@ -558,7 +558,7 @@ export default {
  
   
 
-##### file.access
+#### file.access
 
 **支持设备：** Wearable | lite_wearable
 
@@ -611,7 +611,7 @@ export default {
  
   
 
-##### file.mkdir
+#### file.mkdir
 
 **支持设备：** Wearable | lite_wearable
 
@@ -664,7 +664,7 @@ export default {
  
   
 
-##### file.rmdir
+#### file.rmdir
 
 **支持设备：** Wearable | lite_wearable
 

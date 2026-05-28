@@ -7,7 +7,7 @@
 image-animator组件为图片帧动画播放器。具体用法请参考[image-animator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-image-animator)。
 
 
-##### 创建image-animator组件
+#### 创建image-animator组件
 
 在pages/index目录下的hml文件中创建一个image-animator组件，css文件中编写组件样式，js文件中引用图片。
 
@@ -56,7 +56,7 @@ export default {
 
 
 
-##### 设置image-animator组件属性
+#### 设置image-animator组件属性
 
 添加iteration（播放次数）、reverse（播放顺序）、fixedsize（图片大小是否固定为组件大小）、duration（播放时长）和fillmode（执行结束后的状态）属性，控制图片的播放效果。
 
@@ -143,7 +143,7 @@ export default {
 
 
 
-##### 绑定事件
+#### 绑定事件
 
 向image-animator组件添加start、pause、stop和resume事件。当图片播放器开始播放时触发start事件，当图片播放器被点击时触发pause事件，长按图片播放器触发resume事件，图片播放器停止播放时触发stop事件。
 
@@ -226,7 +226,7 @@ export default {
 
 
 
-##### 场景示例
+#### 场景示例
 
 在本场景中，开发者可通过开始播放、停止播放等按钮切换图片的播放状态。
 
@@ -330,4 +330,4 @@ export default {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/N2dr33NuSQav2k1C6XXBuw/zh-cn_image_0000002611754115.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014755Z&HW-CC-Expire=86400&HW-CC-Sign=BB9687E757A2057BAE130628BE716A14B1911C1F5780CD5FFABF46BB38E5C7C3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/N2dr33NuSQav2k1C6XXBuw/zh-cn_image_0000002611754115.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030427Z&HW-CC-Expire=86400&HW-CC-Sign=A6D546528024BE089E85C16E6078132DE1FEBC483A1FD9C164C89AD794165E00)

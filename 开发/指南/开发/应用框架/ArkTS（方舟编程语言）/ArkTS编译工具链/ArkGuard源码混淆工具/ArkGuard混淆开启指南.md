@@ -4,11 +4,11 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-guide
 
-##### 开启源码混淆
+#### 开启源码混淆
 
   
 
-##### 开启混淆步骤
+#### 开启混淆步骤
 
 系统已集成源码混淆功能，开发者可通过以下方式在DevEco Studio中启用。
  
@@ -77,7 +77,7 @@
  
   
 
-##### 三种混淆配置文件
+#### 三种混淆配置文件
 
 - obfuscation-rules.txt
 
@@ -125,7 +125,7 @@
  
   
 
-##### 混淆选项配置指导
+#### 混淆选项配置指导
 1. 开启-enable-toplevel-obfuscation选项时，如果代码中使用globalThis访问全局变量，可能会导致访问失败。此时，需要使用-keep-global-name选项来保留该全局变量的名称。
 2. 待上述选项应用适配成功后，开启-enable-property-obfuscation选项。此选项开启后，以下场景需要适配：
 - 若代码中存在静态定义、动态访问的情况，或动态定义、静态访问的情况，需要使用-keep-property-name保留属性名称。示例如下：
@@ -181,7 +181,7 @@ console.info(obj002.dynamicPropertyName);// 使用点语法静态访问属性，
  
   
 
-##### 说明
+#### 说明
 
 - 目前不支持在hvigor构建流程中添加自定义混淆插件。
 - 混淆后的远程HAR包被某模块依赖，如果该模块开启混淆，HAR包会被二次混淆。
@@ -189,7 +189,7 @@ console.info(obj002.dynamicPropertyName);// 使用点语法静态访问属性，
  
   
 
-##### 查看混淆效果
+#### 查看混淆效果
 
 混淆结束后，会在编译产物的build目录中生成混淆后的中间产物。开发者可以查看这些中间产物以确认混淆效果。同时，该目录中还会生成名称映射表和系统API白名单文件。
  
@@ -202,13 +202,13 @@ console.info(obj002.dynamicPropertyName);// 使用点语法静态访问属性，
 
   
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/wP9BHGZaSEifUjmE0o3u7A/zh-cn_image_0000002581273684.png?HW-CC-KV=V1&HW-CC-Date=20260528T014849Z&HW-CC-Expire=86400&HW-CC-Sign=3A2F55AD96F18498D0C7CE67FB3FDBBF758DA6FEF5626794CA467888A72A59E1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/wP9BHGZaSEifUjmE0o3u7A/zh-cn_image_0000002581273684.png?HW-CC-KV=V1&HW-CC-Date=20260528T030517Z&HW-CC-Expire=86400&HW-CC-Sign=CA2B1CDDC83E627A142639A28639C9B80BD57E16084FFA456F20DA5DB11F0788)
 
   
  
   
 
-##### 报错栈还原
+#### 报错栈还原
 
 经过混淆的应用程序，代码名称会更改，导致crash时打印的报错栈难以理解。可使用DevEco Studio命令工具Command Line Tools中的[hstack插件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-command-line-hstack)还原源码堆栈，进而分析问题。
  
@@ -220,4 +220,4 @@ console.info(obj002.dynamicPropertyName);// 使用点语法静态访问属性，
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/_3AKu3fNTUyEdVCQ_C7v_Q/zh-cn_image_0000002611753539.png?HW-CC-KV=V1&HW-CC-Date=20260528T014849Z&HW-CC-Expire=86400&HW-CC-Sign=D9177960C196395450A797CA19E5A6729EE9291F0B90C32EA6B61063D60EACEF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/_3AKu3fNTUyEdVCQ_C7v_Q/zh-cn_image_0000002611753539.png?HW-CC-KV=V1&HW-CC-Date=20260528T030517Z&HW-CC-Expire=86400&HW-CC-Sign=40B92E46DC5AFD8237A2C18E6F0F63F1E9308C784B53394B64CB9C18A075717E)

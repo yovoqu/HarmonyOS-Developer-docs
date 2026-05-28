@@ -12,7 +12,7 @@
 **起始版本：** 4.1.0(11)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { generateBarcode } from '@kit.ScanKit';
  
   
 
-##### ErrorCorrectionLevel
+#### ErrorCorrectionLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -44,7 +44,7 @@ import { generateBarcode } from '@kit.ScanKit';
  
   
 
-##### CreateOptions
+#### CreateOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -90,7 +90,7 @@ let options: generateBarcode.CreateOptions = {
  
   
 
-##### generateBarcode.createBarcode
+#### generateBarcode.createBarcode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -176,7 +176,7 @@ generateBarcode.createBarcode(content, options).then((data: image.PixelMap) => {
  
   
 
-##### generateBarcode.createBarcode
+#### generateBarcode.createBarcode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -239,7 +239,7 @@ generateBarcode.createBarcode(content, options, (err: BusinessError, data: image
  
   
 
-##### generateBarcode.createBarcode
+#### generateBarcode.createBarcode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -14,7 +14,7 @@ UIAbilityContext是[UIAbility](https://developer.huawei.com/consumer/cn/doc/harm
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,13 +24,13 @@ import { common } from '@kit.AbilityKit';
 
 
 
-##### UIAbilityContext
+#### UIAbilityContext
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -46,7 +46,7 @@ import { common } from '@kit.AbilityKit';
 
 
 
-##### startAbility
+#### startAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -140,7 +140,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### startAbility
+#### startAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -241,7 +241,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### startAbility
+#### startAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -349,7 +349,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### startAbilityForResult
+#### startAbilityForResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -451,7 +451,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### startAbilityForResult
+#### startAbilityForResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -555,7 +555,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### startAbilityForResult
+#### startAbilityForResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -666,7 +666,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### terminateSelf
+#### terminateSelf
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -751,7 +751,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### terminateSelf
+#### terminateSelf
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -835,7 +835,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### terminateSelfWithResult
+#### terminateSelfWithResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -914,7 +914,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### terminateSelfWithResult
+#### terminateSelfWithResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -999,7 +999,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### connectServiceExtensionAbility
+#### connectServiceExtensionAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1093,7 +1093,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### disconnectServiceExtensionAbility
+#### disconnectServiceExtensionAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1163,7 +1163,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### disconnectServiceExtensionAbility
+#### disconnectServiceExtensionAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1229,7 +1229,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### startAbilityByCall
+#### startAbilityByCall
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1420,7 +1420,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setMissionLabel
+#### setMissionLabel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1468,7 +1468,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setMissionLabel
+#### setMissionLabel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1526,7 +1526,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setMissionContinueState10+
+#### setMissionContinueState10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1574,7 +1574,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setMissionContinueState10+
+#### setMissionContinueState10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1630,7 +1630,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### restoreWindowStage
+#### restoreWindowStage
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1675,7 +1675,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### isTerminating
+#### isTerminating
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1718,7 +1718,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### requestDialogService
+#### requestDialogService
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1801,7 +1801,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### requestDialogService
+#### requestDialogService
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1889,7 +1889,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### reportDrawnCompleted10+
+#### reportDrawnCompleted10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1956,7 +1956,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### startAbilityByType11+
+#### startAbilityByType11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2020,7 +2020,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### startAbilityByType11+
+#### startAbilityByType11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2089,7 +2089,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### showAbility12+
+#### showAbility12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2196,7 +2196,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### hideAbility12+
+#### hideAbility12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2303,7 +2303,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### moveAbilityToBackground12+
+#### moveAbilityToBackground12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2379,7 +2379,7 @@ struct Index {
 
 
 
-##### openAtomicService12+
+#### openAtomicService12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2470,7 +2470,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### openLink12+
+#### openLink12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2590,7 +2590,7 @@ struct Index {
 
 
 
-##### backToCallerAbilityWithResult12+
+#### backToCallerAbilityWithResult12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2745,7 +2745,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setRestoreEnabled14+
+#### setRestoreEnabled14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2802,7 +2802,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### startUIServiceExtensionAbility14+
+#### startUIServiceExtensionAbility14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2896,7 +2896,7 @@ struct Index {
 
 
 
-##### connectUIServiceExtensionAbility14+
+#### connectUIServiceExtensionAbility14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3017,7 +3017,7 @@ struct UIServiceExtensionAbility {
 
 
 
-##### disconnectUIServiceExtensionAbility14+
+#### disconnectUIServiceExtensionAbility14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3119,7 +3119,7 @@ struct UIServiceExtensionAbility {
 
 
 
-##### setAbilityInstanceInfo15+
+#### setAbilityInstanceInfo15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3203,7 +3203,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### revokeDelegator17+
+#### revokeDelegator17+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3284,7 +3284,7 @@ export default class DelegatorAbility extends UIAbility {
 
 
 
-##### setColorMode18+
+#### setColorMode18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3339,7 +3339,7 @@ export default class MyAbility extends UIAbility {
 
 
 
-##### startAppServiceExtensionAbility20+
+#### startAppServiceExtensionAbility20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3426,7 +3426,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### stopAppServiceExtensionAbility20+
+#### stopAppServiceExtensionAbility20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3509,7 +3509,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### connectAppServiceExtensionAbility20+
+#### connectAppServiceExtensionAbility20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3601,7 +3601,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### disconnectAppServiceExtensionAbility20+
+#### disconnectAppServiceExtensionAbility20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3675,7 +3675,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setOnNewWantSkipScenarios20+
+#### setOnNewWantSkipScenarios20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3746,7 +3746,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### startSelfUIAbilityInCurrentProcess22+
+#### startSelfUIAbilityInCurrentProcess22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3836,7 +3836,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### restartApp22+
+#### restartApp22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3926,7 +3926,7 @@ struct Index {
 
 
 
-##### setMissionWindowIcon22+
+#### setMissionWindowIcon22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

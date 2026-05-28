@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-computenodeinfo-init
 
-##### 函数功能
+#### 函数功能
 
 初始化ComputeNodeInfo类。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 void Init(const size_t ir_inputs_num, const size_t inputs_num, const size_t outputs_num, const ge::char_t *node_name, const ge::char_t *node_type);
@@ -19,7 +19,7 @@ void Init(const size_t ir_inputs_num, const size_t ir_outputs_num, const size_t 
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -34,19 +34,19 @@ void Init(const size_t ir_inputs_num, const size_t ir_outputs_num, const size_t 
  
   
 
-##### 返回值
+#### 返回值
 
 无
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 auto ir_input_num = node->GetOpDesc()->GetIrInputs().size();

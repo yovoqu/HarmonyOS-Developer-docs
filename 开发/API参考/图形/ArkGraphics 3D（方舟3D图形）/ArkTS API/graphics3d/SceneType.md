@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
  
   
 
-##### Vec2
+#### Vec2
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -38,7 +38,7 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
  
   
 
-##### Vec3
+#### Vec3
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -55,7 +55,7 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
  
   
 
-##### Vec4
+#### Vec4
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -73,7 +73,7 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
  
   
 
-##### Quaternion
+#### Quaternion
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -91,7 +91,7 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
  
   
 
-##### Aabb
+#### Aabb
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -107,7 +107,7 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
  
   
 
-##### Color
+#### Color
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -125,7 +125,7 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
  
   
 
-##### Rect
+#### Rect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -143,7 +143,7 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
  
   
 
-##### RenderingPipelineType21+
+#### RenderingPipelineType21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -159,7 +159,7 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
  
   
 
-##### GeometryType18+
+#### GeometryType18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -178,7 +178,7 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
  
   
 
-##### GeometryDefinition18+
+#### GeometryDefinition18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -193,7 +193,7 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
  
   
 
-##### PrimitiveTopology18+
+#### PrimitiveTopology18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -209,7 +209,7 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
  
   
 
-##### CustomGeometry18+
+#### CustomGeometry18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -229,7 +229,7 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
  
   
 
-##### CubeGeometry18+
+#### CubeGeometry18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -244,7 +244,7 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
  
   
 
-##### PlaneGeometry18+
+#### PlaneGeometry18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -259,7 +259,7 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
  
   
 
-##### SphereGeometry18+
+#### SphereGeometry18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -275,7 +275,7 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
  
   
 
-##### CylinderGeometry23+
+#### CylinderGeometry23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -297,12 +297,12 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
 以radius=0.5，height=1，segmentCount=20为例，生成圆柱体的网格以及UV布局如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/rsKji9kXTxuJWJgS6r0Acw/zh-cn_image_0000002611836871.png?HW-CC-KV=V1&HW-CC-Date=20260528T024325Z&HW-CC-Expire=86400&HW-CC-Sign=7095A5EA837E1CD0FE016A6DC89E15E07C40BA82C2FD815449DBDAEDD74C0F67)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/rsKji9kXTxuJWJgS6r0Acw/zh-cn_image_0000002611836871.png?HW-CC-KV=V1&HW-CC-Date=20260528T025701Z&HW-CC-Expire=86400&HW-CC-Sign=F10B87E9D5E8AEA80861DDE55D1C3898D43DDC3F638A4E247DB1E42AC63A525A)
 
  
   
 
-##### Mat4x423+
+#### Mat4x423+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -320,7 +320,7 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
  
   
 
-##### Position3
+#### Position3
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -337,7 +337,7 @@ type Position3 = Vec3
  
   
 
-##### Rotation3
+#### Rotation3
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -354,7 +354,7 @@ type Rotation3 = Vec3
  
   
 
-##### Scale3
+#### Scale3
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

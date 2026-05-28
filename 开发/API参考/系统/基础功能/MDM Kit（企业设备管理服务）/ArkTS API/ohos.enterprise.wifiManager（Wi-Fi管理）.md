@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { wifiManager } from '@kit.MDMKit';
 
 
 
-##### wifiManager.isWifiActiveSync
+#### wifiManager.isWifiActiveSync
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -83,7 +83,7 @@ try {
 
 
 
-##### wifiManager.setWifiProfileSync
+#### wifiManager.setWifiProfileSync
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -469,7 +469,7 @@ try {
 
 
 
-##### wifiManager.addAllowedWifiList19+
+#### wifiManager.addAllowedWifiList19+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -535,7 +535,7 @@ try {
 
 
 
-##### wifiManager.removeAllowedWifiList19+
+#### wifiManager.removeAllowedWifiList19+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -596,7 +596,7 @@ try {
 
 
 
-##### wifiManager.getAllowedWifiList19+
+#### wifiManager.getAllowedWifiList19+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -656,7 +656,7 @@ try {
 
 
 
-##### wifiManager.addDisallowedWifiList19+
+#### wifiManager.addDisallowedWifiList19+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -722,7 +722,7 @@ try {
 
 
 
-##### wifiManager.removeDisallowedWifiList19+
+#### wifiManager.removeDisallowedWifiList19+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -783,7 +783,7 @@ try {
 
 
 
-##### wifiManager.getDisallowedWifiList19+
+#### wifiManager.getDisallowedWifiList19+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -843,7 +843,7 @@ try {
 
 
 
-##### wifiManager.turnOnWifi20+
+#### wifiManager.turnOnWifi20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -903,7 +903,7 @@ try {
 
 
 
-##### wifiManager.turnOffWifi20+
+#### wifiManager.turnOffWifi20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -962,7 +962,7 @@ try {
 
 
 
-##### WifiAccessInfo19+
+#### WifiAccessInfo19+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -978,7 +978,7 @@ Wi-Fi的SSID和BSSID信息。
 
 
 
-##### WifiProfile
+#### WifiProfile
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1005,7 +1005,7 @@ Wi-Fi配置信息。
 
 
 
-##### WifiSecurityType
+#### WifiSecurityType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1029,7 +1029,7 @@ Wi-Fi配置信息。
 
 
 
-##### IpType
+#### IpType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1046,7 +1046,7 @@ Wi-Fi配置信息。
 
 
 
-##### IpProfile
+#### IpProfile
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1065,7 +1065,7 @@ IP配置信息。
 
 
 
-##### WifiEapProfile
+#### WifiEapProfile
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1094,7 +1094,7 @@ IP配置信息。
 
 
 
-##### EapMethod
+#### EapMethod
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1121,7 +1121,7 @@ IP配置信息。
 
 
 
-##### Phase2Method
+#### Phase2Method
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

@@ -32,7 +32,7 @@
 
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -40,7 +40,7 @@
  
   
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -57,13 +57,13 @@ RichText(content:string  |  Resource)
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### onStart
+#### onStart
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -80,7 +80,7 @@ onStart(callback: () => void)
  
   
 
-##### onComplete
+#### onComplete
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -97,7 +97,7 @@ onComplete(callback: () => void)
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -105,7 +105,7 @@ onComplete(callback: () => void)
  
   
 
-##### 支持标签
+#### 支持标签
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -127,7 +127,7 @@ onComplete(callback: () => void)
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -188,7 +188,7 @@ struct RichTextExample {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/88oPzmYGQoqvqsLXRbvGig/zh-cn_image_0000002611835783.png?HW-CC-KV=V1&HW-CC-Date=20260528T024227Z&HW-CC-Expire=86400&HW-CC-Sign=46D6A6262BD0C5628AA9BE408E771D33EFF240CAB63674E0A2011E72A6E0A961)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/88oPzmYGQoqvqsLXRbvGig/zh-cn_image_0000002611835783.png?HW-CC-KV=V1&HW-CC-Date=20260528T025601Z&HW-CC-Expire=86400&HW-CC-Sign=971BEC1E52CABA339E963DA9F9B39A8811967A02B4326D3806E40299C8F69481)
 
  
 加载本地资源文件。

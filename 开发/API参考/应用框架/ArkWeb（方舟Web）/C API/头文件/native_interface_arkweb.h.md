@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-interface-arkweb-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -40,7 +40,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -51,7 +51,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -85,13 +85,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### ArkWebEngineVersion
+#### ArkWebEngineVersion
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -121,13 +121,13 @@ ArkWeb内核版本，请参考[M114内核在HarmonyOS6.0系统上的适配指导
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### NativeArkWeb_OnJavaScriptCallback()
+#### NativeArkWeb_OnJavaScriptCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -143,7 +143,7 @@ typedef void (*NativeArkWeb_OnJavaScriptCallback)(const char*)
  
   
 
-##### NativeArkWeb_OnJavaScriptProxyCallback()
+#### NativeArkWeb_OnJavaScriptProxyCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -159,7 +159,7 @@ typedef char* (*NativeArkWeb_OnJavaScriptProxyCallback)(const char** argv, int32
  
   
 
-##### NativeArkWeb_OnValidCallback()
+#### NativeArkWeb_OnValidCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -175,7 +175,7 @@ typedef void (*NativeArkWeb_OnValidCallback)(const char*)
  
   
 
-##### NativeArkWeb_OnDestroyCallback()
+#### NativeArkWeb_OnDestroyCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -191,7 +191,7 @@ typedef void (*NativeArkWeb_OnDestroyCallback)(const char*)
  
   
 
-##### OH_ArkWeb_OnCookieSaveCallback()
+#### OH_ArkWeb_OnCookieSaveCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -214,7 +214,7 @@ typedef void (*OH_ArkWeb_OnCookieSaveCallback)(ArkWeb_ErrorCode errorCode)
  
   
 
-##### OH_NativeArkWeb_RunJavaScript()
+#### OH_NativeArkWeb_RunJavaScript()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -241,7 +241,7 @@ void OH_NativeArkWeb_RunJavaScript(const char* webTag, const char* jsCode, Nativ
  
   
 
-##### OH_NativeArkWeb_RegisterJavaScriptProxy()
+#### OH_NativeArkWeb_RegisterJavaScriptProxy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -271,7 +271,7 @@ void OH_NativeArkWeb_RegisterJavaScriptProxy(const char* webTag, const char* obj
  
   
 
-##### OH_NativeArkWeb_UnregisterJavaScriptProxy()
+#### OH_NativeArkWeb_UnregisterJavaScriptProxy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -297,7 +297,7 @@ void OH_NativeArkWeb_UnregisterJavaScriptProxy(const char* webTag, const char* o
  
   
 
-##### OH_NativeArkWeb_SetJavaScriptProxyValidCallback()
+#### OH_NativeArkWeb_SetJavaScriptProxyValidCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -323,7 +323,7 @@ void OH_NativeArkWeb_SetJavaScriptProxyValidCallback(const char* webTag, NativeA
  
   
 
-##### OH_NativeArkWeb_GetJavaScriptProxyValidCallback()
+#### OH_NativeArkWeb_GetJavaScriptProxyValidCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -355,7 +355,7 @@ NativeArkWeb_OnValidCallback OH_NativeArkWeb_GetJavaScriptProxyValidCallback(con
  
   
 
-##### OH_NativeArkWeb_SetDestroyCallback()
+#### OH_NativeArkWeb_SetDestroyCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -381,7 +381,7 @@ void OH_NativeArkWeb_SetDestroyCallback(const char* webTag, NativeArkWeb_OnDestr
  
   
 
-##### OH_NativeArkWeb_GetDestroyCallback()
+#### OH_NativeArkWeb_GetDestroyCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -413,7 +413,7 @@ NativeArkWeb_OnDestroyCallback OH_NativeArkWeb_GetDestroyCallback(const char* we
  
   
 
-##### OH_NativeArkWeb_LoadData()
+#### OH_NativeArkWeb_LoadData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -450,7 +450,7 @@ ArkWeb_ErrorCode OH_NativeArkWeb_LoadData(const char* webTag,const char* data,co
  
   
 
-##### OH_NativeArkWeb_RegisterAsyncThreadJavaScriptProxy()
+#### OH_NativeArkWeb_RegisterAsyncThreadJavaScriptProxy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -475,7 +475,7 @@ void OH_NativeArkWeb_RegisterAsyncThreadJavaScriptProxy(const char* webTag,const
  
   
 
-##### OH_ArkWebCookieManager_SaveCookieSync()
+#### OH_ArkWebCookieManager_SaveCookieSync()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -498,7 +498,7 @@ ArkWeb_ErrorCode OH_ArkWebCookieManager_SaveCookieSync()
  
   
 
-##### OH_ArkWebCookieManager_SaveCookieAsync()
+#### OH_ArkWebCookieManager_SaveCookieAsync()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -521,7 +521,7 @@ void OH_ArkWebCookieManager_SaveCookieAsync(OH_ArkWeb_OnCookieSaveCallback callb
  
   
 
-##### OH_NativeArkWeb_GetBlanklessInfoWithKey()
+#### OH_NativeArkWeb_GetBlanklessInfoWithKey()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -560,7 +560,7 @@ ArkWeb_BlanklessInfo OH_NativeArkWeb_GetBlanklessInfoWithKey(const char* webTag,
  
   
 
-##### OH_NativeArkWeb_SetBlanklessLoadingWithKey()
+#### OH_NativeArkWeb_SetBlanklessLoadingWithKey()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -598,7 +598,7 @@ ArkWeb_BlanklessErrorCode OH_NativeArkWeb_SetBlanklessLoadingWithKey(const char*
  
   
 
-##### OH_NativeArkWeb_ClearBlanklessLoadingCache()
+#### OH_NativeArkWeb_ClearBlanklessLoadingCache()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -628,7 +628,7 @@ void OH_NativeArkWeb_ClearBlanklessLoadingCache(const char* key[], uint32_t size
  
   
 
-##### OH_NativeArkWeb_SetBlanklessLoadingCacheCapacity()
+#### OH_NativeArkWeb_SetBlanklessLoadingCacheCapacity()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -658,7 +658,7 @@ uint32_t OH_NativeArkWeb_SetBlanklessLoadingCacheCapacity(uint32_t capacity)
  
   
 
-##### OH_NativeArkWeb_SetActiveWebEngineVersion()
+#### OH_NativeArkWeb_SetActiveWebEngineVersion()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -687,7 +687,7 @@ void OH_NativeArkWeb_SetActiveWebEngineVersion(ArkWebEngineVersion webEngineVers
  
   
 
-##### OH_NativeArkWeb_GetActiveWebEngineVersion()
+#### OH_NativeArkWeb_GetActiveWebEngineVersion()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -710,7 +710,7 @@ ArkWebEngineVersion OH_NativeArkWeb_GetActiveWebEngineVersion()
  
   
 
-##### OH_NativeArkWeb_IsActiveWebEngineEvergreen()
+#### OH_NativeArkWeb_IsActiveWebEngineEvergreen()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -733,7 +733,7 @@ bool OH_NativeArkWeb_IsActiveWebEngineEvergreen()
  
   
 
-##### OH_NativeArkWeb_LazyInitializeWebEngineInCookieManager()
+#### OH_NativeArkWeb_LazyInitializeWebEngineInCookieManager()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

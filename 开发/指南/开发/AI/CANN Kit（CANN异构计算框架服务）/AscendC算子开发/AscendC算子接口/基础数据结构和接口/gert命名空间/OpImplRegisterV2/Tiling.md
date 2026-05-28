@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-tiling
 
-##### 函数功能
+#### 函数功能
 
 注册算子的Tiling函数。
  
@@ -18,7 +18,7 @@ using TilingKernelFunc = UINT32 (*)(TilingContext *);
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 OpImplRegisterV2 &Tiling(TilingKernelFunc tiling_func, size_t max_tiling_data_size = 2048);
@@ -26,7 +26,7 @@ OpImplRegisterV2 &Tiling(TilingKernelFunc tiling_func, size_t max_tiling_data_si
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -36,12 +36,12 @@ OpImplRegisterV2 &Tiling(TilingKernelFunc tiling_func, size_t max_tiling_data_si
  
   
 
-##### 返回值
+#### 返回值
 
 返回算子的OpImplRegisterV2对象，该对象新增注册了Tiling函数tiling_func。
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

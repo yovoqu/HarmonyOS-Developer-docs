@@ -16,7 +16,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -26,7 +26,7 @@ import { relationalStore } from '@kit.ArkData';
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -101,7 +101,7 @@ class EntryAbility extends UIAbility {
 
 
 
-##### insert
+#### insert
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -191,7 +191,7 @@ if (store != undefined) {
 
 
 
-##### insert10+
+#### insert10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -283,7 +283,7 @@ if (store != undefined) {
 
 
 
-##### insert
+#### insert
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -379,7 +379,7 @@ if (store != undefined) {
 
 
 
-##### insert10+
+#### insert10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -476,7 +476,7 @@ if (store != undefined) {
 
 
 
-##### insertSync12+
+#### insertSync12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -572,7 +572,7 @@ if (store != undefined) {
 
 
 
-##### insertSync12+
+#### insertSync12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -653,7 +653,7 @@ if (store != undefined) {
 
 
 
-##### batchInsert
+#### batchInsert
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -757,7 +757,7 @@ if (store != undefined) {
 
 
 
-##### batchInsert
+#### batchInsert
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -890,7 +890,7 @@ await store!.batchInsert("test", valueBucketArray); // 执行批量写入
 
 
 
-##### batchInsertSync12+
+#### batchInsertSync12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1001,7 +1001,7 @@ if (store != undefined) {
 
 
 
-##### batchInsertWithConflictResolution18+
+#### batchInsertWithConflictResolution18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1112,7 +1112,7 @@ if (store != undefined) {
 
 
 
-##### batchInsertWithConflictResolutionSync18+
+#### batchInsertWithConflictResolutionSync18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1222,7 +1222,7 @@ if (store != undefined) {
 
 
 
-##### batchInsertWithReturning23+
+#### batchInsertWithReturning23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1305,7 +1305,7 @@ async function batchInsertWithReturningExample(rdbStore: relationalStore.RdbStor
 
 
 
-##### batchInsertWithReturningSync23+
+#### batchInsertWithReturningSync23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1388,7 +1388,7 @@ function batchInsertWithReturningSyncExample(rdbStore: relationalStore.RdbStore)
 
 
 
-##### update
+#### update
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1478,7 +1478,7 @@ if (store != undefined) {
 
 
 
-##### update10+
+#### update10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1569,7 +1569,7 @@ if (store != undefined) {
 
 
 
-##### update
+#### update
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1665,7 +1665,7 @@ if (store != undefined) {
 
 
 
-##### update10+
+#### update10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1762,7 +1762,7 @@ if (store != undefined) {
 
 
 
-##### updateSync12+
+#### updateSync12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1858,7 +1858,7 @@ if (store != undefined) {
 
 
 
-##### updateWithReturning23+
+#### updateWithReturning23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1937,7 +1937,7 @@ async function updateWithReturningExample(rdbStore: relationalStore.RdbStore)
 
 
 
-##### updateWithReturningSync23+
+#### updateWithReturningSync23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2016,7 +2016,7 @@ function updateWithReturningSyncExample(rdbStore: relationalStore.RdbStore)
 
 
 
-##### delete
+#### delete
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2080,7 +2080,7 @@ if (store != undefined) {
 
 
 
-##### delete
+#### delete
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2150,7 +2150,7 @@ if (store != undefined) {
 
 
 
-##### deleteSync12+
+#### deleteSync12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2219,7 +2219,7 @@ if (store != undefined) {
 
 
 
-##### deleteWithReturning23+
+#### deleteWithReturning23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2291,7 +2291,7 @@ async function deleteWithReturningExample(rdbStore: relationalStore.RdbStore)
 
 
 
-##### deleteWithReturningSync23+
+#### deleteWithReturningSync23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2363,7 +2363,7 @@ function deleteWithReturningSyncExample(rdbStore: relationalStore.RdbStore)
 
 
 
-##### query10+
+#### query10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2426,7 +2426,7 @@ if (store != undefined) {
 
 
 
-##### query
+#### query
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2490,7 +2490,7 @@ if (store != undefined) {
 
 
 
-##### query
+#### query
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2560,7 +2560,7 @@ if (store != undefined) {
 
 
 
-##### querySync12+
+#### querySync12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2628,7 +2628,7 @@ if (store != undefined) {
 
 
 
-##### queryWithoutRowCount23+
+#### queryWithoutRowCount23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2698,7 +2698,7 @@ async function queryWithoutRowCountEmployee(store : relationalStore.RdbStore) {
 
 
 
-##### queryWithoutRowCountSync23+
+#### queryWithoutRowCountSync23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2766,7 +2766,7 @@ if (store != undefined) {
 
 
 
-##### querySqlWithoutRowCount23+
+#### querySqlWithoutRowCount23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2835,7 +2835,7 @@ async function querySqlWithoutRowCountEmployee(store : relationalStore.RdbStore)
 
 
 
-##### querySqlWithoutRowCountSync23+
+#### querySqlWithoutRowCountSync23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2902,7 +2902,7 @@ if (store != undefined) {
 
 
 
-##### remoteQuery
+#### remoteQuery
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2992,7 +2992,7 @@ if (store != undefined && deviceId != undefined) {
 
 
 
-##### remoteQuery
+#### remoteQuery
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3086,7 +3086,7 @@ if (store != undefined && deviceId != undefined) {
 
 
 
-##### querySql10+
+#### querySql10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3169,7 +3169,7 @@ let resultSet2 = await store.querySql(querySql2);
 
 
 
-##### querySql
+#### querySql
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3235,7 +3235,7 @@ if (store != undefined) {
 
 
 
-##### querySql
+#### querySql
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3318,7 +3318,7 @@ let resultSet = await store.querySql(querySql, [vectorValue, 1, vectorValue, vec
 
 
 
-##### querySqlSync12+
+#### querySqlSync12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3384,7 +3384,7 @@ if (store != undefined) {
 
 
 
-##### executeSql10+
+#### executeSql10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3452,7 +3452,7 @@ if (store != undefined) {
 
 
 
-##### executeSql
+#### executeSql
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3521,7 +3521,7 @@ if (store != undefined) {
 
 
 
-##### executeSql
+#### executeSql
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3596,7 +3596,7 @@ if (store != undefined) {
 
 
 
-##### execute12+
+#### execute12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3715,7 +3715,7 @@ await store!.execute("insert into test values(1, '[3.5, 1.8]');");
 
 
 
-##### execute12+
+#### execute12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3804,7 +3804,7 @@ if (store != null) {
 
 
 
-##### executeSync12+
+#### executeSync12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3904,7 +3904,7 @@ if (store != undefined) {
 
 
 
-##### getModifyTime10+
+#### getModifyTime10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3969,7 +3969,7 @@ if (store != undefined) {
 
 
 
-##### getModifyTime10+
+#### getModifyTime10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4042,7 +4042,7 @@ if (store != undefined) {
 
 
 
-##### beginTransaction
+#### beginTransaction
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4105,7 +4105,7 @@ if (store != undefined) {
 
 
 
-##### beginTrans12+
+#### beginTrans12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4181,7 +4181,7 @@ if (store != null) {
 
 
 
-##### createTransaction14+
+#### createTransaction14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4250,7 +4250,7 @@ if (store != undefined) {
 
 
 
-##### commit
+#### commit
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4312,7 +4312,7 @@ if (store != undefined) {
 
 
 
-##### commit12+
+#### commit12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4391,7 +4391,7 @@ if (store != null) {
 
 
 
-##### rollBack
+#### rollBack
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4462,7 +4462,7 @@ if (store != undefined) {
 
 
 
-##### rollback12+
+#### rollback12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4541,7 +4541,7 @@ if (store != null) {
 
 
 
-##### backup
+#### backup
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4605,7 +4605,7 @@ if (store != undefined) {
 
 
 
-##### backup
+#### backup
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4675,7 +4675,7 @@ if (store != undefined) {
 
 
 
-##### restore
+#### restore
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4738,7 +4738,7 @@ if (store != undefined) {
 
 
 
-##### restore
+#### restore
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4808,7 +4808,7 @@ if (store != undefined) {
 
 
 
-##### setDistributedTables
+#### setDistributedTables
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4856,7 +4856,7 @@ if (store != undefined) {
 
 
 
-##### setDistributedTables
+#### setDistributedTables
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4910,7 +4910,7 @@ if (store != undefined) {
 
 
 
-##### setDistributedTables10+
+#### setDistributedTables10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4960,7 +4960,7 @@ if (store != undefined) {
 
 
 
-##### setDistributedTables10+
+#### setDistributedTables10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5013,7 +5013,7 @@ if (store != undefined) {
 
 
 
-##### setDistributedTables10+
+#### setDistributedTables10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5072,7 +5072,7 @@ if (store != undefined) {
 
 
 
-##### obtainDistributedTableName
+#### obtainDistributedTableName
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5145,7 +5145,7 @@ if (store != undefined && deviceId != undefined) {
 
 
 
-##### obtainDistributedTableName
+#### obtainDistributedTableName
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5222,7 +5222,7 @@ if (store != undefined && deviceId != undefined) {
 
 
 
-##### sync
+#### sync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5294,7 +5294,7 @@ if (store != undefined) {
 
 
 
-##### sync
+#### sync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5370,7 +5370,7 @@ if (store != undefined) {
 
 
 
-##### cloudSync10+
+#### cloudSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -5418,7 +5418,7 @@ if (store != undefined) {
 
 
 
-##### cloudSync10+
+#### cloudSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -5472,7 +5472,7 @@ if (store != undefined) {
 
 
 
-##### cloudSync10+
+#### cloudSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -5523,7 +5523,7 @@ if (store != undefined) {
 
 
 
-##### cloudSync10+
+#### cloudSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -5580,7 +5580,7 @@ if (store != undefined) {
 
 
 
-##### on('dataChange')
+#### on('dataChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5636,7 +5636,7 @@ try {
 
 
 
-##### on('dataChange')10+
+#### on('dataChange')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5737,7 +5737,7 @@ try {
 
 
 
-##### on10+
+#### on10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5791,7 +5791,7 @@ try {
 
 
 
-##### on('autoSyncProgress')11+
+#### on('autoSyncProgress')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5842,7 +5842,7 @@ try {
 
 
 
-##### on('statistics')12+
+#### on('statistics')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5919,7 +5919,7 @@ try {
 
 
 
-##### on('sqliteErrorOccurred')20+
+#### on('sqliteErrorOccurred')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5987,7 +5987,7 @@ try {
 
 
 
-##### on('perfStat')20+
+#### on('perfStat')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6063,7 +6063,7 @@ try {
 
 
 
-##### off('dataChange')
+#### off('dataChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6130,7 +6130,7 @@ try {
 
 
 
-##### off('dataChange')10+
+#### off('dataChange')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6197,7 +6197,7 @@ try {
 
 
 
-##### off10+
+#### off10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6261,7 +6261,7 @@ try {
 
 
 
-##### off('autoSyncProgress')11+
+#### off('autoSyncProgress')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6322,7 +6322,7 @@ try {
 
 
 
-##### off('statistics')12+
+#### off('statistics')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6368,7 +6368,7 @@ try {
 
 
 
-##### off('sqliteErrorOccurred')20+
+#### off('sqliteErrorOccurred')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6414,7 +6414,7 @@ try {
 
 
 
-##### off('perfStat')20+
+#### off('perfStat')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6458,7 +6458,7 @@ try {
 
 
 
-##### emit10+
+#### emit10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6498,7 +6498,7 @@ if (store != undefined) {
 
 
 
-##### cleanDirtyData11+
+#### cleanDirtyData11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -6561,7 +6561,7 @@ if (store != undefined) {
 
 
 
-##### cleanDirtyData11+
+#### cleanDirtyData11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -6623,7 +6623,7 @@ if (store != undefined) {
 
 
 
-##### cleanDirtyData11+
+#### cleanDirtyData11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -6692,7 +6692,7 @@ if (store != undefined) {
 
 
 
-##### attach12+
+#### attach12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6771,7 +6771,7 @@ if (store != undefined) {
 
 
 
-##### attach12+
+#### attach12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6893,7 +6893,7 @@ relationalStore.getRdbStore(this.context, STORE_CONFIG2).then(async (rdbStore: r
 
 
 
-##### detach12+
+#### detach12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6965,7 +6965,7 @@ if (store != undefined) {
 
 
 
-##### lockRow12+
+#### lockRow12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7041,7 +7041,7 @@ if (store != undefined) {
 
 
 
-##### unlockRow12+
+#### unlockRow12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7117,7 +7117,7 @@ if (store != undefined) {
 
 
 
-##### queryLockedRow12+
+#### queryLockedRow12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7202,7 +7202,7 @@ if (store != undefined) {
 
 
 
-##### close12+
+#### close12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7245,7 +7245,7 @@ if (store != undefined) {
 
 
 
-##### rekey20+
+#### rekey20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7389,7 +7389,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setLocale20+
+#### setLocale20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7450,7 +7450,7 @@ try {
 
 
 
-##### rekeyEx22+
+#### rekeyEx22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

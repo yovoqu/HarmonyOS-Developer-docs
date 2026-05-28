@@ -16,7 +16,7 @@
 **起始版本：** 4.1.0(11)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -26,7 +26,7 @@ import { serviceNotification } from '@kit.PushKit';
  
   
 
-##### serviceNotification.requestSubscribeNotification
+#### serviceNotification.requestSubscribeNotification
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -110,7 +110,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### serviceNotification.requestSubscribeNotification
+#### serviceNotification.requestSubscribeNotification
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -208,7 +208,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### RequestResult
+#### RequestResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -231,7 +231,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### EntityResult
+#### EntityResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -255,7 +255,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### ResultCode
+#### ResultCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -282,7 +282,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### SubscribeNotificationType
+#### SubscribeNotificationType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

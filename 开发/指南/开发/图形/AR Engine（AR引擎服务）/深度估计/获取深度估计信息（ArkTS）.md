@@ -7,13 +7,13 @@
 本章节给出了关键开发步骤，完整代码可以参考[示例代码](https://gitcode.com/HarmonyOS_Samples/arengine_samplecode_clientdemo_arkts)。
 
 
-##### 约束与限制
+#### 约束与限制
 
 从5.1.0(18)开始，获取深度估计信息能力支持部分Phone、部分Tablet设备。请参考[硬件要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-preparations#硬件要求)判断设备是否支持深度估计特性（[ARENGINE_FEATURE_TYPE_DEPTH](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arfeaturetype)）。
 
 
 
-##### 接口说明
+#### 接口说明
 
 获取深度估计信息可以通过[ARFrame](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arframe)帧对象获取，以下接口为深度估计相关接口。详细接口和说明，请参考[AR Engine API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine)。
 
@@ -26,13 +26,13 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 对于使用ArkTS的任何AR应用，首先需要创建一个AR会话[ARViewContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontext)，用于管理AR Engine的系统状态。AR会话[ARViewContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontext)的创建可以参考[管理AR会话](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-arsession)章节。
 
 
 
-##### 导入模块
+#### 导入模块
 
 获取深度估计信息能力所需的模块导入方法如下：
 
@@ -44,7 +44,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 
-##### 定义变量
+#### 定义变量
 
 定义变量centerDistance深度估计距离和centerConfidence深度置信度。
 
@@ -55,7 +55,7 @@ let centerConfidence: number;
 
 
 
-##### 显示深度估计信息
+#### 显示深度估计信息
 
 首先初始化AR会话和AR场景，可以参考[初始化AR会话和AR场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-arsession#初始化ar会话和ar场景)章节。
 
@@ -194,7 +194,7 @@ struct ARDepth {
 
 
 
-##### 获取深度估计信息
+#### 获取深度估计信息
 
 调用[ARViewCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcallback)，使用其中的[onFrameUpdate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcallbackonframeupdate)方法获取到AR会话对象后进行深度估计，获取深度信息、置信度信息。
 
@@ -235,6 +235,6 @@ class ARViewCallbackImpl extends arViewController.ARViewCallback {
 
 
 
-##### 获取深度估计信息的自定义方法
+#### 获取深度估计信息的自定义方法
 
 自定义数据转换方法arrayBufferInt32ToNumber可参考[数据类型转换说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-arraybuffer-info)。

@@ -10,7 +10,7 @@
 **起始版本：** 4.1.0(11)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -20,7 +20,7 @@ import { MapComponent } from '@kit.MapKit';
  
   
 
-##### MapComponent
+#### MapComponent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -129,7 +129,7 @@ struct MarkerDemo {
  
   
 
-##### build
+#### build
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -147,7 +147,7 @@ struct的默认构造函数，无法直接调用此方法。
  
   
 
-##### customInfoWindowCallback
+#### customInfoWindowCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

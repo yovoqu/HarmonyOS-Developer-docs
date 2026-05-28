@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getc0format
 
-##### 函数功能
+#### 函数功能
 
 根据实际format获取C0 format的值。C0值是AI处理器特有数据格式所需要的参数。例如NC1HWC0，最后一维即表示C0值，C0值在不同的AI处理器中数值不同，通过C0 format来承载。
  
@@ -26,7 +26,7 @@
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 inline int32_t GetC0Format(int32_t format)
@@ -34,7 +34,7 @@ inline int32_t GetC0Format(int32_t format)
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -43,7 +43,7 @@ inline int32_t GetC0Format(int32_t format)
  
   
 
-##### 返回值
+#### 返回值
 
 - 如果包含c0 format，返回c0 format的值。
 - 如果不包含c0 format，返回0。
@@ -51,12 +51,12 @@ inline int32_t GetC0Format(int32_t format)
  
   
 
-##### 异常处理
+#### 异常处理
 
 无
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

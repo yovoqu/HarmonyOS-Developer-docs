@@ -9,7 +9,7 @@
 对应算法规格请查看[密钥派生算法规格：X963KDF](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-key-derivation-overview#x963kdf算法)。
 
 
-##### 开发步骤
+#### 开发步骤
 1. 调用[OH_CryptoKdfParams_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-kdf-h#oh_cryptokdfparams_create)，指定字符串参数'X963KDF'，创建密钥派生参数对象。
 2. 调用[OH_CryptoKdfParams_SetParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-kdf-h#oh_cryptokdfparams_setparam)，设置X963KDF所需的参数。示例如下：
 

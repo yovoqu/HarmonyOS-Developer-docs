@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-cache-errorcode
 
-##### 00601001 缓存子命令为空
+#### 00601001 缓存子命令为空
 
 **错误信息**
  
@@ -24,7 +24,7 @@ Cache Subcommand Is Empty.
  
  
 
-##### 00601002 缓存子命令不支持
+#### 00601002 缓存子命令不支持
 
 **错误信息**
  
@@ -44,7 +44,7 @@ Cache Subcommand Not Support.
  
  
 
-##### 00601003 缓存包无效
+#### 00601003 缓存包无效
 
 **错误信息**
  

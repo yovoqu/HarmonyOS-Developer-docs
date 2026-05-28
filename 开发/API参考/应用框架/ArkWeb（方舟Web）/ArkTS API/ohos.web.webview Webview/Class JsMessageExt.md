@@ -12,7 +12,7 @@
 
   
 
-##### getType10+
+#### getType10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -31,7 +31,7 @@ getType(): JsMessageType
  
   
 
-##### getString10+
+#### getString10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -59,7 +59,7 @@ getString(): string
  
   
 
-##### getNumber10+
+#### getNumber10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -87,7 +87,7 @@ getNumber(): number
  
   
 
-##### getBoolean10+
+#### getBoolean10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -115,7 +115,7 @@ getBoolean(): boolean
  
   
 
-##### getArrayBuffer10+
+#### getArrayBuffer10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -143,7 +143,7 @@ getArrayBuffer(): ArrayBuffer
  
   
 
-##### getArray10+
+#### getArray10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -171,7 +171,7 @@ getArray(): Array<string | number | boolean>
  
   
 
-##### getErrorDescription22+
+#### getErrorDescription22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

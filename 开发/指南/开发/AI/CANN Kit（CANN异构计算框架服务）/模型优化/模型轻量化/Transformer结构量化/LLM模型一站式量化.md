@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-large-language-one-stop
 
-##### 简介
+#### 简介
 
 本工具提供大语言模型（Large Language Model，以下简称LLM）的4bit低位量化能力，采用标准的三段式量化流程：权重量化、激活量化和量化参数提取。三段式量化流程说明如下表所示。
  
@@ -19,7 +19,7 @@
  
   
 
-##### 量化前准备工作
+#### 量化前准备工作
 
 - HuggingFace浮点模型
 - JSON格式数据集，使用“text”字段作为prompt关键字
@@ -33,7 +33,7 @@
  
   
 
-##### config.yaml示例
+#### config.yaml示例
 
 config.yaml用于模型量化配置，开发者可根据实际需要进行配置。以下示例可供参考，主要参数说明请参见[config.yaml配置参数说明](#configyaml配置参数说明)。
  
@@ -73,7 +73,7 @@ lm_head_size:
  
   
 
-##### config.yaml配置参数说明
+#### config.yaml配置参数说明
 
 以下为config.yaml文件的关键配置参数，具体说明如下表所示。
   
@@ -104,7 +104,7 @@ lm_head_size:
  
   
 
-##### 执行三段式量化
+#### 执行三段式量化
 
 按以下步骤执行run.sh文件，stagex为传入参数，具体可参考[run.sh示例](#runsh示例)。
  1. 权重量化。
@@ -153,7 +153,7 @@ bash run.sh stage3
  
   
 
-##### run.sh示例
+#### run.sh示例
 
 ```json
 #!/bin/bash
@@ -190,7 +190,7 @@ python -u \
  
   
 
-##### dopt_config.json量化配置文件说明
+#### dopt_config.json量化配置文件说明
 
 工具支持开发者插件式自定义LLM量化规格：
  
@@ -219,7 +219,7 @@ python -u \
  
   
 
-##### 量化工具输出件
+#### 量化工具输出件
 
 ```text
 trained.pth            ### 量化仿真可使用该文件
@@ -229,17 +229,17 @@ trained_quant_weight.pth ### 阶段一的输出，阶段二的输入
  
   
 
-##### 量化仿真
+#### 量化仿真
 
 量化完成后，开发者可进行量化仿真推理，通过对比量化模型与原始浮点模型的输出结果，来评估量化模型精度是否满足要求。量化仿真推理工程可参考[qwen2模型量化仿真推理demo](#qwen2模型量化仿真推理demo)。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/N-SfRmOhSMeN0vwh9O3jPg/zh-cn_image_0000002611755245.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T014409Z&HW-CC-Expire=86400&HW-CC-Sign=88004E61AC23471805B1D53DCE42B33DDF39AEC5F46CC6B9864082BA1002E53E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/N-SfRmOhSMeN0vwh9O3jPg/zh-cn_image_0000002611755245.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T030037Z&HW-CC-Expire=86400&HW-CC-Sign=4D13C79BA938CB8D4B6197FFBAC287363727489BE498AE7FF9A02965649D3A82)
 
  
   
 
-##### 插件方法
+#### 插件方法
 
 浮点模型完成加载和初始化后，使用以下接口将浮点模型转换为量化模型，模型推理逻辑不变，可参考[qwen2模型量化仿真推理demo](#qwen2模型量化仿真推理demo)。
  
@@ -268,7 +268,7 @@ def get_quanted_model(base_model, dopt_config, quanted_ckpt):
  
   
 
-##### qwen2模型量化仿真推理demo
+#### qwen2模型量化仿真推理demo
 
 ```json
 import os

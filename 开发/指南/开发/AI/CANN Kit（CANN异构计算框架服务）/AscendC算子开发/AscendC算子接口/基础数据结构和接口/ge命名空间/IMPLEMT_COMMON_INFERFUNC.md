@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-implemt-common-inferfunc
 
-##### 函数功能
+#### 函数功能
 
 封装算子的Common_InferShape函数。
  
@@ -12,7 +12,7 @@
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 IMPLEMT_COMMON_INFERFUNC(func_name)
@@ -20,13 +20,13 @@ IMPLEMT_COMMON_INFERFUNC(func_name)
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数名 | 输入/输出 | 描述 |
 | --- | --- | --- |
@@ -35,6 +35,6 @@ IMPLEMT_COMMON_INFERFUNC(func_name)
  
   
 
-##### 返回值
+#### 返回值
 
 无

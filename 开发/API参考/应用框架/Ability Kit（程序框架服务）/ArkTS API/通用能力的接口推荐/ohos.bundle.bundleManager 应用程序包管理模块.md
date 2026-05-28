@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 
-##### BundleFlag
+#### BundleFlag
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -49,7 +49,7 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 
-##### ExtensionAbilityType
+#### ExtensionAbilityType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -90,7 +90,7 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 
-##### PermissionGrantState
+#### PermissionGrantState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -108,7 +108,7 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 
-##### SupportWindowMode
+#### SupportWindowMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -127,7 +127,7 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 
-##### LaunchType
+#### LaunchType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -146,7 +146,7 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 
-##### AbilityType
+#### AbilityType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -165,7 +165,7 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 
-##### DisplayOrientation
+#### DisplayOrientation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -194,7 +194,7 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 
-##### CompatiblePolicy10+
+#### CompatiblePolicy10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -211,7 +211,7 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 
-##### ModuleType
+#### ModuleType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -230,7 +230,7 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 
-##### BundleType
+#### BundleType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -248,7 +248,7 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 
-##### MultiAppModeType12+
+#### MultiAppModeType12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -265,7 +265,7 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 
-##### AbilityFlag20+
+#### AbilityFlag20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -289,7 +289,7 @@ Ability组件信息标志，指示需要获取的Ability组件信息的内容。
 
 
 
-##### bundleManager.getBundleInfoForSelf
+#### bundleManager.getBundleInfoForSelf
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -349,7 +349,7 @@ try {
 
 
 
-##### bundleManager.getBundleInfoForSelf
+#### bundleManager.getBundleInfoForSelf
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -406,7 +406,7 @@ try {
 
 
 
-##### bundleManager.getProfileByAbility
+#### bundleManager.getProfileByAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -472,7 +472,7 @@ try {
 
 
 
-##### bundleManager.getProfileByAbility
+#### bundleManager.getProfileByAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -564,7 +564,7 @@ try {
 
 
 
-##### bundleManager.getProfileByAbilitySync10+
+#### bundleManager.getProfileByAbilitySync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -648,7 +648,7 @@ try {
 
 
 
-##### bundleManager.getProfileByExtensionAbility
+#### bundleManager.getProfileByExtensionAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -711,7 +711,7 @@ try {
 
 
 
-##### bundleManager.getProfileByExtensionAbility
+#### bundleManager.getProfileByExtensionAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -789,7 +789,7 @@ try {
 
 
 
-##### bundleManager.getProfileByExtensionAbilitySync10+
+#### bundleManager.getProfileByExtensionAbilitySync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -863,7 +863,7 @@ try {
 
 
 
-##### bundleManager.getBundleInfoForSelfSync10+
+#### bundleManager.getBundleInfoForSelfSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -918,7 +918,7 @@ try {
 
 
 
-##### bundleManager.canOpenLink12+
+#### bundleManager.canOpenLink12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -974,7 +974,7 @@ try {
 
 
 
-##### bundleManager.getLaunchWant13+
+#### bundleManager.getLaunchWant13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1021,7 +1021,7 @@ try {
 
 
 
-##### bundleManager.getBundleInfo14+
+#### bundleManager.getBundleInfo14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1116,7 +1116,7 @@ try {
 
 
 
-##### bundleManager.getBundleInfo14+
+#### bundleManager.getBundleInfo14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1183,7 +1183,7 @@ try {
 
 
 
-##### bundleManager.getBundleInfo14+
+#### bundleManager.getBundleInfo14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1277,7 +1277,7 @@ try {
 
 
 
-##### bundleManager.getBundleInfoSync14+
+#### bundleManager.getBundleInfoSync14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1346,7 +1346,7 @@ try {
 
 
 
-##### bundleManager.getBundleInfoSync14+
+#### bundleManager.getBundleInfoSync14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1411,7 +1411,7 @@ try {
 
 
 
-##### bundleManager.getBundleNameByUid14+
+#### bundleManager.getBundleNameByUid14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1470,7 +1470,7 @@ try {
 
 
 
-##### bundleManager.getBundleNameByUid14+
+#### bundleManager.getBundleNameByUid14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1533,7 +1533,7 @@ try {
 
 
 
-##### bundleManager.getBundleNameByUidSync14+
+#### bundleManager.getBundleNameByUidSync14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1593,7 +1593,7 @@ try {
 
 
 
-##### bundleManager.getAppCloneIdentity14+
+#### bundleManager.getAppCloneIdentity14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1657,7 +1657,7 @@ try {
 
 
 
-##### bundleManager.getSignatureInfo18+
+#### bundleManager.getSignatureInfo18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1712,7 +1712,7 @@ try {
 
 
 
-##### bundleManager.getAbilityInfo20+
+#### bundleManager.getAbilityInfo20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1778,7 +1778,7 @@ try {
 
 
 
-##### bundleManager.cleanBundleCacheFilesForSelf21+
+#### bundleManager.cleanBundleCacheFilesForSelf21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1810,7 +1810,7 @@ bundleManager.cleanBundleCacheFilesForSelf().then(() => {
 
 
 
-##### bundleManager.getPluginBundlePathForSelf22+
+#### bundleManager.getPluginBundlePathForSelf22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1863,7 +1863,7 @@ try {
 
 
 
-##### bundleManager.getLaunchWantForBundleSync24+
+#### bundleManager.getLaunchWantForBundleSync24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1948,7 +1948,7 @@ try {
 
 
 
-##### ApplicationInfo
+#### ApplicationInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1967,7 +1967,7 @@ type ApplicationInfo = _ApplicationInfo
 
 
 
-##### ModuleMetadata10+
+#### ModuleMetadata10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1986,7 +1986,7 @@ type ModuleMetadata = _ModuleMetadata
 
 
 
-##### Metadata
+#### Metadata
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2005,7 +2005,7 @@ type Metadata = _Metadata
 
 
 
-##### BundleInfo
+#### BundleInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2024,7 +2024,7 @@ type BundleInfo = _BundleInfo.BundleInfo
 
 
 
-##### UsedScene
+#### UsedScene
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2043,7 +2043,7 @@ type UsedScene = _BundleInfo.UsedScene
 
 
 
-##### ReqPermissionDetail
+#### ReqPermissionDetail
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2062,7 +2062,7 @@ type ReqPermissionDetail = _BundleInfo.ReqPermissionDetail
 
 
 
-##### SignatureInfo
+#### SignatureInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2081,7 +2081,7 @@ type SignatureInfo = _BundleInfo.SignatureInfo
 
 
 
-##### HapModuleInfo
+#### HapModuleInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2100,7 +2100,7 @@ type HapModuleInfo = _HapModuleInfo.HapModuleInfo
 
 
 
-##### PreloadItem
+#### PreloadItem
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2119,7 +2119,7 @@ type PreloadItem = _HapModuleInfo.PreloadItem
 
 
 
-##### Dependency
+#### Dependency
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2138,7 +2138,7 @@ type Dependency = _HapModuleInfo.Dependency
 
 
 
-##### RouterItem12+
+#### RouterItem12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2157,7 +2157,7 @@ type RouterItem = _HapModuleInfo.RouterItem
 
 
 
-##### DataItem12+
+#### DataItem12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2176,7 +2176,7 @@ type DataItem = _HapModuleInfo.DataItem
 
 
 
-##### AbilityInfo
+#### AbilityInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2195,7 +2195,7 @@ Ability信息。
 
 
 
-##### WindowSize
+#### WindowSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2214,7 +2214,7 @@ type WindowSize = _AbilityInfo.WindowSize
 
 
 
-##### ExtensionAbilityInfo
+#### ExtensionAbilityInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2233,7 +2233,7 @@ ExtensionAbility信息。
 
 
 
-##### ElementName
+#### ElementName
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2252,7 +2252,7 @@ ElementName信息。
 
 
 
-##### Skill12+
+#### Skill12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2271,7 +2271,7 @@ skill信息。
 
 
 
-##### SkillUrl12+
+#### SkillUrl12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2290,7 +2290,7 @@ SkillUri信息。
 
 
 
-##### AppCloneIdentity15+
+#### AppCloneIdentity15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -10,7 +10,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@ import notification from '@system.notification';
  
   
 
-##### ActionResult
+#### ActionResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -35,7 +35,7 @@ import notification from '@system.notification';
  
   
 
-##### ShowNotificationOptions
+#### ShowNotificationOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -50,7 +50,7 @@ import notification from '@system.notification';
  
   
 
-##### notification.show
+#### notification.show
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

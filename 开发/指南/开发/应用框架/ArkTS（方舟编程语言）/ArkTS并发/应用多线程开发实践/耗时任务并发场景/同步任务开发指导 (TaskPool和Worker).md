@@ -11,7 +11,7 @@
 当同步任务之间相对独立时，推荐使用TaskPool，例如一系列导入的静态方法或单例实现的方法。如果同步任务之间有关联性，则需要使用Worker。
 
 
-##### 使用TaskPool处理同步任务
+#### 使用TaskPool处理同步任务
 
 以下场景推荐使用TaskPool。
 
@@ -77,7 +77,7 @@ struct Index {
 
 
 
-##### 使用Worker处理关联的同步任务
+#### 使用Worker处理关联的同步任务
 
 当一系列同步任务需要使用同一个句柄调度，或者需要依赖某个类对象调度，且无法在不同任务池之间共享时，需要使用Worker。
 1. 在UI主线程中创建Worker对象并接收Worker线程发送的消息。DevEco Studio支持一键生成Worker。在{moduleName}目录下任意位置，点击鼠标右键 > New > Worker，即可生成Worker的模板文件及配置信息。

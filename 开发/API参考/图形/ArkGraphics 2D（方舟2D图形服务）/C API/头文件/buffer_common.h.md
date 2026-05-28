@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-buffer-common-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -43,7 +43,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -58,13 +58,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_NativeBuffer_ColorSpace
+#### OH_NativeBuffer_ColorSpace
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -122,7 +122,7 @@ API version 12之前，使用该枚举请引用native_buffer.h头文件；从API
  
   
 
-##### OH_NativeBuffer_MetadataType
+#### OH_NativeBuffer_MetadataType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -152,7 +152,7 @@ OH_NativeBuffer的图像标准。
  
   
 
-##### OH_NativeBuffer_MetadataKey
+#### OH_NativeBuffer_MetadataKey
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -178,7 +178,7 @@ enum OH_NativeBuffer_MetadataKey
  
   
 
-##### OH_NativeBuffer_Format
+#### OH_NativeBuffer_Format
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -248,7 +248,7 @@ API version 22之前，使用该枚举请引用native_buffer.h头文件；从API
  
   
 
-##### OH_NativeBuffer_TransformType
+#### OH_NativeBuffer_TransformType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -12,7 +12,7 @@
 
   
 
-##### PickerTextStyle对象说明
+#### PickerTextStyle对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -30,7 +30,7 @@
  
   
 
-##### PickerDialogButtonStyle12+对象说明
+#### PickerDialogButtonStyle12+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -57,7 +57,7 @@
  
   
 
-##### DateRange19+对象说明
+#### DateRange19+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

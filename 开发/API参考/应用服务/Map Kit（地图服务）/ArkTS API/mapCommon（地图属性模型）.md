@@ -10,7 +10,7 @@
 **起始版本：** 4.1.0(11)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -20,7 +20,7 @@ import { mapCommon } from '@kit.MapKit';
 
 
 
-##### MapOptions
+#### MapOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -100,7 +100,7 @@ let mapOptions: mapCommon.MapOptions = {
 
 
 
-##### LatLng
+#### LatLng
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -131,7 +131,7 @@ let position: mapCommon.LatLng = {
 
 
 
-##### CameraPosition
+#### CameraPosition
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -169,7 +169,7 @@ let cameraPosition: mapCommon.CameraPosition = {
 
 
 
-##### LatLngBounds
+#### LatLngBounds
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -206,7 +206,7 @@ let bounds: mapCommon.LatLngBounds = {
 
 
 
-##### PatternItem
+#### PatternItem
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -237,7 +237,7 @@ let patternItem: mapCommon.PatternItem = {
 
 
 
-##### MyLocationStyle
+#### MyLocationStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -273,7 +273,7 @@ let style: mapCommon.MyLocationStyle = {
 
 
 
-##### Poi
+#### Poi
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -309,7 +309,7 @@ let poi: mapCommon.Poi = {
 
 
 
-##### BaseOverlayOptions
+#### BaseOverlayOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -331,7 +331,7 @@ let poi: mapCommon.Poi = {
 
 
 
-##### MarkerOptions
+#### MarkerOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -406,7 +406,7 @@ let markerOptions: mapCommon.MarkerOptions = {
 
 
 
-##### MapCircleOptions
+#### MapCircleOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -451,7 +451,7 @@ let mapCircleOptions: mapCommon.MapCircleOptions = {
 
 
 
-##### MapPolygonOptions
+#### MapPolygonOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -503,7 +503,7 @@ let polygonOptions: mapCommon.MapPolygonOptions = {
 
 
 
-##### MapPolylineOptions
+#### MapPolylineOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -562,7 +562,7 @@ let polylineOption: mapCommon.MapPolylineOptions = {
 
 
 
-##### BasePriorityOverlayParams
+#### BasePriorityOverlayParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -588,7 +588,7 @@ let polylineOption: mapCommon.MapPolylineOptions = {
 
 
 
-##### PointAnnotationParams
+#### PointAnnotationParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -645,7 +645,7 @@ let pointAnnotationOptions: mapCommon.PointAnnotationParams = {
 
 
 
-##### BubbleParams
+#### BubbleParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -688,7 +688,7 @@ let bubbleOptions: mapCommon.BubbleParams = {
 
 
 
-##### Text
+#### Text
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -727,7 +727,7 @@ let text: mapCommon.Text = {
 
 
 
-##### Padding
+#### Padding
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -761,7 +761,7 @@ let padding: mapCommon.Padding = {
 
 
 
-##### VisibleRegion
+#### VisibleRegion
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -794,7 +794,7 @@ let visibleRegion: mapCommon.VisibleRegion = projection.getVisibleRegion();
 
 
 
-##### MapPoint
+#### MapPoint
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -825,7 +825,7 @@ let point: mapCommon.MapPoint = {
 
 
 
-##### CustomMapStyleOptions
+#### CustomMapStyleOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -856,7 +856,7 @@ let param: mapCommon.CustomMapStyleOptions = {
 
 
 
-##### ClusterItem
+#### ClusterItem
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -888,7 +888,7 @@ let clusterItem: mapCommon.ClusterItem = {
 
 
 
-##### ClusterOverlayParams
+#### ClusterOverlayParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -939,7 +939,7 @@ let clusterOverlayParams: mapCommon.ClusterOverlayParams = { distance: 40, clust
 
 
 
-##### getCustomIcon
+#### getCustomIcon
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1014,7 +1014,7 @@ export class ClusterOverlayParamsMore implements mapCommon.ClusterOverlayParams 
 
 
 
-##### ImageOverlayParams
+#### ImageOverlayParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1061,7 +1061,7 @@ let imageOverlayParams: mapCommon.ImageOverlayParams = {
 
 
 
-##### BuildingOverlayParams
+#### BuildingOverlayParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1247,7 +1247,7 @@ let buildingOverlayOptions: mapCommon.BuildingOverlayParams =
 
 
 
-##### BuildingTexture
+#### BuildingTexture
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1280,7 +1280,7 @@ let buildingTexture: mapCommon.BuildingTexture = {
 
 
 
-##### TraceOverlayParams
+#### TraceOverlayParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1451,7 +1451,7 @@ let traceOverlay = await this.mapController.addTraceOverlay(traceOptions, marker
 
 
 
-##### MapArcParams
+#### MapArcParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1503,7 +1503,7 @@ let mapArcParams: mapCommon.MapArcParams = {
 
 
 
-##### CoordinateLatLng
+#### CoordinateLatLng
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1534,7 +1534,7 @@ let location: mapCommon.CoordinateLatLng = {
 
 
 
-##### TileOverlayParams
+#### TileOverlayParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1568,7 +1568,7 @@ let params: mapCommon.TileOverlayParams = {
 
 
 
-##### TileOverlayOptions
+#### TileOverlayOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1608,7 +1608,7 @@ let params: mapCommon.TileOverlayOptions = {
 
 
 
-##### HeatmapParams
+#### HeatmapParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1636,7 +1636,7 @@ let params: mapCommon.TileOverlayOptions = {
 
 
 
-##### RadiusUnit
+#### RadiusUnit
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1658,7 +1658,7 @@ let params: mapCommon.TileOverlayOptions = {
 
 
 
-##### WeightedLatLng
+#### WeightedLatLng
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1680,7 +1680,7 @@ let params: mapCommon.TileOverlayOptions = {
 
 
 
-##### TileProvider
+#### TileProvider
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1712,7 +1712,7 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 
 
-##### MvtOverlayParams
+#### MvtOverlayParams
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1733,7 +1733,7 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 
 
-##### MvtSource
+#### MvtSource
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1757,7 +1757,7 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 
 
-##### MvtLayer
+#### MvtLayer
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1781,7 +1781,7 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 
 
-##### MvtPaint
+#### MvtPaint
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1803,7 +1803,7 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 
 
-##### MvtLayerType
+#### MvtLayerType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1824,7 +1824,7 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 
 
-##### Expression
+#### Expression
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1846,7 +1846,7 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 
 
-##### Operator
+#### Operator
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1867,7 +1867,7 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 
 
-##### FlowFieldOverlayParams
+#### FlowFieldOverlayParams
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1889,7 +1889,7 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 
 
-##### ParticleStyle
+#### ParticleStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1913,7 +1913,7 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 
 
-##### MassPointItem
+#### MassPointItem
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1937,7 +1937,7 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 
 
-##### MassPointOverlayParams
+#### MassPointOverlayParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1962,7 +1962,7 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 
 
-##### MapType
+#### MapType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1985,7 +1985,7 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 
 
-##### PatternItemType
+#### PatternItemType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2008,7 +2008,7 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 
 
-##### JointType
+#### JointType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2031,7 +2031,7 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 
 
-##### LogoAlignment
+#### LogoAlignment
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2055,7 +2055,7 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 
 
-##### CapStyle
+#### CapStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2078,7 +2078,7 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 
 
-##### CollisionRule
+#### CollisionRule
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2100,7 +2100,7 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 
 
-##### FontStyle
+#### FontStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2126,7 +2126,7 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 
 
-##### CoordinateType
+#### CoordinateType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2148,7 +2148,7 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 
 
-##### MyLocationDisplayType
+#### MyLocationDisplayType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2171,7 +2171,7 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 
 
-##### DayNightMode
+#### DayNightMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2194,7 +2194,7 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 
 
-##### ScaleUnit
+#### ScaleUnit
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2216,7 +2216,7 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 
 
-##### TextPosition
+#### TextPosition
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2241,7 +2241,7 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 
 
-##### MapElementType
+#### MapElementType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

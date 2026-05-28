@@ -12,7 +12,7 @@ metadata流。继承[CameraOutput](https://developer.huawei.com/consumer/cn/doc/
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { camera } from '@kit.CameraKit';
 
 
 
-##### start
+#### start
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -69,7 +69,7 @@ function startMetadataOutput(metadataOutput: camera.MetadataOutput): void {
 
 
 
-##### start
+#### start
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -114,7 +114,7 @@ function startMetadataOutput(metadataOutput: camera.MetadataOutput): void {
 
 
 
-##### stop
+#### stop
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -151,7 +151,7 @@ function stopMetadataOutput(metadataOutput: camera.MetadataOutput): void {
 
 
 
-##### stop
+#### stop
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -186,7 +186,7 @@ function stopMetadataOutput(metadataOutput: camera.MetadataOutput): void {
 
 
 
-##### on('metadataObjectsAvailable')
+#### on('metadataObjectsAvailable')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -230,7 +230,7 @@ function registerMetadataObjectsAvailable(metadataOutput: camera.MetadataOutput)
 
 
 
-##### off('metadataObjectsAvailable')
+#### off('metadataObjectsAvailable')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -260,7 +260,7 @@ function unregisterMetadataObjectsAvailable(metadataOutput: camera.MetadataOutpu
 
 
 
-##### on('error')
+#### on('error')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -300,7 +300,7 @@ function registerMetadataOutputError(metadataOutput: camera.MetadataOutput): voi
 
 
 
-##### off('error')
+#### off('error')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -330,7 +330,7 @@ function unregisterMetadataOutputError(metadataOutput: camera.MetadataOutput): v
 
 
 
-##### addMetadataObjectTypes23+
+#### addMetadataObjectTypes23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -378,7 +378,7 @@ function addMetadataObjectTypes(metadataOutput: camera.MetadataOutput, types: Ar
 
 
 
-##### removeMetadataObjectTypes23+
+#### removeMetadataObjectTypes23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

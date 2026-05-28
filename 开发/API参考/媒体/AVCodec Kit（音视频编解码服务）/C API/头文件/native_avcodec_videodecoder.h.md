@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-videodecoder-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -35,13 +35,13 @@
 
 
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -52,7 +52,7 @@
 
 
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -89,13 +89,13 @@
 
 
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### OH_VideoDecoder_CreateByMime()
+#### OH_VideoDecoder_CreateByMime()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -127,7 +127,7 @@ OH_AVCodec *OH_VideoDecoder_CreateByMime(const char *mime)
 
 
 
-##### OH_VideoDecoder_CreateByName()
+#### OH_VideoDecoder_CreateByName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -161,7 +161,7 @@ OH_AVCodec *OH_VideoDecoder_CreateByName(const char *name)
 
 
 
-##### OH_VideoDecoder_Destroy()
+#### OH_VideoDecoder_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -193,7 +193,7 @@ OH_AVErrCode OH_VideoDecoder_Destroy(OH_AVCodec *codec)
 
 
 
-##### OH_VideoDecoder_SetCallback()
+#### OH_VideoDecoder_SetCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -231,7 +231,7 @@ OH_AVErrCode OH_VideoDecoder_SetCallback(OH_AVCodec *codec, OH_AVCodecAsyncCallb
 
 
 
-##### OH_VideoDecoder_RegisterCallback()
+#### OH_VideoDecoder_RegisterCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -265,7 +265,7 @@ OH_AVErrCode OH_VideoDecoder_RegisterCallback(OH_AVCodec *codec, OH_AVCodecCallb
 
 
 
-##### OH_VideoDecoder_SetSurface()
+#### OH_VideoDecoder_SetSurface()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -300,7 +300,7 @@ OH_AVErrCode OH_VideoDecoder_SetSurface(OH_AVCodec *codec, OHNativeWindow *windo
 
 
 
-##### OH_VideoDecoder_Configure()
+#### OH_VideoDecoder_Configure()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -352,7 +352,7 @@ OH_AVErrCode OH_VideoDecoder_Configure(OH_AVCodec *codec, OH_AVFormat *format)
 
 
 
-##### OH_VideoDecoder_Prepare()
+#### OH_VideoDecoder_Prepare()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -384,7 +384,7 @@ OH_AVErrCode OH_VideoDecoder_Prepare(OH_AVCodec *codec)
 
 
 
-##### OH_VideoDecoder_Start()
+#### OH_VideoDecoder_Start()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -416,7 +416,7 @@ OH_AVErrCode OH_VideoDecoder_Start(OH_AVCodec *codec)
 
 
 
-##### OH_VideoDecoder_Stop()
+#### OH_VideoDecoder_Stop()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -450,7 +450,7 @@ OH_AVErrCode OH_VideoDecoder_Stop(OH_AVCodec *codec)
 
 
 
-##### OH_VideoDecoder_Flush()
+#### OH_VideoDecoder_Flush()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -484,7 +484,7 @@ OH_AVErrCode OH_VideoDecoder_Flush(OH_AVCodec *codec)
 
 
 
-##### OH_VideoDecoder_Reset()
+#### OH_VideoDecoder_Reset()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -516,7 +516,7 @@ OH_AVErrCode OH_VideoDecoder_Reset(OH_AVCodec *codec)
 
 
 
-##### OH_VideoDecoder_GetOutputDescription()
+#### OH_VideoDecoder_GetOutputDescription()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -550,7 +550,7 @@ OH_AVFormat *OH_VideoDecoder_GetOutputDescription(OH_AVCodec *codec)
 
 
 
-##### OH_VideoDecoder_SetParameter()
+#### OH_VideoDecoder_SetParameter()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -585,7 +585,7 @@ OH_AVErrCode OH_VideoDecoder_SetParameter(OH_AVCodec *codec, OH_AVFormat *format
 
 
 
-##### OH_VideoDecoder_PushInputData()
+#### OH_VideoDecoder_PushInputData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -625,7 +625,7 @@ OH_AVErrCode OH_VideoDecoder_PushInputData(OH_AVCodec *codec, uint32_t index, OH
 
 
 
-##### OH_VideoDecoder_RenderOutputData()
+#### OH_VideoDecoder_RenderOutputData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -664,7 +664,7 @@ OH_AVErrCode OH_VideoDecoder_RenderOutputData(OH_AVCodec *codec, uint32_t index)
 
 
 
-##### OH_VideoDecoder_FreeOutputData()
+#### OH_VideoDecoder_FreeOutputData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -701,7 +701,7 @@ OH_AVErrCode OH_VideoDecoder_FreeOutputData(OH_AVCodec *codec, uint32_t index)
 
 
 
-##### OH_VideoDecoder_PushInputBuffer()
+#### OH_VideoDecoder_PushInputBuffer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -738,7 +738,7 @@ OH_AVErrCode OH_VideoDecoder_PushInputBuffer(OH_AVCodec *codec, uint32_t index)
 
 
 
-##### OH_VideoDecoder_RenderOutputBuffer()
+#### OH_VideoDecoder_RenderOutputBuffer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -773,7 +773,7 @@ OH_AVErrCode OH_VideoDecoder_RenderOutputBuffer(OH_AVCodec *codec, uint32_t inde
 
 
 
-##### OH_VideoDecoder_RenderOutputBufferAtTime()
+#### OH_VideoDecoder_RenderOutputBufferAtTime()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -817,7 +817,7 @@ OH_AVErrCode OH_VideoDecoder_RenderOutputBufferAtTime(OH_AVCodec *codec, uint32_
 
 
 
-##### OH_VideoDecoder_FreeOutputBuffer()
+#### OH_VideoDecoder_FreeOutputBuffer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -852,7 +852,7 @@ OH_AVErrCode OH_VideoDecoder_FreeOutputBuffer(OH_AVCodec *codec, uint32_t index)
 
 
 
-##### OH_VideoDecoder_IsValid()
+#### OH_VideoDecoder_IsValid()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -885,7 +885,7 @@ OH_AVErrCode OH_VideoDecoder_IsValid(OH_AVCodec *codec, bool *isValid)
 
 
 
-##### OH_VideoDecoder_SetDecryptionConfig()
+#### OH_VideoDecoder_SetDecryptionConfig()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -919,7 +919,7 @@ OH_AVErrCode OH_VideoDecoder_SetDecryptionConfig(OH_AVCodec *codec, MediaKeySess
 
 
 
-##### OH_VideoDecoder_QueryInputBuffer()
+#### OH_VideoDecoder_QueryInputBuffer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -957,7 +957,7 @@ OH_AVErrCode OH_VideoDecoder_QueryInputBuffer(struct OH_AVCodec *codec, uint32_t
 
 
 
-##### OH_VideoDecoder_GetInputBuffer()
+#### OH_VideoDecoder_GetInputBuffer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -992,7 +992,7 @@ OH_AVBuffer *OH_VideoDecoder_GetInputBuffer(struct OH_AVCodec *codec, uint32_t i
 
 
 
-##### OH_VideoDecoder_QueryOutputBuffer()
+#### OH_VideoDecoder_QueryOutputBuffer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1036,7 +1036,7 @@ OH_AVErrCode OH_VideoDecoder_QueryOutputBuffer(struct OH_AVCodec *codec, uint32_
 
 
 
-##### OH_VideoDecoder_GetOutputBuffer()
+#### OH_VideoDecoder_GetOutputBuffer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

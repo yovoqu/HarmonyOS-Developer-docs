@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { telephonyManager } from '@kit.MDMKit';
 
 
 
-##### telephonyManager.setSimDisabled
+#### telephonyManager.setSimDisabled
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -79,7 +79,7 @@ try {
 
 
 
-##### telephonyManager.setSimEnabled
+#### telephonyManager.setSimEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -136,7 +136,7 @@ try {
 
 
 
-##### telephonyManager.isSimDisabled
+#### telephonyManager.isSimDisabled
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -198,7 +198,7 @@ try {
 
 
 
-##### telephonyManager.addOutgoingCallPolicyNumbers
+#### telephonyManager.addOutgoingCallPolicyNumbers
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -272,7 +272,7 @@ try {
 
 
 
-##### telephonyManager.removeOutgoingCallPolicyNumbers
+#### telephonyManager.removeOutgoingCallPolicyNumbers
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -344,7 +344,7 @@ try {
 
 
 
-##### telephonyManager.getOutgoingCallPolicyNumbers
+#### telephonyManager.getOutgoingCallPolicyNumbers
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -410,7 +410,7 @@ try {
 
 
 
-##### telephonyManager.addIncomingCallPolicyNumbers
+#### telephonyManager.addIncomingCallPolicyNumbers
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -484,7 +484,7 @@ try {
 
 
 
-##### telephonyManager.removeIncomingCallPolicyNumbers
+#### telephonyManager.removeIncomingCallPolicyNumbers
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -555,7 +555,7 @@ try {
 
 
 
-##### telephonyManager.getIncomingCallPolicyNumbers
+#### telephonyManager.getIncomingCallPolicyNumbers
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -621,7 +621,7 @@ try {
 
 
 
-##### telephonyManager.hangupCalling23+
+#### telephonyManager.hangupCalling23+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

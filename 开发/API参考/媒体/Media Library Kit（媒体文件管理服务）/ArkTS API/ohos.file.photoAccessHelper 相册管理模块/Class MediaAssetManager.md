@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
 
 
-##### requestImage11+
+#### requestImage11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -111,7 +111,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 
 
-##### requestImageData11+
+#### requestImageData11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -199,7 +199,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 
 
-##### requestMovingPhoto12+
+#### requestMovingPhoto12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -286,7 +286,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 
 
-##### requestVideoFile12+
+#### requestVideoFile12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -368,7 +368,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 
 
-##### cancelRequest12+
+#### cancelRequest12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -424,7 +424,7 @@ async function example(context: Context) {
 
 
 
-##### loadMovingPhoto12+
+#### loadMovingPhoto12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -478,7 +478,7 @@ async function example(context: Context) {
 
 
 
-##### quickRequestImage13+
+#### quickRequestImage13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -7,7 +7,7 @@
 对应算法规格请查看[密钥派生算法规格：HKDF](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-key-derivation-overview#hkdf算法)。
 
 
-##### 开发步骤
+#### 开发步骤
 1. 构造[HKDFSpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#hkdfspec12)对象，作为密钥派生参数进行密钥派生。
 
   HKDFSpec是[KdfSpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#kdfspec11)的子类，需要指定：

@@ -57,7 +57,7 @@ ls
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/6YaoZT6kS3it3TXD4auhbA/zh-cn_image_0000002434852810.png?HW-CC-KV=V1&HW-CC-Date=20260528T013157Z&HW-CC-Expire=86400&HW-CC-Sign=9C17B5F2471486E8C75E6333D88E27D85127AB0ECA1DA7B1B9B8D124AFF86471)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/6YaoZT6kS3it3TXD4auhbA/zh-cn_image_0000002434852810.png?HW-CC-KV=V1&HW-CC-Date=20260528T024838Z&HW-CC-Expire=86400&HW-CC-Sign=91FAF9E8539A82EA5C310925EB6456AD506DF45D483FD58960330295B99C14DD)
 
 存在lib64文件夹：则“abiFilters”参数中需要包含arm64-v8a类型。
 5. 不存在lib64文件夹：则“abiFilters”参数中需要包含armeabi类型。

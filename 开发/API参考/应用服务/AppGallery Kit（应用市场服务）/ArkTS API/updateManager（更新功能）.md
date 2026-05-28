@@ -14,7 +14,7 @@
 **起始版本：** 5.0.0(12)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { updateManager } from '@kit.AppGalleryKit';
  
   
 
-##### UpdateAvailableCode
+#### UpdateAvailableCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -46,7 +46,7 @@ import { updateManager } from '@kit.AppGalleryKit';
  
   
 
-##### ShowUpdateResultCode
+#### ShowUpdateResultCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -66,7 +66,7 @@ import { updateManager } from '@kit.AppGalleryKit';
  
   
 
-##### CheckUpdateResult
+#### CheckUpdateResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -89,7 +89,7 @@ import { updateManager } from '@kit.AppGalleryKit';
  
   
 
-##### RequestErrorCode
+#### RequestErrorCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -112,7 +112,7 @@ import { updateManager } from '@kit.AppGalleryKit';
  
   
 
-##### UpdateSessionState
+#### UpdateSessionState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -134,7 +134,7 @@ import { updateManager } from '@kit.AppGalleryKit';
  
   
 
-##### updateManager.checkAppUpdate
+#### updateManager.checkAppUpdate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -222,7 +222,7 @@ struct Index {
  
   
 
-##### updateManager.showUpdateDialog
+#### updateManager.showUpdateDialog
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -309,7 +309,7 @@ struct Index {
  
   
 
-##### updateManager.on('updateChange')
+#### updateManager.on('updateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -404,7 +404,7 @@ struct Index {
  
   
 
-##### updateManager.off('updateChange')
+#### updateManager.off('updateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

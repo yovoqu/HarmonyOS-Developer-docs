@@ -10,7 +10,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
 
 
-##### photoAccessHelper.getPhotoAccessHelper
+#### photoAccessHelper.getPhotoAccessHelper
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

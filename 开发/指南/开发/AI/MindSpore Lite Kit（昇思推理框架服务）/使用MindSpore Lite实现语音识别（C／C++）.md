@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mindspore-asr-based-native
 
-##### 场景说明
+#### 场景说明
 
 开发者可以使用[MindSpore](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-mindspore)，在UI代码中集成MindSpore Lite能力，快速部署AI算法，进行AI模型推理，实现语音识别的应用。
 
@@ -12,38 +12,38 @@
 
 
 
-##### 环境配置
+#### 环境配置
 
 若需要使用模拟器运行该示例，请参考：[使用模拟器运行应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-run-emulator)
 
 
 
-##### 基本概念
+#### 基本概念
 
  - N-API：用于构建ArkTS本地化组件的一套接口。可利用N-API，将C/C++开发的库封装成ArkTS模块。
 
 
 
 
-##### 开发流程
+#### 开发流程
 1. 选择语音识别模型。
 2. 在端侧使用MindSpore Lite推理模型，实现对语音文件的语音识别。
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 本文以对语音识别模型进行推理为例，提供使用MindSpore Lite实现语音识别应用的开发指导。
 
 
 
-##### 选择模型
+#### 选择模型
 
 本示例程序中使用的语音识别模型文件为tiny-encoder.ms、tiny-decoder-main.ms、tiny-decoder-loop.ms，放置在entry/src/main/resources/rawfile工程目录下。
 
 
 
-##### 编写播放音频代码
+#### 编写播放音频代码
 
 调用[@ohos.multimedia.media](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media)、[@ohos.multimedia.audio](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio)，实现播放音频的功能。
 
@@ -147,7 +147,7 @@ export default class AVPlayerDemo {
 
 
 
-##### 编写识别音频代码
+#### 编写识别音频代码
 
 在 entry/src/main/cpp/mslite_napi.cpp，调用[MindSpore](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-mindspore)，依次对3个模型进行推理，推理代码流程如下。
 1. 引用对应的头文件。说明：需要用户下载三方库，其中librosa来源是[LibrosaCpp](https://github.com/ewan-xu/LibrosaCpp)，libsamplerate来源是[libsamplerate](https://github.com/libsndfile/libsamplerate)，下载后置于entry/src/main/cpp/third_party目录下。AudioFile.h的来源是[AudioFile](https://github.com/adamstark/AudioFile/blob/1.1.2/AudioFile.h)，base64.h、base64.cpp的来源是[whisper.axera](https://github.com/ml-inory/whisper.axera/tree/main/cpp/src)下载后置于entry/src/main/cpp/src目录下。
@@ -678,7 +678,7 @@ target_link_libraries(entry PUBLIC ace_napi.z)
 
 
 
-##### 使用N-API将C++动态库封装成ArkTS模块
+#### 使用N-API将C++动态库封装成ArkTS模块
 1. 在 entry/src/main/cpp/types/libentry/Index.d.ts，定义ArkTS接口runDemo() 。内容如下：
 
   
@@ -701,7 +701,7 @@ export const runDemo: (a: Object) => string;
 
 
 
-##### 调用封装的ArkTS模块进行推理并输出结果
+#### 调用封装的ArkTS模块进行推理并输出结果
 
 在 entry/src/main/ets/pages/Index.ets 中，调用封装的ArkTS模块，最后对推理结果进行处理。若提示@nutpi/chinese_transverter不存在，请参考[中文简繁体转换器三方库](https://developer.huawei.com/consumer/cn/forum/topic/0202169478029484501?fid=0109140870620153026)安装@nutpi/chinese_transverter组件。
 
@@ -793,7 +793,7 @@ struct Index {
 
 
 
-##### 调测验证
+#### 调测验证
 1. 在DevEco Studio中连接设备，点击Run entry，编译Hap，有如下显示：
 
   
@@ -845,7 +845,7 @@ com.samples.mindsporelitecdemoasr successfully launched...
 
 
 
-##### 效果示意
+#### 效果示意
 
 在设备上，点击**播放示例音频**按钮，会播放本示例音频文件。点击**识别示例音频**按钮，设备屏幕显示本示例音频文件的中文内容。
 
@@ -856,6 +856,6 @@ com.samples.mindsporelitecdemoasr successfully launched...
 
 
 
-##### 示例代码
+#### 示例代码
 
  - [基于MindSporeLite接口实现语音识别（C/C++）](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/MindSporeLiteKit/MindSporeLiteCDemoASR)

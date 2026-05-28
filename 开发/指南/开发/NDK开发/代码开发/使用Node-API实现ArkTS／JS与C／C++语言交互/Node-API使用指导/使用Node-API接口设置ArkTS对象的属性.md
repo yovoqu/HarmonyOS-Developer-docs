@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-property
 
-##### 简介
+#### 简介
 
 使用Node-API接口获取和设置ArkTS对象的属性，实现更复杂的功能和逻辑。
  
   
 
-##### 基本概念
+#### 基本概念
 
 处理ArkTS对象属性，确保正确访问、设置、删除属性，并了解属性的继承关系和枚举特性。以下是一些关键概念：
  
@@ -22,7 +22,7 @@
  
   
 
-##### 场景和功能介绍
+#### 场景和功能介绍
 
 以下Node-API接口提供了对ArkTS对象属性的操作，包括设置、获取、删除和检查属性是否存在。使用场景如下：
   
@@ -43,13 +43,13 @@
  
   
 
-##### 使用示例
+#### 使用示例
 
 Node-API接口开发流程可参考[使用Node-API实现跨语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-process)，本文展示接口对应C++及ArkTS代码。
  
   
 
-##### napi_get_property_names
+#### napi_get_property_names
 
 以字符串数组的形式获取对象的可枚举属性的名称。
  
@@ -108,7 +108,7 @@ try {
  
   
 
-##### napi_set_property
+#### napi_set_property
 
 将给定的属性与值设置入给定的Object。
  
@@ -165,7 +165,7 @@ try {
  
   
 
-##### napi_get_property
+#### napi_get_property
 
 获取object指定的属性的值。
  
@@ -218,7 +218,7 @@ try {
  
   
 
-##### napi_has_property
+#### napi_has_property
 
 检查对象中是否存在指定的属性，避免访问不存在属性导致的异常。
  
@@ -280,7 +280,7 @@ try {
  
   
 
-##### napi_delete_property
+#### napi_delete_property
 
 尝试从给定的Object中删除由key指定的属性，并返回操作的结果。
  
@@ -351,7 +351,7 @@ export function napiDeleteProperty() {
  
   
 
-##### napi_has_own_property
+#### napi_has_own_property
 
 用于检查传入的Object是否包含自己的命名属性，不包括从原型链上继承的属性。
  
@@ -419,7 +419,7 @@ export function napiHasOwnProperty() {
  
   
 
-##### napi_set_named_property
+#### napi_set_named_property
 
 在传入的ArkTS对象上添加一个命名属性。
  
@@ -477,7 +477,7 @@ hilog.info(0x0000, 'testTag', 'Test Node-API napi_set_named_property: %{public}s
  
   
 
-##### napi_get_named_property
+#### napi_get_named_property
 
 从ArkTS对象中获取命名属性的值。
  
@@ -552,7 +552,7 @@ hilog.info(0x0000, 'testTag', 'Test Node-API napi_get_named_property : %{public}
  
   
 
-##### napi_has_named_property
+#### napi_has_named_property
 
 检查ArkTS对象中是否具有指定的命名属性。
  
@@ -623,7 +623,7 @@ hilog.info(0x0000, 'testTag', 'Test Node-API napi_has_named_property : %{public}
  
   
 
-##### napi_define_properties
+#### napi_define_properties
 
 设置对象的属性。
  
@@ -759,7 +759,7 @@ hilog.info(0x0000, 'testTag', 'Test Node-API setter::%{public}s ',
  
   
 
-##### napi_get_all_property_names
+#### napi_get_all_property_names
 
 获取传入的ArkTS对象的所有属性名。
  

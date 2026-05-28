@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { CircleShape, EllipseShape, PathShape, RectShape } from "@kit.ArkUI";
  
   
 
-##### CircleShape
+#### CircleShape
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -38,7 +38,7 @@ import { CircleShape, EllipseShape, PathShape, RectShape } from "@kit.ArkUI";
  
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -61,7 +61,7 @@ constructor(options?: ShapeSize)
  
   
 
-##### EllipseShape
+#### EllipseShape
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -77,7 +77,7 @@ constructor(options?: ShapeSize)
  
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -100,7 +100,7 @@ constructor(options?: ShapeSize)
  
   
 
-##### PathShape
+#### PathShape
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -116,7 +116,7 @@ constructor(options?: ShapeSize)
  
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -139,7 +139,7 @@ constructor(options?: PathShapeOptions)
  
   
 
-##### commands
+#### commands
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -169,7 +169,7 @@ commands(commands: string): PathShape
  
   
 
-##### RectShape
+#### RectShape
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -185,7 +185,7 @@ commands(commands: string): PathShape
  
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -208,7 +208,7 @@ constructor(options?: RectShapeOptions | RoundRectShapeOptions)
  
   
 
-##### radiusWidth
+#### radiusWidth
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -238,7 +238,7 @@ radiusWidth(rWidth: number | string): RectShape
  
   
 
-##### radiusHeight
+#### radiusHeight
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -268,7 +268,7 @@ radiusHeight(rHeight: number | string): RectShape
  
   
 
-##### radius
+#### radius
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -298,7 +298,7 @@ radius(radius: number | string | Array<number  |  string>): RectShape
  
   
 
-##### ShapeSize
+#### ShapeSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -318,7 +318,7 @@ radius(radius: number | string | Array<number  |  string>): RectShape
  
   
 
-##### PathShapeOptions
+#### PathShapeOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -337,7 +337,7 @@ PathShape的构造函数参数。
  
   
 
-##### RectShapeOptions
+#### RectShapeOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -358,7 +358,7 @@ RectShape 的构造函数参数。
  
   
 
-##### RoundRectShapeOptions
+#### RoundRectShapeOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -380,7 +380,7 @@ RectShape 带有半径的构造函数参数。
  
   
 
-##### BaseShape
+#### BaseShape
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -394,7 +394,7 @@ RectShape 带有半径的构造函数参数。
  
   
 
-##### width
+#### width
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -424,7 +424,7 @@ width(width: Length): T
  
   
 
-##### height
+#### height
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -454,7 +454,7 @@ height(height: Length): T
  
   
 
-##### size
+#### size
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -484,7 +484,7 @@ size(size: SizeOptions): T
  
   
 
-##### CommonShapeMethod
+#### CommonShapeMethod
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -498,7 +498,7 @@ size(size: SizeOptions): T
  
   
 
-##### offset
+#### offset
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -528,7 +528,7 @@ offset(offset: Position): T
  
   
 
-##### fill
+#### fill
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -558,7 +558,7 @@ fill(color: ResourceColor): T
  
   
 
-##### position
+#### position
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -588,7 +588,7 @@ position(position: Position): T
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -633,4 +633,4 @@ struct ShapeExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/pXk4ZS_JSvCHDhUOYBCB9A/zh-cn_image_0000002581275612.png?HW-CC-KV=V1&HW-CC-Date=20260528T024115Z&HW-CC-Expire=86400&HW-CC-Sign=7A05479C5128EEA1D02348751F1001F94262E95726EB1F4CE71E7C67E52EA0A7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/pXk4ZS_JSvCHDhUOYBCB9A/zh-cn_image_0000002581275612.png?HW-CC-KV=V1&HW-CC-Date=20260528T025449Z&HW-CC-Expire=86400&HW-CC-Sign=016E706DABFCB10DC4E38F8C6AECF0970E527ACC3268D9C09B6356BE6B2DDD9F)

@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { bluetoothManager } from '@kit.MDMKit';
 
 
 
-##### bluetoothManager.getBluetoothInfo
+#### bluetoothManager.getBluetoothInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -84,7 +84,7 @@ try {
 
 
 
-##### bluetoothManager.addAllowedBluetoothDevices
+#### bluetoothManager.addAllowedBluetoothDevices
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -148,7 +148,7 @@ try {
 
 
 
-##### bluetoothManager.removeAllowedBluetoothDevices
+#### bluetoothManager.removeAllowedBluetoothDevices
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -207,7 +207,7 @@ try {
 
 
 
-##### bluetoothManager.getAllowedBluetoothDevices
+#### bluetoothManager.getAllowedBluetoothDevices
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -268,7 +268,7 @@ try {
 
 
 
-##### bluetoothManager.addDisallowedBluetoothDevices20+
+#### bluetoothManager.addDisallowedBluetoothDevices20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -331,7 +331,7 @@ try {
 
 
 
-##### bluetoothManager.removeDisallowedBluetoothDevices20+
+#### bluetoothManager.removeDisallowedBluetoothDevices20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -389,7 +389,7 @@ try {
 
 
 
-##### bluetoothManager.getDisallowedBluetoothDevices20+
+#### bluetoothManager.getDisallowedBluetoothDevices20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -449,7 +449,7 @@ try {
 
 
 
-##### bluetoothManager.turnOnBluetooth20+
+#### bluetoothManager.turnOnBluetooth20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -505,7 +505,7 @@ try {
 
 
 
-##### bluetoothManager.turnOffBluetooth20+
+#### bluetoothManager.turnOffBluetooth20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -561,7 +561,7 @@ try {
 
 
 
-##### bluetoothManager.addDisallowedBluetoothProtocols20+
+#### bluetoothManager.addDisallowedBluetoothProtocols20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -621,7 +621,7 @@ try {
 
 
 
-##### bluetoothManager.removeDisallowedBluetoothProtocols20+
+#### bluetoothManager.removeDisallowedBluetoothProtocols20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -681,7 +681,7 @@ try {
 
 
 
-##### bluetoothManager.getDisallowedBluetoothProtocols20+
+#### bluetoothManager.getDisallowedBluetoothProtocols20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -744,7 +744,7 @@ try {
 
 
 
-##### BluetoothInfo
+#### BluetoothInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -763,7 +763,7 @@ try {
 
 
 
-##### Protocol20+
+#### Protocol20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

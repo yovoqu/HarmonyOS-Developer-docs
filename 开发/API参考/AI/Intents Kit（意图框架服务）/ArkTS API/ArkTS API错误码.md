@@ -10,7 +10,7 @@
 
 
 
-##### 1000101101 应用未订阅
+#### 1000101101 应用未订阅
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -32,7 +32,7 @@ The application has not been registered with the InsightIntent.
 
 
 
-##### 1000101102 小艺停止服务
+#### 1000101102 小艺停止服务
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -54,7 +54,7 @@ HUAWEI Assistant has stopped providing services.
 
 
 
-##### 1000101104 超过应用共享次数
+#### 1000101104 超过应用共享次数
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -76,7 +76,7 @@ The number of sharing times exceeds the limit.
 
 
 
-##### 1000101105 超过单次共享数据大小限制
+#### 1000101105 超过单次共享数据大小限制
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -98,7 +98,7 @@ The size of a single shared data exceeds the limit.
 
 
 
-##### 1000101106 超过所有应用共享总次数限制
+#### 1000101106 超过所有应用共享总次数限制
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -120,7 +120,7 @@ Exceeded the maximum number of sharing times of all applications.
 
 
 
-##### 1000101107 过多SID刷新请求
+#### 1000101107 过多SID刷新请求
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -142,7 +142,7 @@ SID刷新请求过于频繁。
 
 
 
-##### 1000101201 服务异常
+#### 1000101201 服务异常
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

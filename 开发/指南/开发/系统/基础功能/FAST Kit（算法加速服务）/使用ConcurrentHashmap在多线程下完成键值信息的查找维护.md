@@ -7,7 +7,7 @@
 FAST Kit提供的Concurrent HashMap（并发哈希表）专为高并发场景下的键值对数据管理而设计。它通过细粒度的锁策略实现多线程环境下的安全存储、快速访问与高效更新，适用于对并发吞吐量和数据一致性要求较高的增删改查操作，典型场景包括单点插入、删除、查询及并发修改等。
 
 
-##### 接口说明
+#### 接口说明
 
 具体API说明详见[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast)。
 
@@ -27,7 +27,7 @@ FAST Kit提供的Concurrent HashMap（并发哈希表）专为高并发场景下
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 在CMake脚本中链接相关动态库。
 
   

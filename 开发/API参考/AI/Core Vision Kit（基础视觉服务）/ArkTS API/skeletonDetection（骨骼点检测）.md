@@ -10,7 +10,7 @@
 **起始版本：** 5.0.0(12)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -20,7 +20,7 @@ import { visionBase, skeletonDetection } from '@kit.CoreVisionKit';
 
 
 
-##### SkeletonPointType
+#### SkeletonPointType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -53,7 +53,7 @@ import { visionBase, skeletonDetection } from '@kit.CoreVisionKit';
 
 
 
-##### SkeletonPoint
+#### SkeletonPoint
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -72,7 +72,7 @@ import { visionBase, skeletonDetection } from '@kit.CoreVisionKit';
 
 
 
-##### Skeleton
+#### Skeleton
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -91,7 +91,7 @@ import { visionBase, skeletonDetection } from '@kit.CoreVisionKit';
 
 
 
-##### SkeletonDetectionResponse
+#### SkeletonDetectionResponse
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -108,7 +108,7 @@ import { visionBase, skeletonDetection } from '@kit.CoreVisionKit';
 
 
 
-##### SkeletonDetector
+#### SkeletonDetector
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -134,7 +134,7 @@ import { visionBase, skeletonDetection } from '@kit.CoreVisionKit';
 
 
 
-##### create
+#### create
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -205,7 +205,7 @@ struct Page {
 
 
 
-##### destroy
+#### destroy
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -266,7 +266,7 @@ struct Page {
 
 
 
-##### process
+#### process
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

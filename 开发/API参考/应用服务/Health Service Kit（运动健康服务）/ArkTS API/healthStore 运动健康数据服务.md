@@ -10,7 +10,7 @@
 **起始版本：** 5.0.0(12)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -20,7 +20,7 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 
 
-##### AggregateMetrics
+#### AggregateMetrics
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -46,7 +46,7 @@ type AggregateMetrics = Partial<Record<[AggregateMetricScope](#aggregatemetricsc
 
 
 
-##### AggregateMetricScope
+#### AggregateMetricScope
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -72,7 +72,7 @@ type AggregateMetricScope = 'max' | 'min' | 'avg' | 'sum' | 'last' | 'count'
 
 
 
-##### AggregateRequest
+#### AggregateRequest
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -95,7 +95,7 @@ AggregateRequest<T extends Record<string, [AggregateMetrics](#aggregatemetrics)>
 
 
 
-##### AggregateResult
+#### AggregateResult
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -116,7 +116,7 @@ AggregateResult<T extends Record<string, [AggregateMetrics](#aggregatemetrics)> 
 
 
 
-##### AppInfo
+#### AppInfo
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -136,7 +136,7 @@ AggregateResult<T extends Record<string, [AggregateMetrics](#aggregatemetrics)> 
 
 
 
-##### AuthorizationBase
+#### AuthorizationBase
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -156,7 +156,7 @@ AggregateResult<T extends Record<string, [AggregateMetrics](#aggregatemetrics)> 
 
 
 
-##### AuthorizationRequest
+#### AuthorizationRequest
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -175,7 +175,7 @@ AggregateResult<T extends Record<string, [AggregateMetrics](#aggregatemetrics)> 
 
 
 
-##### AuthorizationResponse
+#### AuthorizationResponse
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -194,7 +194,7 @@ AggregateResult<T extends Record<string, [AggregateMetrics](#aggregatemetrics)> 
 
 
 
-##### DataReadRequest
+#### DataReadRequest
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -215,7 +215,7 @@ AggregateResult<T extends Record<string, [AggregateMetrics](#aggregatemetrics)> 
 
 
 
-##### DataRequest
+#### DataRequest
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -236,7 +236,7 @@ AggregateResult<T extends Record<string, [AggregateMetrics](#aggregatemetrics)> 
 
 
 
-##### DataSource
+#### DataSource
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -255,7 +255,7 @@ AggregateResult<T extends Record<string, [AggregateMetrics](#aggregatemetrics)> 
 
 
 
-##### DataSourceBase
+#### DataSourceBase
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -275,7 +275,7 @@ type DataSourceBase = Omit<DataSource, 'dataSourceId'>
 
 
 
-##### DataSourceOptions
+#### DataSourceOptions
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -295,7 +295,7 @@ type DataSourceBase = Omit<DataSource, 'dataSourceId'>
 
 
 
-##### DataSourceReadRequest
+#### DataSourceReadRequest
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -314,7 +314,7 @@ type DataSourceBase = Omit<DataSource, 'dataSourceId'>
 
 
 
-##### DataType
+#### DataType
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -334,7 +334,7 @@ type DataSourceBase = Omit<DataSource, 'dataSourceId'>
 
 
 
-##### DeviceCategory
+#### DeviceCategory
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -368,7 +368,7 @@ type DataSourceBase = Omit<DataSource, 'dataSourceId'>
 
 
 
-##### DeviceInfo
+#### DeviceInfo
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -396,7 +396,7 @@ type DataSourceBase = Omit<DataSource, 'dataSourceId'>
 
 
 
-##### ExerciseSequence
+#### ExerciseSequence
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -418,7 +418,7 @@ ExerciseSequence<K extends Record<string, [ExerciseSummary](#exercisesummary)> =
 
 
 
-##### ExerciseSequenceDeleteRequest
+#### ExerciseSequenceDeleteRequest
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -435,7 +435,7 @@ ExerciseSequence<K extends Record<string, [ExerciseSummary](#exercisesummary)> =
 
 
 
-##### ExerciseSequenceReadRequest
+#### ExerciseSequenceReadRequest
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -455,7 +455,7 @@ ExerciseSequenceReadRequest<DK extends Record<string, [SequencePoint](#sequencep
 
 
 
-##### ExerciseSummary
+#### ExerciseSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -472,7 +472,7 @@ ExerciseSequenceReadRequest<DK extends Record<string, [SequencePoint](#sequencep
 
 
 
-##### GroupOption
+#### GroupOption
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -492,7 +492,7 @@ ExerciseSequenceReadRequest<DK extends Record<string, [SequencePoint](#sequencep
 
 
 
-##### GroupUnitType
+#### GroupUnitType
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -511,7 +511,7 @@ ExerciseSequenceReadRequest<DK extends Record<string, [SequencePoint](#sequencep
 
 
 
-##### HealthSequence
+#### HealthSequence
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -531,7 +531,7 @@ HealthSequence<K extends Record<string, [HealthValueType](#healthvaluetype)> = R
 
 
 
-##### HealthSequenceDeleteRequest
+#### HealthSequenceDeleteRequest
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -548,7 +548,7 @@ HealthSequence<K extends Record<string, [HealthValueType](#healthvaluetype)> = R
 
 
 
-##### HealthSequenceReadRequest
+#### HealthSequenceReadRequest
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -568,7 +568,7 @@ HealthSequenceReadRequest<DK extends Record<string, [SequencePoint](#sequencepoi
 
 
 
-##### HealthValueType
+#### HealthValueType
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -592,7 +592,7 @@ type HealthValueType = number | string | boolean | undefined
 
 
 
-##### PaceValueType
+#### PaceValueType
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -611,7 +611,7 @@ type PaceValueType = Record<string, number>
 
 
 
-##### SampleDataBase
+#### SampleDataBase
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -634,7 +634,7 @@ type PaceValueType = Record<string, number>
 
 
 
-##### SamplePoint
+#### SamplePoint
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -653,7 +653,7 @@ SamplePoint<K extends Record<string, [HealthValueType](#healthvaluetype)> = Reco
 
 
 
-##### SamplePointDeleteRequest
+#### SamplePointDeleteRequest
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -672,7 +672,7 @@ type SamplePointDeleteRequest = UnixTimeBasedDataDeleteRequest
 
 
 
-##### SamplePointReadRequest
+#### SamplePointReadRequest
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -692,7 +692,7 @@ SamplePointReadRequest<FK extends Record<string, [HealthValueType](#healthvaluet
 
 
 
-##### SequencePoint
+#### SequencePoint
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -710,7 +710,7 @@ SamplePointReadRequest<FK extends Record<string, [HealthValueType](#healthvaluet
 
 
 
-##### SequenceReadOptions
+#### SequenceReadOptions
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -730,7 +730,7 @@ SequenceReadOptions<DK extends Record<string, [SequencePoint](#sequencepoint)[]>
 
 
 
-##### SequenceValueType
+#### SequenceValueType
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -752,7 +752,7 @@ type SequenceValueType = number | string | boolean | object
 
 
 
-##### SortOrder
+#### SortOrder
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -772,7 +772,7 @@ type SequenceValueType = number | string | boolean | object
 
 
 
-##### SubDataType
+#### SubDataType
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -792,7 +792,7 @@ type SubDataType = DataType
 
 
 
-##### UnixTimeBasedDataDeleteRequest
+#### UnixTimeBasedDataDeleteRequest
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -809,7 +809,7 @@ type SubDataType = DataType
 
 
 
-##### healthStore.init
+#### healthStore.init
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -865,7 +865,7 @@ try {
 
 
 
-##### healthStore.insertDataSource
+#### healthStore.insertDataSource
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -946,7 +946,7 @@ try {
 
 
 
-##### healthStore.readDataSource
+#### healthStore.readDataSource
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1016,7 +1016,7 @@ try {
 
 
 
-##### healthStore.updateDataSource
+#### healthStore.updateDataSource
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1100,7 +1100,7 @@ try {
 
 
 
-##### healthStore.saveData
+#### healthStore.saveData
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1178,7 +1178,7 @@ try {
 
 
 
-##### healthStore.saveData
+#### healthStore.saveData
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1302,7 +1302,7 @@ try {
 
 
 
-##### healthStore.saveData
+#### healthStore.saveData
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1412,7 +1412,7 @@ try {
 
 
 
-##### healthStore.readData
+#### healthStore.readData
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1488,7 +1488,7 @@ try {
 
 
 
-##### healthStore.readData
+#### healthStore.readData
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1578,7 +1578,7 @@ try {
 
 
 
-##### healthStore.readData
+#### healthStore.readData
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1658,7 +1658,7 @@ try {
 
 
 
-##### healthStore.deleteData
+#### healthStore.deleteData
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1728,7 +1728,7 @@ try {
 
 
 
-##### healthStore.deleteData
+#### healthStore.deleteData
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1797,7 +1797,7 @@ try {
 
 
 
-##### healthStore.deleteData
+#### healthStore.deleteData
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1866,7 +1866,7 @@ try {
 
 
 
-##### healthStore.deleteData
+#### healthStore.deleteData
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1939,7 +1939,7 @@ try {
 
 
 
-##### healthStore.deleteData
+#### healthStore.deleteData
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2015,7 +2015,7 @@ try {
 
 
 
-##### healthStore.deleteData
+#### healthStore.deleteData
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2088,7 +2088,7 @@ try {
 
 
 
-##### healthStore.aggregateData
+#### healthStore.aggregateData
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2181,7 +2181,7 @@ try {
 
 
 
-##### healthStore.requestAuthorizations
+#### healthStore.requestAuthorizations
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2258,7 +2258,7 @@ try {
 
 
 
-##### healthStore.getAuthorizations
+#### healthStore.getAuthorizations
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2331,7 +2331,7 @@ try {
 
 
 
-##### healthStore.cancelAuthorizations
+#### healthStore.cancelAuthorizations
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2383,7 +2383,7 @@ try {
 
 
 
-##### healthStore.syncAll
+#### healthStore.syncAll
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2440,7 +2440,7 @@ try {
 
 
 
-##### healthStore.on('serviceDie')
+#### healthStore.on('serviceDie')
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2479,7 +2479,7 @@ healthStore.on('serviceDie', () => {
 
 
 
-##### healthStore.off('serviceDie')
+#### healthStore.off('serviceDie')
 
 **支持设备：** Phone | Tablet | Wearable
 

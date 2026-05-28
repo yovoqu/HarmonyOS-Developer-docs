@@ -7,7 +7,7 @@
 以PBKDF2和HKDF256密钥为例，完成密钥派生。具体的场景介绍及支持的算法规格，请参考[密钥派生支持的算法](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-derivation-overview#支持的算法)。
 
 
-##### 开发步骤
+#### 开发步骤
 
 **生成密钥**
 1. 指定密钥别名，密钥别名命名规范参考[密钥生成介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。
@@ -51,11 +51,11 @@
 
 
 
-##### 开发案例
+#### 开发案例
 
 
 
-##### HKDF
+#### HKDF
 
 准备HKDF密钥派生材料
 
@@ -378,7 +378,7 @@ async function testDerive() {
 
 
 
-##### PBKDF2
+#### PBKDF2
 
 准备PBKDF2密钥派生材料
 

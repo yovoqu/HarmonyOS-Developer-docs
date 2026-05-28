@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { deviceInfo } from '@kit.BasicServicesKit';
 
 
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -255,7 +255,7 @@ import { deviceInfo } from '@kit.BasicServicesKit';
 
 
 
-##### PerformanceClassLevel19+
+#### PerformanceClassLevel19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -272,7 +272,7 @@ import { deviceInfo } from '@kit.BasicServicesKit';
 
 
 
-##### DeviceTypes20+
+#### DeviceTypes20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

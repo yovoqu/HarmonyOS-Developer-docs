@@ -7,7 +7,7 @@
 在开发一个相机应用前，需要先通过调用相机接口来创建一个相机管理实例。
 
 
-##### 开发步骤
+#### 开发步骤
 
 详细的API说明请参考[@ohos.multimedia.camera (相机管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera)。
 1. 导入camera接口，接口中提供了相机相关的属性和方法，导入方法如下。
@@ -65,7 +65,7 @@ function getCameraDevices(cameraManager: camera.CameraManager): Array<camera.Cam
 
 
 
-##### 状态监听
+#### 状态监听
 
 在相机应用开发过程中，可以随时监听相机状态，包括新相机的出现、相机的移除、相机的可用状态。在回调函数中，通过相机ID、相机状态这两个参数进行监听，如当有新相机出现时，可以将新相机加入到应用的备用相机中。
 

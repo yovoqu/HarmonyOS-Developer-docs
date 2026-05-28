@@ -10,7 +10,7 @@
 
   
 
-##### 1010710001 图片尺寸不符合要求
+#### 1010710001 图片尺寸不符合要求
 
 **支持设备：** PC/2in1
 
@@ -36,7 +36,7 @@ The size of the pixelmap exceeds the limit.
  
   
 
-##### 1010710002 菜单项数量超出限制
+#### 1010710002 菜单项数量超出限制
 
 **支持设备：** PC/2in1
 
@@ -60,7 +60,7 @@ The number of menu items or submenu items exceeds the limit.
  
   
 
-##### 1010710003 API调用频繁
+#### 1010710003 API调用频繁
 
 **支持设备：** PC/2in1
 
@@ -82,7 +82,7 @@ addToStatusBar，removeFromStatusBar，updateStatusBarIcon，updateQuickOperatio
  
   
 
-##### 1010710004 无前台窗口不允许移除图标
+#### 1010710004 无前台窗口不允许移除图标
 
 **支持设备：** PC/2in1
 
@@ -104,7 +104,7 @@ The icon cannot be deleted when no window is in the foreground.
  
   
 
-##### 1010710005 字符串长度超出阈值
+#### 1010710005 字符串长度超出阈值
 
 **支持设备：** PC/2in1
 
@@ -128,7 +128,7 @@ The string length exceeds the threshold.
  
   
 
-##### 1010710006 菜单项不存在
+#### 1010710006 菜单项不存在
 
 **支持设备：** PC/2in1
 
@@ -152,7 +152,7 @@ Menu item not found.
  
   
 
-##### 1010710007 菜单项的menuCode不唯一
+#### 1010710007 菜单项的menuCode不唯一
 
 **支持设备：** PC/2in1
 
@@ -181,7 +181,7 @@ The menuCode of the menu item is not unique.
  
   
 
-##### 1010720001 传入的一级菜单项数据不满足要求
+#### 1010720001 传入的一级菜单项数据不满足要求
 
 **支持设备：** PC/2in1
 
@@ -203,7 +203,7 @@ A menu item contains neither submenu nor menuAction.
  
   
 
-##### 1020210001 菜单分组数量超过限制
+#### 1020210001 菜单分组数量超过限制
 
 **支持设备：** PC/2in1
 
@@ -225,7 +225,7 @@ Maximum number of categories reached.
  
   
 
-##### 1020210002 菜单分组名称重复
+#### 1020210002 菜单分组名称重复
 
 **支持设备：** PC/2in1
 
@@ -247,7 +247,7 @@ Duplicate category name.
  
   
 
-##### 1020210003 未找到菜单分组
+#### 1020210003 未找到菜单分组
 
 **支持设备：** PC/2in1
 
@@ -274,7 +274,7 @@ Category not found.
  
   
 
-##### 1020210004 未找到菜单任务
+#### 1020210004 未找到菜单任务
 
 **支持设备：** PC/2in1
 
@@ -299,7 +299,7 @@ Quick task not found.
  
   
 
-##### 1020210005 分组已经存在
+#### 1020210005 分组已经存在
 
 **支持设备：** PC/2in1
 
@@ -321,7 +321,7 @@ Group already exists.
  
   
 
-##### 1020210006 分组未找到
+#### 1020210006 分组未找到
 
 **支持设备：** PC/2in1
 
@@ -343,7 +343,7 @@ Group not found.
  
   
 
-##### 1020210007 窗口未找到
+#### 1020210007 窗口未找到
 
 **支持设备：** PC/2in1
 
@@ -365,7 +365,7 @@ Window not found.
  
   
 
-##### 1020210008 字符串长度超出限制
+#### 1020210008 字符串长度超出限制
 
 **支持设备：** PC/2in1
 
@@ -391,7 +391,7 @@ The string length exceeds the threshold.
  
   
 
-##### 1020210009 无效的parameter
+#### 1020210009 无效的parameter
 
 **支持设备：** PC/2in1
 

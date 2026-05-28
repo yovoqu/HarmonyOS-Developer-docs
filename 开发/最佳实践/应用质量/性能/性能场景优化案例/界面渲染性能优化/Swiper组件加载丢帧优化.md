@@ -7,7 +7,7 @@
 **   
 
 
-##### 概述
+#### 概述
 
 在应用开发中，Swiper组件适用于翻页场景，如桌面和图库等应用。当Swiper组件滑动切换页面时，基于按需加载原则，通常在下一个页面即将显示时才进行加载和布局绘制。对于复杂页面场景，该过程可能需要较长时间，导致滑动过程中出现卡顿，影响滑动体验，甚至成为整个应用的性能瓶颈。
  
@@ -15,17 +15,17 @@
  
  
 
-##### 懒加载
+#### 懒加载
 
  
 
-##### 原理介绍
+#### 原理介绍
 
  
 懒加载从提供的数据源按需迭代数据，并在每次迭代过程中创建相应的组件，Swiper采用懒加载进行数据懒加载，在布局时会根据可视区域按需创建Swiper子组件，并在Swiper子组件滑出可视区域外时销毁以降低内存占用。Swiper组件的开发，属于滑动容器加载的一种场景，其LazyForEach懒加载原理可参考：[《长列表加载性能优化-懒加载》](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-best-practices-long-list#section182645364229)。
  
 
-##### 场景案例
+#### 场景案例
 
 为了展示Swiper使用ForEach与LazyForEach加载的性能差异，本地模拟答题场景进行测试。
  
@@ -109,17 +109,17 @@ Swiper(this.swiperController) {
 根据实验数据，当Swiper的子组件数量超过100个时，采用懒加载可以提升帧率30%以上，并且减少内存占用20%以上。
  
 
-##### 缓存数据项
+#### 缓存数据项
 
  
 
-##### 原理介绍
+#### 原理介绍
 
 LazyForEach懒加载可以通过设置[cachedCount](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#cachedcount8)来指定缓存数量，详细原理参考：[《长列表加载性能优化-缓存列表项》](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-best-practices-long-list#section11667144010222)。
  
  
 
-##### 使用场景
+#### 使用场景
 
 如果开发者的应用场景属于加载耗时的场景，尤其是以下场景，推荐使用。
  
@@ -130,7 +130,7 @@ LazyForEach懒加载可以通过设置[cachedCount](https://developer.huawei.com
  
  
 
-##### 场景案例
+#### 场景案例
 
 案例模拟Swiper子组件包含大量图像资源，前置条件如下：
  
@@ -230,13 +230,13 @@ struct TestCodeTwo {
 
  
 
-##### 提前加载数据
+#### 提前加载数据
 
  
 在抛滑场景时，Swiper组件有个[onAnimationStart()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#onanimationstart9)回调接口，切换动画开始时触发该回调。此时，切换动画的逻辑在渲染线程中执行，主线程则可以利用这段时间加载子组件所需的资源，如图像和网络资源，减少后续cachedCount范围内的节点预加载耗时。跟手滑动阶段不会触发onAnimationStart回调，只有在离手后进行切换动画时才会触发。
  
 
-##### 场景案例
+#### 场景案例
 
 Swiper子组件：在子组件首次构建(生命周期执行到[aboutToAppear()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#abouttoappear))时，先判断Swiper数据中图片资源是否已经存在，若不存在则先下载图片资源，再构建节点。
  
@@ -354,20 +354,20 @@ Swiper() {
 如图2所示，采用onAnimationStart回调提前加载数据，通过自定义打点标签“H:preLoadData”，可以看出SwiperItem节点的构建耗时2ms左右。
  
 图2 **使用了提前加载数据的打点信息**
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/xJSyRGxkRpOUy8IMuec73Q/zh-cn_image_0000002194010396.png?HW-CC-KV=V1&HW-CC-Date=20260528T013028Z&HW-CC-Expire=86400&HW-CC-Sign=A7ACB4AFD7B02CF1D74246FC7BD9D4D365C166D0F86530249D6EF259A7532056)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/xJSyRGxkRpOUy8IMuec73Q/zh-cn_image_0000002194010396.png?HW-CC-KV=V1&HW-CC-Date=20260528T024712Z&HW-CC-Expire=86400&HW-CC-Sign=74A7379A67BC2AB2A50262BFF840AC861305651B47DDE11FAD80ECD00BEF6EE2)
 
  
 观察“H:noPreLoadData”时间段的详细trace图，可以发现预加载构建SwiperItem时，aboutToAppear生命周期回调加载图片资源占用48毫秒。
  
 图3 **“H:noPreLoadData”时间段的trace详细信息
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/HIMeoDFHTaa561Hg8rSzIw/zh-cn_image_0000002229450669.png?HW-CC-KV=V1&HW-CC-Date=20260528T013028Z&HW-CC-Expire=86400&HW-CC-Sign=C5986D895BB12FE5C0572CAAF846D716BBBFD681F39268DF744B92F080E2899B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/HIMeoDFHTaa561Hg8rSzIw/zh-cn_image_0000002229450669.png?HW-CC-KV=V1&HW-CC-Date=20260528T024712Z&HW-CC-Expire=86400&HW-CC-Sign=920B677AA59EEAC244E96FA47CA5A69292B068410E57D5ABC34B8CD24520C2E0)
 
  
 使用onAnimationStart回调接口提前加载后续范围内子组件所需资源，能够减少cachedCount范围内子组件节点的加载时间。
  
 
-##### 组件复用
+#### 组件复用
 
 在Swiper翻页场景中，子组件频繁创建和销毁。将子组件封装为自定义组件，并使用@Reusable装饰器修饰，以减少ArkUI框架内部反复创建和销毁节点的开销。
  
@@ -375,7 +375,7 @@ Swiper() {
  
  
 
-##### 总结
+#### 总结
 
 本文介绍Swiper在复杂页面场景下的注意事项和性能优化方法。
  
@@ -387,6 +387,6 @@ Swiper() {
  
  
 
-##### 示例代码
+#### 示例代码
 
 - [实现Swiper组件加载慢丢帧优化](https://gitcode.com/harmonyos_samples/SwiperPerformance)

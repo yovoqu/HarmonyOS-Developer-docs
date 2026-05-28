@@ -14,7 +14,7 @@
 **起始版本：** 4.0.0(10)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { pushCommon } from '@kit.PushKit';
  
   
 
-##### AppProfileType
+#### AppProfileType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -46,7 +46,7 @@ import { pushCommon } from '@kit.PushKit';
  
   
 
-##### PushPayload
+#### PushPayload
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -68,7 +68,7 @@ import { pushCommon } from '@kit.PushKit';
  
   
 
-##### data取值样例
+#### data取值样例
 
 ```json
 {
@@ -91,7 +91,7 @@ import { pushCommon } from '@kit.PushKit';
  
   
 
-##### 取值样例
+#### 取值样例
 
 ```json
 {
@@ -104,7 +104,7 @@ import { pushCommon } from '@kit.PushKit';
  
   
 
-##### 样例
+#### 样例
 
 ```json
 {
@@ -121,7 +121,7 @@ import { pushCommon } from '@kit.PushKit';
  
   
 
-##### RemoteNotificationInfo
+#### RemoteNotificationInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -144,7 +144,7 @@ import { pushCommon } from '@kit.PushKit';
  
   
 
-##### RemoteNotificationContent
+#### RemoteNotificationContent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -170,7 +170,7 @@ import { pushCommon } from '@kit.PushKit';
  
   
 
-##### RemoteWantAgent
+#### RemoteWantAgent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -192,7 +192,7 @@ import { pushCommon } from '@kit.PushKit';
  
   
 
-##### VoIPInfo
+#### VoIPInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

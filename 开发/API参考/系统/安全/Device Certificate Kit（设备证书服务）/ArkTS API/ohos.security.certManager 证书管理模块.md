@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { certificateManager } from '@kit.DeviceCertificateKit';
 
 
 
-##### CmKeyPurpose
+#### CmKeyPurpose
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -38,7 +38,7 @@ import { certificateManager } from '@kit.DeviceCertificateKit';
 
 
 
-##### CmKeyDigest
+#### CmKeyDigest
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -60,7 +60,7 @@ import { certificateManager } from '@kit.DeviceCertificateKit';
 
 
 
-##### CmKeyPadding
+#### CmKeyPadding
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -77,7 +77,7 @@ import { certificateManager } from '@kit.DeviceCertificateKit';
 
 
 
-##### CMSignatureSpec
+#### CMSignatureSpec
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -94,7 +94,7 @@ import { certificateManager } from '@kit.DeviceCertificateKit';
 
 
 
-##### CertInfo
+#### CertInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -118,7 +118,7 @@ import { certificateManager } from '@kit.DeviceCertificateKit';
 
 
 
-##### CertAbstract
+#### CertAbstract
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -136,7 +136,7 @@ import { certificateManager } from '@kit.DeviceCertificateKit';
 
 
 
-##### Credential
+#### Credential
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -157,7 +157,7 @@ import { certificateManager } from '@kit.DeviceCertificateKit';
 
 
 
-##### CredentialAbstract
+#### CredentialAbstract
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -174,7 +174,7 @@ import { certificateManager } from '@kit.DeviceCertificateKit';
 
 
 
-##### CMResult
+#### CMResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -196,7 +196,7 @@ import { certificateManager } from '@kit.DeviceCertificateKit';
 
 
 
-##### CMHandle
+#### CMHandle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -211,7 +211,7 @@ import { certificateManager } from '@kit.DeviceCertificateKit';
 
 
 
-##### CMErrorCode
+#### CMErrorCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -236,7 +236,7 @@ import { certificateManager } from '@kit.DeviceCertificateKit';
 
 
 
-##### CertType18+
+#### CertType18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -252,7 +252,7 @@ import { certificateManager } from '@kit.DeviceCertificateKit';
 
 
 
-##### CertScope18+
+#### CertScope18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -268,7 +268,7 @@ import { certificateManager } from '@kit.DeviceCertificateKit';
 
 
 
-##### CertAlgorithm20+
+#### CertAlgorithm20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -284,7 +284,7 @@ import { certificateManager } from '@kit.DeviceCertificateKit';
 
 
 
-##### CertStoreProperty18+
+#### CertStoreProperty18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -301,7 +301,7 @@ import { certificateManager } from '@kit.DeviceCertificateKit';
 
 
 
-##### AuthStorageLevel18+
+#### AuthStorageLevel18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -318,7 +318,7 @@ import { certificateManager } from '@kit.DeviceCertificateKit';
 
 
 
-##### CertificatePurpose22+
+#### CertificatePurpose22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -336,7 +336,7 @@ import { certificateManager } from '@kit.DeviceCertificateKit';
 
 
 
-##### UkeyInfo22+
+#### UkeyInfo22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -351,7 +351,7 @@ import { certificateManager } from '@kit.DeviceCertificateKit';
 
 
 
-##### certificateManager.installPrivateCertificate
+#### certificateManager.installPrivateCertificate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -412,7 +412,7 @@ try {
 
 
 
-##### certificateManager.installPrivateCertificate
+#### certificateManager.installPrivateCertificate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -478,7 +478,7 @@ try {
 
 
 
-##### certificateManager.installPrivateCertificate18+
+#### certificateManager.installPrivateCertificate18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -547,7 +547,7 @@ try {
 
 
 
-##### certificateManager.getPrivateCertificate
+#### certificateManager.getPrivateCertificate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -605,7 +605,7 @@ try {
 
 
 
-##### certificateManager.getPrivateCertificate
+#### certificateManager.getPrivateCertificate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -668,7 +668,7 @@ try {
 
 
 
-##### certificateManager.uninstallPrivateCertificate
+#### certificateManager.uninstallPrivateCertificate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -721,7 +721,7 @@ try {
 
 
 
-##### certificateManager.uninstallPrivateCertificate
+#### certificateManager.uninstallPrivateCertificate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -779,7 +779,7 @@ try {
 
 
 
-##### certificateManager.installUserTrustedCertificateSync18+
+#### certificateManager.installUserTrustedCertificateSync18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -844,7 +844,7 @@ try {
 
 
 
-##### certificateManager.uninstallUserTrustedCertificateSync18+
+#### certificateManager.uninstallUserTrustedCertificateSync18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -890,7 +890,7 @@ try {
 
 
 
-##### certificateManager.init
+#### certificateManager.init
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -950,7 +950,7 @@ try {
 
 
 
-##### certificateManager.init
+#### certificateManager.init
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1015,7 +1015,7 @@ try {
 
 
 
-##### certificateManager.update
+#### certificateManager.update
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1074,7 +1074,7 @@ try {
 
 
 
-##### certificateManager.update
+#### certificateManager.update
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1138,7 +1138,7 @@ try {
 
 
 
-##### certificateManager.finish
+#### certificateManager.finish
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1198,7 +1198,7 @@ try {
 
 
 
-##### certificateManager.finish
+#### certificateManager.finish
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1257,7 +1257,7 @@ try {
 
 
 
-##### certificateManager.finish
+#### certificateManager.finish
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1335,7 +1335,7 @@ try {
 
 
 
-##### certificateManager.abort
+#### certificateManager.abort
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1390,7 +1390,7 @@ try {
 
 
 
-##### certificateManager.abort
+#### certificateManager.abort
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1450,7 +1450,7 @@ try {
 
 
 
-##### certificateManager.getPublicCertificate12+
+#### certificateManager.getPublicCertificate12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1514,7 +1514,7 @@ try {
 
 
 
-##### certificateManager.isAuthorizedApp12+
+#### certificateManager.isAuthorizedApp12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1575,7 +1575,7 @@ try {
 
 
 
-##### certificateManager.getAllUserTrustedCertificates12+
+#### certificateManager.getAllUserTrustedCertificates12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1630,7 +1630,7 @@ try {
 
 
 
-##### certificateManager.getAllUserTrustedCertificates18+
+#### certificateManager.getAllUserTrustedCertificates18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1695,7 +1695,7 @@ try {
 
 
 
-##### certificateManager.getUserTrustedCertificate12+
+#### certificateManager.getUserTrustedCertificate12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1758,7 +1758,7 @@ try {
 
 
 
-##### certificateManager.getPrivateCertificates13+
+#### certificateManager.getPrivateCertificates13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1813,7 +1813,7 @@ try {
 
 
 
-##### certificateManager.getCertificateStorePath18+
+#### certificateManager.getCertificateStorePath18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1891,7 +1891,7 @@ try {
 
 
 
-##### certificateManager.getUkeyCertificate22+
+#### certificateManager.getUkeyCertificate22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

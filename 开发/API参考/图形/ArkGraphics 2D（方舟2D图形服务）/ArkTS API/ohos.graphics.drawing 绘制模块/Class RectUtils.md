@@ -16,7 +16,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -26,7 +26,7 @@ import { drawing } from '@kit.ArkGraphics2D';
  
   
 
-##### makeEmpty20+
+#### makeEmpty20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -53,7 +53,7 @@ let rect = drawing.RectUtils.makeEmpty();
  
   
 
-##### makeLtrb20+
+#### makeLtrb20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -90,7 +90,7 @@ let rect = drawing.RectUtils.makeLtrb(10, 10, 20, 20);
  
   
 
-##### makeCopy20+
+#### makeCopy20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -129,7 +129,7 @@ console.info('rect2.bottom: ', rect2.bottom);
  
   
 
-##### getWidth20+
+#### getWidth20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -165,7 +165,7 @@ console.info('width:', width);
  
   
 
-##### getHeight20+
+#### getHeight20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -200,7 +200,7 @@ let height = drawing.RectUtils.getHeight(rect);
  
   
 
-##### centerX20+
+#### centerX20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -235,7 +235,7 @@ let x = drawing.RectUtils.centerX(rect);
  
   
 
-##### centerY20+
+#### centerY20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -270,7 +270,7 @@ let x = drawing.RectUtils.centerY(rect);
  
   
 
-##### contains20+
+#### contains20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -308,7 +308,7 @@ console.info('isContains: ', isContains);
  
   
 
-##### contains20+
+#### contains20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -348,7 +348,7 @@ console.info('isContains :', isContains);
  
   
 
-##### contains20+
+#### contains20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -386,7 +386,7 @@ console.info('isContains: ', isContains);
  
   
 
-##### inset20+
+#### inset20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -422,7 +422,7 @@ console.info('rect.bottom: ', rect.bottom);
  
   
 
-##### intersect20+
+#### intersect20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -464,7 +464,7 @@ console.info('rect.bottom: ', rect.bottom);
  
   
 
-##### isIntersect20+
+#### isIntersect20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -502,7 +502,7 @@ console.info('isIntersect :', isIntersect);
  
   
 
-##### union20+
+#### union20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -536,7 +536,7 @@ console.info('rect.bottom: ', rect.bottom);
  
   
 
-##### isEmpty20+
+#### isEmpty20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -575,7 +575,7 @@ console.info('isEmpty :', isEmpty);
  
   
 
-##### offset20+
+#### offset20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -609,7 +609,7 @@ console.info('rect.bottom: ', rect.bottom);
  
   
 
-##### offsetTo20+
+#### offsetTo20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -643,7 +643,7 @@ console.info('rect.bottom: ', rect.bottom);
  
   
 
-##### setRect20+
+#### setRect20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -677,7 +677,7 @@ console.info('rect2.bottom: ', rect2.bottom);
  
   
 
-##### setLtrb20+
+#### setLtrb20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -713,7 +713,7 @@ console.info('rect.bottom: ', rect.bottom);
  
   
 
-##### setEmpty20+
+#### setEmpty20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -745,7 +745,7 @@ console.info('rect.bottom: ', rect.bottom);
  
   
 
-##### sort20+
+#### sort20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -779,7 +779,7 @@ console.info('rect.bottom: ', rect.bottom);
  
   
 
-##### isEqual20+
+#### isEqual20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

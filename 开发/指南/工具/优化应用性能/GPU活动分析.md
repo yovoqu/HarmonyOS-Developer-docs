@@ -7,7 +7,7 @@
 从DevEco Studio 6.0.0 Beta3版本开始，DevEco Profiler提供GPU模板展示不同GPU硬件模块利用率的详细信息，这些信息可用于识别GPU利用率低、执行图形和计算工作负载性能瓶颈的根本原因。
  
 
-##### 约束与限制
+#### 约束与限制
 
 - 该功能仅支持中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）。
 - 仅支持Phone设备。
@@ -15,7 +15,7 @@
  
  
 
-##### 操作步骤
+#### 操作步骤
 1. 创建GPU分析任务并录制相关数据，操作方法可参考[性能问题定位：深度录制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/deep-recording)。
 
   GPU分析任务支持在录制前单击

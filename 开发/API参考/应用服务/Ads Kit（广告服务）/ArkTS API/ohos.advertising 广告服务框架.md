@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { advertising } from '@kit.AdsKit';
  
   
 
-##### advertising.showAd
+#### advertising.showAd
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -76,7 +76,7 @@ function showAd(ad: advertising.Advertisement, context?: common.UIAbilityContext
  
   
 
-##### advertising.getAdRequestBody12+
+#### advertising.getAdRequestBody12+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -132,7 +132,7 @@ async function getAdRequestBody(adRequestParamsArray: advertising.AdRequestParam
  
   
 
-##### advertising.parseAdResponse12+
+#### advertising.parseAdResponse12+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -192,7 +192,7 @@ function parseAdResponse(adResponse: string, context: common.UIAbilityContext): 
  
   
 
-##### advertising.registerWebAdInterface12+
+#### advertising.registerWebAdInterface12+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -253,7 +253,7 @@ struct Index {
  
   
 
-##### advertising.registerWebAdInterface16+
+#### advertising.registerWebAdInterface16+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -315,7 +315,7 @@ struct Index {
  
   
 
-##### advertising.deleteWebAdInterface16+
+#### advertising.deleteWebAdInterface16+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -373,7 +373,7 @@ struct Index {
  
   
 
-##### AdLoader
+#### AdLoader
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -385,7 +385,7 @@ struct Index {
  
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -420,7 +420,7 @@ function createAdLoader(context: common.Context): void {
  
   
 
-##### loadAd
+#### loadAd
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -486,7 +486,7 @@ function loadAd(context: common.Context, adRequestParams: advertising.AdRequestP
  
   
 
-##### loadAdWithMultiSlots
+#### loadAdWithMultiSlots
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -553,7 +553,7 @@ function loadAdWithMultiSlots(context: common.Context, adRequestParamsArray: adv
  
   
 
-##### AdLoadListener
+#### AdLoadListener
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -565,7 +565,7 @@ function loadAdWithMultiSlots(context: common.Context, adRequestParamsArray: adv
  
   
 
-##### onAdLoadFailure
+#### onAdLoadFailure
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -601,7 +601,7 @@ const adLoaderListener: advertising.AdLoadListener = {
  
   
 
-##### onAdLoadSuccess
+#### onAdLoadSuccess
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -636,7 +636,7 @@ const adLoaderListener: advertising.AdLoadListener = {
  
   
 
-##### MultiSlotsAdLoadListener
+#### MultiSlotsAdLoadListener
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -648,7 +648,7 @@ const adLoaderListener: advertising.AdLoadListener = {
  
   
 
-##### onAdLoadFailure
+#### onAdLoadFailure
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -684,7 +684,7 @@ const multiSlotsAdLoadListener: advertising.MultiSlotsAdLoadListener = {
  
   
 
-##### onAdLoadSuccess
+#### onAdLoadSuccess
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -719,7 +719,7 @@ const multiSlotsAdLoadListener: advertising.MultiSlotsAdLoadListener = {
  
   
 
-##### AdInteractionListener
+#### AdInteractionListener
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -731,7 +731,7 @@ const multiSlotsAdLoadListener: advertising.MultiSlotsAdLoadListener = {
  
   
 
-##### onStatusChanged
+#### onStatusChanged
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -819,7 +819,7 @@ const adInteractionListener: advertising.AdInteractionListener = {
  
   
 
-##### AdOptions
+#### AdOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -839,7 +839,7 @@ const adInteractionListener: advertising.AdInteractionListener = {
  
   
 
-##### AdRequestParams
+#### AdRequestParams
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -862,7 +862,7 @@ const adInteractionListener: advertising.AdInteractionListener = {
  
   
 
-##### AdDisplayOptions
+#### AdDisplayOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

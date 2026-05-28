@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { abilityDelegatorRegistry } from '@kit.TestKit';
 
 
 
-##### 使用说明
+#### 使用说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -30,7 +30,7 @@ import { abilityDelegatorRegistry } from '@kit.TestKit';
 
 
 
-##### AbilityMonitor
+#### AbilityMonitor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

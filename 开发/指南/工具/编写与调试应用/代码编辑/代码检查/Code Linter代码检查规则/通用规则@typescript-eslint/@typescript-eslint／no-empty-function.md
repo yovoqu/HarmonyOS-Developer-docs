@@ -7,7 +7,7 @@
 不允许使用空函数。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/no-empty-function选项](https://eslint.nodejs.cn/docs/rules/no-empty-function#选项)。
  
  
 
-##### 正例
+#### 正例
 
 该规则旨在消除空函数。如果函数包含注释，则不会将其视为问题。
  
@@ -53,7 +53,7 @@ export class Bar {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 /*eslint no-empty-function: "error"*/
@@ -78,7 +78,7 @@ export class Bar {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

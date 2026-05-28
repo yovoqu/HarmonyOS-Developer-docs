@@ -12,7 +12,7 @@
 
   
 
-##### setBrand
+#### setBrand
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -37,7 +37,7 @@ setBrand(brand: string): void
  
   
 
-##### getBrand
+#### getBrand
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -62,7 +62,7 @@ getBrand(): string
  
   
 
-##### setMajorVersion
+#### setMajorVersion
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -87,7 +87,7 @@ setMajorVersion(majorVersion: string): void
  
   
 
-##### getMajorVersion
+#### getMajorVersion
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -112,7 +112,7 @@ getMajorVersion(): string
  
   
 
-##### setFullVersion
+#### setFullVersion
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -137,7 +137,7 @@ setFullVersion(fullVersion: string): void
  
   
 
-##### getFullVersion
+#### getFullVersion
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

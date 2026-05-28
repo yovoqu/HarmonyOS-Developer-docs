@@ -14,7 +14,7 @@ MediaAlbumChangeRequest implements [MediaChangeRequest](https://developer.huawei
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -39,7 +39,7 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
 
 
-##### constructor11+
+#### constructor11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -88,7 +88,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### getAlbum11+
+#### getAlbum11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -97,7 +97,7 @@ getAlbum(): Album
 获取当前相册变更请求中的相册。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/d9ME3qWeRGyZw83g35hJnA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024004Z&HW-CC-Expire=86400&HW-CC-Sign=207B728D11D124F9AAF50715506DC2B7B7BB646960E02AC3CB86A861039ADE40)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/d9ME3qWeRGyZw83g35hJnA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025338Z&HW-CC-Expire=86400&HW-CC-Sign=9BD2C5F90806AFC02FD60BE2F380C7C757383B5E95628910E7B2F84F6A60A0B0)
 
 
 对于创建相册的变更请求，在调用接口[applyChanges](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#applychanges11)的提交生效之前，该接口会返回null。
@@ -145,7 +145,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### setAlbumName11+
+#### setAlbumName11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -205,7 +205,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### addAssets11+
+#### addAssets11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -265,7 +265,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### removeAssets11+
+#### removeAssets11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -7,11 +7,11 @@
 创建ImageSource实例，解码获取Picture，然后释放ImageSource实例。
 
 
-##### 开发步骤
+#### 开发步骤
 
 
 
-##### 添加链接库
+#### 添加链接库
 
 在进行应用开发之前，开发者需要打开native工程的src/main/cpp/CMakeLists.txt，在target_link_libraries依赖中添加libimage_source.so 以及日志依赖libhilog_ndk.z.so。
 
@@ -21,7 +21,7 @@ target_link_libraries(entry PUBLIC libhilog_ndk.z.so libimage_source.so)
 
 
 
-##### Native接口调用
+#### Native接口调用
 
 具体接口说明请参考[Image_NativeModule](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule)。
 

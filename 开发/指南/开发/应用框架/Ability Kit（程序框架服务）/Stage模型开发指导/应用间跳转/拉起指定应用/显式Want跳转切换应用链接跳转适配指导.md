@@ -13,7 +13,7 @@
 
 
 
-##### 启动其他应用的UIAbility
+#### 启动其他应用的UIAbility
 1. 将待跳转的应用安装到设备，在其对应UIAbility的[module.json5配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)中配置skills标签的entities字段、actions字段和uri字段：
 
   
@@ -28,7 +28,7 @@
 
 
 
-##### 启动其他应用的UIAbility并获取返回结果
+#### 启动其他应用的UIAbility并获取返回结果
 1. 将待跳转的应用安装到设备，在其对应UIAbility的[module.json5配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)中配置skills标签的entities字段、actions字段和uri字段：
 
   

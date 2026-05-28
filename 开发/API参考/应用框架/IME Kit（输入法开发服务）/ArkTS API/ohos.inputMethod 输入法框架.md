@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { inputMethod } from '@kit.IMEKit';
 
 
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -37,7 +37,7 @@ import { inputMethod } from '@kit.IMEKit';
 
 
 
-##### InputMethodProperty8+
+#### InputMethodProperty8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -61,7 +61,7 @@ import { inputMethod } from '@kit.IMEKit';
 
 
 
-##### CapitalizeMode20+
+#### CapitalizeMode20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -79,7 +79,7 @@ import { inputMethod } from '@kit.IMEKit';
 
 
 
-##### inputMethod.getController9+
+#### inputMethod.getController9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -113,7 +113,7 @@ let inputMethodController: inputMethod.InputMethodController = inputMethod.getCo
 
 
 
-##### inputMethod.getDefaultInputMethod11+
+#### inputMethod.getDefaultInputMethod11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -147,7 +147,7 @@ let defaultIme: inputMethod.InputMethodProperty = inputMethod.getDefaultInputMet
 
 
 
-##### inputMethod.getSystemInputMethodConfigAbility11+
+#### inputMethod.getSystemInputMethodConfigAbility11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -183,7 +183,7 @@ let inputMethodConfig: bundleManager.ElementName = inputMethod.getSystemInputMet
 
 
 
-##### inputMethod.getSetting9+
+#### inputMethod.getSetting9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -217,7 +217,7 @@ let inputMethodSetting: inputMethod.InputMethodSetting = inputMethod.getSetting(
 
 
 
-##### inputMethod.switchInputMethod9+
+#### inputMethod.switchInputMethod9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -275,7 +275,7 @@ inputMethod.switchInputMethod(currentIme, (err: BusinessError, result: boolean) 
 
 
 
-##### inputMethod.switchInputMethod9+
+#### inputMethod.switchInputMethod9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -337,7 +337,7 @@ inputMethod.switchInputMethod(currentIme).then((result: boolean) => {
 
 
 
-##### inputMethod.getCurrentInputMethod9+
+#### inputMethod.getCurrentInputMethod9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -362,7 +362,7 @@ let currentIme: inputMethod.InputMethodProperty = inputMethod.getCurrentInputMet
 
 
 
-##### inputMethod.switchCurrentInputMethodSubtype9+
+#### inputMethod.switchCurrentInputMethodSubtype9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -431,7 +431,7 @@ inputMethod.switchCurrentInputMethodSubtype({
 
 
 
-##### inputMethod.switchCurrentInputMethodSubtype9+
+#### inputMethod.switchCurrentInputMethodSubtype9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -504,7 +504,7 @@ inputMethod.switchCurrentInputMethodSubtype({
 
 
 
-##### inputMethod.getCurrentInputMethodSubtype9+
+#### inputMethod.getCurrentInputMethodSubtype9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -531,7 +531,7 @@ let currentImeSubType: InputMethodSubtype = inputMethod.getCurrentInputMethodSub
 
 
 
-##### inputMethod.switchCurrentInputMethodAndSubtype9+
+#### inputMethod.switchCurrentInputMethodAndSubtype9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -592,7 +592,7 @@ inputMethod.switchCurrentInputMethodAndSubtype(currentIme, imSubType, (err: Busi
 
 
 
-##### inputMethod.switchCurrentInputMethodAndSubtype9+
+#### inputMethod.switchCurrentInputMethodAndSubtype9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -657,7 +657,7 @@ inputMethod.switchCurrentInputMethodAndSubtype(currentIme, imSubType).then((resu
 
 
 
-##### inputMethod.getInputMethodController(deprecated)
+#### inputMethod.getInputMethodController(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -686,7 +686,7 @@ let inputMethodController: inputMethod.InputMethodController = inputMethod.getIn
 
 
 
-##### inputMethod.getInputMethodSetting(deprecated)
+#### inputMethod.getInputMethodSetting(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -715,7 +715,7 @@ let inputMethodSetting: inputMethod.InputMethodSetting = inputMethod.getInputMet
 
 
 
-##### inputMethod.setSimpleKeyboardEnabled20+
+#### inputMethod.setSimpleKeyboardEnabled20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -741,7 +741,7 @@ let enable: boolean = false;
 
 
 
-##### inputMethod.onAttachmentDidFail22+
+#### inputMethod.onAttachmentDidFail22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -775,7 +775,7 @@ inputMethod.onAttachmentDidFail(attachmentDidFailCallback);
 
 
 
-##### inputMethod.offAttachmentDidFail22+
+#### inputMethod.offAttachmentDidFail22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -810,7 +810,7 @@ inputMethod.offAttachmentDidFail(attachmentDidFailCallback);
 
 
 
-##### TextInputType10+
+#### TextInputType10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -839,7 +839,7 @@ inputMethod.offAttachmentDidFail(attachmentDidFailCallback);
 
 
 
-##### EnterKeyType10+
+#### EnterKeyType10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -862,7 +862,7 @@ Enter键的功能类型。
 
 
 
-##### KeyboardStatus10+
+#### KeyboardStatus10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -879,7 +879,7 @@ Enter键的功能类型。
 
 
 
-##### Direction10+
+#### Direction10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -897,7 +897,7 @@ Enter键的功能类型。
 
 
 
-##### ExtendAction10+
+#### ExtendAction10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -915,7 +915,7 @@ Enter键的功能类型。
 
 
 
-##### FunctionKey10+
+#### FunctionKey10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -930,7 +930,7 @@ Enter键的功能类型。
 
 
 
-##### InputAttribute10+
+#### InputAttribute10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -948,7 +948,7 @@ Enter键的功能类型。
 
 
 
-##### TextConfig10+
+#### TextConfig10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -968,7 +968,7 @@ Enter键的功能类型。
 
 
 
-##### CursorInfo10+
+#### CursorInfo10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -986,7 +986,7 @@ Enter键的功能类型。
 
 
 
-##### Range10+
+#### Range10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1002,7 +1002,7 @@ Enter键的功能类型。
 
 
 
-##### Movement10+
+#### Movement10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1017,7 +1017,7 @@ Enter键的功能类型。
 
 
 
-##### InputWindowInfo10+
+#### InputWindowInfo10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1037,7 +1037,7 @@ Enter键的功能类型。
 
 
 
-##### EnabledState15+
+#### EnabledState15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1054,7 +1054,7 @@ Enter键的功能类型。
 
 
 
-##### RequestKeyboardReason15+
+#### RequestKeyboardReason15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1072,7 +1072,7 @@ Enter键的功能类型。
 
 
 
-##### MessageHandler15+
+#### MessageHandler15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1084,7 +1084,7 @@ Enter键的功能类型。
 
 
 
-##### onMessage15+
+#### onMessage15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1124,7 +1124,7 @@ inputMethodController.recvMessage(messageHandler);
 
 
 
-##### onTerminated15+
+#### onTerminated15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1156,7 +1156,7 @@ inputMethodController.recvMessage(messageHandler);
 
 
 
-##### SetPreviewTextCallback17+
+#### SetPreviewTextCallback17+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1176,7 +1176,7 @@ type SetPreviewTextCallback = (text: string, range: Range) => void
 
 
 
-##### AttachFailureReason22+
+#### AttachFailureReason22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1193,7 +1193,7 @@ type SetPreviewTextCallback = (text: string, range: Range) => void
 
 
 
-##### AttachOptions23+
+#### AttachOptions23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1211,7 +1211,7 @@ type SetPreviewTextCallback = (text: string, range: Range) => void
 
 
 
-##### InputMethodController
+#### InputMethodController
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1219,7 +1219,7 @@ type SetPreviewTextCallback = (text: string, range: Range) => void
 
 
 
-##### attach10+
+#### attach10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1274,7 +1274,7 @@ inputMethod.getController().attach(true, textConfig, (err: BusinessError) => {
 
 
 
-##### attach10+
+#### attach10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1333,7 +1333,7 @@ inputMethod.getController().attach(true, textConfig).then(() => {
 
 
 
-##### attach15+
+#### attach15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1395,7 +1395,7 @@ inputMethod.getController().attach(true, textConfig, requestKeyboardReason).then
 
 
 
-##### attachWithUIContext23+
+#### attachWithUIContext23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1459,7 +1459,7 @@ inputMethod.getController().attachWithUIContext(uiContext, textConfig, attachOpt
 
 
 
-##### discardTypingText20+
+#### discardTypingText20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1505,7 +1505,7 @@ inputMethod.getController().discardTypingText().then(() => {
 
 
 
-##### showTextInput10+
+#### showTextInput10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1553,7 +1553,7 @@ inputMethod.getController().showTextInput((err: BusinessError) => {
 
 
 
-##### showTextInput10+
+#### showTextInput10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1599,7 +1599,7 @@ inputMethod.getController().showTextInput().then(() => {
 
 
 
-##### showTextInput15+
+#### showTextInput15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1654,7 +1654,7 @@ inputMethod.getController().showTextInput(requestKeyboardReason).then(() => {
 
 
 
-##### hideTextInput10+
+#### hideTextInput10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1702,7 +1702,7 @@ inputMethod.getController().hideTextInput((err: BusinessError) => {
 
 
 
-##### hideTextInput10+
+#### hideTextInput10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1748,7 +1748,7 @@ inputMethod.getController().hideTextInput().then(() => {
 
 
 
-##### detach10+
+#### detach10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1791,7 +1791,7 @@ inputMethod.getController().detach((err: BusinessError) => {
 
 
 
-##### detach10+
+#### detach10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1832,7 +1832,7 @@ inputMethod.getController().detach().then(() => {
 
 
 
-##### setCallingWindow10+
+#### setCallingWindow10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1883,7 +1883,7 @@ inputMethod.getController().setCallingWindow(windowId, (err: BusinessError) => {
 
 
 
-##### setCallingWindow10+
+#### setCallingWindow10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1938,7 +1938,7 @@ inputMethod.getController().setCallingWindow(windowId).then(() => {
 
 
 
-##### updateCursor10+
+#### updateCursor10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1990,7 +1990,7 @@ inputMethod.getController().updateCursor(cursorInfo, (err: BusinessError) => {
 
 
 
-##### updateCursor10+
+#### updateCursor10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2046,7 +2046,7 @@ inputMethod.getController().updateCursor(cursorInfo).then(() => {
 
 
 
-##### changeSelection10+
+#### changeSelection10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2094,7 +2094,7 @@ inputMethod.getController().changeSelection('text', 0, 5, (err: BusinessError) =
 
 
 
-##### changeSelection10+
+#### changeSelection10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2146,7 +2146,7 @@ inputMethod.getController().changeSelection('test', 0, 5).then(() => {
 
 
 
-##### updateAttribute10+
+#### updateAttribute10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2193,7 +2193,7 @@ inputMethod.getController().updateAttribute(inputAttribute, (err: BusinessError)
 
 
 
-##### updateAttribute10+
+#### updateAttribute10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2244,7 +2244,7 @@ inputMethod.getController().updateAttribute(inputAttribute).then(() => {
 
 
 
-##### stopInputSession9+
+#### stopInputSession9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2295,7 +2295,7 @@ inputMethod.getController().stopInputSession((err: BusinessError, result: boolea
 
 
 
-##### stopInputSession9+
+#### stopInputSession9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2344,7 +2344,7 @@ inputMethod.getController().stopInputSession().then((result: boolean) => {
 
 
 
-##### showSoftKeyboard9+
+#### showSoftKeyboard9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2394,7 +2394,7 @@ inputMethod.getController().showSoftKeyboard((err: BusinessError) => {
 
 
 
-##### showSoftKeyboard9+
+#### showSoftKeyboard9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2442,7 +2442,7 @@ inputMethod.getController().showSoftKeyboard().then(() => {
 
 
 
-##### hideSoftKeyboard9+
+#### hideSoftKeyboard9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2492,7 +2492,7 @@ inputMethod.getController().hideSoftKeyboard((err: BusinessError) => {
 
 
 
-##### hideSoftKeyboard9+
+#### hideSoftKeyboard9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2540,7 +2540,7 @@ inputMethod.getController().hideSoftKeyboard().then(() => {
 
 
 
-##### sendMessage15+
+#### sendMessage15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2599,7 +2599,7 @@ inputMethod.getController().sendMessage(msgId, msgParam).then(() => {
 
 
 
-##### recvMessage15+
+#### recvMessage15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2650,7 +2650,7 @@ inputMethodController.recvMessage();
 
 
 
-##### stopInput(deprecated)
+#### stopInput(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2691,7 +2691,7 @@ inputMethod.getController().stopInput((err: BusinessError, result: boolean) => {
 
 
 
-##### stopInput(deprecated)
+#### stopInput(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2730,7 +2730,7 @@ inputMethod.getController().stopInput().then((result: boolean) => {
 
 
 
-##### on('insertText')10+
+#### on('insertText')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2781,7 +2781,7 @@ inputMethodController.off('insertText');
 
 
 
-##### off('insertText')10+
+#### off('insertText')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2815,7 +2815,7 @@ inputMethodController.off('insertText');
 
 
 
-##### on('deleteLeft')10+
+#### on('deleteLeft')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2853,7 +2853,7 @@ inputMethod.getController().on('deleteLeft', (length: number) => {
 
 
 
-##### off('deleteLeft')10+
+#### off('deleteLeft')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2887,7 +2887,7 @@ inputMethodController.off('deleteLeft');
 
 
 
-##### on('deleteRight')10+
+#### on('deleteRight')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2925,7 +2925,7 @@ inputMethod.getController().on('deleteRight', (length: number) => {
 
 
 
-##### off('deleteRight')10+
+#### off('deleteRight')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2958,7 +2958,7 @@ inputMethodController.off('deleteRight');
 
 
 
-##### on('sendKeyboardStatus')10+
+#### on('sendKeyboardStatus')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2996,7 +2996,7 @@ inputMethod.getController().on('sendKeyboardStatus', (keyboardStatus: inputMetho
 
 
 
-##### off('sendKeyboardStatus')10+
+#### off('sendKeyboardStatus')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3030,7 +3030,7 @@ inputMethodController.off('sendKeyboardStatus');
 
 
 
-##### on('sendFunctionKey')10+
+#### on('sendFunctionKey')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3068,7 +3068,7 @@ inputMethod.getController().on('sendFunctionKey', (functionKey: inputMethod.Func
 
 
 
-##### off('sendFunctionKey')10+
+#### off('sendFunctionKey')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3102,7 +3102,7 @@ inputMethodController.off('sendFunctionKey');
 
 
 
-##### on('moveCursor')10+
+#### on('moveCursor')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3140,7 +3140,7 @@ inputMethod.getController().on('moveCursor', (direction: inputMethod.Direction) 
 
 
 
-##### off('moveCursor')10+
+#### off('moveCursor')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3174,7 +3174,7 @@ inputMethodController.off('moveCursor');
 
 
 
-##### on('handleExtendAction')10+
+#### on('handleExtendAction')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3212,7 +3212,7 @@ inputMethod.getController().on('handleExtendAction', (action: inputMethod.Extend
 
 
 
-##### off('handleExtendAction')10+
+#### off('handleExtendAction')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3246,7 +3246,7 @@ inputMethodController.off('handleExtendAction');
 
 
 
-##### on('selectByRange')10+
+#### on('selectByRange')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3283,7 +3283,7 @@ inputMethod.getController().on('selectByRange', (range: inputMethod.Range) => {
 
 
 
-##### off('selectByRange')10+
+#### off('selectByRange')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3317,7 +3317,7 @@ inputMethodController.off('selectByRange');
 
 
 
-##### on('selectByMovement')10+
+#### on('selectByMovement')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3354,7 +3354,7 @@ inputMethod.getController().on('selectByMovement', (movement: inputMethod.Moveme
 
 
 
-##### off('selectByMovement')10+
+#### off('selectByMovement')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3388,7 +3388,7 @@ inputMethodController.off('selectByMovement');
 
 
 
-##### on('getLeftTextOfCursor')10+
+#### on('getLeftTextOfCursor')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3428,7 +3428,7 @@ inputMethod.getController().on('getLeftTextOfCursor', (length: number) => {
 
 
 
-##### off('getLeftTextOfCursor')10+
+#### off('getLeftTextOfCursor')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3462,7 +3462,7 @@ inputMethodController.off('getLeftTextOfCursor');
 
 
 
-##### on('getRightTextOfCursor')10+
+#### on('getRightTextOfCursor')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3502,7 +3502,7 @@ inputMethod.getController().on('getRightTextOfCursor', (length: number) => {
 
 
 
-##### off('getRightTextOfCursor')10+
+#### off('getRightTextOfCursor')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3536,7 +3536,7 @@ inputMethodController.off('getRightTextOfCursor');
 
 
 
-##### on('getTextIndexAtCursor')10+
+#### on('getTextIndexAtCursor')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3576,7 +3576,7 @@ inputMethod.getController().on('getTextIndexAtCursor', () => {
 
 
 
-##### off('getTextIndexAtCursor')10+
+#### off('getTextIndexAtCursor')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3610,7 +3610,7 @@ inputMethodController.off('getTextIndexAtCursor');
 
 
 
-##### on('setPreviewText')17+
+#### on('setPreviewText')17+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3667,7 +3667,7 @@ console.info(`All callbacks unsubscribed from setPreviewText`);
 
 
 
-##### off('setPreviewText')17+
+#### off('setPreviewText')17+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3711,7 +3711,7 @@ console.info(`All callbacks unsubscribed from setPreviewText`);
 
 
 
-##### on('finishTextPreview')17+
+#### on('finishTextPreview')17+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3769,7 +3769,7 @@ console.info(`All callbacks unsubscribed from finishTextPreview`);
 
 
 
-##### off('finishTextPreview')17+
+#### off('finishTextPreview')17+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3814,7 +3814,7 @@ console.info(`All callbacks unsubscribed from finishTextPreview`);
 
 
 
-##### InputMethodSetting8+
+#### InputMethodSetting8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3822,7 +3822,7 @@ console.info(`All callbacks unsubscribed from finishTextPreview`);
 
 
 
-##### on('imeChange')9+
+#### on('imeChange')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3854,7 +3854,7 @@ inputMethod.getSetting()
 
 
 
-##### off('imeChange')9+
+#### off('imeChange')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3880,7 +3880,7 @@ inputMethod.getSetting().off('imeChange');
 
 
 
-##### listInputMethodSubtype9+
+#### listInputMethodSubtype9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3935,7 +3935,7 @@ inputMethodSetting.listInputMethodSubtype(inputMethodProperty,
 
 
 
-##### listInputMethodSubtype9+
+#### listInputMethodSubtype9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3993,7 +3993,7 @@ inputMethodSetting.listInputMethodSubtype(inputMethodProperty).then((data: Array
 
 
 
-##### listCurrentInputMethodSubtype9+
+#### listCurrentInputMethodSubtype9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4038,7 +4038,7 @@ inputMethodSetting.listCurrentInputMethodSubtype((err: BusinessError, data: Arra
 
 
 
-##### listCurrentInputMethodSubtype9+
+#### listCurrentInputMethodSubtype9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4082,7 +4082,7 @@ inputMethodSetting.listCurrentInputMethodSubtype().then((data: Array<InputMethod
 
 
 
-##### getInputMethods9+
+#### getInputMethods9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4131,7 +4131,7 @@ inputMethod.getSetting().getInputMethods(true, (err: BusinessError, data: Array<
 
 
 
-##### getInputMethods9+
+#### getInputMethods9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4184,7 +4184,7 @@ inputMethod.getSetting().getInputMethods(true).then((data: Array<inputMethod.Inp
 
 
 
-##### getInputMethodsSync11+
+#### getInputMethodsSync11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4231,7 +4231,7 @@ let imeProperty: Array<inputMethod.InputMethodProperty> = inputMethod.getSetting
 
 
 
-##### getAllInputMethods11+
+#### getAllInputMethods11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4274,7 +4274,7 @@ inputMethod.getSetting().getAllInputMethods((err: BusinessError, data: Array<inp
 
 
 
-##### getAllInputMethods11+
+#### getAllInputMethods11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4315,7 +4315,7 @@ inputMethod.getSetting().getAllInputMethods().then((data: Array<inputMethod.Inpu
 
 
 
-##### getAllInputMethodsSync11+
+#### getAllInputMethodsSync11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4350,7 +4350,7 @@ let imeProperty: Array<inputMethod.InputMethodProperty> = inputMethod.getSetting
 
 
 
-##### showOptionalInputMethods(deprecated)
+#### showOptionalInputMethods(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4400,7 +4400,7 @@ inputMethod.getSetting().showOptionalInputMethods((err: BusinessError, result: b
 
 
 
-##### showOptionalInputMethods(deprecated)
+#### showOptionalInputMethods(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4448,7 +4448,7 @@ inputMethod.getSetting().showOptionalInputMethods().then((result: boolean) => {
 
 
 
-##### listInputMethod(deprecated)
+#### listInputMethod(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4485,7 +4485,7 @@ inputMethod.getSetting().listInputMethod((err: BusinessError, data: Array<inputM
 
 
 
-##### listInputMethod(deprecated)
+#### listInputMethod(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4520,7 +4520,7 @@ inputMethod.getSetting().listInputMethod().then((data: Array<inputMethod.InputMe
 
 
 
-##### displayOptionalInputMethod(deprecated)
+#### displayOptionalInputMethod(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4557,7 +4557,7 @@ inputMethod.getSetting().displayOptionalInputMethod((err: BusinessError) => {
 
 
 
-##### displayOptionalInputMethod(deprecated)
+#### displayOptionalInputMethod(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4592,7 +4592,7 @@ inputMethod.getSetting().displayOptionalInputMethod().then(() => {
 
 
 
-##### getInputMethodState15+
+#### getInputMethodState15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

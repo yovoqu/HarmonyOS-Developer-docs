@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -26,7 +26,7 @@ import {
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -34,7 +34,7 @@ import {
 
 
 
-##### RecentPhotoComponent
+#### RecentPhotoComponent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -58,7 +58,7 @@ RecentPhotoComponent，是最近图片组件，可用于访问按创建时间排
 
 
 
-##### RecentPhotoOptions
+#### RecentPhotoOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -77,7 +77,7 @@ RecentPhotoComponent，是最近图片组件，可用于访问按创建时间排
 
 
 
-##### RecentPhotoInfo13+
+#### RecentPhotoInfo13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -95,7 +95,7 @@ RecentPhotoComponent，是最近图片组件，可用于访问按创建时间排
 
 
 
-##### RecentPhotoCheckResultCallback
+#### RecentPhotoCheckResultCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -116,7 +116,7 @@ type RecentPhotoCheckResultCallback = (recentPhotoExists: boolean) => void
 
 
 
-##### RecentPhotoClickCallback
+#### RecentPhotoClickCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -144,7 +144,7 @@ type RecentPhotoClickCallback = (recentPhotoInfo: BaseItemInfo) => boolean
 
 
 
-##### RecentPhotoCheckInfoCallback13+
+#### RecentPhotoCheckInfoCallback13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -166,7 +166,7 @@ type RecentPhotoCheckInfoCallback = (recentPhotoExists: boolean, info: RecentPho
 
 
 
-##### PhotoSource
+#### PhotoSource
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -185,7 +185,7 @@ type RecentPhotoCheckInfoCallback = (recentPhotoExists: boolean, info: RecentPho
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

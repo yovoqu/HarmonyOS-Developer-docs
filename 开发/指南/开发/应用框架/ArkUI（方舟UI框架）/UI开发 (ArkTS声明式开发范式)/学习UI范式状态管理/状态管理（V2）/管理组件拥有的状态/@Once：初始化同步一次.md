@@ -13,7 +13,7 @@
 
   
 
-##### 概述
+#### 概述
 
 @Once装饰器在变量初始化时接受外部传入值进行初始化，后续数据源更改不会同步给子组件：
  
@@ -25,7 +25,7 @@
  
   
 
-##### 装饰器使用规则说明
+#### 装饰器使用规则说明
 
 @Once装饰器作为辅助装饰器，本身没有装饰类型要求和变量观察能力。
   
@@ -37,7 +37,7 @@
  
   
 
-##### 限制条件
+#### 限制条件
 
 - @Once仅在[@ComponentV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#componentv2)装饰的自定义组件中与@Param搭配使用。
 
@@ -73,11 +73,11 @@ struct MyComponent {
  
   
 
-##### 使用场景
+#### 使用场景
 
   
 
-##### 变量仅初始化同步一次
+#### 变量仅初始化同步一次
 
 @Once用于期望变量仅初始化同步数据源一次，之后不再继续同步变化的场景。
  
@@ -115,7 +115,7 @@ struct MyComponent {
  
   
 
-##### 本地修改@Param变量
+#### 本地修改@Param变量
 
 当@Once与@Param结合使用时，可以解除@Param无法在本地修改的限制，并能够触发UI刷新。此时，使用@Param和@Once的效果类似于[@Local](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-local)，但@Param和@Once还能接收外部传入的初始值。
  

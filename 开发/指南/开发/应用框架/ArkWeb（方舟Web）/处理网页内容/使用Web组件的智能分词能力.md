@@ -11,7 +11,7 @@
 可识别的实体类型包括电话、链接、邮箱、地址和时间，详见[TextDataDetectorType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-text-common#textdatadetectortype11枚举说明)。
 
 
-##### 文本分词高亮
+#### 文本分词高亮
 
 Web组件内的H5页面加载完成后，自动识别并高亮标注页面内的特殊实体。页面变化后新出现的实体不会被高亮标注。
 
@@ -97,7 +97,7 @@ struct Index {
 
 
 
-##### 分词长按预览
+#### 分词长按预览
 
 使用分词长按预览功能时，需要额外配置[dataDetectorConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#datadetectorconfig20)：
 
@@ -123,7 +123,7 @@ controller: this.webController
 
 
 
-##### 文本选择菜单扩展
+#### 文本选择菜单扩展
 
 从API version 22开始，支持通过[enableSelectedDataDetector](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#enableselecteddatadetector22)单独配置文本选择AI菜单的启用情况。
 

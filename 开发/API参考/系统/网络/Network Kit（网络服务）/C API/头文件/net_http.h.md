@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-http-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -48,13 +48,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Http_CreateHeaders()
+#### OH_Http_CreateHeaders()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -83,7 +83,7 @@ Http_Headers *OH_Http_CreateHeaders(void)
  
   
 
-##### OH_Http_DestroyHeaders()
+#### OH_Http_DestroyHeaders()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -108,7 +108,7 @@ void OH_Http_DestroyHeaders(Http_Headers **headers)
  
   
 
-##### OH_Http_SetHeaderValue()
+#### OH_Http_SetHeaderValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -142,7 +142,7 @@ uint32_t OH_Http_SetHeaderValue(struct Http_Headers *headers, const char *name, 
  
   
 
-##### OH_Http_GetHeaderValue()
+#### OH_Http_GetHeaderValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -175,7 +175,7 @@ Http_HeaderValue *OH_Http_GetHeaderValue(Http_Headers *headers, const char *name
  
   
 
-##### OH_Http_GetHeaderEntries()
+#### OH_Http_GetHeaderEntries()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -207,7 +207,7 @@ Http_HeaderEntry *OH_Http_GetHeaderEntries(Http_Headers *headers)
  
   
 
-##### OH_Http_DestroyHeaderEntries()
+#### OH_Http_DestroyHeaderEntries()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -232,7 +232,7 @@ void OH_Http_DestroyHeaderEntries(Http_HeaderEntry **headerEntry)
  
   
 
-##### OH_Http_CreateRequest()
+#### OH_Http_CreateRequest()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -264,7 +264,7 @@ Http_Request *OH_Http_CreateRequest(const char *url)
  
   
 
-##### OH_Http_Request()
+#### OH_Http_Request()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -304,7 +304,7 @@ int OH_Http_Request(Http_Request *request, Http_ResponseCallback callback, Http_
  
   
 
-##### OH_Http_Destroy()
+#### OH_Http_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

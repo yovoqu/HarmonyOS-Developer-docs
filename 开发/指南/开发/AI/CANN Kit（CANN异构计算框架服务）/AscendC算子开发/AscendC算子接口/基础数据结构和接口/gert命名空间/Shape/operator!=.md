@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-operatorb
 
-##### 函数功能
+#### 函数功能
 
 判断与另一个Shape对象是否不等。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 bool operator!=(const Shape &rht) const
@@ -18,7 +18,7 @@ bool operator!=(const Shape &rht) const
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -27,7 +27,7 @@ bool operator!=(const Shape &rht) const
  
   
 
-##### 返回值
+#### 返回值
 
 true：不相等。
  
@@ -35,13 +35,13 @@ false：相等。
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 Shape shape0({3, 256, 256});

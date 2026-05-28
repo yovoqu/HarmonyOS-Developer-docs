@@ -16,7 +16,7 @@ FastBuffer通过from构造时，仅支持FastBuffer、Uint8Array、string、Arra
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -26,7 +26,7 @@ import { fastbuffer } from '@kit.ArkTS';
 
 
 
-##### BufferEncoding
+#### BufferEncoding
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -55,7 +55,7 @@ type BufferEncoding = 'ascii' | 'utf8' | 'utf-8' | 'utf16le' | 'ucs2' | 'ucs-2' 
 
 
 
-##### fastbuffer.alloc
+#### fastbuffer.alloc
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -99,7 +99,7 @@ console.info(buf3.toString());
 
 
 
-##### fastbuffer.allocUninitializedFromPool
+#### fastbuffer.allocUninitializedFromPool
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -137,7 +137,7 @@ buf.fill(0);
 
 
 
-##### fastbuffer.allocUninitialized
+#### fastbuffer.allocUninitialized
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -175,7 +175,7 @@ buf.fill(0);
 
 
 
-##### fastbuffer.byteLength
+#### fastbuffer.byteLength
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -218,7 +218,7 @@ console.info(`${str}: ${str.length} characters, ${fastbuffer.byteLength(str, 'ut
 
 
 
-##### fastbuffer.compare
+#### fastbuffer.compare
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -269,7 +269,7 @@ console.info(Number(res).toString());
 
 
 
-##### fastbuffer.concat
+#### fastbuffer.concat
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -323,7 +323,7 @@ console.info(buf.toString('hex'));
 
 
 
-##### fastbuffer.from
+#### fastbuffer.from
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -361,7 +361,7 @@ console.info(buf.toString('hex'));
 
 
 
-##### fastbuffer.from
+#### fastbuffer.from
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -412,7 +412,7 @@ console.info(buf.length.toString());
 
 
 
-##### fastbuffer.from
+#### fastbuffer.from
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -470,7 +470,7 @@ console.info("uint8Array:", uint8Array)
 
 
 
-##### fastbuffer.from
+#### fastbuffer.from
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -513,7 +513,7 @@ console.info(buf2.toString());
 
 
 
-##### fastbuffer.isBuffer
+#### fastbuffer.isBuffer
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -563,7 +563,7 @@ console.info("result4 = " + result4);
 
 
 
-##### fastbuffer.isEncoding
+#### fastbuffer.isEncoding
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -606,7 +606,7 @@ console.info(fastbuffer.isEncoding('').toString());
 
 
 
-##### fastbuffer.transcode
+#### fastbuffer.transcode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -648,13 +648,13 @@ console.info("newBuf = " + newBuf.toString('ascii'));
 
 
 
-##### FastBuffer
+#### FastBuffer
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -686,7 +686,7 @@ console.info(JSON.stringify(buf.byteOffset));
 
 
 
-##### compare
+#### compare
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -744,7 +744,7 @@ console.info(buf1.compare(buf2, 5, 6, 5).toString());
 
 
 
-##### copy
+#### copy
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -802,7 +802,7 @@ console.info(buf2.toString('ascii', 0, 25));
 
 
 
-##### entries
+#### entries
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -845,7 +845,7 @@ while (!next.done) {
 
 
 
-##### equals
+#### equals
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -897,7 +897,7 @@ console.info(buf1.equals(buf3).toString());
 
 
 
-##### fill
+#### fill
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -948,7 +948,7 @@ console.info(b.toString());
 
 
 
-##### includes
+#### includes
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -994,7 +994,7 @@ console.info(buf.includes('be').toString());
 
 
 
-##### indexOf
+#### indexOf
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1040,7 +1040,7 @@ console.info(buf.indexOf('is').toString());
 
 
 
-##### keys
+#### keys
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1081,7 +1081,7 @@ for (const key of keys) {
 
 
 
-##### values
+#### values
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1124,7 +1124,7 @@ while (!next.done) {
 
 
 
-##### lastIndexOf
+#### lastIndexOf
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1170,7 +1170,7 @@ console.info(buf.lastIndexOf('buffer').toString());
 
 
 
-##### readBigInt64BE
+#### readBigInt64BE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1218,7 +1218,7 @@ console.info(buf.readBigInt64BE(0).toString());
 
 
 
-##### readBigInt64LE
+#### readBigInt64LE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1266,7 +1266,7 @@ console.info(buf.readBigInt64LE(0).toString());
 
 
 
-##### readBigUInt64BE
+#### readBigUInt64BE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1314,7 +1314,7 @@ console.info(buf.readBigUInt64BE(0).toString());
 
 
 
-##### readBigUInt64LE
+#### readBigUInt64LE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1362,7 +1362,7 @@ console.info(buf.readBigUInt64LE(0).toString());
 
 
 
-##### readDoubleBE
+#### readDoubleBE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1409,7 +1409,7 @@ console.info(buf.readDoubleBE(0).toString());
 
 
 
-##### readDoubleLE
+#### readDoubleLE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1456,7 +1456,7 @@ console.info(buf.readDoubleLE(0).toString());
 
 
 
-##### readFloatBE
+#### readFloatBE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1503,7 +1503,7 @@ console.info(buf.readFloatBE(0).toString());
 
 
 
-##### readFloatLE
+#### readFloatLE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1550,7 +1550,7 @@ console.info(buf.readFloatLE(0).toString());
 
 
 
-##### readInt8
+#### readInt8
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1599,7 +1599,7 @@ console.info(buf.readInt8(1).toString());
 
 
 
-##### readInt16BE
+#### readInt16BE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1646,7 +1646,7 @@ console.info(buf.readInt16BE(0).toString());
 
 
 
-##### readInt16LE
+#### readInt16LE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1693,7 +1693,7 @@ console.info(buf.readInt16LE(0).toString());
 
 
 
-##### readInt32BE
+#### readInt32BE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1740,7 +1740,7 @@ console.info(buf.readInt32BE(0).toString());
 
 
 
-##### readInt32LE
+#### readInt32LE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1787,7 +1787,7 @@ console.info(buf.readInt32LE(0).toString());
 
 
 
-##### readIntBE
+#### readIntBE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1836,7 +1836,7 @@ console.info(num.toString());
 
 
 
-##### readIntLE
+#### readIntLE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1884,7 +1884,7 @@ console.info(buf.readIntLE(0, 6).toString(16));
 
 
 
-##### readUInt8
+#### readUInt8
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1933,7 +1933,7 @@ console.info(buf.readUInt8(1).toString());
 
 
 
-##### readUInt16BE
+#### readUInt16BE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1982,7 +1982,7 @@ console.info(buf.readUInt16BE(1).toString(16));
 
 
 
-##### readUInt16LE
+#### readUInt16LE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2031,7 +2031,7 @@ console.info(buf.readUInt16LE(1).toString(16));
 
 
 
-##### readUInt32BE
+#### readUInt32BE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2078,7 +2078,7 @@ console.info(buf.readUInt32BE(0).toString(16));
 
 
 
-##### readUInt32LE
+#### readUInt32LE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2125,7 +2125,7 @@ console.info(buf.readUInt32LE(0).toString(16));
 
 
 
-##### readUIntBE
+#### readUIntBE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2173,7 +2173,7 @@ console.info(buf.readUIntBE(0, 6).toString(16));
 
 
 
-##### readUIntLE
+#### readUIntLE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2221,7 +2221,7 @@ console.info(buf.readUIntLE(0, 6).toString(16));
 
 
 
-##### subarray
+#### subarray
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2265,7 +2265,7 @@ console.info(buf2.toString('ascii', 0, buf2.length));
 
 
 
-##### swap16
+#### swap16
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2308,7 +2308,7 @@ console.info(buf1.toString('hex'));
 
 
 
-##### swap32
+#### swap32
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2351,7 +2351,7 @@ console.info(buf1.toString('hex'));
 
 
 
-##### swap64
+#### swap64
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2394,7 +2394,7 @@ console.info(buf1.toString('hex'));
 
 
 
-##### toJSON
+#### toJSON
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2426,7 +2426,7 @@ console.info(JSON.stringify(obj));
 
 
 
-##### toString
+#### toString
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2478,7 +2478,7 @@ console.info(buf1.toString('utf-8'));
 
 
 
-##### write
+#### write
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2535,7 +2535,7 @@ console.info("length = " + length);
 
 
 
-##### writeBigInt64BE
+#### writeBigInt64BE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2584,7 +2584,7 @@ console.info("result = " + result);
 
 
 
-##### writeBigInt64LE
+#### writeBigInt64LE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2633,7 +2633,7 @@ console.info("result = " + result);
 
 
 
-##### writeBigUInt64BE
+#### writeBigUInt64BE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2682,7 +2682,7 @@ console.info("result = " + result);
 
 
 
-##### writeBigUInt64LE
+#### writeBigUInt64LE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2731,7 +2731,7 @@ console.info("result = " + result);
 
 
 
-##### writeDoubleBE
+#### writeDoubleBE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2780,7 +2780,7 @@ console.info("result = " + result);
 
 
 
-##### writeDoubleLE
+#### writeDoubleLE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2829,7 +2829,7 @@ console.info("result = " + result);
 
 
 
-##### writeFloatBE
+#### writeFloatBE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2878,7 +2878,7 @@ console.info("result = " + result);
 
 
 
-##### writeFloatLE
+#### writeFloatLE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2927,7 +2927,7 @@ console.info("result = " + result);
 
 
 
-##### writeInt8
+#### writeInt8
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2979,7 +2979,7 @@ console.info("result1 = " + result1);
 
 
 
-##### writeInt16BE
+#### writeInt16BE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3028,7 +3028,7 @@ console.info("result = " + result);
 
 
 
-##### writeInt16LE
+#### writeInt16LE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3077,7 +3077,7 @@ console.info("result = " + result);
 
 
 
-##### writeInt32BE
+#### writeInt32BE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3126,7 +3126,7 @@ console.info("result = " + result);
 
 
 
-##### writeInt32LE
+#### writeInt32LE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3175,7 +3175,7 @@ console.info("result = " + result);
 
 
 
-##### writeIntBE
+#### writeIntBE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3225,7 +3225,7 @@ console.info("result = " + result);
 
 
 
-##### writeIntLE
+#### writeIntLE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3275,7 +3275,7 @@ console.info("result = " + result);
 
 
 
-##### writeUInt8
+#### writeUInt8
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3333,7 +3333,7 @@ console.info("result3 = " + result3);
 
 
 
-##### writeUInt16BE
+#### writeUInt16BE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3385,7 +3385,7 @@ console.info("result1 = " + result1);
 
 
 
-##### writeUInt16LE
+#### writeUInt16LE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3437,7 +3437,7 @@ console.info("result1 = " + result1);
 
 
 
-##### writeUInt32BE
+#### writeUInt32BE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3486,7 +3486,7 @@ console.info("result = " + result);
 
 
 
-##### writeUInt32LE
+#### writeUInt32LE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3535,7 +3535,7 @@ console.info("result = " + result);
 
 
 
-##### writeUIntBE
+#### writeUIntBE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3585,7 +3585,7 @@ console.info("result = " + result);
 
 
 
-##### writeUIntLE
+#### writeUIntLE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

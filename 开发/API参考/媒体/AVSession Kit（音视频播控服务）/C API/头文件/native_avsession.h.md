@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avsession-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -41,7 +41,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -89,13 +89,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_AVSessionCallback_OnCommand()
+#### OH_AVSessionCallback_OnCommand()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -111,7 +111,7 @@ typedef AVSessionCallback_Result (*OH_AVSessionCallback_OnCommand)(OH_AVSession*
  
   
 
-##### OH_AVSessionCallback_OnFastForward()
+#### OH_AVSessionCallback_OnFastForward()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -127,7 +127,7 @@ typedef AVSessionCallback_Result (*OH_AVSessionCallback_OnFastForward)(OH_AVSess
  
   
 
-##### OH_AVSessionCallback_OnRewind()
+#### OH_AVSessionCallback_OnRewind()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -143,7 +143,7 @@ typedef AVSessionCallback_Result (*OH_AVSessionCallback_OnRewind)(OH_AVSession* 
  
   
 
-##### OH_AVSessionCallback_OnSeek()
+#### OH_AVSessionCallback_OnSeek()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -159,7 +159,7 @@ typedef AVSessionCallback_Result (*OH_AVSessionCallback_OnSeek)(OH_AVSession* se
  
   
 
-##### OH_AVSessionCallback_OnSetLoopMode()
+#### OH_AVSessionCallback_OnSetLoopMode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -175,7 +175,7 @@ typedef AVSessionCallback_Result (*OH_AVSessionCallback_OnSetLoopMode)(OH_AVSess
  
   
 
-##### OH_AVSessionCallback_OnToggleFavorite()
+#### OH_AVSessionCallback_OnToggleFavorite()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -191,7 +191,7 @@ typedef AVSessionCallback_Result (*OH_AVSessionCallback_OnToggleFavorite)(OH_AVS
  
   
 
-##### OH_AVSessionCallback_OutputDeviceChange()
+#### OH_AVSessionCallback_OutputDeviceChange()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -207,7 +207,7 @@ typedef AVSessionCallback_Result (*OH_AVSessionCallback_OutputDeviceChange)(OH_A
  
   
 
-##### OH_AVSession_Create()
+#### OH_AVSession_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -241,7 +241,7 @@ AVSession_ErrCode OH_AVSession_Create(AVSession_Type sessionType, const char* se
  
   
 
-##### OH_AVSession_Destroy()
+#### OH_AVSession_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -271,7 +271,7 @@ AVSession_ErrCode OH_AVSession_Destroy(OH_AVSession* avsession)
  
   
 
-##### OH_AVSession_Activate()
+#### OH_AVSession_Activate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -301,7 +301,7 @@ AVSession_ErrCode OH_AVSession_Activate(OH_AVSession* avsession)
  
   
 
-##### OH_AVSession_Deactivate()
+#### OH_AVSession_Deactivate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -331,7 +331,7 @@ AVSession_ErrCode OH_AVSession_Deactivate(OH_AVSession* avsession)
  
   
 
-##### OH_AVSession_GetSessionType()
+#### OH_AVSession_GetSessionType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -362,7 +362,7 @@ AVSession_ErrCode OH_AVSession_GetSessionType(OH_AVSession* avsession, AVSession
  
   
 
-##### OH_AVSession_GetSessionId()
+#### OH_AVSession_GetSessionId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -393,7 +393,7 @@ AVSession_ErrCode OH_AVSession_GetSessionId(OH_AVSession* avsession, const char*
  
   
 
-##### OH_AVSession_SetAVMetadata()
+#### OH_AVSession_SetAVMetadata()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -424,7 +424,7 @@ AVSession_ErrCode OH_AVSession_SetAVMetadata(OH_AVSession* avsession, OH_AVMetad
  
   
 
-##### OH_AVSession_SetPlaybackState()
+#### OH_AVSession_SetPlaybackState()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -455,7 +455,7 @@ AVSession_ErrCode OH_AVSession_SetPlaybackState(OH_AVSession* avsession, AVSessi
  
   
 
-##### OH_AVSession_SetPlaybackPosition()
+#### OH_AVSession_SetPlaybackPosition()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -486,7 +486,7 @@ AVSession_ErrCode OH_AVSession_SetPlaybackPosition(OH_AVSession* avsession, AVSe
  
   
 
-##### OH_AVSession_SetFavorite()
+#### OH_AVSession_SetFavorite()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -517,7 +517,7 @@ AVSession_ErrCode OH_AVSession_SetFavorite(OH_AVSession* avsession, bool favorit
  
   
 
-##### OH_AVSession_SetLoopMode()
+#### OH_AVSession_SetLoopMode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -548,7 +548,7 @@ AVSession_ErrCode OH_AVSession_SetLoopMode(OH_AVSession* avsession, AVSession_Lo
  
   
 
-##### OH_AVSession_SetRemoteCastEnabled()
+#### OH_AVSession_SetRemoteCastEnabled()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -579,7 +579,7 @@ AVSession_ErrCode OH_AVSession_SetRemoteCastEnabled(OH_AVSession* avsession, boo
  
   
 
-##### OH_AVSession_RegisterCommandCallback()
+#### OH_AVSession_RegisterCommandCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -612,7 +612,7 @@ AVSession_ErrCode OH_AVSession_RegisterCommandCallback(OH_AVSession* avsession, 
  
   
 
-##### OH_AVSession_UnregisterCommandCallback()
+#### OH_AVSession_UnregisterCommandCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -644,7 +644,7 @@ AVSession_ErrCode OH_AVSession_UnregisterCommandCallback(OH_AVSession* avsession
  
   
 
-##### OH_AVSession_RegisterForwardCallback()
+#### OH_AVSession_RegisterForwardCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -676,7 +676,7 @@ AVSession_ErrCode OH_AVSession_RegisterForwardCallback(OH_AVSession* avsession, 
  
   
 
-##### OH_AVSession_UnregisterForwardCallback()
+#### OH_AVSession_UnregisterForwardCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -707,7 +707,7 @@ AVSession_ErrCode OH_AVSession_UnregisterForwardCallback(OH_AVSession* avsession
  
   
 
-##### OH_AVSession_RegisterRewindCallback()
+#### OH_AVSession_RegisterRewindCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -739,7 +739,7 @@ AVSession_ErrCode OH_AVSession_RegisterRewindCallback(OH_AVSession* avsession, O
  
   
 
-##### OH_AVSession_UnregisterRewindCallback()
+#### OH_AVSession_UnregisterRewindCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -770,7 +770,7 @@ AVSession_ErrCode OH_AVSession_UnregisterRewindCallback(OH_AVSession* avsession,
  
   
 
-##### OH_AVSession_RegisterSeekCallback()
+#### OH_AVSession_RegisterSeekCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -802,7 +802,7 @@ AVSession_ErrCode OH_AVSession_RegisterSeekCallback(OH_AVSession* avsession, OH_
  
   
 
-##### OH_AVSession_UnregisterSeekCallback()
+#### OH_AVSession_UnregisterSeekCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -833,7 +833,7 @@ AVSession_ErrCode OH_AVSession_UnregisterSeekCallback(OH_AVSession* avsession, O
  
   
 
-##### OH_AVSession_RegisterSetLoopModeCallback()
+#### OH_AVSession_RegisterSetLoopModeCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -865,7 +865,7 @@ AVSession_ErrCode OH_AVSession_RegisterSetLoopModeCallback(OH_AVSession* avsessi
  
   
 
-##### OH_AVSession_UnregisterSetLoopModeCallback()
+#### OH_AVSession_UnregisterSetLoopModeCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -896,7 +896,7 @@ AVSession_ErrCode OH_AVSession_UnregisterSetLoopModeCallback(OH_AVSession* avses
  
   
 
-##### OH_AVSession_RegisterToggleFavoriteCallback()
+#### OH_AVSession_RegisterToggleFavoriteCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -928,7 +928,7 @@ AVSession_ErrCode OH_AVSession_RegisterToggleFavoriteCallback(OH_AVSession* avse
  
   
 
-##### OH_AVSession_UnregisterToggleFavoriteCallback()
+#### OH_AVSession_UnregisterToggleFavoriteCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -959,7 +959,7 @@ AVSession_ErrCode OH_AVSession_UnregisterToggleFavoriteCallback(OH_AVSession* av
  
   
 
-##### OH_AVSession_RegisterOutputDeviceChangeCallback()
+#### OH_AVSession_RegisterOutputDeviceChangeCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -990,7 +990,7 @@ AVSession_ErrCode OH_AVSession_RegisterOutputDeviceChangeCallback(OH_AVSession* 
  
   
 
-##### OH_AVSession_UnregisterOutputDeviceChangeCallback()
+#### OH_AVSession_UnregisterOutputDeviceChangeCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1021,7 +1021,7 @@ AVSession_ErrCode OH_AVSession_UnregisterOutputDeviceChangeCallback(OH_AVSession
  
   
 
-##### OH_AVSession_AcquireSession()
+#### OH_AVSession_AcquireSession()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1054,7 +1054,7 @@ AVSession_ErrCode OH_AVSession_AcquireSession(const char* sessionTag, const char
  
   
 
-##### OH_AVSession_CreateAVCastController()
+#### OH_AVSession_CreateAVCastController()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1085,7 +1085,7 @@ AVSession_ErrCode OH_AVSession_CreateAVCastController(OH_AVSession* avsession, O
  
   
 
-##### OH_AVSession_StopCasting()
+#### OH_AVSession_StopCasting()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1115,7 +1115,7 @@ AVSession_ErrCode OH_AVSession_StopCasting(OH_AVSession* avsession)
  
   
 
-##### OH_AVSession_AcquireOutputDevice()
+#### OH_AVSession_AcquireOutputDevice()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1146,7 +1146,7 @@ AVSession_ErrCode OH_AVSession_AcquireOutputDevice(OH_AVSession* avsession, AVSe
  
   
 
-##### OH_AVSession_ReleaseOutputDevice()
+#### OH_AVSession_ReleaseOutputDevice()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

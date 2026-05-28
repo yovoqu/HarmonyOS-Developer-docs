@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { webview } from '@kit.ArkWeb';
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -35,7 +35,7 @@ import { webview } from '@kit.ArkWeb';
 
 
 
-##### postMessageEvent
+#### postMessageEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -95,7 +95,7 @@ struct WebComponent {
 
 
 
-##### onMessageEvent
+#### onMessageEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -166,7 +166,7 @@ struct WebComponent {
 
 
 
-##### postMessageEventExt10+
+#### postMessageEventExt10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -195,7 +195,7 @@ postMessageEventExt(message: WebMessageExt): void
 
 
 
-##### onMessageEventExt10+
+#### onMessageEventExt10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -514,7 +514,7 @@ function postStringToApp() {
 
 
 
-##### close
+#### close
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

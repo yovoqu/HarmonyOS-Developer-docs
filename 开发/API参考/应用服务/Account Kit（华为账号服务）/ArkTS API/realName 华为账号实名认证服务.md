@@ -14,7 +14,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { realName } from '@kit.AccountKit';
  
   
 
-##### FacialRecognitionVerificationRequest
+#### FacialRecognitionVerificationRequest
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -58,7 +58,7 @@ const request: realName.FacialRecognitionVerificationRequest = {
  
   
 
-##### FacialRecognitionVerificationResult
+#### FacialRecognitionVerificationResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -80,7 +80,7 @@ const request: realName.FacialRecognitionVerificationRequest = {
  
   
 
-##### RealNameErrorCode
+#### RealNameErrorCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -114,7 +114,7 @@ const request: realName.FacialRecognitionVerificationRequest = {
  
   
 
-##### startFacialRecognitionVerification
+#### startFacialRecognitionVerification
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

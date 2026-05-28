@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-delinputwithcond
 
-##### 函数功能
+#### 函数功能
 
 根据算子属性，删除算子指定输入边。
  
   
 
-##### 函数原型
+#### 函数原型
 
 > [!NOTE]
 > 数据类型为string的接口后续版本会废弃，建议使用数据类型为非string的接口。
@@ -23,7 +23,7 @@ OpRegistrationData &DelInputWithCond(int32_t input_idx, const char_t *attr_name,
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -34,6 +34,6 @@ OpRegistrationData &DelInputWithCond(int32_t input_idx, const char_t *attr_name,
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

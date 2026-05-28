@@ -12,7 +12,7 @@
 
   
 
-##### addPath
+#### addPath
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -56,7 +56,7 @@ export default {
  
   
 
-##### setTransform
+#### setTransform
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -104,7 +104,7 @@ export default {
  
   
 
-##### closePath
+#### closePath
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -143,7 +143,7 @@ export default {
  
   
 
-##### moveTo
+#### moveTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -190,7 +190,7 @@ export default {
  
   
 
-##### lineTo
+#### lineTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -238,7 +238,7 @@ export default {
  
   
 
-##### bezierCurveTo
+#### bezierCurveTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -287,7 +287,7 @@ export default {
  
   
 
-##### quadraticCurveTo
+#### quadraticCurveTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -334,7 +334,7 @@ export default {
  
   
 
-##### arc
+#### arc
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -382,7 +382,7 @@ export default {
  
   
 
-##### arcTo
+#### arcTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -429,7 +429,7 @@ export default {
  
   
 
-##### ellipse
+#### ellipse
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -479,7 +479,7 @@ export default {
  
   
 
-##### rect
+#### rect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -520,4 +520,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/hORaokO7RUqQxk2oApfrEA/zh-cn_image_0000002611836207.png?HW-CC-KV=V1&HW-CC-Date=20260528T024100Z&HW-CC-Expire=86400&HW-CC-Sign=0110C28D771834F0D1755D18B73365FF809CE8114800EC4CB83446B2DCE42D05)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/hORaokO7RUqQxk2oApfrEA/zh-cn_image_0000002611836207.png?HW-CC-KV=V1&HW-CC-Date=20260528T025435Z&HW-CC-Expire=86400&HW-CC-Sign=F90E98647AFA14F913EB7862415B5A2DA501E40A16E366F7A7F6542AD0A2F623)

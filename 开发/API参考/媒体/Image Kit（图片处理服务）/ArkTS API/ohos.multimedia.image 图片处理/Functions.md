@@ -10,7 +10,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@ import { image } from '@kit.ImageKit';
 
 
 
-##### image.createPicture13+
+#### image.createPicture13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -77,7 +77,7 @@ async function CreatePicture(context: Context) {
 
 
 
-##### image.createPictureFromParcel13+
+#### image.createPictureFromParcel13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -170,7 +170,7 @@ async function Marshalling_UnMarshalling(context: Context) {
 
 
 
-##### image.createPixelMap8+
+#### image.createPixelMap8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -220,7 +220,7 @@ async function CreatePixelMap() {
 
 
 
-##### image.createPixelMap8+
+#### image.createPixelMap8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -267,7 +267,7 @@ async function CreatePixelMap() {
 
 
 
-##### image.createPixelMapUsingAllocator20+
+#### image.createPixelMapUsingAllocator20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -329,7 +329,7 @@ async function CreatePixelMapUseAllocator() {
 
 
 
-##### image.createPixelMapFromParcel11+
+#### image.createPixelMapFromParcel11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -435,7 +435,7 @@ async function CreatePixelMapFromParcel() {
 
 
 
-##### image.createPixelMapFromSurface11+
+#### image.createPixelMapFromSurface11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -494,7 +494,7 @@ async function CreatePixelMapFromSurface(surfaceId: string) {
 
 
 
-##### image.createPixelMapFromSurfaceSync12+
+#### image.createPixelMapFromSurfaceSync12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -548,7 +548,7 @@ async function Demo(surfaceId: string) {
 
 
 
-##### image.createPixelMapFromSurface15+
+#### image.createPixelMapFromSurface15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -601,7 +601,7 @@ async function CreatePixelMapFromSurface(surfaceId: string) {
 
 
 
-##### image.createPixelMapFromSurfaceSync15+
+#### image.createPixelMapFromSurfaceSync15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -649,7 +649,7 @@ async function CreatePixelMapFromSurfaceSync(surfaceId: string) {
 
 
 
-##### image.createPixelMapFromSurfaceWithTransformation23+
+#### image.createPixelMapFromSurfaceWithTransformation23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -702,7 +702,7 @@ function DemoCreatePixelMapFromSurfaceWithTransformation(surfaceId: string, tran
 
 
 
-##### image.createPixelMapFromSurfaceWithTransformationSync23+
+#### image.createPixelMapFromSurfaceWithTransformationSync23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -759,7 +759,7 @@ function DemoCreatePixelMapFromSurfaceWithTransformationSync(surfaceId: string, 
 
 
 
-##### image.createPixelMapSync12+
+#### image.createPixelMapSync12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -813,7 +813,7 @@ function CreatePixelMapSync() {
 
 
 
-##### image.createPixelMapSync12+
+#### image.createPixelMapSync12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -860,7 +860,7 @@ function CreatePixelMapSync() {
 
 
 
-##### image.createPixelMapUsingAllocatorSync20+
+#### image.createPixelMapUsingAllocatorSync20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -917,7 +917,7 @@ function CreatePixelMapUsingAllocatorSync() {
 
 
 
-##### image.createPixelMapUsingAllocatorSync20+
+#### image.createPixelMapUsingAllocatorSync20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -966,7 +966,7 @@ function CreatePixelMapUsingAllocatorSync() {
 
 
 
-##### image.createPremultipliedPixelMap12+
+#### image.createPremultipliedPixelMap12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1030,7 +1030,7 @@ async function CreatePremultipliedPixelMap() {
 
 
 
-##### image.createPremultipliedPixelMap12+
+#### image.createPremultipliedPixelMap12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1097,7 +1097,7 @@ async function CreatePremultipliedPixelMap() {
 
 
 
-##### image.createUnpremultipliedPixelMap12+
+#### image.createUnpremultipliedPixelMap12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1161,7 +1161,7 @@ async function CreateUnpremultipliedPixelMap() {
 
 
 
-##### image.createUnpremultipliedPixelMap12+
+#### image.createUnpremultipliedPixelMap12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1228,7 +1228,7 @@ async function CreateUnpremultipliedPixelMap() {
 
 
 
-##### image.createImageSource
+#### image.createImageSource
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1268,7 +1268,7 @@ async function CreateImageSource(context : Context) {
 
 
 
-##### image.createImageSource9+
+#### image.createImageSource9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1312,7 +1312,7 @@ async function CreateImageSource(context : Context) {
 
 
 
-##### image.createImageSource7+
+#### image.createImageSource7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1355,7 +1355,7 @@ async function CreateImageSource(context : Context) {
 
 
 
-##### image.createImageSource9+
+#### image.createImageSource9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1402,7 +1402,7 @@ async function CreateImageSource(context : Context) {
 
 
 
-##### image.createImageSource9+
+#### image.createImageSource9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1443,7 +1443,7 @@ async function CreateImageSource() {
 
 
 
-##### image.createImageSource9+
+#### image.createImageSource9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1486,7 +1486,7 @@ async function CreateImageSource() {
 
 
 
-##### image.createImageSource11+
+#### image.createImageSource11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1535,7 +1535,7 @@ async function CreateImageSource(context : Context) {
 
 
 
-##### image.CreateIncrementalSource9+
+#### image.CreateIncrementalSource9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1598,7 +1598,7 @@ async function CreateIncrementalImageSource(context : Context) {
 
 
 
-##### image.CreateIncrementalSource9+
+#### image.CreateIncrementalSource9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1656,7 +1656,7 @@ async function CreateIncrementalImageSource(context : Context) {
 
 
 
-##### image.getImageSourceSupportedFormats20+
+#### image.getImageSourceSupportedFormats20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1689,7 +1689,7 @@ async function IsSupportedTiffFormat() {
 
 
 
-##### image.createImagePacker
+#### image.createImagePacker
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1720,7 +1720,7 @@ async function CreateImagePacker() {
 
 
 
-##### image.getImagePackerSupportedFormats20+
+#### image.getImagePackerSupportedFormats20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1748,7 +1748,7 @@ async function GetImagePackerSupportedFormats() {
 
 
 
-##### image.createAuxiliaryPicture13+
+#### image.createAuxiliaryPicture13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1810,7 +1810,7 @@ async function CreateAuxiliaryPicture(context: Context) {
 
 
 
-##### image.createAuxiliaryPictureUsingAllocator24+
+#### image.createAuxiliaryPictureUsingAllocator24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1870,7 +1870,7 @@ function CreateAuxiliaryPictureUsingAllocator(info: image.AuxiliaryPictureInfo, 
 
 
 
-##### image.createImageReceiver11+
+#### image.createImageReceiver11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1919,7 +1919,7 @@ let receiver: image.ImageReceiver = image.createImageReceiver(size, image.ImageF
 
 
 
-##### image.createImageReceiver23+
+#### image.createImageReceiver23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1968,7 +1968,7 @@ let receiver: image.ImageReceiver | undefined = image.createImageReceiver(option
 
 
 
-##### image.createImageCreator11+
+#### image.createImageCreator11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2017,7 +2017,7 @@ let creator: image.ImageCreator = image.createImageCreator(size, image.ImageForm
 
 
 
-##### image.createImageReceiver(deprecated)
+#### image.createImageReceiver(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2058,7 +2058,7 @@ let receiver: image.ImageReceiver = image.createImageReceiver(8192, 8192, image.
 
 
 
-##### image.createImageCreator(deprecated)
+#### image.createImageCreator(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2099,7 +2099,7 @@ let creator: image.ImageCreator = image.createImageCreator(8192, 8192, image.Ima
 
 
 
-##### SVG标签说明
+#### SVG标签说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

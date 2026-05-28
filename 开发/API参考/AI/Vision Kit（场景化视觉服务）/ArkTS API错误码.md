@@ -10,7 +10,7 @@
 
   
 
-##### 1008301002 路由跳转失败
+#### 1008301002 路由跳转失败
 
 **支持设备：** Phone | Tablet
 
@@ -32,7 +32,7 @@ Route switching failed.
  
   
 
-##### 1008302000 检测算法初始化
+#### 1008302000 检测算法初始化
 
 **支持设备：** Phone | Tablet
 
@@ -54,7 +54,7 @@ Detection algorithm initialization.
  
   
 
-##### 1008302001 检测超时
+#### 1008302001 检测超时
 
 **支持设备：** Phone | Tablet
 
@@ -76,7 +76,7 @@ Detection timeout.
  
   
 
-##### 1008302002 动作错误
+#### 1008302002 动作错误
 
 **支持设备：** Phone | Tablet
 
@@ -98,7 +98,7 @@ Action mutual exclusion error.
  
   
 
-##### 1008302003 连续性检测失败
+#### 1008302003 连续性检测失败
 
 **支持设备：** Phone | Tablet
 
@@ -120,7 +120,7 @@ Continuity Check Failure.
  
   
 
-##### 1008302004 检测未完成
+#### 1008302004 检测未完成
 
 **支持设备：** Phone | Tablet
 
@@ -142,7 +142,7 @@ The test is not complete.
  
   
 
-##### 1013700002 服务异常
+#### 1013700002 服务异常
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

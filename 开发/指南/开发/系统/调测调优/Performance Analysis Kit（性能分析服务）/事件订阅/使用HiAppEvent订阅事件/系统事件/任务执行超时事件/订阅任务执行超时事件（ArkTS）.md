@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-apphicollie-events-arkts
 
-##### 简介
+#### 简介
 
 从API version 21开始，支持arkTS接口订阅任务执行超时事件。 本文介绍如何使用HiAppEvent提供的ArkTS接口订阅任务执行超时事件。接口的详细使用说明（参数限制、取值范围等）请参考[@ohos.hiviewdfx.hiAppEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-hiappevent)。
 
 
 
-##### 接口说明
+#### 接口说明
 
 | 接口名 | 描述 |
 | --- | --- |
@@ -20,11 +20,11 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 
 
-##### 添加事件观察者
+#### 添加事件观察者
 
 为确保开发阶段顺利接收事件回调，建议采取以下方案：创建新的Native C++工程，在ArkTS代码中实现订阅，并通过C++代码构造故障注入以触发任务执行超时事件。
 1. 新建Native C++工程，目录结构如下：
@@ -205,7 +205,7 @@ struct Index {
 
 
 
-##### 验证观察者是否订阅到任务执行超时事件
+#### 验证观察者是否订阅到任务执行超时事件
 
 应用工程崩溃退出后，再次运行可在Log窗口查看系统事件数据处理日志。
 
@@ -231,7 +231,7 @@ HiAppEvent eventInfo.params.external_callback_log=THREAD_BLOCK_3S:log3s THREAD_B
 
 
 
-##### 移除事件观察者
+#### 移除事件观察者
 
 ```text
 // 移除该应用事件观察者以取消订阅事件

@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
 
 
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -48,7 +48,7 @@
 
 
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -63,7 +63,7 @@
 
 
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -141,13 +141,13 @@
 
 
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### PIXELMAP_ALPHA_TYPE
+#### PIXELMAP_ALPHA_TYPE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -171,7 +171,7 @@ Pixelmap透明度类型。
 
 
 
-##### PIXEL_FORMAT
+#### PIXEL_FORMAT
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -203,7 +203,7 @@ enum PIXEL_FORMAT
 
 
 
-##### OH_PixelmapNative_AntiAliasingLevel
+#### OH_PixelmapNative_AntiAliasingLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -227,7 +227,7 @@ Pixelmap缩放时采用的缩放算法。
 
 
 
-##### OH_Pixelmap_HdrMetadataKey
+#### OH_Pixelmap_HdrMetadataKey
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -251,7 +251,7 @@ Pixelmap使用的HDR相关元数据信息的关键字，用于[OH_PixelmapNative
 
 
 
-##### OH_Pixelmap_HdrMetadataType
+#### OH_Pixelmap_HdrMetadataType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -275,13 +275,13 @@ HDR_METADATA_TYPE关键字对应的值。
 
 
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### OH_PixelmapInitializationOptions_Create()
+#### OH_PixelmapInitializationOptions_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -311,7 +311,7 @@ Image_ErrorCode OH_PixelmapInitializationOptions_Create(OH_Pixelmap_Initializati
 
 
 
-##### OH_PixelmapInitializationOptions_GetWidth()
+#### OH_PixelmapInitializationOptions_GetWidth()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -342,7 +342,7 @@ Image_ErrorCode OH_PixelmapInitializationOptions_GetWidth(OH_Pixelmap_Initializa
 
 
 
-##### OH_PixelmapInitializationOptions_SetWidth()
+#### OH_PixelmapInitializationOptions_SetWidth()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -373,7 +373,7 @@ Image_ErrorCode OH_PixelmapInitializationOptions_SetWidth(OH_Pixelmap_Initializa
 
 
 
-##### OH_PixelmapInitializationOptions_GetHeight()
+#### OH_PixelmapInitializationOptions_GetHeight()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -404,7 +404,7 @@ Image_ErrorCode OH_PixelmapInitializationOptions_GetHeight(OH_Pixelmap_Initializ
 
 
 
-##### OH_PixelmapInitializationOptions_SetHeight()
+#### OH_PixelmapInitializationOptions_SetHeight()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -435,7 +435,7 @@ Image_ErrorCode OH_PixelmapInitializationOptions_SetHeight(OH_Pixelmap_Initializ
 
 
 
-##### OH_PixelmapInitializationOptions_GetPixelFormat()
+#### OH_PixelmapInitializationOptions_GetPixelFormat()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -466,7 +466,7 @@ Image_ErrorCode OH_PixelmapInitializationOptions_GetPixelFormat(OH_Pixelmap_Init
 
 
 
-##### OH_PixelmapInitializationOptions_SetPixelFormat()
+#### OH_PixelmapInitializationOptions_SetPixelFormat()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -497,7 +497,7 @@ Image_ErrorCode OH_PixelmapInitializationOptions_SetPixelFormat(OH_Pixelmap_Init
 
 
 
-##### OH_PixelmapInitializationOptions_GetSrcPixelFormat()
+#### OH_PixelmapInitializationOptions_GetSrcPixelFormat()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -528,7 +528,7 @@ Image_ErrorCode OH_PixelmapInitializationOptions_GetSrcPixelFormat(OH_Pixelmap_I
 
 
 
-##### OH_PixelmapInitializationOptions_SetSrcPixelFormat()
+#### OH_PixelmapInitializationOptions_SetSrcPixelFormat()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -559,7 +559,7 @@ Image_ErrorCode OH_PixelmapInitializationOptions_SetSrcPixelFormat(OH_Pixelmap_I
 
 
 
-##### OH_PixelmapInitializationOptions_GetRowStride()
+#### OH_PixelmapInitializationOptions_GetRowStride()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -592,7 +592,7 @@ Image_ErrorCode OH_PixelmapInitializationOptions_GetRowStride(OH_Pixelmap_Initia
 
 
 
-##### OH_PixelmapInitializationOptions_SetRowStride()
+#### OH_PixelmapInitializationOptions_SetRowStride()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -625,7 +625,7 @@ Image_ErrorCode OH_PixelmapInitializationOptions_SetRowStride(OH_Pixelmap_Initia
 
 
 
-##### OH_PixelmapInitializationOptions_GetAlphaType()
+#### OH_PixelmapInitializationOptions_GetAlphaType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -656,7 +656,7 @@ Image_ErrorCode OH_PixelmapInitializationOptions_GetAlphaType(OH_Pixelmap_Initia
 
 
 
-##### OH_PixelmapInitializationOptions_SetAlphaType()
+#### OH_PixelmapInitializationOptions_SetAlphaType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -687,7 +687,7 @@ Image_ErrorCode OH_PixelmapInitializationOptions_SetAlphaType(OH_Pixelmap_Initia
 
 
 
-##### OH_PixelmapInitializationOptions_GetEditable()
+#### OH_PixelmapInitializationOptions_GetEditable()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -718,7 +718,7 @@ Image_ErrorCode OH_PixelmapInitializationOptions_GetEditable(OH_Pixelmap_Initial
 
 
 
-##### OH_PixelmapInitializationOptions_SetEditable()
+#### OH_PixelmapInitializationOptions_SetEditable()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -749,7 +749,7 @@ Image_ErrorCode OH_PixelmapInitializationOptions_SetEditable(OH_Pixelmap_Initial
 
 
 
-##### OH_PixelmapInitializationOptions_Release()
+#### OH_PixelmapInitializationOptions_Release()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -779,7 +779,7 @@ Image_ErrorCode OH_PixelmapInitializationOptions_Release(OH_Pixelmap_Initializat
 
 
 
-##### OH_PixelmapImageInfo_Create()
+#### OH_PixelmapImageInfo_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -809,7 +809,7 @@ Image_ErrorCode OH_PixelmapImageInfo_Create(OH_Pixelmap_ImageInfo **info)
 
 
 
-##### OH_PixelmapImageInfo_GetWidth()
+#### OH_PixelmapImageInfo_GetWidth()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -840,7 +840,7 @@ Image_ErrorCode OH_PixelmapImageInfo_GetWidth(OH_Pixelmap_ImageInfo *info, uint3
 
 
 
-##### OH_PixelmapImageInfo_GetHeight()
+#### OH_PixelmapImageInfo_GetHeight()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -871,7 +871,7 @@ Image_ErrorCode OH_PixelmapImageInfo_GetHeight(OH_Pixelmap_ImageInfo *info, uint
 
 
 
-##### OH_PixelmapImageInfo_GetAlphaMode()
+#### OH_PixelmapImageInfo_GetAlphaMode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -902,7 +902,7 @@ Image_ErrorCode OH_PixelmapImageInfo_GetAlphaMode(OH_Pixelmap_ImageInfo *info, i
 
 
 
-##### OH_PixelmapImageInfo_GetRowStride()
+#### OH_PixelmapImageInfo_GetRowStride()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -933,7 +933,7 @@ Image_ErrorCode OH_PixelmapImageInfo_GetRowStride(OH_Pixelmap_ImageInfo *info, u
 
 
 
-##### OH_PixelmapImageInfo_GetPixelFormat()
+#### OH_PixelmapImageInfo_GetPixelFormat()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -964,7 +964,7 @@ Image_ErrorCode OH_PixelmapImageInfo_GetPixelFormat(OH_Pixelmap_ImageInfo *info,
 
 
 
-##### OH_PixelmapImageInfo_GetAlphaType()
+#### OH_PixelmapImageInfo_GetAlphaType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -995,7 +995,7 @@ Image_ErrorCode OH_PixelmapImageInfo_GetAlphaType(OH_Pixelmap_ImageInfo *info, i
 
 
 
-##### OH_PixelmapImageInfo_GetDynamicRange()
+#### OH_PixelmapImageInfo_GetDynamicRange()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1026,7 +1026,7 @@ Image_ErrorCode OH_PixelmapImageInfo_GetDynamicRange(OH_Pixelmap_ImageInfo *info
 
 
 
-##### OH_PixelmapImageInfo_Release()
+#### OH_PixelmapImageInfo_Release()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1056,7 +1056,7 @@ Image_ErrorCode OH_PixelmapImageInfo_Release(OH_Pixelmap_ImageInfo *info)
 
 
 
-##### OH_PixelmapNative_CreatePixelmap()
+#### OH_PixelmapNative_CreatePixelmap()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1089,7 +1089,7 @@ Image_ErrorCode OH_PixelmapNative_CreatePixelmap(uint8_t *data, size_t dataLengt
 
 
 
-##### OH_PixelmapNative_CreatePixelmapUsingAllocator()
+#### OH_PixelmapNative_CreatePixelmapUsingAllocator()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1123,7 +1123,7 @@ Image_ErrorCode OH_PixelmapNative_CreatePixelmapUsingAllocator(uint8_t *data, si
 
 
 
-##### OH_PixelmapNative_ConvertPixelmapNativeToNapi()
+#### OH_PixelmapNative_ConvertPixelmapNativeToNapi()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1155,7 +1155,7 @@ Image_ErrorCode OH_PixelmapNative_ConvertPixelmapNativeToNapi(napi_env env, OH_P
 
 
 
-##### OH_PixelmapNative_ConvertPixelmapNativeFromNapi()
+#### OH_PixelmapNative_ConvertPixelmapNativeFromNapi()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1187,7 +1187,7 @@ Image_ErrorCode OH_PixelmapNative_ConvertPixelmapNativeFromNapi(napi_env env, na
 
 
 
-##### OH_PixelmapNative_ReadPixels()
+#### OH_PixelmapNative_ReadPixels()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1219,7 +1219,7 @@ Image_ErrorCode OH_PixelmapNative_ReadPixels(OH_PixelmapNative *pixelmap, uint8_
 
 
 
-##### OH_PixelmapNative_WritePixels()
+#### OH_PixelmapNative_WritePixels()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1251,7 +1251,7 @@ Image_ErrorCode OH_PixelmapNative_WritePixels(OH_PixelmapNative *pixelmap, uint8
 
 
 
-##### OH_PixelmapNative_ReadPixelsFromArea()
+#### OH_PixelmapNative_ReadPixelsFromArea()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1282,7 +1282,7 @@ Image_ErrorCode OH_PixelmapNative_ReadPixelsFromArea(OH_PixelmapNative *pixelmap
 
 
 
-##### OH_PixelmapNative_WritePixelsToArea()
+#### OH_PixelmapNative_WritePixelsToArea()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1313,7 +1313,7 @@ Image_ErrorCode OH_PixelmapNative_WritePixelsToArea(OH_PixelmapNative *pixelmap,
 
 
 
-##### OH_PixelmapNative_GetArgbPixels()
+#### OH_PixelmapNative_GetArgbPixels()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1345,7 +1345,7 @@ Image_ErrorCode OH_PixelmapNative_GetArgbPixels(OH_PixelmapNative *pixelmap, uin
 
 
 
-##### OH_PixelmapNative_ToSdr()
+#### OH_PixelmapNative_ToSdr()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1375,7 +1375,7 @@ Image_ErrorCode OH_PixelmapNative_ToSdr(OH_PixelmapNative *pixelmap)
 
 
 
-##### OH_PixelmapNative_GetImageInfo()
+#### OH_PixelmapNative_GetImageInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1406,7 +1406,7 @@ Image_ErrorCode OH_PixelmapNative_GetImageInfo(OH_PixelmapNative *pixelmap, OH_P
 
 
 
-##### OH_PixelmapNative_Opacity()
+#### OH_PixelmapNative_Opacity()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1437,7 +1437,7 @@ Image_ErrorCode OH_PixelmapNative_Opacity(OH_PixelmapNative *pixelmap, float rat
 
 
 
-##### OH_PixelmapNative_Scale()
+#### OH_PixelmapNative_Scale()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1469,7 +1469,7 @@ Image_ErrorCode OH_PixelmapNative_Scale(OH_PixelmapNative *pixelmap, float scale
 
 
 
-##### OH_PixelmapNative_ScaleWithAntiAliasing()
+#### OH_PixelmapNative_ScaleWithAntiAliasing()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1502,7 +1502,7 @@ Image_ErrorCode OH_PixelmapNative_ScaleWithAntiAliasing(OH_PixelmapNative *pixel
 
 
 
-##### OH_PixelmapNative_CreateScaledPixelMap()
+#### OH_PixelmapNative_CreateScaledPixelMap()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1535,7 +1535,7 @@ Image_ErrorCode OH_PixelmapNative_CreateScaledPixelMap(OH_PixelmapNative *srcPix
 
 
 
-##### OH_PixelmapNative_CreateScaledPixelMapWithAntiAliasing()
+#### OH_PixelmapNative_CreateScaledPixelMapWithAntiAliasing()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1569,7 +1569,7 @@ Image_ErrorCode OH_PixelmapNative_CreateScaledPixelMapWithAntiAliasing(OH_Pixelm
 
 
 
-##### OH_PixelmapNative_CreateAlphaPixelmap()
+#### OH_PixelmapNative_CreateAlphaPixelmap()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1600,7 +1600,7 @@ Image_ErrorCode OH_PixelmapNative_CreateAlphaPixelmap(OH_PixelmapNative *srcPixe
 
 
 
-##### OH_PixelmapNative_Clone()
+#### OH_PixelmapNative_Clone()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1631,7 +1631,7 @@ Image_ErrorCode OH_PixelmapNative_Clone(OH_PixelmapNative *srcPixelmap, OH_Pixel
 
 
 
-##### OH_PixelmapNative_CreateCroppedAndScaledPixelMap()
+#### OH_PixelmapNative_CreateCroppedAndScaledPixelMap()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1665,7 +1665,7 @@ Image_ErrorCode OH_PixelmapNative_CreateCroppedAndScaledPixelMap(OH_PixelmapNati
 
 
 
-##### OH_PixelmapNative_Translate()
+#### OH_PixelmapNative_Translate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1697,7 +1697,7 @@ Image_ErrorCode OH_PixelmapNative_Translate(OH_PixelmapNative *pixelmap, float x
 
 
 
-##### OH_PixelmapNative_Rotate()
+#### OH_PixelmapNative_Rotate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1728,7 +1728,7 @@ Image_ErrorCode OH_PixelmapNative_Rotate(OH_PixelmapNative *pixelmap, float angl
 
 
 
-##### OH_PixelmapNative_Flip()
+#### OH_PixelmapNative_Flip()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1760,7 +1760,7 @@ Image_ErrorCode OH_PixelmapNative_Flip(OH_PixelmapNative *pixelmap, bool shouldF
 
 
 
-##### OH_PixelmapNative_Crop()
+#### OH_PixelmapNative_Crop()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1791,7 +1791,7 @@ Image_ErrorCode OH_PixelmapNative_Crop(OH_PixelmapNative *pixelmap, Image_Region
 
 
 
-##### OH_PixelmapNative_Release()
+#### OH_PixelmapNative_Release()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1821,7 +1821,7 @@ Image_ErrorCode OH_PixelmapNative_Release(OH_PixelmapNative *pixelmap)
 
 
 
-##### OH_PixelmapNative_Destroy()
+#### OH_PixelmapNative_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1851,7 +1851,7 @@ Image_ErrorCode OH_PixelmapNative_Destroy(OH_PixelmapNative **pixelmap)
 
 
 
-##### OH_PixelmapNative_ConvertAlphaFormat()
+#### OH_PixelmapNative_ConvertAlphaFormat()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1883,7 +1883,7 @@ Image_ErrorCode OH_PixelmapNative_ConvertAlphaFormat(OH_PixelmapNative* srcpixel
 
 
 
-##### OH_PixelmapNative_CreateEmptyPixelmap()
+#### OH_PixelmapNative_CreateEmptyPixelmap()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1914,7 +1914,7 @@ Image_ErrorCode OH_PixelmapNative_CreateEmptyPixelmap(OH_Pixelmap_Initialization
 
 
 
-##### OH_PixelmapNative_CreateEmptyPixelmapUsingAllocator()
+#### OH_PixelmapNative_CreateEmptyPixelmapUsingAllocator()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1946,7 +1946,7 @@ Image_ErrorCode OH_PixelmapNative_CreateEmptyPixelmapUsingAllocator(OH_Pixelmap_
 
 
 
-##### OH_PixelmapNative_CreatePixelmapFromSurface()
+#### OH_PixelmapNative_CreatePixelmapFromSurface()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1978,7 +1978,7 @@ Image_ErrorCode OH_PixelmapNative_CreatePixelmapFromSurface(const char *surfaceI
 
 
 
-##### OH_PixelmapNative_CreatePixelmapFromSurfaceWithTransformation()
+#### OH_PixelmapNative_CreatePixelmapFromSurfaceWithTransformation()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2015,7 +2015,7 @@ Image_ErrorCode OH_PixelmapNative_CreatePixelmapFromSurfaceWithTransformation(co
 
 
 
-##### OH_PixelmapNative_CreatePixelmapFromNativeBuffer()
+#### OH_PixelmapNative_CreatePixelmapFromNativeBuffer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2048,7 +2048,7 @@ Image_ErrorCode OH_PixelmapNative_CreatePixelmapFromNativeBuffer(OH_NativeBuffer
 
 
 
-##### OH_PixelmapNative_GetNativeBuffer()
+#### OH_PixelmapNative_GetNativeBuffer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2079,7 +2079,7 @@ Image_ErrorCode OH_PixelmapNative_GetNativeBuffer(OH_PixelmapNative *pixelmap, O
 
 
 
-##### OH_PixelmapNative_GetMetadata()
+#### OH_PixelmapNative_GetMetadata()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2111,7 +2111,7 @@ Image_ErrorCode OH_PixelmapNative_GetMetadata(OH_PixelmapNative *pixelmap, OH_Pi
 
 
 
-##### OH_PixelmapNative_SetMetadata()
+#### OH_PixelmapNative_SetMetadata()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2143,7 +2143,7 @@ Image_ErrorCode OH_PixelmapNative_SetMetadata(OH_PixelmapNative *pixelmap, OH_Pi
 
 
 
-##### OH_PixelmapNative_SetColorSpaceNative()
+#### OH_PixelmapNative_SetColorSpaceNative()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2174,7 +2174,7 @@ Image_ErrorCode OH_PixelmapNative_SetColorSpaceNative(OH_PixelmapNative *pixelma
 
 
 
-##### OH_PixelmapNative_GetColorSpaceNative()
+#### OH_PixelmapNative_GetColorSpaceNative()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2205,7 +2205,7 @@ Image_ErrorCode OH_PixelmapNative_GetColorSpaceNative(OH_PixelmapNative *pixelma
 
 
 
-##### OH_PixelmapNative_SetMemoryName()
+#### OH_PixelmapNative_SetMemoryName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2237,7 +2237,7 @@ Image_ErrorCode OH_PixelmapNative_SetMemoryName(OH_PixelmapNative *pixelmap, cha
 
 
 
-##### OH_PixelmapNative_GetByteCount()
+#### OH_PixelmapNative_GetByteCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2268,7 +2268,7 @@ Image_ErrorCode OH_PixelmapNative_GetByteCount(OH_PixelmapNative *pixelmap, uint
 
 
 
-##### OH_PixelmapNative_GetAllocationByteCount()
+#### OH_PixelmapNative_GetAllocationByteCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2299,7 +2299,7 @@ Image_ErrorCode OH_PixelmapNative_GetAllocationByteCount(OH_PixelmapNative *pixe
 
 
 
-##### OH_PixelmapNative_AccessPixels()
+#### OH_PixelmapNative_AccessPixels()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2332,7 +2332,7 @@ Image_ErrorCode OH_PixelmapNative_AccessPixels(OH_PixelmapNative *pixelmap, void
 
 
 
-##### OH_PixelmapNative_UnaccessPixels()
+#### OH_PixelmapNative_UnaccessPixels()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2364,7 +2364,7 @@ Image_ErrorCode OH_PixelmapNative_UnaccessPixels(OH_PixelmapNative *pixelmap)
 
 
 
-##### OH_PixelmapNative_GetUniqueId()
+#### OH_PixelmapNative_GetUniqueId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2395,7 +2395,7 @@ Image_ErrorCode OH_PixelmapNative_GetUniqueId(OH_PixelmapNative *pixelmap, uint3
 
 
 
-##### OH_PixelmapNative_IsReleased()
+#### OH_PixelmapNative_IsReleased()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -12,7 +12,7 @@
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/unZWC_XTSyacWuDTEeaBRg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T014452Z&HW-CC-Expire=86400&HW-CC-Sign=0139510DE4D4B902C1325661AE36071DF2D6C3B901A64F26A8C08FC04066BFBB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/unZWC_XTSyacWuDTEeaBRg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030121Z&HW-CC-Expire=86400&HW-CC-Sign=7648D09AE0D84C2155B1404A4052C89E6DFE05EA3905B23D735590DECA56C6AB)
  
  
 在[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)完成商品配置后，AppGallery Connect不会跟随汇率实时刷新商品价格，开发者需要定期[手动刷新价格](https://developer.huawei.com/consumer/cn/doc/app/single-0000001931995708)，在商品的价格编辑页面点击刷新并保存，即可根据当时的汇率刷新商品价格。

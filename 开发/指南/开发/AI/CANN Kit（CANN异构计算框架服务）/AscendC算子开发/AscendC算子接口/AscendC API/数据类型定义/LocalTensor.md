@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-localtensor
 
-##### 功能说明
+#### 功能说明
 
 用于存放AI Core中Local Memory（内部存储）的数据，支持QuePosition为VECIN、VECOUT、VECCALC、A1、A2、B1、B2、CO1、CO2。
  
   
 
-##### 定义原型
+#### 定义原型
 
 ```text
 template <typename T> class LocalTensor : public BaseLocalTensor<T> {
@@ -67,7 +67,7 @@ public:
  
   
 
-##### 函数说明
+#### 函数说明
 
 类型T支持基础数据类型，但需要遵循使用此LocalTensor的指令的数据类型支持情况。
  
@@ -97,13 +97,13 @@ public:
  
   
 
-##### 注意事项
+#### 注意事项
 
 不要大量使用SetValue对LocalTensor进行赋值，会使性能下降。
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 // srcLen = 256, num = 100, M=50

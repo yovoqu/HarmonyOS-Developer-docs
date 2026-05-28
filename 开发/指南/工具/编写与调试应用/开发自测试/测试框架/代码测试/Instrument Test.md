@@ -4,11 +4,11 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-instrument-test
 
-##### 创建ArkTS测试用例
+#### 创建ArkTS测试用例
 
  
 
-##### 创建默认测试用例
+#### 创建默认测试用例
 1. 在工程目录下打开待测试模块（支持HAP、HAR、HSP模块）下的ets文件，将光标置于代码中任意位置，单击**右键 > Show Context Actions**** > Create Instrument Test**或快捷键**Alt+Enter**** （macOS为Option+Enter）> Create Instrument Test**创建测试类。
 
   
@@ -32,7 +32,7 @@
 
   
 
-  ##### 自定义Ability和Resources
+  #### 自定义Ability和Resources
 
   从5.0.3.403版本开始，新创建的工程/模块的ohosTest目录下默认不创建testability、testrunner和resources目录，历史工程仍保留这些目录，如果新工程需要使用ability或resources能力，需要开发者自行创建。
 
@@ -99,11 +99,11 @@ testability目录 > TestAbility.ets文件
 
   
 
-  ##### 运行测试用例
+  #### 运行测试用例
 
   
 
-  ##### 运行模式
+  #### 运行模式
 
   使用DevEco Studio运行测试用例前，需要将设备与电脑进行连接，将工程编译成带签名信息的HAP，再安装到真机设备或模拟器上运行，具体请参考[使用本地真机运行应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-run-device)或[使用模拟器运行应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-run-emulator)。
 
@@ -133,7 +133,7 @@ testability目录 > TestAbility.ets文件
  
  
 
-##### 调试模式
+#### 调试模式
 
 调试模式相比运行模式增加了断点管理功能。在断点命中时，可以选择单步执行、步入步出、进入下个断点等方式进行调试，另外可以使用线程堆栈可视化、变量和表达式可视化功能，快速定位问题。
  
@@ -167,7 +167,7 @@ testability目录 > TestAbility.ets文件
  
  
 
-##### 覆盖率统计模式
+#### 覆盖率统计模式
 
 在Instrument Test运行的基础上支持代码覆盖率统计。
  
@@ -207,7 +207,7 @@ testability目录 > TestAbility.ets文件
 
  
 
-##### （可选）自定义测试用例运行任务
+#### （可选）自定义测试用例运行任务
 
 默认情况下，测试用例可直接运行，如果需要自定义测试用例运行任务，可通过如下方法进行设置。
  1. 在工具栏主菜单单击**Run** >** Edit Configurations**进入Run/Debug Configurations界面。
@@ -227,7 +227,7 @@ testability目录 > TestAbility.ets文件
 
   
 
-  ##### 使用过滤条件筛选待运行的测试用例
+  #### 使用过滤条件筛选待运行的测试用例
 
 1. 在用例编写时，通过配置it的第二个入参，为每个用例添加过滤参数。此参数用于为测试用例添加标注，不添加则参数默认为0表示未被标注。
 
@@ -267,7 +267,7 @@ testability目录 > TestAbility.ets文件
 
   
 
-  ##### 设置调试代码类型
+  #### 设置调试代码类型
 
   点击**Run > Edit Configurations**，打开**Run/Debug Configurations**窗口，选择Instrument Test，点击**Debugger**页签，设置Debug type。
 
@@ -296,7 +296,7 @@ testability目录 > TestAbility.ets文件
 
   
 
-  ##### ASan检测
+  #### ASan检测
 
   Instrument Test针对C/C++方法提供ASan检测能力，关于ASan的介绍请参考[ASan检测](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-asan)，当前不支持JS语言。
 
@@ -317,12 +317,12 @@ testability目录 > TestAbility.ets文件
 4. 当程序出现内存错误时，弹出ASan log信息，点击信息中的链接即可跳转至引起内存错误的代码处。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/N12VdDD1Qnm6Fia4dt2j8A/zh-cn_image_0000002602066547.png?HW-CC-KV=V1&HW-CC-Date=20260528T014928Z&HW-CC-Expire=86400&HW-CC-Sign=BDE124B8FB09032AC83A06E896099B7E434A12E079B3751737C53241FF41AC0C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/X9YdoEzeTIqUlQFdo7dn_Q/zh-cn_image_0000002602066547.png?HW-CC-KV=V1&HW-CC-Date=20260528T030556Z&HW-CC-Expire=86400&HW-CC-Sign=DDE0AD23AB7389AC1BDDA8C8CD8CEAF01706A762B34B2F2064BC3D3DBA7D469B)
 
 
   
 
-  ##### 测试C++代码
+  #### 测试C++代码
 
   从DevEco Studio 6.0.0 Beta5版本开始，支持对C++代码进行测试，包括运行/调试C++测试代码、对C++代码进行覆盖率统计。
 
@@ -330,7 +330,7 @@ testability目录 > TestAbility.ets文件
 
   
 
-  ##### 运行C++测试代码
+  #### 运行C++测试代码
 
 1. 创建cpp测试目录，鼠标右键单击ohosTest目录，选择**New > C/C++ File(Napi)**，在ohosTest下生成cpp测试目录，以entry模块为例，目录结构如下。
 **src > ohosTest > cpp > types**：用于存放C++的API接口描述文件。
@@ -362,12 +362,12 @@ export default function abilityTest() {
 
 
 7. 运行testNative测试用例，查看测试结果。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/k3drnczITTi0ttPk-Wy66w/zh-cn_image_0000002571387432.png?HW-CC-KV=V1&HW-CC-Date=20260528T014928Z&HW-CC-Expire=86400&HW-CC-Sign=08831962AE40FBA581B50A3EA259B9584295964F3DF4CE3A09A4DEF72340799C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/kd0jJJHtRcOGM5RL7y8gkQ/zh-cn_image_0000002571387432.png?HW-CC-KV=V1&HW-CC-Date=20260528T030556Z&HW-CC-Expire=86400&HW-CC-Sign=43D53423CD899E9EFA3BDEDC52AB8BDA8521C5AC68CFDE4236DDA85C0DAB8D11)
 
 
   
 
-  ##### 收集代码覆盖率
+  #### 收集代码覆盖率
 
   DevEco Studio默认不收集C++代码覆盖率，需要通过以下方式开启。
 
@@ -409,24 +409,24 @@ endif()
 
 
 3. 运行覆盖率测试，选中ArkTS测试文件，单击**右键 >**** Run '测试文件名称' with Coverage**，执行测试。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/RmYuVKPIQZ6KJnrNiwAAww/zh-cn_image_0000002571547038.png?HW-CC-KV=V1&HW-CC-Date=20260528T014928Z&HW-CC-Expire=86400&HW-CC-Sign=07FBBE8B19F8A7B091E7C0E8D41A0D91CEFBE6466FE35F9E502EE61761E37086)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/nvk_hzs0TeS7BOn5z9X-ow/zh-cn_image_0000002571547038.png?HW-CC-KV=V1&HW-CC-Date=20260528T030556Z&HW-CC-Expire=86400&HW-CC-Sign=3BDD4F614F3CDEC6FCDAABDEBA6EDF0DE771C8A4D067B9EEFBE11A188F327FF7)
 
 
   启动测试后，进行编译构建，底部将出现Cover窗口，构建结束后自动拉起Cover窗口，测试任务结束后，窗口中会打印测试报告的路径。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/fAYrO3baRce8o0iDTXTojg/zh-cn_image_0000002571547036.png?HW-CC-KV=V1&HW-CC-Date=20260528T014928Z&HW-CC-Expire=86400&HW-CC-Sign=988969500C17394F4A1D6CCEB5CE92505191220830D637706542ED84993BABCE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/4QcyvJjOQZS1kWh2FyPXGw/zh-cn_image_0000002571547036.png?HW-CC-KV=V1&HW-CC-Date=20260528T030556Z&HW-CC-Expire=86400&HW-CC-Sign=347CD3DB9AE0FEE5EF7E727F3758BE814C016BF2386288CDC2A31726692E8CC9)
 
 
   点击链接可打开报告，查看C++代码覆盖率详情。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/GLno7fuvSPaVvr4t0zr9dg/zh-cn_image_0000002571547050.png?HW-CC-KV=V1&HW-CC-Date=20260528T014928Z&HW-CC-Expire=86400&HW-CC-Sign=A0B721BB91A6CBCE0DFF34B060FE285742141A90F1075411930E71593602B3C5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/1VHeYVkeTy-ea0NZEmnQDg/zh-cn_image_0000002571547050.png?HW-CC-KV=V1&HW-CC-Date=20260528T030556Z&HW-CC-Expire=86400&HW-CC-Sign=0ED50AECA98E5DE2F07C93D440E3758FF53156DD0B776EAC40D10E180D6753E7)
 
 
   
 
-  ##### 使用命令行执行测试Instrument Test
+  #### 使用命令行执行测试Instrument Test
 
   通过命令行方式执行Instrument Test，在工程根目录下执行命令：
 ```bash

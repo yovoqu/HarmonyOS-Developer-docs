@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fdsan
 
-##### 功能介绍
+#### 功能介绍
 
 fdsan主要用于检测不同使用者对相同文件描述符的错误操作，如多次关闭（double-close）和关闭后使用（use-after-close）。这些文件描述符可以是操作系统中的文件、目录、网络套接字或其他I/O设备等。在程序中，打开文件或套接字会生成一个文件描述符。如果此文件描述符在使用后出现反复关闭或关闭后使用等情形，会导致内存泄露或文件句柄泄露等安全隐患。这类问题非常隐蔽，难以排查。为此，引入了fdsan这种检测工具。
  
   
 
-##### 实现原理
+#### 实现原理
 
 设计思路：当打开已有文件或创建一个新文件的时候，在得到返回fd后，设置一个关联的tag，来标记fd的属主信息；关闭文件前，检测fd关联的tag，判断是否符合预期(属主信息一致)，符合就继续走正常文件关闭流程；如果不符合就是检测到异常，根据设置，调用对应的异常处理。
  
@@ -28,11 +28,11 @@ value用于标识实际的owner tag。
  
   
 
-##### 接口说明
+#### 接口说明
 
   
 
-##### fdsan_set_error_level
+#### fdsan_set_error_level
 
 ```text
 enum fdsan_error_level fdsan_set_error_level(enum fdsan_error_level new_level);
@@ -54,7 +54,7 @@ enum fdsan_error_level fdsan_set_error_level(enum fdsan_error_level new_level);
  
   
 
-##### fdsan_get_error_level
+#### fdsan_get_error_level
 
 ```text
 enum fdsan_error_level fdsan_get_error_level();
@@ -66,7 +66,7 @@ enum fdsan_error_level fdsan_get_error_level();
  
   
 
-##### fdsan_create_owner_tag
+#### fdsan_create_owner_tag
 
 ```text
 uint64_t fdsan_create_owner_tag(enum fdsan_owner_type type, uint64_t tag);
@@ -90,7 +90,7 @@ uint64_t fdsan_create_owner_tag(enum fdsan_owner_type type, uint64_t tag);
  
   
 
-##### fdsan_exchange_owner_tag
+#### fdsan_exchange_owner_tag
 
 ```text
 void fdsan_exchange_owner_tag(int fd, uint64_t expected_tag, uint64_t new_tag);
@@ -113,7 +113,7 @@ void fdsan_exchange_owner_tag(int fd, uint64_t expected_tag, uint64_t new_tag);
  
   
 
-##### fdsan_close_with_tag
+#### fdsan_close_with_tag
 
 ```text
 int fdsan_close_with_tag(int fd, uint64_t tag);
@@ -135,7 +135,7 @@ int fdsan_close_with_tag(int fd, uint64_t tag);
  
   
 
-##### fdsan_get_owner_tag
+#### fdsan_get_owner_tag
 
 ```text
 uint64_t fdsan_get_owner_tag(int fd);
@@ -156,7 +156,7 @@ uint64_t fdsan_get_owner_tag(int fd);
  
   
 
-##### fdsan_get_tag_type
+#### fdsan_get_tag_type
 
 ```text
 const char* fdsan_get_tag_type(uint64_t tag);
@@ -177,7 +177,7 @@ const char* fdsan_get_tag_type(uint64_t tag);
  
   
 
-##### fdsan_get_tag_value
+#### fdsan_get_tag_value
 
 ```text
 uint64_t fdsan_get_tag_value(uint64_t tag);
@@ -198,7 +198,7 @@ uint64_t fdsan_get_tag_value(uint64_t tag);
  
   
 
-##### 使用示例
+#### 使用示例
 
 如何使用fdsan？这是一个简单的double-close问题：
  
@@ -260,7 +260,7 @@ int main()
  
   
 
-##### 使用标准库接口
+#### 使用标准库接口
 
 标准库接口中，fopen、fdopen、opendir、fdopendir已集成fdsan。使用这些接口而非直接使用open有助于检测问题。例如，可以使用fopen替代open。
  
@@ -290,7 +290,7 @@ void good_write()
  
   
 
-##### 日志信息
+#### 日志信息
 
 使用fopen打开的每个文件描述符都需要有一个与之对应的 tag 。fdsan 在 close 时会检查关闭的 fd 是否与 tag 匹配，不匹配就会默认提示相关日志信息。下面是上述代码的日志信息：
  
@@ -391,7 +391,7 @@ OpenFiles:
  
   
 
-##### 实现具有fdsan的函数接口
+#### 实现具有fdsan的函数接口
 
 除了使用标准库函数，还可以实现具有fdsan的函数接口。fdsan机制通过fdsan_exchange_owner_tag和fdsan_close_with_tag实现。fdsan_exchange_owner_tag设置fd的tag，fdsan_close_with_tag检查关闭文件时的tag。
  
@@ -510,7 +510,7 @@ void good_write()
  
   
 
-##### 多线程场景下的注意事项
+#### 多线程场景下的注意事项
 
 在多线程环境中使用fdsan时，由于文件描述符（fd）的分配和回收是全局性的，fdsan检测到的tag不匹配错误信息可能存在与实际根因不一致的情况。开发者需要注意以下场景：
  
@@ -522,7 +522,7 @@ void good_write()
  
   
 
-##### close函数信号安全性说明
+#### close函数信号安全性说明
 
 在POSIX标准中，close函数原本被定义为信号安全函数（async-signal-safe），这意味着它可以安全地在信号处理函数（signal handler）中调用。然而，在集成了fdsan（File Descriptor Sanitizer）机制的系统实现中，这一性质发生了变化。
  

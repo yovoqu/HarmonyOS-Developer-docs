@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-errorcode-00309
 
-##### 00309001 禁止使用相对路径导入模块以外的文件
+#### 00309001 禁止使用相对路径导入模块以外的文件
 
 **错误信息**
  
@@ -24,7 +24,7 @@ Cannot import files outside of the current module using relative paths. Import s
  
  
 
-##### 00309002 在import语句中避免使用绝对路径
+#### 00309002 在import语句中避免使用绝对路径
 
 **错误信息**
  
@@ -44,7 +44,7 @@ Avoid absolute paths in imports. Import statement: XXX. At file: YYY.
  
  
 
-##### 00309003 无法解析import语句
+#### 00309003 无法解析import语句
 
 **错误信息**
  

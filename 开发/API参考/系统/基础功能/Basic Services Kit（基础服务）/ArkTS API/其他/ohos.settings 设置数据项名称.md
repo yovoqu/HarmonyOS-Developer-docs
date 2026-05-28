@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { settings } from '@kit.BasicServicesKit';
 
 
 
-##### domainName
+#### domainName
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -30,7 +30,7 @@ import { settings } from '@kit.BasicServicesKit';
 
 
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -44,7 +44,7 @@ import { settings } from '@kit.BasicServicesKit';
 
 
 
-##### date
+#### date
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -52,7 +52,7 @@ import { settings } from '@kit.BasicServicesKit';
 
 
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -68,7 +68,7 @@ import { settings } from '@kit.BasicServicesKit';
 
 
 
-##### display
+#### display
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -76,7 +76,7 @@ import { settings } from '@kit.BasicServicesKit';
 
 
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -99,7 +99,7 @@ import { settings } from '@kit.BasicServicesKit';
 
 
 
-##### general
+#### general
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -107,7 +107,7 @@ import { settings } from '@kit.BasicServicesKit';
 
 
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -135,7 +135,7 @@ import { settings } from '@kit.BasicServicesKit';
 
 
 
-##### input
+#### input
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -143,7 +143,7 @@ import { settings } from '@kit.BasicServicesKit';
 
 
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -163,7 +163,7 @@ import { settings } from '@kit.BasicServicesKit';
 
 
 
-##### network
+#### network
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -171,7 +171,7 @@ import { settings } from '@kit.BasicServicesKit';
 
 
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -186,7 +186,7 @@ import { settings } from '@kit.BasicServicesKit';
 
 
 
-##### phone
+#### phone
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -194,7 +194,7 @@ import { settings } from '@kit.BasicServicesKit';
 
 
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -207,7 +207,7 @@ import { settings } from '@kit.BasicServicesKit';
 
 
 
-##### sound
+#### sound
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -215,7 +215,7 @@ import { settings } from '@kit.BasicServicesKit';
 
 
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -238,7 +238,7 @@ import { settings } from '@kit.BasicServicesKit';
 
 
 
-##### TTS
+#### TTS
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -246,7 +246,7 @@ import { settings } from '@kit.BasicServicesKit';
 
 
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -262,7 +262,7 @@ import { settings } from '@kit.BasicServicesKit';
 
 
 
-##### wireless
+#### wireless
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -270,7 +270,7 @@ import { settings } from '@kit.BasicServicesKit';
 
 
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -295,7 +295,7 @@ import { settings } from '@kit.BasicServicesKit';
 
 
 
-##### settings.setValue10+
+#### settings.setValue10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -335,7 +335,7 @@ settings.setValue(context, settings.display.SCREEN_BRIGHTNESS_STATUS, '100', (st
 
 
 
-##### settings.setValue10+
+#### settings.setValue10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -381,7 +381,7 @@ settings.setValue(context, settings.display.SCREEN_BRIGHTNESS_STATUS, '100').the
 
 
 
-##### settings.setValue11+
+#### settings.setValue11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -441,7 +441,7 @@ settings.setValue(context, settings.display.SCREEN_BRIGHTNESS_STATUS, '100', set
 
 
 
-##### settings.getValue10+
+#### settings.getValue10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -481,7 +481,7 @@ settings.getValue(context, settings.display.SCREEN_BRIGHTNESS_STATUS, (err, valu
 
 
 
-##### settings.getValue10+
+#### settings.getValue10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -523,7 +523,7 @@ settings.getValue(context, settings.display.SCREEN_BRIGHTNESS_STATUS).then((valu
 
 
 
-##### settings.getValue11+
+#### settings.getValue11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -572,7 +572,7 @@ settings.getValue(context, settings.display.SCREEN_BRIGHTNESS_STATUS, settings.d
 
 
 
-##### settings.getValueSync10+
+#### settings.getValueSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -614,7 +614,7 @@ let value = settings.getValueSync(context, settings.display.SCREEN_BRIGHTNESS_ST
 
 
 
-##### settings.getValueSync11+
+#### settings.getValueSync11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -662,7 +662,7 @@ let value = settings.getValueSync(context, settings.display.SCREEN_BRIGHTNESS_ST
 
 
 
-##### settings.setValueSync10+
+#### settings.setValueSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -710,7 +710,7 @@ let ret = settings.setValueSync(context, settings.display.SCREEN_BRIGHTNESS_STAT
 
 
 
-##### settings.setValueSync11+
+#### settings.setValueSync11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -772,7 +772,7 @@ let ret = settings.setValueSync(context, settings.display.SCREEN_BRIGHTNESS_STAT
 
 
 
-##### settings.registerKeyObserver11+
+#### settings.registerKeyObserver11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -817,7 +817,7 @@ settings.registerKeyObserver(context, settings.display.SCREEN_BRIGHTNESS_STATUS,
 
 
 
-##### settings.unregisterKeyObserver11+
+#### settings.unregisterKeyObserver11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -858,7 +858,7 @@ let ret = settings.unregisterKeyObserver(context, settings.display.SCREEN_BRIGHT
 
 
 
-##### settings.openNetworkManagerSettings18+
+#### settings.openNetworkManagerSettings18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -912,7 +912,7 @@ settings.openNetworkManagerSettings(context).then((status) => {
 
 
 
-##### settings.enableAirplaneMode
+#### settings.enableAirplaneMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -945,7 +945,7 @@ settings.enableAirplaneMode(isEnabled, (err:Error) => {
 
 
 
-##### settings.enableAirplaneMode
+#### settings.enableAirplaneMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -982,7 +982,7 @@ settings.enableAirplaneMode(isEnabled).then(() => {
 
 
 
-##### settings.canShowFloating
+#### settings.canShowFloating
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1013,7 +1013,7 @@ settings.canShowFloating((err:Error, status: boolean) => {
 
 
 
-##### settings.canShowFloating
+#### settings.canShowFloating
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1040,7 +1040,7 @@ settings.canShowFloating().then((status:boolean) => {
 
 
 
-##### settings.getUriSync8+
+#### settings.getUriSync8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1073,7 +1073,7 @@ let uriVar:string = settings.getUriSync(settings.display.SCREEN_BRIGHTNESS_STATU
 
 
 
-##### settings.getURI(deprecated)
+#### settings.getURI(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1105,7 +1105,7 @@ settings.getURI(settings.display.SCREEN_BRIGHTNESS_STATUS, (uri:string) => {
 
 
 
-##### settings.getURI(deprecated)
+#### settings.getURI(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1143,7 +1143,7 @@ settings.getURI(settings.display.SCREEN_BRIGHTNESS_STATUS).then((uri:string) => 
 
 
 
-##### settings.getValue(deprecated)
+#### settings.getValue(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1186,7 +1186,7 @@ settings.getValue(helper, settings.display.SCREEN_BRIGHTNESS_STATUS, (err:Error,
 
 
 
-##### settings.getValue(deprecated)
+#### settings.getValue(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1231,7 +1231,7 @@ settings.getValue(helper, settings.display.SCREEN_BRIGHTNESS_STATUS).then((value
 
 
 
-##### settings.getValueSync(deprecated)
+#### settings.getValueSync(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1276,7 +1276,7 @@ let value:string = settings.getValueSync(helper, settings.display.SCREEN_BRIGHTN
 
 
 
-##### settings.setValueSync(deprecated)
+#### settings.setValueSync(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1327,7 +1327,7 @@ let ret:string = settings.setValueSync(helper, settings.display.SCREEN_BRIGHTNES
 
 
 
-##### settings.openInputMethodSettings23+
+#### settings.openInputMethodSettings23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1371,7 +1371,7 @@ settings.openInputMethodSettings(context);
 
 
 
-##### settings.openInputMethodDetail23+
+#### settings.openInputMethodDetail23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1419,7 +1419,7 @@ settings.openInputMethodDetail(context, bundleName, inputMethodId);
 
 
 
-##### settings.openBiometricsSettingsPage24+
+#### settings.openBiometricsSettingsPage24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1467,7 +1467,7 @@ try {
 
 
 
-##### settings.openNfcSettingsPage24+
+#### settings.openNfcSettingsPage24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

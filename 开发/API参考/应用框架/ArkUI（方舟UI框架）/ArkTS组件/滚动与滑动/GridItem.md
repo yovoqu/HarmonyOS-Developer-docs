@@ -12,7 +12,7 @@
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,13 +41,13 @@ GridItem(value?: GridItemOptions)
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### rowStart
+#### rowStart
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -68,7 +68,7 @@ rowStart(value: number)
 
 
 
-##### rowEnd
+#### rowEnd
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -89,7 +89,7 @@ rowEnd(value: number)
 
 
 
-##### columnStart
+#### columnStart
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -110,7 +110,7 @@ columnStart(value: number)
 
 
 
-##### columnEnd
+#### columnEnd
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -156,7 +156,7 @@ columnEnd(value: number)
 
 
 
-##### forceRebuild(deprecated)
+#### forceRebuild(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -179,7 +179,7 @@ forceRebuild(value: boolean)
 
 
 
-##### selectable8+
+#### selectable8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -202,7 +202,7 @@ selectable(value: boolean)
 
 
 
-##### selected10+
+#### selected10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -225,7 +225,7 @@ selected(value: boolean)
 
 
 
-##### GridItemOptions11+对象说明
+#### GridItemOptions11+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -242,7 +242,7 @@ GridItem样式对象。
 
 
 
-##### GridItemStyle11+枚举说明
+#### GridItemStyle11+枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -264,13 +264,13 @@ GridItem样式枚举。
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### onSelect8+
+#### onSelect8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -291,13 +291,13 @@ GridItem元素被鼠标框选的状态改变时触发回调。
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1（GridItem设置自身位置）
+#### 示例1（GridItem设置自身位置）
 
 GridItem通过设置合理的ColumnStart、ColumnEnd、RowStart、RowEnd属性来设置自身位置。需要指定GridItem起始行列号和所占行列数的场景推荐使用Grid的[GridLayoutOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid#gridlayoutoptions10对象说明)参数，详细可参考Grid的[示例1（固定行列Grid）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid#示例1固定行列grid)和[示例3（可滚动Grid设置跨行跨列节点）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid#示例3可滚动grid设置跨行跨列节点)。
 
@@ -354,7 +354,7 @@ struct GridItemExample {
 
 
 
-##### 示例2（设置GridItem样式）
+#### 示例2（设置GridItem样式）
 
 使用GridItemOptions设置GridItem样式。
 
@@ -420,4 +420,4 @@ struct GridItemExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/W_7TytotTfCTS_ob7kuLjA/zh-cn_image_0000002581435764.png?HW-CC-KV=V1&HW-CC-Date=20260528T024215Z&HW-CC-Expire=86400&HW-CC-Sign=F85D42314422E9E3F32ECC57075D28E2BE7C451596944000FD9497EA782E4A11)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/W_7TytotTfCTS_ob7kuLjA/zh-cn_image_0000002581435764.png?HW-CC-KV=V1&HW-CC-Date=20260528T025549Z&HW-CC-Expire=86400&HW-CC-Sign=B12208C2229E5D5446A334974615B2FE11A706A63D9301D80C12313345926E04)

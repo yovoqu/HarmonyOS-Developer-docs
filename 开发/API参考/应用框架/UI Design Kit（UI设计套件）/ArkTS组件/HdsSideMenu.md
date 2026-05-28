@@ -10,7 +10,7 @@
 **起始版本：** 6.0.0(20)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -20,7 +20,7 @@ import { HdsSideMenu, HdsSideMenuMainItem, HdsSideMenuSubItem, HdsSideMenuBadgeP
  
   
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -46,7 +46,7 @@ HdsSideMenu({items?: HdsSideMenuMainItem[], selectedIndex: number, $selectedInde
  
   
 
-##### build
+#### build
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -62,7 +62,7 @@ struct的默认构造函数，无法直接调用此方法。
  
   
 
-##### HdsSideMenuMainItem
+#### HdsSideMenuMainItem
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -78,7 +78,7 @@ HdsSideMenu一级菜单栏。
  
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -101,7 +101,7 @@ HdsSideMenuMainItem的构造函数。
  
   
 
-##### getSideMenuSubItem
+#### getSideMenuSubItem
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -124,7 +124,7 @@ getSideMenuSubItem(): HdsSideMenuSubItem[]
  
   
 
-##### updateBadge
+#### updateBadge
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -154,7 +154,7 @@ updateBadge(badge?: HdsSideMenuBadgeParam): HdsSideMenuMainItem
  
   
 
-##### HdsSideMenuSubItem
+#### HdsSideMenuSubItem
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -170,7 +170,7 @@ HdsSideMenu二级菜单栏。
  
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -193,7 +193,7 @@ HdsSideMenuSubItem的构造函数。
  
   
 
-##### updateBadge
+#### updateBadge
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -223,7 +223,7 @@ updateBadge(badge?: HdsSideMenuBadgeParam): HdsSideMenuSubItem
  
   
 
-##### HdsSideMenuBadgeParam
+#### HdsSideMenuBadgeParam
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -243,7 +243,7 @@ HdsSideMenu上带信息提醒的图标配置信息。
  
   
 
-##### HdsSideMenuBaseItemParam
+#### HdsSideMenuBaseItemParam
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -264,7 +264,7 @@ HdsSideMenu菜单栏基础类。
  
   
 
-##### HdsSideMenuMainItemParam
+#### HdsSideMenuMainItemParam
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -286,7 +286,7 @@ HdsSideMenu一级菜单栏配置项，继承自[HdsSideMenuBaseItemParam](#hdssi
  
   
 
-##### HdsSideMenuSubItemParam
+#### HdsSideMenuSubItemParam
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -305,13 +305,13 @@ HdsSideMenu二级菜单栏配置项，继承自[HdsSideMenuBaseItemParam](#hdssi
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### OnSelectedIndexChange
+#### OnSelectedIndexChange
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -334,7 +334,7 @@ HdsSideMenu的selectedIndex发生变化时的回调函数。
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

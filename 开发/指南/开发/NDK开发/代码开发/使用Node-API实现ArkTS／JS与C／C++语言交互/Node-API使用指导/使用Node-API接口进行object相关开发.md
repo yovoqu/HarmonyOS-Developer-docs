@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-object
 
-##### 简介
+#### 简介
 
 Node-API提供了相关接口对object进行基本操作，例如创建对象、获取原型、冻结和密封对象，检查对象的类型等。
  
   
 
-##### 基本概念
+#### 基本概念
 
 在Node-API接口开发中，经常需要定义和操作对象。例如，创建一个API接口，该接口接受一个对象作为输入参数，对该对象执行某些操作，并返回一个结果对象。在这个过程中，需要确保接口的定义清晰、规范，并且与对象的属性和方法相兼容。
  
@@ -20,7 +20,7 @@ Node-API提供了相关接口对object进行基本操作，例如创建对象、
  
   
 
-##### 场景和功能介绍
+#### 场景和功能介绍
 
 以下Node-API接口主要用于操作和管理ArkTS对象，使用场景介绍：
   
@@ -43,13 +43,13 @@ Node-API提供了相关接口对object进行基本操作，例如创建对象、
  
   
 
-##### 使用示例
+#### 使用示例
 
 Node-API接口开发流程参考[使用Node-API实现跨语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-process)，本文仅对接口对应C++及ArkTS相关代码进行展示。
  
   
 
-##### napi_get_prototype
+#### napi_get_prototype
 
 可以获得给定ArkTS对象的prototype。
  
@@ -113,7 +113,7 @@ if (applePrototype === Person.prototype) {
  
   
 
-##### napi_create_object
+#### napi_create_object
 
 用于在Node-API模块中创建一个空的ArkTS对象。
  
@@ -163,7 +163,7 @@ try {
  
   
 
-##### napi_object_freeze
+#### napi_object_freeze
 
 用于冻结给定的ArkTS对象。冻结对象后，无法再向对象添加新的属性或方法，也无法修改已有属性或方法的值。
  
@@ -223,7 +223,7 @@ try {
  
   
 
-##### napi_object_seal
+#### napi_object_seal
 
 封闭一个对象后，无法向其添加新的属性，也无法删除或修改现有属性的可配置性。但是，可以继续修改已有属性的值。
  
@@ -291,7 +291,7 @@ try {
  
   
 
-##### napi_typeof
+#### napi_typeof
 
 这个接口用于获取给定ArkTS value的ArkTS Type。
  
@@ -404,7 +404,7 @@ try {
  
   
 
-##### napi_instanceof
+#### napi_instanceof
 
 用于检查一个对象是否是指定构造函数的实例。
  
@@ -472,7 +472,7 @@ try {
  
   
 
-##### napi_type_tag_object
+#### napi_type_tag_object
 
 使用类型标签type_tag来标记ArkTS对象，后续可以更精确地识别ArkTS对象。
  
@@ -480,7 +480,7 @@ ArkTS版本中，napi_type_tag_object接口没有使用private symbol，导致ty
  
   
 
-##### napi_check_object_type_tag
+#### napi_check_object_type_tag
 
 验证一个ArkTS对象是否带有特定类型标签。
  
@@ -570,7 +570,7 @@ hilog.info(0x0000, 'testTag', 'Test Node-API napi_check_object_type_tag objB -> 
  
   
 
-##### napi_create_external
+#### napi_create_external
 
 创建自定义的C/C++对象并将其公开给ArkTS代码。这种情况下，我们可以使用napi_create_external来创建一个包含指向自定义对象的指针的Node-API值，以便让ArkTS代码能够访问和操作该对象。
  
@@ -649,7 +649,7 @@ hilog.info(0x0000, 'testTag', 'Test Node-API napi_create_external:%{public}s', t
  
   
 
-##### napi_get_value_external
+#### napi_get_value_external
 
 napi_create_external可以创建包装自定义的C/C++对象并将其公开给ArkTS代码，而napi_get_value_external就是用来获得napi_create_external所创建的外部对象的。
  
@@ -693,7 +693,7 @@ hilog.info(0x0000, 'Node-API', 'get_value_external:%{public}d', testNapi.getValu
  
   
 
-##### napi_create_symbol
+#### napi_create_symbol
 
 用于创建一个新的Symbol。Symbol是一种特殊的数据类型，用于表示唯一的标识符。与字符串或数字不同，符号的值是唯一的，即使两个符号具有相同的描述，它们也是不相等的。符号通常用作对象属性的键，以确保属性的唯一性。
  

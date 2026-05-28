@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ommon-promotion-service-merc-coup-coupbatch-upload
 
-##### 功能介绍
+#### 功能介绍
 
 商家券的code码支持商户自定义。如商家已有自己的优惠券系统，可直接使用自定义模式。即商家预先向华为支付上传券code，当券在发放时，华为支付自动从已导入的code中随机取值（不能指定），派发给用户。
  
   
 
-##### 接口原型
+#### 接口原型
 
 - **承载协议：** HTTPS POST
 - **接口方向：** 开发者服务器 -> 华为支付服务器
@@ -24,7 +24,7 @@
  
   
 
-##### 请求参数
+#### 请求参数
 
 **Request Header**
   
@@ -45,7 +45,7 @@
  
   
 
-##### **请求示例**
+#### **请求示例**
 
 ```json
 POST api/merchantgrow/v1/merchantcoupon/couponbatch/codeupload HTTP/1.1
@@ -60,7 +60,7 @@ Content-Type: application/json
  
   
 
-##### 响应参数
+#### 响应参数
 
 **Response Header**
   
@@ -93,7 +93,7 @@ Content-Type: application/json
  
   
 
-##### **响应示例**
+#### **响应示例**
 
 ```json
 HTTP/1.1 200 OK
@@ -121,7 +121,7 @@ Content-Type: application/json; charset=UTF-8
  
   
 
-##### 错误码
+#### 错误码
 
 **resultCode**非400000的错误码请看[公共错误码说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-error-code-rest#公共错误码说明)。
   

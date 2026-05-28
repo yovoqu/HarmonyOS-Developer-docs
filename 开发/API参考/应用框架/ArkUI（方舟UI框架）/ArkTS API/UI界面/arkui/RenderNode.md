@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,13 +22,13 @@ import { RenderNode } from '@kit.ArkUI';
 
 
 
-##### RenderNode
+#### RenderNode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -85,7 +85,7 @@ struct Index {
 
 
 
-##### appendChild
+#### appendChild
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -168,7 +168,7 @@ struct Index {
 
 
 
-##### insertChildAfter
+#### insertChildAfter
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -265,7 +265,7 @@ struct Index {
 
 
 
-##### removeChild
+#### removeChild
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -344,7 +344,7 @@ struct Index {
 
 
 
-##### clearChildren
+#### clearChildren
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -409,7 +409,7 @@ struct Index {
 
 
 
-##### getChild
+#### getChild
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -498,7 +498,7 @@ struct Index {
 
 
 
-##### getFirstChild
+#### getFirstChild
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -585,7 +585,7 @@ struct Index {
 
 
 
-##### getNextSibling
+#### getNextSibling
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -673,7 +673,7 @@ struct Index {
 
 
 
-##### getPreviousSibling
+#### getPreviousSibling
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -761,7 +761,7 @@ struct Index {
 
 
 
-##### backgroundColor
+#### backgroundColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -837,7 +837,7 @@ struct Index {
 
 
 
-##### clipToFrame
+#### clipToFrame
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -920,7 +920,7 @@ struct Index {
 
 
 
-##### opacity
+#### opacity
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -998,7 +998,7 @@ struct Index {
 
 
 
-##### size
+#### size
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1075,7 +1075,7 @@ struct Index {
 
 
 
-##### position
+#### position
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1153,7 +1153,7 @@ struct Index {
 
 
 
-##### frame
+#### frame
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1230,7 +1230,7 @@ struct Index {
 
 
 
-##### pivot
+#### pivot
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1310,7 +1310,7 @@ struct Index {
 
 
 
-##### scale
+#### scale
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1388,7 +1388,7 @@ struct Index {
 
 
 
-##### translation
+#### translation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1466,7 +1466,7 @@ struct Index {
 
 
 
-##### rotation
+#### rotation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1544,7 +1544,7 @@ struct Index {
 
 
 
-##### transform
+#### transform
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1636,7 +1636,7 @@ struct Index {
 
 
 
-##### shadowColor
+#### shadowColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1715,7 +1715,7 @@ struct Index {
 
 
 
-##### shadowOffset
+#### shadowOffset
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1795,7 +1795,7 @@ struct Index {
 
 
 
-##### label12+
+#### label12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1874,7 +1874,7 @@ struct Index {
 
 
 
-##### shadowAlpha
+#### shadowAlpha
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1955,7 +1955,7 @@ struct Index {
 
 
 
-##### shadowElevation
+#### shadowElevation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2039,7 +2039,7 @@ struct Index {
 
 
 
-##### shadowRadius
+#### shadowRadius
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2129,7 +2129,7 @@ struct Index {
 
 
 
-##### draw
+#### draw
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2315,7 +2315,7 @@ export const nativeOnDraw: (id: number, context: DrawContext, width: number, hei
 
 
 
-##### invalidate
+#### invalidate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2394,7 +2394,7 @@ libentry.so的构建方式见draw方法的示例。
 
 
 
-##### borderStyle12+
+#### borderStyle12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2479,7 +2479,7 @@ struct Index {
 
 
 
-##### borderWidth12+
+#### borderWidth12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2558,7 +2558,7 @@ struct Index {
 
 
 
-##### borderColor12+
+#### borderColor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2638,7 +2638,7 @@ struct Index {
 
 
 
-##### borderRadius12+
+#### borderRadius12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2717,7 +2717,7 @@ struct Index {
 
 
 
-##### shapeMask12+
+#### shapeMask12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2803,7 +2803,7 @@ struct Index {
 
 
 
-##### shapeClip12+
+#### shapeClip12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2939,7 +2939,7 @@ struct Index {
 
 
 
-##### dispose12+
+#### dispose12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3007,7 +3007,7 @@ struct Index {
 
 
 
-##### markNodeGroup12+
+#### markNodeGroup12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3016,7 +3016,7 @@ set markNodeGroup(isNodeGroup: boolean)
 标记是否优先绘制节点及其子节点。若设置为true，则透明度等属性将在节点绘制完毕后再进行合成。设置效果如下：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/Xj0WpJOTSVmVw62W1tZ4hA/zh-cn_image_0000002611835415.png?HW-CC-KV=V1&HW-CC-Date=20260528T024117Z&HW-CC-Expire=86400&HW-CC-Sign=2E29D26C4F63C54064A0C38726C1553961249CB19033461B8A440B1823159FC2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/Xj0WpJOTSVmVw62W1tZ4hA/zh-cn_image_0000002611835415.png?HW-CC-KV=V1&HW-CC-Date=20260528T025451Z&HW-CC-Expire=86400&HW-CC-Sign=7143B308ABB7A54C752CD875E990BC3466964FA606D6B9581B0DD9F78DB85D4B)
 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -3108,7 +3108,7 @@ struct Index {
 
 
 
-##### lengthMetricsUnit12+
+#### lengthMetricsUnit12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3203,7 +3203,7 @@ struct Index {
 
 
 
-##### isDisposed20+
+#### isDisposed20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3302,4 +3302,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/qC5O2kLiSiKJ7WFwhTeZuw/zh-cn_image_0000002581275668.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024117Z&HW-CC-Expire=86400&HW-CC-Sign=31F01AA1A5254AC93182EFE5F11429467D200E85872F4B7F9B763A965A848B3F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/qC5O2kLiSiKJ7WFwhTeZuw/zh-cn_image_0000002581275668.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025451Z&HW-CC-Expire=86400&HW-CC-Sign=B95D1B253F9CDE33D5929622A887E32190DFF914725618A3DD8955C3F07374AC)

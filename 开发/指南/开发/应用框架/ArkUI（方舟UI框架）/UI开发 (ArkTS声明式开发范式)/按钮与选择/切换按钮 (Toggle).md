@@ -7,7 +7,7 @@
 Toggle组件提供状态按钮样式、勾选框样式和开关样式，一般用于两种状态之间的切换。具体用法请参考[Toggle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-toggle)。
 
 
-##### 创建切换按钮
+#### 创建切换按钮
 
 Toggle通过调用[ToggleOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-toggle#toggleoptions18对象说明)来创建，具体调用形式如下：
 
@@ -67,7 +67,7 @@ Toggle({ type: ToggleType.Button, isOn: true }) {
 
 
 
-##### 自定义样式
+#### 自定义样式
 
  - 通过selectedColor属性设置Toggle打开选中后的背景颜色。
 
@@ -109,7 +109,7 @@ Toggle({ type: ToggleType.Switch, isOn: true })
 
 
 
-##### 添加事件
+#### 添加事件
 
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)外，Toggle还用于选中和取消选中后触发某些操作，可以绑定onChange事件来响应操作后的自定义行为。
 
@@ -125,7 +125,7 @@ Toggle({ type: ToggleType.Switch, isOn: false })
 
 
 
-##### 场景示例
+#### 场景示例
 
 Toggle用于切换蓝牙开关状态。
 

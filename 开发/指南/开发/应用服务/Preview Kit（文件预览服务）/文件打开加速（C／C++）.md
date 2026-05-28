@@ -7,7 +7,7 @@
 从5.0.3(15)版本开始，新增文件打开加速功能。提供注册和取消注册接口，应用可以注册一系列回调，文件打开加速服务通过调用回调接口向应用推荐文件进行预加载动作。
 
 
-##### 接口说明
+#### 接口说明
 
 具体API说明详见[文件打开加速接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/openfileboost_preview)。
 
@@ -26,13 +26,13 @@
 
 
 
-##### 开发准备
+#### 开发准备
 
 需要先通过[Syscap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap#使用caniuse判断syscap是否可调用)查询您的目标设备是否支持SystemCapability.PCService.OpenFileBoost系统能力，当前仅在2in1设备上支持该能力。
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 申请文件打开加速服务的对应权限，在module.json5文件中添加文件预加载权限。注意ohos.permission.PRELOAD_FILE为受限权限，具体可参考[申请使用受限权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions-in-acl) 。
 
   

@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-video-component-long-video
 
-##### 概述
+#### 概述
 
 Video组件可用于播放视频文件并控制其播放状态。本文针对市场上主流视频播放类应用的常见场景，介绍如何基于Video组件实现长视频播放，指导开发者实现基本播控、视频首帧显示、全屏播放、跳转播放、前台小窗播放、点击按钮选择倍速、长按视频倍速、循环播放、音量设置、接入播控中心等功能。
  
@@ -26,11 +26,11 @@ Video组件可用于播放视频文件并控制其播放状态。本文针对市
  
  
 
-##### 基础播控
+#### 基础播控
 
  
 
-##### 场景描述
+#### 场景描述
 
 通过Video组件实现视频基础播放控制能力，包括播放视频、暂停播放等操作。实现效果如下图：
  
@@ -40,7 +40,7 @@ Video组件可用于播放视频文件并控制其播放状态。本文针对市
  
  
 
-##### 实现原理
+#### 实现原理
 
 通过Video组件的[VideoController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-media-components-video#videocontroller)对象控制视频播放，VideoController在底层调用[start()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-media-components-video#start)和[pause()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-media-components-video#pause)等方法切换视频的播放状态。
  
@@ -52,7 +52,7 @@ Video组件的接口和状态变化关系如下图所示：
  
  
 
-##### 开发步骤
+#### 开发步骤
 1. 创建Video视频组件。
 2. 加载视频资源：设置Video的src参数，配置视频的数据源。
 3. 准备视频：通过[onPrepared()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-media-components-video#onprepared)事件，监听视频完成加载。
@@ -64,11 +64,11 @@ Video组件和Video控制器的基础使用请参考：[视频播放 (Video)](ht
  
  
 
-##### 视频首帧显示
+#### 视频首帧显示
 
  
 
-##### 场景描述
+#### 场景描述
 
 长视频未播放时，显示视频资源的首帧画面或特定画面。
  
@@ -78,7 +78,7 @@ Video组件和Video控制器的基础使用请参考：[视频播放 (Video)](ht
  
  
 
-##### 实现原理
+#### 实现原理
 
 Video组件要实现视频未播放时显示预览画面，设置方式有如下两种：
  
@@ -94,7 +94,7 @@ Video组件要实现视频未播放时显示预览画面，设置方式有如下
  
  
 
-##### 开发步骤
+#### 开发步骤
 
 本场景以showFirstFrame为例，设置视频视频未播放时显示视频首帧画面：
  
@@ -113,11 +113,11 @@ previewUri使用示例请参考：[视频播放基础用法](https://developer.h
  
  
 
-##### 横竖屏切换和旋转感知
+#### 横竖屏切换和旋转感知
 
  
 
-##### 场景描述
+#### 场景描述
 
 播放视频时，可通过点击全屏图标按钮实现全屏播放，或通过旋转设备进行横竖屏切换。
  
@@ -127,7 +127,7 @@ previewUri使用示例请参考：[视频播放基础用法](https://developer.h
  
  
 
-##### 实现原理
+#### 实现原理
 
 - 自动旋转：在设备控制面板中取消旋转锁定，并将orientation设置为AUTO_ROTATION_RESTRICTED时，应用会跟随传感器自动旋转。
 > [!NOTE]
@@ -141,7 +141,7 @@ USER_ROTATION_LANDSCAPE：旋转到横屏。
  
  
 
-##### 开发步骤
+#### 开发步骤
 
 通过传感器自动旋转：
  1. 在模块级配置文件module.json5中，设置窗口显示方向[orientation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#orientation9)的字段值为AUTO_ROTATION_RESTRICTED。
@@ -209,11 +209,11 @@ this.windowUtil.setMainWindowOrientation(window.Orientation.USER_ROTATION_PORTRA
  
  
 
-##### 跳转播放
+#### 跳转播放
 
  
 
-##### 场景描述
+#### 场景描述
 
 通过点击或拖动自定义进度条，实现视频跳转至指定时间进行播放功能。
  
@@ -223,13 +223,13 @@ this.windowUtil.setMainWindowOrientation(window.Orientation.USER_ROTATION_PORTRA
  
  
 
-##### 实现原理
+#### 实现原理
 
 Video组件自带的控制栏由[controls](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-media-components-video#controls)属性进行控制。当controls属性设置为false时，控制栏隐藏，此时可基于[Slider](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-slider)组件实现自定义播放进度条，并通过[setCurrentTime()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-media-components-video#setcurrenttime8)方法，指定视频播放进度，实现跳转播放。
  
  
 
-##### 开发步骤
+#### 开发步骤
 1. controls属性设置为false，禁用Video控制栏。
 ```ArkTS
 Video({
@@ -260,11 +260,11 @@ Slider({
  
  
 
-##### 前台小窗播放
+#### 前台小窗播放
 
  
 
-##### 场景描述
+#### 场景描述
 
 播放视频时，向下滑动视频列表，Video组件从页面消失后，视频以小窗口模式进行播放，同时用户可以进行其它操作，提升使用体验。
  
@@ -274,7 +274,7 @@ Slider({
  
  
 
-##### 实现原理
+#### 实现原理
 
 Video通过自定义组件实现小窗口播放视频，通过[onWillScroll()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#onwillscroll12)计算Scroll组件在竖直方向的偏移量，当偏移量超过Video组件自身高度时，通过自定义组件实现小窗口播放视频。
  
@@ -284,7 +284,7 @@ Video通过自定义组件实现小窗口播放视频，通过[onWillScroll()](h
  
  
 
-##### 开发步骤
+#### 开发步骤
 1. 自定义SmallWindowVideo组件，用于小窗播放视频。
 ```ArkTS
 @Component
@@ -349,11 +349,11 @@ if (this.scrollVal >= 240 && this.isPlaying && !this.isFullScreen) {
  
  
 
-##### 点击按钮选择倍速
+#### 点击按钮选择倍速
 
  
 
-##### 场景描述
+#### 场景描述
 
 视频横屏时，通过点击按钮选择预设播放速度，实现视频倍速（1.0、1.25、1.75或2.0速度）播放。
  
@@ -363,13 +363,13 @@ if (this.scrollVal >= 240 && this.isPlaying && !this.isFullScreen) {
  
  
 
-##### 实现原理
+#### 实现原理
 
 Video组件支持通过[currentProgressRate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-media-components-video#videooptions对象说明)参数设置视频播放倍速。同时，结合[Menu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-menu)组件预设视频播放速度，实现点击按钮后倍速播放视频。
  
  
 
-##### 开发步骤
+#### 开发步骤
 1. 在Menu中，预设视频播放速度，并在点击事件中修改播放倍速的值。
 ```ArkTS
 @State curRate: PlaybackSpeed = PlaybackSpeed.Speed_Forward_1_00_X; // Playback speed.
@@ -424,11 +424,11 @@ Video({
  
  
 
-##### 长按视频倍速
+#### 长按视频倍速
 
  
 
-##### 场景描述
+#### 场景描述
 
 视频横屏时，长按屏幕可实现2倍速播放，离手后视频恢复至默认1倍速播放。
  
@@ -438,13 +438,13 @@ Video({
  
  
 
-##### 实现原理
+#### 实现原理
 
 通过绑定长按手势事件[LongPressGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-longpressgesture)，实现长按屏幕边缘视频倍速播放。
  
  
 
-##### 开发步骤
+#### 开发步骤
 1. 绑定LongPressGesture长按手势事件，在[onAction()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-longpressgesture#onaction)方法中设置预设倍速值，在[onActionEnd()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-longpressgesture#onactionend)方法中，恢复初始播放速度。
 ```ArkTS
 LongPressGesture({ repeat: true })
@@ -473,11 +473,11 @@ Video({
  
  
 
-##### 循环播放
+#### 循环播放
 
  
 
-##### 场景描述
+#### 场景描述
 
 视频播放结束后，立即重新开始播放，以实现无缝循环播放的效果。
  
@@ -487,13 +487,13 @@ Video({
  
  
 
-##### 实现原理
+#### 实现原理
 
 Video组件的[loop](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-media-components-video#loop)属性支持设置单个视频循环播放，当视频播放结束时，系统自动触发onFinish()回调。在回调中，播放器通过setCurrentTime(0)重置进度到起始位置，并调用start()重新播放。此过程通过VideoController控制，无需开发者手动干预。
  
  
 
-##### 开发步骤
+#### 开发步骤
 
 将Video组件的loop属性设置为true，即可实现视频无缝循环播放。
  
@@ -512,11 +512,11 @@ Video({
  
  
 
-##### 音量设置
+#### 音量设置
 
  
 
-##### 场景描述
+#### 场景描述
 
 滑动调节音量是视频应用中的常见交互：在播放界面左侧上下滑动，即可快速调节音量，无需中断观看，从而提升用户的观看体验。
  
@@ -526,13 +526,13 @@ Video({
  
  
 
-##### 实现原理
+#### 实现原理
 
 系统音量面板[AVVolumePanel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-multimedia-avvolumepanel)提供了展示和调节系统音量的功能，结合[PanGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture)滑动手势事件，设置滑动方向为竖直方向，当手势移动时，上滑增加音量，下滑减少音量，实现控制系统音量功能。
  
  
 
-##### 开发步骤
+#### 开发步骤
 1. 创建AVVolumePanel，显示系统音量面板。
 ```ArkTS
 AVVolumePanel({
@@ -575,11 +575,11 @@ PanGesture({ direction: PanDirection.Vertical })
  
  
 
-##### 接入播控中心
+#### 接入播控中心
 
  
 
-##### 场景描述
+#### 场景描述
 
 Video组件播放视频时，可以通过控制中心，实现视频的播放、暂停、切换视频、跳转播放、点击拉起应用等功能。
  
@@ -589,13 +589,13 @@ Video组件播放视频时，可以通过控制中心，实现视频的播放、
  
  
 
-##### 实现原理
+#### 实现原理
 
 通过AVSession Kit实现应用接入播控中心，AVSession Kit是系统提供的音视频管控服务，可用于统一管理系统中所有音视频行为，帮助开发者快速构建音视频统一展示和控制能力。
  
  
 
-##### 开发步骤
+#### 开发步骤
 1. 通过[createAVSession()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-f#avsessioncreateavsession10)创建AVSession实例，并指定[AVSessionType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-t#avsessiontype10)为video类型。创建成功后，通过[activate()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsession#activate10)方法激活会话。
 ```ArkTS
 public initAVSession() {
@@ -745,6 +745,6 @@ updateIsPlay() {
  
  
 
-##### 示例代码
+#### 示例代码
 
 - [基于Video组件播放长视频](https://gitcode.com/HarmonyOS_Samples/video-show)

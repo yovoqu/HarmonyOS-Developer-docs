@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-mappingrelationship
 
-##### H5 autocomplete和HarmonyOS的ContentType的映射关系
+#### H5 autocomplete和HarmonyOS的ContentType的映射关系
  
 | 输入场景 | 【H5】autocomplete | 【ArkUI】ContentType | 说明 |
 | --- | --- | --- | --- |
@@ -31,7 +31,7 @@
  
   
 
-##### React Native textContentType和HarmonyOS的ContentType的映射关系
+#### React Native textContentType和HarmonyOS的ContentType的映射关系
  
 | 输入场景 | 【React Native】textContentType | 【ArkUI】ContentType | 说明 |
 | --- | --- | --- | --- |

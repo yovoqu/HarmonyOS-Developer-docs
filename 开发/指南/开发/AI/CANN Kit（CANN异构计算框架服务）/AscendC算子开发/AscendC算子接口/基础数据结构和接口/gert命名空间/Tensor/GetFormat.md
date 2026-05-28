@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getformat
 
-##### 函数功能
+#### 函数功能
 
 获取Tensor的format，包含运行时format和原始format，返回的format对象都是只读的。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 const StorageFormat &GetFormat() const
@@ -18,13 +18,13 @@ const StorageFormat &GetFormat() const
  
   
 
-##### 参数说明
+#### 参数说明
 
 无
  
   
 
-##### 返回值
+#### 返回值
 
 只读的format引用。
  
@@ -32,13 +32,13 @@ const StorageFormat &GetFormat() const
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 Tensor tensor{{{8, 3, 224, 224}, {16, 3, 224, 224}}, // shape

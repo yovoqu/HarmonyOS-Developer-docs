@@ -12,7 +12,7 @@
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@ DatePicker(options?: DatePickerOptions)
 
 
 
-##### DatePickerOptions对象说明
+#### DatePickerOptions对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -86,7 +86,7 @@ DatePicker(options?: DatePickerOptions)
 
 
 
-##### DatePickerMode18+枚举说明
+#### DatePickerMode18+枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -105,7 +105,7 @@ DatePicker(options?: DatePickerOptions)
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -113,7 +113,7 @@ DatePicker(options?: DatePickerOptions)
 
 
 
-##### lunar
+#### lunar
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -138,7 +138,7 @@ lunar(value: boolean)
 
 
 
-##### lunar18+
+#### lunar18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -163,7 +163,7 @@ lunar(isLunar: Optional&lt;boolean&gt;)
 
 
 
-##### disappearTextStyle10+
+#### disappearTextStyle10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -188,7 +188,7 @@ disappearTextStyle(value: PickerTextStyle)
 
 
 
-##### disappearTextStyle18+
+#### disappearTextStyle18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -213,7 +213,7 @@ disappearTextStyle(style: Optional&lt;PickerTextStyle&gt;)
 
 
 
-##### textStyle10+
+#### textStyle10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -238,7 +238,7 @@ textStyle(value: PickerTextStyle)
 
 
 
-##### textStyle18+
+#### textStyle18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -263,7 +263,7 @@ textStyle(style: Optional&lt;PickerTextStyle&gt;)
 
 
 
-##### selectedTextStyle10+
+#### selectedTextStyle10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -284,7 +284,7 @@ selectedTextStyle(value: PickerTextStyle)
 
 
 
-##### selectedTextStyle18+
+#### selectedTextStyle18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -305,7 +305,7 @@ selectedTextStyle(style: Optional&lt;PickerTextStyle&gt;)
 
 
 
-##### enableHapticFeedback18+
+#### enableHapticFeedback18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -336,7 +336,7 @@ enableHapticFeedback(enable: Optional&lt;boolean&gt;)
 
 
 
-##### digitalCrownSensitivity18+
+#### digitalCrownSensitivity18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -361,7 +361,7 @@ digitalCrownSensitivity(sensitivity: Optional&lt;CrownSensitivity&gt;)
 
 
 
-##### canLoop20+
+#### canLoop20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -382,7 +382,7 @@ canLoop(isLoop: Optional&lt;boolean&gt;)
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -390,7 +390,7 @@ canLoop(isLoop: Optional&lt;boolean&gt;)
 
 
 
-##### onChange(deprecated)
+#### onChange(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -411,7 +411,7 @@ onChange(callback: (value: DatePickerResult) => void)
 
 
 
-##### onDateChange10+
+#### onDateChange10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -432,7 +432,7 @@ onDateChange(callback: Callback&lt;Date&gt;)
 
 
 
-##### onDateChange18+
+#### onDateChange18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -457,7 +457,7 @@ onDateChange(callback: Optional<Callback&lt;Date&gt;>)
 
 
 
-##### DatePickerResult对象说明
+#### DatePickerResult对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -476,13 +476,13 @@ onDateChange(callback: Optional<Callback&lt;Date&gt;>)
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1（切换公历农历）
+#### 示例1（切换公历农历）
 
 该示例实现了日期选择器组件，点击按钮可以切换公历农历。
 
@@ -518,12 +518,12 @@ struct DatePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/j7TDLvd0T2aGbZykgobqiQ/zh-cn_image_0000002611755777.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=882D9FBF0F580B53D68570CC1C8522EB4D5F2834FD61ACC2F25C1C780F47425D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/j7TDLvd0T2aGbZykgobqiQ/zh-cn_image_0000002611755777.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025554Z&HW-CC-Expire=86400&HW-CC-Sign=83458747A0596BF7E15ACF6700D57FD773774F353FF75413EAAC8F3028D064AA)
 
 
 
 
-##### 示例2（设置文本样式）
+#### 示例2（设置文本样式）
 
 该示例通过配置[disappearTextStyle](#disappeartextstyle10)、[textStyle](#textstyle10)、[selectedTextStyle](#selectedtextstyle10)设置文本样式。
 
@@ -555,12 +555,12 @@ struct DatePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/BvbzMLiXSTmNnbe-mXvGug/zh-cn_image_0000002581435840.png?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=91183BAB8960779EC74EE1149DD5E29B932BBEF029D8F540A035F4BEB1293E4F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/BvbzMLiXSTmNnbe-mXvGug/zh-cn_image_0000002581435840.png?HW-CC-KV=V1&HW-CC-Date=20260528T025554Z&HW-CC-Expire=86400&HW-CC-Sign=E3412AF77229FF017600E586C3701627FEF656DECE3C7FBD7E92483CF68B6C4E)
 
 
 
 
-##### 示例3（设置显示年、月和月、日列）
+#### 示例3（设置显示年、月和月、日列）
 
 该示例通过配置mode参数实现显示年、月和月、日列。
 
@@ -612,12 +612,12 @@ struct DatePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/GC1axiGKRCqw0XbSL7hAZw/zh-cn_image_0000002611835671.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=830DB6B23D4491B12224CC029490E9AAA63DC35C322D2E634C2E0413E6BA9CD8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/GC1axiGKRCqw0XbSL7hAZw/zh-cn_image_0000002611835671.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025554Z&HW-CC-Expire=86400&HW-CC-Sign=11CECDC1EADE2E846331E7DDEAB9AC9EBEB1516F0662560081BC29627A3CB443)
 
 
 
 
-##### 示例4（设置循环滚动）
+#### 示例4（设置循环滚动）
 
 从API version 20开始，可以通过配置[canLoop](#canloop20)参数设置DatePicker是否循环滚动。
 
@@ -654,4 +654,4 @@ struct DatePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/06/v3/H3Yn3vwFRF2mNnAKJDo4eA/zh-cn_image_0000002581275922.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=2D0AA80817FC18DFE0A23FA1EFD86B88D60DE0C07C5A17BA586A1B54CE7EE12A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/06/v3/H3Yn3vwFRF2mNnAKJDo4eA/zh-cn_image_0000002581275922.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025554Z&HW-CC-Expire=86400&HW-CC-Sign=4D1526F91753ED55945B1FF9D0EEFB0BD34FBB1CC411FCB8D1EE8D9342BE0A96)

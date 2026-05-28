@@ -10,7 +10,7 @@
 
 
 
-##### 7400101 无效入参
+#### 7400101 无效入参
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -32,7 +32,7 @@ Parameter missing or parameter type incorrect.
 
 
 
-##### 7400102 非法操作
+#### 7400102 非法操作
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -54,7 +54,7 @@ Operation not allowed.
 
 
 
-##### 7400103 会话未配置
+#### 7400103 会话未配置
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -76,7 +76,7 @@ Session not config.
 
 
 
-##### 7400104 会话未运行
+#### 7400104 会话未运行
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -98,7 +98,7 @@ Session not running.
 
 
 
-##### 7400105 会话配置被锁定
+#### 7400105 会话配置被锁定
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -120,7 +120,7 @@ Session config locked.
 
 
 
-##### 7400106 设备配置被锁定
+#### 7400106 设备配置被锁定
 
 **错误信息**
 
@@ -140,7 +140,7 @@ Device setting locked.
 
 
 
-##### 7400107 相机冲突
+#### 7400107 相机冲突
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -162,7 +162,7 @@ Can not use camera cause of conflict.
 
 
 
-##### 7400108 安全策略无法使用相机
+#### 7400108 安全策略无法使用相机
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -184,7 +184,7 @@ Camera disabled cause of security reason.
 
 
 
-##### 7400109 相机设备被抢占
+#### 7400109 相机设备被抢占
 
 **错误信息**
 
@@ -204,7 +204,7 @@ Can not use camera cause of preempted.
 
 
 
-##### 7400110 与当前配置存在冲突
+#### 7400110 与当前配置存在冲突
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -226,7 +226,7 @@ Unresolved conflicts with current configurations.
 
 
 
-##### 7400201 相机服务异常
+#### 7400201 相机服务异常
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

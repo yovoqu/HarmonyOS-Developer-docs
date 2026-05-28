@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { AdComponent } from '@kit.AdsKit';
 
 
 
-##### AdComponent
+#### AdComponent
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -103,7 +103,7 @@ struct Index {
 
 
 
-##### build
+#### build
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

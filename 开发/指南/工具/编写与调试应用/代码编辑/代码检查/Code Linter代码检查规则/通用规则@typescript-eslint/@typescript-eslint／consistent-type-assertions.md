@@ -7,7 +7,7 @@
 强制使用一致的类型断言。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/consistent-type-assertions选项](https://typescript-eslint.nodejs.cn/rules/consistent-type-assertions/#options)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 interface MyType {
@@ -41,7 +41,7 @@ export const y = x as object;
  
  
 
-##### 反例
+#### 反例
 
 ```text
 interface MyType {
@@ -56,7 +56,7 @@ export const y = <object>x;
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

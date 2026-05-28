@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-adaptivevrsdescription
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -19,13 +19,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  
@@ -43,13 +43,13 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### inputColorImage
+#### inputColorImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -63,7 +63,7 @@ VkImageView XEG_AdaptiveVRSDescription::inputColorImage
  
   
 
-##### inputDepthImage
+#### inputDepthImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -77,7 +77,7 @@ VkImageView XEG_AdaptiveVRSDescription::inputDepthImage
  
   
 
-##### outputShadingRateImage
+#### outputShadingRateImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -91,7 +91,7 @@ VkImageView XEG_AdaptiveVRSDescription::outputShadingRateImage
  
   
 
-##### reprojectionMatrix
+#### reprojectionMatrix
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

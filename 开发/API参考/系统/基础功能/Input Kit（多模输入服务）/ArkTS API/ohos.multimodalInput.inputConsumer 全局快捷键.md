@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { inputConsumer, KeyEvent } from '@kit.InputKit';
 
 
 
-##### HotkeyOptions
+#### HotkeyOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -39,7 +39,7 @@ import { inputConsumer, KeyEvent } from '@kit.InputKit';
 
 
 
-##### KeyPressedConfig16+
+#### KeyPressedConfig16+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -58,7 +58,7 @@ import { inputConsumer, KeyEvent } from '@kit.InputKit';
 
 
 
-##### inputConsumer.getAllSystemHotkeys
+#### inputConsumer.getAllSystemHotkeys
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -112,7 +112,7 @@ struct Index {
 
 
 
-##### inputConsumer.on('hotkeyChange')
+#### inputConsumer.on('hotkeyChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -180,7 +180,7 @@ struct Index {
 
 
 
-##### inputConsumer.off('hotkeyChange')
+#### inputConsumer.off('hotkeyChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -275,7 +275,7 @@ struct Index {
 
 
 
-##### inputConsumer.on('keyPressed')16+
+#### inputConsumer.on('keyPressed')16+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -340,7 +340,7 @@ struct Index {
 
 
 
-##### inputConsumer.off('keyPressed')16+
+#### inputConsumer.off('keyPressed')16+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

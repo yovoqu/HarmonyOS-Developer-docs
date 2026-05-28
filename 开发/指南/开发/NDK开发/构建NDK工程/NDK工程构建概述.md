@@ -22,7 +22,7 @@ HarmonyOS NDK默认使用CMake作为构建系统，随包提供了符合HarmonyO
 本章节将通过具体示例介绍如何在Native工程中使用NDK，以及如何编写CMake脚本来构建NDK工程。
   
 
-##### hmos.toolchain.cmake简介
+#### hmos.toolchain.cmake简介
 
 hmos.toolchain.cmake是HarmonyOS NDK提供给CMake的toolchain脚本，里面预定义了编译HarmonyOS应用需要设置的编译参数，如交叉编译设备的目标、C++运行时库的链接方式等；这些参数在调用CMake命令时，可以从命令行传入，来改变默认编译链接行为。此文件中的常用参数见下表。
   

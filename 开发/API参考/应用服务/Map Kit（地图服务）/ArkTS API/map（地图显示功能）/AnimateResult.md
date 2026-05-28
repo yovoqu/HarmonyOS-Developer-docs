@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-animateresult
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-##### AnimateResult
+#### AnimateResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

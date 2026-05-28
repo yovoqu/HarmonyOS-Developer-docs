@@ -7,7 +7,7 @@
 在[算子实现](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-operator-implementation-overview)章节已经介绍了kernel侧算子核心的实现方法，本章节侧重于介绍接入DDK框架时编程模式和API的使用。
   
 
-##### 自动生成kernel侧算子实现模板
+#### 自动生成kernel侧算子实现模板
 
 在算子工程目录下的“op_kernel/xxx.cpp”文件中实现算子的核函数。核函数的定义模板已通过msOpGen工具自动生成，样例如下所示。**这里参数的顺序按照“输入、输出、workspace、tiling”的顺序排布，开发者不要调整其顺序。**
  
@@ -31,7 +31,7 @@ extern "C" __global__ __aicore__ void add_custom(GM_ADDR x, GM_ADDR y, GM_ADDR x
  
   
 
-##### GET_TILING_DATA获取Tiling参数
+#### GET_TILING_DATA获取Tiling参数
 
 提供[GET_TILING_DATA](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-get-tiling-data)，用于获取算子kernel入口函数传入的tiling信息，并填入注册的Tiling结构体中，此函数会以宏展开的方式进行编译。注意，对应的算子host实现中需要定义TilingData结构体，实现并注册计算TilingData的Tiling函数。具体请参考[Host侧Tiling实现](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-tiling-implementation-on-the-host)。
  
@@ -51,7 +51,7 @@ extern "C" __global__ __aicore__ void add_custom(GM_ADDR x, GM_ADDR y, GM_ADDR z
  
   
 
-##### 核函数内推导输入数据类型和格式
+#### 核函数内推导输入数据类型和格式
 
 算子工程在核函数内提供了DTYPE_&lt;Arg&gt;、ORIG_DTYPE_&lt;Arg&gt;、FORMAT_&lt;Arg&gt;三种宏用于推导核函数入参的数据类型、原始数据类型和数据格式。其中&lt;Arg&gt;会自动大写。样例如下。
  
@@ -69,7 +69,7 @@ extern "C" __global__ __aicore__ void add_custom(GM_ADDR x, GM_ADDR y, GM_ADDR z
  
   
 
-##### 输出shape依赖计算的算子kernel侧实现
+#### 输出shape依赖计算的算子kernel侧实现
 
 某些算子，比如NonZero（统计tensor中非零值的个数），计算完成前无法得知算子输出的shape信息，算子计算完成后才能获取。该类算子在原型定义时，需要使用[OutputShapeDependOnCompute](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-outputshapedependoncompute)接口进行标识，同时在算子核函数中将实际输出shape写入到出参中，便于框架侧基于该信息进行输出内存的管理。
  

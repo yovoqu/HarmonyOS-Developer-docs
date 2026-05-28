@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-rtshadowaocreateinfo
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -19,13 +19,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  
@@ -45,13 +45,13 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### aoOnlyInShadow
+#### aoOnlyInShadow
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -65,7 +65,7 @@ bool XEG_RTShadowAOCreateInfo::aoOnlyInShadow
  
   
 
-##### denoiseMode
+#### denoiseMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -79,7 +79,7 @@ XEG_DenoiseQualityMode XEG_RTShadowAOCreateInfo::denoiseMode
  
   
 
-##### enableRTAO
+#### enableRTAO
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -93,7 +93,7 @@ bool XEG_RTShadowAOCreateInfo::enableRTAO
  
   
 
-##### enableRTShadow
+#### enableRTShadow
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -107,7 +107,7 @@ bool XEG_RTShadowAOCreateInfo::enableRTShadow
  
   
 
-##### pNext
+#### pNext
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -121,7 +121,7 @@ const void* XEG_RTShadowAOCreateInfo::pNext
  
   
 
-##### reverseZ
+#### reverseZ
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -135,7 +135,7 @@ bool XEG_RTShadowAOCreateInfo::reverseZ
  
   
 
-##### rtInputGbufferSize
+#### rtInputGbufferSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -149,7 +149,7 @@ VkExtent2D XEG_RTShadowAOCreateInfo::rtInputGbufferSize
  
   
 
-##### rtShadowAOSize
+#### rtShadowAOSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -163,7 +163,7 @@ VkExtent2D XEG_RTShadowAOCreateInfo::rtShadowAOSize
  
   
 
-##### sType
+#### sType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -177,7 +177,7 @@ XEG_StructureType XEG_RTShadowAOCreateInfo::sType
  
   
 
-##### traversalMode
+#### traversalMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

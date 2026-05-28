@@ -15,7 +15,7 @@
 4. **Logs**：展示FaultLog中的HiLog日志，具体请查看[查看HiLog日志](#section656352444818)。
  
 
-##### 字段说明
+#### 字段说明
 
 **Fault Analysis**页签中的字段和FaultLog的字段对应关系如下。
   
@@ -35,12 +35,12 @@
  
  
 
-##### 查看堆栈信息
+#### 查看堆栈信息
 
 Stacks页面包含了FaultLog中的堆栈信息，并以线程为单元进行折叠，点击展开按钮，可以展开对应线程。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/DvNTW3TdSMG8mkQrH9yl9A/zh-cn_image_0000002602186263.png?HW-CC-KV=V1&HW-CC-Date=20260528T014921Z&HW-CC-Expire=86400&HW-CC-Sign=614A68B607C493DE20A53068BA87C8F2886684C4129E920A26FC1A1EB937FC60)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/uaa8gciVRJuLSZWvhcBntw/zh-cn_image_0000002602186263.png?HW-CC-KV=V1&HW-CC-Date=20260528T030549Z&HW-CC-Expire=86400&HW-CC-Sign=BC6267631048AC1E83F670999F6267E70FB8FDF140F0946523B942F3D1ED0950)
 
  
 图中标注1的勾选框是展开应用堆栈，标注2的勾选框是展开系统堆栈，两个勾选框一共组成了四种状态，具体如下表。
@@ -55,9 +55,9 @@ Stacks页面包含了FaultLog中的堆栈信息，并以线程为单元进行折
  
  
 
-##### 查看HiLog日志
+#### 查看HiLog日志
 
 Logs页面展示了FaultLog中的HiLog日志，支持日志级别的过滤和搜索。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/obMhDz_LT-m-tG3Lo2uLVQ/zh-cn_image_0000002602186265.png?HW-CC-KV=V1&HW-CC-Date=20260528T014921Z&HW-CC-Expire=86400&HW-CC-Sign=F42DDD0257F4D8A6C1B17D90BB0BA56E81D960306857A5A2B9A773CAB63915FF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/IbOH2DChRMyf_izbWcgp7A/zh-cn_image_0000002602186265.png?HW-CC-KV=V1&HW-CC-Date=20260528T030549Z&HW-CC-Expire=86400&HW-CC-Sign=01999458AB3D8B023F1ADDBE04EEF52EB430FD05EBAF61753CDA02AC8EA06D75)

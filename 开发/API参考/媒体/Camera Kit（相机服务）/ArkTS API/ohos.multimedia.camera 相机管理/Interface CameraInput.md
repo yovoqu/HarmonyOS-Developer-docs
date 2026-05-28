@@ -14,7 +14,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { camera } from '@kit.CameraKit';
 
 
 
-##### open
+#### open
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -72,7 +72,7 @@ function openCameraInput(cameraInput: camera.CameraInput): void {
 
 
 
-##### open
+#### open
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -119,7 +119,7 @@ function openCameraInput(cameraInput: camera.CameraInput): void {
 
 
 
-##### open12+
+#### open12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -172,7 +172,7 @@ function openCameraInput(cameraInput: camera.CameraInput): void {
 
 
 
-##### open18+
+#### open18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -226,7 +226,7 @@ function openCameraInput(cameraInput: camera.CameraInput): void {
 
 
 
-##### close
+#### close
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -272,7 +272,7 @@ function closeCameraInput(cameraInput: camera.CameraInput): void {
 
 
 
-##### close
+#### close
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -316,7 +316,7 @@ function closeCameraInput(cameraInput: camera.CameraInput): void {
 
 
 
-##### on('error')
+#### on('error')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -357,7 +357,7 @@ function registerCameraInputError(cameraInput: camera.CameraInput, camera: camer
 
 
 
-##### off('error')
+#### off('error')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -388,7 +388,7 @@ function unregisterCameraInputError(cameraInput: camera.CameraInput, camera: cam
 
 
 
-##### isPhysicalCameraOrientationVariable22+
+#### isPhysicalCameraOrientationVariable22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -418,7 +418,7 @@ function isPhysicalCameraOrientationVariable(cameraInput: camera.CameraInput): b
 
 
 
-##### getPhysicalCameraOrientation22+
+#### getPhysicalCameraOrientation22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -448,7 +448,7 @@ function getPhysicalCameraOrientation(cameraInput: camera.CameraInput): number {
 
 
 
-##### usePhysicalCameraOrientation22+
+#### usePhysicalCameraOrientation22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -494,7 +494,7 @@ function usePhysicalCameraOrientation(cameraInput: camera.CameraInput, isUsed: b
 
 
 
-##### on('cameraOcclusionDetection')23+
+#### on('cameraOcclusionDetection')23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -543,7 +543,7 @@ function registerCameraOcclusionDetection(cameraInput: camera.CameraInput): void
 
 
 
-##### off('cameraOcclusionDetection')23+
+#### off('cameraOcclusionDetection')23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

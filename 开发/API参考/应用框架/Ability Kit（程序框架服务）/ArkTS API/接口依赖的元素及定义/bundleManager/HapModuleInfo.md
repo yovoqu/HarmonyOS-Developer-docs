@@ -12,7 +12,7 @@ HAP信息，可以通过[getBundleInfoForSelf](https://developer.huawei.com/cons
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 
-##### HapModuleInfo
+#### HapModuleInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -55,7 +55,7 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 
-##### PreloadItem
+#### PreloadItem
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -72,7 +72,7 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 
-##### Dependency
+#### Dependency
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -91,7 +91,7 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 
-##### RouterItem12+
+#### RouterItem12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -112,7 +112,7 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 
-##### DataItem12+
+#### DataItem12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

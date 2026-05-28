@@ -12,7 +12,7 @@ Web组件数据库管理对象。
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { webview } from '@kit.ArkWeb';
 
 
 
-##### getHttpAuthCredentials
+#### getHttpAuthCredentials
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -90,7 +90,7 @@ struct WebComponent {
 
 
 
-##### saveHttpAuthCredentials
+#### saveHttpAuthCredentials
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -151,7 +151,7 @@ struct WebComponent {
 
 
 
-##### existHttpAuthCredentials
+#### existHttpAuthCredentials
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -198,7 +198,7 @@ struct WebComponent {
 
 
 
-##### deleteHttpAuthCredentials
+#### deleteHttpAuthCredentials
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -12,13 +12,13 @@
 
   
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### SwipeGesture
+#### SwipeGesture
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -39,7 +39,7 @@ SwipeGesture(value?: { fingers?: number; direction?: SwipeDirection; speed?: num
  
   
 
-##### SwipeGesture15+
+#### SwipeGesture15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -60,7 +60,7 @@ SwipeGesture(options?: SwipeGestureHandlerOptions)
  
   
 
-##### SwipeDirection枚举说明
+#### SwipeDirection枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -80,7 +80,7 @@ SwipeGesture(options?: SwipeGestureHandlerOptions)
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -90,7 +90,7 @@ SwipeGesture(options?: SwipeGestureHandlerOptions)
  
   
 
-##### onAction
+#### onAction
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -111,7 +111,7 @@ Swipe手势识别成功时触发回调。
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -152,4 +152,4 @@ struct SwipeGestureExample {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/LH3sb9XbSOSu2Jd1edKcNQ/zh-cn_image_0000002611835543.png?HW-CC-KV=V1&HW-CC-Date=20260528T024201Z&HW-CC-Expire=86400&HW-CC-Sign=5FBDC19E92A690D88E95E86E938339400FA5B510458A40D1939AE8FD4CACCA89)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/LH3sb9XbSOSu2Jd1edKcNQ/zh-cn_image_0000002611835543.png?HW-CC-KV=V1&HW-CC-Date=20260528T025534Z&HW-CC-Expire=86400&HW-CC-Sign=9A030F906231C5E27696AA39EB32BA3AAF1A1E7BC8DDD826DB9BA35D293BF6AE)

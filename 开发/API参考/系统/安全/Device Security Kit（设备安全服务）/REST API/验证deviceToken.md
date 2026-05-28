@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-deviceverify-checkdevicetoken
 
-##### 功能介绍
+#### 功能介绍
 
 开发者应用的服务端可调用本接口验证deviceToken合法性，确认设备为真实的华为设备。
 
 
 
-##### 场景描述
+#### 场景描述
 
 开发者获取到device token后可调用本接口验证deviceToken合法性，确认设备为真实的华为设备。
 
@@ -26,13 +26,13 @@
 
 
 
-##### 使用约束
+#### 使用约束
 
 无
 
 
 
-##### 接口原型
+#### 接口原型
 
  - **承载协议** HTTPS POST
  - **接口方向** 开发者服务器->Device Security服务器
@@ -44,7 +44,7 @@
 
 
 
-##### 请求参数
+#### 请求参数
 
 **Request Header**
 
@@ -74,7 +74,7 @@
 
 
 
-##### 请求示例
+#### 请求示例
 
 ```json
 post /api/rms/v1/deviceVerify/checkDeviceToken HTTP/1.1
@@ -88,7 +88,7 @@ Content-Type: application/json;charset=utf-8
 
 
 
-##### 响应参数
+#### 响应参数
 
 **Response Body**
 
@@ -100,7 +100,7 @@ Content-Type: application/json;charset=utf-8
 
 
 
-##### 响应示例
+#### 响应示例
 
 ```json
 HTTP/1.1 200 OK
@@ -111,7 +111,7 @@ Content-Type: application/json;charset=utf-8
 
 
 
-##### 错误码
+#### 错误码
 
 以下错误码的详细介绍请参见[REST API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-restapi-errcode)。
 

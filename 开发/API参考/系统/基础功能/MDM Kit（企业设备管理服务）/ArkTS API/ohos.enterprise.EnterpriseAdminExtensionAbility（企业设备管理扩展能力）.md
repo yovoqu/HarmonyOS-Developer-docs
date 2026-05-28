@@ -14,7 +14,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -24,7 +24,7 @@ import { EnterpriseAdminExtensionAbility } from '@kit.MDMKit';
 
 
 
-##### EnterpriseAdminExtensionAbility
+#### EnterpriseAdminExtensionAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -32,7 +32,7 @@ import { EnterpriseAdminExtensionAbility } from '@kit.MDMKit';
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -45,7 +45,7 @@ import { EnterpriseAdminExtensionAbility } from '@kit.MDMKit';
 
 
 
-##### onAdminEnabled
+#### onAdminEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -70,7 +70,7 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 
 
-##### onAdminDisabled
+#### onAdminDisabled
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -95,7 +95,7 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 
 
-##### onBundleAdded
+#### onBundleAdded
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -128,7 +128,7 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 
 
-##### onBundleAdded14+
+#### onBundleAdded14+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -163,7 +163,7 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 
 
-##### onBundleRemoved
+#### onBundleRemoved
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -196,7 +196,7 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 
 
-##### onBundleRemoved14+
+#### onBundleRemoved14+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -231,7 +231,7 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 
 
-##### onAppStart
+#### onAppStart
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -264,7 +264,7 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 
 
-##### onAppStop
+#### onAppStop
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -297,7 +297,7 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 
 
-##### onSystemUpdate
+#### onSystemUpdate
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -331,7 +331,7 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 
 
-##### onStart
+#### onStart
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -357,7 +357,7 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 
 
-##### onAccountAdded18+
+#### onAccountAdded18+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -390,7 +390,7 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 
 
-##### onAccountSwitched18+
+#### onAccountSwitched18+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -423,7 +423,7 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 
 
-##### onAccountRemoved18+
+#### onAccountRemoved18+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -456,7 +456,7 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 
 
-##### onKioskModeEntering20+
+#### onKioskModeEntering20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -492,7 +492,7 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 
 
-##### onKioskModeExiting20+
+#### onKioskModeExiting20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -526,7 +526,7 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 
 
-##### onMarketAppInstallResult22+
+#### onMarketAppInstallResult22+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -560,7 +560,7 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 
 
-##### onDeviceAdminEnabled23+
+#### onDeviceAdminEnabled23+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -592,7 +592,7 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 
 
-##### onDeviceAdminDisabled23+
+#### onDeviceAdminDisabled23+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -624,7 +624,7 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 
 
-##### onKeyEvent23+
+#### onKeyEvent23+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -750,7 +750,7 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 
 
-##### onLogCollected23+
+#### onLogCollected23+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -817,7 +817,7 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 
 
-##### onStartupGuideCompleted24+
+#### onStartupGuideCompleted24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -856,7 +856,7 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 
 
-##### onDeviceBootCompleted24+
+#### onDeviceBootCompleted24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

@@ -10,7 +10,7 @@
 
 
 
-##### WindowType7+
+#### WindowType7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -29,7 +29,7 @@
 
 
 
-##### AvoidAreaType7+
+#### AvoidAreaType7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -52,7 +52,7 @@
 
 
 
-##### Orientation9+
+#### Orientation9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -82,7 +82,7 @@
 
 
 
-##### RectChangeReason12+
+#### RectChangeReason12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -105,7 +105,7 @@
 
 
 
-##### ColorSpace8+
+#### ColorSpace8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -123,7 +123,7 @@
 
 
 
-##### WindowEventType10+
+#### WindowEventType10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -142,7 +142,7 @@
 
 
 
-##### WindowStatusType11+
+#### WindowStatusType11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -164,7 +164,7 @@
 
 
 
-##### PixelUnit22+
+#### PixelUnit22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -182,7 +182,7 @@
 
 
 
-##### MaximizePresentation12+
+#### MaximizePresentation12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -200,7 +200,7 @@
 
 
 
-##### WindowAnimationCurve20+
+#### WindowAnimationCurve20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -219,7 +219,7 @@
 
 
 
-##### WindowTransitionType20+
+#### WindowTransitionType20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -236,7 +236,7 @@
 
 
 
-##### AnimationType20+
+#### AnimationType20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -251,7 +251,7 @@
 
 
 
-##### WindowAnchor20+
+#### WindowAnchor20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -274,7 +274,7 @@
 
 
 
-##### RotationChangeType19+
+#### RotationChangeType19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -292,7 +292,7 @@
 
 
 
-##### RectType19+
+#### RectType19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -310,7 +310,7 @@
 
 
 
-##### GlobalWindowMode20+
+#### GlobalWindowMode20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -330,7 +330,7 @@
 
 
 
-##### OcclusionState22+
+#### OcclusionState22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -347,7 +347,7 @@
 
 
 
-##### WindowStageEventType9+
+#### WindowStageEventType9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -371,7 +371,7 @@ WindowStage生命周期状态枚举。
 
 
 
-##### WindowStageLifecycleEventType20+
+#### WindowStageLifecycleEventType20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -391,7 +391,7 @@ WindowStage生命周期的状态类型枚举。
 
 
 
-##### ModalityType14+
+#### ModalityType14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -409,7 +409,7 @@ WindowStage生命周期的状态类型枚举。
 
 
 
-##### ScreenshotEventType20+
+#### ScreenshotEventType20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -428,7 +428,7 @@ WindowStage生命周期的状态类型枚举。
 
 
 
-##### RotationInfoType23+
+#### RotationInfoType23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

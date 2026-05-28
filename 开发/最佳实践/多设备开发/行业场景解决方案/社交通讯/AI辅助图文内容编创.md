@@ -4,19 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-content-creation
 
-##### 概述
+#### 概述
 
 本场景实现社交通讯类应用的图文内容编创流程，接入自由流转、服务互动等HarmonyOS特性能力。
  
  
 
-##### 整体场景介绍
+#### 整体场景介绍
 
 图文编创流程主要通过Photo Picker选取本地图片，然后对图片进行智能处理，同时也可使用自定义相机拍摄动图，最后进行文字编创时可进行自由流转接续编辑和跨端获取相册或相机拍摄内容。
  
  
 
-##### 演示效果
+#### 演示效果
 
 图文编创操作流程
  
@@ -28,17 +28,17 @@
  
  
 
-##### 场景适用说明
+#### 场景适用说明
 
  
 
-##### 适用范围
+#### 适用范围
 
 本场景适用于社交通讯类应用，图文内容编辑过程中接入HarmonyOS特性能力，提供详细技术实现方案，降低开发者学习成本，提高接入速度。
  
  
 
-##### 场景优势
+#### 场景优势
 
 本场景结合HarmonyOS的跨设备互通、智能处理、自由流转等能力，提升用户内容发布体验。具体优势如下：
  
@@ -50,11 +50,11 @@
  
  
 
-##### 场景分析
+#### 场景分析
 
  
 
-##### 典型场景分析
+#### 典型场景分析
  
 | 子场景名称 | 描述 | 实现方案 |
 | 图片视图选择 | 发布首页资源文件类型选择 | 使用Photo Picker能力实现图片选择 |
@@ -66,27 +66,27 @@
  
  
 
-##### 场景实现
+#### 场景实现
 
  
 
-##### Photo Picker的使用
+#### Photo Picker的使用
 
  
 
-##### 子场景描述
+#### 子场景描述
 
 用户在首页点击进入发布流程时，将直接跳转到半模态窗口的Picker页面。该页面支持自定义，为开发者提供更多选择。
  
  
 
-##### 关键点说明
+#### 关键点说明
 
 使用系统Picker能力，可以免申请权限读写权限'READ_IMAGEVIDEO'和'WRITE_IMAGEVIDEO'，给开发者提供了极大的便利。
  
  
 
-##### 关键代码
+#### 关键代码
 
 首先在使用前，需要先创建PhotoViewPicker实例。
  
@@ -116,17 +116,17 @@ photoViewPicker.select(photoSelectOptions).then((photoSelectResult: photoAccessH
  
  
 
-##### OCR文字识别、智能抠图与HDR vivid的使用
+#### OCR文字识别、智能抠图与HDR vivid的使用
 
  
 
-##### 子场景描述
+#### 子场景描述
 
 选取图片后，可以浏览图片并长按物体实现目标抠取，同时可以识别图片中的文字以供后续文本编辑使用。如果图片采用HDR Vivid模式拍摄，将展示其效果。
  
  
 
-##### 演示效果
+#### 演示效果
 
 长按图片可识别文字并实现物体抠图
  
@@ -138,7 +138,7 @@ photoViewPicker.select(photoSelectOptions).then((photoSelectResult: photoAccessH
  
  
 
-##### 关键点说明
+#### 关键点说明
 
 （1）在Image组件中，设置enableAnalyzer属性可实现OCR文字识别和抠图；设置dynamicRangeMode属性可展示HDR高亮，需配合image.DecodingOptions配置动态范围模式。
  
@@ -148,7 +148,7 @@ photoViewPicker.select(photoSelectOptions).then((photoSelectResult: photoAccessH
  
  
 
-##### 关键代码
+#### 关键代码
 
 开启图片智能分析属性并设置图像的动态模式。
  
@@ -187,17 +187,17 @@ static createPixelMap(uri: string): ImageInfo | undefined {
  
  
 
-##### Moving Photo的拍摄与展示
+#### Moving Photo的拍摄与展示
 
  
 
-##### 子场景描述
+#### 子场景描述
 
 在编辑图片页，增加一个自定义相机tab项，开发者可以根据自身需求，设置并拍摄多种模式的照片，用于内容展示。
  
  
 
-##### 关键点说明
+#### 关键点说明
 
 （1）相机初始化后，可设置Moving Photo属性，默认关闭。当前场景中，若设置为开启，可点击Moving Photo按钮切换状态。
  
@@ -209,7 +209,7 @@ static createPixelMap(uri: string): ImageInfo | undefined {
  
  
 
-##### 关键代码
+#### 关键代码
 
 申请对应权限。
  
@@ -343,11 +343,11 @@ build() {
  
  
 
-##### 跨设备互通组件的使用
+#### 跨设备互通组件的使用
 
  
 
-##### 演示效果
+#### 演示效果
 
 跨端相册获取新的图片
  
@@ -359,13 +359,13 @@ build() {
  
  
 
-##### 子场景描述
+#### 子场景描述
 
 通过跨设备互通组件，实现跨端相册访问和跨端相机拍照，从其他设备获取新的图像内容，提高设备间图像传输的快捷性和便利性。
  
  
 
-##### 关键点说明
+#### 关键点说明
 
 （1）使用跨设备互通组件需要连接网络并登录相同账号。
  
@@ -383,7 +383,7 @@ build() {
  
  
 
-##### 关键代码
+#### 关键代码
 
 跨端拍照与跨端相册访问
  
@@ -450,17 +450,17 @@ private doInsertPicture(stateCode: number, bufferType: string, buffer: ArrayBuff
  
  
 
-##### 应用接续的实现
+#### 应用接续的实现
 
  
 
-##### 子场景描述
+#### 子场景描述
 
 使用Ability的自由流转能力，编辑内容可以流转到其他设备上进行接续编辑，方便用户在不同设备上编辑。
  
  
 
-##### 演示效果
+#### 演示效果
 
 自由流转，接续编辑图文内容的功能已启用。
  
@@ -472,7 +472,7 @@ private doInsertPicture(stateCode: number, bufferType: string, buffer: ArrayBuff
  
  
 
-##### 关键点说明
+#### 关键点说明
 
 接续使用条件
  
@@ -516,7 +516,7 @@ private doInsertPicture(stateCode: number, bufferType: string, buffer: ArrayBuff
  
  
 
-##### 关键代码
+#### 关键代码
 
 应用接续可以按需迁移路由栈，也可选择动态配置，仅对特定页面开启接续，此处仅设置最后的图文编辑页面GraphicCreationPage开启接续能力。按需迁移路由栈的方法具体可参考[按需迁移页面栈](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-continue-cast#section1924112387418)。
  
@@ -706,6 +706,6 @@ static copyFileToDestination(sourceUri: string, destination: string) {
  
  
 
-##### 示例代码
+#### 示例代码
 
 - [基于AI能力实现图文内容高效编创](https://gitcode.com/HarmonyOS_Samples/graphic-creation)

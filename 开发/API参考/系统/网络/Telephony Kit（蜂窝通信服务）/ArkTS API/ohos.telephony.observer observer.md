@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -22,7 +22,7 @@ import { observer } from '@kit.TelephonyKit';
 
 
 
-##### NetworkState
+#### NetworkState
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -39,7 +39,7 @@ type NetworkState = radio.NetworkState
 
 
 
-##### SignalInformation
+#### SignalInformation
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -56,7 +56,7 @@ type SignalInformation = radio.SignalInformation
 
 
 
-##### DataConnectState
+#### DataConnectState
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -73,7 +73,7 @@ type DataConnectState = data.DataConnectState
 
 
 
-##### RatType
+#### RatType
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -90,7 +90,7 @@ type RatType = radio.RadioTechnology
 
 
 
-##### DataFlowType
+#### DataFlowType
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -107,7 +107,7 @@ type DataFlowType = data.DataFlowType
 
 
 
-##### CallState
+#### CallState
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -124,7 +124,7 @@ type CallState = call.CallState
 
 
 
-##### CCallState23+
+#### CCallState23+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -141,7 +141,7 @@ type CCallState = call.CCallState
 
 
 
-##### CardType
+#### CardType
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -158,7 +158,7 @@ type CardType = sim.CardType
 
 
 
-##### SimState
+#### SimState
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -175,7 +175,7 @@ SIM卡状态。
 
 
 
-##### TelCallState21+
+#### TelCallState21+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -192,7 +192,7 @@ type TelCallState = call.TelCallState
 
 
 
-##### observer.on('networkStateChange')
+#### observer.on('networkStateChange')
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -236,7 +236,7 @@ observer.on('networkStateChange', (data: observer.NetworkState) => {
 
 
 
-##### observer.on('networkStateChange')
+#### observer.on('networkStateChange')
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -284,7 +284,7 @@ observer.on('networkStateChange', options, (data: observer.NetworkState) => {
 
 
 
-##### observer.off('networkStateChange')
+#### observer.off('networkStateChange')
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -333,7 +333,7 @@ observer.off('networkStateChange');
 
 
 
-##### observer.on('signalInfoChange')
+#### observer.on('signalInfoChange')
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -376,7 +376,7 @@ observer.on('signalInfoChange', (data: Array<radio.SignalInformation>) => {
 
 
 
-##### observer.on('signalInfoChange')
+#### observer.on('signalInfoChange')
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -423,7 +423,7 @@ observer.on('signalInfoChange', options, (data: Array<radio.SignalInformation>) 
 
 
 
-##### observer.off('signalInfoChange')
+#### observer.off('signalInfoChange')
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -474,7 +474,7 @@ observer.off('signalInfoChange');
 
 
 
-##### observer.on('callStateChange')
+#### observer.on('callStateChange')
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -515,7 +515,7 @@ observer.on('callStateChange', (data: observer.CallStateInfo) => {
 
 
 
-##### observer.on('callStateChange')
+#### observer.on('callStateChange')
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -560,7 +560,7 @@ observer.on('callStateChange', options, (data: observer.CallStateInfo) => {
 
 
 
-##### observer.off('callStateChange')
+#### observer.off('callStateChange')
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -609,7 +609,7 @@ observer.off('callStateChange');
 
 
 
-##### observer.on('callStateChangeEx')21+
+#### observer.on('callStateChangeEx')21+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -658,7 +658,7 @@ observer.on('callStateChangeEx', callback);
 
 
 
-##### observer.off('callStateChangeEx')21+
+#### observer.off('callStateChangeEx')21+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -707,7 +707,7 @@ observer.off('callStateChangeEx');
 
 
 
-##### observer.on('cellularDataConnectionStateChange')7+
+#### observer.on('cellularDataConnectionStateChange')7+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -748,7 +748,7 @@ observer.on('cellularDataConnectionStateChange', (data: observer.DataConnectionS
 
 
 
-##### observer.on('cellularDataConnectionStateChange')7+
+#### observer.on('cellularDataConnectionStateChange')7+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -793,7 +793,7 @@ observer.on('cellularDataConnectionStateChange', options, (data: observer.DataCo
 
 
 
-##### observer.off('cellularDataConnectionStateChange')7+
+#### observer.off('cellularDataConnectionStateChange')7+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -842,7 +842,7 @@ observer.off('cellularDataConnectionStateChange');
 
 
 
-##### observer.on('cellularDataFlowChange')7+
+#### observer.on('cellularDataFlowChange')7+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -885,7 +885,7 @@ observer.on('cellularDataFlowChange', (data: data.DataFlowType) => {
 
 
 
-##### observer.on('cellularDataFlowChange')7+
+#### observer.on('cellularDataFlowChange')7+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -932,7 +932,7 @@ observer.on('cellularDataFlowChange', options, (data: data.DataFlowType) => {
 
 
 
-##### observer.off('cellularDataFlowChange')7+
+#### observer.off('cellularDataFlowChange')7+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -983,7 +983,7 @@ observer.off('cellularDataFlowChange');
 
 
 
-##### observer.on('simStateChange')7+
+#### observer.on('simStateChange')7+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1028,7 +1028,7 @@ observer.on('simStateChange', (data: observer.SimStateData) => {
 
 
 
-##### observer.on('simStateChange')7+
+#### observer.on('simStateChange')7+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1073,7 +1073,7 @@ observer.on('simStateChange', options, (data: observer.SimStateData) => {
 
 
 
-##### observer.off('simStateChange')7+
+#### observer.off('simStateChange')7+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1122,7 +1122,7 @@ observer.off('simStateChange');
 
 
 
-##### observer.on('iccAccountInfoChange')10+
+#### observer.on('iccAccountInfoChange')10+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1163,7 +1163,7 @@ observer.on('iccAccountInfoChange', () => {
 
 
 
-##### observer.off('iccAccountInfoChange')10+
+#### observer.off('iccAccountInfoChange')10+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1212,7 +1212,7 @@ observer.off('iccAccountInfoChange');
 
 
 
-##### observer.onGetSimActiveState23+
+#### observer.onGetSimActiveState23+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1260,7 +1260,7 @@ observer.onGetSimActiveState(sislotId, simActiveState);
 
 
 
-##### observer.offGetSimActiveState23+
+#### observer.offGetSimActiveState23+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1306,7 +1306,7 @@ observer.offGetSimActiveState(simActiveState);
 
 
 
-##### observer.onCCallStateChange23+
+#### observer.onCCallStateChange23+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1357,7 +1357,7 @@ observer.onCCallStateChange(callback);
 
 
 
-##### observer.offCCallStateChange23+
+#### observer.offCCallStateChange23+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1404,7 +1404,7 @@ observer.offCCallStateChange();
 
 
 
-##### LockReason8+
+#### LockReason8+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1431,7 +1431,7 @@ SIM卡锁类型。
 
 
 
-##### SimStateData7+
+#### SimStateData7+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1448,7 +1448,7 @@ SIM卡类型和状态。
 
 
 
-##### CallStateInfo11+
+#### CallStateInfo11+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1464,7 +1464,7 @@ SIM卡类型和状态。
 
 
 
-##### CCallStateInfo23+
+#### CCallStateInfo23+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1480,7 +1480,7 @@ SIM卡类型和状态。
 
 
 
-##### DataConnectionStateInfo11+
+#### DataConnectionStateInfo11+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1496,7 +1496,7 @@ SIM卡类型和状态。
 
 
 
-##### ObserverOptions11+
+#### ObserverOptions11+
 
 **支持设备：** Phone | Tablet | Wearable
 

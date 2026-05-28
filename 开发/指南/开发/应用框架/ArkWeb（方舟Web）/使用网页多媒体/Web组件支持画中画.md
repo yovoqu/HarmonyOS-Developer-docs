@@ -17,13 +17,13 @@ Web组件提供画中画功能支持，应用可利用W3C标准的Picture-in-Pic
 ```
 
 
-##### 约束与限制
+#### 约束与限制
 1. 当前H264/H265/HLS格式的视频可在创建的画中画窗口中播放。
 2. 画中画窗口的大小调整依据系统能力，具体参照设计指南中的系统特性与能力部分。
 
 
 
-##### 进入画中画
+#### 进入画中画
 
 以仅包含媒体源的video元素和一个用户交互的button元素为例，介绍如何创建一个浮动窗口播放视频，使用户在浏览其他网页或与其他应用交互时，能够通过该画中画窗口持续观看视频。
 
@@ -49,7 +49,7 @@ togglePipButton.addEventListener("click", async () => {
 
 
 
-##### 退出画中画
+#### 退出画中画
 
 请求退出画中画模式，请使用Document接口的exitPictureInPicture()方法，视频将重新在原始标签页中显示。
 
@@ -67,7 +67,7 @@ try {
 
 
 
-##### 监听画中画事件
+#### 监听画中画事件
 
 当用户进入画中画模式播放视频时，会显示一个浮动窗口用于播放视频。系统规定每次只能播放一个画中画视频。
 
@@ -87,7 +87,7 @@ videoElement.addEventListener('leavepictureinpicture', function (event) {
 
 
 
-##### 画中画窗口交互
+#### 画中画窗口交互
 
  - 画中画整体窗口控制：
 
@@ -109,7 +109,7 @@ videoElement.addEventListener('leavepictureinpicture', function (event) {
 
 
 
-##### 完整示例
+#### 完整示例
 
 支持启动/退出画中画的完整示例如下：
 

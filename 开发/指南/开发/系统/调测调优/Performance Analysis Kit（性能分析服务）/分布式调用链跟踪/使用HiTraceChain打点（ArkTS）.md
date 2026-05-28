@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hitracechain-guidelines-arkts
 
-##### 接口说明
+#### 接口说明
 
 分布式跟踪接口由HiTraceChain模块提供，详细API请参考[@ohos.hiTraceChain (分布式跟踪)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hitracechain)。
 
@@ -24,13 +24,13 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 HiTraceChain在ArkTS中的使用方法参考以下示例，开发者可参考[约束与限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hitracechain-intro#约束与限制)，了解常见的支持与不支持HiTraceChain自动传递的机制。
 
 
 
-##### async/await和promise/then异步任务中使用HiTraceChain
+#### async/await和promise/then异步任务中使用HiTraceChain
 
 async/await和promise/then异步任务支持HiTraceChain自动传递，示例结合[事件订阅（ArkTS）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-app-events-arkts)和[使用HiTraceMeter跟踪性能（ArkTS）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hitracemeter-guidelines-arkts)，说明分布式跟踪在ArkTS中的使用方法。
 1. 在DevEco Studio中新建工程，选择“Empty Ability”，SDK版本选择19及以上（示例工程使用的HiTraceMeter接口从API version 19开始支持），工程的目录结构如下：
@@ -220,7 +220,7 @@ e.myapplication-55451   (  55451) [010] .... 27164.174417: tracing_mark_write: B
 
 
 
-##### 异步宏任务setInterval和setTimeout中使用HiTraceChain
+#### 异步宏任务setInterval和setTimeout中使用HiTraceChain
 
 异步宏任务setInterval和setTimeout不支持HiTraceChain自动传递，以下示例说明如何使用hiTraceChain.getId()、hiTraceChain.setId()接口传递HiTraceId，如何使用hiTraceChain.createSpan()接口创建分支标识，进行分布式跟踪。
 1. 在DevEco Studio中新建工程，选择“Empty Ability”，工程的目录结构如下：

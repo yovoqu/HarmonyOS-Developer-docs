@@ -11,7 +11,7 @@
 
  
 
-##### 等待调试方式
+#### 等待调试方式
 1. 参考[等待调试](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-debug-arkts-attach-to-process)对当前调试工程进行调试。
 
   
@@ -30,7 +30,7 @@
  
  
 
-##### 修改运行配置方式
+#### 修改运行配置方式
 1. 在运行调试窗口，运行配置项**Launch Options**选择**Specified Ability**。
 
   

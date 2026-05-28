@@ -7,7 +7,7 @@
 列出已安装的三方库。
  
 
-##### 命令格式
+#### 命令格式
 
 ```text
 ohpm list [options] [[<@group>/]<pkg>[@<version>]]
@@ -20,7 +20,7 @@ alias: ls
  
  
 
-##### 功能描述
+#### 功能描述
 
 以树形结构列出当前项目安装的所有三方库信息，以及它们的依赖关系。
  
@@ -28,11 +28,11 @@ alias: ls
  
  
 
-##### Options
+#### Options
 
  
 
-##### depth
+#### depth
 
 - 默认值：0
 - 类型：number
@@ -49,7 +49,7 @@ alias: ls
  
  
 
-##### json
+#### json
 
 - 默认值：无
 - 别名：j
@@ -59,7 +59,7 @@ alias: ls
  
  
 
-##### prefix
+#### prefix
 
 - 默认值：""
 - 类型： string
@@ -69,7 +69,7 @@ alias: ls
  
  
 
-##### parameterFile
+#### parameterFile
 
 - 默认值：无
 - 类型： string
@@ -80,7 +80,7 @@ alias: ls
  
  
 
-##### recursive
+#### recursive
 
 - 默认值：无
 - 别名：r
@@ -90,7 +90,7 @@ OHPM客户端从5.2.0版本开始，可以在 list 命令后面配置 -r 或者 
  
  
 
-##### target_path
+#### target_path
 
 - 默认值：无
 - 类型：string
@@ -100,7 +100,7 @@ OHPM客户端从5.2.0版本开始，可以在 list 命令后面配置 -r 或者 
  
  
 
-##### log_level
+#### log_level
 
 - 默认值：无
 - 类型： String
@@ -110,7 +110,7 @@ OHPM客户端从5.2.0版本开始，可以在 list 命令后面配置 -r 或者 
  
  
 
-##### debug
+#### debug
 
 - 默认值：false
 - 类型： Boolean
@@ -120,7 +120,7 @@ OHPM客户端从5.2.0版本开始，可以在 list 命令后面配置 -r 或者 
  
  
 
-##### 示例
+#### 示例
 
 - 查看当前项目安装的**所有**三方库及依赖关系。
 
@@ -133,7 +133,7 @@ ohpm list
  结果示例：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/rPqVhI0rTPmiZxXujXL33w/zh-cn_image_0000002602186513.png?HW-CC-KV=V1&HW-CC-Date=20260528T015004Z&HW-CC-Expire=86400&HW-CC-Sign=A08D82ED79BEADEA1AD5FAD3B15934E73D048497F2F1815E36031BCB338BB972)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/xzN7GSGSQUiJkUBORnBjew/zh-cn_image_0000002602186513.png?HW-CC-KV=V1&HW-CC-Date=20260528T030634Z&HW-CC-Expire=86400&HW-CC-Sign=6A5949CD8F1C334DED8A46D6A263D486F1E4040AEA7D4709A941BCD8053C888A)
 
 - 查看当前项目安装的**某个**三方库的依赖关系
 
@@ -146,7 +146,7 @@ ohpm list universalify
  结果示例：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/Jw5TF-d-StqpYXYgXAaeXg/zh-cn_image_0000002571387344.png?HW-CC-KV=V1&HW-CC-Date=20260528T015004Z&HW-CC-Expire=86400&HW-CC-Sign=60FE728F7D01AE0488EDDD4F3438CE838A8D5FAE527736A145DEFDDD1CA07953)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/tYLmsJcfSEa7fCI6iMNLBw/zh-cn_image_0000002571387344.png?HW-CC-KV=V1&HW-CC-Date=20260528T030634Z&HW-CC-Expire=86400&HW-CC-Sign=58F0A545567121A243C891C919FA78D9A41EC092306990957638B0B8450C6800)
 
 - 查看当前项目所有module安装的**所有**三方库及依赖关系。执行以下命令：
 

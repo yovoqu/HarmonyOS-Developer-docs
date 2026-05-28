@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-aipp-configuration-file
 
-##### 模型转换AIPP配置文件说明
+#### 模型转换AIPP配置文件说明
 
 一份功能完整的AIPP配置文件示例如下：
  
@@ -135,7 +135,7 @@ aipp_op {
  
   
 
-##### AIPP配置多输入支持
+#### AIPP配置多输入支持
 
 AIPP支持对一个多输入模型的多个输入分别配置AIPP，也支持在一个输入Data算子有多个输出分支的情况下，对不同的输出分支分别配置AIPP。
  
@@ -147,7 +147,7 @@ node_after_aipp和input_edge_idx两个参数推荐使用node_after_aipp，input_
  
   
 
-##### AIPP配置区分动态AIPP与静态AIPP
+#### AIPP配置区分动态AIPP与静态AIPP
 
 只要有一个AIPP子功能的dynamic开关配置为true，或者没有打开任何一个子功能的开关，则生成的DaVinci模型为动态AIPP模型，需要在模型推理阶段传入AIPP配置参数；相反没有任何子功能的dynamic开关配置为true，并且至少有一个子功能的开关是打开的，则生成的DaVinci模型为静态AIPP模型，模型推理阶段使用配置文件中定义的AIPP配置参数。
  
@@ -155,7 +155,7 @@ node_after_aipp和input_edge_idx两个参数推荐使用node_after_aipp，input_
  
   
 
-##### 图片裁剪(Crop)
+#### 图片裁剪(Crop)
 
 图片裁剪功能是指在原始图片中从指定的起点裁剪出指定大小的子图。
  
@@ -167,7 +167,7 @@ dynamic不写或者写成"false"表示静态配置，写成"true"表示动态配
  
   
 
-##### 静态配置
+#### 静态配置
 
 ```text
 crop_func {
@@ -181,7 +181,7 @@ crop_func {
  
   
 
-##### 动态配置
+#### 动态配置
 
 ```text
 crop_func {
@@ -196,7 +196,7 @@ crop_func {
  
   
 
-##### 通道交换功能(axSwap/uvSwap/rbSwap)
+#### 通道交换功能(axSwap/uvSwap/rbSwap)
 
 交换图片的通道支持AX通道交换、UV通道交换、RB通道交换。
  
@@ -209,7 +209,7 @@ dynamic不写或者写成"false"表示静态配置，写成"true"表示动态配
  
   
 
-##### 静态配置
+#### 静态配置
 
 ```text
 swap_func {
@@ -220,7 +220,7 @@ swap_func {
  
   
 
-##### 动态配置
+#### 动态配置
 
 可以不写具体的参数，在动态创建input tensor时指定。
  
@@ -234,7 +234,7 @@ swap_func {
  
   
 
-##### 色域转换功能(CSC)
+#### 色域转换功能(CSC)
 
 dynamic不写或者写成"false"表示静态配置，写成"true"表示动态配置。
  
@@ -246,7 +246,7 @@ dynamic不写或者写成"false"表示静态配置，写成"true"表示动态配
  
   
 
-##### 静态配置
+#### 静态配置
 
 静态AIPP配置色域转化矩阵示例如下。
  
@@ -273,7 +273,7 @@ csc_func {
  
   
 
-##### 动态配置
+#### 动态配置
 
 指定输出的色域格式，动态场景下，inputFormat可以改变，但是output_format不可变，否则会报错，因为输出的格式一般是固定的。
  
@@ -288,7 +288,7 @@ csc_func {
  
   
 
-##### 图片缩放(Resize)
+#### 图片缩放(Resize)
 
 图片缩放功能支持图片放大缩小，采用双线性插值方式进行缩放。缩放输出图片最小为16x16，缩放输出最大为448x448。
  
@@ -296,7 +296,7 @@ dynamic不写或者写成"false"表示静态配置，写成"true"表示动态配
  
   
 
-##### 静态配置
+#### 静态配置
 
 ```text
 resize_func {
@@ -308,7 +308,7 @@ resize_func {
  
   
 
-##### 动态配置
+#### 动态配置
 
 resize_output_w、resize_output_h为预分配最大size。
  
@@ -323,7 +323,7 @@ resize_func {
  
   
 
-##### 数据类型转换(DTC)
+#### 数据类型转换(DTC)
 
 数据类型转化功能是指将输入的图片数据类型通过转化公式转换为FP16类型送给后续模块计算，实际为依次执行减均值、减最小值和乘方差操作。
  
@@ -331,7 +331,7 @@ dynamic不写或者写成"false"表示静态配置，写成"true"表示动态配
  
   
 
-##### 静态配置
+#### 静态配置
 
 ```text
 dtc_func {
@@ -350,7 +350,7 @@ dtc_func {
  
   
 
-##### 动态配置
+#### 动态配置
 
 可以不写具体的参数，在动态创建input tensor时指定。
  
@@ -363,7 +363,7 @@ dtc_func {
  
   
 
-##### 图片旋转(Rotation)
+#### 图片旋转(Rotation)
 
 旋转功能支持图片旋转90°、180°和270°，以适配手机在不同方向时的图像数据。当前旋转功能只支持静态单算子场景，动态场景以及卷积融合场景不支持。静态配置如下。
  
@@ -377,7 +377,7 @@ rotate_para {
  
   
 
-##### 图片补边
+#### 图片补边
 
 图片补边功能支持在图片上下左右padding指定大小的数据。 padding的数据可以按通道来设置不同的值，最多补四个通道，如果有的通道没有设置的话，就默认补0，上下左右Padding的大小最大为32，即最多上下各补32行，左右各补32列。
  
@@ -394,7 +394,7 @@ dynamic不写或者写成"false"表示静态配置，写成"true"表示动态配
  
   
 
-##### 静态配置
+#### 静态配置
 
 ```text
 padding_func {
@@ -412,7 +412,7 @@ padding_func {
  
   
 
-##### 动态配置
+#### 动态配置
 
 padding算子是动态的，padding算子的四个padding值就写0，padding value的值在动态创建input tensor时指定。
  
@@ -429,7 +429,7 @@ padding_func {
  
   
 
-##### 完整AIPP动态配置示例
+#### 完整AIPP动态配置示例
 
 ```text
 aipp_op {
@@ -480,7 +480,7 @@ aipp_op {
  
   
 
-##### 完整AIPP静态配置
+#### 完整AIPP静态配置
 
 ```text
 aipp_op {
@@ -552,7 +552,7 @@ aipp_op {
  
   
 
-##### 动静态混合配置示例
+#### 动静态混合配置示例
 
 动静混合场景不支持配置rotate旋转参数，因为此时模型是动态的，动态场景暂不支持rotate旋转参数的配置。
  

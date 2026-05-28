@@ -13,7 +13,7 @@
 如需要将视频保存到媒体库中可参考[保存媒体库资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-savebutton)。
 
 
-##### 开发流程
+#### 开发流程
 
 在获取到相机支持的输出流能力后，开始创建录像流，开发流程如下。
 
@@ -23,7 +23,7 @@
 
 
 
-##### 完整示例
+#### 完整示例
 
 Context获取方式请参考：[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 

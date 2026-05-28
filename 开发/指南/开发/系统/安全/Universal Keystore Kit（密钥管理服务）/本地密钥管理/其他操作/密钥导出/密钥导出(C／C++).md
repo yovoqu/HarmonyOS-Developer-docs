@@ -13,7 +13,7 @@
 从API 23开始支持[群组密钥](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-group-key-overview)特性。
 
 
-##### 在CMake脚本中链接相关动态库
+#### 在CMake脚本中链接相关动态库
 
 ```text
 target_link_libraries(entry PUBLIC libhuks_ndk.z.so)
@@ -21,7 +21,7 @@ target_link_libraries(entry PUBLIC libhuks_ndk.z.so)
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 构造对应参数。
 
   

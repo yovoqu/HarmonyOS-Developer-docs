@@ -7,7 +7,7 @@
 HWASan（Hardware-Assisted Address Sanitizer）是一款类似于[ASan](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-asan)的内存错误检测工具。 与ASan相比，HWASan使用的内存减少很多，因而更适合用于整个系统的检测。关于HWASan的检测原理请参考[HWASan检测原理](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-address-sanitizer-principle#section187526511146)。
  
 
-##### 约束条件
+#### 约束条件
 
 - HWASan检测仅适用于AArch64架构的硬件。
 - ASan、TSan、UBSan、HWASan不能同时开启，只能开启其中一个。
@@ -15,7 +15,7 @@ HWASan（Hardware-Assisted Address Sanitizer）是一款类似于[ASan](https://
  
  
 
-##### 开启HWASan
+#### 开启HWASan
 
 DevEco Studio 6.1.0 Beta1之前的版本，仅支持对C++源码开启HWASan。
  
@@ -23,7 +23,7 @@ DevEco Studio 6.1.0 Beta1之前的版本，仅支持对C++源码开启HWASan。
  
  
 
-##### 方式一
+#### 方式一
 1. 点击**Run > Edit Configurations > Diagnostics**，勾选**Hardware-Assisted Address Sanitizer**开启C++源码检测插桩。从DevEco Studio 6.1.0 Beta1版本开始，可以同时勾选**BinXO check**，开启无源码的so文件的HWASan检测插桩。
 
   
@@ -41,7 +41,7 @@ DevEco Studio 6.1.0 Beta1之前的版本，仅支持对C++源码开启HWASan。
  
  
 
-##### 方式二
+#### 方式二
 1. 修改工程目录下的AppScope/app.json5文件，添加HWASan配置开关。
 ```json
 "hwasanEnabled": true
@@ -75,7 +75,7 @@ DevEco Studio 6.1.0 Beta1之前的版本，仅支持对C++源码开启HWASan。
  
  
 
-##### 使用HWASan
+#### 使用HWASan
 1. 运行或调试当前应用。
 2. 当程序出现内存错误时，弹出HWASan log信息，点击信息中的链接即可跳转至引起内存错误的代码处。日志中各字段的说明请参考[HWASan日志规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/address-sanitizer-guidelines#hwasan日志规格)，异常检测类型请参考[HWASan异常检测类型](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-hwasan-detection#section207321025115510)。
 ![](assets/使用HWASan检测内存错误/file-20260514133032925-2.png)

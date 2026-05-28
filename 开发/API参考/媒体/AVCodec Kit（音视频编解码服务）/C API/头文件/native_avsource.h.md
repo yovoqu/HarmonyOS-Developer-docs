@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avsource-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -25,13 +25,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -42,7 +42,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -60,13 +60,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_AVSource_CreateWithDataSource()
+#### OH_AVSource_CreateWithDataSource()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -100,7 +100,7 @@ OH_AVSource *OH_AVSource_CreateWithDataSource(OH_AVDataSource *dataSource)
  
   
 
-##### OH_AVSource_CreateWithDataSourceExt()
+#### OH_AVSource_CreateWithDataSourceExt()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -137,7 +137,7 @@ OH_AVSource *OH_AVSource_CreateWithDataSourceExt(OH_AVDataSourceExt *dataSource,
  
   
 
-##### OH_AVSource_CreateWithURI()
+#### OH_AVSource_CreateWithURI()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -169,7 +169,7 @@ OH_AVSource *OH_AVSource_CreateWithURI(char *uri)
  
   
 
-##### OH_AVSource_CreateWithFD()
+#### OH_AVSource_CreateWithFD()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -205,7 +205,7 @@ OH_AVSource *OH_AVSource_CreateWithFD(int32_t fd, int64_t offset, int64_t size)
  
   
 
-##### OH_AVSource_Destroy()
+#### OH_AVSource_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -239,7 +239,7 @@ OH_AVErrCode OH_AVSource_Destroy(OH_AVSource *source)
  
   
 
-##### OH_AVSource_GetSourceFormat()
+#### OH_AVSource_GetSourceFormat()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -273,7 +273,7 @@ OH_AVFormat *OH_AVSource_GetSourceFormat(OH_AVSource *source)
  
   
 
-##### OH_AVSource_GetTrackFormat()
+#### OH_AVSource_GetTrackFormat()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -308,7 +308,7 @@ OH_AVFormat *OH_AVSource_GetTrackFormat(OH_AVSource *source, uint32_t trackIndex
  
   
 
-##### OH_AVSource_GetCustomMetadataFormat()
+#### OH_AVSource_GetCustomMetadataFormat()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getblocknum
 
-##### 功能说明
+#### 功能说明
 
 获取当前任务配置的核数，用于代码内部的多核逻辑控制等。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 __aicore__ inline int64_t GetBlockNum()
@@ -18,19 +18,19 @@ __aicore__ inline int64_t GetBlockNum()
  
   
 
-##### 参数说明
+#### 参数说明
 
 无
  
   
 
-##### 返回值
+#### 返回值
 
 当前任务配置的核数。
  
   
 
-##### 支持的型号
+#### 支持的型号
 
 Kirin9020系列处理器
  
@@ -38,13 +38,13 @@ KirinX90系列处理器
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 #include "kernel_operator.h"

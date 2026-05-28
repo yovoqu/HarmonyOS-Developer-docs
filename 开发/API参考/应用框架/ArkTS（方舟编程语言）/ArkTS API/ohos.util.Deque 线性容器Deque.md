@@ -23,7 +23,7 @@ Deque和[Queue](https://developer.huawei.com/consumer/cn/doc/harmonyos-reference
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -33,13 +33,13 @@ import { Deque } from '@kit.ArkTS';
 
 
 
-##### Deque
+#### Deque
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -54,7 +54,7 @@ import { Deque } from '@kit.ArkTS';
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -83,7 +83,7 @@ let deque = new Deque<string | number | boolean | Object>();
 
 
 
-##### insertFront
+#### insertFront
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -132,7 +132,7 @@ console.info("result:", deque[0]);  // result: false
 
 
 
-##### insertEnd
+#### insertEnd
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -181,7 +181,7 @@ console.info("result:", deque[0]);  // result: a
 
 
 
-##### has
+#### has
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -227,7 +227,7 @@ console.info("result:", result);  // result: true
 
 
 
-##### popFirst
+#### popFirst
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -270,7 +270,7 @@ console.info("result:", result);  // result: 4
 
 
 
-##### popLast
+#### popLast
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -313,7 +313,7 @@ console.info("result:", result);  // result: 6
 
 
 
-##### forEach
+#### forEach
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -373,7 +373,7 @@ deque.forEach((value: number, index: number): void => {
 
 
 
-##### getFirst
+#### getFirst
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -415,7 +415,7 @@ console.info("result:", result);  // result: 4
 
 
 
-##### getLast
+#### getLast
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -457,7 +457,7 @@ console.info("result:", result);  // result: 2
 
 
 
-##### [Symbol.iterator]
+#### [Symbol.iterator]
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

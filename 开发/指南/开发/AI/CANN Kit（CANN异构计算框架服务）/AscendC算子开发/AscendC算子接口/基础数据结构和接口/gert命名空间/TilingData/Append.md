@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-append
 
-##### 函数功能
+#### 函数功能
 
 向后添加tiling data，若添加超过可容纳的最大长度，则添加失败。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 template<typename T, typename std::enable_if<std::is_standard_layout<T>::value, int>::type = 0>  ge::graphStatus Append(const T &data);
@@ -19,7 +19,7 @@ template<typename T, typename std::enable_if<std::is_standard_layout<T>::value, 
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -31,7 +31,7 @@ template<typename T, typename std::enable_if<std::is_standard_layout<T>::value, 
  
   
 
-##### 返回值
+#### 返回值
 
 - 成功返回ge::GRAPH_SUCCESS。
 - 失败返回ge::GRAPH_FAILED。
@@ -39,13 +39,13 @@ template<typename T, typename std::enable_if<std::is_standard_layout<T>::value, 
  
   
 
-##### 约束说明
+#### 约束说明
 
 添加的tiling data必须为符合standard_layout，即内存平铺。
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 auto td_buf = TilingData::CreateCap(100U);

@@ -11,7 +11,7 @@
 
 
 
-##### 使用EventHub进行数据通信
+#### 使用EventHub进行数据通信
 
 [EventHub](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-eventhub)为[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)组件提供了事件机制，使它们能够进行订阅、取消订阅和触发事件等数据通信能力。
 
@@ -136,6 +136,6 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### 使用AppStorage/LocalStorage进行数据同步
+#### 使用AppStorage/LocalStorage进行数据同步
 
 ArkUI提供了[AppStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-appstorage)和[LocalStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localstorage)两种应用级别的状态管理方案，可用于实现应用级别和[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)级别的数据同步。使用这些方案可以方便地管理应用状态，提高应用性能和用户体验。其中，AppStorage是一个全局的状态管理器，适用于多个UIAbility共享同一状态数据的情况；而LocalStorage则是一个局部的状态管理器，适用于单个UIAbility内部使用的状态数据。通过这两种方案，开发者可以更加灵活地控制应用状态，提高应用的可维护性和可扩展性。详细请参见[应用级变量的状态管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-application-state-management-overview)。

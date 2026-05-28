@@ -9,7 +9,7 @@
 支持检查的范围从选项中查看。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -22,13 +22,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/typedef选项](https://typescript-eslint.nodejs.cn/rules/typedef#options)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 export const text = 'text';
@@ -36,7 +36,7 @@ export const text = 'text';
  
  
 
-##### 反例
+#### 反例
 
 ```text
 // 默认配置下，规则不会告警
@@ -44,7 +44,7 @@ export const text = 'text';
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

@@ -17,13 +17,13 @@ Matrix2D的使用场景包括：
 
   
 
-##### 构造函数
+#### 构造函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### constructor10+
+#### constructor10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -39,7 +39,7 @@ constructor()
  
   
 
-##### constructor12+
+#### constructor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -62,7 +62,7 @@ constructor(unit: LengthMetricsUnit)
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -127,13 +127,13 @@ struct Parameter {
  
   
 
-##### 方法
+#### 方法
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### identity
+#### identity
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -190,7 +190,7 @@ struct Identity {
  
   
 
-##### invert
+#### invert
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -253,7 +253,7 @@ struct Invert {
  
   
 
-##### multiply(deprecated)
+#### multiply(deprecated)
 
 multiply(other?: Matrix2D): Matrix2D
  
@@ -279,7 +279,7 @@ multiply(other?: Matrix2D): Matrix2D
  
   
 
-##### rotate(deprecated)
+#### rotate(deprecated)
 
 rotate(rx?: number, ry?: number): Matrix2D
  
@@ -346,7 +346,7 @@ struct Rotate {
  
   
 
-##### rotate10+
+#### rotate10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -418,7 +418,7 @@ struct Rotate {
  
   
 
-##### translate
+#### translate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -484,12 +484,12 @@ struct Translate {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/06/v3/wMDu6_iUR4uh-BEQ7D1srw/zh-cn_image_0000002611835937.png?HW-CC-KV=V1&HW-CC-Date=20260528T024206Z&HW-CC-Expire=86400&HW-CC-Sign=C081815335FD2BF4991F9E2966CAB31245D3776634307582416FECEE26BE1B81)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/06/v3/wMDu6_iUR4uh-BEQ7D1srw/zh-cn_image_0000002611835937.png?HW-CC-KV=V1&HW-CC-Date=20260528T025539Z&HW-CC-Expire=86400&HW-CC-Sign=BD690643C4B1E7D9F70DB147DDD8AEF75EC96069585CEF966C8AF6469CECD665)
 
  
   
 
-##### scale
+#### scale
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -555,4 +555,4 @@ struct Scale {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/YHivEQITQcyE3J1qi5_d1A/zh-cn_image_0000002581276192.png?HW-CC-KV=V1&HW-CC-Date=20260528T024206Z&HW-CC-Expire=86400&HW-CC-Sign=5DCFCF597D445CE9C685677678F1A17E90E39CA918538CA95A01E1E1C7D12EA4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/YHivEQITQcyE3J1qi5_d1A/zh-cn_image_0000002581276192.png?HW-CC-KV=V1&HW-CC-Date=20260528T025539Z&HW-CC-Expire=86400&HW-CC-Sign=7AB2359167946D15823C9A2AA827E34725E985505B03175BAC5DC21B7A869C98)

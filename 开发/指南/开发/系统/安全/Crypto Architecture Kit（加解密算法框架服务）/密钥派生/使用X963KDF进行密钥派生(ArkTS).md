@@ -9,7 +9,7 @@
 对应的算法规格请查看[密钥派生算法规格：X963KDF](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-key-derivation-overview#x963kdf算法)。
 
 
-##### 开发步骤
+#### 开发步骤
 1. 构造[X963KdfSpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#x963kdfspec22)对象，作为密钥派生参数进行密钥派生。
 
   X963KdfSpec是[KdfSpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#kdfspec11)的子类，需要指定：

@@ -7,7 +7,7 @@
 用于检测在循环或调用频繁的方法中重复创建Date对象，建议开发者重用现有实例或使用时间戳进行计算，减少创建Date成本。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 aboutToAppear(): void {
@@ -53,7 +53,7 @@ aboutToAppear(): void {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 aboutToAppear(): void {
@@ -86,7 +86,7 @@ aboutToAppear(): void {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(80,160,79);">plugin:@performance/</span><span style="color: rgb(0,0,255);">recommended</span>

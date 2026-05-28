@@ -14,7 +14,7 @@ Zoom继承自[ZoomQuery](https://developer.huawei.com/consumer/cn/doc/harmonyos-
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { camera } from '@kit.CameraKit';
  
   
 
-##### setZoomRatio11+
+#### setZoomRatio11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -74,7 +74,7 @@ function setZoomRatio(photoSession: camera.PhotoSession, zoomRatioRange: Array<n
  
   
 
-##### getZoomRatio11+
+#### getZoomRatio11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -124,7 +124,7 @@ function getZoomRatio(photoSession: camera.PhotoSession): number {
  
   
 
-##### setSmoothZoom11+
+#### setSmoothZoom11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

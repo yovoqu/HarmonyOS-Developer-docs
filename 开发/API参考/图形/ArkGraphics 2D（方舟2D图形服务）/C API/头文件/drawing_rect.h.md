@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-rect-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -25,13 +25,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -68,13 +68,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Drawing_RectCreate()
+#### OH_Drawing_RectCreate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -109,7 +109,7 @@ OH_Drawing_Rect* OH_Drawing_RectCreate(float left, float top, float right, float
  
   
 
-##### OH_Drawing_RectIntersect()
+#### OH_Drawing_RectIntersect()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -146,7 +146,7 @@ rect、other任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
  
   
 
-##### OH_Drawing_RectJoin()
+#### OH_Drawing_RectJoin()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -183,7 +183,7 @@ rect、other任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
  
   
 
-##### OH_Drawing_RectSetLeft()
+#### OH_Drawing_RectSetLeft()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -213,7 +213,7 @@ rect为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
  
   
 
-##### OH_Drawing_RectSetTop()
+#### OH_Drawing_RectSetTop()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -243,7 +243,7 @@ rect为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
  
   
 
-##### OH_Drawing_RectSetRight()
+#### OH_Drawing_RectSetRight()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -273,7 +273,7 @@ rect为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
  
   
 
-##### OH_Drawing_RectSetBottom()
+#### OH_Drawing_RectSetBottom()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -303,7 +303,7 @@ rect为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
  
   
 
-##### OH_Drawing_RectGetLeft()
+#### OH_Drawing_RectGetLeft()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -339,7 +339,7 @@ rect为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
  
   
 
-##### OH_Drawing_RectGetTop()
+#### OH_Drawing_RectGetTop()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -375,7 +375,7 @@ rect为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
  
   
 
-##### OH_Drawing_RectGetRight()
+#### OH_Drawing_RectGetRight()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -411,7 +411,7 @@ rect为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
  
   
 
-##### OH_Drawing_RectGetBottom()
+#### OH_Drawing_RectGetBottom()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -447,7 +447,7 @@ rect为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
  
   
 
-##### OH_Drawing_RectGetHeight()
+#### OH_Drawing_RectGetHeight()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -483,7 +483,7 @@ rect为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
  
   
 
-##### OH_Drawing_RectGetWidth()
+#### OH_Drawing_RectGetWidth()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -519,7 +519,7 @@ rect为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
  
   
 
-##### OH_Drawing_RectCopy()
+#### OH_Drawing_RectCopy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -549,7 +549,7 @@ src、dst任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
  
   
 
-##### OH_Drawing_RectDestroy()
+#### OH_Drawing_RectDestroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -574,7 +574,7 @@ void OH_Drawing_RectDestroy(OH_Drawing_Rect* rect)
  
   
 
-##### OH_Drawing_RectCreateArray()
+#### OH_Drawing_RectCreateArray()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -606,7 +606,7 @@ OH_Drawing_Array* OH_Drawing_RectCreateArray(size_t size)
  
   
 
-##### OH_Drawing_RectGetArraySize()
+#### OH_Drawing_RectGetArraySize()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -639,7 +639,7 @@ OH_Drawing_ErrorCode OH_Drawing_RectGetArraySize(OH_Drawing_Array* rectArray, si
  
   
 
-##### OH_Drawing_RectGetArrayElement()
+#### OH_Drawing_RectGetArrayElement()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -673,7 +673,7 @@ OH_Drawing_ErrorCode OH_Drawing_RectGetArrayElement(OH_Drawing_Array* rectArray,
  
   
 
-##### OH_Drawing_RectDestroyArray()
+#### OH_Drawing_RectDestroyArray()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -705,7 +705,7 @@ OH_Drawing_ErrorCode OH_Drawing_RectDestroyArray(OH_Drawing_Array* rectArray)
  
   
 
-##### OH_Drawing_RectContains()
+#### OH_Drawing_RectContains()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -739,7 +739,7 @@ OH_Drawing_ErrorCode OH_Drawing_RectContains(OH_Drawing_Rect* rect, const OH_Dra
  
   
 
-##### OH_Drawing_RectInset()
+#### OH_Drawing_RectInset()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -775,7 +775,7 @@ OH_Drawing_ErrorCode OH_Drawing_RectInset(OH_Drawing_Rect* rect, float left, flo
  
   
 
-##### OH_Drawing_RectIsEmpty()
+#### OH_Drawing_RectIsEmpty()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -806,7 +806,7 @@ OH_Drawing_ErrorCode OH_Drawing_RectIsEmpty(const OH_Drawing_Rect* rect, bool* i
  
   
 
-##### OH_Drawing_RectOffset()
+#### OH_Drawing_RectOffset()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -838,7 +838,7 @@ OH_Drawing_ErrorCode OH_Drawing_RectOffset(OH_Drawing_Rect* rect, float dx, floa
  
   
 
-##### OH_Drawing_RectOffsetTo()
+#### OH_Drawing_RectOffsetTo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -870,7 +870,7 @@ OH_Drawing_ErrorCode OH_Drawing_RectOffsetTo(OH_Drawing_Rect* rect, float newLef
  
   
 
-##### OH_Drawing_RectSetEmpty()
+#### OH_Drawing_RectSetEmpty()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -900,7 +900,7 @@ OH_Drawing_ErrorCode OH_Drawing_RectSetEmpty(OH_Drawing_Rect* rect)
  
   
 
-##### OH_Drawing_RectSort()
+#### OH_Drawing_RectSort()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -932,7 +932,7 @@ OH_Drawing_ErrorCode OH_Drawing_RectSort(OH_Drawing_Rect* rect)
  
   
 
-##### OH_Drawing_RectUnion()
+#### OH_Drawing_RectUnion()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

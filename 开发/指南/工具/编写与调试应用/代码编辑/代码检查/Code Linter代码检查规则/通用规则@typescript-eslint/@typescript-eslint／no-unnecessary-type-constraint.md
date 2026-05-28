@@ -11,7 +11,7 @@
 该规则仅支持对.js/.ts文件进行检查。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -24,13 +24,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 export interface Foo<T> {
@@ -48,7 +48,7 @@ export function foo<T>(param: T): void {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 // extends any或者extends unknown的写法是多余的
@@ -67,7 +67,7 @@ export function foo<T extends any>(param: T): void {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/recommended</span>

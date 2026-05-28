@@ -10,7 +10,7 @@
 
   
 
-##### ProtocolType11+
+#### ProtocolType11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -28,7 +28,7 @@
  
   
 
-##### CastDisplayState12+
+#### CastDisplayState12+
 
 **支持设备：** Phone | Tablet
 
@@ -46,7 +46,7 @@
  
   
 
-##### CallerType22+
+#### CallerType22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -64,7 +64,7 @@
  
   
 
-##### ConnectionState10+
+#### ConnectionState10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -83,7 +83,7 @@
  
   
 
-##### CallState11+
+#### CallState11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -106,7 +106,7 @@
  
   
 
-##### DisplayTag11+
+#### DisplayTag11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -121,7 +121,7 @@
  
   
 
-##### DecoderType19+
+#### DecoderType19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -140,7 +140,7 @@
  
   
 
-##### ResolutionLevel19+
+#### ResolutionLevel19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -161,7 +161,7 @@
  
   
 
-##### AVCastCategory10+
+#### AVCastCategory10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -179,7 +179,7 @@
  
   
 
-##### DeviceType10+
+#### DeviceType10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -197,7 +197,7 @@
  
   
 
-##### LoopMode10+
+#### LoopMode10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -218,7 +218,7 @@
  
   
 
-##### PlaybackState10+
+#### PlaybackState10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -246,7 +246,7 @@
  
   
 
-##### AVSessionErrorCode10+
+#### AVSessionErrorCode10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -324,7 +324,7 @@
  
   
 
-##### SkipIntervals11+
+#### SkipIntervals11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -341,7 +341,7 @@
  
   
 
-##### BackgroundPlayMode24+
+#### BackgroundPlayMode24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

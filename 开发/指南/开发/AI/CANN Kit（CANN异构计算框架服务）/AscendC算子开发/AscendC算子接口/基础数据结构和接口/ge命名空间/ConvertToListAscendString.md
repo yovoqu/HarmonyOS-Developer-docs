@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-converttolistascendstring
 
-##### 函数功能
+#### 函数功能
 
 定义了一个模板函数ConvertToListAscendString，用于将不同类型的字符串列表转换为AscendString类型的列表。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 template<typename T> std::vector<ge::AscendString> ConvertToListAscendString(T strs)
@@ -32,7 +32,7 @@ template<> inline std::vector<ge::AscendString> ConvertToListAscendString(std::v
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -41,18 +41,18 @@ template<> inline std::vector<ge::AscendString> ConvertToListAscendString(std::v
  
   
 
-##### 返回值
+#### 返回值
 
 转换后的AscendString类型字符串列表。
  
   
 
-##### 异常处理
+#### 异常处理
 
 无
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

@@ -7,7 +7,7 @@
 input是交互式组件，用于接收用户数据。其类型可设置为日期、多选框和按钮等。具体用法请参考[input API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-input)。
 
 
-##### 创建input组件
+#### 创建input组件
 
 在pages/index目录下的hml文件中创建一个input组件。
 
@@ -38,7 +38,7 @@ input是交互式组件，用于接收用户数据。其类型可设置为日期
 
 
 
-##### 设置input类型
+#### 设置input类型
 
 通过设置type属性来定义input类型，如将input设置为button、date等。
 
@@ -115,7 +115,7 @@ export default {
 
 
 
-##### 事件绑定
+#### 事件绑定
 
 向input组件添加translate事件。
 
@@ -171,7 +171,7 @@ export default {
 
 
 
-##### 设置输入提示
+#### 设置输入提示
 
 通过对input组件添加showError方法来提示输入的错误原因。
 
@@ -246,7 +246,7 @@ import promptAction from '@ohos.promptAction'
 
 
 
-##### 场景示例
+#### 场景示例
 
 根据场景选择不同类型的input输入框，完成信息录入。
 
@@ -323,4 +323,4 @@ export default {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/ggiHhrLmSJO2yh1K0mHjDg/zh-cn_image_0000002581274252.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014754Z&HW-CC-Expire=86400&HW-CC-Sign=441E193547937E7F7337CA00413AF3AB05B4A180DE08FD103F38C54A471E3F77)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/ggiHhrLmSJO2yh1K0mHjDg/zh-cn_image_0000002581274252.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030426Z&HW-CC-Expire=86400&HW-CC-Sign=7FF9A21C994AA06AFCAF89D8181DA8544EFA0BF96C8C70AAA09D4BE2890E42B6)

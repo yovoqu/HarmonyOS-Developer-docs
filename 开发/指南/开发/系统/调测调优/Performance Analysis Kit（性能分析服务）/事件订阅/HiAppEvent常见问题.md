@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-faq
 
-##### 查不到已通过HiAppEvent订阅的事件内容
+#### 查不到已通过HiAppEvent订阅的事件内容
 
 **问题现象**
 
@@ -18,7 +18,7 @@
 
 
 
-##### 无法获取external_log日志文件
+#### 无法获取external_log日志文件
 
 **问题现象**
 
@@ -84,7 +84,7 @@ external_log日志文件生成后又被删除了。
 
 
 
-##### 无法删除external_log日志文件
+#### 无法删除external_log日志文件
 
 **问题现象**
 
@@ -175,7 +175,7 @@ HiAppEvent remove file:/data/storage/el2/log/hiappevent/APP_CRASH_1751081104816_
 
 
 
-##### 同一应用内，事件的回调不区分线程、进程
+#### 同一应用内，事件的回调不区分线程、进程
 
 例如，在同一个应用内，有A、B两个进程，进程A已调用addWatcher()接口订阅崩溃事件。如果进程B发生崩溃，进程A能收到进程B的崩溃回调。只要进程A和B的应用名一致即可。
 

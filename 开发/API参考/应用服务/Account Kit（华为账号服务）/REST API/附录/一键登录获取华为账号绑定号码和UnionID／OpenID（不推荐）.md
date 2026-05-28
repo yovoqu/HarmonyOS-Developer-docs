@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-get-user-info-quicklogin-getid
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/XUnhW9-_TYOTx_25jDbY8Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023744Z&HW-CC-Expire=86400&HW-CC-Sign=FA1BC706883C38120757AB180183C94549230E4BE7E5EA2A90057908B08391AF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/XUnhW9-_TYOTx_25jDbY8Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025117Z&HW-CC-Expire=86400&HW-CC-Sign=B0FCE3CE7747BA41AE3C8A022DC6119CE8EEC914A610A334D20355AE0C7FB0D3)
 
 
 为了更安全的网络访问，请务必使用TLS1.2协议及规定内的加密套件。若使用协议是TLS1.0、TLS1.1或规定外的加密套件，可能无法正常访问华为账号服务。
@@ -18,19 +18,19 @@
 
 
 
-##### 功能介绍
+#### 功能介绍
 
 [华为账号一键登录（获取手机号和UnionID/OpenID）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-phone-unionid-login)场景，应用服务端向华为账号服务器调用该接口获取UnionID，OpenID，华为账号绑定的手机号码及其相关信息。该服务仅对中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）用户提供。
 
 
 
-##### 场景描述
+#### 场景描述
 
 应用已经通过授权码（Authorization Code）获取到Access Token后，获取UnionID，OpenID，华为账号绑定的手机号码及其相关信息。
 
 
 
-##### 使用约束
+#### 使用约束
 
  - 需确保调用端网络正常。
  - 华为账号一键登录服务仅对中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）用户提供；且应用服务端获取华为账号绑定号码时，该服务器必须部署在中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）。
@@ -43,7 +43,7 @@
 
 
 
-##### 接口原型
+#### 接口原型
 
  - **承载协议**：HTTPS POST
  - **接口方向**：开发者服务器->华为账号服务器
@@ -57,11 +57,11 @@
 
 
 
-##### 请求参数
+#### 请求参数
 
 
 
-##### Request Header
+#### Request Header
 
 | 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
@@ -70,7 +70,7 @@
 
 
 
-##### Request Body
+#### Request Body
 
 | 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
@@ -79,7 +79,7 @@
 
 
 
-##### 请求示例
+#### 请求示例
 
 请通过POST方式调用，示例如下：
 
@@ -93,11 +93,11 @@ access_token=<Access Token>
 
 
 
-##### 响应参数
+#### 响应参数
 
 
 
-##### Response Header
+#### Response Header
 
 | 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
@@ -106,7 +106,7 @@ access_token=<Access Token>
 
 
 
-##### Response Body
+#### Response Body
 
 调用成功时，响应消息返回如下：
 
@@ -135,11 +135,11 @@ access_token=<Access Token>
 
 
 
-##### 响应示例
+#### 响应示例
 
 
 
-##### 请求成功时
+#### 请求成功时
 
 ```json
 HTTP/1.1 200 OK
@@ -160,7 +160,7 @@ Content-Type: application/json;charset=utf-8
 
 
 
-##### 请求失败时
+#### 请求失败时
 
 ```json
 HTTP/1.1 200 OK
@@ -174,7 +174,7 @@ NSP_STATUS: 6
 
 
 
-##### 从中国境外、香港特别行政区、澳门特别行政区或中国台湾服务器请求时
+#### 从中国境外、香港特别行政区、澳门特别行政区或中国台湾服务器请求时
 
 ```json
 HTTP/1.1 200 OK
@@ -188,7 +188,7 @@ Content-Type: application/json;charset=utf-8
 
 
 
-##### 示例代码
+#### 示例代码
 
 Java示例代码如下，运行前需要进行[示例代码环境配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-common#示例代码环境配置)（请将此示例代码与工具类CallUtils放于同一路径下，如不在同一路径，请手动添加import）
 
@@ -242,7 +242,7 @@ public class GetMobileByQuickLoginDemo {
 
 
 
-##### 错误码
+#### 错误码
 
 | HTTP响应码 | 描述 | 解决方法 |
 | --- | --- | --- |

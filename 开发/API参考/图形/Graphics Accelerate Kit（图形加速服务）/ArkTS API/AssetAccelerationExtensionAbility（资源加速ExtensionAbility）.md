@@ -29,7 +29,7 @@
 **起始版本：** 5.1.0(18)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Tablet
 
@@ -39,7 +39,7 @@ import { AssetAccelerationExtensionAbility } from '@kit.GraphicsAccelerateKit';
  
   
 
-##### AssetAccelerationExtensionInfo
+#### AssetAccelerationExtensionInfo
 
 **支持设备：** Phone | Tablet
 
@@ -59,7 +59,7 @@ import { AssetAccelerationExtensionAbility } from '@kit.GraphicsAccelerateKit';
  
   
 
-##### ContentRequestType
+#### ContentRequestType
 
 **支持设备：** Phone | Tablet
 
@@ -82,7 +82,7 @@ type ContentRequestType = 'INSTALL' | 'UPDATE' | 'IDLE'
  
   
 
-##### AssetAccelerationExtensionAbility
+#### AssetAccelerationExtensionAbility
 
 **支持设备：** Phone | Tablet
 
@@ -96,7 +96,7 @@ type ContentRequestType = 'INSTALL' | 'UPDATE' | 'IDLE'
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | Tablet
 
@@ -113,7 +113,7 @@ type ContentRequestType = 'INSTALL' | 'UPDATE' | 'IDLE'
  
   
 
-##### onDownloadContentRequest
+#### onDownloadContentRequest
 
 **支持设备：** Phone | Tablet
 
@@ -175,7 +175,7 @@ export default class AssetAccelExtAbility extends AssetAccelerationExtensionAbil
  
   
 
-##### onDownloadWithAppControl
+#### onDownloadWithAppControl
 
 **支持设备：** Phone | Tablet
 
@@ -229,7 +229,7 @@ export default class AssetAccelExtAbility extends AssetAccelerationExtensionAbil
  
   
 
-##### onBackgroundDownloadSucceeded
+#### onBackgroundDownloadSucceeded
 
 **支持设备：** Phone | Tablet
 
@@ -277,7 +277,7 @@ export default class AssetAccelExtAbility extends AssetAccelerationExtensionAbil
  
   
 
-##### onBackgroundDownloadFailed
+#### onBackgroundDownloadFailed
 
 **支持设备：** Phone | Tablet
 
@@ -325,7 +325,7 @@ export default class AssetAccelExtAbility extends AssetAccelerationExtensionAbil
  
   
 
-##### onExtensionWillTerminate
+#### onExtensionWillTerminate
 
 **支持设备：** Phone | Tablet
 

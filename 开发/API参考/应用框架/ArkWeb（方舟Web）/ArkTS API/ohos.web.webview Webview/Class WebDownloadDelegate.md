@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { webview } from '@kit.ArkWeb';
  
   
 
-##### onBeforeDownload11+
+#### onBeforeDownload11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -133,7 +133,7 @@ struct WebComponent {
  
   
 
-##### onDownloadUpdated11+
+#### onDownloadUpdated11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -240,7 +240,7 @@ struct WebComponent {
  
   
 
-##### onDownloadFinish11+
+#### onDownloadFinish11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -347,7 +347,7 @@ struct WebComponent {
  
   
 
-##### onDownloadFailed11+
+#### onDownloadFailed11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

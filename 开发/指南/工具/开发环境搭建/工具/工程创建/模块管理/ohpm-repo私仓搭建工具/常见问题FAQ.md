@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-repo-faq
 
-##### ohpm-repo私仓工具获取与升级
+#### ohpm-repo私仓工具获取与升级
 
 - 从[下载中心](https://developer.huawei.com/consumer/cn/download/ohpm-repo)上获取最新ohpm-repo工具包。
 
@@ -16,7 +16,7 @@
  
  
 
-##### ohpm-repo启动后如何修改配置文件，并使得修改后配置文件生效
+#### ohpm-repo启动后如何修改配置文件，并使得修改后配置文件生效
 
 - **版本1.0.1**：停止当前ohpm-repo服务，修改ohpm-repo压缩包解压根目录中conf目录中的配置文件，然后重新执行start命令。
 - **版本1.1.0**：停止当前ohpm-repo服务，修改部署根目录中conf目录下的配置文件，然后重新执行start命令。
@@ -28,7 +28,7 @@
  
  
 
-##### ohpm-repo部署目录和ohpm-repo解压目录说明
+#### ohpm-repo部署目录和ohpm-repo解压目录说明
 
 - **ohpm-repo解压目录**：&lt;binary_root&gt;，ohpm-repo安装包解压后所在的根目录，存放的是ohpm-repo压缩包解压后的内容。
 - **ohpm-repo部署目录**：&lt;deploy_root&gt;，ohpm-repo运行时产生数据的存储位置，包括配置文件，日志文件，加密组件等信息。ohpm-repo部署目录在不同版本有不同的配置方法。
@@ -58,11 +58,11 @@ ohpm-repo部署目录和ohpm-repo解压目录不要放在**同一目录**中。
  
  
 
-##### ohpm-repo 的权限管理
+#### ohpm-repo 的权限管理
 
  
 
-##### 账户权限：系统管理员和系统普通用户
+#### 账户权限：系统管理员和系统普通用户
 1. **账户的注册**
 
   ohpm-repo账户有两种类型：用户类型和管理员类型。ohpm-repo初次启动默认有一个管理员账户：账户名：admin，密码：12345Qq!。
@@ -101,7 +101,7 @@ ohpm-repo部署目录和ohpm-repo解压目录不要放在**同一目录**中。
 
   
 
-  ##### 组织权限：组织成员和组织管理员
+  #### 组织权限：组织成员和组织管理员
 
 1. **组织创建与组织权限的编辑**
 组织的新增和删除：登录系统管理员账户，在组织管理界面，通过新增按钮创建组织，当前系统管理员默认成为该组织的管理员；通过删除按钮删除组织。
@@ -133,7 +133,7 @@ ohpm-repo部署目录和ohpm-repo解压目录不要放在**同一目录**中。
 
   
 
-  ##### 上传包和卸载包权限管理
+  #### 上传包和卸载包权限管理
 
   三方包可以分为有组织的包和没有组织的包两类，上传和下架包可以通过ohpm-repo和ohpm命令行工具两种方式操作。
 
@@ -144,11 +144,11 @@ ohpm-repo部署目录和ohpm-repo解压目录不要放在**同一目录**中。
  
  
 
-##### ohpm-repo 的元数据与三方包数据管理
+#### ohpm-repo 的元数据与三方包数据管理
 
  
 
-##### 元数据与三方包数据介绍
+#### 元数据与三方包数据介绍
 
 ohpm-repo的数据包括两部分：
  
@@ -158,7 +158,7 @@ ohpm-repo的数据包括两部分：
  
  
 
-##### 元数据和三方包数据存储方式介绍
+#### 元数据和三方包数据存储方式介绍
 
 - 元数据：可以存放在本地文件（fileDb）和mysql数据库（mysql）。
 - 三方包数据：可以存放在本地文件（file storage）,sftp服务器（sftp storage）和自定义插件存储（custom storage，包括各种云存储）。元数据和三方包数据的存储方法不能够随意搭配，匹配规则和支持的ohpm-repo版本信息见下图：
@@ -172,7 +172,7 @@ ohpm-repo的数据包括两部分：
  
  
 
-##### ohpm-repo认证方式
+#### ohpm-repo认证方式
 
 ohpm在执行publish，unpublish和dist-tags等需要修改ohpm-repo数据库内容命令时，需要获取读写权限才能够操作。
  
@@ -180,7 +180,7 @@ ohpm在执行publish，unpublish和dist-tags等需要修改ohpm-repo数据库内
  
  
 
-##### 认证方式说明
+#### 认证方式说明
 
 - **证书认证：**通过嵌入加密ssh证书进行身份验证，需要输入密码，获得读写权限。
 - **AccessToken认证（对接数据库中用户数据）：**AccessToken是ohpm-repo 2.1.0版本新引入的认证机制（需配套使用1.6.0及以上版本的ohpm命令行工具），用户通过ohpm-repo界面生成Token，并将其配置至ohpm客户端配置文件中。在与ohpm-repo交互时，客户端会自动附带Token进行身份验证，实现免密认证。配置只读AccessToken获得读权限，配置读写AccessToken获得读写权限。
@@ -189,11 +189,11 @@ ohpm在执行publish，unpublish和dist-tags等需要修改ohpm-repo数据库内
  
  
 
-##### 认证失败FAQ
+#### 认证失败FAQ
 
  
 
-##### 使用证书认证执行publish/unpublish/dist-tags等命令失败
+#### 使用证书认证执行publish/unpublish/dist-tags等命令失败
 
 - **现象**：报错信息为：ERROR: Publish failed, detail: The "key_path" is empty - configure "key_path" in the .ohpmrc file.
 - **原因分析**：没有正确配置证书认证参数。
@@ -205,7 +205,7 @@ ohpm在执行publish，unpublish和dist-tags等需要修改ohpm-repo数据库内
  
  
 
-##### 使用证书认证在git-bash终端下执行ohpm publish XX.har发包到ohpm-repo中报错：The content of private key in the key_path error
+#### 使用证书认证在git-bash终端下执行ohpm publish XX.har发包到ohpm-repo中报错：The content of private key in the key_path error
 
 - **现象**：在git-bash终端下运行ohpm publish命令出现 “The content of private key in the key_path error”错误，报错截图为：
 ![](assets/常见问题FAQ/file-20260514134336449-16.png)
@@ -219,7 +219,7 @@ ohpm在执行publish，unpublish和dist-tags等需要修改ohpm-repo数据库内
  
  
 
-##### 使用AccessToken认证，执行publish/unpublish/dist-tags等命令失败
+#### 使用AccessToken认证，执行publish/unpublish/dist-tags等命令失败
 
 - **现象**：报错信息为ERROR: Publish failed, detail: The "key_path" is empty - configure "key_path" in the .ohpmrc file.
 - **原因分析**：没有正确配置AccessToken或者当前工具版本不支持该功能。
@@ -235,7 +235,7 @@ ohpm在执行publish，unpublish和dist-tags等需要修改ohpm-repo数据库内
  
  
 
-##### 应用内hsp包如何发布到ohpm-repo
+#### 应用内hsp包如何发布到ohpm-repo
 1. 如果需要发布应用内hsp包到ohpm-repo，需要确保安装指定版本的软件：
 - **ohpm-cli命令行工具**：1.3.0版本开始支持。
 
@@ -257,11 +257,11 @@ tar -czvf libhsp.tgz libhsp.har libhsp.hsp
 
   
 
-  ##### 执行ohpm-repo命令报错
+  #### 执行ohpm-repo命令报错
 
   
 
-  ##### 在执行ohpm-repo install或者ohpm-repo start的时候报错：server install failed: YAMLException: bad indentation of a mapping entry
+  #### 在执行ohpm-repo install或者ohpm-repo start的时候报错：server install failed: YAMLException: bad indentation of a mapping entry
 
   
 ![](assets/常见问题FAQ/file-20260514134336449-17.png)
@@ -271,7 +271,7 @@ tar -czvf libhsp.tgz libhsp.har libhsp.hsp
 
   
 
-  ##### 执行命令ohpm-repo &lt;command&gt;，报错ohpm-repo不存在或者&lt;command&gt;命令不存在。
+  #### 执行命令ohpm-repo &lt;command&gt;，报错ohpm-repo不存在或者&lt;command&gt;命令不存在。
 
   
 **报错ohpm-repo不存在**：ohpm-repo工具包解压目录中bin目录的路径没有配置到系统环境变量path中，需要手动添加[系统环境变量](#section24117279211)，或者进入bin目录，在命令前面加上 ./，即执行命令./ohpm-repo &lt;command&gt;方式使命令生效。
@@ -280,7 +280,7 @@ tar -czvf libhsp.tgz libhsp.har libhsp.hsp
  
  
 
-##### ohpm-repo成功启动后，根据配置文件中的listen值访问ohpm-repo私仓管理界面，界面不显示信息或者无法打开页面
+#### ohpm-repo成功启动后，根据配置文件中的listen值访问ohpm-repo私仓管理界面，界面不显示信息或者无法打开页面
 
 - **可能性一**：浏览器和ohpm-repo不兼容导致不显示内容，当ohpm-repo成功启动后，打开ohpm-repo管理页面并不显示内容，这可能是因为当前用户使用的浏览器与ohpm-repo不兼容，请下载最新版本的浏览器，重新输入listen值进行访问。
 - **可能性二**：服务未启动，执行命令ohpm-repo install和ohpm-repo start，启动ohpm-repo私仓服务。
@@ -289,7 +289,7 @@ tar -czvf libhsp.tgz libhsp.har libhsp.hsp
  
  
 
-##### 机器A部署ohpm-repo私仓服务，在机器B上通过A的域名+端口访问已部署的ohpm-repo私仓服务，打开包的描述页出错
+#### 机器A部署ohpm-repo私仓服务，在机器B上通过A的域名+端口访问已部署的ohpm-repo私仓服务，打开包的描述页出错
 
 - **现象**：报错信息如下：
 ![](assets/常见问题FAQ/file-20260514134336449-18.png)
@@ -300,7 +300,7 @@ tar -czvf libhsp.tgz libhsp.har libhsp.hsp
  
  
 
-##### 执行ohpm-repo install时报错：fail to initialize encryption component: Error: invalid crypto component.
+#### 执行ohpm-repo install时报错：fail to initialize encryption component: Error: invalid crypto component.
 
  
 - **现象**：报错信息如下：
@@ -322,11 +322,11 @@ tar -czvf libhsp.tgz libhsp.har libhsp.hsp
  
  
 
-##### 执行ohpm publish XX.har发包到ohpm-repo私仓中报错
+#### 执行ohpm publish XX.har发包到ohpm-repo私仓中报错
 
  
 
-##### 报错：connect ECONNREFUSED ::1:8089
+#### 报错：connect ECONNREFUSED ::1:8089
 
 - **现象**： 配置文件中store.config.server为http://Localhost:8089，其host为localhost，ohpm执行publish命令，命令行报如下错误
 ```text
@@ -342,7 +342,7 @@ ohpm ERROR request to http://Localhost:8089/repos/ohpm/Login failed, reason: con
  
  
 
-##### 报错：The content of private key in the key_path error.
+#### 报错：The content of private key in the key_path error.
 
 - **现象**：ohpm执行publish命令，命令行报错信息为：
 ```text
@@ -354,7 +354,7 @@ The content of private key in the key_path error.
  
  
 
-##### 报错：HttpCode 400 Group does not exist!
+#### 报错：HttpCode 400 Group does not exist!
 
 - **现象**：ohpm执行publish命令，命令行报错信息为
 
@@ -364,7 +364,7 @@ The content of private key in the key_path error.
  
  
 
-##### 报错：HttpCode 400 You are not a developer of the group!
+#### 报错：HttpCode 400 You are not a developer of the group!
 
 - **现象**：ohpm执行publish命令，命令行报错信息为：
 ```text
@@ -380,7 +380,7 @@ HttpCode 400 You are not a developer of the group!
 
  
 
-##### 报错：ohpm ERROR: HttpCode 404 Not Found
+#### 报错：ohpm ERROR: HttpCode 404 Not Found
 
 - **现象**：ohpm执行publish命令，命令行报错信息如下：
 ```text
@@ -396,7 +396,7 @@ publish_registry = http://localhost:8089/repos/ohpm
  
  
 
-##### 报错：Same ohpm package is exists!
+#### 报错：Same ohpm package is exists!
 
 - **现象**：ohpm执行publish命令，命令行报错信息为：Same ohpm package is exists!
 ![](assets/常见问题FAQ/file-20260514134336449-20.png)
@@ -407,7 +407,7 @@ publish_registry = http://localhost:8089/repos/ohpm
  
  
 
-##### 报错：Request Entity Too Large
+#### 报错：Request Entity Too Large
 
 - **现象**：ohpm执行publish命令，命令行报错信息为：Request Entity Too Large。
 - **原因分析**：当使用nginx作为反向代理服务器时，发送过大的包，超过了nginx配置中设置的client_max_body_size的限制。默认情况下，nginx设置此值为1MB。
@@ -416,7 +416,7 @@ publish_registry = http://localhost:8089/repos/ohpm
  
  
 
-##### 报错：The packageType is no equals the exists packageType!
+#### 报错：The packageType is no equals the exists packageType!
 
 - **现象**：ohpm执行publish命令，命令行报错信息为：The packageType is no equals the exists packageType!
 - **原因分析**：当前上传包的包是一个har包，仓库中已经存在同名的hsp包，har包和hsp包不能够同名。
@@ -428,11 +428,11 @@ publish_registry = http://localhost:8089/repos/ohpm
  
  
 
-##### 执行ohpm install XX.har从ohpm-repo私仓中下载包报错
+#### 执行ohpm install XX.har从ohpm-repo私仓中下载包报错
 
  
 
-##### ohpm-repo配置uplink后，执行install命令下载uplink所配置仓库中的包失败
+#### ohpm-repo配置uplink后，执行install命令下载uplink所配置仓库中的包失败
 
 - 当添加了uplink的时候，首先确认是否在管理仓库的地方，选用了新增的uplink，下图表示新增的uplink没有被选中，uplink处为空：
 ![](assets/常见问题FAQ/file-20260514134336449-3.png)
@@ -444,11 +444,11 @@ publish_registry = http://localhost:8089/repos/ohpm
  
  
 
-##### 访问ohpm-repo私仓管理界面报错
+#### 访问ohpm-repo私仓管理界面报错
 
  
 
-##### 访问ohpm-repo私仓管理界面中页面功能，报错：非法请求
+#### 访问ohpm-repo私仓管理界面中页面功能，报错：非法请求
 
  
 - **现象**：访问ohpm-repo私仓管理界面的页面功能，报错“非法请求”。
@@ -461,7 +461,7 @@ publish_registry = http://localhost:8089/repos/ohpm
 
  
 
-##### 访问ohpm-repo私仓管理页面，报错“加密组件无效”。
+#### 访问ohpm-repo私仓管理页面，报错“加密组件无效”。
 
  
 - **现象**：打开ohpm-repo私仓管理界面，访问仓库管理页面中uplink代理配置页面，或访问认证管理页面中证书认证配置页面，报错“加密组件无效”，且已经配置的信息被清空。
@@ -487,7 +487,7 @@ publish_registry = http://localhost:8089/repos/ohpm
  
  
 
-##### 访问ohpm-repo私仓管理界面，报错：“系统配置错误，请联系管理员”
+#### 访问ohpm-repo私仓管理界面，报错：“系统配置错误，请联系管理员”
 
  
 - **现象**：访问ohpm-repo私仓管理界面，在ohpm-repo管理界面报错“非法请求”，在ohpm-repo运行日志报错：“verify reverse proxy usage: set "use_reverse_proxy" to false in config.yaml if not used, or refresh "x-forwarded-for" in Nginx if it is.”。
@@ -504,11 +504,11 @@ publish_registry = http://localhost:8089/repos/ohpm
 
  
 
-##### 配置ohpm-repo私仓工具环境变量
+#### 配置ohpm-repo私仓工具环境变量
 
  
 
-##### **Windows环境**
+#### **Windows环境**
 1. 在任务栏搜索框或开始菜单中，搜索“环境变量”，选择“**编辑系统环境变量**”。
 2. 在弹出的“系统属性”窗口中，点击右下角的“**环境变量**”按钮。
 1. 在弹出的“环境变量”窗口中，在系统变量中找到“**Path**”变量。
@@ -518,7 +518,7 @@ publish_registry = http://localhost:8089/repos/ohpm
  
  
 
-##### **Linux和macOS环境**
+#### **Linux和macOS环境**
 1. 打开命令行终端，执行以下命令编辑 .bashrc 文件。
 ```bash
 vim ~/.bashrc

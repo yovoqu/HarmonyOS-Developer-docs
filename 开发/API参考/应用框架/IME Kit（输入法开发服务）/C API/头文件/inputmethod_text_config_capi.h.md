@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-inputmethod-text-config-capi-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -40,7 +40,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -68,13 +68,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_TextConfig_Create()
+#### OH_TextConfig_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -97,7 +97,7 @@ InputMethod_TextConfig *OH_TextConfig_Create(void)
  
   
 
-##### OH_TextConfig_Destroy()
+#### OH_TextConfig_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -120,7 +120,7 @@ void OH_TextConfig_Destroy(InputMethod_TextConfig *config)
  
   
 
-##### OH_TextConfig_SetInputType()
+#### OH_TextConfig_SetInputType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -151,7 +151,7 @@ InputMethod_ErrorCode OH_TextConfig_SetInputType(InputMethod_TextConfig *config,
  
   
 
-##### OH_TextConfig_SetEnterKeyType()
+#### OH_TextConfig_SetEnterKeyType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -182,7 +182,7 @@ InputMethod_ErrorCode OH_TextConfig_SetEnterKeyType(InputMethod_TextConfig *conf
  
   
 
-##### OH_TextConfig_SetPreviewTextSupport()
+#### OH_TextConfig_SetPreviewTextSupport()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -213,7 +213,7 @@ InputMethod_ErrorCode OH_TextConfig_SetPreviewTextSupport(InputMethod_TextConfig
  
   
 
-##### OH_TextConfig_SetSelection()
+#### OH_TextConfig_SetSelection()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -245,7 +245,7 @@ InputMethod_ErrorCode OH_TextConfig_SetSelection(InputMethod_TextConfig *config,
  
   
 
-##### OH_TextConfig_SetWindowId()
+#### OH_TextConfig_SetWindowId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -276,7 +276,7 @@ InputMethod_ErrorCode OH_TextConfig_SetWindowId(InputMethod_TextConfig *config, 
  
   
 
-##### OH_TextConfig_SetPlaceholder()
+#### OH_TextConfig_SetPlaceholder()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -308,7 +308,7 @@ InputMethod_ErrorCode OH_TextConfig_SetPlaceholder(InputMethod_TextConfig *confi
  
   
 
-##### OH_TextConfig_SetAbilityName()
+#### OH_TextConfig_SetAbilityName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -340,7 +340,7 @@ InputMethod_ErrorCode OH_TextConfig_SetAbilityName(InputMethod_TextConfig *confi
  
   
 
-##### OH_TextConfig_GetInputType()
+#### OH_TextConfig_GetInputType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -371,7 +371,7 @@ InputMethod_ErrorCode OH_TextConfig_GetInputType(InputMethod_TextConfig *config,
  
   
 
-##### OH_TextConfig_GetEnterKeyType()
+#### OH_TextConfig_GetEnterKeyType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -402,7 +402,7 @@ InputMethod_ErrorCode OH_TextConfig_GetEnterKeyType(InputMethod_TextConfig *conf
  
   
 
-##### OH_TextConfig_IsPreviewTextSupported()
+#### OH_TextConfig_IsPreviewTextSupported()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -433,7 +433,7 @@ InputMethod_ErrorCode OH_TextConfig_IsPreviewTextSupported(InputMethod_TextConfi
  
   
 
-##### OH_TextConfig_GetCursorInfo()
+#### OH_TextConfig_GetCursorInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -464,7 +464,7 @@ InputMethod_ErrorCode OH_TextConfig_GetCursorInfo(InputMethod_TextConfig *config
  
   
 
-##### OH_TextConfig_GetTextAvoidInfo()
+#### OH_TextConfig_GetTextAvoidInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -495,7 +495,7 @@ InputMethod_ErrorCode OH_TextConfig_GetTextAvoidInfo(InputMethod_TextConfig *con
  
   
 
-##### OH_TextConfig_GetSelection()
+#### OH_TextConfig_GetSelection()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -527,7 +527,7 @@ InputMethod_ErrorCode OH_TextConfig_GetSelection(InputMethod_TextConfig *config,
  
   
 
-##### OH_TextConfig_GetWindowId()
+#### OH_TextConfig_GetWindowId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -558,7 +558,7 @@ InputMethod_ErrorCode OH_TextConfig_GetWindowId(InputMethod_TextConfig *config, 
  
   
 
-##### OH_TextConfig_GetPlaceholder()
+#### OH_TextConfig_GetPlaceholder()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -590,7 +590,7 @@ InputMethod_ErrorCode OH_TextConfig_GetPlaceholder(InputMethod_TextConfig *confi
  
   
 
-##### OH_TextConfig_GetAbilityName()
+#### OH_TextConfig_GetAbilityName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -16,7 +16,7 @@
 **起始版本：** 5.1.1(19)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -26,7 +26,7 @@ import { realNameService } from '@kit.PaymentKit';
  
   
 
-##### startRealNameVerification
+#### startRealNameVerification
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -113,7 +113,7 @@ struct Index {
  
   
 
-##### startRealNameAuth
+#### startRealNameAuth
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -194,7 +194,7 @@ struct Index {
  
   
 
-##### startFaceVerification
+#### startFaceVerification
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

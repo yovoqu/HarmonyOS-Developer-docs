@@ -10,7 +10,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@ import { media } from '@kit.MediaKit';
 
 
 
-##### media.createAVPlayer9+
+#### media.createAVPlayer9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -70,7 +70,7 @@ media.createAVPlayer((error: BusinessError, video: media.AVPlayer) => {
 
 
 
-##### media.createAVPlayer9+
+#### media.createAVPlayer9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -122,7 +122,7 @@ media.createAVPlayer().then((video: media.AVPlayer) => {
 
 
 
-##### media.createAVRecorder9+
+#### media.createAVRecorder9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -170,7 +170,7 @@ media.createAVRecorder((error: BusinessError, recorder: media.AVRecorder) => {
 
 
 
-##### media.createAVRecorder9+
+#### media.createAVRecorder9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -221,7 +221,7 @@ media.createAVRecorder().then((recorder: media.AVRecorder) => {
 
 
 
-##### media.createAVTranscoder12+
+#### media.createAVTranscoder12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -273,7 +273,7 @@ media.createAVTranscoder().then((transcoder: media.AVTranscoder) => {
 
 
 
-##### media.createAVMetadataExtractor11+
+#### media.createAVMetadataExtractor11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -317,7 +317,7 @@ media.createAVMetadataExtractor((error: BusinessError, extractor: media.AVMetada
 
 
 
-##### media.createAVMetadataExtractor11+
+#### media.createAVMetadataExtractor11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -363,7 +363,7 @@ media.createAVMetadataExtractor().then((extractor: media.AVMetadataExtractor) =>
 
 
 
-##### media.createSoundPool10+
+#### media.createSoundPool10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -419,7 +419,7 @@ media.createSoundPool(5, audioRendererInfo, (error, soundPool_: media.SoundPool)
 
 
 
-##### media.createSoundPool10+
+#### media.createSoundPool10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -483,7 +483,7 @@ media.createSoundPool(5, audioRendererInfo).then((soundpool_: media.SoundPool) =
 
 
 
-##### media.createAVScreenCaptureRecorder12+
+#### media.createAVScreenCaptureRecorder12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -529,7 +529,7 @@ media.createAVScreenCaptureRecorder().then((captureRecorder: media.AVScreenCaptu
 
 
 
-##### media.createAVImageGenerator12+
+#### media.createAVImageGenerator12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -573,7 +573,7 @@ media.createAVImageGenerator((error: BusinessError, generator: media.AVImageGene
 
 
 
-##### media.createAVImageGenerator12+
+#### media.createAVImageGenerator12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -619,7 +619,7 @@ media.createAVImageGenerator().then((generator: media.AVImageGenerator) => {
 
 
 
-##### media.createMediaSourceWithUrl12+
+#### media.createMediaSourceWithUrl12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -687,7 +687,7 @@ async function test(context: Context){
 
 
 
-##### media.createMediaSourceWithStreamData19+
+#### media.createMediaSourceWithStreamData19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -725,7 +725,7 @@ let mediaSource : media.MediaSource = media.createMediaSourceWithStreamData(stre
 
 
 
-##### media.createAudioPlayer(deprecated)
+#### media.createAudioPlayer(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -754,7 +754,7 @@ let audioPlayer: media.AudioPlayer = media.createAudioPlayer();
 
 
 
-##### media.createVideoPlayer(deprecated)
+#### media.createVideoPlayer(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -793,7 +793,7 @@ media.createVideoPlayer((error: BusinessError, video: media.VideoPlayer) => {
 
 
 
-##### media.createVideoPlayer(deprecated)
+#### media.createVideoPlayer(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -834,7 +834,7 @@ media.createVideoPlayer().then((video: media.VideoPlayer) => {
 
 
 
-##### media.createAudioRecorder(deprecated)
+#### media.createAudioRecorder(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

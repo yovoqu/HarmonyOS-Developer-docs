@@ -4,19 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/externaldevice-guidelines
 
-##### 场景介绍
+#### 场景介绍
 
 开发者开发带UI界面的基础驱动，适用于各种复合设备，需要通过UI界面设置对应的独特驱动能力或者通过UI界面展示从设备侧获取的信息，例如带有侧键的鼠标，手写板，身份证读卡器等设备。
 
 
 
-##### 环境搭建
+#### 环境搭建
 
 请参考[环境准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/environmental-preparation)完成开发前的准备工作。
 
 
 
-##### 接口说明
+#### 接口说明
 
 扩展外设管理基本能力如下，更多详情请查阅[@ohos.driver.deviceManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-driver-devicemanager)。
 
@@ -31,7 +31,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 应用可通过查询绑定扩展外设，从而使用扩展外设的定制驱动能力。
 
@@ -180,7 +180,7 @@ build() {
 
 
 
-##### 应用签名
+#### 应用签名
 
 **注意：** 先配置权限，再自动签名。
 

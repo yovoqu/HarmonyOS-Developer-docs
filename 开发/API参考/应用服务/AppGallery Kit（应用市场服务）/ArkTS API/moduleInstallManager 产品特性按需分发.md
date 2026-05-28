@@ -14,7 +14,7 @@
 **起始版本：** 4.1.0(11)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -24,7 +24,7 @@ import { moduleInstallManager } from '@kit.AppGalleryKit';
  
   
 
-##### InstalledModule
+#### InstalledModule
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -45,7 +45,7 @@ import { moduleInstallManager } from '@kit.AppGalleryKit';
  
   
 
-##### ModuleInstallSessionState
+#### ModuleInstallSessionState
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -70,7 +70,7 @@ import { moduleInstallManager } from '@kit.AppGalleryKit';
  
   
 
-##### InstallStatus
+#### InstallStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -90,7 +90,7 @@ import { moduleInstallManager } from '@kit.AppGalleryKit';
  
   
 
-##### ReturnCode
+#### ReturnCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -110,7 +110,7 @@ import { moduleInstallManager } from '@kit.AppGalleryKit';
  
   
 
-##### RequestErrorCode
+#### RequestErrorCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -140,7 +140,7 @@ import { moduleInstallManager } from '@kit.AppGalleryKit';
  
   
 
-##### TaskStatus
+#### TaskStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -173,7 +173,7 @@ import { moduleInstallManager } from '@kit.AppGalleryKit';
  
   
 
-##### moduleInstallManager.getInstalledModule
+#### moduleInstallManager.getInstalledModule
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -246,7 +246,7 @@ struct LoadInstallService {
  
   
 
-##### InstallProvider
+#### InstallProvider
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -260,7 +260,7 @@ struct LoadInstallService {
  
   
 
-##### InstallRequest
+#### InstallRequest
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -274,7 +274,7 @@ struct LoadInstallService {
  
   
 
-##### ModuleInstallProvider
+#### ModuleInstallProvider
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -288,7 +288,7 @@ struct LoadInstallService {
  
   
 
-##### ModuleInstallProvider.createModuleInstallRequest
+#### ModuleInstallProvider.createModuleInstallRequest
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -365,7 +365,7 @@ struct CreateModuleInstallRequest {
  
   
 
-##### ModuleInstallRequest
+#### ModuleInstallRequest
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -379,7 +379,7 @@ struct CreateModuleInstallRequest {
  
   
 
-##### ModuleInstallRequest.addModule
+#### ModuleInstallRequest.addModule
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -459,7 +459,7 @@ struct AddModule {
  
   
 
-##### moduleInstallManager.fetchModules
+#### moduleInstallManager.fetchModules
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -547,7 +547,7 @@ struct FetchModules {
  
   
 
-##### moduleInstallManager.cancelTask
+#### moduleInstallManager.cancelTask
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -606,7 +606,7 @@ try {
  
   
 
-##### moduleInstallManager.showCellularDataConfirmation
+#### moduleInstallManager.showCellularDataConfirmation
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -687,7 +687,7 @@ struct ShowCellularDataConfirmation {
  
   
 
-##### moduleInstallManager.on('moduleInstallStatus')
+#### moduleInstallManager.on('moduleInstallStatus')
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -740,7 +740,7 @@ try {
  
   
 
-##### moduleInstallManager.off('moduleInstallStatus')
+#### moduleInstallManager.off('moduleInstallStatus')
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

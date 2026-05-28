@@ -12,7 +12,7 @@ Context模块提供了Ability或Application的上下文的基础能力，包括�
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import featureAbility from '@ohos.ability.featureAbility';
  
   
 
-##### 使用说明
+#### 使用说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -39,7 +39,7 @@ context.getOrCreateLocalDir().then((data) => {
  
   
 
-##### Context.getOrCreateLocalDir7+
+#### Context.getOrCreateLocalDir7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -75,7 +75,7 @@ context.getOrCreateLocalDir((error, data)=>{
  
   
 
-##### Context.getOrCreateLocalDir7+
+#### Context.getOrCreateLocalDir7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -107,7 +107,7 @@ context.getOrCreateLocalDir().then((data) => {
  
   
 
-##### Context.verifyPermission7+
+#### Context.verifyPermission7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -149,7 +149,7 @@ bundle.getBundleInfo('com.context.test', 1, (err: BusinessError, datainfo: bundl
  
   
 
-##### Context.verifyPermission7+
+#### Context.verifyPermission7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -184,7 +184,7 @@ context.verifyPermission('com.example.permission', (error, data) =>{
  
   
 
-##### Context.verifyPermission7+
+#### Context.verifyPermission7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -222,7 +222,7 @@ context.verifyPermission('com.context.permission', {pid:1}).then((data) => {
  
   
 
-##### Context.requestPermissionsFromUser7+
+#### Context.requestPermissionsFromUser7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -337,7 +337,7 @@ export default {
  
   
 
-##### Context.requestPermissionsFromUser7+
+#### Context.requestPermissionsFromUser7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -448,7 +448,7 @@ export default {
  
   
 
-##### Context.getApplicationInfo7+
+#### Context.getApplicationInfo7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -482,7 +482,7 @@ context.getApplicationInfo((error, data) => {
  
   
 
-##### Context.getApplicationInfo7+
+#### Context.getApplicationInfo7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -512,7 +512,7 @@ context.getApplicationInfo().then((data) => {
  
   
 
-##### Context.getBundleName7+
+#### Context.getBundleName7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -546,7 +546,7 @@ context.getBundleName((error, data) => {
  
   
 
-##### Context.getBundleName7+
+#### Context.getBundleName7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -576,7 +576,7 @@ context.getBundleName().then((data) => {
  
   
 
-##### Context.getDisplayOrientation7+
+#### Context.getDisplayOrientation7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -610,7 +610,7 @@ context.getDisplayOrientation((error, data) => {
  
   
 
-##### Context.getDisplayOrientation7+
+#### Context.getDisplayOrientation7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -640,7 +640,7 @@ context.getDisplayOrientation().then((data) => {
  
   
 
-##### Context.getExternalCacheDir(deprecated)
+#### Context.getExternalCacheDir(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -678,7 +678,7 @@ context.getExternalCacheDir((error, data) => {
  
   
 
-##### Context.getExternalCacheDir(deprecated)
+#### Context.getExternalCacheDir(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -712,7 +712,7 @@ context.getExternalCacheDir().then((data) => {
  
   
 
-##### Context.setDisplayOrientation7+
+#### Context.setDisplayOrientation7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -745,7 +745,7 @@ context.setDisplayOrientation(orientation, (error) => {
  
   
 
-##### Context.setDisplayOrientation7+
+#### Context.setDisplayOrientation7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -784,7 +784,7 @@ context.setDisplayOrientation(orientation).then((data) => {
  
   
 
-##### Context.setShowOnLockScreen(deprecated)
+#### Context.setShowOnLockScreen(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -820,7 +820,7 @@ context.setShowOnLockScreen(show, (error) => {
  
   
 
-##### Context.setShowOnLockScreen(deprecated)
+#### Context.setShowOnLockScreen(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -862,7 +862,7 @@ context.setShowOnLockScreen(show).then((data) => {
  
   
 
-##### Context.setWakeUpScreen(deprecated)
+#### Context.setWakeUpScreen(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -898,7 +898,7 @@ context.setWakeUpScreen(wakeUp, (error) => {
  
   
 
-##### Context.setWakeUpScreen(deprecated)
+#### Context.setWakeUpScreen(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -940,7 +940,7 @@ context.setWakeUpScreen(wakeUp).then((data) => {
  
   
 
-##### Context.getProcessInfo7+
+#### Context.getProcessInfo7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -974,7 +974,7 @@ context.getProcessInfo((error, data) => {
  
   
 
-##### Context.getProcessInfo7+
+#### Context.getProcessInfo7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1004,7 +1004,7 @@ context.getProcessInfo().then((data) => {
  
   
 
-##### Context.getElementName7+
+#### Context.getElementName7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1040,7 +1040,7 @@ context.getElementName((error, data) => {
  
   
 
-##### Context.getElementName7+
+#### Context.getElementName7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1072,7 +1072,7 @@ context.getElementName().then((data) => {
  
   
 
-##### Context.getProcessName7+
+#### Context.getProcessName7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1106,7 +1106,7 @@ context.getProcessName((error, data) => {
  
   
 
-##### Context.getProcessName7+
+#### Context.getProcessName7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1136,7 +1136,7 @@ context.getProcessName().then((data) => {
  
   
 
-##### Context.getCallingBundle7+
+#### Context.getCallingBundle7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1170,7 +1170,7 @@ context.getCallingBundle((error, data) => {
  
   
 
-##### Context.getCallingBundle7+
+#### Context.getCallingBundle7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1200,7 +1200,7 @@ context.getCallingBundle().then((data) => {
  
   
 
-##### Context.getCacheDir
+#### Context.getCacheDir
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1234,7 +1234,7 @@ context.getCacheDir((error, data) => {
  
   
 
-##### Context.getCacheDir
+#### Context.getCacheDir
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1264,7 +1264,7 @@ context.getCacheDir().then((data) => {
  
   
 
-##### Context.getFilesDir
+#### Context.getFilesDir
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1298,7 +1298,7 @@ context.getFilesDir((error, data) => {
  
   
 
-##### Context.getFilesDir
+#### Context.getFilesDir
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1328,7 +1328,7 @@ context.getFilesDir().then((data) => {
  
   
 
-##### Context.getOrCreateDistributedDir7+
+#### Context.getOrCreateDistributedDir7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1364,7 +1364,7 @@ context.getOrCreateDistributedDir((error, data) => {
  
   
 
-##### Context.getOrCreateDistributedDir7+
+#### Context.getOrCreateDistributedDir7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1396,7 +1396,7 @@ context.getOrCreateDistributedDir().then((data) => {
  
   
 
-##### Context.getAppType7+
+#### Context.getAppType7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1430,7 +1430,7 @@ context.getAppType((error, data) => {
  
   
 
-##### Context.getAppType7+
+#### Context.getAppType7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1460,7 +1460,7 @@ context.getAppType().then((data) => {
  
   
 
-##### Context.getHapModuleInfo7+
+#### Context.getHapModuleInfo7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1494,7 +1494,7 @@ context.getHapModuleInfo((error, data) => {
  
   
 
-##### Context.getHapModuleInfo7+
+#### Context.getHapModuleInfo7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1524,7 +1524,7 @@ context.getHapModuleInfo().then((data) => {
  
   
 
-##### Context.getAppVersionInfo7+
+#### Context.getAppVersionInfo7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1558,7 +1558,7 @@ context.getAppVersionInfo((error, data) => {
  
   
 
-##### Context.getAppVersionInfo7+
+#### Context.getAppVersionInfo7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1588,7 +1588,7 @@ context.getAppVersionInfo().then((data) => {
  
   
 
-##### Context.getAbilityInfo7+
+#### Context.getAbilityInfo7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1622,7 +1622,7 @@ context.getAbilityInfo((error, data) => {
  
   
 
-##### Context.getAbilityInfo7+
+#### Context.getAbilityInfo7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1652,7 +1652,7 @@ context.getAbilityInfo().then((data) => {
  
   
 
-##### Context.getApplicationContext7+
+#### Context.getApplicationContext7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1679,7 +1679,7 @@ let context: featureAbility.Context = featureAbility.getContext().getApplication
  
   
 
-##### Context.isUpdatingConfigurations7+
+#### Context.isUpdatingConfigurations7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1713,7 +1713,7 @@ context.isUpdatingConfigurations((error, data) => {
  
   
 
-##### Context.isUpdatingConfigurations7+
+#### Context.isUpdatingConfigurations7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1743,7 +1743,7 @@ context.isUpdatingConfigurations().then((data) => {
  
   
 
-##### Context.printDrawnCompleted7+
+#### Context.printDrawnCompleted7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1773,7 +1773,7 @@ context.printDrawnCompleted((err) => {
  
   
 
-##### Context.printDrawnCompleted7+
+#### Context.printDrawnCompleted7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1803,7 +1803,7 @@ context.printDrawnCompleted().then((data) => {
  
   
 
-##### PermissionOptions7+
+#### PermissionOptions7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1817,7 +1817,7 @@ context.printDrawnCompleted().then((data) => {
  
   
 
-##### PermissionRequestResult7+
+#### PermissionRequestResult7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

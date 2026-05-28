@@ -84,7 +84,7 @@ export class AVPlayer {
 ```
   
 
-##### 约束与限制
+#### 约束与限制
 
 - 构造PiPConfiguration参数时，建议传入contentWidth和contentHeight参数用以计算画中画初始比例，否则系统将以16:9的比例呈现画中画窗口。
 - contentNode支持XComponentType.SURFACE类型，且创建typeNode时必须指定为"XComponent"类型。
@@ -93,7 +93,7 @@ export class AVPlayer {
  
   
 
-##### 应用使用typeNode自由节点（不添加到布局）实现画中画功能
+#### 应用使用typeNode自由节点（不添加到布局）实现画中画功能
 1. 创建画中画控制器，注册生命周期事件以及控制事件回调。
 
   
@@ -489,7 +489,7 @@ export class PipManager {
  
   
 
-##### 应用使用router导航时通过typeNode实现画中画功能
+#### 应用使用router导航时通过typeNode实现画中画功能
 1. 创建画中画控制器，注册生命周期事件以及控制事件回调。
 
   
@@ -975,7 +975,7 @@ export class XCNodeController extends NodeController {
  
   
 
-##### 应用使用Navigation导航时通过typeNode实现画中画功能
+#### 应用使用Navigation导航时通过typeNode实现画中画功能
 1. 创建画中画控制器，注册生命周期事件以及控制事件回调。
 
   
@@ -1464,7 +1464,7 @@ export class PipManager {
  
   
 
-##### 应用使用单界面Ability时通过typeNode实现画中画功能
+#### 应用使用单界面Ability时通过typeNode实现画中画功能
 1. 创建画中画控制器，注册生命周期事件以及控制事件回调。
 
   
@@ -1881,4 +1881,4 @@ export class PipManager {
 以上示例代码对应的示意图如下所示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/0kj7GExZQlmZukbEWr-aew/zh-cn_image_0000002581274328.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014750Z&HW-CC-Expire=86400&HW-CC-Sign=C58D2C8D8F20B8344F9B20850E1CD75C8025D8A934B70E4833FBF25A04FACF27)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/0kj7GExZQlmZukbEWr-aew/zh-cn_image_0000002581274328.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030422Z&HW-CC-Expire=86400&HW-CC-Sign=A647E8CF56BCA7D32A9007AD22D8ED79E2D49BC930F00A94408B91F198168C36)

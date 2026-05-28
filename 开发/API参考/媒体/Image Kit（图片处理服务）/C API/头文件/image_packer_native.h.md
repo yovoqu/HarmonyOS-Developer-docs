@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-packer-native-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -42,7 +42,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -53,7 +53,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -95,13 +95,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### IMAGE_PACKER_DYNAMIC_RANGE
+#### IMAGE_PACKER_DYNAMIC_RANGE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -123,13 +123,13 @@ enum IMAGE_PACKER_DYNAMIC_RANGE
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_PackingOptions_Create()
+#### OH_PackingOptions_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -159,7 +159,7 @@ Image_ErrorCode OH_PackingOptions_Create(OH_PackingOptions **options)
  
   
 
-##### OH_PackingOptions_GetMimeType()
+#### OH_PackingOptions_GetMimeType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -190,7 +190,7 @@ Image_ErrorCode OH_PackingOptions_GetMimeType(OH_PackingOptions *options,Image_M
  
   
 
-##### OH_PackingOptions_GetMimeTypeWithNull()
+#### OH_PackingOptions_GetMimeTypeWithNull()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -221,7 +221,7 @@ Image_ErrorCode OH_PackingOptions_GetMimeTypeWithNull(OH_PackingOptions *options
  
   
 
-##### OH_PackingOptions_SetMimeType()
+#### OH_PackingOptions_SetMimeType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -252,7 +252,7 @@ Image_ErrorCode OH_PackingOptions_SetMimeType(OH_PackingOptions *options,Image_M
  
   
 
-##### OH_PackingOptions_GetQuality()
+#### OH_PackingOptions_GetQuality()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -283,7 +283,7 @@ Image_ErrorCode OH_PackingOptions_GetQuality(OH_PackingOptions *options,uint32_t
  
   
 
-##### OH_PackingOptions_SetQuality()
+#### OH_PackingOptions_SetQuality()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -314,7 +314,7 @@ Image_ErrorCode OH_PackingOptions_SetQuality(OH_PackingOptions *options,uint32_t
  
   
 
-##### OH_PackingOptions_GetNeedsPackProperties()
+#### OH_PackingOptions_GetNeedsPackProperties()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -345,7 +345,7 @@ Image_ErrorCode OH_PackingOptions_GetNeedsPackProperties(OH_PackingOptions *opti
  
   
 
-##### OH_PackingOptions_SetNeedsPackProperties()
+#### OH_PackingOptions_SetNeedsPackProperties()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -376,7 +376,7 @@ Image_ErrorCode OH_PackingOptions_SetNeedsPackProperties(OH_PackingOptions *opti
  
   
 
-##### OH_PackingOptions_GetDesiredDynamicRange()
+#### OH_PackingOptions_GetDesiredDynamicRange()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -407,7 +407,7 @@ Image_ErrorCode OH_PackingOptions_GetDesiredDynamicRange(OH_PackingOptions *opti
  
   
 
-##### OH_PackingOptions_SetDesiredDynamicRange()
+#### OH_PackingOptions_SetDesiredDynamicRange()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -438,7 +438,7 @@ Image_ErrorCode OH_PackingOptions_SetDesiredDynamicRange(OH_PackingOptions *opti
  
   
 
-##### OH_PackingOptions_Release()
+#### OH_PackingOptions_Release()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -468,7 +468,7 @@ Image_ErrorCode OH_PackingOptions_Release(OH_PackingOptions *options)
  
   
 
-##### OH_PackingOptionsForSequence_Create()
+#### OH_PackingOptionsForSequence_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -498,7 +498,7 @@ Image_ErrorCode OH_PackingOptionsForSequence_Create(OH_PackingOptionsForSequence
  
   
 
-##### OH_PackingOptionsForSequence_SetFrameCount()
+#### OH_PackingOptionsForSequence_SetFrameCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -529,7 +529,7 @@ Image_ErrorCode OH_PackingOptionsForSequence_SetFrameCount(OH_PackingOptionsForS
  
   
 
-##### OH_PackingOptionsForSequence_GetFrameCount()
+#### OH_PackingOptionsForSequence_GetFrameCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -560,7 +560,7 @@ Image_ErrorCode OH_PackingOptionsForSequence_GetFrameCount(OH_PackingOptionsForS
  
   
 
-##### OH_PackingOptionsForSequence_SetDelayTimeList()
+#### OH_PackingOptionsForSequence_SetDelayTimeList()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -592,7 +592,7 @@ Image_ErrorCode OH_PackingOptionsForSequence_SetDelayTimeList(OH_PackingOptionsF
  
   
 
-##### OH_PackingOptionsForSequence_GetDelayTimeList()
+#### OH_PackingOptionsForSequence_GetDelayTimeList()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -624,7 +624,7 @@ Image_ErrorCode OH_PackingOptionsForSequence_GetDelayTimeList(OH_PackingOptionsF
  
   
 
-##### OH_PackingOptionsForSequence_SetDisposalTypes()
+#### OH_PackingOptionsForSequence_SetDisposalTypes()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -656,7 +656,7 @@ Image_ErrorCode OH_PackingOptionsForSequence_SetDisposalTypes(OH_PackingOptionsF
  
   
 
-##### OH_PackingOptionsForSequence_GetDisposalTypes()
+#### OH_PackingOptionsForSequence_GetDisposalTypes()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -688,7 +688,7 @@ Image_ErrorCode OH_PackingOptionsForSequence_GetDisposalTypes(OH_PackingOptionsF
  
   
 
-##### OH_PackingOptionsForSequence_SetLoopCount()
+#### OH_PackingOptionsForSequence_SetLoopCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -719,7 +719,7 @@ Image_ErrorCode OH_PackingOptionsForSequence_SetLoopCount(OH_PackingOptionsForSe
  
   
 
-##### OH_PackingOptionsForSequence_GetLoopCount()
+#### OH_PackingOptionsForSequence_GetLoopCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -750,7 +750,7 @@ Image_ErrorCode OH_PackingOptionsForSequence_GetLoopCount(OH_PackingOptionsForSe
  
   
 
-##### OH_PackingOptionsForSequence_Release()
+#### OH_PackingOptionsForSequence_Release()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -780,7 +780,7 @@ Image_ErrorCode OH_PackingOptionsForSequence_Release(OH_PackingOptionsForSequenc
  
   
 
-##### OH_ImagePackerNative_Create()
+#### OH_ImagePackerNative_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -810,7 +810,7 @@ Image_ErrorCode OH_ImagePackerNative_Create(OH_ImagePackerNative **imagePacker)
  
   
 
-##### OH_ImagePackerNative_PackToDataFromImageSource()
+#### OH_ImagePackerNative_PackToDataFromImageSource()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -844,7 +844,7 @@ Image_ErrorCode OH_ImagePackerNative_PackToDataFromImageSource(OH_ImagePackerNat
  
   
 
-##### OH_ImagePackerNative_PackToDataFromPixelmap()
+#### OH_ImagePackerNative_PackToDataFromPixelmap()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -878,7 +878,7 @@ Image_ErrorCode OH_ImagePackerNative_PackToDataFromPixelmap(OH_ImagePackerNative
  
   
 
-##### OH_ImagePackerNative_PackToDataFromPicture()
+#### OH_ImagePackerNative_PackToDataFromPicture()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -912,7 +912,7 @@ Image_ErrorCode OH_ImagePackerNative_PackToDataFromPicture(OH_ImagePackerNative 
  
   
 
-##### OH_ImagePackerNative_PackToDataFromPixelmapSequence()
+#### OH_ImagePackerNative_PackToDataFromPixelmapSequence()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -947,7 +947,7 @@ Image_ErrorCode OH_ImagePackerNative_PackToDataFromPixelmapSequence(OH_ImagePack
  
   
 
-##### OH_ImagePackerNative_PackToFileFromImageSource()
+#### OH_ImagePackerNative_PackToFileFromImageSource()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -980,7 +980,7 @@ Image_ErrorCode OH_ImagePackerNative_PackToFileFromImageSource(OH_ImagePackerNat
  
   
 
-##### OH_ImagePackerNative_PackToFileFromPixelmap()
+#### OH_ImagePackerNative_PackToFileFromPixelmap()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1013,7 +1013,7 @@ Image_ErrorCode OH_ImagePackerNative_PackToFileFromPixelmap(OH_ImagePackerNative
  
   
 
-##### OH_ImagePackerNative_PackToFileFromPicture()
+#### OH_ImagePackerNative_PackToFileFromPicture()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1046,7 +1046,7 @@ Image_ErrorCode OH_ImagePackerNative_PackToFileFromPicture(OH_ImagePackerNative 
  
   
 
-##### OH_ImagePackerNative_PackToFileFromPixelmapSequence()
+#### OH_ImagePackerNative_PackToFileFromPixelmapSequence()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1080,7 +1080,7 @@ Image_ErrorCode OH_ImagePackerNative_PackToFileFromPixelmapSequence(OH_ImagePack
  
   
 
-##### OH_ImagePackerNative_GetSupportedFormats()
+#### OH_ImagePackerNative_GetSupportedFormats()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1111,7 +1111,7 @@ Image_ErrorCode OH_ImagePackerNative_GetSupportedFormats(Image_MimeType **suppor
  
   
 
-##### OH_ImagePackerNative_Release()
+#### OH_ImagePackerNative_Release()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

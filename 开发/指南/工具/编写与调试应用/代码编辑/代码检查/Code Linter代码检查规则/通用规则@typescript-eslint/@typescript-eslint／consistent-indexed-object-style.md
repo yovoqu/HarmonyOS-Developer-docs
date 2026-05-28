@@ -9,7 +9,7 @@
 该规则仅支持对.js/.ts文件进行检查。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -22,13 +22,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/consistent-indexed-object-style选项](https://typescript-eslint.nodejs.cn/rules/consistent-indexed-object-style/#options)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 // 默认推荐使用Record 类型
@@ -37,7 +37,7 @@ export type Foo = Record<string, unknown>;
  
  
 
-##### 反例
+#### 反例
 
 ```text
 export interface Foo1 {
@@ -53,7 +53,7 @@ export type Foo2 = {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

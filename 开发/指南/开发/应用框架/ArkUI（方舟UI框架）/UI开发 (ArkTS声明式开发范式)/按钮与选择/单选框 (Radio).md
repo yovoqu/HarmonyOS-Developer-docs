@@ -7,7 +7,7 @@
 Radio是单选框组件，通常用于提供相应的用户交互选择项，同一组的Radio中只有一个可以被选中。具体用法请参考[Radio](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-radio)。
 
 
-##### 创建单选框
+#### 创建单选框
 
 Radio通过调用[RadioOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-radio#radiooptions对象说明)来创建，以RadioOptions中的value和group为例：
 
@@ -32,7 +32,7 @@ Radio({ value: 'Radio2', group: 'radioGroup' })
 
 
 
-##### 添加事件
+#### 添加事件
 
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)外，Radio还用于选中后触发某些操作，可以绑定onChange事件来响应选中操作后的自定义行为。
 
@@ -55,7 +55,7 @@ Radio({ value: 'Radio2', group: 'radioGroup' })
 
 
 
-##### 场景示例
+#### 场景示例
 
 通过点击Radio切换声音模式。
 

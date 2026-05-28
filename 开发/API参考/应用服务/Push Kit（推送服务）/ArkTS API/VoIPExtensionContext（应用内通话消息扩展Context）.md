@@ -14,7 +14,7 @@ VoIPExtensionContext是VoIPExtensionAbility的上下文环境，继承自[UIExte
 **起始版本：** 4.1.0(11)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { VoIPExtensionContext } from '@kit.PushKit';
  
   
 
-##### VoIPExtensionContext
+#### VoIPExtensionContext
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

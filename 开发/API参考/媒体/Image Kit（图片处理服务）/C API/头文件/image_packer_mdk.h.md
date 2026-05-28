@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-packer-mdk-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -33,13 +33,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -51,7 +51,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -66,13 +66,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_ImagePacker_Create()
+#### OH_ImagePacker_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -103,7 +103,7 @@ int32_t OH_ImagePacker_Create(napi_env env, napi_value *res)
  
   
 
-##### OH_ImagePacker_InitNative()
+#### OH_ImagePacker_InitNative()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -138,7 +138,7 @@ ImagePacker_Native* OH_ImagePacker_InitNative(napi_env env, napi_value packer)
  
   
 
-##### OH_ImagePacker_PackToData()
+#### OH_ImagePacker_PackToData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -176,7 +176,7 @@ int32_t OH_ImagePacker_PackToData(ImagePacker_Native* native, napi_value source,
  
   
 
-##### OH_ImagePacker_PackToFile()
+#### OH_ImagePacker_PackToFile()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -213,7 +213,7 @@ int32_t OH_ImagePacker_PackToFile(ImagePacker_Native* native, napi_value source,
  
   
 
-##### OH_ImagePacker_Release()
+#### OH_ImagePacker_Release()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

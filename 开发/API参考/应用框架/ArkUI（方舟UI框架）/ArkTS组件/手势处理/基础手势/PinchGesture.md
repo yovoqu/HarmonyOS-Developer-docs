@@ -12,13 +12,13 @@
 
   
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### PinchGesture
+#### PinchGesture
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -39,7 +39,7 @@ PinchGesture(value?: { fingers?: number; distance?: number })
  
   
 
-##### PinchGesture15+
+#### PinchGesture15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -60,7 +60,7 @@ PinchGesture(options?: PinchGestureHandlerOptions)
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -70,7 +70,7 @@ PinchGesture(options?: PinchGestureHandlerOptions)
  
   
 
-##### onActionStart
+#### onActionStart
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -91,7 +91,7 @@ Pinch手势识别成功后触发回调。
  
   
 
-##### onActionUpdate
+#### onActionUpdate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -112,7 +112,7 @@ Pinch手势移动过程中回调。
  
   
 
-##### onActionEnd
+#### onActionEnd
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -133,7 +133,7 @@ Pinch手势识别成功，当抬起最后一根满足手势触发条件的手指
  
   
 
-##### onActionCancel
+#### onActionCancel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -154,7 +154,7 @@ Pinch手势识别成功，接收到触摸取消事件触发的回调，不返回
  
   
 
-##### onActionCancel18+
+#### onActionCancel18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -175,13 +175,13 @@ Pinch手势识别成功并接收到触摸取消事件的回调。与[onActionCan
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 示例1（实现简单缩放）
+#### 示例1（实现简单缩放）
 
 该示例通过配置PinchGesture实现了三指捏合手势的识别功能。
  
@@ -231,12 +231,12 @@ struct PinchGestureExample {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/9eSHq7HBSyqEE8--gOUtsQ/zh-cn_image_0000002581275794.png?HW-CC-KV=V1&HW-CC-Date=20260528T024201Z&HW-CC-Expire=86400&HW-CC-Sign=7F07FDFA12EAC82F5AC6AC2F8A5198CEE524D0115C5F0E25C42C4B3A6B0954EA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/9eSHq7HBSyqEE8--gOUtsQ/zh-cn_image_0000002581275794.png?HW-CC-KV=V1&HW-CC-Date=20260528T025533Z&HW-CC-Expire=86400&HW-CC-Sign=034AE50A6ED70FD6AB678D3A8E1F29F5BFB38F74B8C8FE24C9B464381A1AA457)
 
  
   
 
-##### 示例2（实现图片跟手缩放）
+#### 示例2（实现图片跟手缩放）
 
 通过配置PinchGesture，该示例实现了图片的跟手缩放效果。
  
@@ -332,4 +332,4 @@ struct PinchGestureExample {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/30TmiqlXStCwAWpwkIScrA/zh-cn_image_0000002611755651.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024201Z&HW-CC-Expire=86400&HW-CC-Sign=6E143957A64EB7867B7C4E8318FC92E7B249476EBB767CE6CBECBD6B7A4FC058)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/30TmiqlXStCwAWpwkIScrA/zh-cn_image_0000002611755651.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025533Z&HW-CC-Expire=86400&HW-CC-Sign=C52C8687A3D0115EEC2686CF5AA1F4D6BD0EFD58C35E4535B50E5B1A28447037)

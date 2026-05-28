@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { drawing } from '@kit.ArkGraphics2D';
 
 
 
-##### create12+
+#### create12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -75,7 +75,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### create18+
+#### create18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

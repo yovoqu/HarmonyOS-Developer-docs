@@ -14,7 +14,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { audio } from '@kit.AudioKit';
 
 
 
-##### getCurrentAudioRendererInfoArray9+
+#### getCurrentAudioRendererInfoArray9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -61,7 +61,7 @@ audioStreamManager.getCurrentAudioRendererInfoArray((err: BusinessError, audioRe
 
 
 
-##### getCurrentAudioRendererInfoArray9+
+#### getCurrentAudioRendererInfoArray9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -96,7 +96,7 @@ audioStreamManager.getCurrentAudioRendererInfoArray().then((audioRendererChangeI
 
 
 
-##### getCurrentAudioRendererInfoArraySync10+
+#### getCurrentAudioRendererInfoArraySync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -133,7 +133,7 @@ try {
 
 
 
-##### getCurrentAudioCapturerInfoArray9+
+#### getCurrentAudioCapturerInfoArray9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -170,7 +170,7 @@ audioStreamManager.getCurrentAudioCapturerInfoArray((err: BusinessError, audioCa
 
 
 
-##### getCurrentAudioCapturerInfoArray9+
+#### getCurrentAudioCapturerInfoArray9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -205,7 +205,7 @@ audioStreamManager.getCurrentAudioCapturerInfoArray().then((audioCapturerChangeI
 
 
 
-##### getCurrentAudioCapturerInfoArraySync10+
+#### getCurrentAudioCapturerInfoArraySync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -242,7 +242,7 @@ try {
 
 
 
-##### on('audioRendererChange')9+
+#### on('audioRendererChange')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -284,7 +284,7 @@ audioStreamManager.on('audioRendererChange',  (audioRendererChangeInfoArray: aud
 
 
 
-##### off('audioRendererChange')9+
+#### off('audioRendererChange')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -331,7 +331,7 @@ audioStreamManager.off('audioRendererChange', audioRendererChangeCallback);
 
 
 
-##### on('audioCapturerChange')9+
+#### on('audioCapturerChange')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -373,7 +373,7 @@ audioStreamManager.on('audioCapturerChange', (audioCapturerChangeInfoArray: audi
 
 
 
-##### off('audioCapturerChange')9+
+#### off('audioCapturerChange')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -420,7 +420,7 @@ audioStreamManager.off('audioCapturerChange', audioCapturerChangeCallback);
 
 
 
-##### isActive(deprecated)
+#### isActive(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -458,7 +458,7 @@ if (err) {
 
 
 
-##### isActive(deprecated)
+#### isActive(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -496,7 +496,7 @@ audioStreamManager.isActive(audio.AudioVolumeType.MEDIA).then((value: boolean) =
 
 
 
-##### isActiveSync(deprecated)
+#### isActiveSync(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -550,7 +550,7 @@ try {
 
 
 
-##### isStreamActive20+
+#### isStreamActive20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -599,7 +599,7 @@ try {
 
 
 
-##### getAudioEffectInfoArray10+
+#### getAudioEffectInfoArray10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -643,7 +643,7 @@ audioStreamManager.getAudioEffectInfoArray(audio.StreamUsage.STREAM_USAGE_MUSIC,
 
 
 
-##### getAudioEffectInfoArray10+
+#### getAudioEffectInfoArray10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -691,7 +691,7 @@ audioStreamManager.getAudioEffectInfoArray(audio.StreamUsage.STREAM_USAGE_MUSIC)
 
 
 
-##### getAudioEffectInfoArraySync10+
+#### getAudioEffectInfoArraySync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -741,7 +741,7 @@ try {
 
 
 
-##### isAcousticEchoCancelerSupported20+
+#### isAcousticEchoCancelerSupported20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -790,7 +790,7 @@ try {
 
 
 
-##### isAudioLoopbackSupported20+
+#### isAudioLoopbackSupported20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -839,7 +839,7 @@ try {
 
 
 
-##### isRecordingAvailable20+
+#### isRecordingAvailable20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -912,7 +912,7 @@ audio.createAudioCapturer(audioCapturerOptions, (err: BusinessError, audioCaptur
 
 
 
-##### isIntelligentNoiseReductionEnabledForCurrentDevice21+
+#### isIntelligentNoiseReductionEnabledForCurrentDevice21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

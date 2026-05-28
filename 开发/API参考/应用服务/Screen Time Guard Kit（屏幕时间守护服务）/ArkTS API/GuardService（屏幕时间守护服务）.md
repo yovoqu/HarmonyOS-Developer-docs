@@ -14,7 +14,7 @@
 **起始版本：** 6.0.0(20)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Tablet
 
@@ -24,7 +24,7 @@ import { guardService } from '@kit.ScreenTimeGuardKit';
  
   
 
-##### GuardServiceErrorCode
+#### GuardServiceErrorCode
 
 **支持设备：** Phone | Tablet
 
@@ -52,7 +52,7 @@ import { guardService } from '@kit.ScreenTimeGuardKit';
  
   
 
-##### requestUserAuth
+#### requestUserAuth
 
 **支持设备：** Phone | Tablet
 
@@ -122,7 +122,7 @@ struct TestPage {
  
   
 
-##### requestUserAuth
+#### requestUserAuth
 
 **支持设备：** Phone | Tablet
 
@@ -196,7 +196,7 @@ struct TestPage {
  
   
 
-##### AppConfig
+#### AppConfig
 
 **支持设备：** Phone | Tablet
 
@@ -215,7 +215,7 @@ struct TestPage {
  
   
 
-##### revokeUserAuth
+#### revokeUserAuth
 
 **支持设备：** Phone | Tablet
 
@@ -266,7 +266,7 @@ function testRevokeUserAuth() {
  
   
 
-##### getUserAuthStatus
+#### getUserAuthStatus
 
 **支持设备：** Phone | Tablet
 
@@ -318,7 +318,7 @@ function testGetUserAuthStatus() {
  
   
 
-##### AuthStatus
+#### AuthStatus
 
 **支持设备：** Phone | Tablet
 
@@ -339,7 +339,7 @@ function testGetUserAuthStatus() {
  
   
 
-##### AppInfo
+#### AppInfo
 
 **支持设备：** Phone | Tablet
 
@@ -358,7 +358,7 @@ function testGetUserAuthStatus() {
  
   
 
-##### addGuardStrategy
+#### addGuardStrategy
 
 **支持设备：** Phone | Tablet
 
@@ -435,7 +435,7 @@ function testAddGuardStrategy() {
  
   
 
-##### GuardStrategy
+#### GuardStrategy
 
 **支持设备：** Phone | Tablet
 
@@ -457,7 +457,7 @@ function testAddGuardStrategy() {
  
   
 
-##### TimeStrategy
+#### TimeStrategy
 
 **支持设备：** Phone | Tablet
 
@@ -480,7 +480,7 @@ function testAddGuardStrategy() {
  
   
 
-##### TimeStrategyType
+#### TimeStrategyType
 
 **支持设备：** Phone | Tablet
 
@@ -501,7 +501,7 @@ function testAddGuardStrategy() {
  
   
 
-##### RestrictionType
+#### RestrictionType
 
 **支持设备：** Phone | Tablet
 
@@ -521,7 +521,7 @@ function testAddGuardStrategy() {
  
   
 
-##### updateGuardStrategy
+#### updateGuardStrategy
 
 **支持设备：** Phone | Tablet
 
@@ -599,7 +599,7 @@ function testUpdateGuardService() {
  
   
 
-##### queryGuardStrategies
+#### queryGuardStrategies
 
 **支持设备：** Phone | Tablet
 
@@ -651,7 +651,7 @@ function testQueryGuardService() {
  
   
 
-##### removeGuardStrategy
+#### removeGuardStrategy
 
 **支持设备：** Phone | Tablet
 
@@ -712,7 +712,7 @@ function testRemoveGuardService() {
  
   
 
-##### startGuardStrategy
+#### startGuardStrategy
 
 **支持设备：** Phone | Tablet
 
@@ -774,7 +774,7 @@ function testGuardService() {
  
   
 
-##### stopGuardStrategy
+#### stopGuardStrategy
 
 **支持设备：** Phone | Tablet
 
@@ -836,7 +836,7 @@ function testStopGuardService() {
  
   
 
-##### setAppsRestriction
+#### setAppsRestriction
 
 **支持设备：** Phone | Tablet
 
@@ -900,7 +900,7 @@ function testSetAppsRestriction() {
  
   
 
-##### releaseAppsRestriction
+#### releaseAppsRestriction
 
 **支持设备：** Phone | Tablet
 

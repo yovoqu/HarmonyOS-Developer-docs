@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { media } from '@kit.MediaKit';
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -44,7 +44,7 @@ import { media } from '@kit.MediaKit';
 
 
 
-##### setDisplaySurface(deprecated)
+#### setDisplaySurface(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -83,7 +83,7 @@ videoPlayer.setDisplaySurface(surfaceId, (err: BusinessError) => {
 
 
 
-##### setDisplaySurface(deprecated)
+#### setDisplaySurface(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -126,7 +126,7 @@ videoPlayer.setDisplaySurface(surfaceId).then(() => {
 
 
 
-##### prepare(deprecated)
+#### prepare(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -163,7 +163,7 @@ videoPlayer.prepare((err: BusinessError) => {
 
 
 
-##### prepare(deprecated)
+#### prepare(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -198,7 +198,7 @@ videoPlayer.prepare().then(() => {
 
 
 
-##### play(deprecated)
+#### play(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -235,7 +235,7 @@ videoPlayer.play((err: BusinessError) => {
 
 
 
-##### play(deprecated)
+#### play(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -270,7 +270,7 @@ videoPlayer.play().then(() => {
 
 
 
-##### pause(deprecated)
+#### pause(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -307,7 +307,7 @@ videoPlayer.pause((err: BusinessError) => {
 
 
 
-##### pause(deprecated)
+#### pause(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -342,7 +342,7 @@ videoPlayer.pause().then(() => {
 
 
 
-##### stop(deprecated)
+#### stop(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -379,7 +379,7 @@ videoPlayer.stop((err: BusinessError) => {
 
 
 
-##### stop(deprecated)
+#### stop(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -414,7 +414,7 @@ videoPlayer.stop().then(() => {
 
 
 
-##### reset(deprecated)
+#### reset(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -451,7 +451,7 @@ videoPlayer.reset((err: BusinessError) => {
 
 
 
-##### reset(deprecated)
+#### reset(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -486,7 +486,7 @@ videoPlayer.reset().then(() => {
 
 
 
-##### seek(deprecated)
+#### seek(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -535,7 +535,7 @@ videoPlayer.seek(seekTime, (err: BusinessError, result: number) => {
 
 
 
-##### seek(deprecated)
+#### seek(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -586,7 +586,7 @@ if (videoPlayer) {
 
 
 
-##### seek(deprecated)
+#### seek(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -647,7 +647,7 @@ if (videoPlayer) {
 
 
 
-##### setVolume(deprecated)
+#### setVolume(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -686,7 +686,7 @@ videoPlayer.setVolume(vol, (err: BusinessError) => {
 
 
 
-##### setVolume(deprecated)
+#### setVolume(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -729,7 +729,7 @@ videoPlayer.setVolume(vol).then(() => {
 
 
 
-##### release(deprecated)
+#### release(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -766,7 +766,7 @@ videoPlayer.release((err: BusinessError) => {
 
 
 
-##### release(deprecated)
+#### release(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -801,7 +801,7 @@ videoPlayer.release().then(() => {
 
 
 
-##### getTrackDescription(deprecated)
+#### getTrackDescription(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -838,7 +838,7 @@ videoPlayer.getTrackDescription((error: BusinessError, arrList: Array<media.Medi
 
 
 
-##### getTrackDescription(deprecated)
+#### getTrackDescription(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -877,7 +877,7 @@ videoPlayer.getTrackDescription().then((arrList: Array<media.MediaDescription>) 
 
 
 
-##### setSpeed(deprecated)
+#### setSpeed(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -927,7 +927,7 @@ if (videoPlayer) {
 
 
 
-##### setSpeed(deprecated)
+#### setSpeed(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -981,7 +981,7 @@ if (videoPlayer) {
 
 
 
-##### on('playbackCompleted')(deprecated)
+#### on('playbackCompleted')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1013,7 +1013,7 @@ videoPlayer.on('playbackCompleted', () => {
 
 
 
-##### on('bufferingUpdate')(deprecated)
+#### on('bufferingUpdate')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1046,7 +1046,7 @@ videoPlayer.on('bufferingUpdate', (infoType: media.BufferingInfoType, value: num
 
 
 
-##### on('startRenderFrame')(deprecated)
+#### on('startRenderFrame')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1078,7 +1078,7 @@ videoPlayer.on('startRenderFrame', () => {
 
 
 
-##### on('videoSizeChanged')(deprecated)
+#### on('videoSizeChanged')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1111,7 +1111,7 @@ videoPlayer.on('videoSizeChanged', (width: number, height: number) => {
 
 
 
-##### on('audioInterrupt')(deprecated)
+#### on('audioInterrupt')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1145,7 +1145,7 @@ videoPlayer.on('audioInterrupt', (info: audio.InterruptEvent) => {
 
 
 
-##### on('error')(deprecated)
+#### on('error')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

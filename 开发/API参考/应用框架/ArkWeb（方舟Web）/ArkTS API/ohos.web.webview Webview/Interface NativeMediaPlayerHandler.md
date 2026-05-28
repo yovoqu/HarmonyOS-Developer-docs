@@ -12,7 +12,7 @@
 
   
 
-##### handleStatusChanged12+
+#### handleStatusChanged12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -35,7 +35,7 @@ handleStatusChanged(status: PlaybackStatus): void
  
   
 
-##### handleVolumeChanged12+
+#### handleVolumeChanged12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -58,7 +58,7 @@ handleVolumeChanged(volume: number): void
  
   
 
-##### handleMutedChanged12+
+#### handleMutedChanged12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -81,7 +81,7 @@ handleMutedChanged(muted: boolean): void
  
   
 
-##### handlePlaybackRateChanged12+
+#### handlePlaybackRateChanged12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -104,7 +104,7 @@ handlePlaybackRateChanged(playbackRate: number): void
  
   
 
-##### handleDurationChanged12+
+#### handleDurationChanged12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -127,7 +127,7 @@ handleDurationChanged(duration: number): void
  
   
 
-##### handleTimeUpdate12+
+#### handleTimeUpdate12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -150,7 +150,7 @@ handleTimeUpdate(currentPlayTime: number): void
  
   
 
-##### handleBufferedEndTimeChanged12+
+#### handleBufferedEndTimeChanged12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -173,7 +173,7 @@ handleBufferedEndTimeChanged(bufferedEndTime: number): void
  
   
 
-##### handleEnded12+
+#### handleEnded12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -189,7 +189,7 @@ handleEnded(): void
  
   
 
-##### handleNetworkStateChanged12+
+#### handleNetworkStateChanged12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -212,7 +212,7 @@ handleNetworkStateChanged(state: NetworkState): void
  
   
 
-##### handleReadyStateChanged12+
+#### handleReadyStateChanged12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -235,7 +235,7 @@ handleReadyStateChanged(state: ReadyState): void
  
   
 
-##### handleFullscreenChanged12+
+#### handleFullscreenChanged12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -258,7 +258,7 @@ handleFullscreenChanged(fullscreen: boolean): void
  
   
 
-##### handleSeeking12+
+#### handleSeeking12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -274,7 +274,7 @@ handleSeeking(): void
  
   
 
-##### handleSeekFinished12+
+#### handleSeekFinished12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -290,7 +290,7 @@ handleSeekFinished(): void
  
   
 
-##### handleError12+
+#### handleError12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -314,7 +314,7 @@ handleError(error: MediaError, errorMessage: string): void
  
   
 
-##### handleVideoSizeChanged12+
+#### handleVideoSizeChanged12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

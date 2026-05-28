@@ -9,7 +9,7 @@
 floating-promise是指在创建Promise时，没有使用任何代码来处理它可能引发的错误，这是一种不正确的使用方式。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -22,13 +22,13 @@ floating-promise是指在创建Promise时，没有使用任何代码来处理它
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/no-floating-promises选项](https://typescript-eslint.nodejs.cn/rules/no-floating-promises/#options)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 export async function bar() {
@@ -52,7 +52,7 @@ export async function bar() {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 export async function bar() {
@@ -72,7 +72,7 @@ export async function bar() {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

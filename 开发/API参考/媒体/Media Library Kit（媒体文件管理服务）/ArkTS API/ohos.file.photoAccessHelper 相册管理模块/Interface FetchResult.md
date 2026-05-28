@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
 
 
-##### getCount
+#### getCount
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -73,7 +73,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### isAfterLast
+#### isAfterLast
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -129,7 +129,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### close
+#### close
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -177,7 +177,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### getFirstObject
+#### getFirstObject
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -233,7 +233,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### getFirstObject
+#### getFirstObject
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -284,7 +284,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### getNextObject
+#### getNextObject
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -345,7 +345,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### getNextObject
+#### getNextObject
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -401,7 +401,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### getLastObject
+#### getLastObject
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -457,7 +457,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### getLastObject
+#### getLastObject
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -508,7 +508,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### getObjectByPosition
+#### getObjectByPosition
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -565,7 +565,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### getObjectByPosition
+#### getObjectByPosition
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -627,7 +627,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### getAllObjects
+#### getAllObjects
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -683,7 +683,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### getAllObjects
+#### getAllObjects
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -734,7 +734,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### contains23+
+#### contains23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -789,7 +789,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### getObjectsByIndexSet23+
+#### getObjectsByIndexSet23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -853,7 +853,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### getIndex23+
+#### getIndex23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -908,7 +908,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### getRangeObjects23+
+#### getRangeObjects23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

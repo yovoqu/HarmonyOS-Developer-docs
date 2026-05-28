@@ -4,19 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-transient-task
 
-##### 场景介绍
+#### 场景介绍
 
 应用退至后台一小段时间后，应用进程会被挂起，无法执行对应的任务。如果应用在后台仍需要执行耗时不长的任务，如状态保存等，可以通过本文申请短时任务，扩展应用在后台的运行时间。
 
 
 
-##### 约束与限制
+#### 约束与限制
 
 申请短时任务的按钮，不可连续点击超过3次，否则会超出短时任务数量限制并报错。使用过程中更多的约束与限制请参考短时任务（ArkTS）的[约束与限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/transient-task#约束与限制)。
 
 
 
-##### 接口说明
+#### 接口说明
 
 常用接口如下表所示，具体API说明详见[transient_task_api.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-transient-task-api-h)。
 
@@ -30,11 +30,11 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 
 
-##### 在napi_init.cpp文件中封装接口并注册模块
+#### 在napi_init.cpp文件中封装接口并注册模块
 1. 封装函数
 
   
@@ -177,7 +177,7 @@ extern "C" __attribute__((constructor)) void RegisterEntryModule(void)
 
 
 
-##### 在index.d.ts文件中声明函数
+#### 在index.d.ts文件中声明函数
 
 ```ts
 import backgroundTaskManager from '@kit.BackgroundTasksKit';
@@ -190,7 +190,7 @@ export const GetTransientTaskInfo: () => backgroundTaskManager.TransientTaskInfo
 
 
 
-##### 在index.ets文件中调用函数
+#### 在index.ets文件中调用函数
 
 ```ArkTS
 import testTransientTask from 'libentry.so';
@@ -286,7 +286,7 @@ struct Index {
 
 
 
-##### 配置库依赖
+#### 配置库依赖
 
 配置CMakeLists.txt，本模块需要用到的共享库是libtransient_task.so，在工程自动生成的CMakeLists.txt中的target_link_libraries中添加此共享库。
 
@@ -296,7 +296,7 @@ target_link_libraries(entry PUBLIC libace_napi.z.so libtransient_task.so)
 
 
 
-##### 测试步骤
+#### 测试步骤
 1. 连接设备并运行程序。
 2. 点击 申请短时任务 按钮，控制台会打印日志，示例如下：
 

@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -34,7 +34,7 @@ import { ArcListItem } from '@kit.ArkUI';
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -42,7 +42,7 @@ import { ArcListItem } from '@kit.ArkUI';
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -56,7 +56,7 @@ ArcListItem()
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -64,7 +64,7 @@ ArcListItem()
 
 
 
-##### autoScale
+#### autoScale
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -85,7 +85,7 @@ autoScale(enable: Optional&lt;boolean&gt;)
 
 
 
-##### swipeAction
+#### swipeAction
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -106,7 +106,7 @@ swipeAction(options: Optional&lt;SwipeActionOptions&gt;)
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -167,4 +167,4 @@ struct ArcListItemExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6/v3/AaWW0X8eR-eW8qRwmlkHwA/zh-cn_image_0000002611835579.png?HW-CC-KV=V1&HW-CC-Date=20260528T024216Z&HW-CC-Expire=86400&HW-CC-Sign=F50D300574239FA6E3BCCF7FD85793EF9C3A406456D835CAEF41EE78835A2325)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6/v3/AaWW0X8eR-eW8qRwmlkHwA/zh-cn_image_0000002611835579.png?HW-CC-KV=V1&HW-CC-Date=20260528T025549Z&HW-CC-Expire=86400&HW-CC-Sign=7DA9EF9331DF7B0DD44EB41237473C9643406457FEB231888629353AE823D6DF)

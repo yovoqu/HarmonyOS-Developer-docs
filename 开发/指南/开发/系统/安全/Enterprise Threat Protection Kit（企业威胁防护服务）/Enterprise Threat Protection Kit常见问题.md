@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/terprisethreatprotection-virusremediation-question
 
-##### Enterprise Threat Protection Kit权限获取失败
+#### Enterprise Threat Protection Kit权限获取失败
 
 **问题现象**
  

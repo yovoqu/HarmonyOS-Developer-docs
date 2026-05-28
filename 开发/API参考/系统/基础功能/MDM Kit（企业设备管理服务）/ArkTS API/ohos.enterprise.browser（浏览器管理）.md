@@ -14,7 +14,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -24,7 +24,7 @@ import { browser } from '@kit.MDMKit';
 
 
 
-##### browser.setPolicySync
+#### browser.setPolicySync
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -89,7 +89,7 @@ try {
 
 
 
-##### browser.getPoliciesSync
+#### browser.getPoliciesSync
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -151,7 +151,7 @@ try {
 
 
 
-##### browser.setManagedBrowserPolicy15+
+#### browser.setManagedBrowserPolicy15+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -219,7 +219,7 @@ try {
 
 
 
-##### browser.getManagedBrowserPolicy15+
+#### browser.getManagedBrowserPolicy15+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -284,7 +284,7 @@ try {
 
 
 
-##### browser.getSelfManagedBrowserPolicyVersion15+
+#### browser.getSelfManagedBrowserPolicyVersion15+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -318,7 +318,7 @@ try {
 
 
 
-##### browser.getSelfManagedBrowserPolicy15+
+#### browser.getSelfManagedBrowserPolicy15+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

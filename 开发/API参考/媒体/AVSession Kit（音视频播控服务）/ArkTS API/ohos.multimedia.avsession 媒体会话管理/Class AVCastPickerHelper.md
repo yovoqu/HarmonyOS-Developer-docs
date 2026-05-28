@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -22,7 +22,7 @@ import { avSession } from '@kit.AVSessionKit';
 
 
 
-##### constructor14+
+#### constructor14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -81,7 +81,7 @@ struct Index {
 
 
 
-##### select14+
+#### select14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -143,7 +143,7 @@ this.avCastPicker.select(avCastPickerOptions).then(() => {
 
 
 
-##### resetCommunicationDevice21+
+#### resetCommunicationDevice21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -178,7 +178,7 @@ async function avCastPicker(context: common.Context) {
 
 
 
-##### on('pickerStateChange')14+
+#### on('pickerStateChange')14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -227,7 +227,7 @@ async function onPickerStateChange(context: common.Context) {
 
 
 
-##### off('pickerStateChange')14+
+#### off('pickerStateChange')14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

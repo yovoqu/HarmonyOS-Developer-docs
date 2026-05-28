@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getcoremembw
 
-##### 函数功能
+#### 函数功能
 
 获取硬件平台存储空间的带宽大小，仅支持L2、HBM。硬件存储空间类型定义如下。
  
@@ -23,7 +23,7 @@ RESERVED
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 void GetCoreMemBw(const CoreMemType &memType, uint64_t &bwSize) const;
@@ -31,7 +31,7 @@ void GetCoreMemBw(const CoreMemType &memType, uint64_t &bwSize) const;
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -41,19 +41,19 @@ void GetCoreMemBw(const CoreMemType &memType, uint64_t &bwSize) const;
  
   
 
-##### 返回值
+#### 返回值
 
 无
  
   
 
-##### 约束说明
+#### 约束说明
 
 memType输入仅支持L2、HBM。
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 ge::graphStatus TilingXXX(gert::TilingContext* context) {

@@ -19,7 +19,7 @@
 如果配置了采集麦克风音频数据，需对应配置麦克风权限ohos.permission.MICROPHONE和申请长时任务，配置方式请参见[向用户申请权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/request-user-authorization)、[申请长时任务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/continuous-task)。
 
 
-##### 申请权限
+#### 申请权限
 
 在开发此功能前，开发者应根据实际需求申请相关权限：
 
@@ -35,7 +35,7 @@
 
 
 
-##### 开发步骤及注意事项
+#### 开发步骤及注意事项
 
 使用AVScreenCaptureRecorder时要明确其状态的变化，在创建实例后，调用对应的方法可以进入指定的状态实现对应的行为。在确定的状态下执行不合适的方法会导致AVScreenCaptureRecorder发生错误，开发者需要在调用状态转换的方法前进行状态检查，避免程序运行异常。
 1. 添加头文件。
@@ -189,7 +189,7 @@ await this.screenCapture.release();
 
 
 
-##### 完整示例
+#### 完整示例
 
 以下是通过AVScreenCaptureRecorder实现录屏存文件的完整代码示例。
 

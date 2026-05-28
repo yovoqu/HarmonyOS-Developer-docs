@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-backup-and-restore
 
-##### 场景介绍
+#### 场景介绍
 
 如果操作或存储的过程中出现问题，开发者可以使用恢复功能，将数据库恢复到之前的状态，重新对数据库进行操作。
 
@@ -14,7 +14,7 @@
 
 
 
-##### 键值型数据库备份、恢复与删除
+#### 键值型数据库备份、恢复与删除
 
 键值型数据库，通过backup接口实现数据库备份，通过restore接口实现数据库恢复，通过deletebackup接口删除数据库备份。具体接口及功能，可见[分布式键值数据库](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributedkvstore)。
 1. 创建数据库。
@@ -259,7 +259,7 @@ public DeleteBackup = (() => {
 
 
 
-##### 关系型数据库备份
+#### 关系型数据库备份
 
 数据库操作或者存储过程中，有可能会因为各种原因发生非预期的数据库异常的情况，可以根据需要使用关系型数据库的备份能力，以便在数据库异常时，可靠高效地恢复数据保证业务数据正常使用。
 
@@ -267,7 +267,7 @@ public DeleteBackup = (() => {
 
 
 
-##### 手动备份
+#### 手动备份
 
 手动备份：通过调用[backup](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#backup)接口实现数据库手动备份。示例如下：
 
@@ -316,7 +316,7 @@ try {
 
 
 
-##### 关系型数据库异常重建
+#### 关系型数据库异常重建
 
 在创建或使用关系型数据库的过程中，抛出14800011异常错误码说明数据库出现异常，可以删除数据库后恢复数据。
 
@@ -347,7 +347,7 @@ try {
 
 
 
-##### 关系型数据库数据恢复
+#### 关系型数据库数据恢复
 
 针对数据库出现异常的情况，在数据库重建成功后，需要用提前备份好的数据进行数据恢复。
 
@@ -355,7 +355,7 @@ try {
 
 
 
-##### 恢复手动备份数据
+#### 恢复手动备份数据
 
 关系型数据库通过调用backup接口可以实现[手动备份数据库](#手动备份)，通过restore接口可以实现手动恢复数据库。
 
@@ -453,6 +453,6 @@ try {
 
 
 
-##### 示例代码
+#### 示例代码
 
  - [数据库的备份与恢复](https://gitcode.com/HarmonyOS_Samples/data-base-upgrade)

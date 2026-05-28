@@ -7,7 +7,7 @@
 开发者可以调用DRM Kit和Media Kit的ArkTS接口实现AVPlayer播放器，完成DRM节目播放。
 
 
-##### 开发步骤
+#### 开发步骤
 1. 导入DRM Kit和Media Kit接口。
 
   

@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { pasteboard } from '@kit.BasicServicesKit';
 
 
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -42,7 +42,7 @@ import { pasteboard } from '@kit.BasicServicesKit';
 
 
 
-##### ValueType9+
+#### ValueType9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -64,7 +64,7 @@ type ValueType = string | image.PixelMap | Want | ArrayBuffer
 
 
 
-##### pasteboard.createData9+
+#### pasteboard.createData9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -116,7 +116,7 @@ let pasteData: pasteboard.PasteData = pasteboard.createData(pasteboard.MIMETYPE_
 
 
 
-##### pasteboard.createData14+
+#### pasteboard.createData14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -169,7 +169,7 @@ let pasteData: pasteboard.PasteData = pasteboard.createData(record);
 
 
 
-##### pasteboard.createRecord9+
+#### pasteboard.createRecord9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -222,7 +222,7 @@ pasteData.replaceRecord(0, record);
 
 
 
-##### pasteboard.getSystemPasteboard
+#### pasteboard.getSystemPasteboard
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -249,7 +249,7 @@ const systemPasteboard: pasteboard.SystemPasteboard = pasteboard.getSystemPasteb
 
 
 
-##### ShareOption9+
+#### ShareOption9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -268,7 +268,7 @@ const systemPasteboard: pasteboard.SystemPasteboard = pasteboard.getSystemPasteb
 
 
 
-##### pasteboard.createHtmlData(deprecated)
+#### pasteboard.createHtmlData(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -305,7 +305,7 @@ let pasteData: pasteboard.PasteData = pasteboard.createHtmlData(html);
 
 
 
-##### pasteboard.createWantData(deprecated)
+#### pasteboard.createWantData(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -347,7 +347,7 @@ let pasteData: pasteboard.PasteData = pasteboard.createWantData(object);
 
 
 
-##### pasteboard.createPlainTextData(deprecated)
+#### pasteboard.createPlainTextData(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -383,7 +383,7 @@ let pasteData: pasteboard.PasteData = pasteboard.createPlainTextData('content');
 
 
 
-##### pasteboard.createUriData(deprecated)
+#### pasteboard.createUriData(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -419,7 +419,7 @@ let pasteData: pasteboard.PasteData = pasteboard.createUriData('dataability:///c
 
 
 
-##### pasteboard.createHtmlTextRecord(deprecated)
+#### pasteboard.createHtmlTextRecord(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -456,7 +456,7 @@ let record: pasteboard.PasteDataRecord = pasteboard.createHtmlTextRecord(html);
 
 
 
-##### pasteboard.createWantRecord(deprecated)
+#### pasteboard.createWantRecord(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -498,7 +498,7 @@ let record: pasteboard.PasteDataRecord = pasteboard.createWantRecord(object);
 
 
 
-##### pasteboard.createPlainTextRecord(deprecated)
+#### pasteboard.createPlainTextRecord(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -534,7 +534,7 @@ let record: pasteboard.PasteDataRecord = pasteboard.createPlainTextRecord('hello
 
 
 
-##### pasteboard.createUriRecord(deprecated)
+#### pasteboard.createUriRecord(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -570,7 +570,7 @@ let record: pasteboard.PasteDataRecord = pasteboard.createUriRecord('dataability
 
 
 
-##### PasteDataProperty7+
+#### PasteDataProperty7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -592,7 +592,7 @@ let record: pasteboard.PasteDataRecord = pasteboard.createUriRecord('dataability
 
 
 
-##### FileConflictOptions15+
+#### FileConflictOptions15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -610,7 +610,7 @@ let record: pasteboard.PasteDataRecord = pasteboard.createUriRecord('dataability
 
 
 
-##### ProgressIndicator15+
+#### ProgressIndicator15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -628,7 +628,7 @@ let record: pasteboard.PasteDataRecord = pasteboard.createUriRecord('dataability
 
 
 
-##### ProgressInfo15+
+#### ProgressInfo15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -645,7 +645,7 @@ let record: pasteboard.PasteDataRecord = pasteboard.createUriRecord('dataability
 
 
 
-##### ProgressListener15+
+#### ProgressListener15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -666,7 +666,7 @@ type ProgressListener = (progress: ProgressInfo) => void
 
 
 
-##### ProgressSignal15+
+#### ProgressSignal15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -676,7 +676,7 @@ type ProgressListener = (progress: ProgressInfo) => void
 
 
 
-##### cancel15+
+#### cancel15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -734,7 +734,7 @@ struct PasteboardTest {
 
 
 
-##### GetDataParams15+
+#### GetDataParams15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -755,7 +755,7 @@ struct PasteboardTest {
 
 
 
-##### PasteDataRecord7+
+#### PasteDataRecord7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -763,7 +763,7 @@ struct PasteboardTest {
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -784,7 +784,7 @@ struct PasteboardTest {
 
 
 
-##### toPlainText9+
+#### toPlainText9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -813,7 +813,7 @@ console.info(`Succeeded in converting to text. Text: ${text}`);
 
 
 
-##### addEntry14+
+#### addEntry14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -851,7 +851,7 @@ record.addEntry(pasteboard.MIMETYPE_TEXT_HTML, html);
 
 
 
-##### getValidTypes14+
+#### getValidTypes14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -902,7 +902,7 @@ let types: string[] = record.getValidTypes([
 
 
 
-##### getData14+
+#### getData14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -960,7 +960,7 @@ record.getData(pasteboard.MIMETYPE_TEXT_URI).then((value: pasteboard.ValueType) 
 
 
 
-##### convertToText(deprecated)
+#### convertToText(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1007,7 +1007,7 @@ record.convertToText((err: BusinessError, data: string) => {
 
 
 
-##### convertToText(deprecated)
+#### convertToText(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1043,7 +1043,7 @@ record.convertToText().then((data: string) => {
 
 
 
-##### PasteData
+#### PasteData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1055,7 +1055,7 @@ record.convertToText().then((data: string) => {
 
 
 
-##### getPrimaryText
+#### getPrimaryText
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1089,7 +1089,7 @@ systemPasteboard.getData().then((pasteData: pasteboard.PasteData) => {
 
 
 
-##### getPrimaryHtml7+
+#### getPrimaryHtml7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1123,7 +1123,7 @@ systemPasteboard.getData().then((pasteData: pasteboard.PasteData) => {
 
 
 
-##### getPrimaryWant7+
+#### getPrimaryWant7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1158,7 +1158,7 @@ systemPasteboard.getData().then((pasteData: pasteboard.PasteData) => {
 
 
 
-##### getPrimaryUri7+
+#### getPrimaryUri7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1192,7 +1192,7 @@ systemPasteboard.getData().then((pasteData: pasteboard.PasteData) => {
 
 
 
-##### getPrimaryPixelMap9+
+#### getPrimaryPixelMap9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1233,7 +1233,7 @@ image.createPixelMap(buffer, opt).then((pixelMap: image.PixelMap) => {
 
 
 
-##### addRecord7+
+#### addRecord7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1265,7 +1265,7 @@ pasteData.addRecord(htmlRecord);
 
 
 
-##### addRecord9+
+#### addRecord9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1304,7 +1304,7 @@ pasteData.addRecord('app/xml', dataXml);
 
 
 
-##### getMimeTypes7+
+#### getMimeTypes7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1332,7 +1332,7 @@ let types: string[] = pasteData.getMimeTypes();
 
 
 
-##### getPrimaryMimeType7+
+#### getPrimaryMimeType7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1360,7 +1360,7 @@ let type: string = pasteData.getPrimaryMimeType();
 
 
 
-##### getProperty7+
+#### getProperty7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1388,7 +1388,7 @@ let property: pasteboard.PasteDataProperty = pasteData.getProperty();
 
 
 
-##### setProperty9+
+#### setProperty9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1465,7 +1465,7 @@ pasteData.setProperty(prop);
 
 
 
-##### getRecord9+
+#### getRecord9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1510,7 +1510,7 @@ let record: pasteboard.PasteDataRecord = pasteData.getRecord(0);
 
 
 
-##### getRecordCount7+
+#### getRecordCount7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1538,7 +1538,7 @@ let count: number = pasteData.getRecordCount();
 
 
 
-##### getTag7+
+#### getTag7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1566,7 +1566,7 @@ let tag: string = pasteData.getTag();
 
 
 
-##### hasType9+
+#### hasType9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1610,7 +1610,7 @@ let hasType: boolean = pasteData.hasType(pasteboard.MIMETYPE_TEXT_PLAIN);
 
 
 
-##### removeRecord9+
+#### removeRecord9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1648,7 +1648,7 @@ pasteData.removeRecord(0);
 
 
 
-##### replaceRecord9+
+#### replaceRecord9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1688,7 +1688,7 @@ pasteData.replaceRecord(0, record);
 
 
 
-##### pasteStart12+
+#### pasteStart12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1717,7 +1717,7 @@ systemPasteboard.getData((err: BusinessError, pasteData: pasteboard.PasteData) =
 
 
 
-##### pasteComplete12+
+#### pasteComplete12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1746,7 +1746,7 @@ systemPasteboard.getData((err: BusinessError, pasteData: pasteboard.PasteData) =
 
 
 
-##### addHtmlRecord(deprecated)
+#### addHtmlRecord(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1777,7 +1777,7 @@ pasteData.addHtmlRecord(html);
 
 
 
-##### addWantRecord(deprecated)
+#### addWantRecord(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1813,7 +1813,7 @@ pasteData.addWantRecord(object);
 
 
 
-##### addTextRecord(deprecated)
+#### addTextRecord(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1843,7 +1843,7 @@ pasteData.addTextRecord('good');
 
 
 
-##### addUriRecord(deprecated)
+#### addUriRecord(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1873,7 +1873,7 @@ pasteData.addUriRecord('dataability:///com.example.myapplication1/user.txt');
 
 
 
-##### getRecordAt(deprecated)
+#### getRecordAt(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1919,7 +1919,7 @@ let record: pasteboard.PasteDataRecord = pasteData.getRecordAt(0);
 
 
 
-##### hasMimeType(deprecated)
+#### hasMimeType(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1965,7 +1965,7 @@ let hasType: boolean = pasteData.hasMimeType(pasteboard.MIMETYPE_TEXT_PLAIN);
 
 
 
-##### removeRecordAt(deprecated)
+#### removeRecordAt(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2011,7 +2011,7 @@ let isRemove: boolean = pasteData.removeRecordAt(0);
 
 
 
-##### replaceRecordAt(deprecated)
+#### replaceRecordAt(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2050,7 +2050,7 @@ let isReplace: boolean = pasteData.replaceRecordAt(0, record);
 
 
 
-##### SystemPasteboard
+#### SystemPasteboard
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2064,7 +2064,7 @@ const systemPasteboard: pasteboard.SystemPasteboard = pasteboard.getSystemPasteb
 
 
 
-##### on('update')7+
+#### on('update')7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2103,7 +2103,7 @@ systemPasteboard.on('update', listener);
 
 
 
-##### off('update')7+
+#### off('update')7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2142,7 +2142,7 @@ systemPasteboard.off('update', listener);
 
 
 
-##### clearData9+
+#### clearData9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2185,7 +2185,7 @@ systemPasteboard.clearData((err, data) => {
 
 
 
-##### clearData9+
+#### clearData9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2219,7 +2219,7 @@ systemPasteboard.clearData().then((data: void) => {
 
 
 
-##### setData9+
+#### setData9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2266,7 +2266,7 @@ systemPasteboard.setData(pasteData, (err, data) => {
 
 
 
-##### setData9+
+#### setData9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2319,7 +2319,7 @@ systemPasteboard.setData(pasteData).then((data: void) => {
 
 
 
-##### getData9+
+#### getData9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2368,7 +2368,7 @@ systemPasteboard.getData((err: BusinessError, pasteData: pasteboard.PasteData) =
 
 
 
-##### getData9+
+#### getData9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2414,7 +2414,7 @@ systemPasteboard.getData().then((pasteData: pasteboard.PasteData) => {
 
 
 
-##### hasRemoteData24+
+#### hasRemoteData24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2444,7 +2444,7 @@ console.info(`Succeeded in checking the remote data. Result: ${result}`);
 
 
 
-##### hasData9+
+#### hasData9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2489,7 +2489,7 @@ systemPasteboard.hasData((err: BusinessError, data: boolean) => {
 
 
 
-##### hasData9+
+#### hasData9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2523,7 +2523,7 @@ systemPasteboard.hasData().then((data: boolean) => {
 
 
 
-##### clear(deprecated)
+#### clear(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2568,7 +2568,7 @@ systemPasteboard.clear((err, data) => {
 
 
 
-##### clear(deprecated)
+#### clear(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2604,7 +2604,7 @@ systemPasteboard.clear().then((data) => {
 
 
 
-##### getPasteData(deprecated)
+#### getPasteData(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2651,7 +2651,7 @@ systemPasteboard.getPasteData((err: BusinessError, pasteData: pasteboard.PasteDa
 
 
 
-##### getPasteData(deprecated)
+#### getPasteData(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2687,7 +2687,7 @@ systemPasteboard.getPasteData().then((pasteData: pasteboard.PasteData) => {
 
 
 
-##### hasPasteData(deprecated)
+#### hasPasteData(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2734,7 +2734,7 @@ systemPasteboard.hasPasteData((err: BusinessError, data: boolean) => {
 
 
 
-##### hasPasteData(deprecated)
+#### hasPasteData(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2770,7 +2770,7 @@ systemPasteboard.hasPasteData().then((data: boolean) => {
 
 
 
-##### setPasteData(deprecated)
+#### setPasteData(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2817,7 +2817,7 @@ systemPasteboard.setPasteData(pasteData, (err, data) => {
 
 
 
-##### setPasteData(deprecated)
+#### setPasteData(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2861,7 +2861,7 @@ systemPasteboard.setPasteData(pasteData).then((data: void) => {
 
 
 
-##### isRemoteData11+
+#### isRemoteData11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2903,7 +2903,7 @@ try {
 
 
 
-##### getDataSource11+
+#### getDataSource11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2945,7 +2945,7 @@ try {
 
 
 
-##### hasDataType11+
+#### hasDataType11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2995,7 +2995,7 @@ try {
 
 
 
-##### clearDataSync11+
+#### clearDataSync11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3030,7 +3030,7 @@ try {
 
 
 
-##### getDataSync11+
+#### getDataSync11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3075,7 +3075,7 @@ try {
 
 
 
-##### setDataSync11+
+#### setDataSync11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3119,7 +3119,7 @@ try {
 
 
 
-##### hasDataSync11+
+#### hasDataSync11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3161,7 +3161,7 @@ try {
 
 
 
-##### getUnifiedData12+
+#### getUnifiedData12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3214,7 +3214,7 @@ systemPasteboard.getUnifiedData().then((data) => {
 
 
 
-##### getUnifiedDataSync12+
+#### getUnifiedDataSync12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3261,7 +3261,7 @@ try {
 
 
 
-##### setUnifiedData12+
+#### setUnifiedData12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3323,7 +3323,7 @@ systemPasteboard.setUnifiedData(data).then((data: void) => {
 
 
 
-##### setUnifiedDataSync12+
+#### setUnifiedDataSync12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3378,7 +3378,7 @@ try {
 
 
 
-##### setAppShareOptions14+
+#### setAppShareOptions14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3422,7 +3422,7 @@ try {
 
 
 
-##### removeAppShareOptions14+
+#### removeAppShareOptions14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3457,7 +3457,7 @@ try {
 
 
 
-##### Pattern13+
+#### Pattern13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3476,7 +3476,7 @@ try {
 
 
 
-##### detectPatterns13+
+#### detectPatterns13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3534,7 +3534,7 @@ systemPasteboard.detectPatterns(patterns).then((data: Array<pasteboard.Pattern>)
 
 
 
-##### getMimeTypes14+
+#### getMimeTypes14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3568,7 +3568,7 @@ systemPasteboard.getMimeTypes().then((data: Array<string>) => {
 
 
 
-##### getDataWithProgress15+
+#### getDataWithProgress15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3655,7 +3655,7 @@ struct PasteboardTest {
 
 
 
-##### getChangeCount18+
+#### getChangeCount18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3696,7 +3696,7 @@ try {
 
 
 
-##### UpdateCallback 22+
+#### UpdateCallback 22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3708,7 +3708,7 @@ type UpdateCallback = () => void
 
 
 
-##### onRemoteUpdate22+
+#### onRemoteUpdate22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3737,7 +3737,7 @@ systemPasteboard.onRemoteUpdate(listener);
 
 
 
-##### offRemoteUpdate(callback?: UpdateCallback)22+
+#### offRemoteUpdate(callback?: UpdateCallback)22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

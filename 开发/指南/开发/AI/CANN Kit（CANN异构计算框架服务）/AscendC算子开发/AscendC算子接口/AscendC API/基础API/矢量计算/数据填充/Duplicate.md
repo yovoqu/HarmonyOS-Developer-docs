@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-data-duplicate
 
-##### 功能说明
+#### 功能说明
 
 将一个变量或一个立即数，复制多次并填充到向量，其中PAR表示矢量计算单元一个迭代能够处理的元素个数：
  
@@ -14,7 +14,7 @@
  
   
 
-##### 函数原型
+#### 函数原型
 
 tensor前n个数据计算：
  
@@ -25,7 +25,7 @@ void Duplicate(const LocalTensor<T>& dstLocal, const T& scalarValue, const int32
  
   
 
-##### 参数说明
+#### 参数说明
 
 **表1** 参数说明
   
@@ -38,7 +38,7 @@ void Duplicate(const LocalTensor<T>& dstLocal, const T& scalarValue, const int32
  
   
 
-##### 支持的型号
+#### 支持的型号
 
 Kirin9020系列处理器
  
@@ -46,7 +46,7 @@ KirinX90系列处理器
  
   
 
-##### 注意事项
+#### 注意事项
 
 - 操作数地址偏移对齐要求请参见[通用约束](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-general-constraints)。
 - 开发者输入立即数需自行保证不超出dstLocal中元素数据类型对应的大小范围。
@@ -54,13 +54,13 @@ KirinX90系列处理器
  
   
 
-##### 返回值
+#### 返回值
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 本样例中只展示Compute流程中的部分代码。如果开发者需要运行样例代码，请将该代码段拷贝并替换[样例模板](#样例模板)中的Compute函数粗体部分即可。
  
@@ -80,7 +80,7 @@ AscendC::Duplicate<half>(dstLocal, inputVal, srcDataSize);
  
   
 
-##### 样例模板
+#### 样例模板
 
 ```text
 #include "kernel_operator.h"

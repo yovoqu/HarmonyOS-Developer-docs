@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-error
 
-##### 简介
+#### 简介
 
 使用Node-API接口进行错误处理，使得在Node-API模块中能够更好地管理和响应错误情况。通过合理使用这些函数，可以提高模块的稳定性和可靠性。
 
 
 
-##### 基本概念
+#### 基本概念
 
 在ArkTS编程中，异常和错误是常见的概念。异常表示发生了某种意外情况，而错误则指示程序无法正确执行某些操作。Node-API提供了一系列方法来帮助开发者在Node-API模块中处理ArkTS中的异常和错误。下面是一些基本概念：
 
@@ -24,7 +24,7 @@
 
 
 
-##### 场景和功能介绍
+#### 场景和功能介绍
 
 以下[Node-API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/napi#已从node-api组件标准库中导出的符号列表)接口主要用于与ArkTS交互时处理错误和异常情况。其使用场景如下：
 
@@ -42,13 +42,13 @@
 
 
 
-##### 使用示例
+#### 使用示例
 
 Node-API接口开发流程参考[使用Node-API实现跨语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-process)，本文仅对接口对应C++及ArkTS相关代码进行展示。
 
 
 
-##### napi_get_last_error_info
+#### napi_get_last_error_info
 
 用于获取最后一次发生的错误信息，包括错误码、错误消息以及错误进栈信息，即使存在挂起的ArkTS异常，也可以调用此API。
 
@@ -105,7 +105,7 @@ try {
 
 
 
-##### napi_create_type_error
+#### napi_create_type_error
 
 创建并获取一个带文本信息的ArkTS TypeError。
 
@@ -149,7 +149,7 @@ try {
 
 
 
-##### napi_create_range_error
+#### napi_create_range_error
 
 创建并获取一个带文本信息的ArkTS RangeError。
 
@@ -195,13 +195,13 @@ try {
 
 
 
-##### napi_create_error
+#### napi_create_error
 
 创建并获取一个带文本信息的ArkTS Error。
 
 
 
-##### napi_throw
+#### napi_throw
 
 用于在Node-API模块中抛出ArkTS异常的函数。当在本地代码中发生错误或检测到不符合预期的情况时，可以使用此接口来抛出一个ArkTS异常，使其能够被捕获并处理。
 
@@ -250,7 +250,7 @@ try {
 
 
 
-##### napi_throw_error
+#### napi_throw_error
 
 用于抛出一个带文本信息的ArkTS Error。
 
@@ -319,7 +319,7 @@ try {
 
 
 
-##### napi_throw_business_error
+#### napi_throw_business_error
 
 用于抛出一个带文本信息的ArkTS Error，其错误对象的code属性类型为number。[该接口抛出的是一个原生的Error对象，并不是ArkTS的SDK中声明的BusinessError对象。](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/napi#node-api组件扩展的符号列表)
 
@@ -365,7 +365,7 @@ try {
 
 
 
-##### napi_throw_type_error
+#### napi_throw_type_error
 
 抛出一个带文本信息的ArkTS TypeError。
 
@@ -435,7 +435,7 @@ try {
 
 
 
-##### napi_throw_range_error
+#### napi_throw_range_error
 
 抛出一个带文本信息的ArkTS RangeError。
 
@@ -512,7 +512,7 @@ try {
 
 
 
-##### napi_is_error
+#### napi_is_error
 
 用于判断给定的napi_value是否表示一个error对象。
 
@@ -563,7 +563,7 @@ try {
 
 
 
-##### napi_get_and_clear_last_exception
+#### napi_get_and_clear_last_exception
 
 用于获取并清除最近一次出现的异常。
 
@@ -603,7 +603,7 @@ hilog.info(0x0000, 'testTag',
 
 
 
-##### napi_is_exception_pending
+#### napi_is_exception_pending
 
 用于判断是否出现了异常。
 
@@ -665,7 +665,7 @@ try {
 
 
 
-##### napi_fatal_error
+#### napi_fatal_error
 
 用于引发致命错误以立即终止进程。在调用napi_fatal_error函数后，导致应用程序终止，因此应该慎重使用，避免在正常操作中频繁调用该函数。
 
@@ -708,7 +708,7 @@ try {
 
 
 
-##### napi_fatal_exception
+#### napi_fatal_exception
 
 在主线程的上下文环境中调用napi_fatal_exception函数后，抛出一个致命异常，导致应用程序终止，同时会生成相应的crash日志。因此应该慎重使用，避免在正常操作中频繁调用该函数。
 

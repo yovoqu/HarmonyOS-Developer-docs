@@ -12,7 +12,7 @@
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@ TimePicker(options?: TimePickerOptions)
 
 
 
-##### TimePickerOptions对象说明
+#### TimePickerOptions对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -99,7 +99,7 @@ Date对象用于处理日期和时间，使用方式如下。
 
 
 
-##### TimePickerFormat11+枚举说明
+#### TimePickerFormat11+枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -117,7 +117,7 @@ Date对象用于处理日期和时间，使用方式如下。
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -125,7 +125,7 @@ Date对象用于处理日期和时间，使用方式如下。
 
 
 
-##### useMilitaryTime
+#### useMilitaryTime
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -146,7 +146,7 @@ useMilitaryTime(value: boolean)
 
 
 
-##### useMilitaryTime18+
+#### useMilitaryTime18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -167,7 +167,7 @@ useMilitaryTime(isMilitaryTime: Optional&lt;boolean&gt;)
 
 
 
-##### disappearTextStyle10+
+#### disappearTextStyle10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -192,7 +192,7 @@ disappearTextStyle(value: PickerTextStyle)
 
 
 
-##### disappearTextStyle18+
+#### disappearTextStyle18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -217,7 +217,7 @@ disappearTextStyle(style: Optional&lt;PickerTextStyle&gt;)
 
 
 
-##### textStyle10+
+#### textStyle10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -242,7 +242,7 @@ textStyle(value: PickerTextStyle)
 
 
 
-##### textStyle18+
+#### textStyle18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -267,7 +267,7 @@ textStyle(style: Optional&lt;PickerTextStyle&gt;)
 
 
 
-##### selectedTextStyle10+
+#### selectedTextStyle10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -290,7 +290,7 @@ selectedTextStyle(value: PickerTextStyle)
 
 
 
-##### selectedTextStyle18+
+#### selectedTextStyle18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -313,7 +313,7 @@ selectedTextStyle(style: Optional&lt;PickerTextStyle&gt;)
 
 
 
-##### loop11+
+#### loop11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -334,7 +334,7 @@ loop(value: boolean)
 
 
 
-##### loop18+
+#### loop18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -355,7 +355,7 @@ loop(isLoop: Optional&lt;boolean&gt;)
 
 
 
-##### dateTimeOptions12+
+#### dateTimeOptions12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -376,7 +376,7 @@ dateTimeOptions(value: DateTimeOptions)
 
 
 
-##### dateTimeOptions18+
+#### dateTimeOptions18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -397,7 +397,7 @@ dateTimeOptions(timeFormat: Optional&lt;DateTimeOptions&gt;)
 
 
 
-##### enableHapticFeedback12+
+#### enableHapticFeedback12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -432,7 +432,7 @@ enableHapticFeedback(enable: boolean)
 
 
 
-##### enableHapticFeedback18+
+#### enableHapticFeedback18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -463,7 +463,7 @@ enableHapticFeedback(enable: Optional&lt;boolean&gt;)
 
 
 
-##### enableCascade18+
+#### enableCascade18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -484,7 +484,7 @@ enableCascade(enabled: boolean)
 
 
 
-##### digitalCrownSensitivity18+
+#### digitalCrownSensitivity18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -509,7 +509,7 @@ digitalCrownSensitivity(sensitivity: Optional&lt;CrownSensitivity&gt;)
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -517,7 +517,7 @@ digitalCrownSensitivity(sensitivity: Optional&lt;CrownSensitivity&gt;)
 
 
 
-##### onChange
+#### onChange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -540,7 +540,7 @@ onChange(callback: (value: TimePickerResult ) => void)
 
 
 
-##### onChange18+
+#### onChange18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -563,7 +563,7 @@ onChange(callback: Optional&lt;OnTimePickerChangeCallback&gt;)
 
 
 
-##### onEnterSelectedArea18+
+#### onEnterSelectedArea18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -590,7 +590,7 @@ onEnterSelectedArea(callback: Callback&lt;TimePickerResult&gt;)
 
 
 
-##### DateTimeOptions12+类型说明
+#### DateTimeOptions12+类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -609,7 +609,7 @@ type DateTimeOptions = DateTimeOptions
 
 
 
-##### OnTimePickerChangeCallback18+
+#### OnTimePickerChangeCallback18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -630,7 +630,7 @@ type OnTimePickerChangeCallback = (result: TimePickerResult) => void
 
 
 
-##### TimePickerResult对象说明
+#### TimePickerResult对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -649,13 +649,13 @@ type OnTimePickerChangeCallback = (result: TimePickerResult) => void
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1（设置文本样式）
+#### 示例1（设置文本样式）
 
 该示例通过配置[disappearTextStyle](#disappeartextstyle10)、[textStyle](#textstyle10)和[selectedTextStyle](#selectedtextstyle10)实现文本选择器中的文本样式。
 
@@ -684,12 +684,12 @@ struct TimePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/GRHw1iOJS-WWmR8za85bkQ/zh-cn_image_0000002581275928.png?HW-CC-KV=V1&HW-CC-Date=20260528T024221Z&HW-CC-Expire=86400&HW-CC-Sign=7FF7694496089FF921CA1322DC9EAD3BD3F3D628837FD4CF1CFB89BA4B849361)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/GRHw1iOJS-WWmR8za85bkQ/zh-cn_image_0000002581275928.png?HW-CC-KV=V1&HW-CC-Date=20260528T025555Z&HW-CC-Expire=86400&HW-CC-Sign=8088C2F22C463AD2DC7F26D3C44AD231C52F106D05B02FCB15B5842B99D654F1)
 
 
 
 
-##### 示例2（切换小时制）
+#### 示例2（切换小时制）
 
 该示例通过配置useMilitaryTime实现12小时制、24小时制的切换。
 
@@ -728,12 +728,12 @@ struct TimePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/eAvT6ZAkQTS855NGpj6Tvg/zh-cn_image_0000002611755785.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024221Z&HW-CC-Expire=86400&HW-CC-Sign=AA918DBB639AED07352A420ECDFE11D245EA055709A29F2A5C9772C4A5DDB3C9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/eAvT6ZAkQTS855NGpj6Tvg/zh-cn_image_0000002611755785.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025555Z&HW-CC-Expire=86400&HW-CC-Sign=F27AE44351D5154CEDF85163F43AA696AF061CE3E39CF5ED39AD45FD649E39F6)
 
 
 
 
-##### 示例3（设置时间格式）
+#### 示例3（设置时间格式）
 
 该示例使用format和dateTimeOptions设置TimePicker时间格式。
 
@@ -763,12 +763,12 @@ struct TimePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/ey886HcWRimoFxWZ5rhDaA/zh-cn_image_0000002581435848.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024221Z&HW-CC-Expire=86400&HW-CC-Sign=9D3F8AB0BA9E86150C8F08AAF62D4D14BA9221177461BC5561FC3E4E12699727)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/ey886HcWRimoFxWZ5rhDaA/zh-cn_image_0000002581435848.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025555Z&HW-CC-Expire=86400&HW-CC-Sign=84F152F6075724154AAE76C0E568BBD051D3E9299FE0C7CF054990CFD7E25C9A)
 
 
 
 
-##### 示例4（设置循环滚动）
+#### 示例4（设置循环滚动）
 
 该示例通过配置[loop](#loop11)设置TimePicker是否循环滚动。
 
@@ -808,12 +808,12 @@ struct TimePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/dlhbPji9SvyJzixqVi34hA/zh-cn_image_0000002611835679.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024221Z&HW-CC-Expire=86400&HW-CC-Sign=4A2AE4CFEF31D5F8A16F9F937E57D66925C7BD63F1AE7640BBA05E6C3A4A5A92)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/dlhbPji9SvyJzixqVi34hA/zh-cn_image_0000002611835679.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025555Z&HW-CC-Expire=86400&HW-CC-Sign=2FCA93AF57C30EC51DADDE8BA1D117218C151F575D0403F320BF2E3B709CCB24)
 
 
 
 
-##### 示例5（设置时间选择组件的起始时间）
+#### 示例5（设置时间选择组件的起始时间）
 
 该示例设置TimePicker的起始时间。
 
@@ -844,12 +844,12 @@ struct TimePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/1z3nKicCR4KhaMgZnM997Q/zh-cn_image_0000002581275930.png?HW-CC-KV=V1&HW-CC-Date=20260528T024221Z&HW-CC-Expire=86400&HW-CC-Sign=742B3D1F5AA935178FDAD62E754B45665A48BCD0C73C5DA67FF798C68605EC00)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/1z3nKicCR4KhaMgZnM997Q/zh-cn_image_0000002581275930.png?HW-CC-KV=V1&HW-CC-Date=20260528T025555Z&HW-CC-Expire=86400&HW-CC-Sign=EC98D7B445B321006DA4F9D531C070AF2FDBD19553CDA8C7C0E9804031BE0F5A)
 
 
 
 
-##### 示例6（设置时间选择组件的结束时间）
+#### 示例6（设置时间选择组件的结束时间）
 
 该示例设置TimePicker的结束时间。
 
@@ -880,12 +880,12 @@ struct TimePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/5NCRrKg9SRuwUhENwKDP2g/zh-cn_image_0000002611755787.png?HW-CC-KV=V1&HW-CC-Date=20260528T024221Z&HW-CC-Expire=86400&HW-CC-Sign=636DCB60A00819CAA5561E9DA9B4F36426F88606C4682A7D30175633EEEFD47B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/5NCRrKg9SRuwUhENwKDP2g/zh-cn_image_0000002611755787.png?HW-CC-KV=V1&HW-CC-Date=20260528T025555Z&HW-CC-Expire=86400&HW-CC-Sign=78F0590AA2DAF241B829D60E309B1780F1C16C628104601C185019706473ECC8)
 
 
 
 
-##### 示例7（设置上午下午跟随时间联动）
+#### 示例7（设置上午下午跟随时间联动）
 
 该示例通过配置[enableCascade](#enablecascade18)、[loop](#loop11)实现12小时制时上午下午跟随时间联动。
 
@@ -917,4 +917,4 @@ struct TimePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/cMVZCqGFTtaukVz1Fx1kBA/zh-cn_image_0000002581435850.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024221Z&HW-CC-Expire=86400&HW-CC-Sign=9BF6AB9639EB5ECBA518D773923BE0663C77A2BFCA680A2E6B00E3EA553B8FA7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/cMVZCqGFTtaukVz1Fx1kBA/zh-cn_image_0000002581435850.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025555Z&HW-CC-Expire=86400&HW-CC-Sign=90AFC5C01CFC40F7FC92E841BE554901B4A0DE6FF3CD30DC53D27B19CB58D5C4)

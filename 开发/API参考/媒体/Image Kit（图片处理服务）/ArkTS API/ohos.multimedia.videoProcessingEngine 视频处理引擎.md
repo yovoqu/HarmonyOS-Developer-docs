@@ -14,7 +14,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -24,7 +24,7 @@ import { videoProcessingEngine } from '@kit.ImageKit';
 
 
 
-##### videoProcessingEngine.initializeEnvironment
+#### videoProcessingEngine.initializeEnvironment
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -67,7 +67,7 @@ async function initializeEnvironment() {
 
 
 
-##### videoProcessingEngine.deinitializeEnvironment
+#### videoProcessingEngine.deinitializeEnvironment
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -108,7 +108,7 @@ async function deinitializeEnvironment() {
 
 
 
-##### videoProcessingEngine.create
+#### videoProcessingEngine.create
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -151,7 +151,7 @@ async function create() {
 
 
 
-##### ImageProcessor
+#### ImageProcessor
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -165,7 +165,7 @@ async function create() {
 
 
 
-##### enhanceDetail
+#### enhanceDetail
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -221,7 +221,7 @@ async function enhanceDetail(sourceImage: image.PixelMap, width: number, height:
 
 
 
-##### enhanceDetail
+#### enhanceDetail
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -276,7 +276,7 @@ async function enhanceDetail(sourceImage: image.PixelMap, scale: number) {
 
 
 
-##### enhanceDetailSync
+#### enhanceDetailSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -333,7 +333,7 @@ async function enhanceDetailSync(sourceImage: image.PixelMap, width: number, hei
 
 
 
-##### enhanceDetailSync
+#### enhanceDetailSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -389,7 +389,7 @@ async function enhanceDetailSync(sourceImage: image.PixelMap, scale: number) {
 
 
 
-##### QualityLevel
+#### QualityLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

@@ -11,7 +11,7 @@
 该规则仅支持对.js/.ts文件进行检查。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -24,13 +24,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/dot-notation选项](https://eslint.nodejs.cn/docs/rules/dot-notation#选项)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 const foo = {
@@ -42,7 +42,7 @@ export const x = foo.bar;
  
  
 
-##### 反例
+#### 反例
 
 ```text
 const foo = {
@@ -54,7 +54,7 @@ export const x = foo['bar'];
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

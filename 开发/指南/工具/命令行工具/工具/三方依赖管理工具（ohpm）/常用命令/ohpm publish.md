@@ -7,7 +7,7 @@
 发布一个三方库。
 
 
-##### 命令格式
+#### 命令格式
 
 ```text
 ohpm publish [options] <har_or_tgz_file>
@@ -19,7 +19,7 @@ ohpm publish [options] <har_or_tgz_file>
 
 
 
-##### 功能描述
+#### 功能描述
 
  - 将三方库发布到 OpenHarmony 三方库中心仓，以便可按名称安装它。 发布前，需要完成公钥私钥生成，把公钥上传服务端，并在ohpmrc 文件中配置公仓的发布码和私钥路径。
  - 默认情况下，ohpm 将发布到 [OpenHarmony 三方库中心仓](https://ohpm.openharmony.cn/#/cn/home)，但仍可以通过指定不同的 publish_registry 值（详情可查阅 [ohpmrc](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpmrc) 章节 中 publish_registry 描述信息），发布到指定的仓库。
@@ -40,11 +40,11 @@ ohpm publish [options] <har_or_tgz_file>
 
 
 
-##### 发布校验规则
+#### 发布校验规则
 
 
 
-##### 三方库校验规则
+#### 三方库校验规则
 1. ohpm打包的三方库须以.har和.tgz作为其扩展名；
 2. 三方库所有内容须放置在package目录内，且package目录内需包含oh-package.json5配置文件、README.md文件、LICENSE文件和CHANGELOG.md文件，其中oh-package.json5配置文件须包含必选字段（请参阅[oh-package.json5](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-oh-package-json5)文件字段说明）；       
 > [!NOTE]
@@ -54,7 +54,7 @@ ohpm publish [options] <har_or_tgz_file>
 
 
 
-##### 开闭源规则
+#### 开闭源规则
 1. 开源
 
   不进行 ArkTS 代码相关编译的，只进行 cpp 代码编译和 OpenHarmony 资源处理，还有模块的部分原始配置文件会被打包。其 oh-package.json5 文件中的 "artifactType" 字段值为 original。
@@ -64,11 +64,11 @@ ohpm publish [options] <har_or_tgz_file>
 
 
 
-##### Options
+#### Options
 
 
 
-##### publish_id
+#### publish_id
 
  - 默认值：""
  - 类型：String
@@ -78,7 +78,7 @@ ohpm publish [options] <har_or_tgz_file>
 
 
 
-##### key_path
+#### key_path
 
  - 默认值：""
  - 类型：String
@@ -88,7 +88,7 @@ ohpm publish [options] <har_or_tgz_file>
 
 
 
-##### tag
+#### tag
 
  - 默认值：无
  - 类型：String
@@ -99,7 +99,7 @@ ohpm publish [options] <har_or_tgz_file>
 
 
 
-##### publish_registry
+#### publish_registry
 
  - 默认值：""
  - 类型：URL
@@ -109,7 +109,7 @@ ohpm publish [options] <har_or_tgz_file>
 
 
 
-##### source_type
+#### source_type
 
  - 默认值：无
  - 类型： String
@@ -119,7 +119,7 @@ ohpm publish [options] <har_or_tgz_file>
 
 
 
-##### fetch_timeout
+#### fetch_timeout
 
  - 默认值：60000
  - 类型： Number
@@ -130,7 +130,7 @@ ohpm publish [options] <har_or_tgz_file>
 
 
 
-##### strict_ssl
+#### strict_ssl
 
  - 默认值：true
  - 类型： Boolean
@@ -140,7 +140,7 @@ ohpm publish [options] <har_or_tgz_file>
 
 
 
-##### log_level
+#### log_level
 
  - 默认值：无
  - 类型： String
@@ -150,7 +150,7 @@ ohpm publish [options] <har_or_tgz_file>
 
 
 
-##### debug
+#### debug
 
  - 默认值：false
  - 类型： Boolean
@@ -160,7 +160,7 @@ ohpm publish [options] <har_or_tgz_file>
 
 
 
-##### use_stream_threshold_size
+#### use_stream_threshold_size
 
  - 默认值：无
  - 类型： Number
@@ -170,7 +170,7 @@ ohpm publish [options] <har_or_tgz_file>
 
 
 
-##### compability_log_level
+#### compability_log_level
 
  - 默认值：无
  - 类型：String
@@ -180,7 +180,7 @@ ohpm publish [options] <har_or_tgz_file>
 
 
 
-##### disallow_nested_package
+#### disallow_nested_package
 
  - 默认值：false
  - 类型：Boolean
@@ -190,7 +190,7 @@ ohpm publish [options] <har_or_tgz_file>
 
 
 
-##### ensure_dependency_include
+#### ensure_dependency_include
 
  - 默认值：false
  - 类型：Boolean
@@ -200,7 +200,7 @@ ohpm publish [options] <har_or_tgz_file>
 
 
 
-##### cache
+#### cache
 
  - 默认值：无
  - 类型：string
@@ -210,7 +210,7 @@ ohpm publish [options] <har_or_tgz_file>
 
 
 
-##### 示例
+#### 示例
 
 发布工作目录下的三方库，执行以下命令：
 
@@ -221,4 +221,4 @@ ohpm publish publish_test.har
 结果示例：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/U_liAhptT3u_IidSZPNs7Q/zh-cn_image_0000002602186007.png?HW-CC-KV=V1&HW-CC-Date=20260528T015002Z&HW-CC-Expire=86400&HW-CC-Sign=01419C6099F745B26961C63FC8FBC97A5B34187035656F8997D5F1340EFD9852)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/zRfTHY1LQQiw-q51XdNmlg/zh-cn_image_0000002602186007.png?HW-CC-KV=V1&HW-CC-Date=20260528T030633Z&HW-CC-Expire=86400&HW-CC-Sign=674432517203A4E24A320056CB14A99E0F8F90763E64C469AB56337AF536D54B)

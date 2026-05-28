@@ -14,7 +14,7 @@ ManualExposure继承自[ManualExposureQuery](https://developer.huawei.com/consum
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { camera } from '@kit.CameraKit';
  
   
 
-##### getExposureDuration24+
+#### getExposureDuration24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -73,7 +73,7 @@ function getExposureDuration(photoSession: camera.PhotoSession): number {
  
   
 
-##### setExposureDuration24+
+#### setExposureDuration24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

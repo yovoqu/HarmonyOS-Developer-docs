@@ -16,7 +16,7 @@
 **起始版本：** 5.1.0(18)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Tablet | TV
 
@@ -26,7 +26,7 @@ import { ARView, arViewController } from '@kit.AREngine';
  
   
 
-##### ARView
+#### ARView
 
 **支持设备：** Phone | Tablet | TV
 
@@ -49,7 +49,7 @@ import { ARView, arViewController } from '@kit.AREngine';
  
   
 
-##### build
+#### build
 
 **支持设备：** Phone | Tablet | TV
 

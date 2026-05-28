@@ -13,7 +13,7 @@
 
 
 
-##### 使用建议
+#### 使用建议
 
  - 合理使用弹出场景，避免过度提醒用户。
 
@@ -34,7 +34,7 @@
 
 
 
-##### 即时反馈模式对比
+#### 即时反馈模式对比
 
 即时反馈提供了两种显示模式，分别为DEFAULT（显示在应用内）、TOP_MOST（显示在应用之上）。
 
@@ -110,7 +110,7 @@ export struct DefaultAndTopToastExample {
 
 
 
-##### 创建即时反馈
+#### 创建即时反馈
 
 适用于短时间内提示框自动消失的场景。
 
@@ -155,7 +155,7 @@ export struct CreateToastExample {
 
 
 
-##### 显示和关闭即时反馈
+#### 显示和关闭即时反馈
 
 适用于提示框停留时间较长，用户操作可以提前关闭提示框的场景。
 
@@ -214,4 +214,4 @@ export struct OpenCloseToastExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/d8T0K6WXTZOS3OL6hvy8CA/zh-cn_image_0000002611833819.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014809Z&HW-CC-Expire=86400&HW-CC-Sign=DD1B0F55815F8E6F38D3BD5B583D1151A4610BB6EC80BF4FF7806BD432CB8CDD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/d8T0K6WXTZOS3OL6hvy8CA/zh-cn_image_0000002611833819.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030440Z&HW-CC-Expire=86400&HW-CC-Sign=74011C94A0716B167EA0C1064C6D523C7828B61CBF065D5126B64722788F8A8C)

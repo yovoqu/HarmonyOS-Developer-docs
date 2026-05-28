@@ -11,7 +11,7 @@
 
  
 
-##### 稳定性基础质量测试
+#### 稳定性基础质量测试
 
  
 **稳定性基础质量测试：**根据应用稳定性建议，检测应用运行过程中是否存在应用崩溃、资源过载、内存泄漏等异常情况。
@@ -69,7 +69,7 @@
 检测不通过或检测异常的规则项，点击查看详情即可查看异常问题详情，包含检测项概览、测试截图、问题列表。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/NeFin0w2QfOMQOIrIQzq8g/zh-cn_image_0000002475048409.png?HW-CC-KV=V1&HW-CC-Date=20260528T013036Z&HW-CC-Expire=86400&HW-CC-Sign=C6A7E7187E480E809ABAE4AC0F2D41C13FC0E31186CCEC6D057ACA0D36EBE7A2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/NeFin0w2QfOMQOIrIQzq8g/zh-cn_image_0000002475048409.png?HW-CC-KV=V1&HW-CC-Date=20260528T024721Z&HW-CC-Expire=86400&HW-CC-Sign=6F051612DAE2F50AECB33931350FD37194E08CB98A2F34034C2AD3F28C1EEC93)
 点击查看按钮，支持查看测试过程中的日志，用户可结合问题描述及日志详情进一步分析。
  
 > [!NOTE]
@@ -77,13 +77,13 @@
 
  
 
-##### 其他专项测试
+#### 其他专项测试
 
  
 请参考：[专项测试](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/specialized-testing)。
  
 
-##### 探索测试
+#### 探索测试
 
  
 请参考：[应用探索测试](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/exploratory-testing#section12324184817324)。

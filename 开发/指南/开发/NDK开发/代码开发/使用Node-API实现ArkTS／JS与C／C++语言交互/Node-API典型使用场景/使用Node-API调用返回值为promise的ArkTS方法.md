@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-method-promise
 
-##### 场景介绍
+#### 场景介绍
 
 当ArkTS的返回值为Promise时，可以按以下方式在创建的ArkTS运行环境中调用异步接口。
  
   
 
-##### 调用异步的ArkTS接口示例
+#### 调用异步的ArkTS接口示例
 
 使用C++通过NAPI调用返回Promise的ArkTS方法。
  
@@ -20,7 +20,7 @@
  
   
 
-##### 示例代码
+#### 示例代码
 
 - 模块注册
 

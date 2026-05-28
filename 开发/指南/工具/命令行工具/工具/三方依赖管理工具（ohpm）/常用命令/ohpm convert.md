@@ -7,7 +7,7 @@
 将npm三方库转换为ohpm三方库。因为语法差异，转换时仅对文件进行格式转换，不修改原npm包的代码逻辑。若HAR包在转换后出现代码不兼容的报错，开发者需修改原npm包的代码做适配。
  
 
-##### 命令格式
+#### 命令格式
 
 ```text
 ohpm convert [[<@group>/]<pkg>[@<version> | @tag:<tag>]] --registry <string> [--publish]
@@ -20,7 +20,7 @@ ohpm convert <node_modules_path> [--publish]
  
  
 
-##### 功能描述
+#### 功能描述
 
 将指定npm仓库中的某个包或者本地node_modules目录下的包转换成满足ohpm格式要求的HAR包，并保存至当前工作目录，转换后的包将支持上传至ohpm-repo私仓或OpenHarmony三方库中心仓。
  
@@ -46,11 +46,11 @@ ohpm convert ./xxxx/node_modules
 
  
 
-##### Options
+#### Options
 
  
 
-##### registry
+#### registry
 
 - 默认值：无
 - 类型：URL
@@ -60,7 +60,7 @@ ohpm convert ./xxxx/node_modules
  
  
 
-##### publish
+#### publish
 
 - 默认值：false
 - 类型： Boolean
@@ -70,7 +70,7 @@ ohpm convert ./xxxx/node_modules
  
  
 
-##### log_level
+#### log_level
 
 - 默认值：无
 - 类型： String
@@ -80,7 +80,7 @@ ohpm convert ./xxxx/node_modules
  
  
 
-##### debug
+#### debug
 
 - 默认值：false
 - 类型： Boolean
@@ -90,7 +90,7 @@ ohpm convert ./xxxx/node_modules
  
  
 
-##### 示例
+#### 示例
 
 **转换远程npm三方库中的包**
  
@@ -124,7 +124,7 @@ ohpm INFO: Converted packages are saved to the "C:\Users\xxxxx\Desktop\convert_1
 执行npm install uuid后，转换本地node_modules目录中的包，执行以下命令：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/Jh4AOcY7T5aiaq3slfX3qA/zh-cn_image_0000002602186787.png?HW-CC-KV=V1&HW-CC-Date=20260528T015002Z&HW-CC-Expire=86400&HW-CC-Sign=4567286E27DFDC90DC25BB0906E953C49B9841F9507CFAEEE93F08D972E09715)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/MX5HG6yxQ5OUEQoZitnSBQ/zh-cn_image_0000002602186787.png?HW-CC-KV=V1&HW-CC-Date=20260528T030632Z&HW-CC-Expire=86400&HW-CC-Sign=7C1E91F60C471437F3F29E4B1958624425DD3D42DD738F06C0EA967C3E869B2D)
 
  
 ```text
@@ -142,4 +142,4 @@ ohpm INFO: Converted packages are saved to the "C:\Users\xxxxx\Desktop\convert_1
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/nX3d1XbPSYW8nSnVlzLaTg/zh-cn_image_0000002571387616.png?HW-CC-KV=V1&HW-CC-Date=20260528T015002Z&HW-CC-Expire=86400&HW-CC-Sign=C3F5E3428C97CA0CB5BE5735559BAEF76E384D25531D03D07A18836409F9C5B3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/degm9FctSzqcDOxqzqxzSw/zh-cn_image_0000002571387616.png?HW-CC-KV=V1&HW-CC-Date=20260528T030632Z&HW-CC-Expire=86400&HW-CC-Sign=B3357291CB7FFD1D2187B8BE0AD6033469AE731049DBF94B27801DD742704BA6)

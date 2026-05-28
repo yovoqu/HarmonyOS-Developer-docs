@@ -35,7 +35,7 @@ export default {
 
   
 
-##### fillRect()
+#### fillRect()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -63,7 +63,7 @@ ctx.fillRect(20, 20, 200, 150);
  
   
 
-##### fillStyle
+#### fillStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -89,7 +89,7 @@ ctx.fillRect(20, 20, 150, 100);
  
   
 
-##### strokeRect()
+#### strokeRect()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -117,7 +117,7 @@ ctx.strokeRect(30, 30, 200, 150);
  
   
 
-##### fillText()
+#### fillText()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -145,7 +145,7 @@ ctx.fillText("Hello World!", 20, 60);
  
   
 
-##### lineWidth
+#### lineWidth
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -171,7 +171,7 @@ ctx.strokeRect(25, 25, 85, 105);
  
   
 
-##### strokeStyle
+#### strokeStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -198,7 +198,7 @@ ctx.strokeRect(25, 25, 155, 105);
  
   
 
-##### stroke()5+
+#### stroke()5+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -219,7 +219,7 @@ ctx.stroke();
  
   
 
-##### beginPath()5+
+#### beginPath()5+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -242,7 +242,7 @@ ctx.stroke();
  
   
 
-##### moveTo()5+
+#### moveTo()5+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -271,7 +271,7 @@ ctx.stroke();
  
   
 
-##### lineTo()5+
+#### lineTo()5+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -300,7 +300,7 @@ ctx.stroke();
  
   
 
-##### closePath()5+
+#### closePath()5+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -323,7 +323,7 @@ ctx.stroke();
  
   
 
-##### font
+#### font
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -349,7 +349,7 @@ ctx.fillText("Hello World", 20, 60);
  
   
 
-##### textAlign
+#### textAlign
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -387,7 +387,7 @@ ctx.fillText('textAlign=right',140, 140);
  
   
 
-##### arc()5+
+#### arc()5+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -419,7 +419,7 @@ ctx.stroke();
  
   
 
-##### rect()5+
+#### rect()5+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 

@@ -12,7 +12,7 @@
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -39,7 +39,7 @@ ImageSpan(value: ResourceStr | PixelMap)
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -47,7 +47,7 @@ ImageSpan(value: ResourceStr | PixelMap)
 
 
 
-##### verticalAlign
+#### verticalAlign
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -68,7 +68,7 @@ verticalAlign(value: ImageSpanAlignment)
 
 
 
-##### objectFit
+#### objectFit
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -89,7 +89,7 @@ objectFit(value: ImageFit)
 
 
 
-##### alt12+
+#### alt12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -110,7 +110,7 @@ alt(value: PixelMap)
 
 
 
-##### colorFilter14+
+#### colorFilter14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -131,7 +131,7 @@ colorFilter(filter: ColorFilter | DrawingColorFilter)
 
 
 
-##### supportSvg222+
+#### supportSvg222+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -154,7 +154,7 @@ ImageSpan组件创建后，不支持动态修改该属性的值。
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -162,7 +162,7 @@ ImageSpan组件创建后，不支持动态修改该属性的值。
 
 
 
-##### onComplete12+
+#### onComplete12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -183,7 +183,7 @@ onComplete(callback: ImageCompleteCallback)
 
 
 
-##### onError12+
+#### onError12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -204,7 +204,7 @@ onError(callback: ImageErrorCallback)
 
 
 
-##### ImageCompleteCallback12+
+#### ImageCompleteCallback12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -225,7 +225,7 @@ type ImageCompleteCallback = (result: ImageLoadResult) => void
 
 
 
-##### ImageLoadResult12+对象说明
+#### ImageLoadResult12+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -250,13 +250,13 @@ type ImageCompleteCallback = (result: ImageLoadResult) => void
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1（设置对齐方式）
+#### 示例1（设置对齐方式）
 
 从API version 10开始，该示例通过[verticalAlign](#verticalalign)、[objectFit](#objectfit)属性展示了ImageSpan组件的对齐方式以及缩放效果。
 
@@ -312,7 +312,7 @@ struct SpanExample {
 
 
 
-##### 示例2（设置背景样式）
+#### 示例2（设置背景样式）
 
 从API version 11开始，该示例通过[textBackgroundStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-span#textbackgroundstyle11)属性展示了文本设置背景样式的效果。
 
@@ -345,7 +345,7 @@ struct Index {
 
 
 
-##### 示例3（为图片添加事件）
+#### 示例3（为图片添加事件）
 
 从API version 12开始，该示例通过[onComplete](#oncomplete12)、[onError](#onerror12)为图片添加加载成功和加载异常的事件。
 
@@ -376,7 +376,7 @@ struct Index {
 
 
 
-##### 示例4（设置颜色滤镜）
+#### 示例4（设置颜色滤镜）
 
 从API version 14开始，该示例通过[colorFilter](#colorfilter14)属性展示了给ImageSpan图像设置颜色滤镜的效果。
 
@@ -427,7 +427,7 @@ struct SpanExample {
 
 
 
-##### 示例5（设置加载占位图）
+#### 示例5（设置加载占位图）
 
 从API version 12开始，该示例[alt](#alt12)属性展示了ImageSpan设置加载网络图片时占位图的效果。
 
@@ -498,7 +498,7 @@ struct SpanExample {
 
 
 
-##### 示例6（使用supportSvg2属性时，SVG图片的显示效果）
+#### 示例6（使用supportSvg2属性时，SVG图片的显示效果）
 
 从API version 22开始，该示例通过设置[supportSvg2](#supportsvg222)属性，使[SVG标签解析能力增强功能](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-image-svg2-capabilities)的[SVG易用性提升](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-image-svg2-capabilities#svg易用性提升)能力生效。
 

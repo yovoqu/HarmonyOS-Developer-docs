@@ -9,7 +9,7 @@ typedef struct VkExternalFormatOHOS {...} VkExternalFormatOHOS
 ```
   
 
-##### 概述
+#### 概述
 
 表示外部定义的格式标识符。
  
@@ -21,11 +21,11 @@ typedef struct VkExternalFormatOHOS {...} VkExternalFormatOHOS
  
   
 
-##### 汇总
+#### 汇总
 
   
 
-##### 成员变量
+#### 成员变量
  
 | 名称 | 描述 |
 | --- | --- |

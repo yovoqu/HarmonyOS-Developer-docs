@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -34,7 +34,7 @@ import { MovingPhotoView, MovingPhotoViewController } from '@kit.MediaLibraryKit
 
 
 
-##### MovingPhotoView
+#### MovingPhotoView
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -53,7 +53,7 @@ MovingPhotoView(options: MovingPhotoViewOptions)
 
 
 
-##### MovingPhotoViewOptions
+#### MovingPhotoViewOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -66,7 +66,7 @@ MovingPhotoView(options: MovingPhotoViewOptions)
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -74,7 +74,7 @@ MovingPhotoView(options: MovingPhotoViewOptions)
 
 
 
-##### muted
+#### muted
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -95,7 +95,7 @@ muted(isMuted: boolean)
 
 
 
-##### objectFit
+#### objectFit
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -116,7 +116,7 @@ objectFit(value: ImageFit)
 
 
 
-##### autoPlayPeriod13+
+#### autoPlayPeriod13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -140,7 +140,7 @@ autoPlayPeriod(startTime: number, endTime: number)
 
 
 
-##### autoPlay13+
+#### autoPlay13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -163,7 +163,7 @@ autoPlay(isAutoPlay: boolean)
 
 
 
-##### repeatPlay13+
+#### repeatPlay13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -184,7 +184,7 @@ repeatPlay(isRepeatPlay: boolean)
 
 
 
-##### enableAnalyzer18+
+#### enableAnalyzer18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -205,7 +205,7 @@ enableAnalyzer(enabled: boolean)
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -213,7 +213,7 @@ enableAnalyzer(enabled: boolean)
 
 
 
-##### onComplete13+
+#### onComplete13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -234,7 +234,7 @@ onComplete(callback: MovingPhotoViewEventCallback)
 
 
 
-##### onStart
+#### onStart
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -255,7 +255,7 @@ onStart(callback: MovingPhotoViewEventCallback)
 
 
 
-##### onPause
+#### onPause
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -276,7 +276,7 @@ onPause(callback: MovingPhotoViewEventCallback)
 
 
 
-##### onFinish
+#### onFinish
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -297,7 +297,7 @@ onFinish(callback: MovingPhotoViewEventCallback)
 
 
 
-##### onError
+#### onError
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -318,7 +318,7 @@ onError(callback: MovingPhotoViewEventCallback)
 
 
 
-##### onStop
+#### onStop
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -339,7 +339,7 @@ onStop(callback: MovingPhotoViewEventCallback)
 
 
 
-##### onPrepared20+
+#### onPrepared20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -360,7 +360,7 @@ onPrepared(callback: MovingPhotoViewEventCallback)
 
 
 
-##### MovingPhotoViewEventCallback
+#### MovingPhotoViewEventCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -374,7 +374,7 @@ declare type MovingPhotoViewEventCallback = () => void
 
 
 
-##### MovingPhotoViewController
+#### MovingPhotoViewController
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -382,7 +382,7 @@ declare type MovingPhotoViewEventCallback = () => void
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -396,7 +396,7 @@ MovingPhotoViewController的构造函数。
 
 
 
-##### startPlayback
+#### startPlayback
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -410,7 +410,7 @@ startPlayback()
 
 
 
-##### stopPlayback
+#### stopPlayback
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -424,7 +424,7 @@ stopPlayback()
 
 
 
-##### refreshMovingPhoto18+
+#### refreshMovingPhoto18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -438,7 +438,7 @@ refreshMovingPhoto()
 
 
 
-##### 示例1：多种形式播放动态照片
+#### 示例1：多种形式播放动态照片
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -589,12 +589,12 @@ class MediaDataHandlerMovingPhoto implements photoAccessHelper.MediaAssetDataHan
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/KvJjjyM6SYWauqyhlAyD8Q/zh-cn_image_0000002611756937.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024006Z&HW-CC-Expire=86400&HW-CC-Sign=EAE6EE329ABD85D661B94C5A0309E9A4CEC5507146EA1488B5C2AD0E9D027372)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/KvJjjyM6SYWauqyhlAyD8Q/zh-cn_image_0000002611756937.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025340Z&HW-CC-Expire=86400&HW-CC-Sign=165FA36CFF8C5E0115583BE73B730FAF206EFC76E6A72782C2BE3262767E5767)
 
 
 
 
-##### 示例2：在元服务中使用动态照片
+#### 示例2：在元服务中使用动态照片
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -691,12 +691,12 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/YLM6sSIGQtGm5yuCZfXGww/zh-cn_image_0000002581436996.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024006Z&HW-CC-Expire=86400&HW-CC-Sign=1785D01587AFA3BF4B125934D71CC9FB3577D6A05C3801E72A421F7D8EA824B8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/YLM6sSIGQtGm5yuCZfXGww/zh-cn_image_0000002581436996.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025340Z&HW-CC-Expire=86400&HW-CC-Sign=8353FDDB458601B319F0C5639B95DCC50FBA1FECED05C4BE43B362D3B716B94C)
 
 
 
 
-##### 示例3：图像分析功能使用
+#### 示例3：图像分析功能使用
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -853,4 +853,4 @@ class MediaDataHandlerMovingPhoto implements photoAccessHelper.MediaAssetDataHan
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/08/v3/Xvr8l_t6R7aYRU1fTsxqoQ/zh-cn_image_0000002611836829.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024006Z&HW-CC-Expire=86400&HW-CC-Sign=9B13ED4B79ACC2EF8B65F1CD3FD8A9756601FE62F0FA4D8CEE87258739835C8D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/08/v3/Xvr8l_t6R7aYRU1fTsxqoQ/zh-cn_image_0000002611836829.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025340Z&HW-CC-Expire=86400&HW-CC-Sign=136373DC6BEBED6E8052C5350B46D9486F36DF3BB61B2D59B7DDB022D1C0C1F7)

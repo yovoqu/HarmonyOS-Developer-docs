@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-preview-output-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
 
 
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@
 
 
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -71,13 +71,13 @@
 
 
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### OH_PreviewOutput_OnFrameStart()
+#### OH_PreviewOutput_OnFrameStart()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -100,7 +100,7 @@ typedef void (*OH_PreviewOutput_OnFrameStart)(Camera_PreviewOutput* previewOutpu
 
 
 
-##### OH_PreviewOutput_OnFrameEnd()
+#### OH_PreviewOutput_OnFrameEnd()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -124,7 +124,7 @@ typedef void (*OH_PreviewOutput_OnFrameEnd)(Camera_PreviewOutput* previewOutput,
 
 
 
-##### OH_PreviewOutput_OnError()
+#### OH_PreviewOutput_OnError()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -152,7 +152,7 @@ typedef void (*OH_PreviewOutput_OnError)(Camera_PreviewOutput* previewOutput, Ca
 
 
 
-##### OH_PreviewOutput_RegisterCallback()
+#### OH_PreviewOutput_RegisterCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -183,7 +183,7 @@ Camera_ErrorCode OH_PreviewOutput_RegisterCallback(Camera_PreviewOutput* preview
 
 
 
-##### OH_PreviewOutput_UnregisterCallback()
+#### OH_PreviewOutput_UnregisterCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -214,7 +214,7 @@ Camera_ErrorCode OH_PreviewOutput_UnregisterCallback(Camera_PreviewOutput* previ
 
 
 
-##### OH_PreviewOutput_Start()
+#### OH_PreviewOutput_Start()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -244,7 +244,7 @@ Camera_ErrorCode OH_PreviewOutput_Start(Camera_PreviewOutput* previewOutput)
 
 
 
-##### OH_PreviewOutput_Stop()
+#### OH_PreviewOutput_Stop()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -274,7 +274,7 @@ Camera_ErrorCode OH_PreviewOutput_Stop(Camera_PreviewOutput* previewOutput)
 
 
 
-##### OH_PreviewOutput_Release()
+#### OH_PreviewOutput_Release()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -304,7 +304,7 @@ Camera_ErrorCode OH_PreviewOutput_Release(Camera_PreviewOutput* previewOutput)
 
 
 
-##### OH_PreviewOutput_GetActiveProfile()
+#### OH_PreviewOutput_GetActiveProfile()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -335,7 +335,7 @@ Camera_ErrorCode OH_PreviewOutput_GetActiveProfile(Camera_PreviewOutput* preview
 
 
 
-##### OH_PreviewOutput_DeleteProfile()
+#### OH_PreviewOutput_DeleteProfile()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -365,7 +365,7 @@ Camera_ErrorCode OH_PreviewOutput_DeleteProfile(Camera_Profile* profile)
 
 
 
-##### OH_PreviewOutput_GetPreviewRotation()
+#### OH_PreviewOutput_GetPreviewRotation()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -397,7 +397,7 @@ Camera_ErrorCode OH_PreviewOutput_GetPreviewRotation(Camera_PreviewOutput* previ
 
 
 
-##### OH_PreviewOutput_GetPreviewRotationWithoutDisplayRotation()
+#### OH_PreviewOutput_GetPreviewRotationWithoutDisplayRotation()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -428,7 +428,7 @@ Camera_ErrorCode OH_PreviewOutput_GetPreviewRotationWithoutDisplayRotation(Camer
 
 
 
-##### OH_PreviewOutput_SetPreviewRotation()
+#### OH_PreviewOutput_SetPreviewRotation()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -460,7 +460,7 @@ Camera_ErrorCode OH_PreviewOutput_SetPreviewRotation(Camera_PreviewOutput* previ
 
 
 
-##### OH_PreviewOutput_GetSupportedFrameRates()
+#### OH_PreviewOutput_GetSupportedFrameRates()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -492,7 +492,7 @@ Camera_ErrorCode OH_PreviewOutput_GetSupportedFrameRates(Camera_PreviewOutput* p
 
 
 
-##### OH_PreviewOutput_DeleteFrameRates()
+#### OH_PreviewOutput_DeleteFrameRates()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -523,7 +523,7 @@ Camera_ErrorCode OH_PreviewOutput_DeleteFrameRates(Camera_PreviewOutput* preview
 
 
 
-##### OH_PreviewOutput_SetFrameRate()
+#### OH_PreviewOutput_SetFrameRate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -555,7 +555,7 @@ Camera_ErrorCode OH_PreviewOutput_SetFrameRate(Camera_PreviewOutput* previewOutp
 
 
 
-##### OH_PreviewOutput_GetActiveFrameRate()
+#### OH_PreviewOutput_GetActiveFrameRate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -586,7 +586,7 @@ Camera_ErrorCode OH_PreviewOutput_GetActiveFrameRate(Camera_PreviewOutput* previ
 
 
 
-##### OH_PreviewOutput_IsBandwidthCompressionSupported()
+#### OH_PreviewOutput_IsBandwidthCompressionSupported()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -617,7 +617,7 @@ Camera_ErrorCode OH_PreviewOutput_IsBandwidthCompressionSupported(Camera_Preview
 
 
 
-##### OH_PreviewOutput_EnableBandwidthCompression()
+#### OH_PreviewOutput_EnableBandwidthCompression()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -650,7 +650,7 @@ Camera_ErrorCode OH_PreviewOutput_EnableBandwidthCompression(Camera_PreviewOutpu
 
 
 
-##### OH_PreviewOutput_AddDeferredSurface()
+#### OH_PreviewOutput_AddDeferredSurface()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

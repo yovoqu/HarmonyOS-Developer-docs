@@ -12,7 +12,7 @@
 
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -25,7 +25,7 @@
  
   
 
-##### 样式
+#### 样式
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -48,7 +48,7 @@
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -56,7 +56,7 @@
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -98,4 +98,4 @@
 **4*4卡片**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/2H5h-s7vTl6T8BA1S4STWA/zh-cn_image_0000002611836401.png?HW-CC-KV=V1&HW-CC-Date=20260528T024054Z&HW-CC-Expire=86400&HW-CC-Sign=94CB2449C54B141D961A99FCF3E3E6811198CDB47BF2BCB9B0CB503DF466A4E8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/2H5h-s7vTl6T8BA1S4STWA/zh-cn_image_0000002611836401.png?HW-CC-KV=V1&HW-CC-Date=20260528T025429Z&HW-CC-Expire=86400&HW-CC-Sign=83AB3928F118475609270E409FADFBF4DF995EB958BFE37B5E4C808AE93437A3)

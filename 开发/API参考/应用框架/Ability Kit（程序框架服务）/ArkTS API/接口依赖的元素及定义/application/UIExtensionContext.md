@@ -12,7 +12,7 @@ UIExtensionContext是[UIExtensionAbility](https://developer.huawei.com/consumer/
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,13 +22,13 @@ import { common } from '@kit.AbilityKit';
 
 
 
-##### UIExtensionContext
+#### UIExtensionContext
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### startAbility
+#### startAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -124,7 +124,7 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 
 
-##### startAbility
+#### startAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -222,7 +222,7 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 
 
-##### startAbility
+#### startAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -327,7 +327,7 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 
 
-##### startAbilityForResult
+#### startAbilityForResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -427,7 +427,7 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 
 
-##### startAbilityForResult
+#### startAbilityForResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -530,7 +530,7 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 
 
-##### startAbilityForResult
+#### startAbilityForResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -640,7 +640,7 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 
 
-##### connectServiceExtensionAbility
+#### connectServiceExtensionAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -737,7 +737,7 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 
 
-##### disconnectServiceExtensionAbility
+#### disconnectServiceExtensionAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -810,7 +810,7 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 
 
-##### disconnectServiceExtensionAbility
+#### disconnectServiceExtensionAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -879,7 +879,7 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 
 
-##### terminateSelf12+
+#### terminateSelf12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -936,7 +936,7 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 
 
-##### terminateSelf12+
+#### terminateSelf12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -984,7 +984,7 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 
 
-##### terminateSelfWithResult12+
+#### terminateSelfWithResult12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1053,7 +1053,7 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 
 
-##### terminateSelfWithResult12+
+#### terminateSelfWithResult12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1126,7 +1126,7 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 
 
-##### reportDrawnCompleted12+
+#### reportDrawnCompleted12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1192,7 +1192,7 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 
 
-##### openAtomicService12+
+#### openAtomicService12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1281,7 +1281,7 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 
 
-##### openLink12+
+#### openLink12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1416,7 +1416,7 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 
 
-##### startUIServiceExtensionAbility14+
+#### startUIServiceExtensionAbility14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1508,7 +1508,7 @@ struct Index {
 
 
 
-##### connectUIServiceExtensionAbility14+
+#### connectUIServiceExtensionAbility14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1603,7 +1603,7 @@ struct Page_UIServiceExtensionAbility {
 
 
 
-##### disconnectUIServiceExtensionAbility14+
+#### disconnectUIServiceExtensionAbility14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1669,7 +1669,7 @@ struct Page_UIServiceExtensionAbility {
 
 
 
-##### setColorMode18+
+#### setColorMode18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -9,7 +9,7 @@
 为了支持此类场景，C++线程需要能够创建并调用ArkTS，同时支持对Sendable对象进行多线程共享和操作。
 
 
-##### 在C++线程上调用ArkTS能力
+#### 在C++线程上调用ArkTS能力
 
 使用Node-API接口在C++线程中创建ArkTS运行环境并调用的方法，可以参考[使用Node-API接口创建ArkTS运行时环境](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-ark-runtime)。
 
@@ -81,7 +81,7 @@ static void* CreateEnvAndSendSendable(void*)
 
 
 
-##### 在C++线程之间操作Sendable共享对象
+#### 在C++线程之间操作Sendable共享对象
 
 在C++中调用ArkTS能力后，需要通过序列化和反序列化跨线程传递。napi_value不是多线程安全的，不能直接在多线程之间操作和共享。
 

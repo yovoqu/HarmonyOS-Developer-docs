@@ -10,7 +10,7 @@ typedef struct OH_AVScreenCapture_CaptureStrategy OH_AVScreenCapture_CaptureStra
 ```
   
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostream-base-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -45,7 +45,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -77,7 +77,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -91,13 +91,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_AudioStream_Result
+#### OH_AudioStream_Result
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -122,7 +122,7 @@ enum OH_AudioStream_Result
  
   
 
-##### OH_AudioStream_Type
+#### OH_AudioStream_Type
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -144,7 +144,7 @@ enum OH_AudioStream_Type
  
   
 
-##### OH_AudioStream_SampleFormat
+#### OH_AudioStream_SampleFormat
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -169,7 +169,7 @@ enum OH_AudioStream_SampleFormat
  
   
 
-##### OH_AudioStream_EncodingType
+#### OH_AudioStream_EncodingType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -192,7 +192,7 @@ enum OH_AudioStream_EncodingType
  
   
 
-##### OH_AudioStream_Usage
+#### OH_AudioStream_Usage
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -228,7 +228,7 @@ enum OH_AudioStream_Usage
  
   
 
-##### OH_AudioStream_LatencyMode
+#### OH_AudioStream_LatencyMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -250,7 +250,7 @@ enum OH_AudioStream_LatencyMode
  
   
 
-##### OH_AudioStream_DirectPlaybackMode
+#### OH_AudioStream_DirectPlaybackMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -273,7 +273,7 @@ enum OH_AudioStream_DirectPlaybackMode
  
   
 
-##### OH_AudioStream_VolumeMode
+#### OH_AudioStream_VolumeMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -295,7 +295,7 @@ enum OH_AudioStream_VolumeMode
  
   
 
-##### OH_AudioStream_State
+#### OH_AudioStream_State
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -322,7 +322,7 @@ enum OH_AudioStream_State
  
   
 
-##### OH_AudioStream_SourceType
+#### OH_AudioStream_SourceType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -353,7 +353,7 @@ enum OH_AudioStream_SourceType
  
   
 
-##### OH_AudioStream_Event
+#### OH_AudioStream_Event
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -378,7 +378,7 @@ enum OH_AudioStream_Event
  
   
 
-##### OH_AudioInterrupt_ForceType
+#### OH_AudioInterrupt_ForceType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -404,7 +404,7 @@ enum OH_AudioInterrupt_ForceType
  
   
 
-##### OH_AudioInterrupt_Hint
+#### OH_AudioInterrupt_Hint
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -438,7 +438,7 @@ enum OH_AudioInterrupt_Hint
  
   
 
-##### OH_AudioInterrupt_Mode
+#### OH_AudioInterrupt_Mode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -460,7 +460,7 @@ enum OH_AudioInterrupt_Mode
  
   
 
-##### OH_AudioStream_AudioEffectMode
+#### OH_AudioStream_AudioEffectMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -482,7 +482,7 @@ enum OH_AudioStream_AudioEffectMode
  
   
 
-##### OH_AudioStream_FastStatus
+#### OH_AudioStream_FastStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -504,7 +504,7 @@ enum OH_AudioStream_FastStatus
  
   
 
-##### OH_AudioStream_DeviceChangeReason
+#### OH_AudioStream_DeviceChangeReason
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -530,7 +530,7 @@ enum OH_AudioStream_DeviceChangeReason
  
   
 
-##### OH_AudioStream_PrivacyType
+#### OH_AudioStream_PrivacyType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -553,7 +553,7 @@ enum OH_AudioStream_PrivacyType
  
   
 
-##### OH_AudioData_Callback_Result
+#### OH_AudioData_Callback_Result
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -575,7 +575,7 @@ enum OH_AudioData_Callback_Result
  
   
 
-##### OH_AudioStream_LatencyType
+#### OH_AudioStream_LatencyType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -598,7 +598,7 @@ enum OH_AudioStream_LatencyType
  
   
 
-##### OH_AudioStream_PlaybackCaptureMode
+#### OH_AudioStream_PlaybackCaptureMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -621,7 +621,7 @@ enum OH_AudioStream_PlaybackCaptureMode
  
   
 
-##### OH_AudioStream_PlaybackCaptureStartState
+#### OH_AudioStream_PlaybackCaptureStartState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -644,13 +644,13 @@ enum OH_AudioStream_PlaybackCaptureStartState
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_AudioRenderer_OutputDeviceChangeCallback()
+#### OH_AudioRenderer_OutputDeviceChangeCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -675,7 +675,7 @@ typedef void (*OH_AudioRenderer_OutputDeviceChangeCallback)(OH_AudioRenderer* re
  
   
 
-##### OH_AudioRenderer_OnMarkReachedCallback()
+#### OH_AudioRenderer_OnMarkReachedCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -700,7 +700,7 @@ typedef void (*OH_AudioRenderer_OnMarkReachedCallback)(OH_AudioRenderer* rendere
  
   
 
-##### OH_AudioRenderer_WriteDataWithMetadataCallback()
+#### OH_AudioRenderer_WriteDataWithMetadataCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -735,7 +735,7 @@ typedef int32_t (*OH_AudioRenderer_WriteDataWithMetadataCallback)(OH_AudioRender
  
   
 
-##### OH_AudioRenderer_OnWriteDataCallback()
+#### OH_AudioRenderer_OnWriteDataCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

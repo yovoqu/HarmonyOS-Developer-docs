@@ -14,7 +14,7 @@
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -61,7 +61,7 @@ interface ParticleInterface {
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -69,7 +69,7 @@ interface ParticleInterface {
 
 
 
-##### disturbanceFields12+
+#### disturbanceFields12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -90,7 +90,7 @@ disturbanceFields(fields: Array&lt;DisturbanceFieldOptions&gt;)
 
 
 
-##### emitter12+
+#### emitter12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -111,7 +111,7 @@ emitter(value: Array&lt;EmitterProperty&gt;)
 
 
 
-##### rippleFields22+
+#### rippleFields22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -132,7 +132,7 @@ rippleFields(fields: Array&lt;RippleFieldOptions&gt;|undefined)
 
 
 
-##### velocityFields22+
+#### velocityFields22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -153,7 +153,7 @@ velocityFields(fields: Array&lt;VelocityFieldOptions&gt;|undefined)
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -161,7 +161,7 @@ velocityFields(fields: Array&lt;VelocityFieldOptions&gt;|undefined)
 
 
 
-##### ParticleOptions
+#### ParticleOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -204,7 +204,7 @@ interface ParticleOptions<
 
 
 
-##### EmitterOptions
+#### EmitterOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -235,7 +235,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
 
 
 
-##### ParticleConfigs
+#### ParticleConfigs
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -253,7 +253,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
 
 
 
-##### PointParticleParameters
+#### PointParticleParameters
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -270,7 +270,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
 
 
 
-##### ImageParticleParameters
+#### ImageParticleParameters
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -289,7 +289,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
 
 
 
-##### ParticleColorPropertyOptions
+#### ParticleColorPropertyOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -314,7 +314,7 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
 
 
 
-##### ParticleColorPropertyUpdaterConfigs
+#### ParticleColorPropertyUpdaterConfigs
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -333,7 +333,7 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
 
 
 
-##### ParticlePropertyOptions
+#### ParticlePropertyOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -358,7 +358,7 @@ interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
 
 
 
-##### ParticlePropertyUpdaterConfigs
+#### ParticlePropertyUpdaterConfigs
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -385,7 +385,7 @@ interface ParticlePropertyUpdaterConfigs<T> {
 
 
 
-##### ParticlePropertyAnimation
+#### ParticlePropertyAnimation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -416,7 +416,7 @@ interface ParticlePropertyAnimation<T> {
 
 
 
-##### ParticleType
+#### ParticleType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -434,7 +434,7 @@ interface ParticlePropertyAnimation<T> {
 
 
 
-##### ParticleEmitterShape
+#### ParticleEmitterShape
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -452,7 +452,7 @@ interface ParticlePropertyAnimation<T> {
 
 
 
-##### DistributionType12+
+#### DistributionType12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -470,7 +470,7 @@ interface ParticlePropertyAnimation<T> {
 
 
 
-##### ParticleUpdater
+#### ParticleUpdater
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -489,7 +489,7 @@ interface ParticlePropertyAnimation<T> {
 
 
 
-##### DisturbanceFieldOptions12+
+#### DisturbanceFieldOptions12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -513,7 +513,7 @@ interface ParticlePropertyAnimation<T> {
 
 
 
-##### DisturbanceFieldShape12+
+#### DisturbanceFieldShape12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -532,7 +532,7 @@ interface ParticlePropertyAnimation<T> {
 
 
 
-##### EmitterProperty12+
+#### EmitterProperty12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -551,7 +551,7 @@ interface ParticlePropertyAnimation<T> {
 
 
 
-##### ParticleTuple18+
+#### ParticleTuple18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -572,7 +572,7 @@ declare type ParticleTuple<T1, T2> = [T1, T2];
 
 
 
-##### Particles18+
+#### Particles18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -617,7 +617,7 @@ interface Particles<
 
 
 
-##### VelocityOptions18+
+#### VelocityOptions18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -639,7 +639,7 @@ interface Particles<
 
 
 
-##### AccelerationOptions18+
+#### AccelerationOptions18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -671,7 +671,7 @@ declare interface AccelerationOptions<
 
 
 
-##### EmitterParticleOptions18+
+#### EmitterParticleOptions18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -706,7 +706,7 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
 
 
 
-##### ParticleUpdaterOptions18+
+#### ParticleUpdaterOptions18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -735,7 +735,7 @@ interface ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater> {
 
 
 
-##### ParticleColorUpdaterOptions18+
+#### ParticleColorUpdaterOptions18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -764,7 +764,7 @@ interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
 
 
 
-##### ParticleColorOptions18+
+#### ParticleColorOptions18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -788,7 +788,7 @@ interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
 
 
 
-##### ParticleAnnulusRegion20+
+#### ParticleAnnulusRegion20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -813,7 +813,7 @@ interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
 
 
 
-##### Vector2T&lt;T&gt;22+
+#### Vector2T&lt;T&gt;22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -832,7 +832,7 @@ type Vector2T&lt;T&gt; = Vector2T&lt;T&gt;
 
 
 
-##### FieldRegion22+
+#### FieldRegion22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -853,7 +853,7 @@ type Vector2T&lt;T&gt; = Vector2T&lt;T&gt;
 
 
 
-##### RippleFieldOptions22+
+#### RippleFieldOptions22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -877,7 +877,7 @@ type Vector2T&lt;T&gt; = Vector2T&lt;T&gt;
 
 
 
-##### VelocityFieldOptions22+
+#### VelocityFieldOptions22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -895,13 +895,13 @@ type Vector2T&lt;T&gt; = Vector2T&lt;T&gt;
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1（圆形初始化粒子）
+#### 示例1（圆形初始化粒子）
 
 描述粒子动画基础用法，通过圆形初始化粒子。
 
@@ -1020,12 +1020,12 @@ struct ParticleExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/31B59YzoSXifMpKFiHCFkQ/zh-cn_image_0000002611835997.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024158Z&HW-CC-Expire=86400&HW-CC-Sign=1431EAB9CEAEBE22293390326B62D9E5BF35F5CB42A001F97665E965B62B6CDF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/31B59YzoSXifMpKFiHCFkQ/zh-cn_image_0000002611835997.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025531Z&HW-CC-Expire=86400&HW-CC-Sign=06B57A8DC01202AEA0DB44641516E47D43E0F145FB9A5FFE7D8D86A4C1F6DC99)
 
 
 
 
-##### 示例2（图片初始化粒子）
+#### 示例2（图片初始化粒子）
 
 描述粒子动画基础用法，通过图片初始化粒子。
 
@@ -1418,12 +1418,12 @@ struct ParticleExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/j9jYRx4cTve_uj_grBAt3w/zh-cn_image_0000002581276250.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024158Z&HW-CC-Expire=86400&HW-CC-Sign=2853A4B17A5FCFA3F37321EBDA7CB2903030B98749AE094582AA99E8CC8E430D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/j9jYRx4cTve_uj_grBAt3w/zh-cn_image_0000002581276250.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025531Z&HW-CC-Expire=86400&HW-CC-Sign=68997C9EC5365FFC9C821BEF0F957941FC20C803D526A102EC9D806EE974406C)
 
 
 
 
-##### 示例3（粒子扰动场的干扰下运动轨迹发生变化）
+#### 示例3（粒子扰动场的干扰下运动轨迹发生变化）
 
 该示例主要演示如何通过粒子扰动场的干扰下来实现运动轨迹发生变化的效果。
 
@@ -1549,12 +1549,12 @@ struct ParticleExample3 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/ALQ-GiwQQwub_xJ81IaiAg/zh-cn_image_0000002611756105.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024158Z&HW-CC-Expire=86400&HW-CC-Sign=8348BEE89B093D417BBC3A55BB831FF297982077272362FACE6875C9000F302C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/ALQ-GiwQQwub_xJ81IaiAg/zh-cn_image_0000002611756105.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025531Z&HW-CC-Expire=86400&HW-CC-Sign=CED085AC3947245FC165E8CD3CD953F9F365EDAF195793D42795F624ECF8385D)
 
 
 
 
-##### 示例4（调整粒子发射器位置）
+#### 示例4（调整粒子发射器位置）
 
 通过emitter()调整粒子发射器的位置。
 
@@ -1632,12 +1632,12 @@ struct ParticleExample4 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/iWP_krCCQIq087liX03JCg/zh-cn_image_0000002581436168.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024158Z&HW-CC-Expire=86400&HW-CC-Sign=6BA3459F68042048FC93130D8743585B4C617984A8217CF67488F44D89348FF0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/iWP_krCCQIq087liX03JCg/zh-cn_image_0000002581436168.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025531Z&HW-CC-Expire=86400&HW-CC-Sign=485E5BAB7BD85836A134D483A264D49C4F4E624F7B84661F0BA5E7B4E5A5BD18)
 
 
 
 
-##### 示例5（环形发射器创建）
+#### 示例5（环形发射器创建）
 
 该示例实现了粒子动画环形发射器每隔一秒钟沿着圆弧30度递增，周期性发射粒子，直至布满整个圆环。
 
@@ -1723,12 +1723,12 @@ struct ParticleExample5 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/-vsP12uPRIS7ab4S6Gzmww/zh-cn_image_0000002611835999.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024158Z&HW-CC-Expire=86400&HW-CC-Sign=0F72C19AAAC1A6B4FD9D2270C0CACFEA86E59B28600C1C8D17D872896E01A45F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/-vsP12uPRIS7ab4S6Gzmww/zh-cn_image_0000002611835999.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025531Z&HW-CC-Expire=86400&HW-CC-Sign=4D5B1A54DE279CC26C5D3E42CD5137BDDB02F48C1047DFDA30167ED06E3CEA73)
 
 
 
 
-##### 示例6（环形发射器更新）
+#### 示例6（环形发射器更新）
 
 描述粒子动画环形发射器更新的基础用法。
 
@@ -1843,12 +1843,12 @@ struct ParticleExample6 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/VlX5-t1DR_upWZfxsMVACQ/zh-cn_image_0000002581276252.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024158Z&HW-CC-Expire=86400&HW-CC-Sign=AB7F5B4753A61A6299E9125FE1E35A902C331ECDB7BE9D882B4A86B9DB9F3840)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/VlX5-t1DR_upWZfxsMVACQ/zh-cn_image_0000002581276252.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025531Z&HW-CC-Expire=86400&HW-CC-Sign=0216FC5840C6626625E0053F5EFDE49BD2232272D8D868D2D5785D19821675A8)
 
 
 
 
-##### 示例7（设置波动场和速度场）
+#### 示例7（设置波动场和速度场）
 
 从API version 22开始，支持设置粒子波动场和速度场。该示例演示如何通过rippleFields接口设置粒子波动场，产生类似波纹扩散的效果。通过velocityFields接口设置粒子速度场，使粒子在原有速度的基础上叠加速度场指定的速度。
 
@@ -1976,4 +1976,4 @@ struct ParticleExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/q87D954dTIuInJKAcMuH3g/zh-cn_image_0000002611756107.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024158Z&HW-CC-Expire=86400&HW-CC-Sign=2757803E039B7254014B59B497617441812DB30EE58876224B2F527748F9A5D1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/q87D954dTIuInJKAcMuH3g/zh-cn_image_0000002611756107.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025531Z&HW-CC-Expire=86400&HW-CC-Sign=7B5E2286C0A37CDDE7A510A4B6ACCA932E9A8D9656ED8FE4E03738BD36FDB948)

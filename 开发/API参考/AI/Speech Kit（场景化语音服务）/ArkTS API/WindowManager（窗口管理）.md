@@ -10,7 +10,7 @@
 **起始版本：** 5.0.0(12)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -20,7 +20,7 @@ import { WindowManager } from '@kit.SpeechKit';
  
   
 
-##### setWindowStage
+#### setWindowStage
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -89,7 +89,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### getWindowStage
+#### getWindowStage
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

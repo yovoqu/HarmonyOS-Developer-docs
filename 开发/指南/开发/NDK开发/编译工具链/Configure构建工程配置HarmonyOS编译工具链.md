@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/toolchain-configure-build-project
 
-##### 概述
+#### 概述
 
 Configure是一个用于自动化软件编译和安装的工具，它可以帮助开发者编译和安装源代码，以便生成可执行文件和库文件。在编译和安装软件时，通常需要一系列步骤，例如设置编译选项、检查依赖库、生成配置文件等，Configure可以通过读取软件的源代码，自动化这些步骤，简化软件的编译和安装过程。其原理是根据系统环境和用户设置来生成Makefile文件，Makefile文件是一个包含编译选项和依赖关系的脚本，可以自动化编译和安装软件。
  
@@ -18,13 +18,13 @@ Configure工具的主要作用：
  
   
 
-##### Configure构建三方库适配流程
+#### Configure构建三方库适配流程
 
 本小节介绍如何在Linux环境下，使用Configure构建工具通过ohos sdk编译jpeg三方库源码，生成ohos平台三方库的so及二进制文件。
  
   
 
-##### 环境准备
+#### 环境准备
 1. Linux编译环境及HarmonyOS SDK下载请参考：[环境准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/toolchain-cmake-build-project#环境准备)。
 2. 获取三方库源码（“/mnt/e/configure”中configure表示创建的文件夹名称，用于存放三方库源码文件，开发者可自行选择创建与否）。
 
@@ -43,7 +43,7 @@ owner@ubuntu:/mnt/e/configure$ tar -zxvf jpegsrc.v9e.tar.gz                     
  
   
 
-##### 编译三方库
+#### 编译三方库
 1. 查看Configure配置。
 
   cd进入jpeg-9e目录，执行Configure配置，如若对Configure配置项不熟悉，可以通过运行./configure --help命令查看：
@@ -222,6 +222,6 @@ owner@ubuntu:/mnt/e/configure$ mv jpeg-9e/jpeg/bin/* jpeg-9e/
  
   
 
-##### 应用中集成使用三方库
+#### 应用中集成使用三方库
 
 请参考：[三方动态链接库（.so）集成开发实践](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-dynamic-link-library)。

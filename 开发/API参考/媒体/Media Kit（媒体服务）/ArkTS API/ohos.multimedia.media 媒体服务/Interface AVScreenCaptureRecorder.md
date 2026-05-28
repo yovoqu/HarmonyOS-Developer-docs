@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -22,7 +22,7 @@ import { media } from '@kit.MediaKit';
 
 
 
-##### init12+
+#### init12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -99,7 +99,7 @@ if (avScreenCaptureRecorder != undefined) {
 
 
 
-##### startRecording12+
+#### startRecording12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -158,7 +158,7 @@ if (avScreenCaptureRecorder != undefined) {
 
 
 
-##### stopRecording12+
+#### stopRecording12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -217,7 +217,7 @@ if (avScreenCaptureRecorder != undefined) {
 
 
 
-##### skipPrivacyMode12+
+#### skipPrivacyMode12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -286,7 +286,7 @@ if (avScreenCaptureRecorder != undefined) {
 
 
 
-##### setMicEnabled12+
+#### setMicEnabled12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -352,7 +352,7 @@ if (avScreenCaptureRecorder != undefined) {
 
 
 
-##### setPickerMode22+
+#### setPickerMode22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -419,7 +419,7 @@ if (avScreenCaptureRecorder != undefined) {
 
 
 
-##### excludePickerWindows22+
+#### excludePickerWindows22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -488,7 +488,7 @@ if (avScreenCaptureRecorder != undefined) {
 
 
 
-##### presentPicker22+
+#### presentPicker22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -552,7 +552,7 @@ if (avScreenCaptureRecorder != undefined) {
 
 
 
-##### release12+
+#### release12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -611,7 +611,7 @@ if (avScreenCaptureRecorder != undefined) {
 
 
 
-##### on('stateChange')12+
+#### on('stateChange')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -659,7 +659,7 @@ if (avScreenCaptureRecorder != undefined) {
 
 
 
-##### on('error')12+
+#### on('error')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -718,7 +718,7 @@ if (avScreenCaptureRecorder != undefined) {
 
 
 
-##### off('stateChange')12+
+#### off('stateChange')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -764,7 +764,7 @@ if (avScreenCaptureRecorder != undefined) {
 
 
 
-##### off('error')12+
+#### off('error')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

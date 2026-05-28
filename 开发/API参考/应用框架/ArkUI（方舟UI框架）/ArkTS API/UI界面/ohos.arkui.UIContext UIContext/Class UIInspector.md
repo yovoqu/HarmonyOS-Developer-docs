@@ -12,7 +12,7 @@
 
   
 
-##### createComponentObserver
+#### createComponentObserver
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -83,7 +83,7 @@ struct UIInspectorExample {
  
   
 
-##### createComponentObserver23+
+#### createComponentObserver23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

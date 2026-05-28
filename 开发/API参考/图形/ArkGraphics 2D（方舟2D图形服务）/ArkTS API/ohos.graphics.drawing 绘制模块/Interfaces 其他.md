@@ -10,7 +10,7 @@
 
   
 
-##### TextBlobRunBuffer
+#### TextBlobRunBuffer
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -27,7 +27,7 @@
  
   
 
-##### FontMetrics
+#### FontMetrics
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -59,7 +59,7 @@
  
   
 
-##### FontFeature20+
+#### FontFeature20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

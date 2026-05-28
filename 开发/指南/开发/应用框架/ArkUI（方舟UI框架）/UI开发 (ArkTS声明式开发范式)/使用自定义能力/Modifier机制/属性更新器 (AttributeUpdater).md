@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-extension-attributeupdater
 
-##### 概述
+#### 概述
 
 在大量属性频繁更新的场景下，使用状态变量可能导致前端状态管理的计算量过大，并且需要对单个组件进行全量属性更新。尽管可以通过AttributeModifier[（动态属性设置）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier)机制实现按需更新属性，但前端仍会采用一定的diff和reset策略，这可能带来性能问题。
 
@@ -14,7 +14,7 @@ AttributeUpdater作为一个特殊的AttributeModifier，不仅继承了Attribut
 
 
 
-##### 接口定义
+#### 接口定义
 
 ```ArkTS
 export declare class AttributeUpdater<T, C = Initializer<T>> implements AttributeModifier<T> {
@@ -33,7 +33,7 @@ AttributeUpdater实现了AttributeModifier接口，并额外提供了[initialize
 
 
 
-##### 使用说明
+#### 使用说明
 
  - 开发者可以继承AttributeUpdater&lt;T&gt;类，并通过组件的通用方法attributeModifier设置，首次绑定时会触发initializeModifier方法，进行属性的初始化，后续其它的生命周期和AttributeModifier保持一致。
  - 组件初始化完成之后，开发者可以通过AttributeUpdater实例的attribute属性方法，获取到属性对象，若获取不到则为undefined。
@@ -45,7 +45,7 @@ AttributeUpdater实现了AttributeModifier接口，并额外提供了[initialize
 
 
 
-##### 通过modifier直接修改属性
+#### 通过modifier直接修改属性
 
 组件初始化完成之后，开发者可以通过AttributeUpdater实例的attribute属性方法，获取到属性对象。通过属性对象直接修改属性，会立即触发组件属性的更新。
 
@@ -89,7 +89,7 @@ struct updaterDemo {
 
 
 
-##### 通过modifier更新组件的构造参数
+#### 通过modifier更新组件的构造参数
 
 可以通过AttributeUpdater实例的updateConstructorParams方法，直接更新组件的构造参数。
 

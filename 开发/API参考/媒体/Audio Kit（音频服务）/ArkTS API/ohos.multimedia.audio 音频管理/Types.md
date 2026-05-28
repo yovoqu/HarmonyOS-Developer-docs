@@ -10,7 +10,7 @@
 
   
 
-##### AudioRendererChangeInfoArray9+
+#### AudioRendererChangeInfoArray9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -27,7 +27,7 @@ type AudioRendererChangeInfoArray = Array<Readonly&lt;AudioRendererChangeInfo&gt
  
   
 
-##### AudioCapturerChangeInfoArray9+
+#### AudioCapturerChangeInfoArray9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -44,7 +44,7 @@ type AudioCapturerChangeInfoArray = Array<Readonly&lt;AudioCapturerChangeInfo&gt
  
   
 
-##### AudioEffectInfoArray10+
+#### AudioEffectInfoArray10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -61,7 +61,7 @@ type AudioEffectInfoArray = Array<Readonly&lt;AudioEffectMode&gt;>
  
   
 
-##### AudioDeviceDescriptors
+#### AudioDeviceDescriptors
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -80,7 +80,7 @@ type AudioDeviceDescriptors = Array<Readonly&lt;AudioDeviceDescriptor&gt;>
  
   
 
-##### AudioRendererWriteDataCallback12+
+#### AudioRendererWriteDataCallback12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

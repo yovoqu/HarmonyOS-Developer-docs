@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/simple-text-arkts
 
-##### 场景介绍
+#### 场景介绍
 
 在一个简单的用户界面中，可能只需要展示几行静态文本，例如标签、按钮上的文字、菜单项或状态栏中的提示信息。此时，开发者只需要选择合适的字体、大小和颜色即可完成渲染。
 
 
 
-##### 相关属性
+#### 相关属性
 
 此场景示例，涉及到的文本样式属性如下，具体及更多文本样式可参考[TextStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text#textstyle)。
 
@@ -20,7 +20,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 通过context获取到Canvas画布对象。
 
   
@@ -82,7 +82,7 @@ paragraph.paint(canvas, 0, 100);
 
 
 
-##### 效果展示
+#### 效果展示
 
 
 ![](assets/简单文本绘制与显示（ArkTS）/file-20260514131645119-0.png)

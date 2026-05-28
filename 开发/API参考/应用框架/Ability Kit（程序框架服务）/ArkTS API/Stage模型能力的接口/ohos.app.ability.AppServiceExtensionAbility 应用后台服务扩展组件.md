@@ -12,7 +12,7 @@ AppServiceExtensionAbility模块提供后台服务相关扩展能力，包括后
 
 
 
-##### 约束限制
+#### 约束限制
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,14 +22,14 @@ AppServiceExtensionAbility模块提供后台服务相关扩展能力，包括后
 
 
 
-##### 生命周期
+#### 生命周期
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 AppServiceExtensionAbility提供了[onCreate()](#oncreate)、[onRequest()](#onrequest)、[onConnect()](#onconnect)、[onDisconnect()](#ondisconnect)和[onDestroy()](#ondestroy)生命周期回调，开发者可根据需要重写对应的回调方法。下图展示了AppServiceExtensionAbility的生命周期。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/CJC-3m7QRmmDqt7stj20-w/zh-cn_image_0000002611755457.png?HW-CC-KV=V1&HW-CC-Date=20260528T024302Z&HW-CC-Expire=86400&HW-CC-Sign=EC4FED7494ECA01749D7F1111C5F0171F6E014429CDB6576EE80B686D1FA38D2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/CJC-3m7QRmmDqt7stj20-w/zh-cn_image_0000002611755457.png?HW-CC-KV=V1&HW-CC-Date=20260528T025638Z&HW-CC-Expire=86400&HW-CC-Sign=873C5F1FD4008EE6E0F39697154A86332875670A6CFB8BF6C140DFD38006FE00)
 
 
  - **onCreate**
@@ -51,7 +51,7 @@ AppServiceExtensionAbility提供了[onCreate()](#oncreate)、[onRequest()](#onre
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -61,7 +61,7 @@ import { AppServiceExtensionAbility } from '@kit.AbilityKit';
 
 
 
-##### AppServiceExtensionAbility
+#### AppServiceExtensionAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -69,7 +69,7 @@ AppServiceExtensionAbility模块提供后台服务相关扩展能力，包括后
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -82,7 +82,7 @@ AppServiceExtensionAbility模块提供后台服务相关扩展能力，包括后
 
 
 
-##### onCreate
+#### onCreate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -120,7 +120,7 @@ export default class AppServiceExtAbility extends AppServiceExtensionAbility {
 
 
 
-##### onDestroy
+#### onDestroy
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -147,7 +147,7 @@ export default class AppServiceExtAbility extends AppServiceExtensionAbility {
 
 
 
-##### onRequest
+#### onRequest
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -182,7 +182,7 @@ export default class AppServiceExtAbility extends AppServiceExtensionAbility {
 
 
 
-##### onConnect
+#### onConnect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -236,7 +236,7 @@ export default class AppServiceExtAbility extends AppServiceExtensionAbility {
 
 
 
-##### onDisconnect
+#### onDisconnect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { PanelInfo, PanelType, PanelFlag } from '@kit.IMEKit';
  
   
 
-##### PanelInfo
+#### PanelInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -38,7 +38,7 @@ import { PanelInfo, PanelType, PanelFlag } from '@kit.IMEKit';
  
   
 
-##### PanelType
+#### PanelType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -54,7 +54,7 @@ import { PanelInfo, PanelType, PanelFlag } from '@kit.IMEKit';
  
   
 
-##### PanelFlag
+#### PanelFlag
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -10,7 +10,7 @@
 **起始版本：** 4.1.0(11)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Tablet
 
@@ -20,7 +20,7 @@ import { navigationInfoMgr } from '@kit.CarKit';
  
   
 
-##### NavigationStatus
+#### NavigationStatus
 
 **支持设备：** Phone | Tablet
 
@@ -44,7 +44,7 @@ import { navigationInfoMgr } from '@kit.CarKit';
  
   
 
-##### MapStatus
+#### MapStatus
 
 **支持设备：** Phone | Tablet
 
@@ -66,7 +66,7 @@ import { navigationInfoMgr } from '@kit.CarKit';
  
   
 
-##### NaviType
+#### NaviType
 
 **支持设备：** Phone | Tablet
 
@@ -86,7 +86,7 @@ import { navigationInfoMgr } from '@kit.CarKit';
  
   
 
-##### Location
+#### Location
 
 **支持设备：** Phone | Tablet
 
@@ -107,7 +107,7 @@ import { navigationInfoMgr } from '@kit.CarKit';
  
   
 
-##### LocationCoordType
+#### LocationCoordType
 
 **支持设备：** Phone | Tablet
 
@@ -125,7 +125,7 @@ import { navigationInfoMgr } from '@kit.CarKit';
  
   
 
-##### RoutePreference
+#### RoutePreference
 
 **支持设备：** Phone | Tablet
 
@@ -148,7 +148,7 @@ import { navigationInfoMgr } from '@kit.CarKit';
  
   
 
-##### ThemeType
+#### ThemeType
 
 **支持设备：** Phone | Tablet
 
@@ -166,7 +166,7 @@ import { navigationInfoMgr } from '@kit.CarKit';
  
   
 
-##### NavigationMetadata
+#### NavigationMetadata
 
 **支持设备：** Phone | Tablet
 
@@ -199,7 +199,7 @@ import { navigationInfoMgr } from '@kit.CarKit';
  
   
 
-##### SystemNavigationListener
+#### SystemNavigationListener
 
 **支持设备：** Phone | Tablet
 
@@ -211,7 +211,7 @@ import { navigationInfoMgr } from '@kit.CarKit';
  
   
 
-##### onQueryNavigationInfo
+#### onQueryNavigationInfo
 
 **支持设备：** Phone | Tablet
 
@@ -248,7 +248,7 @@ onQueryNavigationInfo(query: QueryType, args: Record<string, Object>): Promise&l
  
   
 
-##### onReceiveNavigationCmd
+#### onReceiveNavigationCmd
 
 **支持设备：** Phone | Tablet
 
@@ -285,7 +285,7 @@ onReceiveNavigationCmd(command: CommandType, args: Record<string, Object>): Prom
  
   
 
-##### QueryType
+#### QueryType
 
 **支持设备：** Phone | Tablet
 
@@ -303,7 +303,7 @@ onReceiveNavigationCmd(command: CommandType, args: Record<string, Object>): Prom
  
   
 
-##### CommandType
+#### CommandType
 
 **支持设备：** Phone | Tablet
 
@@ -331,7 +331,7 @@ onReceiveNavigationCmd(command: CommandType, args: Record<string, Object>): Prom
  
   
 
-##### ResultData
+#### ResultData
 
 **支持设备：** Phone | Tablet
 
@@ -350,7 +350,7 @@ onReceiveNavigationCmd(command: CommandType, args: Record<string, Object>): Prom
  
   
 
-##### getNavigationController
+#### getNavigationController
 
 **支持设备：** Phone | Tablet
 
@@ -393,7 +393,7 @@ let navInfoController: navigationInfoMgr.NavigationController = navigationInfoMg
  
   
 
-##### NavigationController
+#### NavigationController
 
 **支持设备：** Phone | Tablet
 
@@ -405,7 +405,7 @@ let navInfoController: navigationInfoMgr.NavigationController = navigationInfoMg
  
   
 
-##### updateNavigationStatus
+#### updateNavigationStatus
 
 **支持设备：** Phone | Tablet
 
@@ -496,7 +496,7 @@ try {
  
   
 
-##### updateNavigationMetadata
+#### updateNavigationMetadata
 
 **支持设备：** Phone | Tablet
 
@@ -570,7 +570,7 @@ try {
  
   
 
-##### registerSystemNavigationListener
+#### registerSystemNavigationListener
 
 **支持设备：** Phone | Tablet
 
@@ -651,7 +651,7 @@ try {
  
   
 
-##### unregisterSystemNavigationListener
+#### unregisterSystemNavigationListener
 
 **支持设备：** Phone | Tablet
 

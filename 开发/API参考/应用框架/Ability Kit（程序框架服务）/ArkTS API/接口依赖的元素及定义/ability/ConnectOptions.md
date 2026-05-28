@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,13 +22,13 @@ import { common } from '@kit.AbilityKit';
 
 
 
-##### ConnectOptions
+#### ConnectOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### onConnect
+#### onConnect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -79,7 +79,7 @@ class EntryAbility extends UIAbility {
 
 
 
-##### onDisconnect
+#### onDisconnect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -129,7 +129,7 @@ class EntryAbility extends UIAbility {
 
 
 
-##### onFailed
+#### onFailed
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

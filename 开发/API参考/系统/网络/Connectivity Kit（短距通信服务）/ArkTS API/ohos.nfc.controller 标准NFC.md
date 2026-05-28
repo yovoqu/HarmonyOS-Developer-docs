@@ -12,7 +12,7 @@
 
 
 
-##### **导入模块**
+#### **导入模块**
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -22,7 +22,7 @@ import { nfcController } from '@kit.ConnectivityKit';
 
 
 
-##### NfcState
+#### NfcState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -42,7 +42,7 @@ import { nfcController } from '@kit.ConnectivityKit';
 
 
 
-##### nfcController.isNfcAvailable(deprecated)
+#### nfcController.isNfcAvailable(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -65,7 +65,7 @@ isNfcAvailable(): boolean
 
 
 
-##### nfcController.openNfc(deprecated)
+#### nfcController.openNfc(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -90,7 +90,7 @@ openNfc(): boolean
 
 
 
-##### nfcController.enableNfc9+
+#### nfcController.enableNfc9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -115,7 +115,7 @@ enableNfc(): void
 
 
 
-##### nfcController.closeNfc(deprecated)
+#### nfcController.closeNfc(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -140,7 +140,7 @@ closeNfc(): boolean
 
 
 
-##### nfcController.disableNfc9+
+#### nfcController.disableNfc9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -165,7 +165,7 @@ disableNfc(): void
 
 
 
-##### nfcController.isNfcOpen
+#### nfcController.isNfcOpen
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -186,7 +186,7 @@ isNfcOpen(): boolean
 
 
 
-##### nfcController.getNfcState
+#### nfcController.getNfcState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -207,7 +207,7 @@ getNfcState(): [NfcState](#nfcstate)
 
 
 
-##### nfcController.on('nfcStateChange')
+#### nfcController.on('nfcStateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -229,7 +229,7 @@ on(type: 'nfcStateChange', callback: Callback<[NfcState](#nfcstate)>): void
 
 
 
-##### nfcController.off('nfcStateChange')
+#### nfcController.off('nfcStateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

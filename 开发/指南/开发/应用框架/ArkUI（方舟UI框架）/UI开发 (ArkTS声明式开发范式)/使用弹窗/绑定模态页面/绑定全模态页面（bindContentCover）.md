@@ -7,7 +7,7 @@
 [全模态页面（bindContentCover）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-modal-transition#bindcontentcover)是全屏模态形式的弹窗交互页面，完全覆盖底层父视图。适用于查看大图，全屏查看文稿等场景。
 
 
-##### 使用约束
+#### 使用约束
 
 全模态页面本质上是弹窗类组件，其交互层级默认为应用内顶层。
 
@@ -15,7 +15,7 @@
 
 
 
-##### 生命周期
+#### 生命周期
 
 全模态页面提供了生命周期函数，用于通知应用程序该弹窗的生命周期状态。生命周期的触发顺序依次为：onWillAppear -> onAppear -> onWillDisappear -> onDisappear。
 
@@ -29,7 +29,7 @@
 
 
 
-##### 使用bindContentCover构建全屏模态内容覆盖半模态
+#### 使用bindContentCover构建全屏模态内容覆盖半模态
 
 全模态与半模态之间存在弹窗式的层级交互。后拉起的模态页面能够覆盖先前的模态页面。若开发者期望实现全屏转场，以覆盖半模态，并在全屏页面侧滑退出后，半模态页面仍保持显示，使用bindSheet结合bindContentCover将满足这一场景诉求。
 

@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** PC/2in1
 
@@ -22,7 +22,7 @@ import { PanelInfo, PanelType } from '@kit.BasicServicesKit';
  
   
 
-##### PanelInfo
+#### PanelInfo
 
 **支持设备：** PC/2in1
 
@@ -43,7 +43,7 @@ import { PanelInfo, PanelType } from '@kit.BasicServicesKit';
  
   
 
-##### PanelType
+#### PanelType
 
 **支持设备：** PC/2in1
 

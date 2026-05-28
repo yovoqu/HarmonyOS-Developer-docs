@@ -7,7 +7,7 @@
 提供搜索框组件，用于提供用户搜索内容的输入区域，具体用法请参考[search](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-search)。
 
 
-##### 创建search组件
+#### 创建search组件
 
 在pages/index目录下的hml文件中创建一个search组件。
 
@@ -36,7 +36,7 @@
 
 
 
-##### 设置属性
+#### 设置属性
 
 通过设置hint、icon和searchbutton属性设置搜索框的提示文字、图标和末尾搜索按钮的内容。
 
@@ -65,7 +65,7 @@
 
 
 
-##### 添加样式
+#### 添加样式
 
 通过color、placeholder-color和caret-color样式来设置搜索框的文本颜色、提示文本颜色和光标颜色。
 
@@ -99,7 +99,7 @@ search{
 
 
 
-##### 绑定事件
+#### 绑定事件
 
 向search组件添加change、search、submit、share和translate事件，对输入信息进行操作。
 
@@ -176,7 +176,7 @@ export default {
 
 
 
-##### 场景示例
+#### 场景示例
 
 在本场景中通过下拉菜单选择search、Textarea和Input组件来实现搜索和输入效果。
 

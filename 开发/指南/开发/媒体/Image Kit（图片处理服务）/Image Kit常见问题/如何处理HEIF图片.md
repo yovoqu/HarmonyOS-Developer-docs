@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/heif-adapter-faq
 
-##### HEIF图片介绍
+#### HEIF图片介绍
 
 HEIF图片（High Efficiency Image File Format，HEIF，也称高效图像文件格式），是一个用于单张图像或图像序列的文件格式。它由动态影像专家小组（MPEG）开发，并在MPEG-H Part 12（ISO/IEC 23008-12）中定义。
 
@@ -22,11 +22,11 @@ ArkWeb图片上传可参考：[使用Web组件上传文件](https://developer.hu
 
 
 
-##### 常见问题
+#### 常见问题
 
 
 
-##### 上传HEIF图片时提示：“不支持的格式”
+#### 上传HEIF图片时提示：“不支持的格式”
 
 可以使用ImageSource[属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource#属性)中的supportedFormats和ImagePacker[属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagepacker#属性)中的supportedFormats，来查看系统支持编解码的图片格式。只要查询到的结果中包含"image/heic"，即代表该设备支持HEIF图片编解码。
 
@@ -40,7 +40,7 @@ ArkWeb图片上传可参考：[使用Web组件上传文件](https://developer.hu
 
 
 
-##### 为什么选择的是HEIF图片，实际上获取到的却是JPEG图片？
+#### 为什么选择的是HEIF图片，实际上获取到的却是JPEG图片？
 
 当使用[媒体文件管理服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-overview)或[URI（Uniform Resource Identifier）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/core-file-kit-intro#亮点特征)访问HEIF图片时，系统会自动将HEIF图片转码为兼容性相对更好的JPEG图片，且保证转码前后图片携带的元数据信息一致。
 
@@ -48,7 +48,7 @@ ArkWeb图片上传可参考：[使用Web组件上传文件](https://developer.hu
 
 
 
-##### 担心使用HEIF格式图片存在兼容性问题，需使用JPEG或PNG格式的图片，如何操作
+#### 担心使用HEIF格式图片存在兼容性问题，需使用JPEG或PNG格式的图片，如何操作
 
 可以借助Image Kit的图片编解码能力，将HEIF图片转码成JPEG或PNG格式的图片。
 

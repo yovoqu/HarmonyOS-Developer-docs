@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-commissioning-interfaces-dumpaccch
 
-##### 函数功能
+#### 函数功能
 
 基于算子工程开发的算子，可以使用该接口Dump指定Tensor的内容。同时支持打印自定义的附加信息（仅支持uint32_t数据类型的信息），比如打印当前行号等。区别于[DumpTensor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-commissioning-interfaces-dumptensor)，使用该接口可以支持指定偏移位置的Tensor打印。
  
@@ -21,7 +21,7 @@ AscendC::DumpAccChkPoint(srcLocal,5, 32, dataLen);
 Dump时，每个block核的dump信息前会增加对应信息头DumpHead（32字节大小），用于记录核号和资源使用信息。每次Dump的Tensor数据前也会添加信息头DumpTensorHead（32字节大小），用于记录Tensor的相关信息。如下图所示，展示了多核打印场景下的打印信息结构。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/iaDJs6HsT8CorPJv096ArA/zh-cn_image_0000002581435382.png?HW-CC-KV=V1&HW-CC-Date=20260528T014305Z&HW-CC-Expire=86400&HW-CC-Sign=9458800DD692F2C07B8B8575111B744BDB5174C659703DF9DA8AEF4A086E8E87)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/iaDJs6HsT8CorPJv096ArA/zh-cn_image_0000002581435382.png?HW-CC-KV=V1&HW-CC-Date=20260528T025934Z&HW-CC-Expire=86400&HW-CC-Sign=6F5F7AF109F4BB5FFE4F5545BEE0217FE3EF0A654DE71C043CFE3ACF605490D8)
 
  
 **DumpHead的具体信息如下。**
@@ -58,7 +58,7 @@ DumpTensor: desc=5, addr=0, data_type=DT_FLOAT16, position=UB
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 void DumpAccChkPoint(const GlobalTensor<T>& tensor, uint32_t index, uint32_t countOff, uint32_t dumpSize)
@@ -67,7 +67,7 @@ void DumpAccChkPoint(const LocalTensor<T>& tensor, uint32_t index, uint32_t coun
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数名 | 输入/输出 | 描述 |
 | --- | --- | --- |
@@ -79,13 +79,13 @@ void DumpAccChkPoint(const LocalTensor<T>& tensor, uint32_t index, uint32_t coun
  
   
 
-##### 返回值
+#### 返回值
 
 无
  
   
 
-##### 支持的型号
+#### 支持的型号
 
 Kirin9020系列处理器
  
@@ -93,7 +93,7 @@ KirinX90系列处理器
  
   
 
-##### 约束说明
+#### 约束说明
 
 - **该功能仅在如下场景支持：** 通过[工程化算子开发](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-overview-of-engineering-operator)方式调用算子。
 - 当前仅支持打印存储位置为Unified Buffer/L1 Buffer/L0C Buffer/Global Memory的Tensor信息。
@@ -105,7 +105,7 @@ KirinX90系列处理器
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 AscendC::DumpAccChkPoint(srcLocal, 7, 32 , 128);

@@ -12,7 +12,7 @@ FormExtensionAbility为卡片扩展模块，提供卡片创建、销毁、刷新
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { FormExtensionAbility } from '@kit.FormKit';
  
   
 
-##### FormExtensionAbility
+#### FormExtensionAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -34,7 +34,7 @@ import { FormExtensionAbility } from '@kit.FormKit';
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -49,7 +49,7 @@ import { FormExtensionAbility } from '@kit.FormKit';
  
   
 
-##### FormExtensionAbility.onAddForm
+#### FormExtensionAbility.onAddForm
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -99,7 +99,7 @@ export default class MyFormExtensionAbility extends FormExtensionAbility {
  
   
 
-##### FormExtensionAbility.onCastToNormalForm
+#### FormExtensionAbility.onCastToNormalForm
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -135,7 +135,7 @@ export default class MyFormExtensionAbility extends FormExtensionAbility {
  
   
 
-##### FormExtensionAbility.onUpdateForm
+#### FormExtensionAbility.onUpdateForm
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -183,7 +183,7 @@ export default class MyFormExtensionAbility extends FormExtensionAbility {
  
   
 
-##### FormExtensionAbility.onChangeFormVisibility
+#### FormExtensionAbility.onChangeFormVisibility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -240,7 +240,7 @@ export default class MyFormExtensionAbility extends FormExtensionAbility {
  
   
 
-##### FormExtensionAbility.onFormEvent
+#### FormExtensionAbility.onFormEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -276,7 +276,7 @@ export default class MyFormExtensionAbility extends FormExtensionAbility {
  
   
 
-##### FormExtensionAbility.onRemoveForm
+#### FormExtensionAbility.onRemoveForm
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -311,7 +311,7 @@ export default class MyFormExtensionAbility extends FormExtensionAbility {
  
   
 
-##### FormExtensionAbility.onConfigurationUpdate
+#### FormExtensionAbility.onConfigurationUpdate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -349,7 +349,7 @@ export default class MyFormExtensionAbility extends FormExtensionAbility {
  
   
 
-##### FormExtensionAbility.onAcquireFormState
+#### FormExtensionAbility.onAcquireFormState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -393,7 +393,7 @@ export default class MyFormExtensionAbility extends FormExtensionAbility {
  
   
 
-##### FormExtensionAbility.onStop12+
+#### FormExtensionAbility.onStop12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -421,7 +421,7 @@ export default class MyFormExtensionAbility extends FormExtensionAbility {
  
   
 
-##### FormExtensionAbility.onFormLocationChanged20+
+#### FormExtensionAbility.onFormLocationChanged20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -464,7 +464,7 @@ export default class EntryFormAbility extends FormExtensionAbility {
  
   
 
-##### FormExtensionAbility.onSizeChanged20+
+#### FormExtensionAbility.onSizeChanged20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -12,7 +12,7 @@
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -36,7 +36,7 @@ NavDestination()
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -44,7 +44,7 @@ NavDestination()
 
 
 
-##### title
+#### title
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -70,7 +70,7 @@ title(value: string | CustomBuilder | NavDestinationCommonTitle | NavDestination
 
 
 
-##### hideTitleBar
+#### hideTitleBar
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -91,7 +91,7 @@ hideTitleBar(value: boolean)
 
 
 
-##### hideTitleBar13+
+#### hideTitleBar13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -113,7 +113,7 @@ hideTitleBar(hide: boolean, animated: boolean)
 
 
 
-##### toolbarConfiguration13+
+#### toolbarConfiguration13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -139,7 +139,7 @@ toolbarConfiguration(toolbarParam: Array&lt;ToolbarItem&gt; | CustomBuilder, opt
 
 
 
-##### hideToolBar13+
+#### hideToolBar13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -161,7 +161,7 @@ hideToolBar(hide: boolean, animated?: boolean)
 
 
 
-##### mode11+
+#### mode11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -186,7 +186,7 @@ mode(value: NavDestinationMode)
 
 
 
-##### backButtonIcon11+
+#### backButtonIcon11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -211,7 +211,7 @@ backButtonIcon(value: ResourceStr | PixelMap | SymbolGlyphModifier)
 
 
 
-##### backButtonIcon19+
+#### backButtonIcon19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -237,7 +237,7 @@ backButtonIcon(icon: ResourceStr | PixelMap | SymbolGlyphModifier, accessibility
 
 
 
-##### menus12+
+#### menus12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -262,7 +262,7 @@ menus(value: Array&lt;NavigationMenuItem&gt; | CustomBuilder)
 
 
 
-##### menus19+
+#### menus19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -288,7 +288,7 @@ menus(items: Array&lt;NavigationMenuItem&gt; | CustomBuilder, options?: Navigati
 
 
 
-##### ignoreLayoutSafeArea12+
+#### ignoreLayoutSafeArea12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -314,7 +314,7 @@ ignoreLayoutSafeArea(types?: Array&lt;LayoutSafeAreaType&gt;, edges?: Array&lt;L
 
 
 
-##### systemBarStyle12+
+#### systemBarStyle12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -339,7 +339,7 @@ systemBarStyle(style: Optional&lt;SystemBarStyle&gt;)
 
 
 
-##### systemTransition14+
+#### systemTransition14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -360,7 +360,7 @@ systemTransition(type: NavigationSystemTransitionType)
 
 
 
-##### recoverable14+
+#### recoverable14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -383,7 +383,7 @@ recoverable(recoverable: Optional&lt;boolean&gt;)
 
 
 
-##### bindToScrollable14+
+#### bindToScrollable14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -408,7 +408,7 @@ bindToScrollable(scrollers: Array&lt;Scroller&gt;)
 
 
 
-##### bindToNestedScrollable14+
+#### bindToNestedScrollable14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -433,7 +433,7 @@ bindToNestedScrollable(scrollInfos: Array&lt;NestedScrollInfo&gt;)
 
 
 
-##### hideBackButton15+
+#### hideBackButton15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -454,7 +454,7 @@ hideBackButton(hide: Optional&lt;boolean&gt;)
 
 
 
-##### customTransition15+
+#### customTransition15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -479,7 +479,7 @@ customTransition(delegate: NavDestinationTransitionDelegate)
 
 
 
-##### preferredOrientation19+
+#### preferredOrientation19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -504,7 +504,7 @@ preferredOrientation(orientation: Optional&lt;Orientation&gt;)
 
 
 
-##### enableStatusBar19+
+#### enableStatusBar19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -530,7 +530,7 @@ enableStatusBar(enabled: Optional&lt;boolean&gt;, animated?: boolean)
 
 
 
-##### enableNavigationIndicator19+
+#### enableNavigationIndicator19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -555,7 +555,7 @@ enableNavigationIndicator(enabled: Optional&lt;boolean&gt;)
 
 
 
-##### NavDestinationMode枚举说明11+
+#### NavDestinationMode枚举说明11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -573,7 +573,7 @@ NavDestination类型。
 
 
 
-##### NavigationSystemTransitionType14+枚举说明
+#### NavigationSystemTransitionType14+枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -599,7 +599,7 @@ NavDestination类型。
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -607,7 +607,7 @@ NavDestination类型。
 
 
 
-##### onShown10+
+#### onShown10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -628,7 +628,7 @@ onShown(callback: Callback&lt;VisibilityChangeReason&gt;)
 
 
 
-##### onHidden10+
+#### onHidden10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -649,7 +649,7 @@ onHidden(callback: Callback&lt;VisibilityChangeReason&gt;)
 
 
 
-##### onWillAppear12+
+#### onWillAppear12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -674,7 +674,7 @@ onWillAppear(callback: Callback&lt;void&gt;)
 
 
 
-##### onWillShow12+
+#### onWillShow12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -699,7 +699,7 @@ onWillShow(callback: Callback&lt;void&gt;)
 
 
 
-##### onWillHide12+
+#### onWillHide12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -724,7 +724,7 @@ onWillHide(callback: Callback&lt;void&gt;)
 
 
 
-##### onWillDisappear12+
+#### onWillDisappear12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -749,7 +749,7 @@ onWillDisappear(callback: Callback&lt;void&gt;)
 
 
 
-##### onBackPressed10+
+#### onBackPressed10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -772,7 +772,7 @@ onBackPressed(callback: () => boolean)
 
 
 
-##### onReady11+
+#### onReady11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -797,7 +797,7 @@ onReady(callback: [Callback](https://developer.huawei.com/consumer/cn/doc/harmon
 
 
 
-##### onResult15+
+#### onResult15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -822,7 +822,7 @@ NavDestination返回时触发该回调。
 
 
 
-##### onActive17+
+#### onActive17+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -847,7 +847,7 @@ NavDestination处于激活态（处于栈顶可操作，且上层无特殊组件
 
 
 
-##### onInactive17+
+#### onInactive17+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -872,7 +872,7 @@ NavDestination处于非激活态（处于非栈顶不可操作，或处于栈顶
 
 
 
-##### onNewParam19+
+#### onNewParam19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -897,7 +897,7 @@ onNewParam(callback: Optional<Callback&lt;ESObject&gt;>)
 
 
 
-##### NavDestinationCommonTitle
+#### NavDestinationCommonTitle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -915,7 +915,7 @@ NavDestination通用标题。
 
 
 
-##### NavDestinationCustomTitle
+#### NavDestinationCustomTitle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -933,7 +933,7 @@ NavDestination自定义标题。
 
 
 
-##### NavDestinationContext11+
+#### NavDestinationContext11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -951,7 +951,7 @@ NavDestination上下文信息。
 
 
 
-##### getConfigInRouteMap12+
+#### getConfigInRouteMap12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -972,7 +972,7 @@ getConfigInRouteMap(): RouteMapConfig | undefined
 
 
 
-##### RouteMapConfig12+
+#### RouteMapConfig12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -991,7 +991,7 @@ getConfigInRouteMap(): RouteMapConfig | undefined
 
 
 
-##### NestedScrollInfo14+
+#### NestedScrollInfo14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1009,7 +1009,7 @@ getConfigInRouteMap(): RouteMapConfig | undefined
 
 
 
-##### NavDestinationActiveReason17+
+#### NavDestinationActiveReason17+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1031,7 +1031,7 @@ NavDestination激活态或者非激活态变化的原因。
 
 
 
-##### VisibilityChangeReason21+
+#### VisibilityChangeReason21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1050,7 +1050,7 @@ NavDestination可见性发生变化的原因。
 
 
 
-##### NavDestinationTransition15+
+#### NavDestinationTransition15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1071,7 +1071,7 @@ NavDestination自定义动画接口。
 
 
 
-##### NavDestinationTransitionDelegate15+
+#### NavDestinationTransitionDelegate15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1100,7 +1100,7 @@ NavDestination自定义转场动画的代理函数。
 
 
 
-##### Orientation19+
+#### Orientation19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1119,13 +1119,13 @@ Orientation实例对象。
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1（标题栏工具栏与可滚动类组件联动）
+#### 示例1（标题栏工具栏与可滚动类组件联动）
 
 以下示例主要演示NavDestination绑定可滚动容器组件来实现滚动内容时触发标题栏和工具栏显示隐藏的效果。
 
@@ -1270,12 +1270,12 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/6Admv0TMSWSnc37_S-lkbg/zh-cn_image_0000002581435802.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024230Z&HW-CC-Expire=86400&HW-CC-Sign=FCBBFAE7679A9D0B675ACE69288284965ECDC8CB9AEFE2776C5586D088868DCA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/6Admv0TMSWSnc37_S-lkbg/zh-cn_image_0000002581435802.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025603Z&HW-CC-Expire=86400&HW-CC-Sign=A94AE23AACC53076BBFE0B1C374A291678F9BA5182A3F7B1C83E8B852F2FF36F)
 
 
 
 
-##### 示例2（设置NavDestination自定义转场）
+#### 示例2（设置NavDestination自定义转场）
 
 以下示例主要演示NavDestination设置自定义转场动画属性[customTransition](#customtransition15)的效果。
 
@@ -1416,12 +1416,12 @@ struct NavDest {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/h_ooRZ01SRy-hj8Sv3gCLg/zh-cn_image_0000002611835631.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024230Z&HW-CC-Expire=86400&HW-CC-Sign=57198C3AE4C510BA8A3C0FE3A776E7C8D9F39E2FE48984D48A6698F5C432145E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/h_ooRZ01SRy-hj8Sv3gCLg/zh-cn_image_0000002611835631.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025603Z&HW-CC-Expire=86400&HW-CC-Sign=791421C84D8B06A63AAF7991E09CC3C386618609E347D1072A82AA6FB2F478F1)
 
 
 
 
-##### 示例3（设置指定的NavDestination系统转场）
+#### 示例3（设置指定的NavDestination系统转场）
 
 以下示例主要演示NavDestination设置系统转场动画[systemTransition](#systemtransition14)为Fade、Explode、SlideBottom与SlideRight时的转场效果。
 
@@ -1668,24 +1668,24 @@ struct HomeBody {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/kjeCsREvRO-sX75hCtGUew/zh-cn_image_0000002581275884.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024230Z&HW-CC-Expire=86400&HW-CC-Sign=9956B1B890DD1A46ABAB4279778EFE716713B652150D937276DCBE45AC01C3D6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/kjeCsREvRO-sX75hCtGUew/zh-cn_image_0000002581275884.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025603Z&HW-CC-Expire=86400&HW-CC-Sign=A0FEC50F767BAD4B28F2AB1788F00CFEB687518AAADE484A3E967AE52F5CF640)
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/e_0OwC92SK-qg4IRuW95-A/zh-cn_image_0000002611755741.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024230Z&HW-CC-Expire=86400&HW-CC-Sign=7402AFD02B74BBACEFBE1BFF060A329264DBE125C6CCE81E9BDEC006007DE024)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/e_0OwC92SK-qg4IRuW95-A/zh-cn_image_0000002611755741.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025603Z&HW-CC-Expire=86400&HW-CC-Sign=4624F137B25CECE596DD76F85A9BDD73B74FBEE118CE4B6A0578D4E7A85C5AF4)
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/EKstPjABTx-wvy1iu_ydHw/zh-cn_image_0000002581435804.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024230Z&HW-CC-Expire=86400&HW-CC-Sign=5B0BDF19EA36A0B4072A7778D12A2A95B365D1071E5E6CE87747FABE0B8084DE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/EKstPjABTx-wvy1iu_ydHw/zh-cn_image_0000002581435804.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025603Z&HW-CC-Expire=86400&HW-CC-Sign=9FC7EA0190691046ABD387160B0A210CA225E6ABCD628857903AD800800C7EE2)
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/zIrXrMxfTTGRDw9I9iq4yg/zh-cn_image_0000002611835635.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024230Z&HW-CC-Expire=86400&HW-CC-Sign=9D227CF0F02920F7E9B29E9832B2843AD967AE28C2B488C084FC63CD3E24A693)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/zIrXrMxfTTGRDw9I9iq4yg/zh-cn_image_0000002611835635.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025603Z&HW-CC-Expire=86400&HW-CC-Sign=030A4416CA89A780A5D19062E5823A7A0CA4724241CF766461B170FDA10FF275)
 
 
 
 
-##### 示例4（NavDestination配置页面方向和对应状态栏、导航条显隐）
+#### 示例4（NavDestination配置页面方向和对应状态栏、导航条显隐）
 
 以下示例主要演示每个NavDestination可以配置[preferredOrientation](#preferredorientation19)指定的页面方向和状态栏，导航条显隐状态。
 
@@ -1775,12 +1775,12 @@ struct ExamplePage {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/ytbhJULYTV-9N9Wp5byzwQ/zh-cn_image_0000002581275886.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024230Z&HW-CC-Expire=86400&HW-CC-Sign=5DB32CE11F882820C2B47D8FDF58E9201497D31A575EF7C800B99AFC2CB236C9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/ytbhJULYTV-9N9Wp5byzwQ/zh-cn_image_0000002581275886.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025603Z&HW-CC-Expire=86400&HW-CC-Sign=6110DE8C00AC47D2EBF820D0E4948D319FCBB80BD997CFCF9461E5D3DAB8D84C)
 
 
 
 
-##### 示例5（NavDestination的onActive与onInActive生命周期）
+#### 示例5（NavDestination的onActive与onInActive生命周期）
 
 从API version 17开始，NavDestination新增[onActive](#onactive17)、[onInactive](#oninactive17)属性。该示例演示onActive与onInactive生命周期的各种触发场景。
 
@@ -1996,7 +1996,7 @@ struct NavBody {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/HrTVBdWWSZGpF4ZUOVYU2A/zh-cn_image_0000002611755743.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024230Z&HW-CC-Expire=86400&HW-CC-Sign=493393E3116A546F577CF756AB33D9FD25D27C76180A65842DA21438F75E8E4E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/HrTVBdWWSZGpF4ZUOVYU2A/zh-cn_image_0000002611755743.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025603Z&HW-CC-Expire=86400&HW-CC-Sign=7B042B7E3DACDE29BA51680DF7A0D303FC6F5BD329BC30DFFC53264D2940A8E4)
 
 
 NavDestination其他用法可参考[Navigation示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#示例)。

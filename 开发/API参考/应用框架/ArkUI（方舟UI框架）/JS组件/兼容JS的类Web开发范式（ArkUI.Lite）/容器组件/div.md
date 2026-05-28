@@ -12,7 +12,7 @@
 
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
  
@@ -34,7 +34,7 @@
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
  
@@ -47,7 +47,7 @@
  
   
 
-##### 样式
+#### 样式
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
  
@@ -74,7 +74,7 @@
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 1. Flex样式
@@ -172,4 +172,4 @@
 }
 ```
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/ElEv9KrQT1CZ-09NzQEBUA/zh-cn_image_0000002581276630.png?HW-CC-KV=V1&HW-CC-Date=20260528T024059Z&HW-CC-Expire=86400&HW-CC-Sign=AD2BA2FAC425AA2D8EB02C2C53A13AC6B814479FF87433641D555454B72BD6A9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/ElEv9KrQT1CZ-09NzQEBUA/zh-cn_image_0000002581276630.png?HW-CC-KV=V1&HW-CC-Date=20260528T025434Z&HW-CC-Expire=86400&HW-CC-Sign=9694EA0B534C4E4975CF1E790C05E3010EE5DCA9C220FEB2B023A686BD4A8C8F)

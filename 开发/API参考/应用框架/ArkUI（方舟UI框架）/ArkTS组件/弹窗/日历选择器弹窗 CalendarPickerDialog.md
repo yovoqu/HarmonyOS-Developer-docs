@@ -12,13 +12,13 @@
 
 
 
-##### CalendarPickerDialog
+#### CalendarPickerDialog
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### show
+#### show
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@ static show(options?: CalendarDialogOptions): void
 
 
 
-##### CalendarDialogOptions对象说明
+#### CalendarDialogOptions对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -80,13 +80,13 @@ static show(options?: CalendarDialogOptions): void
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1（设置弹窗背板）
+#### 示例1（设置弹窗背板）
 
 该示例通过[CalendarDialogOptions](#calendardialogoptions对象说明)的backgroundColor、backgroundBlurStyle、shadow设置日历选择器弹窗背板。
 
@@ -146,7 +146,7 @@ struct CalendarPickerDialogExample {
 
 
 
-##### 示例2（自定义按钮样式）
+#### 示例2（自定义按钮样式）
 
 从API version 12开始，该示例通过配置[CalendarDialogOptions](#calendardialogoptions对象说明)的acceptButtonStyle、cancelButtonStyle实现自定义日历选择器弹窗按钮样式。
 
@@ -206,7 +206,7 @@ struct CalendarPickerDialogExample {
 
 
 
-##### 示例3（悬停态弹窗）
+#### 示例3（悬停态弹窗）
 
 从API version 14开始，该示例展示了在折叠屏悬停态下设置dialog布局区域的效果。
 
@@ -260,7 +260,7 @@ struct CalendarPickerDialogExample {
 
 
 
-##### 示例4（设置日期选中态底板样式）
+#### 示例4（设置日期选中态底板样式）
 
 从API version 10开始，该示例通过[CalendarOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-calendarpicker#calendaroptions对象说明)的hintRadius设置日期选中态底板样式。
 
@@ -297,7 +297,7 @@ struct CalendarPickerDialogExample {
 
 
 
-##### 示例5（设置开始日期和结束日期）
+#### 示例5（设置开始日期和结束日期）
 
 从API version 18开始，该示例通过[CalendarOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-calendarpicker#calendaroptions对象说明)的start和end设置日历选择器弹窗的开始日期和结束日期。
 
@@ -334,7 +334,7 @@ struct CalendarPickerDialogExample {
 
 
 
-##### 示例6（设置系统当前日期在日历选择器弹窗内保持高亮显示，并设置禁用日期区间）
+#### 示例6（设置系统当前日期在日历选择器弹窗内保持高亮显示，并设置禁用日期区间）
 
 从API version 19开始，该示例通过配置[CalendarDialogOptions](#calendardialogoptions对象说明)的markToday，使系统当前日期在日历选择器弹窗内保持高亮显示，并通过配置[CalendarOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-calendarpicker#calendaroptions对象说明)的disabledDateRange设置禁用的日期区间。
 
@@ -370,7 +370,7 @@ struct CalendarPickerExample {
 
 
 
-##### 示例7（自定义背景模糊效果参数）
+#### 示例7（自定义背景模糊效果参数）
 
 从API version 19开始，该示例通过配置[backgroundBlurStyleOptions](#calendardialogoptions对象说明)，实现自定义背景模糊效果。
 
@@ -408,12 +408,12 @@ struct CalendarPickerDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/g-Abj26MT--BzH1YjtWXTA/zh-cn_image_0000002611756125.png?HW-CC-KV=V1&HW-CC-Date=20260528T024203Z&HW-CC-Expire=86400&HW-CC-Sign=541E13A1F4A8D788D970DB7722644B76AD63A54D4460DBD466CAA6FAD89AC987)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/g-Abj26MT--BzH1YjtWXTA/zh-cn_image_0000002611756125.png?HW-CC-KV=V1&HW-CC-Date=20260528T025537Z&HW-CC-Expire=86400&HW-CC-Sign=F427AF3593DE168F43E6D0C0EFD4B71170D45C141DE2BEC37926E3490177B3B3)
 
 
 
 
-##### 示例8（自定义背景效果参数）
+#### 示例8（自定义背景效果参数）
 
 从API version 19开始，该示例通过配置[backgroundEffect](#calendardialogoptions对象说明)，实现自定义背景效果。
 
@@ -452,4 +452,4 @@ struct CalendarPickerDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/QPyQbJdNQDC9Qq9KMkTazw/zh-cn_image_0000002581436188.png?HW-CC-KV=V1&HW-CC-Date=20260528T024203Z&HW-CC-Expire=86400&HW-CC-Sign=F95325C2FE4681B59B7B183C3E3075E5B1D55B3C5A1747817FF9E96CA980013A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/QPyQbJdNQDC9Qq9KMkTazw/zh-cn_image_0000002581436188.png?HW-CC-KV=V1&HW-CC-Date=20260528T025537Z&HW-CC-Expire=86400&HW-CC-Sign=A3D2A18DA694C6BAD45B80D2C783C015AA4098520A3C67E70493A610CAE66E35)

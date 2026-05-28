@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-ide-static-detection
 
-##### 使用Clang-Tidy检测
+#### 使用Clang-Tidy检测
 
  
 **自定义配置**
@@ -74,7 +74,7 @@ DevEco Studio集成了开源的Clang-Tidy。
  
  
 
-##### 使用CodeLinter检测
+#### 使用CodeLinter检测
 
 **Code Linter代码检查**
  
@@ -265,7 +265,7 @@ Foo.bar();
 对pages/Index.ets文件进行代码检查，结果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/DRu8NLyCQLK7MR01LfW4ug/zh-cn_image_0000002194009852.png?HW-CC-KV=V1&HW-CC-Date=20260528T013033Z&HW-CC-Expire=86400&HW-CC-Sign=6A2D85937D3F050C89E06D5B095FDEEFD8318884B02D041DA40AC7C2A5DA503B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/DRu8NLyCQLK7MR01LfW4ug/zh-cn_image_0000002194009852.png?HW-CC-KV=V1&HW-CC-Date=20260528T024717Z&HW-CC-Expire=86400&HW-CC-Sign=AC06000D6981083FD58C0CF4A9A6E152D34E5A7D658E5877EFA9A42CF946828B)
 
  
 **示例2：对类名Foo的命名风格校验**
@@ -326,7 +326,7 @@ class foo {    //Here is an example of a naming style error, where foo is the in
 对pages/Index.ets文件执行代码检查，显示检查结果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/087gCi_tRfKs1bdrUlP2Lw/zh-cn_image_0000002229335649.png?HW-CC-KV=V1&HW-CC-Date=20260528T013033Z&HW-CC-Expire=86400&HW-CC-Sign=1B46D6DDFA02F28260319C4E7C9C6D8F500345590232BA2FCBC8C0237F4E3815)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/087gCi_tRfKs1bdrUlP2Lw/zh-cn_image_0000002229335649.png?HW-CC-KV=V1&HW-CC-Date=20260528T024717Z&HW-CC-Expire=86400&HW-CC-Sign=45FC31AF3CA66FA30CA4C11C9CDE4940432DE42FACBFAD0617889CA94F906BB6)
 
  
 **示例3：检查代码文件的命名风格**
@@ -363,4 +363,4 @@ class foo {    //Here is an example of a naming style error, where foo is the in
 对pages/test.ets文件执行代码检查，显示检查结果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/myLXGzE2R8ShqP67Ux2q0g/zh-cn_image_0000002229450117.png?HW-CC-KV=V1&HW-CC-Date=20260528T013033Z&HW-CC-Expire=86400&HW-CC-Sign=90A30F115A96B406FF9EB2732FD249A35317CB7BFD62FB893563F3BA1D737F4A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/myLXGzE2R8ShqP67Ux2q0g/zh-cn_image_0000002229450117.png?HW-CC-KV=V1&HW-CC-Date=20260528T024717Z&HW-CC-Expire=86400&HW-CC-Sign=DA997C032887A25C6257EF88F5A2E03F24F4F1EE7FE0D4BF872E287B83993BA1)

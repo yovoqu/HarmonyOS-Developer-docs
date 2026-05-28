@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getc0value
 
-##### 函数功能
+#### 函数功能
 
 从实际format中解析出c0 format信息。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 inline int64_t GetC0Value(int32_t format)
@@ -18,7 +18,7 @@ inline int64_t GetC0Value(int32_t format)
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -27,7 +27,7 @@ inline int64_t GetC0Value(int32_t format)
  
   
 
-##### 返回值
+#### 返回值
 
 - 如果包含c0 format，返回实际format中包含的c0 format。
 - 如果不包含c0 format，返回-1。
@@ -35,12 +35,12 @@ inline int64_t GetC0Value(int32_t format)
  
   
 
-##### 异常处理
+#### 异常处理
 
 无
  
   
 
-##### 约束说明
+#### 约束说明
 
 设置实际format格式时，第一个字节低四位的c0 format的范围只支持x=(0001~1111)，实际获取的c0 value为2^x-1。

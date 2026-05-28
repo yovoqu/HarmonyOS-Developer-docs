@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-animationset
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -15,7 +15,7 @@ import { map } from '@kit.MapKit';
  
   
 
-##### AnimationSet
+#### AnimationSet
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -31,7 +31,7 @@ import { map } from '@kit.MapKit';
  
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -74,7 +74,7 @@ animation.clearAnimation();
  
   
 
-##### addAnimation
+#### addAnimation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -111,7 +111,7 @@ animation.addAnimation(animation3);
  
   
 
-##### clearAnimation
+#### clearAnimation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

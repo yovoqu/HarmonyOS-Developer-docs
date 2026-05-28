@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avdemuxer
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -19,7 +19,7 @@ AVDemuxer模块提供从媒体文件码流中提取[sample](https://developer.hu
 
 
 
-##### 文件汇总
+#### 文件汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

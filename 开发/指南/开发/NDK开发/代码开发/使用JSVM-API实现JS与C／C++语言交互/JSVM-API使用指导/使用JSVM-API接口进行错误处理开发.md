@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-error
 
-##### 简介
+#### 简介
 
 使用JSVM-API接口进行错误处理，可以更好地管理和响应错误情况。合理使用这些函数，可以提高模块的稳定性和可靠性。
  
   
 
-##### 基本概念
+#### 基本概念
 
 在JavaScript编程中，异常和错误是常见的概念。异常表示发生了某种意外情况，而错误则指示程序无法正确执行某些操作。JSVM-API提供了一系列方法来帮助开发者在模块中处理JavaScript中的异常和错误。下面是一些基本概念：
  
@@ -25,7 +25,7 @@
  
   
 
-##### 接口说明
+#### 接口说明
  
 | 接口 | 功能说明 |
 | --- | --- |
@@ -40,19 +40,19 @@
  
   
 
-##### 使用示例
+#### 使用示例
 
 JSVM-API接口开发流程可参考[使用JSVM-API实现JS与C/C++语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-process)，本文仅展示接口对应的C++相关代码。
  
   
 
-##### OH_JSVM_Throw
+#### OH_JSVM_Throw
 
 用于抛出JavaScript Error对象。当在本机代码中发生错误或检测到不符合预期的情况时，可以使用此接口来抛出JavaScript Error，使其能够被捕获并处理。示例参考OH_JSVM_CreateError。
  
   
 
-##### OH_JSVM_CreateError
+#### OH_JSVM_CreateError
 
 创建并获取一个带文本信息的JavaScript Error。
  
@@ -115,7 +115,7 @@ JSVM error message: HasError, error code: -1
  
   
 
-##### OH_JSVM_ThrowError
+#### OH_JSVM_ThrowError
 
 用于抛出一个带文本信息的JS Error。
  
@@ -168,7 +168,7 @@ JSVM error message: self defined error message, error code: self defined error c
  
   
 
-##### OH_JSVM_ThrowTypeError
+#### OH_JSVM_ThrowTypeError
 
 创建并获取一个带文本信息的JavaScript TypeError。
  
@@ -220,7 +220,7 @@ JSVM error message: self defined error message, error code: self defined error c
  
   
 
-##### OH_JSVM_ThrowRangeError
+#### OH_JSVM_ThrowRangeError
 
 创建并获取一个带文本信息的JavaScript RangeError。
  
@@ -267,7 +267,7 @@ JSVM error message: Expected two numbers as arguments, error code: OH_JSVM_Throw
  
   
 
-##### OH_JSVM_ThrowSyntaxError
+#### OH_JSVM_ThrowSyntaxError
 
 创建并获取一个带文本信息的JavaScript SyntaxError。
  
@@ -318,7 +318,7 @@ JSVM error message: throw syntax error, error code: JsVmThrowSyntaxError
  
   
 
-##### OH_JSVM_IsError
+#### OH_JSVM_IsError
 
 用于判断给定的JSVM_Value是否表示一个Error对象。
  
@@ -366,7 +366,7 @@ JSVM API call OH_JSVM_IsError success, result is 1
  
   
 
-##### OH_JSVM_CreateTypeError
+#### OH_JSVM_CreateTypeError
 
 创建并获取一个带文本信息的JavaScript TypeError。
  
@@ -412,7 +412,7 @@ JSVM API Create TypeError SUCCESS
  
   
 
-##### OH_JSVM_CreateRangeError
+#### OH_JSVM_CreateRangeError
 
 创建并获取一个带文本信息的JavaScript RangeError。
  
@@ -458,7 +458,7 @@ JSVM API CreateRangeError SUCCESS
  
   
 
-##### OH_JSVM_CreateSyntaxError
+#### OH_JSVM_CreateSyntaxError
 
 用于创建并获取一个带文本信息的JavaScript SyntaxError。
  
@@ -504,7 +504,7 @@ JSVM API CreateSyntaxError SUCCESS
  
   
 
-##### OH_JSVM_GetAndClearLastException
+#### OH_JSVM_GetAndClearLastException
 
 用于获取并清除最近一次出现的异常。
  
@@ -547,7 +547,7 @@ JSVM API OH_JSVM_GetAndClearLastException SUCCESS
  
   
 
-##### OH_JSVM_IsExceptionPending
+#### OH_JSVM_IsExceptionPending
 
 用于判断是否出现了异常。
  
@@ -602,7 +602,7 @@ JSVM API OH_JSVM_IsExceptionPending: SUCCESS
  
   
 
-##### OH_JSVM_GetLastErrorInfo
+#### OH_JSVM_GetLastErrorInfo
 
 用于获取调用JSVM接口最后一次发生的错误信息（接口返回值不为JSVM_OK），包括错误码、错误消息以及错误堆栈信息，即使存在挂起的JavaScript异常，也可以调用此API。
  

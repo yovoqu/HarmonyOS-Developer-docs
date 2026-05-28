@@ -7,7 +7,7 @@
 [菜单控制 (Menu)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-popup-and-menu-components-menu)在使用时依赖绑定UI组件，否则无法使用。从API version 18开始，可以通过使用全局接口[openMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#openmenu18)的方式，在无UI组件的场景下直接或封装使用，例如在事件回调中使用或封装后对外提供能力。
 
 
-##### 弹出菜单
+#### 弹出菜单
 
 通过[openMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#openmenu18)可以弹出菜单。
 
@@ -30,7 +30,7 @@ this.getUIContext().getPromptAction()
 
 
 
-##### 创建ComponentContent
+#### 创建ComponentContent
 
 通过调用openMenu接口弹出菜单，需要定义ComponentContent，以提供自定义弹出框的内容。详细规格可参考[ComponentContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentcontent)说明。
 
@@ -93,7 +93,7 @@ let contentNode: ComponentContent<Object> =
 
 
 
-##### 绑定组件信息
+#### 绑定组件信息
 
 通过调用openMenu接口弹出菜单，需要提供绑定组件的信息[TargetInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-i#targetinfo18)。若未传入有效的target，菜单将无法弹出。
 
@@ -152,7 +152,7 @@ build() {
 
 
 
-##### 设置弹出菜单样式
+#### 设置弹出菜单样式
 
 通过调用openMenu接口弹出菜单，可以设置[MenuOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#menuoptions10)中的属性调整菜单样式。title属性不生效。preview参数仅支持设置[MenuPreviewMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#menupreviewmode11)类型。
 
@@ -162,7 +162,7 @@ private options: MenuOptions = { enableArrow: true, placement: Placement.Bottom 
 
 
 
-##### 更新菜单样式
+#### 更新菜单样式
 
 从API version 18开始，通过[updateMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#updatemenu18)可以更新菜单的样式。支持全量更新和增量更新其菜单样式，不支持更新[MenuOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#menuoptions10)中的showInSubWindow、preview、previewAnimationOptions、transition、onAppear、aboutToAppear、onDisappear、aboutToDisappear、onWillAppear、onDidAppear、onWillDisappear和onDidDisappear属性。
 
@@ -185,7 +185,7 @@ this.getUIContext().getPromptAction()
 
 
 
-##### 关闭菜单
+#### 关闭菜单
 
 从API version 18开始，通过调用[closeMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#closemenu18)可以关闭菜单。
 
@@ -210,7 +210,7 @@ this.getUIContext().getPromptAction()
 
 
 
-##### 在HAR包中使用全局菜单
+#### 在HAR包中使用全局菜单
 
 可以通过[HAR](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/har-package)包封装一个Menu，从而对外提供菜单的弹出、更新和关闭能力。
 

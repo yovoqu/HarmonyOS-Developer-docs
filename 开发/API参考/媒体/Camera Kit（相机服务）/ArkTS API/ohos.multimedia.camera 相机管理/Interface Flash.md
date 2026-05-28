@@ -14,7 +14,7 @@ Flash继承自[FlashQuery](https://developer.huawei.com/consumer/cn/doc/harmonyo
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { camera } from '@kit.CameraKit';
  
   
 
-##### setFlashMode11+
+#### setFlashMode11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -74,7 +74,7 @@ function setFlashMode(photoSession: camera.PhotoSession): void {
  
   
 
-##### getFlashMode11+
+#### getFlashMode11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -122,7 +122,7 @@ function getFlashMode(photoSession: camera.PhotoSession): camera.FlashMode | und
  
   
 
-##### onFlashStateChange24+
+#### onFlashStateChange24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -155,7 +155,7 @@ function onFlashStateChange(photoSession: camera.PhotoSession): void {
  
   
 
-##### offFlashStateChange24+
+#### offFlashStateChange24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

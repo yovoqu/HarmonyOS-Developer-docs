@@ -12,7 +12,7 @@
 
 
 
-##### 需要权限
+#### 需要权限
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -30,7 +30,7 @@ import { AtomicServiceWeb } from '@kit.ArkUI';
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -38,7 +38,7 @@ import { AtomicServiceWeb } from '@kit.ArkUI';
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -46,7 +46,7 @@ import { AtomicServiceWeb } from '@kit.ArkUI';
 
 
 
-##### AtomicServiceWeb
+#### AtomicServiceWeb
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -99,7 +99,7 @@ AtomicServiceWeb({
 
 
 
-##### AtomicServiceWebController
+#### AtomicServiceWebController
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -113,7 +113,7 @@ AtomicServiceWeb({
 
 
 
-##### getUserAgent
+#### getUserAgent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -143,7 +143,7 @@ getUserAgent(): string
 
 
 
-##### getCustomUserAgent
+#### getCustomUserAgent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -173,7 +173,7 @@ getCustomUserAgent(): string
 
 
 
-##### setCustomUserAgent
+#### setCustomUserAgent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -210,7 +210,7 @@ setCustomUserAgent(userAgent: string): void
 
 
 
-##### refresh
+#### refresh
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -233,7 +233,7 @@ refresh(): void
 
 
 
-##### forward
+#### forward
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -256,7 +256,7 @@ forward(): void
 
 
 
-##### backward
+#### backward
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -279,7 +279,7 @@ backward(): void
 
 
 
-##### accessForward
+#### accessForward
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -309,7 +309,7 @@ accessForward(): boolean
 
 
 
-##### accessBackward
+#### accessBackward
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -339,7 +339,7 @@ accessBackward(): boolean
 
 
 
-##### accessStep
+#### accessStep
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -377,7 +377,7 @@ accessStep(step: number): boolean
 
 
 
-##### loadUrl
+#### loadUrl
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -411,7 +411,7 @@ loadUrl(url: string | Resource, headers?: Array&lt;WebHeader&gt;): void
 
 
 
-##### WebHeader
+#### WebHeader
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -429,7 +429,7 @@ Web组件返回的请求/响应头对象。
 
 
 
-##### OnMessageEvent
+#### OnMessageEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -446,7 +446,7 @@ Web组件返回的请求/响应头对象。
 
 
 
-##### OnErrorReceiveEvent
+#### OnErrorReceiveEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -464,7 +464,7 @@ Web组件返回的请求/响应头对象。
 
 
 
-##### OnHttpErrorReceiveEvent
+#### OnHttpErrorReceiveEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -482,7 +482,7 @@ Web组件返回的请求/响应头对象。
 
 
 
-##### OnPageBeginEvent
+#### OnPageBeginEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -499,7 +499,7 @@ Web组件返回的请求/响应头对象。
 
 
 
-##### OnPageEndEvent
+#### OnPageEndEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -516,7 +516,7 @@ Web组件返回的请求/响应头对象。
 
 
 
-##### OnLoadInterceptEvent
+#### OnLoadInterceptEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -533,7 +533,7 @@ Web组件返回的请求/响应头对象。
 
 
 
-##### OnProgressChangeEvent
+#### OnProgressChangeEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -550,7 +550,7 @@ Web组件返回的请求/响应头对象。
 
 
 
-##### OnLoadInterceptCallback
+#### OnLoadInterceptCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -578,7 +578,7 @@ type OnLoadInterceptCallback = (event: OnLoadInterceptEvent) => boolean
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -586,13 +586,13 @@ type OnLoadInterceptCallback = (event: OnLoadInterceptEvent) => boolean
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1
+#### 示例1
 
 加载本地网页。
 
@@ -615,7 +615,7 @@ struct WebComponent {
 
 
 
-##### 示例2
+#### 示例2
 
 加载在线网页。
 
@@ -638,7 +638,7 @@ struct WebComponent {
 
 
 
-##### 示例3
+#### 示例3
 
 NavDestination容器中加载网页。
 
@@ -669,7 +669,7 @@ struct WebComponent {
 
 
 
-##### 示例4
+#### 示例4
 
 设置onMessage()事件回调。
 
@@ -737,7 +737,7 @@ struct WebComponent {
 
 
 
-##### 示例5
+#### 示例5
 
 设置网页加载事件回调。
 
@@ -800,7 +800,7 @@ struct WebComponent {
 
 
 
-##### 示例6
+#### 示例6
 
 AtomicServiceWeb跟AtomicServiceWebController的使用示例。
 
@@ -910,7 +910,7 @@ struct WebComponent {
 
 
 
-##### 示例7
+#### 示例7
 
 设置嵌套滚动。
 

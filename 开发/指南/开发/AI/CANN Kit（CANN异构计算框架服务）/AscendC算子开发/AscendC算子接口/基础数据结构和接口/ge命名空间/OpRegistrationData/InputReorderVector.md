@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-inputreordervector
 
-##### 函数功能
+#### 函数功能
 
 支持在算子插件中调整算子的输入参数顺序，此接口为内部使用接口，外部开发者无需关注。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 OpRegistrationData &InputReorderVector(const std::vector<int32_t> &input_order)
@@ -18,7 +18,7 @@ OpRegistrationData &InputReorderVector(const std::vector<int32_t> &input_order)
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -27,18 +27,18 @@ OpRegistrationData &InputReorderVector(const std::vector<int32_t> &input_order)
  
   
 
-##### 返回值
+#### 返回值
 
 OpRegistrationData类的引用。
  
   
 
-##### 异常处理
+#### 异常处理
 
 无
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

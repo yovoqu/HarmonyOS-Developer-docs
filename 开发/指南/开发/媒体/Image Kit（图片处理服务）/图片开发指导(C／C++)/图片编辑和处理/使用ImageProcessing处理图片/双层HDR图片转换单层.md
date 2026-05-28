@@ -13,7 +13,7 @@
 
   
 
-##### 规格说明
+#### 规格说明
 
 **支持的数据输入格式：**
  
@@ -40,13 +40,13 @@
  
   
 
-##### 开发指导
+#### 开发指导
 
 具体实现可参考[示例工程](https://gitcode.com/HarmonyOS_Samples/DocsSample_MultiMedia/tree/master/UsingImageProcessingToProcessImages)。
  
   
 
-##### 在 CMake 脚本中链接动态库
+#### 在 CMake 脚本中链接动态库
 
 ```cpp
 add_library(entry SHARED napi_init.cpp ImageProcessing/ImageProcessing.cpp)
@@ -55,7 +55,7 @@ target_link_libraries(entry PUBLIC ${BASE_LIBRARY})
  
   
 
-##### ArkTS侧调用的开发步骤
+#### ArkTS侧调用的开发步骤
 1. 创建10 bit的PixelMap。
 
   
@@ -96,7 +96,7 @@ hdrpixelMap.setMetadata(image.HdrMetadataKey.HDR_METADATA_TYPE, image.HdrMetadat
  
   
 
-##### Native侧调用的开发步骤
+#### Native侧调用的开发步骤
 1. 添加头文件。
 
   
@@ -227,7 +227,7 @@ ret = OH_ImageProcessing_DeinitializeEnvironment();
 
   
 
-  ##### 完整示例代码
+  #### 完整示例代码
 
   ArkTS示例代码：
 

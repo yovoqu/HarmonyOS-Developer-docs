@@ -4,19 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurity-audit-queryproc-c
 
-##### 场景介绍
+#### 场景介绍
 
 从6.0.0(20) 开始，新增提供应用进程信息查询接口，可以获取设备上已启动的应用进程信息。进程信息包括进程ID、指令命令行、父进程PID、用户ID、用户组ID、进程启动时间、进程所有者ID类型、进程所有者ID等相关信息。
 
 
 
-##### 约束和限制
+#### 约束和限制
 1. 当前能力仅支持2in1设备。
 2. 支持单次输入要查询的进程数最大限制为16个。
 
 
 
-##### 业务流程
+#### 业务流程
 
 
 ![](assets/进程信息查询场景（C／C++）/file-20260514131137922-0.png)
@@ -28,7 +28,7 @@
 
 
 
-##### 接口说明
+#### 接口说明
 
 接口如下表，更多接口及使用方法请参见[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#hms_securityaudit_queryallprocesses)。
 
@@ -40,7 +40,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 > [!NOTE]
 > 在开发准备过程中，需要申请权限：ohos.permission.QUERY_AUDIT_EVENT。 只允许清单内的企业类应用申请该权限，申请方式请参考： 申请使用企业类应用可用权限 。

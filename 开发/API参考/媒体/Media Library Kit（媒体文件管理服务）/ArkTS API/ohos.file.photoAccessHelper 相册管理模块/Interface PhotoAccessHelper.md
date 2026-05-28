@@ -10,7 +10,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
 
 
-##### getAssets
+#### getAssets
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -87,7 +87,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### getAssets
+#### getAssets
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -161,7 +161,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### getBurstAssets12+
+#### getBurstAssets12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -234,7 +234,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### createAsset
+#### createAsset
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -299,7 +299,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### createAsset
+#### createAsset
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -360,7 +360,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### createAsset
+#### createAsset
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -430,7 +430,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### createPhotoAsset23+
+#### createPhotoAsset23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -497,7 +497,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### getAlbums
+#### getAlbums
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -569,7 +569,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### getAlbums
+#### getAlbums
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -632,7 +632,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### getAlbums
+#### getAlbums
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -709,7 +709,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### registerChange
+#### registerChange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -779,7 +779,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 
 
-##### unRegisterChange
+#### unRegisterChange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -847,7 +847,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 
 
-##### applyChanges11+
+#### applyChanges11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -894,7 +894,7 @@ applyChanges(mediaChangeRequest: MediaChangeRequest): Promise&lt;void&gt;
 
 
 
-##### release
+#### release
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -943,7 +943,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### release
+#### release
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -991,7 +991,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### showAssetsCreationDialog12+
+#### showAssetsCreationDialog12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1067,7 +1067,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### showAssetsCreationDialogEx23+
+#### showAssetsCreationDialogEx23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1141,7 +1141,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### showSingleAssetCreationDialogEx23+
+#### showSingleAssetCreationDialogEx23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1213,7 +1213,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### createAssetWithShortTermPermission12+
+#### createAssetWithShortTermPermission12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1296,7 +1296,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### createAssetWithShortTermPermissionEx23+
+#### createAssetWithShortTermPermissionEx23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1340,7 +1340,7 @@ createAssetWithShortTermPermissionEx(creationSetting: CreationSetting): Promise&
 
 
 
-##### requestPhotoUrisReadPermission14+
+#### requestPhotoUrisReadPermission14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1401,7 +1401,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 
 
-##### requestPhotoUrisReadPermissionEx23+
+#### requestPhotoUrisReadPermissionEx23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1466,7 +1466,7 @@ console.info('requestPhotoUrisReadPermissionExDemo.');
 
 
 
-##### getSupportedPhotoFormats18+
+#### getSupportedPhotoFormats18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1533,7 +1533,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, phot
 
 
 
-##### on('photoChange')20+
+#### on('photoChange')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1596,7 +1596,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 
 
-##### off('photoChange')20+
+#### off('photoChange')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1662,7 +1662,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 
 
-##### on('photoAlbumChange')20+
+#### on('photoAlbumChange')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1725,7 +1725,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 
 
-##### off('photoAlbumChange')20+
+#### off('photoAlbumChange')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1791,7 +1791,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 
 
-##### getPhotoPickerComponentDefaultAlbumName20+
+#### getPhotoPickerComponentDefaultAlbumName20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1839,7 +1839,7 @@ async function example(context: Context) {
 
 
 
-##### createDeleteRequest(deprecated)
+#### createDeleteRequest(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1913,7 +1913,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### createDeleteRequest(deprecated)
+#### createDeleteRequest(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1988,7 +1988,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### getRecentPhotoInfo20+
+#### getRecentPhotoInfo20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2039,7 +2039,7 @@ async function example(context: Context) {
 
 
 
-##### getAlbumIdByLpath22+
+#### getAlbumIdByLpath22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2099,7 +2099,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### onSinglePhotoChange23+
+#### onSinglePhotoChange23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2175,7 +2175,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 
 
-##### offSinglePhotoChange23+
+#### offSinglePhotoChange23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2267,7 +2267,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 
 
-##### onSinglePhotoAlbumChange23+
+#### onSinglePhotoAlbumChange23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2341,7 +2341,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 
 
-##### offSinglePhotoAlbumChange23+
+#### offSinglePhotoAlbumChange23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2431,7 +2431,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 
 
-##### setAssetCompatibleCapability24+
+#### setAssetCompatibleCapability24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

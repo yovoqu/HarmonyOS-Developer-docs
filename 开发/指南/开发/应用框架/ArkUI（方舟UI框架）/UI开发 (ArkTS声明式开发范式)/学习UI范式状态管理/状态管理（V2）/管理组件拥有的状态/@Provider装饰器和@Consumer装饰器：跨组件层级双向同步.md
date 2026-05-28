@@ -15,14 +15,14 @@
 
 
 
-##### 概述
+#### 概述
 
 @Provider，即数据提供方，其所有的子组件都可以通过@Consumer绑定相同的key来获取@Provider提供的数据。
 
 @Consumer，即数据消费方，可以通过绑定同样的key获取其最近父节点的@Provider的数据，当查找不到@Provider的数据时，使用本地默认值。图示如下。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/vwH_84F6SOqI8P1BpCpTvw/zh-cn_image_0000002611833503.png?HW-CC-KV=V1&HW-CC-Date=20260528T014816Z&HW-CC-Expire=86400&HW-CC-Sign=DADC017EDCFA934470709DED17CE99C5B719AD37B80E09198F1F3E5A525C4DB0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/vwH_84F6SOqI8P1BpCpTvw/zh-cn_image_0000002611833503.png?HW-CC-KV=V1&HW-CC-Date=20260528T030447Z&HW-CC-Expire=86400&HW-CC-Sign=9E7BBEC49B06249F950BE3781ABCB54DFAF9EEA61E5BA1CF13EE1A833DCAC5BD)
 
 
 @Provider和@Consumer装饰的数据类型需要一致。
@@ -35,7 +35,7 @@
 
 
 
-##### @Provider和@Consumer vs @Provide和@Consume能力对比
+#### @Provider和@Consumer vs @Provide和@Consume能力对比
 
 在状态管理V1版本中，提供跨组件层级双向的装饰器为[@Provide和@Consume](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-provide-and-consume)，当前文档介绍的是状态管理V2装饰器@Provider和@Consumer。虽然两者名字和功能类似，但在特性上还存在一些差异。
 
@@ -53,11 +53,11 @@
 
 
 
-##### 装饰器说明
+#### 装饰器说明
 
 
 
-##### 基本规则
+#### 基本规则
 
 @Provider语法：
 
@@ -87,7 +87,7 @@
 
 
 
-##### aliasName和属性名
+#### aliasName和属性名
 
 @Provider和@Consumer接受可选参数aliasName，没有配置参数时，使用属性名作为默认的aliasName。
 
@@ -143,7 +143,7 @@ struct Child {
 
 
 
-##### 变量传递
+#### 变量传递
 
 | 传递规则 | 说明 |
 | --- | --- |
@@ -153,18 +153,18 @@ struct Child {
 
 
 
-##### 使用限制
+#### 使用限制
 1. @Provider和@Consumer为自定义组件的属性装饰器，只能装饰自定义组件内的属性，不能装饰class的属性。
 2. @Provider和@Consumer为状态管理V2装饰器，只能在@ComponentV2中使用，不能在@Component中使用。
 3. @Provider和@Consumer只支持本地初始化，不支持外部传入初始化。
 
 
 
-##### 使用场景
+#### 使用场景
 
 
 
-##### @Provider和@Consumer双向同步
+#### @Provider和@Consumer双向同步
 
 **建立双向绑定**
 1. 自定义组件Parent和Child初始化：       
@@ -263,7 +263,7 @@ struct Child {
 
   
 
-  ##### 装饰Array类型变量
+  #### 装饰Array类型变量
 
   当装饰的对象是Array时，可以观察到Array整体的赋值，同时可以通过调用Array的接口push, pop, shift, unshift, splice, copyWithin, fill, reverse, sort更新Array中的数据。
 
@@ -328,7 +328,7 @@ struct Child {
 
   
 
-  ##### 装饰Date类型变量
+  #### 装饰Date类型变量
 
   当装饰Date类型变量时，可以观察到数据源对Date整体的赋值，以及调用Date的接口setFullYear, setMonth, setDate, setHours, setMinutes, setSeconds, setMilliseconds, setTime, setUTCFullYear, setUTCMonth, setUTCDate, setUTCHours, setUTCMinutes, setUTCSeconds, setUTCMilliseconds带来的变化。
 
@@ -396,7 +396,7 @@ struct Child {
 
   
 
-  ##### 装饰Map类型变量
+  #### 装饰Map类型变量
 
   当装饰Map类型变量时，可以观察到数据源对Map整体的赋值，以及调用Map的接口set, clear, delete带来的变化。
 
@@ -472,7 +472,7 @@ struct Child {
 
   
 
-  ##### 装饰Set类型变量
+  #### 装饰Set类型变量
 
   当装饰Set类型变量时，可以观察到数据源对Set整体的赋值，以及调用Set的接口 add, clear, delete带来的变化。
 
@@ -540,7 +540,7 @@ struct Child {
 
   
 
-  ##### @Provider和@Consumer装饰回调事件用于组件之间完成行为抽象
+  #### @Provider和@Consumer装饰回调事件用于组件之间完成行为抽象
 
   当需要在父组件中向子组件注册回调函数时，可以使用@Provider和@Consumer装饰回调方法来实现。
 
@@ -585,7 +585,7 @@ struct Child {
 
   
 
-  ##### @Provider和@Consumer装饰复杂类型，配合@Trace一起使用
+  #### @Provider和@Consumer装饰复杂类型，配合@Trace一起使用
 
 1. @Provider和@Consumer只能观察到数据本身的变化。如果需要观察其装饰的复杂数据类型的属性变化，可以配合@Trace一起使用，也可以使用[makeObserved](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-makeobserved)将非可观察数据变为可观察数据。
 
@@ -650,7 +650,7 @@ struct Child {
 
   
 
-  ##### @Provider重名时，@Consumer向上查找其最近的@Provider
+  #### @Provider重名时，@Consumer向上查找其最近的@Provider
 
   @Provider可以在组件树上重名，@Consumer会向上查找其最近父节点的@Provider的数据。
 
@@ -701,7 +701,7 @@ Parent中的@Consumer向上查找，查找到Index中定义的@Provider() val: n
 
 
 
-##### @Provider和@Consumer初始化@Param
+#### @Provider和@Consumer初始化@Param
 
 @Provider和@Consumer装饰的变量可以初始化子组件中@Param装饰的变量。
 
@@ -759,7 +759,7 @@ struct Child {
 
 
 
-##### @Consumer在跨BuilderNode场景下和@Provider建立双向同步过程
+#### @Consumer在跨BuilderNode场景下和@Provider建立双向同步过程
 
 > [!NOTE]
 > 从API version 23开始，支持跨BuilderNode配对@Provider和@Consumer。

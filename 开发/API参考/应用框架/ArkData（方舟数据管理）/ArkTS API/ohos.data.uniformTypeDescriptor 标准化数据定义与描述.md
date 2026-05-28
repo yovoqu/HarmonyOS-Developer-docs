@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -22,7 +22,7 @@ import { uniformTypeDescriptor } from '@kit.ArkData';
 
 
 
-##### UniformDataType
+#### UniformDataType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -215,7 +215,7 @@ import { uniformTypeDescriptor } from '@kit.ArkData';
 
 
 
-##### TypeDescriptor11+
+#### TypeDescriptor11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -223,7 +223,7 @@ import { uniformTypeDescriptor } from '@kit.ArkData';
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -242,7 +242,7 @@ import { uniformTypeDescriptor } from '@kit.ArkData';
 
 
 
-##### belongsTo11+
+#### belongsTo11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -295,7 +295,7 @@ try{
 
 
 
-##### isLowerLevelType11+
+#### isLowerLevelType11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -348,7 +348,7 @@ try{
 
 
 
-##### isHigherLevelType11+
+#### isHigherLevelType11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -401,7 +401,7 @@ try{
 
 
 
-##### equals11+
+#### equals11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -454,7 +454,7 @@ try{
 
 
 
-##### uniformTypeDescriptor.getTypeDescriptor11+
+#### uniformTypeDescriptor.getTypeDescriptor11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -515,7 +515,7 @@ try {
 
 
 
-##### uniformTypeDescriptor.getUniformDataTypeByFilenameExtension11+
+#### uniformTypeDescriptor.getUniformDataTypeByFilenameExtension11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -579,7 +579,7 @@ try {
 
 
 
-##### uniformTypeDescriptor.getUniformDataTypeByMIMEType11+
+#### uniformTypeDescriptor.getUniformDataTypeByMIMEType11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -643,7 +643,7 @@ try {
 
 
 
-##### uniformTypeDescriptor.getUniformDataTypesByFilenameExtension13+
+#### uniformTypeDescriptor.getUniformDataTypesByFilenameExtension13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -707,7 +707,7 @@ try {
 
 
 
-##### uniformTypeDescriptor.getUniformDataTypesByMIMEType13+
+#### uniformTypeDescriptor.getUniformDataTypesByMIMEType13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

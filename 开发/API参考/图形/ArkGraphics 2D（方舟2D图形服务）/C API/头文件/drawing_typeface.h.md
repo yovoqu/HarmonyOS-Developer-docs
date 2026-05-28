@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-typeface-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -25,13 +25,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -52,13 +52,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Drawing_TypefaceCreateDefault()
+#### OH_Drawing_TypefaceCreateDefault()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -83,7 +83,7 @@ OH_Drawing_Typeface* OH_Drawing_TypefaceCreateDefault(void)
  
   
 
-##### OH_Drawing_TypefaceCreateFromFile()
+#### OH_Drawing_TypefaceCreateFromFile()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -120,7 +120,7 @@ path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
  
   
 
-##### OH_Drawing_TypefaceCreateFromFileWithArguments()
+#### OH_Drawing_TypefaceCreateFromFileWithArguments()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -157,7 +157,7 @@ OH_Drawing_Typeface* OH_Drawing_TypefaceCreateFromFileWithArguments(const char* 
  
   
 
-##### OH_Drawing_TypefaceCreateFromCurrent()
+#### OH_Drawing_TypefaceCreateFromCurrent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -190,7 +190,7 @@ OH_Drawing_Typeface* OH_Drawing_TypefaceCreateFromCurrent(const OH_Drawing_Typef
  
   
 
-##### OH_Drawing_TypefaceCreateFromStream()
+#### OH_Drawing_TypefaceCreateFromStream()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -227,7 +227,7 @@ memoryStream为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
  
   
 
-##### OH_Drawing_TypefaceDestroy()
+#### OH_Drawing_TypefaceDestroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -252,7 +252,7 @@ void OH_Drawing_TypefaceDestroy(OH_Drawing_Typeface* typeface)
  
   
 
-##### OH_Drawing_FontArgumentsCreate()
+#### OH_Drawing_FontArgumentsCreate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -277,7 +277,7 @@ OH_Drawing_FontArguments* OH_Drawing_FontArgumentsCreate(void)
  
   
 
-##### OH_Drawing_FontArgumentsAddVariation()
+#### OH_Drawing_FontArgumentsAddVariation()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -311,7 +311,7 @@ OH_Drawing_ErrorCode OH_Drawing_FontArgumentsAddVariation(OH_Drawing_FontArgumen
  
   
 
-##### OH_Drawing_FontArgumentsDestroy()
+#### OH_Drawing_FontArgumentsDestroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -343,7 +343,7 @@ OH_Drawing_ErrorCode OH_Drawing_FontArgumentsDestroy(OH_Drawing_FontArguments* f
  
   
 
-##### OH_Drawing_TypefaceIsBold()
+#### OH_Drawing_TypefaceIsBold()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -374,7 +374,7 @@ OH_Drawing_ErrorCode OH_Drawing_TypefaceIsBold(const OH_Drawing_Typeface* typefa
  
   
 
-##### OH_Drawing_TypefaceIsItalic()
+#### OH_Drawing_TypefaceIsItalic()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

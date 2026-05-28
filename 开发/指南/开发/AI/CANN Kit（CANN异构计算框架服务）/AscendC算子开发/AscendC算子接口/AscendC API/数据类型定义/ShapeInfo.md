@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-shapeinfo
 
-##### 功能说明
+#### 功能说明
 
 ShapeInfo用来存放LocalTensor或GlobalTensor的shape信息。
  
   
 
-##### 定义原型
+#### 定义原型
 
 - ShapeInfo结构定义
 
@@ -42,7 +42,7 @@ __aicore__ inline int GetShapeSize(const ShapeInfo& shapeInfo)
  
   
 
-##### 函数说明
+#### 函数说明
 
 **表1** ShapeInfo结构参数说明
   

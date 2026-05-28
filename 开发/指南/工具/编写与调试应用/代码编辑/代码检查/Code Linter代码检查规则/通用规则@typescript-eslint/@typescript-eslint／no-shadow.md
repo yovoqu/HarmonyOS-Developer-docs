@@ -7,7 +7,7 @@
 禁止声明与外部作用域变量同名的变量。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/no-shadow选项](https://typescript-eslint.nodejs.cn/rules/no-shadow/#options)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 /*eslint no-shadow: "error"*/
@@ -46,7 +46,7 @@ console.info(a);
  
  
 
-##### 反例
+#### 反例
 
 ```text
 /*eslint no-shadow: "error"*/
@@ -66,7 +66,7 @@ console.info(a);
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

@@ -12,7 +12,7 @@
 
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,13 +20,13 @@
  
   
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### Column
+#### Column
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -53,7 +53,7 @@ Column(options?: ColumnOptions)
  
   
 
-##### Column18+
+#### Column18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -76,7 +76,7 @@ Column(options?: ColumnOptions | ColumnOptionsV2)
  
   
 
-##### ColumnOptions18+对象说明
+#### ColumnOptions18+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -99,7 +99,7 @@ Column(options?: ColumnOptions | ColumnOptionsV2)
  
   
 
-##### ColumnOptionsV218+对象说明
+#### ColumnOptionsV218+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -118,7 +118,7 @@ Column(options?: ColumnOptions | ColumnOptionsV2)
  
   
 
-##### SpaceType18+
+#### SpaceType18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -141,7 +141,7 @@ Column组件构造函数中space支持的数据类型，取值类型为下表类
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -149,7 +149,7 @@ Column组件构造函数中space支持的数据类型，取值类型为下表类
  
   
 
-##### alignItems
+#### alignItems
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -172,7 +172,7 @@ alignItems(value: HorizontalAlign)
  
   
 
-##### justifyContent8+
+#### justifyContent8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -199,7 +199,7 @@ justifyContent(value: FlexAlign)
  
   
 
-##### reverse12+
+#### reverse12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -226,7 +226,7 @@ reverse(isReversed: Optional&lt;boolean&gt;)
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -234,13 +234,13 @@ reverse(isReversed: Optional&lt;boolean&gt;)
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 示例1（设置Column组件的布局属性）
+#### 示例1（设置Column组件的布局属性）
 
 本示例展示设置Column组件的布局属性，如间距、对齐方式等属性后的效果。
  
@@ -316,12 +316,12 @@ struct ColumnExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/P1D7cKXYQyikkGAiBwNSTw/zh-cn_image_0000002611755661.png?HW-CC-KV=V1&HW-CC-Date=20260528T024158Z&HW-CC-Expire=86400&HW-CC-Sign=A8A35740A8C22FB9BD4A172AEEB538056786DD8ECCDE31AF95532D615F0EF682)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/P1D7cKXYQyikkGAiBwNSTw/zh-cn_image_0000002611755661.png?HW-CC-KV=V1&HW-CC-Date=20260528T025530Z&HW-CC-Expire=86400&HW-CC-Sign=9EE4013C7B2231F684A5AAA87A9C2549B45205254631F0D16A8337DA1EF16B94)
 
  
   
 
-##### 示例2（设置反转属性）
+#### 示例2（设置反转属性）
 
 本示例展示设置Column组件的reverse属性后的效果。
  
@@ -350,4 +350,4 @@ struct ColumnReverseSample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/9Fvzu9rASeqOiYgI-Nex_Q/zh-cn_image_0000002581435722.png?HW-CC-KV=V1&HW-CC-Date=20260528T024158Z&HW-CC-Expire=86400&HW-CC-Sign=4CE492E2D9FCDC7ADF171871D1B78E42EA6764B7E329D6CDE428F3E6B3698AEF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/9Fvzu9rASeqOiYgI-Nex_Q/zh-cn_image_0000002581435722.png?HW-CC-KV=V1&HW-CC-Date=20260528T025530Z&HW-CC-Expire=86400&HW-CC-Sign=0D12449F9A162A01A942B65850B37AA3E0D6D2B11711030AB43174837FCCBC54)

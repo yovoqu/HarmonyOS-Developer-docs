@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-display-manager-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -79,13 +79,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_NativeDisplayManager_GetDefaultDisplayId()
+#### OH_NativeDisplayManager_GetDefaultDisplayId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -115,7 +115,7 @@ NativeDisplayManager_ErrorCode OH_NativeDisplayManager_GetDefaultDisplayId(uint6
  
   
 
-##### OH_NativeDisplayManager_GetDefaultDisplayWidth()
+#### OH_NativeDisplayManager_GetDefaultDisplayWidth()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -145,7 +145,7 @@ NativeDisplayManager_ErrorCode OH_NativeDisplayManager_GetDefaultDisplayWidth(in
  
   
 
-##### OH_NativeDisplayManager_GetDefaultDisplayHeight()
+#### OH_NativeDisplayManager_GetDefaultDisplayHeight()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -175,7 +175,7 @@ NativeDisplayManager_ErrorCode OH_NativeDisplayManager_GetDefaultDisplayHeight(i
  
   
 
-##### OH_NativeDisplayManager_GetDefaultDisplayRotation()
+#### OH_NativeDisplayManager_GetDefaultDisplayRotation()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -205,7 +205,7 @@ NativeDisplayManager_ErrorCode OH_NativeDisplayManager_GetDefaultDisplayRotation
  
   
 
-##### OH_NativeDisplayManager_GetDefaultDisplayOrientation()
+#### OH_NativeDisplayManager_GetDefaultDisplayOrientation()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -235,7 +235,7 @@ NativeDisplayManager_ErrorCode OH_NativeDisplayManager_GetDefaultDisplayOrientat
  
   
 
-##### OH_NativeDisplayManager_GetDefaultDisplayVirtualPixelRatio()
+#### OH_NativeDisplayManager_GetDefaultDisplayVirtualPixelRatio()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -265,7 +265,7 @@ NativeDisplayManager_ErrorCode OH_NativeDisplayManager_GetDefaultDisplayVirtualP
  
   
 
-##### OH_NativeDisplayManager_GetDefaultDisplayRefreshRate()
+#### OH_NativeDisplayManager_GetDefaultDisplayRefreshRate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -295,7 +295,7 @@ NativeDisplayManager_ErrorCode OH_NativeDisplayManager_GetDefaultDisplayRefreshR
  
   
 
-##### OH_NativeDisplayManager_GetDefaultDisplayDensityDpi()
+#### OH_NativeDisplayManager_GetDefaultDisplayDensityDpi()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -325,7 +325,7 @@ NativeDisplayManager_ErrorCode OH_NativeDisplayManager_GetDefaultDisplayDensityD
  
   
 
-##### OH_NativeDisplayManager_GetDefaultDisplayDensityPixels()
+#### OH_NativeDisplayManager_GetDefaultDisplayDensityPixels()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -355,7 +355,7 @@ NativeDisplayManager_ErrorCode OH_NativeDisplayManager_GetDefaultDisplayDensityP
  
   
 
-##### OH_NativeDisplayManager_GetDefaultDisplayScaledDensity()
+#### OH_NativeDisplayManager_GetDefaultDisplayScaledDensity()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -385,7 +385,7 @@ NativeDisplayManager_ErrorCode OH_NativeDisplayManager_GetDefaultDisplayScaledDe
  
   
 
-##### OH_NativeDisplayManager_GetDefaultDisplayDensityXdpi()
+#### OH_NativeDisplayManager_GetDefaultDisplayDensityXdpi()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -415,7 +415,7 @@ NativeDisplayManager_ErrorCode OH_NativeDisplayManager_GetDefaultDisplayDensityX
  
   
 
-##### OH_NativeDisplayManager_GetDefaultDisplayDensityYdpi()
+#### OH_NativeDisplayManager_GetDefaultDisplayDensityYdpi()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -445,7 +445,7 @@ NativeDisplayManager_ErrorCode OH_NativeDisplayManager_GetDefaultDisplayDensityY
  
   
 
-##### OH_NativeDisplayManager_CreateDefaultDisplayCutoutInfo()
+#### OH_NativeDisplayManager_CreateDefaultDisplayCutoutInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -475,7 +475,7 @@ NativeDisplayManager_ErrorCode OH_NativeDisplayManager_CreateDefaultDisplayCutou
  
   
 
-##### OH_NativeDisplayManager_DestroyDefaultDisplayCutoutInfo()
+#### OH_NativeDisplayManager_DestroyDefaultDisplayCutoutInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -505,7 +505,7 @@ NativeDisplayManager_ErrorCode OH_NativeDisplayManager_DestroyDefaultDisplayCuto
  
   
 
-##### OH_NativeDisplayManager_IsFoldable()
+#### OH_NativeDisplayManager_IsFoldable()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -528,7 +528,7 @@ bool OH_NativeDisplayManager_IsFoldable()
  
   
 
-##### OH_NativeDisplayManager_GetFoldDisplayMode()
+#### OH_NativeDisplayManager_GetFoldDisplayMode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -560,7 +560,7 @@ NativeDisplayManager_ErrorCode OH_NativeDisplayManager_GetFoldDisplayMode(Native
  
   
 
-##### OH_NativeDisplayManager_DisplayChangeCallback()
+#### OH_NativeDisplayManager_DisplayChangeCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -583,7 +583,7 @@ typedef void (*OH_NativeDisplayManager_DisplayChangeCallback)(uint64_t displayId
  
   
 
-##### OH_NativeDisplayManager_RegisterDisplayChangeListener()
+#### OH_NativeDisplayManager_RegisterDisplayChangeListener()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -614,7 +614,7 @@ NativeDisplayManager_ErrorCode OH_NativeDisplayManager_RegisterDisplayChangeList
  
   
 
-##### OH_NativeDisplayManager_UnregisterDisplayChangeListener()
+#### OH_NativeDisplayManager_UnregisterDisplayChangeListener()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -644,7 +644,7 @@ NativeDisplayManager_ErrorCode OH_NativeDisplayManager_UnregisterDisplayChangeLi
  
   
 
-##### OH_NativeDisplayManager_FoldDisplayModeChangeCallback()
+#### OH_NativeDisplayManager_FoldDisplayModeChangeCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -667,7 +667,7 @@ typedef void (*OH_NativeDisplayManager_FoldDisplayModeChangeCallback)(NativeDisp
  
   
 
-##### OH_NativeDisplayManager_RegisterFoldDisplayModeChangeListener()
+#### OH_NativeDisplayManager_RegisterFoldDisplayModeChangeListener()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -698,7 +698,7 @@ NativeDisplayManager_ErrorCode OH_NativeDisplayManager_RegisterFoldDisplayModeCh
  
   
 
-##### OH_NativeDisplayManager_UnregisterFoldDisplayModeChangeListener()
+#### OH_NativeDisplayManager_UnregisterFoldDisplayModeChangeListener()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -728,7 +728,7 @@ NativeDisplayManager_ErrorCode OH_NativeDisplayManager_UnregisterFoldDisplayMode
  
   
 
-##### OH_NativeDisplayManager_CreateAllDisplays()
+#### OH_NativeDisplayManager_CreateAllDisplays()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -758,7 +758,7 @@ NativeDisplayManager_ErrorCode OH_NativeDisplayManager_CreateAllDisplays(NativeD
  
   
 
-##### OH_NativeDisplayManager_DestroyAllDisplays()
+#### OH_NativeDisplayManager_DestroyAllDisplays()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -781,7 +781,7 @@ void OH_NativeDisplayManager_DestroyAllDisplays(NativeDisplayManager_DisplaysInf
  
   
 
-##### OH_NativeDisplayManager_CreateDisplayById()
+#### OH_NativeDisplayManager_CreateDisplayById()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -812,7 +812,7 @@ NativeDisplayManager_ErrorCode OH_NativeDisplayManager_CreateDisplayById(uint32_
  
   
 
-##### OH_NativeDisplayManager_DestroyDisplay()
+#### OH_NativeDisplayManager_DestroyDisplay()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -835,7 +835,7 @@ void OH_NativeDisplayManager_DestroyDisplay(NativeDisplayManager_DisplayInfo *di
  
   
 
-##### OH_NativeDisplayManager_CreatePrimaryDisplay()
+#### OH_NativeDisplayManager_CreatePrimaryDisplay()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -865,7 +865,7 @@ NativeDisplayManager_ErrorCode OH_NativeDisplayManager_CreatePrimaryDisplay(Nati
  
   
 
-##### OH_NativeDisplayManager_AvailableAreaChangeCallback()
+#### OH_NativeDisplayManager_AvailableAreaChangeCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -888,7 +888,7 @@ typedef void (*OH_NativeDisplayManager_AvailableAreaChangeCallback)(uint64_t dis
  
   
 
-##### OH_NativeDisplayManager_RegisterAvailableAreaChangeListener()
+#### OH_NativeDisplayManager_RegisterAvailableAreaChangeListener()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -921,7 +921,7 @@ NativeDisplayManager_ErrorCode OH_NativeDisplayManager_RegisterAvailableAreaChan
  
   
 
-##### OH_NativeDisplayManager_UnregisterAvailableAreaChangeListener()
+#### OH_NativeDisplayManager_UnregisterAvailableAreaChangeListener()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -953,7 +953,7 @@ NativeDisplayManager_ErrorCode OH_NativeDisplayManager_UnregisterAvailableAreaCh
  
   
 
-##### OH_NativeDisplayManager_CreateAvailableArea()
+#### OH_NativeDisplayManager_CreateAvailableArea()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -986,7 +986,7 @@ NativeDisplayManager_ErrorCode OH_NativeDisplayManager_CreateAvailableArea(uint6
  
   
 
-##### OH_NativeDisplayManager_DestroyAvailableArea()
+#### OH_NativeDisplayManager_DestroyAvailableArea()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1016,7 +1016,7 @@ NativeDisplayManager_ErrorCode OH_NativeDisplayManager_DestroyAvailableArea(Nati
  
   
 
-##### OH_NativeDisplayManager_DisplayAddCallback()
+#### OH_NativeDisplayManager_DisplayAddCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1039,7 +1039,7 @@ typedef void (*OH_NativeDisplayManager_DisplayAddCallback)(uint64_t displayId)
  
   
 
-##### OH_NativeDisplayManager_RegisterDisplayAddListener()
+#### OH_NativeDisplayManager_RegisterDisplayAddListener()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1070,7 +1070,7 @@ NativeDisplayManager_ErrorCode OH_NativeDisplayManager_RegisterDisplayAddListene
  
   
 
-##### OH_NativeDisplayManager_UnregisterDisplayAddListener()
+#### OH_NativeDisplayManager_UnregisterDisplayAddListener()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1100,7 +1100,7 @@ NativeDisplayManager_ErrorCode OH_NativeDisplayManager_UnregisterDisplayAddListe
  
   
 
-##### OH_NativeDisplayManager_DisplayRemoveCallback()
+#### OH_NativeDisplayManager_DisplayRemoveCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1123,7 +1123,7 @@ typedef void (*OH_NativeDisplayManager_DisplayRemoveCallback)(uint64_t displayId
  
   
 
-##### OH_NativeDisplayManager_RegisterDisplayRemoveListener()
+#### OH_NativeDisplayManager_RegisterDisplayRemoveListener()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1154,7 +1154,7 @@ NativeDisplayManager_ErrorCode OH_NativeDisplayManager_RegisterDisplayRemoveList
  
   
 
-##### OH_NativeDisplayManager_UnregisterDisplayRemoveListener()
+#### OH_NativeDisplayManager_UnregisterDisplayRemoveListener()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1184,7 +1184,7 @@ NativeDisplayManager_ErrorCode OH_NativeDisplayManager_UnregisterDisplayRemoveLi
  
   
 
-##### OH_NativeDisplayManager_GetDisplaySourceMode()
+#### OH_NativeDisplayManager_GetDisplaySourceMode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1215,7 +1215,7 @@ NativeDisplayManager_ErrorCode OH_NativeDisplayManager_GetDisplaySourceMode(uint
  
   
 
-##### OH_NativeDisplayManager_GetDisplayPosition()
+#### OH_NativeDisplayManager_GetDisplayPosition()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

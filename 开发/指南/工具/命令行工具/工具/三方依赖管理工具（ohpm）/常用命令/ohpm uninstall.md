@@ -7,7 +7,7 @@
 卸载三方库。
  
 
-##### 命令格式
+#### 命令格式
 
 ```text
 ohpm uninstall [options] [<@group>/]<pkg> ...
@@ -20,7 +20,7 @@ alias: un
  
  
 
-##### 功能描述
+#### 功能描述
 
 卸载指定已安装的模块，并将 oh-package.json5 文件中 dependencies、devDependencies 属性里移除指定三方库信息；若没有指定三方库，则不做任何动作。
  
@@ -28,11 +28,11 @@ alias: un
  
  
 
-##### Options
+#### Options
 
  
 
-##### install_all
+#### install_all
 
 - 默认值：false
 - 类型：Boolean
@@ -43,7 +43,7 @@ alias: un
  
  
 
-##### no-save
+#### no-save
 
 - 默认值：false
 - 类型：Boolean
@@ -53,7 +53,7 @@ alias: un
  
  
 
-##### prefix
+#### prefix
 
 - 默认值：""
 - 类型： string
@@ -63,7 +63,7 @@ alias: un
  
  
 
-##### registry
+#### registry
 
 - 默认值：""
 - 类型：URL
@@ -73,7 +73,7 @@ alias: un
  
  
 
-##### fetch_timeout
+#### fetch_timeout
 
 - 默认值：60000
 - 类型：Number
@@ -84,7 +84,7 @@ alias: un
  
  
 
-##### strict_ssl
+#### strict_ssl
 
 - 默认值：true
 - 类型：Boolean
@@ -94,7 +94,7 @@ alias: un
  
  
 
-##### experimental-concurrently-safe
+#### experimental-concurrently-safe
 
 - 默认值：true
 - 类型：Boolean
@@ -104,7 +104,7 @@ alias: un
  
  
 
-##### log_level
+#### log_level
 
 - 默认值：无
 - 类型： string
@@ -114,7 +114,7 @@ alias: un
  
  
 
-##### debug
+#### debug
 
 - 默认值：false
 - 类型： Boolean
@@ -124,7 +124,7 @@ alias: un
  
  
 
-##### lockfile_stable_order
+#### lockfile_stable_order
 
 - 默认值：false
 - 类型：Boolean
@@ -134,7 +134,7 @@ alias: un
  
  
 
-##### odm_r2_project_root
+#### odm_r2_project_root
 
 - 默认值：false
 - 类型：Boolean
@@ -144,7 +144,7 @@ alias: un
  
  
 
-##### resolve_conflict_strict
+#### resolve_conflict_strict
 
 - 默认值：false
 - 类型：Boolean
@@ -154,7 +154,7 @@ alias: un
  
  
 
-##### resolve_conflict
+#### resolve_conflict
 
 - 默认值：false
 - 类型：Boolean
@@ -164,7 +164,7 @@ alias: un
  
  
 
-##### cache
+#### cache
 
 - 默认值：无
 - 类型：string
@@ -174,7 +174,7 @@ alias: un
  
  
 
-##### 示例
+#### 示例
 
 从当前工程下卸载**直接**依赖的某个package。
  

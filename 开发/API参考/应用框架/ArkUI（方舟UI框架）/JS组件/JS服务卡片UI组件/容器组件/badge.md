@@ -12,7 +12,7 @@
 
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -38,7 +38,7 @@
  
   
 
-##### BadgeConfig
+#### BadgeConfig
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -52,7 +52,7 @@
  
   
 
-##### 样式
+#### 样式
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -60,7 +60,7 @@
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -68,7 +68,7 @@
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -122,4 +122,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/SVvNHP68TZ6JESTLLWWrtQ/zh-cn_image_0000002581436564.png?HW-CC-KV=V1&HW-CC-Date=20260528T024056Z&HW-CC-Expire=86400&HW-CC-Sign=7CDEEC20DD3A153A45C520E6C164670913172AD10BB8FED50E11493ECCD2E0CA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/SVvNHP68TZ6JESTLLWWrtQ/zh-cn_image_0000002581436564.png?HW-CC-KV=V1&HW-CC-Date=20260528T025431Z&HW-CC-Expire=86400&HW-CC-Sign=4463A0DDEF282DF817150CFB3AD88C617C53EACD15721BE943AB43D03B5D79AD)

@@ -10,7 +10,7 @@
 **起始版本：** 6.1.1(24)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** lite_wearable
 
@@ -24,7 +24,7 @@ import healthStore from '@hms.health.store';
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** lite_wearable
 

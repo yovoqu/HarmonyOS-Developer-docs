@@ -9,7 +9,7 @@
 当前示例提供完整的录像流程及其接口调用顺序的介绍。对于单个流程（如[设备输入](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-device-input)、[会话管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-session-management)、[录像](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-recording)）的介绍请参考具体章节。
   
 
-##### 开发流程
+#### 开发流程
 
 在获取到相机支持的输出流能力后，开始创建录像流，开发流程如下。
  
@@ -19,7 +19,7 @@
  
   
 
-##### 完整示例
+#### 完整示例
 1. 在CMake脚本中链接相关动态库。
 
   
@@ -400,6 +400,6 @@ NDKCamera::NDKCamera(char* previewId, char* videoId)
  
   
 
-##### 示例代码
+#### 示例代码
 
 - 录像示例代码请参考[NDKPhotoVideoSample(C/C++)](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/CameraKit/NDKPhotoVideoSample)。

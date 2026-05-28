@@ -7,7 +7,7 @@
 从DevEco Studio 6.1.1 Beta1版本开始，DevEco Profiler新增ComMemory模板，可以分析UI界面各组件内存的分配情况，帮助定位UI组件内存泄漏问题。
 
 
-##### 操作步骤
+#### 操作步骤
 
 1. 创建ComMemory分析任务并录制相关数据，操作方法可参考[性能问题定位：深度录制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/deep-recording)，在录制前单击
 ![](assets/UI组件内存：ComMemory分析/file-20260514133151487-0.png)

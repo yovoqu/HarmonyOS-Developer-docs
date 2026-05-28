@@ -9,7 +9,7 @@
 当前，ArkWeb暂未提供默认的应用弹框。如果需要网页的弹框能够正常使用，应用需要通过[onAlert](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onalert)、[onConfirm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onconfirm)和[onPrompt](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onprompt9)接口自定义弹框功能。
 
 
-##### 实现Alert弹框
+#### 实现Alert弹框
 
 window.alert()用于显示一个包含可选信息的对话框。警告框用于确保用户可以得到某些信息。当警告框出现后，用户需要点击确定按钮才能继续进行操作。
 
@@ -182,7 +182,7 @@ struct AlertDialogPage {
 
 
 
-##### 实现Confirm弹框
+#### 实现Confirm弹框
 
 window.confirm()用于显示一个包含可选消息的对话框，并等待用户确认或取消该对话框。
 
@@ -387,7 +387,7 @@ result：<label id="confirmLabel" for="confirm"></label><br/>
 
 
 
-##### 实现Prompt弹框
+#### 实现Prompt弹框
 
 window.prompt()用于显示一个对话框，并等待用户提交文本或取消对话框。用户需要输入某个值，然后点击确认或取消按钮。点击确认返回输入的值，点击取消返回null。
 

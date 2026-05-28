@@ -18,7 +18,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -28,7 +28,7 @@ import { sendablePreferences } from '@kit.ArkData';
 
 
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -44,7 +44,7 @@ import { sendablePreferences } from '@kit.ArkData';
 
 
 
-##### sendablePreferences.getPreferences
+#### sendablePreferences.getPreferences
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -109,7 +109,7 @@ class EntryAbility extends UIAbility {
 
 
 
-##### sendablePreferences.getPreferencesSync
+#### sendablePreferences.getPreferencesSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -167,7 +167,7 @@ class EntryAbility extends UIAbility {
 
 
 
-##### sendablePreferences.deletePreferences
+#### sendablePreferences.deletePreferences
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -232,7 +232,7 @@ class EntryAbility extends UIAbility {
 
 
 
-##### sendablePreferences.removePreferencesFromCache
+#### sendablePreferences.removePreferencesFromCache
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -296,7 +296,7 @@ class EntryAbility extends UIAbility {
 
 
 
-##### sendablePreferences.removePreferencesFromCacheSync
+#### sendablePreferences.removePreferencesFromCacheSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -347,7 +347,7 @@ class EntryAbility extends UIAbility {
 
 
 
-##### Options
+#### Options
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -365,7 +365,7 @@ Preferences实例配置选项。
 
 
 
-##### Preferences
+#### Preferences
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -375,7 +375,7 @@ Preferences继承自[ISendable](https://developer.huawei.com/consumer/cn/doc/har
 
 
 
-##### get
+#### get
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -429,7 +429,7 @@ promise.then((data: lang.ISendable) => {
 
 
 
-##### getSync
+#### getSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -475,7 +475,7 @@ let value: lang.ISendable = preferences.getSync('startup', 'default');
 
 
 
-##### getAll
+#### getAll
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -521,7 +521,7 @@ promise.then((keyValues: lang.ISendable) => {
 
 
 
-##### getAllSync
+#### getAllSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -562,7 +562,7 @@ for (let value of Object.keys(keyValues)) {
 
 
 
-##### put
+#### put
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -618,7 +618,7 @@ promise.then(() => {
 
 
 
-##### putSync
+#### putSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -660,7 +660,7 @@ preferences.putSync('startup', 'auto');
 
 
 
-##### has
+#### has
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -715,7 +715,7 @@ promise.then((val: boolean) => {
 
 
 
-##### hasSync
+#### hasSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -764,7 +764,7 @@ if (isExist) {
 
 
 
-##### delete
+#### delete
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -815,7 +815,7 @@ promise.then(() => {
 
 
 
-##### deleteSync
+#### deleteSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -852,7 +852,7 @@ preferences.deleteSync('startup');
 
 
 
-##### flush
+#### flush
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -899,7 +899,7 @@ promise.then(() => {
 
 
 
-##### flushSync14+
+#### flushSync14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -932,7 +932,7 @@ preferences.flushSync();
 
 
 
-##### clear
+#### clear
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -975,7 +975,7 @@ promise.then(() => {
 
 
 
-##### clearSync
+#### clearSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1004,7 +1004,7 @@ preferences.clearSync();
 
 
 
-##### on('change')
+#### on('change')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1057,7 +1057,7 @@ preferences.flush().then(() => {
 
 
 
-##### on('multiProcessChange')
+#### on('multiProcessChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1113,7 +1113,7 @@ preferences.flush().then(() => {
 
 
 
-##### on('dataChange')
+#### on('dataChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1170,7 +1170,7 @@ preferences.flush().then(() => {
 
 
 
-##### off('change')
+#### off('change')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1220,7 +1220,7 @@ preferences.flush().then(() => {
 
 
 
-##### off('multiProcessChange')
+#### off('multiProcessChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1272,7 +1272,7 @@ preferences.flush().then(() => {
 
 
 
-##### off('dataChange')
+#### off('dataChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

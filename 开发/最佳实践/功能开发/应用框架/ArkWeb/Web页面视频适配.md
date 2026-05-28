@@ -7,7 +7,7 @@
 **   
 
 
-##### 概述
+#### 概述
 
 在Web页面中，通常会包含一些像图片、视频一类的媒体资源，在使用Web组件加载这一类页面时，就会遇到视频播放适配的问题，本文汇总了以下常见的Web页面内视频适配场景：
  
@@ -18,11 +18,11 @@
  
  
 
-##### 全屏播放视频
+#### 全屏播放视频
 
  
 
-##### 场景描述
+#### 场景描述
 
 默认情况下，网页中的视频点击全屏按钮后，会在移动设备上以竖屏形式播放视频，同时也无法兼容手势返回，对于用户而言，竖屏播放视频画面有限，更希望视频能够以横屏全屏的形式播放，同时使用手势返回后，只退出全屏播放，而不是返回到桌面，在这种情况下，就需要开发者对Web视频做全屏播放的适配。
  
@@ -32,7 +32,7 @@
  
  
 
-##### 实现原理
+#### 实现原理
 
 图2 **Web页面适配全屏播放视频流程图**
 ![](assets/Web页面视频适配/file-20260515114618800-1.png)
@@ -56,7 +56,7 @@
  
  
 
-##### 实现步骤
+#### 实现步骤
 
 **进入全屏播放**
  1. Web页面实现时需要注意进行非安全区内容避让，Web组件在加载Web页面时通过[expandSafeArea()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-expand-safe-area#expandsafearea)扩展其安全区域，从而让视频沉浸式显示。
@@ -158,11 +158,11 @@ onBackPress(): boolean | void {
  
  
 
-##### 长按复制视频链接
+#### 长按复制视频链接
 
  
 
-##### 场景描述
+#### 场景描述
 
 长按复制视频链接经常被应用于社交分享的场景，用户在应用内看到感兴趣的视频内容希望分享给周边的人，通过长按希望分享的视频选中“复制视频链接地址”选项，可以帮助用户快捷准确地获取到视频的链接地址。
  
@@ -172,7 +172,7 @@ onBackPress(): boolean | void {
  
  
 
-##### 实现原理
+#### 实现原理
 
 长按复制视频链接功能在实现上有以下两个关键部分。
  
@@ -182,7 +182,7 @@ onBackPress(): boolean | void {
  
  
 
-##### 开发步骤
+#### 开发步骤
 1. 定义弹窗内容组件，此处使用[Menu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-menu)作为弹窗内容，通过循环渲染menus菜单数据生成对应的菜单列表。
 ```ArkTS
 //src/main/ets/view/CustomPopupMenu.ets
@@ -325,17 +325,17 @@ export function copyLink(uri: string) {
  
  
 
-##### 长按下载视频
+#### 长按下载视频
 
  
 
-##### 场景描述
+#### 场景描述
 
 长按下载视频经常用于提供给用户本地缓存感兴趣的视频内容的能力，用户可以直接长按感兴趣的视频内容打开弹窗，选择“下载视频”将其保存到设备本地，下载后的视频也可以通过社交分享渠道进行分享。
  
  
 
-##### 实现原理
+#### 实现原理
 
 图5 **长按下载视频整体适配流程图**
 ![](assets/Web页面视频适配/file-20260515114618800-4.png)
@@ -360,7 +360,7 @@ export function copyLink(uri: string) {
  
  
 
-##### 开发步骤
+#### 开发步骤
 1. 通过Web组件的[onContextMenuShow()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#oncontextmenushow9)事件，在事件参数event中通过[event.param.getSourceUrl()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-webcontextmenuparam#getsourceurl9)获取到视频链接地址。
 ```ArkTS
 @Entry
@@ -490,12 +490,12 @@ controller?.startDownload(url);
  
  
 
-##### 总结
+#### 总结
 
 本文提供了Web页面内视频的相关适配实践，包括解决视频全屏播放默认竖屏、获取到视频链接地址并写入到剪贴板、通过Web组件提供的相关能力下载网页视频，开发者可结合本文根据实际业务需求进行Web页面内视频的适配。
  
  
 
-##### 示例代码
+#### 示例代码
 
 - [基于Web的视频处理](https://gitcode.com/harmonyos_samples/BestPracticeSnippets/tree/master/VideoProcessBaseWeb)

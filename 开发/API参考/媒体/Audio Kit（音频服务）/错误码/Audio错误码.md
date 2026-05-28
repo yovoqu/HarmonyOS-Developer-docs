@@ -10,7 +10,7 @@
 
 
 
-##### 6800101 无效入参
+#### 6800101 无效入参
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -32,7 +32,7 @@ Invalid parameter.
 
 
 
-##### 6800102 分配内存失败
+#### 6800102 分配内存失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -54,7 +54,7 @@ Memory allocation failed.
 
 
 
-##### 6800103 状态不支持
+#### 6800103 状态不支持
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -76,7 +76,7 @@ Operation not permitted at current state.
 
 
 
-##### 6800104 参数选项不支持
+#### 6800104 参数选项不支持
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -98,7 +98,7 @@ Unsupported option.
 
 
 
-##### 6800105 处理超时
+#### 6800105 处理超时
 
 **错误信息**
 
@@ -118,7 +118,7 @@ Timeout.
 
 
 
-##### 6800201 音频流数量达到极限
+#### 6800201 音频流数量达到极限
 
 **错误信息**
 
@@ -138,7 +138,7 @@ Too many audio streams.
 
 
 
-##### 6800301 系统处理异常
+#### 6800301 系统处理异常
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

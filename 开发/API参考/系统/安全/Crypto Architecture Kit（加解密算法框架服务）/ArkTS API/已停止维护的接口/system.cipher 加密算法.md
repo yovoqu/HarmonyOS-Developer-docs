@@ -9,7 +9,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 ```text
 import cipher from '@system.cipher';
@@ -17,7 +17,7 @@ import cipher from '@system.cipher';
  
   
 
-##### CipherResponse
+#### CipherResponse
 
 调用cipher接口后，返回的内容。
  
@@ -30,7 +30,7 @@ import cipher from '@system.cipher';
  
   
 
-##### CipherRsaOptions
+#### CipherRsaOptions
 
 调用cipher rsa方法时，传入的参数。
  
@@ -49,7 +49,7 @@ import cipher from '@system.cipher';
  
   
 
-##### CipherAesOptions
+#### CipherAesOptions
 
 调用cipher aes方法时，传入的参数。
  
@@ -71,7 +71,7 @@ import cipher from '@system.cipher';
  
   
 
-##### cipher.rsa
+#### cipher.rsa
 
 rsa(options: CipherRsaOptions): void
  
@@ -151,7 +151,7 @@ export default {
  
   
 
-##### cipher.aes
+#### cipher.aes
 
 aes(options: CipherAesOptions): void
  

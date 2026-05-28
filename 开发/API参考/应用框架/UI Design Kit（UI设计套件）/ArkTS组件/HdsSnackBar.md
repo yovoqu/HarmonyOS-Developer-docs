@@ -10,7 +10,7 @@
 **起始版本：** 6.0.0(20)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -20,7 +20,7 @@ import { HdsSnackBar } from '@kit.UIDesignKit';
  
   
 
-##### HdsSnackBar
+#### HdsSnackBar
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -34,7 +34,7 @@ import { HdsSnackBar } from '@kit.UIDesignKit';
  
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -55,7 +55,7 @@ constructor(uiContext: UIContext)
  
   
 
-##### show
+#### show
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -79,7 +79,7 @@ show(icon: SnackBarIconOptions, message: SnackBarMessageOptions, operation: Snac
  
   
 
-##### dismiss
+#### dismiss
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -95,7 +95,7 @@ dismiss(): void
  
   
 
-##### SnackBarIconOptions
+#### SnackBarIconOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -117,7 +117,7 @@ dismiss(): void
  
   
 
-##### SnackBarMessageOptions
+#### SnackBarMessageOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -139,7 +139,7 @@ dismiss(): void
  
   
 
-##### SnackBarOperationOptions
+#### SnackBarOperationOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -176,7 +176,7 @@ dismiss(): void
  
   
 
-##### SnackBarStyleOptions
+#### SnackBarStyleOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -206,7 +206,7 @@ dismiss(): void
  
   
 
-##### SnackBarOperationType
+#### SnackBarOperationType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -229,7 +229,7 @@ dismiss(): void
  
   
 
-##### SnackBarIconType
+#### SnackBarIconType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -249,7 +249,7 @@ dismiss(): void
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -313,4 +313,4 @@ struct TestSnackBar {
 效果图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/6DNzlC2pTLumAcRquB0eyQ/zh-cn_image_0000002581436666.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024032Z&HW-CC-Expire=86400&HW-CC-Sign=75977A7304DD13563066A81F4EEACEFC6A3319A2CDE7BA860CA1B14DC62E3454)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/6DNzlC2pTLumAcRquB0eyQ/zh-cn_image_0000002581436666.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025407Z&HW-CC-Expire=86400&HW-CC-Sign=59D4D4AD06311F261F07F19FA6904B1C3D32C82CFB6ECF999129E7612BBEFAAF)

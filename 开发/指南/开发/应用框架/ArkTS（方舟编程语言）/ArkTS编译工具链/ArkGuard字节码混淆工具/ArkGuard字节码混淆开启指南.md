@@ -12,17 +12,17 @@
 
   
 
-##### 字节码混淆开启步骤
+#### 字节码混淆开启步骤
 
   
 
-##### 约束与限制
+#### 约束与限制
 
 字节码混淆与源码混淆功能无法同时启用，开启字节码混淆后，源码混淆功能将自动关闭。
  
   
 
-##### 开启混淆步骤
+#### 开启混淆步骤
 
 从API version 20开始，字节码混淆能力已在系统中集成，可通过以下方式在DevEco Studio开启使用。
  
@@ -99,7 +99,7 @@
  
   
 
-##### 三种混淆配置文件
+#### 三种混淆配置文件
 
 - obfuscation-rules.txt
 
@@ -142,7 +142,7 @@
  
   
 
-##### 混淆选项配置指导
+#### 混淆选项配置指导
 1. 开启-enable-toplevel-obfuscation选项，如果代码中有globalThis访问全局变量，会出现访问失败的情况，需要使用-keep-global-name来保留此全局变量名称。
 2. 待上述选项开启成功后，开启-enable-property-obfuscation
 
@@ -203,14 +203,14 @@ console.info(obj002.dynamicName + ''); // 使用点语法静态访问属性
  
   
 
-##### 说明
+#### 说明
 
 - 目前不支持在Hvigor构建流程中插入自定义混淆插件。
 
  
   
 
-##### 查看混淆效果
+#### 查看混淆效果
 
 在混淆结束后会生成中间产物，因此可以在编译产物build目录中找到混淆后的中间产物以查看混淆效果，同时可以找到混淆生成的名称映射表及系统API白名单文件。
  
@@ -223,16 +223,16 @@ console.info(obj002.dynamicName + ''); // 使用点语法静态访问属性
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/TlfZ2NytQOKEkYx31w1QOg/zh-cn_image_0000002611833433.png?HW-CC-KV=V1&HW-CC-Date=20260528T014848Z&HW-CC-Expire=86400&HW-CC-Sign=394C86DAD6A53A146EA3AD3783694F9FC8AEE5800FF891E54AB6CA7D51C314C9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/TlfZ2NytQOKEkYx31w1QOg/zh-cn_image_0000002611833433.png?HW-CC-KV=V1&HW-CC-Date=20260528T030516Z&HW-CC-Expire=86400&HW-CC-Sign=20D7B63AC1A00725C3B6B4622AC7147294E91EA34853B2AC8C71AC55054F6C45)
 
  
   
 
-##### 报错栈还原
+#### 报错栈还原
 
 经过混淆的应用程序中代码名称会发生更改，crash时打印的报错栈更难以理解，因为报错栈与源码不完全一致。开发人员可使用DevEco Studio命令工具Command Line Tools中的[hstack插件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-command-line-hstack)来还原源码堆栈，进而分析问题。
  
 反混淆工具需要使用应用编译过程中生成的sourceMaps.json文件以及混淆名称映射文件nameCache.json文件，因此请本地备份它们；为方便问题定位，建议备份release目录。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/H33Mt7UiSaa2EYUErHmEtg/zh-cn_image_0000002581273686.png?HW-CC-KV=V1&HW-CC-Date=20260528T014848Z&HW-CC-Expire=86400&HW-CC-Sign=E4EA47D177E986E626D134B1C20F67A5423845F7299188384B84BEEFD83DD63F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/H33Mt7UiSaa2EYUErHmEtg/zh-cn_image_0000002581273686.png?HW-CC-KV=V1&HW-CC-Date=20260528T030516Z&HW-CC-Expire=86400&HW-CC-Sign=1FDA8A77030B81C87C5EB27F43B66254ECB41E6F2E76FF4CC97AAEAF58DF2DBB)

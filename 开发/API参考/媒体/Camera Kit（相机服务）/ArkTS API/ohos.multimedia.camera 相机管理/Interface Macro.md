@@ -14,7 +14,7 @@ Macro继承自[MacroQuery](https://developer.huawei.com/consumer/cn/doc/harmonyo
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { camera } from '@kit.CameraKit';
  
   
 
-##### enableMacro19+
+#### enableMacro19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

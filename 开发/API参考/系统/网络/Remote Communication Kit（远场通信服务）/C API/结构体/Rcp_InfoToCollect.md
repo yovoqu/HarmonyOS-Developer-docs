@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___info_to_collect
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -19,13 +19,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -42,13 +42,13 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### incomingData
+#### incomingData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -62,7 +62,7 @@ bool Rcp_InfoToCollect::incomingData
  
   
 
-##### incomingHeader
+#### incomingHeader
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -76,7 +76,7 @@ bool Rcp_InfoToCollect::incomingHeader
  
   
 
-##### incomingSslData
+#### incomingSslData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -90,7 +90,7 @@ bool Rcp_InfoToCollect::incomingSslData
  
   
 
-##### outgoingData
+#### outgoingData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -104,7 +104,7 @@ bool Rcp_InfoToCollect::outgoingData
  
   
 
-##### outgoingHeader
+#### outgoingHeader
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -118,7 +118,7 @@ bool Rcp_InfoToCollect::outgoingHeader
  
   
 
-##### outgoingSslData
+#### outgoingSslData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -132,7 +132,7 @@ bool Rcp_InfoToCollect::outgoingSslData
  
   
 
-##### textual
+#### textual
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

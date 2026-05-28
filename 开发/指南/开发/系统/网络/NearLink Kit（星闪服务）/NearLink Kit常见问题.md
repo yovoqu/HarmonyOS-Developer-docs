@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/nearlink-faq
 
-##### 连续进行数据传输时数据发送失败的问题
+#### 连续进行数据传输时数据发送失败的问题
 
 连续多次调用[writeData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-data-transfer-api#writedata)接口可能会导致发送队列拥塞，从而发送失败。
 
@@ -12,7 +12,7 @@
 
 
 
-##### 星闪标准服务UUID的格式
+#### 星闪标准服务UUID的格式
 
 通用唯一标识（UUID）用来指示条目描述的具体内容。标准服务或标准服务成员使用 16 比特通用唯一标识。
 

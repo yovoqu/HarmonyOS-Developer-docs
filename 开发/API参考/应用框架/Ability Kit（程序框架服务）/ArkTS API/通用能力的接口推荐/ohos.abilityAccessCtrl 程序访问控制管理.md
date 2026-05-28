@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { abilityAccessCtrl } from '@kit.AbilityKit';
 
 
 
-##### abilityAccessCtrl.createAtManager
+#### abilityAccessCtrl.createAtManager
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -49,7 +49,7 @@ let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager()
 
 
 
-##### AtManager
+#### AtManager
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -59,7 +59,7 @@ AtManager接口调用依赖于tokenID，应用可通过[bundleManager.getBundleI
 
 
 
-##### checkAccessToken9+
+#### checkAccessToken9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -113,7 +113,7 @@ atManager.checkAccessToken(tokenID, 'ohos.permission.GRANT_SENSITIVE_PERMISSIONS
 
 
 
-##### checkAccessTokenSync10+
+#### checkAccessTokenSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -164,7 +164,7 @@ console.info(`Result: ${data}`);
 
 
 
-##### on18+
+#### on18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -220,7 +220,7 @@ try {
 
 
 
-##### off18+
+#### off18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -270,7 +270,7 @@ try {
 
 
 
-##### requestPermissionsFromUser9+
+#### requestPermissionsFromUser9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -338,7 +338,7 @@ atManager.requestPermissionsFromUser(context, ['ohos.permission.CAMERA'], (err: 
 
 
 
-##### requestPermissionsFromUser9+
+#### requestPermissionsFromUser9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -406,7 +406,7 @@ atManager.requestPermissionsFromUser(context, ['ohos.permission.CAMERA']).then((
 
 
 
-##### requestPermissionOnSetting12+
+#### requestPermissionOnSetting12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -474,7 +474,7 @@ atManager.requestPermissionOnSetting(context, ['ohos.permission.CAMERA']).then((
 
 
 
-##### requestGlobalSwitch12+
+#### requestGlobalSwitch12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -485,7 +485,7 @@ requestGlobalSwitch(context: Context, type: SwitchType): Promise&lt;boolean&gt;
 在某些情况下，如果录音、拍照等功能被禁用，应用可拉起此弹框请求用户同意开启对应功能。如果当前全局开关的状态为开启，则不拉起弹框。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/S-Aj_TekS0aM7vBG3WTavg/zh-cn_image_0000002611835353.png?HW-CC-KV=V1&HW-CC-Date=20260528T024251Z&HW-CC-Expire=86400&HW-CC-Sign=6AB802ED70988E26CC2AC9D570BEF6D5F6E0A6CBC3690223C00C4BFBE654CFA8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/S-Aj_TekS0aM7vBG3WTavg/zh-cn_image_0000002611835353.png?HW-CC-KV=V1&HW-CC-Date=20260528T025625Z&HW-CC-Expire=86400&HW-CC-Sign=11DA15D8F793667A85D39A8E12EC6D02815F5ED01FD8514D0A8BCFABAAA08A41)
 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -541,7 +541,7 @@ atManager.requestGlobalSwitch(context, abilityAccessCtrl.SwitchType.CAMERA).then
 
 
 
-##### getSelfPermissionStatus20+
+#### getSelfPermissionStatus20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -594,7 +594,7 @@ try {
 
 
 
-##### openPermissionOnSetting22+
+#### openPermissionOnSetting22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -652,7 +652,7 @@ atManager.openPermissionOnSetting(context, 'ohos.permission.HOOK_KEY_EVENT').the
 
 
 
-##### verifyAccessTokenSync9+
+#### verifyAccessTokenSync9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -704,7 +704,7 @@ try {
 
 
 
-##### verifyAccessToken9+
+#### verifyAccessToken9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -751,7 +751,7 @@ atManager.verifyAccessToken(tokenID, permissionName).then((data: abilityAccessCt
 
 
 
-##### verifyAccessToken(deprecated)
+#### verifyAccessToken(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -797,7 +797,7 @@ atManager.verifyAccessToken(tokenID, 'ohos.permission.GRANT_SENSITIVE_PERMISSION
 
 
 
-##### GrantStatus
+#### GrantStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -815,7 +815,7 @@ atManager.verifyAccessToken(tokenID, 'ohos.permission.GRANT_SENSITIVE_PERMISSION
 
 
 
-##### SwitchType12+
+#### SwitchType12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -834,7 +834,7 @@ atManager.verifyAccessToken(tokenID, 'ohos.permission.GRANT_SENSITIVE_PERMISSION
 
 
 
-##### PermissionStateChangeType18+
+#### PermissionStateChangeType18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -852,7 +852,7 @@ atManager.verifyAccessToken(tokenID, 'ohos.permission.GRANT_SENSITIVE_PERMISSION
 
 
 
-##### PermissionStateChangeInfo18+
+#### PermissionStateChangeInfo18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -871,7 +871,7 @@ atManager.verifyAccessToken(tokenID, 'ohos.permission.GRANT_SENSITIVE_PERMISSION
 
 
 
-##### PermissionRequestResult10+
+#### PermissionRequestResult10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -892,7 +892,7 @@ type PermissionRequestResult = _PermissionRequestResult
 
 
 
-##### Context10+
+#### Context10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -913,7 +913,7 @@ type Context = _Context
 
 
 
-##### PermissionStatus20+
+#### PermissionStatus20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -934,7 +934,7 @@ type Context = _Context
 
 
 
-##### SelectedResult22+
+#### SelectedResult22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -11,7 +11,7 @@ TextInput、TextArea是输入框组件，用于响应用户输入，比如评论
 
 
 
-##### 创建输入框
+#### 创建输入框
 
 TextInput是单行输入框，TextArea是多行输入框，Search是搜索框。通过以下接口创建这些组件。
 
@@ -73,7 +73,7 @@ Search()
 
 
 
-##### 设置输入框类型
+#### 设置输入框类型
 
 TextInput、TextArea和Search都支持设置输入框类型，通过type属性进行设置，但是各组件的枚举值略有不同。下面以单行输入框为例进行说明。
 
@@ -81,7 +81,7 @@ TextInput有以下类型可选择：Normal基本输入模式、Password密码输
 
 
 
-##### 基本输入模式（默认类型）
+#### 基本输入模式（默认类型）
 
 ```ArkTS
 TextInput()
@@ -94,7 +94,7 @@ TextInput()
 
 
 
-##### 密码模式
+#### 密码模式
 
 包括Password密码输入模式、NUMBER_PASSWORD纯数字密码模式、NEW_PASSWORD新密码输入模式。
 
@@ -111,7 +111,7 @@ TextInput()
 
 
 
-##### 邮箱地址输入模式
+#### 邮箱地址输入模式
 
 邮箱地址输入模式的输入框，只能存在一个@符号。
 
@@ -126,7 +126,7 @@ TextInput()
 
 
 
-##### 纯数字输入模式
+#### 纯数字输入模式
 
 纯数字输入模式的输入框，只能输入数字[0-9]。
 
@@ -141,7 +141,7 @@ TextInput()
 
 
 
-##### 电话号码输入模式
+#### 电话号码输入模式
 
 电话号码输入模式的输入框，支持输入数字、空格、+ 、-、*、#、(、)，长度不限。
 
@@ -156,7 +156,7 @@ TextInput()
 
 
 
-##### 带小数点的数字输入模式
+#### 带小数点的数字输入模式
 
 带小数点的数字输入模式的输入框，只能输入数字[0-9]和小数点，只能存在一个小数点。
 
@@ -171,7 +171,7 @@ TextInput()
 
 
 
-##### 带URL的输入模式
+#### 带URL的输入模式
 
 带URL的输入模式，无特殊限制。
 
@@ -186,7 +186,7 @@ TextInput()
 
 
 
-##### 设置输入框多态样式
+#### 设置输入框多态样式
 
 TextInput、TextArea支持设置输入框多态样式，通过[style](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textarea#style10)属性进行设置。下面以多行输入框TextArea为例进行说明。
 
@@ -194,7 +194,7 @@ TextArea有以下2种类型可选择：默认风格，入参是TextContentStyle.
 
 
 
-##### 默认风格
+#### 默认风格
 
 默认风格的输入框，在编辑态和非编辑态，样式没有区别。
 
@@ -209,7 +209,7 @@ TextArea()
 
 
 
-##### 内联模式
+#### 内联模式
 
 内联模式，也称内联输入风格。内联模式的输入框在编辑态和非编辑态样式有明显区分。
 
@@ -224,7 +224,7 @@ TextArea()
 
 
 
-##### 自定义样式
+#### 自定义样式
 
  - 设置无输入时的提示文本。
 
@@ -271,7 +271,7 @@ TextInput({
 
 
 
-##### 添加事件
+#### 添加事件
 
 文本框主要用于获取用户输入的信息，并将信息处理成数据进行上传，绑定[onChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#onchange)事件可以获取输入框内改变的文本内容，绑定[onSubmit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#onsubmit)事件可以获取回车提交的文本信息，绑定[onTextSelectionChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#ontextselectionchange10)事件可以获取文本选中时手柄的位置信息或者编辑时光标的位置信息等等。用户也可以使用通用事件进行相应的交互操作。
 
@@ -374,7 +374,7 @@ struct TextInputEventAdd {
 
 
 
-##### 选中菜单
+#### 选中菜单
 
 输入框中的文字被选中时会弹出包含剪切、复制、翻译、分享的菜单。
 
@@ -402,7 +402,7 @@ TextArea({ text: $r('app.string.show_selected_menu') })
 
 
 
-##### 禁用系统服务类菜单
+#### 禁用系统服务类菜单
 
 从API version 20开始，支持使用[disableSystemServiceMenuItems](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-textmenucontroller#disablesystemservicemenuitems20)方法屏蔽文本选择菜单中的所有系统服务菜单项。更多详见[disableSystemServiceMenuItems](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-textmenucontroller#disablesystemservicemenuitems20)的API文档接口说明。以下示例只是完整示例工程中的一个示例，为了不影响工程其他页面示例效果，仅在页面的出现和消失生命周期中进行系统服务菜单的禁用和恢复，实际场景可自行选择其他时机，比如[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)的[onCreate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#oncreate)和[onDestroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#ondestroy)。
 
@@ -502,7 +502,7 @@ struct DisableMenuItem {
 
 
 
-##### 自动填充
+#### 自动填充
 
 输入框可以通过[contentType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#contenttype12)属性设置自动填充类型。
 
@@ -519,7 +519,7 @@ TextInput({ placeholder: $r('app.string.Auto_Fill_PlaceHolder') })
 
 
 
-##### 设置属性
+#### 设置属性
 
  - 设置省略属性。
 
@@ -561,7 +561,7 @@ TextInput({ text: 'Text with stroke' })
 
 
 
-##### 设置文本行间距
+#### 设置文本行间距
 
 从API version 20开始，支持通过[lineSpacing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#linespacing20)设置文本的行间距。如果不配置[LineSpacingOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-text-common#linespacingoptions20对象说明)时，首行上方和尾行下方默认会有行间距。如果onlyBetweenLines设置为true时，行间距仅适用于行与行之间，首行上方无额外行间距。
 
@@ -579,7 +579,7 @@ TextArea({
 
 
 
-##### 键盘避让
+#### 键盘避让
 
 键盘抬起后，具有滚动能力的容器组件在横竖屏切换时，才会生效键盘避让，若希望无滚动能力的容器组件也生效键盘避让，建议在组件外嵌套一层具有滚动能力的容器组件，比如[Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)、[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)、[Grid](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid)。
 
@@ -611,7 +611,7 @@ struct KeyboardAvoid {
 
 
 
-##### 光标避让
+#### 光标避让
 
 [keyBoardAvoidMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-e#keyboardavoidmode11)枚举中的OFFSET和RESIZE在键盘抬起后，不支持二次避让。如果想要支持光标位置在点击或者通过接口设置变化后发生二次避让，可以考虑使用OFFSET_WITH_CARET和RESIZE_CARET替换原有的OFFSET和RESIZE模式。
 
@@ -685,16 +685,16 @@ struct CursorAvoid {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/7eZI34WhQ3S0z5cv6iDoAA/zh-cn_image_0000002581273966.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014807Z&HW-CC-Expire=86400&HW-CC-Sign=D48E3A8D8C9AA7D0C1525B7CCDD858B038E65FC3E16416FECC6D58BF630ED667)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/7eZI34WhQ3S0z5cv6iDoAA/zh-cn_image_0000002581273966.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030438Z&HW-CC-Expire=86400&HW-CC-Sign=D322AFFEB993728149DD46BB31483B0B2956AC2B95C2A53F794763D472B121CC)
 
 
 
 
-##### 常见问题
+#### 常见问题
 
 
 
-##### 如何设置TextArea的文本最少展示行数并自适应高度
+#### 如何设置TextArea的文本最少展示行数并自适应高度
 
 **问题现象**
 
@@ -760,4 +760,4 @@ struct TextExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/2l0k5panQXeQNy7w6gZWAA/zh-cn_image_0000002611753821.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014807Z&HW-CC-Expire=86400&HW-CC-Sign=92EE094DD437235CEDB84D42A6BAC430F78FC8175D13E74D5EEE40AD3D846C05)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/2l0k5panQXeQNy7w6gZWAA/zh-cn_image_0000002611753821.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030438Z&HW-CC-Expire=86400&HW-CC-Sign=0F415A8EF4A769A242598EB55D08FF5F81A4BCE65E4D0C856AB0BEE8BC554258)

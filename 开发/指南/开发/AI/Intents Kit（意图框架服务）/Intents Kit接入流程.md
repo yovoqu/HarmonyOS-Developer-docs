@@ -19,23 +19,23 @@
  1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html#/)，选择“开发与服务”，在项目列表选择项目。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/iMRtztANQhmuaVLrab5OTg/zh-cn_image_0000002581435410.png?HW-CC-KV=V1&HW-CC-Date=20260528T014253Z&HW-CC-Expire=86400&HW-CC-Sign=A8DE9E29E05DB46E41034EE684795E4267400C6AD0C32E0D55D309C94E6618B6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/iMRtztANQhmuaVLrab5OTg/zh-cn_image_0000002581435410.png?HW-CC-KV=V1&HW-CC-Date=20260528T025922Z&HW-CC-Expire=86400&HW-CC-Sign=2EF3EEFF2E921FD4A3303AF45C24B5383CA311DCEB03BEFCEF2BF7E60AE87905)
 
 2. 选择项目后，选择需要申请开通能力的应用。
 3. 进入“项目设置 > 开放能力管理”页面，点击“意图框架”对应能力的“申请”。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/xPBTbqS_RpiZRhkFKCfwMQ/zh-cn_image_0000002611835239.png?HW-CC-KV=V1&HW-CC-Date=20260528T014253Z&HW-CC-Expire=86400&HW-CC-Sign=032E20DC0AEBC77B3F16B444BF76B6BD53ABED8E5E08A1E1070B6ACE6477CC22)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/xPBTbqS_RpiZRhkFKCfwMQ/zh-cn_image_0000002611835239.png?HW-CC-KV=V1&HW-CC-Date=20260528T025922Z&HW-CC-Expire=86400&HW-CC-Sign=D7E940D1F4D8BB7779B684909077161154A8B5AC94B32B9324939AD75BC90570)
 
 4. 参考“申请原因”中的模版，提供必要的申请信息，然后点击“提交”按钮。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/wMBZuI_UT3GJ8rhtmNe86g/zh-cn_image_0000002581275492.png?HW-CC-KV=V1&HW-CC-Date=20260528T014253Z&HW-CC-Expire=86400&HW-CC-Sign=28D0E58181156115484CE8C2812212222AE8AF2410DD62670FE1C3BA8F025D8F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/wMBZuI_UT3GJ8rhtmNe86g/zh-cn_image_0000002581275492.png?HW-CC-KV=V1&HW-CC-Date=20260528T025922Z&HW-CC-Expire=86400&HW-CC-Sign=6CA0A0E4A955E1DE1CA946437F8C184C01E14C64FD8F8FDDE8E164DE55A310A6)
 
 5. 返回“开放能力管理”页面，原“申请”变为“申请中”，1~3个工作日内反馈申请结果。申请结果请留意互动中心的“服务开通申请”信息。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/SYcoZS0-Q42Wu6XVIttiEg/zh-cn_image_0000002611755349.png?HW-CC-KV=V1&HW-CC-Date=20260528T014253Z&HW-CC-Expire=86400&HW-CC-Sign=9EE50F8D40000CE38FD774DBE435783C6C8621B02D748EBBEBA59A4400CA6931)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/SYcoZS0-Q42Wu6XVIttiEg/zh-cn_image_0000002611755349.png?HW-CC-KV=V1&HW-CC-Date=20260528T025922Z&HW-CC-Expire=86400&HW-CC-Sign=CE92422CBBA0104A38FEA6B7A9C0F2496C5A89AE0DDBB10D2D3669634905ACB5)
 
  
 **阶段二：开发**

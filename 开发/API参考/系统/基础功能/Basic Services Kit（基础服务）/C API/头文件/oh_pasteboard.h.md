@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-pasteboard-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
 
 
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -43,7 +43,7 @@
 
 
 
-##### 宏定义
+#### 宏定义
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -58,7 +58,7 @@
 
 
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -71,7 +71,7 @@
 
 
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -111,13 +111,13 @@
 
 
 
-##### 宏定义说明
+#### 宏定义说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### PASTEBOARD_MIMETYPE_TEXT_PLAIN
+#### PASTEBOARD_MIMETYPE_TEXT_PLAIN
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -133,7 +133,7 @@
 
 
 
-##### PASTEBOARD_MIMETYPE_TEXT_URI
+#### PASTEBOARD_MIMETYPE_TEXT_URI
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -149,7 +149,7 @@ URI类型。
 
 
 
-##### PASTEBOARD_MIMETYPE_TEXT_HTML
+#### PASTEBOARD_MIMETYPE_TEXT_HTML
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -165,7 +165,7 @@ HTML类型。
 
 
 
-##### PASTEBOARD_MIMETYPE_PIXELMAP
+#### PASTEBOARD_MIMETYPE_PIXELMAP
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -181,7 +181,7 @@ pixelMap类型。
 
 
 
-##### PASTEBOARD_MIMETYPE_TEXT_WANT
+#### PASTEBOARD_MIMETYPE_TEXT_WANT
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -197,13 +197,13 @@ want类型。
 
 
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### Pasteboard_NotifyType
+#### Pasteboard_NotifyType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -225,7 +225,7 @@ enum Pasteboard_NotifyType
 
 
 
-##### Pasteboard_FileConflictOptions
+#### Pasteboard_FileConflictOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -247,7 +247,7 @@ enum Pasteboard_FileConflictOptions
 
 
 
-##### Pasteboard_ProgressIndicator
+#### Pasteboard_ProgressIndicator
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -269,13 +269,13 @@ enum Pasteboard_ProgressIndicator
 
 
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### OH_Pasteboard_ProgressListener()
+#### OH_Pasteboard_ProgressListener()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -298,7 +298,7 @@ typedef void (*OH_Pasteboard_ProgressListener)(Pasteboard_ProgressInfo* progress
 
 
 
-##### Pasteboard_Notify()
+#### Pasteboard_Notify()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -322,7 +322,7 @@ typedef void (*Pasteboard_Notify)(void* context, Pasteboard_NotifyType type)
 
 
 
-##### Pasteboard_Finalize()
+#### Pasteboard_Finalize()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -345,7 +345,7 @@ typedef void (*Pasteboard_Finalize)(void* context)
 
 
 
-##### OH_PasteboardObserver_Create()
+#### OH_PasteboardObserver_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -368,7 +368,7 @@ OH_PasteboardObserver* OH_PasteboardObserver_Create()
 
 
 
-##### OH_PasteboardObserver_Destroy()
+#### OH_PasteboardObserver_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -398,7 +398,7 @@ int OH_PasteboardObserver_Destroy(OH_PasteboardObserver* observer)
 
 
 
-##### OH_PasteboardObserver_SetData()
+#### OH_PasteboardObserver_SetData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -431,7 +431,7 @@ int OH_PasteboardObserver_SetData(OH_PasteboardObserver* observer, void* context
 
 
 
-##### OH_Pasteboard_Create()
+#### OH_Pasteboard_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -454,7 +454,7 @@ OH_Pasteboard* OH_Pasteboard_Create()
 
 
 
-##### OH_Pasteboard_Destroy()
+#### OH_Pasteboard_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -477,7 +477,7 @@ void OH_Pasteboard_Destroy(OH_Pasteboard* pasteboard)
 
 
 
-##### OH_Pasteboard_Subscribe()
+#### OH_Pasteboard_Subscribe()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -509,7 +509,7 @@ int OH_Pasteboard_Subscribe(OH_Pasteboard* pasteboard, int type, const OH_Pasteb
 
 
 
-##### OH_Pasteboard_Unsubscribe()
+#### OH_Pasteboard_Unsubscribe()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -541,7 +541,7 @@ int OH_Pasteboard_Unsubscribe(OH_Pasteboard* pasteboard, int type, const OH_Past
 
 
 
-##### OH_Pasteboard_IsRemoteData()
+#### OH_Pasteboard_IsRemoteData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -571,7 +571,7 @@ bool OH_Pasteboard_IsRemoteData(OH_Pasteboard* pasteboard)
 
 
 
-##### OH_Pasteboard_GetDataSource()
+#### OH_Pasteboard_GetDataSource()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -603,7 +603,7 @@ int OH_Pasteboard_GetDataSource(OH_Pasteboard* pasteboard, char* source, unsigne
 
 
 
-##### OH_Pasteboard_HasType()
+#### OH_Pasteboard_HasType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -634,7 +634,7 @@ bool OH_Pasteboard_HasType(OH_Pasteboard* pasteboard, const char* type)
 
 
 
-##### OH_Pasteboard_HasData()
+#### OH_Pasteboard_HasData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -664,7 +664,7 @@ bool OH_Pasteboard_HasData(OH_Pasteboard* pasteboard)
 
 
 
-##### OH_Pasteboard_HasRemoteData()
+#### OH_Pasteboard_HasRemoteData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -694,7 +694,7 @@ bool OH_Pasteboard_HasRemoteData(OH_Pasteboard* pasteboard)
 
 
 
-##### OH_Pasteboard_GetData()
+#### OH_Pasteboard_GetData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -727,7 +727,7 @@ OH_UdmfData* OH_Pasteboard_GetData(OH_Pasteboard* pasteboard, int* status)
 
 
 
-##### OH_Pasteboard_SetData()
+#### OH_Pasteboard_SetData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -758,7 +758,7 @@ int OH_Pasteboard_SetData(OH_Pasteboard* pasteboard, OH_UdmfData* data)
 
 
 
-##### OH_Pasteboard_ClearData()
+#### OH_Pasteboard_ClearData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -788,7 +788,7 @@ int OH_Pasteboard_ClearData(OH_Pasteboard* pasteboard)
 
 
 
-##### OH_Pasteboard_GetMimeTypes()
+#### OH_Pasteboard_GetMimeTypes()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -819,7 +819,7 @@ char **OH_Pasteboard_GetMimeTypes(OH_Pasteboard *pasteboard, unsigned int *count
 
 
 
-##### OH_Pasteboard_GetDataParams_Create()
+#### OH_Pasteboard_GetDataParams_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -842,7 +842,7 @@ Pasteboard_GetDataParams *OH_Pasteboard_GetDataParams_Create(void)
 
 
 
-##### OH_Pasteboard_GetDataParams_Destroy()
+#### OH_Pasteboard_GetDataParams_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -865,7 +865,7 @@ void OH_Pasteboard_GetDataParams_Destroy(Pasteboard_GetDataParams* params)
 
 
 
-##### OH_Pasteboard_GetDataParams_SetProgressIndicator()
+#### OH_Pasteboard_GetDataParams_SetProgressIndicator()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -889,7 +889,7 @@ void OH_Pasteboard_GetDataParams_SetProgressIndicator(Pasteboard_GetDataParams* 
 
 
 
-##### OH_Pasteboard_GetDataParams_SetDestUri()
+#### OH_Pasteboard_GetDataParams_SetDestUri()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -914,7 +914,7 @@ void OH_Pasteboard_GetDataParams_SetDestUri(Pasteboard_GetDataParams* params, co
 
 
 
-##### OH_Pasteboard_GetDataParams_SetFileConflictOptions()
+#### OH_Pasteboard_GetDataParams_SetFileConflictOptions()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -938,7 +938,7 @@ void OH_Pasteboard_GetDataParams_SetFileConflictOptions(Pasteboard_GetDataParams
 
 
 
-##### OH_Pasteboard_GetDataParams_SetProgressListener()
+#### OH_Pasteboard_GetDataParams_SetProgressListener()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -962,7 +962,7 @@ void OH_Pasteboard_GetDataParams_SetProgressListener(Pasteboard_GetDataParams* p
 
 
 
-##### OH_Pasteboard_ProgressInfo_GetProgress()
+#### OH_Pasteboard_ProgressInfo_GetProgress()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -992,7 +992,7 @@ int OH_Pasteboard_ProgressInfo_GetProgress(Pasteboard_ProgressInfo* progressInfo
 
 
 
-##### OH_Pasteboard_ProgressCancel()
+#### OH_Pasteboard_ProgressCancel()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1015,7 +1015,7 @@ void OH_Pasteboard_ProgressCancel(Pasteboard_GetDataParams* params)
 
 
 
-##### OH_Pasteboard_GetDataWithProgress()
+#### OH_Pasteboard_GetDataWithProgress()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1049,7 +1049,7 @@ OH_UdmfData* OH_Pasteboard_GetDataWithProgress(OH_Pasteboard* pasteboard, Pasteb
 
 
 
-##### OH_Pasteboard_GetChangeCount()
+#### OH_Pasteboard_GetChangeCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1079,7 +1079,7 @@ uint32_t OH_Pasteboard_GetChangeCount(OH_Pasteboard *pasteboard)
 
 
 
-##### OH_Pasteboard_SyncDelayedDataAsync()
+#### OH_Pasteboard_SyncDelayedDataAsync()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1092,7 +1092,7 @@ void OH_Pasteboard_SyncDelayedDataAsync(OH_Pasteboard* pasteboard, void (*callba
 通知剪贴板从应用同步所有延迟数据，与延迟复制接口[OH_UdmfRecordProvider_SetData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-h#oh_udmfrecordprovider_setdata)搭配使用。当应用使用延迟复制功能复制时，仅将应用支持的数据类型写入剪贴板。应用应在退出时，重新调用[OH_Pasteboard_SetData](#oh_pasteboard_setdata)接口主动提交所有复制数据或调用此接口通知剪贴板获取全量数据，等待数据同步完成再继续退出，否则可能导致其他应用粘贴获取不到数据。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/2_SGZWGpRnSnhYuN_B55_w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023821Z&HW-CC-Expire=86400&HW-CC-Sign=57D0E6721C291BF50C7F1D1311CCD5076B655EDBEC5A51DE43373002941533D9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/2_SGZWGpRnSnhYuN_B55_w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025156Z&HW-CC-Expire=86400&HW-CC-Sign=41473CEB6C401E70B3F63DA175826BFE976CB380FC8F417194B8DCB29FC8E747)
 
 
  - 调用此接口会延长退出过程，建议应用直接设置数据到剪贴板，而不是调用延迟复制接口[OH_UdmfRecordProvider_SetData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-h#oh_udmfrecordprovider_setdata)和此接口。

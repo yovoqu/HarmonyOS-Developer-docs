@@ -12,7 +12,7 @@
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,13 +20,13 @@
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### SaveButton
+#### SaveButton
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -42,7 +42,7 @@ SaveButton()
 
 
 
-##### SaveButton
+#### SaveButton
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -65,7 +65,7 @@ SaveButton(options: SaveButtonOptions)
 
 
 
-##### SaveButtonOptions
+#### SaveButtonOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -88,7 +88,7 @@ SaveButton(options: SaveButtonOptions)
 
 
 
-##### SaveIconStyle枚举说明
+#### SaveIconStyle枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -106,7 +106,7 @@ SaveButton(options: SaveButtonOptions)
 
 
 
-##### SaveDescription枚举说明
+#### SaveDescription枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -133,7 +133,7 @@ SaveButton(options: SaveButtonOptions)
 
 
 
-##### SaveButtonOnClickResult枚举说明
+#### SaveButtonOnClickResult枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -150,7 +150,7 @@ SaveButton(options: SaveButtonOptions)
 
 
 
-##### SaveButtonCallback18+
+#### SaveButtonCallback18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -173,7 +173,7 @@ type SaveButtonCallback = (event: ClickEvent, result: SaveButtonOnClickResult, e
 
 
 
-##### SaveButtonAttribute
+#### SaveButtonAttribute
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -183,7 +183,7 @@ SaveButtonAttribute提供自定义图标（setIcon）、自定义文本（setTex
 
 
 
-##### setIcon20+
+#### setIcon20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -206,7 +206,7 @@ setIcon(icon: Resource)
 
 
 
-##### setText20+
+#### setText20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -229,7 +229,7 @@ setText(text: string | Resource)
 
 
 
-##### iconSize20+
+#### iconSize20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -250,7 +250,7 @@ iconSize(size: Dimension | SizeOptions)
 
 
 
-##### iconBorderRadius20+
+#### iconBorderRadius20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -273,7 +273,7 @@ iconBorderRadius(radius: Dimension | BorderRadiuses)
 
 
 
-##### stateEffect20+
+#### stateEffect20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -296,7 +296,7 @@ stateEffect(enabled: boolean)
 
 
 
-##### userCancelEvent21+
+#### userCancelEvent21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -317,7 +317,7 @@ userCancelEvent(enabled: boolean)
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -325,7 +325,7 @@ userCancelEvent(enabled: boolean)
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -333,7 +333,7 @@ userCancelEvent(enabled: boolean)
 
 
 
-##### onClick
+#### onClick
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -354,7 +354,7 @@ onClick(event: SaveButtonCallback)
 
 
 
-##### 示例1
+#### 示例1
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -437,7 +437,7 @@ struct Index {
 
 
 
-##### 示例2
+#### 示例2
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

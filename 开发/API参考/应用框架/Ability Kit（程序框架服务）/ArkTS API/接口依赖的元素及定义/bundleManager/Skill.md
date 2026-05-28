@@ -12,7 +12,7 @@ skill标签对象，可以通过[bundleManager.getBundleInfoForSelf](https://dev
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 
-##### Skill
+#### Skill
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -40,7 +40,7 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 
-##### SkillUri
+#### SkillUri
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

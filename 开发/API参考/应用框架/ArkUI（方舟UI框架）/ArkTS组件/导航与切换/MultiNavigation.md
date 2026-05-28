@@ -12,7 +12,7 @@ MultiNavigation用于在大尺寸设备上分栏显示、进行路由跳转。
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { MultiNavigation, MultiNavPathStack, SplitPolicy } from '@kit.ArkUI';
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -30,7 +30,7 @@ import { MultiNavigation, MultiNavPathStack, SplitPolicy } from '@kit.ArkUI';
 
 
 
-##### MultiNavigation
+#### MultiNavigation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -56,7 +56,7 @@ MultiNavigation组件遵循默认的左起右清栈规则，这意味着从左�
 
 
 
-##### MultiNavPathStack
+#### MultiNavPathStack
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -64,7 +64,7 @@ MultiNavigation组件遵循默认的左起右清栈规则，这意味着从左�
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -76,7 +76,7 @@ constructor()
 
 
 
-##### pushPath
+#### pushPath
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -99,7 +99,7 @@ pushPath(info: NavPathInfo, animated?: boolean, policy?: SplitPolicy): void
 
 
 
-##### pushPath
+#### pushPath
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -122,7 +122,7 @@ pushPath(info: NavPathInfo, options?: NavigationOptions, policy?: SplitPolicy): 
 
 
 
-##### pushPathByName
+#### pushPathByName
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -146,7 +146,7 @@ pushPathByName(name: string, param: Object, animated?: boolean, policy?: SplitPo
 
 
 
-##### pushPathByName
+#### pushPathByName
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -171,7 +171,7 @@ pushPathByName(name: string, param: Object, onPop?: base.Callback&lt;PopInfo&gt;
 
 
 
-##### replacePath
+#### replacePath
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -193,7 +193,7 @@ replacePath(info: NavPathInfo, animated?: boolean): void
 
 
 
-##### replacePath
+#### replacePath
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -215,7 +215,7 @@ replacePath(info: NavPathInfo, options?: NavigationOptions): void
 
 
 
-##### replacePathByName
+#### replacePathByName
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -238,7 +238,7 @@ replacePathByName(name: string, param: Object, animated?: boolean): void
 
 
 
-##### removeByIndexes
+#### removeByIndexes
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -266,7 +266,7 @@ removeByIndexes(indexes: Array&lt;number&gt;): number
 
 
 
-##### removeByName
+#### removeByName
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -294,7 +294,7 @@ removeByName(name: string): number
 
 
 
-##### pop
+#### pop
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -326,7 +326,7 @@ pop(animated?: boolean): NavPathInfo | undefined
 
 
 
-##### pop
+#### pop
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -359,7 +359,7 @@ pop(result?: Object, animated?: boolean): NavPathInfo | undefined
 
 
 
-##### popToName
+#### popToName
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -388,7 +388,7 @@ popToName(name: string, animated?: boolean): number
 
 
 
-##### popToName
+#### popToName
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -418,7 +418,7 @@ popToName(name: string, result: Object, animated?: boolean): number
 
 
 
-##### popToIndex
+#### popToIndex
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -440,7 +440,7 @@ popToIndex(index: number, animated?: boolean): void
 
 
 
-##### popToIndex
+#### popToIndex
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -463,7 +463,7 @@ popToIndex(index: number, result: Object, animated?: boolean): void
 
 
 
-##### moveToTop
+#### moveToTop
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -496,7 +496,7 @@ moveToTop(name: string, animated?: boolean): number
 
 
 
-##### moveIndexToTop
+#### moveIndexToTop
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -522,7 +522,7 @@ moveIndexToTop(index: number, animated?: boolean): void
 
 
 
-##### clear
+#### clear
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -547,7 +547,7 @@ clear(animated?: boolean): void
 
 
 
-##### getAllPathName
+#### getAllPathName
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -568,7 +568,7 @@ getAllPathName(): Array&lt;string&gt;
 
 
 
-##### getParamByIndex
+#### getParamByIndex
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -596,7 +596,7 @@ getParamByIndex(index: number): Object | undefined
 
 
 
-##### getParamByName
+#### getParamByName
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -624,7 +624,7 @@ getParamByName(name: string): Array&lt;Object&gt;
 
 
 
-##### getIndexByName
+#### getIndexByName
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -652,7 +652,7 @@ getIndexByName(name: string): Array&lt;number&gt;
 
 
 
-##### size
+#### size
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -673,7 +673,7 @@ size(): number
 
 
 
-##### disableAnimation
+#### disableAnimation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -694,7 +694,7 @@ disableAnimation(disable: boolean): void
 
 
 
-##### switchFullScreenState
+#### switchFullScreenState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -722,7 +722,7 @@ switchFullScreenState(isFullScreen?: boolean): boolean
 
 
 
-##### setHomeWidthRange
+#### setHomeWidthRange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -744,7 +744,7 @@ setHomeWidthRange(minPercent: number, maxPercent: number): void
 
 
 
-##### keepBottomPage
+#### keepBottomPage
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -769,7 +769,7 @@ keepBottomPage(keepBottom: boolean): void
 
 
 
-##### setPlaceholderPage
+#### setPlaceholderPage
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -794,7 +794,7 @@ setPlaceholderPage(info: NavPathInfo): void
 
 
 
-##### SplitPolicy枚举说明
+#### SplitPolicy枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -813,7 +813,7 @@ setPlaceholderPage(info: NavPathInfo): void
 
 
 
-##### NavDestinationBuildFunction
+#### NavDestinationBuildFunction
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -835,7 +835,7 @@ MultiNavigation用以加载NavDestination的方法。
 
 
 
-##### OnNavigationModeChangeCallback
+#### OnNavigationModeChangeCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -856,7 +856,7 @@ type OnNavigationModeChangeCallback = (mode: NavigationMode) => void
 
 
 
-##### OnHomeShowOnTopCallback
+#### OnHomeShowOnTopCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -877,7 +877,7 @@ type OnHomeShowOnTopCallback = (name: string) => void
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -885,7 +885,7 @@ type OnHomeShowOnTopCallback = (name: string) => void
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -893,7 +893,7 @@ type OnHomeShowOnTopCallback = (name: string) => void
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1756,16 +1756,16 @@ export struct PagePlaceholder {
 分栏效果演示：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/xRIVhyGmRWC_WCHnV6Y69A/zh-cn_image_0000002581435806.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024229Z&HW-CC-Expire=86400&HW-CC-Sign=43F6530F508DA7652916E918A700AD29DD639D63146BBDB6DF0AABA291CCC6E2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/xRIVhyGmRWC_WCHnV6Y69A/zh-cn_image_0000002581435806.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025602Z&HW-CC-Expire=86400&HW-CC-Sign=FCCA512DF0FBC82730D8AFBA5B2874DA16D6D18E5DA7CBD322D9662794D8F578)
 
 
 主页跳转详情页效果演示：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/WD3_eHynTYqTXe1b3vmzDQ/zh-cn_image_0000002611835637.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024229Z&HW-CC-Expire=86400&HW-CC-Sign=1F84BDE5411D75C49A76AFF454EDB5985FF66416C83A825BE48EAA01A65A36BA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/WD3_eHynTYqTXe1b3vmzDQ/zh-cn_image_0000002611835637.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025602Z&HW-CC-Expire=86400&HW-CC-Sign=DAFCD03421A2E930CD7DCF7DF6BBC3D0AC82C155652252BF6087CEB13BC8C3DF)
 
 
 全屏类型页面效果演示：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/zHLS9AuiSf689htIcYxCfQ/zh-cn_image_0000002581275888.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024229Z&HW-CC-Expire=86400&HW-CC-Sign=7A40D76CE5D1B736402861A5D98AFE37BA23D0F725E55359C55DECEA4B2689D3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/zHLS9AuiSf689htIcYxCfQ/zh-cn_image_0000002581275888.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025602Z&HW-CC-Expire=86400&HW-CC-Sign=0AF6206DF5E925CCF0FC82A95174C98D9213C183E3312B2E66663A10936EFCA7)

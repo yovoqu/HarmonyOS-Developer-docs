@@ -33,7 +33,7 @@ function testBuilder() {
 为了解决这一问题，引入wrapBuilder作为全局@Builder封装函数。wrapBuilder返回WrappedBuilder对象，用于[全局@Builder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder#全局自定义构建函数)的赋值和传递。
 
 
-##### 接口说明
+#### 接口说明
 
 wrapBuilder是一个模板函数，返回一个WrappedBuilder对象。
 
@@ -64,13 +64,13 @@ let builderArr: WrappedBuilder<[string, number]>[] = [wrapBuilder(MyBuilder)]; /
 
 
 
-##### 限制条件
+#### 限制条件
 1. wrapBuilder方法只能传入[全局@Builder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder#全局自定义构建函数)方法。
 2. WrappedBuilder对象的builder属性方法仅限在struct内部使用。
 
 
 
-##### @Builder方法赋值给变量
+#### @Builder方法赋值给变量
 
 使用@Builder装饰器装饰的方法myBuilder作为wrapBuilder的参数，然后将wrapBuilder的返回值赋值给变量globalBuilder，以解决@Builder方法赋值给变量后无法使用的问题。
 
@@ -103,7 +103,7 @@ struct TestIndex {
 
 
 
-##### @Builder方法赋值给变量在UI语法中使用
+#### @Builder方法赋值给变量在UI语法中使用
 
 自定义组件IndexItem使用ForEach进行不同@Builder函数的渲染，可以使用builderArr声明的wrapBuilder数组来实现不同的@Builder函数的效果。整体代码会更加整洁。
 
@@ -149,7 +149,7 @@ struct IndexItem {
 
 
 
-##### @Builder方法赋值给类或者接口的属性
+#### @Builder方法赋值给类或者接口的属性
 
 使用@Builder装饰器装饰的方法MyBuilder作为wrapBuilder的参数，然后将wrapBuilder的返回值赋值给接口ChildOptions中的属性，可以以数据的形式传递给其他子组件调用。
 
@@ -193,7 +193,7 @@ struct Child {
 
 
 
-##### 引用传递
+#### 引用传递
 
 按引用传递参数时，状态变量的改变会引起@Builder方法内的UI刷新。
 
@@ -230,11 +230,11 @@ struct Parent {
 
 
 
-##### 常见问题
+#### 常见问题
 
 
 
-##### 重复定义wrapBuilder失效
+#### 重复定义wrapBuilder失效
 
 在同一个自定义组件内，同一个wrapBuilder只能初始化一次。例如，builderObj通过wrapBuilder(MyBuilderFirst)初始化后，再次对builderObj赋值wrapBuilder(MyBuilderSecond)将不会生效。
 

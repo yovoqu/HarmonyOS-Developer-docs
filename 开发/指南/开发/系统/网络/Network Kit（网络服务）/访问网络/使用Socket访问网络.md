@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/socket-connection
 
-##### 简介
+#### 简介
 
 Socket连接主要是通过Socket进行数据传输，支持TCP/UDP/Multicast/TLS协议。
 
@@ -14,7 +14,7 @@ Socket连接主要是通过Socket进行数据传输，支持TCP/UDP/Multicast/TL
 
 
 
-##### 基本概念
+#### 基本概念
 
  - Socket：套接字，就是对网络中不同主机上的应用进程之间进行双向通信的端点的抽象。
  - TCP：传输控制协议(Transmission Control Protocol)，是一种面向连接的、可靠的、基于字节流的传输层通信协议。
@@ -26,7 +26,7 @@ Socket连接主要是通过Socket进行数据传输，支持TCP/UDP/Multicast/TL
 
 
 
-##### 场景介绍
+#### 场景介绍
 
 应用通过Socket进行数据传输，支持TCP/UDP/Multicast/TLS协议。主要场景有：
 
@@ -45,7 +45,7 @@ Socket连接主要是通过Socket进行数据传输，支持TCP/UDP/Multicast/TL
 
 
 
-##### 应用TCP/UDP协议进行通信
+#### 应用TCP/UDP协议进行通信
 
 UDP与TCP流程大体类似，下面以TCP为例：
 1. 导入所需的socket模块。
@@ -165,7 +165,7 @@ setTimeout(() => {
 
 
 
-##### 应用通过TCP Socket Server进行数据传输
+#### 应用通过TCP Socket Server进行数据传输
 
 服务端TCP Socket流程：
 1. 导入所需的socket模块。
@@ -281,7 +281,7 @@ setTimeout(() => {
 
 
 
-##### 应用通过Multicast Socket进行数据传输
+#### 应用通过Multicast Socket进行数据传输
 1. 导入所需的socket模块。
 
   
@@ -378,7 +378,7 @@ multicast.dropMembership(addr).then(() => {
 
 
 
-##### 应用通过LocalSocket进行数据传输
+#### 应用通过LocalSocket进行数据传输
 1. 导入所需的socket模块。
 
   
@@ -474,7 +474,7 @@ client.close().then(() => {
 
 
 
-##### 应用通过Local Socket Server进行数据传输
+#### 应用通过Local Socket Server进行数据传输
 
 服务端LocalSocket Server的主要流程包括：
 1. 导入所需的socket模块。
@@ -577,7 +577,7 @@ server.off('error');
 
 
 
-##### 应用通过TLS Socket进行加密数据传输
+#### 应用通过TLS Socket进行加密数据传输
 
 客户端TLS Socket流程（双向认证）包括：
 1. 导入所需的socket模块。
@@ -808,7 +808,7 @@ tlsOneWaySocket!.close((err: BusinessError) => {
 
 
 
-##### 应用通过将TCP Socket升级为TLS Socket进行加密数据传输
+#### 应用通过将TCP Socket升级为TLS Socket进行加密数据传输
 
 客户端TCP Socket升级为TLS Socket流程，以TLS Socket双向认证为例：
 1. 导入所需的socket模块。
@@ -921,7 +921,7 @@ tlsSocket!.close((err: BusinessError) => {
 
 
 
-##### 应用通过TLS Socket Server进行加密数据传输
+#### 应用通过TLS Socket Server进行加密数据传输
 
 服务端TLS Socket Server流程：
 1. 导入所需的socket模块。

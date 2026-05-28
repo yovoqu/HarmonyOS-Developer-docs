@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4
 
 
 
-##### Size
+#### Size
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -40,7 +40,7 @@ import { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4
 
 
 
-##### Position
+#### Position
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -59,7 +59,7 @@ type Position = Vector2
 
 
 
-##### PositionT12+
+#### PositionT12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -78,7 +78,7 @@ type PositionT&lt;T&gt; = Vector2T&lt;T&gt;
 
 
 
-##### Frame
+#### Frame
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -98,7 +98,7 @@ type PositionT&lt;T&gt; = Vector2T&lt;T&gt;
 
 
 
-##### Pivot
+#### Pivot
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -117,7 +117,7 @@ type Pivot = Vector2
 
 
 
-##### Scale
+#### Scale
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -136,7 +136,7 @@ type Scale = Vector2
 
 
 
-##### Translation
+#### Translation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -155,7 +155,7 @@ type Translation = Vector2
 
 
 
-##### Rotation
+#### Rotation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -174,7 +174,7 @@ type Rotation = Vector3
 
 
 
-##### Offset
+#### Offset
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -193,7 +193,7 @@ type Offset = Vector2
 
 
 
-##### Matrix4
+#### Matrix4
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -223,7 +223,7 @@ const transform: Matrix4 = [
 
 
 
-##### Vector2
+#### Vector2
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -241,7 +241,7 @@ const transform: Matrix4 = [
 
 
 
-##### Vector3
+#### Vector3
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -260,7 +260,7 @@ const transform: Matrix4 = [
 
 
 
-##### Vector2T&lt;T&gt;12+
+#### Vector2T&lt;T&gt;12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -278,7 +278,7 @@ const transform: Matrix4 = [
 
 
 
-##### DrawContext
+#### DrawContext
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -286,7 +286,7 @@ const transform: Matrix4 = [
 
 
 
-##### size
+#### size
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -307,7 +307,7 @@ get size(): Size
 
 
 
-##### sizeInPixel12+
+#### sizeInPixel12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -328,7 +328,7 @@ get sizeInPixel(): Size
 
 
 
-##### canvas
+#### canvas
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -400,7 +400,7 @@ struct Index {
 
 
 
-##### Edges&lt;T&gt;12+
+#### Edges&lt;T&gt;12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -420,7 +420,7 @@ struct Index {
 
 
 
-##### LengthUnit12+
+#### LengthUnit12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -441,7 +441,7 @@ struct Index {
 
 
 
-##### SizeT&lt;T&gt;12+
+#### SizeT&lt;T&gt;12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -459,7 +459,7 @@ struct Index {
 
 
 
-##### LengthMetricsUnit12+
+#### LengthMetricsUnit12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -477,7 +477,7 @@ struct Index {
 
 
 
-##### LengthMetrics12+
+#### LengthMetrics12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -485,7 +485,7 @@ struct Index {
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -501,7 +501,7 @@ struct Index {
 
 
 
-##### constructor12+
+#### constructor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -523,7 +523,7 @@ LengthMetrics的构造函数。若参数unit不传入值或传入undefined，返
 
 
 
-##### px12+
+#### px12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -551,7 +551,7 @@ static px(value: number): LengthMetrics
 
 
 
-##### vp12+
+#### vp12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -579,7 +579,7 @@ static vp(value: number): LengthMetrics
 
 
 
-##### fp12+
+#### fp12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -607,7 +607,7 @@ static fp(value: number): LengthMetrics
 
 
 
-##### percent12+
+#### percent12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -635,7 +635,7 @@ static percent(value: number): LengthMetrics
 
 
 
-##### lpx12+
+#### lpx12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -663,7 +663,7 @@ static lpx(value: number): LengthMetrics
 
 
 
-##### resource12+
+#### resource12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -741,7 +741,7 @@ struct SizeExample {
 
 
 
-##### ColorMetrics12+
+#### ColorMetrics12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -751,7 +751,7 @@ struct SizeExample {
 
 
 
-##### numeric12+
+#### numeric12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -779,7 +779,7 @@ static numeric(value: number): ColorMetrics
 
 
 
-##### rgba12+
+#### rgba12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -810,7 +810,7 @@ static rgba(red: number, green: number, blue: number, alpha?: number): ColorMetr
 
 
 
-##### colorWithSpace20+
+#### colorWithSpace20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -842,7 +842,7 @@ static colorWithSpace(colorSpace: ColorSpace, red: number, green: number, blue: 
 
 
 
-##### resourceColor12+
+#### resourceColor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -880,7 +880,7 @@ static resourceColor(color: ResourceColor): ColorMetrics
 
 
 
-##### blendColor12+
+#### blendColor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -923,7 +923,7 @@ result_rgb = overlay_rgb*(overlay_alpha) + (1 - overlay_alpha) * base_rgb
 
 
 
-##### color12+
+#### color12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -944,7 +944,7 @@ get color(): string
 
 
 
-##### red12+
+#### red12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -965,7 +965,7 @@ get red(): number
 
 
 
-##### green12+
+#### green12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -986,7 +986,7 @@ get green(): number
 
 
 
-##### blue12+
+#### blue12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1007,7 +1007,7 @@ get blue(): number
 
 
 
-##### alpha12+
+#### alpha12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1090,7 +1090,7 @@ struct ColorMetricsSample {
 
 
 
-##### Corners&lt;T&gt;12+
+#### Corners&lt;T&gt;12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1110,7 +1110,7 @@ struct ColorMetricsSample {
 
 
 
-##### CornerRadius12+
+#### CornerRadius12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1129,7 +1129,7 @@ type CornerRadius = Corners&lt;Vector2&gt;
 
 
 
-##### BorderRadiuses12+
+#### BorderRadiuses12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1148,7 +1148,7 @@ type BorderRadiuses = Corners&lt;number&gt;
 
 
 
-##### Rect12+
+#### Rect12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1167,7 +1167,7 @@ type Rect = common2D.Rect
 
 
 
-##### RoundRect12+
+#### RoundRect12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1185,7 +1185,7 @@ type Rect = common2D.Rect
 
 
 
-##### Circle12+
+#### Circle12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1204,7 +1204,7 @@ type Rect = common2D.Rect
 
 
 
-##### CommandPath12+
+#### CommandPath12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1221,7 +1221,7 @@ type Rect = common2D.Rect
 
 
 
-##### ShapeMask12+
+#### ShapeMask12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1229,7 +1229,7 @@ type Rect = common2D.Rect
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1246,7 +1246,7 @@ type Rect = common2D.Rect
 
 
 
-##### constructor12+
+#### constructor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1260,7 +1260,7 @@ ShapeMask的构造函数。
 
 
 
-##### setRectShape12+
+#### setRectShape12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1337,7 +1337,7 @@ struct Index {
 
 
 
-##### setRoundRectShape12+
+#### setRoundRectShape12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1413,7 +1413,7 @@ struct Index {
 
 
 
-##### setCircleShape12+
+#### setCircleShape12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1485,7 +1485,7 @@ struct Index {
 
 
 
-##### setOvalShape12+
+#### setOvalShape12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1552,7 +1552,7 @@ struct Index {
 
 
 
-##### setCommandPath12+
+#### setCommandPath12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1625,7 +1625,7 @@ struct Index {
 
 
 
-##### ShapeClip12+
+#### ShapeClip12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1633,7 +1633,7 @@ struct Index {
 
 
 
-##### constructor12+
+#### constructor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1647,7 +1647,7 @@ ShapeClip的构造函数。
 
 
 
-##### setRectShape12+
+#### setRectShape12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1731,7 +1731,7 @@ struct Index {
 
 
 
-##### setRoundRectShape12+
+#### setRoundRectShape12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1816,7 +1816,7 @@ struct Index {
 
 
 
-##### setCircleShape12+
+#### setCircleShape12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1889,7 +1889,7 @@ struct Index {
 
 
 
-##### setOvalShape12+
+#### setOvalShape12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1966,7 +1966,7 @@ struct Index {
 
 
 
-##### setCommandPath12+
+#### setCommandPath12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2038,7 +2038,7 @@ struct Index {
 
 
 
-##### edgeColors12+
+#### edgeColors12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2110,7 +2110,7 @@ struct Index {
 
 
 
-##### edgeWidths12+
+#### edgeWidths12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2192,7 +2192,7 @@ struct Index {
 
 
 
-##### borderStyles12+
+#### borderStyles12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2280,7 +2280,7 @@ struct Index {
 
 
 
-##### borderRadiuses12+
+#### borderRadiuses12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2351,4 +2351,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/DXfHNJf9R1aLhOhjEZfvYQ/zh-cn_image_0000002581435582.png?HW-CC-KV=V1&HW-CC-Date=20260528T024117Z&HW-CC-Expire=86400&HW-CC-Sign=D7F0739843183B9EED99C8FE647725C4096571426BD1222FE0CF63F420F2A9BD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/DXfHNJf9R1aLhOhjEZfvYQ/zh-cn_image_0000002581435582.png?HW-CC-KV=V1&HW-CC-Date=20260528T025451Z&HW-CC-Expire=86400&HW-CC-Sign=92F86BFE5D20198AC2A80AA67577769183DEE9C5817FE9CCC38E03EFD81B8B85)

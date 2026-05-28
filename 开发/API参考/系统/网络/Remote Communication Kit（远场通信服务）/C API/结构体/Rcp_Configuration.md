@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___configuration
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -19,13 +19,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -41,13 +41,13 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### configurationPrivate
+#### configurationPrivate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -61,7 +61,7 @@ void* Rcp_Configuration::configurationPrivate
  
   
 
-##### dnsConfiguration
+#### dnsConfiguration
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -75,7 +75,7 @@ DNS配置。
  
   
 
-##### proxyConfiguration
+#### proxyConfiguration
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -89,7 +89,7 @@ Rcp_ProxyConfiguration Rcp_Configuration::proxyConfiguration
  
   
 
-##### securityConfiguration
+#### securityConfiguration
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -103,7 +103,7 @@ Rcp_SecurityConfiguration Rcp_Configuration::securityConfiguration
  
   
 
-##### tracingConfiguration
+#### tracingConfiguration
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -117,7 +117,7 @@ Rcp_TracingConfiguration Rcp_Configuration::tracingConfiguration
  
   
 
-##### transferConfiguration
+#### transferConfiguration
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -10,7 +10,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,14 +20,14 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
 
 
-##### MediaChangeRequest11+
+#### MediaChangeRequest11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 媒体变更请求，资产变更请求和相册变更请求的父类型。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/RPk60WouQbe923dJ7Z-Amg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024004Z&HW-CC-Expire=86400&HW-CC-Sign=B09ADEA03A9FC1C5C33196B74098EEBE89CC50117BAF0E40D1BB32C41A3304A5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/RPk60WouQbe923dJ7Z-Amg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025338Z&HW-CC-Expire=86400&HW-CC-Sign=A6B8D0DEFF2818BC11678BED3250DC9068D69585617015489EC8985A6124D653)
 
 
 媒体变更请求必须在调用[applyChanges](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#applychanges11)后才会生效。
@@ -36,7 +36,7 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -53,7 +53,7 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
 
 
-##### CreateOptions
+#### CreateOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -75,7 +75,7 @@ title参数的规格如下：
 
 
 
-##### FetchOptions
+#### FetchOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -91,7 +91,7 @@ title参数的规格如下：
 
 
 
-##### RequestOptions11+
+#### RequestOptions11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -108,7 +108,7 @@ title参数的规格如下：
 
 
 
-##### ChangeData
+#### ChangeData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -125,7 +125,7 @@ title参数的规格如下：
 
 
 
-##### TextContextInfo12+
+#### TextContextInfo12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -173,7 +173,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### PhotoCreationConfig12+
+#### PhotoCreationConfig12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -193,7 +193,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### CreationSetting23+
+#### CreationSetting23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -214,7 +214,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### PhotoAssetChangeInfo20+
+#### PhotoAssetChangeInfo20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -231,7 +231,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### PhotoAssetChangeData20+
+#### PhotoAssetChangeData20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -249,7 +249,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### PhotoAssetChangeInfos20+
+#### PhotoAssetChangeInfos20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -266,7 +266,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### AlbumChangeInfo20+
+#### AlbumChangeInfo20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -288,7 +288,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### AlbumChangeData20+
+#### AlbumChangeData20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -304,7 +304,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### AlbumChangeInfos20+
+#### AlbumChangeInfos20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -321,7 +321,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### GridPinchMode23+
+#### GridPinchMode23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -341,7 +341,7 @@ picker内宫格的捏合模式。
 
 
 
-##### AssetCompatibleCapability24+
+#### AssetCompatibleCapability24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

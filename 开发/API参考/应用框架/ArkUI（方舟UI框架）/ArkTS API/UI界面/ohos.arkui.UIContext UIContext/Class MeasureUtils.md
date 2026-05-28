@@ -12,7 +12,7 @@
 
 
 
-##### measureText12+
+#### measureText12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -73,7 +73,7 @@ struct Index {
 
 
 
-##### measureTextSize12+
+#### measureTextSize12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -245,7 +245,7 @@ struct TextDemo {
 
 
 
-##### getParagraphs20+
+#### getParagraphs20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

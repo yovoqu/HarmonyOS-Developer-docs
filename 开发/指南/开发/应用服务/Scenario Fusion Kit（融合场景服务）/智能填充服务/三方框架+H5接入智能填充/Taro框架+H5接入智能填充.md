@@ -9,7 +9,7 @@
 
   
 
-##### 前提条件
+#### 前提条件
 
 - 基于Web开发HarmonyOS应用。
 - 设备智能填充开关必须处于打开状态，请前往“设置 > 隐私和安全 > 智能填充”页面开启开关。
@@ -19,21 +19,21 @@
  
   
 
-##### 开发准备
+#### 开发准备
 
 配置Taro已适配HarmonyOS的开发环境。
  
   
 
-##### 效果图
+#### 效果图
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d/v3/1mF_B6aTTuWbTuckpdd94g/zh-cn_image_0000002611835087.png?HW-CC-KV=V1&HW-CC-Date=20260528T014513Z&HW-CC-Expire=86400&HW-CC-Sign=C72E3170BE72F2028118CC4E406FB5D93AAB7B58E684FECBC999FB68E28430A0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d/v3/1mF_B6aTTuWbTuckpdd94g/zh-cn_image_0000002611835087.png?HW-CC-KV=V1&HW-CC-Date=20260528T030143Z&HW-CC-Expire=86400&HW-CC-Sign=6E30705211754B29DC2BCE018E5F149C99DF98BAB93B281259B16F20EC696238)
 
  
   
 
-##### 示例代码
+#### 示例代码
 
 示例代码仅展示接入智能填充相关部分，请按照实际场景修改后使用。在Taro的Input组件（Form表单的子节点）中添加nativeProps属性，并配置nativeProps中[autocomplete](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-mappingrelationship#h5-autocomplete和harmonyos的contenttype的映射关系)属性来支持智能填充，Form表单提交后，当页面导航发生变化时，满足历史表单输入保存的条件时会触发对应弹窗（建议使用HTML &lt;button&gt; 标签进行Form表单提交）。代码如下：
  

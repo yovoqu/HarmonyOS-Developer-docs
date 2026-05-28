@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/theme-font-arkts
 
-##### 场景介绍
+#### 场景介绍
 
 主题字体，特指系统**主题应用**中能使用的字体，属于一种特殊的自定义字体，可以通过相关接口调用使能主题应用中的主题字体。
 
 
 
-##### 实现机制
+#### 实现机制
 
 **图1** 主题字体的切换和使用
 
@@ -22,7 +22,7 @@
 
 
 
-##### 接口说明
+#### 接口说明
 
 注册使用主题字体的常用接口如下表所示，详细接口说明请见[@ohos.graphics.text (文本模块)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text)。
 
@@ -33,7 +33,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 请确保在设备系统**主题应用**中，能成功应用一项主题字体。
 2. 导入依赖的相关模块。
 
@@ -174,7 +174,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### 效果展示
+#### 效果展示
 
 以下展示了在系统**主题应用**中切换使用不同主题字体后，对应的文字渲染效果。
 
@@ -189,4 +189,4 @@ export default class EntryAbility extends UIAbility {
 **图3** 主题字体2的效果
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/X_8qcxR4T2eQYq7r64i8Xg/zh-cn_image_0000002581434764.png?HW-CC-KV=V1&HW-CC-Date=20260528T014905Z&HW-CC-Expire=86400&HW-CC-Sign=871B8202CE143390F2D9D21A8818F71C5C067205B9F359D3CE7DAD9B13D52DD7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/X_8qcxR4T2eQYq7r64i8Xg/zh-cn_image_0000002581434764.png?HW-CC-KV=V1&HW-CC-Date=20260528T030534Z&HW-CC-Expire=86400&HW-CC-Sign=A4E5617578F109ADE407DC8EA9331E189285C17B8CE98E2D76BF0EED40703F7A)

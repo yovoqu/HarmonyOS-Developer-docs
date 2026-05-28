@@ -12,7 +12,7 @@
 
 
 
-##### constructor9+
+#### constructor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ WebContextMenuResult的构造函数。
 
 
 
-##### closeContextMenu9+
+#### closeContextMenu9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -36,7 +36,7 @@ closeContextMenu(): void
 
 
 
-##### copyImage9+
+#### copyImage9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -48,7 +48,7 @@ copyImage(): void
 
 
 
-##### copy9+
+#### copy9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -60,7 +60,7 @@ copy(): void
 
 
 
-##### paste9+
+#### paste9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -76,7 +76,7 @@ paste(): void
 
 
 
-##### cut9+
+#### cut9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -88,7 +88,7 @@ cut(): void
 
 
 
-##### selectAll9+
+#### selectAll9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -100,7 +100,7 @@ selectAll(): void
 
 
 
-##### undo20+
+#### undo20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -112,7 +112,7 @@ undo(): void
 
 
 
-##### redo20+
+#### redo20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -124,7 +124,7 @@ redo(): void
 
 
 
-##### pasteAndMatchStyle20+
+#### pasteAndMatchStyle20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -140,7 +140,7 @@ pasteAndMatchStyle(): void
 
 
 
-##### requestPasswordAutoFill23+
+#### requestPasswordAutoFill23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -152,7 +152,7 @@ requestPasswordAutoFill(): void
 
 
 
-##### saveImage24+
+#### saveImage24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

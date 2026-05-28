@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-icpu-run-kf
 
-##### 函数功能
+#### 函数功能
 
 进行核函数的CPU侧运行验证时，CPU调测总入口，完成CPU侧的算子程序调用。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 #define ICPU_RUN_KF(func, blkdim, ...)
@@ -18,7 +18,7 @@
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数名 | 输入/输出 | 描述 |
 | --- | --- | --- |
@@ -29,13 +29,13 @@
  
   
 
-##### 返回值
+#### 返回值
 
 无
  
   
 
-##### 支持的型号
+#### 支持的型号
 
 Kirin9020系列处理器
  
@@ -43,13 +43,13 @@ KirinX90系列处理器
  
   
 
-##### 约束说明
+#### 约束说明
 
 除了func、blkdim以外，其他的变量都必须是通过GmAlloc分配的共享内存的指针，传入的参数的数量和顺序都必须和kernel保持一致。
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 ICPU_RUN_KF(sort_kernel0, coreNum, (uint8_t*)x, (uint8_t*)y);

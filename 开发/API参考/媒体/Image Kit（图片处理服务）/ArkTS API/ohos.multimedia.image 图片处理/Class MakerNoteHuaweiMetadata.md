@@ -14,7 +14,7 @@ MakerNoteHuaweiMetadata implements Metadata
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { image } from '@kit.ImageKit';
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -69,7 +69,7 @@ import { image } from '@kit.ImageKit';
  
   
 
-##### createInstance
+#### createInstance
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -101,7 +101,7 @@ async function makerNoteHuaweiCreateInstance(context: Context) {
  
   
 
-##### getProperties
+#### getProperties
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -169,7 +169,7 @@ async function makerNoteHuaweiGetProperties(context: Context) {
  
   
 
-##### setProperties
+#### setProperties
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -241,7 +241,7 @@ async function makerNoteHuaweiSetProperties(context: Context) {
  
   
 
-##### getAllProperties
+#### getAllProperties
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -292,7 +292,7 @@ async function makerNoteHuaweiGetAllProperties(context: Context) {
  
   
 
-##### clone
+#### clone
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -343,7 +343,7 @@ async function makerNoteHuaweiClone(context: Context) {
  
   
 
-##### getBlob
+#### getBlob
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -389,7 +389,7 @@ async function makerNoteHuaweiGetBlob(context: Context) {
  
   
 
-##### setBlob
+#### setBlob
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

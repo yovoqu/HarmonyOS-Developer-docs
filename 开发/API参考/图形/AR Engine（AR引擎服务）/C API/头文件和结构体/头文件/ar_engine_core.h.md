@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-header-file
 **支持设备：** Phone | Tablet | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | Tablet | TV
 
@@ -23,7 +23,7 @@
  
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | Tablet | TV
  
@@ -37,7 +37,7 @@
  
   
 
-##### 宏定义
+#### 宏定义
 
 **支持设备：** Phone | Tablet | TV
  
@@ -51,7 +51,7 @@
  
   
 
-##### 类型定义
+#### 类型定义
 
 **支持设备：** Phone | Tablet | TV
  
@@ -89,7 +89,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | Tablet | TV
  
@@ -130,7 +130,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | Tablet | TV
  

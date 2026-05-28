@@ -9,11 +9,11 @@
 字体引擎作为图形系统中的核心组件，负责将字符代码转换为可视化的字形，并精确计算每个字形的布局和位置，为自定义文本绘制提供底层支持。通过文本测量接口，开发者可以获取文本的精确尺寸，这是实现精准布局（如居中显示）的基础。
 
 
-##### 文本塑形
+#### 文本塑形
 
 
 
-##### 场景介绍
+#### 场景介绍
 
 文本塑形是字体引擎提供的一项关键能力，它允许开发者不经过系统默认的文本排版流程，直接获取文本的底层字形信息（如宽度、方向等测量信息）。这使得开发者能够基于这些原始数据，实现完全自定义的排版逻辑、绘制操作以及断行策略。
 
@@ -26,7 +26,7 @@
 
 
 
-##### 接口说明
+#### 接口说明
 
 文本塑形中常用接口如下表所示，详细接口说明参考[@ohos.graphics.text (文本模块)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text#paragraph)和[@ohos.graphics.drawing (drawing TextBlob)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-textblob)。
 
@@ -45,7 +45,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 从API version 18开始，支持获取文字塑形结果能力。从API version 20开始，支持获取文字排版方向和文字字形宽度。关键代码如下：
 1. 导入依赖的相关模块。

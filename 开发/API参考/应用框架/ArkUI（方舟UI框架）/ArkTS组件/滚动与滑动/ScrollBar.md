@@ -12,7 +12,7 @@
 
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@ ScrollBar(value: ScrollBarOptions)
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -49,7 +49,7 @@ ScrollBar(value: ScrollBarOptions)
  
   
 
-##### enableNestedScroll14+
+#### enableNestedScroll14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -74,7 +74,7 @@ enableNestedScroll(enabled: Optional&lt;boolean&gt;)
  
   
 
-##### scrollBarColor20+
+#### scrollBarColor20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -95,7 +95,7 @@ scrollBarColor(color: Optional&lt;ColorMetrics&gt;)
  
   
 
-##### ScrollBarOptions对象说明
+#### ScrollBarOptions对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -118,7 +118,7 @@ scrollBarColor(color: Optional&lt;ColorMetrics&gt;)
  
   
 
-##### ScrollBarDirection枚举说明
+#### ScrollBarDirection枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -136,7 +136,7 @@ scrollBarColor(color: Optional&lt;ColorMetrics&gt;)
  
   
 
-##### 示例1（设置子节点）
+#### 示例1（设置子节点）
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -187,12 +187,12 @@ struct ScrollBarExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/47C0BgjwTECDz8yYEzyT7g/zh-cn_image_0000002611755721.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024216Z&HW-CC-Expire=86400&HW-CC-Sign=BBEAD0A6858F4F0A7A8FD1D60DD608508C3E323CFEF57D9636D462C9D25147F8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/47C0BgjwTECDz8yYEzyT7g/zh-cn_image_0000002611755721.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025550Z&HW-CC-Expire=86400&HW-CC-Sign=CD5C6D0EAAF0F29551E6DC5044CBF27D759D76DE1B0C552D7877038BEDADB694)
 
  
   
 
-##### 示例2（不设置子节点）
+#### 示例2（不设置子节点）
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -240,12 +240,12 @@ struct ScrollBarExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/HQpjYAqhTdeHj8nDlrRf7Q/zh-cn_image_0000002581435784.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024216Z&HW-CC-Expire=86400&HW-CC-Sign=118A49846985CCE56BD663F6FD1E491A41E0378C871289EC5D69D5E71794CD5C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/HQpjYAqhTdeHj8nDlrRf7Q/zh-cn_image_0000002581435784.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025550Z&HW-CC-Expire=86400&HW-CC-Sign=ED1BC710CC461C505F6BD33941F484B287EBE314ED2CFA69C98A1408CB9CDC20)
 
  
   
 
-##### 示例3（支持嵌套滚动）
+#### 示例3（支持嵌套滚动）
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -318,4 +318,4 @@ struct StickyNestedScroll {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/WlCfh6e7TV-bwvBmEKNkUQ/zh-cn_image_0000002611835613.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024216Z&HW-CC-Expire=86400&HW-CC-Sign=AD30822A80FCB5A146E8A4E56F5236A39A3282FE6D075AB7EDABE753B34632CE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/WlCfh6e7TV-bwvBmEKNkUQ/zh-cn_image_0000002611835613.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025550Z&HW-CC-Expire=86400&HW-CC-Sign=841FA41BD6674A316ADC08E4FA9DC81F8FC40F38E2BABD746104E2347CF2AA3C)

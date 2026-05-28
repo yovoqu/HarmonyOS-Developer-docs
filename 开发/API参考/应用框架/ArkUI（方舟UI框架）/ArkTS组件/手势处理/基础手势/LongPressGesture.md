@@ -12,13 +12,13 @@
 
   
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### LongPressGesture
+#### LongPressGesture
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -45,7 +45,7 @@ LongPressGesture(value?: { fingers?: number; repeat?: boolean; duration?: number
  
   
 
-##### LongPressGesture15+
+#### LongPressGesture15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -72,7 +72,7 @@ LongPressGesture(options?: LongPressGestureHandlerOptions)
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -82,7 +82,7 @@ LongPressGesture(options?: LongPressGestureHandlerOptions)
  
   
 
-##### onAction
+#### onAction
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -103,7 +103,7 @@ onAction(event: (event: GestureEvent) => void)
  
   
 
-##### onActionEnd
+#### onActionEnd
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -124,7 +124,7 @@ onActionEnd(event: (event: GestureEvent) => void)
  
   
 
-##### onActionCancel
+#### onActionCancel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -145,7 +145,7 @@ onActionCancel(event: () => void)
  
   
 
-##### onActionCancel18+
+#### onActionCancel18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -166,7 +166,7 @@ onActionCancel(event: Callback&lt;GestureEvent&gt;)
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -208,4 +208,4 @@ struct LongPressGestureExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/pKUHDWzsScOTfwaZ8LNp5A/zh-cn_image_0000002611755649.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024201Z&HW-CC-Expire=86400&HW-CC-Sign=172C0CE3297DFF9B87F0CE55E9552AA48AE667A72E54A413217785E20C40F809)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/pKUHDWzsScOTfwaZ8LNp5A/zh-cn_image_0000002611755649.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025533Z&HW-CC-Expire=86400&HW-CC-Sign=263943B84E9B87A9898D82A133B9C70C69E9A2C619B4E39B51E7F63D9208A462)

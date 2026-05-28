@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-telephony-data-h
 **支持设备：** Phone | Tablet | Wearable
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | Tablet | Wearable
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | Tablet | Wearable
  
@@ -40,13 +40,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | Tablet | Wearable
 
   
 
-##### OH_Telephony_GetDefaultCellularDataSlotId()
+#### OH_Telephony_GetDefaultCellularDataSlotId()
 
 **支持设备：** Phone | Tablet | Wearable
 

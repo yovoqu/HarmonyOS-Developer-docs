@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-cross-origin
 
-##### 拦截本地资源跨域
+#### 拦截本地资源跨域
 
 为了提高安全性，ArkWeb内核禁止file协议和resource协议访问跨域请求。因此，在使用Web组件加载本地离线资源的时候，Web组件会拦截file协议和resource协议的跨域访问。通过方法二设置一个路径列表，再使用file协议访问该路径列表中的资源，允许跨域访问本地文件。Web组件无法访问本地跨域资源时，DevTools控制台会显示报错信息：
 
@@ -14,7 +14,7 @@ Access to script at 'xxx' from origin 'xxx' has been blocked by CORS policy: Cro
 
 
 
-##### 本地资源跨域问题解决方法
+#### 本地资源跨域问题解决方法
 
  - 方法一
 

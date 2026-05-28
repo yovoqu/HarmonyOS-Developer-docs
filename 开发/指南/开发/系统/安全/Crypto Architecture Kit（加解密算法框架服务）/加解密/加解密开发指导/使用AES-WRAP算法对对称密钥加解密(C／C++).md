@@ -9,7 +9,7 @@
 请查看[AES-WRAP加解密算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sym-encrypt-decrypt-spec#aes-wrap)。
 
 
-##### 在CMake脚本中链接相关动态库
+#### 在CMake脚本中链接相关动态库
 
 ```text
 target_link_libraries(entry PUBLIC libohcrypto.so)
@@ -17,7 +17,7 @@ target_link_libraries(entry PUBLIC libohcrypto.so)
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 **创建对象**
 

@@ -11,7 +11,7 @@
   以指定图片类型为二维码为例，PhotoPicker界面上将出现“二维码”的Tab页，展示图库中的二维码图片。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/vxFZlioHQkaJ9Y7HwQtr0w/zh-cn_image_0000002611834531.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T014717Z&HW-CC-Expire=86400&HW-CC-Sign=387A934852ACF8195420B1E350A1A87F86AB4C7B2B3506ACE843BD343DEFFD48)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/vxFZlioHQkaJ9Y7HwQtr0w/zh-cn_image_0000002611834531.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T030346Z&HW-CC-Expire=86400&HW-CC-Sign=B347977A785A93588AACFF489BC821848D17B779D658AD53E91635A72E9242A1)
 
 - 在图文编辑时选择图片，系统可以根据应用传入的文本信息，提取出时间、地点、事物或活动，并根据提取的信息，推荐对应的图片展示在PhotoPicker中。
 
@@ -20,12 +20,12 @@
   而且手机中有相应的图片，图片分析完成时，会在“推荐”的Tab页中展示出时间是国庆节，地点是上海野生动物园的大熊猫、火烈鸟、大象的图片。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/Nu2-FBGsRoKXT48DCKNT_w/zh-cn_image_0000002581274784.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T014717Z&HW-CC-Expire=86400&HW-CC-Sign=79BCB46892B82E38BFE4E6985882513D126387EA58F7A475B5BC7BCA845331E4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/Nu2-FBGsRoKXT48DCKNT_w/zh-cn_image_0000002581274784.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T030346Z&HW-CC-Expire=86400&HW-CC-Sign=4831D152A62BBBCC8985FF17C13C0DBAD5A1D4FEEBC8959D52B835738D35D1B6)
 
 
   
 
-##### 约束与限制
+#### 约束与限制
 
 - PhotoPicker推荐图片的功能依赖于图片分析的结果，只有在媒体库中的图片分析完成后，系统才会进行推荐。
 
@@ -37,7 +37,7 @@
  
   
 
-##### 开发方式
+#### 开发方式
 
 **前提条件**
  
@@ -59,7 +59,7 @@
  
   
 
-##### 根据特定类型推荐图片
+#### 根据特定类型推荐图片
 
 当需要推荐特定类型的图片，如身份证、银行卡、驾驶证、行驶证、二维码等，可通过配置[RecommendationOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-class#recommendationoptions11).recommendationType，指定推荐的图片类型。支持的图片类型可参考[RecommendationType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-e#recommendationtype11)。
  
@@ -76,7 +76,7 @@ this.pickerOptions.recommendationOptions = recommendationOptions;// 将推荐参
  
   
 
-##### 根据文本信息推荐图片
+#### 根据文本信息推荐图片
 
 当需要在图文编辑时，根据文本信息推荐图片，可通过配置[RecommendationOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-class#recommendationoptions11).textContextInfo。
  
@@ -100,6 +100,6 @@ this.pickerOptions.recommendationOptions = recommendationOptions;// 将推荐参
  
   
 
-##### 示例代码
+#### 示例代码
 
 - [基于PhotoPicker实现图片推荐功能](https://gitcode.com/HarmonyOS_Samples/SmartPhotoPicker)

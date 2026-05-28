@@ -12,7 +12,7 @@
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,13 +24,13 @@
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### Badge
+#### Badge
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -53,7 +53,7 @@ Badge(value: BadgeParamWithNumber)
 
 
 
-##### Badge
+#### Badge
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -78,7 +78,7 @@ Badge(value: BadgeParamWithString)
 
 
 
-##### BadgeParam对象说明
+#### BadgeParam对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -98,7 +98,7 @@ Badge(value: BadgeParamWithString)
 
 
 
-##### BadgeParamWithNumber对象说明
+#### BadgeParamWithNumber对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -118,7 +118,7 @@ BadgeParamWithNumber继承自[BadgeParam](#badgeparam对象说明)，具有Badge
 
 
 
-##### BadgeParamWithString对象说明
+#### BadgeParamWithString对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -137,7 +137,7 @@ BadgeParamWithString继承自[BadgeParam](#badgeparam对象说明)，具有Badge
 
 
 
-##### BadgePosition枚举说明
+#### BadgePosition枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -158,7 +158,7 @@ BadgeParamWithString继承自[BadgeParam](#badgeparam对象说明)，具有Badge
 
 
 
-##### BadgeStyle对象说明
+#### BadgeStyle对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -186,7 +186,7 @@ Badge的样式。包括文本颜色、尺寸、字重、圆点颜色和尺寸。
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -194,7 +194,7 @@ Badge的样式。包括文本颜色、尺寸、字重、圆点颜色和尺寸。
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -202,13 +202,13 @@ Badge的样式。包括文本颜色、尺寸、字重、圆点颜色和尺寸。
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1（设置标记组件内容）
+#### 示例1（设置标记组件内容）
 
 该示例通过[BadgeParamWithNumber](#badgeparamwithnumber对象说明)的入参value、[BadgeParamWithString](#badgeparamwithstring对象说明)的入参count，实现了传入空值、字符、数字时标记组件展现不同的效果。
 
@@ -371,7 +371,7 @@ struct BadgeExample {
 
 
 
-##### 示例2（设置数字控制标记显隐）
+#### 示例2（设置数字控制标记显隐）
 
 该示例通过count属性，实现了设置数字0和1时标记组件的隐藏和显示效果。
 
@@ -413,7 +413,7 @@ struct Index {
 
 
 
-##### 示例3（设置外描边和文本延伸方式）
+#### 示例3（设置外描边和文本延伸方式）
 
 从API version 22开始，该示例使用outerBorderColor和outerBorderWidth属性设置外描边，通过enableAutoAvoidance属性控制增加角标文本延伸显示时是否避让。
 

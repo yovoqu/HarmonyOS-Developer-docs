@@ -12,7 +12,7 @@
 
   
 
-##### addColorStop
+#### addColorStop
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -73,7 +73,7 @@ struct AddColorStop {
  
   
 
-##### addColorStop20+
+#### addColorStop20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -165,4 +165,4 @@ struct AddColorStop {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/6FDULLxMQxSal3GJJYQUhA/zh-cn_image_0000002611756001.png?HW-CC-KV=V1&HW-CC-Date=20260528T024206Z&HW-CC-Expire=86400&HW-CC-Sign=46BE83CE8375F4C41B7565AB3B0C1A2D8794C38858EDF188D70C30C1F6D19B88)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/6FDULLxMQxSal3GJJYQUhA/zh-cn_image_0000002611756001.png?HW-CC-KV=V1&HW-CC-Date=20260528T025539Z&HW-CC-Expire=86400&HW-CC-Sign=4856C940DFE9BFBEFA3837DA0F881FC64B7D5EFBD54A475D6127EFAB035A9713)

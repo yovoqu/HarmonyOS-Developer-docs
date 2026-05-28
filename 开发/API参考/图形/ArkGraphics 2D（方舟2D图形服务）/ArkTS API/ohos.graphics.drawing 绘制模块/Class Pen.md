@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { drawing } from '@kit.ArkGraphics2D';
 
 
 
-##### constructor12+
+#### constructor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -42,7 +42,7 @@ const pen = new drawing.Pen();
 
 
 
-##### constructor12+
+#### constructor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -82,7 +82,7 @@ const newPen = new drawing.Pen(pen);
 
 
 
-##### setMiterLimit12+
+#### setMiterLimit12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -119,7 +119,7 @@ pen.setMiterLimit(5);
 
 
 
-##### getMiterLimit12+
+#### getMiterLimit12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -147,7 +147,7 @@ let miter = pen.getMiterLimit();
 
 
 
-##### setImageFilter12+
+#### setImageFilter12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -187,7 +187,7 @@ pen.setImageFilter(null);
 
 
 
-##### getColorFilter12+
+#### getColorFilter12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -217,7 +217,7 @@ let filter = pen.getColorFilter();
 
 
 
-##### setColor
+#### setColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -255,7 +255,7 @@ pen.setColor(color);
 
 
 
-##### setColor12+
+#### setColor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -295,7 +295,7 @@ pen.setColor(255, 255, 0, 0);
 
 
 
-##### setColor18+
+#### setColor18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -323,7 +323,7 @@ pen.setColor(0xffff0000);
 
 
 
-##### setColor4f20+
+#### setColor4f20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -354,7 +354,7 @@ pen.setColor4f(color4f, colorSpace);
 
 
 
-##### getColor12+
+#### getColor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -384,7 +384,7 @@ let colorGet = pen.getColor();
 
 
 
-##### getColor4f20+
+#### getColor4f20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -415,7 +415,7 @@ let color = pen.getColor4f();
 
 
 
-##### getHexColor18+
+#### getHexColor18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -446,7 +446,7 @@ console.info('getHexColor: ', hex_color.toString(16));
 
 
 
-##### setStrokeWidth
+#### setStrokeWidth
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -483,7 +483,7 @@ pen.setStrokeWidth(5);
 
 
 
-##### getWidth12+
+#### getWidth12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -511,7 +511,7 @@ let width = pen.getWidth();
 
 
 
-##### setAntiAlias
+#### setAntiAlias
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -548,7 +548,7 @@ pen.setAntiAlias(true);
 
 
 
-##### isAntiAlias12+
+#### isAntiAlias12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -576,7 +576,7 @@ let isAntiAlias = pen.isAntiAlias();
 
 
 
-##### setAlpha
+#### setAlpha
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -613,7 +613,7 @@ pen.setAlpha(128);
 
 
 
-##### getAlpha12+
+#### getAlpha12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -641,7 +641,7 @@ let alpha = pen.getAlpha();
 
 
 
-##### setColorFilter
+#### setColorFilter
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -679,7 +679,7 @@ pen.setColorFilter(colorFilter);
 
 
 
-##### setMaskFilter12+
+#### setMaskFilter12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -725,7 +725,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### setPathEffect12+
+#### setPathEffect12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -771,7 +771,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### setShaderEffect12+
+#### setShaderEffect12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -809,7 +809,7 @@ pen.setShaderEffect(shaderEffect);
 
 
 
-##### setShadowLayer12+
+#### setShadowLayer12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -866,7 +866,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### setBlendMode
+#### setBlendMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -903,7 +903,7 @@ pen.setBlendMode(drawing.BlendMode.SRC);
 
 
 
-##### setJoinStyle12+
+#### setJoinStyle12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -948,7 +948,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### getJoinStyle12+
+#### getJoinStyle12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -985,7 +985,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### setCapStyle12+
+#### setCapStyle12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1030,7 +1030,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### getCapStyle12+
+#### getCapStyle12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1067,7 +1067,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### setDither
+#### setDither
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1104,7 +1104,7 @@ pen.setDither(true);
 
 
 
-##### getFillPath12+
+#### getFillPath12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1153,7 +1153,7 @@ let value = pen.getFillPath(pathSrc, pathDst);
 
 
 
-##### reset12+
+#### reset12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

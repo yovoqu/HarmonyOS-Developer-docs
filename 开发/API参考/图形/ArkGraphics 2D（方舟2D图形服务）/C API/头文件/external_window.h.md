@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-external-window-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -47,7 +47,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -62,7 +62,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -107,13 +107,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### NativeWindowOperation
+#### NativeWindowOperation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -160,7 +160,7 @@ OH_NativeWindow_NativeWindowHandleOpt函数中的操作码。
  
   
 
-##### OHScalingMode
+#### OHScalingMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -190,7 +190,7 @@ enum OHScalingMode
  
   
 
-##### OHScalingModeV2
+#### OHScalingModeV2
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -217,7 +217,7 @@ enum OHScalingModeV2
  
   
 
-##### OHHDRMetadataKey
+#### OHHDRMetadataKey
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -255,7 +255,7 @@ enum OHHDRMetadataKey
  
   
 
-##### OHSurfaceSource
+#### OHSurfaceSource
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -282,13 +282,13 @@ enum OHSurfaceSource
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_NativeWindow_CreateNativeWindow()
+#### OH_NativeWindow_CreateNativeWindow()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -324,7 +324,7 @@ OHNativeWindow* OH_NativeWindow_CreateNativeWindow(void* pSurface)
  
   
 
-##### OH_NativeWindow_DestroyNativeWindow()
+#### OH_NativeWindow_DestroyNativeWindow()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -351,7 +351,7 @@ void OH_NativeWindow_DestroyNativeWindow(OHNativeWindow* window)
  
   
 
-##### OH_NativeWindow_CreateNativeWindowBufferFromSurfaceBuffer()
+#### OH_NativeWindow_CreateNativeWindowBufferFromSurfaceBuffer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -389,7 +389,7 @@ OHNativeWindowBuffer* OH_NativeWindow_CreateNativeWindowBufferFromSurfaceBuffer(
  
   
 
-##### OH_NativeWindow_CreateNativeWindowBufferFromNativeBuffer()
+#### OH_NativeWindow_CreateNativeWindowBufferFromNativeBuffer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -425,7 +425,7 @@ OHNativeWindowBuffer* OH_NativeWindow_CreateNativeWindowBufferFromNativeBuffer(O
  
   
 
-##### OH_NativeWindow_DestroyNativeWindowBuffer()
+#### OH_NativeWindow_DestroyNativeWindowBuffer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -452,7 +452,7 @@ void OH_NativeWindow_DestroyNativeWindowBuffer(OHNativeWindowBuffer* buffer)
  
   
 
-##### OH_NativeWindow_NativeWindowRequestBuffer()
+#### OH_NativeWindow_NativeWindowRequestBuffer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -496,7 +496,7 @@ int32_t OH_NativeWindow_NativeWindowRequestBuffer(OHNativeWindow *window,OHNativ
  
   
 
-##### OH_NativeWindow_NativeWindowFlushBuffer()
+#### OH_NativeWindow_NativeWindowFlushBuffer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -535,7 +535,7 @@ int32_t OH_NativeWindow_NativeWindowFlushBuffer(OHNativeWindow *window, OHNative
  
   
 
-##### OH_NativeWindow_GetLastFlushedBuffer()
+#### OH_NativeWindow_GetLastFlushedBuffer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -574,7 +574,7 @@ int32_t OH_NativeWindow_GetLastFlushedBuffer(OHNativeWindow *window, OHNativeWin
  
   
 
-##### OH_NativeWindow_NativeWindowAbortBuffer()
+#### OH_NativeWindow_NativeWindowAbortBuffer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -609,7 +609,7 @@ int32_t OH_NativeWindow_NativeWindowAbortBuffer(OHNativeWindow *window, OHNative
  
   
 
-##### OH_NativeWindow_NativeWindowHandleOpt()
+#### OH_NativeWindow_NativeWindowHandleOpt()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -645,7 +645,7 @@ int32_t OH_NativeWindow_NativeWindowHandleOpt(OHNativeWindow *window, int code, 
  
   
 
-##### OH_NativeWindow_GetBufferHandleFromNative()
+#### OH_NativeWindow_GetBufferHandleFromNative()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -679,7 +679,7 @@ BufferHandle *OH_NativeWindow_GetBufferHandleFromNative(OHNativeWindowBuffer *bu
  
   
 
-##### OH_NativeWindow_NativeObjectReference()
+#### OH_NativeWindow_NativeObjectReference()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -715,7 +715,7 @@ int32_t OH_NativeWindow_NativeObjectReference(void *obj)
  
   
 
-##### OH_NativeWindow_NativeObjectUnreference()
+#### OH_NativeWindow_NativeObjectUnreference()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -749,7 +749,7 @@ int32_t OH_NativeWindow_NativeObjectUnreference(void *obj)
  
   
 
-##### OH_NativeWindow_GetNativeObjectMagic()
+#### OH_NativeWindow_GetNativeObjectMagic()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -783,7 +783,7 @@ int32_t OH_NativeWindow_GetNativeObjectMagic(void *obj)
  
   
 
-##### OH_NativeWindow_NativeWindowSetScalingMode()
+#### OH_NativeWindow_NativeWindowSetScalingMode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -821,7 +821,7 @@ int32_t OH_NativeWindow_NativeWindowSetScalingMode(OHNativeWindow *window, uint3
  
   
 
-##### OH_NativeWindow_NativeWindowSetMetaData()
+#### OH_NativeWindow_NativeWindowSetMetaData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -858,7 +858,7 @@ int32_t OH_NativeWindow_NativeWindowSetMetaData(OHNativeWindow *window, uint32_t
  
   
 
-##### OH_NativeWindow_NativeWindowSetMetaDataSet()
+#### OH_NativeWindow_NativeWindowSetMetaDataSet()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -896,7 +896,7 @@ int32_t OH_NativeWindow_NativeWindowSetMetaDataSet(OHNativeWindow *window, uint3
  
   
 
-##### OH_NativeWindow_NativeWindowSetTunnelHandle()
+#### OH_NativeWindow_NativeWindowSetTunnelHandle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -931,7 +931,7 @@ int32_t OH_NativeWindow_NativeWindowSetTunnelHandle(OHNativeWindow *window, cons
  
   
 
-##### OH_NativeWindow_NativeWindowAttachBuffer()
+#### OH_NativeWindow_NativeWindowAttachBuffer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -968,7 +968,7 @@ int32_t OH_NativeWindow_NativeWindowAttachBuffer(OHNativeWindow *window, OHNativ
  
   
 
-##### OH_NativeWindow_NativeWindowDetachBuffer()
+#### OH_NativeWindow_NativeWindowDetachBuffer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1003,7 +1003,7 @@ int32_t OH_NativeWindow_NativeWindowDetachBuffer(OHNativeWindow *window, OHNativ
  
   
 
-##### OH_NativeWindow_GetSurfaceId()
+#### OH_NativeWindow_GetSurfaceId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1038,7 +1038,7 @@ int32_t OH_NativeWindow_GetSurfaceId(OHNativeWindow *window, uint64_t *surfaceId
  
   
 
-##### OH_NativeWindow_CreateNativeWindowFromSurfaceId()
+#### OH_NativeWindow_CreateNativeWindowFromSurfaceId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1079,7 +1079,7 @@ int32_t OH_NativeWindow_CreateNativeWindowFromSurfaceId(uint64_t surfaceId, OHNa
  
   
 
-##### OH_NativeWindow_NativeWindowSetScalingModeV2()
+#### OH_NativeWindow_NativeWindowSetScalingModeV2()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1114,7 +1114,7 @@ int32_t OH_NativeWindow_NativeWindowSetScalingModeV2(OHNativeWindow* window, OHS
  
   
 
-##### OH_NativeWindow_GetLastFlushedBufferV2()
+#### OH_NativeWindow_GetLastFlushedBufferV2()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1153,7 +1153,7 @@ int32_t OH_NativeWindow_GetLastFlushedBufferV2(OHNativeWindow *window, OHNativeW
  
   
 
-##### OH_NativeWindow_SetBufferHold()
+#### OH_NativeWindow_SetBufferHold()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1186,7 +1186,7 @@ void OH_NativeWindow_SetBufferHold(OHNativeWindow *window)
  
   
 
-##### OH_NativeWindow_WriteToParcel()
+#### OH_NativeWindow_WriteToParcel()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1221,7 +1221,7 @@ int32_t OH_NativeWindow_WriteToParcel(OHNativeWindow *window, OHIPCParcel *parce
  
   
 
-##### OH_NativeWindow_ReadFromParcel()
+#### OH_NativeWindow_ReadFromParcel()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1258,7 +1258,7 @@ int32_t OH_NativeWindow_ReadFromParcel(OHIPCParcel *parcel, OHNativeWindow **win
  
   
 
-##### OH_NativeWindow_SetColorSpace()
+#### OH_NativeWindow_SetColorSpace()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1293,7 +1293,7 @@ int32_t OH_NativeWindow_SetColorSpace(OHNativeWindow *window, OH_NativeBuffer_Co
  
   
 
-##### OH_NativeWindow_GetColorSpace()
+#### OH_NativeWindow_GetColorSpace()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1328,7 +1328,7 @@ int32_t OH_NativeWindow_GetColorSpace(OHNativeWindow *window, OH_NativeBuffer_Co
  
   
 
-##### OH_NativeWindow_SetMetadataValue()
+#### OH_NativeWindow_SetMetadataValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1365,7 +1365,7 @@ int32_t OH_NativeWindow_SetMetadataValue(OHNativeWindow *window, OH_NativeBuffer
  
   
 
-##### OH_NativeWindow_GetMetadataValue()
+#### OH_NativeWindow_GetMetadataValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1402,7 +1402,7 @@ int32_t OH_NativeWindow_GetMetadataValue(OHNativeWindow *window, OH_NativeBuffer
  
   
 
-##### OH_NativeWindow_CleanCache()
+#### OH_NativeWindow_CleanCache()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1438,7 +1438,7 @@ int32_t OH_NativeWindow_CleanCache(OHNativeWindow *window)
  
   
 
-##### OH_NativeWindow_PreAllocBuffers()
+#### OH_NativeWindow_PreAllocBuffers()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1475,7 +1475,7 @@ int32_t OH_NativeWindow_PreAllocBuffers(OHNativeWindow *window, uint32_t allocBu
  
   
 
-##### OH_NativeWindow_LockBuffer()
+#### OH_NativeWindow_LockBuffer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1519,7 +1519,7 @@ int32_t OH_NativeWindow_LockBuffer(OHNativeWindow* window, Region region, OHNati
  
   
 
-##### OH_NativeWindow_UnlockAndFlushBuffer()
+#### OH_NativeWindow_UnlockAndFlushBuffer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

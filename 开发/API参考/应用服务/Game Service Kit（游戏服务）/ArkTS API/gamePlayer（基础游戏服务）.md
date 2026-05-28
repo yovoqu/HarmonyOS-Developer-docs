@@ -10,7 +10,7 @@
 **起始版本：** 4.0.0(10)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -20,7 +20,7 @@ import { gamePlayer } from '@kit.GameServiceKit';
  
   
 
-##### GSKLocalPlayer
+#### GSKLocalPlayer
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -42,7 +42,7 @@ import { gamePlayer } from '@kit.GameServiceKit';
  
   
 
-##### GSKPlayerRole
+#### GSKPlayerRole
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -53,7 +53,7 @@ import { gamePlayer } from '@kit.GameServiceKit';
 **起始版本：** 4.0.0(10)
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/ekTuRyOqQ_SFdj7eM6DshQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023716Z&HW-CC-Expire=86400&HW-CC-Sign=C6C4A17F82BA3706F400F9941739ACC6FFE2782C37A8196BFAC5E69179BF0971)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/ekTuRyOqQ_SFdj7eM6DshQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025049Z&HW-CC-Expire=86400&HW-CC-Sign=A347691F8B1C42A8DE00C5F7EC2F578EB4FDE777D8ACF335DAF6B23A7E16E964)
  
  
 gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
@@ -73,7 +73,7 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
  
   
 
-##### ThirdUserInfo
+#### ThirdUserInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -97,7 +97,7 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
  
   
 
-##### UnionLoginParam
+#### UnionLoginParam
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -116,7 +116,7 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
  
   
 
-##### ThirdAccountInfo
+#### ThirdAccountInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -136,7 +136,7 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
  
   
 
-##### BoundPlayerInfo
+#### BoundPlayerInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -154,7 +154,7 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
  
   
 
-##### BindType
+#### BindType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -172,7 +172,7 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
  
   
 
-##### UnionLoginResult
+#### UnionLoginResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -193,7 +193,7 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
  
   
 
-##### PlayerChangedResult
+#### PlayerChangedResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -211,7 +211,7 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
  
   
 
-##### PlayerChangedEvent
+#### PlayerChangedEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -228,7 +228,7 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
  
   
 
-##### ThirdUserAgeRange
+#### ThirdUserAgeRange
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -250,7 +250,7 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
  
   
 
-##### LoginPanelType
+#### LoginPanelType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -268,7 +268,7 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
  
   
 
-##### GameErrorCode
+#### GameErrorCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -315,7 +315,7 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
  
   
 
-##### gamePlayer.init
+#### gamePlayer.init
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -368,7 +368,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### gamePlayer.init
+#### gamePlayer.init
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -415,7 +415,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### gamePlayer.unionLogin
+#### gamePlayer.unionLogin
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -515,7 +515,7 @@ struct UnionLogin {
  
   
 
-##### gamePlayer.getLocalPlayer
+#### gamePlayer.getLocalPlayer
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -601,7 +601,7 @@ struct GetLocalPlayer {
  
   
 
-##### gamePlayer.getLocalPlayer
+#### gamePlayer.getLocalPlayer
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -683,7 +683,7 @@ struct GetLocalPlayer {
  
   
 
-##### gamePlayer.bindPlayer
+#### gamePlayer.bindPlayer
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -772,7 +772,7 @@ struct BindPlayer {
  
   
 
-##### gamePlayer.unbindPlayer
+#### gamePlayer.unbindPlayer
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -861,7 +861,7 @@ struct UnbindPlayer {
  
   
 
-##### gamePlayer.verifyLocalPlayer
+#### gamePlayer.verifyLocalPlayer
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -954,7 +954,7 @@ struct VerifyLocalPlayer {
  
   
 
-##### gamePlayer.savePlayerRole
+#### gamePlayer.savePlayerRole
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1028,7 +1028,7 @@ struct SavePlayerRole {
  
   
 
-##### gamePlayer.savePlayerRole
+#### gamePlayer.savePlayerRole
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1096,7 +1096,7 @@ struct SavePlayerRole {
  
   
 
-##### gamePlayer.on('playerChanged')
+#### gamePlayer.on('playerChanged')
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1150,7 +1150,7 @@ try {
  
   
 
-##### gamePlayer.off('playerChanged')
+#### gamePlayer.off('playerChanged')
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1219,7 +1219,7 @@ try {
  
   
 
-##### MiniGameLoginParam
+#### MiniGameLoginParam
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1237,7 +1237,7 @@ try {
  
   
 
-##### MiniGamePlayer
+#### MiniGamePlayer
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1259,7 +1259,7 @@ try {
  
   
 
-##### gamePlayer.on('miniGameAddictionPrevented')
+#### gamePlayer.on('miniGameAddictionPrevented')
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1311,7 +1311,7 @@ try {
  
   
 
-##### gamePlayer.off('miniGameAddictionPrevented')
+#### gamePlayer.off('miniGameAddictionPrevented')
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1378,7 +1378,7 @@ try {
  
   
 
-##### gamePlayer.miniGameLogin
+#### gamePlayer.miniGameLogin
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1469,7 +1469,7 @@ struct MiniGameLogin {
  
   
 
-##### gamePlayer.miniGamePay
+#### gamePlayer.miniGamePay
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1566,7 +1566,7 @@ struct MiniGamePay {
  
   
 
-##### PurchaseParameter
+#### PurchaseParameter
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1586,7 +1586,7 @@ struct MiniGamePay {
  
   
 
-##### ProductType
+#### ProductType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1605,7 +1605,7 @@ struct MiniGamePay {
  
   
 
-##### PurchaseResult
+#### PurchaseResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1624,7 +1624,7 @@ struct MiniGamePay {
  
   
 
-##### CreatePurchaseResult
+#### CreatePurchaseResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

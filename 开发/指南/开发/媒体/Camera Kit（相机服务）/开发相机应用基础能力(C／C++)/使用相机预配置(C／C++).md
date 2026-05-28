@@ -11,7 +11,7 @@
 为了解决上述问题，优化应用开发流程，系统针对拍照、录像两类场景（即[Camera_SceneMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h#camera_scenemode)为NORMAL_PHOTO或NORMAL_VIDEO），提供了[OH_CameraManager_CreatePreviewOutputUsedInPreconfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-manager-h#oh_cameramanager_createpreviewoutputusedinpreconfig)、[OH_CameraManager_CreatePhotoOutputUsedInPreconfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-manager-h#oh_cameramanager_createphotooutputusedinpreconfig)、[OH_CameraManager_CreateVideoOutputUsedInPreconfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-manager-h#oh_cameramanager_createvideooutputusedinpreconfig)接口帮助开发者快速完成相机参数配置。推荐仅需要自定义拍照界面的无需开发专业相机应用的开发者，使用相机预配置功能快速开发应用。
   
 
-##### 规格说明
+#### 规格说明
 
 系统提供了4种预配置类型（[Camera_PreconfigType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h#camera_preconfigtype)），分别为PRECONFIG_720P、PRECONFIG_1080P、PRECONFIG_4K、PRECONFIG_HIGH_QUALITY。以及3种画幅比例规格（[Camera_PreconfigRatio](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h#camera_preconfigratio)），1:1画幅（PRECONFIG_RATIO_1_1）、4:3画幅（PRECONFIG_RATIO_4_3）、16:9画幅（PRECONFIG_RATIO_16_9）。
  
@@ -94,7 +94,7 @@
  
   
 
-##### 开发示例
+#### 开发示例
 1. 在CMake脚本中链接相关动态库。
 
   

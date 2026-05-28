@@ -9,7 +9,7 @@
 该规则仅支持对.js/.ts文件进行检查。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -22,7 +22,7 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则默认不允许使用隐式any类型。但是可以接受{"allowExplicitAny": true}对象作为规则参数，以允许使用显式的any类型。
  
@@ -49,7 +49,7 @@ try {
  
  
 
-##### 正例
+#### 正例
 
 ```text
 try {
@@ -61,7 +61,7 @@ try {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 try {
@@ -74,7 +74,7 @@ try {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

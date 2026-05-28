@@ -7,13 +7,13 @@
 Access Token Manager (程序访问控制管理工具，简称atm工具)，是用于查询应用进程的权限、使用类型等信息的工具，为开发者提供了根据tokenid、包名、进程名等信息进行访问控制管理的能力。
 
 
-##### 环境说明
+#### 环境说明
 
 在使用本工具前，开发者需要先获取[hdc工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdc)，执行hdc shell。
 
 
 
-##### atm工具命令列表
+#### atm工具命令列表
 
 | 命令 | 描述 |
 | --- | --- |
@@ -23,7 +23,7 @@ Access Token Manager (程序访问控制管理工具，简称atm工具)，是用
 
 
 
-##### 帮助命令
+#### 帮助命令
 
 ```bash
 # 显示帮助信息
@@ -32,7 +32,7 @@ atm help
 
 
 
-##### 查询命令
+#### 查询命令
 
 ```bash
 atm dump [-h] [-d [-p <permission-name>]] [-t [-i <token-id>] [-b <bundle-name>] [-n <process-name>] [-p <permission-name>]]

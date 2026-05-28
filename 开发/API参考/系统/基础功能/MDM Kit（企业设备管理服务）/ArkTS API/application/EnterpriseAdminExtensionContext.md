@@ -14,7 +14,7 @@ EnterpriseAdminExtensionContext是[EnterpriseAdminExtensionAbility](https://deve
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -24,7 +24,7 @@ import { common } from '@kit.MDMKit';
 
 
 
-##### EnterpriseAdminExtensionContext
+#### EnterpriseAdminExtensionContext
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -32,7 +32,7 @@ import { common } from '@kit.MDMKit';
 
 
 
-##### startAbilityByAdmin
+#### startAbilityByAdmin
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

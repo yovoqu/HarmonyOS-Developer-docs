@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-audio-in-ear-monitor
 
-##### 概述
+#### 概述
 
  
 耳返是指通过耳机系统将音频实时传输到耳机中，让使用者能够听到自己的声音、伴奏或其它需要的信息。例如在K歌类应用中，将录制的人声和背景音乐实时送到耳机中，使用户通过反馈即时调整，获得更好的使用体验。
@@ -23,11 +23,11 @@
 
  
 
-##### 基于AudioLoopback实现音频耳返
+#### 基于AudioLoopback实现音频耳返
 
  
 
-##### 场景描述
+#### 场景描述
 
 点击进入AudioLoopback页面，连接有线耳机，点击录制按钮开启耳返。开启耳返后开发者可通过麦克风在耳机中实时听到自己或周围的声音，同时进行耳返内音频的录制，并且可通过Slider滑块实现耳返音量调节功能。录制完成后进入播放页面，播放录制的音频资源。实现效果如下图：
  
@@ -37,7 +37,7 @@
  
  
 
-##### 实现原理
+#### 实现原理
 
 AudioLoopback是HarmonyOS提供的音频返听接口，用于实现低时延耳返功能，支持自动创建低时延渲染器与采集器，采集的音频可直接通过内部路由返回到渲染器，实时传输到耳机。
  
@@ -49,7 +49,7 @@ AudioLoopback的状态变化如下图所示，在创建AudioLoopback实例后，
  
  
 
-##### 开发步骤
+#### 开发步骤
 
 使用AudioLoopback控制耳返的开启和关闭，结合[AVRecorder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder)实现音频的录制，将录制的音频保存在应用沙箱目录，并通过[@ohos.file.fs (文件管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs)打开录制的音频文件，再通过[AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer)实现已录制音频的播放控制，详细流程如下图所示：
  
@@ -520,11 +520,11 @@ Column() {
 
   
 
-  ##### 基于OHAudio实现音频耳返
+  #### 基于OHAudio实现音频耳返
 
   
 
-  ##### 场景描述
+  #### 场景描述
 
   点击进入OHAudio页面，连接有线耳机或蓝牙耳机，点击录制按钮开启耳返。开启耳返后开发者同样可以通过麦克风在耳机中实时听到自己或周围的声音，并进行耳返音频的录制，以及可以通过Slider滑块实现耳返音量的调节。录制完成后进入播放页面，播放录制的音频资源。实现效果如下图：
 
@@ -534,7 +534,7 @@ Column() {
 
   
 
-  ##### 实现原理
+  #### 实现原理
 
   在C/C++侧实现耳返依赖OHAudio提供的低时延模式进行录制和播放。
 
@@ -548,7 +548,7 @@ Column() {
 
   
 
-  ##### 开发步骤
+  #### 开发步骤
 
 1. 录制音频数据。
 调用[OH_AudioStreamBuilder_Create()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostreambuilder-h#oh_audiostreambuilder_create)，并指定[OH_AudioStream_Type](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostream-base-h#oh_audiostream_type)音频流类型为AUDIOSTREAM_TYPE_CAPTURER，创建输入类型的音频流构造器实例，并设置输入音频流的采样率、声道数、低时延模式、采样格式、编码类型及工作场景等属性。
@@ -861,7 +861,7 @@ capturesStop() {
 
   
 
-  ##### 示例代码
+  #### 示例代码
 
   
 [实现音频耳返](https://gitcode.com/HarmonyOS_Samples/audio-in-ear-monitor)

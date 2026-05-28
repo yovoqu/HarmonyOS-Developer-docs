@@ -14,7 +14,7 @@ transform动效，支持的组件范围：
 &lt;circle&gt;, &lt;ellipse&gt;, &lt;line&gt;, &lt;path&gt;, &lt;polygon&gt;, &lt;polyline&gt;, &lt;rect&gt;, &lt;text&gt;
   
 
-##### 权限列表
+#### 权限列表
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ transform动效，支持的组件范围：
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -30,7 +30,7 @@ transform动效，支持的组件范围：
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -43,7 +43,7 @@ transform动效，支持的组件范围：
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -234,4 +234,4 @@ transform动效，支持的组件范围：
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/MJy4-V2EQc-rK-ZbDovxtA/zh-cn_image_0000002611756335.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024105Z&HW-CC-Expire=86400&HW-CC-Sign=E944617102B0037F1246A6851CE725D7A13465BB9AB7DD2D74E826DB9269B583)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/MJy4-V2EQc-rK-ZbDovxtA/zh-cn_image_0000002611756335.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025439Z&HW-CC-Expire=86400&HW-CC-Sign=1DB8B1329C7ED402C0670B57376D247536E02DCBDBB6896583EB7B00B5C20490)

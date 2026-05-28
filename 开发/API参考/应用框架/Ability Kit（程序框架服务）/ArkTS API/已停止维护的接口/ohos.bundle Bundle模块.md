@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import bundle from '@ohos.bundle';
 
 
 
-##### 权限列表
+#### 权限列表
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -36,7 +36,7 @@ import bundle from '@ohos.bundle';
 
 
 
-##### bundle.getApplicationInfodeprecated
+#### bundle.getApplicationInfodeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -94,7 +94,7 @@ bundle.getApplicationInfo(bundleName, bundleFlags, userId)
 
 
 
-##### bundle.getApplicationInfodeprecated
+#### bundle.getApplicationInfodeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -146,7 +146,7 @@ bundle.getApplicationInfo(bundleName, bundleFlags, userId, (err, data) => {
 
 
 
-##### bundle.getApplicationInfodeprecated
+#### bundle.getApplicationInfodeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -196,7 +196,7 @@ bundle.getApplicationInfo(bundleName, bundleFlags, (err, data) => {
 
 
 
-##### bundle.getAllBundleInfodeprecated
+#### bundle.getAllBundleInfodeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -250,7 +250,7 @@ bundle.getAllBundleInfo(bundleFlag, userId)
 
 
 
-##### bundle.getAllBundleInfodeprecated
+#### bundle.getAllBundleInfodeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -296,7 +296,7 @@ bundle.getAllBundleInfo(bundleFlag, (err, data) => {
 
 
 
-##### bundle.getAllBundleInfodeprecated
+#### bundle.getAllBundleInfodeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -344,7 +344,7 @@ bundle.getAllBundleInfo(bundleFlag, userId, (err, data) => {
 
 
 
-##### bundle.getBundleInfodeprecated
+#### bundle.getBundleInfodeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -404,7 +404,7 @@ bundle.getBundleInfo(bundleName, bundleFlags, options)
 
 
 
-##### bundle.getBundleInfodeprecated
+#### bundle.getBundleInfodeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -454,7 +454,7 @@ bundle.getBundleInfo(bundleName, bundleFlags, (err, data) => {
 
 
 
-##### bundle.getBundleInfodeprecated
+#### bundle.getBundleInfodeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -508,7 +508,7 @@ bundle.getBundleInfo(bundleName, bundleFlags, options, (err, data) => {
 
 
 
-##### bundle.getAllApplicationInfodeprecated
+#### bundle.getAllApplicationInfodeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -562,7 +562,7 @@ bundle.getAllApplicationInfo(bundleFlags, userId)
 
 
 
-##### bundle.getAllApplicationInfodeprecated
+#### bundle.getAllApplicationInfodeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -610,7 +610,7 @@ bundle.getAllApplicationInfo(bundleFlags, userId, (err, data) => {
 
 
 
-##### bundle.getAllApplicationInfodeprecated
+#### bundle.getAllApplicationInfodeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -656,7 +656,7 @@ bundle.getAllApplicationInfo(bundleFlags, (err, data) => {
 
 
 
-##### bundle.getBundleArchiveInfodeprecated
+#### bundle.getBundleArchiveInfodeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -706,7 +706,7 @@ bundle.getBundleArchiveInfo(hapFilePath, bundleFlags)
 
 
 
-##### bundle.getBundleArchiveInfodeprecated
+#### bundle.getBundleArchiveInfodeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -750,7 +750,7 @@ bundle.getBundleArchiveInfo(hapFilePath, bundleFlags, (err, data) => {
 
 
 
-##### bundle.getAbilityInfodeprecated
+#### bundle.getAbilityInfodeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -806,7 +806,7 @@ bundle.getAbilityInfo(bundleName, abilityName)
 
 
 
-##### bundle.getAbilityInfodeprecated
+#### bundle.getAbilityInfodeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -856,7 +856,7 @@ bundle.getAbilityInfo(bundleName, abilityName, (err, data) => {
 
 
 
-##### bundle.getAbilityLabel8+ deprecated
+#### bundle.getAbilityLabel8+ deprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -912,7 +912,7 @@ bundle.getAbilityLabel(bundleName, abilityName)
 
 
 
-##### bundle.getAbilityLabel8+ deprecated
+#### bundle.getAbilityLabel8+ deprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -962,7 +962,7 @@ bundle.getAbilityLabel(bundleName, abilityName, (err, data) => {
 
 
 
-##### bundle.isAbilityEnabled8+ deprecated
+#### bundle.isAbilityEnabled8+ deprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1012,7 +1012,7 @@ bundle.getAbilityInfo(bundleName, abilityName).then((abilityInfo) => {
 
 
 
-##### bundle.isAbilityEnabled8+ deprecated
+#### bundle.isAbilityEnabled8+ deprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1057,7 +1057,7 @@ bundle.getAbilityInfo(bundleName, abilityName).then((abilityInfo) => {
 
 
 
-##### bundle.isApplicationEnabled8+ deprecated
+#### bundle.isApplicationEnabled8+ deprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1105,7 +1105,7 @@ bundle.isApplicationEnabled(bundleName)
 
 
 
-##### bundle.isApplicationEnabled8+ deprecated
+#### bundle.isApplicationEnabled8+ deprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1147,7 +1147,7 @@ bundle.isApplicationEnabled(bundleName, (err, data) => {
 
 
 
-##### bundle.queryAbilityByWantdeprecated
+#### bundle.queryAbilityByWantdeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1209,7 +1209,7 @@ bundle.queryAbilityByWant(want, bundleFlags, userId)
 
 
 
-##### bundle.queryAbilityByWantdeprecated
+#### bundle.queryAbilityByWantdeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1265,7 +1265,7 @@ bundle.queryAbilityByWant(want, bundleFlags, userId, (err, data) => {
 
 
 
-##### bundle.queryAbilityByWantdeprecated
+#### bundle.queryAbilityByWantdeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1319,7 +1319,7 @@ bundle.queryAbilityByWant(want, bundleFlags, (err, data) => {
 
 
 
-##### bundle.getLaunchWantForBundledeprecated
+#### bundle.getLaunchWantForBundledeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1371,7 +1371,7 @@ bundle.getLaunchWantForBundle(bundleName)
 
 
 
-##### bundle.getLaunchWantForBundledeprecated
+#### bundle.getLaunchWantForBundledeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1417,7 +1417,7 @@ bundle.getLaunchWantForBundle(bundleName, (err, data) => {
 
 
 
-##### bundle.getNameForUid8+ deprecated
+#### bundle.getNameForUid8+ deprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1465,7 +1465,7 @@ bundle.getNameForUid(uid)
 
 
 
-##### bundle.8+ deprecated
+#### bundle.8+ deprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1507,7 +1507,7 @@ bundle.getNameForUid(uid, (err, data) => {
 
 
 
-##### bundle.getAbilityIcon8+ deprecated
+#### bundle.getAbilityIcon8+ deprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1563,7 +1563,7 @@ bundle.getAbilityIcon(bundleName, abilityName)
 
 
 
-##### bundle.getAbilityIcon8+ deprecated
+#### bundle.getAbilityIcon8+ deprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1613,7 +1613,7 @@ bundle.getAbilityIcon(bundleName, abilityName, (err, data) => {
 
 
 
-##### InstallErrorCodedeprecated
+#### InstallErrorCodedeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1649,7 +1649,7 @@ bundle.getAbilityIcon(bundleName, abilityName, (err, data) => {
 
 
 
-##### BundleFlagdeprecated
+#### BundleFlagdeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1683,7 +1683,7 @@ bundle.getAbilityIcon(bundleName, abilityName, (err, data) => {
 
 
 
-##### BundleOptionsdeprecated
+#### BundleOptionsdeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1702,7 +1702,7 @@ bundle.getAbilityIcon(bundleName, abilityName, (err, data) => {
 
 
 
-##### AbilityTypedeprecated
+#### AbilityTypedeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1724,7 +1724,7 @@ Ability组件类型。
 
 
 
-##### DisplayOrientationdeprecated
+#### DisplayOrientationdeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1746,7 +1746,7 @@ Ability组件类型。
 
 
 
-##### LaunchModedeprecated
+#### LaunchModedeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1766,7 +1766,7 @@ Ability组件的启动模式。
 
 
 
-##### AbilitySubTypedeprecated
+#### AbilitySubTypedeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1786,7 +1786,7 @@ Ability组件的子类型。
 
 
 
-##### ColorModedeprecated
+#### ColorModedeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1807,7 +1807,7 @@ Ability组件的子类型。
 
 
 
-##### GrantStatusdeprecated
+#### GrantStatusdeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

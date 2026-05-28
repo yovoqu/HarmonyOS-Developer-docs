@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { adminManager } from '@kit.MDMKit';
 
 
 
-##### adminManager.disableAdmin
+#### adminManager.disableAdmin
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -87,7 +87,7 @@ adminManager.disableAdmin(wantTemp, 100).catch((err: BusinessError) => {
 
 
 
-##### adminManager.isByodAdmin20+
+#### adminManager.isByodAdmin20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -147,7 +147,7 @@ try {
 
 
 
-##### adminManager.subscribeManagedEventSync
+#### adminManager.subscribeManagedEventSync
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -204,7 +204,7 @@ try {
 
 
 
-##### adminManager.unsubscribeManagedEventSync
+#### adminManager.unsubscribeManagedEventSync
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -261,7 +261,7 @@ try {
 
 
 
-##### adminManager.setDelegatedPolicies14+
+#### adminManager.setDelegatedPolicies14+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -322,7 +322,7 @@ try {
 
 
 
-##### adminManager.getDelegatedPolicies14+
+#### adminManager.getDelegatedPolicies14+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -386,7 +386,7 @@ try {
 
 
 
-##### adminManager.getDelegatedBundleNames14+
+#### adminManager.getDelegatedBundleNames14+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -450,7 +450,7 @@ try {
 
 
 
-##### adminManager.startAdminProvision15+
+#### adminManager.startAdminProvision15+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -515,7 +515,7 @@ try {
 
 
 
-##### adminManager.enableDeviceAdmin23+
+#### adminManager.enableDeviceAdmin23+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -579,7 +579,7 @@ adminManager.enableDeviceAdmin(wantTemp).catch((err: BusinessError) => {
 
 
 
-##### adminManager.disableDeviceAdmin23+
+#### adminManager.disableDeviceAdmin23+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -642,7 +642,7 @@ adminManager.disableDeviceAdmin(wantTemp).catch((err: BusinessError) => {
 
 
 
-##### ManagedEvent
+#### ManagedEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -666,7 +666,7 @@ adminManager.disableDeviceAdmin(wantTemp).catch((err: BusinessError) => {
 
 
 
-##### AdminType15+
+#### AdminType15+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -681,7 +681,7 @@ adminManager.disableDeviceAdmin(wantTemp).catch((err: BusinessError) => {
 
 
 
-##### Policy20+
+#### Policy20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -699,13 +699,13 @@ adminManager.disableDeviceAdmin(wantTemp).catch((err: BusinessError) => {
 
 
 
-##### 附录
+#### 附录
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
 
 
-##### 可委托策略列表
+#### 可委托策略列表
 
 | 策略名称 | 对应接口 | 说明 |
 | --- | --- | --- |

@@ -14,7 +14,7 @@
 **起始版本：** 4.1.0(11)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -24,7 +24,7 @@ import { productViewManager } from '@kit.AppGalleryKit';
 
 
 
-##### ProductViewCallback
+#### ProductViewCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -45,7 +45,7 @@ import { productViewManager } from '@kit.AppGalleryKit';
 
 
 
-##### ServiceViewCallback
+#### ServiceViewCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -67,7 +67,7 @@ import { productViewManager } from '@kit.AppGalleryKit';
 
 
 
-##### ServiceViewReceiveData
+#### ServiceViewReceiveData
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -88,7 +88,7 @@ import { productViewManager } from '@kit.AppGalleryKit';
 
 
 
-##### ReceiveDataResult
+#### ReceiveDataResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -109,7 +109,7 @@ import { productViewManager } from '@kit.AppGalleryKit';
 
 
 
-##### CheckShortcutResult
+#### CheckShortcutResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -131,7 +131,7 @@ import { productViewManager } from '@kit.AppGalleryKit';
 
 
 
-##### SKExposure
+#### SKExposure
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -220,7 +220,7 @@ struct LoadProduct {
 
 
 
-##### PinShortcutInfo
+#### PinShortcutInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -244,7 +244,7 @@ struct LoadProduct {
 
 
 
-##### productViewManager.loadProduct
+#### productViewManager.loadProduct
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -328,7 +328,7 @@ struct LoadProduct {
 
 
 
-##### productViewManager.loadService
+#### productViewManager.loadService
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -414,7 +414,7 @@ struct LoadService {
 
 
 
-##### productViewManager.checkPinShortcutPermitted
+#### productViewManager.checkPinShortcutPermitted
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -515,7 +515,7 @@ struct CheckPinShortcutPermitted {
 
 
 
-##### productViewManager.checkPinShortcutPermitted
+#### productViewManager.checkPinShortcutPermitted
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -618,7 +618,7 @@ struct CheckPinShortcutPermitted {
 
 
 
-##### productViewManager.requestNewPinShortcut
+#### productViewManager.requestNewPinShortcut
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -706,7 +706,7 @@ struct RequestNewPinShortcut {
 
 
 
-##### productViewManager.getPinShortcutInfos
+#### productViewManager.getPinShortcutInfos
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -778,7 +778,7 @@ struct GetPinShortcutInfos {
 
 
 
-##### productViewManager.removePinShortcut
+#### productViewManager.removePinShortcut
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

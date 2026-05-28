@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-create-snapshot
 
-##### 简介
+#### 简介
 
 JavaScript虚拟机（JSVM）的快照创建功能，将当前运行时的JavaScript程序状态保存为一个快照文件，这个快照文件包含了当前的堆内存、执行上下文、函数闭包等信息。
  
   
 
-##### 基本概念
+#### 基本概念
 
 - **虚拟机启动快照**：虚拟机在某个特定时间点的状态快照，包含了当前虚拟机的所有内部状态和数据。通过创建一个启动快照，可以在之后的时间点恢复虚拟机到相同的状态。
 
@@ -19,7 +19,7 @@ JavaScript虚拟机（JSVM）的快照创建功能，将当前运行时的JavaSc
  
   
 
-##### 接口说明
+#### 接口说明
  
 | 接口 | 功能说明 |
 | --- | --- |
@@ -29,11 +29,11 @@ JavaScript虚拟机（JSVM）的快照创建功能，将当前运行时的JavaSc
  
   
 
-##### 使用示例
+#### 使用示例
 
   
 
-##### OH_JSVM_CreateSnapshot & OH_JSVM_CreateEnvFromSnapshot
+#### OH_JSVM_CreateSnapshot & OH_JSVM_CreateEnvFromSnapshot
 
 用于创建和使用虚拟机的启动快照。
  

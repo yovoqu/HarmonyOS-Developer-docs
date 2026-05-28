@@ -12,7 +12,7 @@
 音频播放管理类，用于管理和播放音频媒体。在调用AudioPlayer的方法前，需要先通过[createAudioPlayer()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-f#mediacreateaudioplayerdeprecated)构建一个AudioPlayer实例。
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { media } from '@kit.MediaKit';
 
 
 
-##### 属性(deprecated)
+#### 属性(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@ import { media } from '@kit.MediaKit';
 
 
 
-##### play(deprecated)
+#### play(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -66,7 +66,7 @@ audioPlayer.play();
 
 
 
-##### pause(deprecated)
+#### pause(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -91,7 +91,7 @@ audioPlayer.pause();
 
 
 
-##### stop(deprecated)
+#### stop(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -116,7 +116,7 @@ audioPlayer.stop();
 
 
 
-##### reset(deprecated)
+#### reset(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -141,7 +141,7 @@ audioPlayer.reset();
 
 
 
-##### seek(deprecated)
+#### seek(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -177,7 +177,7 @@ audioPlayer.seek(30000);    // seek到30000ms的位置。
 
 
 
-##### setVolume(deprecated)
+#### setVolume(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -209,7 +209,7 @@ audioPlayer.setVolume(1);    // 设置音量到100%。
 
 
 
-##### release(deprecated)
+#### release(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -232,7 +232,7 @@ audioPlayer = undefined;
 
 
 
-##### getTrackDescription(deprecated)
+#### getTrackDescription(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -269,7 +269,7 @@ audioPlayer.getTrackDescription((error: BusinessError, arrList: Array<media.Medi
 
 
 
-##### getTrackDescription(deprecated)
+#### getTrackDescription(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -304,7 +304,7 @@ audioPlayer.getTrackDescription().then((arrList: Array<media.MediaDescription>) 
 
 
 
-##### on('bufferingUpdate')(deprecated)
+#### on('bufferingUpdate')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -337,7 +337,7 @@ audioPlayer.on('bufferingUpdate', (infoType: media.BufferingInfoType, value: num
 
 
 
-##### on('play' | 'pause' | 'stop' | 'reset' | 'dataLoad' | 'finish' | 'volumeChange')(deprecated)
+#### on('play' | 'pause' | 'stop' | 'reset' | 'dataLoad' | 'finish' | 'volumeChange')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -420,7 +420,7 @@ fileIo.open(path).then((file) => {
 
 
 
-##### on('timeUpdate')(deprecated)
+#### on('timeUpdate')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -457,7 +457,7 @@ audioPlayer.play();    // 开始播放后，自动触发时间戳更新事件。
 
 
 
-##### on('audioInterrupt')(deprecated)
+#### on('audioInterrupt')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -491,7 +491,7 @@ audioPlayer.on('audioInterrupt', (info: audio.InterruptEvent) => {
 
 
 
-##### on('error')(deprecated)
+#### on('error')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

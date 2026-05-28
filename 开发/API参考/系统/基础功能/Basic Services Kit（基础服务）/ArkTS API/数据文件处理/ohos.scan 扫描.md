@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { scan } from '@kit.BasicServicesKit';
  
   
 
-##### ScanErrorCode
+#### ScanErrorCode
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -51,7 +51,7 @@ import { scan } from '@kit.BasicServicesKit';
  
   
 
-##### ConstraintType
+#### ConstraintType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -69,7 +69,7 @@ import { scan } from '@kit.BasicServicesKit';
  
   
 
-##### PhysicalUnit
+#### PhysicalUnit
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -90,7 +90,7 @@ import { scan } from '@kit.BasicServicesKit';
  
   
 
-##### OptionValueType
+#### OptionValueType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -108,7 +108,7 @@ import { scan } from '@kit.BasicServicesKit';
  
   
 
-##### ScannerSyncMode
+#### ScannerSyncMode
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -124,7 +124,7 @@ import { scan } from '@kit.BasicServicesKit';
  
   
 
-##### ScannerDiscoveryMode
+#### ScannerDiscoveryMode
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -140,7 +140,7 @@ import { scan } from '@kit.BasicServicesKit';
  
   
 
-##### Range
+#### Range
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -159,7 +159,7 @@ import { scan } from '@kit.BasicServicesKit';
  
   
 
-##### ScannerParameter
+#### ScannerParameter
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -185,7 +185,7 @@ import { scan } from '@kit.BasicServicesKit';
  
   
 
-##### ScannerOptionValue
+#### ScannerOptionValue
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -205,7 +205,7 @@ import { scan } from '@kit.BasicServicesKit';
  
   
 
-##### PictureScanProgress
+#### PictureScanProgress
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -224,7 +224,7 @@ import { scan } from '@kit.BasicServicesKit';
  
   
 
-##### ScannerDevice
+#### ScannerDevice
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -246,7 +246,7 @@ import { scan } from '@kit.BasicServicesKit';
  
   
 
-##### ScannerSyncDevice
+#### ScannerSyncDevice
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -267,7 +267,7 @@ import { scan } from '@kit.BasicServicesKit';
  
   
 
-##### scan.init
+#### scan.init
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -308,7 +308,7 @@ scan.init().then(() => {
  
   
 
-##### scan.exit
+#### scan.exit
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -349,7 +349,7 @@ scan.exit().then(() => {
  
   
 
-##### scan.startScannerDiscovery
+#### scan.startScannerDiscovery
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -390,7 +390,7 @@ scan.startScannerDiscovery().then(() => {
  
   
 
-##### scan.openScanner
+#### scan.openScanner
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -439,7 +439,7 @@ scan.openScanner(scannerId).then(() => {
  
   
 
-##### scan.closeScanner
+#### scan.closeScanner
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -488,7 +488,7 @@ scan.closeScanner(scannerId).then(() => {
  
   
 
-##### scan.getScannerParameter
+#### scan.getScannerParameter
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -537,7 +537,7 @@ scan.getScannerParameter(scannerId).then((parameters: scan.ScannerParameter[]) =
  
   
 
-##### scan.setScannerParameter
+#### scan.setScannerParameter
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -593,7 +593,7 @@ scan.setScannerParameter(scannerId, optionIndex, value).then(() => {
  
   
 
-##### scan.setScanAutoOption
+#### scan.setScanAutoOption
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -644,7 +644,7 @@ scan.setScanAutoOption(scannerId, optionIndex).then(() => {
  
   
 
-##### scan.getScannerCurrentSetting
+#### scan.getScannerCurrentSetting
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -695,7 +695,7 @@ scan.getScannerCurrentSetting(scannerId, optionIndex).then((value: scan.ScannerO
  
   
 
-##### scan.startScan
+#### scan.startScan
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -746,7 +746,7 @@ scan.startScan(scannerId, batchMode).then(() => {
  
   
 
-##### scan.cancelScan
+#### scan.cancelScan
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -795,7 +795,7 @@ scan.cancelScan(scannerId).then(() => {
  
   
 
-##### scan.getPictureScanProgress
+#### scan.getPictureScanProgress
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -844,7 +844,7 @@ scan.getPictureScanProgress(scannerId).then((progress: scan.PictureScanProgress)
  
   
 
-##### scan.on
+#### scan.on
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -883,7 +883,7 @@ scan.on('scanDeviceFound', (device: scan.ScannerDevice) => {
  
   
 
-##### scan.off
+#### scan.off
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -925,7 +925,7 @@ scan.off('scanDeviceFound', callback);
  
   
 
-##### scan.on
+#### scan.on
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -964,7 +964,7 @@ scan.on('scanDeviceSync', (device: scan.ScannerSyncDevice) => {
  
   
 
-##### scan.off
+#### scan.off
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

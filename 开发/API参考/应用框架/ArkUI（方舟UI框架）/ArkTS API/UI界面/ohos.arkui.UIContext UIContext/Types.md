@@ -10,7 +10,7 @@
 
 
 
-##### CustomBuilderWithId18+
+#### CustomBuilderWithId18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -31,7 +31,7 @@ type CustomBuilderWithId = (id: number) => void
 
 
 
-##### ClickEventListenerCallback12+
+#### ClickEventListenerCallback12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -53,7 +53,7 @@ type ClickEventListenerCallback = (event: ClickEvent, node?: FrameNode) => void
 
 
 
-##### PanListenerCallback19+
+#### PanListenerCallback19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -76,7 +76,7 @@ Pan手势事件监听函数类型。
 
 
 
-##### GestureEventListenerCallback12+
+#### GestureEventListenerCallback12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -98,7 +98,7 @@ type GestureEventListenerCallback = (event: GestureEvent, node?: FrameNode) => v
 
 
 
-##### NodeIdentity20+
+#### NodeIdentity20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -118,7 +118,7 @@ type NodeIdentity = string | number
 
 
 
-##### NodeRenderStateChangeCallback20+
+#### NodeRenderStateChangeCallback20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -140,7 +140,7 @@ type NodeRenderStateChangeCallback = (state: NodeRenderState, node?: FrameNode) 
 
 
 
-##### GestureListenerCallback20+
+#### GestureListenerCallback20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -161,7 +161,7 @@ type GestureListenerCallback = (info: GestureTriggerInfo) => void
 
 
 
-##### PointerStyle12+
+#### PointerStyle12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -180,7 +180,7 @@ type PointerStyle = pointer.PointerStyle
 
 
 
-##### Context12+
+#### Context12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -7,7 +7,7 @@
 在填写实名信息表单的场景，表单中存在身份证和其他证件输入，其中，多种证件号共用一个输入框，ContentType.ID_CARD_NUMBER目前只支持身份证号的推荐、填充，不支持其他类型的证件，需要开发者根据输入场景动态配置输入框的ContentType，只在身份证输入场景下使用ContentType.ID_CARD_NUMBER。
   
 
-##### 效果图
+#### 效果图
 
 
 ![](assets/动态修改ContentType值/file-20260514132147482-0.png)
@@ -15,7 +15,7 @@
  
   
 
-##### 示例代码
+#### 示例代码
 
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';

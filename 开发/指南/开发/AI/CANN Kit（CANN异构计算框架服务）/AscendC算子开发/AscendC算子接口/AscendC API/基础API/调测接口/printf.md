@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-commissioning-interfaces-printf
 
-##### 函数功能
+#### 函数功能
 
 基于算子工程开发的算子，可以使用该接口实现CPU侧/NPU侧调试场景下的格式化输出功能。
  
@@ -33,7 +33,7 @@ fmt string 291
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 void printf(__gm__ const char* fmt, Args&&... args)
@@ -42,7 +42,7 @@ void PRINTF(__gm__ const char* fmt, Args&&... args)
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数名 | 输入/输出 | 描述 |
 | --- | --- | --- |
@@ -52,13 +52,13 @@ void PRINTF(__gm__ const char* fmt, Args&&... args)
  
   
 
-##### 返回值
+#### 返回值
 
 无
  
   
 
-##### 支持的型号
+#### 支持的型号
 
 Kirin9020系列处理器
  
@@ -66,7 +66,7 @@ KirinX90系列处理器
  
   
 
-##### 注意事项
+#### 注意事项
 
 - 本接口不支持打印除换行符之外的其他转义字符。
 - 如果开发者需要包含标准库头文件stdio.h和cstdio，请在kernel_operator.h头文件之前包含，避免printf符号冲突。
@@ -75,7 +75,7 @@ KirinX90系列处理器
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 #include "kernel_operator.h"

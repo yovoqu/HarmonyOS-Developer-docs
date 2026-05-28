@@ -12,13 +12,13 @@
 
 
 
-##### TextPickerDialog
+#### TextPickerDialog
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### show(deprecated)
+#### show(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -45,7 +45,7 @@ static show(options?: TextPickerDialogOptions)
 
 
 
-##### TextPickerDialogOptions对象说明
+#### TextPickerDialogOptions对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -91,7 +91,7 @@ static show(options?: TextPickerDialogOptions)
 
 
 
-##### TextPickerDialogOptionsExt20+对象说明
+#### TextPickerDialogOptionsExt20+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -139,7 +139,7 @@ static show(options?: TextPickerDialogOptions)
 
 
 
-##### TextPickerResult对象说明
+#### TextPickerResult对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -159,7 +159,7 @@ static show(options?: TextPickerDialogOptions)
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -169,7 +169,7 @@ static show(options?: TextPickerDialogOptions)
 
 
 
-##### 示例1（弹出文本选择弹窗）
+#### 示例1（弹出文本选择弹窗）
 
 该示例通过点击按钮弹出文本选择弹窗。
 
@@ -236,7 +236,7 @@ struct TextPickerDialogExample {
 
 
 
-##### 示例2（自定义样式）
+#### 示例2（自定义样式）
 
 该示例通过配置disappearTextStyle、textStyle、selectedTextStyle、acceptButtonStyle、cancelButtonStyle实现了自定义文本和按钮样式。
 
@@ -328,7 +328,7 @@ struct TextPickerDialogExample {
 
 
 
-##### 示例3（悬停态弹窗）
+#### 示例3（悬停态弹窗）
 
 该示例展示了在折叠屏悬停态下设置dialog布局区域的效果。
 
@@ -397,7 +397,7 @@ struct TextPickerDialogExample {
 
 
 
-##### 示例4（设置弹窗位置）
+#### 示例4（设置弹窗位置）
 
 该示例通过alignment、offset设置弹窗的位置。
 
@@ -443,7 +443,7 @@ struct TextPickerDialogExample {
 
 
 
-##### 示例5（设置遮蔽区）
+#### 示例5（设置遮蔽区）
 
 该示例通过maskRect设置遮蔽区。
 
@@ -493,7 +493,7 @@ struct TextPickerDialogExample {
 
 
 
-##### 示例6（设置弹窗背板）
+#### 示例6（设置弹窗背板）
 
 该示例通过backgroundColor、backgroundBlurStyle和shadow设置弹窗背板。
 
@@ -540,7 +540,7 @@ struct TextPickerDialogExample {
 
 
 
-##### 示例7（设置循环滚动）
+#### 示例7（设置循环滚动）
 
 该示例通过配置canLoop设置是否循环滚动。
 
@@ -586,7 +586,7 @@ struct TextPickerDialogExample {
 
 
 
-##### 示例8（设置选中项的背景样式）
+#### 示例8（设置选中项的背景样式）
 
 该示例通过selectedBackgroundStyle属性设置文本选择器选中项的背景样式。
 
@@ -624,12 +624,12 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/9dF2GXeHRIik6c5-EWcr9w/zh-cn_image_0000002581276288.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024204Z&HW-CC-Expire=86400&HW-CC-Sign=7CC275568ED27E90A77F222E0423318875C4AA7CA20F49DB260F94C0F512DE9A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/9dF2GXeHRIik6c5-EWcr9w/zh-cn_image_0000002581276288.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025537Z&HW-CC-Expire=86400&HW-CC-Sign=106BAC4B23207992DC131B9F6EACFAEF6276808EEAFF8144B9F992D55FB8A863)
 
 
 
 
-##### 示例9（自定义背景模糊效果参数）
+#### 示例9（自定义背景模糊效果参数）
 
 从API version 19开始，该示例通过配置[backgroundBlurStyleOptions](#textpickerdialogoptions对象说明)，实现自定义背景模糊效果。
 
@@ -666,12 +666,12 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/E9j_BAnZS2aVbOhWwzZvPw/zh-cn_image_0000002611756141.png?HW-CC-KV=V1&HW-CC-Date=20260528T024204Z&HW-CC-Expire=86400&HW-CC-Sign=6B15B1548630C7B1C868A70B3EF86FE9E3DE65A82AC87ADFE3FCF0E596A1F99B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/E9j_BAnZS2aVbOhWwzZvPw/zh-cn_image_0000002611756141.png?HW-CC-KV=V1&HW-CC-Date=20260528T025537Z&HW-CC-Expire=86400&HW-CC-Sign=861D6F84F1A1F5783C21B73FADF937677D7962DB9677EDFEF2A6429B30822482)
 
 
 
 
-##### 示例10（自定义背景效果参数）
+#### 示例10（自定义背景效果参数）
 
 从API version 19开始，该示例通过配置[backgroundEffect](#textpickerdialogoptions对象说明)，实现自定义背景效果。
 
@@ -709,4 +709,4 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/Eri2C5P0QRCecb-Xvifpqg/zh-cn_image_0000002581436204.png?HW-CC-KV=V1&HW-CC-Date=20260528T024204Z&HW-CC-Expire=86400&HW-CC-Sign=295CE4618E1EF41DE40C6EE6F4345C95BACAD228EBED82EC5B58CF4F4D055F0A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/Eri2C5P0QRCecb-Xvifpqg/zh-cn_image_0000002581436204.png?HW-CC-KV=V1&HW-CC-Date=20260528T025537Z&HW-CC-Expire=86400&HW-CC-Sign=EF666E3527D3E188D0818502F07593E1FE40AE591928649A0D5919E638D9BB4D)

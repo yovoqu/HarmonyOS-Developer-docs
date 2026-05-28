@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-customsecurityconfig
 
-##### 场景介绍
+#### 场景介绍
 
 在软件开发中，安全是非常重要的一环。Remote Communication Kit提供的[SecurityConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#securityconfiguration)是一个用于定制安全传输行为的工具，能够帮助开发者更好地保护其应用程序。通过合理的配置和使用，可以显著降低应用程序遭受攻击的风险。下面将详细说明如何使用证书校验来增强安全性。
 
@@ -16,17 +16,17 @@
 
 
 
-##### 约束与限制
+#### 约束与限制
 
 定制安全传输行为能力支持Phone、2in1、Tablet、Wearable设备。并且从5.1.1(19)开始，新增支持TV设备。
 
 
 
-##### 客户端校验服务端证书
+#### 客户端校验服务端证书
 
 
 
-##### 使用系统默认证书
+#### 使用系统默认证书
 1. 导入需要的模块。
 
   
@@ -61,7 +61,7 @@ async function TestRcp() {
 
 
 
-##### 跳过证书校验
+#### 跳过证书校验
 1. 导入需要的模块。
 
   
@@ -96,7 +96,7 @@ async function TestRcp() {
 
 
 
-##### 使用字符串指定证书内容
+#### 使用字符串指定证书内容
 1. 导入需要的模块。
 
   
@@ -147,7 +147,7 @@ async function TestRcp() {
 
 
 
-##### 使用二进制指定证书内容
+#### 使用二进制指定证书内容
 1. 导入需要的模块。
 
   
@@ -201,7 +201,7 @@ async function TestRcp() {
 
 
 
-##### 使用文件指定证书内容
+#### 使用文件指定证书内容
 1. 导入需要的模块。
 
   
@@ -266,7 +266,7 @@ async function TestRcp() {
 
 
 
-##### 使用文件目录指定证书
+#### 使用文件目录指定证书
 1. 导入需要的模块。
 
   
@@ -303,7 +303,7 @@ async function TestRcp() {
 
 
 
-##### 自定义证书校验
+#### 自定义证书校验
 1. 导入需要的模块。
 
   
@@ -395,11 +395,11 @@ async function TestRcp() {
 
 
 
-##### 服务器校验客户端证书
+#### 服务器校验客户端证书
 
 
 
-##### 校验PEM类型证书
+#### 校验PEM类型证书
 1. 导入需要的模块。
 
   
@@ -451,7 +451,7 @@ async function TestRcp() {
 
 
 
-##### 校验DER类型证书
+#### 校验DER类型证书
 1. 导入需要的模块。
 
   
@@ -491,7 +491,7 @@ async function TestRcp() {
 
 
 
-##### 校验P12类型证书
+#### 校验P12类型证书
 1. 导入需要的模块。
 
   
@@ -530,7 +530,7 @@ async function TestRcp() {
 
 
 
-##### 证书锁定
+#### 证书锁定
 
 证书锁定可以设置信任的证书的范围。通过比较证书公钥的SHA256哈希值的BASE64编码，限定可信任的证书。
 

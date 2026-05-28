@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-agent-mcp
 
-##### 功能介绍
+#### 功能介绍
 
 模型上下文协议（Model Context Protocol，简称MCP）是一种开放协议，允许大型语言模型（LLMs）访问自定义的工具和服务，可以通过部署MCP Server并将其集成到自定义智能体中来使用。关于 MCP 的更多信息，请参考 [MCP 官方文档](https://modelcontextprotocol.io/introduction)。
  
@@ -14,7 +14,7 @@
  
  
 
-##### 使用约束
+#### 使用约束
 
 为保证MCP Server正常启动，需要安装npx和uvx，可在配置MCP工具时在Node (npx) Path和Python (uvx) Path中添加。
  
@@ -24,7 +24,7 @@
  
  
 
-##### 操作步骤
+#### 操作步骤
 1. 点击界面右上方
 ![](assets/模型上下文协议（MCP）配置/file-20260514132759043-0.png)
 按钮，或者点击界面右上方**Settings**
@@ -59,7 +59,7 @@
 4. 在**MCP Tools**列表中，展示所有MCP工具信息，包括名称、连接状态、启用状态。同时，将鼠标悬浮在工具上会显示三个操作按钮：刷新、编辑和删除，方便开发者管理工具。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/zIvodRcBRjOQdut4u6iIoQ/zh-cn_image_0000002602066079.png?HW-CC-KV=V1&HW-CC-Date=20260528T015007Z&HW-CC-Expire=86400&HW-CC-Sign=C8FC28CCC94524459FD97D7923AB951D44FEED9BD7B559A66F8C55F3985B890D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/2jhUo1zETc206l-xTbEeTQ/zh-cn_image_0000002602066079.png?HW-CC-KV=V1&HW-CC-Date=20260528T030637Z&HW-CC-Expire=86400&HW-CC-Sign=A4B199D60228476ACCDA1CF83E0044FC7F0AD50E23D82C8F8C7F98AEA83002E0)
 
 名称：MCP工具名称，如time。
 5. 连接状态：工具连接状态，包括“成功”、“失败”和“连接中”三种状态。

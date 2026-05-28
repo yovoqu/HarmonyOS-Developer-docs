@@ -4,19 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-ark-runtime
 
-##### 场景介绍
+#### 场景介绍
 
 开发者通过pthread_create创建新线程后，可以通过napi_create_ark_runtime来创建一个新的ArkTS基础运行时环境，并通过该运行时环境加载ArkTS模块。当使用结束后，开发者需要通过napi_destroy_ark_runtime来销毁所创建的ArkTS基础运行时环境。
  
   
 
-##### 约束限制
+#### 约束限制
 
 一个进程最多只能创建64个运行时环境。
  
   
 
-##### 示例代码
+#### 示例代码
 
 - 接口声明
 

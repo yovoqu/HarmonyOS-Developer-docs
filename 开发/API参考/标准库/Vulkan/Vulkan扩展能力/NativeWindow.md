@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-vulkan-nativewindow
 
-##### 概述
+#### 概述
 
 本地窗口。
  

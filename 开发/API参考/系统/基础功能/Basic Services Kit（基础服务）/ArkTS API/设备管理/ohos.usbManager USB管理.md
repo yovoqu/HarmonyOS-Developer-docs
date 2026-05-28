@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -22,7 +22,7 @@ import { usbManager } from '@kit.BasicServicesKit';
 
 
 
-##### 使用说明
+#### 使用说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -39,7 +39,7 @@ import { usbManager } from '@kit.BasicServicesKit';
 
 
 
-##### usbManager.getDevices
+#### usbManager.getDevices
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -129,7 +129,7 @@ console.info(`devicesList = ${devicesList}`);
 
 
 
-##### usbManager.connectDevice
+#### usbManager.connectDevice
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -185,7 +185,7 @@ function connectDevice() {
 
 
 
-##### usbManager.hasRight
+#### usbManager.hasRight
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -241,7 +241,7 @@ function hasRight(): boolean {
 
 
 
-##### usbManager.requestRight
+#### usbManager.requestRight
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -296,7 +296,7 @@ function requestRight() {
 
 
 
-##### usbManager.removeRight
+#### usbManager.removeRight
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -351,7 +351,7 @@ function removeRight(): boolean {
 
 
 
-##### usbManager.claimInterface
+#### usbManager.claimInterface
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -412,7 +412,7 @@ function claimInterface() {
 
 
 
-##### usbManager.releaseInterface
+#### usbManager.releaseInterface
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -473,7 +473,7 @@ function releaseInterface() {
 
 
 
-##### usbManager.setConfiguration
+#### usbManager.setConfiguration
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -529,7 +529,7 @@ function setConfiguration() {
 
 
 
-##### usbManager.setInterface
+#### usbManager.setInterface
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -590,7 +590,7 @@ function setInterface() {
 
 
 
-##### usbManager.getRawDescriptor
+#### usbManager.getRawDescriptor
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -642,7 +642,7 @@ function getRawDescriptor() {
 
 
 
-##### usbManager.getFileDescriptor
+#### usbManager.getFileDescriptor
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -697,7 +697,7 @@ function getFileDescriptor() {
 
 
 
-##### usbManager.usbControlTransfer12+
+#### usbManager.usbControlTransfer12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -772,7 +772,7 @@ function usbControlTransfer() {
 
 
 
-##### usbManager.bulkTransfer
+#### usbManager.bulkTransfer
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -855,7 +855,7 @@ function bulkTransfer() {
 
 
 
-##### usbManager.usbSubmitTransfer18+
+#### usbManager.usbSubmitTransfer18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -947,7 +947,7 @@ function usbSubmitTransfer() {
 
 
 
-##### usbManager.usbCancelTransfer18+
+#### usbManager.usbCancelTransfer18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1042,7 +1042,7 @@ function usbCancelTransfer() {
 
 
 
-##### usbManager.closePipe
+#### usbManager.closePipe
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1098,7 +1098,7 @@ function closePipe() {
 
 
 
-##### usbManager.hasAccessoryRight14+
+#### usbManager.hasAccessoryRight14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1152,7 +1152,7 @@ try {
 
 
 
-##### usbManager.requestAccessoryRight14+
+#### usbManager.requestAccessoryRight14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1206,7 +1206,7 @@ try {
 
 
 
-##### usbManager.cancelAccessoryRight14+
+#### usbManager.cancelAccessoryRight14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1254,7 +1254,7 @@ try {
 
 
 
-##### usbManager.getAccessoryList14+
+#### usbManager.getAccessoryList14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1295,7 +1295,7 @@ try {
 
 
 
-##### usbManager.openAccessory14+
+#### usbManager.openAccessory14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1356,7 +1356,7 @@ try {
 
 
 
-##### usbManager.closeAccessory14+
+#### usbManager.closeAccessory14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1403,7 +1403,7 @@ try {
 
 
 
-##### usbManager.resetUsbDevice20+
+#### usbManager.resetUsbDevice20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1468,7 +1468,7 @@ function resetUsbDevice() {
 
 
 
-##### usbManager.controlTransfer(deprecated)
+#### usbManager.controlTransfer(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1545,7 +1545,7 @@ function controlTransfer() {
 
 
 
-##### USBEndpoint
+#### USBEndpoint
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1571,7 +1571,7 @@ function controlTransfer() {
 
 
 
-##### USBInterface
+#### USBInterface
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1592,7 +1592,7 @@ function controlTransfer() {
 
 
 
-##### USBConfiguration
+#### USBConfiguration
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1613,7 +1613,7 @@ USB配置，一个[USBDevice](#usbdevice)中可以含有多个配置。
 
 
 
-##### USBDevice
+#### USBDevice
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1640,7 +1640,7 @@ USB设备信息。
 
 
 
-##### USBDevicePipe
+#### USBDevicePipe
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1656,7 +1656,7 @@ USB设备消息传输通道，用于确定设备。
 
 
 
-##### USBDeviceRequestParams12+
+#### USBDeviceRequestParams12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1676,7 +1676,7 @@ USB设备消息传输通道，用于确定设备。
 
 
 
-##### USBRequestTargetType
+#### USBRequestTargetType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1694,7 +1694,7 @@ USB设备消息传输通道，用于确定设备。
 
 
 
-##### USBControlRequestType
+#### USBControlRequestType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1711,7 +1711,7 @@ USB设备消息传输通道，用于确定设备。
 
 
 
-##### USBRequestDirection
+#### USBRequestDirection
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1727,7 +1727,7 @@ USB设备消息传输通道，用于确定设备。
 
 
 
-##### USBAccessory14+
+#### USBAccessory14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1746,7 +1746,7 @@ USB配件信息。
 
 
 
-##### USBAccessoryHandle14+
+#### USBAccessoryHandle14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1761,7 +1761,7 @@ USB配件句柄。
 
 
 
-##### UsbDataTransferParams18+
+#### UsbDataTransferParams18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1785,7 +1785,7 @@ USB配件句柄。
 
 
 
-##### UsbTransferFlags18+
+#### UsbTransferFlags18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1803,7 +1803,7 @@ USB传输标志。
 
 
 
-##### UsbEndpointTransferType18+
+#### UsbEndpointTransferType18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1820,7 +1820,7 @@ Usb传输类型。
 
 
 
-##### SubmitTransferCallback18+
+#### SubmitTransferCallback18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1837,7 +1837,7 @@ Usb异步传输回调。
 
 
 
-##### UsbTransferStatus18+
+#### UsbTransferStatus18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1858,7 +1858,7 @@ Usb异步传输回调。
 
 
 
-##### UsbIsoPacketDescriptor18+
+#### UsbIsoPacketDescriptor18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1875,7 +1875,7 @@ Usb异步传输回调。
 
 
 
-##### USBControlParams(deprecated)
+#### USBControlParams(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

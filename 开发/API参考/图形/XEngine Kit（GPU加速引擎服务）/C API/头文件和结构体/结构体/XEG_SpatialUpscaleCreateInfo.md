@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-spatialupscalecreateinfo
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -19,13 +19,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  
@@ -41,13 +41,13 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### format
+#### format
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -61,7 +61,7 @@ VkFormat XEG_SpatialUpscaleCreateInfo::format
  
   
 
-##### inputRegion
+#### inputRegion
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -75,7 +75,7 @@ VkRect2D XEG_SpatialUpscaleCreateInfo::inputRegion
  
   
 
-##### inputSize
+#### inputSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -89,7 +89,7 @@ VkExtent2D XEG_SpatialUpscaleCreateInfo::inputSize
  
   
 
-##### outputRegion
+#### outputRegion
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -103,7 +103,7 @@ VkRect2D XEG_SpatialUpscaleCreateInfo::outputRegion
  
   
 
-##### outputSize
+#### outputSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -117,7 +117,7 @@ VkExtent2D XEG_SpatialUpscaleCreateInfo::outputSize
  
   
 
-##### sharpness
+#### sharpness
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

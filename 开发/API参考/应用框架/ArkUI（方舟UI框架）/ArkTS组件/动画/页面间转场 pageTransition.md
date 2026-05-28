@@ -12,7 +12,7 @@
 
 
 
-##### PageTransitionEnter
+#### PageTransitionEnter
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -33,7 +33,7 @@ PageTransitionEnter(value: PageTransitionOptions)
 
 
 
-##### onEnter
+#### onEnter
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -66,7 +66,7 @@ pageTransition() {
 
 
 
-##### PageTransitionExit
+#### PageTransitionExit
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -87,7 +87,7 @@ PageTransitionExit(value: PageTransitionOptions)
 
 
 
-##### onExit
+#### onExit
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -120,7 +120,7 @@ pageTransition() {
 
 
 
-##### PageTransitionOptions对象说明
+#### PageTransitionOptions对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -140,7 +140,7 @@ pageTransition() {
 
 
 
-##### CommonTransition
+#### CommonTransition
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -152,7 +152,7 @@ pageTransition() {
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -166,7 +166,7 @@ constructor()
 
 
 
-##### slide
+#### slide
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -194,7 +194,7 @@ slide(value: SlideEffect): T
 
 
 
-##### translate
+#### translate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -222,7 +222,7 @@ translate(value: TranslateOptions): T
 
 
 
-##### scale
+#### scale
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -250,7 +250,7 @@ scale(value: ScaleOptions): T
 
 
 
-##### opacity
+#### opacity
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -278,7 +278,7 @@ opacity(value: number): T
 
 
 
-##### PageTransitionCallback18+
+#### PageTransitionCallback18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -298,7 +298,7 @@ type PageTransitionCallback = (type: RouteType, progress: number) => void
 
 
 
-##### RouteType枚举说明
+#### RouteType枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -317,7 +317,7 @@ type PageTransitionCallback = (type: RouteType, progress: number) => void
 
 
 
-##### SlideEffect枚举说明
+#### SlideEffect枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -339,13 +339,13 @@ type PageTransitionCallback = (type: RouteType, progress: number) => void
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1（设置退入场动画）
+#### 示例1（设置退入场动画）
 
 自定义方式1：通过不同的退入场类型配置不同的退场，入场动画。
 
@@ -499,7 +499,7 @@ struct Page1 {
 
 
 
-##### 示例2（设置退入场平移效果）
+#### 示例2（设置退入场平移效果）
 
 自定义方式1：配置提供的不同退入场平移效果，将系统语言排版模式改为RTL。
 
@@ -646,4 +646,4 @@ struct Page1 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/1QxmDhfFTX6aVNlayMH8iA/zh-cn_image_0000002611835993.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024159Z&HW-CC-Expire=86400&HW-CC-Sign=C942BBF02ABA8251BB6611A2A28609554140D4296CB0F8A067B883F821AAA304)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/1QxmDhfFTX6aVNlayMH8iA/zh-cn_image_0000002611835993.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025532Z&HW-CC-Expire=86400&HW-CC-Sign=3CFEDAE31A725108F5389FA345698AAFEEAD627AFEBFBF86C906A82282165F9F)

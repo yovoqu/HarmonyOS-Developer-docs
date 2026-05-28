@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-media-asset-manager-capi-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -47,13 +47,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_MediaAssetManager_Create()
+#### OH_MediaAssetManager_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -76,7 +76,7 @@ OH_MediaAssetManager* OH_MediaAssetManager_Create(void)
  
   
 
-##### OH_MediaAssetManager_RequestImageForPath()
+#### OH_MediaAssetManager_RequestImageForPath()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -112,7 +112,7 @@ MediaLibrary_RequestId OH_MediaAssetManager_RequestImageForPath(OH_MediaAssetMan
  
   
 
-##### OH_MediaAssetManager_RequestVideoForPath()
+#### OH_MediaAssetManager_RequestVideoForPath()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -148,7 +148,7 @@ MediaLibrary_RequestId OH_MediaAssetManager_RequestVideoForPath(OH_MediaAssetMan
  
   
 
-##### OH_MediaAssetManager_CancelRequest()
+#### OH_MediaAssetManager_CancelRequest()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -181,7 +181,7 @@ bool OH_MediaAssetManager_CancelRequest(OH_MediaAssetManager* manager, const Med
  
   
 
-##### OH_MediaAssetManager_RequestMovingPhoto()
+#### OH_MediaAssetManager_RequestMovingPhoto()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -217,7 +217,7 @@ MediaLibrary_ErrorCode OH_MediaAssetManager_RequestMovingPhoto(OH_MediaAssetMana
  
   
 
-##### OH_MediaAssetManager_RequestImage()
+#### OH_MediaAssetManager_RequestImage()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -253,7 +253,7 @@ MediaLibrary_ErrorCode OH_MediaAssetManager_RequestImage(OH_MediaAssetManager* m
  
   
 
-##### OH_MediaAssetManager_Release()
+#### OH_MediaAssetManager_Release()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -283,7 +283,7 @@ MediaLibrary_ErrorCode OH_MediaAssetManager_Release(OH_MediaAssetManager* manage
  
   
 
-##### OH_MediaAssetManager_QuickRequestImage()
+#### OH_MediaAssetManager_QuickRequestImage()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

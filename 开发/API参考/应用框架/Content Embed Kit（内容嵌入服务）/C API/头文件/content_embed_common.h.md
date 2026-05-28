@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-content-embed-common-h
 **支持设备：** Phone | PC/2in1 | Tablet
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -41,7 +41,7 @@
  
   
 
-##### 宏定义
+#### 宏定义
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -52,13 +52,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### ContentEmbed_ErrorCode
+#### ContentEmbed_ErrorCode
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -98,7 +98,7 @@ enum ContentEmbed_ErrorCode
  
   
 
-##### ContentEmbed_CapabilityCode
+#### ContentEmbed_CapabilityCode
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

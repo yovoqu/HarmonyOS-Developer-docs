@@ -14,7 +14,7 @@ ArkTS TypedArray（[Int8Array](https://developer.huawei.com/consumer/cn/doc/harm
 **装饰器类型：**@Sendable
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { collections } from '@kit.ArkTS';
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -39,7 +39,7 @@ import { collections } from '@kit.ArkTS';
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -77,7 +77,7 @@ console.info("byteLength: " + arrayBuffer.byteLength); // byteLength: 10
 
 
 
-##### slice
+#### slice
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

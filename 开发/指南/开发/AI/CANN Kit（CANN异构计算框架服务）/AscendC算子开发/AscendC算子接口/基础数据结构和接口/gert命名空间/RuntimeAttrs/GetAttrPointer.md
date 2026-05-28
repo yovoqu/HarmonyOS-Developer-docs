@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getattrpointer
 
-##### 函数功能
+#### 函数功能
 
 获取指定索引的算子属性，返回指向此属性的指针。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 template<typename T>  const T *GetAttrPointer(size_t index) const
@@ -18,7 +18,7 @@ template<typename T>  const T *GetAttrPointer(size_t index) const
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -28,19 +28,19 @@ template<typename T>  const T *GetAttrPointer(size_t index) const
  
   
 
-##### 返回值
+#### 返回值
 
 指向属性的指针。
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 #include "register/op_def_registry.h"

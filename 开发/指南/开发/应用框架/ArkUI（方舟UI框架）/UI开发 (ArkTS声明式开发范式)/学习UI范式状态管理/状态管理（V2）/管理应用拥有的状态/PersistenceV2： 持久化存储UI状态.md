@@ -17,7 +17,7 @@ PersistenceV2提供状态变量持久化能力，开发者可以通过connect或
 
 
 
-##### 概述
+#### 概述
 
 PersistenceV2是在应用UI启动时会被创建的单例。它的目的是提供应用状态数据的中心存储，这些状态数据在应用级别都是可访问的。数据通过唯一的键值字符串访问。不同于AppStorageV2，PersistenceV2还将最新数据存储在设备磁盘上（持久化）。这意味着，应用退出再次启动后，依然能保存选定的结果。
 
@@ -31,7 +31,7 @@ PersistenceV2继承自[AppStorageV2](https://developer.huawei.com/consumer/cn/do
 
 
 
-##### 使用说明
+#### 使用说明
 
  - globalConnect：创建或获取存储的数据。       
 > [!NOTE]
@@ -47,7 +47,7 @@ PersistenceV2继承自[AppStorageV2](https://developer.huawei.com/consumer/cn/do
 
 
 
-##### 使用限制
+#### 使用限制
 
 1、需要配合UI使用（UI线程），不能在其他线程使用。在API version 23以前，不支持@Sendable。
 
@@ -410,11 +410,11 @@ onWindowStageCreate(windowStage: window.WindowStage): void {
 
 
 
-##### globalConnect支持的类型
+#### globalConnect支持的类型
 
 
 
-##### globalConnect顶层持久化数据类型及非顶层数据类型
+#### globalConnect顶层持久化数据类型及非顶层数据类型
 
 在API version 23以前，持久化的顶层数据类型必须是用户自定义的class对象，不支持容器类型（如Array、Set、Map，Date）。在API version 23开始，持久化的顶层数据类型可以是用户自定义的class，也可以是容器类型。非顶层数据类型，是指定义在用户自定义class属性的类型。
 
@@ -453,7 +453,7 @@ struct Page1 {
 
 
 
-##### globalConnect用户自定义class对象属性支持的类型
+#### globalConnect用户自定义class对象属性支持的类型
 
 用户自定义class对象的属性可以使用以下类型：boolean、number、string、undefined、null、Object、Date、Number、Boolean、String以及自定义类class。还支持以下集合类型：Array、Map、Set。
 
@@ -488,7 +488,7 @@ class PersistClass {
 
 
 
-##### globalConnect支持集合的类型
+#### globalConnect支持集合的类型
 
 集合类型是指Array&lt;V&gt;、Map<K, V>、Set&lt;V&gt;、collections.Array&lt;V&gt;、collections.Map<K, V>、collections.Set&lt;V&gt;。
 
@@ -594,11 +594,11 @@ struct Page1 {
 
 
 
-##### 使用场景
+#### 使用场景
 
 
 
-##### 在两个页面之间存储数据
+#### 在两个页面之间存储数据
 
 数据页面
 
@@ -766,7 +766,7 @@ struct Page2 {
 
 
 
-##### 使用globalConnect存储数据
+#### 使用globalConnect存储数据
 
 ```ArkTS
 import { PersistenceV2, Type, ConnectOptions } from '@kit.ArkUI';
@@ -917,7 +917,7 @@ struct Page1 {
 
 
 
-##### 在不同的module中使用connect和globalConnect
+#### 在不同的module中使用connect和globalConnect
 
 **connect的存储路径需要注意以下两点：**
 
@@ -1082,13 +1082,13 @@ struct Page1 {
 
 
 
-##### 使用建议
+#### 使用建议
 
 建议开发者使用新接口globalConnect创建和获取数据。globalConnect的存储规格和内存规格一致，对于应用只有一份，并且支持设置加密级别，不需要去切换ability的加密才能设置数据的加密级别。当然如果开发者应用不涉及多模块，保持使用connect也不会有影响。
 
 
 
-##### connect向globalConnect迁移实现
+#### connect向globalConnect迁移实现
 
 ```ArkTS
 // 使用connect存储数据

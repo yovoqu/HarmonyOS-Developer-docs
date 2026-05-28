@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-flex-layout
 
-##### 概述
+#### 概述
 
 弹性布局（[Flex](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flex)）提供更加有效的方式对容器中的子元素进行排列、对齐和分配剩余空间。常用于页面头部导航栏的均匀分布、页面框架的搭建、多行数据的排列等。
 
@@ -18,7 +18,7 @@
 
 
 
-##### 基本概念
+#### 基本概念
 
  - 主轴：Flex组件布局方向的轴线，子元素默认沿着主轴排列。主轴开始的位置称为主轴起始点，结束位置称为主轴结束点。
  - 交叉轴：垂直于主轴方向的轴线。交叉轴开始的位置称为交叉轴起始点，结束位置称为交叉轴结束点。
@@ -26,7 +26,7 @@
 
 
 
-##### 布局方向
+#### 布局方向
 
 在弹性布局中，容器的子元素可以按照任意方向排列。通过设置[FlexOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flex#flexoptions对象说明)的参数direction，可以决定主轴的方向，从而控制子元素的排列方向。
 
@@ -108,7 +108,7 @@ Flex({ direction: FlexDirection.ColumnReverse }) {
 
 
 
-##### 布局换行
+#### 布局换行
 
 弹性布局分为单行布局和多行布局。默认情况下，Flex容器中的子元素都排在一条线（又称“轴线”）上。wrap属性控制当子元素主轴尺寸之和大于容器主轴尺寸时，Flex是单行布局还是多行布局。在多行布局时，通过交叉轴方向，确认新行排列方向。
 
@@ -164,7 +164,7 @@ Flex({ wrap: FlexWrap.WrapReverse}) {
 
 
 
-##### 主轴对齐方式
+#### 主轴对齐方式
 
 通过[justifyContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flex#flexoptions对象说明)参数设置子元素在主轴方向的对齐方式。
 
@@ -272,13 +272,13 @@ Flex({ justifyContent: FlexAlign.SpaceEvenly }) {
 
 
 
-##### 交叉轴对齐方式
+#### 交叉轴对齐方式
 
 容器和子元素都可以设置交叉轴对齐方式，且子元素设置的对齐方式优先级较高。
 
 
 
-##### 容器组件设置交叉轴对齐
+#### 容器组件设置交叉轴对齐
 
 可以通过设置[FlexOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flex#flexoptions对象说明)的参数alignItems，设置子元素在交叉轴的对齐方式。
 
@@ -382,7 +382,7 @@ Flex({ alignItems: ItemAlign.Baseline }) {
 
 
 
-##### 子元素设置交叉轴对齐
+#### 子元素设置交叉轴对齐
 
 子元素的[alignSelf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-flex-layout#alignself)属性也可以设置子元素在父容器交叉轴的对齐方式，且会覆盖Flex布局容器中alignItems配置。如下例所示：
 
@@ -415,7 +415,7 @@ Flex({ direction: FlexDirection.Row, alignItems: ItemAlign.Center }) { // 容器
 
 
 
-##### 内容对齐
+#### 内容对齐
 
 可以通过[alignContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flex#flexoptions对象说明)参数设置子元素各行在交叉轴剩余空间内的对齐方式，只在多行的Flex布局中生效，可选值有：
 
@@ -531,7 +531,7 @@ Flex({ justifyContent: FlexAlign.SpaceBetween, wrap: FlexWrap.Wrap, alignContent
 
 
 
-##### 自适应拉伸
+#### 自适应拉伸
 
 在弹性布局父组件尺寸过小时，通过子元素的以下属性设置其在父容器的占比，达到自适应布局。
 
@@ -628,7 +628,7 @@ Flex({ direction: FlexDirection.Row }) {
 
 
 
-##### 场景示例
+#### 场景示例
 
 使用弹性布局，可以实现子元素沿水平方向排列，两端对齐，子元素间距平分，垂直方向上子元素居中的效果。
 

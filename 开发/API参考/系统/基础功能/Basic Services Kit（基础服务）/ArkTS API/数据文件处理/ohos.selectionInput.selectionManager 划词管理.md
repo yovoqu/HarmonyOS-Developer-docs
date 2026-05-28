@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** PC/2in1
 
@@ -22,7 +22,7 @@ import { selectionManager } from '@kit.BasicServicesKit';
 
 
 
-##### selectionManager
+#### selectionManager
 
 **支持设备：** PC/2in1
 
@@ -32,7 +32,7 @@ import { selectionManager } from '@kit.BasicServicesKit';
 
 
 
-##### selectionManager.on('selectionCompleted')
+#### selectionManager.on('selectionCompleted')
 
 **支持设备：** PC/2in1
 
@@ -77,7 +77,7 @@ try {
 
 
 
-##### selectionManager.off('selectionCompleted')
+#### selectionManager.off('selectionCompleted')
 
 **支持设备：** PC/2in1
 
@@ -116,7 +116,7 @@ try {
 
 
 
-##### getSelectionContent()
+#### getSelectionContent()
 
 **支持设备：** PC/2in1
 
@@ -165,7 +165,7 @@ selectionManager.on('selectionCompleted', async (info: selectionManager.Selectio
 
 
 
-##### createPanel
+#### createPanel
 
 **支持设备：** PC/2in1
 
@@ -250,7 +250,7 @@ export default ServiceExtAbility;
 
 
 
-##### destroyPanel
+#### destroyPanel
 
 **支持设备：** PC/2in1
 
@@ -343,7 +343,7 @@ export default ServiceExtAbility;
 
 
 
-##### SelectionInfo
+#### SelectionInfo
 
 **支持设备：** PC/2in1
 
@@ -371,7 +371,7 @@ export default ServiceExtAbility;
 
 
 
-##### Panel
+#### Panel
 
 **支持设备：** PC/2in1
 
@@ -385,7 +385,7 @@ export default ServiceExtAbility;
 
 
 
-##### setUiContent
+#### setUiContent
 
 **支持设备：** PC/2in1
 
@@ -439,7 +439,7 @@ try {
 
 
 
-##### show
+#### show
 
 **支持设备：** PC/2in1
 
@@ -482,7 +482,7 @@ selectionPanel.show().then(() => {
 
 
 
-##### hide
+#### hide
 
 **支持设备：** PC/2in1
 
@@ -525,7 +525,7 @@ selectionPanel.hide().then(() => {
 
 
 
-##### startMoving
+#### startMoving
 
 **支持设备：** PC/2in1
 
@@ -579,7 +579,7 @@ RelativeContainer() {
 
 
 
-##### moveToGlobalDisplay
+#### moveToGlobalDisplay
 
 **支持设备：** PC/2in1
 
@@ -634,7 +634,7 @@ try {
 
 
 
-##### on('destroyed')
+#### on('destroyed')
 
 **支持设备：** PC/2in1
 
@@ -670,7 +670,7 @@ try {
 
 
 
-##### off('destroyed')
+#### off('destroyed')
 
 **支持设备：** PC/2in1
 
@@ -704,7 +704,7 @@ try {
 
 
 
-##### on('hidden')
+#### on('hidden')
 
 **支持设备：** PC/2in1
 
@@ -740,7 +740,7 @@ try {
 
 
 
-##### off('hidden')
+#### off('hidden')
 
 **支持设备：** PC/2in1
 
@@ -774,7 +774,7 @@ try {
 
 
 
-##### SelectionType
+#### SelectionType
 
 **支持设备：** PC/2in1
 

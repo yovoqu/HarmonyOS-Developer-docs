@@ -12,13 +12,13 @@
 
   
 
-##### 构造函数
+#### 构造函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -34,7 +34,7 @@ constructor()
  
   
 
-##### constructor12+
+#### constructor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -57,7 +57,7 @@ constructor(unit: LengthMetricsUnit)
  
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -80,7 +80,7 @@ constructor(path: Path2D)
  
   
 
-##### constructor12+
+#### constructor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -104,7 +104,7 @@ constructor(path: Path2D, unit: LengthMetricsUnit)
  
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -127,7 +127,7 @@ constructor(d: string)
  
   
 
-##### constructor12+
+#### constructor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -151,13 +151,13 @@ constructor(description: string, unit: LengthMetricsUnit)
  
   
 
-##### 方法
+#### 方法
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### addPath
+#### addPath
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -214,7 +214,7 @@ struct AddPath {
  
   
 
-##### closePath
+#### closePath
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -265,7 +265,7 @@ struct ClosePath {
  
   
 
-##### moveTo
+#### moveTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -328,7 +328,7 @@ struct MoveTo {
  
   
 
-##### lineTo
+#### lineTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -388,7 +388,7 @@ struct LineTo {
  
   
 
-##### bezierCurveTo
+#### bezierCurveTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -449,7 +449,7 @@ struct BezierCurveTo {
  
   
 
-##### quadraticCurveTo
+#### quadraticCurveTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -508,7 +508,7 @@ struct QuadraticCurveTo {
  
   
 
-##### arc
+#### arc
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -568,7 +568,7 @@ struct Arc {
  
   
 
-##### arcTo
+#### arcTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -628,7 +628,7 @@ struct ArcTo {
  
   
 
-##### ellipse
+#### ellipse
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -690,7 +690,7 @@ struct CanvasExample {
  
   
 
-##### rect
+#### rect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -743,12 +743,12 @@ struct CanvasExample {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/XwSR4Mj1QHa0zX5LBUqxsw/zh-cn_image_0000002611756077.png?HW-CC-KV=V1&HW-CC-Date=20260528T024207Z&HW-CC-Expire=86400&HW-CC-Sign=964D672C7B03971021AA047FFB2491477C0B4A238ECC3D417C5287DA6C124D73)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/XwSR4Mj1QHa0zX5LBUqxsw/zh-cn_image_0000002611756077.png?HW-CC-KV=V1&HW-CC-Date=20260528T025540Z&HW-CC-Expire=86400&HW-CC-Sign=BC552E59E5078DD61A6F2809C5616820E74C8DD02189566073EC3D5C7514FCCF)
 
  
   
 
-##### roundRect20+
+#### roundRect20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -840,4 +840,4 @@ struct CanvasExample {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/Wmk42hZiR_G7Ph53QjS5FA/zh-cn_image_0000002581276170.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T024207Z&HW-CC-Expire=86400&HW-CC-Sign=AC835C8517F08E567156832412B5B43B7DEC7D9FF82877D33F60F0B15F5DF82E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/Wmk42hZiR_G7Ph53QjS5FA/zh-cn_image_0000002581276170.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T025540Z&HW-CC-Expire=86400&HW-CC-Sign=2BCA8B0A6AEAC7A157F3336AB5D7A84E4DC2211B6380AC35F8EB3F33F4AB8DF7)

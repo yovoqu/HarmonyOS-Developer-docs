@@ -7,7 +7,7 @@
 预发布一个三方库。
  
 
-##### 命令格式
+#### 命令格式
 
 ```text
 ohpm prepublish [options] <har_or_tgz_file>
@@ -19,7 +19,7 @@ ohpm prepublish [options] <har_or_tgz_file>
  
  
 
-##### 功能描述
+#### 功能描述
 
 - 拥有publish命令的所有内容校验规则，可以在发布前检测待发布的三方库能否通过ohpm客户端校验。
 - 只校验待发布三方库内容，不对publish_registry、publish_id、key_path等做校验。
@@ -28,11 +28,11 @@ ohpm prepublish [options] <har_or_tgz_file>
  
  
 
-##### Options
+#### Options
 
  
 
-##### log_level
+#### log_level
 
 - 默认值：无
 - 类型： String
@@ -42,7 +42,7 @@ ohpm prepublish [options] <har_or_tgz_file>
  
  
 
-##### debug
+#### debug
 
 - 默认值：false
 - 类型： Boolean
@@ -52,7 +52,7 @@ ohpm prepublish [options] <har_or_tgz_file>
  
  
 
-##### 示例
+#### 示例
 
 预发布工作目录下的三方库，执行以下命令：
  

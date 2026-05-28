@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-lowpower-audio-sink-base-h
 **支持设备：** Phone | PC/2in1 | Tablet
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -41,7 +41,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -57,13 +57,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### OH_LowPowerAudioSink_OnError()
+#### OH_LowPowerAudioSink_OnError()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -89,7 +89,7 @@ LowPowerAudioSink发生错误时调用该方法。
  
   
 
-##### OH_LowPowerAudioSink_OnPositionUpdated()
+#### OH_LowPowerAudioSink_OnPositionUpdated()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -114,7 +114,7 @@ LowPowerAudioSink进度更新时调用该方法。
  
   
 
-##### OH_LowPowerAudioSink_OnDataNeeded()
+#### OH_LowPowerAudioSink_OnDataNeeded()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -139,7 +139,7 @@ LowPowerAudioSink需要数据时调用该方法。
  
   
 
-##### OH_LowPowerAudioSink_OnInterrupted()
+#### OH_LowPowerAudioSink_OnInterrupted()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -165,7 +165,7 @@ LowPowerAudioSink焦点打断时调用该方法。
  
   
 
-##### OH_LowPowerAudioSink_OnDeviceChanged()
+#### OH_LowPowerAudioSink_OnDeviceChanged()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -190,7 +190,7 @@ LowPowerAudioSink设备切换时调用该方法。
  
   
 
-##### OH_LowPowerAudioSink_OnEos()
+#### OH_LowPowerAudioSink_OnEos()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

@@ -14,7 +14,7 @@
 **起始版本：** 4.1.0(11)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -24,7 +24,7 @@ import { sceneManager } from '@kit.AppGalleryKit';
  
   
 
-##### sceneManager.getSelfSceneCode
+#### sceneManager.getSelfSceneCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -61,7 +61,7 @@ try {
  
   
 
-##### sceneManager.getAdsVerificationVersion
+#### sceneManager.getAdsVerificationVersion
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

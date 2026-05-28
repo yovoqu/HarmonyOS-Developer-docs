@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV | lite_wearable
 
@@ -22,7 +22,7 @@ import router from '@system.router';
  
   
 
-##### router.push
+#### router.push
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -79,7 +79,7 @@ export default new B()
  
   
 
-##### router.replace
+#### router.replace
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -127,7 +127,7 @@ export default new Area()
  
   
 
-##### router.back
+#### router.back
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -211,7 +211,7 @@ export default new H()
  
   
 
-##### router.getParams7+
+#### router.getParams7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -230,7 +230,7 @@ getParams(): ParamsInterface
  
   
 
-##### router.clear
+#### router.clear
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -254,7 +254,7 @@ export default new I()
  
   
 
-##### router.getLength
+#### router.getLength
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -286,7 +286,7 @@ export default new J()
  
   
 
-##### router.getState
+#### router.getState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -320,7 +320,7 @@ export default new K()
  
   
 
-##### router.enableAlertBeforeBackPage6+
+#### router.enableAlertBeforeBackPage6+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -359,7 +359,7 @@ export default new L()
  
   
 
-##### router.disableAlertBeforeBackPage6+
+#### router.disableAlertBeforeBackPage6+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -397,7 +397,7 @@ export default new Z()
  
   
 
-##### RouterOptions
+#### RouterOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -413,7 +413,7 @@ export default new Z()
  
   
 
-##### BackRouterOptions
+#### BackRouterOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV | lite_wearable
 
@@ -429,7 +429,7 @@ export default new Z()
  
   
 
-##### RouterState
+#### RouterState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -446,7 +446,7 @@ export default new Z()
  
   
 
-##### EnableAlertBeforeBackPageOptions6+
+#### EnableAlertBeforeBackPageOptions6+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -464,7 +464,7 @@ export default new Z()
  
   
 
-##### DisableAlertBeforeBackPageOptions6+
+#### DisableAlertBeforeBackPageOptions6+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -481,7 +481,7 @@ export default new Z()
  
   
 
-##### ParamsInterface
+#### ParamsInterface
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV | lite_wearable
  

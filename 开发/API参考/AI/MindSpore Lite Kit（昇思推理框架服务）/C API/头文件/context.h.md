@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-context-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -41,7 +41,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -88,13 +88,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_AI_ContextCreate()
+#### OH_AI_ContextCreate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -117,7 +117,7 @@ OH_AI_API OH_AI_ContextHandle OH_AI_ContextCreate()
  
   
 
-##### OH_AI_ContextDestroy()
+#### OH_AI_ContextDestroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -140,7 +140,7 @@ OH_AI_API void OH_AI_ContextDestroy(OH_AI_ContextHandle *context)
  
   
 
-##### OH_AI_ContextSetThreadNum()
+#### OH_AI_ContextSetThreadNum()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -164,7 +164,7 @@ OH_AI_API void OH_AI_ContextSetThreadNum(OH_AI_ContextHandle context, int32_t th
  
   
 
-##### OH_AI_ContextGetThreadNum()
+#### OH_AI_ContextGetThreadNum()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -194,7 +194,7 @@ OH_AI_API int32_t OH_AI_ContextGetThreadNum(const OH_AI_ContextHandle context)
  
   
 
-##### OH_AI_ContextSetThreadAffinityMode()
+#### OH_AI_ContextSetThreadAffinityMode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -218,7 +218,7 @@ OH_AI_API void OH_AI_ContextSetThreadAffinityMode(OH_AI_ContextHandle context, i
  
   
 
-##### OH_AI_ContextGetThreadAffinityMode()
+#### OH_AI_ContextGetThreadAffinityMode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -248,7 +248,7 @@ OH_AI_API int OH_AI_ContextGetThreadAffinityMode(const OH_AI_ContextHandle conte
  
   
 
-##### OH_AI_ContextSetThreadAffinityCoreList()
+#### OH_AI_ContextSetThreadAffinityCoreList()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -279,7 +279,7 @@ OH_AI_API void OH_AI_ContextSetThreadAffinityCoreList(OH_AI_ContextHandle contex
  
   
 
-##### OH_AI_ContextGetThreadAffinityCoreList()
+#### OH_AI_ContextGetThreadAffinityCoreList()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -310,7 +310,7 @@ OH_AI_API const int32_t *OH_AI_ContextGetThreadAffinityCoreList(const OH_AI_Cont
  
   
 
-##### OH_AI_ContextSetEnableParallel()
+#### OH_AI_ContextSetEnableParallel()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -334,7 +334,7 @@ OH_AI_API void OH_AI_ContextSetEnableParallel(OH_AI_ContextHandle context, bool 
  
   
 
-##### OH_AI_ContextGetEnableParallel()
+#### OH_AI_ContextGetEnableParallel()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -364,7 +364,7 @@ OH_AI_API bool OH_AI_ContextGetEnableParallel(const OH_AI_ContextHandle context)
  
   
 
-##### OH_AI_ContextAddDeviceInfo()
+#### OH_AI_ContextAddDeviceInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -388,7 +388,7 @@ OH_AI_API void OH_AI_ContextAddDeviceInfo(OH_AI_ContextHandle context, OH_AI_Dev
  
   
 
-##### OH_AI_DeviceInfoCreate()
+#### OH_AI_DeviceInfoCreate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -418,7 +418,7 @@ OH_AI_API OH_AI_DeviceInfoHandle OH_AI_DeviceInfoCreate(OH_AI_DeviceType device_
  
   
 
-##### OH_AI_DeviceInfoDestroy()
+#### OH_AI_DeviceInfoDestroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -441,7 +441,7 @@ OH_AI_API void OH_AI_DeviceInfoDestroy(OH_AI_DeviceInfoHandle *device_info)
  
   
 
-##### OH_AI_DeviceInfoSetProvider()
+#### OH_AI_DeviceInfoSetProvider()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -465,7 +465,7 @@ OH_AI_API void OH_AI_DeviceInfoSetProvider(OH_AI_DeviceInfoHandle device_info, c
  
   
 
-##### OH_AI_DeviceInfoGetProvider()
+#### OH_AI_DeviceInfoGetProvider()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -495,7 +495,7 @@ OH_AI_API const char *OH_AI_DeviceInfoGetProvider(const OH_AI_DeviceInfoHandle d
  
   
 
-##### OH_AI_DeviceInfoSetProviderDevice()
+#### OH_AI_DeviceInfoSetProviderDevice()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -519,7 +519,7 @@ OH_AI_API void OH_AI_DeviceInfoSetProviderDevice(OH_AI_DeviceInfoHandle device_i
  
   
 
-##### OH_AI_DeviceInfoGetProviderDevice()
+#### OH_AI_DeviceInfoGetProviderDevice()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -549,7 +549,7 @@ OH_AI_API const char *OH_AI_DeviceInfoGetProviderDevice(const OH_AI_DeviceInfoHa
  
   
 
-##### OH_AI_DeviceInfoGetDeviceType()
+#### OH_AI_DeviceInfoGetDeviceType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -579,7 +579,7 @@ OH_AI_API OH_AI_DeviceType OH_AI_DeviceInfoGetDeviceType(const OH_AI_DeviceInfoH
  
   
 
-##### OH_AI_DeviceInfoSetEnableFP16()
+#### OH_AI_DeviceInfoSetEnableFP16()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -603,7 +603,7 @@ OH_AI_API void OH_AI_DeviceInfoSetEnableFP16(OH_AI_DeviceInfoHandle device_info,
  
   
 
-##### OH_AI_DeviceInfoGetEnableFP16()
+#### OH_AI_DeviceInfoGetEnableFP16()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -633,7 +633,7 @@ OH_AI_API bool OH_AI_DeviceInfoGetEnableFP16(const OH_AI_DeviceInfoHandle device
  
   
 
-##### OH_AI_DeviceInfoSetFrequency()
+#### OH_AI_DeviceInfoSetFrequency()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -657,7 +657,7 @@ OH_AI_API void OH_AI_DeviceInfoSetFrequency(OH_AI_DeviceInfoHandle device_info, 
  
   
 
-##### OH_AI_DeviceInfoGetFrequency()
+#### OH_AI_DeviceInfoGetFrequency()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -687,7 +687,7 @@ OH_AI_API int OH_AI_DeviceInfoGetFrequency(const OH_AI_DeviceInfoHandle device_i
  
   
 
-##### OH_AI_GetAllNNRTDeviceDescs()
+#### OH_AI_GetAllNNRTDeviceDescs()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -717,7 +717,7 @@ OH_AI_API NNRTDeviceDesc *OH_AI_GetAllNNRTDeviceDescs(size_t *num)
  
   
 
-##### OH_AI_GetElementOfNNRTDeviceDescs()
+#### OH_AI_GetElementOfNNRTDeviceDescs()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -748,7 +748,7 @@ OH_AI_API NNRTDeviceDesc *OH_AI_GetElementOfNNRTDeviceDescs(NNRTDeviceDesc *desc
  
   
 
-##### OH_AI_DestroyAllNNRTDeviceDescs()
+#### OH_AI_DestroyAllNNRTDeviceDescs()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -771,7 +771,7 @@ OH_AI_API void OH_AI_DestroyAllNNRTDeviceDescs(NNRTDeviceDesc **desc)
  
   
 
-##### OH_AI_GetDeviceIdFromNNRTDeviceDesc()
+#### OH_AI_GetDeviceIdFromNNRTDeviceDesc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -801,7 +801,7 @@ OH_AI_API size_t OH_AI_GetDeviceIdFromNNRTDeviceDesc(const NNRTDeviceDesc *desc)
  
   
 
-##### OH_AI_GetNameFromNNRTDeviceDesc()
+#### OH_AI_GetNameFromNNRTDeviceDesc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -831,7 +831,7 @@ OH_AI_API const char *OH_AI_GetNameFromNNRTDeviceDesc(const NNRTDeviceDesc *desc
  
   
 
-##### OH_AI_GetTypeFromNNRTDeviceDesc()
+#### OH_AI_GetTypeFromNNRTDeviceDesc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -861,7 +861,7 @@ OH_AI_API OH_AI_NNRTDeviceType OH_AI_GetTypeFromNNRTDeviceDesc(const NNRTDeviceD
  
   
 
-##### OH_AI_CreateNNRTDeviceInfoByName()
+#### OH_AI_CreateNNRTDeviceInfoByName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -891,7 +891,7 @@ OH_AI_API OH_AI_DeviceInfoHandle OH_AI_CreateNNRTDeviceInfoByName(const char *na
  
   
 
-##### OH_AI_CreateNNRTDeviceInfoByType()
+#### OH_AI_CreateNNRTDeviceInfoByType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -921,7 +921,7 @@ OH_AI_API OH_AI_DeviceInfoHandle OH_AI_CreateNNRTDeviceInfoByType(OH_AI_NNRTDevi
  
   
 
-##### OH_AI_DeviceInfoSetDeviceId()
+#### OH_AI_DeviceInfoSetDeviceId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -945,7 +945,7 @@ OH_AI_API void OH_AI_DeviceInfoSetDeviceId(OH_AI_DeviceInfoHandle device_info, s
  
   
 
-##### OH_AI_DeviceInfoGetDeviceId()
+#### OH_AI_DeviceInfoGetDeviceId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -975,7 +975,7 @@ OH_AI_API size_t OH_AI_DeviceInfoGetDeviceId(const OH_AI_DeviceInfoHandle device
  
   
 
-##### OH_AI_DeviceInfoSetPerformanceMode()
+#### OH_AI_DeviceInfoSetPerformanceMode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -999,7 +999,7 @@ OH_AI_API void OH_AI_DeviceInfoSetPerformanceMode(OH_AI_DeviceInfoHandle device_
  
   
 
-##### OH_AI_DeviceInfoGetPerformanceMode()
+#### OH_AI_DeviceInfoGetPerformanceMode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1029,7 +1029,7 @@ OH_AI_API OH_AI_PerformanceMode OH_AI_DeviceInfoGetPerformanceMode(const OH_AI_D
  
   
 
-##### OH_AI_DeviceInfoSetPriority()
+#### OH_AI_DeviceInfoSetPriority()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1053,7 +1053,7 @@ OH_AI_API void OH_AI_DeviceInfoSetPriority(OH_AI_DeviceInfoHandle device_info, O
  
   
 
-##### OH_AI_DeviceInfoGetPriority()
+#### OH_AI_DeviceInfoGetPriority()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1083,7 +1083,7 @@ OH_AI_API OH_AI_Priority OH_AI_DeviceInfoGetPriority(const OH_AI_DeviceInfoHandl
  
   
 
-##### OH_AI_DeviceInfoAddExtension()
+#### OH_AI_DeviceInfoAddExtension()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

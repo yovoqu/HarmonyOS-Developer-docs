@@ -10,7 +10,7 @@
 **起始版本：** 6.1.1(24)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** lite_wearable
 
@@ -20,7 +20,7 @@ import healthService from '@hms.health.service';
  
   
 
-##### SampleReal
+#### SampleReal
 
 **支持设备：** lite_wearable
 
@@ -44,7 +44,7 @@ SampleReal<K extends Record<string, [healthStore.HealthValueType](https://develo
  
   
 
-##### workout
+#### workout
 
 **支持设备：** lite_wearable
 
@@ -58,7 +58,7 @@ SampleReal<K extends Record<string, [healthStore.HealthValueType](https://develo
  
   
 
-##### ConfigType
+#### ConfigType
 
 **支持设备：** lite_wearable
 
@@ -81,7 +81,7 @@ type ConfigType = number | string | boolean
  
   
 
-##### DeviceState
+#### DeviceState
 
 **支持设备：** lite_wearable
 
@@ -102,7 +102,7 @@ type ConfigType = number | string | boolean
  
   
 
-##### Goal
+#### Goal
 
 **支持设备：** lite_wearable
 
@@ -122,7 +122,7 @@ type ConfigType = number | string | boolean
  
   
 
-##### LinkageType
+#### LinkageType
 
 **支持设备：** lite_wearable
 
@@ -142,7 +142,7 @@ type ConfigType = number | string | boolean
  
   
 
-##### StartCode
+#### StartCode
 
 **支持设备：** lite_wearable
 
@@ -164,7 +164,7 @@ type ConfigType = number | string | boolean
  
   
 
-##### StartResult
+#### StartResult
 
 **支持设备：** lite_wearable
 
@@ -184,7 +184,7 @@ type ConfigType = number | string | boolean
  
   
 
-##### TargetType
+#### TargetType
 
 **支持设备：** lite_wearable
 
@@ -207,7 +207,7 @@ type ConfigType = number | string | boolean
  
   
 
-##### WorkoutConfig
+#### WorkoutConfig
 
 **支持设备：** lite_wearable
 
@@ -229,7 +229,7 @@ type ConfigType = number | string | boolean
  
   
 
-##### DynamicLibResult
+#### DynamicLibResult
 
 **支持设备：** lite_wearable
 
@@ -248,7 +248,7 @@ type ConfigType = number | string | boolean
  
   
 
-##### DynamicLibErrorCode
+#### DynamicLibErrorCode
 
 **支持设备：** lite_wearable
 
@@ -271,7 +271,7 @@ type ConfigType = number | string | boolean
  
   
 
-##### workout.config
+#### workout.config
 
 **支持设备：** lite_wearable
 
@@ -322,7 +322,7 @@ try {
  
   
 
-##### workout.start
+#### workout.start
 
 **支持设备：** lite_wearable
 
@@ -376,7 +376,7 @@ try {
  
   
 
-##### workout.pause
+#### workout.pause
 
 **支持设备：** lite_wearable
 
@@ -420,7 +420,7 @@ try {
  
   
 
-##### workout.resume
+#### workout.resume
 
 **支持设备：** lite_wearable
 
@@ -464,7 +464,7 @@ try {
  
   
 
-##### workout.stop
+#### workout.stop
 
 **支持设备：** lite_wearable
 
@@ -507,7 +507,7 @@ try {
  
   
 
-##### workout.onData
+#### workout.onData
 
 **支持设备：** lite_wearable
 
@@ -562,7 +562,7 @@ try {
  
   
 
-##### workout.offData
+#### workout.offData
 
 **支持设备：** lite_wearable
 
@@ -616,7 +616,7 @@ try {
  
   
 
-##### workout.sendData
+#### workout.sendData
 
 **支持设备：** lite_wearable
 
@@ -674,7 +674,7 @@ try {
  
   
 
-##### workout.load
+#### workout.load
 
 **支持设备：** lite_wearable
 
@@ -724,7 +724,7 @@ try {
  
   
 
-##### workout.load
+#### workout.load
 
 **支持设备：** lite_wearable
 
@@ -792,7 +792,7 @@ try {
  
   
 
-##### workout.unload
+#### workout.unload
 
 **支持设备：** lite_wearable
 
@@ -842,7 +842,7 @@ try {
  
   
 
-##### workout.unload
+#### workout.unload
 
 **支持设备：** lite_wearable
 

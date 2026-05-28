@@ -4,20 +4,20 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-dynamiclayout
 
-##### 概述
+#### 概述
 
 从API version 24开始，支持动态布局容器组件[DynamicLayout](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-dynamiclayout)。DynamicLayout支持在运行时动态切换不同的布局算法，同时保持子组件的状态不变。通过DynamicLayout，开发者可以灵活实现同一种内容在不同场景下的多种布局展示。DynamicLayout组件支持的布局算法类包括[RowLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#rowlayoutalgorithm)、[ColumnLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#columnlayoutalgorithm)、[StackLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#stacklayoutalgorithm)、[GridLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#gridlayoutalgorithm)和自定义布局算法类[CustomLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#customlayoutalgorithm)。
 
 
 
-##### 约束与限制
+#### 约束与限制
 1. 布局算法类使用[@ObservedV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)装饰，不支持[@State](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state)装饰器。
 2. 切换布局算法时，子组件的状态（如输入框内容、滚动位置等）保持不变。
 3. 在自定义布局算法的[onMeasure](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#onmeasure)和[onLayout](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#onlayout)方法中不允许修改状态变量，避免不可预期的行为。
 
 
 
-##### 创建DynamicLayout
+#### 创建DynamicLayout
 
 通过传入[LayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#layoutalgorithm-1)类型入参，创建[DynamicLayout](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-dynamiclayout#接口)组件并设置布局算法。[LayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#layoutalgorithm-1)类型变量支持赋值具体的布局算法类对象，包括[内置布局算法](#内置布局算法)和[自定义布局算法](#自定义布局算法)。
 
@@ -69,13 +69,13 @@ struct CreateDynamicLayout {
 
 
 
-##### 内置布局算法
+#### 内置布局算法
 
 线性布局算法[RowLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#rowlayoutalgorithm)和[ColumnLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#columnlayoutalgorithm)具有自适应拉伸、缩放的能力，可以用于界面元素自适应布局的场景。堆叠布局算法[StackLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#stacklayoutalgorithm)具有较强的页面层叠、位置定位能力，可以用于广告、卡片层叠等页面场景。网格布局算法[GridLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#gridlayoutalgorithm)具有较好的规律结构，适合展示同类项目集合，例如显示图片、视频、音乐、新闻、商品等。
 
 
 
-##### RowLayoutAlgorithm
+#### RowLayoutAlgorithm
 
 [RowLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#rowlayoutalgorithm)是水平方向线性布局算法，子组件沿水平方向依次排列。该算法支持设置子组件间距、子组件在主轴（水平方向）上的对齐方式、在交叉轴（垂直方向）上的对齐方式，以及是否反转子组件的排列方向。该布局算法与[Row](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-row)组件布局效果一致，详细效果说明请参考[线性布局（Row/Column）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-linear)。下述示例通过修改RowLayoutAlgorithm对象的space、justifyContent、alignItems和isReverse成员变量，调整子组件间距、主轴（水平方向）对齐方式、交叉轴（竖直方向）对齐方式和排列方向。
 
@@ -156,7 +156,7 @@ struct RowLayoutExample {
 
 
 
-##### ColumnLayoutAlgorithm
+#### ColumnLayoutAlgorithm
 
 [ColumnLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#columnlayoutalgorithm)是垂直方向线性布局算法，子组件沿垂直方向依次排列。该算法支持设置子组件间距、子组件在主轴（垂直方向）上的对齐方式、在交叉轴（水平方向）上的对齐方式，以及是否反转子组件的排列方向。该布局算法与[Column](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-column)组件布局效果一致，详细效果说明请参考[线性布局（Row/Column）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-linear)。下述示例通过修改ColumnLayoutAlgorithm的space、justifyContent、alignItems和isReverse属性，调整子组件间距、主轴（竖直方向）对齐方式、交叉轴（水平方向）对齐方式和排列方向。
 
@@ -237,7 +237,7 @@ struct ColumnLayoutExample {
 
 
 
-##### StackLayoutAlgorithm
+#### StackLayoutAlgorithm
 
 [StackLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#stacklayoutalgorithm)是堆叠布局算法，子组件堆叠排列，后添加的子组件覆盖先添加的子组件。该算法支持通过alignContent设置子组件在容器中的九宫格对齐位置，子组件可以通过[layoutGravity](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-location#layoutgravity20)属性单独设置自己的对齐方式，优先级高于容器的alignContent。该布局算法与[Stack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-stack)组件布局效果一致，详细效果说明请参考[堆叠布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-stack-layout)。下述示例通过修改[StackLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#stacklayoutalgorithm)的[alignContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#属性-2)属性，调整子组件在容器中的九宫格对齐位置。
 
@@ -312,7 +312,7 @@ struct StackLayoutExample {
 
 
 
-##### GridLayoutAlgorithm
+#### GridLayoutAlgorithm
 
 [GridLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#gridlayoutalgorithm)是垂直方向网格布局算法。该算法支持通过[columnsTemplate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-lazyvgridlayout#columnstemplate)或[ItemFillPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#itemfillpolicy22)设置列数，设置[ItemFillPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#itemfillpolicy22)为BREAKPOINT_DEFAULT时行为与[Grid](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid)一致，行数由子节点数量和列数决定。该算法支持通过[LengthMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#lengthmetrics12)设置行间距和列间距，通过[align](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-location#align20)设置组件在网格中的对齐方式。下述示例修改GridLayoutAlgorithm的columnsTemplate属性调整网格列数。
 
@@ -422,13 +422,13 @@ struct GridLayoutExample {
 
 
 
-##### 自定义布局算法
+#### 自定义布局算法
 
 自定义布局算法通过继承[CustomLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#customlayoutalgorithm)类，重写[onMeasure](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#onmeasure)和[onLayout](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#onlayout)方法实现。开发者可以根据具体业务需求，自定义子组件的大小测量和位置排列，实现内置布局算法无法满足的个性化布局效果，如瀑布流、标签云等不规则布局。
 
 
 
-##### 自定义布局算法实现指导
+#### 自定义布局算法实现指导
 
 通过调用[FrameNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#framenode-1)的[getChildrenCount()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#getchildrencount12)和[getChild()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#getchild12)方法，开发者可以获取所有子组件FrameNode。在onMeasure方法中，调用[measure()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#measure12)方法可以自定义测量子组件大小。在onLayout方法中，调用[getMeasuredSize()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#getmeasuredsize12)可以获取子组件测量后的尺寸，调用[layout()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#layout12)方法可以自定义排列子组件位置。下述示例展示如何重写[onMeasure](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#onmeasure)和[onLayout](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#onlayout)方法，调用[FrameNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#framenode-1)的相关方法实现水平方向线性布局的效果。
 
@@ -530,7 +530,7 @@ struct CustomLayoutBasic {
 
 
 
-##### 瀑布流布局
+#### 瀑布流布局
 
 下述示例实现了自定义瀑布流布局算法，将子组件按列排列，每列中的子组件依次堆叠，适用于商品展示的场景。
 
@@ -697,7 +697,7 @@ interface Product {
 
 
 
-##### 网格布局
+#### 网格布局
 
 下述示例实现一个自定义网格布局算法，将子组件按网格排列，同一行的子组件高度保持一致。
 
@@ -856,7 +856,7 @@ struct GridLayoutExample {
 
 
 
-##### 标签云布局
+#### 标签云布局
 
 下述示例实现一个自定义标签云布局，标签自动换行排列，适合展示搜索历史、热门标签、技能标签等不规则布局的场景。
 
@@ -1006,7 +1006,7 @@ struct TagCloudExample {
 
 
 
-##### 切换布局算法
+#### 切换布局算法
 
 DynamicLayout在切换布局算法时会保持子组件的状态不变，比如输入框内容、开关状态、进度条值等。下述示例展示[TextInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#接口)、[Toggle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-toggle#接口)、[Slider](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-slider#接口)和[CheckBox](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-checkbox)组件在布局切换过程中保持状态，同时使用[animateTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#animateto)为布局切换添加平滑的动画效果。
 

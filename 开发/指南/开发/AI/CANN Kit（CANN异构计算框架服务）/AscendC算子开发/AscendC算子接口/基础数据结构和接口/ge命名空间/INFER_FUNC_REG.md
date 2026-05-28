@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-infer-func-reg
 
-##### 函数功能
+#### 函数功能
 
 注册算子的InferShape函数。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 INFER_FUNC_REG(op_name, x)
@@ -20,13 +20,13 @@ INFER_FUNC_REG(op_name, x)
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数名 | 输入/输出 | 描述 |
 | --- | --- | --- |
@@ -36,6 +36,6 @@ INFER_FUNC_REG(op_name, x)
  
   
 
-##### 返回值
+#### 返回值
 
 无

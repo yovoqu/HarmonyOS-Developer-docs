@@ -11,7 +11,7 @@
 
   
 
-##### 约束与限制
+#### 约束与限制
 
 - 画中画窗口中画面的呈现不通过传入XComponent Controller实现，而是通过渲染surfaceId（在开启画中画回调中获取）对应的组件实现。
 - 与typeNode实现方式相同，系统不缓存页面。如需进行页面操作，应用需要开启画中画生命周期监听，在对应周期内进行对应操作。
@@ -20,7 +20,7 @@
  
   
 
-##### 开发步骤
+#### 开发步骤
 
 示例中的视频播放器简易实现逻辑如下：
  1. 通过OH_PictureInPicture_CreatePipConfig创建画中画参数配置器，并通过OH_PictureInPicture_SetPipMainWindowId、OH_PictureInPicture_SetPipTemplateType、OH_PictureInPicture_SetPipRect、OH_PictureInPicture_SetPipControlGroup、OH_PictureInPicture_SetPipNapiEnv接口在画中画参数配置器中设置初始配置信息。
@@ -914,4 +914,4 @@ struct NDKImplementIndexPage {
 以上示例代码对应的示意图如下所示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/O0vekgbnSemj4J-GNFDAtg/zh-cn_image_0000002611834077.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014750Z&HW-CC-Expire=86400&HW-CC-Sign=9F2D55BB0D7D659FA714D47D5ADD1D8351E9A0F515C21BA0FEB3932E79A7FA18)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/O0vekgbnSemj4J-GNFDAtg/zh-cn_image_0000002611834077.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030422Z&HW-CC-Expire=86400&HW-CC-Sign=91BD9DC51E41A0AFB41496D7B04494ECC945063CB5F76929FF4589E3CDB8FEE1)

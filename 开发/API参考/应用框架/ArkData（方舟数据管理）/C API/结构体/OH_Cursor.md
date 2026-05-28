@@ -10,7 +10,7 @@ typedef struct {...} OH_Cursor
 ```
   
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ typedef struct {...} OH_Cursor
  
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -35,7 +35,7 @@ typedef struct {...} OH_Cursor
  
   
 
-##### 成员函数
+#### 成员函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -60,13 +60,13 @@ typedef struct {...} OH_Cursor
  
   
 
-##### 成员函数说明
+#### 成员函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### getColumnCount()
+#### getColumnCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -97,7 +97,7 @@ int (*getColumnCount)(OH_Cursor *cursor, int *count)
  
   
 
-##### getColumnType()
+#### getColumnType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -129,7 +129,7 @@ int (*getColumnType)(OH_Cursor *cursor, int32_t columnIndex, OH_ColumnType *colu
  
   
 
-##### getColumnIndex()
+#### getColumnIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -161,7 +161,7 @@ int (*getColumnIndex)(OH_Cursor *cursor, const char *name, int *columnIndex)
  
   
 
-##### getColumnName()
+#### getColumnName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -194,7 +194,7 @@ int (*getColumnName)(OH_Cursor *cursor, int32_t columnIndex, char *name, int len
  
   
 
-##### getRowCount()
+#### getRowCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -225,7 +225,7 @@ int (*getRowCount)(OH_Cursor *cursor, int *count)
  
   
 
-##### goToNextRow()
+#### goToNextRow()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -255,7 +255,7 @@ int (*goToNextRow)(OH_Cursor *cursor)
  
   
 
-##### getSize()
+#### getSize()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -287,7 +287,7 @@ int (*getSize)(OH_Cursor *cursor, int32_t columnIndex, size_t *size)
  
   
 
-##### getText()
+#### getText()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -320,7 +320,7 @@ int (*getText)(OH_Cursor *cursor, int32_t columnIndex, char *value, int length)
  
   
 
-##### getInt64()
+#### getInt64()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -352,7 +352,7 @@ int (*getInt64)(OH_Cursor *cursor, int32_t columnIndex, int64_t *value)
  
   
 
-##### getReal()
+#### getReal()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -384,7 +384,7 @@ int (*getReal)(OH_Cursor *cursor, int32_t columnIndex, double *value)
  
   
 
-##### getBlob()
+#### getBlob()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -417,7 +417,7 @@ int (*getBlob)(OH_Cursor *cursor, int32_t columnIndex, unsigned char *value, int
  
   
 
-##### isNull()
+#### isNull()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -449,7 +449,7 @@ int (*isNull)(OH_Cursor *cursor, int32_t columnIndex, bool *isNull)
  
   
 
-##### destroy()
+#### destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -479,7 +479,7 @@ int (*destroy)(OH_Cursor *cursor)
  
   
 
-##### getAsset()
+#### getAsset()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -511,7 +511,7 @@ int (*getAsset)(OH_Cursor *cursor, int32_t columnIndex, Data_Asset *value)
  
   
 
-##### getAssets()
+#### getAssets()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

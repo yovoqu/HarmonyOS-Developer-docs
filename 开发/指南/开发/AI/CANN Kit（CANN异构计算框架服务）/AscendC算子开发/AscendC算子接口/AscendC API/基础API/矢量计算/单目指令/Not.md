@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-vector-calculation-not
 
-##### 函数功能
+#### 函数功能
 
 按元素做按位取反，计算公式如下，其中PAR表示矢量计算单元一个迭代能够处理的元素个数 :
  
@@ -14,7 +14,7 @@
  
   
 
-##### 函数原型
+#### 函数原型
 
 tensor前n个数据计算：
  
@@ -41,13 +41,13 @@ __aicore__ inline void Not(const LocalTensor<T>& dstLocal, const LocalTensor<T>&
  
   
 
-##### 返回值
+#### 返回值
 
 无
  
   
 
-##### 支持的型号
+#### 支持的型号
 
 Kirin9020系列处理器
  
@@ -55,13 +55,13 @@ KirinX90系列处理器
  
   
 
-##### 约束说明
+#### 约束说明
 
 操作数地址偏移对齐要求请参见[通用约束](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-general-constraints)。
  
   
 
-##### 调用示例
+#### 调用示例
 
 本样例中只展示Compute流程中的部分代码。本样例的srcLocal和dstLocal均为int16_t类型，占16位bit。
  

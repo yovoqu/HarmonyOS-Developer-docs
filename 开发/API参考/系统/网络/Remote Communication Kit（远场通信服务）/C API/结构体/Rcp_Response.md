@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___response
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -19,13 +19,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -46,13 +46,13 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### body
+#### body
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -66,7 +66,7 @@ Rcp_Buffer Rcp_Response::body
  
   
 
-##### cookies
+#### cookies
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -80,7 +80,7 @@ Rcp_ResponseCookies* Rcp_Response::cookies
  
   
 
-##### debugInfo
+#### debugInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -96,7 +96,7 @@ Rcp_DebugInfo* Rcp_Response::debugInfo
  
   
 
-##### destroyResponse
+#### destroyResponse
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -119,7 +119,7 @@ void(* Rcp_Response::destroyResponse) (struct Rcp_Response *response)
  
   
 
-##### effectiveUrl
+#### effectiveUrl
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -135,7 +135,7 @@ char* Rcp_Response::effectiveUrl
  
   
 
-##### headers
+#### headers
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -149,7 +149,7 @@ Rcp_Headers* Rcp_Response::headers
  
   
 
-##### request
+#### request
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -163,7 +163,7 @@ const Rcp_Request* Rcp_Response::request
  
   
 
-##### responseCallback
+#### responseCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -177,7 +177,7 @@ const Rcp_ResponseCallbackObject* Rcp_Response::responseCallback
  
   
 
-##### responsePrivate
+#### responsePrivate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -191,7 +191,7 @@ void* Rcp_Response::responsePrivate
  
   
 
-##### statusCode
+#### statusCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -205,7 +205,7 @@ Rcp_StatusCode Rcp_Response::statusCode
  
   
 
-##### timeInfo
+#### timeInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

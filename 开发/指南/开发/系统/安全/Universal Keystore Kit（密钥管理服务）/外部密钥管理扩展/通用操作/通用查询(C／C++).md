@@ -7,7 +7,7 @@
 从API 22开始，huksExternalCrypto提供通用查询功能接口。从Ukey获取通用属性信息，完成属性查询操作。具体的场景介绍请参考[获取属性介绍及规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-ukey-general-query-overview)。
 
 
-##### 在CMake脚本中链接相关动态库
+#### 在CMake脚本中链接相关动态库
 
 ```text
 target_link_libraries(entry PUBLIC libhuks_ndk.z.so libhuks_external_crypto.z.so)
@@ -15,7 +15,7 @@ target_link_libraries(entry PUBLIC libhuks_ndk.z.so libhuks_external_crypto.z.so
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 **获取属性**
 1. 构造resourceId和propertyId，先调用[OH_Huks_OpenResource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-external-crypto-api-h#oh_huks_openresource)打开资源。
@@ -26,7 +26,7 @@ target_link_libraries(entry PUBLIC libhuks_ndk.z.so libhuks_external_crypto.z.so
 
 
 
-##### 开发案例
+#### 开发案例
 
 ```json
 #include "huks/native_huks_external_crypto_api.h"

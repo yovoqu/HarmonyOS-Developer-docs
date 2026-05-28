@@ -12,7 +12,7 @@
 
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -43,7 +43,7 @@ QRCode(value: ResourceStr)
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -51,7 +51,7 @@ QRCode(value: ResourceStr)
  
   
 
-##### color
+#### color
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -74,7 +74,7 @@ color(value: ResourceColor)
  
   
 
-##### backgroundColor
+#### backgroundColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -97,7 +97,7 @@ backgroundColor(value: ResourceColor)
  
   
 
-##### contentOpacity11+
+#### contentOpacity11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -118,7 +118,7 @@ contentOpacity(value: number | Resource)
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -126,13 +126,13 @@ contentOpacity(value: number | Resource)
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 示例1（设置颜色、背景颜色、不透明度）
+#### 示例1（设置颜色、背景颜色、不透明度）
 
 该示例展示了QRCode组件的基本使用方法，通过[color](#color)属性设置二维码颜色、[backgroundColor](#backgroundcolor)属性设置二维码背景颜色、[contentOpacity](#contentopacity11)属性设置二维码不透明度。
  
@@ -170,7 +170,7 @@ struct QRCodeExample {
  
   
 
-##### 示例2（设置背景颜色为透明）
+#### 示例2（设置背景颜色为透明）
 
 该示例通过[backgroundColor](#backgroundcolor)属性设置二维码背景颜色为透明，从而实现二维码内容与背景融合。
  

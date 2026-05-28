@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-settilingcond
 
-##### 函数功能
+#### 函数功能
 
 设置tiling cond。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 ge::graphStatus SetTilingCond(int32_t tiling_cond);
@@ -18,7 +18,7 @@ ge::graphStatus SetTilingCond(int32_t tiling_cond);
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -27,7 +27,7 @@ ge::graphStatus SetTilingCond(int32_t tiling_cond);
  
   
 
-##### 返回值
+#### 返回值
 
 设置成功时返回“ge::GRAPH_SUCCESS”。
  
@@ -35,13 +35,13 @@ ge::graphStatus SetTilingCond(int32_t tiling_cond);
  
   
 
-##### 约束说明
+#### 约束说明
 
 当前支持的Kirin9020和KirinX90系列处理器是分离架构。
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 ge::graphStatus Tiling4XXX(TilingContext* context) {

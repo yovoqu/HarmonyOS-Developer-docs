@@ -10,7 +10,7 @@
 
   
 
-##### AudioStreamInfo8+
+#### AudioStreamInfo8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -29,7 +29,7 @@
  
   
 
-##### AudioRendererInfo8+
+#### AudioRendererInfo8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -45,7 +45,7 @@
  
   
 
-##### AudioRendererOptions8+
+#### AudioRendererOptions8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -60,7 +60,7 @@
  
   
 
-##### InterruptEvent9+
+#### InterruptEvent9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -79,7 +79,7 @@
  
   
 
-##### DeviceBlockStatusInfo13+
+#### DeviceBlockStatusInfo13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -95,7 +95,7 @@
  
   
 
-##### AudioSessionStrategy12+
+#### AudioSessionStrategy12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -110,7 +110,7 @@
  
   
 
-##### AudioSessionDeactivatedEvent12+
+#### AudioSessionDeactivatedEvent12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -125,7 +125,7 @@
  
   
 
-##### AudioSessionStateChangedEvent20+
+#### AudioSessionStateChangedEvent20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -140,7 +140,7 @@
  
   
 
-##### AudioRendererChangeInfo9+
+#### AudioRendererChangeInfo9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -157,7 +157,7 @@
  
   
 
-##### AudioCapturerChangeInfo9+
+#### AudioCapturerChangeInfo9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -175,7 +175,7 @@
  
   
 
-##### AudioDeviceDescriptor
+#### AudioDeviceDescriptor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -200,7 +200,7 @@
  
   
 
-##### VolumeEvent9+
+#### VolumeEvent9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -218,7 +218,7 @@
  
   
 
-##### MicStateChangeEvent9+
+#### MicStateChangeEvent9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -233,7 +233,7 @@
  
   
 
-##### StreamVolumeEvent20+
+#### StreamVolumeEvent20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -251,7 +251,7 @@
  
   
 
-##### DeviceChangeAction
+#### DeviceChangeAction
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -267,7 +267,7 @@
  
   
 
-##### AudioStreamDeviceChangeInfo11+
+#### AudioStreamDeviceChangeInfo11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -285,7 +285,7 @@
  
   
 
-##### CurrentOutputDeviceChangedEvent20+
+#### CurrentOutputDeviceChangedEvent20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -302,7 +302,7 @@
  
   
 
-##### CurrentInputDeviceChangedEvent21+
+#### CurrentInputDeviceChangedEvent21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -318,7 +318,7 @@
  
   
 
-##### AudioTimestampInfo19+
+#### AudioTimestampInfo19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -334,7 +334,7 @@
  
   
 
-##### AudioCapturerInfo8+
+#### AudioCapturerInfo8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -350,7 +350,7 @@
  
   
 
-##### AudioCapturerOptions8+
+#### AudioCapturerOptions8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -365,7 +365,7 @@
  
   
 
-##### AudioInterrupt(deprecated)
+#### AudioInterrupt(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -386,7 +386,7 @@
  
   
 
-##### CaptureFilterOptions(deprecated)
+#### CaptureFilterOptions(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -405,7 +405,7 @@
  
   
 
-##### AudioPlaybackCaptureConfig(deprecated)
+#### AudioPlaybackCaptureConfig(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -424,7 +424,7 @@
  
   
 
-##### InterruptAction(deprecated)
+#### InterruptAction(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

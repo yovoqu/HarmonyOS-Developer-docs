@@ -24,7 +24,7 @@ TreeMap和[HashMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-refer
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -34,13 +34,13 @@ import { TreeMap } from '@kit.ArkTS';
 
 
 
-##### TreeMap
+#### TreeMap
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -55,7 +55,7 @@ import { TreeMap } from '@kit.ArkTS';
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -140,7 +140,7 @@ console.info("length:", ts1.length); // length: 2
 
 
 
-##### isEmpty
+#### isEmpty
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -178,7 +178,7 @@ console.info("result:", result);  // result: true
 
 
 
-##### hasKey
+#### hasKey
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -224,7 +224,7 @@ console.info("result:", result);  // result: true
 
 
 
-##### hasValue
+#### hasValue
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -270,7 +270,7 @@ console.info("result:", result);  // result: true
 
 
 
-##### get
+#### get
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -317,7 +317,7 @@ console.info("result:", result); // result: 356
 
 
 
-##### getFirstKey
+#### getFirstKey
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -357,7 +357,7 @@ console.info("result:", result); // result: sparrow
 
 
 
-##### getLastKey
+#### getLastKey
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -397,7 +397,7 @@ console.info("result:", result); // result: squirrel
 
 
 
-##### setAll
+#### setAll
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -446,7 +446,7 @@ map.forEach((value ?: number, key ?: string) : void => {
 
 
 
-##### set
+#### set
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -493,7 +493,7 @@ console.info("squirrel:", treeMap.get("squirrel")); // squirrel: 123
 
 
 
-##### remove
+#### remove
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -540,7 +540,7 @@ console.info("result = " + result); // result = 356
 
 
 
-##### getLowerKey
+#### getLowerKey
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -589,7 +589,7 @@ console.info("result:", result); // result: 2
 
 
 
-##### getHigherKey
+#### getHigherKey
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -638,7 +638,7 @@ console.info("result:", result); // result: 4
 
 
 
-##### replace
+#### replace
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -685,7 +685,7 @@ console.info("sparrow:", treeMap.get("sparrow")); // sparrow: 357
 
 
 
-##### clear
+#### clear
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -719,7 +719,7 @@ console.info("result:", result); // result: true
 
 
 
-##### keys
+#### keys
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -764,7 +764,7 @@ for (let key of keys) {
 
 
 
-##### values
+#### values
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -808,7 +808,7 @@ for (let value of values) {
 
 
 
-##### forEach
+#### forEach
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -874,7 +874,7 @@ treeMap.forEach((value: number, key: string): void => {
 
 
 
-##### entries
+#### entries
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -932,7 +932,7 @@ while(!t.done) {
 
 
 
-##### [Symbol.iterator]
+#### [Symbol.iterator]
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -13,7 +13,7 @@
 AppID绑定详细可参见[AppID管理及关联](https://developer.huawei.com/consumer/cn/doc/pay-docs/hwzf-appidguanli-0000001757041165)。
   
 
-##### 基本概念
+#### 基本概念
 
 **同主体**：商户号与AppID所关联的营业主体信息一致。
  
@@ -21,7 +21,7 @@ AppID绑定详细可参见[AppID管理及关联](https://developer.huawei.com/co
  
   
 
-##### 绑定AppID说明
+#### 绑定AppID说明
 1. 暂不支持平台子商户及特约商户发起绑定AppID申请。
 2. 商户发起绑定AppID申请，异主体绑定需要商户与华为支付侧沟通申请开通异主体绑定权限（可参考[产品开通操作](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/payment-product-configuration#场景一产品开通操作)）后才可在[华为支付商户平台](https://petalpay-merchant.cloud.huawei.com/)发起异主体AppID绑定操作。
 3. AppID关联的营业主体与特约商户商户号或与服务商商户号关联的营业主体一致，都认为是同主体，可直接发起绑定。
@@ -29,7 +29,7 @@ AppID绑定详细可参见[AppID管理及关联](https://developer.huawei.com/co
  
   
 
-##### 直连商户/平台类商户绑定
+#### 直连商户/平台类商户绑定
 1. 请登录[华为支付商户平台](https://petalpay-merchant.cloud.huawei.com/)进入“商户中心 > 产品功能 > AppID管理 > 新增关联AppID”。
 
   
@@ -51,7 +51,7 @@ AppID绑定详细可参见[AppID管理及关联](https://developer.huawei.com/co
  
   
 
-##### 服务商绑定
+#### 服务商绑定
 
 服务商绑定AppID涉及如下场景：
  1. **服务商绑定**
@@ -63,7 +63,7 @@ AppID绑定详细可参见[AppID管理及关联](https://developer.huawei.com/co
  
   
 
-##### 服务商绑定
+#### 服务商绑定
 1. 服务商登录[华为支付商户平台](https://petalpay-merchant.cloud.huawei.com/)进入“商户中心 > 产品功能 > AppID管理”，在“服务商绑定的AppID”页签内点击“新增关联AppID”。
 
   
@@ -85,7 +85,7 @@ AppID绑定详细可参见[AppID管理及关联](https://developer.huawei.com/co
  
   
 
-##### 服务商邀请特约商户绑定
+#### 服务商邀请特约商户绑定
 1. 服务商登录[华为支付商户平台](https://petalpay-merchant.cloud.huawei.com/)进入“商户中心 > 产品功能 > AppID管理”，在“特约商户绑定的AppID”页签内根据服务商下的特约商户列表，选择特约商户发起AppID绑定申请邀请。
 
   
@@ -107,4 +107,4 @@ AppID绑定详细可参见[AppID管理及关联](https://developer.huawei.com/co
 4. **元服务**：“支付与交易 > 鸿蒙支付服务（可在‘全部功能’中搜索服务并固定到导航栏）> 支付服务（非虚拟类）> 待关联商户号”。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/nrAnaC02SzO9Av8fw3tIhw/zh-cn_image_0000002611835005.png?HW-CC-KV=V1&HW-CC-Date=20260528T014445Z&HW-CC-Expire=86400&HW-CC-Sign=6D32C48D630C5094CD585E922790B699AD5090EC53AA43A645F221BC6C5B6432)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/nrAnaC02SzO9Av8fw3tIhw/zh-cn_image_0000002611835005.png?HW-CC-KV=V1&HW-CC-Date=20260528T030114Z&HW-CC-Expire=86400&HW-CC-Sign=677B2DA1B40A827F86CAE7817D2E67DED5EE502D9231A8BE1F0A7E174E18305C)

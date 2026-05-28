@@ -9,7 +9,7 @@
 该规则仅支持对.js/.ts文件进行检查。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -22,13 +22,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/no-this-alias选项](https://typescript-eslint.nodejs.cn/rules/no-this-alias/#options)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 const time = 1000;
@@ -47,7 +47,7 @@ export class CC {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 // 禁止将this赋值给一个变量
@@ -60,7 +60,7 @@ setTimeout(function () {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/recommended</span>

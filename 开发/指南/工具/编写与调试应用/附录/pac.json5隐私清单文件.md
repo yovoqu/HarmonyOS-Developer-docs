@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/agc-pac
 
-##### 概述
+#### 概述
 
 若您开发App，您在AppGallery Connect上架应用时需要提供应用的隐私标签，建议您在项目工程中创建pac.json5配置文件，在文件中声明处理的个人数据类型、使用目的等信息。编译构建时，如您集成的HSP/HAR中的pac.json5同步声明了隐私保护信息，信息将自动汇总至此文件并随软件打包，上架时AppGallery Connect可基于此文件内容自动生成隐私标签。
  
@@ -16,7 +16,7 @@
  
  
 
-##### 创建pac.json5文件
+#### 创建pac.json5文件
 
 - 开发App情况下，选中AppScope目录新建pac.json5文件。
 ![](assets/pac.json5隐私清单文件/file-20260514133055868-1.png)
@@ -24,13 +24,13 @@
 
  
 - 开发HSP或HAR情况下，选中HSP或HAR模块目录新建pac.json5文件。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/7LJzcp7PSTykxqOi1rmdjw/zh-cn_image_0000002571387102.png?HW-CC-KV=V1&HW-CC-Date=20260528T014929Z&HW-CC-Expire=86400&HW-CC-Sign=C4204C076BB4223B35B40534C25D768A9D5CE6D252294733DBEF6F5FAA76352F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/ru9R_T0lQymB2FLG0SxuEg/zh-cn_image_0000002571387102.png?HW-CC-KV=V1&HW-CC-Date=20260528T030558Z&HW-CC-Expire=86400&HW-CC-Sign=CF5E71C009346FC9A675906B106C8FC3EE212D7125C3D484759F3A1344A34626)
 
 
  
  
 
-##### 配置文件结构
+#### 配置文件结构
 
 pac.json5隐私清单文件整体的结构如下。
 ```text
@@ -51,7 +51,7 @@ specialAPIs
  
  
 
-##### 配置文件字段说明
+#### 配置文件字段说明
 
 pac.json5隐私清单配置文件包括以下字段。
   
@@ -67,7 +67,7 @@ pac.json5隐私清单配置文件包括以下字段。
  
  
 
-##### dataProcess
+#### dataProcess
 
 dataProcess是声明应用收集的个人数据，包括数据类型、数据项和使用目的。
   
@@ -95,7 +95,7 @@ dataProcess是声明应用收集的个人数据，包括数据类型、数据项
  
  
 
-##### dataLabels
+#### dataLabels
 
 dataLabels是声明应用收集的个人数据项和目的。
   
@@ -214,7 +214,7 @@ dataLabels是声明应用收集的个人数据项和目的。
  
  
 
-##### specialAPIs
+#### specialAPIs
 
 specialAPIs是声明应用调用的可用于生成设备指纹的API信息，包含API类型和调用原因。
   
@@ -254,7 +254,7 @@ specialAPIs是声明应用调用的可用于生成设备指纹的API信息，包
  
  
 
-##### pac.json5文件示例
+#### pac.json5文件示例
 
 ```text
 {

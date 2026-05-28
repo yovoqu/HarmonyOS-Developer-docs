@@ -12,7 +12,7 @@ ApplicationContext作为应用上下文，继承自[Context](https://developer.h
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { common } from '@kit.AbilityKit';
 
 
 
-##### ApplicationContext.on('abilityLifecycle')
+#### ApplicationContext.on('abilityLifecycle')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -117,7 +117,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### ApplicationContext.off('abilityLifecycle')
+#### ApplicationContext.off('abilityLifecycle')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -176,7 +176,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### ApplicationContext.off('abilityLifecycle')
+#### ApplicationContext.off('abilityLifecycle')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -235,7 +235,7 @@ export default class MyAbility extends UIAbility {
 
 
 
-##### ApplicationContext.on('environment')
+#### ApplicationContext.on('environment')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -309,7 +309,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### ApplicationContext.off('environment')
+#### ApplicationContext.off('environment')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -367,7 +367,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### ApplicationContext.off('environment')
+#### ApplicationContext.off('environment')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -425,7 +425,7 @@ export default class MyAbility extends UIAbility {
 
 
 
-##### ApplicationContext.on('applicationStateChange')10+
+#### ApplicationContext.on('applicationStateChange')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -487,7 +487,7 @@ export default class MyAbility extends UIAbility {
 
 
 
-##### ApplicationContext.off('applicationStateChange')10+
+#### ApplicationContext.off('applicationStateChange')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -549,7 +549,7 @@ export default class MyAbility extends UIAbility {
 
 
 
-##### ApplicationContext.onSystemConfigurationUpdated24+
+#### ApplicationContext.onSystemConfigurationUpdated24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -624,7 +624,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### ApplicationContext.offSystemConfigurationUpdated24+
+#### ApplicationContext.offSystemConfigurationUpdated24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -695,7 +695,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### ApplicationContext.getRunningProcessInformation
+#### ApplicationContext.getRunningProcessInformation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -745,7 +745,7 @@ export default class MyAbility extends UIAbility {
 
 
 
-##### ApplicationContext.getRunningProcessInformation
+#### ApplicationContext.getRunningProcessInformation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -796,7 +796,7 @@ export default class MyAbility extends UIAbility {
 
 
 
-##### ApplicationContext.killAllProcesses
+#### ApplicationContext.killAllProcesses
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -844,7 +844,7 @@ export default class MyAbility extends UIAbility {
 
 
 
-##### ApplicationContext.killAllProcesses14+
+#### ApplicationContext.killAllProcesses14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -901,7 +901,7 @@ export default class MyAbility extends UIAbility {
 
 
 
-##### ApplicationContext.killAllProcesses
+#### ApplicationContext.killAllProcesses
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -953,7 +953,7 @@ export default class MyAbility extends UIAbility {
 
 
 
-##### ApplicationContext.setColorMode11+
+#### ApplicationContext.setColorMode11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1010,7 +1010,7 @@ export default class MyAbility extends UIAbility {
 
 
 
-##### ApplicationContext.setLanguage11+
+#### ApplicationContext.setLanguage11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1066,7 +1066,7 @@ export default class MyAbility extends UIAbility {
 
 
 
-##### ApplicationContext.clearUpApplicationData11+
+#### ApplicationContext.clearUpApplicationData11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1112,7 +1112,7 @@ export default class MyAbility extends UIAbility {
 
 
 
-##### ApplicationContext.clearUpApplicationData11+
+#### ApplicationContext.clearUpApplicationData11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1163,7 +1163,7 @@ export default class MyAbility extends UIAbility {
 
 
 
-##### ApplicationContext.restartApp12+
+#### ApplicationContext.restartApp12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1245,7 +1245,7 @@ struct Index {
 
 
 
-##### ApplicationContext.getCurrentAppCloneIndex12+
+#### ApplicationContext.getCurrentAppCloneIndex12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1293,7 +1293,7 @@ export default class MyAbility extends UIAbility {
 
 
 
-##### ApplicationContext.setFont12+
+#### ApplicationContext.setFont12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1360,7 +1360,7 @@ struct Index {
 
 
 
-##### ApplicationContext.setSupportedProcessCache12+
+#### ApplicationContext.setSupportedProcessCache12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1421,7 +1421,7 @@ export default class MyAbilityStage extends AbilityStage {
 
 
 
-##### ApplicationContext.setFontSizeScale13+
+#### ApplicationContext.setFontSizeScale13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1461,7 +1461,7 @@ export default class MyAbility extends UIAbility {
 
 
 
-##### ApplicationContext.getCurrentInstanceKey14+
+#### ApplicationContext.getCurrentInstanceKey14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1514,7 +1514,7 @@ export default class MyAbilityStage extends AbilityStage {
 
 
 
-##### ApplicationContext.getAllRunningInstanceKeys14+
+#### ApplicationContext.getAllRunningInstanceKeys14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1566,7 +1566,7 @@ export default class MyAbilityStage extends AbilityStage {
 
 
 
-##### ApplicationContext.getAllWindowStages23+
+#### ApplicationContext.getAllWindowStages23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

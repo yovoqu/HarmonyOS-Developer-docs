@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-deviceinfo-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -66,13 +66,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_GetDeviceType()
+#### OH_GetDeviceType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -95,7 +95,7 @@ const char *OH_GetDeviceType(void)
  
   
 
-##### OH_GetManufacture()
+#### OH_GetManufacture()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -118,7 +118,7 @@ const char *OH_GetManufacture(void)
  
   
 
-##### OH_GetBrand()
+#### OH_GetBrand()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -141,7 +141,7 @@ const char *OH_GetBrand(void)
  
   
 
-##### OH_GetMarketName()
+#### OH_GetMarketName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -164,7 +164,7 @@ const char *OH_GetMarketName(void)
  
   
 
-##### OH_GetProductSeries()
+#### OH_GetProductSeries()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -187,7 +187,7 @@ const char *OH_GetProductSeries(void)
  
   
 
-##### OH_GetProductModel()
+#### OH_GetProductModel()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -210,7 +210,7 @@ const char *OH_GetProductModel(void)
  
   
 
-##### OH_GetSoftwareModel()
+#### OH_GetSoftwareModel()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -233,7 +233,7 @@ const char *OH_GetSoftwareModel(void)
  
   
 
-##### OH_GetHardwareModel()
+#### OH_GetHardwareModel()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -256,7 +256,7 @@ const char *OH_GetHardwareModel(void)
  
   
 
-##### OH_GetBootloaderVersion()
+#### OH_GetBootloaderVersion()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -279,7 +279,7 @@ const char *OH_GetBootloaderVersion(void)
  
   
 
-##### OH_GetAbiList()
+#### OH_GetAbiList()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -302,7 +302,7 @@ const char *OH_GetAbiList(void)
  
   
 
-##### OH_GetSecurityPatchTag()
+#### OH_GetSecurityPatchTag()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -325,7 +325,7 @@ const char *OH_GetSecurityPatchTag(void)
  
   
 
-##### OH_GetDisplayVersion()
+#### OH_GetDisplayVersion()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -348,7 +348,7 @@ const char *OH_GetDisplayVersion(void)
  
   
 
-##### OH_GetIncrementalVersion()
+#### OH_GetIncrementalVersion()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -371,7 +371,7 @@ const char *OH_GetIncrementalVersion(void)
  
   
 
-##### OH_GetOsReleaseType()
+#### OH_GetOsReleaseType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -394,7 +394,7 @@ const char *OH_GetOsReleaseType(void)
  
   
 
-##### OH_GetOSFullName()
+#### OH_GetOSFullName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -417,7 +417,7 @@ const char *OH_GetOSFullName(void)
  
   
 
-##### OH_GetSdkApiVersion()
+#### OH_GetSdkApiVersion()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -440,7 +440,7 @@ int OH_GetSdkApiVersion(void)
  
   
 
-##### OH_GetFirstApiVersion()
+#### OH_GetFirstApiVersion()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -463,7 +463,7 @@ int OH_GetFirstApiVersion(void)
  
   
 
-##### OH_GetVersionId()
+#### OH_GetVersionId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -486,7 +486,7 @@ const char *OH_GetVersionId(void)
  
   
 
-##### OH_GetBuildType()
+#### OH_GetBuildType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -509,7 +509,7 @@ const char *OH_GetBuildType(void)
  
   
 
-##### OH_GetBuildUser()
+#### OH_GetBuildUser()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -532,7 +532,7 @@ const char *OH_GetBuildUser(void)
  
   
 
-##### OH_GetBuildHost()
+#### OH_GetBuildHost()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -555,7 +555,7 @@ const char *OH_GetBuildHost(void)
  
   
 
-##### OH_GetBuildTime()
+#### OH_GetBuildTime()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -578,7 +578,7 @@ const char *OH_GetBuildTime(void)
  
   
 
-##### OH_GetBuildRootHash()
+#### OH_GetBuildRootHash()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -601,7 +601,7 @@ const char *OH_GetBuildRootHash(void)
  
   
 
-##### OH_GetDistributionOSName()
+#### OH_GetDistributionOSName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -624,7 +624,7 @@ const char *OH_GetDistributionOSName(void)
  
   
 
-##### OH_GetDistributionOSVersion()
+#### OH_GetDistributionOSVersion()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -647,7 +647,7 @@ const char *OH_GetDistributionOSVersion(void)
  
   
 
-##### OH_GetDistributionOSApiVersion()
+#### OH_GetDistributionOSApiVersion()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -670,7 +670,7 @@ int OH_GetDistributionOSApiVersion(void)
  
   
 
-##### OH_GetDistributionOSReleaseType()
+#### OH_GetDistributionOSReleaseType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

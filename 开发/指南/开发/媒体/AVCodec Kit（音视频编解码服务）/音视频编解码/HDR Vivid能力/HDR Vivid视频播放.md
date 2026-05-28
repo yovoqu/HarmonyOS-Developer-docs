@@ -9,13 +9,13 @@
 视频播放的主要流程，是将视频文件“解封装 > 解码 > 送显/播放”。
   
 
-##### HDR Vivid视频解析
+#### HDR Vivid视频解析
 
 从视频文件中，可以解析出其是否为HDR Vivid视频，如果视频源为HDR Vivid视频，可以解析相关的信息，如元数据、颜色信息（Color）等。
  
   
 
-##### 在 CMake 脚本中链接动态库
+#### 在 CMake 脚本中链接动态库
 
 ```text
 target_link_libraries(sample PUBLIC libnative_media_codecbase.so)
@@ -30,7 +30,7 @@ target_link_libraries(sample PUBLIC libnative_media_core.so)
  
   
 
-##### 开发步骤
+#### 开发步骤
 1. 添加头文件。
 
   
@@ -114,7 +114,7 @@ for (uint32_t index = 0; index < (static_cast<int32_t>(trackCount)); index++) {
  
   
 
-##### HDR Vivid视频解码
+#### HDR Vivid视频解码
 
 应用创建H.265解码器，并配置宽、高、format信息。解码器解析码流，生成对应的视频帧数据以及元数据。
  
@@ -128,7 +128,7 @@ for (uint32_t index = 0; index < (static_cast<int32_t>(trackCount)); index++) {
  
   
 
-##### 在 CMake 脚本中链接动态库
+#### 在 CMake 脚本中链接动态库
 
 ```text
 target_link_libraries(sample PUBLIC libnative_media_codecbase.so)
@@ -142,7 +142,7 @@ target_link_libraries(sample PUBLIC libnative_media_vdec.so)
  
   
 
-##### 定义基础结构
+#### 定义基础结构
 
 本部分示例代码按照C++17标准编写，仅作参考。开发者可以参考此部分，定义自己的buffer对象。
  1. 添加头文件。
@@ -242,7 +242,7 @@ CodecBufferQueue outQueue;
  
   
 
-##### 开发步骤
+#### 开发步骤
 
 **Surface模式**
  1. 创建H.265解码器实例。
@@ -376,7 +376,7 @@ if (nativeBuffer != nullptr) {
  
   
 
-##### 处理视频帧数据
+#### 处理视频帧数据
 1. 解封装，循环获取帧数据。
 
   

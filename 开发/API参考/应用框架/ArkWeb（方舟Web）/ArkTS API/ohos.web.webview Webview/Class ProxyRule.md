@@ -12,7 +12,7 @@
 
   
 
-##### getSchemeFilter15+
+#### getSchemeFilter15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -35,7 +35,7 @@ getSchemeFilter(): ProxySchemeFilter
  
   
 
-##### getUrl15+
+#### getUrl15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

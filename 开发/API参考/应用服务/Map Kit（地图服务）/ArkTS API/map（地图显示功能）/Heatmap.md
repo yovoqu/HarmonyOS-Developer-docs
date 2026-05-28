@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-heatmap
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -15,7 +15,7 @@ import { map, mapCommon } from '@kit.MapKit';
  
   
 
-##### Heatmap
+#### Heatmap
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -57,7 +57,7 @@ let heatMap = await this.mapController.addHeatmap(heatMapOptions)
  
   
 
-##### setData
+#### setData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -97,7 +97,7 @@ heatMap.setData(data);
  
   
 
-##### getData
+#### getData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -128,7 +128,7 @@ let data: mapCommon.WeightedLatLng[] = heatMap.getData();
  
   
 
-##### setColor
+#### setColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -169,7 +169,7 @@ heatMap.setColor(record);
  
   
 
-##### getColor
+#### getColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -200,7 +200,7 @@ let record: Record<number, number> = heatMap.getColor();
  
   
 
-##### setIntensity
+#### setIntensity
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -236,7 +236,7 @@ heatMap.setIntensity(intensity);
  
   
 
-##### getIntensity
+#### getIntensity
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -267,7 +267,7 @@ let intensity: Record<number, number> | number = heatMap.getIntensity();
  
   
 
-##### setOpacity
+#### setOpacity
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -303,7 +303,7 @@ heatMap.setOpacity(opacity);
  
   
 
-##### getOpacity
+#### getOpacity
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -334,7 +334,7 @@ let opacity: Record<number, number> | number = heatMap.getOpacity();
  
   
 
-##### setRadius
+#### setRadius
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -365,7 +365,7 @@ heatMap.setRadius(3000);
  
   
 
-##### getRadius
+#### getRadius
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -396,7 +396,7 @@ let radius: number | Record<number, number> = heatMap.getRadius();
  
   
 
-##### setRadiusUnit
+#### setRadiusUnit
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -427,7 +427,7 @@ heatMap.setRadiusUnit(mapCommon.RadiusUnit.PIXEL_UNIT);
  
   
 
-##### getRadiusUnit
+#### getRadiusUnit
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -458,7 +458,7 @@ let radiusUnit: mapCommon.RadiusUnit = heatMap.getRadiusUnit();
  
   
 
-##### setVisible
+#### setVisible
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -489,7 +489,7 @@ heatMap.setVisible(false);
  
   
 
-##### isVisible
+#### isVisible
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -520,7 +520,7 @@ let isVisible: boolean = heatMap.isVisible();
  
   
 
-##### remove
+#### remove
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

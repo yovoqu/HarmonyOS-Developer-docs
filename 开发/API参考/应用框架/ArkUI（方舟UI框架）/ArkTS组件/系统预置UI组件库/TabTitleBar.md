@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { TabTitleBar } from '@kit.ArkUI';
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -30,7 +30,7 @@ import { TabTitleBar } from '@kit.ArkUI';
  
   
 
-##### TabTitleBar
+#### TabTitleBar
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -57,7 +57,7 @@ TabTitleBar({tabItems: Array&lt;TabTitleBarTabItem&gt;, menuItems?: Array&lt;Tab
  
   
 
-##### TabTitleBarMenuItem
+#### TabTitleBarMenuItem
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -79,7 +79,7 @@ TabTitleBar({tabItems: Array&lt;TabTitleBarTabItem&gt;, menuItems?: Array&lt;Tab
  
   
 
-##### TabTitleBarTabItem
+#### TabTitleBarTabItem
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -96,7 +96,7 @@ TabTitleBar({tabItems: Array&lt;TabTitleBarTabItem&gt;, menuItems?: Array&lt;Tab
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -104,13 +104,13 @@ TabTitleBar({tabItems: Array&lt;TabTitleBarTabItem&gt;, menuItems?: Array&lt;Tab
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 示例1（简单的页签型标题栏）
+#### 示例1（简单的页签型标题栏）
 
 该示例实现了带有左侧页签和右侧菜单列表的页签型标题栏。
  
@@ -209,7 +209,7 @@ struct Index {
  
   
 
-##### 示例2（右侧自定义按钮播报）
+#### 示例2（右侧自定义按钮播报）
 
 从API version 18开始，该示例通过设置标题栏右侧自定义按钮属性accessibilityText、accessibilityDescription、accessibilityLevel自定义屏幕朗读播报文本。
  
@@ -316,12 +316,12 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/9UF1lnsPRIit1mVU6VwHyA/zh-cn_image_0000002611836105.png?HW-CC-KV=V1&HW-CC-Date=20260528T024156Z&HW-CC-Expire=86400&HW-CC-Sign=3A1FC4C1D4957D39C12E4A8AEA9357FEC311381F25FD78D6F121E73D4101437B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/9UF1lnsPRIit1mVU6VwHyA/zh-cn_image_0000002611836105.png?HW-CC-KV=V1&HW-CC-Date=20260528T025529Z&HW-CC-Expire=86400&HW-CC-Sign=6C95FB6823B68ABEEBB454F9D1F0D20D13B22C3755246EDFB6BAFEBAF514EE64)
 
  
   
 
-##### 示例3（设置Symbol类型图标）
+#### 示例3（设置Symbol类型图标）
 
 从API version 18开始，该示例通过设置TabTitleBarTabItem、TabTitleBarMenuItem的属性symbolStyle，展示了自定义Symbol类型图标。
  
@@ -435,4 +435,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/GTf1R0q5QAGekKcW3ICRdA/zh-cn_image_0000002581276360.png?HW-CC-KV=V1&HW-CC-Date=20260528T024156Z&HW-CC-Expire=86400&HW-CC-Sign=7BA1FD0FDD62AC88CBE08233B694B0BBEE830D0BE0EB6EFFAF821E5A930702A2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/GTf1R0q5QAGekKcW3ICRdA/zh-cn_image_0000002581276360.png?HW-CC-KV=V1&HW-CC-Date=20260528T025529Z&HW-CC-Expire=86400&HW-CC-Sign=D33BC68EE60B8D8F1C7147C51B33A9009D26A51240A70E83FB57BB4AAD0424C4)

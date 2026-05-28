@@ -13,7 +13,7 @@ Web组件嵌套滚动可通过[方案1：使用nestedScroll属性实现嵌套滚
 
 
 
-##### 使用nestedScroll属性实现嵌套滚动
+#### 使用nestedScroll属性实现嵌套滚动
 
 使用Web组件[nestedScroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#nestedscroll11)属性来设置上下左右四个方向，或者设置向前、向后两个方向的嵌套滚动模式，实现与父组件的滚动联动，同时也允许在过程中动态改变嵌套滚动的模式。
 
@@ -107,7 +107,7 @@ build() {
 
 
 
-##### 滚动偏移量由滚动父组件统一派发
+#### 滚动偏移量由滚动父组件统一派发
 
 **实现思路**
 1. 手指向上滑动：
@@ -337,11 +337,11 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/DR5m4O8LRkSi2qXt_aj1-w/zh-cn_image_0000002581274366.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014743Z&HW-CC-Expire=86400&HW-CC-Sign=C9880040D7E04E90B802896EEC7E6997CAA947068B74090F389E684B0873D4AF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/DR5m4O8LRkSi2qXt_aj1-w/zh-cn_image_0000002581274366.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030414Z&HW-CC-Expire=86400&HW-CC-Sign=658CF50260B0105DD5D7BF0243D8D934C09FBEC2A858CF0F129B748C62AD0FBD)
 
 
 
 
-##### 示例代码
+#### 示例代码
 
  - [Web组件嵌套滑动](https://gitcode.com/harmonyos_samples/web-scroller)

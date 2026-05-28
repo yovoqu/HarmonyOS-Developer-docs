@@ -24,13 +24,13 @@
 
   
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### PanGesture
+#### PanGesture
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -51,7 +51,7 @@ PanGesture(value?: { fingers?: number; direction?: PanDirection; distance?: numb
  
   
 
-##### PanGesture15+
+#### PanGesture15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -72,7 +72,7 @@ PanGesture(options?: PanGestureHandlerOptions)
  
   
 
-##### PanDirection枚举说明
+#### PanDirection枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -96,13 +96,13 @@ PanGesture(options?: PanGestureHandlerOptions)
  
   
 
-##### PanGestureOptions
+#### PanGestureOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -123,7 +123,7 @@ constructor(value?: { fingers?: number; direction?: PanDirection; distance?: num
  
   
 
-##### setDirection
+#### setDirection
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -144,7 +144,7 @@ setDirection(value: PanDirection)
  
   
 
-##### setDistance
+#### setDistance
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -165,7 +165,7 @@ setDistance(value: number)
  
   
 
-##### setFingers
+#### setFingers
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -186,7 +186,7 @@ setFingers(value: number)
  
   
 
-##### getDirection12+
+#### getDirection12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -207,7 +207,7 @@ getDirection(): PanDirection
  
   
 
-##### getDistance18+
+#### getDistance18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -228,7 +228,7 @@ getDistance(): number
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -238,7 +238,7 @@ getDistance(): number
  
   
 
-##### onActionStart
+#### onActionStart
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -259,7 +259,7 @@ onActionStart(event: (event: GestureEvent) => void)
  
   
 
-##### onActionUpdate
+#### onActionUpdate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -280,7 +280,7 @@ onActionUpdate(event: (event: GestureEvent) => void)
  
   
 
-##### onActionEnd
+#### onActionEnd
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -301,7 +301,7 @@ onActionEnd(event: (event: GestureEvent) => void)
  
   
 
-##### onActionCancel
+#### onActionCancel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -322,7 +322,7 @@ onActionCancel(event: () => void)
  
   
 
-##### onActionCancel18+
+#### onActionCancel18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -343,7 +343,7 @@ onActionCancel(event: Callback&lt;GestureEvent&gt;)
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -408,10 +408,10 @@ struct PanGestureExample {
 向左滑动：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/v1En80C_S-O3fqMrvJXgMg/zh-cn_image_0000002581435710.png?HW-CC-KV=V1&HW-CC-Date=20260528T024201Z&HW-CC-Expire=86400&HW-CC-Sign=7806676C21AB1D16EFEE2F3889DE99A49ED85254732E49A9D9ED1EF7B6C65669)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/v1En80C_S-O3fqMrvJXgMg/zh-cn_image_0000002581435710.png?HW-CC-KV=V1&HW-CC-Date=20260528T025534Z&HW-CC-Expire=86400&HW-CC-Sign=8454D79106565E881A3E903478774D187851CA45372540E213D07F1EFDA0D089)
 
  
 点击按钮时，修改PanGesture触发条件为双指向左下方滑动：
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/SnFLHr2KSrKtQjQ4idsgpg/zh-cn_image_0000002611835541.png?HW-CC-KV=V1&HW-CC-Date=20260528T024201Z&HW-CC-Expire=86400&HW-CC-Sign=7505A936DA4DAA5238A6C3BF8EF4F5061E8F2E53BF4F2D7BEFA595FCBA81B1EF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/SnFLHr2KSrKtQjQ4idsgpg/zh-cn_image_0000002611835541.png?HW-CC-KV=V1&HW-CC-Date=20260528T025534Z&HW-CC-Expire=86400&HW-CC-Sign=7AA65CB5FD6C609E361A38E305B9A7295AE8DA158C2195808169AB099A522C20)

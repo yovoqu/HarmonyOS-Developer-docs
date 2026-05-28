@@ -12,7 +12,7 @@
 
 
 
-##### executeDrag11+
+#### executeDrag11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -109,7 +109,7 @@ struct DragControllerPage {
 
 
 
-##### executeDrag11+
+#### executeDrag11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -239,7 +239,7 @@ struct DragControllerPage {
 
 
 
-##### createDragAction11+
+#### createDragAction11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -432,7 +432,7 @@ struct DragControllerPage {
 
 
 
-##### getDragPreview11+
+#### getDragPreview11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -459,7 +459,7 @@ getDragPreview(): dragController.DragPreview
 
 
 
-##### setDragEventStrictReportingEnabled12+
+#### setDragEventStrictReportingEnabled12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -505,7 +505,7 @@ import { window, UIContext } from '@kit.ArkUI';
 
 
 
-##### cancelDataLoading15+
+#### cancelDataLoading15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -536,7 +536,7 @@ cancelDataLoading(key: string): void
 
 
 
-##### notifyDragStartRequest18+
+#### notifyDragStartRequest18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -628,12 +628,12 @@ struct NormalEts {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/_uQWkYOjQky5qTTjIXCeGQ/zh-cn_image_0000002581435536.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024120Z&HW-CC-Expire=86400&HW-CC-Sign=45420A97D1D63FBAA514ED82F7E45EB7927C1BA4071C7F518B1EB948BC99E0F7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/_uQWkYOjQky5qTTjIXCeGQ/zh-cn_image_0000002581435536.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025454Z&HW-CC-Expire=86400&HW-CC-Sign=0889BC0A81492B02BA81E929F78286771D0AD37233CAC68989D8B62ED44BB3F2)
 
 
 
 
-##### enableDropDisallowedBadge20+
+#### enableDropDisallowedBadge20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -708,4 +708,4 @@ struct Index {
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/nEC_nrAsStKhWDBnP58kVw/zh-cn_image_0000002611835367.png?HW-CC-KV=V1&HW-CC-Date=20260528T024120Z&HW-CC-Expire=86400&HW-CC-Sign=8C0887F2BA5870A65DD604DA74E129213BF83CD4FC9E3C66F70995CC2CE659FC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/nEC_nrAsStKhWDBnP58kVw/zh-cn_image_0000002611835367.png?HW-CC-KV=V1&HW-CC-Date=20260528T025454Z&HW-CC-Expire=86400&HW-CC-Sign=43EF33C3FA54D62347443423177A7B51D1331398168B0986BE1AC5B274D4489F)

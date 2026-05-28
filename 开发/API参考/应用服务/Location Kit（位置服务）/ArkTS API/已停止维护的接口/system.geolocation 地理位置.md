@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Wearable | lite_wearable
 
@@ -22,7 +22,7 @@ import geolocation from '@system.geolocation';
  
   
 
-##### 权限列表
+#### 权限列表
 
 **支持设备：** Wearable | lite_wearable
 
@@ -30,7 +30,7 @@ ohos.permission.LOCATION
  
   
 
-##### geolocation.getLocation(deprecated)
+#### geolocation.getLocation(deprecated)
 
 **支持设备：** Wearable | lite_wearable
 
@@ -107,7 +107,7 @@ export default {
  
   
 
-##### geolocation.getLocationType(deprecated)
+#### geolocation.getLocationType(deprecated)
 
 **支持设备：** Wearable | lite_wearable
 
@@ -182,7 +182,7 @@ export default {
  
   
 
-##### geolocation.subscribe(deprecated)
+#### geolocation.subscribe(deprecated)
 
 **支持设备：** Wearable | lite_wearable
 
@@ -259,7 +259,7 @@ export default {
  
   
 
-##### geolocation.unsubscribe(deprecated)
+#### geolocation.unsubscribe(deprecated)
 
 **支持设备：** Wearable | lite_wearable
 
@@ -322,7 +322,7 @@ export default {
  
   
 
-##### geolocation.getSupportedCoordTypes(deprecated)
+#### geolocation.getSupportedCoordTypes(deprecated)
 
 **支持设备：** Wearable | lite_wearable
 
@@ -391,7 +391,7 @@ export default {
  
   
 
-##### GetLocationOption(deprecated)
+#### GetLocationOption(deprecated)
 
 **支持设备：** Wearable | lite_wearable
 
@@ -427,7 +427,7 @@ fail返回错误代码：
  
   
 
-##### GeolocationResponse(deprecated)
+#### GeolocationResponse(deprecated)
 
 **支持设备：** Wearable | lite_wearable
 
@@ -450,7 +450,7 @@ fail返回错误代码：
  
   
 
-##### GetLocationTypeOption(deprecated)
+#### GetLocationTypeOption(deprecated)
 
 **支持设备：** Wearable | lite_wearable
 
@@ -471,7 +471,7 @@ fail返回错误代码：
  
   
 
-##### GetLocationTypeResponse(deprecated)
+#### GetLocationTypeResponse(deprecated)
 
 **支持设备：** Wearable | lite_wearable
 
@@ -490,7 +490,7 @@ fail返回错误代码：
  
   
 
-##### SubscribeLocationOption(deprecated)
+#### SubscribeLocationOption(deprecated)
 
 **支持设备：** Wearable | lite_wearable
 

@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-stream-manager-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -25,13 +25,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -42,7 +42,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -58,13 +58,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_AudioManager_GetAudioStreamManager()
+#### OH_AudioManager_GetAudioStreamManager()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -94,7 +94,7 @@ OH_AudioCommon_Result OH_AudioManager_GetAudioStreamManager(OH_AudioStreamManage
  
   
 
-##### OH_AudioStreamManager_GetDirectPlaybackSupport()
+#### OH_AudioStreamManager_GetDirectPlaybackSupport()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -127,7 +127,7 @@ OH_AudioCommon_Result OH_AudioStreamManager_GetDirectPlaybackSupport(OH_AudioStr
  
   
 
-##### OH_AudioStreamManager_IsAcousticEchoCancelerSupported()
+#### OH_AudioStreamManager_IsAcousticEchoCancelerSupported()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -159,7 +159,7 @@ OH_AudioCommon_Result OH_AudioStreamManager_IsAcousticEchoCancelerSupported(OH_A
  
   
 
-##### OH_AudioStreamManager_IsFastPlaybackSupported()
+#### OH_AudioStreamManager_IsFastPlaybackSupported()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -191,7 +191,7 @@ bool OH_AudioStreamManager_IsFastPlaybackSupported(OH_AudioStreamManager *stream
  
   
 
-##### OH_AudioStreamManager_IsFastRecordingSupported()
+#### OH_AudioStreamManager_IsFastRecordingSupported()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -223,7 +223,7 @@ bool OH_AudioStreamManager_IsFastRecordingSupported(OH_AudioStreamManager *strea
  
   
 
-##### OH_AudioStreamManager_IsIntelligentNoiseReductionEnabledForCurrentDevice()
+#### OH_AudioStreamManager_IsIntelligentNoiseReductionEnabledForCurrentDevice()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-automappingbyopfn
 
-##### 函数功能
+#### 函数功能
 
 自动映射回调函数。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 Status AutoMappingByOpFn(const ge::Operator &op_src, ge::Operator &op);
@@ -18,7 +18,7 @@ Status AutoMappingByOpFn(const ge::Operator &op_src, ge::Operator &op);
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -30,7 +30,7 @@ Status AutoMappingByOpFn(const ge::Operator &op_src, ge::Operator &op);
  
   
 
-##### 调用示例
+#### 调用示例
 
 原始TensorFlow算子与适配AI处理器的算子属性一一映射的场景：
  

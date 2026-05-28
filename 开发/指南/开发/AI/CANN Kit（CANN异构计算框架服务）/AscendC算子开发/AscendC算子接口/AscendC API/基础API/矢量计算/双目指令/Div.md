@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-vector-calculation-binocular-div
 
-##### 功能说明
+#### 功能说明
 
 按元素求商，公式表达如下，其中PAR表示矢量计算单元一个迭代能够处理的元素个数：
  
@@ -14,7 +14,7 @@
  
   
 
-##### 函数原型
+#### 函数原型
 
 tensor前n个数据计算：
  
@@ -25,7 +25,7 @@ __aicore__ inline void Div(const LocalTensor<T>& dstLocal, const LocalTensor<T>&
  
   
 
-##### 参数说明
+#### 参数说明
 
 **表1** 模板参数说明
   
@@ -45,13 +45,13 @@ __aicore__ inline void Div(const LocalTensor<T>& dstLocal, const LocalTensor<T>&
  
   
 
-##### 返回值
+#### 返回值
 
 无
  
   
 
-##### 支持的型号
+#### 支持的型号
 
 Kirin9020 系列处理器
  
@@ -59,7 +59,7 @@ KirinX90系列处理器
  
   
 
-##### 注意事项
+#### 注意事项
 
 - 注意除零错误。
 - 操作数地址偏移对齐要求请参见[通用约束](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-general-constraints)。
@@ -67,7 +67,7 @@ KirinX90系列处理器
  
   
 
-##### 调用示例
+#### 调用示例
 
 tensor前n个数据计算样例（本样例中只展示Compute流程中的部分代码。如果开发者需要运行样例代码，请将该代码段拷贝并替换上方样例的Compute函数中粗体部分即可。）
  

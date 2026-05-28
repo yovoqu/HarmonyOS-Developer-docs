@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { webview } from '@kit.ArkWeb';
 
 
 
-##### fetchCookieSync11+
+#### fetchCookieSync11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -92,7 +92,7 @@ struct WebComponent {
 
 
 
-##### fetchCookie11+
+#### fetchCookie11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -158,7 +158,7 @@ struct WebComponent {
 
 
 
-##### fetchCookie11+
+#### fetchCookie11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -228,7 +228,7 @@ struct WebComponent {
 
 
 
-##### fetchCookie14+
+#### fetchCookie14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -299,7 +299,7 @@ struct WebComponent {
 
 
 
-##### configCookieSync11+
+#### configCookieSync11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -364,7 +364,7 @@ struct WebComponent {
 
 
 
-##### configCookieSync14+
+#### configCookieSync14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -430,7 +430,7 @@ struct WebComponent {
 
 
 
-##### configCookie11+
+#### configCookie11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -494,7 +494,7 @@ struct WebComponent {
 
 
 
-##### configCookie11+
+#### configCookie11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -566,7 +566,7 @@ struct WebComponent {
 
 
 
-##### configCookie14+
+#### configCookie14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -640,7 +640,7 @@ struct WebComponent {
 
 
 
-##### saveCookieSync15+
+#### saveCookieSync15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -684,7 +684,7 @@ struct WebComponent {
 
 
 
-##### saveCookieAsync
+#### saveCookieAsync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -744,7 +744,7 @@ struct WebComponent {
 
 
 
-##### saveCookieAsync
+#### saveCookieAsync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -806,7 +806,7 @@ struct WebComponent {
 
 
 
-##### putAcceptCookieEnabled
+#### putAcceptCookieEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -862,7 +862,7 @@ struct WebComponent {
 
 
 
-##### isCookieAllowed
+#### isCookieAllowed
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -905,7 +905,7 @@ struct WebComponent {
 
 
 
-##### putAcceptThirdPartyCookieEnabled
+#### putAcceptThirdPartyCookieEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -961,7 +961,7 @@ struct WebComponent {
 
 
 
-##### isThirdPartyCookieAllowed
+#### isThirdPartyCookieAllowed
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1004,7 +1004,7 @@ struct WebComponent {
 
 
 
-##### existCookie
+#### existCookie
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1054,7 +1054,7 @@ struct WebComponent {
 
 
 
-##### clearAllCookiesSync11+
+#### clearAllCookiesSync11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1096,7 +1096,7 @@ struct WebComponent {
 
 
 
-##### clearAllCookies11+
+#### clearAllCookies11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1156,7 +1156,7 @@ struct WebComponent {
 
 
 
-##### clearAllCookies11+
+#### clearAllCookies11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1214,7 +1214,7 @@ struct WebComponent {
 
 
 
-##### clearSessionCookieSync11+
+#### clearSessionCookieSync11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1249,7 +1249,7 @@ struct WebComponent {
 
 
 
-##### clearSessionCookie11+
+#### clearSessionCookie11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1309,7 +1309,7 @@ struct WebComponent {
 
 
 
-##### clearSessionCookie11+
+#### clearSessionCookie11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1371,7 +1371,7 @@ struct WebComponent {
 
 
 
-##### setLazyInitializeWebEngine22+
+#### setLazyInitializeWebEngine22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1420,7 +1420,7 @@ struct WebComponent {
 
 
 
-##### fetchAllCookies23+
+#### fetchAllCookies23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1487,7 +1487,7 @@ struct WebComponent {
 
 
 
-##### getCookie(deprecated)
+#### getCookie(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1556,7 +1556,7 @@ struct WebComponent {
 
 
 
-##### setCookie(deprecated)
+#### setCookie(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1619,7 +1619,7 @@ struct WebComponent {
 
 
 
-##### deleteEntireCookie(deprecated)
+#### deleteEntireCookie(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1658,7 +1658,7 @@ struct WebComponent {
 
 
 
-##### deleteSessionCookie(deprecated)
+#### deleteSessionCookie(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

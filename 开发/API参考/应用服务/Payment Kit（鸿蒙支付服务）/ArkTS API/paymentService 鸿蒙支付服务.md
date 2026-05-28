@@ -14,7 +14,7 @@
 **起始版本：** 4.1.0(11)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -24,7 +24,7 @@ import { paymentService } from '@kit.PaymentKit';
 
 
 
-##### PayResult
+#### PayResult
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -49,7 +49,7 @@ import { paymentService } from '@kit.PaymentKit';
 
 
 
-##### PaymentInfo
+#### PaymentInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -73,7 +73,7 @@ import { paymentService } from '@kit.PaymentKit';
 
 
 
-##### PickerResult
+#### PickerResult
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -95,7 +95,7 @@ import { paymentService } from '@kit.PaymentKit';
 
 
 
-##### BindCardResult
+#### BindCardResult
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -117,7 +117,7 @@ import { paymentService } from '@kit.PaymentKit';
 
 
 
-##### requestPayment
+#### requestPayment
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -200,7 +200,7 @@ struct Index {
 
 
 
-##### requestPayment
+#### requestPayment
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -282,7 +282,7 @@ struct Index {
 
 
 
-##### requestContract
+#### requestContract
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -365,7 +365,7 @@ struct Index {
 
 
 
-##### requestContract
+#### requestContract
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -447,7 +447,7 @@ struct Index {
 
 
 
-##### requestPayment
+#### requestPayment
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -533,7 +533,7 @@ struct Index {
 
 
 
-##### cashierPicker
+#### cashierPicker
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -621,7 +621,7 @@ struct Index {
 
 
 
-##### requestBindCard
+#### requestBindCard
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

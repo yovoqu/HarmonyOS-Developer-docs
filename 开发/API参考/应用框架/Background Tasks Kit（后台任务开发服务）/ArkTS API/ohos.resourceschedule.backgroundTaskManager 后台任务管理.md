@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { backgroundTaskManager } from '@kit.BackgroundTasksKit';
 
 
 
-##### backgroundTaskManager.requestSuspendDelay
+#### backgroundTaskManager.requestSuspendDelay
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -90,7 +90,7 @@ try {
 
 
 
-##### backgroundTaskManager.getRemainingDelayTime
+#### backgroundTaskManager.getRemainingDelayTime
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -141,7 +141,7 @@ backgroundTaskManager.getRemainingDelayTime(id, (error: BusinessError, res: numb
 
 
 
-##### backgroundTaskManager.getRemainingDelayTime
+#### backgroundTaskManager.getRemainingDelayTime
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -196,7 +196,7 @@ backgroundTaskManager.getRemainingDelayTime(id).then((res: number) => {
 
 
 
-##### backgroundTaskManager.cancelSuspendDelay
+#### backgroundTaskManager.cancelSuspendDelay
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -244,7 +244,7 @@ try {
 
 
 
-##### backgroundTaskManager.getTransientTaskInfo20+
+#### backgroundTaskManager.getTransientTaskInfo20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -291,7 +291,7 @@ try {
 
 
 
-##### backgroundTaskManager.startBackgroundRunning
+#### backgroundTaskManager.startBackgroundRunning
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -388,7 +388,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### backgroundTaskManager.startBackgroundRunning
+#### backgroundTaskManager.startBackgroundRunning
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -487,7 +487,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### backgroundTaskManager.startBackgroundRunning12+
+#### backgroundTaskManager.startBackgroundRunning12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -628,7 +628,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### backgroundTaskManager.startBackgroundRunning21+
+#### backgroundTaskManager.startBackgroundRunning21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -731,7 +731,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### backgroundTaskManager.stopBackgroundRunning
+#### backgroundTaskManager.stopBackgroundRunning
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -795,7 +795,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### backgroundTaskManager.stopBackgroundRunning
+#### backgroundTaskManager.stopBackgroundRunning
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -861,7 +861,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### backgroundTaskManager.stopBackgroundRunning21+
+#### backgroundTaskManager.stopBackgroundRunning21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -924,7 +924,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### backgroundTaskManager.updateBackgroundRunning12+
+#### backgroundTaskManager.updateBackgroundRunning12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1006,7 +1006,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### backgroundTaskManager.updateBackgroundRunning21+
+#### backgroundTaskManager.updateBackgroundRunning21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1112,7 +1112,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### backgroundTaskManager.getAllContinuousTasks20+
+#### backgroundTaskManager.getAllContinuousTasks20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1175,7 +1175,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### backgroundTaskManager.getAllContinuousTasks20+
+#### backgroundTaskManager.getAllContinuousTasks20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1239,7 +1239,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### backgroundTaskManager.on('continuousTaskCancel')15+
+#### backgroundTaskManager.on('continuousTaskCancel')15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1294,7 +1294,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### backgroundTaskManager.off('continuousTaskCancel')15+
+#### backgroundTaskManager.off('continuousTaskCancel')15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1349,7 +1349,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### backgroundTaskManager.on('continuousTaskSuspend')20+
+#### backgroundTaskManager.on('continuousTaskSuspend')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1407,7 +1407,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### backgroundTaskManager.off('continuousTaskSuspend')20+
+#### backgroundTaskManager.off('continuousTaskSuspend')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1463,7 +1463,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### backgroundTaskManager.on('continuousTaskActive')20+
+#### backgroundTaskManager.on('continuousTaskActive')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1517,7 +1517,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### backgroundTaskManager.off('continuousTaskActive')20+
+#### backgroundTaskManager.off('continuousTaskActive')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1571,7 +1571,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### DelaySuspendInfo
+#### DelaySuspendInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1587,7 +1587,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### TransientTaskInfo20+
+#### TransientTaskInfo20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1603,7 +1603,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### BackgroundMode
+#### BackgroundMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1625,7 +1625,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### ContinuousTaskNotification12+
+#### ContinuousTaskNotification12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1643,7 +1643,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### ContinuousTaskCancelInfo15+
+#### ContinuousTaskCancelInfo15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1659,7 +1659,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### ContinuousTaskCancelReason15+
+#### ContinuousTaskCancelReason15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1684,7 +1684,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### BackgroundSubMode16+
+#### BackgroundSubMode16+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1699,7 +1699,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### BackgroundModeType16+
+#### BackgroundModeType16+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1714,7 +1714,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### ContinuousTaskSuspendInfo20+
+#### ContinuousTaskSuspendInfo20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1731,7 +1731,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### ContinuousTaskSuspendReason20+
+#### ContinuousTaskSuspendReason20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1754,7 +1754,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### ContinuousTaskActiveInfo20+
+#### ContinuousTaskActiveInfo20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1769,7 +1769,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### ContinuousTaskInfo20+
+#### ContinuousTaskInfo20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1797,7 +1797,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### ContinuousTaskRequest21+
+#### ContinuousTaskRequest21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1812,7 +1812,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1829,7 +1829,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### isModeSupported21+
+#### isModeSupported21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1883,7 +1883,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### requestAuthFromUser22+
+#### requestAuthFromUser22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1948,7 +1948,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### checkSpecialScenarioAuth22+
+#### checkSpecialScenarioAuth22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2014,7 +2014,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### BackgroundTaskMode21+
+#### BackgroundTaskMode21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2040,7 +2040,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### BackgroundTaskSubmode21+
+#### BackgroundTaskSubmode21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2081,7 +2081,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### UserAuthResult22+
+#### UserAuthResult22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

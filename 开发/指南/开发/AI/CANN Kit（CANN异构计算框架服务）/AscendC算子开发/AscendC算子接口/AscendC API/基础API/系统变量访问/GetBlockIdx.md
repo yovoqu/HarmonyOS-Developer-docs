@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getblockidx
 
-##### 功能说明
+#### 功能说明
 
 获取当前核的index，用于代码内部的多核逻辑控制及多核偏移量计算等。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 __aicore__ inline int64_t GetBlockIdx()
@@ -18,19 +18,19 @@ __aicore__ inline int64_t GetBlockIdx()
  
   
 
-##### 参数说明
+#### 参数说明
 
 无
  
   
 
-##### 返回值
+#### 返回值
 
 当前核的index，index的范围为[0, 开发者配置的block_dim数量 - 1]。
  
   
 
-##### 支持的型号
+#### 支持的型号
 
 Kirin9020系列处理器
  
@@ -38,13 +38,13 @@ KirinX90系列处理器
  
   
 
-##### 约束说明
+#### 约束说明
 
 GetBlockIdx为一个系统内置函数，返回当前核的index。
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 #include "kernel_operator.h"

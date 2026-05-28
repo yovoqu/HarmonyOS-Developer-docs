@@ -7,7 +7,7 @@
 本章节主要介绍UI显示异常问题的调试方法，并结合案例讲解具体的解决步骤。
 
 
-##### 定位UI显示异常问题
+#### 定位UI显示异常问题
 
 UI显示异常问题主要是通过分析UI布局信息来定位。当前分析UI布局主要通过getInspectorTree接口获取组件树信息，或者通过getRectangleById接口获取单个节点的信息。
 
@@ -21,13 +21,13 @@ UI显示异常问题主要是通过分析UI布局信息来定位。当前分析U
 
 
 
-##### 解决UI显示异常问题
+#### 解决UI显示异常问题
 
 下面通过具体案例，介绍如何解决UI显示异常问题。
 
 
 
-##### 通过ComponentUtils.getRectangleById获取的tabBar组件坐标尺寸异常
+#### 通过ComponentUtils.getRectangleById获取的tabBar组件坐标尺寸异常
 
 **问题现象**
 

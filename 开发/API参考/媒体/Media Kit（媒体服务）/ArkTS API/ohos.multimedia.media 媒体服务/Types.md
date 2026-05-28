@@ -10,7 +10,7 @@
 
 
 
-##### SoundPool10+
+#### SoundPool10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -27,7 +27,7 @@ type SoundPool = _SoundPool
 
 
 
-##### PlayParameters10+
+#### PlayParameters10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -44,7 +44,7 @@ type PlayParameters = _PlayParameters
 
 
 
-##### AVPlayerState9+
+#### AVPlayerState9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -71,7 +71,7 @@ type AVPlayerState = 'idle' | 'initialized' | 'prepared' | 'playing' | 'paused' 
 
 
 
-##### OnTrackChangeHandler12+
+#### OnTrackChangeHandler12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -93,7 +93,7 @@ track变更事件回调方法。
 
 
 
-##### OnAVPlayerStateChangeHandle12+
+#### OnAVPlayerStateChangeHandle12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -115,7 +115,7 @@ type OnAVPlayerStateChangeHandle = (state: AVPlayerState, reason: StateChangeRea
 
 
 
-##### OnBufferingUpdateHandler12+
+#### OnBufferingUpdateHandler12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -137,7 +137,7 @@ type OnBufferingUpdateHandler = (infoType: BufferingInfoType, value: number) => 
 
 
 
-##### OnVideoSizeChangeHandler12+
+#### OnVideoSizeChangeHandler12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -159,7 +159,7 @@ type OnVideoSizeChangeHandler = (width: number, height: number) => void
 
 
 
-##### OnSuperResolutionChanged 18+
+#### OnSuperResolutionChanged 18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -186,7 +186,7 @@ type OnSuperResolutionChanged = (enabled: boolean) => void
 
 
 
-##### OnSeiMessageHandle18+
+#### OnSeiMessageHandle18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -208,7 +208,7 @@ type OnSeiMessageHandle = (messages: Array&lt;SeiMessage&gt;, playbackPosition?:
 
 
 
-##### OnPlaybackRateDone20+
+#### OnPlaybackRateDone20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -229,7 +229,7 @@ type OnPlaybackRateDone = (rate: number) => void
 
 
 
-##### OnFrameFetched23+
+#### OnFrameFetched23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -251,7 +251,7 @@ type OnFrameFetched = (frameInfo: FrameInfo, err?: BusinessError&lt;void&gt;) =>
 
 
 
-##### AVRecorderState9+
+#### AVRecorderState9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -276,7 +276,7 @@ type AVRecorderState = 'idle' | 'prepared' | 'started' | 'paused' | 'stopped' | 
 
 
 
-##### OnAVRecorderStateChangeHandler12+
+#### OnAVRecorderStateChangeHandler12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -298,7 +298,7 @@ type OnAVRecorderStateChangeHandler = (state: AVRecorderState, reason: StateChan
 
 
 
-##### SourceOpenCallback18+
+#### SourceOpenCallback18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -307,7 +307,7 @@ type SourceOpenCallback = (request: MediaSourceLoadingRequest) => number
 由应用实现此回调函数，应用需处理传入的资源打开请求，并返回所打开资源对应的唯一句柄。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/Qlg0JyQ_SEaDMYzyje_cLw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024016Z&HW-CC-Expire=86400&HW-CC-Sign=FD85341B0FAA311F8A340778A6E4D8CC69951259982A263C1F9F1516EEFDC75B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/Qlg0JyQ_SEaDMYzyje_cLw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025350Z&HW-CC-Expire=86400&HW-CC-Sign=8212EDA8E3E9B112011761DB3D843B5F0760D6BBD33BC9B0F68DC30FF4B2D651)
 
 
 客户端在处理完请求后应立刻返回。
@@ -352,7 +352,7 @@ let sourceOpenCallback: media.SourceOpenCallback = (request: media.MediaSourceLo
 
 
 
-##### SourceReadCallback18+
+#### SourceReadCallback18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -361,7 +361,7 @@ type SourceReadCallback = (uuid: number, requestedOffset: number, requestedLengt
 由应用实现此回调函数，应用需记录读取请求，并在数据充足时通过对应的MediaSourceLoadingRequest对象的[respondData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-mediasourceloadingrequest#responddata18)方法推送数据。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/ctLTIprgRhGRtd0_biPDAw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024016Z&HW-CC-Expire=86400&HW-CC-Sign=C02D145502241522CA8FB11436BBEEE8EB6C190DBD96272F15B7246A6E9E9175)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/ctLTIprgRhGRtd0_biPDAw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025350Z&HW-CC-Expire=86400&HW-CC-Sign=67CDBF98AD00F96586BE9F0E785D381D295AB2E377F84D31AC7356D70AE2E6C1)
 
 
 客户端在处理完请求后应立刻返回。
@@ -392,7 +392,7 @@ let sourceReadCallback: media.SourceReadCallback = (uuid: number, requestedOffse
 
 
 
-##### SourceCloseCallback18+
+#### SourceCloseCallback18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -401,7 +401,7 @@ type SourceCloseCallback = (uuid: number) => void
 由应用实现此回调函数，应用应释放相关资源。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/Ok7VsTd4SSGWqNRr_Xf9dg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024016Z&HW-CC-Expire=86400&HW-CC-Sign=BFC15C47D27C445B22D91DE4BF145D68C2087504F8B85AC9A4646C700323707F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/Ok7VsTd4SSGWqNRr_Xf9dg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025350Z&HW-CC-Expire=86400&HW-CC-Sign=C25A8F384D9FF5AC0C1776EDC141886B5B01DB0C8FDCAB762FFFBEB2C9520F80)
 
 
 客户端在处理完请求后应立刻返回。
@@ -435,7 +435,7 @@ let sourceCloseCallback: media.SourceCloseCallback = (uuid: number) => {
 
 
 
-##### PlaybackMetrics23+
+#### PlaybackMetrics23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -452,7 +452,7 @@ type PlaybackMetrics = Record<PlaybackMetricsKey, Object>
 
 
 
-##### AudioState(deprecated)
+#### AudioState(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -477,7 +477,7 @@ type AudioState = 'idle' | 'playing' | 'paused' | 'stopped' | 'error'
 
 
 
-##### VideoPlayState(deprecated)
+#### VideoPlayState(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2___public_key_credential_creation_options
 
-##### 概述
+#### 概述
 
 创建新的认证凭据的选项。
  
@@ -14,11 +14,11 @@
  
   
 
-##### 汇总
+#### 汇总
 
   
 
-##### 成员变量
+#### 成员变量
  
 | 名称 | 描述 |
 | --- | --- |
@@ -37,11 +37,11 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
   
 
-##### attestation
+#### attestation
 
 ```text
 FIDO2_AttestationConveyancePreference FIDO2_PublicKeyCredentialCreationOptions::attestation
@@ -53,7 +53,7 @@ FIDO2_AttestationConveyancePreference FIDO2_PublicKeyCredentialCreationOptions::
  
   
 
-##### attestationFormats
+#### attestationFormats
 
 ```text
 FIDO2_AttestationFormatsArray FIDO2_PublicKeyCredentialCreationOptions::attestationFormats
@@ -65,7 +65,7 @@ FIDO2_AttestationFormatsArray FIDO2_PublicKeyCredentialCreationOptions::attestat
  
   
 
-##### authenticatorSelection
+#### authenticatorSelection
 
 ```text
 FIDO2_AuthenticatorSelectionCriteria FIDO2_PublicKeyCredentialCreationOptions::authenticatorSelection
@@ -77,7 +77,7 @@ FIDO2_AuthenticatorSelectionCriteria FIDO2_PublicKeyCredentialCreationOptions::a
  
   
 
-##### challenge
+#### challenge
 
 ```text
 Uint8Buff FIDO2_PublicKeyCredentialCreationOptions::challenge
@@ -89,7 +89,7 @@ Uint8Buff FIDO2_PublicKeyCredentialCreationOptions::challenge
  
   
 
-##### excludeCredentials
+#### excludeCredentials
 
 ```text
 FIDO2_PublicKeyCredentialDescriptorArray FIDO2_PublicKeyCredentialCreationOptions::excludeCredentials
@@ -101,7 +101,7 @@ FIDO服务器已注册的凭据列表。默认值为[]。可选。
  
   
 
-##### extensions
+#### extensions
 
 ```text
 char* FIDO2_PublicKeyCredentialCreationOptions::extensions
@@ -113,7 +113,7 @@ char* FIDO2_PublicKeyCredentialCreationOptions::extensions
  
   
 
-##### hints
+#### hints
 
 ```text
 FIDO2_PublicKeyCredentialHintArray FIDO2_PublicKeyCredentialCreationOptions::hints
@@ -125,7 +125,7 @@ FIDO2_PublicKeyCredentialHintArray FIDO2_PublicKeyCredentialCreationOptions::hin
  
   
 
-##### pubKeyCredParams
+#### pubKeyCredParams
 
 ```text
 FIDO2_CredentialCreationOptionArray FIDO2_PublicKeyCredentialCreationOptions::pubKeyCredParams
@@ -137,7 +137,7 @@ FIDO2_CredentialCreationOptionArray FIDO2_PublicKeyCredentialCreationOptions::pu
  
   
 
-##### rp
+#### rp
 
 ```text
 FIDO2_PublicKeyCredentialRpEntity FIDO2_PublicKeyCredentialCreationOptions::rp
@@ -149,7 +149,7 @@ FIDO2_PublicKeyCredentialRpEntity FIDO2_PublicKeyCredentialCreationOptions::rp
  
   
 
-##### timeout
+#### timeout
 
 ```text
 uint32_t FIDO2_PublicKeyCredentialCreationOptions::timeout
@@ -161,7 +161,7 @@ uint32_t FIDO2_PublicKeyCredentialCreationOptions::timeout
  
   
 
-##### user
+#### user
 
 ```text
 FIDO2_PublicKeyCredentialUserEntity FIDO2_PublicKeyCredentialCreationOptions::user

@@ -12,7 +12,7 @@
 
   
 
-##### constructor12+
+#### constructor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ WebKeyboardController的构造函数。
  
   
 
-##### insertText12+
+#### insertText12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -43,7 +43,7 @@ Web输入框中插入字符。
  
   
 
-##### deleteForward12+
+#### deleteForward12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -62,7 +62,7 @@ deleteForward(length: number): void
  
   
 
-##### deleteBackward12+
+#### deleteBackward12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -81,7 +81,7 @@ deleteBackward(length: number): void
  
   
 
-##### sendFunctionKey12+
+#### sendFunctionKey12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -100,7 +100,7 @@ sendFunctionKey(key: number): void
  
   
 
-##### close12+
+#### close12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

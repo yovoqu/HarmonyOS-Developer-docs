@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { pbap } from '@kit.ConnectivityKit';
 
 
 
-##### BaseProfile
+#### BaseProfile
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -39,7 +39,7 @@ type BaseProfile = baseProfile.BaseProfile
 
 
 
-##### pbap.createPbapServerProfile
+#### pbap.createPbapServerProfile
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

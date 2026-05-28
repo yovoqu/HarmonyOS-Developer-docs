@@ -7,7 +7,7 @@
 toolbar为页面工具栏组件，用于展示针对当前界面的操作选项，可作为页面的一级导航。具体用法请参考[toolbar](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-toolbar)。
 
 
-##### 创建toolbar组件
+#### 创建toolbar组件
 
 在pages/index目录下的hml文件中创建一个toolbar组件。
 
@@ -42,7 +42,7 @@ toolbar-item{
 
 
 
-##### 添加子组件
+#### 添加子组件
 
 toolbar组件仅支持toolbar-item为子组件，页面最多可以展示5个toolbar-item子组件，如果存在6个及以上toolbar-item，则保留前面4个，后续的将收纳到工具栏上的更多项中，通过点击更多项弹窗进行展示。并且更多项展示的组件样式采用系统默认样式，toolbar-item上设置的自定义样式不生效。
 
@@ -81,7 +81,7 @@ toolbar-item{
 
 
 
-##### 设置样式
+#### 设置样式
 
 设置position样式控制toolbar组件的位置，并设置子组件toolbar-item的字体颜色、大小及背景色。
 
@@ -118,7 +118,7 @@ toolbar-item{
 
 
 
-##### 绑定事件
+#### 绑定事件
 
 分别给toolbar-item绑定单击事件和长按事件，单击后文本变红，长按时文本变蓝。
 
@@ -176,7 +176,7 @@ export default {
 
 
 
-##### 场景示例
+#### 场景示例
 
 本场景中开发者可点击toolbar-item组件，改变当前组件文本颜色并更换相对应的图片内容。
 
@@ -226,4 +226,4 @@ export default {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/IWkVFp4DSn-DxPwu8kOQCQ/zh-cn_image_0000002581434190.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014755Z&HW-CC-Expire=86400&HW-CC-Sign=5163A5FFEE8E2CF5CA1E57C4D57969CC5DADAFC5F2C47A7740E7F923EDF21D32)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/IWkVFp4DSn-DxPwu8kOQCQ/zh-cn_image_0000002581434190.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030427Z&HW-CC-Expire=86400&HW-CC-Sign=15AEAE93571A19C03C136863AA36D331B9DC31397D68FB3A8A8EC9E5EE21FA99)

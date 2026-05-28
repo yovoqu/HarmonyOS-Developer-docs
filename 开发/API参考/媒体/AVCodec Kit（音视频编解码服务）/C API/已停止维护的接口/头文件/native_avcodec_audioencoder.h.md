@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-audioencoder-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -27,13 +27,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -58,13 +58,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_AudioEncoder_CreateByMime()
+#### OH_AudioEncoder_CreateByMime()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -100,7 +100,7 @@ OH_AVCodec *OH_AudioEncoder_CreateByMime(const char *mime)
  
   
 
-##### OH_AudioEncoder_CreateByName()
+#### OH_AudioEncoder_CreateByName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -136,7 +136,7 @@ OH_AVCodec *OH_AudioEncoder_CreateByName(const char *name)
  
   
 
-##### OH_AudioEncoder_Destroy()
+#### OH_AudioEncoder_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -172,7 +172,7 @@ OH_AVErrCode OH_AudioEncoder_Destroy(OH_AVCodec *codec)
  
   
 
-##### OH_AudioEncoder_SetCallback()
+#### OH_AudioEncoder_SetCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -210,7 +210,7 @@ OH_AVErrCode OH_AudioEncoder_SetCallback(OH_AVCodec *codec, OH_AVCodecAsyncCallb
  
   
 
-##### OH_AudioEncoder_Configure()
+#### OH_AudioEncoder_Configure()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -247,7 +247,7 @@ OH_AVErrCode OH_AudioEncoder_Configure(OH_AVCodec *codec, OH_AVFormat *format)
  
   
 
-##### OH_AudioEncoder_Prepare()
+#### OH_AudioEncoder_Prepare()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -283,7 +283,7 @@ OH_AVErrCode OH_AudioEncoder_Prepare(OH_AVCodec *codec)
  
   
 
-##### OH_AudioEncoder_Start()
+#### OH_AudioEncoder_Start()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -319,7 +319,7 @@ OH_AVErrCode OH_AudioEncoder_Start(OH_AVCodec *codec)
  
   
 
-##### OH_AudioEncoder_Stop()
+#### OH_AudioEncoder_Stop()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -355,7 +355,7 @@ OH_AVErrCode OH_AudioEncoder_Stop(OH_AVCodec *codec)
  
   
 
-##### OH_AudioEncoder_Flush()
+#### OH_AudioEncoder_Flush()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -393,7 +393,7 @@ OH_AVErrCode OH_AudioEncoder_Flush(OH_AVCodec *codec)
  
   
 
-##### OH_AudioEncoder_Reset()
+#### OH_AudioEncoder_Reset()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -429,7 +429,7 @@ OH_AVErrCode OH_AudioEncoder_Reset(OH_AVCodec *codec)
  
   
 
-##### OH_AudioEncoder_GetOutputDescription()
+#### OH_AudioEncoder_GetOutputDescription()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -465,7 +465,7 @@ OH_AVFormat *OH_AudioEncoder_GetOutputDescription(OH_AVCodec *codec)
  
   
 
-##### OH_AudioEncoder_SetParameter()
+#### OH_AudioEncoder_SetParameter()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -504,7 +504,7 @@ OH_AVErrCode OH_AudioEncoder_SetParameter(OH_AVCodec *codec, OH_AVFormat *format
  
   
 
-##### OH_AudioEncoder_PushInputData()
+#### OH_AudioEncoder_PushInputData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -546,7 +546,7 @@ OH_AVErrCode OH_AudioEncoder_PushInputData(OH_AVCodec *codec, uint32_t index, OH
  
   
 
-##### OH_AudioEncoder_FreeOutputData()
+#### OH_AudioEncoder_FreeOutputData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -583,7 +583,7 @@ OH_AVErrCode OH_AudioEncoder_FreeOutputData(OH_AVCodec *codec, uint32_t index)
  
   
 
-##### OH_AudioEncoder_IsValid()
+#### OH_AudioEncoder_IsValid()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

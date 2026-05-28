@@ -10,7 +10,7 @@ typedef struct HiDebug_MallocDispatch {...} HiDebug_MallocDispatch
 ```
   
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,13 +24,13 @@ typedef struct HiDebug_MallocDispatch {...} HiDebug_MallocDispatch
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 成员函数
+#### 成员函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -46,13 +46,13 @@ typedef struct HiDebug_MallocDispatch {...} HiDebug_MallocDispatch
  
   
 
-##### 成员函数说明
+#### 成员函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### malloc()
+#### malloc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -66,7 +66,7 @@ void* (*malloc)(size_t)
  
   
 
-##### calloc()
+#### calloc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -80,7 +80,7 @@ void* (*calloc)(size_t, size_t)
  
   
 
-##### realloc()
+#### realloc()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -94,7 +94,7 @@ void* (*realloc)(void*, size_t)
  
   
 
-##### free()
+#### free()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -108,7 +108,7 @@ void (*free)(void*)
  
   
 
-##### mmap()
+#### mmap()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -122,7 +122,7 @@ void* (*mmap)(void*, size_t, int, int, int, off_t)
  
   
 
-##### munmap()
+#### munmap()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

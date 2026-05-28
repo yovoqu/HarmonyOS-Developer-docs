@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-rtaoparameters
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -19,13 +19,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  
@@ -42,13 +42,13 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### aoCullDistance
+#### aoCullDistance
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -62,7 +62,7 @@ float XEG_RTAOParameters::aoCullDistance
  
   
 
-##### aoCullMask
+#### aoCullMask
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -76,7 +76,7 @@ uint32_t XEG_RTAOParameters::aoCullMask = 0x5FF
  
   
 
-##### aoIntensity
+#### aoIntensity
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -90,7 +90,7 @@ float XEG_RTAOParameters::aoIntensity = 1.0f
  
   
 
-##### aoNormalBias
+#### aoNormalBias
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -104,7 +104,7 @@ float XEG_RTAOParameters::aoNormalBias = 1.0f
  
   
 
-##### rayPerPixel
+#### rayPerPixel
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -118,7 +118,7 @@ uint32_t XEG_RTAOParameters::rayPerPixel = 1
  
   
 
-##### rayTMax
+#### rayTMax
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -132,7 +132,7 @@ float XEG_RTAOParameters::rayTMax
  
   
 
-##### rayTMin
+#### rayTMin
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-other-practical-tools
 
-##### 简介
+#### 简介
 
 Node-API接口提供了一些实用接口，可以帮助开发者更好地进行Node-API相关开发。
  
   
 
-##### 基本概念
+#### 基本概念
 
 - **模块加载：** 在Node-API模块中，模块是指包含特定功能的ArkTS文件，通过import导入lib共享库中的模块。了解Node-API模块中的加载机制以及模块之间的依赖关系对于理解node_api_get_module_file_name接口的使用很有帮助。
 - **文件路径和URL：** node_api_get_module_file_name返回的是加载项的绝对路径的URL。
@@ -21,7 +21,7 @@ Node-API接口提供了一些实用接口，可以帮助开发者更好地进行
  
   
 
-##### 场景和功能介绍
+#### 场景和功能介绍
  
 | 接口 | 描述 |
 | --- | --- |
@@ -31,13 +31,13 @@ Node-API接口提供了一些实用接口，可以帮助开发者更好地进行
  
   
 
-##### 使用示例
+#### 使用示例
 
 Node-API接口开发流程参考[使用Node-API实现跨语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-process)，本文仅对接口对应C++及ArkTS相关代码进行展示。
  
   
 
-##### node_api_get_module_file_name
+#### node_api_get_module_file_name
 
 用于获取加载项的绝对路径。
  
@@ -86,7 +86,7 @@ try {
  
   
 
-##### napi_strict_equals
+#### napi_strict_equals
 
 判断给定的两个ArkTS value是否严格相等。
  

@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoeditorextensionability
 
-##### 使用场景
+#### 使用场景
 
 当应用自身不具备图片编辑能力、但存在图片编辑的场景时，可以通过startAbilityByType拉起图片编辑类应用扩展面板，由对应的应用完成图片编辑操作。图片编辑类应用可以通过PhotoEditorExtensionAbility实现图片编辑页面，并将该页面注册到图片编辑面板，从而将图片编辑能力开放给其他应用。
 
@@ -18,7 +18,7 @@
 
 
 
-##### 接口说明
+#### 接口说明
 
 接口详情参见[PhotoEditorExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-photoeditorextensionability)和[PhotoEditorExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-photoeditorextensioncontext)。
 
@@ -30,7 +30,7 @@
 
 
 
-##### 图片编辑类应用实现图片编辑页面
+#### 图片编辑类应用实现图片编辑页面
 1. 在DevEco Studio工程中手动新建一个PhotoEditorExtensionAbility。
 
   
@@ -222,7 +222,7 @@ struct Index {
 
 
 
-##### 调用方拉起图片编辑类应用编辑图片
+#### 调用方拉起图片编辑类应用编辑图片
 
 开发者可以在UIAbility或者UIExtensionAbility的页面中通过接口startAbilityByType拉起图片编辑类应用扩展面板，系统将自动查找并在面板上展示基于[PhotoEditorExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-photoeditorextensionability)实现的图片编辑应用，由用户选择某个应用来完成图片编辑的功能，最终将编辑的结果返回给到调用方，具体步骤如下：
 1. 导入模块。       

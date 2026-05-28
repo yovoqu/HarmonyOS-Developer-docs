@@ -14,7 +14,7 @@ FaultLogExtensionContext模块提供访问[FaultLogExtensionAbility](https://dev
 
 
 
-##### 使用说明
+#### 使用说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -33,7 +33,7 @@ export default class MyFaultLogExtension extends FaultLogExtensionAbility {
 
 
 
-##### FaultLogExtensionContext
+#### FaultLogExtensionContext
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

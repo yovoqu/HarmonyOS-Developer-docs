@@ -25,7 +25,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -35,7 +35,7 @@ import { text } from '@kit.ArkGraphics2D'
 
 
 
-##### text.setTextHighContrast20+
+#### text.setTextHighContrast20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -68,7 +68,7 @@ text.setTextHighContrast(text.TextHighContrast.TEXT_APP_DISABLE_HIGH_CONTRAST)
 
 
 
-##### text.setTextUndefinedGlyphDisplay20+
+#### text.setTextUndefinedGlyphDisplay20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -103,7 +103,7 @@ text.setTextUndefinedGlyphDisplay(text.TextUndefinedGlyphDisplay.USE_TOFU)
 
 
 
-##### text.matchFontDescriptors18+
+#### text.matchFontDescriptors18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -177,7 +177,7 @@ struct Index {
 
 
 
-##### text.getSystemFontFullNamesByType14+
+#### text.getSystemFontFullNamesByType14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -251,7 +251,7 @@ struct Index {
 
 
 
-##### text.getFontDescriptorByFullName14+
+#### text.getFontDescriptorByFullName14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -325,7 +325,7 @@ struct Index {
 
 
 
-##### text.getFontDescriptorsFromPath22+
+#### text.getFontDescriptorsFromPath22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -392,7 +392,7 @@ struct GetFontDescriptorsFromPathTest {
 
 
 
-##### text.getFontUnicodeSet23+
+#### text.getFontUnicodeSet23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -449,7 +449,7 @@ struct GetFontUnicodeSetTest {
 
 
 
-##### text.getFontCount23+
+#### text.getFontCount23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -503,7 +503,7 @@ struct GetFontCountTest {
 
 
 
-##### text.getFontPathsByType23+
+#### text.getFontPathsByType23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -556,7 +556,7 @@ struct GetFontPathsByTypeTest {
 
 
 
-##### text.isFontSupported23+
+#### text.isFontSupported23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -607,7 +607,7 @@ struct isFontSupportedTest {
 
 
 
-##### TextHighContrast20+
+#### TextHighContrast20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -626,7 +626,7 @@ struct isFontSupportedTest {
 
 
 
-##### TextUndefinedGlyphDisplay20+
+#### TextUndefinedGlyphDisplay20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -644,7 +644,7 @@ struct isFontSupportedTest {
 
 
 
-##### TextAlign
+#### TextAlign
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -666,7 +666,7 @@ struct isFontSupportedTest {
 
 
 
-##### TextVerticalAlign20+
+#### TextVerticalAlign20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -686,7 +686,7 @@ struct isFontSupportedTest {
 
 
 
-##### TextDirection
+#### TextDirection
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -704,7 +704,7 @@ struct isFontSupportedTest {
 
 
 
-##### BreakStrategy
+#### BreakStrategy
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -723,7 +723,7 @@ struct isFontSupportedTest {
 
 
 
-##### WordBreak
+#### WordBreak
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -743,7 +743,7 @@ struct isFontSupportedTest {
 
 
 
-##### Decoration
+#### Decoration
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -763,7 +763,7 @@ struct isFontSupportedTest {
 
 
 
-##### TextDecorationType
+#### TextDecorationType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -783,7 +783,7 @@ struct isFontSupportedTest {
 
 
 
-##### TextDecorationStyle
+#### TextDecorationStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -804,7 +804,7 @@ struct isFontSupportedTest {
 
 
 
-##### FontWeight
+#### FontWeight
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -829,7 +829,7 @@ struct isFontSupportedTest {
 
 
 
-##### FontWidth
+#### FontWidth
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -854,7 +854,7 @@ struct isFontSupportedTest {
 
 
 
-##### FontStyle
+#### FontStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -873,7 +873,7 @@ struct isFontSupportedTest {
 
 
 
-##### TextHeightBehavior
+#### TextHeightBehavior
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -893,7 +893,7 @@ struct isFontSupportedTest {
 
 
 
-##### TextBaseline
+#### TextBaseline
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -911,7 +911,7 @@ struct isFontSupportedTest {
 
 
 
-##### EllipsisMode
+#### EllipsisMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -932,7 +932,7 @@ EllipsisMode.START和EllipsisMode.MIDDLE仅在单行超长文本生效。
 
 
 
-##### TextShadow
+#### TextShadow
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -951,7 +951,7 @@ EllipsisMode.START和EllipsisMode.MIDDLE仅在单行超长文本生效。
 
 
 
-##### RectStyle
+#### RectStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -972,7 +972,7 @@ EllipsisMode.START和EllipsisMode.MIDDLE仅在单行超长文本生效。
 
 
 
-##### FontFeature
+#### FontFeature
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -990,7 +990,7 @@ EllipsisMode.START和EllipsisMode.MIDDLE仅在单行超长文本生效。
 
 
 
-##### FontVariation
+#### FontVariation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1007,7 +1007,7 @@ EllipsisMode.START和EllipsisMode.MIDDLE仅在单行超长文本生效。
 
 
 
-##### TextBadgeType20+
+#### TextBadgeType20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1026,7 +1026,7 @@ EllipsisMode.START和EllipsisMode.MIDDLE仅在单行超长文本生效。
 
 
 
-##### LineHeightStyle21+
+#### LineHeightStyle21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1044,7 +1044,7 @@ EllipsisMode.START和EllipsisMode.MIDDLE仅在单行超长文本生效。
 
 
 
-##### TextStyle
+#### TextStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1086,7 +1086,7 @@ EllipsisMode.START和EllipsisMode.MIDDLE仅在单行超长文本生效。
 
 
 
-##### StrutStyle
+#### StrutStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1113,7 +1113,7 @@ EllipsisMode.START和EllipsisMode.MIDDLE仅在单行超长文本生效。
 
 
 
-##### FontDescriptor14+
+#### FontDescriptor14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1149,7 +1149,7 @@ EllipsisMode.START和EllipsisMode.MIDDLE仅在单行超长文本生效。
 
 
 
-##### FontVariationAxis24+
+#### FontVariationAxis24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1172,7 +1172,7 @@ EllipsisMode.START和EllipsisMode.MIDDLE仅在单行超长文本生效。
 
 
 
-##### FontVariationInstance24+
+#### FontVariationInstance24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1191,7 +1191,7 @@ EllipsisMode.START和EllipsisMode.MIDDLE仅在单行超长文本生效。
 
 
 
-##### FontCollection
+#### FontCollection
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1199,7 +1199,7 @@ EllipsisMode.START和EllipsisMode.MIDDLE仅在单行超长文本生效。
 
 
 
-##### getGlobalInstance
+#### getGlobalInstance
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1243,7 +1243,7 @@ struct Index {
 
 
 
-##### getLocalInstance22+
+#### getLocalInstance22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1273,7 +1273,7 @@ let fontCollection = text.FontCollection.getLocalInstance();
 
 
 
-##### loadFontSync
+#### loadFontSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1333,7 +1333,7 @@ struct RenderTest {
 
 
 
-##### loadFont18+
+#### loadFont18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1400,7 +1400,7 @@ struct RenderTest {
 
 
 
-##### loadFontSyncWithCheck23+
+#### loadFontSyncWithCheck23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1479,7 +1479,7 @@ struct Index {
 
 
 
-##### loadFontWithCheck23+
+#### loadFontWithCheck23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1569,7 +1569,7 @@ struct Index {
 
 
 
-##### unloadFontSync20+
+#### unloadFontSync20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1633,7 +1633,7 @@ struct UnloadFontSyncTest {
 
 
 
-##### unloadFont20+
+#### unloadFont20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1704,7 +1704,7 @@ struct UnloadFontTest {
 
 
 
-##### clearCaches
+#### clearCaches
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1738,7 +1738,7 @@ struct Index {
 
 
 
-##### ParagraphStyle
+#### ParagraphStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1786,7 +1786,7 @@ struct Index {
 
 
 
-##### PlaceholderAlignment
+#### PlaceholderAlignment
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1817,7 +1817,7 @@ struct Index {
 
 
 
-##### PlaceholderSpan
+#### PlaceholderSpan
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1838,7 +1838,7 @@ struct Index {
 
 
 
-##### Range
+#### Range
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1856,7 +1856,7 @@ struct Index {
 
 
 
-##### TextRectSize24+
+#### TextRectSize24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1876,7 +1876,7 @@ struct Index {
 
 
 
-##### TextLayoutResult24+
+#### TextLayoutResult24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1896,7 +1896,7 @@ struct Index {
 
 
 
-##### Paragraph
+#### Paragraph
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1906,7 +1906,7 @@ struct Index {
 
 
 
-##### layoutSync
+#### layoutSync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1933,7 +1933,7 @@ paragraph.layoutSync(100);
 
 
 
-##### layout18+
+#### layout18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2046,7 +2046,7 @@ struct Index {
 
 
 
-##### layoutWithConstraints24+
+#### layoutWithConstraints24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2087,7 +2087,7 @@ for (let i = 0; i < result.fitStrRange.length; ++i) {
 
 
 
-##### paint
+#### paint
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2120,7 +2120,7 @@ paragraph.paint(canvas, 0, 0);
 
 
 
-##### paintOnPath
+#### paintOnPath
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2156,7 +2156,7 @@ paragraph.paintOnPath(canvas, path, 0, 0);
 
 
 
-##### getMaxWidth
+#### getMaxWidth
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2183,7 +2183,7 @@ let maxWidth = paragraph.getMaxWidth();
 
 
 
-##### getHeight
+#### getHeight
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2210,7 +2210,7 @@ let height = paragraph.getHeight();
 
 
 
-##### getLongestLine
+#### getLongestLine
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2237,7 +2237,7 @@ let longestLine = paragraph.getLongestLine();
 
 
 
-##### getLongestLineWithIndent13+
+#### getLongestLineWithIndent13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2264,7 +2264,7 @@ let longestLineWithIndent = paragraph.getLongestLineWithIndent();
 
 
 
-##### getMinIntrinsicWidth
+#### getMinIntrinsicWidth
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2291,7 +2291,7 @@ let minIntrinsicWidth = paragraph.getMinIntrinsicWidth();
 
 
 
-##### getMaxIntrinsicWidth
+#### getMaxIntrinsicWidth
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2318,7 +2318,7 @@ let maxIntrinsicWidth = paragraph.getMaxIntrinsicWidth();
 
 
 
-##### getAlphabeticBaseline
+#### getAlphabeticBaseline
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2345,7 +2345,7 @@ let alphabeticBaseline = paragraph.getAlphabeticBaseline();
 
 
 
-##### getIdeographicBaseline
+#### getIdeographicBaseline
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2372,7 +2372,7 @@ let ideographicBaseline = paragraph.getIdeographicBaseline();
 
 
 
-##### getRectsForRange
+#### getRectsForRange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2409,7 +2409,7 @@ let rects = paragraph.getRectsForRange(range, text.RectWidthStyle.TIGHT, text.Re
 
 
 
-##### getRectsForPlaceholders
+#### getRectsForPlaceholders
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2436,7 +2436,7 @@ let placeholderRects = paragraph.getRectsForPlaceholders();
 
 
 
-##### getGlyphPositionAtCoordinate
+#### getGlyphPositionAtCoordinate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2471,7 +2471,7 @@ let positionWithAffinity = paragraph.getGlyphPositionAtCoordinate(0, 0);
 
 
 
-##### getWordBoundary
+#### getWordBoundary
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2505,7 +2505,7 @@ let wordRange = paragraph.getWordBoundary(0);
 
 
 
-##### getLineCount
+#### getLineCount
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2532,7 +2532,7 @@ let lineCount = paragraph.getLineCount();
 
 
 
-##### getLineHeight
+#### getLineHeight
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2566,7 +2566,7 @@ let lineHeight = paragraph.getLineHeight(0);
 
 
 
-##### getLineWidth
+#### getLineWidth
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2600,7 +2600,7 @@ let lineWidth = paragraph.getLineWidth(0);
 
 
 
-##### didExceedMaxLines
+#### didExceedMaxLines
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2627,7 +2627,7 @@ let didExceed = paragraph.didExceedMaxLines();
 
 
 
-##### getTextLines
+#### getTextLines
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2654,7 +2654,7 @@ let lines = paragraph.getTextLines();
 
 
 
-##### getActualTextRange
+#### getActualTextRange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2689,7 +2689,7 @@ let rang = paragraph.getActualTextRange(0, true);
 
 
 
-##### getLineMetrics
+#### getLineMetrics
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2716,7 +2716,7 @@ let arrLineMetric =  paragraph.getLineMetrics();
 
 
 
-##### getLineMetrics
+#### getLineMetrics
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2750,7 +2750,7 @@ let lineMetrics =  paragraph.getLineMetrics(0);
 
 
 
-##### updateColor20+
+#### updateColor20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2777,7 +2777,7 @@ paragraph.updateColor({ alpha: 255, red: 255, green: 0, blue: 0 });
 
 
 
-##### updateDecoration20+
+#### updateDecoration20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2809,7 +2809,7 @@ paragraph.updateDecoration({
 
 
 
-##### getCharacterRangeForGlyphRange24+
+#### getCharacterRangeForGlyphRange24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2884,7 +2884,7 @@ struct Index {
 
 
 
-##### getGlyphRangeForCharacterRange24+
+#### getGlyphRangeForCharacterRange24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2959,7 +2959,7 @@ struct Index {
 
 
 
-##### getCharacterPositionAtCoordinate24+
+#### getCharacterPositionAtCoordinate24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3036,7 +3036,7 @@ struct Index {
 
 
 
-##### LineTypeset18+
+#### LineTypeset18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3046,7 +3046,7 @@ struct Index {
 
 
 
-##### getLineBreak18+
+#### getLineBreak18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3092,7 +3092,7 @@ let count = lineTypeset.getLineBreak(startIndex, width);
 
 
 
-##### createLine18+
+#### createLine18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3139,7 +3139,7 @@ let line : text.TextLine = lineTypeset.createLine(startIndex, count);
 
 
 
-##### RunMetrics
+#### RunMetrics
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3157,7 +3157,7 @@ let line : text.TextLine = lineTypeset.createLine(startIndex, count);
 
 
 
-##### LineMetrics
+#### LineMetrics
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3184,7 +3184,7 @@ let line : text.TextLine = lineTypeset.createLine(startIndex, count);
 
 
 
-##### TextBox
+#### TextBox
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3202,7 +3202,7 @@ let line : text.TextLine = lineTypeset.createLine(startIndex, count);
 
 
 
-##### PositionWithAffinity
+#### PositionWithAffinity
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3220,7 +3220,7 @@ let line : text.TextLine = lineTypeset.createLine(startIndex, count);
 
 
 
-##### RectWidthStyle
+#### RectWidthStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3238,7 +3238,7 @@ let line : text.TextLine = lineTypeset.createLine(startIndex, count);
 
 
 
-##### RectHeightStyle
+#### RectHeightStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3260,7 +3260,7 @@ let line : text.TextLine = lineTypeset.createLine(startIndex, count);
 
 
 
-##### Affinity
+#### Affinity
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3278,7 +3278,7 @@ let line : text.TextLine = lineTypeset.createLine(startIndex, count);
 
 
 
-##### ParagraphBuilder
+#### ParagraphBuilder
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3286,7 +3286,7 @@ let line : text.TextLine = lineTypeset.createLine(startIndex, count);
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3340,7 +3340,7 @@ struct Index {
 
 
 
-##### pushStyle
+#### pushStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3401,7 +3401,7 @@ struct Index {
 
 
 
-##### popStyle
+#### popStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3452,7 +3452,7 @@ struct Index {
 
 
 
-##### addText
+#### addText
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3509,7 +3509,7 @@ struct Index {
 
 
 
-##### addPlaceholder
+#### addPlaceholder
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3568,7 +3568,7 @@ struct Index {
 
 
 
-##### build
+#### build
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3624,7 +3624,7 @@ struct Index {
 
 
 
-##### buildLineTypeset18+
+#### buildLineTypeset18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3674,7 +3674,7 @@ struct Index {
 
 
 
-##### addSymbol
+#### addSymbol
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3729,7 +3729,7 @@ struct Index {
 
 
 
-##### TypographicBounds18+
+#### TypographicBounds18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3753,7 +3753,7 @@ struct Index {
 
 
 
-##### CaretOffsetsCallback18+
+#### CaretOffsetsCallback18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3783,7 +3783,7 @@ type CaretOffsetsCallback = (offset: number, index: number, leadingEdge: boolean
 
 
 
-##### TextLine
+#### TextLine
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3793,7 +3793,7 @@ type CaretOffsetsCallback = (offset: number, index: number, leadingEdge: boolean
 
 
 
-##### getGlyphCount
+#### getGlyphCount
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3820,7 +3820,7 @@ let glyphCount = lines[0].getGlyphCount();
 
 
 
-##### getTextRange
+#### getTextRange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3847,7 +3847,7 @@ let textRange = lines[0].getTextRange();
 
 
 
-##### getGlyphRuns
+#### getGlyphRuns
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3874,7 +3874,7 @@ let runs = lines[0].getGlyphRuns();
 
 
 
-##### paint
+#### paint
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3931,7 +3931,7 @@ struct Index {
 
 
 
-##### createTruncatedLine18+
+#### createTruncatedLine18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3994,7 +3994,7 @@ struct Index {
 
 
 
-##### getTypographicBounds18+
+#### getTypographicBounds18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4026,7 +4026,7 @@ console.info('textLine ascent:' + bounds.ascent + ', descent:' + bounds.descent 
 
 
 
-##### getImageBounds18+
+#### getImageBounds18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4057,7 +4057,7 @@ let imageBounds = lines[0].getImageBounds();
 
 
 
-##### getTrailingSpaceWidth18+
+#### getTrailingSpaceWidth18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4084,7 +4084,7 @@ let trailingSpaceWidth = lines[0].getTrailingSpaceWidth();
 
 
 
-##### getStringIndexForPosition18+
+#### getStringIndexForPosition18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4119,7 +4119,7 @@ let index = lines[0].getStringIndexForPosition(point);
 
 
 
-##### getOffsetForStringIndex18+
+#### getOffsetForStringIndex18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4153,7 +4153,7 @@ let offset = lines[0].getOffsetForStringIndex(3);
 
 
 
-##### enumerateCaretOffsets18+
+#### enumerateCaretOffsets18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4184,7 +4184,7 @@ lines[0].enumerateCaretOffsets(callback);
 
 
 
-##### getAlignmentOffset18+
+#### getAlignmentOffset18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4219,7 +4219,7 @@ let alignmentOffset = lines[0].getAlignmentOffset(0.5, 500);
 
 
 
-##### Run
+#### Run
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4229,7 +4229,7 @@ let alignmentOffset = lines[0].getAlignmentOffset(0.5, 500);
 
 
 
-##### getGlyphCount
+#### getGlyphCount
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4256,7 +4256,7 @@ let glyphs = runs[0].getGlyphCount();
 
 
 
-##### getGlyphs
+#### getGlyphs
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4283,7 +4283,7 @@ let glyph = runs[0].getGlyphs();
 
 
 
-##### getGlyphs18+
+#### getGlyphs18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4339,7 +4339,7 @@ struct Index {
 
 
 
-##### getPositions
+#### getPositions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4366,7 +4366,7 @@ let positions = runs[0].getPositions();
 
 
 
-##### getPositions18+
+#### getPositions18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4422,7 +4422,7 @@ struct Index {
 
 
 
-##### getOffsets
+#### getOffsets
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4449,7 +4449,7 @@ let offsets = runs[0].getOffsets();
 
 
 
-##### getFont
+#### getFont
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4476,7 +4476,7 @@ let font = runs[0].getFont();
 
 
 
-##### paint
+#### paint
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4533,7 +4533,7 @@ struct Index {
 
 
 
-##### getStringRange18+
+#### getStringRange18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4562,7 +4562,7 @@ let length = runStringRange.end;
 
 
 
-##### getStringIndices18+
+#### getStringIndices18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4618,7 +4618,7 @@ struct Index {
 
 
 
-##### getImageBounds18+
+#### getImageBounds18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4649,7 +4649,7 @@ let bounds = runs[0].getImageBounds();
 
 
 
-##### getTypographicBounds18+
+#### getTypographicBounds18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4680,7 +4680,7 @@ let typographicBounds = runs[0].getTypographicBounds();
 
 
 
-##### getTextDirection20+
+#### getTextDirection20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4707,7 +4707,7 @@ let textDirection = runs[0].getTextDirection();
 
 
 
-##### getAdvances20+
+#### getAdvances20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4744,7 +4744,7 @@ let advancesNull = runs[0].getAdvances(null); // null是非法参数，将返回
 
 
 
-##### TextTab18+
+#### TextTab18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4765,24 +4765,24 @@ let advancesNull = runs[0].getAdvances(null); // null是非法参数，将返回
 alignment为CENTER，location为200，文本为"12/t345"：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/zwsEGWR5QwK0TPanAJrw1w/zh-cn_image_0000002611836869.png?HW-CC-KV=V1&HW-CC-Date=20260528T024330Z&HW-CC-Expire=86400&HW-CC-Sign=21CCE8EAAD123E0A5F19A1EE6657F26E4830C431CBD3E5972ABEA8504B98BEFA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/zwsEGWR5QwK0TPanAJrw1w/zh-cn_image_0000002611836869.png?HW-CC-KV=V1&HW-CC-Date=20260528T025706Z&HW-CC-Expire=86400&HW-CC-Sign=988FA0AA0D07345D2F6B345721A5E7FE6155A96C34D1BAE3B8B5C6C62AE80645)
 
 
 alignment为LEFT，location为100，文本为"abccccccccc/tdef"：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/0ux5y-n2T5eGDL9QqTYXYw/zh-cn_image_0000002581277122.png?HW-CC-KV=V1&HW-CC-Date=20260528T024330Z&HW-CC-Expire=86400&HW-CC-Sign=52142880B349B36B55E3C8C8A75B30D1D893DA0AF84089A8E4B50FEAA9CFD098)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/0ux5y-n2T5eGDL9QqTYXYw/zh-cn_image_0000002581277122.png?HW-CC-KV=V1&HW-CC-Date=20260528T025706Z&HW-CC-Expire=86400&HW-CC-Sign=37CADDAC74E8C1B181F34AD93487184D144AD3754F912C631988EDF7E1035ADA)
 
 
 alignment为RIGHT，location为100，文本为"aabcdef/tg hi/tjkl/tmno/tp qr"：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a/v3/h8fi9knJSC2Sq1Eggfbiwg/zh-cn_image_0000002611756979.png?HW-CC-KV=V1&HW-CC-Date=20260528T024330Z&HW-CC-Expire=86400&HW-CC-Sign=C893D5651935492071B68F65F231043AC534EAAC67C2A2A7B738326C2AB34E18)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a/v3/h8fi9knJSC2Sq1Eggfbiwg/zh-cn_image_0000002611756979.png?HW-CC-KV=V1&HW-CC-Date=20260528T025706Z&HW-CC-Expire=86400&HW-CC-Sign=892260D424902AABA45B370F64C989A730448B96068DC8671523E692F3FEC2BA)
 
 
 
 
-##### SystemFontType14+
+#### SystemFontType14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

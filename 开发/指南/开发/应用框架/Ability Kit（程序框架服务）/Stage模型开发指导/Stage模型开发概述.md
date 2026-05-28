@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/stage-model-development-overview
 
-##### 基本概念
+#### 基本概念
 
 下图展示了[Stage模型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ability-terminology#stage模型)中的基本概念。
 
@@ -46,7 +46,7 @@ UIAbility组件是一种包含UI的应用组件，主要用于和用户交互。
 
 
 
-##### 构成要素
+#### 构成要素
 
 在[应用模型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-models)章节中介绍了应用模型的构成要素，主要包含应用组件、配置文件、进程模型、线程模型和任务管理模型。下面我们以Demo.app这个应用为例，从应用的开发阶段和运行阶段分别展开介绍，帮助开发者更好地理解Stage模型的构成要素。
 
@@ -76,7 +76,7 @@ UIAbility组件是一种包含UI的应用组件，主要用于和用户交互。
 
 
 
-##### 开发流程
+#### 开发流程
 
 基于Stage模型开发应用时，在应用模型部分，涉及如下开发过程。
 

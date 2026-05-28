@@ -13,7 +13,7 @@
 
   
 
-##### 概述
+#### 概述
 
 @ObservedV2装饰器与@Trace装饰器用于装饰类以及类中的属性，使得被装饰的类和属性具有深度观测的能力：
  
@@ -27,7 +27,7 @@
  
   
 
-##### 状态管理V1版本对嵌套类对象属性变化直接观测的局限性
+#### 状态管理V1版本对嵌套类对象属性变化直接观测的局限性
 
 现有状态管理V1版本无法实现对嵌套类对象属性变化的直接观测。
  
@@ -136,7 +136,7 @@ struct Index {
  
   
 
-##### 装饰器说明
+#### 装饰器说明
  
 | @ObservedV2类装饰器 | 说明 |
 | --- | --- |
@@ -152,7 +152,7 @@ struct Index {
  
   
 
-##### 观察变化
+#### 观察变化
 
 使用@ObservedV2装饰的类中被@Trace装饰的属性具有被观测变化的能力，当该属性值变化时，会触发该属性绑定的UI组件刷新。
  
@@ -256,7 +256,7 @@ struct Index {
  
   
 
-##### 使用限制
+#### 使用限制
 
 @ObservedV2与@Trace装饰器存在以下使用限制：
  
@@ -435,11 +435,11 @@ struct Index {
  
   
 
-##### 使用场景
+#### 使用场景
 
   
 
-##### 嵌套类场景
+#### 嵌套类场景
 
 在下面的嵌套类场景中，Pencil类是Son类中最里层的类，Pencil类被@ObservedV2装饰且属性length被@Trace装饰，此时length的变化能够被观测到。
  
@@ -506,7 +506,7 @@ struct Page {
  
   
 
-##### 继承类场景
+#### 继承类场景
 
 @Trace支持在类的继承场景中使用，无论是在基类还是继承类中，只有被@Trace装饰的属性才具有被观测变化的能力。
  
@@ -598,7 +598,7 @@ struct Index {
  
   
 
-##### @Trace装饰基础类型的数组
+#### @Trace装饰基础类型的数组
 
 @Trace装饰数组时，使用支持的API能够观测到变化。支持的API见[观察变化](#观察变化)。
  
@@ -706,7 +706,7 @@ struct Index {
  
   
 
-##### @Trace装饰对象数组
+#### @Trace装饰对象数组
 
 - @Trace装饰对象数组personList以及Person类中的age属性，因此当personList、age改变时均可以观测到变化。
 - 点击Text组件更改age时，Text组件会刷新。
@@ -779,7 +779,7 @@ struct Index {
  
   
 
-##### @Trace装饰Map类型
+#### @Trace装饰Map类型
 
 - 被@Trace装饰的Map类型属性可以观测到调用API带来的变化，包括 set、clear、delete。
 - 因为Info类被@ObservedV2装饰且属性memberMap被@Trace装饰，点击Button('init map')对memberMap赋值也可以观测到变化。
@@ -837,7 +837,7 @@ struct MapSample {
  
   
 
-##### @Trace装饰Set类型
+#### @Trace装饰Set类型
 
 - 被@Trace装饰的Set类型属性可以观测到调用API带来的变化，包括 add、clear和delete。
 - 因为Info类被@ObservedV2装饰且属性memberSet被@Trace装饰，点击Button('init set')对memberSet赋值也可以观测到变化。
@@ -889,7 +889,7 @@ struct SetSample {
  
   
 
-##### @Trace装饰Date类型
+#### @Trace装饰Date类型
 
 - @Trace装饰的Date类型属性可以观测调用API带来的变化，包括 setFullYear、setMonth、setDate、setHours、setMinutes、setSeconds、setMilliseconds、setTime、setUTCFullYear、setUTCMonth、setUTCDate、setUTCHours、setUTCMinutes、setUTCSeconds、setUTCMilliseconds。
 - 因为Info类被@ObservedV2装饰且属性selectedDate被@Trace装饰，点击Button('set selectedDate to 2023-07-08')对selectedDate赋值也可以观测到变化。
@@ -941,11 +941,11 @@ struct DateSample {
  
   
 
-##### 常见问题
+#### 常见问题
 
   
 
-##### @ObservedV2装饰对象的序列化与反序列化
+#### @ObservedV2装饰对象的序列化与反序列化
 
 @ObservedV2装饰的对象序列化后会为@Trace装饰的属性添加__ob_前缀。
  
@@ -1137,7 +1137,7 @@ struct SerializationAndDeserialization {
  
   
 
-##### router传递的@ObservedV2类型显示异常
+#### router传递的@ObservedV2类型显示异常
 
 用router传递的@ObservedV2类，由于经过序列化生成的属性名称与类中的原始属性名称不一致，不能直接通过as类型转换成@ObservedV2的实例，需要反序列化重新生成@ObservedV2实例。反序列化相关内容请参考[@ObservedV2装饰对象的序列化与反序列化](#observedv2装饰对象的序列化与反序列化)。
  
@@ -1265,4 +1265,4 @@ struct Detail {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/bNYapYOvSsyke-IixkkIxw/zh-cn_image_0000002611753611.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014817Z&HW-CC-Expire=86400&HW-CC-Sign=5B8DD5B7C0F5BA6D3AAD415F49BABBDBE428167D06ECE38CAE931DF38A572363)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/bNYapYOvSsyke-IixkkIxw/zh-cn_image_0000002611753611.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030447Z&HW-CC-Expire=86400&HW-CC-Sign=23ED411006B3B0299E041A71CB1CFF36B8EDA3B886569AA8D0E41DD89E1B2EC2)

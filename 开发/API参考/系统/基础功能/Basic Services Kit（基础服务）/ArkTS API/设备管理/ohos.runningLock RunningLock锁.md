@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import {runningLock} from '@kit.BasicServicesKit';
 
 
 
-##### runningLock.isSupported9+
+#### runningLock.isSupported9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -68,7 +68,7 @@ try {
 
 
 
-##### runningLock.create9+
+#### runningLock.create9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -113,7 +113,7 @@ runningLock.create('running_lock_test', runningLock.RunningLockType.PROXIMITY_SC
 
 
 
-##### runningLock.create9+
+#### runningLock.create9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -164,7 +164,7 @@ runningLock.create('running_lock_test', runningLock.RunningLockType.PROXIMITY_SC
 
 
 
-##### runningLock.isRunningLockTypeSupported(deprecated)
+#### runningLock.isRunningLockTypeSupported(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -200,7 +200,7 @@ runningLock.isRunningLockTypeSupported(runningLock.RunningLockType.BACKGROUND, (
 
 
 
-##### runningLock.isRunningLockTypeSupported(deprecated)
+#### runningLock.isRunningLockTypeSupported(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -242,7 +242,7 @@ runningLock.isRunningLockTypeSupported(runningLock.RunningLockType.BACKGROUND)
 
 
 
-##### runningLock.createRunningLock(deprecated)
+#### runningLock.createRunningLock(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -281,7 +281,7 @@ runningLock.createRunningLock('running_lock_test', runningLock.RunningLockType.B
 
 
 
-##### runningLock.createRunningLock(deprecated)
+#### runningLock.createRunningLock(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -326,7 +326,7 @@ runningLock.createRunningLock('running_lock_test', runningLock.RunningLockType.B
 
 
 
-##### RunningLock
+#### RunningLock
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -334,7 +334,7 @@ runningLock.createRunningLock('running_lock_test', runningLock.RunningLockType.B
 
 
 
-##### hold9+
+#### hold9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -396,7 +396,7 @@ class RunningLockTest {
 
 
 
-##### unhold9+
+#### unhold9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -450,7 +450,7 @@ class RunningLockTest {
 
 
 
-##### isHolding9+
+#### isHolding9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -496,7 +496,7 @@ class RunningLockTest {
 
 
 
-##### lock(deprecated)
+#### lock(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -534,7 +534,7 @@ runningLock.createRunningLock('running_lock_test', runningLock.RunningLockType.B
 
 
 
-##### unlock(deprecated)
+#### unlock(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -565,7 +565,7 @@ runningLock.createRunningLock('running_lock_test', runningLock.RunningLockType.B
 
 
 
-##### isUsed(deprecated)
+#### isUsed(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -601,7 +601,7 @@ runningLock.createRunningLock('running_lock_test', runningLock.RunningLockType.B
 
 
 
-##### RunningLockType
+#### RunningLockType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

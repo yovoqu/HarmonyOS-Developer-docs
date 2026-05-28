@@ -14,7 +14,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import reminderAgent from'@ohos.reminderAgent';
 
 
 
-##### reminderAgent.publishReminder(deprecated)
+#### reminderAgent.publishReminder(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -65,7 +65,7 @@ reminderAgent.publishReminder(timer, (err: BusinessError, reminderId: number) =>
 
 
 
-##### reminderAgent.publishReminder(deprecated)
+#### reminderAgent.publishReminder(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -110,7 +110,7 @@ reminderAgent.publishReminder(timer).then((reminderId: number) => {
 
 
 
-##### reminderAgent.cancelReminder(deprecated)
+#### reminderAgent.cancelReminder(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -144,7 +144,7 @@ reminderAgent.cancelReminder(1, (err: BusinessError, data: void) => {
 
 
 
-##### reminderAgent.cancelReminder(deprecated)
+#### reminderAgent.cancelReminder(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -182,7 +182,7 @@ reminderAgent.cancelReminder(1).then(() => {
 
 
 
-##### reminderAgent.getValidReminders(deprecated)
+#### reminderAgent.getValidReminders(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -235,7 +235,7 @@ reminderAgent.getValidReminders((err: BusinessError, reminders: Array<reminderAg
 
 
 
-##### reminderAgent.getValidReminders(deprecated)
+#### reminderAgent.getValidReminders(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -286,7 +286,7 @@ reminderAgent.getValidReminders().then((reminders: Array<reminderAgent.ReminderR
 
 
 
-##### reminderAgent.cancelAllReminders(deprecated)
+#### reminderAgent.cancelAllReminders(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -319,7 +319,7 @@ reminderAgent.cancelAllReminders((err: BusinessError, data: void) =>{
 
 
 
-##### reminderAgent.cancelAllReminders(deprecated)
+#### reminderAgent.cancelAllReminders(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -350,7 +350,7 @@ reminderAgent.cancelAllReminders().then(() => {
 
 
 
-##### reminderAgent.addNotificationSlot(deprecated)
+#### reminderAgent.addNotificationSlot(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -388,7 +388,7 @@ reminderAgent.addNotificationSlot(mySlot, (err: BusinessError, data: void) => {
 
 
 
-##### reminderAgent.addNotificationSlot(deprecated)
+#### reminderAgent.addNotificationSlot(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -431,7 +431,7 @@ reminderAgent.addNotificationSlot(mySlot).then(() => {
 
 
 
-##### reminderAgent.removeNotificationSlot(deprecated)
+#### reminderAgent.removeNotificationSlot(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -466,7 +466,7 @@ reminderAgent.removeNotificationSlot(notification.SlotType.CONTENT_INFORMATION, 
 
 
 
-##### reminderAgent.removeNotificationSlot(deprecated)
+#### reminderAgent.removeNotificationSlot(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -506,7 +506,7 @@ reminderAgent.removeNotificationSlot(notification.SlotType.CONTENT_INFORMATION).
 
 
 
-##### ActionButtonType(deprecated)
+#### ActionButtonType(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -526,7 +526,7 @@ reminderAgent.removeNotificationSlot(notification.SlotType.CONTENT_INFORMATION).
 
 
 
-##### ReminderType(deprecated)
+#### ReminderType(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -547,7 +547,7 @@ reminderAgent.removeNotificationSlot(notification.SlotType.CONTENT_INFORMATION).
 
 
 
-##### ActionButton(deprecated)
+#### ActionButton(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -567,7 +567,7 @@ reminderAgent.removeNotificationSlot(notification.SlotType.CONTENT_INFORMATION).
 
 
 
-##### WantAgent(deprecated)
+#### WantAgent(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -587,7 +587,7 @@ reminderAgent.removeNotificationSlot(notification.SlotType.CONTENT_INFORMATION).
 
 
 
-##### MaxScreenWantAgent(deprecated)
+#### MaxScreenWantAgent(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -607,7 +607,7 @@ reminderAgent.removeNotificationSlot(notification.SlotType.CONTENT_INFORMATION).
 
 
 
-##### ReminderRequest(deprecated)
+#### ReminderRequest(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -638,7 +638,7 @@ reminderAgent.removeNotificationSlot(notification.SlotType.CONTENT_INFORMATION).
 
 
 
-##### ReminderRequestCalendar(deprecated)
+#### ReminderRequestCalendar(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -659,7 +659,7 @@ reminderAgent.removeNotificationSlot(notification.SlotType.CONTENT_INFORMATION).
 
 
 
-##### ReminderRequestAlarm(deprecated)
+#### ReminderRequestAlarm(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -680,7 +680,7 @@ reminderAgent.removeNotificationSlot(notification.SlotType.CONTENT_INFORMATION).
 
 
 
-##### ReminderRequestTimer(deprecated)
+#### ReminderRequestTimer(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -699,7 +699,7 @@ reminderAgent.removeNotificationSlot(notification.SlotType.CONTENT_INFORMATION).
 
 
 
-##### LocalDateTime(deprecated)
+#### LocalDateTime(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

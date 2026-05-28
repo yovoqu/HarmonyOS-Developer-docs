@@ -18,7 +18,7 @@ Audio/Video播放demo可参考：[音频播放开发指导](https://developer.hu
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -28,7 +28,7 @@ import { media } from '@kit.MediaKit';
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -54,7 +54,7 @@ import { media } from '@kit.MediaKit';
 
 
 
-##### on('stateChange')9+
+#### on('stateChange')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -119,7 +119,7 @@ async function test(){
 
 
 
-##### off('stateChange')9+
+#### off('stateChange')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -151,7 +151,7 @@ async function test(){
 
 
 
-##### on('error')9+
+#### on('error')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -218,7 +218,7 @@ async function test(){
 
 
 
-##### off('error')9+
+#### off('error')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -252,7 +252,7 @@ async function test(){
 
 
 
-##### setMediaSource12+
+#### setMediaSource12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -310,7 +310,7 @@ async function test(){
 
 
 
-##### setPlaybackStrategy12+
+#### setPlaybackStrategy12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -369,7 +369,7 @@ player.setPlaybackStrategy(playStrategy);
 
 
 
-##### setPlaybackRange18+
+#### setPlaybackRange18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -424,7 +424,7 @@ async function  test(){
 
 
 
-##### prepare9+
+#### prepare9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -473,7 +473,7 @@ async function  test(){
 
 
 
-##### prepare9+
+#### prepare9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -522,7 +522,7 @@ async function  test(){
 
 
 
-##### setMediaMuted12+
+#### setMediaMuted12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -580,7 +580,7 @@ async function  test(){
 
 
 
-##### play9+
+#### play9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -628,7 +628,7 @@ async function  test(){
 
 
 
-##### play9+
+#### play9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -674,7 +674,7 @@ async function  test(){
 
 
 
-##### pause9+
+#### pause9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -722,7 +722,7 @@ async function  test(){
 
 
 
-##### pause9+
+#### pause9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -768,7 +768,7 @@ async function  test(){
 
 
 
-##### stop9+
+#### stop9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -816,7 +816,7 @@ async function  test(){
 
 
 
-##### stop9+
+#### stop9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -862,7 +862,7 @@ async function  test(){
 
 
 
-##### reset9+
+#### reset9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -910,7 +910,7 @@ async function  test(){
 
 
 
-##### reset9+
+#### reset9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -956,7 +956,7 @@ async function  test(){
 
 
 
-##### release9+
+#### release9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1004,7 +1004,7 @@ async function  test(){
 
 
 
-##### release9+
+#### release9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1050,7 +1050,7 @@ async function  test(){
 
 
 
-##### getTrackDescription9+
+#### getTrackDescription9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1098,7 +1098,7 @@ async function  test(){
 
 
 
-##### getTrackDescription9+
+#### getTrackDescription9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1144,7 +1144,7 @@ async function  test(){
 
 
 
-##### getSelectedTracks12+
+#### getSelectedTracks12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1190,7 +1190,7 @@ async function  test(){
 
 
 
-##### getPlaybackInfo12+
+#### getPlaybackInfo12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1234,7 +1234,7 @@ media.createAVPlayer(async (err: BusinessError, player: media.AVPlayer) => {
 
 
 
-##### getPlaybackPosition18+
+#### getPlaybackPosition18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1282,7 +1282,7 @@ async function  test(){
 
 
 
-##### getCurrentPresentationTimestamp23+
+#### getCurrentPresentationTimestamp23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1332,7 +1332,7 @@ async function  test(){
 
 
 
-##### selectTrack12+
+#### selectTrack12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1397,7 +1397,7 @@ async function  test(){
 
 
 
-##### deselectTrack12+
+#### deselectTrack12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1461,7 +1461,7 @@ avPlayer.deselectTrack(parseInt(audioTrackIndex.toString()));
 
 
 
-##### setDecryptionConfig11+
+#### setDecryptionConfig11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1513,7 +1513,7 @@ async function  test(){
 
 
 
-##### getMediaKeySystemInfos11+
+#### getMediaKeySystemInfos11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1551,7 +1551,7 @@ async function  test(){
 
 
 
-##### seek9+
+#### seek9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1560,7 +1560,7 @@ seek(timeMs: number, mode?:SeekMode): void
 跳转到指定播放位置，只能在prepared/playing/paused/completed状态调用，可以通过[on('seekDone')](#onseekdone9)事件确认是否生效。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/t-ILMzFARgCM7koMG_OjZg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024017Z&HW-CC-Expire=86400&HW-CC-Sign=CAFC9024B505BE2134AA20F8C83BC263E3FDC43A8E325F7E747D46EBAA0003F6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/t-ILMzFARgCM7koMG_OjZg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025351Z&HW-CC-Expire=86400&HW-CC-Sign=DF8E2036E26BD1D7671175255CF783AD42CC78C1D6721463E096D69C48EC9CED)
 
 
 直播场景不支持seek。
@@ -1605,7 +1605,7 @@ async function  test(){
 
 
 
-##### isSeekContinuousSupported18+
+#### isSeekContinuousSupported18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1636,7 +1636,7 @@ async function  test(){
 
 
 
-##### on('seekDone')9+
+#### on('seekDone')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1670,7 +1670,7 @@ async function  test(){
 
 
 
-##### off('seekDone')9+
+#### off('seekDone')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1702,7 +1702,7 @@ async function  test(){
 
 
 
-##### setSpeed9+
+#### setSpeed9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1711,7 +1711,7 @@ setSpeed(speed: PlaybackSpeed): void
 设置倍速模式，只能在prepared/playing/paused/completed状态调用，可以通过[on('speedDone')](#onspeeddone9)事件确认是否生效。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/z8pGD_z0SH-raT1cTmg9UQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024017Z&HW-CC-Expire=86400&HW-CC-Sign=55CEA04A006D207C644C868F42B8A973244B8A252E85C6DA1BCC2C805046E2F8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/z8pGD_z0SH-raT1cTmg9UQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025351Z&HW-CC-Expire=86400&HW-CC-Sign=1E0A54E58DB65DABF0645DFE338D4BF92554CCBB358A7E0674729D5A621C1094)
 
 
 直播场景不支持setSpeed。
@@ -1741,7 +1741,7 @@ async function  test(){
 
 
 
-##### on('speedDone')9+
+#### on('speedDone')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1775,7 +1775,7 @@ async function  test(){
 
 
 
-##### off('speedDone')9+
+#### off('speedDone')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1807,7 +1807,7 @@ async function  test(){
 
 
 
-##### setPlaybackRate20+
+#### setPlaybackRate20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1816,7 +1816,7 @@ setPlaybackRate(rate: number): void
 设置倍速模式。只能在prepared/playing/paused/completed状态调用，取值范围是[0.125, 4.0]，可以通过[playbackRateDone](#onplaybackratedone20)事件确认是否生效。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/4ctWC3tUSLenPHPE1ur9Lw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024017Z&HW-CC-Expire=86400&HW-CC-Sign=4FA3E7107E2447D77DF502330A53F98B8B747BDFF9EA2724F7E56A9B66761044)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/4ctWC3tUSLenPHPE1ur9Lw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025351Z&HW-CC-Expire=86400&HW-CC-Sign=CF0B59CEFD320D4608E995882F9851A98CEA33B6AC30671A2D2A4E8DDA95CDF1)
 
 
 直播场景不支持setPlaybackRate。
@@ -1856,7 +1856,7 @@ async function test(){
 
 
 
-##### getPlaybackRate23+
+#### getPlaybackRate23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1886,7 +1886,7 @@ async function test(){
 
 
 
-##### on('playbackRateDone')20+
+#### on('playbackRateDone')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1920,7 +1920,7 @@ async function test(){
 
 
 
-##### off('playbackRateDone')20+
+#### off('playbackRateDone')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1952,7 +1952,7 @@ async function test(){
 
 
 
-##### setBitrate9+
+#### setBitrate9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1984,7 +1984,7 @@ async function  test(){
 
 
 
-##### on('bitrateDone')9+
+#### on('bitrateDone')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2018,7 +2018,7 @@ async function  test(){
 
 
 
-##### off('bitrateDone')9+
+#### off('bitrateDone')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2050,7 +2050,7 @@ async function  test(){
 
 
 
-##### on('availableBitrates')9+
+#### on('availableBitrates')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2084,7 +2084,7 @@ async function  test(){
 
 
 
-##### off('availableBitrates')9+
+#### off('availableBitrates')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2116,7 +2116,7 @@ async function test(){
 
 
 
-##### on('mediaKeySystemInfoUpdate')11+
+#### on('mediaKeySystemInfoUpdate')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2155,7 +2155,7 @@ async function test(){
 
 
 
-##### off('mediaKeySystemInfoUpdate')11+
+#### off('mediaKeySystemInfoUpdate')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2187,7 +2187,7 @@ async function test(){
 
 
 
-##### setLoudnessGain21+
+#### setLoudnessGain21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2234,7 +2234,7 @@ async function test(){
 
 
 
-##### setVolume9+
+#### setVolume9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2265,7 +2265,7 @@ async function test(){
 
 
 
-##### on('volumeChange')9+
+#### on('volumeChange')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2299,7 +2299,7 @@ async function test(){
 
 
 
-##### off('volumeChange')9+
+#### off('volumeChange')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2331,7 +2331,7 @@ async function test(){
 
 
 
-##### on('endOfStream')9+
+#### on('endOfStream')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2365,7 +2365,7 @@ async function test(){
 
 
 
-##### off('endOfStream')9+
+#### off('endOfStream')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2397,7 +2397,7 @@ async function test(){
 
 
 
-##### on('timeUpdate')9+
+#### on('timeUpdate')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2406,7 +2406,7 @@ on(type: 'timeUpdate', callback: Callback&lt;number&gt;): void
 监听资源播放当前时间，单位为毫秒（ms），用于刷新进度条当前位置，默认间隔100ms时间上报，因用户操作（seek）产生的时间变化会立刻上报。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/BqGgnOjfQu2iWbOMSl6-Lg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024017Z&HW-CC-Expire=86400&HW-CC-Sign=B2E27D9F8DDD121CAB46A602A072268B37BCB72EEE5AF8C91991CA43F7324D45)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/BqGgnOjfQu2iWbOMSl6-Lg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025351Z&HW-CC-Expire=86400&HW-CC-Sign=CBE9906433D44083BDC921EDEA82B38D33134533F9534C37A3F55E3764C7616F)
 
 
  - 直播场景不支持timeUpdate上报。
@@ -2479,7 +2479,7 @@ async function test() {
 
 
 
-##### off('timeUpdate')9+
+#### off('timeUpdate')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2511,7 +2511,7 @@ async function test(){
 
 
 
-##### on('durationUpdate')9+
+#### on('durationUpdate')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2520,7 +2520,7 @@ on(type: 'durationUpdate', callback: Callback&lt;number&gt;): void
 监听资源播放资源的时长，单位为毫秒（ms），用于刷新进度条长度，默认只在prepared上报一次，同时允许一些特殊码流刷新多次时长。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/kOOkfFC0Sxm3WRCemGYpsw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024017Z&HW-CC-Expire=86400&HW-CC-Sign=E83E1E6AF991B62A983F11FAA76C7018C523FA8D28F2E6857D8155A4715B3B95)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/kOOkfFC0Sxm3WRCemGYpsw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025351Z&HW-CC-Expire=86400&HW-CC-Sign=3BB125D3F5F42E394A64A76161BFADF6DD5D460F39BC1A00FDEB46672CFB3F81)
 
 
 直播场景不支持durationUpdate上报。
@@ -2553,7 +2553,7 @@ async function test(){
 
 
 
-##### off('durationUpdate')9+
+#### off('durationUpdate')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2585,7 +2585,7 @@ async function test(){
 
 
 
-##### on('bufferingUpdate')9+
+#### on('bufferingUpdate')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2619,7 +2619,7 @@ async function test(){
 
 
 
-##### off('bufferingUpdate')9+
+#### off('bufferingUpdate')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2651,7 +2651,7 @@ async function test(){
 
 
 
-##### on('startRenderFrame')9+
+#### on('startRenderFrame')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2685,7 +2685,7 @@ async function test(){
 
 
 
-##### off('startRenderFrame')9+
+#### off('startRenderFrame')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2717,7 +2717,7 @@ async function test(){
 
 
 
-##### on('videoSizeChange')9+
+#### on('videoSizeChange')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2751,7 +2751,7 @@ async function test(){
 
 
 
-##### off('videoSizeChange')9+
+#### off('videoSizeChange')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2783,7 +2783,7 @@ async function test(){
 
 
 
-##### on('audioInterrupt')9+
+#### on('audioInterrupt')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2819,7 +2819,7 @@ async function test(){
 
 
 
-##### off('audioInterrupt')9+
+#### off('audioInterrupt')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2851,7 +2851,7 @@ async function test(){
 
 
 
-##### on('audioOutputDeviceChangeWithInfo')11+
+#### on('audioOutputDeviceChangeWithInfo')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2898,7 +2898,7 @@ async function test(){
 
 
 
-##### off('audioOutputDeviceChangeWithInfo')11+
+#### off('audioOutputDeviceChangeWithInfo')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2939,7 +2939,7 @@ async function test(){
 
 
 
-##### addSubtitleFromFd12+
+#### addSubtitleFromFd12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2991,7 +2991,7 @@ avPlayer.addSubtitleFromFd(fileDescriptor.fd, fileDescriptor.offset, fileDescrip
 
 
 
-##### addSubtitleFromUrl12+
+#### addSubtitleFromUrl12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3039,7 +3039,7 @@ async function test(){
 
 
 
-##### on('subtitleUpdate')12+
+#### on('subtitleUpdate')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3080,7 +3080,7 @@ async function test(){
 
 
 
-##### off('subtitleUpdate')12+
+#### off('subtitleUpdate')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3112,7 +3112,7 @@ async function test(){
 
 
 
-##### on('trackChange')12+
+#### on('trackChange')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3146,7 +3146,7 @@ async function test(){
 
 
 
-##### off('trackChange')12+
+#### off('trackChange')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3178,7 +3178,7 @@ async function test(){
 
 
 
-##### on('trackInfoUpdate')12+
+#### on('trackInfoUpdate')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3220,7 +3220,7 @@ async function test(){
 
 
 
-##### off('trackInfoUpdate')12+
+#### off('trackInfoUpdate')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3252,7 +3252,7 @@ async function test(){
 
 
 
-##### on('amplitudeUpdate')13+
+#### on('amplitudeUpdate')13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3284,7 +3284,7 @@ async function test(){
 
 
 
-##### off('amplitudeUpdate')13+
+#### off('amplitudeUpdate')13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3314,7 +3314,7 @@ async function test(){
 
 
 
-##### on('seiMessageReceived')18+
+#### on('seiMessageReceived')18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3363,7 +3363,7 @@ async function test(){
 
 
 
-##### off('seiMessageReceived')18+
+#### off('seiMessageReceived')18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3396,7 +3396,7 @@ async function test(){
 
 
 
-##### setSuperResolution18+
+#### setSuperResolution18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3455,7 +3455,7 @@ async function test(){
 
 
 
-##### setVideoWindowSize18+
+#### setVideoWindowSize18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3517,7 +3517,7 @@ async function test(){
 
 
 
-##### on('superResolutionChanged')18+
+#### on('superResolutionChanged')18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3551,7 +3551,7 @@ async function test(){
 
 
 
-##### off('superResolutionChanged')18+
+#### off('superResolutionChanged')18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3583,7 +3583,7 @@ async function test(){
 
 
 
-##### getPlaybackStatisticMetrics23+
+#### getPlaybackStatisticMetrics23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3627,7 +3627,7 @@ media.createAVPlayer(async (err: BusinessError, player: media.AVPlayer) => {
 
 
 
-##### onMetricsEvent23+
+#### onMetricsEvent23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3663,7 +3663,7 @@ async function test(){
 
 
 
-##### offMetricsEvent23+
+#### offMetricsEvent23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

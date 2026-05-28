@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-ddgidescription
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -19,13 +19,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  
@@ -52,13 +52,13 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### enableVolumeNumber
+#### enableVolumeNumber
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -72,7 +72,7 @@ uint32_t XEG_DDGIDescription::enableVolumeNumber
  
   
 
-##### inputBasecolorMetallicImage
+#### inputBasecolorMetallicImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -86,7 +86,7 @@ VkImageView XEG_DDGIDescription::inputBasecolorMetallicImage
  
   
 
-##### inputDepthImage
+#### inputDepthImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -100,7 +100,7 @@ VkImageView XEG_DDGIDescription::inputDepthImage
  
   
 
-##### inputDirectionImage
+#### inputDirectionImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -114,7 +114,7 @@ VkImageView XEG_DDGIDescription::inputDirectionImage
  
   
 
-##### inputNormalImage
+#### inputNormalImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -128,7 +128,7 @@ VkImageView XEG_DDGIDescription::inputNormalImage
  
   
 
-##### inputProbeCount
+#### inputProbeCount
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -142,7 +142,7 @@ uint32_t XEG_DDGIDescription::inputProbeCount
  
   
 
-##### inputRayHitNormalAndMetallicImage
+#### inputRayHitNormalAndMetallicImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -156,7 +156,7 @@ VkImageView XEG_DDGIDescription::inputRayHitNormalAndMetallicImage
  
   
 
-##### inputRayRadianceDistanceImage
+#### inputRayRadianceDistanceImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -170,7 +170,7 @@ VkImageView XEG_DDGIDescription::inputRayRadianceDistanceImage
  
   
 
-##### inputVolumeIndexAndProbeIndex
+#### inputVolumeIndexAndProbeIndex
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -184,7 +184,7 @@ VkBuffer XEG_DDGIDescription::inputVolumeIndexAndProbeIndex
  
   
 
-##### outputGIImage
+#### outputGIImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -198,7 +198,7 @@ VkImageView XEG_DDGIDescription::outputGIImage
  
   
 
-##### outputProbeCount
+#### outputProbeCount
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -212,7 +212,7 @@ VkBuffer XEG_DDGIDescription::outputProbeCount
  
   
 
-##### outputVolumeIndexAndProbeIndex
+#### outputVolumeIndexAndProbeIndex
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -226,7 +226,7 @@ VkBuffer XEG_DDGIDescription::outputVolumeIndexAndProbeIndex
  
   
 
-##### pNext
+#### pNext
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -240,7 +240,7 @@ const void* XEG_DDGIDescription::pNext
  
   
 
-##### projectionMatrix
+#### projectionMatrix
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -254,7 +254,7 @@ float XEG_DDGIDescription::projectionMatrix[16]
  
   
 
-##### pVolumeEntryParameters
+#### pVolumeEntryParameters
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -268,7 +268,7 @@ const struct XEG_DDGIVolumeEntryParameters* XEG_DDGIDescription::pVolumeEntryPar
  
   
 
-##### sType
+#### sType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -282,7 +282,7 @@ XEG_StructureType XEG_DDGIDescription::sType
  
   
 
-##### viewMatrix
+#### viewMatrix
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

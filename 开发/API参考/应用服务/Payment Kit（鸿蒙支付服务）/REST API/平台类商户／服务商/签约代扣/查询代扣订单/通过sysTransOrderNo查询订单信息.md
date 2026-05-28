@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-partner-withhold-query-sys-order
 
-##### 功能介绍
+#### 功能介绍
 
 开发者可以调用此接口来查询所有通过华为支付方式支付且已成功创建交易订单的订单详细信息。
  
@@ -14,7 +14,7 @@
  
   
 
-##### 场景描述
+#### 场景描述
 
 该接口支持所有的华为支付系统交易订单的查询，若商户已完成Payment Kit单次支付能力的集成，并且有产生交易订单，可以通过该接口查看某笔订单的支付状态。开发者也可通过主动查询交易订单状态用以完成下一步的业务逻辑。
  
@@ -26,7 +26,7 @@
  
   
 
-##### 接口原型
+#### 接口原型
 
 - **承载协议：** HTTPS GET
 - **接口方向：** 开发者服务器 -> 华为支付服务器
@@ -40,7 +40,7 @@
  
   
 
-##### 请求参数
+#### 请求参数
 
 **Request Header**
   
@@ -68,7 +68,7 @@ PayMercAuth:
  
   
 
-##### 响应参数
+#### 响应参数
 
 **Response Header**
   
@@ -106,7 +106,7 @@ PayMercAuth:
  
   
 
-##### 响应示例
+#### 响应示例
 
 ```json
 HTTP/1.1 200 OK
@@ -130,7 +130,7 @@ Content-Type: application/json; charset=UTF-8
  
   
 
-##### 错误码
+#### 错误码
 
 **resultCode**非400000的错误码请查看[公共错误码说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-error-code-rest#公共错误码说明)。
   

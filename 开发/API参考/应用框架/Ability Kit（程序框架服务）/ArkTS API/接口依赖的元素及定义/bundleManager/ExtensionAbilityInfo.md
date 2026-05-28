@@ -12,7 +12,7 @@ ExtensionAbility信息，可以通过[bundleManager.getBundleInfoForSelf](https:
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 
-##### ExtensionAbilityInfo
+#### ExtensionAbilityInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

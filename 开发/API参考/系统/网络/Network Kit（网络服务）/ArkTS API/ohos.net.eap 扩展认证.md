@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -22,7 +22,7 @@ import {eap} from '@kit.NetworkKit';
 
 
 
-##### eap.regCustomEapHandler
+#### eap.regCustomEapHandler
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -81,7 +81,7 @@ try {
 
 
 
-##### eap.unregCustomEapHandler
+#### eap.unregCustomEapHandler
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -138,7 +138,7 @@ try {
 
 
 
-##### eap.replyCustomEapData
+#### eap.replyCustomEapData
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -194,7 +194,7 @@ try {
 
 
 
-##### eap.startEthEap
+#### eap.startEthEap
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -261,7 +261,7 @@ try {
 
 
 
-##### eap.logOffEthEap
+#### eap.logOffEthEap
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -309,7 +309,7 @@ try{
 
 
 
-##### EapData
+#### EapData
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -326,7 +326,7 @@ EAP信息。
 
 
 
-##### CustomResult
+#### CustomResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -343,7 +343,7 @@ EAP信息。
 
 
 
-##### EapMethod
+#### EapMethod
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -366,7 +366,7 @@ EAP信息。
 
 
 
-##### Phase2Method
+#### Phase2Method
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -388,7 +388,7 @@ EAP信息。
 
 
 
-##### EthEapProfile
+#### EthEapProfile
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

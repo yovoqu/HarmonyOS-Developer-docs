@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-about-class
 
-##### 简介
+#### 简介
 
 使用JSVM-API接口进行class相关开发，处理JavaScript中的类，例如定义类、构造实例等。
  
   
 
-##### 基本概念
+#### 基本概念
 
 在使用JSVM-API接口进行class相关开发时，需要理解以下基本概念：
  
@@ -20,7 +20,7 @@
  
   
 
-##### 接口说明
+#### 接口说明
  
 | 接口 | 功能说明 |
 | --- | --- |
@@ -35,13 +35,13 @@
  
   
 
-##### 使用示例
+#### 使用示例
 
 JSVM-API接口开发流程参考[使用JSVM-API实现JS与C/C++语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-process)，本文仅对接口对应C++相关代码进行展示。
  
   
 
-##### OH_JSVM_NewInstance
+#### OH_JSVM_NewInstance
 
 通过给定的构造函数，构建一个实例。
  
@@ -115,13 +115,13 @@ NewInstance:{"name":"apple"}
  
   
 
-##### OH_JSVM_GetNewTarget
+#### OH_JSVM_GetNewTarget
 
 用于获取函数的元属性new.target值。在JavaScript中，new.target是一个特殊的元属性，用于检测函数或构造函数是否是通过 'new' 运算符被调用的。
  
   
 
-##### OH_JSVM_DefineClass
+#### OH_JSVM_DefineClass
 
 用于在JavaScript中定义一个类，并与对应的C类进行封装和交互。它提供了创建类的构造函数、定义属性和方法的能力，以及在C和JavaScript之间进行数据交互的支持。
  
@@ -229,19 +229,19 @@ NewInstance:{"name":"lilei"}
  
   
 
-##### OH_JSVM_Wrap
+#### OH_JSVM_Wrap
 
 在JavaScript对象中封装原生实例。稍后可以使用OH_JSVM_Unwrap()解包原生实例
  
   
 
-##### OH_JSVM_Unwrap
+#### OH_JSVM_Unwrap
 
 解包JavaScript对象中先前封装的原生实例
  
   
 
-##### OH_JSVM_RemoveWrap
+#### OH_JSVM_RemoveWrap
 
 解包先前封装在JavaScript对象中的原生实例并释放封装
  
@@ -353,7 +353,7 @@ JSVM deref_item
  
   
 
-##### OH_JSVM_DefineClassWithOptions
+#### OH_JSVM_DefineClassWithOptions
  
 **Note:**
   

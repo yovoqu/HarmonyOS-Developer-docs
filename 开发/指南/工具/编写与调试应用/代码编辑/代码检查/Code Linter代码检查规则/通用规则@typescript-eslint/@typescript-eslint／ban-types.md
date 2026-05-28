@@ -7,7 +7,7 @@
 不允许使用某些类型。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,7 +20,7 @@
  
  
 
-##### 选项
+#### 选项
 
 支持配置以下选项：
  
@@ -66,7 +66,7 @@ boolean：布尔值，配置为true时，表示禁用该类型，告警信息使
 ```
  
 
-##### 正例
+#### 正例
 
 ```text
 // 类型小写保持一致
@@ -83,7 +83,7 @@ export { str, bool, num, bigInt, func };
  
  
 
-##### 反例
+#### 反例
 
 ```text
 // 类型小写保持一致
@@ -100,7 +100,7 @@ export { str, bool, num, bigInt, func };
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

@@ -24,7 +24,7 @@ DevEco Studio提供HarmonyOS应用/元服务的UI预览界面与源代码文件�
  
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/eLdSy2rkSOGemfQfMOUlzw/zh-cn_image_0000002602186267.png?HW-CC-KV=V1&HW-CC-Date=20260528T014957Z&HW-CC-Expire=86400&HW-CC-Sign=B09F9715FC4B4E81DDF7D4B24693C7A31AF339563D3B589A009BD7A6BA0C8571)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/47WGW_W6Tw-i2Jjxg0Rb6g/zh-cn_image_0000002602186267.png?HW-CC-KV=V1&HW-CC-Date=20260528T030626Z&HW-CC-Expire=86400&HW-CC-Sign=DE4E8783B1498C6A0E1D07F3F81A2B898594817574B1514569F60D77C12D7C90)
 
  
 

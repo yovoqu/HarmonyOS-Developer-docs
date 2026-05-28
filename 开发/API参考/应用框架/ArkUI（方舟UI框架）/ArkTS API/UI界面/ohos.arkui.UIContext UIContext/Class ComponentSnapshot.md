@@ -12,7 +12,7 @@
 
 
 
-##### get12+
+#### get12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -92,12 +92,12 @@ struct SnapshotExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/GJkXX1fUT5OWv9G8f7S66Q/zh-cn_image_0000002611835363.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024119Z&HW-CC-Expire=86400&HW-CC-Sign=15A5B4D51AB7171EB77796CFF0FBCD6784DE058927E7033C0EA5EBF265BE9701)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/GJkXX1fUT5OWv9G8f7S66Q/zh-cn_image_0000002611835363.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025453Z&HW-CC-Expire=86400&HW-CC-Sign=B4E6D6D696E53D962D509F8572D94249549CFBE6F0051DC47D54D367FEF41DC4)
 
 
 
 
-##### get12+
+#### get12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -185,7 +185,7 @@ struct SnapshotExample {
 
 
 
-##### createFromBuilder12+
+#### createFromBuilder12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -283,7 +283,7 @@ struct ComponentSnapshotExample {
 
 
 
-##### createFromBuilder12+
+#### createFromBuilder12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -387,7 +387,7 @@ struct ComponentSnapshotExample {
 
 
 
-##### getSync12+
+#### getSync12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -473,7 +473,7 @@ struct SnapshotExample {
 
 
 
-##### getWithUniqueId15+
+#### getWithUniqueId15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -580,7 +580,7 @@ struct SnapshotExample {
 
 
 
-##### getSyncWithUniqueId15+
+#### getSyncWithUniqueId15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -683,7 +683,7 @@ struct SnapshotExample {
 
 
 
-##### createFromComponent18+
+#### createFromComponent18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

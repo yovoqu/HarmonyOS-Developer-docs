@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-sensor-type-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -44,7 +44,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -57,7 +57,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -92,13 +92,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### Sensor_Type
+#### Sensor_Type
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -133,7 +133,7 @@ enum Sensor_Type
  
   
 
-##### Sensor_Result
+#### Sensor_Result
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -157,7 +157,7 @@ enum Sensor_Result
  
   
 
-##### Sensor_Accuracy
+#### Sensor_Accuracy
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -181,13 +181,13 @@ enum Sensor_Accuracy
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Sensor_CreateInfos()
+#### OH_Sensor_CreateInfos()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -217,7 +217,7 @@ Sensor_Info **OH_Sensor_CreateInfos(uint32_t count)
  
   
 
-##### OH_Sensor_DestroyInfos()
+#### OH_Sensor_DestroyInfos()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -248,7 +248,7 @@ int32_t OH_Sensor_DestroyInfos(Sensor_Info **sensors, uint32_t count)
  
   
 
-##### OH_SensorInfo_GetName()
+#### OH_SensorInfo_GetName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -280,7 +280,7 @@ int32_t OH_SensorInfo_GetName(Sensor_Info* sensor, char *sensorName, uint32_t *l
  
   
 
-##### OH_SensorInfo_GetVendorName()
+#### OH_SensorInfo_GetVendorName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -312,7 +312,7 @@ int32_t OH_SensorInfo_GetVendorName(Sensor_Info* sensor, char *vendorName, uint3
  
   
 
-##### OH_SensorInfo_GetType()
+#### OH_SensorInfo_GetType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -343,7 +343,7 @@ int32_t OH_SensorInfo_GetType(Sensor_Info* sensor, Sensor_Type *sensorType)
  
   
 
-##### OH_SensorInfo_GetResolution()
+#### OH_SensorInfo_GetResolution()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -374,7 +374,7 @@ int32_t OH_SensorInfo_GetResolution(Sensor_Info* sensor, float *resolution)
  
   
 
-##### OH_SensorInfo_GetMinSamplingInterval()
+#### OH_SensorInfo_GetMinSamplingInterval()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -405,7 +405,7 @@ int32_t OH_SensorInfo_GetMinSamplingInterval(Sensor_Info* sensor, int64_t *minSa
  
   
 
-##### OH_SensorInfo_GetMaxSamplingInterval()
+#### OH_SensorInfo_GetMaxSamplingInterval()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -436,7 +436,7 @@ int32_t OH_SensorInfo_GetMaxSamplingInterval(Sensor_Info* sensor, int64_t *maxSa
  
   
 
-##### OH_SensorEvent_GetType()
+#### OH_SensorEvent_GetType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -467,7 +467,7 @@ int32_t OH_SensorEvent_GetType(Sensor_Event* sensorEvent, Sensor_Type *sensorTyp
  
   
 
-##### OH_SensorEvent_GetTimestamp()
+#### OH_SensorEvent_GetTimestamp()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -498,7 +498,7 @@ int32_t OH_SensorEvent_GetTimestamp(Sensor_Event* sensorEvent, int64_t *timestam
  
   
 
-##### OH_SensorEvent_GetAccuracy()
+#### OH_SensorEvent_GetAccuracy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -529,7 +529,7 @@ int32_t OH_SensorEvent_GetAccuracy(Sensor_Event* sensorEvent, Sensor_Accuracy *a
  
   
 
-##### OH_SensorEvent_GetData()
+#### OH_SensorEvent_GetData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -561,7 +561,7 @@ int32_t OH_SensorEvent_GetData(Sensor_Event* sensorEvent, float **data, uint32_t
  
   
 
-##### OH_Sensor_CreateSubscriptionId()
+#### OH_Sensor_CreateSubscriptionId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -584,7 +584,7 @@ Sensor_SubscriptionId *OH_Sensor_CreateSubscriptionId(void)
  
   
 
-##### OH_Sensor_DestroySubscriptionId()
+#### OH_Sensor_DestroySubscriptionId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -614,7 +614,7 @@ int32_t OH_Sensor_DestroySubscriptionId(Sensor_SubscriptionId *id)
  
   
 
-##### OH_SensorSubscriptionId_GetType()
+#### OH_SensorSubscriptionId_GetType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -645,7 +645,7 @@ int32_t OH_SensorSubscriptionId_GetType(Sensor_SubscriptionId* id, Sensor_Type *
  
   
 
-##### OH_SensorSubscriptionId_SetType()
+#### OH_SensorSubscriptionId_SetType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -676,7 +676,7 @@ int32_t OH_SensorSubscriptionId_SetType(Sensor_SubscriptionId* id, const Sensor_
  
   
 
-##### OH_Sensor_CreateSubscriptionAttribute()
+#### OH_Sensor_CreateSubscriptionAttribute()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -699,7 +699,7 @@ Sensor_SubscriptionAttribute *OH_Sensor_CreateSubscriptionAttribute(void)
  
   
 
-##### OH_Sensor_DestroySubscriptionAttribute()
+#### OH_Sensor_DestroySubscriptionAttribute()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -729,7 +729,7 @@ int32_t OH_Sensor_DestroySubscriptionAttribute(Sensor_SubscriptionAttribute *att
  
   
 
-##### OH_SensorSubscriptionAttribute_SetSamplingInterval()
+#### OH_SensorSubscriptionAttribute_SetSamplingInterval()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -760,7 +760,7 @@ int32_t OH_SensorSubscriptionAttribute_SetSamplingInterval(Sensor_SubscriptionAt
  
   
 
-##### OH_SensorSubscriptionAttribute_GetSamplingInterval()
+#### OH_SensorSubscriptionAttribute_GetSamplingInterval()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -791,7 +791,7 @@ int32_t OH_SensorSubscriptionAttribute_GetSamplingInterval(Sensor_SubscriptionAt
  
   
 
-##### Sensor_EventCallback()
+#### Sensor_EventCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -814,7 +814,7 @@ typedef void (*Sensor_EventCallback)(Sensor_Event *event)
  
   
 
-##### OH_Sensor_CreateSubscriber()
+#### OH_Sensor_CreateSubscriber()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -837,7 +837,7 @@ Sensor_Subscriber *OH_Sensor_CreateSubscriber(void)
  
   
 
-##### OH_Sensor_DestroySubscriber()
+#### OH_Sensor_DestroySubscriber()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -867,7 +867,7 @@ int32_t OH_Sensor_DestroySubscriber(Sensor_Subscriber *subscriber)
  
   
 
-##### OH_SensorSubscriber_SetCallback()
+#### OH_SensorSubscriber_SetCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -898,7 +898,7 @@ int32_t OH_SensorSubscriber_SetCallback(Sensor_Subscriber* subscriber, const Sen
  
   
 
-##### OH_SensorSubscriber_GetCallback()
+#### OH_SensorSubscriber_GetCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

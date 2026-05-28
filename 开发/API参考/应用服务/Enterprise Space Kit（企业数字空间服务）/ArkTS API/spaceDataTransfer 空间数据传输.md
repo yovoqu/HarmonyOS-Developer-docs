@@ -12,7 +12,7 @@
 **起始版本：** 6.0.0(20)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** PC/2in1
 
@@ -22,7 +22,7 @@ import { fileTransfer } from '@kit.EnterpriseSpaceKit';
  
   
 
-##### AuditInfo
+#### AuditInfo
 
 **支持设备：** PC/2in1
 
@@ -44,7 +44,7 @@ import { fileTransfer } from '@kit.EnterpriseSpaceKit';
  
   
 
-##### setAuditInfo
+#### setAuditInfo
 
 **支持设备：** PC/2in1
 
@@ -108,7 +108,7 @@ try {
  
   
 
-##### getAuditInfo
+#### getAuditInfo
 
 **支持设备：** PC/2in1
 
@@ -163,7 +163,7 @@ try {
  
   
 
-##### policyPush
+#### policyPush
 
 **支持设备：** PC/2in1
 

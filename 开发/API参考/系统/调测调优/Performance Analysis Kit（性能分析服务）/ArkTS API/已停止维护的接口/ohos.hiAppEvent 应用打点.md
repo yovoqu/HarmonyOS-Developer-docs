@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import hiAppEvent from '@ohos.hiAppEvent';
  
   
 
-##### 使用说明
+#### 使用说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -59,7 +59,7 @@ import hiAppEvent from '@ohos.hiAppEvent';
  
   
 
-##### hiAppEvent.write
+#### hiAppEvent.write
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -102,7 +102,7 @@ hiAppEvent.write("test_event", hiAppEvent.EventType.FAULT, eventParams, (err: Bu
  
   
 
-##### hiAppEvent.write
+#### hiAppEvent.write
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -149,7 +149,7 @@ hiAppEvent.write("test_event", hiAppEvent.EventType.FAULT, eventParams).then(() 
  
   
 
-##### hiAppEvent.configure
+#### hiAppEvent.configure
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -191,7 +191,7 @@ hiAppEvent.configure(config2);
  
   
 
-##### ConfigOption
+#### ConfigOption
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -207,7 +207,7 @@ hiAppEvent.configure(config2);
  
   
 
-##### EventType
+#### EventType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -225,7 +225,7 @@ hiAppEvent.configure(config2);
  
   
 
-##### Event
+#### Event
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -242,7 +242,7 @@ hiAppEvent.configure(config2);
  
   
 
-##### Param
+#### Param
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

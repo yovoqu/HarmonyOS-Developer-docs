@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-dataformattoformat
 
-##### 函数功能
+#### 函数功能
 
 将数据格式字符串转化为Format类型值。
  
@@ -16,7 +16,7 @@
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 static Format DataFormatToFormat(const AscendString &str);
@@ -25,7 +25,7 @@ Format DataFormatToFormat(const std::string &str);
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -34,13 +34,13 @@ Format DataFormatToFormat(const std::string &str);
  
   
 
-##### 返回值
+#### 返回值
 
 输入合法时，返回转换后的Format enum值，枚举定义请参考[Format](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-ge-format)，仅支持部分格式，详见[约束说明](#约束说明)；输入不合法时，返回FORMAT_RESERVED，并打印报错信息。
  
   
 
-##### 约束说明
+#### 约束说明
 
 只支持以下几种格式：
  
@@ -53,7 +53,7 @@ Format DataFormatToFormat(const std::string &str);
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 // 如果使用的是AscendString入参的接口(建议使用)

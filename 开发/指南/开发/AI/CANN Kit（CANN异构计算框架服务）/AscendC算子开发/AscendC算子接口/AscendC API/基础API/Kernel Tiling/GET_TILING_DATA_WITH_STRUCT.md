@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-get-tiling-data-with-struct
 
-##### 函数功能
+#### 函数功能
 
 使用该接口指定结构体名称，可获取指定的tiling信息，并填入对应的Tiling结构体中，此函数会以宏展开的方式进行编译。与[GET_TILING_DATA](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-get-tiling-data)的区别是：只能获取默认注册的结构体，该接口可以根据指定的结构体名称获取对应的结构体，常用于针对不同的TilingKey注册了不同结构体的情况下。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 GET_TILING_DATA_WITH_STRUCT(struct_name, tiling_data, tiling_arg)
@@ -18,7 +18,7 @@ GET_TILING_DATA_WITH_STRUCT(struct_name, tiling_data, tiling_arg)
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -29,7 +29,7 @@ GET_TILING_DATA_WITH_STRUCT(struct_name, tiling_data, tiling_arg)
  
   
 
-##### 支持的型号
+#### 支持的型号
 
 Kirin9020系列处理器
  
@@ -37,7 +37,7 @@ KirinX90系列处理器
  
   
 
-##### 约束说明
+#### 约束说明
 
 - 本函数需在算子kernel代码处使用，并且传入的tiling_data参数不需要声明类型。
 - 暂不支持kernel直调工程。
@@ -45,7 +45,7 @@ KirinX90系列处理器
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 extern "C" __global__ __aicore__ void add_custom(__gm__ uint8_t *x, __gm__ uint8_t *y, __gm__ uint8_t *z, __gm__ uint8_t *tiling)

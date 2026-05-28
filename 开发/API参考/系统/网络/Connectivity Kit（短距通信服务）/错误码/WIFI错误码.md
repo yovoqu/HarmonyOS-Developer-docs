@@ -10,7 +10,7 @@
 
 
 
-##### 2401000 STA内部异常
+#### 2401000 STA内部异常
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -33,7 +33,7 @@ WIFI服务内部执行STA相关操作时出现未知错误。
 
 
 
-##### 2501000 STA内部异常
+#### 2501000 STA内部异常
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -56,7 +56,7 @@ WIFI服务内部执行STA相关操作时出现未知错误。
 
 
 
-##### 2501001 STA功能未打开
+#### 2501001 STA功能未打开
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -78,7 +78,7 @@ WIFI功能被关闭。
 
 
 
-##### 2501005 用户未响应连接请求
+#### 2501005 用户未响应连接请求
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -100,7 +100,7 @@ The user does not respond.
 
 
 
-##### 2501006 用户拒绝连接请求
+#### 2501006 用户拒绝连接请求
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -122,7 +122,7 @@ The user refused the action.
 
 
 
-##### 2501007 参数校验失败
+#### 2501007 参数校验失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -144,7 +144,7 @@ Parameter validation failed.
 
 
 
-##### 2601000 Hotspot模块异常
+#### 2601000 Hotspot模块异常
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -167,7 +167,7 @@ WIFI服务内部执行Hotspot相关操作时出现未知错误。
 
 
 
-##### 2701000 AP扩展模块异常
+#### 2701000 AP扩展模块异常
 
 **错误信息**
 
@@ -188,7 +188,7 @@ WIFI服务内部执行Hotspot相关操作时出现未知错误。
 
 
 
-##### 2801000 P2P模块异常
+#### 2801000 P2P模块异常
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -211,7 +211,7 @@ WIFI服务内部执行P2P相关操作时出现未知错误。
 
 
 
-##### 2501003 服务打开失败
+#### 2501003 服务打开失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -233,7 +233,7 @@ Operation failed because the service is being closed.
 
 
 
-##### 2501004 服务关闭失败
+#### 2501004 服务关闭失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

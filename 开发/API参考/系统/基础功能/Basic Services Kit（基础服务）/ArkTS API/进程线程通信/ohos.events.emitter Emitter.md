@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { emitter } from '@kit.BasicServicesKit';
 
 
 
-##### emitter.on
+#### emitter.on
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -61,7 +61,7 @@ emitter.on(innerEvent, callback);
 
 
 
-##### emitter.on11+
+#### emitter.on11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -95,7 +95,7 @@ emitter.on(`eventId`, callback);
 
 
 
-##### emitter.on12+
+#### emitter.on12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -143,7 +143,7 @@ emitter.on("eventId", callback);
 
 
 
-##### emitter.once
+#### emitter.once
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -181,7 +181,7 @@ emitter.once(innerEvent, callback);
 
 
 
-##### emitter.once11+
+#### emitter.once11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -215,7 +215,7 @@ emitter.once("eventId", callback);
 
 
 
-##### emitter.once12+
+#### emitter.once12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -263,7 +263,7 @@ emitter.once("eventId", callback);
 
 
 
-##### emitter.off
+#### emitter.off
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -293,7 +293,7 @@ emitter.off(1);
 
 
 
-##### emitter.off11+
+#### emitter.off11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -323,7 +323,7 @@ emitter.off("eventId1");
 
 
 
-##### emitter.off10+
+#### emitter.off10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -360,7 +360,7 @@ emitter.off(1, callback);
 
 
 
-##### emitter.off11+
+#### emitter.off11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -397,7 +397,7 @@ emitter.off("eventId1", callback);
 
 
 
-##### emitter.off12+
+#### emitter.off12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -448,7 +448,7 @@ emitter.off("eventId1", callback);
 
 
 
-##### emitter.emit
+#### emitter.emit
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -492,7 +492,7 @@ emitter.emit(innerEvent, eventData);
 
 
 
-##### emitter.emit11+
+#### emitter.emit11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -531,7 +531,7 @@ emitter.emit("eventId", eventData);
 
 
 
-##### emitter.emit12+
+#### emitter.emit12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -577,7 +577,7 @@ emitter.emit("eventId", eventData);
 
 
 
-##### emitter.emit11+
+#### emitter.emit11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -621,7 +621,7 @@ emitter.emit("eventId", options, eventData);
 
 
 
-##### emitter.emit12+
+#### emitter.emit12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -672,7 +672,7 @@ emitter.emit("eventId", options, eventData);
 
 
 
-##### emitter.getListenerCount11+
+#### emitter.getListenerCount11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -706,7 +706,7 @@ let count: number = emitter.getListenerCount("eventId");
 
 
 
-##### EventPriority
+#### EventPriority
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -726,7 +726,7 @@ let count: number = emitter.getListenerCount("eventId");
 
 
 
-##### InnerEvent
+#### InnerEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -744,7 +744,7 @@ let count: number = emitter.getListenerCount("eventId");
 
 
 
-##### EventData
+#### EventData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -761,7 +761,7 @@ let count: number = emitter.getListenerCount("eventId");
 
 
 
-##### Options11+
+#### Options11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -778,7 +778,7 @@ let count: number = emitter.getListenerCount("eventId");
 
 
 
-##### GenericEventData&lt;T&gt;12+
+#### GenericEventData&lt;T&gt;12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -795,7 +795,7 @@ let count: number = emitter.getListenerCount("eventId");
 
 
 
-##### Emitter22+
+#### Emitter22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -807,7 +807,7 @@ let count: number = emitter.getListenerCount("eventId");
 
 
 
-##### constructor22+
+#### constructor22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -827,7 +827,7 @@ let emitter1: emitter.Emitter = new emitter.Emitter();
 
 
 
-##### on22+
+#### on22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -863,7 +863,7 @@ emitter1.on(`eventId`, callback);
 
 
 
-##### on22+
+#### on22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -913,7 +913,7 @@ emitter1.on("eventId", callback);
 
 
 
-##### once22+
+#### once22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -949,7 +949,7 @@ emitter1.once("eventId", callback);
 
 
 
-##### once22+
+#### once22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -999,7 +999,7 @@ emitter1.once("eventId", callback);
 
 
 
-##### off22+
+#### off22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1030,7 +1030,7 @@ emitter1.off("eventId");
 
 
 
-##### off22+
+#### off22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1068,7 +1068,7 @@ emitter1.off("eventId", callback);
 
 
 
-##### off22+
+#### off22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1120,7 +1120,7 @@ emitter1.off("eventId", callback);
 
 
 
-##### emit22+
+#### emit22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1160,7 +1160,7 @@ emitter1.emit("eventId", eventData);
 
 
 
-##### emit22+
+#### emit22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1209,7 +1209,7 @@ emitter1.emit("eventId", eventData);
 
 
 
-##### emit22+
+#### emit22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1254,7 +1254,7 @@ emitter1.emit("eventId", options, eventData);
 
 
 
-##### emit22+
+#### emit22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1307,7 +1307,7 @@ emitter1.emit("eventId", options, eventData);
 
 
 
-##### getListenerCount22+
+#### getListenerCount22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -7,7 +7,7 @@
 不允许使用`//tslint:<rule-flag>`格式的注释。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 // This is a comment that just happens to mention tslint
@@ -36,7 +36,7 @@ console.log('hello'); // This is a comment that just happens to mention tslint
  
  
 
-##### 反例
+#### 反例
 
 ```text
 /* tslint:disable */
@@ -50,7 +50,7 @@ console.log('hello'); // tslint:disable-line
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-traceoverlay
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -15,7 +15,7 @@ import { map, mapCommon } from '@kit.MapKit';
  
   
 
-##### TraceOverlay
+#### TraceOverlay
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -175,7 +175,7 @@ let traceOverlay: map.TraceOverlay = await this.mapController.addTraceOverlay(tr
  
   
 
-##### getId
+#### getId
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -206,7 +206,7 @@ let id: string = traceOverlay.getId();
  
   
 
-##### remove
+#### remove
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -230,7 +230,7 @@ traceOverlay.remove();
  
   
 
-##### pause
+#### pause
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -254,7 +254,7 @@ traceOverlay.pause();
  
   
 
-##### resume
+#### resume
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

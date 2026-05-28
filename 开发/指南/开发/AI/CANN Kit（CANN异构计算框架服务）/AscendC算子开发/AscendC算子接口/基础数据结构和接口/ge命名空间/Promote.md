@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-promote
 
-##### 函数功能
+#### 函数功能
 
 Promote类用于表示输出数据类型为输入或属性指定的数据类型间的提升类型。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 class Promote {
@@ -28,7 +28,7 @@ class Promote {
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -37,18 +37,18 @@ class Promote {
  
   
 
-##### 返回值
+#### 返回值
 
 无
  
   
 
-##### 异常处理
+#### 异常处理
 
 无
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

@@ -12,7 +12,7 @@
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -45,7 +45,7 @@ SideBarContainer( type?: SideBarContainerType )
 
 
 
-##### SideBarContainerType枚举说明
+#### SideBarContainerType枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -64,7 +64,7 @@ SideBarContainer( type?: SideBarContainerType )
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -72,7 +72,7 @@ SideBarContainer( type?: SideBarContainerType )
 
 
 
-##### showSideBar
+#### showSideBar
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -95,7 +95,7 @@ showSideBar(value: boolean)
 
 
 
-##### controlButton
+#### controlButton
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -116,7 +116,7 @@ controlButton(value: ButtonStyle)
 
 
 
-##### showControlButton
+#### showControlButton
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -141,7 +141,7 @@ showControlButton(value: boolean)
 
 
 
-##### sideBarWidth
+#### sideBarWidth
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -164,7 +164,7 @@ sideBarWidth(value: number)
 
 
 
-##### sideBarWidth9+
+#### sideBarWidth9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -187,7 +187,7 @@ sideBarWidth(value: Length)
 
 
 
-##### minSideBarWidth
+#### minSideBarWidth
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -210,7 +210,7 @@ minSideBarWidth优先于侧边栏子组件minWidth，minSideBarWidth未设置时
 
 
 
-##### minSideBarWidth9+
+#### minSideBarWidth9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -233,7 +233,7 @@ minSideBarWidth优先于侧边栏子组件minWidth，minSideBarWidth未设置时
 
 
 
-##### maxSideBarWidth
+#### maxSideBarWidth
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -256,7 +256,7 @@ maxSideBarWidth优先于侧边栏子组件maxWidth，maxSideBarWidth未设置时
 
 
 
-##### maxSideBarWidth9+
+#### maxSideBarWidth9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -279,7 +279,7 @@ maxSideBarWidth优先于侧边栏子组件maxWidth，maxSideBarWidth未设置时
 
 
 
-##### autoHide9+
+#### autoHide9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -302,7 +302,7 @@ autoHide(value: boolean)
 
 
 
-##### sideBarPosition9+
+#### sideBarPosition9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -323,7 +323,7 @@ sideBarPosition(value: SideBarPosition)
 
 
 
-##### divider10+
+#### divider10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -344,7 +344,7 @@ divider(value: DividerStyle | null)
 
 
 
-##### minContentWidth10+
+#### minContentWidth10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -379,7 +379,7 @@ minContentWidth优先于侧边栏的[maxSideBarWidth](#maxsidebarwidth)与sideBa
 
 
 
-##### ButtonStyle对象说明
+#### ButtonStyle对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -400,7 +400,7 @@ minContentWidth优先于侧边栏的[maxSideBarWidth](#maxsidebarwidth)与sideBa
 
 
 
-##### ButtonIconOptions18+对象说明
+#### ButtonIconOptions18+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -423,7 +423,7 @@ minContentWidth优先于侧边栏的[maxSideBarWidth](#maxsidebarwidth)与sideBa
 
 
 
-##### SideBarPosition9+枚举说明
+#### SideBarPosition9+枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -441,7 +441,7 @@ minContentWidth优先于侧边栏的[maxSideBarWidth](#maxsidebarwidth)与sideBa
 
 
 
-##### DividerStyle10+对象说明
+#### DividerStyle10+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -465,7 +465,7 @@ minContentWidth优先于侧边栏的[maxSideBarWidth](#maxsidebarwidth)与sideBa
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -473,7 +473,7 @@ minContentWidth优先于侧边栏的[maxSideBarWidth](#maxsidebarwidth)与sideBa
 
 
 
-##### onChange
+#### onChange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -499,7 +499,7 @@ onChange(callback: (value: boolean) => void)
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -562,4 +562,4 @@ struct SideBarContainerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/qBMq2h1pRCu-GV0e852LUQ/zh-cn_image_0000002581435732.png?HW-CC-KV=V1&HW-CC-Date=20260528T024219Z&HW-CC-Expire=86400&HW-CC-Sign=6F99ED56FD5DB3F02838DEA8A7A8C0A0512AF66CA045D43CA5C75FB67D0A48AA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/qBMq2h1pRCu-GV0e852LUQ/zh-cn_image_0000002581435732.png?HW-CC-KV=V1&HW-CC-Date=20260528T025552Z&HW-CC-Expire=86400&HW-CC-Sign=CA38231C13F4C2B95B4811E4DC8F04C6FEC94AE31DA5F26111DFD99CE6B5C097)

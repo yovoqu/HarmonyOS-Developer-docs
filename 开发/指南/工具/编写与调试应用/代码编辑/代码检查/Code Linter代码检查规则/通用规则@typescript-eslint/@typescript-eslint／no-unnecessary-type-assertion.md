@@ -9,7 +9,7 @@
 如果类型断言没有更改表达式的类型，也就没有必要使用。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -22,13 +22,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/no-unnecessary-type-assertion选项](https://typescript-eslint.nodejs.cn/rules/no-unnecessary-type-assertion/#options)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 const num = 3;
@@ -38,7 +38,7 @@ export const foo3 = 'foo' as string;
  
  
 
-##### 反例
+#### 反例
 
 ```text
 const num = 3;
@@ -48,7 +48,7 @@ export const bar = foo!;
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

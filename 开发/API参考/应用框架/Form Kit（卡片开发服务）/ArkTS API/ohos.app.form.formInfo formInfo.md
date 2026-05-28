@@ -12,7 +12,7 @@ formInfo模块提供了卡片信息和状态等相关类型和枚举。
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { formInfo } from '@kit.FormKit';
  
   
 
-##### FormInfo
+#### FormInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -59,7 +59,7 @@ import { formInfo } from '@kit.FormKit';
  
   
 
-##### FormType
+#### FormType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -77,7 +77,7 @@ import { formInfo } from '@kit.FormKit';
  
   
 
-##### ColorMode(deprecated)
+#### ColorMode(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -100,7 +100,7 @@ import { formInfo } from '@kit.FormKit';
  
   
 
-##### FormStateInfo
+#### FormStateInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -118,7 +118,7 @@ import { formInfo } from '@kit.FormKit';
  
   
 
-##### FormState
+#### FormState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -137,7 +137,7 @@ import { formInfo } from '@kit.FormKit';
  
   
 
-##### FormParam
+#### FormParam
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -170,7 +170,7 @@ import { formInfo } from '@kit.FormKit';
  
   
 
-##### FormDimension
+#### FormDimension
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -193,7 +193,7 @@ import { formInfo } from '@kit.FormKit';
  
   
 
-##### FormShape12+
+#### FormShape12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -211,7 +211,7 @@ import { formInfo } from '@kit.FormKit';
  
   
 
-##### FormInfoFilter
+#### FormInfoFilter
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -228,7 +228,7 @@ import { formInfo } from '@kit.FormKit';
  
   
 
-##### VisibilityType
+#### VisibilityType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -247,7 +247,7 @@ import { formInfo } from '@kit.FormKit';
  
   
 
-##### LaunchReason10+
+#### LaunchReason10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -266,7 +266,7 @@ import { formInfo } from '@kit.FormKit';
  
   
 
-##### FormUpdateReason24+
+#### FormUpdateReason24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -286,7 +286,7 @@ import { formInfo } from '@kit.FormKit';
  
   
 
-##### OverflowInfo20+
+#### OverflowInfo20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -305,7 +305,7 @@ import { formInfo } from '@kit.FormKit';
  
   
 
-##### Rect20+
+#### Rect20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -325,7 +325,7 @@ import { formInfo } from '@kit.FormKit';
  
   
 
-##### FormLocation20+
+#### FormLocation20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -348,7 +348,7 @@ import { formInfo } from '@kit.FormKit';
  
   
 
-##### RunningFormInfo20+
+#### RunningFormInfo20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -7,7 +7,7 @@
 Device Certificate Kit（设备证书服务）面向应用开发者，提供了[证书算法库](#证书算法库)和[证书管理](#证书管理)的能力。
   
 
-##### 证书算法库
+#### 证书算法库
 
 证书算法库提供接口用于解析和验证数字证书。
  
@@ -21,7 +21,7 @@ Device Certificate Kit（设备证书服务）面向应用开发者，提供了[
  
   
 
-##### 框架原理
+#### 框架原理
 
 系统提供证书算法库框架，开发者只需要调用API接口层即可实现证书的操作，证书算法库框架能够屏蔽不同三方算法库的差异。
  
@@ -31,13 +31,13 @@ Device Certificate Kit（设备证书服务）面向应用开发者，提供了[
  
   
 
-##### 与相关Kit的关系
+#### 与相关Kit的关系
 
 证书算法库的功能使用时，涉及公钥的生成和获取，这部分依赖[Crypto Architecture Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-architecture-kit-intro)加解密算法框架服务的能力。
  
   
 
-##### 证书管理
+#### 证书管理
 
 证书管理主要提供系统级的证书管理能力，通过证书管理模块可以确保证书在传输和存储过程中的安全性，防止未经授权的访问和使用。
  
@@ -55,19 +55,19 @@ Device Certificate Kit（设备证书服务）面向应用开发者，提供了[
  
   
 
-##### 与相关Kit的关系
+#### 与相关Kit的关系
 
 证书管理的功能使用时，涉及凭据的安装和使用，这部分依赖[Universal Keystore Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-overview)密钥管理服务的能力。
  
   
 
-##### 约束与限制
+#### 约束与限制
 
 Device Certificate Kit不具备生成或签发证书及证书吊销列表的能力。生成或签发证书及证书吊销列表的能力由证书颁发机构（CA）来完成，不由单个应用签发。
  
   
 
-##### 模拟器支持情况
+#### 模拟器支持情况
 
 本Kit支持模拟器。
  

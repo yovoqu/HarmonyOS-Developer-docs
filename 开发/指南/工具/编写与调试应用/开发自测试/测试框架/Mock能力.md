@@ -11,7 +11,7 @@
 
  
 
-##### 系统模块/依赖模块Mock
+#### 系统模块/依赖模块Mock
 
 通过import mock对系统模块API或依赖模块的方法进行Mock，在mock-config.json5配置文件中定义目标模块和Mock实现代码文件的映射关系，运行时import目标模块都将指向Mock实现代码。以系统API bluetoothManager为例，具体实现如下。
  1. 在src/mock目录下新建一个ArkTS文件，例如bluetooth_manager.mock.ets，在这个文件内定义目标模块的Mock实现。
@@ -83,13 +83,13 @@ export default function <span style="color: rgb(0,0,255);">testsuite</span><span
  
  
 
-##### 本地模块Mock
+#### 本地模块Mock
 
 有两种方式可以对本地模块进行Mock，一是使用hamock/hypium插件包的mock接口，二是使用import mock。
  
  
 
-##### 使用hamock/hypium插件包的mock接口
+#### 使用hamock/hypium插件包的mock接口
 
 以下例子通过mock接口模拟本地模块的某个方法，关于Mock的更多说明可以参考[mock能力](https://gitcode.com/openharmony/testfwk_arkxtest#mock能力)。
  1. 在src/main/ets目录下新建一个ArkTS文件，例如ClassForMock.ets，并在其中导出一个类。
@@ -145,7 +145,7 @@ export default function <span style="color: rgb(0,0,255);">testsuite</span><span
  
  
 
-##### 使用import mock
+#### 使用import mock
 
 使用import mock对本地模块进行Mock，操作步骤和系统模块/依赖模块的Mock类似，在mock-config.json5配置文件中定义目标模块和Mock实现代码文件的映射关系，运行时import目标模块都将指向Mock实现代码。以下例子对本地模块entry/src/main/ets/common/calc.ets中的sum函数进行Mock。
  1. 在src/mock目录下新建一个common目录并创建一个ArkTS文件，例如calc.mock.ets，在这个文件内定义目标模块的Mock实现。

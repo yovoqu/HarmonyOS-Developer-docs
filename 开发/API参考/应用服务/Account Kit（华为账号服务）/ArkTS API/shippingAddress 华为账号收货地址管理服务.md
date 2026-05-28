@@ -10,7 +10,7 @@
 **起始版本：** 5.0.0(12)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -20,7 +20,7 @@ import { shippingAddress } from '@kit.AccountKit';
  
   
 
-##### ShippingAddressErrorCode
+#### ShippingAddressErrorCode
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -47,7 +47,7 @@ import { shippingAddress } from '@kit.AccountKit';
  
   
 
-##### AddressInfo
+#### AddressInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -77,7 +77,7 @@ import { shippingAddress } from '@kit.AccountKit';
  
   
 
-##### chooseAddress
+#### chooseAddress
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

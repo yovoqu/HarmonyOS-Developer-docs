@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-datatypetoserialstring
 
-##### 函数功能
+#### 函数功能
 
 将DataType类型值转化为字符串表达。
  
@@ -18,7 +18,7 @@
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 std::string DataTypeToSerialString(const DataType data_type);
@@ -26,7 +26,7 @@ std::string DataTypeToSerialString(const DataType data_type);
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -35,19 +35,19 @@ std::string DataTypeToSerialString(const DataType data_type);
  
   
 
-##### 返回值
+#### 返回值
 
 转换后的DataType字符串。
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 DataType data_type = ge::DT_UINT32;

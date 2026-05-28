@@ -9,7 +9,7 @@
 使用弧形列表可以通过在[ArcList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclist)组件中按垂直方向线性排列子组件[ArcListItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclistitem)，可以为弧形列表中的每一项提供独立视图。此外，可以使用[循环渲染](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-foreach)来迭代一组列表项，或结合任意数量的单个视图与[ForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-foreach)结构，构建复杂的弧形列表。[ArcList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclist)组件支持多种[渲染控制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-overview)方式，包括条件渲染、循环渲染和懒加载，以生成子组件。
 
 
-##### 创建弧形列表
+#### 创建弧形列表
 
 [ArcList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclist)可通过调用以下接口来创建。
 
@@ -33,7 +33,7 @@ ArcList({
 
 
 
-##### 在弧形列表中显示数据
+#### 在弧形列表中显示数据
 
 弧形列表视图垂直展示项目集合，当列表项超出屏幕范围时，提供滚动功能，这使得它非常适合展示大型数据集合。在最简单的弧形列表形式中，[ArcList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclist)静态创建其列表项[ArcListItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclistitem)的内容。
 
@@ -158,7 +158,7 @@ export struct ArcListShow {
 
 
 
-##### 迭代弧形列表内容
+#### 迭代弧形列表内容
 
 通常，应用会通过数据集合动态创建列表。采用[循环渲染](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-foreach)的方式，可以从数据源中迭代获取数据，在每次迭代过程中创建相应的组件，从而降低代码的复杂度。
 
@@ -241,11 +241,11 @@ export struct ArcListContents {
 
 
 
-##### 自定义弧形列表样式
+#### 自定义弧形列表样式
 
 
 
-##### 自定义弧形列表标题
+#### 自定义弧形列表标题
 
 可以通过[header](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclist#arklistoptions)参数为弧形列表添加自定义标题。
 1. 首先，需要构造自定义标题组件customHeader。
@@ -296,7 +296,7 @@ ArcList({ header: this.arcListHeader }) {
 
 
 
-##### 设置弧形列表项间距
+#### 设置弧形列表项间距
 
 在初始化列表时，若需在列表项之间添加间距，可以通过[space](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclist#space)属性实现。例如，为在每个列表项的垂直方向上增加30px的间距。
 
@@ -315,7 +315,7 @@ ArcList({ initialIndex: 2 }) {
 
 
 
-##### 列表项关闭自动缩放
+#### 列表项关闭自动缩放
 
 在弧形列表中，列表项默认具有在接近上下两端时自动缩放的效果。然而，在某些情况下，可能不希望有这种缩放效果。此时，可以通过设置[ArcListItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclistitem)的[autoScale](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclistitem#autoscale)属性为false来禁用该效果。例如，如图5所示，“网络”和“显示”两个列表项，在关闭了自动缩放属性后，无论它们所处的位置如何，都不会出现缩放效果。
 
@@ -334,7 +334,7 @@ ArcListItem() {
 
 
 
-##### 添加内置滚动条
+#### 添加内置滚动条
 
 当列表项的高度超过屏幕高度时，弧形列表能够沿垂直方向滚动。若用户需要快速定位，可拖动滚动条以迅速滑动列表，如图6所示。
 
@@ -357,7 +357,7 @@ ArcList({ header: this.arcListHeader }) {
 
 
 
-##### 添加外置滚动条ArcScrollBar
+#### 添加外置滚动条ArcScrollBar
 
 弧形列表[ArcList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclist)可与[ArcScrollBar](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-arcscrollbar)组件配合使用，为弧形列表添加外置滚动条。两者通过绑定同一个[Scroller](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scroller)滚动控制器对象实现联动。
 1. 首先，需要创建一个[Scroller](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scroller)类型的对象arcListScroller。
@@ -398,7 +398,7 @@ ArcScrollBar({ scroller: this.arcListScroller })
 
 
 
-##### 与弧形索引条ArcAlphabetIndexer联动
+#### 与弧形索引条ArcAlphabetIndexer联动
 
 许多应用需要监测列表的滚动位置变动并作出响应，或通过调整滚动位置实现列表的快速定位。例如，在联系人列表滚动时，当列表滚动至不同首字母开头的联系人，外部索引条应更新至相应的字母位置。当用户选择外部索引条上的索引项时，列表应跳转至对应位置。为此，需使用弧形索引条组件[ArcAlphabetIndexer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arc-alphabet-indexer)。
 
@@ -460,12 +460,12 @@ export struct ArcListArcIndexerBar {
 **图8** 弧形列表与弧形索引条联动
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/JSkqy5oiRO-Aso74Y7V3UA/zh-cn_image_0000002611753783.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014806Z&HW-CC-Expire=86400&HW-CC-Sign=BAD4115A4FF59EF9AEED6F559C496DA9831568189D17E92C626A2243326905D8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/JSkqy5oiRO-Aso74Y7V3UA/zh-cn_image_0000002611753783.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030437Z&HW-CC-Expire=86400&HW-CC-Sign=31EE28632B2044FEE846236E556AC5C0C133D809B4A4DAEDEC623F122AF254A9)
 
 
 
 
-##### 响应列表项侧滑
+#### 响应列表项侧滑
 
 [ArcListItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclistitem)的[swipeAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclistitem#swipeaction)属性可用于实现列表项的左右滑动功能。[swipeAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclistitem#swipeaction)属性方法初始化时存在必填[SwipeActionOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-listitem#swipeactionoptions9对象说明)参数start和end。其中，start表示设置列表项右滑时起始端滑出的组件，end表示设置列表项左滑时尾端滑出的组件。
 
@@ -523,12 +523,12 @@ ArcListItem() {
 **图9** 侧滑删除列表项
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/iv4xSMKESzm9L1sTbjF8uA/zh-cn_image_0000002581433848.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014806Z&HW-CC-Expire=86400&HW-CC-Sign=B3B25A0D65CC996AF8AC7A50E0E2BE5CC3D7FA6ECAE21B810C2CC2F5FADEB29D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/iv4xSMKESzm9L1sTbjF8uA/zh-cn_image_0000002581433848.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030437Z&HW-CC-Expire=86400&HW-CC-Sign=3204FEEBFCBBE3E9C24B3E69BC5E730A36E9EBA68DDCC7B7DA89B5B438CE29BE)
 
 
 
 
-##### 处理长列表
+#### 处理长列表
 
 [循环渲染](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-foreach)适用于短列表，当构建具有大量列表项的长列表时，如果直接采用循环渲染方式，会一次性加载所有的列表元素，会导致页面启动时间过长，影响用户体验。因此，推荐使用[数据懒加载](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-lazyforeach)（LazyForEach）方式实现按需迭代加载数据，从而提升列表性能。关于长列表按需加载优化的具体实现可参考[数据懒加载](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-lazyforeach)章节中的示例。
 
@@ -546,7 +546,7 @@ ArcList() {
 
 
 
-##### 响应旋转表冠
+#### 响应旋转表冠
 
 手表设备上弧形列表在获焦的情况下可对旋转表冠做出响应，用户可通过旋转表冠的操作滑动列表，浏览列表项数据。弧形列表可通过下列[焦点控制](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-focus)相关属性成为所在页面的默认焦点。
 

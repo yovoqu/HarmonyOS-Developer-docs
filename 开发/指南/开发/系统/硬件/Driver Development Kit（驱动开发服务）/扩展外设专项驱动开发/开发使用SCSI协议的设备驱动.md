@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scsi-peripheral-ddk-guidelines
 
-##### 简介
+#### 简介
 
 在企业级存储解决方案和工业应用场景中，对SCSI（Small Computer System Interface，小型计算机系统接口）设备的使用需求广泛存在，例如：磁盘阵列、磁带库以及特定类型的存储服务器等。当操作系统中缺乏针对这些设备的适配驱动时，会导致设备连接后无法被识别或正常使用。ScsiPeripheralDDK（SCSI Peripheral Driver Development Kit）是为开发者提供的专门用于开发SCSI设备驱动程序的套件，支持开发者基于用户态，在应用层进行SCSI设备驱动的开发。
 
@@ -12,7 +12,7 @@ ScsiPeripheralDDK支持SPC（SCSI Primary Commands）、SBC（SCSI Block Command
 
 
 
-##### 基本概念
+#### 基本概念
 
 在进行ScsiPeripheralDDK开发前，开发者应了解以下基本概念：
 
@@ -44,7 +44,7 @@ ScsiPeripheralDDK支持SPC（SCSI Primary Commands）、SBC（SCSI Block Command
 
 
 
-##### 实现原理
+#### 实现原理
 
 非标外设应用通过扩展外设管理服务获取SCSI设备的ID，通过RPC将ID和要操作的动作下发给SCSI驱动应用，SCSI驱动应用通过调用ScsiPeripheralDDK接口可获取SCSI设备基本信息，读写数据，DDK接口使用HDI服务将指令下发至内核驱动，内核驱动使用指令与设备通信。
 
@@ -56,7 +56,7 @@ ScsiPeripheralDDK支持SPC（SCSI Primary Commands）、SBC（SCSI Block Command
 
 
 
-##### 约束与限制
+#### 约束与限制
 
  - ScsiPeripheralDDK开放API支持标准SCSI类外设扩展驱动开发场景。
  - ScsiPeripheralDDK开放API仅允许在DriverExtensionAbility生命周期内使用。
@@ -65,17 +65,17 @@ ScsiPeripheralDDK支持SPC（SCSI Primary Commands）、SBC（SCSI Block Command
 
 
 
-##### 环境搭建
+#### 环境搭建
 
 请参考[环境准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/environmental-preparation)完成开发前的准备工作。
 
 
 
-##### 开发指导
+#### 开发指导
 
 
 
-##### 接口说明
+#### 接口说明
 
 | 名称 | 描述 |
 | --- | --- |
@@ -100,7 +100,7 @@ ScsiPeripheralDDK支持SPC（SCSI Primary Commands）、SBC（SCSI Block Command
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 以下步骤描述了如何使用ScsiPeripheralDDK开发非标SCSI外设的驱动：
 
@@ -258,7 +258,7 @@ ret = OH_ScsiPeripheral_Release();
 
 
 
-##### 调测验证
+#### 调测验证
 
 驱动应用侧开发完成后，可在HarmonyOS设备上安装应用，测试步骤如下：
 1. 在设备上点击驱动应用，应用在设备上被拉起。

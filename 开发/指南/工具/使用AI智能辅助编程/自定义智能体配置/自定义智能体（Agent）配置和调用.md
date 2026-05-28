@@ -15,7 +15,7 @@
 从DevEco Studio 6.1.0 Release（6.1.0.830）版本开始，DevEco Studio内置工具新增Skill工具。
  
 
-##### Agent配置
+#### Agent配置
 1. 点击界面右上方
 ![](assets/自定义智能体（Agent）配置和调用/file-20260514132758034-0.png)
 按钮；或者点击界面右上方**Settings**
@@ -64,7 +64,7 @@ File Manager开启后，支持读写本地的代码文件。
  
  
 
-##### Agent调用
+#### Agent调用
 1. Agent配置完成后，可以通过如下两种方式开启调用：
 
   

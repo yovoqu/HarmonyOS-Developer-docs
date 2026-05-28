@@ -7,7 +7,7 @@
 以AES256、RSA1024、SM2和DES64为例，完成加解密。具体的场景介绍及支持的算法规格，请参考[加解密支持的算法](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-encryption-decryption-overview#支持的算法)。
 
 
-##### 在CMake脚本中链接相关动态库
+#### 在CMake脚本中链接相关动态库
 
 ```text
 target_link_libraries(entry PUBLIC libhuks_ndk.z.so)
@@ -15,7 +15,7 @@ target_link_libraries(entry PUBLIC libhuks_ndk.z.so)
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 **生成密钥**
 1. 指定密钥别名，密钥别名命名规范参考[密钥生成介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。
@@ -59,11 +59,11 @@ target_link_libraries(entry PUBLIC libhuks_ndk.z.so)
 
 
 
-##### 开发案例
+#### 开发案例
 
 
 
-##### AES/CBC/PKCS7
+#### AES/CBC/PKCS7
 
 ```cpp
 #include "huks/native_huks_api.h"
@@ -252,7 +252,7 @@ napi_value TestAesCbc(napi_env env, napi_callback_info info)
 
 
 
-##### AES/GCM/NoPadding
+#### AES/GCM/NoPadding
 
 准备加解密密钥材料：
 
@@ -469,7 +469,7 @@ napi_value TestAesGcm(napi_env env, napi_callback_info info)
 
 
 
-##### AES/CCM/NoPadding
+#### AES/CCM/NoPadding
 
 ```text
 #include "huks/native_huks_api.h"
@@ -732,7 +732,7 @@ static napi_value EncDecKey(napi_env env, napi_callback_info info)
 
 
 
-##### RSA/ECB/PKCS1_V1_5
+#### RSA/ECB/PKCS1_V1_5
 
 ```cpp
 #include "huks/native_huks_api.h"
@@ -890,7 +890,7 @@ napi_value TestRsaEcbPkcs(napi_env env, napi_callback_info info)
 
 
 
-##### RSA/ECB/OAEP/SHA256
+#### RSA/ECB/OAEP/SHA256
 
 ```cpp
 #include "huks/native_huks_api.h"
@@ -1048,7 +1048,7 @@ napi_value TestRsaEcbOaep(napi_env env, napi_callback_info info)
 
 
 
-##### SM2
+#### SM2
 
 ```cpp
 #include "huks/native_huks_api.h"

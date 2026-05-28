@@ -16,7 +16,7 @@ LiteResultSet实例不会实时刷新。使用结果集后，如果数据库中�
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -26,7 +26,7 @@ import { relationalStore } from '@kit.ArkData';
 
 
 
-##### getColumnNames23+
+#### getColumnNames23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -82,7 +82,7 @@ async function getColumnNamesExample(store : relationalStore.RdbStore){
 
 
 
-##### getColumnIndex23+
+#### getColumnIndex23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -145,7 +145,7 @@ async function getColumnIndexExample(store : relationalStore.RdbStore){
 
 
 
-##### getColumnName23+
+#### getColumnName23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -209,7 +209,7 @@ async function getColumnNameExample(store : relationalStore.RdbStore){
 
 
 
-##### getColumnType23+
+#### getColumnType23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -282,7 +282,7 @@ async function getColumnTypeExample(store : relationalStore.RdbStore){
 
 
 
-##### getColumnTypeSync23+
+#### getColumnTypeSync23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -355,7 +355,7 @@ async function getColumnTypeSyncExample(store : relationalStore.RdbStore){
 
 
 
-##### goToNextRow23+
+#### goToNextRow23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -410,7 +410,7 @@ async function goToNextRowExample(store : relationalStore.RdbStore) {
 
 
 
-##### getValue23+
+#### getValue23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -468,7 +468,7 @@ async function getValueExample(store : relationalStore.RdbStore) {
 
 
 
-##### getBlob23+
+#### getBlob23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -529,7 +529,7 @@ async function getBlobExample(store : relationalStore.RdbStore) {
 
 
 
-##### getString23+
+#### getString23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -592,7 +592,7 @@ async function getStringExample(store : relationalStore.RdbStore) {
 
 
 
-##### getLong23+
+#### getLong23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -657,7 +657,7 @@ async function getLongExample(store : relationalStore.RdbStore) {
 
 
 
-##### getDouble23+
+#### getDouble23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -718,7 +718,7 @@ async function getDoubleExample(store : relationalStore.RdbStore) {
 
 
 
-##### getAsset23+
+#### getAsset23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -777,7 +777,7 @@ async function getAssetExample(store : relationalStore.RdbStore) {
 
 
 
-##### getAssets23+
+#### getAssets23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -836,7 +836,7 @@ async function getAssetsExample(store : relationalStore.RdbStore) {
 
 
 
-##### getRow23+
+#### getRow23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -892,7 +892,7 @@ async function getRowExample(store : relationalStore.RdbStore) {
 
 
 
-##### getCurrentRowData23+
+#### getCurrentRowData23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -949,7 +949,7 @@ async function getCurrentRowDataExample(store : relationalStore.RdbStore) {
 
 
 
-##### getRows23+
+#### getRows23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1031,7 +1031,7 @@ async function getRowsExample(store : relationalStore.RdbStore) {
 
 
 
-##### getRowsData23+
+#### getRowsData23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1122,7 +1122,7 @@ async function getRowsDataExample(store : relationalStore.RdbStore) {
 
 
 
-##### isColumnNull23+
+#### isColumnNull23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1185,7 +1185,7 @@ async function isColumnNullExample(store : relationalStore.RdbStore) {
 
 
 
-##### close23+
+#### close23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

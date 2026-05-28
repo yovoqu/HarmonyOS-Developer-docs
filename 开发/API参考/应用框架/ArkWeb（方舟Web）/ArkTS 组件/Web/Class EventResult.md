@@ -18,7 +18,7 @@
 
   
 
-##### constructor12+
+#### constructor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -30,7 +30,7 @@ EventResult的构造函数。
  
   
 
-##### setGestureEventResult12+
+#### setGestureEventResult12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -53,7 +53,7 @@ setGestureEventResult(result: boolean): void
  
   
 
-##### setGestureEventResult14+
+#### setGestureEventResult14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -77,7 +77,7 @@ setGestureEventResult(result: boolean, stopPropagation: boolean): void
  
   
 
-##### setMouseEventResult20+
+#### setMouseEventResult20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

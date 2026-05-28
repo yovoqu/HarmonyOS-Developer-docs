@@ -9,7 +9,7 @@ typedef struct HMS_SpatialRecon_DataFrame {...} HMS_SpatialRecon_DataFrame
 ```
   
 
-##### 概述
+#### 概述
 
 定义HMS（Huawei Mobile Services）空间重建数据帧的结构体，包含用于空间重建的相机内参、姿态信息、时间戳和图像数据。
  
@@ -21,11 +21,11 @@ typedef struct HMS_SpatialRecon_DataFrame {...} HMS_SpatialRecon_DataFrame
  
   
 
-##### 汇总
+#### 汇总
 
   
 
-##### 成员变量
+#### 成员变量
  
 | 名称 | 描述 |
 | --- | --- |

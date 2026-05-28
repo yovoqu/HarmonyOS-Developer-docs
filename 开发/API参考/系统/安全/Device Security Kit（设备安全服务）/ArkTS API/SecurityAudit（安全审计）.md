@@ -10,7 +10,7 @@
 **起始版本：** 5.0.0(12)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** PC/2in1
 
@@ -20,7 +20,7 @@ import { securityAudit } from '@kit.DeviceSecurityKit';
  
   
 
-##### AuditEventInfo
+#### AuditEventInfo
 
 **支持设备：** PC/2in1
 
@@ -37,7 +37,7 @@ import { securityAudit } from '@kit.DeviceSecurityKit';
  
   
 
-##### AuditEvent
+#### AuditEvent
 
 **支持设备：** PC/2in1
 
@@ -60,7 +60,7 @@ import { securityAudit } from '@kit.DeviceSecurityKit';
  
   
 
-##### NotifyEvent
+#### NotifyEvent
 
 **支持设备：** PC/2in1
 
@@ -121,7 +121,7 @@ import { securityAudit } from '@kit.DeviceSecurityKit';
  
   
 
-##### FilterType
+#### FilterType
 
 **支持设备：** PC/2in1
 
@@ -147,7 +147,7 @@ import { securityAudit } from '@kit.DeviceSecurityKit';
  
   
 
-##### AuthEvent
+#### AuthEvent
 
 **支持设备：** PC/2in1
 
@@ -169,7 +169,7 @@ import { securityAudit } from '@kit.DeviceSecurityKit';
  
   
 
-##### AuthResult
+#### AuthResult
 
 **支持设备：** PC/2in1
 
@@ -187,7 +187,7 @@ import { securityAudit } from '@kit.DeviceSecurityKit';
  
   
 
-##### on('auditEventOccur')
+#### on('auditEventOccur')
 
 **支持设备：** PC/2in1
 
@@ -251,7 +251,7 @@ try {
  
   
 
-##### off('auditEventOccur')
+#### off('auditEventOccur')
 
 **支持设备：** PC/2in1
 
@@ -307,7 +307,7 @@ try {
  
   
 
-##### Filter
+#### Filter
 
 **支持设备：** PC/2in1
 
@@ -326,7 +326,7 @@ try {
  
   
 
-##### Client
+#### Client
 
 **支持设备：** PC/2in1
 
@@ -342,7 +342,7 @@ try {
  
   
 
-##### subscribe
+#### subscribe
 
 **支持设备：** PC/2in1
 
@@ -401,7 +401,7 @@ try {
  
   
 
-##### unsubscribe
+#### unsubscribe
 
 **支持设备：** PC/2in1
 
@@ -460,7 +460,7 @@ try {
  
   
 
-##### addFilter
+#### addFilter
 
 **支持设备：** PC/2in1
 
@@ -527,7 +527,7 @@ try {
  
   
 
-##### removeFilter
+#### removeFilter
 
 **支持设备：** PC/2in1
 
@@ -593,7 +593,7 @@ try {
  
   
 
-##### newClient
+#### newClient
 
 **支持设备：** PC/2in1
 
@@ -660,7 +660,7 @@ try {
  
   
 
-##### deleteClient
+#### deleteClient
 
 **支持设备：** PC/2in1
 
@@ -719,7 +719,7 @@ try {
  
   
 
-##### AuthClient
+#### AuthClient
 
 **支持设备：** PC/2in1
 
@@ -735,7 +735,7 @@ try {
  
   
 
-##### subscribe
+#### subscribe
 
 **支持设备：** PC/2in1
 
@@ -796,7 +796,7 @@ try {
  
   
 
-##### unsubscribe
+#### unsubscribe
 
 **支持设备：** PC/2in1
 
@@ -863,7 +863,7 @@ try {
  
   
 
-##### addFilter
+#### addFilter
 
 **支持设备：** PC/2in1
 
@@ -932,7 +932,7 @@ try {
  
   
 
-##### removeFilter
+#### removeFilter
 
 **支持设备：** PC/2in1
 
@@ -1006,7 +1006,7 @@ try {
  
   
 
-##### auth
+#### auth
 
 **支持设备：** PC/2in1
 
@@ -1069,7 +1069,7 @@ try {
  
   
 
-##### newAuthClient
+#### newAuthClient
 
 **支持设备：** PC/2in1
 
@@ -1133,7 +1133,7 @@ try {
  
   
 
-##### deleteAuthClient
+#### deleteAuthClient
 
 **支持设备：** PC/2in1
 
@@ -1194,7 +1194,7 @@ try {
  
   
 
-##### queryAllProcesses
+#### queryAllProcesses
 
 **支持设备：** PC/2in1
 
@@ -1245,7 +1245,7 @@ try {
  
   
 
-##### queryProcesses
+#### queryProcesses
 
 **支持设备：** PC/2in1
 
@@ -1305,7 +1305,7 @@ try {
  
   
 
-##### acquireCodeSign
+#### acquireCodeSign
 
 **支持设备：** PC/2in1
 

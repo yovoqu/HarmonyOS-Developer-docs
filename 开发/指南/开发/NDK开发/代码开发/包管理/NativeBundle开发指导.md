@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-bundle-guidelines
 
-##### 场景介绍
+#### 场景介绍
 
 开发者可以通过本指导了解在HarmonyOS应用中，如何使用Native Bundle接口获取应用自身相关信息。
 
 
 
-##### 接口说明
+#### 接口说明
 
 常用接口如下表所示，具体API说明详见[Native_Bundle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-bundle)。
 
@@ -28,7 +28,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 **1. 创建工程**
 

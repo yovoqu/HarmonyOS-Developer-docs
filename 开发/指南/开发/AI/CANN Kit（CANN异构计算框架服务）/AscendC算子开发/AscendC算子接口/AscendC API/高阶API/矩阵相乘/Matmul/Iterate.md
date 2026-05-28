@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-iterate
 
-##### 功能说明
+#### 功能说明
 
 每调用一次Iterate，会计算出一片baseM * baseN的C矩阵。接口内部会维护迭代进度，调用一次后会对A、B矩阵首地址进行偏移。默认以先M轴再N轴的迭代顺序，也可以通过调整tiling参数iterateOrder，转换为先N轴再M轴的迭代顺序。
  
@@ -12,7 +12,7 @@
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 template <bool sync = true> __aicore__ inline bool Iterate(bool enPartialSum = false)
@@ -20,7 +20,7 @@ template <bool sync = true> __aicore__ inline bool Iterate(bool enPartialSum = f
  
   
 
-##### 参数说明
+#### 参数说明
 
 **表1** 模板参数说明
   
@@ -38,7 +38,7 @@ template <bool sync = true> __aicore__ inline bool Iterate(bool enPartialSum = f
  
   
 
-##### 返回值
+#### 返回值
 
 false：单核上的所有数据全部算完。
  
@@ -46,19 +46,19 @@ true：数据仍在迭代计算中。
  
   
 
-##### 支持的型号
+#### 支持的型号
 
 Kirin9020系列处理器
  
   
 
-##### 注意事项
+#### 注意事项
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 // 同步模式样例

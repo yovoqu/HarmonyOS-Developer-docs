@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-osaccount
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -15,7 +15,7 @@ OsAccount模块为应用提供系统账号管理能力。
  
   
 
-##### 文件汇总
+#### 文件汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  

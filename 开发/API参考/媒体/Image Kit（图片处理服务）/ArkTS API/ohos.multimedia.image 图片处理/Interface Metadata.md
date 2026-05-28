@@ -12,7 +12,7 @@ Metadata类，用于存储图像的元数据。目前支持的元数据类型可
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { image } from '@kit.ImageKit';
 
 
 
-##### getProperties13+
+#### getProperties13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -88,7 +88,7 @@ async function GetProperties(context: Context) {
 
 
 
-##### setProperties13+
+#### setProperties13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -158,7 +158,7 @@ async function SetProperties(context: Context) {
 
 
 
-##### getAllProperties13+
+#### getAllProperties13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -209,7 +209,7 @@ async function GetAllProperties(context: Context) {
 
 
 
-##### clone13+
+#### clone13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -257,7 +257,7 @@ async function Clone(context: Context) {
 
 
 
-##### getBlob23+
+#### getBlob23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -305,7 +305,7 @@ async function GetBlob(context: Context) {
 
 
 
-##### setBlob23+
+#### setBlob23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

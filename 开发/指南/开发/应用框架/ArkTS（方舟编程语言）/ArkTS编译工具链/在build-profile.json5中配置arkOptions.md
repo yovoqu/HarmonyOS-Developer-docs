@@ -4,17 +4,17 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkoptions-guide
 
-##### 概述
+#### 概述
 
 arkOptions主要提供ArkTS编译相关配置，当前文档介绍arkOptions中types配置类型、maxFlowDepth配置控制流分析最大深度等，arkOptions中的其他配置项请参考[build-profile.json5](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-configuration-file-overview)。
  
   
 
-##### types
+#### types
 
   
 
-##### types配置文件标签说明
+#### types配置文件标签说明
 
  arkOptions的types字段配置文件标签说明：
   
@@ -25,7 +25,7 @@ arkOptions主要提供ArkTS编译相关配置，当前文档介绍arkOptions中t
  
   
 
-##### arkOptions中的types字段配置说明
+#### arkOptions中的types字段配置说明
 
 arkOptions中types字段示例：
  
@@ -45,7 +45,7 @@ types字段支持填写包名、包所在位置的相对路径，以及声明文
  
   
 
-##### 注意事项
+#### 注意事项
 
 如果在types字段中填写包名或者包所在位置的相对路径，需要在工程文件/entry/oh-package.json5中dependencies作如下配置：
  
@@ -75,11 +75,11 @@ let testGlobal: Global.ObjectType = 'test';
  
   
 
-##### maxFlowDepth
+#### maxFlowDepth
 
   
 
-##### maxFlowDepth配置文件标签说明
+#### maxFlowDepth配置文件标签说明
 
 arkOptions下tscConfig中maxFlowDepth字段配置文件标签说明：
   
@@ -90,7 +90,7 @@ arkOptions下tscConfig中maxFlowDepth字段配置文件标签说明：
  
   
 
-##### arkOptions下的tscConfig中maxFlowDepth字段配置说明
+#### arkOptions下的tscConfig中maxFlowDepth字段配置说明
 
 arkOptions/tscConfig中maxFlowDepth字段展示。
  
@@ -107,7 +107,7 @@ arkOptions/tscConfig中maxFlowDepth字段展示。
  
   
 
-##### 注意事项
+#### 注意事项
 
 - 仅可在工程级目录下build-profile.json5文件中配置maxFlowDepth字段。
 - 若开发者未对maxFlowDepth字段进行配置时，则该字段默认为2000；若开发者对maxFlowDepth字段配置的值超过可配置范围，则会出现编译构建相关报错。
@@ -130,11 +130,11 @@ hvigor ERROR: Schema validate failed.
  
   
 
-##### transformLib
+#### transformLib
 
   
 
-##### transformLib配置文件标签说明
+#### transformLib配置文件标签说明
 
 arkOptions的transformLib字段配置文件标签说明：
   
@@ -145,7 +145,7 @@ arkOptions的transformLib字段配置文件标签说明：
  
   
 
-##### arkOptions中的transformLib字段配置说明
+#### arkOptions中的transformLib字段配置说明
 
 arkOptions中transformLib字段示例：
  
@@ -166,7 +166,7 @@ arkOptions中transformLib字段示例：
  
   
 
-##### 注意事项
+#### 注意事项
 
 - 若开发者未对字段进行配置时，则默认不使用该功能。
 - HAP、HSP模块配置即生效，HAR模块仅字节码HAR配置生效，非字节码HAR配置不生效。

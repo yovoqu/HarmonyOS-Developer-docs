@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { ValueType, ValuesBucket } from '@kit.ArkData';
  
   
 
-##### ValueType
+#### ValueType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -43,7 +43,7 @@ type ValueType = number | string | boolean
  
   
 
-##### ValuesBucket
+#### ValuesBucket
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -14,7 +14,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { hiTraceMeter } from '@kit.PerformanceAnalysisKit';
 
 
 
-##### hiTraceMeter.startTrace
+#### hiTraceMeter.startTrace
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -58,7 +58,7 @@ hiTraceMeter.startTrace("myTestFunc", 1);
 
 
 
-##### hiTraceMeter.finishTrace
+#### hiTraceMeter.finishTrace
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -108,7 +108,7 @@ hiTraceMeter.finishTrace("myTestFunc", 1);
 
 
 
-##### hiTraceMeter.traceByValue
+#### hiTraceMeter.traceByValue
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -142,7 +142,7 @@ hiTraceMeter.traceByValue("myTestCount", traceCount);  // 当myTestCount发生�
 
 
 
-##### HiTraceOutputLevel19+
+#### HiTraceOutputLevel19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -165,7 +165,7 @@ hiTraceMeter.traceByValue("myTestCount", traceCount);  // 当myTestCount发生�
 
 
 
-##### hiTraceMeter.startAsyncTrace19+
+#### hiTraceMeter.startAsyncTrace19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -207,7 +207,7 @@ hiTraceMeter.startAsyncTrace(COMMERCIAL, "myTestFunc", 4, "categoryTest", "key1=
 
 
 
-##### hiTraceMeter.finishAsyncTrace19+
+#### hiTraceMeter.finishAsyncTrace19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -271,7 +271,7 @@ hiTraceMeter.finishAsyncTrace(COMMERCIAL, "myTestFunc", 1);
 
 
 
-##### hiTraceMeter.startSyncTrace19+
+#### hiTraceMeter.startSyncTrace19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -306,7 +306,7 @@ hiTraceMeter.startSyncTrace(COMMERCIAL, "myTestFunc", "key1=value1,key2=value2")
 
 
 
-##### hiTraceMeter.finishSyncTrace19+
+#### hiTraceMeter.finishSyncTrace19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -352,7 +352,7 @@ hiTraceMeter.finishSyncTrace(COMMERCIAL);
 
 
 
-##### hiTraceMeter.traceByValue19+
+#### hiTraceMeter.traceByValue19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -386,7 +386,7 @@ hiTraceMeter.traceByValue(COMMERCIAL, "myTestCount", traceCount);
 
 
 
-##### hiTraceMeter.isTraceEnabled19+
+#### hiTraceMeter.isTraceEnabled19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -417,7 +417,7 @@ if (hiTraceMeter.isTraceEnabled()) {
 
 
 
-##### TraceEventListener22+
+#### TraceEventListener22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -438,7 +438,7 @@ type TraceEventListener = (traceStatus: boolean) => void
 
 
 
-##### hiTraceMeter.registerTraceListener22+
+#### hiTraceMeter.registerTraceListener22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -493,7 +493,7 @@ if (index < 0) {
 
 
 
-##### hiTraceMeter.unregisterTraceListener22+
+#### hiTraceMeter.unregisterTraceListener22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/musl
 
-##### 简介
+#### 简介
 
 C标准函数库在C语言程序设计中，提供符合标准的头文件，以及常用的库函数实现（如I/O输入输出和字符串控制）。
  
@@ -14,7 +14,7 @@ musl与glibc的差异点请参考[musl与glibc功能对比](https://wiki.musl-li
  
   
 
-##### 标准C库组件介绍
+#### 标准C库组件介绍
 
 [libc、libm、libdl](https://zh.cppreference.com/w/c/header)组合实现C11标准C库。
  
@@ -26,7 +26,7 @@ libdl：dlopen等动态链接器接口，当前在HarmonyOS中是一个链接，
  
   
 
-##### musl版本号
+#### musl版本号
 
 1.2.0
  
@@ -36,7 +36,7 @@ libdl：dlopen等动态链接器接口，当前在HarmonyOS中是一个链接，
  
   
 
-##### 支持的能力
+#### 支持的能力
 
 提供兼容C99、C11、POSIX标准的头文件，以及库函数接口，但不是完全兼容；支持armv7a、arm64、x86_64三种架构的支持；
  
@@ -44,7 +44,7 @@ libdl：dlopen等动态链接器接口，当前在HarmonyOS中是一个链接，
  
   
 
-##### 新增能力
+#### 新增能力
 1. 动态加载器支持命名空间隔离能力，应用可以dlopen加载的动态库受系统命名空间限制（比如，无法打开系统侧动态库）。
 2. 支持dlclose真实卸载动态库能力，musl的开源版本不支持。
 3. 支持symbol-versioning功能。
@@ -52,7 +52,7 @@ libdl：dlopen等动态链接器接口，当前在HarmonyOS中是一个链接，
  
   
 
-##### musl 差异规格接口说明
+#### musl 差异规格接口说明
  
 | 接口名称 | 说明 |
 | --- | --- |
@@ -61,12 +61,12 @@ libdl：dlopen等动态链接器接口，当前在HarmonyOS中是一个链接，
  
   
 
-##### ICONV支持的字符集编码格式
+#### ICONV支持的字符集编码格式
 
 musl支持的字符集编码格式，以及受支持的别名。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/RBOV5PMcTc667zoz7g0g9g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023654Z&HW-CC-Expire=86400&HW-CC-Sign=06A59171840F27ACF8C48F714F9A7F2F93AF1ECF23A4A5C1E82FB74BACCBA8DB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/RBOV5PMcTc667zoz7g0g9g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025028Z&HW-CC-Expire=86400&HW-CC-Sign=5866B435F13B1D289936A42DA7BC1DADEB03D051DD97BF13B71160E0416B7C01)
  
  
 在进行字符集编码格式转换时，请使用正确的源字符集编码格式，且目标字符集编码格式必须支持这些受转换的字符，否则转换失败。
@@ -131,7 +131,7 @@ musl支持的字符集编码格式，以及受支持的别名。
  
   
 
-##### musl不支持接口列表。
+#### musl不支持接口列表。
 
 [native api中没有导出的符号列表](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/musl-peculiar-symbol)
  

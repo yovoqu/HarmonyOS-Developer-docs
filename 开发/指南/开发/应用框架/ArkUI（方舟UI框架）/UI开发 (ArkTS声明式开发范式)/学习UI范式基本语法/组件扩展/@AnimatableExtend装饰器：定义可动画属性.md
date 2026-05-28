@@ -15,11 +15,11 @@
 
   
 
-##### 装饰器使用说明
+#### 装饰器使用说明
 
   
 
-##### 语法
+#### 语法
 
 ```text
 @AnimatableExtend(UIComponentName) function functionName(value: typeName) {
@@ -34,7 +34,7 @@
  
   
 
-##### AnimatableArithmetic&lt;T&gt;接口说明
+#### AnimatableArithmetic&lt;T&gt;接口说明
 
 该接口定义非number数据类型的动画运算规则。对非number类型的数据（如数组、结构体、颜色等）做动画，需要实现AnimatableArithmetic&lt;T&gt;接口中加法、减法、乘法和判断相等函数，使得该数据能参与动画的插值运算和识别该数据是否发生改变。即定义它们为实现了AnimatableArithmetic&lt;T&gt;接口的类型。
   
@@ -48,7 +48,7 @@
  
   
 
-##### 使用场景
+#### 使用场景
 
 以下示例通过改变Text组件宽度实现逐帧布局的效果。
  
@@ -206,4 +206,4 @@ struct  AnimatablePropertyExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/cB-0VQfJRJe6lQDoEJfM0A/zh-cn_image_0000002581433644.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014803Z&HW-CC-Expire=86400&HW-CC-Sign=694AAF02267A7C68BF875919F8B4C10BE7C532CBC1789AA01D7B48565A7C010A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/cB-0VQfJRJe6lQDoEJfM0A/zh-cn_image_0000002581433644.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030435Z&HW-CC-Expire=86400&HW-CC-Sign=CE9B44B21E16FF575C1B0F7DD416F3CA88B7317C5D48FFC04F7E305083709FCB)

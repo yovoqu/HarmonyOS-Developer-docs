@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { BasicPrefetcher, IDataSourcePrefetching, IPrefetcher } from '@kit.ArkUI
  
   
 
-##### IPrefetcher
+#### IPrefetcher
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -34,7 +34,7 @@ import { BasicPrefetcher, IDataSourcePrefetching, IPrefetcher } from '@kit.ArkUI
  
   
 
-##### setDataSource
+#### setDataSource
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -69,7 +69,7 @@ class MyPrefetcher implements IPrefetcher {
  
   
 
-##### visibleAreaChanged
+#### visibleAreaChanged
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -105,7 +105,7 @@ class MyPrefetcher implements IPrefetcher {
  
   
 
-##### BasicPrefetcher
+#### BasicPrefetcher
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -119,7 +119,7 @@ BasicPrefetcher对象不支持使用JSON序列化。
  
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -140,7 +140,7 @@ constructor(dataSource?: IDataSourcePrefetching);
  
   
 
-##### setDataSource
+#### setDataSource
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -161,7 +161,7 @@ setDataSource(dataSource: IDataSourcePrefetching): void;
  
   
 
-##### visibleAreaChanged
+#### visibleAreaChanged
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -183,7 +183,7 @@ visibleAreaChanged(minVisible: number, maxVisible: number): void;
  
   
 
-##### IDataSourcePrefetching
+#### IDataSourcePrefetching
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -195,7 +195,7 @@ visibleAreaChanged(minVisible: number, maxVisible: number): void;
  
   
 
-##### prefetch
+#### prefetch
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -223,7 +223,7 @@ prefetch(index: number): Promise&lt;void&gt; | void;
  
   
 
-##### cancel
+#### cancel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -253,7 +253,7 @@ cancel?(index: number): Promise&lt;void&gt; | void;
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -476,12 +476,12 @@ function create10x10Bitmap(color: number): ArrayBuffer {
 演示效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/nlPplXUYSgmWtgundVwSzA/zh-cn_image_0000002611835361.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024114Z&HW-CC-Expire=86400&HW-CC-Sign=A4AE30CAD43372BE8A6663A7B8DB18CBF9C95A5E65B657BEDA064C9887039239)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/nlPplXUYSgmWtgundVwSzA/zh-cn_image_0000002611835361.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025448Z&HW-CC-Expire=86400&HW-CC-Sign=26B74E986F92966D0D6AC6FA0C28B966D94CE5A480C4D30FDB1BB1BF2BD6B1B1)
 
  
   
 
-##### 补充说明
+#### 补充说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

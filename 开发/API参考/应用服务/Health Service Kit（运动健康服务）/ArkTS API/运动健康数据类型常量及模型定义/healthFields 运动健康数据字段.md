@@ -10,7 +10,7 @@
 **起始版本：** 5.0.0(12)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -24,7 +24,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### AdventuresDetail
+#### AdventuresDetail
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -42,7 +42,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### AdventuresSummary
+#### AdventuresSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -63,7 +63,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### Altitude
+#### Altitude
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -80,7 +80,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### AltitudeSummary
+#### AltitudeSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -101,7 +101,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### BasketballDetail
+#### BasketballDetail
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -120,7 +120,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### BasketballFeature
+#### BasketballFeature
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -142,7 +142,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### BasketballSummary
+#### BasketballSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -162,7 +162,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### BiathlonDetail
+#### BiathlonDetail
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -180,7 +180,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### BiathlonSummary
+#### BiathlonSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -198,7 +198,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### BloodOxygenSaturation
+#### BloodOxygenSaturation
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -215,7 +215,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### BloodOxygenSaturationAggregation
+#### BloodOxygenSaturationAggregation
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -232,7 +232,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### BloodPressure
+#### BloodPressure
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -253,7 +253,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### BodyTemperature
+#### BodyTemperature
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -270,7 +270,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### BodyTemperatureAggregation
+#### BodyTemperatureAggregation
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -287,7 +287,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### BreathHoldingTestDetail
+#### BreathHoldingTestDetail
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -304,7 +304,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### BreathHoldingTestFeature
+#### BreathHoldingTestFeature
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -321,7 +321,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### BreathHoldingTestSummary
+#### BreathHoldingTestSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -339,7 +339,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### BreathHoldingTrainDetail
+#### BreathHoldingTrainDetail
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -356,7 +356,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### BreathHoldingTrainFeature
+#### BreathHoldingTrainFeature
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -375,7 +375,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### BreathHoldingTrainSummary
+#### BreathHoldingTrainSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -393,7 +393,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### Cadence
+#### Cadence
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -410,7 +410,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### CadenceSummary
+#### CadenceSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -429,7 +429,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### CalorieSummary
+#### CalorieSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -446,7 +446,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### CervicalMucus
+#### CervicalMucus
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -465,7 +465,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### CyclingDetail
+#### CyclingDetail
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -488,7 +488,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### CyclingSummary
+#### CyclingSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -513,7 +513,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### DailyActivities
+#### DailyActivities
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -537,7 +537,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### DailyActivitiesAggregation
+#### DailyActivitiesAggregation
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -561,7 +561,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### DistanceSummary
+#### DistanceSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -578,7 +578,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### DivingDepth
+#### DivingDepth
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -595,7 +595,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### DivingDepthSummary
+#### DivingDepthSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -613,7 +613,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### DivingDetail
+#### DivingDetail
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -631,7 +631,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### DivingFeature
+#### DivingFeature
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -657,7 +657,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### DivingSummary
+#### DivingSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -677,7 +677,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### Dysmenorrhea
+#### Dysmenorrhea
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -696,7 +696,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### EllipticalDetail
+#### EllipticalDetail
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -717,7 +717,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### EllipticalSummary
+#### EllipticalSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -742,7 +742,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### Emotion
+#### Emotion
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -759,7 +759,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### ExerciseHeartRate
+#### ExerciseHeartRate
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -776,7 +776,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### ExerciseHeartRateSummary
+#### ExerciseHeartRateSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -795,7 +795,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### GolfCourseModelDetail
+#### GolfCourseModelDetail
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -813,7 +813,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### GolfCourseModelFeature
+#### GolfCourseModelFeature
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -852,7 +852,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### GolfCourseModelSummary
+#### GolfCourseModelSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -875,7 +875,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### GolfPracticeDetail
+#### GolfPracticeDetail
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -892,7 +892,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### GolfPracticeFeature
+#### GolfPracticeFeature
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -914,7 +914,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### GolfPracticeSummary
+#### GolfPracticeSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -933,7 +933,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### HeartRate
+#### HeartRate
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -950,7 +950,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### HeartRateAggregation
+#### HeartRateAggregation
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -967,7 +967,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### HeartRateVariability
+#### HeartRateVariability
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -984,7 +984,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### Height
+#### Height
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1001,7 +1001,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### Jump
+#### Jump
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1019,7 +1019,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### JumpingRopeDetail
+#### JumpingRopeDetail
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1037,7 +1037,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### JumpingRopeFeature
+#### JumpingRopeFeature
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1058,7 +1058,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### JumpingRopeSummary
+#### JumpingRopeSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1078,7 +1078,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### JumpSummary
+#### JumpSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1097,7 +1097,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### Location
+#### Location
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1115,7 +1115,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### LocationSummary
+#### LocationSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1136,7 +1136,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### MarkPoint
+#### MarkPoint
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1158,7 +1158,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### MenstrualCycle
+#### MenstrualCycle
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1178,7 +1178,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### MenstrualCycleDetail
+#### MenstrualCycleDetail
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1204,7 +1204,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### MenstrualFlow
+#### MenstrualFlow
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1223,7 +1223,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### Mood
+#### Mood
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1242,7 +1242,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### MountainHikeDetail
+#### MountainHikeDetail
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1262,7 +1262,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### MountainHikeSummary
+#### MountainHikeSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1283,7 +1283,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### OpenWaterSwimDetail
+#### OpenWaterSwimDetail
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1304,7 +1304,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### OpenWaterSwimFeature
+#### OpenWaterSwimFeature
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1322,7 +1322,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### OpenWaterSwimSummary
+#### OpenWaterSwimSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1344,7 +1344,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### OvulationTestPaper
+#### OvulationTestPaper
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1363,7 +1363,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### PedalingCadence
+#### PedalingCadence
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1380,7 +1380,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### PedalingCadenceSummary
+#### PedalingCadenceSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1399,7 +1399,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### PhysicalSymptoms
+#### PhysicalSymptoms
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1418,7 +1418,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### PoolSwimDetail
+#### PoolSwimDetail
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1438,7 +1438,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### PoolSwimFeature
+#### PoolSwimFeature
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1458,7 +1458,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### PoolSwimSummary
+#### PoolSwimSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1481,7 +1481,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### Power
+#### Power
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1498,7 +1498,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### PowerSummary
+#### PowerSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1517,7 +1517,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### QuantitySummary
+#### QuantitySummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1536,7 +1536,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### Resistance
+#### Resistance
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1553,7 +1553,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### ResistanceSummary
+#### ResistanceSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1582,7 +1582,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### RestingHeartRate
+#### RestingHeartRate
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1599,7 +1599,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### RestingHeartRateAggregation
+#### RestingHeartRateAggregation
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1616,7 +1616,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### RowerDetail
+#### RowerDetail
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1637,7 +1637,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### RowerFeature
+#### RowerFeature
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1654,7 +1654,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### RowerSummary
+#### RowerSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1678,7 +1678,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### RowingDetail
+#### RowingDetail
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1696,7 +1696,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### RowingFeature
+#### RowingFeature
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1713,7 +1713,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### RowingSummary
+#### RowingSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1734,7 +1734,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### RunningDetail
+#### RunningDetail
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1756,7 +1756,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### RunningFeature
+#### RunningFeature
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1776,7 +1776,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### RunningForm
+#### RunningForm
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1805,7 +1805,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### RunningFormSummary
+#### RunningFormSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1835,7 +1835,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### RunningSummary
+#### RunningSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1861,7 +1861,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### ScubaDivingDetail
+#### ScubaDivingDetail
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1879,7 +1879,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### ScubaDivingFeature
+#### ScubaDivingFeature
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1907,7 +1907,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### ScubaDivingSummary
+#### ScubaDivingSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1927,7 +1927,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### Sexuality
+#### Sexuality
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1946,7 +1946,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### SkiingDetail
+#### SkiingDetail
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1966,7 +1966,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### SkiingFeature
+#### SkiingFeature
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1987,7 +1987,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### SkiingSummary
+#### SkiingSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2008,7 +2008,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### Skin
+#### Skin
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2027,7 +2027,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### SkinTemperature
+#### SkinTemperature
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2044,7 +2044,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### SkinTemperatureAggregation
+#### SkinTemperatureAggregation
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2061,7 +2061,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### SkipSpeed
+#### SkipSpeed
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2078,7 +2078,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### SkipSpeedSummary
+#### SkipSpeedSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2097,7 +2097,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### SledDetail
+#### SledDetail
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2115,7 +2115,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### SledSummary
+#### SledSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2133,7 +2133,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### Sleep
+#### Sleep
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2170,7 +2170,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### SleepDetail
+#### SleepDetail
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2187,7 +2187,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### SleepNap
+#### SleepNap
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2205,7 +2205,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### SleepSegment
+#### SleepSegment
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2223,7 +2223,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### SnowboardingDetail
+#### SnowboardingDetail
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2243,7 +2243,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### SnowboardingFeature
+#### SnowboardingFeature
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2264,7 +2264,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### SnowboardingSummary
+#### SnowboardingSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2285,7 +2285,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### Speed
+#### Speed
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2302,7 +2302,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### SpeedSummary
+#### SpeedSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2321,7 +2321,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### SportsDetail
+#### SportsDetail
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2338,7 +2338,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### SportsSummary
+#### SportsSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2356,7 +2356,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### StepSummary
+#### StepSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2373,7 +2373,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### Stress
+#### Stress
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2390,7 +2390,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### StressAggregation
+#### StressAggregation
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2407,7 +2407,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### StrokeRate
+#### StrokeRate
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2424,7 +2424,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### StrokeRateSummary
+#### StrokeRateSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2442,7 +2442,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### SwimStrokeRate
+#### SwimStrokeRate
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2459,7 +2459,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### SwimStrokeRateSummary
+#### SwimStrokeRateSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2476,7 +2476,7 @@ import { healthStore } from '@kit.HealthServiceKit';
  
   
 
-##### Swolf
+#### Swolf
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2493,7 +2493,7 @@ SWOLF采样数据字段列表，继承[healthStore.SequencePoint](https://develo
  
   
 
-##### SwolfSummary
+#### SwolfSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2512,7 +2512,7 @@ SWOLF统计数据字段列表。
  
   
 
-##### WalkingDetail
+#### WalkingDetail
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2533,7 +2533,7 @@ SWOLF统计数据字段列表。
  
   
 
-##### WalkingSummary
+#### WalkingSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2557,7 +2557,7 @@ SWOLF统计数据字段列表。
  
   
 
-##### WaterTemperature
+#### WaterTemperature
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2574,7 +2574,7 @@ SWOLF统计数据字段列表。
  
   
 
-##### WaterTemperatureSummary
+#### WaterTemperatureSummary
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -2592,7 +2592,7 @@ SWOLF统计数据字段列表。
  
   
 
-##### Weight
+#### Weight
 
 **支持设备：** Phone | Tablet | Wearable
 

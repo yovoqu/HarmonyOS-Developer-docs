@@ -10,7 +10,7 @@
 **起始版本：** 6.1.0(23)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -20,7 +20,7 @@ import { hdsMaterial } from '@kit.UIDesignKit';
 
 
 
-##### getSystemMaterialTypes
+#### getSystemMaterialTypes
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -60,7 +60,7 @@ try {
 
 
 
-##### MaterialType
+#### MaterialType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -83,7 +83,7 @@ try {
 
 
 
-##### MaterialLevel
+#### MaterialLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

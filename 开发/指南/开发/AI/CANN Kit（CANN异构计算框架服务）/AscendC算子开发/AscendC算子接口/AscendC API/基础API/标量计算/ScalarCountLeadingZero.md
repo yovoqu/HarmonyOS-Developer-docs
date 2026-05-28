@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-scalarcountleadingzero
 
-##### 功能说明
+#### 功能说明
 
 计算一个uint64_t类型数字前导0的个数（二进制从最高位到第一个1一共有多少个0）。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 __aicore__ inline int64_t ScalarCountLeadingZero(uint64_t valueIn)
@@ -18,7 +18,7 @@ __aicore__ inline int64_t ScalarCountLeadingZero(uint64_t valueIn)
  
   
 
-##### 参数说明
+#### 参数说明
 
 **表1** 参数说明
   
@@ -29,13 +29,13 @@ __aicore__ inline int64_t ScalarCountLeadingZero(uint64_t valueIn)
  
   
 
-##### 返回值
+#### 返回值
 
 返回valueIn的前导0的个数。
  
   
 
-##### 支持的型号
+#### 支持的型号
 
 Kirin9020系列处理器
  
@@ -43,13 +43,13 @@ KirinX90系列处理器
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 uint64_t valueIn = 0x0ffffffffffffffff;

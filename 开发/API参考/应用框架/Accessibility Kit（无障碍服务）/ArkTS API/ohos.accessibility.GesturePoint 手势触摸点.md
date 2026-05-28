@@ -14,7 +14,7 @@ GesturePoint表示手势触摸点。
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -24,7 +24,7 @@ import { GesturePoint } from '@kit.AccessibilityKit';
  
   
 
-##### GesturePoint
+#### GesturePoint
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -34,7 +34,7 @@ import { GesturePoint } from '@kit.AccessibilityKit';
  
   
 
-##### 属性
+#### 属性
  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -44,7 +44,7 @@ import { GesturePoint } from '@kit.AccessibilityKit';
  
   
 
-##### constructor(deprecated)
+#### constructor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

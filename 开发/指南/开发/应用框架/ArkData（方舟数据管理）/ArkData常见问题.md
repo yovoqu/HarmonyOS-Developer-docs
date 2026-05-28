@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-faq
 
-##### 如何查看关系型数据库详细的SQL执行异常信息
+#### 如何查看关系型数据库详细的SQL执行异常信息
 
 可以调用[on('sqliteErrorOccurred')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#onsqliteerroroccurred20)获取SQL执行时出现的异常信息。
 
 
 
-##### 如何查看关系型数据库生成的SQL语句
+#### 如何查看关系型数据库生成的SQL语句
 
 可以调用[relationalStore.getInsertSqlInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-f#relationalstoregetinsertsqlinfo20)获取用于插入数据的SQL语句。
 
@@ -22,7 +22,7 @@
 
 
 
-##### 关系型数据库不同文件说明
+#### 关系型数据库不同文件说明
 
 当使用关系型数据时，可能会生成不同的文件产物，不同的文件对应作用具体可见下表。
 
@@ -39,7 +39,7 @@
 
 
 
-##### 关系型数据库错误码常见场景及排查步骤
+#### 关系型数据库错误码常见场景及排查步骤
 
 > [!NOTE]
 > 以下错误码可参考： 关系型数据库错误码 。 获取hilog系统日志的方法可参考： hilog日志查看 。 以下可搜索的日志在不同版本上可能存在差异。
@@ -47,7 +47,7 @@
 
 
 
-##### 错误码：14800000
+#### 错误码：14800000
 
 **可能原因：**
 
@@ -98,7 +98,7 @@
 
   
 
-  ##### 错误码：14800011
+  #### 错误码：14800011
 
   **可能原因：**
 
@@ -120,7 +120,7 @@
 
   
 
-  ##### 错误码：14800013
+  #### 错误码：14800013
 
   **可能原因：** 传入的列索引参数超过表中字段的数量或者为负值，因此调用[getLong](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getlong)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等接口会失败。
 
@@ -133,7 +133,7 @@
 
 
 
-##### 错误码：14800021
+#### 错误码：14800021
 
 **可能原因：**
 
@@ -172,7 +172,7 @@
 
   
 
-  ##### 错误码：14800012
+  #### 错误码：14800012
 
   **可能原因：**
 

@@ -14,19 +14,19 @@
 
 
 
-##### 功能介绍
+#### 功能介绍
 
 应用服务端调用华为账号服务的接口，通过用户的OpenID或UnionID获取GroupUnionID信息。
 
 
 
-##### 场景描述
+#### 场景描述
 
 不同开发者的应用可通过GroupUnionID关联用户数据，实现数据互通。如果需要实现数据互通的不同开发者应用已具备用户OpenID或UnionID，可以通过该接口批量将用户OpenID或UnionID转换为GroupUnionID。
 
 
 
-##### 使用约束
+#### 使用约束
 
  - 需确保调用端网络正常。
  - 仅对企业开发者开放。
@@ -36,7 +36,7 @@
 
 
 
-##### 接口原型
+#### 接口原型
 
  - **承载协议：** HTTPS POST
  - **接口方向：** 开发者服务器->华为账号服务器
@@ -50,11 +50,11 @@
 
 
 
-##### 请求参数
+#### 请求参数
 
 
 
-##### Request Header
+#### Request Header
 
 | 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
@@ -64,7 +64,7 @@
 
 
 
-##### Request Body
+#### Request Body
 
 | 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
@@ -74,7 +74,7 @@
 
 
 
-##### 请求示例
+#### 请求示例
 
 请通过POST方式调用，示例如下：
 
@@ -91,11 +91,11 @@ Authorization：Bearer <access_token>
 
 
 
-##### 响应参数
+#### 响应参数
 
 
 
-##### Response Header
+#### Response Header
 
 | 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
@@ -104,7 +104,7 @@ Authorization：Bearer <access_token>
 
 
 
-##### Response Body
+#### Response Body
 
 调用成功时，响应消息体返回如下：
 
@@ -128,7 +128,7 @@ Authorization：Bearer <access_token>
 
 
 
-##### OpenIdToGroupUnionIdInfo
+#### OpenIdToGroupUnionIdInfo
 
 | 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
@@ -138,7 +138,7 @@ Authorization：Bearer <access_token>
 
 
 
-##### UnionIdToGroupUnionIdInfo
+#### UnionIdToGroupUnionIdInfo
 
 | 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
@@ -148,11 +148,11 @@ Authorization：Bearer <access_token>
 
 
 
-##### 响应示例
+#### 响应示例
 
 
 
-##### 请求成功时（入参为openIdList场景）
+#### 请求成功时（入参为openIdList场景）
 
 ```json
 HTTP/1.1 200 OK
@@ -168,7 +168,7 @@ Content-Type: application/json; charset=utf-8
 
 
 
-##### 请求成功时（入参为unionIdList场景）
+#### 请求成功时（入参为unionIdList场景）
 
 ```json
 HTTP/1.1 200 OK
@@ -184,7 +184,7 @@ Content-Type: application/json; charset=utf-8
 
 
 
-##### 请求失败时
+#### 请求失败时
 
 ```json
 HTTP/1.1 200 OK
@@ -198,7 +198,7 @@ Content-Type: application/json; charset=utf-8
 
 
 
-##### 示例代码
+#### 示例代码
 
 Java示例代码如下，运行前需要进行[示例代码环境配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-common#示例代码环境配置)（请将此示例代码与工具类CallUtils放于同一路径下，如不在同一路径，请手动添加import）
 
@@ -296,7 +296,7 @@ public class GroupUnionIdBatchGetDemo {
 
 
 
-##### 错误码
+#### 错误码
 
 | HTTP响应码 | 描述 | 解决方法 |
 | --- | --- | --- |

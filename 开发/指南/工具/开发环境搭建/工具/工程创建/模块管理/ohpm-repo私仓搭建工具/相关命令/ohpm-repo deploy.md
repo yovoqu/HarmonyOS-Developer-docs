@@ -7,13 +7,13 @@
 使用备份文件部署新的ohpm-repo实例。
  
 
-##### 前提条件
+#### 前提条件
 
 已获得由[pack 命令](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-repo-pack)打包的.zip文件。
  
  
 
-##### 命令格式
+#### 命令格式
 
 ```text
 ohpm-repo deploy <file_path> [options]
@@ -21,17 +21,17 @@ ohpm-repo deploy <file_path> [options]
  
  
 
-##### 功能描述
+#### 功能描述
 
 命令将使用由ohpm-repo pack得到的打包产物部署新的ohpm-repo实例。 命令要求数据存储必须使用mysql，文件存储必须使用sftp或者custom ，且在命令执行时，会检查数据库mysql中存储的ohpm-repo实例列表与配置的sftp或者custom存储目录中的ohpm-repo实例列表是否一致，若不一致则命令执行失败。
  
  
 
-##### 参数
+#### 参数
 
  
 
-##### &lt;file_path&gt;
+#### &lt;file_path&gt;
 
 - 类型：String
 - 必填参数
@@ -41,11 +41,11 @@ ohpm-repo deploy <file_path> [options]
  
  
 
-##### 选项
+#### 选项
 
  
 
-##### deploy_root
+#### deploy_root
 
 - windows系统默认值："~/AppData/Roaming/Huawei/ohpm-repo"
 - 其他系统默认值："~/ohpm-repo"
@@ -56,7 +56,7 @@ ohpm-repo deploy <file_path> [options]
  
  
 
-##### logs
+#### logs
 
 - 类型： String
 
@@ -65,7 +65,7 @@ ohpm-repo deploy <file_path> [options]
  
  
 
-##### uplinkCachePath
+#### uplinkCachePath
 
 - 类型： String
 
@@ -78,7 +78,7 @@ ohpm-repo deploy <file_path> [options]
  
  
 
-##### skip-db
+#### skip-db
 
 - 默认值：false
 - 类型：Boolean
@@ -93,7 +93,7 @@ ohpm-repo deploy <file_path> [options]
  
  
 
-##### 示例
+#### 示例
 
 执行以下命令：
  
@@ -104,4 +104,4 @@ ohpm-repo deploy D:\ohpm-repo\bin\pack_1695805599689.zip --deploy_root D:\new-oh
 结果示例：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0f/v3/myBWFb66QZygcvZ4vZdy2g/zh-cn_image_0000002571545446.png?HW-CC-KV=V1&HW-CC-Date=20260528T015019Z&HW-CC-Expire=86400&HW-CC-Sign=4D629ADCCE9445C64EFF8A6082BA961351E2A0040A133FE6DC6237F5BEB755A2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/T4xf__-aRMCb-J2PcR0lwA/zh-cn_image_0000002571545446.png?HW-CC-KV=V1&HW-CC-Date=20260528T030649Z&HW-CC-Expire=86400&HW-CC-Sign=E299F2B2D755D26EC966A50E4B921596C28A5D5D90C5957BF8362727AE41157F)

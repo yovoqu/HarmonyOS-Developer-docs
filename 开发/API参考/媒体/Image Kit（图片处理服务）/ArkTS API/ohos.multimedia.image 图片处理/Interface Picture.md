@@ -14,7 +14,7 @@ Picture类，一些包含特殊信息的图片可以解码为Picture（也可以
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { image } from '@kit.ImageKit';
 
 
 
-##### getMainPixelmap13+
+#### getMainPixelmap13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -67,7 +67,7 @@ async function GetMainPixelmap(pictureObj : image.Picture) {
 
 
 
-##### getHdrComposedPixelmap13+
+#### getHdrComposedPixelmap13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -120,7 +120,7 @@ async function GetHdrComposedPixelmap(pictureObj : image.Picture) {
 
 
 
-##### getHdrComposedPixelmapWithOptions23+
+#### getHdrComposedPixelmapWithOptions23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -190,7 +190,7 @@ async function GetHdrComposedPixelmapWithOptions(picture : image.Picture) {
 
 
 
-##### getGainmapPixelmap13+
+#### getGainmapPixelmap13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -237,7 +237,7 @@ async function GetGainmapPixelmap(pictureObj : image.Picture) {
 
 
 
-##### setAuxiliaryPicture13+
+#### setAuxiliaryPicture13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -294,7 +294,7 @@ async function SetAuxiliaryPicture(context: Context) {
 
 
 
-##### getAuxiliaryPicture13+
+#### getAuxiliaryPicture13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -340,7 +340,7 @@ async function GetAuxiliaryPicture(pictureObj : image.Picture) {
 
 
 
-##### setMetadata13+
+#### setMetadata13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -411,7 +411,7 @@ async function SetPictureObjMetadata(exifContext: Context) {
 
 
 
-##### getMetadata13+
+#### getMetadata13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -465,7 +465,7 @@ async function GetPictureObjMetadataProperties(pictureObj : image.Picture) {
 
 
 
-##### marshalling13+
+#### marshalling13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -541,7 +541,7 @@ async function Marshalling_UnMarshalling(pictureObj : image.Picture) {
 
 
 
-##### release13+
+#### release13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

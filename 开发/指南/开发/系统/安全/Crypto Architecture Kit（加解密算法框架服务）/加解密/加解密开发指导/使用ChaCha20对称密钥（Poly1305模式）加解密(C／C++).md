@@ -9,7 +9,7 @@
 对应的算法规格请查看[对称密钥加解密算法规格：ChaCha20](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sym-encrypt-decrypt-spec#chacha20)。
 
 
-##### 在CMake脚本中链接相关动态库
+#### 在CMake脚本中链接相关动态库
 
 ```text
 target_link_libraries(entry PUBLIC libohcrypto.so)
@@ -17,7 +17,7 @@ target_link_libraries(entry PUBLIC libohcrypto.so)
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 **创建对象**
 

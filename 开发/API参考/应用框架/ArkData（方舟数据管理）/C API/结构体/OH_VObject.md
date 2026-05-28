@@ -10,7 +10,7 @@ typedef struct {...} OH_VObject
 ```
   
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,13 +24,13 @@ typedef struct {...} OH_VObject
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -41,7 +41,7 @@ typedef struct {...} OH_VObject
  
   
 
-##### 成员函数
+#### 成员函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -56,13 +56,13 @@ typedef struct {...} OH_VObject
  
   
 
-##### 成员函数说明
+#### 成员函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### putInt64()
+#### putInt64()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -94,7 +94,7 @@ int (*putInt64)(OH_VObject *valueObject, int64_t *value, uint32_t count)
  
   
 
-##### putDouble()
+#### putDouble()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -126,7 +126,7 @@ int (*putDouble)(OH_VObject *valueObject, double *value, uint32_t count)
  
   
 
-##### putText()
+#### putText()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -157,7 +157,7 @@ int (*putText)(OH_VObject *valueObject, const char *value)
  
   
 
-##### putTexts()
+#### putTexts()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -189,7 +189,7 @@ int (*putTexts)(OH_VObject *valueObject, const char **value, uint32_t count)
  
   
 
-##### destroy()
+#### destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

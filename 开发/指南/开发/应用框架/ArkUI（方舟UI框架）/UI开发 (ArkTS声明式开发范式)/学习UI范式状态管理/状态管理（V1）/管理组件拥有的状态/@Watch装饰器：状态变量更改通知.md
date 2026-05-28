@@ -15,13 +15,13 @@
 
   
 
-##### 概述
+#### 概述
 
 @Watch用于监听状态变量的变化，当状态变量变化时，@Watch的回调方法将被调用。@Watch在ArkUI框架内部判断数值有无更新使用的是严格相等（===），遵循严格相等规范。当严格相等判断的结果是false（即不相等）的情况下，就会触发@Watch的回调。
  
   
 
-##### 装饰器说明
+#### 装饰器说明
  
 | @Watch补充变量装饰器 | 说明 |
 | --- | --- |
@@ -33,7 +33,7 @@
  
   
 
-##### 语法说明
+#### 语法说明
  
 | 类型 | 说明 |
 | --- | --- |
@@ -42,7 +42,7 @@
  
   
 
-##### 观察变化和行为表现
+#### 观察变化和行为表现
 1. 当观察到状态变量的变化（包括双向绑定的[AppStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-appstorage)和[LocalStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localstorage)中对应的key发生的变化）的时候，对应的@Watch的回调方法将被触发；
 2. @Watch方法在自定义组件的属性变更之后同步执行；
 3. 如果在@Watch的方法里改变了其他的状态变量，也会引起状态变更和@Watch的执行；
@@ -50,7 +50,7 @@
  
   
 
-##### 限制条件
+#### 限制条件
 
 - 建议开发者避免无限循环。循环可能是因为在@Watch的回调方法里直接或者间接地修改了同一个状态变量引起的。为了避免循环的产生，建议不要在@Watch的回调方法里修改当前装饰的状态变量；
 - 开发者应关注性能，属性值更新函数会延迟组件的重新渲染（具体请见上面的行为表现），因此，回调函数应仅执行快速运算；
@@ -106,11 +106,11 @@ change() {
  
   
 
-##### 使用场景
+#### 使用场景
 
   
 
-##### @Watch和自定义组件更新
+#### @Watch和自定义组件更新
 
 以下示例展示组件更新和@Watch的处理步骤。count在CountModifier中由@State装饰，在TotalView中由@Prop装饰。
  
@@ -154,7 +154,7 @@ struct CountModifier {
  
   
 
-##### @Watch与@Link组合使用
+#### @Watch与@Link组合使用
 
 以下示例说明了如何在子组件中观察@Link变量。
  
@@ -228,12 +228,12 @@ struct BasketModifier {
 效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/EN4E815IRaq0MrI9mZzXeQ/zh-cn_image_0000002611833495.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014818Z&HW-CC-Expire=86400&HW-CC-Sign=FFE0AAB7D869AF9D75234755EA72B1EC8F1EF7704B8F3F4EE112CD67C454B0FB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/EN4E815IRaq0MrI9mZzXeQ/zh-cn_image_0000002611833495.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030449Z&HW-CC-Expire=86400&HW-CC-Sign=599409B29F6605AFB49B6A6CD611856B15DF66F646642E45ED6891137D3EF985)
 
  
   
 
-##### @Watch的触发时机
+#### @Watch的触发时机
 
 为了展示@Watch回调触发时间是根据状态变量真正变化的时间，本示例在子组件中同时使用@Link和[@ObjectLink](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink)装饰器，分别观察不同的状态对象。通过在父组件中更改状态变量并观察@Watch回调的先后顺序，来表明@Watch触发的时机与赋值、同步的关系。
  
@@ -355,7 +355,7 @@ struct ChildComponent {
  
   
 
-##### 使用changedPropertyName进行不同的逻辑处理
+#### 使用changedPropertyName进行不同的逻辑处理
 
 以下示例说明了如何在@Watch函数中使用changedPropertyName进行不同的逻辑处理。
  

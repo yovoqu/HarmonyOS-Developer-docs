@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-location-type-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -42,7 +42,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -56,7 +56,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -75,13 +75,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### Location_ResultCode
+#### Location_ResultCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -107,7 +107,7 @@ enum Location_ResultCode
  
   
 
-##### Location_UseScene
+#### Location_UseScene
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -131,7 +131,7 @@ enum Location_UseScene
  
   
 
-##### Location_PowerConsumptionScene
+#### Location_PowerConsumptionScene
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -154,7 +154,7 @@ enum Location_PowerConsumptionScene
  
   
 
-##### Location_SourceType
+#### Location_SourceType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -178,13 +178,13 @@ enum Location_SourceType
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_LocationInfo_GetBasicInfo()
+#### OH_LocationInfo_GetBasicInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -214,7 +214,7 @@ Location_BasicInfo OH_LocationInfo_GetBasicInfo(Location_Info* location)
  
   
 
-##### OH_LocationInfo_GetAdditionalInfo()
+#### OH_LocationInfo_GetAdditionalInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -246,7 +246,7 @@ Location_ResultCode OH_LocationInfo_GetAdditionalInfo(Location_Info* location, c
  
   
 
-##### Location_InfoCallback()
+#### Location_InfoCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -270,7 +270,7 @@ typedef void (*Location_InfoCallback)(Location_Info* location, void* userData)
  
   
 
-##### OH_Location_CreateRequestConfig()
+#### OH_Location_CreateRequestConfig()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -293,7 +293,7 @@ Location_RequestConfig* OH_Location_CreateRequestConfig(void)
  
   
 
-##### OH_Location_DestroyRequestConfig()
+#### OH_Location_DestroyRequestConfig()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -316,7 +316,7 @@ void OH_Location_DestroyRequestConfig(Location_RequestConfig* requestConfig)
  
   
 
-##### OH_LocationRequestConfig_SetUseScene()
+#### OH_LocationRequestConfig_SetUseScene()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -348,7 +348,7 @@ void OH_LocationRequestConfig_SetUseScene(Location_RequestConfig* requestConfig,
  
   
 
-##### OH_LocationRequestConfig_SetPowerConsumptionScene()
+#### OH_LocationRequestConfig_SetPowerConsumptionScene()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -372,7 +372,7 @@ void OH_LocationRequestConfig_SetPowerConsumptionScene(Location_RequestConfig* r
  
   
 
-##### OH_LocationRequestConfig_SetInterval()
+#### OH_LocationRequestConfig_SetInterval()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -396,7 +396,7 @@ void OH_LocationRequestConfig_SetInterval(Location_RequestConfig* requestConfig,
  
   
 
-##### OH_LocationRequestConfig_SetCallback()
+#### OH_LocationRequestConfig_SetCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

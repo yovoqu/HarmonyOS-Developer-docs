@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-ddgicreateinfo
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -19,13 +19,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  
@@ -42,13 +42,13 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### enableCloud
+#### enableCloud
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -62,7 +62,7 @@ bool XEG_DDGICreateInfo::enableCloud
  
   
 
-##### numberVolume
+#### numberVolume
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -76,7 +76,7 @@ uint32_t XEG_DDGICreateInfo::numberVolume
  
   
 
-##### pNext
+#### pNext
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -90,7 +90,7 @@ const void* XEG_DDGICreateInfo::pNext
  
   
 
-##### qualityMode
+#### qualityMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -104,7 +104,7 @@ XEG_RTGIQualityMode XEG_DDGICreateInfo::qualityMode
  
   
 
-##### scaledView
+#### scaledView
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -118,7 +118,7 @@ VkExtent2D XEG_DDGICreateInfo::scaledView
  
   
 
-##### sType
+#### sType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -132,7 +132,7 @@ XEG_StructureType XEG_DDGICreateInfo::sType
  
   
 
-##### viewSize
+#### viewSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

@@ -7,13 +7,13 @@
 从DevEco Studio 6.0.0 Beta3版本开始，支持在DevEco Testing中进行性能相关测试生成检测报告后，导入到AppAnalyzer进行诊断和分析，获得可能的故障原因并生成体检报告。
  
 
-##### 前置操作
+#### 前置操作
 
 体检前，请先在DevEco Testing中测试并导出检测报告，具体操作方式请参考[性能基础质量测试](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/specialized-testing#section12324184817324)或[场景化性能测试](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/specialized-testing#section8642101711299)。
  
  
 
-##### 进行体检
+#### 进行体检
 
 > [!NOTE]
 > 由于DevEco Testing和AppAnalyzer在检测能力、检测方法以及场景识别上存在差异，所以通过DevEco Testing检测并导入AppAnalyzer诊断和直接通过AppAnalyzer检测并诊断，检测和诊断结果会出现不一致的情况。
@@ -21,7 +21,7 @@
  
  
 
-##### DevEco Studio 6.0.1 Beta1及以上版本
+#### DevEco Studio 6.0.1 Beta1及以上版本
 1. 点击菜单栏**Tools > ****AppAnalyzer**，打开AppAnalyzer页面，点击底部**体检历史**按钮，点击右上角的**导入报告**按钮，根据界面提示，确保即将导入的检测报告满足相关要求。
 ![](assets/导入DevEco%20Testing的检测报告进行诊断/file-20260514133045844-1.png)
 
@@ -35,7 +35,7 @@
  
  
 
-##### DevEco Studio 6.0.1 Beta1以下版本
+#### DevEco Studio 6.0.1 Beta1以下版本
 1. 点击菜单栏**Tools > ****AppAnalyzer**，打开AppAnalyzer页面，点击底部**历史记录**按钮，进入历史记录页面。
 2. 点击右上角的**检测报告导入**按钮，首次测试时，请根据AppAnalyzer的指引，下载Python及三方库，并根据界面提示，确保即将导入的检测报告满足相关要求。
 ![](assets/导入DevEco%20Testing的检测报告进行诊断/file-20260514133045844-4.png)
@@ -54,7 +54,7 @@
  
  
 
-##### 检测指标
+#### 检测指标
 
 AppAnalyzer会将DevEco Testing测试用例的操作归类为以下场景，仅支持对部分指标进行诊断，具体如下。
   

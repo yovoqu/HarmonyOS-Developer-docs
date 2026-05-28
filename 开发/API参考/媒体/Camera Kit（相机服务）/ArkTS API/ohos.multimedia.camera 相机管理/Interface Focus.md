@@ -14,7 +14,7 @@ Focus继承自[FocusQuery](https://developer.huawei.com/consumer/cn/doc/harmonyo
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { camera } from '@kit.CameraKit';
  
   
 
-##### setFocusMode11+
+#### setFocusMode11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -72,7 +72,7 @@ function setFocusMode(photoSession: camera.PhotoSession): void {
  
   
 
-##### getFocusMode11+
+#### getFocusMode11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -120,7 +120,7 @@ function getFocusMode(photoSession: camera.PhotoSession): camera.FocusMode | und
  
   
 
-##### setFocusPoint11+
+#### setFocusPoint11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -169,7 +169,7 @@ function setFocusPoint(photoSession: camera.PhotoSession): void {
  
   
 
-##### getFocusPoint11+
+#### getFocusPoint11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -217,7 +217,7 @@ function getFocusPoint(photoSession: camera.PhotoSession): camera.Point | undefi
  
   
 
-##### getFocalLength11+
+#### getFocalLength11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -7,7 +7,7 @@
 3D编辑器ArkGraphics Editor提供3D模型、动画、ShaderGraph等核心编辑能力，可供设计师、开发者快速接入使用。支持通过拖拽等操作，利用3D编辑器可视化能力，完成3D场景开发，3D设计效果所见即所得。无需代码编写，支持从PC到移动端设备的快速流转， 可大幅提升3D应用开发效率。
   
 
-##### 主要功能
+#### 主要功能
 
 ArkGraphics Editor编辑器当前主要支持功能如下：
  
@@ -31,7 +31,7 @@ ArkGraphics Editor插件支持的主要功能如下：
  
   
 
-##### 插件的安装及编辑器的使用
+#### 插件的安装及编辑器的使用
 1. 前往[下载中心](https://developer.huawei.com/consumer/cn/download/)下载最新版本ArkGraphics Editor插件。
 2. 点击DevEco Studio菜单项的File，选择Settings，选择左边列表的Plugins。
 3. 点击Plugins窗口的顶部设置按钮，选择Install Plugin from Disk...。
@@ -56,7 +56,7 @@ ArkGraphics Editor插件支持的主要功能如下：
  
   
 
-##### 创建使用3D编辑器资源的工程
+#### 创建使用3D编辑器资源的工程
 1. 创建一个新工程或在已有工程下，右键工程名，选择New，选择Ark Graphics Editor Project。
 
   
@@ -75,7 +75,7 @@ ArkGraphics Editor插件支持的主要功能如下：
 4. 点击右下角Editor，可打开编辑器编辑3D资源，编辑保存后，可显示编辑后的资源。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/M-fii9pOQOaN3HEa3FyOPw/zh-cn_image_0000002611754737.png?HW-CC-KV=V1&HW-CC-Date=20260528T014858Z&HW-CC-Expire=86400&HW-CC-Sign=36EBA33C2BF63A54630884879D10E5121795D5918067AB48BDAAEDE9B58BB6BE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/M-fii9pOQOaN3HEa3FyOPw/zh-cn_image_0000002611754737.png?HW-CC-KV=V1&HW-CC-Date=20260528T030527Z&HW-CC-Expire=86400&HW-CC-Sign=9A74BA15FBF92808450ACCC830DEA09FA04C7A7B5B183704580F29E702D56447)
 
 5. 修改复制资源脚本文件。
 

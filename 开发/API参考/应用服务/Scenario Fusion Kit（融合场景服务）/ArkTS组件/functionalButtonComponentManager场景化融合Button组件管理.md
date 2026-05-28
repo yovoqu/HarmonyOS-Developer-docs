@@ -14,7 +14,7 @@
 **起始版本：** 4.1.0(11)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -24,7 +24,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 
-##### OpenType
+#### OpenType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -58,7 +58,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 
-##### SizeType
+#### SizeType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -80,7 +80,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 
-##### HoverClassType
+#### HoverClassType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -102,7 +102,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 
-##### ColorType
+#### ColorType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -125,7 +125,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 
-##### CredentialType(deprecated)
+#### CredentialType(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -150,7 +150,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 
-##### RealNameAuthenticationInfo(deprecated)
+#### RealNameAuthenticationInfo(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -178,7 +178,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 
-##### StyleOption
+#### StyleOption
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -207,7 +207,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 
-##### FunctionalButtonParams
+#### FunctionalButtonParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -237,7 +237,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 
-##### GetPhoneNumberResult
+#### GetPhoneNumberResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -260,7 +260,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 
-##### GetRealtimePhoneNumberResult
+#### GetRealtimePhoneNumberResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -283,7 +283,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 
-##### OpenSettingResult
+#### OpenSettingResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -306,7 +306,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 
-##### ChooseAvatarResult
+#### ChooseAvatarResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -329,7 +329,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 
-##### AppParam
+#### AppParam
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -353,7 +353,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 
-##### ChooseAddressResult
+#### ChooseAddressResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -385,7 +385,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 
-##### ChooseInvoiceTitleResult
+#### ChooseInvoiceTitleResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -414,7 +414,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 
-##### RealNameAuthenticationResult
+#### RealNameAuthenticationResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -438,7 +438,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 
-##### FaceAuthenticationResult
+#### FaceAuthenticationResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -462,7 +462,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 
-##### FaceVerificationResult
+#### FaceVerificationResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -486,7 +486,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 
-##### ChooseLocationResult
+#### ChooseLocationResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -512,7 +512,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 
-##### SubscribeLiveViewParam
+#### SubscribeLiveViewParam
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -535,7 +535,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 
-##### SubscribeLiveViewResult
+#### SubscribeLiveViewResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -556,7 +556,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 
-##### PermissionSettingResult
+#### PermissionSettingResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -585,7 +585,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 
-##### RequestSubscribeMessageResult
+#### RequestSubscribeMessageResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -612,7 +612,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 
-##### ShareParam
+#### ShareParam
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -640,7 +640,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 
-##### GetPhoneNumberAndRiskLevelResult
+#### GetPhoneNumberAndRiskLevelResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -663,7 +663,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -671,7 +671,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 
-##### FunctionalButtonController
+#### FunctionalButtonController
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -687,7 +687,7 @@ FunctionalButton组件控制器，用来回调组件内部的点击事件。
 
 
 
-##### onGetPhoneNumber
+#### onGetPhoneNumber
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -767,7 +767,7 @@ struct Index {
 
 
 
-##### onGetRealtimePhoneNumber
+#### onGetRealtimePhoneNumber
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -849,7 +849,7 @@ struct Index {
 
 
 
-##### onLaunchApp
+#### onLaunchApp
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -935,7 +935,7 @@ struct Index {
 
 
 
-##### onOpenSetting
+#### onOpenSetting
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1015,7 +1015,7 @@ struct Index {
 
 
 
-##### onChooseAvatar
+#### onChooseAvatar
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1100,7 +1100,7 @@ struct Index {
 
 
 
-##### onChooseAddress
+#### onChooseAddress
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1195,7 +1195,7 @@ struct Index {
 
 
 
-##### onChooseInvoiceTitle
+#### onChooseInvoiceTitle
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1289,7 +1289,7 @@ struct Index {
 
 
 
-##### onRealNameAuthentication
+#### onRealNameAuthentication
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1439,7 +1439,7 @@ struct SecondPage {
 
 
 
-##### onFaceAuthentication
+#### onFaceAuthentication
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1596,7 +1596,7 @@ struct SecondPage {
 
 
 
-##### onFaceVerification
+#### onFaceVerification
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1747,7 +1747,7 @@ struct SecondPage {
 
 
 
-##### onChooseLocation
+#### onChooseLocation
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1837,7 +1837,7 @@ struct Index {
 
 
 
-##### onSubscribeLiveView
+#### onSubscribeLiveView
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1919,7 +1919,7 @@ struct Index {
 
 
 
-##### onPermissionSetting
+#### onPermissionSetting
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2031,7 +2031,7 @@ struct Index {
 
 
 
-##### onRequestSubscribeMessage
+#### onRequestSubscribeMessage
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2122,7 +2122,7 @@ struct Index {
 
 
 
-##### onShare
+#### onShare
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2215,7 +2215,7 @@ struct Index {
 
 
 
-##### onFeedback
+#### onFeedback
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2302,7 +2302,7 @@ struct Index {
 
 
 
-##### onGetPhoneNumberAndRiskLevel
+#### onGetPhoneNumberAndRiskLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2380,7 +2380,7 @@ struct Index {
 
 
 
-##### ButtonConfig
+#### ButtonConfig
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2396,7 +2396,7 @@ struct Index {
 
 
 
-##### type
+#### type
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2428,7 +2428,7 @@ type(value: ButtonType): ButtonConfig
 
 
 
-##### stateEffect
+#### stateEffect
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2460,7 +2460,7 @@ stateEffect(value: boolean): ButtonConfig
 
 
 
-##### fontColor
+#### fontColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2492,7 +2492,7 @@ fontColor(value: ResourceColor): ButtonConfig
 
 
 
-##### fontSize
+#### fontSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2524,7 +2524,7 @@ fontSize(value: Length): ButtonConfig
 
 
 
-##### fontWeight
+#### fontWeight
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2556,7 +2556,7 @@ fontWeight(value: string | number | FontWeight): ButtonConfig
 
 
 
-##### fontStyle
+#### fontStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2588,7 +2588,7 @@ fontStyle(value: FontStyle): ButtonConfig
 
 
 
-##### fontFamily
+#### fontFamily
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2620,7 +2620,7 @@ fontFamily(value: string | Resource): ButtonConfig
 
 
 
-##### width
+#### width
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2652,7 +2652,7 @@ width(value: Length): ButtonConfig
 
 
 
-##### height
+#### height
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2684,7 +2684,7 @@ height(value: Length): ButtonConfig
 
 
 
-##### size
+#### size
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2716,7 +2716,7 @@ size(value: SizeOptions): ButtonConfig
 
 
 
-##### constraintSize
+#### constraintSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2748,7 +2748,7 @@ constraintSize(value: ConstraintSizeOptions): ButtonConfig
 
 
 
-##### padding
+#### padding
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2780,7 +2780,7 @@ padding(value: Length | Padding): ButtonConfig
 
 
 
-##### margin
+#### margin
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2812,7 +2812,7 @@ margin(value: Length | Padding): ButtonConfig
 
 
 
-##### backgroundColor
+#### backgroundColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2844,7 +2844,7 @@ backgroundColor(value: ResourceColor): ButtonConfig
 
 
 
-##### backgroundImage
+#### backgroundImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2877,7 +2877,7 @@ backgroundImage(src: ResourceStr, repeat?: ImageRepeat): ButtonConfig
 
 
 
-##### backgroundImageSize
+#### backgroundImageSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2909,7 +2909,7 @@ backgroundImageSize(value: SizeOptions | ImageSize): ButtonConfig
 
 
 
-##### backgroundImagePosition
+#### backgroundImagePosition
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2941,7 +2941,7 @@ backgroundImagePosition(value: Position | Alignment): ButtonConfig
 
 
 
-##### opacity
+#### opacity
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2973,7 +2973,7 @@ opacity(value: number | Resource): ButtonConfig
 
 
 
-##### border
+#### border
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -3005,7 +3005,7 @@ border(value: BorderOptions): ButtonConfig
 
 
 
-##### borderStyle
+#### borderStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -3037,7 +3037,7 @@ borderStyle(value: BorderStyle | EdgeStyles): ButtonConfig
 
 
 
-##### borderWidth
+#### borderWidth
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -3069,7 +3069,7 @@ borderWidth(value: Length | EdgeWidths): ButtonConfig
 
 
 
-##### borderColor
+#### borderColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -3101,7 +3101,7 @@ borderColor(value: ResourceColor | EdgeColors): ButtonConfig
 
 
 
-##### borderRadius
+#### borderRadius
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -3133,7 +3133,7 @@ borderRadius(value: Length | BorderRadiuses): ButtonConfig
 
 
 
-##### borderImage
+#### borderImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -3165,7 +3165,7 @@ borderImage(value: BorderImageOption): ButtonConfig
 
 
 
-##### scale
+#### scale
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -3197,7 +3197,7 @@ scale(value: ScaleOptions): ButtonConfig
 
 
 
-##### align
+#### align
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -3229,7 +3229,7 @@ align(value: Alignment): ButtonConfig
 
 
 
-##### markAnchor
+#### markAnchor
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -3261,7 +3261,7 @@ markAnchor(value: Position): ButtonConfig
 
 
 
-##### offset
+#### offset
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -3293,7 +3293,7 @@ offset(value: Position): ButtonConfig
 
 
 
-##### enabled
+#### enabled
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -3325,7 +3325,7 @@ enabled(value: boolean): ButtonConfig
 
 
 
-##### loadingColor
+#### loadingColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -3357,7 +3357,7 @@ loadingColor(value: ResourceColor): ButtonConfig
 
 
 
-##### loadingWidth
+#### loadingWidth
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -3389,7 +3389,7 @@ loadingWidth(value: Length): ButtonConfig
 
 
 
-##### loadingHeight
+#### loadingHeight
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -3421,7 +3421,7 @@ loadingHeight(value: Length): ButtonConfig
 
 
 
-##### loadingPadding
+#### loadingPadding
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -3453,7 +3453,7 @@ loadingPadding(value: Length | Padding): ButtonConfig
 
 
 
-##### loadingMargin
+#### loadingMargin
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -3485,13 +3485,13 @@ loadingMargin(value: Length | Padding): ButtonConfig
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
 
 
-##### 示例一（场景化Button使用自定义Modifier设置按钮样式）
+#### 示例一（场景化Button使用自定义Modifier设置按钮样式）
 
 ```text
 import { FunctionalButton, functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
@@ -3541,4 +3541,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/he5jOBb8S2ef-X4hZOD4uA/zh-cn_image_0000002611836883.png?HW-CC-KV=V1&HW-CC-Date=20260528T023746Z&HW-CC-Expire=86400&HW-CC-Sign=3DA71CFE79174A3A8D043426D7D09D2BB06BE7FAD51FB23B1FE152E9F9B66128)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/he5jOBb8S2ef-X4hZOD4uA/zh-cn_image_0000002611836883.png?HW-CC-KV=V1&HW-CC-Date=20260528T025119Z&HW-CC-Expire=86400&HW-CC-Sign=B0D6CF8CD4ECF63999C6C08BDCB8CCA80D095964B915726D6177E356E2C37D23)

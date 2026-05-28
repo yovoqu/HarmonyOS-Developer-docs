@@ -7,13 +7,13 @@
 本章节给出了关键开发步骤，完整代码可以参考[示例代码](https://gitcode.com/harmonyos_samples/arengine_-sample-code_-clientdemo_cpp)。
 
 
-##### 约束与限制
+#### 约束与限制
 
 从5.0.0(12)开始，物体摆放能力支持部分Phone、Tablet设备。请参考[硬件要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-preparations#硬件要求)判断设备是否支持运动跟踪及平面识别特性（[ARENGINE_FEATURE_TYPE_SLAM](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_featuretype)）。
 
 
 
-##### 接口说明
+#### 接口说明
 
 以下接口为AR物体摆放相关接口。详细接口和说明，请参考[AR Engine API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine)。
 
@@ -41,11 +41,11 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 
 
-##### 声明Native接口
+#### 声明Native接口
 
 ArkTS接口声明。
 
@@ -88,7 +88,7 @@ napi_property_descriptor desc[] = {
 
 
 
-##### 创建UI界面
+#### 创建UI界面
 
 创建一个UI界面，使用[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)组件用于显示相机预览画面，并定时触发每一帧绘制。
 
@@ -195,13 +195,13 @@ struct ARWorld {
 
 
 
-##### 引入AR Engine
+#### 引入AR Engine
 
 开发者可参考管理AR会话章节的[引入AR Engine](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-arsession#引入ar-engine)。
 
 
 
-##### 创建AR场景
+#### 创建AR场景
 1. 调用[HMS_AREngine_ARSession_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_create)函数创建[AREngine_ARSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_arsession)会话。您可以参考[管理AR会话](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-arsession)创建ARSession。
 2. 配置AR会话及预览尺寸。
 
@@ -247,7 +247,7 @@ HMS_AREngine_ARSession_SetCameraGLTexture(arSession, textureId );
 
 
 
-##### 获取平面
+#### 获取平面
 1. 调用[HMS_AREngine_ARSession_Update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_update)函数更新当前[AREngine_ARFrame](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_arframe)对象。
 
   
@@ -364,7 +364,7 @@ for (int i = 0; i < verticesSize; ++i) {
 
 
 
-##### 点击屏幕
+#### 点击屏幕
 1. 用户点击屏幕后，基于点击事件获取屏幕坐标。可参考[Native XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent)。
 
   添加头文件：native_interface_xcomponent.h。
@@ -409,7 +409,7 @@ HMS_AREngine_ARFrame_HitTest(arSession, arFrame, pixelX, pixelY, hitResultList);
 
 
 
-##### 放置虚拟物体
+#### 放置虚拟物体
 1. 调用[HMS_AREngine_ARHitResultList_GetItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arhitresultlist_getitem)函数遍历碰撞检测结果列表，获取命中的可跟踪对象。
 
   

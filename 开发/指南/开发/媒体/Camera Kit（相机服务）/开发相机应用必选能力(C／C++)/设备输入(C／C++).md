@@ -9,7 +9,7 @@
 相机应用通过调用和控制相机设备，完成预览、拍照和录像等基础操作。
 
 
-##### 开发步骤
+#### 开发步骤
 
 详细的API说明请参考[OH_Camera](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera)。
 1. 导入NDK接口。选择系统提供的NDK接口能力，导入NDK接口的方法如下。

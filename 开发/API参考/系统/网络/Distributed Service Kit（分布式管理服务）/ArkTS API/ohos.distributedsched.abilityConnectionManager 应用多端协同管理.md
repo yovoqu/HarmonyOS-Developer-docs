@@ -12,7 +12,7 @@ abilityConnectionManager模块提供了应用协同接口管理能力。设备�
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { abilityConnectionManager } from '@kit.DistributedServiceKit';
 
 
 
-##### abilityConnectionManager.createAbilityConnectionSession
+#### abilityConnectionManager.createAbilityConnectionSession
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -185,7 +185,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### abilityConnectionManager.destroyAbilityConnectionSession
+#### abilityConnectionManager.destroyAbilityConnectionSession
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -217,7 +217,7 @@ abilityConnectionManager.destroyAbilityConnectionSession(sessionId);
 
 
 
-##### abilityConnectionManager.getPeerInfoById
+#### abilityConnectionManager.getPeerInfoById
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -265,7 +265,7 @@ const peerInfo = abilityConnectionManager.getPeerInfoById(sessionId);
 
 
 
-##### abilityConnectionManager.connect
+#### abilityConnectionManager.connect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -321,7 +321,7 @@ abilityConnectionManager.connect(sessionId).then((ConnectResult) => {
 
 
 
-##### abilityConnectionManager.acceptConnect
+#### abilityConnectionManager.acceptConnect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -414,7 +414,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### abilityConnectionManager.disconnect
+#### abilityConnectionManager.disconnect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -446,7 +446,7 @@ abilityConnectionManager.disconnect(sessionId);
 
 
 
-##### abilityConnectionManager.reject
+#### abilityConnectionManager.reject
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -497,7 +497,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### abilityConnectionManager.on('connect')
+#### abilityConnectionManager.on('connect')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -541,7 +541,7 @@ abilityConnectionManager.on("connect", sessionId,(callbackInfo) => {
 
 
 
-##### abilityConnectionManager.off('connect')
+#### abilityConnectionManager.off('connect')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -582,7 +582,7 @@ abilityConnectionManager.off("connect", sessionId);
 
 
 
-##### abilityConnectionManager.on('disconnect')
+#### abilityConnectionManager.on('disconnect')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -626,7 +626,7 @@ abilityConnectionManager.on("disconnect", sessionId,(callbackInfo) => {
 
 
 
-##### abilityConnectionManager.off('disconnect')
+#### abilityConnectionManager.off('disconnect')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -668,7 +668,7 @@ abilityConnectionManager.off("disconnect", sessionId);
 
 
 
-##### abilityConnectionManager.on('receiveMessage')
+#### abilityConnectionManager.on('receiveMessage')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -712,7 +712,7 @@ abilityConnectionManager.on("receiveMessage", sessionId,(callbackInfo) => {
 
 
 
-##### abilityConnectionManager.off('receiveMessage')
+#### abilityConnectionManager.off('receiveMessage')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -754,7 +754,7 @@ abilityConnectionManager.off("receiveMessage", sessionId);
 
 
 
-##### abilityConnectionManager.on('receiveData')
+#### abilityConnectionManager.on('receiveData')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -798,7 +798,7 @@ abilityConnectionManager.on("receiveData", sessionId,(callbackInfo) => {
 
 
 
-##### abilityConnectionManager.off('receiveData')
+#### abilityConnectionManager.off('receiveData')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -840,7 +840,7 @@ abilityConnectionManager.off("receiveData", sessionId);
 
 
 
-##### abilityConnectionManager.sendMessage
+#### abilityConnectionManager.sendMessage
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -892,7 +892,7 @@ abilityConnectionManager.sendMessage(sessionId, "message send success").then(() 
 
 
 
-##### abilityConnectionManager.sendData
+#### abilityConnectionManager.sendData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -948,7 +948,7 @@ abilityConnectionManager.sendData(sessionId, arrayBuffer.buffer).then(() => {
 
 
 
-##### PeerInfo
+#### PeerInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -969,7 +969,7 @@ abilityConnectionManager.sendData(sessionId, arrayBuffer.buffer).then(() => {
 
 
 
-##### ConnectOptions
+#### ConnectOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -988,7 +988,7 @@ abilityConnectionManager.sendData(sessionId, arrayBuffer.buffer).then(() => {
 
 
 
-##### ConnectResult
+#### ConnectResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1007,7 +1007,7 @@ abilityConnectionManager.sendData(sessionId, arrayBuffer.buffer).then(() => {
 
 
 
-##### EventCallbackInfo
+#### EventCallbackInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1027,7 +1027,7 @@ abilityConnectionManager.sendData(sessionId, arrayBuffer.buffer).then(() => {
 
 
 
-##### CollaborateEventInfo
+#### CollaborateEventInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1045,7 +1045,7 @@ abilityConnectionManager.sendData(sessionId, arrayBuffer.buffer).then(() => {
 
 
 
-##### ConnectErrorCode
+#### ConnectErrorCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1067,7 +1067,7 @@ abilityConnectionManager.sendData(sessionId, arrayBuffer.buffer).then(() => {
 
 
 
-##### StartOptionParams
+#### StartOptionParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1084,7 +1084,7 @@ abilityConnectionManager.sendData(sessionId, arrayBuffer.buffer).then(() => {
 
 
 
-##### CollaborateEventType
+#### CollaborateEventType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1102,7 +1102,7 @@ abilityConnectionManager.sendData(sessionId, arrayBuffer.buffer).then(() => {
 
 
 
-##### DisconnectReason
+#### DisconnectReason
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1121,7 +1121,7 @@ abilityConnectionManager.sendData(sessionId, arrayBuffer.buffer).then(() => {
 
 
 
-##### CollaborationKeys
+#### CollaborationKeys
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1140,7 +1140,7 @@ abilityConnectionManager.sendData(sessionId, arrayBuffer.buffer).then(() => {
 
 
 
-##### CollaborationValues
+#### CollaborationValues
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

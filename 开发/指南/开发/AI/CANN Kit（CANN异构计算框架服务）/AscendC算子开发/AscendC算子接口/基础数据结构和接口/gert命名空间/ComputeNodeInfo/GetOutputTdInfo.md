@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getoutputtdinfo
 
-##### 函数功能
+#### 函数功能
 
 获取算子指定输出的Tensor描述，注意，编译时无法确定的shape信息不在Tensor描述中（由于编译时无法确定shape，因此该Tensor描述里不包含shape信息）
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 const CompileTimeTensorDesc *GetOutputTdInfo(const size_t index) const
@@ -18,7 +18,7 @@ const CompileTimeTensorDesc *GetOutputTdInfo(const size_t index) const
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -27,19 +27,19 @@ const CompileTimeTensorDesc *GetOutputTdInfo(const size_t index) const
  
   
 
-##### 返回值
+#### 返回值
 
 返回const类型的Tensor描述信息。
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 auto compute_node_info = extend_kernel_context->GetComputeNodeInfo();

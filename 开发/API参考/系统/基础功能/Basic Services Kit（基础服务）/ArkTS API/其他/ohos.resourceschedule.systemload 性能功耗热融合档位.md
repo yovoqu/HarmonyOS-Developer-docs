@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { systemLoad } from '@kit.BasicServicesKit';
 
 
 
-##### systemLoad.on('systemLoadChange')
+#### systemLoad.on('systemLoadChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -68,7 +68,7 @@ try {
 
 
 
-##### systemLoad.off('systemLoadChange')
+#### systemLoad.off('systemLoadChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -114,7 +114,7 @@ try {
 
 
 
-##### systemLoad.getLevel
+#### systemLoad.getLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -146,7 +146,7 @@ systemLoad.getLevel().then((res: systemLoad.SystemLoadLevel) => {
 
 
 
-##### SystemLoadLevel
+#### SystemLoadLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

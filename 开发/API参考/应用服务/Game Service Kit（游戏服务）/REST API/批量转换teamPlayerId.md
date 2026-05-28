@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-teamplayerid
 
-##### 功能介绍
+#### 功能介绍
 
 华为开发者联盟上的游戏从一个账号转移到另一个账号进行维护，该游戏资产归属于转入方。
  
@@ -12,7 +12,7 @@
  
   
 
-##### 接口约束
+#### 接口约束
 
 - 调用此接口前，请确保转出方/转入方已完成[游戏转移](https://developer.huawei.com/consumer/cn/doc/app/game-center-transferring-0000001194325290)，否则均将无权转换teamPlayerId。
 - 单次接口请求最多可以获取1000条teamPlayerId数据。
@@ -21,7 +21,7 @@
  
   
 
-##### 接口原型
+#### 接口原型
 
 - **承载协议**：HTTPS POST
 - **接口方向**：开发者服务器->华为游戏服务器
@@ -43,11 +43,11 @@
  
   
 
-##### 请求参数
+#### 请求参数
 
   
 
-##### Header
+#### Header
  
 | 参数名称 | 是否必选 | 类型 | 参数说明 |
 | --- | --- | --- | --- |
@@ -58,7 +58,7 @@
  
   
 
-##### Body
+#### Body
 
 请求Body中使用JSON格式携带更相关信息，参数如下表所示。
   
@@ -71,7 +71,7 @@
  
   
 
-##### 请求示例
+#### 请求示例
 
 ```json
 POST https://connect-api.cloud.huawei.com/api/jas/open/players/player-accounts/team-player/convert HTTP/1.1
@@ -93,7 +93,7 @@ Authorization: Bearer ******
  
   
 
-##### 响应参数
+#### 响应参数
  
 | 参数名称 | 是否必选 | 类型 | 参数说明 |
 | --- | --- | --- | --- |
@@ -129,7 +129,7 @@ Authorization: Bearer ******
  
   
 
-##### 响应示例
+#### 响应示例
 
 ```json
 Content-Type: application/json; charset=utf-8
@@ -152,7 +152,7 @@ Content-Type: application/json; charset=utf-8
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```json
 Java

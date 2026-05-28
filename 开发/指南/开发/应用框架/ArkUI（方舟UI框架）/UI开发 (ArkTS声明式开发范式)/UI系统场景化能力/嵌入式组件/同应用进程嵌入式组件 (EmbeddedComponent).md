@@ -11,7 +11,7 @@ EmbeddedComponent组件主要用于实现跨模块、跨进程的嵌入式界面
 开发者在使用时需注意其使用限制和生命周期管理，合理设计应用架构以最大限度地发挥其优势。
 
 
-##### 基本概念
+#### 基本概念
 
  - [EmbeddedComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-embedded-component)组件
 
@@ -23,7 +23,7 @@ EmbeddedComponent组件主要用于实现跨模块、跨进程的嵌入式界面
 
 
 
-##### 使用约束
+#### 使用约束
 
  - 设备要求
 
@@ -47,7 +47,7 @@ EmbeddedComponent组件主要用于实现跨模块、跨进程的嵌入式界面
 
 
 
-##### 场景示例
+#### 场景示例
 
 该示例简单展示了EmbeddedComponent组件和EmbeddedUIExtensionAbility的基础使用方式。
 

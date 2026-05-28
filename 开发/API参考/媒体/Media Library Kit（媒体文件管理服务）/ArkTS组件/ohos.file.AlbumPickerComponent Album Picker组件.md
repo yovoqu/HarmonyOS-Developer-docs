@@ -14,7 +14,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { AlbumPickerComponent, AlbumPickerOptions, AlbumInfo, photoAccessHelper,
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -32,7 +32,7 @@ import { AlbumPickerComponent, AlbumPickerOptions, AlbumInfo, photoAccessHelper,
 
 
 
-##### AlbumPickerComponent
+#### AlbumPickerComponent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -56,7 +56,7 @@ AlbumPickerComponent( {albumPickerOptions?: AlbumPickerOptions, onAlbumClick?: (
 
 
 
-##### AlbumPickerOptions
+#### AlbumPickerOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -73,7 +73,7 @@ Album Picker配置选项。
 
 
 
-##### EmptyAreaClickCallback13+
+#### EmptyAreaClickCallback13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -87,7 +87,7 @@ type EmptyAreaClickCallback = () => void
 
 
 
-##### AlbumInfo
+#### AlbumInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -105,7 +105,7 @@ type EmptyAreaClickCallback = () => void
 
 
 
-##### AlbumPickerController20+
+#### AlbumPickerController20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -117,7 +117,7 @@ type EmptyAreaClickCallback = () => void
 
 
 
-##### setFontSize20+
+#### setFontSize20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -138,7 +138,7 @@ setFontSize(fontSize: number | string): void
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

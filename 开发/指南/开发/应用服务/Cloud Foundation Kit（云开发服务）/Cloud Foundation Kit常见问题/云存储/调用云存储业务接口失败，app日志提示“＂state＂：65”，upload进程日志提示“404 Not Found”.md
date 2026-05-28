@@ -11,12 +11,12 @@
 - app日志提示“"state":65”
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/vuY3qud_Q8ulOGLJ1I2iIQ/zh-cn_image_0000002581434976.png?HW-CC-KV=V1&HW-CC-Date=20260528T014421Z&HW-CC-Expire=86400&HW-CC-Sign=4CA13B1C068A94E577D7961A9C24A71C63015AA936ECF33D97F24BB577AD3538)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/vuY3qud_Q8ulOGLJ1I2iIQ/zh-cn_image_0000002581434976.png?HW-CC-KV=V1&HW-CC-Date=20260528T030049Z&HW-CC-Expire=86400&HW-CC-Sign=3A46F777EA8CA5EB262CFA43A266759BE278CF4CA0959FEE382C11CE763D979C)
 
 - upload进程的日志提示“404 Not Found”（通过设置“No filters”模式、过滤“C01C50”关键字查找）
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/9745RJqJRpy6MbMJCj0apg/zh-cn_image_0000002611834807.png?HW-CC-KV=V1&HW-CC-Date=20260528T014421Z&HW-CC-Expire=86400&HW-CC-Sign=9ACC19C4DDBBEE25DC2F0AD5CCB5845250EE22803292127AAECBD6571BF9E708)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/9745RJqJRpy6MbMJCj0apg/zh-cn_image_0000002611834807.png?HW-CC-KV=V1&HW-CC-Date=20260528T030049Z&HW-CC-Expire=86400&HW-CC-Sign=362740172A20DF9170AA039B583F0A54E81362866EBD1CB43F3D7CB8CD0413C3)
 
 
  

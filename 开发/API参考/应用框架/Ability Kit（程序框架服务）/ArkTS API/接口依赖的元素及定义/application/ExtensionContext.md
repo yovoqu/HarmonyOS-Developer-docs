@@ -14,7 +14,7 @@ ExtensionContext模块提供访问特定[ExtensionAbility](https://developer.hua
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { common } from '@kit.AbilityKit';
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@ import { common } from '@kit.AbilityKit';
  
   
 
-##### 使用场景
+#### 使用场景
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

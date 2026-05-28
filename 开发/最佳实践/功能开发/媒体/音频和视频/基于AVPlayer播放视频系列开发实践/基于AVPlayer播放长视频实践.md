@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-avplayer-long-video
 
-##### 概述
+#### 概述
 
  
 本文适用于视频播放类应用的开发，针对市场上主流视频播放类应用的常见场景，介绍了如何基于AVPlayer系统播放器实现长视频播放。本文指导开发者实现基本播控、精准跳转、静音播放、窗口缩放模式设置、倍速播放、音量控制、亮度控制、焦点管理、前后台感知、弹幕发送与显示、字幕挂载、视频截图、画中画播放、后台播放与接入播控中心、视频首帧显示等开发场景。
@@ -23,19 +23,19 @@
 
  
 
-##### 基本播控
+#### 基本播控
 
 基本播控、精准跳转、静音播放、窗口缩放设置、倍速播放、音量控制、字幕挂载场景参见[《基于AVPlayer基础播控实践》](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-avplayer-basic-control)。
  
  
 
-##### 亮度控制
+#### 亮度控制
 
  
 
  
 
-##### 场景描述
+#### 场景描述
 
  
 用户在横屏播放视频时可通过手势滑动调节屏幕亮度。
@@ -45,13 +45,13 @@
 
  
 
-##### 实现原理
+#### 实现原理
 
 使用[Slider组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-slider)设置亮度面板，绑定[PanGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture)滑动手势事件，当Pan手势在移动过程中调用[setWindowBrightness()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setwindowbrightness9)方法，实现上滑增加亮度、下滑减少亮度的功能。
  
  
 
-##### 开发步骤
+#### 开发步骤
 
 1. 当进入全屏播放模式时，在视频播放界面右侧区域添加Slider组件，用来展示屏幕亮度变化情况。
 
@@ -132,13 +132,13 @@ Column() {
 
  
 
-##### 焦点管理
+#### 焦点管理
 
  
 
  
 
-##### 场景描述
+#### 场景描述
 
  
 通过正确设置音频流类型、中断事件处理和自定义焦点策略，完成播放过程音频焦点管理。
@@ -150,7 +150,7 @@ Column() {
 
  
 
-##### 实现原理
+#### 实现原理
 
  
 通过AVPlayer的[on('audioInterrupt')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#onaudiointerrupt9)方法，监听音频焦点变化，根据不同的[打断类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#interruptforcetype9)和[中断提示](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#interrupthint)作相应的处理，更多焦点管理相关说明可参考[音频焦点管理](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-audio-focus-management)。
@@ -162,7 +162,7 @@ Column() {
 
  
 
-##### 开发步骤
+#### 开发步骤
 
 1. 通过AVPlayer实例注册[on('audioInterrupt')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#onaudiointerrupt9)方法，监听外部打断事件，当打断类型为INTERRUPT_FORCE时，视频会自动中断播放。
 2. 当打断类型为INTERRUPT_SHARE、中断提示为INTERRUPT_HINT_RESUME时，调用videoPlay()函数恢复播放视频。
@@ -214,11 +214,11 @@ private setInterruptCallback() {
 
  
 
-##### 前后台感知
+#### 前后台感知
 
  
 
-##### 场景描述
+#### 场景描述
 
  
 应用从前台切到后台，再从后台切回前台时，能够保持原有进度继续播放原视频。
@@ -228,7 +228,7 @@ private setInterruptCallback() {
 
  
 
-##### 实现原理
+#### 实现原理
 
  
 
@@ -236,7 +236,7 @@ private setInterruptCallback() {
  
  
 
-##### 开发步骤
+#### 开发步骤
 
 1. 在主页面的onPageShow()和onPageHide()里变更状态变量。
 
@@ -297,13 +297,13 @@ private pausePlay() {
 
  
 
-##### 弹幕发送与显示
+#### 弹幕发送与显示
 
  
 
  
 
-##### 场景描述
+#### 场景描述
 
  
 视频弹幕发送与显示是影音娱乐类应用中的高频使用场景之一，如用户在播放视频、观看直播时可以发送弹幕，实时评论互动，增强用户参与度。
@@ -313,7 +313,7 @@ private pausePlay() {
 
  
 
-##### 实现原理
+#### 实现原理
 
  
 
@@ -321,7 +321,7 @@ private pausePlay() {
  
  
 
-##### 开发步骤
+#### 开发步骤
 
 1. 在视频播放组件里定义一个空数组，用来保存发送的弹幕，用户输入弹幕点击发送后将输入内容存入当前数组中。
 
@@ -370,13 +370,13 @@ private startAnimation() {
 
  
 
-##### 视频截图
+#### 视频截图
 
  
 
  
 
-##### 场景描述
+#### 场景描述
 
  
 视频截图是影音娱乐类应用中的典型场景之一，如用户可在观看视频时截取画面，并对截图的前后帧进行微调，避免所截图片与预期不符。
@@ -386,13 +386,13 @@ private startAnimation() {
 
  
 
-##### 实现原理
+#### 实现原理
 
 以[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)作为媒体流播放组件，通过[ComponentSnapshot](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-uicontext-component-snapshot)对象获取组件截图的能力。
  
  
 
-##### 开发步骤
+#### 开发步骤
 
 1. 通过getUIContext().getComponentSnapshot().get()方法获取视频播放组件XComponent当前截图。
 
@@ -436,13 +436,13 @@ private async clickNextFrame() {
 
  
 
-##### 画中画播放
+#### 画中画播放
 
  
 
  
 
-##### 场景描述
+#### 场景描述
 
  
 应用在视频播放时，可以使用画中画能力将视频内容以小窗（画中画）模式呈现。切换为小窗（画中画）模式后，用户可以进行其他界面操作，提升使用体验。
@@ -452,7 +452,7 @@ private async clickNextFrame() {
 
  
 
-##### 实现原理
+#### 实现原理
 
  
 
@@ -464,7 +464,7 @@ private async clickNextFrame() {
  
  
 
-##### 开发步骤
+#### 开发步骤
 
 1. 创建画中画控制器，设置[setAutoStartEnabled()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-pipwindow#setautostartenabled)为true以在应用返回桌面时启动画中画。
 
@@ -564,11 +564,11 @@ destroyPipController() {
 
  
 
-##### 接入播控中心
+#### 接入播控中心
 
  
 
-##### 场景描述
+#### 场景描述
 
  
 
@@ -580,13 +580,13 @@ destroyPipController() {
  
  
 
-##### 实现原理
+#### 实现原理
 
 通过[AVSessionKit](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avsession-kit)音频播控服务实现视频应用接入播控中心。
  
  
 
-##### 开发步骤
+#### 开发步骤
 1. 通过[createAVSession()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-f#avsessioncreateavsession10)创建AVSession实例并激活媒体会话，[AVSessionType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-t#avsessiontype10)设置为video。
 
   
@@ -732,11 +732,11 @@ public setAvSessionPlayState(playbackState: avSession.AVPlaybackState) {
  
  
 
-##### 后台播放
+#### 后台播放
 
  
 
-##### 场景描述
+#### 场景描述
 
  
 
@@ -748,7 +748,7 @@ public setAvSessionPlayState(playbackState: avSession.AVPlaybackState) {
 
  
 
-##### 实现原理
+#### 实现原理
 
 首先需实现播控中心的接入，在此基础上申请后台运行权限并设置后台模式，同时为视频应用创建长时后台任务，从而实现视频在后台持续播放的功能。
  
@@ -758,7 +758,7 @@ public setAvSessionPlayState(playbackState: avSession.AVPlaybackState) {
  
  
 
-##### 开发步骤
+#### 开发步骤
 
  
 1. 在module.json5配置文件中配置ohos.permission.KEEP_BACKGROUND_RUNNING权限和后台模式audioPlayback。
@@ -883,11 +883,11 @@ async unregisterSessionListener() {
  
  
 
-##### 视频首帧显示
+#### 视频首帧显示
 
  
 
-##### 场景描述
+#### 场景描述
 
  
 
@@ -899,7 +899,7 @@ async unregisterSessionListener() {
 
  
 
-##### 实现原理
+#### 实现原理
 
 - 通过[fetchFrameByTime()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avimagegenerator#fetchframebytime12)方法获取本地视频的首帧图片在视频列表展示。
 - 通过设置播放策略[setPlaybackStrategy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#setplaybackstrategy12)的showFirstFrameOnPrepare属性为true来实现AVPlayer显示视频起播首帧。
@@ -907,7 +907,7 @@ async unregisterSessionListener() {
  
  
 
-##### 开发步骤
+#### 开发步骤
 
  
 
@@ -966,11 +966,11 @@ case 'initialized': // This status is reported after the playback source is set 
 
  
 
-##### 横竖屏切换与旋转感知
+#### 横竖屏切换与旋转感知
 
  
 
-##### 场景描述
+#### 场景描述
 
  
 
@@ -986,7 +986,7 @@ case 'initialized': // This status is reported after the playback source is set 
 
  
 
-##### 实现原理
+#### 实现原理
 
 - 通过设置orientation为auto_rotation_restricted实现传感器自动感知。
 - 通过设置window.Orientation为USER_ROTATION_LANDSCAPE/USER_ROTATION_PORTRAIT实现横竖屏的手动切换。
@@ -994,7 +994,7 @@ case 'initialized': // This status is reported after the playback source is set 
  
  
 
-##### 开发步骤
+#### 开发步骤
 
  
 通过传感器旋转自动感知切换：
@@ -1041,11 +1041,11 @@ this.windowUtil.setMainWindowOrientation(window.Orientation.USER_ROTATION_PORTRA
 
  
 
-##### 视频无缝转场播放
+#### 视频无缝转场播放
 
  
 
-##### 场景描述
+#### 场景描述
 
  
 
@@ -1053,20 +1053,20 @@ this.windowUtil.setMainWindowOrientation(window.Orientation.USER_ROTATION_PORTRA
 用户在横竖屏切换后，视频保持原有进度继续播放。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/h-kwMtJtRUeM-6CjlrzMeA/zh-cn_image_0000002452690582.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013104Z&HW-CC-Expire=86400&HW-CC-Sign=382763E8DFDF7392E753AC03501FF6E8680D14CCAC2CA39776ED9825F9F0327C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/h-kwMtJtRUeM-6CjlrzMeA/zh-cn_image_0000002452690582.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024747Z&HW-CC-Expire=86400&HW-CC-Sign=FF3E91BBEA66CA894247D563C332F4A82259C36CA0EBDA75B1B0D0B565FF0BF0)
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/dxJKoIaASR-wJ-lRuTgMtA/zh-cn_image_0000002485889989.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013104Z&HW-CC-Expire=86400&HW-CC-Sign=13DC1F2A242E700B26078A7F93AC4CBCFBD9A6B10C550276EE03402F46DEE387)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/dxJKoIaASR-wJ-lRuTgMtA/zh-cn_image_0000002485889989.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024747Z&HW-CC-Expire=86400&HW-CC-Sign=409560599520E5C4D72CDCCCC05EB48E234DCC409D3C9BA85C89FCD30008A361)
 
  
 
-##### 实现原理
+#### 实现原理
 
 基于[AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer)与[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)实现视频播放，在横竖屏来回切换时，[AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer)本身具有保持原有进度继续播放的特性，开发者无需进行额外开发。
  
  
 
-##### 示例代码
+#### 示例代码
 
 [基于AVPlayer实现长视频播放](https://gitcode.com/harmonyos_samples/avplayer-long-video)

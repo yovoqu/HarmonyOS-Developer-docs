@@ -4,11 +4,11 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/changelogs-for-all-apps-b106
 
-##### Ability Kit
+#### Ability Kit
 
  
 
-##### 禁止Extension进程拉起启动框架
+#### 禁止Extension进程拉起启动框架
 
 **变更原因**
  
@@ -36,11 +36,11 @@ AppStartup启动框架模块默认行为。
  
  
 
-##### ArkTS
+#### ArkTS
 
  
 
-##### convertXml模块未支持parentKey属性的行为变更
+#### convertXml模块未支持parentKey属性的行为变更
 
 **变更原因**
  
@@ -115,11 +115,11 @@ let result: ESObject = conv.convertToJSObject(xml, options);
  
  
 
-##### ArkUI
+#### ArkUI
 
  
 
-##### 在字节码HAR中通过router.getState()获取的path内容变更
+#### 在字节码HAR中通过router.getState()获取的path内容变更
 
 **变更原因**
  
@@ -182,7 +182,7 @@ let result: ESObject = conv.convertToJSObject(xml, options);
 当开发者把中间码HAR升级为字节码HAR时使用router.getState()方法获取的是**绝对路径**。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/PhhyaRD8R5uEgOcJTW_FOQ/zh-cn_image_0000002117819161.png?HW-CC-KV=V1&HW-CC-Date=20260528T014239Z&HW-CC-Expire=86400&HW-CC-Sign=2BAA4BFC9B3B61F9ABFD2A0B89064AAAF65B11E94832FBBB82BBC56C7917E969)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/PhhyaRD8R5uEgOcJTW_FOQ/zh-cn_image_0000002117819161.png?HW-CC-KV=V1&HW-CC-Date=20260528T025907Z&HW-CC-Expire=86400&HW-CC-Sign=15C3F37A4D3E0E361A5ABBC7B4A8732F30E3098C38744C4C11E64AAB46E54ACE)
 
  
 通过router.getState()方法获取的path信息为"library/src/main/ets/components/"。
@@ -201,7 +201,7 @@ router.getState()
  
  
 
-##### 禁止在转场动画过程中，更新消失节点的属性。
+#### 禁止在转场动画过程中，更新消失节点的属性。
 
 **变更原因**
  
@@ -296,7 +296,7 @@ struct Index {
  
  
 
-##### 优化getWindowProperties，增加返回值中drawableRect的实时性，调用行为变更
+#### 优化getWindowProperties，增加返回值中drawableRect的实时性，调用行为变更
 
 **变更原因**
  
@@ -334,7 +334,7 @@ drawableRect字段从API 11开始提供。
  
  
 
-##### RichEditor（富文本）从组件外拖入内容onWillChange、onDidChange回调变更
+#### RichEditor（富文本）从组件外拖入内容onWillChange、onDidChange回调变更
 
 **变更原因**
  
@@ -366,7 +366,7 @@ RichEditor
  
  
 
-##### RichEditor（富文本）onWillChange接口返回值变更
+#### RichEditor（富文本）onWillChange接口返回值变更
 
 **变更原因**
  
@@ -398,7 +398,7 @@ RichEditor
  
  
 
-##### RichEditor（富文本）TypingStyle默认字体大小变更
+#### RichEditor（富文本）TypingStyle默认字体大小变更
 
 **变更原因**
  
@@ -430,7 +430,7 @@ RichEditor
  
  
 
-##### RichEditor（富文本）onDidChange接口变更
+#### RichEditor（富文本）onDidChange接口变更
 
 **变更原因**
  
@@ -466,7 +466,7 @@ RichEditor
  
  
 
-##### RichEditor（富文本）删除完成后光标位置变更
+#### RichEditor（富文本）删除完成后光标位置变更
 
 **变更原因**
  
@@ -504,11 +504,11 @@ RichEditor
  
  
 
-##### Localization Kit
+#### Localization Kit
 
  
 
-##### 国家、地区本地化名称变更
+#### 国家、地区本地化名称变更
 
 **变更原因**
  
@@ -542,7 +542,7 @@ i18n.System.getDisplayCountry
  
  
 
-##### 时间日期格式“十一月”格式化结果错误问题修改
+#### 时间日期格式“十一月”格式化结果错误问题修改
 
 **变更原因**
  
@@ -574,7 +574,7 @@ intl.DateTimeFormat.format
  
  
 
-##### 日期时间段格式化在zh-Hant-HK下结果错误问题修改
+#### 日期时间段格式化在zh-Hant-HK下结果错误问题修改
 
 **变更原因**
  
@@ -602,7 +602,7 @@ intl.DateTimeFormat.formatRange
  
  
 
-##### 归属地获取接口对无效号码的归属计算错误问题修改
+#### 归属地获取接口对无效号码的归属计算错误问题修改
 
 **变更原因**
  
@@ -630,7 +630,7 @@ i18n.PhoneNumberFormat.getLocationName
  
  
 
-##### 系统支持国家地区列表变更
+#### 系统支持国家地区列表变更
 
 **变更原因**
  
@@ -662,11 +662,11 @@ i18n.System.getSystemCountries
  
  
 
-##### 工具
+#### 工具
 
  
 
-##### 禁止bm命令进行跨用户操作
+#### 禁止bm命令进行跨用户操作
 
 **变更原因**
  

@@ -12,7 +12,7 @@
 **起始版本：** 5.0.1(13)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { ssap } from '@kit.NearLinkKit';
 
 
 
-##### ConnectionState
+#### ConnectionState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@ type ConnectionState = constant.ConnectionState
 
 
 
-##### createClient
+#### createClient
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -100,7 +100,7 @@ try {
 
 
 
-##### createServer
+#### createServer
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -150,7 +150,7 @@ try {
 
 
 
-##### Client
+#### Client
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -164,7 +164,7 @@ try {
 
 
 
-##### connect
+#### connect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -217,7 +217,7 @@ try {
 
 
 
-##### disconnect
+#### disconnect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -273,7 +273,7 @@ try {
 
 
 
-##### close
+#### close
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -317,7 +317,7 @@ try {
 
 
 
-##### getServices
+#### getServices
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -376,7 +376,7 @@ try {
 
 
 
-##### readProperty
+#### readProperty
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -452,7 +452,7 @@ try {
 
 
 
-##### writeProperty
+#### writeProperty
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -530,7 +530,7 @@ try {
 
 
 
-##### setPropertyNotification
+#### setPropertyNotification
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -608,7 +608,7 @@ try {
 
 
 
-##### requestMtuSize
+#### requestMtuSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -675,7 +675,7 @@ try {
 
 
 
-##### on( 'propertyChange')
+#### on( 'propertyChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -729,7 +729,7 @@ try {
 
 
 
-##### off( 'propertyChange')
+#### off( 'propertyChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -783,7 +783,7 @@ try {
 
 
 
-##### on( 'connectionStateChange')
+#### on( 'connectionStateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -837,7 +837,7 @@ try {
 
 
 
-##### off( 'connectionStateChange')
+#### off( 'connectionStateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -891,7 +891,7 @@ try {
 
 
 
-##### on( 'mtuChange')
+#### on( 'mtuChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -945,7 +945,7 @@ try {
 
 
 
-##### off( 'mtuChange')
+#### off( 'mtuChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -999,7 +999,7 @@ try {
 
 
 
-##### Server
+#### Server
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1013,7 +1013,7 @@ try {
 
 
 
-##### addService
+#### addService
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1103,7 +1103,7 @@ try {
 
 
 
-##### removeService
+#### removeService
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1156,7 +1156,7 @@ try {
 
 
 
-##### close
+#### close
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1199,7 +1199,7 @@ try {
 
 
 
-##### notifyPropertyChanged
+#### notifyPropertyChanged
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1285,7 +1285,7 @@ try {
 
 
 
-##### sendResponse
+#### sendResponse
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1347,7 +1347,7 @@ try {
 
 
 
-##### on('connectionStateChange')
+#### on('connectionStateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1400,7 +1400,7 @@ try {
 
 
 
-##### off( 'connectionStateChange')
+#### off( 'connectionStateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1453,7 +1453,7 @@ try {
 
 
 
-##### on( 'propertyRead')
+#### on( 'propertyRead')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1506,7 +1506,7 @@ try {
 
 
 
-##### off( 'propertyRead')
+#### off( 'propertyRead')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1559,7 +1559,7 @@ try {
 
 
 
-##### on( 'propertyWrite')
+#### on( 'propertyWrite')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1612,7 +1612,7 @@ try {
 
 
 
-##### off( 'propertyWrite')
+#### off( 'propertyWrite')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1665,7 +1665,7 @@ try {
 
 
 
-##### on( 'mtuChange')
+#### on( 'mtuChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1718,7 +1718,7 @@ try {
 
 
 
-##### off( 'mtuChange')
+#### off( 'mtuChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1771,7 +1771,7 @@ try {
 
 
 
-##### Service
+#### Service
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1789,7 +1789,7 @@ try {
 
 
 
-##### Property
+#### Property
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1810,7 +1810,7 @@ try {
 
 
 
-##### PropertyDescriptor
+#### PropertyDescriptor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1831,7 +1831,7 @@ try {
 
 
 
-##### PropertyReadRequest
+#### PropertyReadRequest
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1851,7 +1851,7 @@ try {
 
 
 
-##### PropertyWriteRequest
+#### PropertyWriteRequest
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1873,7 +1873,7 @@ try {
 
 
 
-##### ServerResponse
+#### ServerResponse
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1892,7 +1892,7 @@ try {
 
 
 
-##### ConnectionChangeState
+#### ConnectionChangeState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1910,7 +1910,7 @@ try {
 
 
 
-##### PropertyDescriptorType
+#### PropertyDescriptorType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1931,7 +1931,7 @@ try {
 
 
 
-##### Operation
+#### Operation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1951,7 +1951,7 @@ try {
 
 
 
-##### PropertyWriteType
+#### PropertyWriteType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -10,7 +10,7 @@
 
 
 
-##### 1001500001 应用指纹证书校验失败
+#### 1001500001 应用指纹证书校验失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -32,7 +32,7 @@ Failed to check the fingerprint of the app bundle.
 
 
 
-##### 1001500002 重复请求
+#### 1001500002 重复请求
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -54,7 +54,7 @@ This error code is reported when a request is already being processed.
 
 
 
-##### 1001500003 不支持该scopes或permissions
+#### 1001500003 不支持该scopes或permissions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -86,7 +86,7 @@ The scopes or permissions are not supported.
 
 
 
-##### 1001500004 已登录的华为账号不支持该功能
+#### 1001500004 已登录的华为账号不支持该功能
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -108,7 +108,7 @@ The account does not support this function.
 
 
 
-##### 1001500005 该功能被限制调用
+#### 1001500005 该功能被限制调用
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -130,7 +130,7 @@ This function is restricted from being called.
 
 
 
-##### 1001502001 用户未登录华为账号
+#### 1001502001 用户未登录华为账号
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -152,7 +152,7 @@ The user has not logged in with HUAWEI ID.
 
 
 
-##### 1001502002 应用未授权
+#### 1001502002 应用未授权
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -176,7 +176,7 @@ The application is not authorized.
 
 
 
-##### 1001502003 输入参数值无效
+#### 1001502003 输入参数值无效
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -198,7 +198,7 @@ Invalid input parameter value.
 1. 在 AppGallery Connect（简称AGC）的[开发与服务](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html#/myProject)中，选择对应的项目和对应的应用，在“常规 > 应用 ”下，找到**应用**的Client ID和APP ID。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/-00MtogAQvSL5BwCtmDdtQ/zh-cn_image_0000002611834669.png?HW-CC-KV=V1&HW-CC-Date=20260528T023741Z&HW-CC-Expire=86400&HW-CC-Sign=4951B0095C00AB3CC2A4D8836C9E6C6BD8BE4BEAB11BF5B15D22BA158982F909)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/-00MtogAQvSL5BwCtmDdtQ/zh-cn_image_0000002611834669.png?HW-CC-KV=V1&HW-CC-Date=20260528T025115Z&HW-CC-Expire=86400&HW-CC-Sign=268DAD4A3F73AC4F9DCD82189300A9B5812B740C1D780570B51E9F6C4A9CF45E)
 
 
   
@@ -210,7 +210,7 @@ Invalid input parameter value.
 
 
 
-##### 1001502005 网络错误
+#### 1001502005 网络错误
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -232,7 +232,7 @@ Network error.
 
 
 
-##### 1001502009 内部错误
+#### 1001502009 内部错误
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -254,7 +254,7 @@ Internal error.
 
 
 
-##### 1001502012 用户取消授权
+#### 1001502012 用户取消授权
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -276,7 +276,7 @@ The user canceled the authorization.
 
 
 
-##### 1001502014 应用未申请scopes或permissions权限
+#### 1001502014 应用未申请scopes或permissions权限
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -298,7 +298,7 @@ The app does not have the required scopes or permissions.
 
 
 
-##### 1001600001 网络不可用
+#### 1001600001 网络不可用
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -320,7 +320,7 @@ The network is unavailable.
 
 
 
-##### 1001600002 账号未登录
+#### 1001600002 账号未登录
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -342,7 +342,7 @@ The user has not logged in with HUAWEI ID.
 
 
 
-##### 1001600003 应用指纹证书校验失败
+#### 1001600003 应用指纹证书校验失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -364,7 +364,7 @@ Failed to check the fingerprint of the application bundle.
 
 
 
-##### 1001600004 应用未申请对应permissions权限
+#### 1001600004 应用未申请对应permissions权限
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -386,7 +386,7 @@ The application does not have the required permissions.
 
 
 
-##### 1001600005 用户取消当前操作
+#### 1001600005 用户取消当前操作
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -408,7 +408,7 @@ The user canceled the current operation.
 
 
 
-##### 1001600006 当前设备不支持此验证要素
+#### 1001600006 当前设备不支持此验证要素
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -430,7 +430,7 @@ The requested verification factors are unavailable on the device.
 
 
 
-##### 1001600007 内部错误
+#### 1001600007 内部错误
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -452,7 +452,7 @@ Internal error.
 
 
 
-##### 1001600011 该设备不支持此API
+#### 1001600011 该设备不支持此API
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -474,7 +474,7 @@ This device does not support this API.
 
 
 
-##### 1008100001 内部错误
+#### 1008100001 内部错误
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -496,7 +496,7 @@ Internal error.
 
 
 
-##### 1008100002 网络不可用
+#### 1008100002 网络不可用
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -518,7 +518,7 @@ The network is unavailable.
 
 
 
-##### 1008100003 账号未登录
+#### 1008100003 账号未登录
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -540,7 +540,7 @@ The user has not signed in with HUAWEI ID.
 
 
 
-##### 1008100004 应用指纹证书校验失败
+#### 1008100004 应用指纹证书校验失败
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -562,7 +562,7 @@ Failed to check the fingerprint of the app bundle.
 
 
 
-##### 1008100005 应用未申请对应permissions权限
+#### 1008100005 应用未申请对应permissions权限
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -584,7 +584,7 @@ The app does not have the required permissions.
 
 
 
-##### 1008100006 用户未完成操作就退出了收货地址管理服务
+#### 1008100006 用户未完成操作就退出了收货地址管理服务
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -606,7 +606,7 @@ The user quits the shipping address management service without finishing.
 
 
 
-##### 1008100007 已登录的华为账号不支持收货地址管理服务
+#### 1008100007 已登录的华为账号不支持收货地址管理服务
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -628,7 +628,7 @@ The shipping address management service does not support the HUAWEI ID that is a
 
 
 
-##### 1010060001 用户取消发票服务
+#### 1010060001 用户取消发票服务
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -650,7 +650,7 @@ The operation was canceled by the user.
 
 
 
-##### 1010060002 系统内部错误
+#### 1010060002 系统内部错误
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -672,7 +672,7 @@ System internal error.
 
 
 
-##### 1010060003 应用指纹证书校验失败
+#### 1010060003 应用指纹证书校验失败
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -694,7 +694,7 @@ Failed to check the fingerprint of the app bundle.
 
 
 
-##### 1010060004 调用过于频繁
+#### 1010060004 调用过于频繁
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -716,7 +716,7 @@ Too frequent API calls.
 
 
 
-##### 1010060005 网络连接错误
+#### 1010060005 网络连接错误
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -738,7 +738,7 @@ Network connection error.
 
 
 
-##### 1010060006 账号未登录
+#### 1010060006 账号未登录
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -760,7 +760,7 @@ The HUAWEI ID is not signed in.
 
 
 
-##### 1010060007 发票抬头已存在
+#### 1010060007 发票抬头已存在
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -782,7 +782,7 @@ Failed to create a invoice title because the title already exists.
 
 
 
-##### 1010060008 华为账号不支持发票服务
+#### 1010060008 华为账号不支持发票服务
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -804,7 +804,7 @@ The invoice service does not support the logged HUAWEI ID.
 
 
 
-##### 1005300001 用户未同意协议
+#### 1005300001 用户未同意协议
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -826,7 +826,7 @@ The user did not accept the agreement.
 
 
 
-##### 1005300002 用户未点击“华为账号一键登录”按钮
+#### 1005300002 用户未点击“华为账号一键登录”按钮
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -848,7 +848,7 @@ The user did not click the HUAWEI ID login button.
 
 
 
-##### 1009900002 未成年人模式未开启
+#### 1009900002 未成年人模式未开启
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -870,7 +870,7 @@ The minors mode is not enabled.
 
 
 
-##### 1009900003 用户取消操作
+#### 1009900003 用户取消操作
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -892,7 +892,7 @@ The user canceled the operation.
 
 
 
-##### 1009900005 未成年人模式已经开启
+#### 1009900005 未成年人模式已经开启
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -914,7 +914,7 @@ The minors mode is already on.
 
 
 
-##### 1009900006 未成年人模式已经关闭
+#### 1009900006 未成年人模式已经关闭
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -936,7 +936,7 @@ The minors mode is already off.
 
 
 
-##### 1009900007 不支持的账号
+#### 1009900007 不支持的账号
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -958,7 +958,7 @@ Unsupported HUAWEI ID.
 
 
 
-##### 1009900011 服务不可用
+#### 1009900011 服务不可用
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -980,7 +980,7 @@ Service not available.
 
 
 
-##### 1002500001 网络不可用
+#### 1002500001 网络不可用
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1002,7 +1002,7 @@ The network is unavailable.
 
 
 
-##### 1002500002 账号未登录
+#### 1002500002 账号未登录
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1024,7 +1024,7 @@ The user has not logged in with HUAWEI ID.
 
 
 
-##### 1002500003 应用指纹证书校验失败
+#### 1002500003 应用指纹证书校验失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1046,7 +1046,7 @@ Failed to check the fingerprint of the application bundle.
 
 
 
-##### 1002500004 应用未申请对应permissions权限
+#### 1002500004 应用未申请对应permissions权限
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1068,7 +1068,7 @@ The application does not have the required permissions.
 
 
 
-##### 1002500005 用户取消验证
+#### 1002500005 用户取消验证
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1090,7 +1090,7 @@ The user canceled the verification of the HUAWEI ID.
 
 
 
-##### 1002500006 内部错误
+#### 1002500006 内部错误
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1113,7 +1113,7 @@ Internal error.
 
 
 
-##### 1002500008 该华为账号不支持实名验证
+#### 1002500008 该华为账号不支持实名验证
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1135,7 +1135,7 @@ Real-name verification is not supported for the HUAWEI ID.
 
 
 
-##### 1002500009 实名渠道验证失败
+#### 1002500009 实名渠道验证失败
 
 **错误信息**
 
@@ -1155,7 +1155,7 @@ Real-name channel verification failed.
 
 
 
-##### 1002500011 您的面部与作为身份证明的面部图像不匹配
+#### 1002500011 您的面部与作为身份证明的面部图像不匹配
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1177,7 +1177,7 @@ Your face does not match your facial image as proof of identity.
 
 
 
-##### 1002500012 未查询到实名信息
+#### 1002500012 未查询到实名信息
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1199,7 +1199,7 @@ No real-name information is found for the HUAWEI ID.
 
 
 
-##### 1002500013 姓名和身份证号码不匹配
+#### 1002500013 姓名和身份证号码不匹配
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1221,7 +1221,7 @@ Your name and ID number do not match.
 
 
 
-##### 1002500014 实名验证尝试次数过多
+#### 1002500014 实名验证尝试次数过多
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1243,7 +1243,7 @@ Too many real-name verification attempts.
 
 
 
-##### 1002500015 参数verificationToken不合法
+#### 1002500015 参数verificationToken不合法
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1265,7 +1265,7 @@ The verificationToken parameter is incorrectly set.
 
 
 
-##### 1002500016 此设备不支持此API
+#### 1002500016 此设备不支持此API
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-image-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -43,7 +43,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -80,13 +80,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_OnFrameAvailable()
+#### OH_OnFrameAvailable()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -111,7 +111,7 @@ typedef void (*OH_OnFrameAvailable)(void *context)
  
   
 
-##### OH_NativeImage_Create()
+#### OH_NativeImage_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -148,7 +148,7 @@ OH_NativeImage* OH_NativeImage_Create(uint32_t textureId, uint32_t textureTarget
  
   
 
-##### OH_NativeImage_AcquireNativeWindow()
+#### OH_NativeImage_AcquireNativeWindow()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -184,7 +184,7 @@ OHNativeWindow* OH_NativeImage_AcquireNativeWindow(OH_NativeImage* image)
  
   
 
-##### OH_NativeImage_AttachContext()
+#### OH_NativeImage_AttachContext()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -219,7 +219,7 @@ int32_t OH_NativeImage_AttachContext(OH_NativeImage* image, uint32_t textureId)
  
   
 
-##### OH_NativeImage_DetachContext()
+#### OH_NativeImage_DetachContext()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -253,7 +253,7 @@ int32_t OH_NativeImage_DetachContext(OH_NativeImage* image)
  
   
 
-##### OH_NativeImage_UpdateSurfaceImage()
+#### OH_NativeImage_UpdateSurfaceImage()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -291,7 +291,7 @@ int32_t OH_NativeImage_UpdateSurfaceImage(OH_NativeImage* image)
  
   
 
-##### OH_NativeImage_GetTimestamp()
+#### OH_NativeImage_GetTimestamp()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -325,7 +325,7 @@ int64_t OH_NativeImage_GetTimestamp(OH_NativeImage* image)
  
   
 
-##### OH_NativeImage_GetTransformMatrix()
+#### OH_NativeImage_GetTransformMatrix()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -362,7 +362,7 @@ int32_t OH_NativeImage_GetTransformMatrix(OH_NativeImage* image, float matrix[16
  
   
 
-##### OH_NativeImage_GetSurfaceId()
+#### OH_NativeImage_GetSurfaceId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -397,7 +397,7 @@ int32_t OH_NativeImage_GetSurfaceId(OH_NativeImage* image, uint64_t* surfaceId)
  
   
 
-##### OH_NativeImage_SetOnFrameAvailableListener()
+#### OH_NativeImage_SetOnFrameAvailableListener()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -434,7 +434,7 @@ int32_t OH_NativeImage_SetOnFrameAvailableListener(OH_NativeImage* image, OH_OnF
  
   
 
-##### OH_NativeImage_UnsetOnFrameAvailableListener()
+#### OH_NativeImage_UnsetOnFrameAvailableListener()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -468,7 +468,7 @@ int32_t OH_NativeImage_UnsetOnFrameAvailableListener(OH_NativeImage* image)
  
   
 
-##### OH_NativeImage_Destroy()
+#### OH_NativeImage_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -497,7 +497,7 @@ void OH_NativeImage_Destroy(OH_NativeImage** image)
  
   
 
-##### OH_NativeImage_GetTransformMatrixV2()
+#### OH_NativeImage_GetTransformMatrixV2()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -534,7 +534,7 @@ matrix在[OH_NativeImage_UpdateSurfaceImage](https://developer.huawei.com/consum
  
   
 
-##### OH_NativeImage_GetBufferMatrix()
+#### OH_NativeImage_GetBufferMatrix()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -571,7 +571,7 @@ int32_t OH_NativeImage_GetBufferMatrix(OH_NativeImage* image, float matrix[16])
  
   
 
-##### OH_NativeImage_AcquireNativeWindowBuffer()
+#### OH_NativeImage_AcquireNativeWindowBuffer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -613,7 +613,7 @@ int32_t OH_NativeImage_AcquireNativeWindowBuffer(OH_NativeImage* image,OHNativeW
  
   
 
-##### OH_NativeImage_ReleaseNativeWindowBuffer()
+#### OH_NativeImage_ReleaseNativeWindowBuffer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -653,7 +653,7 @@ int32_t OH_NativeImage_ReleaseNativeWindowBuffer(OH_NativeImage* image,OHNativeW
  
   
 
-##### OH_ConsumerSurface_Create()
+#### OH_ConsumerSurface_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -688,7 +688,7 @@ OH_NativeImage* OH_ConsumerSurface_Create(void)
  
   
 
-##### OH_ConsumerSurface_SetDefaultUsage()
+#### OH_ConsumerSurface_SetDefaultUsage()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -723,7 +723,7 @@ int32_t OH_ConsumerSurface_SetDefaultUsage(OH_NativeImage* image, uint64_t usage
  
   
 
-##### OH_ConsumerSurface_SetDefaultSize()
+#### OH_ConsumerSurface_SetDefaultSize()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -759,7 +759,7 @@ int32_t OH_ConsumerSurface_SetDefaultSize(OH_NativeImage* image, int32_t width, 
  
   
 
-##### OH_NativeImage_SetDropBufferMode()
+#### OH_NativeImage_SetDropBufferMode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -804,7 +804,7 @@ int32_t OH_NativeImage_SetDropBufferMode(OH_NativeImage* image, bool isOpen)
  
   
 
-##### OH_NativeImage_CreateWithSingleBufferMode()
+#### OH_NativeImage_CreateWithSingleBufferMode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -842,7 +842,7 @@ OH_NativeImage* OH_NativeImage_CreateWithSingleBufferMode(uint32_t textureId, ui
  
   
 
-##### OH_ConsumerSurface_CreateWithSingleBufferMode()
+#### OH_ConsumerSurface_CreateWithSingleBufferMode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -882,7 +882,7 @@ OH_NativeImage* OH_ConsumerSurface_CreateWithSingleBufferMode(bool singleBufferM
  
   
 
-##### OH_NativeImage_ReleaseTextImage()
+#### OH_NativeImage_ReleaseTextImage()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -918,7 +918,7 @@ int32_t OH_NativeImage_ReleaseTextImage(OH_NativeImage* image)
  
   
 
-##### OH_NativeImage_GetColorSpace()
+#### OH_NativeImage_GetColorSpace()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -953,7 +953,7 @@ int32_t OH_NativeImage_GetColorSpace(OH_NativeImage* image, OH_NativeBuffer_Colo
  
   
 
-##### OH_NativeImage_AcquireLatestNativeWindowBuffer()
+#### OH_NativeImage_AcquireLatestNativeWindowBuffer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1001,7 +1001,7 @@ int32_t OH_NativeImage_AcquireLatestNativeWindowBuffer(OH_NativeImage* image, OH
  
   
 
-##### OH_NativeImage_IsReleased()
+#### OH_NativeImage_IsReleased()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1036,7 +1036,7 @@ int32_t OH_NativeImage_IsReleased(OH_NativeImage* image, bool* isReleased)
  
   
 
-##### OH_NativeImage_Release()
+#### OH_NativeImage_Release()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

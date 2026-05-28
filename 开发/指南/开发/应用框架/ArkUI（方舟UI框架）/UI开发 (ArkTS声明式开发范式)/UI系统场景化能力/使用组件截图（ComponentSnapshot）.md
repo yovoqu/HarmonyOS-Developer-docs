@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-uicontext-component-snapshot
 
-##### 能力介绍
+#### 能力介绍
 
 组件截图是将应用内一个组件节点树的渲染结果生成位图（[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)）的能力，支持两种方式：一种是对已挂树显示的组件进行截图，另一种是对通过Builder或ComponentContent实现的离线组件进行截图。
 
@@ -14,7 +14,7 @@
 
 
 
-##### 对挂树组件截图
+#### 对挂树组件截图
 
 对已明确挂树的组件进行截图，可通过[get](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-componentsnapshot#get12-1)或[getSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-componentsnapshot#getsync12)实现，传入组件标识（需提前通过.id通用属性配置）以指定组件根节点。系统在通过指定的ID查找待截图组件时，仅遍历已挂树的组件，不对cache或离屏组件进行查找。系统以首个查找到的结果为准，故应用需**确保组件标识ID的唯一性**。
 
@@ -28,7 +28,7 @@
 
 
 
-##### 对离线组件截图
+#### 对离线组件截图
 
 离线组件是指通过Builder或ComponentContent封装的、尚未挂载到树上的组件，可以使用[createFromBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-componentsnapshot#createfrombuilder12-1)来实现。从API version 18开始，也可以使用[createFromComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-componentsnapshot#createfromcomponent18)实现离线组件截图。
 
@@ -36,13 +36,13 @@
 
 
 
-##### 典型使用场景
+#### 典型使用场景
 
 以下通过几个典型场景来说明组件截图能力的常见使用方式。
 
 
 
-##### 截取长内容（滚动截图）
+#### 截取长内容（滚动截图）
 
 较长内容通常使用滚动类容器组件实现。截图时，仅能捕获容器内可见内容，超出边界部分无法截取。若使用[LazyForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-lazyforeach)或[Repeat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-repeat)，超出显示范围内容亦不会被系统构建及截取。
 
@@ -266,7 +266,7 @@ closeSnapPopup(): void {
 
 
 
-##### 封装全局截图接口
+#### 封装全局截图接口
 
 如前文所述，截图接口必须在UI上下文明确的位置使用。然而，应用有时希望对不同模块封装统一的全局截图方法。例如，在下述示例中，awardBuilder构建的组件是固定结构的。GlobalStaticSnapshot提供了一个getAwardSnapshot全局方法，能够满足不同模块的需求，对同一固定模式的组件进行截图，从而实现全局截图接口的封装。本示例从API version 18开始支持。
 
@@ -320,11 +320,11 @@ export class GlobalStaticSnapshot {
 
 
 
-##### 组件截图最佳实践
+#### 组件截图最佳实践
 
 
 
-##### 合理控制截图时机
+#### 合理控制截图时机
 
 在实现截图功能时，需注意组件的渲染过程非一次性完成。系统在构建与显示组件时，将经过测量、布局、提交指令等多个复杂步骤，最终在一次硬件刷新时呈现于屏幕上。因此，在特定情况下，若在组件刷新后立即调用截图，可能无法获取预期内容或出现截图失败报错。
 
@@ -355,18 +355,18 @@ export class GlobalStaticSnapshot {
 
 
 
-##### 及时保存和释放位图对象
+#### 及时保存和释放位图对象
 
 为了及时释放资源，当截图接口返回的PixelMap对象不再使用时，应将其赋值为空。
 
 
 
-##### 合理控制采样精度
+#### 合理控制采样精度
 
 请不要截取过大尺寸的图片，截图不建议超过屏幕尺寸大小。当要截取的图片目标长宽超过底层限制时，截图会返回失败，不同设备的底层限制并不相同。可以通过控制SnapshotOptions中的scale参数，减小采样精度，这可以在很大程度上节省内存，并大幅度提高截图的效率。
 
 
 
-##### 使用其他能力对自渲染场景实现截图
+#### 使用其他能力对自渲染场景实现截图
 
 尽管截图只需传入一个组件根节点即可实现对其下所有组件进行截图，但当子组件中存在[Video](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-media-components-video)、[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)或[Web](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web)组件时，这并不是推荐的截图方式。建议直接使用[image.createPixelMapFromSurface](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f#imagecreatepixelmapfromsurface11)接口来实现。

@@ -17,7 +17,7 @@
 状态的详细说明请参考[AVRecorderState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-t#avrecorderstate9)。
 
 
-##### 申请权限
+#### 申请权限
 
 在开发此功能前，开发者应根据实际需求申请相关权限：
 
@@ -31,7 +31,7 @@
 
 
 
-##### 开发音频录制应用须知
+#### 开发音频录制应用须知
 
  - 如果需要持续录制或后台录制，请申请长时任务避免进入挂起（Suspend）状态。具体参考[长时任务开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/continuous-task)。
  - 录制需要在前台启动，启动后可以退后台。在后台启动录制将会失败。
@@ -41,7 +41,7 @@
 
 
 
-##### 开发步骤及注意事项
+#### 开发步骤及注意事项
 
 详细的API说明请参考[AVRecorder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder)。
 1. 创建AVRecorder实例，实例创建完成进入idle状态。
@@ -185,7 +185,7 @@ await this.avRecorder?.release();
 
 
 
-##### 完整示例
+#### 完整示例
 
 参考以下示例，完成“开始录制-暂停录制-恢复录制-停止录制”的完整流程。
 

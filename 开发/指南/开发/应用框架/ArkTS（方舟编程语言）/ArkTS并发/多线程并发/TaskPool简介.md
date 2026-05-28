@@ -7,7 +7,7 @@
 TaskPool为应用程序提供多线程环境，降低资源消耗并提高系统性能。无需管理线程生命周期。具体接口信息及使用方法，请参见[TaskPool](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-taskpool)。
 
 
-##### TaskPool运作机制
+#### TaskPool运作机制
 
 TaskPool运作机制示意图
 
@@ -19,7 +19,7 @@ TaskPool支持在宿主线程提交任务到任务队列，系统选择合适的
 
 
 
-##### TaskPool注意事项
+#### TaskPool注意事项
 
  - 实现任务的函数需要使用[@Concurrent装饰器](#concurrent装饰器)标注，且仅支持在.ets文件中使用。
  - 从API version 11开始，跨并发实例传递带方法的实例对象时，该类必须使用装饰器[@Sendable装饰器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable#sendable装饰器)标注，且仅支持在.ets文件中使用。如果不考虑使用@Sendable装饰器标注，可以考虑worker方法，请参考[Worker同步调用宿主线程的接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/worker-invoke-mainthread-interface)。
@@ -66,7 +66,7 @@ function testArrayBuffer() {
 
 
 
-##### @Concurrent装饰器
+#### @Concurrent装饰器
 
 使用[TaskPool](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-taskpool)时，执行的并发函数必须用该装饰器修饰，否则无法通过校验。
 
@@ -97,11 +97,11 @@ function foo() {
 
 
 
-##### 装饰器使用示例
+#### 装饰器使用示例
 
 
 
-##### 并发函数一般使用
+#### 并发函数一般使用
 
 并发函数为一个计算两数之和的普通函数，taskpool执行该函数并返回结果。
 
@@ -149,7 +149,7 @@ struct Index {
 
 
 
-##### 并发函数返回Promise
+#### 并发函数返回Promise
 
 在并发函数中返回Promise时需特别注意。如示例所示，testPromise和testPromise1等函数需处理Promise并返回结果。
 
@@ -263,7 +263,7 @@ struct Index {
 
 
 
-##### 并发函数中使用自定义类或函数
+#### 并发函数中使用自定义类或函数
 
 在并发函数中使用自定义类或函数时，需将其定义在单独的文件中，否则可能被视为闭包。如下示例所示。
 
@@ -366,7 +366,7 @@ export class MyTestB {
 
 
 
-##### 并发异步函数中使用Promise
+#### 并发异步函数中使用Promise
 
 在并发异步函数中使用Promise时，建议搭配await使用，这样TaskPool可以捕获Promise中的异常。推荐使用示例如下。
 
@@ -445,17 +445,17 @@ struct Index {
 
 
 
-##### TaskPool扩缩容机制
+#### TaskPool扩缩容机制
 
 
 
-##### 扩容机制
+#### 扩容机制
 
 一般情况下，向任务队列提交任务时会触发扩容检测。扩容检测首先判断当前空闲工作线程数是否大于任务数。如果大于，说明线程池中有空闲工作线程，无需扩容。否则，通过负载计算确定所需工作线程数并创建。
 
 
 
-##### 缩容机制
+#### 缩容机制
 
 扩容后，TaskPool创建多个工作线程，但当任务数减少后，这些线程就会处于空闲状态，造成资源浪费，因此，TaskPool提供了缩容机制。TaskPool使用定时器，每30秒检测一次当前负载，并尝试释放空闲的工作线程。释放的线程需满足以下条件：
 

@@ -11,7 +11,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 ```text
 import wifiext from '@ohos.wifiext';
@@ -19,7 +19,7 @@ import wifiext from '@ohos.wifiext';
  
   
 
-##### wifiext.enableHotspot(deprecated)
+#### wifiext.enableHotspot(deprecated)
 
 enableHotspot(): boolean;
  
@@ -42,7 +42,7 @@ enableHotspot(): boolean;
  
   
 
-##### wifiext.disableHotspot(deprecated)
+#### wifiext.disableHotspot(deprecated)
 
 disableHotspot(): boolean;
  
@@ -65,7 +65,7 @@ disableHotspot(): boolean;
  
   
 
-##### wifiext.getSupportedPowerModel(deprecated)
+#### wifiext.getSupportedPowerModel(deprecated)
 
 getSupportedPowerModel(): Promise<Array&lt;PowerModel&gt;>
  
@@ -88,7 +88,7 @@ getSupportedPowerModel(): Promise<Array&lt;PowerModel&gt;>
  
   
 
-##### PowerModel
+#### PowerModel
 
 表示功率模式的枚举。
  
@@ -103,7 +103,7 @@ getSupportedPowerModel(): Promise<Array&lt;PowerModel&gt;>
  
   
 
-##### wifiext.getSupportedPowerModel
+#### wifiext.getSupportedPowerModel
 
 getSupportedPowerModel(callback: AsyncCallback<Array&lt;PowerModel&gt;>): void
  
@@ -122,7 +122,7 @@ getSupportedPowerModel(callback: AsyncCallback<Array&lt;PowerModel&gt;>): void
  
   
 
-##### wifiext.getPowerModel(deprecated)
+#### wifiext.getPowerModel(deprecated)
 
 getPowerModel(): Promise&lt;PowerModel&gt;
  
@@ -145,7 +145,7 @@ getPowerModel(): Promise&lt;PowerModel&gt;
  
   
 
-##### wifiext.getPowerModel(deprecated)
+#### wifiext.getPowerModel(deprecated)
 
 getPowerModel(callback: AsyncCallback&lt;PowerModel&gt;): void
  
@@ -168,7 +168,7 @@ getPowerModel(callback: AsyncCallback&lt;PowerModel&gt;): void
  
   
 
-##### wifiext.setPowerModel
+#### wifiext.setPowerModel
 
 setPowerModel(model: PowerModel) : boolean;
  

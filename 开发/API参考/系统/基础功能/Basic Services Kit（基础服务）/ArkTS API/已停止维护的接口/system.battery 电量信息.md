@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Wearable | lite_wearable
 
@@ -22,7 +22,7 @@ import {Battery, BatteryResponse } from '@kit.BasicServicesKit';
  
   
 
-##### Battery.getStatus(deprecated)
+#### Battery.getStatus(deprecated)
 
 **支持设备：** Wearable | lite_wearable
 
@@ -54,7 +54,7 @@ Battery.getStatus({
  
   
 
-##### GetStatusOptions(deprecated)
+#### GetStatusOptions(deprecated)
 
 **支持设备：** Wearable | lite_wearable
 
@@ -71,7 +71,7 @@ Battery.getStatus({
  
   
 
-##### BatteryResponse(deprecated)
+#### BatteryResponse(deprecated)
 
 **支持设备：** Wearable | lite_wearable
 

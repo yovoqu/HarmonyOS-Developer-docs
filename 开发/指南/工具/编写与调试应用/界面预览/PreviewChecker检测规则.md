@@ -7,7 +7,7 @@
 DevEco Studio启动预览时将执行PreviewChecker，检测通过后才可进行预览，以确保在使用预览器前识别到已知的不支持预览的场景，若存在不支持预览的场景，将给出优化提示，以便于开发者根据提示的建议进行代码优化。
  
 
-##### @previewer/mandatory-default-value-for-local-initialization
+#### @previewer/mandatory-default-value-for-local-initialization
 
 对于所有将被预览到的组件，如果组件的属性支持本地初始化，则都应当设置一个合法的不依赖运行时的默认值，以确保异常调用到该组件时，即使入参不完整，也能正常运行渲染。
  
@@ -60,7 +60,7 @@ struct <span style="color: rgb(0,128,128);">Index</span> {
  
  
 
-##### @previewer/no-unallowed-decorator-on-root-component
+#### @previewer/no-unallowed-decorator-on-root-component
 
 
  
@@ -111,7 +111,7 @@ struct <span style="color: rgb(0,128,128);">LinkSample</span> {
  
  
 
-##### @previewer/paired-use-of-consume-and-provide
+#### @previewer/paired-use-of-consume-and-provide
 
 如果缺少@Provide定义，@Consume组件在预览时将无法获取有效值。
  
@@ -187,7 +187,7 @@ struct <span style="color: rgb(0,128,128);">Child</span> {
  
  
 
-##### @previewer/no-page-method-on-preview-component
+#### @previewer/no-page-method-on-preview-component
 
 @Preview通常修饰在组件上，而非@Entry的页面入口。onPageShow、onPageHide、onBackPress仅在@Entry组件上生效。因此禁止在非路由组件上实例化onPageShow等页面级方法。
  
@@ -233,7 +233,7 @@ struct <span style="color: rgb(0,128,128);">Index</span> {
  
  
 
-##### @previewer/no-page-import-unmocked-hsp
+#### @previewer/no-page-import-unmocked-hsp
 
 由于能力缺失，预览器无法确保HSP是可以正常运行的。界面代码调用HSP可能会在预览运行时无法按预期执行，未正确初始化的接口调用可能会导致运行异常，从而影响界面渲染结果。建议待预览的组件及其依赖的组件避免引用HSP，或为该HSP设置Mock实现，更多关于Mock实现的介绍请参考[预览数据模拟](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-previewer-mock)。
  

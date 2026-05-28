@@ -13,7 +13,7 @@
 
 
 
-##### 概述
+#### 概述
 
 @Prop装饰的变量具有以下特性：
 
@@ -23,7 +23,7 @@
 
 
 
-##### 装饰器使用规则说明
+#### 装饰器使用规则说明
 
 | @Prop变量装饰器 | 说明 |
 | --- | --- |
@@ -37,7 +37,7 @@
 
 
 
-##### 变量的传递/访问规则说明
+#### 变量的传递/访问规则说明
 
 | 装饰器使用规则 | 说明 |
 | --- | --- |
@@ -54,11 +54,11 @@
 
 
 
-##### 观察变化和行为表现
+#### 观察变化和行为表现
 
 
 
-##### 观察变化
+#### 观察变化
 
 @Prop装饰的数据可以观察到以下变化。
 
@@ -149,7 +149,7 @@ this.title.push('3');
 
 
 
-##### 框架行为
+#### 框架行为
 
 理解@Prop装饰的变量值初始化和更新机制，需要了解父组件和子组件的渲染和更新流程。
 1. 初始渲染：
@@ -203,7 +203,7 @@ struct Father {
 
 
 
-##### 限制条件
+#### 限制条件
 
  - @Prop装饰变量时会进行深拷贝，在拷贝的过程中除了基本类型、Map、Set、Date、Array外，都会丢失类型。例如，对于通过NAPI提供的复杂类型（如[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)），由于其部分实现在Native侧，因此无法在ArkTS侧通过深拷贝获得完整的数据；同样，RegExp类型在拷贝过程中会丢失原类型，导致被@Prop装饰后无法调用正则相关函数。
  - @Prop不支持装饰Function类型的变量，API version 23之前，应用在运行时会出现错误。
@@ -247,11 +247,11 @@ struct Child {
 
 
 
-##### 使用场景
+#### 使用场景
 
 
 
-##### 父组件@State到子组件@Prop简单数据类型同步
+#### 父组件@State到子组件@Prop简单数据类型同步
 
 以下示例是@State到子组件@Prop简单数据同步，父组件ParentComponent的状态变量countDownStartValue初始化子组件CountDownComponent中@Prop装饰的count，点击“Try again”，count的修改仅保留在CountDownComponent，不会同步给父组件ParentComponent。
 
@@ -309,7 +309,7 @@ struct ParentComponent {
 
 
 
-##### 父组件@State数组项到子组件@Prop简单数据类型同步
+#### 父组件@State数组项到子组件@Prop简单数据类型同步
 
 父组件中@State如果装饰数组类型的变量，其数组项也可以初始化@Prop。以下示例中，父组件Index中@State装饰数组arr，将其数组项初始化子组件Child中@Prop装饰的value。
 
@@ -393,7 +393,7 @@ struct Index {
 
 
 
-##### 从父组件中的@State类对象属性到@Prop简单类型的同步
+#### 从父组件中的@State类对象属性到@Prop简单类型的同步
 
 如果图书馆有一本图书和两位用户，每位用户都可以将图书标记为已读，此标记行为不会影响其他用户。从代码角度讲，对@Prop图书对象的本地更改不会同步给图书馆组件中的@State图书对象。
 
@@ -443,7 +443,7 @@ struct Library {
 
 
 
-##### 从父组件中的@State数组项到@Prop class类型的同步
+#### 从父组件中的@State数组项到@Prop class类型的同步
 
 以下示例中，更改了@State装饰的allBooks数组中Book对象的属性，但点击“Mark read for everyone”时，没有触发UI更新。这是因为该属性是第二层的嵌套属性，@State装饰器只能观察到第一层属性，不会观察到此属性更改，所以框架不会更新ReaderComp。
 
@@ -583,7 +583,7 @@ class Book {
 
 
 
-##### @Prop本地初始化不和父组件同步
+#### @Prop本地初始化不和父组件同步
 
 为了支持@Component装饰的组件复用场景，@Prop支持本地初始化，这样可以让@Prop是否与父组件建立同步关系变得可选。当且仅当@Prop有本地初始化时，从父组件向子组件传递@Prop的数据源才是可选的。
 
@@ -662,7 +662,7 @@ struct MainProgram {
 
 
 
-##### @Prop嵌套场景
+#### @Prop嵌套场景
 
 在嵌套场景下，每一层都要用@Observed装饰，且每一层都要被@Prop接收，这样才能观察到嵌套场景。
 
@@ -776,7 +776,7 @@ struct Child {
 
 
 
-##### 装饰Array类型变量
+#### 装饰Array类型变量
 
 在下面的示例中，message类型为number[]，点击Button改变message的值，视图会随之刷新。
 
@@ -843,7 +843,7 @@ struct Child {
 
 
 
-##### 装饰Map类型变量
+#### 装饰Map类型变量
 
 > [!NOTE]
 > 从API version 11开始，@Prop支持Map类型。
@@ -903,7 +903,7 @@ struct MapSample {
 
 
 
-##### 装饰Set类型变量
+#### 装饰Set类型变量
 
 > [!NOTE]
 > 从API version 11开始，@Prop支持Set类型。
@@ -960,7 +960,7 @@ struct SetSample {
 
 
 
-##### 装饰Date类型变量
+#### 装饰Date类型变量
 
 在下面的示例中，selectedDate类型为Date，点击Button改变Date的值，视图会随之刷新。
 
@@ -1020,7 +1020,7 @@ struct ParentComponent {
 
 
 
-##### Prop支持联合类型实例
+#### Prop支持联合类型实例
 
 @Prop支持联合类型和undefined和null，在下面的示例中，animal类型为Animals | undefined，点击父组件Zoo中的Button改变animal的属性或者类型，Child中也会对应刷新。
 

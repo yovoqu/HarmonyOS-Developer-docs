@@ -12,7 +12,7 @@
 可以离屏渲染的canvas对象。
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -24,13 +24,13 @@
  
   
 
-##### 方法
+#### 方法
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### getContext
+#### getContext
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -55,7 +55,7 @@ getContext(contextId: string, options?: CanvasRenderingContext2DSettings): Offsc
  
   
 
-##### CanvasRenderingContext2DSettings
+#### CanvasRenderingContext2DSettings
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -70,7 +70,7 @@ CanvasRenderingContext2DSettings(antialias?: boolean)
  
   
 
-##### toDataURL
+#### toDataURL
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -95,7 +95,7 @@ toDataURL(type?: string, quality?:number): string
  
   
 
-##### transferToImageBitmap
+#### transferToImageBitmap
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -112,7 +112,7 @@ transferToImageBitmap(): ImageBitmap
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

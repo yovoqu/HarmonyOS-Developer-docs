@@ -14,7 +14,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { ToolBarV2 } from '@kit.ArkUI';
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -32,7 +32,7 @@ import { ToolBarV2 } from '@kit.ArkUI';
 
 
 
-##### ToolBarV2
+#### ToolBarV2
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -58,7 +58,7 @@ ToolBarV2({toolBarList: ToolBarV2Item[], activatedIndex?: number, dividerModifie
 
 
 
-##### ToolBarV2Item
+#### ToolBarV2Item
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -74,7 +74,7 @@ ToolBarV2({toolBarList: ToolBarV2Item[], activatedIndex?: number, dividerModifie
 
 
 
-##### 属性
+#### 属性
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -89,7 +89,7 @@ ToolBarV2({toolBarList: ToolBarV2Item[], activatedIndex?: number, dividerModifie
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -112,7 +112,7 @@ ToolBarV2Item的构造函数。
 
 
 
-##### ToolBarV2ItemOptions
+#### ToolBarV2ItemOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -137,7 +137,7 @@ ToolBarV2Item的构造函数。
 
 
 
-##### ToolBarV2ItemAction
+#### ToolBarV2ItemAction
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -160,7 +160,7 @@ type ToolBarV2ItemAction = (index: number) => void
 
 
 
-##### ToolBarV2ItemText
+#### ToolBarV2ItemText
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -176,7 +176,7 @@ type ToolBarV2ItemAction = (index: number) => void
 
 
 
-##### 属性
+#### 属性
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -187,7 +187,7 @@ type ToolBarV2ItemAction = (index: number) => void
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -210,7 +210,7 @@ ToolBarV2ItemText的构造函数。
 
 
 
-##### ToolBarV2ItemTextOptions
+#### ToolBarV2ItemTextOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -231,7 +231,7 @@ ToolBarV2ItemText的构造函数。
 
 
 
-##### ToolBarV2ItemImage
+#### ToolBarV2ItemImage
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -247,7 +247,7 @@ ToolBarV2ItemText的构造函数。
 
 
 
-##### 属性
+#### 属性
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -258,7 +258,7 @@ ToolBarV2ItemText的构造函数。
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -281,7 +281,7 @@ ToolBarV2ItemImage的构造函数。
 
 
 
-##### ToolBarV2ItemImageOptions
+#### ToolBarV2ItemImageOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -302,7 +302,7 @@ ToolBarV2ItemImage的构造函数。
 
 
 
-##### ToolBarV2ItemIconType
+#### ToolBarV2ItemIconType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -324,7 +324,7 @@ type ToolBarV2ItemIconType = ToolBarV2ItemImage | ToolBarV2SymbolGlyph
 
 
 
-##### ToolBarV2Modifier
+#### ToolBarV2Modifier
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -338,7 +338,7 @@ ToolBarV2Modifier提供设置工具栏高度(height)、背景色(backgroundColor
 
 
 
-##### backgroundColor
+#### backgroundColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -368,7 +368,7 @@ backgroundColor(backgroundColor: ColorMetrics): ToolBarV2Modifier
 
 
 
-##### padding
+#### padding
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -398,7 +398,7 @@ padding(padding: LengthMetrics): ToolBarV2Modifier
 
 
 
-##### height
+#### height
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -428,7 +428,7 @@ height(height: LengthMetrics): ToolBarV2Modifier
 
 
 
-##### stateEffect
+#### stateEffect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -458,7 +458,7 @@ stateEffect(stateEffect: boolean): ToolBarV2Modifier
 
 
 
-##### ToolBarV2ItemState
+#### ToolBarV2ItemState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -479,7 +479,7 @@ stateEffect(stateEffect: boolean): ToolBarV2Modifier
 
 
 
-##### ToolBarV2SymbolGlyph
+#### ToolBarV2SymbolGlyph
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -495,7 +495,7 @@ ToolBarV2SymbolGlyph定义Symbol图标的属性。
 
 
 
-##### 属性
+#### 属性
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -505,7 +505,7 @@ ToolBarV2SymbolGlyph定义Symbol图标的属性。
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -528,7 +528,7 @@ ToolBarV2SymbolGlyph的构造函数。
 
 
 
-##### ToolBarV2SymbolGlyphOptions
+#### ToolBarV2SymbolGlyphOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -548,13 +548,13 @@ ToolBarV2SymbolGlyphOptions定义图标的属性。
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1（工具栏不同状态的默认效果）
+#### 示例1（工具栏不同状态的默认效果）
 
 该示例展示了工具栏子项state属性分别设置ENABLE、DISABLE、ACTIVATE状态的不同显示效果。
 
@@ -675,7 +675,7 @@ struct Index {
 
 
 
-##### 示例2（设置工具栏自定义样式）
+#### 示例2（设置工具栏自定义样式）
 
 该示例通过设置属性ToolBarV2Modifier自定义工具栏高度、背景色、按压效果等样式。
 
@@ -811,7 +811,7 @@ struct Index {
 
 
 
-##### 示例3（设置工具栏自定义播报）
+#### 示例3（设置工具栏自定义播报）
 
 该示例通过设置工具栏子项属性accessibilityText、accessibilityDescription、accessibilityLevel自定义屏幕朗读播报文本。
 
@@ -936,4 +936,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/lVW_U7RcRtqBgXCKSXgUOw/zh-cn_image_0000002611756217.png?HW-CC-KV=V1&HW-CC-Date=20260528T024154Z&HW-CC-Expire=86400&HW-CC-Sign=248501435580C13541F7FDB9576B8B4E2F77EF63D38CB7F4E0BD0ED79450464B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/lVW_U7RcRtqBgXCKSXgUOw/zh-cn_image_0000002611756217.png?HW-CC-KV=V1&HW-CC-Date=20260528T025527Z&HW-CC-Expire=86400&HW-CC-Sign=9F5681F018BF03C1BEBDA164F2B48948DAFF474078D212AA69FCA958AC477B86)

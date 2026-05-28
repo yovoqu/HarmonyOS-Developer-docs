@@ -18,7 +18,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -28,7 +28,7 @@ import { proxyChannelManager } from '@kit.DistributedServiceKit';
 
 
 
-##### 使用说明
+#### 使用说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -38,7 +38,7 @@ import { proxyChannelManager } from '@kit.DistributedServiceKit';
 
 
 
-##### proxyChannelManager.openProxyChannel
+#### proxyChannelManager.openProxyChannel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -123,7 +123,7 @@ struct Index {
 
 
 
-##### proxyChannelManager.closeProxyChannel
+#### proxyChannelManager.closeProxyChannel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -188,7 +188,7 @@ struct Index {
 
 
 
-##### proxyChannelManager.sendData
+#### proxyChannelManager.sendData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -267,7 +267,7 @@ struct Index {
 
 
 
-##### proxyChannelManager.on('receiveData')
+#### proxyChannelManager.on('receiveData')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -334,7 +334,7 @@ struct Index {
 
 
 
-##### proxyChannelManager.off('receiveData')
+#### proxyChannelManager.off('receiveData')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -399,7 +399,7 @@ struct Index {
 
 
 
-##### proxyChannelManager.on('channelStateChange')
+#### proxyChannelManager.on('channelStateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -466,7 +466,7 @@ struct Index {
 
 
 
-##### proxyChannelManager.off('channelStateChange')
+#### proxyChannelManager.off('channelStateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -531,7 +531,7 @@ struct Index {
 
 
 
-##### DataInfo
+#### DataInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -547,7 +547,7 @@ struct Index {
 
 
 
-##### ChannelInfo
+#### ChannelInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -564,7 +564,7 @@ struct Index {
 
 
 
-##### ChannelStateInfo
+#### ChannelStateInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -580,7 +580,7 @@ struct Index {
 
 
 
-##### ChannelState
+#### ChannelState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -598,7 +598,7 @@ struct Index {
 
 
 
-##### LinkType
+#### LinkType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

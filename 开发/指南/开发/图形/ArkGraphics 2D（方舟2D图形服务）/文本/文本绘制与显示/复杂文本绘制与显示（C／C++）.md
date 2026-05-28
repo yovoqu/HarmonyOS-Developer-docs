@@ -15,7 +15,7 @@
 
 
 
-##### 多语言文本绘制与显示
+#### 多语言文本绘制与显示
 
 多语言支持是全球化应用的基础。多语言文本绘制需要支持不同语言的字符集及其独特的显示需求，例如右到左语言（如阿拉伯语）或竖排文本（如中文）。开发者需要理解不同语言的渲染特性，确保文本的正确显示。
 
@@ -23,7 +23,7 @@
 
 
 
-##### 接口说明
+#### 接口说明
 
 | 接口定义 | 描述 |
 | --- | --- |
@@ -32,7 +32,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 画布Canvas对象具体可见[画布的获取与绘制结果的显示](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/canvas-get-result-draw-c)。
 
@@ -79,7 +79,7 @@ OH_Drawing_DestroyTypography(typography);
 
 
 
-##### 效果展示
+#### 效果展示
 
 
 ![](assets/复杂文本绘制与显示（C／C++）/file-20260514131646723-0.png)
@@ -87,13 +87,13 @@ OH_Drawing_DestroyTypography(typography);
 
 
 
-##### 多行文本绘制与显示
+#### 多行文本绘制与显示
 
 多行文本相对于单行文本比较复杂，一般针对多行文本，需要进行文本排版、断词策略设置、文本对齐方式、最大行数限制等，主要通过设置段落样式实现。
 
 
 
-##### 接口说明
+#### 接口说明
 
 | 接口定义 | 描述 |
 | --- | --- |
@@ -104,7 +104,7 @@ OH_Drawing_DestroyTypography(typography);
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 以下以断行策略为 BREAK_ALL 的场景为例，其余策略同理。
 
@@ -171,7 +171,7 @@ OH_Drawing_DestroyTypography(typography);
 
 
 
-##### 多样式文本绘制与显示
+#### 多样式文本绘制与显示
 
 除基本文字、排版属性之外，针对应用中不同文本的设计，开发者可能需要设置使用不同的绘制样式或能力，以凸显对应文本的独特表现或风格，此时可以结合使用多种绘制样式进行文本的渲染。
 
@@ -193,7 +193,7 @@ OH_Drawing_DestroyTypography(typography);
 
 
 
-##### 装饰线
+#### 装饰线
 
 **装饰线**是指在文本上方、下方或中间添加的装饰性线条，当前支持上划线、下划线、删除线。
 
@@ -274,7 +274,7 @@ OH_Drawing_DestroyTypography(typography);
 
 
 
-##### 字体特征
+#### 字体特征
 
 **字体特征**绘制专注于在文本渲染过程中对字体特性（如粗体、斜体、字体变种等）的处理，允许字体在不同的排版场景下表现出不同的效果，可用于增强文本的表现力，使其更符合设计和阅读需求。
 
@@ -351,7 +351,7 @@ OH_Drawing_DestroyTypography(typography);
 
 
 
-##### 可变字体
+#### 可变字体
 
 **可变字体**是一种在一个字体文件中包含多个字形变体的字体格式，允许在一个字体文件内灵活地调整字体的各种属性（如字重、字宽、斜体等）。
 
@@ -429,7 +429,7 @@ OH_Drawing_DestroyTypography(typography);
 
 
 
-##### 文本阴影
+#### 文本阴影
 
 **文本阴影**为文本提供了深度感，使得文本在背景上更具立体感。通常用于提升文本的视觉吸引力或增强可读性，尤其是在色彩对比度较低的场景下。
 
@@ -516,7 +516,7 @@ OH_Drawing_DestroyTypography(typography);
 
 
 
-##### 占位符
+#### 占位符
 
 占位符绘制用于处理文本中占位符符号的渲染。
 
@@ -596,12 +596,12 @@ OH_Drawing_DestroyTypography(typographyNoPlaceholder);
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/KNU9Cp7yTHCStO3kgBCAOA/zh-cn_image_0000002581434788.png?HW-CC-KV=V1&HW-CC-Date=20260528T014904Z&HW-CC-Expire=86400&HW-CC-Sign=173BD47FF8D6E39BBFC65C07B106B8C4A07106742A3DE09FF8CC23DEED6F0795)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/KNU9Cp7yTHCStO3kgBCAOA/zh-cn_image_0000002581434788.png?HW-CC-KV=V1&HW-CC-Date=20260528T030533Z&HW-CC-Expire=86400&HW-CC-Sign=7D40E3B03DACA43D4458FEAB14AF83E3EC5E0E8AC50B3E373684BB5F943D7B95)
 
 
 
 
-##### 自动间距
+#### 自动间距
 
 使能自动间距，则会在文本排版时自动调整CJK（中文字符、日文字符、韩文字符）与西文（拉丁字母、西里尔字母、希腊字母）、CJK与数字、CJK与版权符号、版权符号与数字、版权符号与西文之间的间距。例如，在中英文混排场景中，使能自动间距即可在中英文切换的地方自动添加额外间距，提升阅读体验。
 
@@ -678,7 +678,7 @@ OH_Drawing_DestroyTypography(typographyWithoutAutoSpace);
 
 
 
-##### 渐变色
+#### 渐变色
 
 **渐变色**是一种在文字设计中广泛应用的视觉效果，通过在文字的不同部分应用不同的颜色，从而创造出从一种颜色平滑过渡到另一种颜色的效果。可以通过着色器实现文字渐变的效果，着色器的更多介绍请参考[着色器效果](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/complex-drawing-effect-c#着色器效果)。
 
@@ -732,12 +732,12 @@ OH_Drawing_DestroyTypography(typography);
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/TWwZ4AcER52w1Kc96gEVVg/zh-cn_image_0000002611754727.png?HW-CC-KV=V1&HW-CC-Date=20260528T014904Z&HW-CC-Expire=86400&HW-CC-Sign=713ED90FD51A3EB00FDFCF76FD344FF6F402AACD48A2CD74834D9B1C836C29DA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/TWwZ4AcER52w1Kc96gEVVg/zh-cn_image_0000002611754727.png?HW-CC-KV=V1&HW-CC-Date=20260528T030533Z&HW-CC-Expire=86400&HW-CC-Sign=585C8B90637C8986EBE38FDFF84B3A1A37D36985680E9396E1D4126DB24734DC)
 
 
 
 
-##### 垂直对齐
+#### 垂直对齐
 
 **垂直对齐**用于调整文本在一行中垂直方向的排版位置。开启行高缩放或行内存在不同字号文本混排时使能垂直对齐，可以让文本实现顶部对齐、居中对齐、底部对齐或基线对齐（默认）。
 
@@ -782,12 +782,12 @@ OH_Drawing_DestroyTypography(typography);
 效果如下（黑框仅为展示文本绘制区域，实际不绘制）：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/efgEt1GgRHGLA3d5VKcK8w/zh-cn_image_0000002581434776.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T014904Z&HW-CC-Expire=86400&HW-CC-Sign=4F60C208B2CE250EAACC815BEE08332C7AE87F0A9056CDC842D09ED3F0E53259)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/efgEt1GgRHGLA3d5VKcK8w/zh-cn_image_0000002581434776.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T030533Z&HW-CC-Expire=86400&HW-CC-Sign=52AEEABD095211427A0D0921335FB4CAAD85DE1D57A85285508EB7A741397EC4)
 
 
 
 
-##### 上下标
+#### 上下标
 
 **上下标**能将文本作为上标或下标参与排版。一般用于数学公式、化学式等场景。
 
@@ -836,12 +836,12 @@ OH_Drawing_DestroyTypography(typography);
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/qkWZC4hlSV6eZZ3dBZoFCw/zh-cn_image_0000002611754715.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T014904Z&HW-CC-Expire=86400&HW-CC-Sign=74A099CA48934A175249E7A099A89A134E1164B73E863702BC95AC509709879D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/qkWZC4hlSV6eZZ3dBZoFCw/zh-cn_image_0000002611754715.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T030533Z&HW-CC-Expire=86400&HW-CC-Sign=FA56AA4FDD176C1242FE2162CD2D22DF48A755B10272D22317D9D6E9F44F9E00)
 
 
 
 
-##### 高对比度
+#### 高对比度
 
 高对比度可将深色文字变黑、浅色文字变白。开发者可选择开启或关闭应用的高对比度文字渲染，或遵循系统设置中的高对比度文字配置。
 
@@ -898,7 +898,7 @@ OH_Drawing_DestroyTypography(typography);
 
 
 
-##### 行高调整
+#### 行高调整
 
 调整行高可以改变文本行的垂直间距，行间距将变得更松散或更紧凑，可以显著改善文本垂直方向截断问题，使文本更易读。
 
@@ -1007,7 +1007,7 @@ OH_Drawing_DestroyTypography(typography);
 
 
 
-##### 行间距调整
+#### 行间距调整
 
 从API version 21开始，支持设置行间距可以改善文本行之间的距离，提高阅读体验。
 
@@ -1057,7 +1057,7 @@ OH_Drawing_DestroyTypography(typography);
 
 
 
-##### 样式的拷贝、绘制与显示
+#### 样式的拷贝、绘制与显示
 
 支持拷贝文本样式、段落样式、阴影样式，以便快速复制相关样式作用到不同文字上。
 
@@ -1159,4 +1159,4 @@ OH_Drawing_DestroyTypography(typographyCopy);
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/zM8I2_0lSnS7B09f1rhTBA/zh-cn_image_0000002611754729.png?HW-CC-KV=V1&HW-CC-Date=20260528T014904Z&HW-CC-Expire=86400&HW-CC-Sign=17C19FA3E70D6A4698BA8D83E2845355D1B326AC6943869DC43D4FF847129945)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/zM8I2_0lSnS7B09f1rhTBA/zh-cn_image_0000002611754729.png?HW-CC-KV=V1&HW-CC-Date=20260528T030533Z&HW-CC-Expire=86400&HW-CC-Sign=29AC359ACCA1F7B489B339A987AB16D45ED9C8E3A30B7ECC08192FFE5B71CACE)

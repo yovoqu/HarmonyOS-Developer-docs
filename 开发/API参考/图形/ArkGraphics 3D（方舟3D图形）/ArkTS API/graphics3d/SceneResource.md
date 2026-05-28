@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { SceneResourceType, SceneResource, Shader, MaterialType, CullMode, Blend
 
 
 
-##### SceneResourceType
+#### SceneResourceType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -48,7 +48,7 @@ import { SceneResourceType, SceneResource, Shader, MaterialType, CullMode, Blend
 
 
 
-##### SceneResource
+#### SceneResource
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -56,7 +56,7 @@ import { SceneResourceType, SceneResource, Shader, MaterialType, CullMode, Blend
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -71,7 +71,7 @@ import { SceneResourceType, SceneResource, Shader, MaterialType, CullMode, Blend
 
 
 
-##### destroy
+#### destroy
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -107,7 +107,7 @@ function destroy(): void {
 
 
 
-##### Shader
+#### Shader
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -115,7 +115,7 @@ function destroy(): void {
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -128,7 +128,7 @@ function destroy(): void {
 
 
 
-##### setShaderInputs23+
+#### setShaderInputs23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -188,7 +188,7 @@ function setinputs(): void {
 
 
 
-##### MaterialType
+#### MaterialType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -206,7 +206,7 @@ function setinputs(): void {
 
 
 
-##### CullMode20+
+#### CullMode20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -223,7 +223,7 @@ function setinputs(): void {
 
 
 
-##### Blend20+
+#### Blend20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -238,7 +238,7 @@ function setinputs(): void {
 
 
 
-##### RenderSort20+
+#### RenderSort20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -254,7 +254,7 @@ function setinputs(): void {
 
 
 
-##### PolygonMode23+
+#### PolygonMode23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -271,7 +271,7 @@ function setinputs(): void {
 
 
 
-##### Material
+#### Material
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -292,7 +292,7 @@ function setinputs(): void {
 
 
 
-##### MaterialProperty20+
+#### MaterialProperty20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -309,7 +309,7 @@ function setinputs(): void {
 
 
 
-##### MetallicRoughnessMaterial20+
+#### MetallicRoughnessMaterial20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -333,7 +333,7 @@ function setinputs(): void {
 
 
 
-##### ShaderMaterial
+#### ShaderMaterial
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -348,7 +348,7 @@ function setinputs(): void {
 
 
 
-##### UnlitMaterial23+
+#### UnlitMaterial23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -363,7 +363,7 @@ function setinputs(): void {
 
 
 
-##### OcclusionMaterial23+
+#### OcclusionMaterial23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -373,7 +373,7 @@ function setinputs(): void {
 
 
 
-##### SamplerFilter20+
+#### SamplerFilter20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -389,7 +389,7 @@ function setinputs(): void {
 
 
 
-##### SamplerAddressMode20+
+#### SamplerAddressMode20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -406,7 +406,7 @@ function setinputs(): void {
 
 
 
-##### Sampler20+
+#### Sampler20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -425,7 +425,7 @@ function setinputs(): void {
 
 
 
-##### SubMesh
+#### SubMesh
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -442,7 +442,7 @@ function setinputs(): void {
 
 
 
-##### Morpher20+
+#### Morpher20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -457,7 +457,7 @@ function setinputs(): void {
 
 
 
-##### Mesh
+#### Mesh
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -474,7 +474,7 @@ function setinputs(): void {
 
 
 
-##### MeshResource18+
+#### MeshResource18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -484,7 +484,7 @@ function setinputs(): void {
 
 
 
-##### Animation
+#### Animation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -492,7 +492,7 @@ function setinputs(): void {
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -509,7 +509,7 @@ function setinputs(): void {
 
 
 
-##### onFinished
+#### onFinished
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -548,7 +548,7 @@ function onFinished(): void {
 
 
 
-##### onStarted
+#### onStarted
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -587,7 +587,7 @@ function onStarted(): void {
 
 
 
-##### pause
+#### pause
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -617,7 +617,7 @@ function pause(): void {
 
 
 
-##### restart
+#### restart
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -647,7 +647,7 @@ function restart(): void {
 
 
 
-##### seek
+#### seek
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -684,7 +684,7 @@ function seek(): void {
 
 
 
-##### start
+#### start
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -714,7 +714,7 @@ function start(): void {
 
 
 
-##### stop
+#### stop
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -744,7 +744,7 @@ function stop(): void {
 
 
 
-##### finish
+#### finish
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -774,7 +774,7 @@ function finish(): void {
 
 
 
-##### EnvironmentBackgroundType
+#### EnvironmentBackgroundType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -792,7 +792,7 @@ function finish(): void {
 
 
 
-##### Environment
+#### Environment
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -814,7 +814,7 @@ function finish(): void {
 
 
 
-##### Image
+#### Image
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -830,7 +830,7 @@ function finish(): void {
 
 
 
-##### Effect21+
+#### Effect21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -838,7 +838,7 @@ function finish(): void {
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -852,7 +852,7 @@ function finish(): void {
 
 
 
-##### getPropertyValue23+
+#### getPropertyValue23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -900,7 +900,7 @@ function getEffectProperty() {
 
 
 
-##### setPropertyValue23+
+#### setPropertyValue23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

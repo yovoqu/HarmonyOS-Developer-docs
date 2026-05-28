@@ -12,7 +12,7 @@ FeatureAbility模块提供与用户进行交互的Ability的能力，包括启�
 
 
 
-##### 使用限制
+#### 使用限制
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@ FeatureAbility模块的接口只能在Page类型的Ability中调用。
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -30,7 +30,7 @@ import { featureAbility } from '@kit.AbilityKit';
 
 
 
-##### featureAbility.startAbility
+#### featureAbility.startAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -86,7 +86,7 @@ featureAbility.startAbility(
 
 
 
-##### featureAbility.startAbility
+#### featureAbility.startAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -143,7 +143,7 @@ featureAbility.startAbility(
 
 
 
-##### featureAbility.acquireDataAbilityHelper7+
+#### featureAbility.acquireDataAbilityHelper7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -185,7 +185,7 @@ let dataAbilityHelper = featureAbility.acquireDataAbilityHelper(
 
 
 
-##### featureAbility.startAbilityForResult7+
+#### featureAbility.startAbilityForResult7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -246,7 +246,7 @@ featureAbility.startAbilityForResult(
 
 
 
-##### featureAbility.startAbilityForResult7+
+#### featureAbility.startAbilityForResult7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -319,7 +319,7 @@ featureAbility.startAbilityForResult(
 
 
 
-##### featureAbility.terminateSelfWithResult7+
+#### featureAbility.terminateSelfWithResult7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -378,7 +378,7 @@ featureAbility.terminateSelfWithResult(
 
 
 
-##### featureAbility.terminateSelfWithResult7+
+#### featureAbility.terminateSelfWithResult7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -442,7 +442,7 @@ featureAbility.terminateSelfWithResult(
 
 
 
-##### featureAbility.hasWindowFocus7+
+#### featureAbility.hasWindowFocus7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -477,7 +477,7 @@ featureAbility.hasWindowFocus((error, data) => {
 
 
 
-##### featureAbility.hasWindowFocus7+
+#### featureAbility.hasWindowFocus7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -508,7 +508,7 @@ featureAbility.hasWindowFocus().then((data) => {
 
 
 
-##### featureAbility.getWant
+#### featureAbility.getWant
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -543,7 +543,7 @@ featureAbility.getWant((error, data) => {
 
 
 
-##### featureAbility.getWant
+#### featureAbility.getWant
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -574,7 +574,7 @@ featureAbility.getWant().then((data) => {
 
 
 
-##### featureAbility.getContext
+#### featureAbility.getContext
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -610,7 +610,7 @@ context.getBundleName((error, data) => {
 
 
 
-##### featureAbility.terminateSelf7+
+#### featureAbility.terminateSelf7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -643,7 +643,7 @@ featureAbility.terminateSelf(
 
 
 
-##### featureAbility.terminateSelf7+
+#### featureAbility.terminateSelf7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -677,7 +677,7 @@ featureAbility.terminateSelf().then(() => {
 
 
 
-##### featureAbility.connectAbility7+
+#### featureAbility.connectAbility7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -736,7 +736,7 @@ let connectId = featureAbility.connectAbility(
 
 
 
-##### featureAbility.disconnectAbility7+
+#### featureAbility.disconnectAbility7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -791,7 +791,7 @@ featureAbility.disconnectAbility(connectId, (error) => {
 
 
 
-##### featureAbility.disconnectAbility7+
+#### featureAbility.disconnectAbility7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -851,7 +851,7 @@ featureAbility.disconnectAbility(connectId).then(() => {
 
 
 
-##### featureAbility.getWindow7+
+#### featureAbility.getWindow7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -888,7 +888,7 @@ featureAbility.getWindow((error: BusinessError, data: window.Window) => {
 
 
 
-##### featureAbility.getWindow7+
+#### featureAbility.getWindow7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -923,7 +923,7 @@ featureAbility.getWindow().then((data: window.Window) => {
 
 
 
-##### AbilityWindowConfiguration7+
+#### AbilityWindowConfiguration7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -952,7 +952,7 @@ featureAbility.AbilityWindowConfiguration.WINDOW_MODE_UNDEFINED
 
 
 
-##### AbilityStartSetting7+
+#### AbilityStartSetting7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -981,7 +981,7 @@ featureAbility.AbilityStartSetting.BOUNDS_KEY
 
 
 
-##### ErrorCode7+
+#### ErrorCode7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1001,7 +1001,7 @@ featureAbility.AbilityStartSetting.BOUNDS_KEY
 
 
 
-##### DataAbilityOperationType7+
+#### DataAbilityOperationType7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1021,7 +1021,7 @@ featureAbility.AbilityStartSetting.BOUNDS_KEY
 
 
 
-##### Context9+
+#### Context9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1040,7 +1040,7 @@ Context模块。
 
 
 
-##### AppVersionInfo9+
+#### AppVersionInfo9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1059,7 +1059,7 @@ type AppVersionInfo = _AppVersionInfo
 
 
 
-##### ProcessInfo9+
+#### ProcessInfo9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

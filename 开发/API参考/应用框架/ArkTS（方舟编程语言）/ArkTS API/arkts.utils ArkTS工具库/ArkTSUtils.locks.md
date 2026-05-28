@@ -16,7 +16,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -26,7 +26,7 @@ import { ArkTSUtils } from '@kit.ArkTS'
 
 
 
-##### AsyncLockCallback
+#### AsyncLockCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -40,7 +40,7 @@ type AsyncLockCallback&lt;T&gt; = () => T | Promise&lt;T&gt;
 
 
 
-##### AsyncLock
+#### AsyncLock
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -48,7 +48,7 @@ type AsyncLockCallback&lt;T&gt; = () => T | Promise&lt;T&gt;
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -107,7 +107,7 @@ async function foo(a: A) {
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -127,7 +127,7 @@ let lock = new ArkTSUtils.locks.AsyncLock();
 
 
 
-##### request
+#### request
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -162,7 +162,7 @@ let lock = ArkTSUtils.locks.AsyncLock.request(lockName);
 
 
 
-##### query
+#### query
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -221,7 +221,7 @@ try {
 
 
 
-##### queryAll
+#### queryAll
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -253,7 +253,7 @@ console.info("The states size is " + states.length);
 
 
 
-##### lockAsync
+#### lockAsync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -300,7 +300,7 @@ let p1 = lock.lockAsync<void>(() => {
 
 
 
-##### lockAsync
+#### lockAsync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -348,7 +348,7 @@ let p1 = lock.lockAsync<void>(() => {
 
 
 
-##### lockAsync
+#### lockAsync
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -404,7 +404,7 @@ let p: Promise<void> = lock.lockAsync<void, void>(
 
 
 
-##### AsyncLockMode
+#### AsyncLockMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -453,7 +453,7 @@ lock.lockAsync(async () => {
 
 
 
-##### AsyncLockOptions
+#### AsyncLockOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -467,7 +467,7 @@ class AsyncLockOptions&lt;T&gt;
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -498,7 +498,7 @@ let p = lock.lockAsync<void, string>(
 
 
 
-##### 属性
+#### 属性
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -509,7 +509,7 @@ let p = lock.lockAsync<void, string>(
 
 
 
-##### AsyncLockState
+#### AsyncLockState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -521,7 +521,7 @@ let p = lock.lockAsync<void, string>(
 
 
 
-##### 属性
+#### 属性
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -531,7 +531,7 @@ let p = lock.lockAsync<void, string>(
 
 
 
-##### AsyncLockInfo
+#### AsyncLockInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -543,7 +543,7 @@ let p = lock.lockAsync<void, string>(
 
 
 
-##### 属性
+#### 属性
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -554,7 +554,7 @@ let p = lock.lockAsync<void, string>(
 
 
 
-##### AbortSignal
+#### AbortSignal
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -566,7 +566,7 @@ let p = lock.lockAsync<void, string>(
 
 
 
-##### 属性
+#### 属性
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -576,7 +576,7 @@ let p = lock.lockAsync<void, string>(
 
 
 
-##### ConditionVariable18+
+#### ConditionVariable18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -588,7 +588,7 @@ let p = lock.lockAsync<void, string>(
 
 
 
-##### constructor18+
+#### constructor18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -608,7 +608,7 @@ let conditionVariable = new ArkTSUtils.locks.ConditionVariable();
 
 
 
-##### request18+
+#### request18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -642,7 +642,7 @@ let conditionVariable = ArkTSUtils.locks.ConditionVariable.request("conditionNam
 
 
 
-##### wait18+
+#### wait18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -672,7 +672,7 @@ conditionVariable.wait().then(() => {
 
 
 
-##### waitFor18+
+#### waitFor18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -709,7 +709,7 @@ conditionVariable.waitFor(3000).then(() => {
 
 
 
-##### notifyAll18+
+#### notifyAll18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -734,7 +734,7 @@ conditionVariable.notifyAll();
 
 
 
-##### notifyOne18+
+#### notifyOne18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

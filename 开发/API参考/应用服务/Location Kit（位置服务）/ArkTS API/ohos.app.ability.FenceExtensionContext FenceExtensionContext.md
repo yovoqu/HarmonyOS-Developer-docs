@@ -11,7 +11,7 @@ FenceExtensionContext是FenceExtensionAbility的上下文环境，继承自[Exte
 
 
 
-##### 导入模块
+#### 导入模块
 
 ```text
 import { FenceExtensionContext } from '@kit.LocationKit';
@@ -19,7 +19,7 @@ import { FenceExtensionContext } from '@kit.LocationKit';
 
 
 
-##### 使用说明
+#### 使用说明
 
 在使用FenceExtensionContext的功能前，需要通过FenceExtensionAbility获取。
 

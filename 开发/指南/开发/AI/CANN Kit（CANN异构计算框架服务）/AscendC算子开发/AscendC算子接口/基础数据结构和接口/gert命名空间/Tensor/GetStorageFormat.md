@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-tensor-getstorageformat
 
-##### 函数功能
+#### 函数功能
 
 获取运行时Tensor的format。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 ge::Format GetStorageFormat() const
@@ -18,13 +18,13 @@ ge::Format GetStorageFormat() const
  
   
 
-##### 参数说明
+#### 参数说明
 
 无
  
   
 
-##### 返回值
+#### 返回值
 
 返回运行时format。
  
@@ -32,13 +32,13 @@ ge::Format GetStorageFormat() const
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 Tensor t = {{}, {}, {}, {}, nullptr};

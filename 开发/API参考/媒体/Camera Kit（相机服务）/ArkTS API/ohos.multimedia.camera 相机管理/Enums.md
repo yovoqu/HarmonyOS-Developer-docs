@@ -10,7 +10,7 @@
 
   
 
-##### CameraPosition
+#### CameraPosition
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -30,7 +30,7 @@
  
   
 
-##### CameraType
+#### CameraType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -51,7 +51,7 @@
  
   
 
-##### ConnectionType
+#### ConnectionType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -70,7 +70,7 @@
  
   
 
-##### HostDeviceType15+
+#### HostDeviceType15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -89,7 +89,7 @@
  
   
 
-##### CameraStatus
+#### CameraStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -109,7 +109,7 @@
  
   
 
-##### FoldStatus12+
+#### FoldStatus12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -128,7 +128,7 @@
  
   
 
-##### SceneMode11+
+#### SceneMode11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -147,7 +147,7 @@
  
   
 
-##### CameraErrorCode
+#### CameraErrorCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -176,7 +176,7 @@
  
   
 
-##### TorchMode11+
+#### TorchMode11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -195,7 +195,7 @@
  
   
 
-##### CameraFormat
+#### CameraFormat
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -218,7 +218,7 @@
  
   
 
-##### VideoCodecType13+
+#### VideoCodecType13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -236,7 +236,7 @@
  
   
 
-##### CameraConcurrentType18+
+#### CameraConcurrentType18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -254,7 +254,7 @@
  
   
 
-##### ImageRotation
+#### ImageRotation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -274,7 +274,7 @@
  
   
 
-##### QualityLevel
+#### QualityLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -293,7 +293,7 @@
  
   
 
-##### MetadataObjectType
+#### MetadataObjectType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -309,7 +309,7 @@
  
   
 
-##### FlashMode
+#### FlashMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -329,7 +329,7 @@
  
   
 
-##### ExposureMode
+#### ExposureMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -348,7 +348,7 @@
  
   
 
-##### FocusMode
+#### FocusMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -368,7 +368,7 @@
  
   
 
-##### FocusState
+#### FocusState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -387,7 +387,7 @@
  
   
 
-##### VideoStabilizationMode
+#### VideoStabilizationMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -408,7 +408,7 @@
  
   
 
-##### SmoothZoomMode11+
+#### SmoothZoomMode11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -425,7 +425,7 @@
  
   
 
-##### PreconfigType12+
+#### PreconfigType12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -444,7 +444,7 @@
  
   
 
-##### PreconfigRatio12+
+#### PreconfigRatio12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -463,7 +463,7 @@
  
   
 
-##### QualityPrioritization14+
+#### QualityPrioritization14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -481,7 +481,7 @@
  
   
 
-##### WhiteBalanceMode20+
+#### WhiteBalanceMode20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -504,7 +504,7 @@
  
   
 
-##### SystemPressureLevel20+
+#### SystemPressureLevel20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -525,7 +525,7 @@
  
   
 
-##### ControlCenterEffectType20+
+#### ControlCenterEffectType20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -542,7 +542,7 @@
  
   
 
-##### PhotoQualityPrioritization21+
+#### PhotoQualityPrioritization21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -560,7 +560,7 @@
  
   
 
-##### SensorColorFilterArrangement24+
+#### SensorColorFilterArrangement24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -582,7 +582,7 @@
  
   
 
-##### FlashState24+
+#### FlashState24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -603,7 +603,7 @@
  
   
 
-##### ExposureMeteringMode24+
+#### ExposureMeteringMode24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -622,7 +622,7 @@
  
   
 
-##### OISMode24+
+#### OISMode24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -643,7 +643,7 @@
  
   
 
-##### OISAxes24+
+#### OISAxes24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

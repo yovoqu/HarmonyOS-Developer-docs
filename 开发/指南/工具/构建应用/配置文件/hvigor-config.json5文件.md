@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-set-options
 
-##### 配置文件结构
+#### 配置文件结构
 
 hvigor-config.json5文件整体的结构如下。
 
@@ -70,7 +70,7 @@ parameterFile
 
 
 
-##### 配置文件字段说明
+#### 配置文件字段说明
 
 hvigor-config.json5配置文件包含以下字段。
 
@@ -80,7 +80,7 @@ hvigor-config.json5配置文件包含以下字段。
 | dependencies | 必选 | 对象 | 当前工程执行构建任务时，依赖的构建插件及版本，为npm源组件。 
 > [!TIP]
 > 修改dependencies后，请根据界面提示，点击编辑器右上角 Sync Now 安装依赖。
-|
+ |
 | execution | 可选 | 对象 | 执行构建的相关配置参数，仅在命令行场景下生效。 |
 | logging | 可选 | 对象 | 日志相关配置参数。 |
 | debugging | 可选 | 对象 | 调测相关配置参数。 |
@@ -92,7 +92,7 @@ hvigor-config.json5配置文件包含以下字段。
 
 
 
-##### execution
+#### execution
 
 execution是执行构建的相关配置参数，除了optimizationStrategy字段外，其他字段仅在命令行构建场景下生效，如果通过DevEco Studio菜单栏构建，需要在**File > ****Settings**（macOS为**DevEco Studio > Preferences/Settings**）** > Build, Execution, Deployment > Build Tools > Hvigor**中设置。
 
@@ -106,7 +106,7 @@ execution是执行构建的相关配置参数，除了optimizationStrategy字段
 | optimizationStrategy | 可选 | 字符串 | 指定构建模式。从DevEco Studio 5.1.1 Release版本开始支持。 performance：性能优先模式，可加快构建速度，但会占用更多内存。 memory（缺省默认值）：内存优先模式，可以减少编译内存占用。 
 > [!TIP]
 > 更改模式后，首次编译会执行全量编译。
-|
+ |
 
 
 execution字段示例：
@@ -126,7 +126,7 @@ execution字段示例：
 
 
 
-##### logging
+#### logging
 
 logging是日志相关配置参数。
 
@@ -147,7 +147,7 @@ logging字段示例：
 
 
 
-##### debugging
+#### debugging
 
 debugging是调测相关配置参数。
 
@@ -168,7 +168,7 @@ debugging字段示例：
 
 
 
-##### nodeOptions
+#### nodeOptions
 
 nodeOptions是Node相关配置参数。
 
@@ -193,7 +193,7 @@ nodeOptions字段示例：
 
 
 
-##### javaOptions
+#### javaOptions
 
 javaOptions是java相关配置参数。
 
@@ -214,7 +214,7 @@ javaOptions字段示例：
 
 
 
-##### properties
+#### properties
 
 properties是额外配置参数。除了在hvigor-config.json5中配置properties外，还可以通过命令行参数-c或--config指定properties，命令行优先级比hvigor-config.json5更高，命令行配置方式请参考[命令行构建工具（hvigorw）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-commandline#section92386011817)。
 
@@ -223,11 +223,11 @@ properties是额外配置参数。除了在hvigor-config.json5中配置propertie
 | hvigor.cacheDir | 可选 | 字符串 | 指定项目根目录下的.hvigor缓存文件夹的存放路径。 
 > [!TIP]
 > 同名的不同工程不可指定相同的存放位置。
-|
+ |
 | ohos.buildDir | 可选 | 字符串 | 指定项目的构建产物目录（build目录）存放位置。 
 > [!TIP]
 > 同名的不同工程不可指定相同的存放位置。
-|
+ |
 | enableSignTask | 可选 | 布尔值 | 是否启用HAP或HSP签名任务。 true（缺省默认值）：启用。 false：不启用。 |
 | ohos.arkCompile.maxSize | 可选 | 整型数值 | 指定编译ArkTS线程的数量，默认为5。 |
 | hvigor.pool.cache.capacity | 可选 | 整型数值 | 定义内存中缓存数据的容量，默认为4，数值越小，内存中缓存数据越少。配置为0，表示不启用内存缓存配置。 |
@@ -241,16 +241,16 @@ properties是额外配置参数。除了在hvigor-config.json5中配置propertie
 | ohos.arkCompile.sourceMapDir | 可选 | 字符串 | 指定sourceMap文件的生成路径，方便开发者进行堆栈的回栈与错误信息的定位，当前仅支持Stage模型。若没有指定路径，默认生成在build/{productName}/outputs/{targetName}/mapping下。 
 > [!TIP]
 > 从API 12开始支持。
-|
+ |
 | ohos.collect.debugSymbol | 可选 | 布尔值 | 是否将sourceMap、nameCache和带调试信息的so文件归档到产物路径下，根据选择的构建模式，如果是构建HAP/HSP/HAR，会归档到模块的build/{productName}/outputs/{targetName}/symbol的release或debug目录下；如果是构建APP，会将HAP/HSP模块的文件归档到工程的build/outputs/{productName}/symbol的release或debug目录下。 true：归档。 false：不归档。 
 > [!TIP]
 > 如果不配置，release模式时默认值为true，debug模式时默认值为false。 仅支持Stage模型。 nameCache文件仅在release模式下且开启混淆后才会生成，release模式下不开启混淆以及debug模式下均不生成这个文件。
-|
+ |
 | hvigor.enableMemoryCache | 可选 | 布尔值 | 是否开启缓存，开启缓存会加快增量编译速度，关闭缓存能够节省内存占用，但是会增加增量编译时间。 true（缺省默认值）：开启。 false：不开启。 |
 | hvigor.memoryThreshold | 可选 | 整型数值 | 内存管理阈值，单位为MB，当编译构建占用内存超过此阈值时，新加入的编译任务会等待，直到正在进行的编译任务结束，新的编译任务才能开始，此配置将导致编译时间延长。 
 > [!TIP]
 > 配置该字段后，即使hvigor.enableMemoryCache配置为true，也不进行缓存。 该字段配置为很小的值时，构建任务会串行执行，等效于配置ohos.arkCompile.maxSize:1；配置为很大的值时，与不配置没有差异。
-|
+ |
 | ohos.nativeResolver | 可选 | 布尔值 | ArkTS编译过程中是否使用高性能插件进行依赖寻址，使用高性能插件可以降低编译过程的峰值内存，加快编译速度。 true（缺省默认值）：使用。 false：不使用。 |
 | ohos.arkCompile.noEmitJs | 可选 | 布尔值 | ArkTS编译过程中是否生成js中间产物，具体方案及开启后的影响请参考优化编译中间产物生成。 true：不生成。 false（缺省默认值）：生成。 |
 | ohos.arkCompile.singleFileEmit | 可选 | 布尔值 | 是否开启单文件解析完成后写入磁盘的能力，具体方案及开启后的影响请参考文件写入磁盘。 true：开启。 false（缺省默认值）：不开启。 |
@@ -259,11 +259,11 @@ properties是额外配置参数。除了在hvigor-config.json5中配置propertie
 | ohos.arkCompile.emptyBundleName | 可选 | 布尔值 | ArkTS编译转换后的产物，bundleName字段是否为空值。 true：bundleName字段的值是空值。 false（缺省默认值）：bundleName字段是应用实际的包名。 
 > [!TIP]
 > 仅支持在EntryAbility中使用loadContentByName加载首页，同时使用Navigation导航进行页面跳转时设置为true，否则会导致应用闪退。 预览时暂不支持配置该字段，字段默认取值为false。
-|
+ |
 | ohos.uiTransform.Optimization | 可选 | 布尔值 | 是否对ArkTS编译转换后的产物中的bundleName字段开启优化。 true：开启，bundleName字段的值是变量。 false（缺省默认值）：不开启，bundleName字段是应用实际的包名。 该字段从DevEco Studio 5.0.5 Beta1版本开始支持。 
 > [!TIP]
 > 该字段对字节码HAR不生效，字节码HAR产物的bundleName字段的值默认是变量。 预览时暂不支持配置该字段，字段默认取值为false。
-|
+ |
 | ohos.har.excludeHspDependencies | 可选 | 布尔值 | 构建har包时，产物module.json中是否排除依赖的hsp，排除后，module.json中不包含dependencies字段。 true：排除。 false（缺省默认值）：不排除。 该字段从DevEco Studio 5.1.0 Release版本开始支持。 |
 | ohos.processLib.optimization | 可选 | 布尔值 | 是否启用ProcessLibs任务性能优化，启用后可以减少ProcessLibs任务中so增量判定的耗时。 true：启用。 false（缺省默认值）：不启用。 |
 | ohos.obfuscationRules.optimization | 可选 | 布尔值 | release模式开启混淆时，是否优化三方依赖中混淆配置文件的收集方式，优化后可以减少收集耗时，加快编译速度。 true：优化。 false（缺省默认值）：不优化。 该字段从DevEco Studio 5.1.0 Release版本开始支持。 |
@@ -276,16 +276,16 @@ properties是额外配置参数。除了在hvigor-config.json5中配置propertie
 | ohos.align.deviceTypes | 可选 | 字符串数组 | 指定归一的设备类型，构建APP时，当HAP/HSP的module.json5中的设备类型是ohos.align.deviceTypes的超集时，模块才会被打包到APP中，同时打包后产物中的设备类型会被设置为ohos.align.deviceTypes的值。 从DevEco Studio 6.0.0 Beta2版本开始支持。 
 > [!TIP]
 > 仅支持Stage模型。
-|
+ |
 | ohos.dependencies.types.enable | 可选 | 布尔值 | 编译时是否收集依赖的HAR模块/源码HAR包的类型声明文件参与语法校验。如果HAR中配置了类型声明文件，建议开启。 true：收集。 false（缺省默认值）：不收集。 从DevEco Studio 6.0.0 Beta3版本开始支持。 |
 | ohos.defaults.release.cmakebuildtype | 可选 | 字符串 | 在release模式下构建时，指定cmake构建类型，对所有模块生效。 Debug：不优化代码，附加调试信息。 Release（缺省默认值）：最大化优化代码，但不包含调试信息。 RelWithDebInfo：近似于Release模式，既进行了代码优化，同时保留部分调试信息。 从DevEco Studio 6.0.1 Beta1版本开始支持。 
 > [!TIP]
 > 模块级build-profile.json5文件中也可以通过 arguments字段 指定cmake构建类型，例如"arguments": "-DCMAKE_BUILD_TYPE=RelWithDebInfo"。arguments字段的优先级比ohos.defaults.release.cmakebuildtype更高。 在debug模式下构建时，该字段配置无效，默认使用Debug构建类型。
-|
+ |
 | ohos.defaults.autoLazyImport | 可选 | 布尔值 | 编译时是否自动将符合lazy-import语法规范的import语句添加"lazy"关键字。仅支持在源码中添加"lazy"关键字，不包含依赖的字节码HAR包或HSP。关于lazy-import的介绍及相关影响请参考延迟加载（lazy import）。 true：添加。 false（缺省默认值）：不添加。 从DevEco Studio 6.0.2 Beta1版本开始支持。 
 > [!TIP]
 > 如果配置为true，编译时不会做场景识别，即源码中任何符合语法规范的import语句都会被添加"lazy"。 仅支持Stage模型。 build-profile.json5文件中也可以通过autoLazyImport字段实现该能力，autoLazyImport的优先级比ohos.defaults.autoLazyImport更高。
-|
+ |
 
 
 properties字段示例：
@@ -323,13 +323,13 @@ properties字段示例：
 
 
 
-##### parameterFile
+#### parameterFile
 
 从DevEco Studio 6.0.2 Beta1版本开始，编译构建新增参数化配置功能。开发者可添加一个参数化文件（json5格式文件），在该文件中维护构建配置文件build-profile.json5中部分字段的值，工程级或者各模块的build-profile.json5将根据该文件中的键值对进行配置，满足不同构建场景下，开发者快速切换构建配置的需要。
 
 
 
-##### 配置说明
+#### 配置说明
 
 在hvigor-config.json5文件中添加parameterFile配置，并指定parameterFile文件路径。配置规则如下：
 
@@ -343,7 +343,7 @@ properties字段示例：
 
 
 
-##### 示例
+#### 示例
 
 hvigor-config.json5的parameterFile字段示例：
 

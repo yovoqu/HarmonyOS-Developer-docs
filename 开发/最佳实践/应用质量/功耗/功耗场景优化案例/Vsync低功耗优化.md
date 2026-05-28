@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-vsync-power-optimization
 
-##### 概述
+#### 概述
 
  
 对于HarmonyOS而言，不同来源和架构的绘制请求均通过Render Service（渲染服务）进行统一管理。为了确保不同来源的复杂绘制效果能在同一时间节点完成绘制、合成与显示，Render Service依赖Vsync实现全局统一的信号收发机制。如果将Render Service比作一个运行有序的公交系统，那么VsyncGenerator子进程便是始发站，而RSHardware子进程则代表终点站，即屏幕显示。每个需要使用Vsync的“乘客”都可以申请一张“车票”，VsyncGenerator线程会统计每个申请者的信息，确定合理的发车频率，如30、60、120Hz，经过后续的绘制和合成步骤后，最终反映在屏幕的刷新帧率上。
  
 
-##### 分析思路
+#### 分析思路
 
  
 开发者可以在Profiler中抓取trace后，搜索以下关键的Trace点来分析一段时间内的Vsync申请和使用情况：
@@ -37,11 +37,11 @@
 
  
 
-##### displaySync优化案例
+#### displaySync优化案例
 
  
 
-##### 问题现象
+#### 问题现象
 
 displaySync方法支持让开发者以[指定帧率来运行UI业务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/displaysync-ui)，一般用于开发者自绘制UI，并且对于帧率有特定诉求的场景。通过这种方式创建的对象需由开发者对其做好生命周期管理，确保绘制内容处于屏幕外或不再需要时，应注销displaySync对象，避免应用进程空刷帧。下图中展示了一个错误使用displaySync实现Canvas弹幕功能的场景，当弹幕组件正常显示时以60hz的频次刷新，但当用户关闭弹幕功能时，依然可以发现有displaySync对象持续执行业务。该有问题的UI帧表现的现象有：
  
@@ -66,7 +66,7 @@ displaySync方法支持让开发者以[指定帧率来运行UI业务](https://de
 
  
 
-##### 优化思路
+#### 优化思路
 
 - displaySync对象与组件的生命周期相互绑定，组件销毁时displaySync对象停止并置空，且尽量避免在离线组件中或懒加载预加载场景下提前创建displaySync。
 - displaySync对象的运行状态与组件的可见性绑定，可使用onVisibleAreaChange回调监听组件的可见性，当组件不可见时，调用displaySync.stop，重新可见后，调用displaySync.start。
@@ -105,7 +105,7 @@ aboutToDisappear() {
 ```
  
 
-##### 修改效果
+#### 修改效果
 
 
 ![](assets/Vsync低功耗优化/file-20260515115100663-6.png)
@@ -115,11 +115,11 @@ aboutToDisappear() {
  
  
 
-##### NativeVsync优化案例
+#### NativeVsync优化案例
 
  
 
-##### 问题现象
+#### 问题现象
 
 [NativeVsync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nativevsync)可供开发者获取系统vsync回调，可用于实现应用的绘制帧率与系统帧率同步。NativeVsync被广泛用于React Native以及C-API开发的应用中，这些开发框架中有多种回调函数接口，会通过持续请求Vsync来拉起应用自定义的业务内容。如下图是一个静置页面下的Trace，“1”、“2”均是来自应用进程下的OS_VsyncThread线程，H:ReceiveVsync name分别是TaroAnimation和dirty。从“3”中的trace信息可以发现，FlushRenderTask并未打印需要刷新的ArkUI组件，但FlushMessage下有H:MarshRSTransactionData送出，这表明该帧依然有绘制效果通过UI帧将绘制指令递交给RS。
  
@@ -135,7 +135,7 @@ aboutToDisappear() {
  
  
 
-##### 分析思路
+#### 分析思路
 
 在定位这类问题时，由开发者自定义的NativeVsync对象通常都会由VsyncGenerator下发给应用进程下的OS_VsyncThread子线程，开发者可以根据Vsync申请者的名称，找到对应的Vsync申请对象。开发者可利用Profiler工具抓取的Callstack来查看对应的Vsync回调内执行的业务内容，如下图所示，开发者在VsyncListener的监听回调中有一小块rnoh的Animate的调用栈，可能正在执行一块动画业务。对于NativeVsync对象而言，系统仅提供回调，并不会约束开发者在回调函数内的业务实现，故而如果开发者在NativeVsync中有较多绘制相关的业务时，需额外留意该绘制业务的启停时机，并且减少不必要Vsync监听器的使用。
  

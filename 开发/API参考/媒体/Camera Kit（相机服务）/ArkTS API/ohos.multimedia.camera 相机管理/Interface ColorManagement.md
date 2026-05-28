@@ -14,7 +14,7 @@ ColorManagement继承自[ColorManagementQuery](https://developer.huawei.com/cons
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { camera } from '@kit.CameraKit';
 
 
 
-##### setColorSpace12+
+#### setColorSpace12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -112,7 +112,7 @@ function setColorSpace(session: camera.PhotoSession, colorSpaces: Array<colorSpa
 
 
 
-##### getActiveColorSpace12+
+#### getActiveColorSpace12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

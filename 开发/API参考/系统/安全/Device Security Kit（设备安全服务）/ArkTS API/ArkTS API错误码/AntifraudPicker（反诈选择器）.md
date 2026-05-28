@@ -10,7 +10,7 @@
 
   
 
-##### 201 权限校验失败
+#### 201 权限校验失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -32,7 +32,7 @@ Permission denied.
  
   
 
-##### 401 参数检查失败
+#### 401 参数检查失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -54,7 +54,7 @@ Parameter error.
  
   
 
-##### 1017100001 未知异常
+#### 1017100001 未知异常
 
 **支持设备：** Phone | Tablet
 
@@ -76,7 +76,7 @@ Unknown error.
  
   
 
-##### 1017100002 不支持的设备类型
+#### 1017100002 不支持的设备类型
 
 **支持设备：** Phone | Tablet
 
@@ -98,7 +98,7 @@ The device type is not supported.
  
   
 
-##### 1017600001 未知异常
+#### 1017600001 未知异常
 
 **支持设备：** Phone | Tablet
 
@@ -120,7 +120,7 @@ Unknown error.
  
   
 
-##### 1017600002 不支持的设备类型
+#### 1017600002 不支持的设备类型
 
 **支持设备：** Phone | Tablet
 
@@ -142,7 +142,7 @@ The device type is not supported.
  
   
 
-##### 1017600003 参数检查失败
+#### 1017600003 参数检查失败
 
 **支持设备：** Phone | Tablet
 

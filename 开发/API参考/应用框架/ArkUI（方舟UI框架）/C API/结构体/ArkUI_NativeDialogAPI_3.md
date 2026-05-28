@@ -10,7 +10,7 @@ typedef struct {...} ArkUI_NativeDialogAPI_3
 ```
   
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,13 +24,13 @@ ArkUI提供的Native侧自定义弹窗接口集合。
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -42,7 +42,7 @@ ArkUI提供的Native侧自定义弹窗接口集合。
  
   
 
-##### 成员函数
+#### 成员函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -71,13 +71,13 @@ ArkUI提供的Native侧自定义弹窗接口集合。
  
   
 
-##### 成员函数说明
+#### 成员函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### setLevelOrder()
+#### setLevelOrder()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -112,7 +112,7 @@ int32_t (*setLevelOrder)(ArkUI_NativeDialogHandle handle, double levelOrder)
  
   
 
-##### registerOnWillAppear()
+#### registerOnWillAppear()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -148,7 +148,7 @@ int32_t (*registerOnWillAppear)(ArkUI_NativeDialogHandle handle, void* userData,
  
   
 
-##### registerOnDidAppear()
+#### registerOnDidAppear()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -184,7 +184,7 @@ int32_t (*registerOnDidAppear)(ArkUI_NativeDialogHandle handle, void* userData, 
  
   
 
-##### registerOnWillDisappear()
+#### registerOnWillDisappear()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -220,7 +220,7 @@ int32_t (*registerOnWillDisappear)(ArkUI_NativeDialogHandle handle, void* userDa
  
   
 
-##### registerOnDidDisappear()
+#### registerOnDidDisappear()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -256,7 +256,7 @@ int32_t (*registerOnDidDisappear)(ArkUI_NativeDialogHandle handle, void* userDat
  
   
 
-##### setBorderWidth()
+#### setBorderWidth()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -295,7 +295,7 @@ int32_t (*setBorderWidth)(ArkUI_NativeDialogHandle handle, float top, float righ
  
   
 
-##### setBorderColor()
+#### setBorderColor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -333,7 +333,7 @@ int32_t (*setBorderColor)(ArkUI_NativeDialogHandle handle, uint32_t top, uint32_
  
   
 
-##### setBorderStyle()
+#### setBorderStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -371,7 +371,7 @@ int32_t (*setBorderStyle)(ArkUI_NativeDialogHandle handle, int32_t top, int32_t 
  
   
 
-##### setWidth()
+#### setWidth()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -407,7 +407,7 @@ int32_t (*setWidth)(ArkUI_NativeDialogHandle handle, float width, ArkUI_LengthMe
  
   
 
-##### setHeight()
+#### setHeight()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -443,7 +443,7 @@ int32_t (*setHeight)(ArkUI_NativeDialogHandle handle, float height, ArkUI_Length
  
   
 
-##### setShadow()
+#### setShadow()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -478,7 +478,7 @@ int32_t (*setShadow)(ArkUI_NativeDialogHandle handle, ArkUI_ShadowStyle shadow)
  
   
 
-##### setCustomShadow()
+#### setCustomShadow()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -513,7 +513,7 @@ int32_t (*setCustomShadow)(ArkUI_NativeDialogHandle handle, const ArkUI_Attribut
  
   
 
-##### setBackgroundBlurStyle()
+#### setBackgroundBlurStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -548,7 +548,7 @@ int32_t (*setBackgroundBlurStyle)(ArkUI_NativeDialogHandle handle, ArkUI_BlurSty
  
   
 
-##### setKeyboardAvoidMode()
+#### setKeyboardAvoidMode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -583,7 +583,7 @@ int32_t (*setKeyboardAvoidMode)(ArkUI_NativeDialogHandle handle, ArkUI_KeyboardA
  
   
 
-##### enableHoverMode()
+#### enableHoverMode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -618,7 +618,7 @@ int32_t (*enableHoverMode)(ArkUI_NativeDialogHandle handle, bool enableHoverMode
  
   
 
-##### setHoverModeArea()
+#### setHoverModeArea()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -653,7 +653,7 @@ int32_t (*setHoverModeArea)(ArkUI_NativeDialogHandle handle, ArkUI_HoverModeArea
  
   
 
-##### setFocusable()
+#### setFocusable()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -688,7 +688,7 @@ int32_t (*setFocusable)(ArkUI_NativeDialogHandle handle, bool focusable)
  
   
 
-##### setBackgroundBlurStyleOptions()
+#### setBackgroundBlurStyleOptions()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -723,7 +723,7 @@ int32_t (*setBackgroundBlurStyleOptions)(ArkUI_NativeDialogHandle handle, const 
  
   
 
-##### setBackgroundEffect()
+#### setBackgroundEffect()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

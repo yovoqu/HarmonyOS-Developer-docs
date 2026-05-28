@@ -7,7 +7,7 @@
 检查sftp中存储包的完整性。
  
 
-##### 前提条件
+#### 前提条件
 
 - 已成功执行[start 命令](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-repo-start)或者[restart 命令](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-repo-restart)，ohpm-repo服务启动成功。
 - 数据存储db模块的类型必须为mysql，文件存储store模块的类型必须为sftp。
@@ -15,7 +15,7 @@
  
  
 
-##### 命令格式
+#### 命令格式
 
 ```text
 ohpm-repo check_storage <target> [options]
@@ -23,17 +23,17 @@ ohpm-repo check_storage <target> [options]
  
  
 
-##### 功能描述
+#### 功能描述
 
 命令根据元数据检查sftp存储的包是否存在且完整。该命令要求数据存储db模块必须使用mysql，文件存储store模块必须使用sftp。
  
  
 
-##### 参数
+#### 参数
 
  
 
-##### &lt;target&gt;
+#### &lt;target&gt;
 
 - 类型：String
 - 必填参数
@@ -45,11 +45,11 @@ ohpm-repo check_storage <target> [options]
  
  
 
-##### 选项
+#### 选项
 
  
 
-##### failed
+#### failed
 
 - 默认值：无
 - 类型：无
@@ -59,7 +59,7 @@ ohpm-repo check_storage <target> [options]
  
  
 
-##### 示例
+#### 示例
 
 执行以下命令，检查包@ohos/basic-ftp的完整性：
  
@@ -74,4 +74,4 @@ ohpm-repo check_storage @ohos/basic-ftp
 结果示例：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/obkHFc96QoO3o6eOQkNwVg/zh-cn_image_0000002602185005.png?HW-CC-KV=V1&HW-CC-Date=20260528T015018Z&HW-CC-Expire=86400&HW-CC-Sign=62A6BC1474A94FB55F7A16DB9D2C1DE86012FCAAC1AD607C3F177D7A83367ADA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/KyOz6XgKRySxs9v63iA_Ew/zh-cn_image_0000002602185005.png?HW-CC-KV=V1&HW-CC-Date=20260528T030648Z&HW-CC-Expire=86400&HW-CC-Sign=7B5719724EA43F7B6F6F31926803B233847A8568D59568CCAA46606B1E7D4C2D)

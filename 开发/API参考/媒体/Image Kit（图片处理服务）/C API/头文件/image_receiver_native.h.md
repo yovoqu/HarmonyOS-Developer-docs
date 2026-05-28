@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-receiver-native-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
 
 
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@
 
 
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -70,13 +70,13 @@
 
 
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### OH_ImageReceiver_OnCallback()
+#### OH_ImageReceiver_OnCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -92,7 +92,7 @@ typedef void (*OH_ImageReceiver_OnCallback)(OH_ImageReceiverNative *receiver)
 
 
 
-##### OH_ImageReceiver_ImageArriveCallback()
+#### OH_ImageReceiver_ImageArriveCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -108,7 +108,7 @@ ImageArrive事件的回调方法。
 
 
 
-##### OH_ImageReceiverOptions_Create()
+#### OH_ImageReceiverOptions_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -138,7 +138,7 @@ Image_ErrorCode OH_ImageReceiverOptions_Create(OH_ImageReceiverOptions **options
 
 
 
-##### OH_ImageReceiverOptions_GetSize()
+#### OH_ImageReceiverOptions_GetSize()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -169,7 +169,7 @@ Image_ErrorCode OH_ImageReceiverOptions_GetSize(OH_ImageReceiverOptions* options
 
 
 
-##### OH_ImageReceiverOptions_SetSize()
+#### OH_ImageReceiverOptions_SetSize()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -200,7 +200,7 @@ Image_ErrorCode OH_ImageReceiverOptions_SetSize(OH_ImageReceiverOptions* options
 
 
 
-##### OH_ImageReceiverOptions_GetCapacity()
+#### OH_ImageReceiverOptions_GetCapacity()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -231,7 +231,7 @@ Image_ErrorCode OH_ImageReceiverOptions_GetCapacity(OH_ImageReceiverOptions* opt
 
 
 
-##### OH_ImageReceiverOptions_SetCapacity()
+#### OH_ImageReceiverOptions_SetCapacity()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -262,7 +262,7 @@ Image_ErrorCode OH_ImageReceiverOptions_SetCapacity(OH_ImageReceiverOptions* opt
 
 
 
-##### OH_ImageReceiverOptions_Release()
+#### OH_ImageReceiverOptions_Release()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -292,7 +292,7 @@ Image_ErrorCode OH_ImageReceiverOptions_Release(OH_ImageReceiverOptions* options
 
 
 
-##### OH_ImageReceiverNative_Create()
+#### OH_ImageReceiverNative_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -323,7 +323,7 @@ Image_ErrorCode OH_ImageReceiverNative_Create(OH_ImageReceiverOptions* options, 
 
 
 
-##### OH_ImageReceiverNative_GetReceivingSurfaceId()
+#### OH_ImageReceiverNative_GetReceivingSurfaceId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -354,7 +354,7 @@ Image_ErrorCode OH_ImageReceiverNative_GetReceivingSurfaceId(OH_ImageReceiverNat
 
 
 
-##### OH_ImageReceiverNative_ReadLatestImage()
+#### OH_ImageReceiverNative_ReadLatestImage()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -389,7 +389,7 @@ Image_ErrorCode OH_ImageReceiverNative_ReadLatestImage(OH_ImageReceiverNative* r
 
 
 
-##### OH_ImageReceiverNative_ReadNextImage()
+#### OH_ImageReceiverNative_ReadNextImage()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -424,7 +424,7 @@ Image_ErrorCode OH_ImageReceiverNative_ReadNextImage(OH_ImageReceiverNative* rec
 
 
 
-##### OH_ImageReceiverNative_On()
+#### OH_ImageReceiverNative_On()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -457,7 +457,7 @@ Image_ErrorCode OH_ImageReceiverNative_On(OH_ImageReceiverNative* receiver, OH_I
 
 
 
-##### OH_ImageReceiverNative_Off()
+#### OH_ImageReceiverNative_Off()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -489,7 +489,7 @@ Image_ErrorCode OH_ImageReceiverNative_Off(OH_ImageReceiverNative* receiver)
 
 
 
-##### OH_ImageReceiverNative_GetSize()
+#### OH_ImageReceiverNative_GetSize()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -520,7 +520,7 @@ Image_ErrorCode OH_ImageReceiverNative_GetSize(OH_ImageReceiverNative* receiver,
 
 
 
-##### OH_ImageReceiverNative_GetCapacity()
+#### OH_ImageReceiverNative_GetCapacity()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -551,7 +551,7 @@ Image_ErrorCode OH_ImageReceiverNative_GetCapacity(OH_ImageReceiverNative* recei
 
 
 
-##### OH_ImageReceiverNative_Release()
+#### OH_ImageReceiverNative_Release()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -585,7 +585,7 @@ Image_ErrorCode OH_ImageReceiverNative_Release(OH_ImageReceiverNative* receiver)
 
 
 
-##### OH_ImageReceiverNative_OnImageArrive()
+#### OH_ImageReceiverNative_OnImageArrive()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -617,7 +617,7 @@ Image_ErrorCode OH_ImageReceiverNative_OnImageArrive(OH_ImageReceiverNative *rec
 
 
 
-##### OH_ImageReceiverNative_OffImageArrive()
+#### OH_ImageReceiverNative_OffImageArrive()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

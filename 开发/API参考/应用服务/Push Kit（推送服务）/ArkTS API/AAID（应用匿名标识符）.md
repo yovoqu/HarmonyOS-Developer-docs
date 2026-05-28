@@ -16,7 +16,7 @@
 **起始版本：** 4.0.0(10)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -26,7 +26,7 @@ import { AAID } from '@kit.PushKit';
  
   
 
-##### AAID.getAAID
+#### AAID.getAAID
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -87,7 +87,7 @@ try {
  
   
 
-##### AAID.getAAID
+#### AAID.getAAID
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -145,7 +145,7 @@ try {
  
   
 
-##### AAID.deleteAAID
+#### AAID.deleteAAID
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -205,7 +205,7 @@ try {
  
   
 
-##### AAID.deleteAAID
+#### AAID.deleteAAID
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

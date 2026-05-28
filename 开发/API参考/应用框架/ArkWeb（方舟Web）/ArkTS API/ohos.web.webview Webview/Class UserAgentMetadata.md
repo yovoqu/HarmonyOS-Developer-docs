@@ -12,7 +12,7 @@
 
 
 
-##### setBrandVersionList
+#### setBrandVersionList
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -37,7 +37,7 @@ setBrandVersionList(brandVersionList: Array&lt;UserAgentBrandVersion&gt;): void
 
 
 
-##### getBrandVersionList
+#### getBrandVersionList
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -62,7 +62,7 @@ getBrandVersionList(): Array&lt;UserAgentBrandVersion&gt;
 
 
 
-##### setArchitecture
+#### setArchitecture
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -87,7 +87,7 @@ setArchitecture(arch: string): void
 
 
 
-##### getArchitecture
+#### getArchitecture
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -112,7 +112,7 @@ getArchitecture(): string
 
 
 
-##### setBitness
+#### setBitness
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -137,7 +137,7 @@ setBitness(bitness: string): void
 
 
 
-##### getBitness
+#### getBitness
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -162,7 +162,7 @@ getBitness(): string
 
 
 
-##### setFormFactors
+#### setFormFactors
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -187,7 +187,7 @@ setFormFactors(formFactors: Array&lt;UserAgentFormFactor&gt;): void
 
 
 
-##### getFormFactors
+#### getFormFactors
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -212,7 +212,7 @@ getFormFactors(): Array&lt;UserAgentFormFactor&gt;
 
 
 
-##### setFullVersion
+#### setFullVersion
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -237,7 +237,7 @@ setFullVersion(fullVersion: string): void
 
 
 
-##### getFullVersion
+#### getFullVersion
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -262,7 +262,7 @@ getFullVersion(): string
 
 
 
-##### setMobile
+#### setMobile
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -287,7 +287,7 @@ setMobile(isMobile: boolean): void
 
 
 
-##### getMobile
+#### getMobile
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -312,7 +312,7 @@ getMobile(): boolean
 
 
 
-##### setModel
+#### setModel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -337,7 +337,7 @@ setModel(model: string): void
 
 
 
-##### getModel
+#### getModel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -362,7 +362,7 @@ getModel(): string
 
 
 
-##### setPlatform
+#### setPlatform
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -387,7 +387,7 @@ setPlatform(platform: string): void
 
 
 
-##### getPlatform
+#### getPlatform
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -412,7 +412,7 @@ getPlatform(): string
 
 
 
-##### setPlatformVersion
+#### setPlatformVersion
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -437,7 +437,7 @@ setPlatformVersion(platformVersion: string): void
 
 
 
-##### getPlatformVersion
+#### getPlatformVersion
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -462,7 +462,7 @@ getPlatformVersion(): string
 
 
 
-##### setWow64
+#### setWow64
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -487,7 +487,7 @@ setWow64(isWow64: boolean): void
 
 
 
-##### getWow64
+#### getWow64
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

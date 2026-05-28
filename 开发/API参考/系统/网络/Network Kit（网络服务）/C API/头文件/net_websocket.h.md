@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-websocket-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -45,13 +45,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_WebSocketClient_Constructor()
+#### OH_WebSocketClient_Constructor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -86,7 +86,7 @@ WebSocket客户端的构造函数。
  
   
 
-##### OH_WebSocketClient_AddHeader()
+#### OH_WebSocketClient_AddHeader()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -119,7 +119,7 @@ int OH_WebSocketClient_AddHeader(struct WebSocket *client, struct WebSocket_Head
  
   
 
-##### OH_WebSocketClient_Connect()
+#### OH_WebSocketClient_Connect()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -155,7 +155,7 @@ int OH_WebSocketClient_Connect(struct WebSocket *client, const char *url, struct
  
   
 
-##### OH_WebSocketClient_Send()
+#### OH_WebSocketClient_Send()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -191,7 +191,7 @@ int OH_WebSocketClient_Send(struct WebSocket *client, char *data, size_t length)
  
   
 
-##### OH_WebSocketClient_Close()
+#### OH_WebSocketClient_Close()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -226,7 +226,7 @@ int OH_WebSocketClient_Close(struct WebSocket *client, struct WebSocket_CloseOpt
  
   
 
-##### OH_WebSocketClient_Destroy()
+#### OH_WebSocketClient_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -241,7 +241,7 @@ int OH_WebSocketClient_Destroy(struct WebSocket *client)
 2. 调用[OH_WebSocketClient_Close](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-websocket-h#oh_websocketclient_close)关闭WebSocket连接。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/Psa4bVa5Qte8xW8Q5OAOJw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023841Z&HW-CC-Expire=86400&HW-CC-Sign=787022DF3D2ACEC72C1F84A7795ADB45947507D02D5EF3AC0CA890BC1E852F3E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/Psa4bVa5Qte8xW8Q5OAOJw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025216Z&HW-CC-Expire=86400&HW-CC-Sign=FAB742AA532B58F921559A062BA6D561DE90C40F2B73AC68D827143823278A5B)
  
  
 确保触发[WebSocket_OnCloseCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-websocket-type-h#websocket_onclosecallback)回调后再调用该接口，否则系统内存资源被释放后可能出现socket泄露以及连接未关闭的情况。

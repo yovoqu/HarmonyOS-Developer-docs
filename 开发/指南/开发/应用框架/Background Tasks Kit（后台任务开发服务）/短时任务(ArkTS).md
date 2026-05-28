@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/transient-task
 
-##### 概述
+#### 概述
 
 应用退至后台一小段时间后，应用进程会被挂起，无法执行对应的任务。如果应用需在被挂起前，执行一些耗时不长的任务，如状态保存、消息发送等，可以通过本文申请短时任务，扩展应用在后台的运行时间。
 
 
 
-##### 约束与限制
+#### 约束与限制
 
  - **申请时机**：应用需要在前台或[onBackground](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onbackground)回调内，申请短时任务，否则会申请失败。
  - **数量限制**：一个应用同一时刻最多申请3个短时任务。以图1为例，在①②③时间段内的任意时刻，应用申请了2个短时任务；在④时间段内的任意时刻，应用申请了1个短时任务。
@@ -32,7 +32,7 @@
 
 
 
-##### 接口说明
+#### 接口说明
 
 **表1** 主要接口
 
@@ -47,7 +47,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 导入模块。
 
   

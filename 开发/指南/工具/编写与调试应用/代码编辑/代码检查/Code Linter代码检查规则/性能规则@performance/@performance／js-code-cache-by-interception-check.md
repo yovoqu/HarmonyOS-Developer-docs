@@ -9,7 +9,7 @@
 [Web完成时延](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-web-develop-optimization#section1495115588211)场景下，建议优先修改。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -22,13 +22,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 import { webview } from '@kit.ArkWeb';
@@ -109,7 +109,7 @@ interface Config {
  
  
 
-##### 反例
+#### 反例
 
 拦截请求中未设置ResponseDataID或者自定义协议中isCodeCacheSupported设置为false，均不会生成字节码缓存。
  
@@ -227,7 +227,7 @@ struct JsCodeCacheByInterceptionCheckReport2 {
 ```
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(106,135,89);">plugin:@performance/all</span>

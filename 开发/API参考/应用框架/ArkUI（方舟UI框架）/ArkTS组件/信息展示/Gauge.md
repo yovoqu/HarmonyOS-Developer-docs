@@ -12,7 +12,7 @@
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -47,7 +47,7 @@ Gauge(options: GaugeOptions)
 
 
 
-##### GaugeOptions18+对象说明
+#### GaugeOptions18+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -68,7 +68,7 @@ Gauge(options: GaugeOptions)
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -76,7 +76,7 @@ Gauge(options: GaugeOptions)
 
 
 
-##### value
+#### value
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -99,7 +99,7 @@ value(value: number)
 
 
 
-##### startAngle
+#### startAngle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -122,7 +122,7 @@ startAngle(angle: number)
 
 
 
-##### endAngle
+#### endAngle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -145,7 +145,7 @@ endAngle(angle: number)
 
 
 
-##### colors
+#### colors
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -178,7 +178,7 @@ colors(colors: ResourceColor | LinearGradient | Array<[ResourceColor | LinearGra
 
 
 
-##### strokeWidth
+#### strokeWidth
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -201,7 +201,7 @@ strokeWidth(length: Length)
 
 
 
-##### description11+
+#### description11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -224,7 +224,7 @@ description(value: CustomBuilder)
 
 
 
-##### trackShadow11+
+#### trackShadow11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -247,7 +247,7 @@ trackShadow(value: GaugeShadowOptions)
 
 
 
-##### indicator11+
+#### indicator11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -270,7 +270,7 @@ indicator(value: GaugeIndicatorOptions)
 
 
 
-##### privacySensitive12+
+#### privacySensitive12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -297,7 +297,7 @@ privacySensitive(isPrivacySensitiveMode: Optional&lt;boolean&gt;)
 
 
 
-##### contentModifier12+
+#### contentModifier12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -318,7 +318,7 @@ contentModifier(modifier: ContentModifier&lt;GaugeConfiguration&gt;)
 
 
 
-##### GaugeShadowOptions11+对象说明
+#### GaugeShadowOptions11+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -330,7 +330,7 @@ GaugeShadowOptions继承自[MultiShadowOptions](https://developer.huawei.com/con
 
 
 
-##### GaugeIndicatorOptions11+对象说明
+#### GaugeIndicatorOptions11+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -350,7 +350,7 @@ GaugeShadowOptions继承自[MultiShadowOptions](https://developer.huawei.com/con
 
 
 
-##### GaugeConfiguration12+对象说明
+#### GaugeConfiguration12+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -369,13 +369,13 @@ GaugeShadowOptions继承自[MultiShadowOptions](https://developer.huawei.com/con
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1（设置多色量规图）
+#### 示例1（设置多色量规图）
 
 该示例通过[colors](#colors)接口，实现了多色量规图效果。
 
@@ -448,7 +448,7 @@ struct Gauge1 {
 
 
 
-##### 示例2（设置单色量规图）
+#### 示例2（设置单色量规图）
 
 该示例通过[colors](#colors)接口，实现了单色量规图效果。
 
@@ -496,7 +496,7 @@ struct Gauge2 {
 
 
 
-##### 示例3（设置定制说明区）
+#### 示例3（设置定制说明区）
 
 该示例通过[description](#description11)接口，实现了说明区的设置功能。
 
@@ -562,7 +562,7 @@ struct Gauge2 {
 
 
 
-##### 示例4（设置辅助区）
+#### 示例4（设置辅助区）
 
 该示例通过设置子组件，实现了辅助区的设置功能。
 
@@ -621,7 +621,7 @@ struct Gauge4 {
 
 
 
-##### 示例5（设置最大最小值）
+#### 示例5（设置最大最小值）
 
 该示例通过设置[GaugeOptions](#gaugeoptions18对象说明)的min、max属性，实现了量规图的最大最小值设置的功能。
 
@@ -667,7 +667,7 @@ struct Gauge5 {
 
 
 
-##### 示例6（设置指针）
+#### 示例6（设置指针）
 
 该示例通过[indicator](#indicator11)接口，实现了设置量规图的指针的功能。
 
@@ -719,7 +719,7 @@ struct Gauge6 {
 
 
 
-##### 示例7（设置起止角度）
+#### 示例7（设置起止角度）
 
 该示例通过[startAngle](#startangle)和[endAngle](#endangle)接口，实现了量规图起止角度设置的功能。
 
@@ -763,7 +763,7 @@ struct Gauge7 {
 
 
 
-##### 示例8（设置定制内容区）
+#### 示例8（设置定制内容区）
 
 该示例通过[contentModifier](#contentmodifier12)接口，实现了定制量规图内容区的功能。
 
@@ -850,7 +850,7 @@ struct refreshExample {
 
 
 
-##### 示例9（设置隐私隐藏）
+#### 示例9（设置隐私隐藏）
 
 该示例通过[privacySensitive](#privacysensitive12)接口，实现了隐私隐藏效果，效果展示需要卡片框架支持
 
@@ -885,7 +885,7 @@ struct GaugeExample {
 
 
 
-##### 示例10（设置自定义指针）
+#### 示例10（设置自定义指针）
 
 该示例通过[indicator](#indicator11)接口，实现了自定义指针功能，开发者导入svg类型的图片以替换默认指针。
 

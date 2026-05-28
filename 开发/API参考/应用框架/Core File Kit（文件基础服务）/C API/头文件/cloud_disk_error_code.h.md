@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-cloud-disk-error-code-h
 **支持设备：** PC/2in1 | Tablet
 
-##### 概述
+#### 概述
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** PC/2in1 | Tablet
 
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** PC/2in1 | Tablet
  
@@ -40,13 +40,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** PC/2in1 | Tablet
 
   
 
-##### CloudDisk_ErrorCode
+#### CloudDisk_ErrorCode
 
 **支持设备：** PC/2in1 | Tablet
 

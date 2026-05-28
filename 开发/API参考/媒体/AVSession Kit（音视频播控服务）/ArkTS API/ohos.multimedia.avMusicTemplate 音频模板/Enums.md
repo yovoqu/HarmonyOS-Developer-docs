@@ -9,7 +9,7 @@
 
   
 
-##### AVMusicTemplateType
+#### AVMusicTemplateType
 
 表示音频模板类型的枚举。
  
@@ -24,7 +24,7 @@
  
   
 
-##### EntityType
+#### EntityType
 
 表示媒体资源类型的枚举。
  
@@ -45,7 +45,7 @@
  
   
 
-##### PlaybackState
+#### PlaybackState
 
 表示媒体资源的播放状态的枚举。
  
@@ -66,7 +66,7 @@
  
   
 
-##### Sort
+#### Sort
 
 表示查询到的列表数据排序类型的枚举。
  
@@ -83,7 +83,7 @@
  
   
 
-##### SettingType
+#### SettingType
 
 表示设置类型的枚举。
  
@@ -100,7 +100,7 @@
  
   
 
-##### DialogType
+#### DialogType
 
 表示对话框类型的枚举。
  
@@ -122,7 +122,7 @@
  
   
 
-##### ButtonType
+#### ButtonType
 
 表示按钮类型的枚举。
  
@@ -138,7 +138,7 @@
  
   
 
-##### MemberPurchaseType
+#### MemberPurchaseType
 
 表示会员购买类型的枚举。
  
@@ -154,7 +154,7 @@
  
   
 
-##### SearchPlayInfoType
+#### SearchPlayInfoType
 
 表示搜播信息类型的枚举。
  
@@ -170,7 +170,7 @@
  
   
 
-##### DownloadStatus
+#### DownloadStatus
 
 表示下载状态类型的枚举。
  
@@ -187,7 +187,7 @@
  
   
 
-##### AVMusicTemplateErrorCode
+#### AVMusicTemplateErrorCode
 
 表示错误码类型的枚举。
  

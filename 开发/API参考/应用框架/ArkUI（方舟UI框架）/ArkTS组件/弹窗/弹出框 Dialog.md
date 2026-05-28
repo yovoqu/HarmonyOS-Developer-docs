@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { TipsDialog, SelectDialog, ConfirmDialog, AlertDialog, LoadingDialog, Cu
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -30,7 +30,7 @@ import { TipsDialog, SelectDialog, ConfirmDialog, AlertDialog, LoadingDialog, Cu
 
 
 
-##### TipsDialog
+#### TipsDialog
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -61,7 +61,7 @@ TipsDialog({controller: CustomDialogController, imageRes: ResourceStr | PixelMap
 
 
 
-##### SelectDialog
+#### SelectDialog
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -87,7 +87,7 @@ SelectDialog({controller: CustomDialogController, title: ResourceStr, content?: 
 
 
 
-##### ConfirmDialog
+#### ConfirmDialog
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -115,7 +115,7 @@ ConfirmDialog({controller: CustomDialogController, title: ResourceStr, content?:
 
 
 
-##### AlertDialog
+#### AlertDialog
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -141,7 +141,7 @@ AlertDialog({controller: CustomDialogController, primaryTitle?: ResourceStr, sec
 
 
 
-##### LoadingDialog
+#### LoadingDialog
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -163,7 +163,7 @@ LoadingDialog({Controller: CustomDialogController, content?: ResourceStr, theme?
 
 
 
-##### CustomContentDialog12+
+#### CustomContentDialog12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -196,7 +196,7 @@ CustomContentDialog({controller: CustomDialogController, contentBuilder: () => v
 
 
 
-##### PopoverDialog14+
+#### PopoverDialog14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -219,7 +219,7 @@ PopoverDialog({visible: boolean, popover: PopoverOptions, targetBuilder: Callbac
 
 
 
-##### ButtonOptions
+#### ButtonOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -243,7 +243,7 @@ PopoverDialog({visible: boolean, popover: PopoverOptions, targetBuilder: Callbac
 
 
 
-##### PopoverOptions14+
+#### PopoverOptions14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -261,7 +261,7 @@ PopoverDialog({visible: boolean, popover: PopoverOptions, targetBuilder: Callbac
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -269,13 +269,13 @@ PopoverDialog({visible: boolean, popover: PopoverOptions, targetBuilder: Callbac
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1（上图下文弹出框）
+#### 示例1（上图下文弹出框）
 
 上图下文弹出框，包含imageRes、content等内容。
 
@@ -334,7 +334,7 @@ struct Index {
 
 
 
-##### 示例2（纯列表弹出框）
+#### 示例2（纯列表弹出框）
 
 纯列表弹出框，包含selectedIndex、radioContent等内容。
 
@@ -405,7 +405,7 @@ struct Index {
 
 
 
-##### 示例3（文本与勾选弹出框）
+#### 示例3（文本与勾选弹出框）
 
 文本与勾选弹出框，包含content、checkTips等内容。
 
@@ -472,7 +472,7 @@ struct Index {
 
 
 
-##### 示例4（纯文本弹出框）
+#### 示例4（纯文本弹出框）
 
 纯文本弹出框，包含primaryTitle、secondaryTitle、content等内容。
 
@@ -531,7 +531,7 @@ struct Index {
 
 
 
-##### 示例5（进度加载类弹出框）
+#### 示例5（进度加载类弹出框）
 
 进度加载类弹出框，包含content等内容。
 
@@ -576,7 +576,7 @@ struct Index {
 
 
 
-##### 示例6（自定义主题风格弹出框）
+#### 示例6（自定义主题风格弹出框）
 
 自定义主题风格弹出框，包含content、theme等内容。
 
@@ -637,7 +637,7 @@ struct Index {
 
 
 
-##### 示例7（自定义深浅色模式弹出框）
+#### 示例7（自定义深浅色模式弹出框）
 
 自定义深浅色模式弹出框，包含content、themeColorMode等内容。
 
@@ -678,12 +678,12 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/-dHkEEAnTLa0B18TnJ2Cng/zh-cn_image_0000002611756145.png?HW-CC-KV=V1&HW-CC-Date=20260528T024204Z&HW-CC-Expire=86400&HW-CC-Sign=38046DE637BE6719944D02FD9AC856CD04DBC11567A57A58B7935FF684A238A9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/-dHkEEAnTLa0B18TnJ2Cng/zh-cn_image_0000002611756145.png?HW-CC-KV=V1&HW-CC-Date=20260528T025537Z&HW-CC-Expire=86400&HW-CC-Sign=07BE95E4921EECD5632BB50450E08420FB3C0AF1956F2137F4BD97B7CCF93135)
 
 
 
 
-##### 示例8（自定义内容弹出框）
+#### 示例8（自定义内容弹出框）
 
 支持自定义内容弹出框，包含contentBuilder、buttons等内容。
 
@@ -741,12 +741,12 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/sNDnlva0QpOT86dFMW93PQ/zh-cn_image_0000002581436208.png?HW-CC-KV=V1&HW-CC-Date=20260528T024204Z&HW-CC-Expire=86400&HW-CC-Sign=AE2E7FED1136243B3E32BC3FFD4BDF2378470533AF6CD35027F4CEE3A952432B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/sNDnlva0QpOT86dFMW93PQ/zh-cn_image_0000002581436208.png?HW-CC-KV=V1&HW-CC-Date=20260528T025537Z&HW-CC-Expire=86400&HW-CC-Sign=045E5AB75381E6138F0EECABBDC0BDABB776F8EB15854D989A1E76C0FD3131D6)
 
 
 
 
-##### 示例9（跟手弹出框）
+#### 示例9（跟手弹出框）
 
 从API version 14开始，该示例展示了设置跟手弹出框（警告弹出框为例），包含visible、popover、targetBuilder等内容。
 
@@ -806,12 +806,12 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/t6z0Q40CT2GEqX0CAMZ9yQ/zh-cn_image_0000002611836039.png?HW-CC-KV=V1&HW-CC-Date=20260528T024204Z&HW-CC-Expire=86400&HW-CC-Sign=E147C481DE94434A1FA26FEF474DCC70E9C7803F088AE78EEF886D6F0A3F06F5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/t6z0Q40CT2GEqX0CAMZ9yQ/zh-cn_image_0000002611836039.png?HW-CC-KV=V1&HW-CC-Date=20260528T025537Z&HW-CC-Expire=86400&HW-CC-Sign=EF374123D26DC73F22B7ADA98D0663B3F2EEA6EA3692416EFDF3B98E20FC33B7)
 
 
 
 
-##### 示例10（弹出框按钮设置默认获焦）
+#### 示例10（弹出框按钮设置默认获焦）
 
 从API version 18开始，该示例展示了设置默认获焦按钮弹出框（以AlertDialog为例），包含defaultFocus等内容。
 
@@ -862,4 +862,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/wrFh7PX_RNWOQiYDFx7btw/zh-cn_image_0000002581276294.png?HW-CC-KV=V1&HW-CC-Date=20260528T024204Z&HW-CC-Expire=86400&HW-CC-Sign=D2304A3A27A84B10D502D507AA2BE554F4283858BC3451EDEA8A45C561E21326)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/wrFh7PX_RNWOQiYDFx7btw/zh-cn_image_0000002581276294.png?HW-CC-KV=V1&HW-CC-Date=20260528T025537Z&HW-CC-Expire=86400&HW-CC-Sign=DD5897B801003FCE1111813CD67A8F152F1D62F6CBCFF30D7CD8663D08BD1D1E)

@@ -14,13 +14,13 @@
 
 
 
-##### 功能介绍
+#### 功能介绍
 
 获取ID Token解析与验证所需的JWT公钥信息。该接口会返回当天及前一天的JWT公钥信息，应用服务端可根据ID Token中的kid与此接口返回的kid进行比对，拿到对应的公钥信息。
 
 
 
-##### 场景描述
+#### 场景描述
 
 应用在获取到ID Token后，需要对其进行解析与验证，解析后可获取用户数据，并验证签名。
 
@@ -30,13 +30,13 @@
 
 
 
-##### 使用约束
+#### 使用约束
 
 需确保调用端网络正常。
 
 
 
-##### 接口原型
+#### 接口原型
 
  - **承载协议：** HTTPS POST/GET
  - **接口方向：** 开发者服务器->华为账号服务器
@@ -48,13 +48,13 @@
 
 
 
-##### 请求参数
+#### 请求参数
 
 无
 
 
 
-##### 请求示例
+#### 请求示例
 
 请通过POST方式调用，示例如下：
 
@@ -72,11 +72,11 @@ Host: oauth-login.cloud.huawei.com
 
 
 
-##### 响应参数
+#### 响应参数
 
 
 
-##### Response Header
+#### Response Header
 
 | 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
@@ -85,7 +85,7 @@ Host: oauth-login.cloud.huawei.com
 
 
 
-##### Response Body
+#### Response Body
 
 | 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
@@ -106,7 +106,7 @@ keys数组每个元素中包含字段信息如下：
 
 
 
-##### 响应示例
+#### 响应示例
 
 ```json
 HTTP/1.1 200 OK
@@ -136,7 +136,7 @@ Content-Type: application/json;charset=utf-8
 
 
 
-##### 示例代码
+#### 示例代码
 
 Java示例代码如下，运行前需要进行[示例代码环境配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-common#示例代码环境配置)（请将此示例代码与工具类CallUtils放于同一路径下，如不在同一路径，请手动添加import）
 
@@ -178,7 +178,7 @@ public class GetIdTokenCerts {
 
 
 
-##### 错误码
+#### 错误码
 
 | HTTP响应码 | 描述 | 解决方法 |
 | --- | --- | --- |

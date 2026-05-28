@@ -22,7 +22,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -32,7 +32,7 @@ import { socket } from '@kit.ConnectivityKit';
 
 
 
-##### socket.sppListen
+#### socket.sppListen
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -100,7 +100,7 @@ try {
 
 
 
-##### socket.getL2capPsm20+
+#### socket.getL2capPsm20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -144,7 +144,7 @@ try {
 
 
 
-##### socket.sppAccept
+#### socket.sppAccept
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -206,7 +206,7 @@ try {
 
 
 
-##### socket.sppConnect
+#### socket.sppConnect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -274,7 +274,7 @@ try {
 
 
 
-##### socket.getDeviceId17+
+#### socket.getDeviceId17+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -331,7 +331,7 @@ try {
 
 
 
-##### socket.sppCloseServerSocket
+#### socket.sppCloseServerSocket
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -380,7 +380,7 @@ try {
 
 
 
-##### socket.sppCloseClientSocket
+#### socket.sppCloseClientSocket
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -429,7 +429,7 @@ try {
 
 
 
-##### socket.sppWrite
+#### socket.sppWrite
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -486,7 +486,7 @@ try {
 
 
 
-##### socket.on('sppRead')
+#### socket.on('sppRead')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -544,7 +544,7 @@ try {
 
 
 
-##### socket.off('sppRead')
+#### socket.off('sppRead')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -588,7 +588,7 @@ try {
 
 
 
-##### socket.sppWriteAsync18+
+#### socket.sppWriteAsync18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -651,7 +651,7 @@ try {
 
 
 
-##### socket.sppReadAsync18+
+#### socket.sppReadAsync18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -721,7 +721,7 @@ async function readAsync(clientNumber: number) {
 
 
 
-##### socket.getMaxReceiveDataSize22+
+#### socket.getMaxReceiveDataSize22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -766,7 +766,7 @@ try {
 
 
 
-##### socket.getMaxTransmitDataSize22+
+#### socket.getMaxTransmitDataSize22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -811,7 +811,7 @@ try {
 
 
 
-##### socket.isConnected22+
+#### socket.isConnected22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -851,7 +851,7 @@ try {
 
 
 
-##### SppOptions
+#### SppOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -869,7 +869,7 @@ try {
 
 
 
-##### SppType
+#### SppType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

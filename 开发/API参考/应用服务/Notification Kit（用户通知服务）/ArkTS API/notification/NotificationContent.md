@@ -12,7 +12,7 @@
 
 
 
-##### NotificationContent
+#### NotificationContent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -33,7 +33,7 @@
 
 
 
-##### NotificationBasicContent
+#### NotificationBasicContent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -51,7 +51,7 @@
 
 
 
-##### NotificationLongTextContent
+#### NotificationLongTextContent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -72,7 +72,7 @@
 
 
 
-##### NotificationMultiLineContent
+#### NotificationMultiLineContent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -93,7 +93,7 @@
 
 
 
-##### NotificationPictureContent
+#### NotificationPictureContent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -114,7 +114,7 @@
 
 
 
-##### NotificationSystemLiveViewContent
+#### NotificationSystemLiveViewContent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -133,7 +133,7 @@
 
 
 
-##### NotificationCapsule11+
+#### NotificationCapsule11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -150,7 +150,7 @@
 
 
 
-##### NotificationButton11+
+#### NotificationButton11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -167,7 +167,7 @@
 
 
 
-##### NotificationTime11+
+#### NotificationTime11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -197,7 +197,7 @@ time: {
 
 
 
-##### NotificationProgress11+
+#### NotificationProgress11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

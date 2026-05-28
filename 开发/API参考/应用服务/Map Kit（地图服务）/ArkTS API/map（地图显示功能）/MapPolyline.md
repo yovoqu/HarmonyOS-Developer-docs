@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mappolyline
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -15,7 +15,7 @@ import { map, mapCommon } from '@kit.MapKit';
  
   
 
-##### MapPolyline
+#### MapPolyline
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -56,7 +56,7 @@ let mapPolyline = await this.mapController.addPolyline(polylineOption);
  
   
 
-##### getColor
+#### getColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -87,7 +87,7 @@ let color: number = mapPolyline.getColor();
  
   
 
-##### getColors
+#### getColors
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -118,7 +118,7 @@ let colors: Array<number> = mapPolyline.getColors();
  
   
 
-##### getEndCap
+#### getEndCap
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -149,7 +149,7 @@ let endCap: mapCommon.CapStyle = mapPolyline.getEndCap();
  
   
 
-##### getJointType
+#### getJointType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -180,7 +180,7 @@ let jointType: mapCommon.JointType = mapPolyline.getJointType();
  
   
 
-##### getPatterns
+#### getPatterns
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -211,7 +211,7 @@ let patterns: Array<mapCommon.PatternItem> = mapPolyline.getPatterns();
  
   
 
-##### getPoints
+#### getPoints
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -242,7 +242,7 @@ let points: Array<mapCommon.LatLng> = mapPolyline.getPoints();
  
   
 
-##### getStartCap
+#### getStartCap
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -273,7 +273,7 @@ let startCap: mapCommon.CapStyle = mapPolyline.getStartCap();
  
   
 
-##### getWidth
+#### getWidth
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -304,7 +304,7 @@ let width: number = mapPolyline.getWidth();
  
   
 
-##### isClickable
+#### isClickable
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -335,7 +335,7 @@ let isClickable: boolean = mapPolyline.isClickable();
  
   
 
-##### isGeodesic
+#### isGeodesic
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -366,7 +366,7 @@ let isGeodesic: boolean = mapPolyline.isGeodesic();
  
   
 
-##### isGradient
+#### isGradient
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -397,7 +397,7 @@ let isGradient: boolean = mapPolyline.isGradient();
  
   
 
-##### setClickable
+#### setClickable
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -428,7 +428,7 @@ mapPolyline.setClickable(true);
  
   
 
-##### setColor
+#### setColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -459,7 +459,7 @@ mapPolyline.setColor(0xff000000);
  
   
 
-##### setColors
+#### setColors
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -490,7 +490,7 @@ mapPolyline.setColors([0xffffff00, 0xff000000]);
  
   
 
-##### setEndCap
+#### setEndCap
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -521,7 +521,7 @@ mapPolyline.setEndCap(mapCommon.CapStyle.BUTT);
  
   
 
-##### setGeodesic
+#### setGeodesic
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -552,7 +552,7 @@ mapPolyline.setGeodesic(true);
  
   
 
-##### setGradient
+#### setGradient
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -583,7 +583,7 @@ mapPolyline.setGradient(true);
  
   
 
-##### setJointType
+#### setJointType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -614,7 +614,7 @@ mapPolyline.setJointType(mapCommon.JointType.DEFAULT);
  
   
 
-##### setPatterns
+#### setPatterns
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -650,7 +650,7 @@ mapPolyline.setPatterns(linePattern);
  
   
 
-##### setPoints
+#### setPoints
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -688,7 +688,7 @@ mapPolyline.setPoints(points);
  
   
 
-##### setStartCap
+#### setStartCap
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -719,7 +719,7 @@ mapPolyline.setStartCap(mapCommon.CapStyle.BUTT);
  
   
 
-##### setWidth
+#### setWidth
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -750,7 +750,7 @@ mapPolyline.setWidth(20);
  
   
 
-##### setCustomTexture
+#### setCustomTexture
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -789,7 +789,7 @@ await mapPolyline.setCustomTexture("icon/naviline_arrow.png");
  
   
 
-##### setCustomTexture
+#### setCustomTexture
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -829,7 +829,7 @@ await mapPolyline.setCustomTexture("icon/naviline_arrow.png", true);
  
   
 
-##### setCustomTextureIndexes
+#### setCustomTextureIndexes
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

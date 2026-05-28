@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/jsvm-optimizations
 
-##### JSVM调用结构
+#### JSVM调用结构
 
 小程序使用JSVM执行JS代码的过程可以分为 Native，JSVM-API，JSVM 三层：
  
@@ -17,7 +17,7 @@
  
   
 
-##### 提升启动速度
+#### 提升启动速度
 
 对于使用JSVM的应用启动场景，我们可以区分冷热启动用于分别进行不同的优化。
  
@@ -27,7 +27,7 @@
  
   
 
-##### 减少 JS 引擎层的开销
+#### 减少 JS 引擎层的开销
 
 引擎层的开销很大程度上来源于编译。通过合理调整调用JSVM-API时传入的选项，可以降低主线程上JS引擎的编译开销。
  
@@ -66,7 +66,7 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CompileScript(JSVM_Env env,
  
   
 
-##### 在native层减少时间开销
+#### 在native层减少时间开销
 
 **冷启动：减少code cache的影响**
  
@@ -125,7 +125,7 @@ if (script_run_completed) {
  
   
 
-##### 使用更高效的JSVM-API
+#### 使用更高效的JSVM-API
 
 在能达到相同效果时，使用更高效的JSVM-API是一种有效的性能优化方法，以下是一些具体的实践示例。
  

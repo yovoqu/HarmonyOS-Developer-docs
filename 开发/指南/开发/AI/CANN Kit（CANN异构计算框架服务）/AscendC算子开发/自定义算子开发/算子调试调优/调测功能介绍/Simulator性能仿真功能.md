@@ -4,11 +4,11 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-simulator-performance-simulation
 
-##### CAModel性能仿真
+#### CAModel性能仿真
 
   
 
-##### 功能介绍
+#### 功能介绍
 
 算子可以在仿真器上进行性能仿真，目前主要支持CAModel仿真器。
  
@@ -18,7 +18,7 @@
  
   
 
-##### 使用方法（命令行）
+#### 使用方法（命令行）
 
 通过命令行进行性能仿真的关键步骤如下。
  1. 完成环境搭建，并准备好输入/标杆数据文件。
@@ -33,7 +33,7 @@ ascendebug kernel --backend simulator --repo-type customize --json-file ${op_con
  
   
 
-##### 产物说明
+#### 产物说明
 
 CAModel仿真结果存放在${root}/${work_dir}/simulator路径下，其中${root}表示当前操作路径，${work_dir}表示调测工作空间，默认为/debug_workspace/${op_type}目录，${op_type}为算子名。目录结构示例如下。
  
@@ -131,11 +131,11 @@ data_cmp mean is -1.41e-05 data_gd mean is -1.41e-05
  
   
 
-##### Model仿真打点
+#### Model仿真打点
 
   
 
-##### 功能介绍
+#### 功能介绍
 
 算子进行CAModel仿真时，可对算子任意运行阶段进行打点，从而分析不同指令的流水图，以便进一步性能调优。
  
@@ -145,7 +145,7 @@ data_cmp mean is -1.41e-05 data_gd mean is -1.41e-05
  
   
 
-##### 使用方法
+#### 使用方法
 1. 先在Kernel代码中的目标指令位置分别打上TRACE_START/TRACE_STOP，示例如下，起始/终止接口的说明详见[Trace接口说明](#trace接口说明)。
 
   
@@ -163,12 +163,12 @@ TRACE_STOP(0x1);
   **图1** 仿真打点示意图
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/zOHphygMQ7yy8hIz7W-0Jg/zh-cn_image_0000002581435346.png?HW-CC-KV=V1&HW-CC-Date=20260528T014301Z&HW-CC-Expire=86400&HW-CC-Sign=12D1436E9C935A4494F247D60DB4F80471DB80E5135950688739D154D44AF6A0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/zOHphygMQ7yy8hIz7W-0Jg/zh-cn_image_0000002581435346.png?HW-CC-KV=V1&HW-CC-Date=20260528T025930Z&HW-CC-Expire=86400&HW-CC-Sign=3170199E6D77BFFA0CBA9F365873ACDF52B97E0530A8262B8FFB4565079223D2)
 
  
   
 
-##### Trace接口说明
+#### Trace接口说明
 
 TRACE_START接口说明如下。
  

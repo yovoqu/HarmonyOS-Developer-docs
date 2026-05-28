@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-inputmethod-private-command-capi-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -40,7 +40,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -61,13 +61,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_PrivateCommand_Create()
+#### OH_PrivateCommand_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -98,7 +98,7 @@ InputMethod_PrivateCommand *OH_PrivateCommand_Create(char key[], size_t keyLengt
  
   
 
-##### OH_PrivateCommand_Destroy()
+#### OH_PrivateCommand_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -121,7 +121,7 @@ void OH_PrivateCommand_Destroy(InputMethod_PrivateCommand *command)
  
   
 
-##### OH_PrivateCommand_SetKey()
+#### OH_PrivateCommand_SetKey()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -153,7 +153,7 @@ InputMethod_ErrorCode OH_PrivateCommand_SetKey(InputMethod_PrivateCommand *comma
  
   
 
-##### OH_PrivateCommand_SetBoolValue()
+#### OH_PrivateCommand_SetBoolValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -184,7 +184,7 @@ InputMethod_ErrorCode OH_PrivateCommand_SetBoolValue(InputMethod_PrivateCommand 
  
   
 
-##### OH_PrivateCommand_SetIntValue()
+#### OH_PrivateCommand_SetIntValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -215,7 +215,7 @@ InputMethod_ErrorCode OH_PrivateCommand_SetIntValue(InputMethod_PrivateCommand *
  
   
 
-##### OH_PrivateCommand_SetStrValue()
+#### OH_PrivateCommand_SetStrValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -247,7 +247,7 @@ InputMethod_ErrorCode OH_PrivateCommand_SetStrValue(InputMethod_PrivateCommand *
  
   
 
-##### OH_PrivateCommand_GetKey()
+#### OH_PrivateCommand_GetKey()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -279,7 +279,7 @@ InputMethod_ErrorCode OH_PrivateCommand_GetKey(InputMethod_PrivateCommand *comma
  
   
 
-##### OH_PrivateCommand_GetValueType()
+#### OH_PrivateCommand_GetValueType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -310,7 +310,7 @@ InputMethod_ErrorCode OH_PrivateCommand_GetValueType(InputMethod_PrivateCommand 
  
   
 
-##### OH_PrivateCommand_GetBoolValue()
+#### OH_PrivateCommand_GetBoolValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -341,7 +341,7 @@ InputMethod_ErrorCode OH_PrivateCommand_GetBoolValue(InputMethod_PrivateCommand 
  
   
 
-##### OH_PrivateCommand_GetIntValue()
+#### OH_PrivateCommand_GetIntValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -372,7 +372,7 @@ InputMethod_ErrorCode OH_PrivateCommand_GetIntValue(InputMethod_PrivateCommand *
  
   
 
-##### OH_PrivateCommand_GetStrValue()
+#### OH_PrivateCommand_GetStrValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

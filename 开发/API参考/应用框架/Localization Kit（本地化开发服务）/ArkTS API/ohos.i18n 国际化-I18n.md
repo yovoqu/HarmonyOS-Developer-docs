@@ -16,7 +16,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -26,7 +26,7 @@ import { i18n } from '@kit.LocalizationKit';
 
 
 
-##### System9+
+#### System9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -38,7 +38,7 @@ import { i18n } from '@kit.LocalizationKit';
 
 
 
-##### getDisplayCountry9+
+#### getDisplayCountry9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -96,7 +96,7 @@ try {
 
 
 
-##### getDisplayLanguage9+
+#### getDisplayLanguage9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -151,7 +151,7 @@ try {
 
 
 
-##### getSystemLanguages9+
+#### getSystemLanguages9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -181,7 +181,7 @@ let systemLanguages: Array<string> = i18n.System.getSystemLanguages();
 
 
 
-##### getSystemCountries9+
+#### getSystemCountries9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -238,7 +238,7 @@ try {
 
 
 
-##### isSuggested9+
+#### isSuggested9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -296,7 +296,7 @@ try {
 
 
 
-##### getSystemLanguage9+
+#### getSystemLanguage9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -327,7 +327,7 @@ let systemLanguage: string = i18n.System.getSystemLanguage(); // 如果系统语
 
 
 
-##### getSystemRegion9+
+#### getSystemRegion9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -356,7 +356,7 @@ let systemRegion: string = i18n.System.getSystemRegion(); // 如果系统地区�
 
 
 
-##### getSystemLocale(deprecated)
+#### getSystemLocale(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -387,7 +387,7 @@ let systemLocale: string = i18n.System.getSystemLocale(); // 如果系统语言�
 
 
 
-##### getSystemLocaleInstance20+
+#### getSystemLocaleInstance20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -416,7 +416,7 @@ let systemLocale: Intl.Locale = i18n.System.getSystemLocaleInstance();
 
 
 
-##### is24HourClock9+
+#### is24HourClock9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -447,7 +447,7 @@ let is24HourClock: boolean = i18n.System.is24HourClock(); // 如果系统时制�
 
 
 
-##### getPreferredLanguageList9+
+#### getPreferredLanguageList9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -476,7 +476,7 @@ let preferredLanguageList: Array<string> = i18n.System.getPreferredLanguageList(
 
 
 
-##### getFirstPreferredLanguage9+
+#### getFirstPreferredLanguage9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -505,7 +505,7 @@ let firstPreferredLanguage: string = i18n.System.getFirstPreferredLanguage();
 
 
 
-##### setAppPreferredLanguage11+
+#### setAppPreferredLanguage11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -550,7 +550,7 @@ try {
 
 
 
-##### getAppPreferredLanguage9+
+#### getAppPreferredLanguage9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -579,7 +579,7 @@ let appPreferredLanguage: string = i18n.System.getAppPreferredLanguage();
 
 
 
-##### getUsingLocalDigit9+
+#### getUsingLocalDigit9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -608,7 +608,7 @@ let usingLocalDigit: boolean = i18n.System.getUsingLocalDigit();
 
 
 
-##### getSimplifiedLanguage15+
+#### getSimplifiedLanguage15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -663,7 +663,7 @@ try {
 
 
 
-##### getTemperatureType18+
+#### getTemperatureType18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -692,7 +692,7 @@ let temperatureType: i18n.TemperatureType = i18n.System.getTemperatureType();
 
 
 
-##### getTemperatureName18+
+#### getTemperatureName18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -748,7 +748,7 @@ try {
 
 
 
-##### getFirstDayOfWeek18+
+#### getFirstDayOfWeek18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -777,7 +777,7 @@ let firstDayOfWeek: i18n.WeekDay = i18n.System.getFirstDayOfWeek();
 
 
 
-##### TemperatureType18+
+#### TemperatureType18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -796,7 +796,7 @@ let firstDayOfWeek: i18n.WeekDay = i18n.System.getFirstDayOfWeek();
 
 
 
-##### WeekDay18+
+#### WeekDay18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -819,7 +819,7 @@ let firstDayOfWeek: i18n.WeekDay = i18n.System.getFirstDayOfWeek();
 
 
 
-##### i18n.isRTL
+#### i18n.isRTL
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -856,7 +856,7 @@ let isArRTL: boolean = i18n.isRTL('ar-EG'); // 阿语是镜像语言，返回tru
 
 
 
-##### i18n.getCalendar8+
+#### i18n.getCalendar8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -893,7 +893,7 @@ let calendar: i18n.Calendar = i18n.getCalendar('zh-Hans', 'chinese'); // 获取�
 
 
 
-##### EntityRecognizer11+
+#### EntityRecognizer11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -905,7 +905,7 @@ let calendar: i18n.Calendar = i18n.getCalendar('zh-Hans', 'chinese'); // 获取�
 
 
 
-##### constructor11+
+#### constructor11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -950,7 +950,7 @@ try {
 
 
 
-##### findEntityInfo11+
+#### findEntityInfo11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1007,7 +1007,7 @@ try {
 
 
 
-##### EntityInfoItem11+
+#### EntityInfoItem11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1026,7 +1026,7 @@ try {
 
 
 
-##### Calendar
+#### Calendar
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1038,7 +1038,7 @@ try {
 
 
 
-##### setTime8+
+#### setTime8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1069,7 +1069,7 @@ calendar.setTime(date);
 
 
 
-##### setTime8+
+#### setTime8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1099,7 +1099,7 @@ calendar.setTime(10540800000);
 
 
 
-##### set8+
+#### set8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1134,7 +1134,7 @@ calendar.set(2021, 10, 1, 8, 0, 0); // 设置时间日期为2021.11.1 08:00:00
 
 
 
-##### setTimeZone8+
+#### setTimeZone8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1164,7 +1164,7 @@ calendar.setTimeZone('Asia/Shanghai');
 
 
 
-##### getTimeZone8+
+#### getTimeZone8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1195,7 +1195,7 @@ let timezone: string = calendar.getTimeZone(); // timezone = 'Asia/Shanghai'
 
 
 
-##### getFirstDayOfWeek8+
+#### getFirstDayOfWeek8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1225,7 +1225,7 @@ let firstDayOfWeek: number = calendar.getFirstDayOfWeek(); // firstDayOfWeek = 1
 
 
 
-##### setFirstDayOfWeek8+
+#### setFirstDayOfWeek8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1256,7 +1256,7 @@ let firstDayOfWeek: number = calendar.getFirstDayOfWeek(); // firstDayOfWeek = 3
 
 
 
-##### getMinimalDaysInFirstWeek8+
+#### getMinimalDaysInFirstWeek8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1286,7 +1286,7 @@ let minimalDaysInFirstWeek: number = calendar.getMinimalDaysInFirstWeek(); // mi
 
 
 
-##### setMinimalDaysInFirstWeek8+
+#### setMinimalDaysInFirstWeek8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1317,7 +1317,7 @@ let minimalDaysInFirstWeek: number = calendar.getMinimalDaysInFirstWeek(); // mi
 
 
 
-##### get8+
+#### get8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1381,7 +1381,7 @@ let hourOfDay: number = calendar.get('hour_of_day'); // hourOfDay = 8
 
 
 
-##### getDisplayName8+
+#### getDisplayName8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1418,7 +1418,7 @@ let calendarName: string = calendar.getDisplayName('zh'); // calendarName = '佛
 
 
 
-##### isWeekend8+
+#### isWeekend8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1458,7 +1458,7 @@ isWeekend = calendar.isWeekend(date); // isWeekend = false
 
 
 
-##### add11+
+#### add11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1507,7 +1507,7 @@ try {
 
 
 
-##### getTimeInMillis11+
+#### getTimeInMillis11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1538,7 +1538,7 @@ let millisecond: number = calendar.getTimeInMillis(); // millisecond = 5000
 
 
 
-##### compareDays11+
+#### compareDays11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1592,7 +1592,7 @@ try {
 
 
 
-##### PhoneNumberFormat8+
+#### PhoneNumberFormat8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1604,7 +1604,7 @@ try {
 
 
 
-##### constructor8+
+#### constructor8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1635,7 +1635,7 @@ let phoneNumberFormat: i18n.PhoneNumberFormat = new i18n.PhoneNumberFormat('CN',
 
 
 
-##### isValidNumber8+
+#### isValidNumber8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1672,7 +1672,7 @@ let isValidNumber: boolean = formatter.isValidNumber('158****2312'); // isValidN
 
 
 
-##### format8+
+#### format8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1724,7 +1724,7 @@ for (let i = 0; i < phoneNumber.length; i++) {
 
 
 
-##### getLocationName9+
+#### getLocationName9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1778,7 +1778,7 @@ formatResult = typingFormatter.getLocationName('133426', 'en'); // formatResult 
 
 
 
-##### PhoneNumberFormatOptions8+
+#### PhoneNumberFormatOptions8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1795,7 +1795,7 @@ formatResult = typingFormatter.getLocationName('133426', 'en'); // formatResult 
 
 
 
-##### UnitInfo8+
+#### UnitInfo8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1813,7 +1813,7 @@ formatResult = typingFormatter.getLocationName('133426', 'en'); // formatResult 
 
 
 
-##### i18n.getInstance8+
+#### i18n.getInstance8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1849,7 +1849,7 @@ let indexUtil: i18n.IndexUtil = i18n.getInstance('zh-CN');
 
 
 
-##### IndexUtil8+
+#### IndexUtil8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1861,7 +1861,7 @@ let indexUtil: i18n.IndexUtil = i18n.getInstance('zh-CN');
 
 
 
-##### getIndexList8+
+#### getIndexList8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1893,7 +1893,7 @@ let indexList: Array<string> = indexUtil.getIndexList();
 
 
 
-##### addLocale8+
+#### addLocale8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1923,7 +1923,7 @@ indexUtil.addLocale('en-US');
 
 
 
-##### getIndex8+
+#### getIndex8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1960,7 +1960,7 @@ let index: string = indexUtil.getIndex('hi'); // index = 'H'
 
 
 
-##### i18n.getLineInstance8+
+#### i18n.getLineInstance8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1996,7 +1996,7 @@ let iterator: i18n.BreakIterator = i18n.getLineInstance('en');
 
 
 
-##### BreakIterator8+
+#### BreakIterator8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2008,7 +2008,7 @@ let iterator: i18n.BreakIterator = i18n.getLineInstance('en');
 
 
 
-##### setLineBreakText8+
+#### setLineBreakText8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2038,7 +2038,7 @@ iterator.setLineBreakText('Apple is my favorite fruit.'); // 设置处理文本
 
 
 
-##### getLineBreakText8+
+#### getLineBreakText8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2069,7 +2069,7 @@ let breakText: string = iterator.getLineBreakText(); // breakText = 'Apple is my
 
 
 
-##### current8+
+#### current8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2100,7 +2100,7 @@ let currentPos: number = iterator.current(); // currentPos = 0
 
 
 
-##### first8+
+#### first8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2131,7 +2131,7 @@ let firstPos: number = iterator.first(); // firstPos = 0
 
 
 
-##### last8+
+#### last8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2162,7 +2162,7 @@ let lastPos: number = iterator.last(); // lastPos = 27
 
 
 
-##### next8+
+#### next8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2202,7 +2202,7 @@ pos = iterator.next(10); // pos = -1
 
 
 
-##### previous8+
+#### previous8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2235,7 +2235,7 @@ pos = iterator.previous(); // pos = 9
 
 
 
-##### following8+
+#### following8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2275,7 +2275,7 @@ pos = iterator.current(); // pos = 27
 
 
 
-##### isBoundary8+
+#### isBoundary8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2314,7 +2314,7 @@ isBoundary = iterator.isBoundary(5); // isBoundary = false;
 
 
 
-##### i18n.getTimeZone
+#### i18n.getTimeZone
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2350,7 +2350,7 @@ let timezone: i18n.TimeZone = i18n.getTimeZone('Asia/Shanghai');
 
 
 
-##### TimeZone
+#### TimeZone
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2362,7 +2362,7 @@ let timezone: i18n.TimeZone = i18n.getTimeZone('Asia/Shanghai');
 
 
 
-##### getID
+#### getID
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2392,7 +2392,7 @@ let timezoneID: string = timezone.getID(); // timezoneID = 'Asia/Shanghai'
 
 
 
-##### getDisplayName
+#### getDisplayName
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2430,7 +2430,7 @@ let timezoneName: string = timezone.getDisplayName('zh-CN', false); // timezoneN
 
 
 
-##### getRawOffset
+#### getRawOffset
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2460,7 +2460,7 @@ let offset: number = timezone.getRawOffset(); // offset = 28800000
 
 
 
-##### getOffset
+#### getOffset
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2497,7 +2497,7 @@ let offset: number = timezone.getOffset(1234567890); // offset = 28800000
 
 
 
-##### getAvailableIDs9+
+#### getAvailableIDs9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2527,7 +2527,7 @@ let ids: Array<string> = i18n.TimeZone.getAvailableIDs();
 
 
 
-##### getAvailableZoneCityIDs9+
+#### getAvailableZoneCityIDs9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2557,7 +2557,7 @@ let cityIDs: Array<string> = i18n.TimeZone.getAvailableZoneCityIDs();
 
 
 
-##### getCityDisplayName9+
+#### getCityDisplayName9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2594,7 +2594,7 @@ let displayName: string = i18n.TimeZone.getCityDisplayName('Shanghai', 'zh-CN');
 
 
 
-##### getTimezoneFromCity9+
+#### getTimezoneFromCity9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2630,7 +2630,7 @@ let timezone: i18n.TimeZone = i18n.TimeZone.getTimezoneFromCity('Shanghai');
 
 
 
-##### getTimezonesByLocation10+
+#### getTimezonesByLocation10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2687,7 +2687,7 @@ try {
 
 
 
-##### getZoneRules20+
+#### getZoneRules20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2733,7 +2733,7 @@ let dateFormat: string =
 
 
 
-##### ZoneRules20+
+#### ZoneRules20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2745,7 +2745,7 @@ let dateFormat: string =
 
 
 
-##### nextTransition20+
+#### nextTransition20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2787,7 +2787,7 @@ let zoneOffsetTransition: i18n.ZoneOffsetTransition = zoneRules.nextTransition(d
 
 
 
-##### ZoneOffsetTransition20+
+#### ZoneOffsetTransition20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2799,7 +2799,7 @@ let zoneOffsetTransition: i18n.ZoneOffsetTransition = zoneRules.nextTransition(d
 
 
 
-##### getMilliseconds20+
+#### getMilliseconds20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2833,7 +2833,7 @@ zoneOffsetTransition.getMilliseconds(); // 跳变点的时间戳: 1762074000000
 
 
 
-##### getOffsetAfter20+
+#### getOffsetAfter20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2867,7 +2867,7 @@ zoneOffsetTransition.getOffsetAfter(); // 跳变后的偏移量: -28800000
 
 
 
-##### getOffsetBefore20+
+#### getOffsetBefore20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2901,7 +2901,7 @@ zoneOffsetTransition.getOffsetBefore(); // 跳变前的偏移量: -25200000
 
 
 
-##### Transliterator9+
+#### Transliterator9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2913,7 +2913,7 @@ zoneOffsetTransition.getOffsetBefore(); // 跳变前的偏移量: -25200000
 
 
 
-##### getAvailableIDs9+
+#### getAvailableIDs9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2944,7 +2944,7 @@ let ids: string[] = i18n.Transliterator.getAvailableIDs();
 
 
 
-##### getInstance9+
+#### getInstance9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2980,7 +2980,7 @@ let transliterator: i18n.Transliterator = i18n.Transliterator.getInstance('Any-L
 
 
 
-##### transform9+
+#### transform9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3030,7 +3030,7 @@ transliterateNames = transliterator.transform('长孙无忌'); // transliterateN
 
 
 
-##### Unicode9+
+#### Unicode9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3042,7 +3042,7 @@ transliterateNames = transliterator.transform('长孙无忌'); // transliterateN
 
 
 
-##### isDigit9+
+#### isDigit9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3078,7 +3078,7 @@ let isDigit: boolean = i18n.Unicode.isDigit('1'); // isDigit = true
 
 
 
-##### isSpaceChar9+
+#### isSpaceChar9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3114,7 +3114,7 @@ let isSpacechar: boolean = i18n.Unicode.isSpaceChar('a'); // isSpacechar = false
 
 
 
-##### isWhitespace9+
+#### isWhitespace9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3150,7 +3150,7 @@ let isWhitespace: boolean = i18n.Unicode.isWhitespace('a'); // isWhitespace = fa
 
 
 
-##### isRTL9+
+#### isRTL9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3186,7 +3186,7 @@ let isRtl: boolean = i18n.Unicode.isRTL('a'); // isRtl = false
 
 
 
-##### isIdeograph9+
+#### isIdeograph9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3222,7 +3222,7 @@ let isIdeograph: boolean = i18n.Unicode.isIdeograph('a'); // isIdeograph = false
 
 
 
-##### isLetter9+
+#### isLetter9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3258,7 +3258,7 @@ let isLetter: boolean = i18n.Unicode.isLetter('a'); // isLetter = true
 
 
 
-##### isLowerCase9+
+#### isLowerCase9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3294,7 +3294,7 @@ let isLowercase: boolean = i18n.Unicode.isLowerCase('a'); // isLowercase = true
 
 
 
-##### isUpperCase9+
+#### isUpperCase9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3330,7 +3330,7 @@ let isUppercase: boolean = i18n.Unicode.isUpperCase('a'); // isUppercase = false
 
 
 
-##### getType9+
+#### getType9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3403,7 +3403,7 @@ let unicodeType: string = i18n.Unicode.getType('a'); // unicodeType = 'U_LOWERCA
 
 
 
-##### I18NUtil9+
+#### I18NUtil9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3415,7 +3415,7 @@ let unicodeType: string = i18n.Unicode.getType('a'); // unicodeType = 'U_LOWERCA
 
 
 
-##### unitConvert9+
+#### unitConvert9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3458,7 +3458,7 @@ let convertResult: string =
 
 
 
-##### getDateOrder9+
+#### getDateOrder9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3494,7 +3494,7 @@ let order: string = i18n.I18NUtil.getDateOrder('zh-CN'); // order = 'y-L-d'
 
 
 
-##### getTimePeriodName11+
+#### getTimePeriodName11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3547,7 +3547,7 @@ try {
 
 
 
-##### getBestMatchLocale12+
+#### getBestMatchLocale12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3601,7 +3601,7 @@ try {
 
 
 
-##### getThreeLetterLanguage12+
+#### getThreeLetterLanguage12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3655,7 +3655,7 @@ try {
 
 
 
-##### getThreeLetterRegion12+
+#### getThreeLetterRegion12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3709,7 +3709,7 @@ try {
 
 
 
-##### getUnicodeWrappedFilePath20+
+#### getUnicodeWrappedFilePath20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3768,7 +3768,7 @@ try {
 
 
 
-##### getUnicodeWrappedFilePath(deprecated)
+#### getUnicodeWrappedFilePath(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3829,7 +3829,7 @@ try {
 
 
 
-##### Normalizer10+
+#### Normalizer10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3841,7 +3841,7 @@ try {
 
 
 
-##### getInstance10+
+#### getInstance10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3892,7 +3892,7 @@ try {
 
 
 
-##### normalize10+
+#### normalize10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3944,7 +3944,7 @@ try {
 
 
 
-##### NormalizerMode10+
+#### NormalizerMode10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3964,7 +3964,7 @@ try {
 
 
 
-##### HolidayManager11+
+#### HolidayManager11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3976,7 +3976,7 @@ try {
 
 
 
-##### constructor11+
+#### constructor11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4022,7 +4022,7 @@ try {
 
 
 
-##### isHoliday11+
+#### isHoliday11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4076,7 +4076,7 @@ try {
 
 
 
-##### getHolidayInfoItemArray11+
+#### getHolidayInfoItemArray11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4130,7 +4130,7 @@ try {
 
 
 
-##### HolidayInfoItem11+
+#### HolidayInfoItem11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4151,7 +4151,7 @@ try {
 
 
 
-##### HolidayLocalName11+
+#### HolidayLocalName11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4169,7 +4169,7 @@ try {
 
 
 
-##### i18n.getSimpleDateTimeFormatByPattern20+
+#### i18n.getSimpleDateTimeFormatByPattern20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4222,7 +4222,7 @@ try {
 
 
 
-##### i18n.getSimpleDateTimeFormatByPattern(deprecated)
+#### i18n.getSimpleDateTimeFormatByPattern(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4277,7 +4277,7 @@ try {
 
 
 
-##### i18n.getSimpleDateTimeFormatBySkeleton20+
+#### i18n.getSimpleDateTimeFormatBySkeleton20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4330,7 +4330,7 @@ try {
 
 
 
-##### i18n.getSimpleDateTimeFormatBySkeleton(deprecated)
+#### i18n.getSimpleDateTimeFormatBySkeleton(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4385,7 +4385,7 @@ try {
 
 
 
-##### SimpleDateTimeFormat18+
+#### SimpleDateTimeFormat18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4397,7 +4397,7 @@ try {
 
 
 
-##### format18+
+#### format18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4450,7 +4450,7 @@ try {
 
 
 
-##### StyledDateTimeFormat23+
+#### StyledDateTimeFormat23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4462,7 +4462,7 @@ try {
 
 
 
-##### constructor23+
+#### constructor23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4521,7 +4521,7 @@ try {
 
 
 
-##### format23+
+#### format23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4576,7 +4576,7 @@ try {
 
 
 
-##### StyledDateTimeFormatOptions23+
+#### StyledDateTimeFormatOptions23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4602,7 +4602,7 @@ try {
 
 
 
-##### i18n.getSimpleNumberFormatBySkeleton20+
+#### i18n.getSimpleNumberFormatBySkeleton20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4655,7 +4655,7 @@ try {
 
 
 
-##### i18n.getSimpleNumberFormatBySkeleton(deprecated)
+#### i18n.getSimpleNumberFormatBySkeleton(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4710,7 +4710,7 @@ try {
 
 
 
-##### SimpleNumberFormat18+
+#### SimpleNumberFormat18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4722,7 +4722,7 @@ try {
 
 
 
-##### format18+
+#### format18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4766,7 +4766,7 @@ try {
 
 
 
-##### StyledNumberFormat18+
+#### StyledNumberFormat18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4778,7 +4778,7 @@ try {
 
 
 
-##### constructor(deprecated)
+#### constructor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4838,7 +4838,7 @@ try {
 
 
 
-##### constructor20+
+#### constructor20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4896,7 +4896,7 @@ try {
 
 
 
-##### format18+
+#### format18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4964,7 +4964,7 @@ try {
 
 
 
-##### StyledNumberFormatOptions18+
+#### StyledNumberFormatOptions18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4984,7 +4984,7 @@ try {
 
 
 
-##### AdvancedMeasureFormat23+
+#### AdvancedMeasureFormat23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4998,7 +4998,7 @@ try {
 
 
 
-##### constructor23+
+#### constructor23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5033,7 +5033,7 @@ let advancedMeasureFormat: i18n.AdvancedMeasureFormat = new i18n.AdvancedMeasure
 
 
 
-##### format23+
+#### format23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5075,7 +5075,7 @@ let result = advancedMeasureFormat.format(100); // result = '37.778°C'
 
 
 
-##### AdvancedMeasureFormatOptions23+
+#### AdvancedMeasureFormatOptions23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5094,7 +5094,7 @@ let result = advancedMeasureFormat.format(100); // result = '37.778°C'
 
 
 
-##### UnitUsage23+
+#### UnitUsage23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5135,7 +5135,7 @@ let result = advancedMeasureFormat.format(100); // result = '37.778°C'
 
 
 
-##### i18n.getDisplayCountry(deprecated)
+#### i18n.getDisplayCountry(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5174,7 +5174,7 @@ countryName = i18n.getDisplayCountry('zh-CN', 'en-GB'); // countryName = 'China'
 
 
 
-##### i18n.getDisplayLanguage(deprecated)
+#### i18n.getDisplayLanguage(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5213,7 +5213,7 @@ languageName = i18n.getDisplayLanguage('zh', 'en-GB'); // languageName = 'Chines
 
 
 
-##### i18n.getSystemLanguage(deprecated)
+#### i18n.getSystemLanguage(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5242,7 +5242,7 @@ let systemLanguage: string = i18n.getSystemLanguage();
 
 
 
-##### i18n.getSystemRegion(deprecated)
+#### i18n.getSystemRegion(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5271,7 +5271,7 @@ let region: string = i18n.getSystemRegion();
 
 
 
-##### i18n.getSystemLocale(deprecated)
+#### i18n.getSystemLocale(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5300,7 +5300,7 @@ let locale: string = i18n.getSystemLocale();
 
 
 
-##### i18n.is24HourClock(deprecated)
+#### i18n.is24HourClock(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5329,7 +5329,7 @@ let is24HourClock: boolean = i18n.is24HourClock();
 
 
 
-##### i18n.set24HourClock(deprecated)
+#### i18n.set24HourClock(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5368,7 +5368,7 @@ let success: boolean = i18n.set24HourClock(true);
 
 
 
-##### i18n.addPreferredLanguage(deprecated)
+#### i18n.addPreferredLanguage(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5410,7 +5410,7 @@ let success: boolean = i18n.addPreferredLanguage(language, index);
 
 
 
-##### i18n.removePreferredLanguage(deprecated)
+#### i18n.removePreferredLanguage(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5450,7 +5450,7 @@ let success: boolean = i18n.removePreferredLanguage(index);
 
 
 
-##### i18n.getPreferredLanguageList(deprecated)
+#### i18n.getPreferredLanguageList(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5479,7 +5479,7 @@ let preferredLanguageList: Array<string> = i18n.getPreferredLanguageList();
 
 
 
-##### i18n.getFirstPreferredLanguage(deprecated)
+#### i18n.getFirstPreferredLanguage(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5508,13 +5508,13 @@ let firstPreferredLanguage: string = i18n.getFirstPreferredLanguage();
 
 
 
-##### Util(deprecated)
+#### Util(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### unitConvert(deprecated)
+#### unitConvert(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5546,13 +5546,13 @@ unitConvert(fromUnit: UnitInfo, toUnit: UnitInfo, value: number, locale: string,
 
 
 
-##### Character(deprecated)
+#### Character(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### isDigit(deprecated)
+#### isDigit(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5580,7 +5580,7 @@ isDigit(ch: string): boolean
 
 
 
-##### isSpaceChar(deprecated)
+#### isSpaceChar(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5608,7 +5608,7 @@ isSpaceChar(ch: string): boolean
 
 
 
-##### isWhitespace(deprecated)
+#### isWhitespace(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5636,7 +5636,7 @@ isWhitespace(ch: string): boolean
 
 
 
-##### isRTL(deprecated)
+#### isRTL(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5664,7 +5664,7 @@ isRTL(ch: string): boolean
 
 
 
-##### isIdeograph(deprecated)
+#### isIdeograph(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5692,7 +5692,7 @@ isIdeograph(ch: string): boolean
 
 
 
-##### isLetter(deprecated)
+#### isLetter(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5720,7 +5720,7 @@ isLetter(ch: string): boolean
 
 
 
-##### isLowerCase(deprecated)
+#### isLowerCase(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5748,7 +5748,7 @@ isLowerCase(ch: string): boolean
 
 
 
-##### isUpperCase(deprecated)
+#### isUpperCase(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5776,7 +5776,7 @@ isUpperCase(ch: string): boolean
 
 
 
-##### getType(deprecated)
+#### getType(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

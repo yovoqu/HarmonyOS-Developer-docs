@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-scalar-binocular-leakyrelu
 
-##### 功能说明
+#### 功能说明
 
 按元素做带泄露线性整流Leaky ReLU：
 ![](assets/LeakyRelu/file-20260514132313998-0.png)
@@ -28,7 +28,7 @@
  
   
 
-##### 函数原型
+#### 函数原型
 
 tensor前n个数据计算：
  
@@ -39,7 +39,7 @@ __aicore__ inline void LeakyRelu(const LocalTensor<T>& dstLocal, const LocalTens
  
   
 
-##### 参数说明
+#### 参数说明
 
 **表1** 模板参数说明
   
@@ -62,13 +62,13 @@ __aicore__ inline void LeakyRelu(const LocalTensor<T>& dstLocal, const LocalTens
  
   
 
-##### 返回值
+#### 返回值
 
 无
  
   
 
-##### 支持的型号
+#### 支持的型号
 
 Kirin9020系列处理器
  
@@ -76,13 +76,13 @@ KirinX90系列处理器
  
   
 
-##### 注意事项
+#### 注意事项
 
 操作数地址偏移对齐要求请参见[通用约束](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-general-constraints)。
  
   
 
-##### 调用示例
+#### 调用示例
 
 tensor前n个数据计算样例（本样例中只展示Compute流程中的部分代码，如果开发者需要运行样例代码，请将该代码段拷贝并替换上方样例的Compute函数中粗体部分即可）。
  

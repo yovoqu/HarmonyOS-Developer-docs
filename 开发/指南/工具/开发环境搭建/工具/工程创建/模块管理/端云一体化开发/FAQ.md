@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/agc-harmonyos-clouddev-faq
 
-##### 使用DevEco Studio打开端云一体化项目文件夹，左侧的项目列表不显示云侧工程
+#### 使用DevEco Studio打开端云一体化项目文件夹，左侧的项目列表不显示云侧工程
 
 **问题现象**
  
@@ -22,7 +22,7 @@
  
  
 
-##### 部署云数据库时，提示“clouddb deploy failed. Reason is the number of CloudDBZone exceeds the limit.”
+#### 部署云数据库时，提示“clouddb deploy failed. Reason is the number of CloudDBZone exceeds the limit.”
 
 **问题现象**
  
@@ -40,7 +40,7 @@
  
  
 
-##### 部署云数据库时，提示“clouddb deploy failed. Reason is existing fields cannot be modified.”
+#### 部署云数据库时，提示“clouddb deploy failed. Reason is existing fields cannot be modified.”
 
 **问题现象**
  
@@ -64,7 +64,7 @@
  
  
 
-##### 体验端云一体化模板APP功能时，云存储上传图片失败，Hilog中打印“on response {"version":"HTTP/1.1","statusCode":403,"reason":"Forbidden","headers":{}}”
+#### 体验端云一体化模板APP功能时，云存储上传图片失败，Hilog中打印“on response {"version":"HTTP/1.1","statusCode":403,"reason":"Forbidden","headers":{}}”
 
 **问题现象**
  
@@ -82,7 +82,7 @@
  
  
 
-##### 体验端云一体化模板APP功能时，云数据库界面不展示数据，Hilog中打印“schemaJson_ is empty”
+#### 体验端云一体化模板APP功能时，云数据库界面不展示数据，Hilog中打印“schemaJson_ is empty”
 
 **问题现象**
  
@@ -102,7 +102,7 @@
  
  
 
-##### 云数据库无法新建数据条目，Hilog中打印“2001015:permission denied”
+#### 云数据库无法新建数据条目，Hilog中打印“2001015:permission denied”
 
 **问题现象**
  
@@ -116,7 +116,7 @@
  
  
 
-##### 云函数调用失败，error message包含“404:160404:Trigger not exist”
+#### 云函数调用失败，error message包含“404:160404:Trigger not exist”
 
 **问题现象**
  
@@ -130,7 +130,7 @@
  
  
 
-##### 云函数调用失败，error message包含“hmos auth app doesn't have permission”
+#### 云函数调用失败，error message包含“hmos auth app doesn't have permission”
 
 **问题现象**
  
@@ -144,7 +144,7 @@
  
  
 
-##### 云函数部署失败，提示“The function type cannot be changed”
+#### 云函数部署失败，提示“The function type cannot be changed”
 
 **问题现象**
  
@@ -160,7 +160,7 @@
  
  
 
-##### 部署云工程失败，提示“Remote host terminated the handshake”
+#### 部署云工程失败，提示“Remote host terminated the handshake”
 
 **问题现象**
  
@@ -176,7 +176,7 @@
  
  
 
-##### 在云函数中调用云函数失败，提示“mismatched authType”
+#### 在云函数中调用云函数失败，提示“mismatched authType”
 
 **问题现象**
  
@@ -188,7 +188,7 @@
  
  
 
-##### 端云一体化开发工程同步失败，失败步骤为npm install failed
+#### 端云一体化开发工程同步失败，失败步骤为npm install failed
 
 **问题现象**
  
@@ -204,7 +204,7 @@
  
  
 
-##### 使用云存储上传文件失败，提示“404:Product does not exist”
+#### 使用云存储上传文件失败，提示“404:Product does not exist”
 
 **问题现象**
  
@@ -220,7 +220,7 @@
  
  
 
-##### 使用云存储上传文件失败，app日志提示“"state":65”，upload进程日志提示“403 Forbidden”
+#### 使用云存储上传文件失败，app日志提示“"state":65”，upload进程日志提示“403 Forbidden”
 
 **问题现象**
  

@@ -12,7 +12,7 @@
 椭圆形状。
   
 
-##### 权限列表
+#### 权限列表
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -28,7 +28,7 @@
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -45,7 +45,7 @@
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -60,4 +60,4 @@
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/fzzHVnJnSPqMcjquYDdERg/zh-cn_image_0000002611756321.png?HW-CC-KV=V1&HW-CC-Date=20260528T024105Z&HW-CC-Expire=86400&HW-CC-Sign=2148330A1A6578F24A34ADA813D4AACA1FD90787691A443EC5E489D9F00D6C08)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/fzzHVnJnSPqMcjquYDdERg/zh-cn_image_0000002611756321.png?HW-CC-KV=V1&HW-CC-Date=20260528T025439Z&HW-CC-Expire=86400&HW-CC-Sign=A077B45577164F170B9EA7344BF9A4F5E01EA739B078AB9030325F491B602B64)

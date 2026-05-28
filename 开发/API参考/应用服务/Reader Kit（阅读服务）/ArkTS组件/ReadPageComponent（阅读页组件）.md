@@ -10,7 +10,7 @@
 **起始版本：** 5.0.4(16)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -20,7 +20,7 @@ import { ReadPageComponent } from '@kit.ReaderKit';
  
   
 
-##### ReadPageComponent
+#### ReadPageComponent
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -48,7 +48,7 @@ import { ReadPageComponent } from '@kit.ReaderKit';
  
   
 
-##### build
+#### build
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

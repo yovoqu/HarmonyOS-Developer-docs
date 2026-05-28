@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-asset-type-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
 
 
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -45,7 +45,7 @@
 
 
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -65,7 +65,7 @@
 
 
 
-##### 宏定义
+#### 宏定义
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -76,13 +76,13 @@
 
 
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### Asset_TagType
+#### Asset_TagType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -105,7 +105,7 @@ enum Asset_TagType
 
 
 
-##### Asset_Tag
+#### Asset_Tag
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -157,7 +157,7 @@ enum Asset_Tag
 
 
 
-##### Asset_ResultCode
+#### Asset_ResultCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -198,7 +198,7 @@ enum Asset_ResultCode
 
 
 
-##### Asset_Accessibility
+#### Asset_Accessibility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -221,7 +221,7 @@ enum Asset_Accessibility
 
 
 
-##### Asset_AuthType
+#### Asset_AuthType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -243,7 +243,7 @@ enum Asset_AuthType
 
 
 
-##### Asset_SyncType
+#### Asset_SyncType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -267,7 +267,7 @@ enum Asset_SyncType
 
 
 
-##### Asset_WrapType
+#### Asset_WrapType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -289,7 +289,7 @@ enum Asset_WrapType
 
 
 
-##### Asset_ConflictResolution
+#### Asset_ConflictResolution
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -311,7 +311,7 @@ enum Asset_ConflictResolution
 
 
 
-##### Asset_ReturnType
+#### Asset_ReturnType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -333,7 +333,7 @@ enum Asset_ReturnType
 
 
 
-##### Asset_OperationType
+#### Asset_OperationType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

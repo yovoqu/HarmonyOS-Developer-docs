@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/jscrash-guidelines
 
-##### 简介
+#### 简介
 
 在ArkTS应用中，Crash（崩溃）检测是一项重要的监控能力，它可以帮助开发者及时发现和修复应用中的问题。
 
 
 
-##### 检测原理
+#### 检测原理
 
 方舟运行时捕获进程异常。生成故障日志的流程如下：
 1. 当代码执行时，未捕获的异常或错误导致应用崩溃，方舟运行时将捕获这些异常。
@@ -20,13 +20,13 @@
 
 
 
-##### 约束与限制
+#### 约束与限制
 
 在async修饰的异步函数中主动抛出异常，不会产生JS Crash导致应用崩溃，开发者可以通过[ErrorManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-errormanager#errormanageronerror)观测该异常，样例代码参考[Async函数内部异常的处理机制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-runtime-faq#async函数内部异常的处理机制)。
 
 
 
-##### 日志获取
+#### 日志获取
 
 进程崩溃日志是一种故障日志，由FaultLogger模块进行管理，可通过以下方式获取：
 
@@ -50,7 +50,7 @@ hdc file recv /data/log/faultlog/faultlogger 本地路径
 
 
 
-##### 日志规格
+#### 日志规格
 
 | 字段 | 描述 | 起始API版本 | 是否必选项 | 非必选说明 |
 | --- | --- | --- | --- | --- |
@@ -138,7 +138,7 @@ HiLog:
 
 
 
-##### 异步线程栈跟踪故障场景日志规格
+#### 异步线程栈跟踪故障场景日志规格
 
 当异步线程发生崩溃后，把提交该异步任务的线程栈也打印出来，帮助定位由于异步任务提交者造成的崩溃问题。崩溃线程的调用栈和其提交线程的调用栈通过SubmitterStacktrace字符串分隔。以下是一份DevEco Studio归档在FaultLog的进程崩溃日志的核心内容。
 
@@ -188,7 +188,7 @@ Stacktrace:
 
 
 
-##### Page switch history
+#### Page switch history
 
 从API 20起，使用Page switch history段记录页面切换的历史，故障日志最多记录最新的10条历史轨迹。单条记录的格式如下：
 
@@ -214,7 +214,7 @@ leaves foreground：应用在后台运行。
 
 
 
-##### Reason
+#### Reason
 
 JS Crash异常根据不同的异常场景，在Reason字段进行了分类，分为Error、TypeError、SyntaxError、RangeError等错误类型。
 
@@ -240,7 +240,7 @@ JS Crash通常是应用问题，开发者可通过崩溃文件中的Error messag
 
 
 
-##### 异常代码调用栈格式
+#### 异常代码调用栈格式
 
 异常代码调用栈内容在Release和Debug两种应用构建模式下存在差异：Debug构建模式会保留完整调试信息，Release构建模式会通过代码优化和混淆技术剥离调试信息。
 
@@ -291,7 +291,7 @@ at onPageShow har1 (har1/src/main/ets/pages/Index.ets:7:13)
 
 
 
-##### HybridStack格式
+#### HybridStack格式
 
 从API 22起，在ARM 64位系统下，HybridStack中支持打印CPP和JS之间跨语言的代码调用栈。
 
@@ -301,7 +301,7 @@ JS代码调用栈详细说明[JS异常代码调用栈格式规范](#异常代码
 
 
 
-##### Promise异步栈
+#### Promise异步栈
 
 Promise异步栈功能默认关闭。从API version 23起，在ARM 64位系统下，可通过如下方式开启该功能，开启后整机生效：
 
@@ -363,7 +363,7 @@ HiLog:
 
 
 
-##### JsCrash聚类
+#### JsCrash聚类
 
 Js Crash聚类信息以“Stacktrace:”字段开始，包含ARM 64系统的“HybridStack:”的调用栈。
 

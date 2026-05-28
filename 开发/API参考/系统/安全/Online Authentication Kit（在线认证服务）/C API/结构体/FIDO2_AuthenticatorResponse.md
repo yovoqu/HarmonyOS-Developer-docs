@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2___authenticator_response
 
-##### 概述
+#### 概述
 
 定义获取认证器断言响应的结构体。
  
@@ -14,11 +14,11 @@
  
   
 
-##### 汇总
+#### 汇总
 
   
 
-##### 成员变量
+#### 成员变量
  
 | 名称 | 描述 |
 | --- | --- |
@@ -30,11 +30,11 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
   
 
-##### authenticatorData
+#### authenticatorData
 
 ```text
 Uint8Buff FIDO2_AuthenticatorResponse::authenticatorData
@@ -46,7 +46,7 @@ Uint8Buff FIDO2_AuthenticatorResponse::authenticatorData
  
   
 
-##### clientDataJson
+#### clientDataJson
 
 ```json
 Uint8Buff FIDO2_AuthenticatorResponse::clientDataJson
@@ -58,7 +58,7 @@ Uint8Buff FIDO2_AuthenticatorResponse::clientDataJson
  
   
 
-##### signature
+#### signature
 
 ```text
 Uint8Buff FIDO2_AuthenticatorResponse::signature
@@ -70,7 +70,7 @@ Uint8Buff FIDO2_AuthenticatorResponse::signature
  
   
 
-##### userHandle
+#### userHandle
 
 ```text
 Uint8Buff FIDO2_AuthenticatorResponse::userHandle

@@ -9,7 +9,7 @@
 获取视频帧的全流程包含：创建AVImageGenerator对象、设置资源、获取视频帧、销毁资源。
 
 
-##### 开发步骤及注意事项
+#### 开发步骤及注意事项
 
 在 CMake 脚本中链接动态库。
 
@@ -225,7 +225,7 @@ OH_AVImageGenerator_Release(generator);
 
 
 
-##### 运行示例工程
+#### 运行示例工程
 
 参考以下示例，获取一个视频指定时间的视频帧。
 1. 新建工程，下载[完整示例工程](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/Media/AVImageGenerator/AVImageGeneratorNDK)，并将示例工程的资源复制到对应目录。

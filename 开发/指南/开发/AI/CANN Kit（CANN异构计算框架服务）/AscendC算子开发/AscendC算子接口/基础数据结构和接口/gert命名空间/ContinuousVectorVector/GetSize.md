@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-continuousvectorvector-getsize
 
-##### 函数功能
+#### 函数功能
 
 获取当前存放的实际元素数量。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 size_t GetSize() const
@@ -18,25 +18,25 @@ size_t GetSize() const
  
   
 
-##### 参数说明
+#### 参数说明
 
 无
  
   
 
-##### 返回值
+#### 返回值
 
 当前存放的实际元素数量。
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 // 创建ContinuousVectorVector对象cvv

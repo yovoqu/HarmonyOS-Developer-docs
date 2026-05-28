@@ -54,7 +54,7 @@ export default class EntryAbility extends UIAbility {
 ```
 
 
-##### constructor22+
+#### constructor22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -142,7 +142,7 @@ struct Index {
 
 
 
-##### getCallingScopeUIContext22+
+#### getCallingScopeUIContext22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -198,7 +198,7 @@ struct Index {
 
 
 
-##### getLastFocusedUIContext22+
+#### getLastFocusedUIContext22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -250,7 +250,7 @@ struct Index {
 
 
 
-##### getLastForegroundUIContext22+
+#### getLastForegroundUIContext22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -302,7 +302,7 @@ struct Index {
 
 
 
-##### getAllUIContexts22+
+#### getAllUIContexts22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -354,7 +354,7 @@ struct Index {
 
 
 
-##### resolveUIContext22+
+#### resolveUIContext22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -401,7 +401,7 @@ struct Index {
 
 
 
-##### isAvailable20+
+#### isAvailable20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -486,7 +486,7 @@ struct UIContextCompare {
 
 
 
-##### getFont
+#### getFont
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -511,7 +511,7 @@ getFont(): Font
 
 
 
-##### getComponentUtils
+#### getComponentUtils
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -536,7 +536,7 @@ getComponentUtils(): ComponentUtils
 
 
 
-##### getUIInspector
+#### getUIInspector
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -561,7 +561,7 @@ getUIInspector(): UIInspector
 
 
 
-##### getUIObserver11+
+#### getUIObserver11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -630,7 +630,7 @@ struct Index {
 
 
 
-##### getId22+
+#### getId22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -668,7 +668,7 @@ struct Index{
 
 
 
-##### getMediaQuery
+#### getMediaQuery
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -693,7 +693,7 @@ getMediaQuery(): MediaQuery
 
 
 
-##### getRouter
+#### getRouter
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -718,7 +718,7 @@ getRouter(): Router
 
 
 
-##### getPromptAction
+#### getPromptAction
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -743,7 +743,7 @@ getPromptAction(): PromptAction
 
 
 
-##### getOverlayManager12+
+#### getOverlayManager12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -768,7 +768,7 @@ getOverlayManager(): OverlayManager
 
 
 
-##### setOverlayManagerOptions15+
+#### setOverlayManagerOptions15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -800,7 +800,7 @@ setOverlayManagerOptions(options: OverlayManagerOptions): boolean
 
 
 
-##### getOverlayManagerOptions15+
+#### getOverlayManagerOptions15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -825,7 +825,7 @@ getOverlayManagerOptions(): OverlayManagerOptions
 
 
 
-##### animateToImmediately23+
+#### animateToImmediately23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -912,7 +912,7 @@ struct AnimateToImmediatelyExample {
 
 
 
-##### animateTo
+#### animateTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1018,7 +1018,7 @@ struct AnimateToExample {
 
 
 
-##### getSharedLocalStorage12+
+#### getSharedLocalStorage12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1084,7 +1084,7 @@ struct SharedLocalStorage {
 
 
 
-##### getHostContext12+
+#### getHostContext12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1134,7 +1134,7 @@ struct Index {
 
 
 
-##### getFrameNodeById12+
+#### getFrameNodeById12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1170,7 +1170,7 @@ getFrameNodeById(id: string): FrameNode | null
 
 
 
-##### getAttachedFrameNodeById12+
+#### getAttachedFrameNodeById12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1231,7 +1231,7 @@ struct MyComponent {
 
 
 
-##### getFrameNodeByUniqueId12+
+#### getFrameNodeByUniqueId12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1286,7 +1286,7 @@ struct MyComponent {
 
 
 
-##### getPageInfoByUniqueId12+
+#### getPageInfoByUniqueId12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1365,7 +1365,7 @@ struct MyComponent {
 
 
 
-##### getNavigationInfoByUniqueId12+
+#### getNavigationInfoByUniqueId12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1399,7 +1399,7 @@ getNavigationInfoByUniqueId(id: number): observer.NavigationInfo | undefined
 
 
 
-##### showAlertDialog
+#### showAlertDialog
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1465,7 +1465,7 @@ struct Index {
 
 
 
-##### showActionSheet
+#### showActionSheet
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1544,7 +1544,7 @@ struct Index {
 
 
 
-##### showDatePickerDialog
+#### showDatePickerDialog
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1628,7 +1628,7 @@ struct DatePickerDialogExample {
 
 
 
-##### showTimePickerDialog
+#### showTimePickerDialog
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1700,7 +1700,7 @@ struct TimePickerDialogExample {
 
 
 
-##### showTextPickerDialog
+#### showTextPickerDialog
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1786,7 +1786,7 @@ struct TextPickerDialogExample {
 
 
 
-##### showTextPickerDialog20+
+#### showTextPickerDialog20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1813,7 +1813,7 @@ showTextPickerDialog(style: TextPickerDialogOptions|TextPickerDialogOptionsExt):
 
 
 
-##### createAnimator
+#### createAnimator
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1885,7 +1885,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### createAnimator18+
+#### createAnimator18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1948,7 +1948,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### runScopedTask
+#### runScopedTask
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1993,7 +1993,7 @@ struct Index {
 
 
 
-##### setKeyboardAvoidMode11+
+#### setKeyboardAvoidMode11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2037,7 +2037,7 @@ export default class EntryAbility extends UIAbility{
 
 
 
-##### getKeyboardAvoidMode11+
+#### getKeyboardAvoidMode11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2082,7 +2082,7 @@ export default class EntryAbility extends UIAbility{
 
 
 
-##### getAtomicServiceBar11+
+#### getAtomicServiceBar11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2127,7 +2127,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getDragController11+
+#### getDragController11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2152,7 +2152,7 @@ getDragController(): DragController
 
 
 
-##### keyframeAnimateTo11+
+#### keyframeAnimateTo11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2234,7 +2234,7 @@ struct KeyframeDemo {
 
 
 
-##### getFocusController12+
+#### getFocusController12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2259,7 +2259,7 @@ getFocusController(): FocusController
 
 
 
-##### getFilteredInspectorTree12+
+#### getFilteredInspectorTree12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2362,7 +2362,7 @@ InsTree ----| type: Button, ID: 18
 
 
 
-##### getFilteredInspectorTreeById12+
+#### getFilteredInspectorTreeById12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2448,7 +2448,7 @@ result3: {"$type":"Text","$ID":6,"type":"build-in","$rect":"[457.00, 123.00],[80
 
 
 
-##### getCursorController12+
+#### getCursorController12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2473,7 +2473,7 @@ getCursorController(): CursorController
 
 
 
-##### getContextMenuController12+
+#### getContextMenuController12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2494,7 +2494,7 @@ getContextMenuController(): ContextMenuController
 
 
 
-##### getMeasureUtils12+
+#### getMeasureUtils12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2519,7 +2519,7 @@ getMeasureUtils(): MeasureUtils
 
 
 
-##### getComponentSnapshot12+
+#### getComponentSnapshot12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2546,7 +2546,7 @@ getComponentSnapshot(): ComponentSnapshot
 
 
 
-##### vp2px12+
+#### vp2px12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2608,7 +2608,7 @@ struct MatrixExample {
 
 
 
-##### px2vp12+
+#### px2vp12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2670,7 +2670,7 @@ struct MatrixExample {
 
 
 
-##### fp2px12+
+#### fp2px12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2734,7 +2734,7 @@ struct MatrixExample {
 
 
 
-##### px2fp12+
+#### px2fp12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2798,7 +2798,7 @@ struct MatrixExample {
 
 
 
-##### lpx2px12+
+#### lpx2px12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2858,7 +2858,7 @@ struct MatrixExample {
 
 
 
-##### px2lpx12+
+#### px2lpx12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2918,7 +2918,7 @@ struct MatrixExample {
 
 
 
-##### getWindowName12+
+#### getWindowName12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2971,7 +2971,7 @@ struct Index {
 
 
 
-##### getWindowId23+
+#### getWindowId23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3025,7 +3025,7 @@ struct Index {
 
 
 
-##### getWindowWidthBreakpoint13+
+#### getWindowWidthBreakpoint13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3079,7 +3079,7 @@ struct Index {
 
 
 
-##### getWindowHeightBreakpoint13+
+#### getWindowHeightBreakpoint13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3134,7 +3134,7 @@ struct Index {
 
 
 
-##### postFrameCallback12+
+#### postFrameCallback12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3187,7 +3187,7 @@ struct Index {
 
 
 
-##### postDelayedFrameCallback12+
+#### postDelayedFrameCallback12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3241,7 +3241,7 @@ struct Index {
 
 
 
-##### requireDynamicSyncScene12+
+#### requireDynamicSyncScene12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3319,7 +3319,7 @@ struct Frame {
 
 
 
-##### openBindSheet12+
+#### openBindSheet12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3456,7 +3456,7 @@ struct UIContextBindSheet {
 
 
 
-##### updateBindSheet12+
+#### updateBindSheet12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3590,7 +3590,7 @@ struct UIContextBindSheet {
 
 
 
-##### closeBindSheet12+
+#### closeBindSheet12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3722,7 +3722,7 @@ struct UIContextBindSheet {
 
 
 
-##### isFollowingSystemFontScale13+
+#### isFollowingSystemFontScale13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3761,7 +3761,7 @@ struct Index {
 
 
 
-##### getMaxFontScale13+
+#### getMaxFontScale13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3800,7 +3800,7 @@ struct Index {
 
 
 
-##### bindTabsToScrollable13+
+#### bindTabsToScrollable13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3922,12 +3922,12 @@ struct TabsExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/uDmqcXq5Ss-sOHbcJn4lag/zh-cn_image_0000002611835373.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024118Z&HW-CC-Expire=86400&HW-CC-Sign=C923A7A6DBDA66383FAAAFF763FA80848F3D77732B4C2722EC6F5D5807DFBA91)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/uDmqcXq5Ss-sOHbcJn4lag/zh-cn_image_0000002611835373.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025452Z&HW-CC-Expire=86400&HW-CC-Sign=4711110D9ECA5B01D41C5D9B6CBD00FAEDD7660D2497202C531967E48E718BBF)
 
 
 
 
-##### unbindTabsFromScrollable13+
+#### unbindTabsFromScrollable13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3953,7 +3953,7 @@ unbindTabsFromScrollable(tabsController: TabsController, scroller: Scroller): vo
 
 
 
-##### bindTabsToNestedScrollable13+
+#### bindTabsToNestedScrollable13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3980,7 +3980,7 @@ bindTabsToNestedScrollable(tabsController: TabsController, parentScroller: Scrol
 
 
 
-##### unbindTabsFromNestedScrollable13+
+#### unbindTabsFromNestedScrollable13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4007,7 +4007,7 @@ unbindTabsFromNestedScrollable(tabsController: TabsController, parentScroller: S
 
 
 
-##### enableSwipeBack18+
+#### enableSwipeBack18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4049,7 +4049,7 @@ struct Index {
 
 
 
-##### getTextMenuController16+
+#### getTextMenuController16+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4074,7 +4074,7 @@ getTextMenuController(): TextMenuController
 
 
 
-##### createUIContextWithoutWindow17+
+#### createUIContextWithoutWindow17+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4134,7 +4134,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### destroyUIContextWithoutWindow17+
+#### destroyUIContextWithoutWindow17+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4167,7 +4167,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### dispatchKeyEvent15+
+#### dispatchKeyEvent15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4238,7 +4238,7 @@ struct Index {
 
 
 
-##### setPixelRoundMode18+
+#### setPixelRoundMode18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4276,7 +4276,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getPixelRoundMode18+
+#### getPixelRoundMode18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4314,7 +4314,7 @@ export default class EntryAbility extends UIAbility{
 
 
 
-##### setResourceManagerCacheMaxCountForHSP21+
+#### setResourceManagerCacheMaxCountForHSP21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4375,7 +4375,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setImageCacheCount23+
+#### setImageCacheCount23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4426,7 +4426,7 @@ struct Index {
 
 
 
-##### setImageRawDataCacheSize23+
+#### setImageRawDataCacheSize23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4475,7 +4475,7 @@ struct Index {
 
 
 
-##### getMagnifier22+
+#### getMagnifier22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4500,7 +4500,7 @@ getMagnifier(): Magnifier
 
 
 
-##### setCustomKeyboardContinueFeature23+
+#### setCustomKeyboardContinueFeature23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4633,12 +4633,12 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/oW5CtL7JQtutDx015rgGOw/zh-cn_image_0000002581275624.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024118Z&HW-CC-Expire=86400&HW-CC-Sign=D61A256BE1068B1AF436CC30A91174784F0819AA58CAF03F419FC4631E5E22F0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/oW5CtL7JQtutDx015rgGOw/zh-cn_image_0000002581275624.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025452Z&HW-CC-Expire=86400&HW-CC-Sign=2F6D6632D69DBB77AABC6B96E6593F7245267D78197E5551B1E362AC1F1878A2)
 
 
 
 
-##### getPageRootNode24+
+#### getPageRootNode24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4794,12 +4794,12 @@ export struct pageThreeTmp {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/sOyNe1tIS1yeizGKrsLlew/zh-cn_image_0000002611755481.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T024118Z&HW-CC-Expire=86400&HW-CC-Sign=CCB57E4C83B025FEF702687FB407E01D08DF3C727078FE4007891630BABA29E5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/sOyNe1tIS1yeizGKrsLlew/zh-cn_image_0000002611755481.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T025452Z&HW-CC-Expire=86400&HW-CC-Sign=386C2C98D13CE1B34DD4BA5C63BD6A9F6A506C2A01DC5EF17E313D4F06C76B80)
 
 
 
 
-##### isEasySplit24+
+#### isEasySplit24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

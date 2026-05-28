@@ -7,7 +7,7 @@
 导出用户必要的DB数据。
  
 
-##### 命令格式
+#### 命令格式
 
 ```text
 ohpm-repo export_userinfo
@@ -15,7 +15,7 @@ ohpm-repo export_userinfo
  
  
 
-##### 功能描述
+#### 功能描述
 
 在当前的工作目录导出记录了DB数据的export_userInfo_xxx.zip文件，其中包含加密组件和下面的10张数据表。
  
@@ -33,7 +33,7 @@ ohpm-repo export_userinfo
  
  
 
-##### 示例
+#### 示例
 
 执行以下命令：
  
@@ -79,7 +79,7 @@ export_userInfo_1754738056722.zip文件结构
 |   user.json
 |   validation_config.json
 \---meta
-|   version.txt
+    |   version.txt
     +---ac
     +---ce
     \---fd

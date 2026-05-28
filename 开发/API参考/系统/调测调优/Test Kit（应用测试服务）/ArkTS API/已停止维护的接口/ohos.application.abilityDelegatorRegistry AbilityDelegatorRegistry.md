@@ -12,7 +12,7 @@ AbilityDelegatorRegistry模块提供用于存储已注册的[AbilityDelegator](h
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import AbilityDelegatorRegistry from '@ohos.application.abilityDelegatorRegistry
  
   
 
-##### AbilityLifecycleState
+#### AbilityLifecycleState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@ Ability生命周期状态。
  
   
 
-##### abilityDelegatorRegistry.getAbilityDelegator
+#### abilityDelegatorRegistry.getAbilityDelegator
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -68,7 +68,7 @@ let abilityDelegator = AbilityDelegatorRegistry.getAbilityDelegator();
  
   
 
-##### abilityDelegatorRegistry.getArguments
+#### abilityDelegatorRegistry.getArguments
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

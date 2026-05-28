@@ -9,7 +9,7 @@ Cloud Foundation Kit（云开发服务）可以按需为应用提供云函数、
 DevEco Studio中还提供了[端云一体化开发](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/agc-harmonyos-clouddev-overview)的开发体验，开发者可以基于统一的技术栈，高效、协同地完成端、云代码的编写、调试、编译和部署，极大提高构建HarmonyOS应用和元服务的效率。
   
 
-##### 优势
+#### 优势
 
 - 低运维成本
 
@@ -27,11 +27,11 @@ DevEco Studio中还提供了[端云一体化开发](https://developer.huawei.com
  
   
 
-##### 典型场景
+#### 典型场景
 
   
 
-##### 应用/元服务后端构建
+#### 应用/元服务后端构建
 
 便捷操作云函数、云数据库、云存储、预加载服务，简化应用/元服务开发与运维相关的事务，快速构建应用/元服务的后端服务。
  
@@ -41,7 +41,7 @@ DevEco Studio中还提供了[端云一体化开发](https://developer.huawei.com
  
   
 
-##### 计算密集型任务
+#### 计算密集型任务
 
 当应用中出现计算密集型任务时，可在任务启动时自动分配足够的算力来支撑任务的执行，并在任务结束时自动释放资源，避免浪费。
  
@@ -60,7 +60,7 @@ DevEco Studio中还提供了[端云一体化开发](https://developer.huawei.com
  
   
 
-##### 协议适配和转换场景
+#### 协议适配和转换场景
 
 可用于协议适配和转换，以及第三方平台场景的对接，轻量灵活、快速部署，让开发者的业务快人一步。
  
@@ -72,7 +72,7 @@ DevEco Studio中还提供了[端云一体化开发](https://developer.huawei.com
  
   
 
-##### 浪涌式访问场景
+#### 浪涌式访问场景
 
 传统架构服务在某些特殊场景下，可能出现大量的访问。为保证业务高峰时，系统能稳定运行，一般需要购买高性能、昂贵的服务器，组建集群负载均衡。但是，当业务回落时，就导致了大量服务器的资源浪费。
  
@@ -84,11 +84,11 @@ Cloud Foundation Kit能根据业务访问量快速自动扩容，规避业务高
  
   
 
-##### 约束与限制
+#### 约束与限制
 
   
 
-##### 支持的设备
+#### 支持的设备
  
 | 能力 | 设备 |
 | --- | --- |
@@ -100,19 +100,19 @@ Cloud Foundation Kit能根据业务访问量快速自动扩容，规避业务高
  
   
 
-##### 支持的国家/地区
+#### 支持的国家/地区
 
 请参见[支持的国家/地区](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cloudfoundation-supported-regions)。
  
   
 
-##### 支持的签名方式
+#### 支持的签名方式
 
 支持[关联注册应用进行自动签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing#section20943184413328)（DevEco Studio 6.0.0 Beta5及以上版本）和[手动签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing#section297715173233)两种方式。
  
   
 
-##### 模拟器支持情况
+#### 模拟器支持情况
 
 从6.0.0(20) Beta5版本开始，本Kit支持模拟器，但与真机存在部分能力差异，具体差异如下：
  
@@ -122,7 +122,7 @@ Cloud Foundation Kit能根据业务访问量快速自动扩容，规避业务高
  
   
 
-##### 计费说明
+#### 计费说明
 
 Cloud Foundation Kit包含云函数、云数据库、云存储、预加载服务，预加载服务支持通过云函数来实现资源加载，云函数、云数据库、云存储服务提供了免费额度以供试用，具体的配额明细请参考各服务的配额说明：
  

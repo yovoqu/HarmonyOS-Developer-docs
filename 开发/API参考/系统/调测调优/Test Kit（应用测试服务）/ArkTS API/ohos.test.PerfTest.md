@@ -12,7 +12,7 @@ PerfTest提供白盒性能测试能力，供开发者在测试场景使用，支
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -22,7 +22,7 @@ import { PerfMetric, PerfTest, PerfTestStrategy, PerfMeasureResult } from '@kit.
  
   
 
-##### PerfMetric
+#### PerfMetric
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -51,7 +51,7 @@ import { PerfMetric, PerfTest, PerfTestStrategy, PerfMeasureResult } from '@kit.
  
   
 
-##### PerfTestStrategy
+#### PerfTestStrategy
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -77,7 +77,7 @@ import { PerfMetric, PerfTest, PerfTestStrategy, PerfMeasureResult } from '@kit.
  
   
 
-##### PerfMeasureResult
+#### PerfMeasureResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -98,7 +98,7 @@ import { PerfMetric, PerfTest, PerfTestStrategy, PerfMeasureResult } from '@kit.
  
   
 
-##### PerfTest
+#### PerfTest
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -106,7 +106,7 @@ PerfTest类为白盒性能测试框架的总入口，提供测试任务创建、
  
   
 
-##### create
+#### create
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -175,7 +175,7 @@ async function demo() {
  
   
 
-##### run
+#### run
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -231,7 +231,7 @@ async function demo() {
  
   
 
-##### getMeasureResult
+#### getMeasureResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -295,7 +295,7 @@ async function demo() {
  
   
 
-##### destroy
+#### destroy
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

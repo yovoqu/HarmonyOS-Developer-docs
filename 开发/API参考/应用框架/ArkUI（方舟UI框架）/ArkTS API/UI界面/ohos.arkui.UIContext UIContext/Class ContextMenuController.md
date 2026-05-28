@@ -12,7 +12,7 @@
 
   
 
-##### close12+
+#### close12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -74,4 +74,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/RYbGvMM9ToCKjDHJMCGtMQ/zh-cn_image_0000002581275614.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024119Z&HW-CC-Expire=86400&HW-CC-Sign=BB1DDBB31186B26F96144F62993B104D9CFA2FD254D631DB0EC15C7947981BFB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/RYbGvMM9ToCKjDHJMCGtMQ/zh-cn_image_0000002581275614.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025453Z&HW-CC-Expire=86400&HW-CC-Sign=4E7F5616C83A94C7913F433F19643EF7CA7ABD80B05D24D27C6374FCD0FF82B9)

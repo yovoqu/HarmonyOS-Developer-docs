@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-automappingsubgraphioindexfuncregister
 
-##### 函数功能
+#### 函数功能
 
 FrameworkRegistry类的封装，通过类的构造函数调用FrameworkRegistry类的AddAutoMappingSubgraphIOIndexFunc函数完成映射函数的注册。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 AutoMappingSubgraphIOIndexFuncRegister(domi::FrameworkType framework, AutoMappingSubgraphIOIndexFunc fun)
@@ -18,7 +18,7 @@ AutoMappingSubgraphIOIndexFuncRegister(domi::FrameworkType framework, AutoMappin
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -28,18 +28,18 @@ AutoMappingSubgraphIOIndexFuncRegister(domi::FrameworkType framework, AutoMappin
  
   
 
-##### 返回值
+#### 返回值
 
 无
  
   
 
-##### 异常处理
+#### 异常处理
 
 无
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

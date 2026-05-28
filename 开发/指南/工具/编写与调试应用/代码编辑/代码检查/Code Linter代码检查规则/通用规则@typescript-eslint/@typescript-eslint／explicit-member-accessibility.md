@@ -7,7 +7,7 @@
 在类属性和方法上需要显式定义访问修饰符。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/explicit-member-accessibility选项](https://typescript-eslint.nodejs.cn/rules/explicit-member-accessibility)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 export class Animal {
@@ -55,7 +55,7 @@ export class Animal {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 export class Animal {
@@ -84,7 +84,7 @@ export class Animal {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

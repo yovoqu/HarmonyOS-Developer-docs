@@ -12,7 +12,7 @@
 
 
 
-##### 使用说明
+#### 使用说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 1. 应用创建AbilityLifecycleCallback对象，并调用[ApplicationContext.on('abilityLifecycle')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext#applicationcontextonabilitylifecycle)接口注册UIAbility生命周期变化监听。
@@ -21,7 +21,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -31,13 +31,13 @@ import { AbilityLifecycleCallback } from '@kit.AbilityKit';
 
 
 
-##### AbilityLifecycleCallback
+#### AbilityLifecycleCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### onAbilityCreate
+#### onAbilityCreate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -62,7 +62,7 @@ onAbilityCreate(ability: UIAbility): void
 
 
 
-##### onWindowStageCreate
+#### onWindowStageCreate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -88,7 +88,7 @@ onWindowStageCreate(ability: UIAbility, windowStage: window.WindowStage): void
 
 
 
-##### onWindowStageActive
+#### onWindowStageActive
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -114,7 +114,7 @@ onWindowStageActive(ability: UIAbility, windowStage: window.WindowStage): void
 
 
 
-##### onWindowStageInactive
+#### onWindowStageInactive
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -140,7 +140,7 @@ onWindowStageInactive(ability: UIAbility, windowStage: window.WindowStage): void
 
 
 
-##### onWindowStageDestroy
+#### onWindowStageDestroy
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -166,7 +166,7 @@ onWindowStageDestroy(ability: UIAbility, windowStage: window.WindowStage): void
 
 
 
-##### onAbilityDestroy
+#### onAbilityDestroy
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -191,7 +191,7 @@ onAbilityDestroy(ability: UIAbility): void
 
 
 
-##### onAbilityForeground
+#### onAbilityForeground
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -216,7 +216,7 @@ onAbilityForeground(ability: UIAbility): void
 
 
 
-##### onAbilityBackground
+#### onAbilityBackground
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -241,7 +241,7 @@ onAbilityBackground(ability: UIAbility): void
 
 
 
-##### onAbilityContinue
+#### onAbilityContinue
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -266,7 +266,7 @@ onAbilityContinue(ability: UIAbility): void
 
 
 
-##### onAbilityWillCreate12+
+#### onAbilityWillCreate12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -291,7 +291,7 @@ onAbilityWillCreate?(ability: UIAbility): void
 
 
 
-##### onWindowStageWillCreate12+
+#### onWindowStageWillCreate12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -317,7 +317,7 @@ onWindowStageWillCreate?(ability: UIAbility, windowStage: window.WindowStage): v
 
 
 
-##### onWindowStageWillDestroy12+
+#### onWindowStageWillDestroy12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -343,7 +343,7 @@ onWindowStageWillDestroy?(ability: UIAbility, windowStage: window.WindowStage): 
 
 
 
-##### onAbilityWillForeground12+
+#### onAbilityWillForeground12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -368,7 +368,7 @@ onAbilityWillForeground?(ability: UIAbility): void
 
 
 
-##### onAbilityWillDestroy12+
+#### onAbilityWillDestroy12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -393,7 +393,7 @@ onAbilityWillDestroy?(ability: UIAbility): void
 
 
 
-##### onAbilityWillBackground12+
+#### onAbilityWillBackground12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -418,7 +418,7 @@ onAbilityWillBackground?(ability: UIAbility): void
 
 
 
-##### onWillNewWant12+
+#### onWillNewWant12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -443,7 +443,7 @@ onWillNewWant?(ability: UIAbility): void
 
 
 
-##### onNewWant12+
+#### onNewWant12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -468,7 +468,7 @@ onNewWant?(ability: UIAbility): void
 
 
 
-##### onAbilityWillContinue12+
+#### onAbilityWillContinue12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -493,7 +493,7 @@ onAbilityWillContinue?(ability: UIAbility): void
 
 
 
-##### onWindowStageWillRestore12+
+#### onWindowStageWillRestore12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -519,7 +519,7 @@ onWindowStageWillRestore?(ability: UIAbility, windowStage: window.WindowStage): 
 
 
 
-##### onWindowStageRestore12+
+#### onWindowStageRestore12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -545,7 +545,7 @@ onWindowStageRestore?(ability: UIAbility, windowStage: window.WindowStage): void
 
 
 
-##### onAbilityWillSaveState12+
+#### onAbilityWillSaveState12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -570,7 +570,7 @@ onAbilityWillSaveState?(ability: UIAbility): void
 
 
 
-##### onAbilitySaveState12+
+#### onAbilitySaveState12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -595,7 +595,7 @@ onAbilitySaveState?(ability: UIAbility): void
 
 
 
-##### AbilityLifecycleCallback使用示例
+#### AbilityLifecycleCallback使用示例
 
 本示例展示了生命周期监听机制的部分使用场景：
 1. 在[AbilityStage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/abilitystage)创建时注册监听。

@@ -14,7 +14,7 @@ ManualIso继承自[ManualIsoQuery](https://developer.huawei.com/consumer/cn/doc/
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { camera } from '@kit.CameraKit';
  
   
 
-##### getIso24+
+#### getIso24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -73,7 +73,7 @@ function getIso(photoSession: camera.PhotoSession): number {
  
   
 
-##### setIso24+
+#### setIso24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

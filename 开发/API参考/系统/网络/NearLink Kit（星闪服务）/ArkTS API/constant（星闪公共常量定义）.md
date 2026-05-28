@@ -10,7 +10,7 @@
 **起始版本：** 5.0.1(13)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@ import { constant } from '@kit.NearLinkKit';
  
   
 
-##### PairingState
+#### PairingState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -39,7 +39,7 @@ import { constant } from '@kit.NearLinkKit';
  
   
 
-##### ConnectionState
+#### ConnectionState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -59,7 +59,7 @@ import { constant } from '@kit.NearLinkKit';
  
   
 
-##### DeviceClass
+#### DeviceClass
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -128,7 +128,7 @@ import { constant } from '@kit.NearLinkKit';
  
   
 
-##### AcbState
+#### AcbState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/changelogs-ux-b123sp16
 
-##### borderImage的outset属性按照实际的延伸距离来绘制边框向外扩展的效果
+#### borderImage的outset属性按照实际的延伸距离来绘制边框向外扩展的效果
 
 **变更原因**
  
@@ -34,7 +34,7 @@ borderImage中的边框外延距离（outset属性）在无需绘制的区域不
  
  
 
-##### Canvas使用toDataURL接口生成图片，对于带有透明度的图片，创建为“image/png”或“image/webp”格式时，其效果可能会发生变更
+#### Canvas使用toDataURL接口生成图片，对于带有透明度的图片，创建为“image/png”或“image/webp”格式时，其效果可能会发生变更
 
 **变更原因**
  
@@ -69,7 +69,7 @@ Canvas组件的toDataURL接口。
  
  
 
-##### bindSheet半模态面板视觉样式增加
+#### bindSheet半模态面板视觉样式增加
 
 **变更原因**
  
@@ -88,13 +88,13 @@ API version 14及以后，设备宽度在600-840vp间时，默认显示居中弹
 变更前：设备宽度在600-840vp间时，SheetOptions中的preferType设置为SheetType.POPUP，实际显示居中弹窗样式。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/3PaqJ3ftSkGsLFfnppWu-w/zh-cn_image_0000002334372189.png?HW-CC-KV=V1&HW-CC-Date=20260528T014243Z&HW-CC-Expire=86400&HW-CC-Sign=E15E4BB3949635AF42B0F9C055723231130607C8B6C5E4DF1A36DE521F86A32F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/3PaqJ3ftSkGsLFfnppWu-w/zh-cn_image_0000002334372189.png?HW-CC-KV=V1&HW-CC-Date=20260528T025911Z&HW-CC-Expire=86400&HW-CC-Sign=672FB5453D033352195CEEDBA043668B030FEB97C68806305473491080F8F932)
 
  
 变更后：设备宽度在600-840vp间时，SheetOptions中的preferType设置为SheetType.POPUP，实际显示跟手弹窗样式。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/Je6hbNwKQWmaYLDfWyeyOw/zh-cn_image_0000002334332009.png?HW-CC-KV=V1&HW-CC-Date=20260528T014243Z&HW-CC-Expire=86400&HW-CC-Sign=E82F879EF20E40E2E90424504AEBE54F3A0A0E00BAAEA2AEA52427C4092BCEDA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/Je6hbNwKQWmaYLDfWyeyOw/zh-cn_image_0000002334332009.png?HW-CC-KV=V1&HW-CC-Date=20260528T025911Z&HW-CC-Expire=86400&HW-CC-Sign=7265F7E3461DBF354512FCB8FE2086DDE5C98ADCE022A2351C50C7D863E57D68)
 
  
 **起始API Level**
@@ -111,7 +111,7 @@ bindSheet半模态面板。
  
  
 
-##### bindSheet半模态面板标题与关闭按钮布局变更
+#### bindSheet半模态面板标题与关闭按钮布局变更
 
 **变更原因**
  

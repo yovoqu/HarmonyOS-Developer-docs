@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-vacantinque
 
-##### 功能说明
+#### 功能说明
 
 查询队列是否已满。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 __aicore__ inline bool VacantInQue()
@@ -18,13 +18,13 @@ __aicore__ inline bool VacantInQue()
  
   
 
-##### 参数说明
+#### 参数说明
 
 无
  
   
 
-##### 支持的型号
+#### 支持的型号
 
 Kirin9020系列处理器
  
@@ -32,13 +32,13 @@ KirinX90系列处理器
  
   
 
-##### 注意事项
+#### 注意事项
 
 无
  
   
 
-##### 返回值
+#### 返回值
 
 - true：表示Queue未满，可以继续EnQue操作。
 - false：表示Queue已满，不可以继续入队。
@@ -46,7 +46,7 @@ KirinX90系列处理器
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 // 根据VacantInQue判断当前Queue是否已满，设置当前队列深度为4

@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-mutableoutputtdinfo
 
-##### 函数功能
+#### 函数功能
 
 获取算子的输出Tensor描述，注意，编译时无法确定的shape信息不在Tensor描述中（由于编译时无法确定shape，因此该Tensor描述里不包含shape信息）。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 CompileTimeTensorDesc *MutableOutputTdInfo(const size_t index)
@@ -18,7 +18,7 @@ CompileTimeTensorDesc *MutableOutputTdInfo(const size_t index)
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -27,19 +27,19 @@ CompileTimeTensorDesc *MutableOutputTdInfo(const size_t index)
  
   
 
-##### 返回值
+#### 返回值
 
 Tensor描述，返回对象为非const。
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 for (size_t i = 0; i < node->GetAllOutDataAnchorsSize(); ++i) {

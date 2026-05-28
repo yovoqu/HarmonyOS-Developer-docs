@@ -15,7 +15,7 @@ OHAudio音频录制状态变化示意图：
 当音频流处于工作状态（非released状态）时，需要占用系统的音频流资源。由于系统对音频流数量有限制，所以当客户端暂时不使用音频流时，调用OH_AudioCapturer_Release()回收音频资源，做好资源利用，避免后续创建音频流失败。
 
 
-##### 使用入门
+#### 使用入门
 
 开发者要使用OHAudio提供的录制能力，需要添加对应的头文件。
 
@@ -23,7 +23,7 @@ OHAudio音频录制状态变化示意图：
 
 
 
-##### 在 CMake 脚本中链接动态库
+#### 在 CMake 脚本中链接动态库
 
 ```text
 target_link_libraries(sample PUBLIC libohaudio.so)
@@ -31,7 +31,7 @@ target_link_libraries(sample PUBLIC libohaudio.so)
 
 
 
-##### 添加头文件
+#### 添加头文件
 
 开发者通过引入<[native_audiostreambuilder.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostreambuilder-h)>和<[native_audiocapturer.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiocapturer-h)>头文件，使用音频录制相关API。
 
@@ -42,13 +42,13 @@ target_link_libraries(sample PUBLIC libohaudio.so)
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 详细的API说明请参考[OHAudio](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio)。
 
 
 
-##### 音频流构造器
+#### 音频流构造器
 
 OHAudio提供OH_AudioStreamBuilder接口，遵循构造器设计模式，用于构建音频流。开发者需要根据业务场景，指定对应的[OH_AudioStream_Type](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostream-base-h#oh_audiostream_type)。
 
@@ -75,7 +75,7 @@ OH_AudioStreamBuilder_Destroy(builder);
 
 
 
-##### 实现音频录制
+#### 实现音频录制
 1. 创建构造器。
 
   
@@ -192,7 +192,7 @@ OH_AudioStreamBuilder_Destroy(builder);
 
 
 
-##### 设置低时延模式
+#### 设置低时延模式
 
 当设备支持低时延通路时，开发者可以使用低时延模式创建音频录制构造器，获得更低时延的音频体验。
 
@@ -215,13 +215,13 @@ OH_AudioStreamBuilder_SetLatencyMode(builder, latencyMode);
 
 
 
-##### 设置静音打断模式
+#### 设置静音打断模式
 
 静音打断模式提供将打断策略从停止录音切换为静音录制的功能，可以实现录音全程不被系统基于焦点并发规则打断的效果，并且录音过程中也不影响其他应用启动录音。开发者在创建音频录制构造器时，调用[OH_AudioStreamBuilder_SetCapturerWillMuteWhenInterrupted](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostreambuilder-h#oh_audiostreambuilder_setcapturerwillmutewheninterrupted)接口设置是否开启静音打断模式。默认不开启，此时由音频焦点策略管理并发音频流的执行顺序。开启后，被其他应用打断导致停止或暂停录制时会进入静音录制状态，在此状态下录制的音频没有声音。
 
 
 
-##### 回声消除功能
+#### 回声消除功能
 
 回声消除功能可在支持的设备上有效消除录音过程中的回声干扰，提升音频采集质量。开发者可通过指定特定的音频输入源类型[OH_AudioStream_SourceType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostream-base-h#oh_audiostream_sourcetype)（AUDIOSTREAM_SOURCE_TYPE_VOICE_COMMUNICATION、AUDIOSTREAM_SOURCE_TYPE_LIVE）来启用该功能，系统将会自动对采集的音频信号进行回声消除处理。
 
@@ -229,7 +229,7 @@ OH_AudioStreamBuilder_SetLatencyMode(builder, latencyMode);
 
 
 
-##### 注意事项
+#### 注意事项
 
 从API version 12开始**不再推荐**使用[OH_AudioCapturer_Callbacks](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio-oh-audiocapturer-callbacks-struct)的方式设置音频回调函数。若必须使用，需要注意在设置音频回调函数时，通过下面两种方式中的任意一种来设置音频回调函数，避免不可预期的行为。
 
@@ -299,6 +299,6 @@ int32_t MyOnInterruptEvent_Legacy(
 
 
 
-##### 示例代码
+#### 示例代码
 
  - [音频低时延录制与播放](https://gitcode.com/HarmonyOS_Samples/audio-native)

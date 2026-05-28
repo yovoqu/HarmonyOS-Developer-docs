@@ -14,7 +14,7 @@ AgentExtensionAbility继承自[ExtensionAbility](https://developer.huawei.com/co
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,14 +24,14 @@ import { AgentExtensionAbility } from '@kit.AbilityKit';
 
 
 
-##### 生命周期
+#### 生命周期
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **图1** AgentExtensionAbility生命周期
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/yf5tXnADTRqhIJWQa6xQAg/zh-cn_image_0000002581275602.png?HW-CC-KV=V1&HW-CC-Date=20260528T024304Z&HW-CC-Expire=86400&HW-CC-Sign=8F4E7F1C98090080465B5071B7DF0D56CD7FCBC46D3BFA32ECFFCACEA843BC55)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/yf5tXnADTRqhIJWQa6xQAg/zh-cn_image_0000002581275602.png?HW-CC-KV=V1&HW-CC-Date=20260528T025639Z&HW-CC-Expire=86400&HW-CC-Sign=0FCBF8503A58BB6CB1635AB872EC8E1B6416ABF67F4963CB152DD72D178DAB11)
 
 
  - **onCreate**
@@ -50,13 +50,13 @@ import { AgentExtensionAbility } from '@kit.AbilityKit';
 
 
 
-##### AgentExtensionAbility
+#### AgentExtensionAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -71,7 +71,7 @@ import { AgentExtensionAbility } from '@kit.AbilityKit';
 
 
 
-##### onCreate
+#### onCreate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -108,7 +108,7 @@ export default class AgentExt extends AgentExtensionAbility {
 
 
 
-##### onConnect
+#### onConnect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -145,7 +145,7 @@ export default class AgentExt extends AgentExtensionAbility {
 
 
 
-##### onDisconnect
+#### onDisconnect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -182,7 +182,7 @@ export default class AgentExt extends AgentExtensionAbility {
 
 
 
-##### onData
+#### onData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -219,7 +219,7 @@ export default class AgentExt extends AgentExtensionAbility {
 
 
 
-##### onAuth
+#### onAuth
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -256,7 +256,7 @@ export default class AgentExt extends AgentExtensionAbility {
 
 
 
-##### onDestroy
+#### onDestroy
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

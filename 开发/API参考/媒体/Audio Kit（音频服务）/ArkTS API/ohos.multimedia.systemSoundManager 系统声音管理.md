@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { systemSoundManager } from '@kit.AudioKit';
  
   
 
-##### SystemSoundType
+#### SystemSoundType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@ import { systemSoundManager } from '@kit.AudioKit';
  
   
 
-##### systemSoundManager.createSystemSoundPlayer
+#### systemSoundManager.createSystemSoundPlayer
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -84,7 +84,7 @@ systemSoundManager.createSystemSoundPlayer().then((systemSoundPlayerInstance) =>
  
   
 
-##### SystemSoundPlayer
+#### SystemSoundPlayer
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

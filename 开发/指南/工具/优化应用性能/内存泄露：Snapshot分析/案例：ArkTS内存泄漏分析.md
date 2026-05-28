@@ -7,7 +7,7 @@
 本案例介绍如何判断应用存在ArkTS泄漏，以及如何通过快照对比找出ArkTS内存泄漏的原因。
  
 
-##### 初步识别内存问题
+#### 初步识别内存问题
 1. 使用[实时监控功能](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/realtime-monitor)对应用的内存资源进行监控。正常操作应用，观察运行过程中Memory泳道的变化。
 
   当在一段时间内应用内存没有明显增加或者在内存上涨后又逐渐回落至正常水平，则基本可以排除应用存在内存问题；反之，在一段时间内不断上涨且无回落或者内存占用明显增长超出预期，那么则可初步判断应用可能存在内存问题。
@@ -43,7 +43,7 @@
  
  
 
-##### 使用Snapshot模板分析ArkTS内存问题
+#### 使用Snapshot模板分析ArkTS内存问题
 
 分析内存泄漏问题步骤如下：
  1. 使用Snapshot模板录制数据；
@@ -54,7 +54,7 @@
  
  
 
-##### 录制模板数据
+#### 录制模板数据
 
 1. 连接设备后启动应用，点击应用选择框选择需要录制的应用，选择**Snapshot**模板，点击Create Session或双击Snapshot图标即可创建一个Snapshot的录制模板。
 2. 创建模板后，点击三角按钮即开始录制。
@@ -86,7 +86,7 @@
 
  
 
-##### 分析ArkTS Heap
+#### 分析ArkTS Heap
 
 1. 在每次拍摄堆快照之前，虚拟机都会触发GC，所以理论上堆快照内存在的对象都是当前虚拟机已经无法GC掉的对象。我们可以将两个堆快照进行比较，来查看哪些对象是在触发问题场景时新增了且不能释放的。切换到窗口下方详情区域的“Comparison”页签，将两次快照进行对比。图中数据的含义是以Snapshot2作为基准，Snapshot2对比Snapshot1的数据变化量。
 
@@ -101,11 +101,11 @@
 
  
 
-##### 分析Snapshot数据
+#### 分析Snapshot数据
 
  
 
-##### 常见对象介绍
+#### 常见对象介绍
 
 **JSArray**
  
@@ -244,7 +244,7 @@ DevEco Studio 6.1.0 Release版本新增，位于(handle)标签中，允许用户
  
  
 
-##### 常见属性介绍
+#### 常见属性介绍
  
 | 属性 | 含义 |
 | --- | --- |
@@ -264,20 +264,20 @@ DevEco Studio 6.1.0 Release版本新增，位于(handle)标签中，允许用户
  
  
 
-##### 分析方法
+#### 分析方法
 
 **查看对象名称**
  
 对于声明对象，可以通过constructor属性来确定对象名称。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/RYLGkhWUR8i-27jphKsb4A/zh-cn_image_0000002602186547.png?HW-CC-KV=V1&HW-CC-Date=20260528T015026Z&HW-CC-Expire=86400&HW-CC-Sign=4A4E3AC421BC6E75E58445597E15DBE76C3B174C8260F35EF898966B688C413C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/5yuRlBq3RwyxAjEJaChN4A/zh-cn_image_0000002602186547.png?HW-CC-KV=V1&HW-CC-Date=20260528T030657Z&HW-CC-Expire=86400&HW-CC-Sign=0395E3EB680B50888E247FDC70F80879BDD272866ACF339DE7E854642D95E432)
 
  
 对于实例化对象，一般没有constructor，则需要展开__proto__属性后查找constructor；
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/aeSO00L6QXWDRxJpEdARgg/zh-cn_image_0000002602186549.png?HW-CC-KV=V1&HW-CC-Date=20260528T015026Z&HW-CC-Expire=86400&HW-CC-Sign=5BD8C02D5AC6F836DA720D7014C2253F9128554CD5C0DE0B2DC50495FD889FD0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/hQYbGMMyQmOp5ryZoU8fSQ/zh-cn_image_0000002602186549.png?HW-CC-KV=V1&HW-CC-Date=20260528T030657Z&HW-CC-Expire=86400&HW-CC-Sign=07BF2E62FF8E52E93C44D16580648F5F8D5C1215AA47CD164EFB6AE9CC40B2BE)
 
  
 若对象里有一些标志性属性，可以通过在代码里搜索属性名称来找到具体是哪个对象。
@@ -285,7 +285,7 @@ DevEco Studio 6.1.0 Release版本新增，位于(handle)标签中，允许用户
 如果对象间有继承关系，则可以继续展开__proto__：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/j2aMgGUISF2tXOJPnDWomw/zh-cn_image_0000002571547014.png?HW-CC-KV=V1&HW-CC-Date=20260528T015026Z&HW-CC-Expire=86400&HW-CC-Sign=4F04C5C54B38CE1D2755D020813A03FF96745A6EA389007D50F0779291088FEB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/jPfCdVkmT3KELS-MVxdkVg/zh-cn_image_0000002571547014.png?HW-CC-KV=V1&HW-CC-Date=20260528T030657Z&HW-CC-Expire=86400&HW-CC-Sign=3B89F406ACF498E33A8F5503B6B5530E15D5191DA4B89A7E0A39EB77E17C4EB5)
 
  
 如上图则表明Man对象继承自People对象。

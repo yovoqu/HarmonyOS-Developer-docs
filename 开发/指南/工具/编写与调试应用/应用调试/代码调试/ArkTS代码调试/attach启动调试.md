@@ -9,13 +9,13 @@
 Attach Debugger和Debug的区别在于，Attach Debugger to Process可以先运行应用/元服务，然后再启动调试，或者直接启动设备上已安装的应用/元服务进行调试；而Debug是直接运行应用/元服务后立即启动调试。
  
 
-##### 前提条件
+#### 前提条件
 
 当前设备上被attach的应用代码和本地代码一致，且已提前进行构建生成必要的sourceMap文件。
  
  
 
-##### 使用约束
+#### 使用约束
 
 attach不支持的场景：
  
@@ -27,7 +27,7 @@ attach不支持的场景：
  
  
 
-##### 操作步骤
+#### 操作步骤
 1. 在工具栏中，选择调试的设备，并单击**Attach Debugger to Process**
 ![](assets/attach启动调试/file-20260514132952399-1.png)
 启动调试。
@@ -62,4 +62,4 @@ attach不支持的场景：
 5. 点击**OK**开始attach调试。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/ZxugOUeFSDSFq630kyB30w/zh-cn_image_0000002571546896.png?HW-CC-KV=V1&HW-CC-Date=20260528T014923Z&HW-CC-Expire=86400&HW-CC-Sign=7173FB330C9F90F0BE9A14AF10A3ED4D2A6B103D95FC2B08DE416E8B3B5CF737)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/ipoLHjlNRK-gR9e4yAtayQ/zh-cn_image_0000002571546896.png?HW-CC-KV=V1&HW-CC-Date=20260528T030551Z&HW-CC-Expire=86400&HW-CC-Sign=9ABC11F767A3D494175C9402335D8AEDE5DF2E7A1F4212D1CE12D5D40C8EC813)

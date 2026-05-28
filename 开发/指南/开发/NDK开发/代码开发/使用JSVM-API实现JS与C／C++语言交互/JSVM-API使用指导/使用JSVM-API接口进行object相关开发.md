@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-about-object
 
-##### 简介
+#### 简介
 
 使用JSVM-API接口进行object相关开发，处理JavaScript对象的基本操作，例如创建对象、获取原型、冻结和密封对象，检查对象的类型等。这些操作是在处理JavaScript对象时非常常见的，提供了一种与JavaScript对象交互的方式。
  
   
 
-##### 基本概念
+#### 基本概念
 
 在JSVM接口开发中，经常需要定义和操作对象。例如，创建一个接口，该接口接受一个对象作为输入参数，对该对象执行某些操作，并返回一个结果对象。在这个过程中，需要确保接口的定义清晰、规范，并且与对象的属性和方法相兼容。
  
@@ -20,7 +20,7 @@
  
   
 
-##### 接口说明
+#### 接口说明
  
 | 接口 | 功能说明 |
 | --- | --- |
@@ -40,13 +40,13 @@
  
   
 
-##### 使用示例
+#### 使用示例
 
 JSVM-API接口开发流程参考[使用JSVM-API实现JS与C/C++语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-process)，本文仅对接口对应C++及ArkTS相关代码进行展示。
  
   
 
-##### OH_JSVM_GetPrototype
+#### OH_JSVM_GetPrototype
 
 该函数用于获取给定JavaScript对象的原型。
  
@@ -97,7 +97,7 @@ JSVM GetPrototype success
  
   
 
-##### OH_JSVM_CreateObject
+#### OH_JSVM_CreateObject
 
 该函数创建一个默认的JavaScript Object对象。
  
@@ -152,7 +152,7 @@ JSVM CreateObject success
  
   
 
-##### OH_JSVM_ObjectFreeze
+#### OH_JSVM_ObjectFreeze
 
 冻结给定的对象，防止向其添加新属性，移除现有属性，防止更改现有属性的可枚举性、可配置性或可写性，并防止更改现有属性的值。
  
@@ -204,7 +204,7 @@ Test JSVM OH_JSVM_ObjectFreeze success
  
   
 
-##### OH_JSVM_ObjectSeal
+#### OH_JSVM_ObjectSeal
 
 密封给定的对象。这可以防止向该对象添加新属性，以及将所有现有属性标记为不可配置。
  
@@ -269,7 +269,7 @@ Test JSVM OH_JSVM_ObjectSeal success
  
   
 
-##### OH_JSVM_Typeof
+#### OH_JSVM_Typeof
 
 返回JavaScript对象的类型。
  
@@ -358,7 +358,7 @@ JSVM Input type is boolean
  
   
 
-##### OH_JSVM_Instanceof
+#### OH_JSVM_Instanceof
 
 判断一个对象是否是某个构造函数的实例。
  
@@ -417,13 +417,13 @@ JSVM InstanceOf：1
  
   
 
-##### OH_JSVM_TypeTagObject
+#### OH_JSVM_TypeTagObject
 
 使用类型标签type_tag来标记JavaScript对象，这样在后续操作中可以更精确地识别JavaScript对象。
  
   
 
-##### OH_JSVM_CheckObjectTypeTag
+#### OH_JSVM_CheckObjectTypeTag
 
 检查给定的类型标签是否与对象上的类型标签匹配。
  
@@ -519,7 +519,7 @@ JSVM CheckObjectTypeTag:1
  
   
 
-##### OH_JSVM_CreateExternal
+#### OH_JSVM_CreateExternal
 
 创建一个包装了外部指针的JavaScript对象。
  
@@ -584,7 +584,7 @@ JSVM CreateExternal success
  
   
 
-##### OH_JSVM_GetValueExternal
+#### OH_JSVM_GetValueExternal
 
 OH_JSVM_CreateExternal可以创建并包装自定义的C/C++对象，并将其公开给JavaScript代码，而OH_JSVM_GetValueExternal则用于获取OH_JSVM_CreateExternal所包装的外部对象的指针。
  
@@ -641,7 +641,7 @@ JSVM GetValueExternal success
  
   
 
-##### OH_JSVM_CreateSymbol
+#### OH_JSVM_CreateSymbol
 
 用于创建一个新的Symbol。Symbol是一种特殊的数据类型，用于表示唯一的标识符。与字符串或数字不同，符号的值是唯一的，即使两个符号具有相同的描述，它们也是不相等的。符号通常用作对象属性的键，以确保属性的唯一性。
  
@@ -690,7 +690,7 @@ JSVM CreateSymbol Success
  
   
 
-##### OH_JSVM_SymbolFor
+#### OH_JSVM_SymbolFor
 
 在全局注册表中搜索具有给定描述的现有Symbol，如果该Symbol已经存在，它将被返回，否则将在注册表中创建一个新Symbol。
  

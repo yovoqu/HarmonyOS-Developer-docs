@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-tensor-getoriginformat
 
-##### 函数功能
+#### 函数功能
 
 获取Tensor的原始Format。
  
@@ -12,7 +12,7 @@
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 ge::Format GetOriginFormat() const;
@@ -20,13 +20,13 @@ ge::Format GetOriginFormat() const;
  
   
 
-##### 参数说明
+#### 参数说明
 
 无
  
   
 
-##### 返回值
+#### 返回值
  
 | 类型 | 描述 |
 | --- | --- |
@@ -35,12 +35,12 @@ ge::Format GetOriginFormat() const;
  
   
 
-##### 异常处理
+#### 异常处理
 
 无
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

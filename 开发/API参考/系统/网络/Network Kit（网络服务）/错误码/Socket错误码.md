@@ -10,7 +10,7 @@
 
 
 
-##### 2301001 操作不允许
+#### 2301001 操作不允许
 
 **错误信息**
 
@@ -30,7 +30,7 @@ Operation not permitted.
 
 
 
-##### 2301002 文件不存在
+#### 2301002 文件不存在
 
 **错误信息**
 
@@ -50,7 +50,7 @@ No such file or directory.
 
 
 
-##### 2301003 进程不存在
+#### 2301003 进程不存在
 
 **错误信息**
 
@@ -70,7 +70,7 @@ No such process.
 
 
 
-##### 2301004 系统调用中断
+#### 2301004 系统调用中断
 
 **错误信息**
 
@@ -94,7 +94,7 @@ TCP/UDP Socket其余错误码映射形式为：2301000 + Linux系统内核错误
 
 
 
-##### 2300002 系统内部错误
+#### 2300002 系统内部错误
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -120,7 +120,7 @@ System internal error.
 
 
 
-##### 2301206 SOCKS5连接代理服务器失败
+#### 2301206 SOCKS5连接代理服务器失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -142,7 +142,7 @@ SOCKS5客户端连接代理服务器失败。
 
 
 
-##### 2301207 SOCKS5认证用户名或密码无效
+#### 2301207 SOCKS5认证用户名或密码无效
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -164,7 +164,7 @@ SOCKS5使用用户名密码认证方式时，用户名或者密码无效。
 
 
 
-##### 2301208 SOCKS5连接远程服务器失败
+#### 2301208 SOCKS5连接远程服务器失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -186,7 +186,7 @@ SOCKS5代理连接远程服务器失败。
 
 
 
-##### 2301209 SOCKS5协商认证方式失败
+#### 2301209 SOCKS5协商认证方式失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -208,7 +208,7 @@ SOCKS5协商认证方式失败。
 
 
 
-##### 2301210 SOCKS5发送消息失败
+#### 2301210 SOCKS5发送消息失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -230,7 +230,7 @@ SOCKS5因系统调用错误，发送消息失败。
 
 
 
-##### 2301211 SOCKS5接收消息失败
+#### 2301211 SOCKS5接收消息失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -252,7 +252,7 @@ SOCKS5因系统调用错误，接收消息失败。
 
 
 
-##### 2301212 SOCKS5消息序列化失败
+#### 2301212 SOCKS5消息序列化失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -274,7 +274,7 @@ SOCKS5消息序列化失败。
 
 
 
-##### 2301213 SOCKS5消息反序列化失败
+#### 2301213 SOCKS5消息反序列化失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -296,7 +296,7 @@ SOCKS5消息反序列化失败。
 
 
 
-##### 2303104 中断系统调用
+#### 2303104 中断系统调用
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -318,7 +318,7 @@ Interrupted system call.
 
 
 
-##### 2303109 错误文件编号
+#### 2303109 错误文件编号
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -340,7 +340,7 @@ socket fd可能被关闭了，所以发生参数无效的错误。
 
 
 
-##### 2303111 资源暂时不可用，请重试
+#### 2303111 资源暂时不可用，请重试
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -362,7 +362,7 @@ Resource temporarily unavailable. Try again.
 
 
 
-##### 2303188 非套接字的套接字操作
+#### 2303188 非套接字的套接字操作
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -384,7 +384,7 @@ Not a socket.
 
 
 
-##### 2303191 socket协议类型错误
+#### 2303191 socket协议类型错误
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -406,7 +406,7 @@ Incorrect socket protocol type.
 
 
 
-##### 2303198 网络地址已被使用
+#### 2303198 网络地址已被使用
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -428,7 +428,7 @@ Address already in use.
 
 
 
-##### 2303199 不能分配请求的地址
+#### 2303199 不能分配请求的地址
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -450,7 +450,7 @@ Address not available.
 
 
 
-##### 2303200 网络已关闭
+#### 2303200 网络已关闭
 
 **错误信息**
 
@@ -470,7 +470,7 @@ Network is down.
 
 
 
-##### 2303210 连接超时
+#### 2303210 连接超时
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -492,7 +492,7 @@ Connection timed out.
 
 
 
-##### 2303501 SSL为空
+#### 2303501 SSL为空
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -514,7 +514,7 @@ SSL is null.
 
 
 
-##### 2303502 TLS读取错误
+#### 2303502 TLS读取错误
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -536,7 +536,7 @@ An error occurred when reading data on the TLS socket.
 
 
 
-##### 2303503 TLS写入错误
+#### 2303503 TLS写入错误
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -558,7 +558,7 @@ An error occurred when writing data on the TLS socket.
 
 
 
-##### 2303504 查找x509时出错
+#### 2303504 查找x509时出错
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -580,7 +580,7 @@ An error occurred when verifying the x509 certificate.
 
 
 
-##### 2303505 TLS系统调用错误
+#### 2303505 TLS系统调用错误
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -602,7 +602,7 @@ An error occurred in the TLS system call.
 
 
 
-##### 2303506 清除TLS连接出错
+#### 2303506 清除TLS连接出错
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

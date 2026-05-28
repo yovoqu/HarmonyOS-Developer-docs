@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { drawing } from '@kit.ArkGraphics2D';
 
 
 
-##### makeFromPosText12+
+#### makeFromPosText12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -83,7 +83,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### uniqueID12+
+#### uniqueID12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -115,7 +115,7 @@ console.info("uniqueID---------------" +id);
 
 
 
-##### makeFromString
+#### makeFromString
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -173,7 +173,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### makeFromRunBuffer
+#### makeFromRunBuffer
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -238,7 +238,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### bounds
+#### bounds
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

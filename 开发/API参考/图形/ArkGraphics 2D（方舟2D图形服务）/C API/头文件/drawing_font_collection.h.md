@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-font-collection-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -46,13 +46,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Drawing_CreateFontCollection()
+#### OH_Drawing_CreateFontCollection()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -77,7 +77,7 @@ OH_Drawing_FontCollection* OH_Drawing_CreateFontCollection(void)
  
   
 
-##### OH_Drawing_DestroyFontCollection()
+#### OH_Drawing_DestroyFontCollection()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -102,7 +102,7 @@ void OH_Drawing_DestroyFontCollection(OH_Drawing_FontCollection* fontCollection)
  
   
 
-##### OH_Drawing_DisableFontCollectionFallback()
+#### OH_Drawing_DisableFontCollectionFallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -131,7 +131,7 @@ void OH_Drawing_DisableFontCollectionFallback(OH_Drawing_FontCollection* fontCol
  
   
 
-##### OH_Drawing_DisableFontCollectionSystemFont()
+#### OH_Drawing_DisableFontCollectionSystemFont()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -156,7 +156,7 @@ void OH_Drawing_DisableFontCollectionSystemFont(OH_Drawing_FontCollection* fontC
  
   
 
-##### OH_Drawing_CreateSharedFontCollection()
+#### OH_Drawing_CreateSharedFontCollection()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -181,7 +181,7 @@ OH_Drawing_FontCollection* OH_Drawing_CreateSharedFontCollection(void)
  
   
 
-##### OH_Drawing_ClearFontCaches()
+#### OH_Drawing_ClearFontCaches()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -206,7 +206,7 @@ void OH_Drawing_ClearFontCaches(OH_Drawing_FontCollection* fontCollection)
  
   
 
-##### OH_Drawing_GetFontCollectionGlobalInstance()
+#### OH_Drawing_GetFontCollectionGlobalInstance()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

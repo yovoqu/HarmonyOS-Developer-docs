@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone
 
@@ -22,7 +22,7 @@ import { deviceStatus } from '@kit.MultimodalAwarenessKit';
 
 
 
-##### SteadyStandingStatus
+#### SteadyStandingStatus
 
 **支持设备：** Phone
 
@@ -40,7 +40,7 @@ import { deviceStatus } from '@kit.MultimodalAwarenessKit';
 
 
 
-##### deviceStatus.on('steadyStandingDetect')
+#### deviceStatus.on('steadyStandingDetect')
 
 **支持设备：** Phone
 
@@ -83,7 +83,7 @@ try {
 
 
 
-##### deviceStatus.off('steadyStandingDetect')
+#### deviceStatus.off('steadyStandingDetect')
 
 **支持设备：** Phone
 

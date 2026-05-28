@@ -14,7 +14,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { window } from '@kit.ArkUI';
 
 
 
-##### showWindow9+
+#### showWindow9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -110,7 +110,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### showWindow9+
+#### showWindow9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -195,7 +195,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### showWindow20+
+#### showWindow20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -293,7 +293,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### destroyWindow9+
+#### destroyWindow9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -338,7 +338,7 @@ windowClass.destroyWindow((err) => {
 
 
 
-##### destroyWindow9+
+#### destroyWindow9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -381,7 +381,7 @@ promise.then(() => {
 
 
 
-##### moveWindowTo9+
+#### moveWindowTo9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -438,7 +438,7 @@ try {
 
 
 
-##### moveWindowTo9+
+#### moveWindowTo9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -499,7 +499,7 @@ try {
 
 
 
-##### moveWindowToAsync12+
+#### moveWindowToAsync12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -574,7 +574,7 @@ try {
 
 
 
-##### moveWindowToAsync15+
+#### moveWindowToAsync15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -654,7 +654,7 @@ try {
 
 
 
-##### moveWindowToGlobal13+
+#### moveWindowToGlobal13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -720,7 +720,7 @@ try {
 
 
 
-##### moveWindowToGlobal15+
+#### moveWindowToGlobal15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -791,7 +791,7 @@ try {
 
 
 
-##### moveWindowToGlobalDisplay20+
+#### moveWindowToGlobalDisplay20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -854,7 +854,7 @@ try {
 
 
 
-##### clientToGlobalDisplay20+
+#### clientToGlobalDisplay20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -906,7 +906,7 @@ try {
 
 
 
-##### globalDisplayToClient20+
+#### globalDisplayToClient20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -958,7 +958,7 @@ try {
 
 
 
-##### resize9+
+#### resize9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1027,7 +1027,7 @@ try {
 
 
 
-##### resize9+
+#### resize9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1100,7 +1100,7 @@ try {
 
 
 
-##### resizeAsync12+
+#### resizeAsync12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1177,7 +1177,7 @@ try {
 
 
 
-##### getWindowProperties9+
+#### getWindowProperties9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1217,7 +1217,7 @@ try {
 
 
 
-##### getWindowDensityInfo15+
+#### getWindowDensityInfo15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1258,7 +1258,7 @@ try {
 
 
 
-##### setWindowContainerColor20+
+#### setWindowContainerColor20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1336,7 +1336,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getGlobalRect13+
+#### getGlobalRect13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1381,7 +1381,7 @@ try {
 
 
 
-##### getWindowAvoidArea9+
+#### getWindowAvoidArea9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1449,7 +1449,7 @@ try {
 
 
 
-##### getWindowAvoidAreaIgnoringVisibility22+
+#### getWindowAvoidAreaIgnoringVisibility22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1510,7 +1510,7 @@ try {
 
 
 
-##### setSystemAvoidAreaEnabled18+
+#### setSystemAvoidAreaEnabled18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1601,7 +1601,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### isSystemAvoidAreaEnabled18+
+#### isSystemAvoidAreaEnabled18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1683,7 +1683,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setTitleAndDockHoverShown14+
+#### setTitleAndDockHoverShown14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1763,7 +1763,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setWindowLayoutFullScreen9+
+#### setWindowLayoutFullScreen9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1848,7 +1848,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setImmersiveModeEnabledState12+
+#### setImmersiveModeEnabledState12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1898,7 +1898,7 @@ try {
 
 
 
-##### getImmersiveModeEnabledState12+
+#### getImmersiveModeEnabledState12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1943,7 +1943,7 @@ try {
 
 
 
-##### isImmersiveLayout20+
+#### isImmersiveLayout20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1982,7 +1982,7 @@ try {
 
 
 
-##### setWindowDelayRaiseOnDrag19+
+#### setWindowDelayRaiseOnDrag19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2029,7 +2029,7 @@ try {
 
 
 
-##### setDragKeyFramePolicy20+
+#### setDragKeyFramePolicy20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2112,7 +2112,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setWindowSystemBarEnable9+
+#### setWindowSystemBarEnable9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2196,7 +2196,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setSpecificSystemBarEnabled11+
+#### setSpecificSystemBarEnabled11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2282,7 +2282,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setWindowSystemBarProperties9+
+#### setWindowSystemBarProperties9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2367,7 +2367,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getWindowSystemBarProperties12+
+#### getWindowSystemBarProperties12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2430,7 +2430,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setStatusBarColor18+
+#### setStatusBarColor18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2509,7 +2509,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getStatusBarProperty18+
+#### getStatusBarProperty18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2572,7 +2572,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getWindowStateSnapshot23+
+#### getWindowStateSnapshot23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2623,7 +2623,7 @@ try {
 
 
 
-##### setPreferredOrientation9+
+#### setPreferredOrientation9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2700,7 +2700,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setPreferredOrientation9+
+#### setPreferredOrientation9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2781,7 +2781,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getPreferredOrientation12+
+#### getPreferredOrientation12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2842,7 +2842,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getUIContext10+
+#### getUIContext10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2911,7 +2911,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setUIContent9+
+#### setUIContent9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2962,7 +2962,7 @@ try {
 
 
 
-##### setUIContent9+
+#### setUIContent9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3017,7 +3017,7 @@ try {
 
 
 
-##### loadContent9+
+#### loadContent9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3073,7 +3073,7 @@ windowClass.loadContent('pages/page2', storage, (err: BusinessError) => {
 
 
 
-##### loadContent9+
+#### loadContent9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3133,7 +3133,7 @@ promise.then(() => {
 
 
 
-##### loadContentByName11+
+#### loadContentByName11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3232,7 +3232,7 @@ export struct Index {
 
 
 
-##### loadContentByName11+
+#### loadContentByName11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3312,7 +3312,7 @@ export struct Index {
 
 
 
-##### loadContentByName11+
+#### loadContentByName11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3400,7 +3400,7 @@ export struct Index {
 
 
 
-##### isWindowShowing9+
+#### isWindowShowing9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3441,7 +3441,7 @@ try {
 
 
 
-##### on('windowSizeChange')7+
+#### on('windowSizeChange')7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3484,7 +3484,7 @@ try {
 
 
 
-##### off('windowSizeChange')7+
+#### off('windowSizeChange')7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3533,7 +3533,7 @@ try {
 
 
 
-##### on('avoidAreaChange')9+
+#### on('avoidAreaChange')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3592,7 +3592,7 @@ try {
 
 
 
-##### off('avoidAreaChange')9+
+#### off('avoidAreaChange')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3644,7 +3644,7 @@ try {
 
 
 
-##### on('keyboardHeightChange')7+
+#### on('keyboardHeightChange')7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3689,7 +3689,7 @@ try {
 
 
 
-##### off('keyboardHeightChange')7+
+#### off('keyboardHeightChange')7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3739,7 +3739,7 @@ try {
 
 
 
-##### on('keyboardWillShow')20+
+#### on('keyboardWillShow')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3791,7 +3791,7 @@ try {
 
 
 
-##### off('keyboardWillShow')20+
+#### off('keyboardWillShow')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3844,7 +3844,7 @@ try {
 
 
 
-##### on('keyboardWillHide')20+
+#### on('keyboardWillHide')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3896,7 +3896,7 @@ try {
 
 
 
-##### off('keyboardWillHide')20+
+#### off('keyboardWillHide')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3949,7 +3949,7 @@ try {
 
 
 
-##### on('keyboardDidShow')18+
+#### on('keyboardDidShow')18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3999,7 +3999,7 @@ try {
 
 
 
-##### off('keyboardDidShow')18+
+#### off('keyboardDidShow')18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4051,7 +4051,7 @@ try {
 
 
 
-##### on('keyboardDidHide')18+
+#### on('keyboardDidHide')18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4101,7 +4101,7 @@ try {
 
 
 
-##### off('keyboardDidHide')18+
+#### off('keyboardDidHide')18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4153,7 +4153,7 @@ try {
 
 
 
-##### on('touchOutside')11+
+#### on('touchOutside')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4196,7 +4196,7 @@ try {
 
 
 
-##### off('touchOutside')11+
+#### off('touchOutside')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4243,7 +4243,7 @@ try {
 
 
 
-##### on('screenshot')9+
+#### on('screenshot')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4286,7 +4286,7 @@ try {
 
 
 
-##### off('screenshot')9+
+#### off('screenshot')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4333,7 +4333,7 @@ try {
 
 
 
-##### on('screenshotAppEvent')20+
+#### on('screenshotAppEvent')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4376,7 +4376,7 @@ try {
 
 
 
-##### off('screenshotAppEvent')20+
+#### off('screenshotAppEvent')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4424,7 +4424,7 @@ try {
 
 
 
-##### on('dialogTargetTouch')10+
+#### on('dialogTargetTouch')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4467,7 +4467,7 @@ try {
 
 
 
-##### off('dialogTargetTouch')10+
+#### off('dialogTargetTouch')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4514,7 +4514,7 @@ try {
 
 
 
-##### on('windowEvent')10+
+#### on('windowEvent')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4557,7 +4557,7 @@ try {
 
 
 
-##### off('windowEvent')10+
+#### off('windowEvent')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4606,7 +4606,7 @@ try {
 
 
 
-##### on('displayIdChange')14+
+#### on('displayIdChange')14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4651,7 +4651,7 @@ try {
 
 
 
-##### off('displayIdChange')14+
+#### off('displayIdChange')14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4702,7 +4702,7 @@ try {
 
 
 
-##### on('windowVisibilityChange')11+
+#### on('windowVisibilityChange')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4754,7 +4754,7 @@ try {
 
 
 
-##### off('windowVisibilityChange')11+
+#### off('windowVisibilityChange')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4806,7 +4806,7 @@ try {
 
 
 
-##### on('occlusionStateChanged')22+
+#### on('occlusionStateChanged')22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4856,7 +4856,7 @@ try {
 
 
 
-##### off('occlusionStateChanged')22+
+#### off('occlusionStateChanged')22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4905,7 +4905,7 @@ try {
 
 
 
-##### on('frameMetricsMeasured')22+
+#### on('frameMetricsMeasured')22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4950,7 +4950,7 @@ try {
 
 
 
-##### off('frameMetricsMeasured')22+
+#### off('frameMetricsMeasured')22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4998,7 +4998,7 @@ try {
 
 
 
-##### on('systemDensityChange')15+
+#### on('systemDensityChange')15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5049,7 +5049,7 @@ try {
 
 
 
-##### off('systemDensityChange')15+
+#### off('systemDensityChange')15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5102,7 +5102,7 @@ try {
 
 
 
-##### on('noInteractionDetected')12+
+#### on('noInteractionDetected')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5149,7 +5149,7 @@ try {
 
 
 
-##### off('noInteractionDetected')12+
+#### off('noInteractionDetected')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5199,7 +5199,7 @@ try {
 
 
 
-##### on('windowStatusChange')11+
+#### on('windowStatusChange')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5249,7 +5249,7 @@ try {
 
 
 
-##### off('windowStatusChange')11+
+#### off('windowStatusChange')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5297,7 +5297,7 @@ try {
 
 
 
-##### on('windowStatusDidChange')20+
+#### on('windowStatusDidChange')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5339,7 +5339,7 @@ try {
 
 
 
-##### off('windowStatusDidChange')20+
+#### off('windowStatusDidChange')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5385,7 +5385,7 @@ try {
 
 
 
-##### setWindowGrayScale12+
+#### setWindowGrayScale12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5452,7 +5452,7 @@ windowClass?.setUIContent('pages/Index', (error: BusinessError) => {
 
 
 
-##### on('windowTitleButtonRectChange')11+
+#### on('windowTitleButtonRectChange')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5499,7 +5499,7 @@ windowClass.setUIContent('pages/WindowPage').then(() => {
 
 
 
-##### off('windowTitleButtonRectChange')11+
+#### off('windowTitleButtonRectChange')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5552,7 +5552,7 @@ windowClass.setUIContent('pages/WindowPage').then(() => {
 
 
 
-##### on('windowRectChange')12+
+#### on('windowRectChange')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5598,7 +5598,7 @@ try {
 
 
 
-##### off('windowRectChange')12+
+#### off('windowRectChange')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5649,7 +5649,7 @@ try {
 
 
 
-##### on('rectChangeInGlobalDisplay')20+
+#### on('rectChangeInGlobalDisplay')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5694,7 +5694,7 @@ try {
 
 
 
-##### off('rectChangeInGlobalDisplay')20+
+#### off('rectChangeInGlobalDisplay')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5742,7 +5742,7 @@ try {
 
 
 
-##### on('subWindowClose')12+
+#### on('subWindowClose')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5796,7 +5796,7 @@ try {
 
 
 
-##### off('subWindowClose')12+
+#### off('subWindowClose')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5847,7 +5847,7 @@ try {
 
 
 
-##### on('windowWillClose')15+
+#### on('windowWillClose')15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5918,7 +5918,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### off('windowWillClose')15+
+#### off('windowWillClose')15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5990,7 +5990,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### on('windowHighlightChange')15+
+#### on('windowHighlightChange')15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6036,7 +6036,7 @@ try {
 
 
 
-##### off('windowHighlightChange')15+
+#### off('windowHighlightChange')15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6088,7 +6088,7 @@ try {
 
 
 
-##### on('rotationChange')19+
+#### on('rotationChange')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6205,7 +6205,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### off('rotationChange')19+
+#### off('rotationChange')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6264,7 +6264,7 @@ try {
 
 
 
-##### on('uiExtensionSecureLimitChange')20+
+#### on('uiExtensionSecureLimitChange')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6309,7 +6309,7 @@ try {
 
 
 
-##### off('uiExtensionSecureLimitChange')20+
+#### off('uiExtensionSecureLimitChange')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6360,7 +6360,7 @@ try {
 
 
 
-##### isWindowSupportWideGamut9+
+#### isWindowSupportWideGamut9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6405,7 +6405,7 @@ windowClass.isWindowSupportWideGamut((err: BusinessError, data) => {
 
 
 
-##### isWindowSupportWideGamut9+
+#### isWindowSupportWideGamut9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6448,7 +6448,7 @@ promise.then((data) => {
 
 
 
-##### setWindowColorSpace9+
+#### setWindowColorSpace9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6499,7 +6499,7 @@ try {
 
 
 
-##### setWindowColorSpace9+
+#### setWindowColorSpace9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6554,7 +6554,7 @@ try {
 
 
 
-##### getWindowColorSpace9+
+#### getWindowColorSpace9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6597,7 +6597,7 @@ try {
 
 
 
-##### setWindowBackgroundColor9+
+#### setWindowBackgroundColor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6657,7 +6657,7 @@ windowClass.loadContent("pages/page2", storage, (err: BusinessError) => {
 
 
 
-##### setWindowShadowEnabled20+
+#### setWindowShadowEnabled20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6743,7 +6743,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setWindowBrightness9+
+#### setWindowBrightness9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6839,7 +6839,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setWindowBrightness9+
+#### setWindowBrightness9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6939,7 +6939,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setWindowFocusable9+
+#### setWindowFocusable9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6994,7 +6994,7 @@ try {
 
 
 
-##### setWindowFocusable9+
+#### setWindowFocusable9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7053,7 +7053,7 @@ try {
 
 
 
-##### setWindowKeepScreenOn9+
+#### setWindowKeepScreenOn9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7108,7 +7108,7 @@ try {
 
 
 
-##### setWindowKeepScreenOn9+
+#### setWindowKeepScreenOn9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7167,7 +7167,7 @@ try {
 
 
 
-##### setWindowPrivacyMode9+
+#### setWindowPrivacyMode9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7227,7 +7227,7 @@ try {
 
 
 
-##### setWindowPrivacyMode9+
+#### setWindowPrivacyMode9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7291,7 +7291,7 @@ try {
 
 
 
-##### setWindowTouchable9+
+#### setWindowTouchable9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7346,7 +7346,7 @@ try {
 
 
 
-##### setWindowTouchable9+
+#### setWindowTouchable9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7405,7 +7405,7 @@ try {
 
 
 
-##### snapshot9+
+#### snapshot9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7452,7 +7452,7 @@ windowClass.snapshot((err: BusinessError, pixelMap: image.PixelMap) => {
 
 
 
-##### snapshot9+
+#### snapshot9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7497,7 +7497,7 @@ promise.then((pixelMap: image.PixelMap) => {
 
 
 
-##### snapshotSync20+
+#### snapshotSync20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7544,7 +7544,7 @@ try {
 
 
 
-##### snapshotIgnorePrivacy18+
+#### snapshotIgnorePrivacy18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7590,7 +7590,7 @@ promise.then((pixelMap: image.PixelMap) => {
 
 
 
-##### setAspectRatio10+
+#### setAspectRatio10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7665,7 +7665,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setAspectRatio10+
+#### setAspectRatio10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7736,7 +7736,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setContentAspectRatio21+
+#### setContentAspectRatio21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7808,7 +7808,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### resetAspectRatio10+
+#### resetAspectRatio10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7872,7 +7872,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### resetAspectRatio10+
+#### resetAspectRatio10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7938,7 +7938,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### minimize11+
+#### minimize11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7991,7 +7991,7 @@ windowClass.minimize((err: BusinessError) => {
 
 
 
-##### minimize11+
+#### minimize11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8042,7 +8042,7 @@ promise.then(() => {
 
 
 
-##### maximize12+
+#### maximize12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8117,7 +8117,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### maximize22+
+#### maximize22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8187,7 +8187,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setResizeByDragEnabled14+
+#### setResizeByDragEnabled14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8242,7 +8242,7 @@ try {
 
 
 
-##### setResizeByDragEnabled14+
+#### setResizeByDragEnabled14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8304,7 +8304,7 @@ try {
 
 
 
-##### recover11+
+#### recover11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8369,7 +8369,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### restore14+
+#### restore14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8435,7 +8435,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### restoreMainWindow23+
+#### restoreMainWindow23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8582,7 +8582,7 @@ struct FloatWindowInfo {
 
 
 
-##### getWindowLimits11+
+#### getWindowLimits11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8623,7 +8623,7 @@ try {
 
 
 
-##### getWindowLimitsVP22+
+#### getWindowLimitsVP22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8664,7 +8664,7 @@ try {
 
 
 
-##### setWindowLimits11+
+#### setWindowLimits11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8735,7 +8735,7 @@ try {
 
 
 
-##### setWindowLimits15+
+#### setWindowLimits15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8815,7 +8815,7 @@ try {
 
 
 
-##### setWindowMask12+
+#### setWindowMask12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8887,7 +8887,7 @@ try {
 
 
 
-##### clearWindowMask24+
+#### clearWindowMask24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8949,7 +8949,7 @@ try {
 
 
 
-##### keepKeyboardOnFocus11+
+#### keepKeyboardOnFocus11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8992,7 +8992,7 @@ try {
 
 
 
-##### setWindowDecorVisible11+
+#### setWindowDecorVisible11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9049,7 +9049,7 @@ windowClass.loadContent("pages/page2", storage, (err: BusinessError) => {
 
 
 
-##### getWindowDecorVisible18+
+#### getWindowDecorVisible18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9095,7 +9095,7 @@ windowClass.setUIContent('pages/WindowPage').then(() => {
 
 
 
-##### setWindowTitle15+
+#### setWindowTitle15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9170,7 +9170,7 @@ try {
 
 
 
-##### setWindowTitleMoveEnabled14+
+#### setWindowTitleMoveEnabled14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9228,7 +9228,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setSubWindowModal12+
+#### setSubWindowModal12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9309,7 +9309,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setSubWindowModal14+
+#### setSubWindowModal14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9395,7 +9395,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setWindowDecorHeight11+
+#### setWindowDecorHeight11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9447,7 +9447,7 @@ windowClass.setUIContent('pages/WindowPage').then(() => {
 
 
 
-##### setDecorButtonStyle14+
+#### setDecorButtonStyle14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9518,7 +9518,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getDecorButtonStyle14+
+#### getDecorButtonStyle14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9570,7 +9570,7 @@ try {
 
 
 
-##### getWindowDecorHeight11+
+#### getWindowDecorHeight11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9618,7 +9618,7 @@ windowClass.setUIContent('pages/WindowPage').then(() => {
 
 
 
-##### getTitleButtonRect11+
+#### getTitleButtonRect11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9680,7 +9680,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getWindowStatus12+
+#### getWindowStatus12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9725,7 +9725,7 @@ try {
 
 
 
-##### isFocused12+
+#### isFocused12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9768,7 +9768,7 @@ try {
 
 
 
-##### createSubWindowWithOptions12+
+#### createSubWindowWithOptions12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9836,7 +9836,7 @@ try {
 
 
 
-##### setParentWindow19+
+#### setParentWindow19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9907,7 +9907,7 @@ try {
 
 
 
-##### getParentWindow19+
+#### getParentWindow19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9959,7 +9959,7 @@ try {
 
 
 
-##### setWindowTitleButtonVisible14+
+#### setWindowTitleButtonVisible14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10031,7 +10031,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setWindowTopmost14+
+#### setWindowTopmost14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10135,7 +10135,7 @@ struct Index {
 
 
 
-##### raiseToAppTop14+
+#### raiseToAppTop14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10198,7 +10198,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setRaiseByClickEnabled14+
+#### setRaiseByClickEnabled14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10277,7 +10277,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### enableLandscapeMultiWindow12+
+#### enableLandscapeMultiWindow12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10341,7 +10341,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### disableLandscapeMultiWindow12+
+#### disableLandscapeMultiWindow12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10405,7 +10405,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setDialogBackGestureEnabled12+
+#### setDialogBackGestureEnabled12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10511,7 +10511,7 @@ struct Index {
 
 
 
-##### enableDrag20+
+#### enableDrag20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10567,7 +10567,7 @@ try {
 
 
 
-##### startMoving14+
+#### startMoving14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10658,7 +10658,7 @@ struct Index {
 
 
 
-##### startMoving15+
+#### startMoving15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10756,7 +10756,7 @@ struct Index {
 
 
 
-##### stopMoving15+
+#### stopMoving15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10820,7 +10820,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setGestureBackEnabled13+
+#### setGestureBackEnabled13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10905,7 +10905,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### isGestureBackEnabled13+
+#### isGestureBackEnabled13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10972,7 +10972,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setSeparationTouchEnabled23+
+#### setSeparationTouchEnabled23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11040,7 +11040,7 @@ try {
 
 
 
-##### isSeparationTouchEnabled23+
+#### isSeparationTouchEnabled23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11085,7 +11085,7 @@ try {
 
 
 
-##### setReceiveDragEventEnabled23+
+#### setReceiveDragEventEnabled23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11146,7 +11146,7 @@ try {
 
 
 
-##### isReceiveDragEventEnabled23+
+#### isReceiveDragEventEnabled23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11191,7 +11191,7 @@ try {
 
 
 
-##### setWindowShadowRadius17+
+#### setWindowShadowRadius17+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11240,7 +11240,7 @@ try {
 
 
 
-##### setWindowCornerRadius17+
+#### setWindowCornerRadius17+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11308,7 +11308,7 @@ try {
 
 
 
-##### getWindowCornerRadius17+
+#### getWindowCornerRadius17+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11356,7 +11356,7 @@ try {
 
 
 
-##### setExclusivelyHighlighted15+
+#### setExclusivelyHighlighted15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11417,7 +11417,7 @@ try {
 
 
 
-##### isWindowHighlighted18+
+#### isWindowHighlighted18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11463,7 +11463,7 @@ try {
 
 
 
-##### setFollowParentMultiScreenPolicy17+
+#### setFollowParentMultiScreenPolicy17+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11533,7 +11533,7 @@ try {
 
 
 
-##### setFollowParentWindowLayoutEnabled17+
+#### setFollowParentWindowLayoutEnabled17+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11620,7 +11620,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setRelativePositionToParentWindowEnabled20+
+#### setRelativePositionToParentWindowEnabled20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11708,7 +11708,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setWindowTransitionAnimation20+
+#### setWindowTransitionAnimation20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11799,7 +11799,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getWindowTransitionAnimation20+
+#### getWindowTransitionAnimation20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11877,7 +11877,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setSubWindowZLevel18+
+#### setSubWindowZLevel18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -11956,7 +11956,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### getSubWindowZLevel18+
+#### getSubWindowZLevel18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -12019,7 +12019,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### isInFreeWindowMode22+
+#### isInFreeWindowMode22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -12057,7 +12057,7 @@ console.info(`isInFreeWindowMode: ${isInFreeWindowMode}`);
 
 
 
-##### on('freeWindowModeChange')22+
+#### on('freeWindowModeChange')22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -12101,7 +12101,7 @@ try {
 
 
 
-##### off('freeWindowModeChange')22+
+#### off('freeWindowModeChange')22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -12151,7 +12151,7 @@ try {
 
 
 
-##### convertOrientationAndRotation23+
+#### convertOrientationAndRotation23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -12208,7 +12208,7 @@ try {
 
 
 
-##### setWindowSystemBarProperties(deprecated)
+#### setWindowSystemBarProperties(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -12292,7 +12292,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setWindowSystemBarEnable(deprecated)
+#### setWindowSystemBarEnable(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -12372,7 +12372,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setWindowLayoutFullScreen(deprecated)
+#### setWindowLayoutFullScreen(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -12457,7 +12457,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### show(deprecated)
+#### show(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -12495,7 +12495,7 @@ windowClass.show((err: BusinessError) => {
 
 
 
-##### show(deprecated)
+#### show(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -12531,7 +12531,7 @@ promise.then(() => {
 
 
 
-##### destroy(deprecated)
+#### destroy(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -12569,7 +12569,7 @@ windowClass.destroy((err: BusinessError) => {
 
 
 
-##### destroy(deprecated)
+#### destroy(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -12605,7 +12605,7 @@ promise.then(() => {
 
 
 
-##### moveTo(deprecated)
+#### moveTo(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -12647,7 +12647,7 @@ windowClass.moveTo(300, 300, (err: BusinessError) => {
 
 
 
-##### moveTo(deprecated)
+#### moveTo(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -12693,7 +12693,7 @@ promise.then(() => {
 
 
 
-##### resetSize(deprecated)
+#### resetSize(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -12747,7 +12747,7 @@ windowClass.resetSize(500, 1000, (err: BusinessError) => {
 
 
 
-##### resetSize(deprecated)
+#### resetSize(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -12805,7 +12805,7 @@ promise.then(() => {
 
 
 
-##### getProperties(deprecated)
+#### getProperties(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -12843,7 +12843,7 @@ windowClass.getProperties((err: BusinessError, data) => {
 
 
 
-##### getProperties(deprecated)
+#### getProperties(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -12879,7 +12879,7 @@ promise.then((data) => {
 
 
 
-##### getAvoidArea(deprecated)
+#### getAvoidArea(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -12932,7 +12932,7 @@ windowClass.getAvoidArea(type, (err: BusinessError, data) => {
 
 
 
-##### getAvoidArea(deprecated)
+#### getAvoidArea(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -12989,7 +12989,7 @@ promise.then((data) => {
 
 
 
-##### setFullScreen(deprecated)
+#### setFullScreen(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -13051,7 +13051,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setFullScreen(deprecated)
+#### setFullScreen(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -13117,7 +13117,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setLayoutFullScreen(deprecated)
+#### setLayoutFullScreen(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -13179,7 +13179,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setLayoutFullScreen(deprecated)
+#### setLayoutFullScreen(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -13245,7 +13245,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setSystemBarEnable(deprecated)
+#### setSystemBarEnable(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -13308,7 +13308,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setSystemBarEnable(deprecated)
+#### setSystemBarEnable(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -13375,7 +13375,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setSystemBarProperties(deprecated)
+#### setSystemBarProperties(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -13441,7 +13441,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### setSystemBarProperties(deprecated)
+#### setSystemBarProperties(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -13511,7 +13511,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### loadContent(deprecated)
+#### loadContent(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -13554,7 +13554,7 @@ windowClass.loadContent('pages/page2/page3', (err: BusinessError) => {
 
 
 
-##### loadContent(deprecated)
+#### loadContent(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -13601,7 +13601,7 @@ promise.then(() => {
 
 
 
-##### isShowing(deprecated)
+#### isShowing(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -13639,7 +13639,7 @@ windowClass.isShowing((err: BusinessError, data) => {
 
 
 
-##### isShowing(deprecated)
+#### isShowing(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -13675,7 +13675,7 @@ promise.then((data) => {
 
 
 
-##### on('systemAvoidAreaChange')(deprecated)
+#### on('systemAvoidAreaChange')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -13707,7 +13707,7 @@ windowClass.on('systemAvoidAreaChange', (data) => {
 
 
 
-##### off('systemAvoidAreaChange')(deprecated)
+#### off('systemAvoidAreaChange')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -13743,7 +13743,7 @@ windowClass.off('systemAvoidAreaChange');
 
 
 
-##### isSupportWideGamut(deprecated)
+#### isSupportWideGamut(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -13781,7 +13781,7 @@ windowClass.isSupportWideGamut((err: BusinessError, data) => {
 
 
 
-##### isSupportWideGamut(deprecated)
+#### isSupportWideGamut(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -13817,7 +13817,7 @@ promise.then((data) => {
 
 
 
-##### setColorSpace(deprecated)
+#### setColorSpace(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -13856,7 +13856,7 @@ windowClass.setColorSpace(window.ColorSpace.WIDE_GAMUT, (err: BusinessError) => 
 
 
 
-##### setColorSpace(deprecated)
+#### setColorSpace(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -13899,7 +13899,7 @@ promise.then(() => {
 
 
 
-##### getColorSpace(deprecated)
+#### getColorSpace(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -13937,7 +13937,7 @@ windowClass.getColorSpace((err: BusinessError, data) => {
 
 
 
-##### getColorSpace(deprecated)
+#### getColorSpace(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -13973,7 +13973,7 @@ promise.then((data) => {
 
 
 
-##### setBackgroundColor(deprecated)
+#### setBackgroundColor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -14013,7 +14013,7 @@ windowClass.setBackgroundColor(color, (err: BusinessError) => {
 
 
 
-##### setBackgroundColor(deprecated)
+#### setBackgroundColor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -14057,7 +14057,7 @@ promise.then(() => {
 
 
 
-##### setBrightness(deprecated)
+#### setBrightness(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -14099,7 +14099,7 @@ windowClass.setBrightness(brightness, (err: BusinessError) => {
 
 
 
-##### setBrightness(deprecated)
+#### setBrightness(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -14145,7 +14145,7 @@ promise.then(() => {
 
 
 
-##### setDimBehind(deprecated)
+#### setDimBehind(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -14184,7 +14184,7 @@ windowClass.setDimBehind(0.5, (err: BusinessError) => {
 
 
 
-##### setDimBehind(deprecated)
+#### setDimBehind(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -14227,7 +14227,7 @@ promise.then(() => {
 
 
 
-##### setFocusable(deprecated)
+#### setFocusable(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -14267,7 +14267,7 @@ windowClass.setFocusable(isFocusable, (err: BusinessError) => {
 
 
 
-##### setFocusable(deprecated)
+#### setFocusable(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -14311,7 +14311,7 @@ promise.then(() => {
 
 
 
-##### setKeepScreenOn(deprecated)
+#### setKeepScreenOn(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -14351,7 +14351,7 @@ windowClass.setKeepScreenOn(isKeepScreenOn, (err: BusinessError) => {
 
 
 
-##### setKeepScreenOn(deprecated)
+#### setKeepScreenOn(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -14395,7 +14395,7 @@ promise.then(() => {
 
 
 
-##### setOutsideTouchable(deprecated)
+#### setOutsideTouchable(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -14434,7 +14434,7 @@ windowClass.setOutsideTouchable(true, (err: BusinessError) => {
 
 
 
-##### setOutsideTouchable(deprecated)
+#### setOutsideTouchable(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -14477,7 +14477,7 @@ promise.then(() => {
 
 
 
-##### setPrivacyMode(deprecated)
+#### setPrivacyMode(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -14517,7 +14517,7 @@ windowClass.setPrivacyMode(isPrivacyMode, (err: BusinessError) => {
 
 
 
-##### setPrivacyMode(deprecated)
+#### setPrivacyMode(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -14561,7 +14561,7 @@ promise.then(() => {
 
 
 
-##### setTouchable(deprecated)
+#### setTouchable(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -14601,7 +14601,7 @@ windowClass.setTouchable(isTouchable, (err: BusinessError) => {
 
 
 
-##### setTouchable(deprecated)
+#### setTouchable(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

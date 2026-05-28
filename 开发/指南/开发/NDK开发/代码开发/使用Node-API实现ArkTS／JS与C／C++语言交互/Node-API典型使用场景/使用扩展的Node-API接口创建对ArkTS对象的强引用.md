@@ -7,13 +7,13 @@
 HarmonyOS提供的API优化了强引用的创建效率，保留了Node-API的强引用特性，相较于napi_ref，napi_strong_ref具有更快的创建效率。
   
 
-##### 场景介绍
+#### 场景介绍
 
 开发者可以通过napi_create_strong_reference接口创建指向ArkTS对象的强引用，并通过napi_get_strong_reference_value获取引用的ArkTS对象。
  
   
 
-##### 强引用对象关联接口
+#### 强引用对象关联接口
  
 | 接口 | 描述 |
 | --- | --- |
@@ -24,7 +24,7 @@ HarmonyOS提供的API优化了强引用的创建效率，保留了Node-API的强
  
   
 
-##### 示例代码
+#### 示例代码
 
 - 模块注册
 

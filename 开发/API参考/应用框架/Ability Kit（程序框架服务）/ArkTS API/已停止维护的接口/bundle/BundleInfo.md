@@ -12,7 +12,7 @@
 
   
 
-##### BundleInfo(deprecated)
+#### BundleInfo(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -51,7 +51,7 @@
  
   
 
-##### ReqPermissionDetail(deprecated)
+#### ReqPermissionDetail(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -72,7 +72,7 @@
  
   
 
-##### UsedScene(deprecated)
+#### UsedScene(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

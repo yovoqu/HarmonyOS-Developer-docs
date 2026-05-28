@@ -12,7 +12,7 @@
 
   
 
-##### constructor(deprecated)
+#### constructor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -28,7 +28,7 @@ WebCookie的构造函数。
  
   
 
-##### setCookie(deprecated)
+#### setCookie(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -44,7 +44,7 @@ setCookie()
  
   
 
-##### saveCookie(deprecated)
+#### saveCookie(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

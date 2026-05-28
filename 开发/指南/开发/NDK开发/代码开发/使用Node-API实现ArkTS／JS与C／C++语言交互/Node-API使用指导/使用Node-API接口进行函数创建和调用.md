@@ -4,19 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-function
 
-##### 简介
+#### 简介
 
 函数调用允许开发者从Node-API模块中调用ArkTS函数并传递参数，或在Node-API模块中创建ArkTS函数。
  
   
 
-##### 基本概念
+#### 基本概念
 
 函数是一种非常重要的编程概念，可以执行特定的任务或操作、提高代码的可读性、把复杂任务简化、提高代码复用性以及支持代码的组织与管理。每个函数可以负责不同的功能，提供一种将代码模块化和组织结构化的方式，使其更易于理解、维护和重用。
  
   
 
-##### 场景和功能介绍
+#### 场景和功能介绍
  
 | 接口 | 描述 |
 | --- | --- |
@@ -27,13 +27,13 @@
  
   
 
-##### 使用示例
+#### 使用示例
 
 Node-API接口开发流程参考[使用Node-API实现跨语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-process)，本文仅对接口对应C++及ArkTS相关代码进行展示。
  
   
 
-##### napi_get_cb_info
+#### napi_get_cb_info
 
 获取有关函数调用的详细信息。
  
@@ -139,7 +139,7 @@ hilog.info(0x0000, 'testTag', 'Test Node-API napi_get_cb_info get thisArg:%{publ
  
   
 
-##### napi_call_function
+#### napi_call_function
 
 在C/C++侧对ArkTS函数进行调用。
  
@@ -213,7 +213,7 @@ hilog.info(0x0000, 'testTag', 'Test Node-API call_function:%{public}d',
  
   
 
-##### napi_create_function
+#### napi_create_function
 
 将一个C/C++函数包装为可在ArkTS中调用的函数，并返回一个表示该函数的napi_value。
  

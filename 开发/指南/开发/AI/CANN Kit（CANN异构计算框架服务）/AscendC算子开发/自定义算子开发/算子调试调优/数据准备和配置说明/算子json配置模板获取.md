@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-obtaining-the-json-configuration
 
-##### 标准自定义算子工程场景
+#### 标准自定义算子工程场景
 
 本场景一般通过工具一键生成对应的算子json配置模板，命令行示例如下。
  

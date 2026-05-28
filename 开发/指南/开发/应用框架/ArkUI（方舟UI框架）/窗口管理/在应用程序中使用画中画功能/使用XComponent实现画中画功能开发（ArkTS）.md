@@ -7,7 +7,7 @@
 本文以视频播放为例，介绍通过XComponent实现画中画功能的基本开发步骤。
   
 
-##### 约束与限制
+#### 约束与限制
 
 - HarmonyOS 6.0.0之前，支持在Phone、Tablet设备使用XComponent实现画中画功能开发；从HarmonyOS 6.0.0开始，支持在Phone、PC/2in1、Tablet设备使用XComponent实现画中画功能开发。
 - 仅支持以[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)作为媒体流播放组件的界面进入画中画模式，XComponent的type必须为XComponentType.SURFACE。
@@ -18,7 +18,7 @@
  
   
 
-##### 开发步骤
+#### 开发步骤
 1. 创建画中画控制器，注册生命周期事件以及控制事件回调。
 
   

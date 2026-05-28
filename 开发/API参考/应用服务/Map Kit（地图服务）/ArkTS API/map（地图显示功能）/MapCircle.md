@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcircle
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -15,7 +15,7 @@ import { map, mapCommon } from '@kit.MapKit';
  
   
 
-##### MapCircle
+#### MapCircle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -48,7 +48,7 @@ let mapCircle = await this.mapController.addCircle(mapCircleOptions);
  
   
 
-##### getCenter
+#### getCenter
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -79,7 +79,7 @@ let center: mapCommon.LatLng = mapCircle.getCenter();
  
   
 
-##### getFillColor
+#### getFillColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -110,7 +110,7 @@ let fillColor: number = mapCircle.getFillColor();
  
   
 
-##### getRadius
+#### getRadius
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -141,7 +141,7 @@ let radius: number = mapCircle.getRadius();
  
   
 
-##### getStrokeColor
+#### getStrokeColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -172,7 +172,7 @@ let strokeColor: number = mapCircle.getStrokeColor();
  
   
 
-##### getPatterns
+#### getPatterns
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -203,7 +203,7 @@ let patterns: Array<mapCommon.PatternItem> = mapCircle.getPatterns();
  
   
 
-##### getStrokeWidth
+#### getStrokeWidth
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -234,7 +234,7 @@ let strokeWidth: number = mapCircle.getStrokeWidth();
  
   
 
-##### isClickable
+#### isClickable
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -265,7 +265,7 @@ let clickable: boolean = mapCircle.isClickable();
  
   
 
-##### setCenter
+#### setCenter
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -297,7 +297,7 @@ mapCircle.setCenter(center);
  
   
 
-##### setClickable
+#### setClickable
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -329,7 +329,7 @@ mapCircle.setClickable(clickable);
  
   
 
-##### setFillColor
+#### setFillColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -361,7 +361,7 @@ mapCircle.setFillColor(fillColor);
  
   
 
-##### setRadius
+#### setRadius
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -393,7 +393,7 @@ mapCircle.setRadius(radius);
  
   
 
-##### setStrokeColor
+#### setStrokeColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -425,7 +425,7 @@ mapCircle.setStrokeColor(strokeColor);
  
   
 
-##### setPatterns
+#### setPatterns
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -460,7 +460,7 @@ mapCircle.setPatterns(patterns);
  
   
 
-##### setStrokeWidth
+#### setStrokeWidth
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

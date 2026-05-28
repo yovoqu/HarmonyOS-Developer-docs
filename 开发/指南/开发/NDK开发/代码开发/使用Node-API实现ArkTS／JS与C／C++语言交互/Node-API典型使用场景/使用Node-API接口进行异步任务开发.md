@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-asynchronous-task
 
-##### 场景介绍
+#### 场景介绍
 
 [napi_create_async_work](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/napi#napi_create_async_work)是Node-API接口之一，用于创建一个异步工作对象。在需要执行耗时操作的场景中使用，避免阻塞env所在的ArkTS线程，确保应用程序的性能和响应速度。例如以下场景：
 
@@ -24,7 +24,7 @@ napi_queue_async_work接口使用uv_queue_work能力，并管理回调中napi_va
 
 
 
-##### 使用Promise方式示例
+#### 使用Promise方式示例
 
 
 ![](assets/使用Node-API接口进行异步任务开发/file-20260514132711095-1.png)
@@ -168,7 +168,7 @@ testNapi.asyncWork(1024).then((result: number) => {
 
 
 
-##### 使用callback方式示例
+#### 使用callback方式示例
 
 
 ![](assets/使用Node-API接口进行异步任务开发/file-20260514132711095-2.png)
@@ -293,14 +293,14 @@ nativeModule.asyncWork(num1, num2, (result: number) => {
 
 
 
-##### 子线程交互场景介绍
+#### 子线程交互场景介绍
 
  - 由于napi_queue_async_work接口本身会创建一个C++子线程，因此native侧代码可以直接复用上面使用callback方式的代码，以下展示ArkTS侧使用上的差异。
 
 
 
 
-##### 基于[Worker](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/worker-introduction)实现的C++子线程与ArkTS子线程交互场景
+#### 基于[Worker](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/worker-introduction)实现的C++子线程与ArkTS子线程交互场景
 
  - DevEco Studio支持一键生成Worker，在对应的{moduleName}目录下任意位置，点击鼠标右键 > New > Worker，即可自动生成Worker的模板文件及配置信息。本文以创建 "Worker" 为例。
 
@@ -364,7 +364,7 @@ result is 579
 
 
 
-##### 基于[Taskpool](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/taskpool-introduction)实现的C++子线程与ArkTS子线程交互场景
+#### 基于[Taskpool](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/taskpool-introduction)实现的C++子线程与ArkTS子线程交互场景
 1. ArkTS线程代码。
 
   
@@ -406,7 +406,7 @@ result is 579
 
 
 
-##### 注意事项
+#### 注意事项
 
  - 调用napi_cancel_async_work接口，无论底层uv是否失败都会返回napi_ok。若因为底层uv导致取消任务失败，complete callback中的status会传入对应错误值，请在complete callback中对status进行处理。
  - NAPI的异步工作项（napi_async_work）建议单次使用。napi_queue_async_work后，该napi_async_work需在complete回调执行时或执行后，通过napi_delete_async_work完成释放。同一个napi_async_work只允许释放一次，重复释放会导致未定义行为。

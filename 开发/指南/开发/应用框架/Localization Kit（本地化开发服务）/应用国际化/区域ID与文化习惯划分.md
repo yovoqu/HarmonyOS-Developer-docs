@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/i18n-locale-culture
 
-##### 功能介绍
+#### 功能介绍
 
 广义地讲，区域ID是指通过数字、字母、符号或其组合，作为唯一标识识别特定地理区域。
  
@@ -12,7 +12,7 @@
  
   
 
-##### 实现原理
+#### 实现原理
 
 区域ID由语言、脚本、国家地区和扩展参数四部分组成。其中，语言是必填内容，其余为选填内容，按照语言、脚本、国家地区和扩展参数的顺序通过“-”连接，详细说明可参考表1；支持的扩展参数参考表2；不同语言对应的数字系统参考表3，表中未列出的语言均使用阿拉伯数字系统。
  
@@ -57,6 +57,6 @@
  
   
 
-##### 开发步骤
+#### 开发步骤
 
 具体可参考[Intl.Locale](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale)。

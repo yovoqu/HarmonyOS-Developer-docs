@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/textblock-drawing-arkts
 
-##### 场景介绍
+#### 场景介绍
 
 字块（TextBlob）是指文本的集合。无论是单个的文字还是大块的文本，都可以通过字块来绘制。
 
@@ -14,7 +14,7 @@
 
 
 
-##### 基本字块绘制
+#### 基本字块绘制
 
 Canvas通过drawTextBlob()来绘制字块。函数接受三个参数：TextBlob字块对象，以及文字基线左端点的x坐标和y坐标。
 
@@ -55,7 +55,7 @@ canvas.drawTextBlob(textBlob, VALUE_200, VALUE_300);
 
 
 
-##### 文字描边
+#### 文字描边
 
 基于基本的字块绘制，还可以通过画笔实现文字描边效果，描边效果的更多介绍请参考[描边效果](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/basic-drawing-effect-arkts#描边效果)。
 
@@ -63,7 +63,7 @@ canvas.drawTextBlob(textBlob, VALUE_200, VALUE_300);
 
 
 
-##### 英文文字描边
+#### 英文文字描边
 
 英文文字描边的简要示例和示意图如下：
 
@@ -96,7 +96,7 @@ canvas.detachPen();
 
 
 
-##### 中文文字描边
+#### 中文文字描边
 
 首先需要通过画笔描边，然后需要调用画刷填充内部颜色，去除字体中间的杂质和重叠部分，实现中文文字描边效果。
 
@@ -142,7 +142,7 @@ canvas.detachBrush();
 
 
 
-##### 文字渐变
+#### 文字渐变
 
 基于基本字块绘制，还可以通过着色器实现文字渐变的效果，着色器的更多介绍请参考[着色器效果](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/complex-drawing-effect-arkts#着色器效果)。
 
@@ -178,7 +178,7 @@ canvas.detachBrush();
 
 
 
-##### 主题字体
+#### 主题字体
 
 主题字体，特指系统**主题应用**中能使用的字体，属于一种特殊的自定义字体。如需涉及文本测量和布局排版相关内容，可参考[使用主题字体（ArkTS）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/theme-font-arkts)。
 
@@ -208,7 +208,7 @@ canvas.drawTextBlob(textBlob, VALUE_200, VALUE_300);
 
 
 
-##### 单字绘制
+#### 单字绘制
 
 单字绘制是图形渲染中针对文本渲染的一种精细化控制技术。相比字块绘制，其核心优势在于能够利用字体退化机制，在当前字体无法显示某字符时，自动退化到使用系统字体绘制字符，提升对特殊字符的兼容性，避免字符缺失。同时，单字绘制支持逐字符配置字体特征（如连字、替代字形），满足复杂排版需求，增强用户体验。详细API说明请见[drawSingleCharacter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-canvas#drawsinglecharacter12)。
 
@@ -234,7 +234,7 @@ for (let s of text) {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/7ZaLtN5UStCDNLIhbSIFqA/zh-cn_image_0000002611754693.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T014903Z&HW-CC-Expire=86400&HW-CC-Sign=B7C38CFD9BC25A28A6782A50357B78AE682B0419AB07FF4E56187B8BEF42FD5C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/7ZaLtN5UStCDNLIhbSIFqA/zh-cn_image_0000002611754693.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T030532Z&HW-CC-Expire=86400&HW-CC-Sign=8FBD0D1FBD864860725A2892F183084481F515ACF16FE444F713897F0F8277B4)
 
 
 进阶场景：绘制带字体特征的字符。
@@ -261,7 +261,7 @@ for (let s of text) {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/j2NCcJR9R-S6bdjabIr15g/zh-cn_image_0000002581434756.png?HW-CC-KV=V1&HW-CC-Date=20260528T014903Z&HW-CC-Expire=86400&HW-CC-Sign=F572A315EC1C2F9A05A66328A15271364710E792A7CFB97231ACE76BFC717F2B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/j2NCcJR9R-S6bdjabIr15g/zh-cn_image_0000002581434756.png?HW-CC-KV=V1&HW-CC-Date=20260528T030532Z&HW-CC-Expire=86400&HW-CC-Sign=A3A74FB04031A768AB196556BF62D1EC4D3848E7702A08753C584DE8F3299964)
 
 
 > [!NOTE]
@@ -270,6 +270,6 @@ for (let s of text) {
 
 
 
-##### 示例代码
+#### 示例代码
 
  - [图形绘制（ArkTS）](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/ArkGraphics2D/Drawing/ArkTSGraphicsDraw)

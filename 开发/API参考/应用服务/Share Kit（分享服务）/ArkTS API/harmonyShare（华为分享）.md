@@ -12,7 +12,7 @@
 **起始版本：** 5.0.0(12)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { harmonyShare } from '@kit.ShareKit';
  
   
 
-##### SharableErrorCode
+#### SharableErrorCode
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -43,7 +43,7 @@ import { harmonyShare } from '@kit.ShareKit';
  
   
 
-##### ReceivableErrorCode
+#### ReceivableErrorCode
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -62,7 +62,7 @@ import { harmonyShare } from '@kit.ShareKit';
  
   
 
-##### ShareResultCode
+#### ShareResultCode
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -84,7 +84,7 @@ import { harmonyShare } from '@kit.ShareKit';
  
   
 
-##### SharableTarget
+#### SharableTarget
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -98,7 +98,7 @@ import { harmonyShare } from '@kit.ShareKit';
  
   
 
-##### share
+#### share
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -137,7 +137,7 @@ share(data: systemShare.SharedData): Promise&lt;void&gt;
  
   
 
-##### reject
+#### reject
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -176,7 +176,7 @@ reject(error: SharableErrorCode): Promise&lt;void&gt;
  
   
 
-##### updateShareData
+#### updateShareData
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -208,7 +208,7 @@ updateShareData(data: UpdatedData): Promise&lt;void&gt;
  
   
 
-##### clarifyNonShare
+#### clarifyNonShare
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -240,7 +240,7 @@ clarifyNonShare(info: SharableErrorInfo): Promise&lt;void&gt;
  
   
 
-##### ReceivableTarget
+#### ReceivableTarget
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -254,7 +254,7 @@ clarifyNonShare(info: SharableErrorInfo): Promise&lt;void&gt;
  
   
 
-##### receive
+#### receive
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -285,7 +285,7 @@ receive(receiveUri: string, callback: ReceiveCallback): Promise&lt;void&gt;
  
   
 
-##### reject
+#### reject
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -315,7 +315,7 @@ reject(error: ReceivableErrorCode): Promise&lt;void&gt;
  
   
 
-##### UpdatedData
+#### UpdatedData
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -334,7 +334,7 @@ reject(error: ReceivableErrorCode): Promise&lt;void&gt;
  
   
 
-##### BaseCapabilityRegistry
+#### BaseCapabilityRegistry
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -353,7 +353,7 @@ reject(error: ReceivableErrorCode): Promise&lt;void&gt;
  
   
 
-##### SendCapabilityRegistry
+#### SendCapabilityRegistry
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -372,7 +372,7 @@ reject(error: ReceivableErrorCode): Promise&lt;void&gt;
  
   
 
-##### RecvCapability
+#### RecvCapability
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -392,7 +392,7 @@ reject(error: ReceivableErrorCode): Promise&lt;void&gt;
  
   
 
-##### RecvCapabilityRegistry
+#### RecvCapabilityRegistry
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -411,7 +411,7 @@ reject(error: ReceivableErrorCode): Promise&lt;void&gt;
  
   
 
-##### TransferBaseResults
+#### TransferBaseResults
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -430,7 +430,7 @@ reject(error: ReceivableErrorCode): Promise&lt;void&gt;
  
   
 
-##### ReceiveCallback
+#### ReceiveCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -449,7 +449,7 @@ reject(error: ReceivableErrorCode): Promise&lt;void&gt;
  
   
 
-##### SharableErrorInfo
+#### SharableErrorInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -468,7 +468,7 @@ reject(error: ReceivableErrorCode): Promise&lt;void&gt;
  
   
 
-##### on('knockShare')
+#### on('knockShare')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -519,7 +519,7 @@ harmonyShare.on('knockShare', (sharableTarget: harmonyShare.SharableTarget) => {
  
   
 
-##### off('knockShare')
+#### off('knockShare')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -559,7 +559,7 @@ harmonyShare.off('knockShare');
  
   
 
-##### on('knockShare')
+#### on('knockShare')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -605,7 +605,7 @@ harmonyShare.on('knockShare', capabilityRegistry, (sharableTarget: harmonyShare.
  
   
 
-##### off('knockShare')
+#### off('knockShare')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -640,7 +640,7 @@ harmonyShare.off('knockShare', capabilityRegistry);
  
   
 
-##### on('gesturesShare')
+#### on('gesturesShare')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -682,7 +682,7 @@ harmonyShare.on('gesturesShare', (sharableTarget: harmonyShare.SharableTarget) =
  
   
 
-##### off('gesturesShare')
+#### off('gesturesShare')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -713,7 +713,7 @@ harmonyShare.off('gesturesShare');
  
   
 
-##### on('gesturesShare')
+#### on('gesturesShare')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -759,7 +759,7 @@ harmonyShare.on('gesturesShare', capabilityRegistry, (sharableTarget: harmonySha
  
   
 
-##### off('gesturesShare')
+#### off('gesturesShare')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -794,7 +794,7 @@ harmonyShare.off('gesturesShare', capabilityRegistry);
  
   
 
-##### on('dataReceive')
+#### on('dataReceive')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -855,7 +855,7 @@ harmonyShare.on('dataReceive', capabilityRegistry, (receivableTarget: harmonySha
  
   
 
-##### off('dataReceive')
+#### off('dataReceive')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

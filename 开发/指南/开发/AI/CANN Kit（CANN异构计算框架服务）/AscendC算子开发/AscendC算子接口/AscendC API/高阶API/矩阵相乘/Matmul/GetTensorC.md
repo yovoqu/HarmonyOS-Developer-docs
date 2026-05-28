@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-gettensorc
 
-##### 功能说明
+#### 功能说明
 
 Iterate后，获取一块C矩阵片，可以直接输出到GM tensor中。
  
@@ -18,7 +18,7 @@ Iterate后，获取一块C矩阵片，可以直接输出到GM tensor中。
  
   
 
-##### 函数原型
+#### 函数原型
 
 - 获取C矩阵，输出至GM
 
@@ -49,7 +49,7 @@ __aicore__ inline void GetTensorC(const LocalTensor<DstT>& c, uint8_t enAtomic =
  
   
 
-##### 参数说明
+#### 参数说明
 
 **表1** 模板参数说明
   
@@ -81,25 +81,25 @@ __aicore__ inline void GetTensorC(const LocalTensor<DstT>& c, uint8_t enAtomic =
  
   
 
-##### 返回值
+#### 返回值
 
 无
  
   
 
-##### 支持的型号
+#### 支持的型号
 
 Kirin9020系列处理器
  
   
 
-##### 注意事项
+#### 注意事项
 
 传入的C矩阵地址空间大小需要保证不小于baseM * baseN。
  
   
 
-##### 调用示例
+#### 调用示例
 
 - 获取C矩阵，输出至GM，同步模式样例
 

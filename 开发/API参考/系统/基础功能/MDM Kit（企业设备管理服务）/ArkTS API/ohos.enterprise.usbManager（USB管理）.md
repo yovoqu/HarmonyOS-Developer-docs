@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { usbManager } from '@kit.MDMKit';
 
 
 
-##### usbManager.addAllowedUsbDevices
+#### usbManager.addAllowedUsbDevices
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -89,7 +89,7 @@ try {
 
 
 
-##### usbManager.removeAllowedUsbDevices
+#### usbManager.removeAllowedUsbDevices
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -150,7 +150,7 @@ try {
 
 
 
-##### usbManager.getAllowedUsbDevices
+#### usbManager.getAllowedUsbDevices
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -211,7 +211,7 @@ try {
 
 
 
-##### usbManager.setUsbStorageDeviceAccessPolicy
+#### usbManager.setUsbStorageDeviceAccessPolicy
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -286,7 +286,7 @@ try {
 
 
 
-##### usbManager.getUsbStorageDeviceAccessPolicy
+#### usbManager.getUsbStorageDeviceAccessPolicy
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -347,7 +347,7 @@ try {
 
 
 
-##### usbManager.addDisallowedUsbDevices14+
+#### usbManager.addDisallowedUsbDevices14+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -416,7 +416,7 @@ try {
 
 
 
-##### usbManager.removeDisallowedUsbDevices14+
+#### usbManager.removeDisallowedUsbDevices14+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -479,7 +479,7 @@ try {
 
 
 
-##### usbManager.getDisallowedUsbDevices14+
+#### usbManager.getDisallowedUsbDevices14+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -540,7 +540,7 @@ try {
 
 
 
-##### UsbDeviceId
+#### UsbDeviceId
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -556,7 +556,7 @@ USB设备ID信息。
 
 
 
-##### UsbDeviceType14+
+#### UsbDeviceType14+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -574,7 +574,7 @@ USB设备类型信息。
 
 
 
-##### UsbPolicy
+#### UsbPolicy
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -591,7 +591,7 @@ USB读写策略的枚举。
 
 
 
-##### Descriptor14+
+#### Descriptor14+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

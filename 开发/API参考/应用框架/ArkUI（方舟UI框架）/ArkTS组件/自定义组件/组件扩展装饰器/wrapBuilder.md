@@ -12,7 +12,7 @@
 
 
 
-##### wrapBuilder
+#### wrapBuilder
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -52,7 +52,7 @@ let builderVar: WrappedBuilder<[string, number]> = wrapBuilder(MyBuilder);
 
 
 
-##### WrappedBuilder
+#### WrappedBuilder
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -60,7 +60,7 @@ let builderVar: WrappedBuilder<[string, number]> = wrapBuilder(MyBuilder);
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -75,7 +75,7 @@ let builderVar: WrappedBuilder<[string, number]> = wrapBuilder(MyBuilder);
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

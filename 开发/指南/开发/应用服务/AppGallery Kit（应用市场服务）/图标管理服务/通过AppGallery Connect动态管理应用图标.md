@@ -7,7 +7,7 @@
 通过图标管理服务，开发者可以在不升级应用版本的情况下，通过AGC页面动态管理应用的个性化图标，并在应用侧实现应用图标动态切换。
   
 
-##### 申请开通服务
+#### 申请开通服务
 
 使用图标管理服务之前，请按如下格式向华为运营人员发送邮件申请开通服务。申请审核时间为1-3个工作日，审核结果请关注邮件信息或[互动中心](https://developer.huawei.com/consumer/cn/doc/app/agc-help-interaction-center-0000002276985946)通知。
  
@@ -33,7 +33,7 @@
  
   
 
-##### 通过AppGallery Connect配置应用图标
+#### 通过AppGallery Connect配置应用图标
 
 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html#/)，点击“APP与元服务”，在应用列表中选择已经开通图标管理服务的HarmonyOS应用，选择“分发 > 服务 > 图标管理”，进入图标管理页面，就可以管理HarmonyOS应用的个性化图标。
  
@@ -47,7 +47,7 @@
  
   
 
-##### 创建图标
+#### 创建图标
 1. 在图标管理页面点击“新增图标”按钮，进入创建图标页面。
 
   
@@ -61,11 +61,11 @@
  
   
 
-##### 编辑和更新图标
+#### 编辑和更新图标
 1. 在图标管理页面选择一个草稿或审核不通过的图标，点击“编辑”按钮，或选择一个审核通过的图标，点击“更新”按钮，进入图标编辑页面。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/eKx26SAkSBWm9dZg30LAZA/zh-cn_image_0000002611834719.png?HW-CC-KV=V1&HW-CC-Date=20260528T014446Z&HW-CC-Expire=86400&HW-CC-Sign=7BAD3872392C63CBBDC909FD3C8ED28B8F4083691030F7C23CBD4EE27E2D4057)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/eKx26SAkSBWm9dZg30LAZA/zh-cn_image_0000002611834719.png?HW-CC-KV=V1&HW-CC-Date=20260528T030115Z&HW-CC-Expire=86400&HW-CC-Sign=0498047D52D0E9ED0E1DAAB0DE976BFB00E088CCFE08FBEEEFB823D1F36B249F)
 
 2. 输入图标ID、图标名称，选择设备类型，上传图标文件，点击“保存”或者“提交”按钮，将图标保存为草稿状态或提交审核。
  
@@ -75,11 +75,11 @@
  
   
 
-##### 删除图标
+#### 删除图标
 1. 在图标管理页面选择一个图标，点击“删除”按钮，再点击提示框中的“确认”按钮，就可以删除指定图标。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/uZVkCbieQAmPDiejNM0gUQ/zh-cn_image_0000002581274972.png?HW-CC-KV=V1&HW-CC-Date=20260528T014446Z&HW-CC-Expire=86400&HW-CC-Sign=FEB027938A3AE499E904B51870B27107C4F866BC9ED7E258904E8445F20FDFD3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/uZVkCbieQAmPDiejNM0gUQ/zh-cn_image_0000002581274972.png?HW-CC-KV=V1&HW-CC-Date=20260528T030115Z&HW-CC-Expire=86400&HW-CC-Sign=873AA39507C570AD44D4A1DE5AABFC96F1DD2D2886A56F47D8F60DE39AE8C62C)
 
  
 > [!NOTE]

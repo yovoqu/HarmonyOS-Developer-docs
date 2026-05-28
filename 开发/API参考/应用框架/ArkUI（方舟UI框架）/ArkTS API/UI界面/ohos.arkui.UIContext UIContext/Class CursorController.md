@@ -12,7 +12,7 @@
 
   
 
-##### restoreDefault12+
+#### restoreDefault12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -60,7 +60,7 @@ struct CursorControlExample {
  
   
 
-##### setCursor12+
+#### setCursor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -113,4 +113,4 @@ struct CursorControlExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/YDDA3xbnRtSwWjWn72SUPg/zh-cn_image_0000002581435534.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024119Z&HW-CC-Expire=86400&HW-CC-Sign=E57C9221221D4B191429C1EC441ED9171C4C084C615A77CC324C9DF8D19DE2F9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/YDDA3xbnRtSwWjWn72SUPg/zh-cn_image_0000002581435534.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025453Z&HW-CC-Expire=86400&HW-CC-Sign=CBCFF0ACE0A867C808A9ECF33A330C65E4FE8CA0070CF1F1A4932A97B173C3C9)

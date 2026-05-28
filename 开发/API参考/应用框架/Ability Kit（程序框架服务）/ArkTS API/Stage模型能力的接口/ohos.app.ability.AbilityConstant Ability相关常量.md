@@ -12,7 +12,7 @@ AbilityConstant提供Ability相关的枚举，包括应用启动原因[LaunchRea
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { AbilityConstant } from '@kit.AbilityKit';
 
 
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -37,7 +37,7 @@ import { AbilityConstant } from '@kit.AbilityKit';
 
 
 
-##### LaunchParam
+#### LaunchParam
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -58,7 +58,7 @@ import { AbilityConstant } from '@kit.AbilityKit';
 
 
 
-##### LaunchReason
+#### LaunchReason
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -96,7 +96,7 @@ export default class MyAbility extends UIAbility {
 
 
 
-##### LastExitReason
+#### LastExitReason
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -138,7 +138,7 @@ export default class MyAbility extends UIAbility {
 
 
 
-##### LastExitDetailInfo18+
+#### LastExitDetailInfo18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -190,7 +190,7 @@ export default class MyAbility extends UIAbility {
 
 
 
-##### OnContinueResult
+#### OnContinueResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -221,7 +221,7 @@ export default class MyAbility extends UIAbility {
 
 
 
-##### MemoryLevel
+#### MemoryLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -260,7 +260,7 @@ export default class MyAbility extends UIAbility {
 
 
 
-##### WindowMode12+
+#### WindowMode12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -303,7 +303,7 @@ export default class MyAbility extends UIAbility {
 
 
 
-##### OnSaveResult
+#### OnSaveResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -337,7 +337,7 @@ export default class MyAbility extends UIAbility {
 
 
 
-##### StateType
+#### StateType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -370,7 +370,7 @@ export default class MyAbility extends UIAbility {
 
 
 
-##### ContinueState10+
+#### ContinueState10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -403,7 +403,7 @@ export default class MyAbility extends UIAbility {
 
 
 
-##### CollaborateResult18+
+#### CollaborateResult18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -431,7 +431,7 @@ export default class MyAbility extends UIAbility {
 
 
 
-##### PrepareTermination15+
+#### PrepareTermination15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

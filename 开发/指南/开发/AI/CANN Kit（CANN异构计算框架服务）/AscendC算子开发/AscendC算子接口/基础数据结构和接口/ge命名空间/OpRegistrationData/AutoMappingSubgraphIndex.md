@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-automappingsubgraphindex
 
-##### 函数功能
+#### 函数功能
 
 设置子图的输入输出和主图对应父节点输入输出的对应关系。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 Status AutoMappingSubgraphIndex(const ge::Graph &graph,
@@ -23,7 +23,7 @@ const std::function<Status(int32_t netoutput_index, int32_t &parent_output_index
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -34,6 +34,6 @@ const std::function<Status(int32_t netoutput_index, int32_t &parent_output_index
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

@@ -12,7 +12,7 @@ continuationManager模块提供了流转/协同入口管理服务能力，包括
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -22,7 +22,7 @@ import { continuationManager } from '@kit.AbilityKit';
 
 
 
-##### continuationManager.register(deprecated)
+#### continuationManager.register(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -63,7 +63,7 @@ continuationManager.register((err, data) => {
 
 
 
-##### continuationManager.register(deprecated)
+#### continuationManager.register(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -109,7 +109,7 @@ continuationManager.register(
 
 
 
-##### continuationManager.register(deprecated)
+#### continuationManager.register(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -157,7 +157,7 @@ continuationManager.register(
 
 
 
-##### continuationManager.registerContinuation(deprecated)
+#### continuationManager.registerContinuation(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -218,7 +218,7 @@ try {
 
 
 
-##### continuationManager.registerContinuation(deprecated)
+#### continuationManager.registerContinuation(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -284,7 +284,7 @@ try {
 
 
 
-##### continuationManager.registerContinuation(deprecated)
+#### continuationManager.registerContinuation(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -354,7 +354,7 @@ try {
 
 
 
-##### continuationManager.on('deviceConnect')(deprecated)
+#### continuationManager.on('deviceConnect')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -392,7 +392,7 @@ continuationManager.on("deviceConnect", (data) => {
 
 
 
-##### continuationManager.on('deviceDisconnect')(deprecated)
+#### continuationManager.on('deviceDisconnect')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -428,7 +428,7 @@ continuationManager.on("deviceDisconnect", (data) => {
 
 
 
-##### continuationManager.off('deviceConnect')(deprecated)
+#### continuationManager.off('deviceConnect')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -466,7 +466,7 @@ continuationManager.off("deviceConnect", (data) => {
 
 
 
-##### continuationManager.off('deviceDisconnect')(deprecated)
+#### continuationManager.off('deviceDisconnect')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -502,7 +502,7 @@ continuationManager.off("deviceDisconnect", (data) => {
 
 
 
-##### continuationManager.on('deviceSelected')(deprecated)
+#### continuationManager.on('deviceSelected')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -566,7 +566,7 @@ try {
 
 
 
-##### continuationManager.on('deviceUnselected')(deprecated)
+#### continuationManager.on('deviceUnselected')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -631,7 +631,7 @@ try {
 
 
 
-##### continuationManager.off('deviceSelected')(deprecated)
+#### continuationManager.off('deviceSelected')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -687,7 +687,7 @@ try {
 
 
 
-##### continuationManager.off('deviceUnselected')(deprecated)
+#### continuationManager.off('deviceUnselected')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -743,7 +743,7 @@ try {
 
 
 
-##### continuationManager.startDeviceManager(deprecated)
+#### continuationManager.startDeviceManager(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -784,7 +784,7 @@ continuationManager.startDeviceManager(token, (err) => {
 
 
 
-##### continuationManager.startDeviceManager(deprecated)
+#### continuationManager.startDeviceManager(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -831,7 +831,7 @@ continuationManager.startDeviceManager(
 
 
 
-##### continuationManager.startDeviceManager(deprecated)
+#### continuationManager.startDeviceManager(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -882,7 +882,7 @@ continuationManager.startDeviceManager(
 
 
 
-##### continuationManager.startContinuationDeviceManager(deprecated)
+#### continuationManager.startContinuationDeviceManager(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -943,7 +943,7 @@ try {
 
 
 
-##### continuationManager.startContinuationDeviceManager(deprecated)
+#### continuationManager.startContinuationDeviceManager(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1010,7 +1010,7 @@ try {
 
 
 
-##### continuationManager.startContinuationDeviceManager(deprecated)
+#### continuationManager.startContinuationDeviceManager(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1081,7 +1081,7 @@ try {
 
 
 
-##### continuationManager.updateConnectStatus(deprecated)
+#### continuationManager.updateConnectStatus(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1125,7 +1125,7 @@ continuationManager.updateConnectStatus(token, deviceId, continuationManager.Dev
 
 
 
-##### continuationManager.updateConnectStatus(deprecated)
+#### continuationManager.updateConnectStatus(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1176,7 +1176,7 @@ continuationManager.updateConnectStatus(token, deviceId, continuationManager.Dev
 
 
 
-##### continuationManager.updateContinuationState(deprecated)
+#### continuationManager.updateContinuationState(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1240,7 +1240,7 @@ try {
 
 
 
-##### continuationManager.updateContinuationState(deprecated)
+#### continuationManager.updateContinuationState(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1311,7 +1311,7 @@ try {
 
 
 
-##### continuationManager.unregister(deprecated)
+#### continuationManager.unregister(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1352,7 +1352,7 @@ continuationManager.unregister(token, (err) => {
 
 
 
-##### continuationManager.unregister(deprecated)
+#### continuationManager.unregister(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1399,7 +1399,7 @@ continuationManager.unregister(token)
 
 
 
-##### continuationManager.unregisterContinuation(deprecated)
+#### continuationManager.unregisterContinuation(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1460,7 +1460,7 @@ try {
 
 
 
-##### continuationManager.unregisterContinuation(deprecated)
+#### continuationManager.unregisterContinuation(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1526,7 +1526,7 @@ try {
 
 
 
-##### DeviceConnectState(deprecated)
+#### DeviceConnectState(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1552,7 +1552,7 @@ try {
 
 
 
-##### ContinuationMode(deprecated)
+#### ContinuationMode(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1576,7 +1576,7 @@ try {
 
 
 
-##### ContinuationResult(deprecated)
+#### ContinuationResult(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1601,7 +1601,7 @@ type ContinuationResult = _ContinuationResult
 
 
 
-##### ContinuationExtraParams(deprecated)
+#### ContinuationExtraParams(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

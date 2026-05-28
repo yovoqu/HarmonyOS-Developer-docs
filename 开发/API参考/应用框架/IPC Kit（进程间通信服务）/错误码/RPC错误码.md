@@ -12,7 +12,7 @@
 从API version 9起，IPC支持异常返回功能。错误码对应数值及含义如下。
 
 
-##### 1900001 系统调用mmap失败
+#### 1900001 系统调用mmap失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -34,7 +34,7 @@ Failed to call mmap.
 
 
 
-##### 1900002 系统调用ioctl失败
+#### 1900002 系统调用ioctl失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -56,7 +56,7 @@ Failed to call ioctl.
 
 
 
-##### 1900003 共享内存写数据失败
+#### 1900003 共享内存写数据失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -78,7 +78,7 @@ Failed to write data to the shared memory.
 
 
 
-##### 1900004 共享内存读数据失败
+#### 1900004 共享内存读数据失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -100,7 +100,7 @@ Failed to read data from the shared memory.
 
 
 
-##### 1900005 ipc对象权限错误
+#### 1900005 ipc对象权限错误
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -122,7 +122,7 @@ Operation allowed only for the proxy object.
 
 
 
-##### 1900006 ipc对象权限错误
+#### 1900006 ipc对象权限错误
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -144,7 +144,7 @@ Operation allowed only for the remote object.
 
 
 
-##### 1900007 远端对象通信失败
+#### 1900007 远端对象通信失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -166,7 +166,7 @@ Communication failed.
 
 
 
-##### 1900008 非法的ipc对象
+#### 1900008 非法的ipc对象
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -188,7 +188,7 @@ The proxy or remote object is invalid.
 
 
 
-##### 1900009 向MessageSequence写入数据失败
+#### 1900009 向MessageSequence写入数据失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -210,7 +210,7 @@ sequence默认空间已满。
 
 
 
-##### 1900010 读取MessageSequence数据失败
+#### 1900010 读取MessageSequence数据失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -232,7 +232,7 @@ Failed to read data from the message sequence.
 
 
 
-##### 1900011 内存分配失败
+#### 1900011 内存分配失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -254,7 +254,7 @@ Memory allocation failed.
 
 
 
-##### 1900012 JS方法失败
+#### 1900012 JS方法失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -276,7 +276,7 @@ Failed to call the JS callback function.
 
 
 
-##### 1900013 系统调用dup失败
+#### 1900013 系统调用dup失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

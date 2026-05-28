@@ -4,17 +4,17 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicemanager
 
-##### 场景介绍
+#### 场景介绍
 
 当有USB设备插入时，可以通过usbManager获取一些USB设备的基本信息，如设备类型、支持的功能等。 Host侧主要通过封装的pipe来完成和USB设备的通信。在HarmonyOS系统中，USB管理服务是核心组件，负责管理与USB设备的连接和通信。通过USB管理服务，应用程序可以检测USB设备的连接与断开，管理USB设备的权限请求和设备配置，以及进行数据传输和设备控制。
 
 
 
-##### 环境准备
+#### 环境准备
 
 
 
-##### 环境要求
+#### 环境要求
 
  - 开发工具及配置：
 
@@ -29,7 +29,7 @@
 
 
 
-##### 搭建环境
+#### 搭建环境
 
  - 在PC上安装[DevEco Studio](https://developer.huawei.com/consumer/cn/download/deveco-studio)，要求版本在4.1及以上。
  - 将public-SDK更新到API 16或以上。
@@ -39,11 +39,11 @@
 
 
 
-##### 开发指导
+#### 开发指导
 
 
 
-##### 接口说明
+#### 接口说明
 
 USB设备管理主要提供的功能有：查询USB设备列表、USB设备权限控制、设置USB设备配置等。
 
@@ -69,7 +69,7 @@ USB类开放能力如下，具体请查阅[@ohos.usbManager](https://developer.h
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 USB设备可作为Host连接Device进行设备管理，开发示例如下：
 1. 导入模块。

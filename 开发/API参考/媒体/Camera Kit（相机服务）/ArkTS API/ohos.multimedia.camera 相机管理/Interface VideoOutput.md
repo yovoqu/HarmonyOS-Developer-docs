@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { camera } from '@kit.CameraKit';
 
 
 
-##### start
+#### start
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -69,7 +69,7 @@ function startVideoOutput(videoOutput: camera.VideoOutput): void {
 
 
 
-##### start
+#### start
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -114,7 +114,7 @@ function startVideoOutput(videoOutput: camera.VideoOutput): void {
 
 
 
-##### stop
+#### stop
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -145,7 +145,7 @@ function stopVideoOutput(videoOutput: camera.VideoOutput): void {
 
 
 
-##### stop
+#### stop
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -180,7 +180,7 @@ function stopVideoOutput(videoOutput: camera.VideoOutput): void {
 
 
 
-##### on('frameStart')
+#### on('frameStart')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -224,7 +224,7 @@ function registerVideoOutputFrameStart(videoOutput: camera.VideoOutput): void {
 
 
 
-##### off('frameStart')
+#### off('frameStart')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -258,7 +258,7 @@ function unregisterVideoOutputFrameStart(videoOutput: camera.VideoOutput): void 
 
 
 
-##### on('frameEnd')
+#### on('frameEnd')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -298,7 +298,7 @@ function registerVideoOutputFrameEnd(videoOutput: camera.VideoOutput): void {
 
 
 
-##### off('frameEnd')
+#### off('frameEnd')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -328,7 +328,7 @@ function unregisterVideoOutputFrameEnd(videoOutput: camera.VideoOutput): void {
 
 
 
-##### on('error')
+#### on('error')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -368,7 +368,7 @@ function registerVideoOutputError(videoOutput: camera.VideoOutput): void {
 
 
 
-##### off('error')
+#### off('error')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -398,7 +398,7 @@ function unregisterVideoOutputError(videoOutput: camera.VideoOutput): void {
 
 
 
-##### getSupportedFrameRates12+
+#### getSupportedFrameRates12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -428,7 +428,7 @@ function getSupportedFrameRates(videoOutput: camera.VideoOutput): Array<camera.F
 
 
 
-##### setFrameRate12+
+#### setFrameRate12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -474,7 +474,7 @@ function setFrameRateRange(videoOutput: camera.VideoOutput, frameRateRange: Arra
 
 
 
-##### getActiveFrameRate12+
+#### getActiveFrameRate12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -506,7 +506,7 @@ function getActiveFrameRate(videoOutput: camera.VideoOutput): camera.FrameRateRa
 
 
 
-##### getActiveProfile12+
+#### getActiveProfile12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -554,7 +554,7 @@ function testGetActiveProfile(videoOutput: camera.VideoOutput): camera.Profile |
 
 
 
-##### isMirrorSupported15+
+#### isMirrorSupported15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -584,7 +584,7 @@ function testIsMirrorSupported(videoOutput: camera.VideoOutput): boolean {
 
 
 
-##### enableMirror15+
+#### enableMirror15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -636,7 +636,7 @@ function enableMirror(videoOutput: camera.VideoOutput, mirrorMode: boolean, aVRe
 
 
 
-##### getVideoRotation12+
+#### getVideoRotation12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

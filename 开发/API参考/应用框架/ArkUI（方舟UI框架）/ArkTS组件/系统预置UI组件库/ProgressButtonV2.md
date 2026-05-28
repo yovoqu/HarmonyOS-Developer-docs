@@ -14,7 +14,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { ColorMetrics, LengthMetrics, ProgressButtonV2,  ProgressButtonV2Color }
 
 
 
-##### ProgressButtonV2
+#### ProgressButtonV2
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -53,7 +53,7 @@ ProgressButtonV2({progress: number, content: ResourceStr, progressButtonWidth?: 
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -61,7 +61,7 @@ ProgressButtonV2({progress: number, content: ResourceStr, progressButtonWidth?: 
 
 
 
-##### ClickCallback
+#### ClickCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -77,7 +77,7 @@ type ClickCallback = () => void
 
 
 
-##### ProgressButtonV2Color
+#### ProgressButtonV2Color
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -87,7 +87,7 @@ type ClickCallback = () => void
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -107,7 +107,7 @@ type ClickCallback = () => void
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -130,7 +130,7 @@ constructor(options: ProgressButtonV2ColorOptions);
 
 
 
-##### ProgressButtonV2ColorOptions
+#### ProgressButtonV2ColorOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -152,7 +152,7 @@ constructor(options: ProgressButtonV2ColorOptions);
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -160,7 +160,7 @@ constructor(options: ProgressButtonV2ColorOptions);
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -217,4 +217,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/wf37ktb6RL-uHOT-1sS8eA/zh-cn_image_0000002611756199.png?HW-CC-KV=V1&HW-CC-Date=20260528T024157Z&HW-CC-Expire=86400&HW-CC-Sign=73130820A952391AA0E65337F77A5A5C44E7BE205BAFDA6508FAAE9226312A9B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/wf37ktb6RL-uHOT-1sS8eA/zh-cn_image_0000002611756199.png?HW-CC-KV=V1&HW-CC-Date=20260528T025529Z&HW-CC-Expire=86400&HW-CC-Sign=495B9C29D5E44C0DEEEAC35DF10945AA007D033057D398C08F2E82C9835018DD)

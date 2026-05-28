@@ -18,7 +18,7 @@ VoIPExtensionAbility为应用内通话消息扩展Ability，继承自[UIExtensio
 **起始版本：** 4.1.0(11)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -28,7 +28,7 @@ import { VoIPExtensionAbility } from '@kit.PushKit';
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -47,7 +47,7 @@ import { VoIPExtensionAbility } from '@kit.PushKit';
  
   
 
-##### onReceiveMessage
+#### onReceiveMessage
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

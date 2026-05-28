@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-infer-format-func-reg
 
-##### 函数功能
+#### 函数功能
 
 注册算子的InferFormat实现。
  
@@ -12,7 +12,7 @@ GE会在整图的Shape与Dtype推导前后分别调用一次整图的InferFormat
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 #define INFER_FORMAT_FUNC_REG(op_name, x) \
@@ -21,7 +21,7 @@ __INFER_FORMAT_FUNC_REG_IMPL__(op_name, INFER_FORMAT_FUNC(op_name, x), __COUNTER
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数名 | 输入/输出 | 描述 |
 | --- | --- | --- |
@@ -31,25 +31,25 @@ __INFER_FORMAT_FUNC_REG_IMPL__(op_name, INFER_FORMAT_FUNC(op_name, x), __COUNTER
  
   
 
-##### 返回值
+#### 返回值
 
 无
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 客户是否可用
+#### 客户是否可用
 
 是
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 INFER_FORMAT_FUNC_REG(Transpose, TransposeInferFormat);

@@ -14,7 +14,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,13 +24,13 @@ import { intl } from '@kit.LocalizationKit';
 
 
 
-##### Locale(deprecated)
+#### Locale(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -58,7 +58,7 @@ import { intl } from '@kit.LocalizationKit';
 
 
 
-##### constructor(deprecated)
+#### constructor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -87,7 +87,7 @@ let localeID = locale.toString();
 
 
 
-##### constructor(deprecated)
+#### constructor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -123,7 +123,7 @@ let localeID = locale.toString(); // localeID = 'zh-CN'
 
 
 
-##### toString(deprecated)
+#### toString(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -158,7 +158,7 @@ let localeID = locale.toString(); // localeID = 'en-GB'
 
 
 
-##### maximize(deprecated)
+#### maximize(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -201,7 +201,7 @@ localeID = maximizedLocale.toString(); // localeID = 'en-Latn-US'
 
 
 
-##### minimize(deprecated)
+#### minimize(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -244,7 +244,7 @@ localeID = minimizedLocale.toString(); // localeID = 'en'
 
 
 
-##### LocaleOptions(deprecated)
+#### LocaleOptions(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -274,7 +274,7 @@ localeID = minimizedLocale.toString(); // localeID = 'en'
 
 
 
-##### DateTimeFormat(deprecated)
+#### DateTimeFormat(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -288,7 +288,7 @@ localeID = minimizedLocale.toString(); // localeID = 'en'
 
 
 
-##### constructor(deprecated)
+#### constructor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -315,7 +315,7 @@ let formatter: intl.DateTimeFormat = new intl.DateTimeFormat();
 
 
 
-##### constructor(deprecated)
+#### constructor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -353,7 +353,7 @@ formatter = new intl.DateTimeFormat(['ban', 'zh'], { dateStyle: 'full', timeStyl
 
 
 
-##### format(deprecated)
+#### format(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -400,7 +400,7 @@ formattedDate = formatter.format(date); // formattedDate "Friday, 17 December 20
 
 
 
-##### formatRange(deprecated)
+#### formatRange(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -445,7 +445,7 @@ let formattedDateRange: string = formatter.formatRange(startDate, endDate); // f
 
 
 
-##### resolvedOptions(deprecated)
+#### resolvedOptions(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -482,7 +482,7 @@ let timeStyle: string | undefined = options.timeStyle; // timeStyle = 'medium'
 
 
 
-##### DateTimeOptions(deprecated)
+#### DateTimeOptions(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -521,7 +521,7 @@ let timeStyle: string | undefined = options.timeStyle; // timeStyle = 'medium'
 
 
 
-##### NumberFormat
+#### NumberFormat
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -533,7 +533,7 @@ let timeStyle: string | undefined = options.timeStyle; // timeStyle = 'medium'
 
 
 
-##### constructor8+
+#### constructor8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -556,7 +556,7 @@ let formatter: intl.NumberFormat = new intl.NumberFormat();
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -587,7 +587,7 @@ let formatter: intl.NumberFormat = new intl.NumberFormat('en-GB', { style: 'deci
 
 
 
-##### format
+#### format
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -632,7 +632,7 @@ let result: string = formatter.format(1.23456); // result = 1.23
 
 
 
-##### formatRange18+
+#### formatRange18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -670,7 +670,7 @@ let formattedRange: string = formatter.formatRange(0, 3); // formattedRange: 0�
 
 
 
-##### resolvedOptions
+#### resolvedOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -703,7 +703,7 @@ let notation: string | undefined = options.notation; // notation = 'scientific'
 
 
 
-##### NumberOptions
+#### NumberOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -739,7 +739,7 @@ let notation: string | undefined = options.notation; // notation = 'scientific'
 
 
 
-##### Collator8+
+#### Collator8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -751,7 +751,7 @@ let notation: string | undefined = options.notation; // notation = 'scientific'
 
 
 
-##### constructor8+
+#### constructor8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -774,7 +774,7 @@ let collator = new intl.Collator();
 
 
 
-##### constructor8+
+#### constructor8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -805,7 +805,7 @@ let collator = new intl.Collator('zh-CN', {localeMatcher: 'lookup', usage: 'sort
 
 
 
-##### compare8+
+#### compare8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -845,7 +845,7 @@ let compareResult = collator.compare('first', 'second'); // compareResult = -1
 
 
 
-##### resolvedOptions8+
+#### resolvedOptions8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -878,7 +878,7 @@ let ignorePunctuation = options.ignorePunctuation; // ignorePunctuation = true
 
 
 
-##### CollatorOptions8+
+#### CollatorOptions8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -903,7 +903,7 @@ let ignorePunctuation = options.ignorePunctuation; // ignorePunctuation = true
 
 
 
-##### PluralRules(deprecated)
+#### PluralRules(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -917,7 +917,7 @@ let ignorePunctuation = options.ignorePunctuation; // ignorePunctuation = true
 
 
 
-##### constructor(deprecated)
+#### constructor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -942,7 +942,7 @@ let pluralRules = new intl.PluralRules();
 
 
 
-##### constructor(deprecated)
+#### constructor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -975,7 +975,7 @@ let pluralRules: intl.PluralRules = new intl.PluralRules('zh-CN', { localeMatche
 
 
 
-##### select(deprecated)
+#### select(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1021,7 +1021,7 @@ plural = enPluralRules.select(1); // plural = 'one'
 
 
 
-##### PluralRulesOptions(deprecated)
+#### PluralRulesOptions(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1046,7 +1046,7 @@ plural = enPluralRules.select(1); // plural = 'one'
 
 
 
-##### RelativeTimeFormat(deprecated)
+#### RelativeTimeFormat(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1060,7 +1060,7 @@ plural = enPluralRules.select(1); // plural = 'one'
 
 
 
-##### constructor(deprecated)
+#### constructor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1085,7 +1085,7 @@ let formatter: intl.RelativeTimeFormat = new intl.RelativeTimeFormat();
 
 
 
-##### constructor(deprecated)
+#### constructor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1122,7 +1122,7 @@ let formatter: intl.RelativeTimeFormat = new intl.RelativeTimeFormat('zh-CN', {
 
 
 
-##### format(deprecated)
+#### format(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1164,7 +1164,7 @@ let formatResult: string = formatter.format(3, 'quarter'); // formatResult = '3�
 
 
 
-##### formatToParts(deprecated)
+#### formatToParts(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1205,7 +1205,7 @@ let parts: Array<object> = formatter.formatToParts(10, 'seconds'); // parts = [ 
 
 
 
-##### resolvedOptions(deprecated)
+#### resolvedOptions(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1240,7 +1240,7 @@ let style: string = options.style; // style = 'short'
 
 
 
-##### RelativeTimeFormatInputOptions(deprecated)
+#### RelativeTimeFormatInputOptions(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1263,7 +1263,7 @@ let style: string = options.style; // style = 'short'
 
 
 
-##### RelativeTimeFormatResolvedOptions(deprecated)
+#### RelativeTimeFormatResolvedOptions(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1285,7 +1285,7 @@ let style: string = options.style; // style = 'short'
 
 
 
-##### 附录
+#### 附录
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

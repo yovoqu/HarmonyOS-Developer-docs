@@ -14,7 +14,7 @@
 **起始版本：** 5.0.3(15)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { appInfoManager } from '@kit.AppGalleryKit';
  
   
 
-##### DynamicIconInfo
+#### DynamicIconInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -43,7 +43,7 @@ import { appInfoManager } from '@kit.AppGalleryKit';
  
   
 
-##### appInfoManager.queryDynamicIcons
+#### appInfoManager.queryDynamicIcons
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -127,7 +127,7 @@ struct DynamicIconPage {
  
   
 
-##### appInfoManager.selectDynamicIcon
+#### appInfoManager.selectDynamicIcon
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -190,7 +190,7 @@ try {
  
   
 
-##### appInfoManager.disableDynamicIcon
+#### appInfoManager.disableDynamicIcon
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

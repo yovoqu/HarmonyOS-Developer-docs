@@ -10,7 +10,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
 
 
-##### PhotoType
+#### PhotoType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -38,7 +38,7 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
 
 
-##### PhotoSubtype12+
+#### PhotoSubtype12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -57,7 +57,7 @@ PhotoSubtype是不同[PhotoAsset](https://developer.huawei.com/consumer/cn/doc/h
 
 
 
-##### DynamicRangeType12+
+#### DynamicRangeType12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -73,7 +73,7 @@ PhotoSubtype是不同[PhotoAsset](https://developer.huawei.com/consumer/cn/doc/h
 
 
 
-##### AlbumType
+#### AlbumType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -90,7 +90,7 @@ PhotoSubtype是不同[PhotoAsset](https://developer.huawei.com/consumer/cn/doc/h
 
 
 
-##### AlbumSubtype
+#### AlbumSubtype
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -110,7 +110,7 @@ PhotoSubtype是不同[PhotoAsset](https://developer.huawei.com/consumer/cn/doc/h
 
 
 
-##### PositionType16+
+#### PositionType16+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -127,7 +127,7 @@ PhotoSubtype是不同[PhotoAsset](https://developer.huawei.com/consumer/cn/doc/h
 
 
 
-##### PhotoKeys
+#### PhotoKeys
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -169,7 +169,7 @@ PhotoSubtype是不同[PhotoAsset](https://developer.huawei.com/consumer/cn/doc/h
 
 
 
-##### AlbumKeys
+#### AlbumKeys
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -187,7 +187,7 @@ PhotoSubtype是不同[PhotoAsset](https://developer.huawei.com/consumer/cn/doc/h
 
 
 
-##### ResourceType11+
+#### ResourceType11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -205,7 +205,7 @@ PhotoSubtype是不同[PhotoAsset](https://developer.huawei.com/consumer/cn/doc/h
 
 
 
-##### ImageFileType13+
+#### ImageFileType13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -221,7 +221,7 @@ PhotoSubtype是不同[PhotoAsset](https://developer.huawei.com/consumer/cn/doc/h
 
 
 
-##### NotifyType
+#### NotifyType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -240,7 +240,7 @@ PhotoSubtype是不同[PhotoAsset](https://developer.huawei.com/consumer/cn/doc/h
 
 
 
-##### DefaultChangeUri
+#### DefaultChangeUri
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -256,7 +256,7 @@ PhotoSubtype是不同[PhotoAsset](https://developer.huawei.com/consumer/cn/doc/h
 
 
 
-##### PhotoViewMIMETypes
+#### PhotoViewMIMETypes
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -274,7 +274,7 @@ PhotoSubtype是不同[PhotoAsset](https://developer.huawei.com/consumer/cn/doc/h
 
 
 
-##### RecommendationType11+
+#### RecommendationType11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -326,7 +326,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### SingleSelectionMode18+
+#### SingleSelectionMode18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -345,7 +345,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### FilterOperator19+
+#### FilterOperator19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -368,7 +368,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### DeliveryMode11+
+#### DeliveryMode11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -387,7 +387,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### CompatibleMode15+
+#### CompatibleMode15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -403,7 +403,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### CompleteButtonText14+
+#### CompleteButtonText14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -420,7 +420,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### NotifyChangeType20+
+#### NotifyChangeType20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -437,7 +437,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### PhotoSource20+
+#### PhotoSource20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -454,7 +454,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### MovingPhotoBadgeStateType22+
+#### MovingPhotoBadgeStateType22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -473,7 +473,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### SceneType23+
+#### SceneType23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -493,7 +493,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### PlayMode23+
+#### PlayMode23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -513,7 +513,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### VideoMode22+
+#### VideoMode22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -529,7 +529,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### OperationType22+
+#### OperationType22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -561,7 +561,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### GridLevel23+
+#### GridLevel23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -582,7 +582,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 
-##### GridPinchModeType23+
+#### GridPinchModeType23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

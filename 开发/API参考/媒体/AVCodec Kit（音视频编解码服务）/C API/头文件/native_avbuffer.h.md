@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avbuffer-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -25,13 +25,13 @@
 
 
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -43,7 +43,7 @@
 
 
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -62,13 +62,13 @@
 
 
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### OH_AVBuffer_Create()
+#### OH_AVBuffer_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -100,7 +100,7 @@ OH_AVBuffer *OH_AVBuffer_Create(int32_t capacity)
 
 
 
-##### OH_AVBuffer_Destroy()
+#### OH_AVBuffer_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -132,7 +132,7 @@ OH_AVErrCode OH_AVBuffer_Destroy(OH_AVBuffer *buffer)
 
 
 
-##### OH_AVBuffer_GetBufferAttr()
+#### OH_AVBuffer_GetBufferAttr()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -165,7 +165,7 @@ OH_AVErrCode OH_AVBuffer_GetBufferAttr(OH_AVBuffer *buffer, OH_AVCodecBufferAttr
 
 
 
-##### OH_AVBuffer_SetBufferAttr()
+#### OH_AVBuffer_SetBufferAttr()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -198,7 +198,7 @@ OH_AVErrCode OH_AVBuffer_SetBufferAttr(OH_AVBuffer *buffer, const OH_AVCodecBuff
 
 
 
-##### OH_AVBuffer_GetParameter()
+#### OH_AVBuffer_GetParameter()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -230,7 +230,7 @@ OH_AVFormat *OH_AVBuffer_GetParameter(OH_AVBuffer *buffer)
 
 
 
-##### OH_AVBuffer_SetParameter()
+#### OH_AVBuffer_SetParameter()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -263,7 +263,7 @@ OH_AVErrCode OH_AVBuffer_SetParameter(OH_AVBuffer *buffer, const OH_AVFormat *fo
 
 
 
-##### OH_AVBuffer_GetAddr()
+#### OH_AVBuffer_GetAddr()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -295,7 +295,7 @@ uint8_t *OH_AVBuffer_GetAddr(OH_AVBuffer *buffer)
 
 
 
-##### OH_AVBuffer_GetCapacity()
+#### OH_AVBuffer_GetCapacity()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -327,7 +327,7 @@ int32_t OH_AVBuffer_GetCapacity(OH_AVBuffer *buffer)
 
 
 
-##### OH_AVBuffer_GetNativeBuffer()
+#### OH_AVBuffer_GetNativeBuffer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -10,7 +10,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -20,13 +20,13 @@ import app, { AppResponse } from '@system.app';
  
   
 
-##### App
+#### App
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV | lite_wearable
 
   
 
-##### getInfo
+#### getInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -164,7 +164,7 @@ export default {
  
   
 
-##### terminate
+#### terminate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
@@ -259,7 +259,7 @@ export default {
  
   
 
-##### setImageCacheCount7+
+#### setImageCacheCount7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -313,7 +313,7 @@ struct Index {
  
   
 
-##### setImageRawDataCacheSize7+
+#### setImageRawDataCacheSize7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -365,7 +365,7 @@ struct Index {
  
   
 
-##### setImageFileCacheSize7+
+#### setImageFileCacheSize7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -404,7 +404,7 @@ export default class OnC {
  
   
 
-##### ScreenOnVisible(deprecated)
+#### ScreenOnVisible(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -423,7 +423,7 @@ static screenOnVisible(options?: ScreenOnVisibleOptions): void
  
   
 
-##### requestFullWindow(deprecated)
+#### requestFullWindow(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -457,7 +457,7 @@ export default class Req {
  
   
 
-##### AppResponse
+#### AppResponse
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV | lite_wearable
 
@@ -477,7 +477,7 @@ export default class Req {
  
   
 
-##### ScreenOnVisibleOptions
+#### ScreenOnVisibleOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -495,7 +495,7 @@ export default class Req {
  
   
 
-##### RequestFullWindowOptions
+#### RequestFullWindowOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

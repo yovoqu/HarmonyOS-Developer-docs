@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-tilingdata-structure-definition
 
-##### 函数功能
+#### 函数功能
 
 定义一个TilingData的类，添加所需的成员变量（TilingData字段），用于保存所需TilingData参数。完成该TilingData类的定义后，该类通过继承TilingDef类（用来存放、处理开发者自定义Tiling结构体成员变量的基类）提供以下接口：
  
@@ -15,7 +15,7 @@
  
   
 
-##### 函数原型
+#### 函数原型
 
 - 定义一个TilingData类
 
@@ -56,7 +56,7 @@ END_TILING_DATA_DEF
  
   
 
-##### 参数说明
+#### 参数说明
 
 **表1** BEGIN_TILING_DATA_DEF参数说明
   
@@ -92,7 +92,7 @@ END_TILING_DATA_DEF
  
   
 
-##### 约束说明
+#### 约束说明
 
 - 使用SaveToBuffer接口时必须在set_+_field_name_接口后调用。
 - 使用时需要包含头文件register/tilingdata_base.h。
@@ -105,7 +105,7 @@ END_TILING_DATA_DEF
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 #include "register/tilingdata_base.h"

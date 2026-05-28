@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-design-custom-symbol-res-register
 
-##### 场景介绍
+#### 场景介绍
 
 从5.1.1 (19)版本开始，新增支持资源注册。
 
@@ -12,13 +12,13 @@
 
 
 
-##### 约束条件
+#### 约束条件
 
 资源注册支持Phone、Tablet、PC/2in1设备。
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 将UX设计师提供的Symbol图标资源（TTF文件）与动效参数资源（JSON文件）放入entry/src/main/resources/rawfile下，可新建目录。
 
   说明：[Symbol资源制作流程参考](https://developer.huawei.com/consumer/cn/doc/design-guides/system-icons-0000001929854962)
@@ -81,7 +81,7 @@ struct test {
 
 
 
-##### 开发实例
+#### 开发实例
 
 ```json
 import { symbolRegister } from '@kit.UIDesignKit'

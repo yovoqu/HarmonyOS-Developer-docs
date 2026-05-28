@@ -13,4 +13,4 @@ AppKilled窗口中支持查看的异常退出原因请参考[reason字段说明]
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/srh-chMSSUKcP779Dygirw/zh-cn_image_0000002571546872.png?HW-CC-KV=V1&HW-CC-Date=20260528T014920Z&HW-CC-Expire=86400&HW-CC-Sign=DF77B60961ED59482E6E320D6009C34BFCD52D888F3D993AFF7425A0C050788C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/G94FHCohReGsNBbMKG9QLg/zh-cn_image_0000002571546872.png?HW-CC-KV=V1&HW-CC-Date=20260528T030548Z&HW-CC-Expire=86400&HW-CC-Sign=850A102544E83CCB28BBB1DC6BCD5E05A14C33170AC379676FCFA6244436FF16)

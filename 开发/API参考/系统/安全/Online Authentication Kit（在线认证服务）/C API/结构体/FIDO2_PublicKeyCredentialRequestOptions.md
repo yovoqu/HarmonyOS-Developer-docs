@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2___public_key_credential_request_options
 
-##### 概述
+#### 概述
 
 定义通行密钥认证请求参数。
  
@@ -14,11 +14,11 @@
  
   
 
-##### 汇总
+#### 汇总
 
   
 
-##### 成员变量
+#### 成员变量
  
 | 名称 | 描述 |
 | --- | --- |
@@ -33,11 +33,11 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
   
 
-##### allowCredentials
+#### allowCredentials
 
 ```text
 FIDO2_PublicKeyCredentialDescriptorArray FIDO2_PublicKeyCredentialRequestOptions::allowCredentials
@@ -49,7 +49,7 @@ FIDO2_PublicKeyCredentialDescriptorArray FIDO2_PublicKeyCredentialRequestOptions
  
   
 
-##### challenge
+#### challenge
 
 ```text
 Uint8Buff FIDO2_PublicKeyCredentialRequestOptions::challenge
@@ -61,7 +61,7 @@ Uint8Buff FIDO2_PublicKeyCredentialRequestOptions::challenge
  
   
 
-##### extensions
+#### extensions
 
 ```text
 char* FIDO2_PublicKeyCredentialRequestOptions::extensions
@@ -73,7 +73,7 @@ char* FIDO2_PublicKeyCredentialRequestOptions::extensions
  
   
 
-##### hints
+#### hints
 
 ```text
 FIDO2_PublicKeyCredentialHintArray FIDO2_PublicKeyCredentialRequestOptions::hints
@@ -85,7 +85,7 @@ FIDO2_PublicKeyCredentialHintArray FIDO2_PublicKeyCredentialRequestOptions::hint
  
   
 
-##### rpId
+#### rpId
 
 ```text
 char* FIDO2_PublicKeyCredentialRequestOptions::rpId
@@ -97,7 +97,7 @@ char* FIDO2_PublicKeyCredentialRequestOptions::rpId
  
   
 
-##### timeout
+#### timeout
 
 ```text
 uint32_t FIDO2_PublicKeyCredentialRequestOptions::timeout
@@ -109,7 +109,7 @@ uint32_t FIDO2_PublicKeyCredentialRequestOptions::timeout
  
   
 
-##### userVerification
+#### userVerification
 
 ```text
 FIDO2_UserVerificationRequirement FIDO2_PublicKeyCredentialRequestOptions::userVerification

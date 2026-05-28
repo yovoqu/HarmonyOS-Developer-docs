@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { ComposeListItem } from "@kit.ArkUI";
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -30,7 +30,7 @@ import { ComposeListItem } from "@kit.ArkUI";
  
   
 
-##### ComposeListItem
+#### ComposeListItem
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -52,7 +52,7 @@ ComposeListItem({contentItem?: ContentItem, operateItem?: OperateItem})
  
   
 
-##### ContentItem
+#### ContentItem
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -74,7 +74,7 @@ ComposeListItem({contentItem?: ContentItem, operateItem?: OperateItem})
  
   
 
-##### IconType
+#### IconType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -100,7 +100,7 @@ ComposeListItem({contentItem?: ContentItem, operateItem?: OperateItem})
  
   
 
-##### OperateItem
+#### OperateItem
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -126,7 +126,7 @@ ComposeListItem({contentItem?: ContentItem, operateItem?: OperateItem})
  
   
 
-##### OperateIcon
+#### OperateIcon
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -148,7 +148,7 @@ ComposeListItem({contentItem?: ContentItem, operateItem?: OperateItem})
  
   
 
-##### OperateButton
+#### OperateButton
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -168,7 +168,7 @@ ComposeListItem({contentItem?: ContentItem, operateItem?: OperateItem})
  
   
 
-##### OperateCheck
+#### OperateCheck
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -189,7 +189,7 @@ ComposeListItem({contentItem?: ContentItem, operateItem?: OperateItem})
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -197,13 +197,13 @@ ComposeListItem({contentItem?: ContentItem, operateItem?: OperateItem})
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 示例1（设置简单列表项）
+#### 示例1（设置简单列表项）
 
 该示例实现了带有主标题、副标题、描述、右侧按钮及文本的简单列表项。
  
@@ -250,7 +250,7 @@ struct ComposeListItemExample {
  
   
 
-##### 示例2（设置右侧不同元素自定义播报）
+#### 示例2（设置右侧不同元素自定义播报）
 
 从API version 18开始，该示例通过设置属性accessibilityText、accessibilityDescription、accessibilityLevel，实现右侧图标、按钮、单选框自定义屏幕朗读播报文本。
  
@@ -337,7 +337,7 @@ struct ComposeListItemExample {
  
   
 
-##### 示例3（设置Symbol类型图标）
+#### 示例3（设置Symbol类型图标）
 
 从API version 18开始，该示例通过设置ContentItem、OperateItem、OperateIcon的属性symbolStyle，展示了自定义Symbol类型图标。
  
@@ -411,4 +411,4 @@ struct ComposeListItemExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/04/v3/RTJCCeohSxCTuxqbzsCAdQ/zh-cn_image_0000002581436236.png?HW-CC-KV=V1&HW-CC-Date=20260528T024155Z&HW-CC-Expire=86400&HW-CC-Sign=3EEE016EBFD2A59031FD8C2AFA99AFA6B598F9E0845B14CDB6ACF5638AB71502)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/04/v3/RTJCCeohSxCTuxqbzsCAdQ/zh-cn_image_0000002581436236.png?HW-CC-KV=V1&HW-CC-Date=20260528T025527Z&HW-CC-Expire=86400&HW-CC-Sign=B53A553FA5C0E87052E6BF5DF7664ECE315A7AD9C2C907822F3C3CA71BA3BA0B)

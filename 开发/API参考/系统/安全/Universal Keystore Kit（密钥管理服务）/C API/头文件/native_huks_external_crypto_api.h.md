@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-external-crypto-api-h
 **支持设备：** PC/2in1 | Tablet
 
-##### 概述
+#### 概述
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** PC/2in1 | Tablet
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** PC/2in1 | Tablet
  
@@ -50,13 +50,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** PC/2in1 | Tablet
 
   
 
-##### OH_Huks_RegisterProvider()
+#### OH_Huks_RegisterProvider()
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -89,7 +89,7 @@ struct OH_Huks_Result OH_Huks_RegisterProvider(const struct OH_Huks_Blob *provid
  
   
 
-##### OH_Huks_UnregisterProvider()
+#### OH_Huks_UnregisterProvider()
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -122,7 +122,7 @@ struct OH_Huks_Result OH_Huks_UnregisterProvider(const struct OH_Huks_Blob *prov
  
   
 
-##### OH_Huks_OpenResource()
+#### OH_Huks_OpenResource()
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -155,7 +155,7 @@ struct OH_Huks_Result OH_Huks_OpenResource(const struct OH_Huks_Blob *resourceId
  
   
 
-##### OH_Huks_CloseResource()
+#### OH_Huks_CloseResource()
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -186,7 +186,7 @@ struct OH_Huks_Result OH_Huks_CloseResource(const struct OH_Huks_Blob *resourceI
  
   
 
-##### OH_Huks_GetUkeyPinAuthState()
+#### OH_Huks_GetUkeyPinAuthState()
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -218,7 +218,7 @@ struct OH_Huks_Result OH_Huks_GetUkeyPinAuthState(const struct OH_Huks_Blob *res
  
   
 
-##### OH_Huks_GetProperty()
+#### OH_Huks_GetProperty()
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -251,7 +251,7 @@ struct OH_Huks_Result OH_Huks_GetProperty(const struct OH_Huks_Blob *resourceId,
  
   
 
-##### OH_Huks_InitExternalCryptoParamSet()
+#### OH_Huks_InitExternalCryptoParamSet()
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -281,7 +281,7 @@ struct OH_Huks_Result OH_Huks_InitExternalCryptoParamSet(OH_Huks_ExternalCryptoP
  
   
 
-##### OH_Huks_AddExternalCryptoParams()
+#### OH_Huks_AddExternalCryptoParams()
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -313,7 +313,7 @@ struct OH_Huks_Result OH_Huks_AddExternalCryptoParams(OH_Huks_ExternalCryptoPara
  
   
 
-##### OH_Huks_BuildExternalCryptoParamSet()
+#### OH_Huks_BuildExternalCryptoParamSet()
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -343,7 +343,7 @@ struct OH_Huks_Result OH_Huks_BuildExternalCryptoParamSet(OH_Huks_ExternalCrypto
  
   
 
-##### OH_Huks_FreeExternalCryptoParamSet()
+#### OH_Huks_FreeExternalCryptoParamSet()
 
 **支持设备：** PC/2in1 | Tablet
 
@@ -366,7 +366,7 @@ void OH_Huks_FreeExternalCryptoParamSet(OH_Huks_ExternalCryptoParamSet **paramSe
  
   
 
-##### OH_Huks_GetExternalCryptoParam()
+#### OH_Huks_GetExternalCryptoParam()
 
 **支持设备：** PC/2in1 | Tablet
 

@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getlistint
 
-##### 函数功能
+#### 函数功能
 
 获取list int类型的属性值。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 const TypedContinuousVector<int64_t> *GetListInt(const size_t index) const
@@ -18,7 +18,7 @@ const TypedContinuousVector<int64_t> *GetListInt(const size_t index) const
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -27,7 +27,7 @@ const TypedContinuousVector<int64_t> *GetListInt(const size_t index) const
  
   
 
-##### 返回值
+#### 返回值
 
 指向属性值的指针。
  
@@ -35,13 +35,13 @@ const TypedContinuousVector<int64_t> *GetListInt(const size_t index) const
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 const RuntimeAttrs * runtime_attrs = kernel_context->GetAttrs();

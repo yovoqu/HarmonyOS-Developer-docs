@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-sharefrom
 
-##### 函数功能
+#### 函数功能
 
 使当前的TensorData对象共享另一个对象的内存以及内存管理函数。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 ge::graphStatus ShareFrom(const TensorData &other)
@@ -18,7 +18,7 @@ ge::graphStatus ShareFrom(const TensorData &other)
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -27,19 +27,19 @@ ge::graphStatus ShareFrom(const TensorData &other)
  
   
 
-##### 返回值
+#### 返回值
 
 成功时返回 ge::GRAPH_SUCCESS。
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 std::vector<int> a = {10};

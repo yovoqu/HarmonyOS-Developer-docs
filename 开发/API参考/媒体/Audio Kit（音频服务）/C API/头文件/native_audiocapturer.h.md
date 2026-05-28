@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiocapturer-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -66,13 +66,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_AudioCapturer_Release()
+#### OH_AudioCapturer_Release()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -104,7 +104,7 @@ OH_AudioStream_Result OH_AudioCapturer_Release(OH_AudioCapturer* capturer)
  
   
 
-##### OH_AudioCapturer_Start()
+#### OH_AudioCapturer_Start()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -136,7 +136,7 @@ OH_AudioStream_Result OH_AudioCapturer_Start(OH_AudioCapturer* capturer)
  
   
 
-##### OH_AudioCapturer_Pause()
+#### OH_AudioCapturer_Pause()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -168,7 +168,7 @@ OH_AudioStream_Result OH_AudioCapturer_Pause(OH_AudioCapturer* capturer)
  
   
 
-##### OH_AudioCapturer_Stop()
+#### OH_AudioCapturer_Stop()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -200,7 +200,7 @@ OH_AudioStream_Result OH_AudioCapturer_Stop(OH_AudioCapturer* capturer)
  
   
 
-##### OH_AudioCapturer_Flush()
+#### OH_AudioCapturer_Flush()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -230,7 +230,7 @@ OH_AudioStream_Result OH_AudioCapturer_Flush(OH_AudioCapturer* capturer)
  
   
 
-##### OH_AudioCapturer_GetCurrentState()
+#### OH_AudioCapturer_GetCurrentState()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -261,7 +261,7 @@ OH_AudioStream_Result OH_AudioCapturer_GetCurrentState(OH_AudioCapturer* capture
  
   
 
-##### OH_AudioCapturer_GetLatencyMode()
+#### OH_AudioCapturer_GetLatencyMode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -292,7 +292,7 @@ OH_AudioStream_Result OH_AudioCapturer_GetLatencyMode(OH_AudioCapturer* capturer
  
   
 
-##### OH_AudioCapturer_GetStreamId()
+#### OH_AudioCapturer_GetStreamId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -323,7 +323,7 @@ OH_AudioStream_Result OH_AudioCapturer_GetStreamId(OH_AudioCapturer* capturer, u
  
   
 
-##### OH_AudioCapturer_GetSamplingRate()
+#### OH_AudioCapturer_GetSamplingRate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -354,7 +354,7 @@ OH_AudioStream_Result OH_AudioCapturer_GetSamplingRate(OH_AudioCapturer* capture
  
   
 
-##### OH_AudioCapturer_GetChannelCount()
+#### OH_AudioCapturer_GetChannelCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -385,7 +385,7 @@ OH_AudioStream_Result OH_AudioCapturer_GetChannelCount(OH_AudioCapturer* capture
  
   
 
-##### OH_AudioCapturer_GetSampleFormat()
+#### OH_AudioCapturer_GetSampleFormat()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -416,7 +416,7 @@ OH_AudioStream_Result OH_AudioCapturer_GetSampleFormat(OH_AudioCapturer* capture
  
   
 
-##### OH_AudioCapturer_GetEncodingType()
+#### OH_AudioCapturer_GetEncodingType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -447,7 +447,7 @@ OH_AudioStream_Result OH_AudioCapturer_GetEncodingType(OH_AudioCapturer* capture
  
   
 
-##### OH_AudioCapturer_GetCapturerInfo()
+#### OH_AudioCapturer_GetCapturerInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -478,7 +478,7 @@ OH_AudioStream_Result OH_AudioCapturer_GetCapturerInfo(OH_AudioCapturer* capture
  
   
 
-##### OH_AudioCapturer_GetFrameSizeInCallback()
+#### OH_AudioCapturer_GetFrameSizeInCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -509,7 +509,7 @@ OH_AudioStream_Result OH_AudioCapturer_GetFrameSizeInCallback(OH_AudioCapturer* 
  
   
 
-##### OH_AudioCapturer_GetTimestamp()
+#### OH_AudioCapturer_GetTimestamp()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -544,7 +544,7 @@ OH_AudioStream_Result OH_AudioCapturer_GetTimestamp(OH_AudioCapturer* capturer, 
  
   
 
-##### OH_AudioCapturer_GetFramesRead()
+#### OH_AudioCapturer_GetFramesRead()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -575,7 +575,7 @@ OH_AudioStream_Result OH_AudioCapturer_GetFramesRead(OH_AudioCapturer* capturer,
  
   
 
-##### OH_AudioCapturer_SetMuteHint()
+#### OH_AudioCapturer_SetMuteHint()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -606,7 +606,7 @@ OH_AudioStream_Result OH_AudioCapturer_SetMuteHint(OH_AudioCapturer* capturer, b
  
   
 
-##### OH_AudioCapturer_GetOverflowCount()
+#### OH_AudioCapturer_GetOverflowCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -637,7 +637,7 @@ OH_AudioStream_Result OH_AudioCapturer_GetOverflowCount(OH_AudioCapturer* captur
  
   
 
-##### OH_AudioCapturer_OnReadDataCallback()
+#### OH_AudioCapturer_OnReadDataCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -663,7 +663,7 @@ typedef void (*OH_AudioCapturer_OnReadDataCallback)(OH_AudioCapturer* capturer, 
  
   
 
-##### OH_AudioCapturer_OnDeviceChangeCallback()
+#### OH_AudioCapturer_OnDeviceChangeCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -688,7 +688,7 @@ typedef void (*OH_AudioCapturer_OnDeviceChangeCallback)(OH_AudioCapturer* captur
  
   
 
-##### OH_AudioCapturer_OnInterruptCallback()
+#### OH_AudioCapturer_OnInterruptCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -714,7 +714,7 @@ typedef void (*OH_AudioCapturer_OnInterruptCallback)(OH_AudioCapturer* capturer,
  
   
 
-##### OH_AudioCapturer_OnErrorCallback()
+#### OH_AudioCapturer_OnErrorCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -739,7 +739,7 @@ typedef void (*OH_AudioCapturer_OnErrorCallback)(OH_AudioCapturer* capturer, voi
  
   
 
-##### OH_AudioCapturer_GetFastStatus()
+#### OH_AudioCapturer_GetFastStatus()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -770,7 +770,7 @@ OH_AudioStream_Result OH_AudioCapturer_GetFastStatus(OH_AudioCapturer* capturer,
  
   
 
-##### OH_AudioCapturer_OnFastStatusChange()
+#### OH_AudioCapturer_OnFastStatusChange()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -795,7 +795,7 @@ typedef void (*OH_AudioCapturer_OnFastStatusChange)(OH_AudioCapturer* capturer,v
  
   
 
-##### OH_AudioCapturer_OnPlaybackCaptureStartCallback()
+#### OH_AudioCapturer_OnPlaybackCaptureStartCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -820,7 +820,7 @@ typedef void (*OH_AudioCapturer_OnPlaybackCaptureStartCallback)(OH_AudioCapturer
  
   
 
-##### OH_AudioCapturer_RequestPlaybackCaptureStart()
+#### OH_AudioCapturer_RequestPlaybackCaptureStart()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -854,7 +854,7 @@ OH_AudioStream_Result OH_AudioCapturer_RequestPlaybackCaptureStart(OH_AudioCaptu
  
   
 
-##### OH_AudioCapturer_SetIndependentAudioSessionStrategy()
+#### OH_AudioCapturer_SetIndependentAudioSessionStrategy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

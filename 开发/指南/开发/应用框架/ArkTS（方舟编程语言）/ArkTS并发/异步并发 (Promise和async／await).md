@@ -14,7 +14,7 @@ Promise和async/await是标准的JS异步语法，提供异步并发能力。异
 异步并发是一种编程语言的特性，允许程序在执行某些操作时不必等待其完成，可以继续执行其他异步代码。
 
 
-##### Promise
+#### Promise
 
 Promise是一种用于处理异步操作的对象，可将异步操作转换为类似同步操作的风格，便于代码编写和维护。Promise通过状态机制管理异步操作的不同阶段，有三种状态：pending（进行中）、fulfilled（已完成，也叫resolved）和rejected（已拒绝）。创建后处于pending状态，异步操作完成后转换为fulfilled或rejected状态。
 
@@ -76,7 +76,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 
-##### async/await
+#### async/await
 
 async/await是用于处理异步操作的Promise语法糖，使编写异步代码更加简单和易读。使用async关键字声明异步函数，并使用await关键字等待Promise的解析（fulfilled或rejected），以同步方式编写异步操作的代码。
 

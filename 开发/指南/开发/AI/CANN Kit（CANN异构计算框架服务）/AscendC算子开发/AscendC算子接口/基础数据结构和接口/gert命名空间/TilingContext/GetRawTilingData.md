@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getrawtilingdata
 
-##### 函数功能
+#### 函数功能
 
 获取无类型的tiling data指针。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 TilingData *GetRawTilingData();
@@ -18,25 +18,25 @@ TilingData *GetRawTilingData();
  
   
 
-##### 参数说明
+#### 参数说明
 
 无
  
   
 
-##### 返回值
+#### 返回值
 
 tiling data指针，失败时返回空指针。
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 ge::graphStatus Tiling4XXX(TilingContext* context) {

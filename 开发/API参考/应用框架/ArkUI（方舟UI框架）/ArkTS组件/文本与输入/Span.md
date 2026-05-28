@@ -12,7 +12,7 @@
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@ Span(value: string | Resource)
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -49,7 +49,7 @@ Span(value: string | Resource)
 
 
 
-##### decoration
+#### decoration
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -76,7 +76,7 @@ decoration(value: DecorationStyleInterface)
 
 
 
-##### letterSpacing
+#### letterSpacing
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -99,7 +99,7 @@ letterSpacing(value: number | ResourceStr)
 
 
 
-##### textCase
+#### textCase
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -122,7 +122,7 @@ textCase(value: TextCase)
 
 
 
-##### fontColor
+#### fontColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -145,7 +145,7 @@ fontColor(value: ResourceColor)
 
 
 
-##### fontSize
+#### fontSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -168,7 +168,7 @@ fontSize(value: number | string | Resource)
 
 
 
-##### fontStyle
+#### fontStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -191,7 +191,7 @@ fontStyle(value: FontStyle)
 
 
 
-##### fontWeight
+#### fontWeight
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -214,7 +214,7 @@ fontWeight(value: number | FontWeight | ResourceStr)
 
 
 
-##### fontWeight24+
+#### fontWeight24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -240,7 +240,7 @@ fontWeight(weight: number | FontWeight | ResourceStr, fontWeightConfigs?: FontWe
 
 
 
-##### fontFamily
+#### fontFamily
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -267,7 +267,7 @@ fontFamily(value: string | Resource)
 
 
 
-##### lineHeight10+
+#### lineHeight10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -288,7 +288,7 @@ lineHeight(value: Length)
 
 
 
-##### font10+
+#### font10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -309,7 +309,7 @@ font(value: Font)
 
 
 
-##### font24+
+#### font24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -333,7 +333,7 @@ font(value: Font, fontConfigs?: FontConfigs)
 
 
 
-##### textShadow11+
+#### textShadow11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -354,7 +354,7 @@ textShadow(value: ShadowOptions | Array&lt;ShadowOptions&gt;)
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -366,7 +366,7 @@ textShadow(value: ShadowOptions | Array&lt;ShadowOptions&gt;)
 
 
 
-##### BaseSpan
+#### BaseSpan
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -378,7 +378,7 @@ textShadow(value: ShadowOptions | Array&lt;ShadowOptions&gt;)
 
 
 
-##### textBackgroundStyle11+
+#### textBackgroundStyle11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -406,7 +406,7 @@ textBackgroundStyle(style: TextBackgroundStyle): T
 
 
 
-##### baselineOffset12+
+#### baselineOffset12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -434,7 +434,7 @@ baselineOffset(value: LengthMetrics): T
 
 
 
-##### TextBackgroundStyle11+对象说明
+#### TextBackgroundStyle11+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -450,13 +450,13 @@ baselineOffset(value: LengthMetrics): T
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1（设置文本样式）
+#### 示例1（设置文本样式）
 
 该示例展示了设置不同样式的文本效果以及span配置点击事件。
 
@@ -633,7 +633,7 @@ struct SpanExample {
 
 
 
-##### 示例2（设置文本阴影）
+#### 示例2（设置文本阴影）
 
 从API version 11开始，该示例通过[textShadow](#textshadow11)属性展示了文本设置阴影的效果。
 
@@ -691,7 +691,7 @@ struct SpanExample {
 
 
 
-##### 示例3（设置背景样式）
+#### 示例3（设置背景样式）
 
 从API version 11开始，该示例通过[textBackgroundStyle](#textbackgroundstyle11)属性展示了文本设置背景样式的效果。
 
@@ -719,7 +719,7 @@ struct SpanExample {
 
 
 
-##### 示例4（设置文本基线偏移量）
+#### 示例4（设置文本基线偏移量）
 
 从API version 12开始，该示例通过[baselineOffset](#baselineoffset12)属性展示了文本设置不同基线偏移量的效果。
 

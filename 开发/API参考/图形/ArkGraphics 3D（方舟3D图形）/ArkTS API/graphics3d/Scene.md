@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,7 +23,7 @@ import { SceneResourceParameters, SceneNodeParameters, RaycastResult, RaycastPar
 
 
 
-##### SceneResourceParameters
+#### SceneResourceParameters
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -64,7 +64,7 @@ function createShaderPromise(): Promise<Shader> {
 
 
 
-##### SceneNodeParameters
+#### SceneNodeParameters
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -105,7 +105,7 @@ function createNodePromise() : Promise<Node> {
 
 
 
-##### RaycastResult20+
+#### RaycastResult20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -122,7 +122,7 @@ function createNodePromise() : Promise<Node> {
 
 
 
-##### RaycastParameters20+
+#### RaycastParameters20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -137,7 +137,7 @@ function createNodePromise() : Promise<Node> {
 
 
 
-##### RenderResourceFactory20+
+#### RenderResourceFactory20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -145,7 +145,7 @@ function createNodePromise() : Promise<Node> {
 
 
 
-##### createShader20+
+#### createShader20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -191,7 +191,7 @@ function createShaderResource(): Promise<Shader> {
 
 
 
-##### createImage20+
+#### createImage20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -237,7 +237,7 @@ function createImageResource(): Promise<Image> {
 
 
 
-##### createMesh20+
+#### createMesh20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -335,7 +335,7 @@ function createMeshResource(): Promise<MeshResource> {
 
 
 
-##### createSampler20+
+#### createSampler20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -381,7 +381,7 @@ function createSamplerResource(): Promise<Sampler> {
 
 
 
-##### createScene20+
+#### createScene20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -430,7 +430,7 @@ function createScenePromise(fromFile: boolean = false): Promise<Scene> {
 
 
 
-##### CameraParameters21+
+#### CameraParameters21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -446,7 +446,7 @@ function createScenePromise(fromFile: boolean = false): Promise<Scene> {
 
 
 
-##### EffectParameters21+
+#### EffectParameters21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -461,7 +461,7 @@ function createScenePromise(fromFile: boolean = false): Promise<Scene> {
 
 
 
-##### SceneResourceFactory
+#### SceneResourceFactory
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -469,7 +469,7 @@ function createScenePromise(fromFile: boolean = false): Promise<Scene> {
 
 
 
-##### createCamera
+#### createCamera
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -518,7 +518,7 @@ function createCameraPromise(): Promise<Camera> {
 
 
 
-##### createCamera21+
+#### createCamera21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -570,7 +570,7 @@ function createCameraPromise(): Promise<Camera> {
 
 
 
-##### createLight
+#### createLight
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -620,7 +620,7 @@ function createLightPromise() : Promise<Light> {
 
 
 
-##### createNode
+#### createNode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -670,7 +670,7 @@ function createNodePromise(): Promise<Node> {
 
 
 
-##### createMaterial
+#### createMaterial
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -720,7 +720,7 @@ function createMaterialPromise() : Promise<Material> {
 
 
 
-##### createEnvironment
+#### createEnvironment
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -770,7 +770,7 @@ function createEnvironmentPromise(): Promise<Environment> {
 
 
 
-##### createGeometry18+
+#### createGeometry18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -827,7 +827,7 @@ function createGeometryPromise() : Promise<Geometry> {
 
 
 
-##### createEffect21+
+#### createEffect21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -878,7 +878,7 @@ function createEffect() : Promise<Effect> {
 
 
 
-##### SceneComponent20+
+#### SceneComponent20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -894,7 +894,7 @@ function createEffect() : Promise<Effect> {
 
 
 
-##### RenderContext20+
+#### RenderContext20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -902,7 +902,7 @@ function createEffect() : Promise<Effect> {
 
 
 
-##### getRenderResourceFactory20+
+#### getRenderResourceFactory20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -937,7 +937,7 @@ function getRenderResourceFactory(): void {
 
 
 
-##### loadPlugin20+
+#### loadPlugin20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -978,7 +978,7 @@ function loadPlugin(): Promise<boolean> {
 
 
 
-##### registerResourcePath20+
+#### registerResourcePath20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1035,7 +1035,7 @@ function registerResourcePath(): void {
 
 
 
-##### RenderConfiguration23+
+#### RenderConfiguration23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1050,7 +1050,7 @@ function registerResourcePath(): void {
 
 
 
-##### RenderParameters15+
+#### RenderParameters15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1065,7 +1065,7 @@ function registerResourcePath(): void {
 
 
 
-##### Scene
+#### Scene
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1073,7 +1073,7 @@ function registerResourcePath(): void {
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1089,7 +1089,7 @@ function registerResourcePath(): void {
 
 
 
-##### load
+#### load
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1163,7 +1163,7 @@ async function loadModelFromAbsolutePath(context: common.UIAbilityContext): Prom
 
 
 
-##### getNodeByPath
+#### getNodeByPath
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1207,7 +1207,7 @@ function getNode(): void {
 
 
 
-##### getResourceFactory
+#### getResourceFactory
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1243,7 +1243,7 @@ function getFactory(): void {
 
 
 
-##### destroy
+#### destroy
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1272,7 +1272,7 @@ function destroy(): void {
 
 
 
-##### importNode18+
+#### importNode18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1324,7 +1324,7 @@ function ImportNodeTest() {
 
 
 
-##### importScene18+
+#### importScene18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1370,7 +1370,7 @@ function ImportSceneTest() {
 
 
 
-##### renderFrame15+
+#### renderFrame15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1414,7 +1414,7 @@ function RenderFrameTest() {
 
 
 
-##### createComponent20+
+#### createComponent20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1465,7 +1465,7 @@ function createComponentTest(): Promise<SceneComponent> {
 
 
 
-##### getComponent20+
+#### getComponent20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1516,7 +1516,7 @@ function getComponentTest() {
 
 
 
-##### getDefaultRenderContext20+
+#### getDefaultRenderContext20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1551,7 +1551,7 @@ function getDefaultRenderContextTest() {
 
 
 
-##### cloneNode23+
+#### cloneNode23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

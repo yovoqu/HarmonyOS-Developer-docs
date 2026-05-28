@@ -10,7 +10,7 @@
 **起始版本：** 5.0.0(12)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -20,7 +20,7 @@ import { trustedAppService } from '@kit.DeviceSecurityKit';
  
   
 
-##### createAttestKey
+#### createAttestKey
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -98,7 +98,7 @@ await trustedAppService.createAttestKey(options)
  
   
 
-##### AttestOptions
+#### AttestOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -117,7 +117,7 @@ await trustedAppService.createAttestKey(options)
  
   
 
-##### AttestParam
+#### AttestParam
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -137,7 +137,7 @@ await trustedAppService.createAttestKey(options)
  
   
 
-##### AttestTag
+#### AttestTag
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -160,7 +160,7 @@ await trustedAppService.createAttestKey(options)
  
   
 
-##### AttestTagType
+#### AttestTagType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -184,7 +184,7 @@ await trustedAppService.createAttestKey(options)
  
   
 
-##### AttestKeyAlg
+#### AttestKeyAlg
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -203,7 +203,7 @@ await trustedAppService.createAttestKey(options)
  
   
 
-##### AttestKeySize
+#### AttestKeySize
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -223,7 +223,7 @@ await trustedAppService.createAttestKey(options)
  
   
 
-##### destroyAttestKey
+#### destroyAttestKey
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -277,7 +277,7 @@ await trustedAppService.destroyAttestKey().then(
  
   
 
-##### initializeAttestContext
+#### initializeAttestContext
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -326,7 +326,7 @@ initializeAttestContext(userData: string, options: AttestOptions): Promise&lt;At
  
   
 
-##### AttestType
+#### AttestType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -345,7 +345,7 @@ initializeAttestContext(userData: string, options: AttestOptions): Promise&lt;At
  
   
 
-##### AttestReturnResult
+#### AttestReturnResult
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -403,7 +403,7 @@ await trustedAppService.initializeAttestContext(user_data, options2).then(
  
   
 
-##### AttestExceptionErrCode
+#### AttestExceptionErrCode
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -439,7 +439,7 @@ await trustedAppService.initializeAttestContext(user_data, options2).then(
  
   
 
-##### finalizeAttestContext
+#### finalizeAttestContext
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -510,7 +510,7 @@ await trustedAppService.finalizeAttestContext(options).then(
  
   
 
-##### getCurrentSecureLocation
+#### getCurrentSecureLocation
 
 **支持设备：** Phone | Tablet
 
@@ -558,7 +558,7 @@ getCurrentSecureLocation(timeout : number, priority: LocatingPriority): Promise&
  
   
 
-##### LocatingPriority
+#### LocatingPriority
 
 **支持设备：** Phone | Tablet
 
@@ -578,7 +578,7 @@ getCurrentSecureLocation(timeout : number, priority: LocatingPriority): Promise&
  
   
 
-##### SecureLocation
+#### SecureLocation
 
 **支持设备：** Phone | Tablet
 
@@ -599,7 +599,7 @@ getCurrentSecureLocation(timeout : number, priority: LocatingPriority): Promise&
  
   
 
-##### Location
+#### Location
 
 **支持设备：** Phone | Tablet
 
@@ -638,7 +638,7 @@ try {
  
   
 
-##### procSecImageTransform
+#### procSecImageTransform
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -684,7 +684,7 @@ procSecImageTransform(srcSecImage: ArrayBuffer, procParams: SecImageProcParamsAr
  
   
 
-##### SecImageProcParamsArray
+#### SecImageProcParamsArray
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -701,7 +701,7 @@ procSecImageTransform(srcSecImage: ArrayBuffer, procParams: SecImageProcParamsAr
  
   
 
-##### SecImageProcParams
+#### SecImageProcParams
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -719,7 +719,7 @@ procSecImageTransform(srcSecImage: ArrayBuffer, procParams: SecImageProcParamsAr
  
   
 
-##### SecImageProcTag
+#### SecImageProcTag
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -741,7 +741,7 @@ procSecImageTransform(srcSecImage: ArrayBuffer, procParams: SecImageProcParamsAr
  
   
 
-##### SecImageProcOperation
+#### SecImageProcOperation
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -760,7 +760,7 @@ procSecImageTransform(srcSecImage: ArrayBuffer, procParams: SecImageProcParamsAr
  
   
 
-##### SecImageProcFormat
+#### SecImageProcFormat
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -779,7 +779,7 @@ procSecImageTransform(srcSecImage: ArrayBuffer, procParams: SecImageProcParamsAr
  
   
 
-##### CropRegion
+#### CropRegion
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -803,7 +803,7 @@ procSecImageTransform(srcSecImage: ArrayBuffer, procParams: SecImageProcParamsAr
  
   
 
-##### SecImageBuffer
+#### SecImageBuffer
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

@@ -4,11 +4,11 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/changelogs-targeting-api12-b065
 
-##### Ability
+#### Ability
 
  
 
-##### 禁止BackupExtensionAbility进程拉起启动框架
+#### 禁止BackupExtensionAbility进程拉起启动框架
 
 **变更原因**
  
@@ -40,11 +40,11 @@ AppStartup启动框架模块默认行为
  
  
 
-##### ArkTS
+#### ArkTS
 
  
 
-##### StringDecoder中特定场景下解码错误数据行为变更
+#### StringDecoder中特定场景下解码错误数据行为变更
 
 **变更原因**
  
@@ -104,11 +104,11 @@ console.info("decodedend.length:", decodedend.length);// 3
  
  
 
-##### ArkUI
+#### ArkUI
 
  
 
-##### 状态管理V2版本组件内的@Local,@Param,@Event,@Provider,@Consumer,@BuilderParam,必须声明类型
+#### 状态管理V2版本组件内的@Local,@Param,@Event,@Provider,@Consumer,@BuilderParam,必须声明类型
 
 **变更原因**
  
@@ -157,7 +157,7 @@ struct V2ComponentMember {
  
  
 
-##### 修复C-API场景下NODE_TIME_PICKER_DISAPPEAR_TEXT_STYLE的get接口的错误行为
+#### 修复C-API场景下NODE_TIME_PICKER_DISAPPEAR_TEXT_STYLE的get接口的错误行为
 
 **变更原因**
  
@@ -191,7 +191,7 @@ nodeApi->getAttribute(node, NODE_TIME_PICKER_TEXT_STYLE)
  
  
 
-##### component3d获取资源的路径格式由Resource类型变更到ResourceStr类型
+#### component3d获取资源的路径格式由Resource类型变更到ResourceStr类型
 
 **变更原因**
  
@@ -285,11 +285,11 @@ struct node_geometry {
  
  
 
-##### ArkWeb
+#### ArkWeb
 
  
 
-##### CustomDialog内嵌Web组件软键盘避让方式由改变Web高度避让软键盘变更为抬升CustomDialog避让软键盘
+#### CustomDialog内嵌Web组件软键盘避让方式由改变Web高度避让软键盘变更为抬升CustomDialog避让软键盘
 
 **变更原因**
  
@@ -324,11 +324,11 @@ CustomDialog内嵌Web组件软键盘避让场景。
  
  
 
-##### Crypto Architecture Kit
+#### Crypto Architecture Kit
 
  
 
-##### 通用密钥库SystemCapability变更
+#### 通用密钥库SystemCapability变更
 
 **变更原因**
  
@@ -421,7 +421,7 @@ SystemCapability.Security.Huks.Core为必选基础能力，SystemCapability.Secu
  
  
 
-##### @ohos.security.cryptoFramework 接口SysCap变更
+#### @ohos.security.cryptoFramework 接口SysCap变更
 
 **变更原因**
  
@@ -482,11 +482,11 @@ SystemCapability.Security.Huks.Core为必选基础能力，SystemCapability.Secu
  
  
 
-##### IME Kit
+#### IME Kit
 
  
 
-##### 系统增加对基础访问模式输入法的管控
+#### 系统增加对基础访问模式输入法的管控
 
 **变更原因**
  
@@ -510,7 +510,7 @@ SystemCapability.Security.Huks.Core为必选基础能力，SystemCapability.Secu
 2. 新增输入法Extension与应用的主入口的共享沙箱，基础访问模式下输入法Extension对共享沙箱只读，完整访问模式下可读可写；应用的主入口对共享沙箱保持可读可写。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/Isest5YpSpioPIgetgnukQ/zh-cn_image_0000002117367217.png?HW-CC-KV=V1&HW-CC-Date=20260528T014153Z&HW-CC-Expire=86400&HW-CC-Sign=DE1650196FA0A67BEC0526006B1ECA04F73F32845DDDC68C58BF458FAD9F04B9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/Isest5YpSpioPIgetgnukQ/zh-cn_image_0000002117367217.png?HW-CC-KV=V1&HW-CC-Date=20260528T025821Z&HW-CC-Expire=86400&HW-CC-Sign=A8C99AAAFA528BE9C3AD3F9F3AA9A4596775B06C3157D3A27A10C3E91E5EB7DA)
 
 3. 基础访问模式下，输入法应用Extension进程无法拉起其他Extension应用进程以及其他UIAbility。
 4. 基础访问模式下，输入法Extension进程会受到系统管控，不能使用涉及访问或泄漏用户个人数据的各种接口，同时无法将数据传递出进程。管控功能包括但不限于：网络、短信、电话、麦克风、定位、相机、蓝牙、壁纸、支付、日历、游戏、扬声器、Wi-Fi、剪切板、多媒体、联系人、公共事件、系统账号、健康数据、地图服务、推送服务、融合搜索、共享内存、分布式特性、广告设备标识等。

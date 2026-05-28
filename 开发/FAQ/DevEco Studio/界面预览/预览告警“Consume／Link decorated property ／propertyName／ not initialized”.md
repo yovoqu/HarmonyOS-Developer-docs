@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-previewer-operating-3
 
-## 预览告警“@Consume/@Link decorated property &lt;propertyName&gt; not initialized”
+# 预览告警“@Consume/@Link decorated property &lt;propertyName&gt; not initialized”
  
 
 **问题现象**

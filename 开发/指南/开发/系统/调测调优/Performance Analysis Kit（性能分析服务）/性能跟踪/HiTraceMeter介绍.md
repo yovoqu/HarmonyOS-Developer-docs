@@ -13,7 +13,7 @@ HiTraceMeter提供ArkTS和C/C++两种接口，按需选择。
 
   
 
-##### 实现原理
+#### 实现原理
 
 内核设置了一个缓冲区用于记录设备运行时产生的打点记录，并在sysfs中提供了trace_marker和trace节点：
  

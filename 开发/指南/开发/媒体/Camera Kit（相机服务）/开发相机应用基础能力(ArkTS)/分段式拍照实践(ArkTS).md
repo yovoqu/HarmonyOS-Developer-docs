@@ -11,7 +11,7 @@
 在参考以下示例前，建议开发者查看[分段式拍照(ArkTS)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-deferred-capture)的具体章节，了解[设备输入](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-device-input)、[会话管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-session-management)、[拍照](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-shooting)等单个流程。
 
 
-##### 开发流程
+#### 开发流程
 
 在获取到相机支持的输出流能力后，开始创建拍照流，开发流程如下。
 
@@ -21,7 +21,7 @@
 
 
 
-##### 完整示例
+#### 完整示例
 
 Context获取方式请参考：[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 

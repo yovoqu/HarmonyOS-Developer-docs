@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-load-module
 
-##### 场景介绍
+#### 场景介绍
 
 Node-API中的napi_load_module接口的功能是在主线程中进行模块的加载，当模块加载出来之后，可以使用函数napi_get_property获取模块导出的变量，也可以使用napi_get_named_property获取模块导出的函数。
  
   
 
-##### 函数说明
+#### 函数说明
 
 ```text
 napi_status napi_load_module(napi_env env, const char* path, napi_value* result);
@@ -25,7 +25,7 @@ napi_status napi_load_module(napi_env env, const char* path, napi_value* result)
  
   
 
-##### 使用限制
+#### 使用限制
 
 - 禁止在非主线程当中使用该接口。
 - 禁止在Init函数中使用该接口。
@@ -37,7 +37,7 @@ napi_status napi_load_module(napi_env env, const char* path, napi_value* result)
  
   
 
-##### napi_load_module支持的场景
+#### napi_load_module支持的场景
  
 | 场景 | 详细分类 | 说明 |
 | --- | --- | --- |

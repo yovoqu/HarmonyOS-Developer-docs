@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-interface-xcomponent-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -25,13 +25,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -55,7 +55,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -73,7 +73,7 @@
  
   
 
-##### 宏定义
+#### 宏定义
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -85,7 +85,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -169,7 +169,7 @@
  
   
 
-##### 变量
+#### 变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -182,13 +182,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### anonymous
+#### anonymous
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -211,7 +211,7 @@ enum anonymous
  
   
 
-##### ArkUI_XComponent_ImageAnalyzerState
+#### ArkUI_XComponent_ImageAnalyzerState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -236,7 +236,7 @@ XComponent图像AI分析状态码.
  
   
 
-##### OH_NativeXComponent_TouchEventType
+#### OH_NativeXComponent_TouchEventType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -261,7 +261,7 @@ enum OH_NativeXComponent_TouchEventType
  
   
 
-##### OH_NativeXComponent_TouchPointToolType
+#### OH_NativeXComponent_TouchPointToolType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -290,7 +290,7 @@ enum OH_NativeXComponent_TouchPointToolType
  
   
 
-##### OH_NativeXComponent_EventSourceType
+#### OH_NativeXComponent_EventSourceType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -316,7 +316,7 @@ enum OH_NativeXComponent_EventSourceType
  
   
 
-##### OH_NativeXComponent_MouseEventAction
+#### OH_NativeXComponent_MouseEventAction
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -341,7 +341,7 @@ enum OH_NativeXComponent_MouseEventAction
  
   
 
-##### OH_NativeXComponent_MouseEventButton
+#### OH_NativeXComponent_MouseEventButton
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -367,7 +367,7 @@ enum OH_NativeXComponent_MouseEventButton
  
   
 
-##### OH_NativeXComponent_TouchEvent_SourceTool
+#### OH_NativeXComponent_TouchEvent_SourceTool
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -397,13 +397,13 @@ enum OH_NativeXComponent_TouchEvent_SourceTool
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_NativeXComponent_GetXComponentId()
+#### OH_NativeXComponent_GetXComponentId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -435,7 +435,7 @@ int32_t OH_NativeXComponent_GetXComponentId(OH_NativeXComponent* component, char
  
   
 
-##### OH_NativeXComponent_GetXComponentSize()
+#### OH_NativeXComponent_GetXComponentSize()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -468,7 +468,7 @@ int32_t OH_NativeXComponent_GetXComponentSize(OH_NativeXComponent* component, co
  
   
 
-##### OH_NativeXComponent_GetXComponentOffset()
+#### OH_NativeXComponent_GetXComponentOffset()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -501,7 +501,7 @@ int32_t OH_NativeXComponent_GetXComponentOffset(OH_NativeXComponent* component, 
  
   
 
-##### OH_NativeXComponent_GetTouchEvent()
+#### OH_NativeXComponent_GetTouchEvent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -533,7 +533,7 @@ int32_t OH_NativeXComponent_GetTouchEvent(OH_NativeXComponent* component, const 
  
   
 
-##### OH_NativeXComponent_GetTouchPointToolType()
+#### OH_NativeXComponent_GetTouchPointToolType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -565,7 +565,7 @@ int32_t OH_NativeXComponent_GetTouchPointToolType(OH_NativeXComponent* component
  
   
 
-##### OH_NativeXComponent_GetTouchPointTiltX()
+#### OH_NativeXComponent_GetTouchPointTiltX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -597,7 +597,7 @@ int32_t OH_NativeXComponent_GetTouchPointTiltX(OH_NativeXComponent* component, u
  
   
 
-##### OH_NativeXComponent_GetTouchPointTiltY()
+#### OH_NativeXComponent_GetTouchPointTiltY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -629,7 +629,7 @@ int32_t OH_NativeXComponent_GetTouchPointTiltY(OH_NativeXComponent* component, u
  
   
 
-##### OH_NativeXComponent_GetTouchPointWindowX()
+#### OH_NativeXComponent_GetTouchPointWindowX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -661,7 +661,7 @@ int32_t OH_NativeXComponent_GetTouchPointWindowX(OH_NativeXComponent* component,
  
   
 
-##### OH_NativeXComponent_GetTouchPointWindowY()
+#### OH_NativeXComponent_GetTouchPointWindowY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -693,7 +693,7 @@ int32_t OH_NativeXComponent_GetTouchPointWindowY(OH_NativeXComponent* component,
  
   
 
-##### OH_NativeXComponent_GetTouchPointDisplayX()
+#### OH_NativeXComponent_GetTouchPointDisplayX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -725,7 +725,7 @@ int32_t OH_NativeXComponent_GetTouchPointDisplayX(OH_NativeXComponent* component
  
   
 
-##### OH_NativeXComponent_GetTouchPointDisplayY()
+#### OH_NativeXComponent_GetTouchPointDisplayY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -757,7 +757,7 @@ int32_t OH_NativeXComponent_GetTouchPointDisplayY(OH_NativeXComponent* component
  
   
 
-##### OH_NativeXComponent_GetHistoricalPoints()
+#### OH_NativeXComponent_GetHistoricalPoints()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -790,7 +790,7 @@ int32_t OH_NativeXComponent_GetHistoricalPoints(OH_NativeXComponent* component, 
  
   
 
-##### OH_NativeXComponent_GetMouseEvent()
+#### OH_NativeXComponent_GetMouseEvent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -822,7 +822,7 @@ int32_t OH_NativeXComponent_GetMouseEvent(OH_NativeXComponent* component, const 
  
   
 
-##### OH_NativeXComponent_RegisterCallback()
+#### OH_NativeXComponent_RegisterCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -853,7 +853,7 @@ int32_t OH_NativeXComponent_RegisterCallback(OH_NativeXComponent* component, OH_
  
   
 
-##### OH_NativeXComponent_RegisterMouseEventCallback()
+#### OH_NativeXComponent_RegisterMouseEventCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -884,7 +884,7 @@ int32_t OH_NativeXComponent_RegisterMouseEventCallback(OH_NativeXComponent* comp
  
   
 
-##### OH_NativeXComponent_GetExtraMouseEventInfo()
+#### OH_NativeXComponent_GetExtraMouseEventInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -915,7 +915,7 @@ int32_t OH_NativeXComponent_GetExtraMouseEventInfo(OH_NativeXComponent* componen
  
   
 
-##### OH_NativeXComponent_GetMouseEventModifierKeyStates()
+#### OH_NativeXComponent_GetMouseEventModifierKeyStates()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -946,7 +946,7 @@ int32_t OH_NativeXComponent_GetMouseEventModifierKeyStates(OH_NativeXComponent_E
  
   
 
-##### OH_NativeXComponent_RegisterFocusEventCallback()
+#### OH_NativeXComponent_RegisterFocusEventCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -977,7 +977,7 @@ int32_t OH_NativeXComponent_RegisterFocusEventCallback(OH_NativeXComponent* comp
  
   
 
-##### OH_NativeXComponent_RegisterKeyEventCallback()
+#### OH_NativeXComponent_RegisterKeyEventCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1008,7 +1008,7 @@ int32_t OH_NativeXComponent_RegisterKeyEventCallback(OH_NativeXComponent* compon
  
   
 
-##### OH_NativeXComponent_RegisterBlurEventCallback()
+#### OH_NativeXComponent_RegisterBlurEventCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1039,7 +1039,7 @@ int32_t OH_NativeXComponent_RegisterBlurEventCallback(OH_NativeXComponent* compo
  
   
 
-##### OH_NativeXComponent_GetKeyEvent()
+#### OH_NativeXComponent_GetKeyEvent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1070,7 +1070,7 @@ int32_t OH_NativeXComponent_GetKeyEvent(OH_NativeXComponent* component, OH_Nativ
  
   
 
-##### OH_NativeXComponent_GetKeyEventAction()
+#### OH_NativeXComponent_GetKeyEventAction()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1101,7 +1101,7 @@ int32_t OH_NativeXComponent_GetKeyEventAction(OH_NativeXComponent_KeyEvent* keyE
  
   
 
-##### OH_NativeXComponent_GetKeyEventCode()
+#### OH_NativeXComponent_GetKeyEventCode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1132,7 +1132,7 @@ int32_t OH_NativeXComponent_GetKeyEventCode(OH_NativeXComponent_KeyEvent* keyEve
  
   
 
-##### OH_NativeXComponent_GetKeyEventSourceType()
+#### OH_NativeXComponent_GetKeyEventSourceType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1163,7 +1163,7 @@ int32_t OH_NativeXComponent_GetKeyEventSourceType(OH_NativeXComponent_KeyEvent* 
  
   
 
-##### OH_NativeXComponent_GetKeyEventDeviceId()
+#### OH_NativeXComponent_GetKeyEventDeviceId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1194,7 +1194,7 @@ int32_t OH_NativeXComponent_GetKeyEventDeviceId(OH_NativeXComponent_KeyEvent* ke
  
   
 
-##### OH_NativeXComponent_GetKeyEventTimestamp()
+#### OH_NativeXComponent_GetKeyEventTimestamp()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1225,7 +1225,7 @@ int32_t OH_NativeXComponent_GetKeyEventTimestamp(OH_NativeXComponent_KeyEvent* k
  
   
 
-##### OH_NativeXComponent_GetKeyEventModifierKeyStates()
+#### OH_NativeXComponent_GetKeyEventModifierKeyStates()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1256,7 +1256,7 @@ int32_t OH_NativeXComponent_GetKeyEventModifierKeyStates(OH_NativeXComponent_Key
  
   
 
-##### OH_NativeXComponent_GetKeyEventNumLockState()
+#### OH_NativeXComponent_GetKeyEventNumLockState()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1287,7 +1287,7 @@ int32_t OH_NativeXComponent_GetKeyEventNumLockState(OH_NativeXComponent_KeyEvent
  
   
 
-##### OH_NativeXComponent_GetKeyEventCapsLockState()
+#### OH_NativeXComponent_GetKeyEventCapsLockState()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1318,7 +1318,7 @@ int32_t OH_NativeXComponent_GetKeyEventCapsLockState(OH_NativeXComponent_KeyEven
  
   
 
-##### OH_NativeXComponent_GetKeyEventScrollLockState()
+#### OH_NativeXComponent_GetKeyEventScrollLockState()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1349,7 +1349,7 @@ int32_t OH_NativeXComponent_GetKeyEventScrollLockState(OH_NativeXComponent_KeyEv
  
   
 
-##### OH_NativeXComponent_SetExpectedFrameRateRange()
+#### OH_NativeXComponent_SetExpectedFrameRateRange()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1380,7 +1380,7 @@ int32_t OH_NativeXComponent_SetExpectedFrameRateRange(OH_NativeXComponent* compo
  
   
 
-##### OH_NativeXComponent_RegisterOnFrameCallback()
+#### OH_NativeXComponent_RegisterOnFrameCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1411,7 +1411,7 @@ int32_t OH_NativeXComponent_RegisterOnFrameCallback(OH_NativeXComponent* compone
  
   
 
-##### OH_NativeXComponent_UnregisterOnFrameCallback()
+#### OH_NativeXComponent_UnregisterOnFrameCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1441,7 +1441,7 @@ int32_t OH_NativeXComponent_UnregisterOnFrameCallback(OH_NativeXComponent* compo
  
   
 
-##### OH_NativeXComponent_AttachNativeRootNode()
+#### OH_NativeXComponent_AttachNativeRootNode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1476,7 +1476,7 @@ int32_t OH_NativeXComponent_AttachNativeRootNode(OH_NativeXComponent* component,
  
   
 
-##### OH_NativeXComponent_DetachNativeRootNode()
+#### OH_NativeXComponent_DetachNativeRootNode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1511,7 +1511,7 @@ int32_t OH_NativeXComponent_DetachNativeRootNode(OH_NativeXComponent* component,
  
   
 
-##### OH_NativeXComponent_RegisterUIInputEventCallback()
+#### OH_NativeXComponent_RegisterUIInputEventCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1543,7 +1543,7 @@ int32_t OH_NativeXComponent_RegisterUIInputEventCallback(OH_NativeXComponent *co
  
   
 
-##### OH_NativeXComponent_RegisterOnTouchInterceptCallback()
+#### OH_NativeXComponent_RegisterOnTouchInterceptCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1574,7 +1574,7 @@ int32_t OH_NativeXComponent_RegisterOnTouchInterceptCallback(OH_NativeXComponent
  
   
 
-##### OH_NativeXComponent_SetNeedSoftKeyboard()
+#### OH_NativeXComponent_SetNeedSoftKeyboard()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1605,7 +1605,7 @@ int32_t OH_NativeXComponent_SetNeedSoftKeyboard(OH_NativeXComponent* component, 
  
   
 
-##### OH_NativeXComponent_RegisterSurfaceShowCallback()
+#### OH_NativeXComponent_RegisterSurfaceShowCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1636,7 +1636,7 @@ int32_t OH_NativeXComponent_RegisterSurfaceShowCallback(OH_NativeXComponent* com
  
   
 
-##### OH_NativeXComponent_RegisterSurfaceHideCallback()
+#### OH_NativeXComponent_RegisterSurfaceHideCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1667,7 +1667,7 @@ int32_t OH_NativeXComponent_RegisterSurfaceHideCallback(OH_NativeXComponent* com
  
   
 
-##### OH_NativeXComponent_GetTouchEventSourceType()
+#### OH_NativeXComponent_GetTouchEventSourceType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1699,7 +1699,7 @@ int32_t OH_NativeXComponent_GetTouchEventSourceType(OH_NativeXComponent* compone
  
   
 
-##### OH_NativeXComponent_GetNativeXComponent()
+#### OH_NativeXComponent_GetNativeXComponent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1729,7 +1729,7 @@ OH_NativeXComponent* OH_NativeXComponent_GetNativeXComponent(ArkUI_NodeHandle no
  
   
 
-##### OH_NativeXComponent_GetNativeAccessibilityProvider()
+#### OH_NativeXComponent_GetNativeAccessibilityProvider()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1760,7 +1760,7 @@ int32_t OH_NativeXComponent_GetNativeAccessibilityProvider(OH_NativeXComponent* 
  
   
 
-##### OH_NativeXComponent_RegisterKeyEventCallbackWithResult()
+#### OH_NativeXComponent_RegisterKeyEventCallbackWithResult()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1791,7 +1791,7 @@ int32_t OH_NativeXComponent_RegisterKeyEventCallbackWithResult(OH_NativeXCompone
  
   
 
-##### OH_ArkUI_XComponent_StartImageAnalyzer()
+#### OH_ArkUI_XComponent_StartImageAnalyzer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1823,7 +1823,7 @@ int32_t OH_ArkUI_XComponent_StartImageAnalyzer(ArkUI_NodeHandle node, void* user
  
   
 
-##### OH_ArkUI_XComponent_StopImageAnalyzer()
+#### OH_ArkUI_XComponent_StopImageAnalyzer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1853,7 +1853,7 @@ int32_t OH_ArkUI_XComponent_StopImageAnalyzer(ArkUI_NodeHandle node)
  
   
 
-##### OH_ArkUI_SurfaceHolder_Create()
+#### OH_ArkUI_SurfaceHolder_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1883,7 +1883,7 @@ OH_ArkUI_SurfaceHolder* OH_ArkUI_SurfaceHolder_Create(ArkUI_NodeHandle node)
  
   
 
-##### OH_ArkUI_SurfaceHolder_Dispose()
+#### OH_ArkUI_SurfaceHolder_Dispose()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1906,7 +1906,7 @@ void OH_ArkUI_SurfaceHolder_Dispose(OH_ArkUI_SurfaceHolder* surfaceHolder)
  
   
 
-##### OH_ArkUI_SurfaceHolder_SetUserData()
+#### OH_ArkUI_SurfaceHolder_SetUserData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1937,7 +1937,7 @@ int32_t OH_ArkUI_SurfaceHolder_SetUserData(OH_ArkUI_SurfaceHolder* surfaceHolder
  
   
 
-##### OH_ArkUI_SurfaceHolder_GetUserData()
+#### OH_ArkUI_SurfaceHolder_GetUserData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1967,7 +1967,7 @@ void* OH_ArkUI_SurfaceHolder_GetUserData(OH_ArkUI_SurfaceHolder* surfaceHolder)
  
   
 
-##### OH_ArkUI_SurfaceCallback_Create()
+#### OH_ArkUI_SurfaceCallback_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1990,7 +1990,7 @@ OH_ArkUI_SurfaceCallback* OH_ArkUI_SurfaceCallback_Create()
  
   
 
-##### OH_ArkUI_SurfaceCallback_Dispose()
+#### OH_ArkUI_SurfaceCallback_Dispose()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2013,7 +2013,7 @@ void OH_ArkUI_SurfaceCallback_Dispose(OH_ArkUI_SurfaceCallback* callback)
  
   
 
-##### OH_ArkUI_SurfaceCallback_SetSurfaceCreatedEvent()
+#### OH_ArkUI_SurfaceCallback_SetSurfaceCreatedEvent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2037,7 +2037,7 @@ void OH_ArkUI_SurfaceCallback_SetSurfaceCreatedEvent(OH_ArkUI_SurfaceCallback* c
  
   
 
-##### OH_ArkUI_SurfaceCallback_SetSurfaceChangedEvent()
+#### OH_ArkUI_SurfaceCallback_SetSurfaceChangedEvent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2061,7 +2061,7 @@ void OH_ArkUI_SurfaceCallback_SetSurfaceChangedEvent(OH_ArkUI_SurfaceCallback* c
  
   
 
-##### OH_ArkUI_SurfaceCallback_SetSurfaceDestroyedEvent()
+#### OH_ArkUI_SurfaceCallback_SetSurfaceDestroyedEvent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2085,7 +2085,7 @@ void OH_ArkUI_SurfaceCallback_SetSurfaceDestroyedEvent(OH_ArkUI_SurfaceCallback*
  
   
 
-##### OH_ArkUI_SurfaceHolder_AddSurfaceCallback()
+#### OH_ArkUI_SurfaceHolder_AddSurfaceCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2116,7 +2116,7 @@ int32_t OH_ArkUI_SurfaceHolder_AddSurfaceCallback(OH_ArkUI_SurfaceHolder* surfac
  
   
 
-##### OH_ArkUI_SurfaceHolder_RemoveSurfaceCallback()
+#### OH_ArkUI_SurfaceHolder_RemoveSurfaceCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2147,7 +2147,7 @@ int32_t OH_ArkUI_SurfaceHolder_RemoveSurfaceCallback(OH_ArkUI_SurfaceHolder* sur
  
   
 
-##### OH_ArkUI_XComponent_GetNativeWindow()
+#### OH_ArkUI_XComponent_GetNativeWindow()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2177,7 +2177,7 @@ OHNativeWindow* OH_ArkUI_XComponent_GetNativeWindow(OH_ArkUI_SurfaceHolder* surf
  
   
 
-##### OH_ArkUI_XComponent_SetAutoInitialize()
+#### OH_ArkUI_XComponent_SetAutoInitialize()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2208,7 +2208,7 @@ int32_t OH_ArkUI_XComponent_SetAutoInitialize(ArkUI_NodeHandle node, bool autoIn
  
   
 
-##### OH_ArkUI_XComponent_Initialize()
+#### OH_ArkUI_XComponent_Initialize()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2238,7 +2238,7 @@ int32_t OH_ArkUI_XComponent_Initialize(ArkUI_NodeHandle node)
  
   
 
-##### OH_ArkUI_XComponent_Finalize()
+#### OH_ArkUI_XComponent_Finalize()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2268,7 +2268,7 @@ int32_t OH_ArkUI_XComponent_Finalize(ArkUI_NodeHandle node)
  
   
 
-##### OH_ArkUI_XComponent_IsInitialized()
+#### OH_ArkUI_XComponent_IsInitialized()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2299,7 +2299,7 @@ int32_t OH_ArkUI_XComponent_IsInitialized(ArkUI_NodeHandle node, bool* isInitial
  
   
 
-##### OH_ArkUI_XComponent_SetExpectedFrameRateRange()
+#### OH_ArkUI_XComponent_SetExpectedFrameRateRange()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2330,7 +2330,7 @@ int32_t OH_ArkUI_XComponent_SetExpectedFrameRateRange(ArkUI_NodeHandle node, OH_
  
   
 
-##### OH_ArkUI_XComponent_RegisterOnFrameCallback()
+#### OH_ArkUI_XComponent_RegisterOnFrameCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2361,7 +2361,7 @@ int32_t OH_ArkUI_XComponent_RegisterOnFrameCallback(ArkUI_NodeHandle node,void (
  
   
 
-##### OH_ArkUI_XComponent_UnregisterOnFrameCallback()
+#### OH_ArkUI_XComponent_UnregisterOnFrameCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2391,7 +2391,7 @@ int32_t OH_ArkUI_XComponent_UnregisterOnFrameCallback(ArkUI_NodeHandle node)
  
   
 
-##### OH_ArkUI_XComponent_SetNeedSoftKeyboard()
+#### OH_ArkUI_XComponent_SetNeedSoftKeyboard()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2422,7 +2422,7 @@ int32_t OH_ArkUI_XComponent_SetNeedSoftKeyboard(ArkUI_NodeHandle node, bool need
  
   
 
-##### OH_ArkUI_AccessibilityProvider_Create()
+#### OH_ArkUI_AccessibilityProvider_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2452,7 +2452,7 @@ ArkUI_AccessibilityProvider* OH_ArkUI_AccessibilityProvider_Create(ArkUI_NodeHan
  
   
 
-##### OH_ArkUI_AccessibilityProvider_Dispose()
+#### OH_ArkUI_AccessibilityProvider_Dispose()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2475,7 +2475,7 @@ void OH_ArkUI_AccessibilityProvider_Dispose(ArkUI_AccessibilityProvider* provide
  
   
 
-##### OH_ArkUI_SurfaceCallback_SetSurfaceShowEvent()
+#### OH_ArkUI_SurfaceCallback_SetSurfaceShowEvent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2499,7 +2499,7 @@ void OH_ArkUI_SurfaceCallback_SetSurfaceShowEvent(OH_ArkUI_SurfaceCallback* call
  
   
 
-##### OH_ArkUI_SurfaceCallback_SetSurfaceHideEvent()
+#### OH_ArkUI_SurfaceCallback_SetSurfaceHideEvent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2523,7 +2523,7 @@ void OH_ArkUI_SurfaceCallback_SetSurfaceHideEvent(OH_ArkUI_SurfaceCallback* call
  
   
 
-##### OH_ArkUI_XComponentSurfaceConfig_Create()
+#### OH_ArkUI_XComponentSurfaceConfig_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2546,7 +2546,7 @@ ArkUI_XComponentSurfaceConfig* OH_ArkUI_XComponentSurfaceConfig_Create()
  
   
 
-##### OH_ArkUI_XComponentSurfaceConfig_Dispose()
+#### OH_ArkUI_XComponentSurfaceConfig_Dispose()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2569,7 +2569,7 @@ void OH_ArkUI_XComponentSurfaceConfig_Dispose(ArkUI_XComponentSurfaceConfig* con
  
   
 
-##### OH_ArkUI_XComponentSurfaceConfig_SetIsOpaque()
+#### OH_ArkUI_XComponentSurfaceConfig_SetIsOpaque()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2593,7 +2593,7 @@ void OH_ArkUI_XComponentSurfaceConfig_SetIsOpaque(ArkUI_XComponentSurfaceConfig*
  
   
 
-##### OH_ArkUI_SurfaceHolder_SetSurfaceConfig()
+#### OH_ArkUI_SurfaceHolder_SetSurfaceConfig()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

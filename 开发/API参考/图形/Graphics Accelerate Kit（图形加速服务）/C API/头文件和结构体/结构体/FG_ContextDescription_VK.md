@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_g___context_description___v_k
 **支持设备：** Phone | Tablet | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | Tablet | TV
 
@@ -19,13 +19,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | Tablet | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | Tablet | TV
  
@@ -40,13 +40,13 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** Phone | Tablet | TV
 
   
 
-##### fnVulkanLoaderFunction
+#### fnVulkanLoaderFunction
 
 **支持设备：** Phone | Tablet | TV
 
@@ -60,7 +60,7 @@ PFN_vkGetInstanceProcAddr FG_ContextDescription_VK::fnVulkanLoaderFunction
  
   
 
-##### framesInFlight
+#### framesInFlight
 
 **支持设备：** Phone | Tablet | TV
 
@@ -74,7 +74,7 @@ uint8_t FG_ContextDescription_VK::framesInFlight
  
   
 
-##### vkDevice
+#### vkDevice
 
 **支持设备：** Phone | Tablet | TV
 
@@ -88,7 +88,7 @@ Vulkan逻辑设备句柄，需在[FG_Context_VK](https://developer.huawei.com/co
  
   
 
-##### vkInstance
+#### vkInstance
 
 **支持设备：** Phone | Tablet | TV
 
@@ -102,7 +102,7 @@ Vulkan实例，需在[FG_Context_VK](https://developer.huawei.com/consumer/cn/do
  
   
 
-##### vkPhysicalDevice
+#### vkPhysicalDevice
 
 **支持设备：** Phone | Tablet | TV
 

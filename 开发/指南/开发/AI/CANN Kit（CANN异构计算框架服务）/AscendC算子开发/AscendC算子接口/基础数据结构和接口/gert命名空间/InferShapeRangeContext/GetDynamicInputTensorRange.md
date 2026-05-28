@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getdynamicinputtensorrange
 
-##### 函数功能
+#### 函数功能
 
 根据算子原型定义中的输入索引获取对应的动态输入tensor range指针。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 using TensorRange = Range<Tensor>
@@ -19,7 +19,7 @@ const TensorRange *GetDynamicInputTensorRange(const size_t ir_index, const size_
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -29,19 +29,19 @@ const TensorRange *GetDynamicInputTensorRange(const size_t ir_index, const size_
  
   
 
-##### 返回值
+#### 返回值
 
 tensor range指针，ir_index或relative_index非法时，返回空指针。
  
   
 
-##### 约束说明
+#### 约束说明
 
 如果输入没有被设置为数据依赖，调用此接口获取tensor range时，只能在tensor中获取到正确的shape、format、datatype信息。无法获取到真实的tensor数据地址（获取到的地址为nullptr）。
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 const auto infer_shape_range_func = [](gert::InferShapeRangeContext *context) -> graphStatus {

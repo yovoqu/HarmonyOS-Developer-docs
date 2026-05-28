@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { InputMethodListDialog } from '@kit.IMEKit';
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -30,7 +30,7 @@ import { InputMethodListDialog } from '@kit.IMEKit';
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -38,7 +38,7 @@ import { InputMethodListDialog } from '@kit.IMEKit';
  
   
 
-##### InputMethodListDialog
+#### InputMethodListDialog
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -60,7 +60,7 @@ InputMethodListDialog({controller: CustomDialogController, patternOptions?: Patt
  
   
 
-##### PatternOptions
+#### PatternOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -75,7 +75,7 @@ InputMethodListDialog({controller: CustomDialogController, patternOptions?: Patt
  
   
 
-##### Pattern
+#### Pattern
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -89,7 +89,7 @@ InputMethodListDialog({controller: CustomDialogController, patternOptions?: Patt
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -97,7 +97,7 @@ InputMethodListDialog({controller: CustomDialogController, patternOptions?: Patt
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -154,4 +154,4 @@ struct SettingsItem {
 示例效果图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/Xv_81034QqKCwbpT_qKXvg/zh-cn_image_0000002611836487.png?HW-CC-KV=V1&HW-CC-Date=20260528T024051Z&HW-CC-Expire=86400&HW-CC-Sign=F1F8B76F4AE644CC0C9BB21D81923BD0CA4BD8861FF46D7CB322848FDA72406C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/Xv_81034QqKCwbpT_qKXvg/zh-cn_image_0000002611836487.png?HW-CC-KV=V1&HW-CC-Date=20260528T025426Z&HW-CC-Expire=86400&HW-CC-Sign=A974E8E09E4E6F754400D065EECAD2ACB2C7FBA086573BBA8A54A7728E777BDA)

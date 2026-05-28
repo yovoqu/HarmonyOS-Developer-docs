@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-avplayer-embeded-network-video
 
-##### 概述
+#### 概述
 
  
 本文适用于网络视频播放类应用开发，针对市场上主流网络视频播放类应用常见场景，介绍如何基于AVPlayer系统播放器实现网络视频播放。本文指导开发者实现以下场景：
@@ -20,21 +20,21 @@
 
  
 
-##### 基础播控
+#### 基础播控
 
  
 
-##### 场景描述
+#### 场景描述
 
 通过AVPlayer实现视频资源加载、播放、暂停、停止、退出、倍速播放、静音播放、窗口缩放模式、音量调节等操作。详细信息可参考[《基于AVPlayer基础播控实践》](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-avplayer-basic-control)。
  
  
 
-##### 焦点管理
+#### 焦点管理
 
  
 
-##### 场景描述
+#### 场景描述
 
 通过正确设置音频流类型、中断事件处理和自定义焦点策略，完成播放过程中的音频焦点管理。
  
@@ -44,33 +44,33 @@
  
  
 
-##### 开发步骤
+#### 开发步骤
 
 具体开发步骤可参考基于AVPlayer播放长视频实践的[焦点管理开发步骤](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-avplayer-long-video#section1716082163419)。
  
  
 
-##### 弹幕发送与显示
+#### 弹幕发送与显示
 
  
 
-##### 场景描述
+#### 场景描述
 
  
 视频弹幕发送与显示是影音娱乐类应用中的高频使用场景之一，如用户在播放视频、观看直播时可以发送弹幕，实时评论互动，增强用户参与度。
  
 
-##### 开发步骤
+#### 开发步骤
 
  
 具体开发步骤可参考基于AVPlayer播放长视频实践的[弹幕发送与显示开发步骤](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-avplayer-long-video#section168137393711)。
  
 
-##### 画中画播放
+#### 画中画播放
 
  
 
-##### 场景描述
+#### 场景描述
 
  
 应用在视频播放时，可以使用画中画能力将视频内容以小窗（画中画）模式呈现。切换为小窗（画中画）模式后，用户可以进行其他界面操作，提升使用体验。
@@ -80,17 +80,17 @@
 
  
 
-##### 开发步骤
+#### 开发步骤
 
  
 具体开发步骤可参考基于AVPlayer播放长视频实践的[画中画播放开发步骤](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-avplayer-long-video#section4691194231313)。
  
 
-##### 横竖屏切换与旋转感知
+#### 横竖屏切换与旋转感知
 
  
 
-##### 场景描述
+#### 场景描述
 
  
 用户播放视频时可以根据实际需求进行横竖屏切换。
@@ -100,17 +100,17 @@
 
  
 
-##### 开发步骤
+#### 开发步骤
 
  
 具体开发步骤可参考基于AVPlayer播放长视频实践的[横竖屏切换和旋转感知开发步骤](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-avplayer-long-video#section1257185216407)。
  
 
-##### 通过URL设置视频源
+#### 通过URL设置视频源
 
  
 
-##### 场景描述
+#### 场景描述
 
 
 ![](assets/基于AVPlayer播放网络视频实践/file-20260515114659244-3.gif)
@@ -132,7 +132,7 @@
 本章节主要介绍如何配置HLS协议和HTTP/HTTPS协议的在线链接URL，以及如何设置本地M3U8文件和MP4文件的URL，以实现视频播放功能。
  
 
-##### 实现原理
+#### 实现原理
 
 AVPlayer通过URL形式配置播放源，有以下两种方式：
  
@@ -142,7 +142,7 @@ AVPlayer通过URL形式配置播放源，有以下两种方式：
  
  
 
-##### 开发步骤
+#### 开发步骤
 
 1. 创建AVPlayer。
 
@@ -226,11 +226,11 @@ public async initAVPlayer(source: VideoData, surfaceId: string) {
 
  
 
-##### 网络视频缓冲条
+#### 网络视频缓冲条
 
  
 
-##### 场景描述
+#### 场景描述
 
  
 网络视频缓冲进度条是影音娱乐类应用中的典型场景之一，如用户播放在线视频时，进度条显示当前缓冲的可播放进度。
@@ -240,7 +240,7 @@ public async initAVPlayer(source: VideoData, surfaceId: string) {
 
  
 
-##### 实现原理
+#### 实现原理
 
 本示例基于[AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer)实现在线视频播放，基于[Slider](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-slider)实现视频播放和缓冲进度条显示。由于Slider没有多进度特性，这里使用[Stack](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-stack-layout)布局，将缓冲条Slider和进度条Slider重叠显示，来实现缓冲进度和播放进度同时显示的效果。
  
@@ -252,7 +252,7 @@ public async initAVPlayer(source: VideoData, surfaceId: string) {
  
  
 
-##### 开发步骤
+#### 开发步骤
 1. 创建AVPlayer，并配置好相应的播放源。
 
   
@@ -373,11 +373,11 @@ progressBuilder() {
  
  
 
-##### 网络视频边缓冲边播放
+#### 网络视频边缓冲边播放
 
  
 
-##### 场景描述
+#### 场景描述
 
  
 网络视频边缓冲边播放是影音娱乐类应用中的典型场景之一，如用户播放在线视频时，不用等待视频资源完全加载（缓冲）后再进行播放，可以缓冲到一定资源后，就可直接起播。AVPlayer自带边缓冲边播放的特性，本章节介绍AVPlayer缓冲区相关参数配置。
@@ -387,12 +387,12 @@ progressBuilder() {
 
  
 
-##### AVPlayer缓冲区工作过程
+#### AVPlayer缓冲区工作过程
 
 对于缓冲区而言，下载线程是生产端，读取线程则是消费端。生产端将数据写入到缓冲区中，消费端则从缓冲区读取数据，下面将介绍缓冲区中的几个水位线概念。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/bj0r5wM0TYK7DF7UwbjgTQ/zh-cn_image_0000002453031512.png?HW-CC-KV=V1&HW-CC-Date=20260528T013104Z&HW-CC-Expire=86400&HW-CC-Sign=C87BDE14D2A17DBBCC957370202E537034E019A25C692AA7307F24AC3E3389AE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/bj0r5wM0TYK7DF7UwbjgTQ/zh-cn_image_0000002453031512.png?HW-CC-KV=V1&HW-CC-Date=20260528T024747Z&HW-CC-Expire=86400&HW-CC-Sign=4F1BD5CE5C62ADE846EA040360914CC189A65CC237B613C570F5C49FF1B62774)
 
  
 以上四个水位线取值情况如下，其中起播水位线，和下载暂停水位线（缓冲区大小）可通过配置AVPlayer的播放策略来控制，其他两个暂未提供配置接口。
@@ -422,7 +422,7 @@ progressBuilder() {
  
  
 
-##### 通过setMediaSource()方法配置
+#### 通过setMediaSource()方法配置
 1. 创建AVPlayer，并通过[media.createMediaSourceWithUrl()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-f#mediacreatemediasourcewithurl12)方法生成MediaSource实例。
 
   
@@ -498,7 +498,7 @@ public async initAVPlayer(source: VideoData, surfaceId: string) {
  
  
 
-##### 通过setPlaybackStrategy()方法配置
+#### 通过setPlaybackStrategy()方法配置
 1. 创建AVPlayer，并直接通过赋值AVPlayer.url属性，对AVPlayer初始化。
 
   
@@ -569,6 +569,6 @@ this.avPlayer.on('stateChange', async (state) => {
  
  
 
-##### 示例代码
+#### 示例代码
 
 - [基于AVPlayer播放网络视频实践](https://gitcode.com/harmonyos_samples/avplayer-online-video)

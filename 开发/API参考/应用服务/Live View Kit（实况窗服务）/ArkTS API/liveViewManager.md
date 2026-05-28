@@ -10,7 +10,7 @@
 **起始版本：** 4.1.0(11)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { liveViewManager } from '@kit.LiveViewKit';
 
 
 
-##### liveViewManager.isLiveViewEnabled
+#### liveViewManager.isLiveViewEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -77,7 +77,7 @@ try {
 
 
 
-##### liveViewManager.startLiveView
+#### liveViewManager.startLiveView
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -208,7 +208,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### liveViewManager.updateLiveView
+#### liveViewManager.updateLiveView
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -339,7 +339,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### liveViewManager.stopLiveView
+#### liveViewManager.stopLiveView
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -470,7 +470,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### liveViewManager.getActiveLiveView
+#### liveViewManager.getActiveLiveView
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -536,7 +536,7 @@ try {
 
 
 
-##### liveViewManager.isGeofenceTriggerEnabled
+#### liveViewManager.isGeofenceTriggerEnabled
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -591,7 +591,7 @@ try {
 
 
 
-##### liveViewManager.startLiveViewByTrigger
+#### liveViewManager.startLiveViewByTrigger
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -735,7 +735,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### liveViewManager.stopLiveViewByTrigger
+#### liveViewManager.stopLiveViewByTrigger
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -879,7 +879,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### Trigger
+#### Trigger
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -902,7 +902,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### Geofence
+#### Geofence
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -932,7 +932,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### TriggerType
+#### TriggerType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -953,7 +953,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### CoordinateSystemType
+#### CoordinateSystemType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -975,7 +975,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### MonitorEvent
+#### MonitorEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -997,7 +997,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### LiveView
+#### LiveView
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1023,7 +1023,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### LiveViewTimer
+#### LiveViewTimer
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1048,7 +1048,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### CountdownPreset
+#### CountdownPreset
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1070,7 +1070,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### LiveViewData
+#### LiveViewData
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1093,7 +1093,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### PrimaryData
+#### PrimaryData
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1124,7 +1124,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### BackgroundType
+#### BackgroundType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1147,7 +1147,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### ExtensionData
+#### ExtensionData
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1172,7 +1172,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### LayoutData
+#### LayoutData
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1196,7 +1196,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### WeatherInfo
+#### WeatherInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1220,7 +1220,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### WeatherType
+#### WeatherType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1268,7 +1268,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### WeatherLocationType
+#### WeatherLocationType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1290,7 +1290,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### ServiceButton
+#### ServiceButton
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1312,7 +1312,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### ProgressLayout
+#### ProgressLayout
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1339,7 +1339,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### PickupLayout
+#### PickupLayout
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1363,7 +1363,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### FlightLayout
+#### FlightLayout
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1395,7 +1395,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### ScoreLayout
+#### ScoreLayout
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1424,7 +1424,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### NavigationLayout
+#### NavigationLayout
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1447,7 +1447,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### CapsuleData
+#### CapsuleData
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1474,7 +1474,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### TextCapsule
+#### TextCapsule
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1496,7 +1496,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### TimerCapsule
+#### TimerCapsule
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1520,7 +1520,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### ProgressCapsule
+#### ProgressCapsule
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1544,7 +1544,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### ExternalData
+#### ExternalData
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1569,7 +1569,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### RichText
+#### RichText
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1591,7 +1591,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### LiveViewResult
+#### LiveViewResult
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1613,7 +1613,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### LayoutType
+#### LayoutType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1639,7 +1639,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### ExtensionType
+#### ExtensionType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1664,7 +1664,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### ActionType
+#### ActionType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1686,7 +1686,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### IndicatorType
+#### IndicatorType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1709,7 +1709,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### LineType
+#### LineType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1732,7 +1732,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### CapsuleType
+#### CapsuleType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1755,7 +1755,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### ExternalType
+#### ExternalType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1777,7 +1777,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### FlightLayoutStyle
+#### FlightLayoutStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1803,7 +1803,7 @@ async function buildWantAgent(): Promise<Want> {
 
 
 
-##### SpaceType
+#### SpaceType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

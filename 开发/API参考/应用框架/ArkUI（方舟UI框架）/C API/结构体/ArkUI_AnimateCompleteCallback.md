@@ -10,7 +10,7 @@ typedef struct {...} ArkUI_AnimateCompleteCallback
 ```
   
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,13 +24,13 @@ typedef struct {...} ArkUI_AnimateCompleteCallback
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -42,7 +42,7 @@ typedef struct {...} ArkUI_AnimateCompleteCallback
  
   
 
-##### 成员函数
+#### 成员函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -53,13 +53,13 @@ typedef struct {...} ArkUI_AnimateCompleteCallback
  
   
 
-##### 成员函数说明
+#### 成员函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### callback()
+#### callback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

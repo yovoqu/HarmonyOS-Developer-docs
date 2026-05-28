@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-media-asset-base-capi-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -45,7 +45,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -63,7 +63,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -76,7 +76,7 @@
  
   
 
-##### 变量
+#### 变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -87,13 +87,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### MediaLibrary_ErrorCode
+#### MediaLibrary_ErrorCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -122,7 +122,7 @@ enum MediaLibrary_ErrorCode
  
   
 
-##### MediaLibrary_DeliveryMode
+#### MediaLibrary_DeliveryMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -151,7 +151,7 @@ enum MediaLibrary_DeliveryMode
  
   
 
-##### MediaLibrary_MediaType
+#### MediaLibrary_MediaType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -173,7 +173,7 @@ enum MediaLibrary_MediaType
  
   
 
-##### MediaLibrary_MediaSubType
+#### MediaLibrary_MediaSubType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -196,7 +196,7 @@ enum MediaLibrary_MediaSubType
  
   
 
-##### MediaLibrary_ResourceType
+#### MediaLibrary_ResourceType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -218,7 +218,7 @@ enum MediaLibrary_ResourceType
  
   
 
-##### MediaLibrary_ImageFileType
+#### MediaLibrary_ImageFileType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -241,7 +241,7 @@ enum MediaLibrary_ImageFileType
  
   
 
-##### MediaLibrary_MediaQuality
+#### MediaLibrary_MediaQuality
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -271,7 +271,7 @@ enum MediaLibrary_MediaQuality
  
   
 
-##### MediaLibrary_MediaContentType
+#### MediaLibrary_MediaContentType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -293,13 +293,13 @@ enum MediaLibrary_MediaContentType
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_MediaLibrary_OnDataPrepared()
+#### OH_MediaLibrary_OnDataPrepared()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -323,7 +323,7 @@ typedef void (*OH_MediaLibrary_OnDataPrepared)(int32_t result, MediaLibrary_Requ
  
   
 
-##### OH_MediaLibrary_OnImageDataPrepared()
+#### OH_MediaLibrary_OnImageDataPrepared()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -350,7 +350,7 @@ typedef void (*OH_MediaLibrary_OnImageDataPrepared)(MediaLibrary_ErrorCode resul
  
   
 
-##### OH_MediaLibrary_OnMovingPhotoDataPrepared()
+#### OH_MediaLibrary_OnMovingPhotoDataPrepared()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -377,7 +377,7 @@ typedef void (*OH_MediaLibrary_OnMovingPhotoDataPrepared)(MediaLibrary_ErrorCode
  
   
 
-##### OH_MediaLibrary_OnQuickImageDataPrepared()
+#### OH_MediaLibrary_OnQuickImageDataPrepared()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

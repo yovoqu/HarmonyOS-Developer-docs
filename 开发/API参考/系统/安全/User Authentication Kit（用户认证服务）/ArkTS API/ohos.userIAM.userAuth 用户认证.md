@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -22,7 +22,7 @@ import { userAuth } from '@kit.UserAuthenticationKit';
 
 
 
-##### 常量
+#### 常量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -36,7 +36,7 @@ import { userAuth } from '@kit.UserAuthenticationKit';
 
 
 
-##### AuthLockState22+
+#### AuthLockState22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -55,7 +55,7 @@ import { userAuth } from '@kit.UserAuthenticationKit';
 
 
 
-##### UserAuthTipCode20+
+#### UserAuthTipCode20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -78,7 +78,7 @@ import { userAuth } from '@kit.UserAuthenticationKit';
 
 
 
-##### EnrolledState12+
+#### EnrolledState12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -96,7 +96,7 @@ import { userAuth } from '@kit.UserAuthenticationKit';
 
 
 
-##### ReuseMode12+
+#### ReuseMode12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -114,7 +114,7 @@ import { userAuth } from '@kit.UserAuthenticationKit';
 
 
 
-##### ReuseUnlockResult12+
+#### ReuseUnlockResult12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -136,7 +136,7 @@ import { userAuth } from '@kit.UserAuthenticationKit';
 
 
 
-##### userAuth.getAuthLockState22+
+#### userAuth.getAuthLockState22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -202,7 +202,7 @@ userAuth.getAuthLockState(queryType)
 
 
 
-##### userAuth.getEnrolledState12+
+#### userAuth.getEnrolledState12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -260,7 +260,7 @@ try {
 
 
 
-##### AuthParam10+
+#### AuthParam10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -279,7 +279,7 @@ try {
 
 
 
-##### WidgetParam10+
+#### WidgetParam10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -296,7 +296,7 @@ try {
 
 
 
-##### UserAuthResult10+
+#### UserAuthResult10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -316,7 +316,7 @@ try {
 
 
 
-##### IAuthCallback10+
+#### IAuthCallback10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -324,7 +324,7 @@ try {
 
 
 
-##### onResult10+
+#### onResult10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -503,7 +503,7 @@ try {
 
 
 
-##### AuthTipInfo20+
+#### AuthTipInfo20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -521,7 +521,7 @@ try {
 
 
 
-##### AuthTipCallback20+
+#### AuthTipCallback20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -588,7 +588,7 @@ try {
 
 
 
-##### UserAuthInstance10+
+#### UserAuthInstance10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -598,7 +598,7 @@ try {
 
 
 
-##### on('result')10+
+#### on('result')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -750,7 +750,7 @@ struct Index {
 
 
 
-##### off('result')10+
+#### off('result')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -830,7 +830,7 @@ try {
 
 
 
-##### start10+
+#### start10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -915,7 +915,7 @@ try {
 
 
 
-##### cancel10+
+#### cancel10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -987,7 +987,7 @@ try {
 
 
 
-##### on('authTip')20+
+#### on('authTip')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1067,7 +1067,7 @@ try {
 
 
 
-##### off('authtip')20+
+#### off('authtip')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1144,7 +1144,7 @@ try {
 
 
 
-##### userAuth.getUserAuthInstance10+
+#### userAuth.getUserAuthInstance10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1227,7 +1227,7 @@ try {
 
 
 
-##### AuthResultInfo(deprecated)
+#### AuthResultInfo(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1249,7 +1249,7 @@ try {
 
 
 
-##### TipInfo(deprecated)
+#### TipInfo(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1269,7 +1269,7 @@ try {
 
 
 
-##### EventInfo(deprecated)
+#### EventInfo(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1293,7 +1293,7 @@ type EventInfo = AuthResultInfo | TipInfo
 
 
 
-##### AuthEventKey(deprecated)
+#### AuthEventKey(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1317,7 +1317,7 @@ type AuthEventKey = 'result' | 'tip'
 
 
 
-##### AuthEvent(deprecated)
+#### AuthEvent(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1329,7 +1329,7 @@ type AuthEventKey = 'result' | 'tip'
 
 
 
-##### callback(deprecated)
+#### callback(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1399,7 +1399,7 @@ try {
 
 
 
-##### AuthInstance(deprecated)
+#### AuthInstance(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1411,7 +1411,7 @@ try {
 
 
 
-##### on(deprecated)
+#### on(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1484,7 +1484,7 @@ try {
 
 
 
-##### off(deprecated)
+#### off(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1540,7 +1540,7 @@ try {
 
 
 
-##### start(deprecated)
+#### start(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1595,7 +1595,7 @@ try {
 
 
 
-##### cancel(deprecated)
+#### cancel(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1642,7 +1642,7 @@ try {
 
 
 
-##### userAuth.getAuthInstance(deprecated)
+#### userAuth.getAuthInstance(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1703,7 +1703,7 @@ try {
 
 
 
-##### userAuth.getAvailableStatus9+
+#### userAuth.getAvailableStatus9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1730,7 +1730,7 @@ getAvailableStatus(authType : UserAuthType, authTrustLevel : AuthTrustLevel): vo
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/A-oGPOjxTjm096Hyl4aUhA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023924Z&HW-CC-Expire=86400&HW-CC-Sign=F39F934DC72ED1CE48DB62BD4D282CECE0337131A048AF0387FC42D6294E5078)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/A-oGPOjxTjm096Hyl4aUhA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025258Z&HW-CC-Expire=86400&HW-CC-Sign=5E08CF9DC814BCE17839DE04EEB972F486BA9D195C0F86D2914CF6000BCF80C0)
 
 
 若用户注册的锁屏口令是4位PIN时，其认证可信等级为ATL3，调用该接口查询是否支持ATL4级别的密码认证时，需返回12500010。
@@ -1767,7 +1767,7 @@ try {
 
 
 
-##### UserAuthResultCode9+
+#### UserAuthResultCode9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1794,7 +1794,7 @@ try {
 
 
 
-##### UserAuth(deprecated)
+#### UserAuth(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1802,7 +1802,7 @@ try {
 
 
 
-##### constructor(deprecated)
+#### constructor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1826,7 +1826,7 @@ let auth = new userAuth.UserAuth();
 
 
 
-##### getVersion(deprecated)
+#### getVersion(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1861,7 +1861,7 @@ console.info(`auth version = ${version}`);
 
 
 
-##### getAvailableStatus(deprecated)
+#### getAvailableStatus(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1908,7 +1908,7 @@ if (checkCode == userAuth.ResultCode.SUCCESS) {
 
 
 
-##### auth(deprecated)
+#### auth(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1966,7 +1966,7 @@ auth.auth(challenge, userAuth.UserAuthType.FACE, userAuth.AuthTrustLevel.ATL1, {
 
 
 
-##### cancelAuth(deprecated)
+#### cancelAuth(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2014,7 +2014,7 @@ if (cancelCode == userAuth.ResultCode.SUCCESS) {
 
 
 
-##### IUserAuthCallback(deprecated)
+#### IUserAuthCallback(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2026,7 +2026,7 @@ if (cancelCode == userAuth.ResultCode.SUCCESS) {
 
 
 
-##### onResult(deprecated)
+#### onResult(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2073,7 +2073,7 @@ auth.auth(challenge, userAuth.UserAuthType.FACE, userAuth.AuthTrustLevel.ATL1, {
 
 
 
-##### onAcquireInfo(deprecated)
+#### onAcquireInfo(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2128,7 +2128,7 @@ auth.auth(challenge, userAuth.UserAuthType.FACE, userAuth.AuthTrustLevel.ATL1, {
 
 
 
-##### AuthResult(deprecated)
+#### AuthResult(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2149,7 +2149,7 @@ auth.auth(challenge, userAuth.UserAuthType.FACE, userAuth.AuthTrustLevel.ATL1, {
 
 
 
-##### ResultCode(deprecated)
+#### ResultCode(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2178,7 +2178,7 @@ auth.auth(challenge, userAuth.UserAuthType.FACE, userAuth.AuthTrustLevel.ATL1, {
 
 
 
-##### FaceTips(deprecated)
+#### FaceTips(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2207,7 +2207,7 @@ auth.auth(challenge, userAuth.UserAuthType.FACE, userAuth.AuthTrustLevel.ATL1, {
 
 
 
-##### FingerprintTips(deprecated)
+#### FingerprintTips(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2231,7 +2231,7 @@ auth.auth(challenge, userAuth.UserAuthType.FACE, userAuth.AuthTrustLevel.ATL1, {
 
 
 
-##### UserAuthType8+
+#### UserAuthType8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2250,7 +2250,7 @@ auth.auth(challenge, userAuth.UserAuthType.FACE, userAuth.AuthTrustLevel.ATL1, {
 
 
 
-##### AuthTrustLevel8+
+#### AuthTrustLevel8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2272,7 +2272,7 @@ auth.auth(challenge, userAuth.UserAuthType.FACE, userAuth.AuthTrustLevel.ATL1, {
 
 
 
-##### SecureLevel(deprecated)
+#### SecureLevel(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2293,7 +2293,7 @@ type SecureLevel = string
 
 
 
-##### AuthType(deprecated)
+#### AuthType(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2314,7 +2314,7 @@ type AuthType = string
 
 
 
-##### userAuth.getAuthenticator(deprecated)
+#### userAuth.getAuthenticator(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2345,7 +2345,7 @@ let authenticator = userAuth.getAuthenticator();
 
 
 
-##### Authenticator(deprecated)
+#### Authenticator(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2357,7 +2357,7 @@ let authenticator = userAuth.getAuthenticator();
 
 
 
-##### execute(deprecated)
+#### execute(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2399,7 +2399,7 @@ authenticator.execute('FACE_ONLY', 'S2', (error, code)=>{
 
 
 
-##### execute(deprecated)
+#### execute(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -2447,7 +2447,7 @@ try {
 
 
 
-##### AuthenticationResult(deprecated)
+#### AuthenticationResult(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

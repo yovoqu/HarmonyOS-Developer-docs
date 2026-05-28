@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { systemManager } from '@kit.MDMKit';
 
 
 
-##### systemManager.setNTPServer
+#### systemManager.setNTPServer
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -81,7 +81,7 @@ try {
 
 
 
-##### systemManager.getNTPServer
+#### systemManager.getNTPServer
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -142,7 +142,7 @@ try {
 
 
 
-##### systemManager.setOtaUpdatePolicy
+#### systemManager.setOtaUpdatePolicy
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -264,7 +264,7 @@ try {
 
 
 
-##### systemManager.getOtaUpdatePolicy
+#### systemManager.getOtaUpdatePolicy
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -325,7 +325,7 @@ try {
 
 
 
-##### systemManager.notifyUpdatePackages
+#### systemManager.notifyUpdatePackages
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -438,7 +438,7 @@ systemManager.notifyUpdatePackages(wantTemp, updatePackageInfo).then(() => {
 
 
 
-##### systemManager.getUpdateResult
+#### systemManager.getUpdateResult
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -500,7 +500,7 @@ systemManager.getUpdateResult(wantTemp, "1.0").then((result:systemManager.Update
 
 
 
-##### systemManager.getUpdateAuthData19+
+#### systemManager.getUpdateAuthData19+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -560,7 +560,7 @@ systemManager.getUpdateAuthData(wantTemp).then((result: string) => {
 
 
 
-##### systemManager.addDisallowedNearLinkProtocols20+
+#### systemManager.addDisallowedNearLinkProtocols20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -629,7 +629,7 @@ try {
 
 
 
-##### systemManager.removeDisallowedNearLinkProtocols20+
+#### systemManager.removeDisallowedNearLinkProtocols20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -697,7 +697,7 @@ try {
 
 
 
-##### systemManager.getDisallowedNearLinkProtocols20+
+#### systemManager.getDisallowedNearLinkProtocols20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -765,7 +765,7 @@ try {
 
 
 
-##### systemManager.setInstallLocalEnterpriseAppEnabled20+
+#### systemManager.setInstallLocalEnterpriseAppEnabled20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -826,7 +826,7 @@ try {
 
 
 
-##### systemManager.getInstallLocalEnterpriseAppEnabled20+
+#### systemManager.getInstallLocalEnterpriseAppEnabled20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -889,7 +889,7 @@ try {
 
 
 
-##### systemManager.setAutoUnlockAfterReboot20+
+#### systemManager.setAutoUnlockAfterReboot20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -949,7 +949,7 @@ try {
 
 
 
-##### systemManager.getAutoUnlockAfterReboot20+
+#### systemManager.getAutoUnlockAfterReboot20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1012,7 +1012,7 @@ try {
 
 
 
-##### systemManager.addKeyEventPolicies23+
+#### systemManager.addKeyEventPolicies23+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1083,7 +1083,7 @@ try {
 
 
 
-##### systemManager.removeKeyEventPolicies23+
+#### systemManager.removeKeyEventPolicies23+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1146,7 +1146,7 @@ try {
 
 
 
-##### systemManager.getKeyEventPolicies23+
+#### systemManager.getKeyEventPolicies23+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1210,7 +1210,7 @@ try {
 
 
 
-##### systemManager.startCollectLog23+
+#### systemManager.startCollectLog23+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1283,7 +1283,7 @@ systemManager.startCollectLog(wantTemp).then(() => {
 
 
 
-##### systemManager.finishLogCollected23+
+#### systemManager.finishLogCollected23+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1344,7 +1344,7 @@ try {
 
 
 
-##### SystemUpdateInfo
+#### SystemUpdateInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1361,7 +1361,7 @@ try {
 
 
 
-##### systemManager.setActivationLockDisabled24+
+#### systemManager.setActivationLockDisabled24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1432,7 +1432,7 @@ systemManager.setActivationLockDisabled(wantTemp, isDisabled, credential).then((
 
 
 
-##### systemManager.isActivationLockDisabled24+
+#### systemManager.isActivationLockDisabled24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1496,7 +1496,7 @@ systemManager.isActivationLockDisabled(wantTemp).then(result => {
 
 
 
-##### systemManager.setInstallLocalEnterpriseAppEnabledForAccount24+
+#### systemManager.setInstallLocalEnterpriseAppEnabledForAccount24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1566,7 +1566,7 @@ try {
 
 
 
-##### systemManager.getInstallLocalEnterpriseAppEnabledForAccount24+
+#### systemManager.getInstallLocalEnterpriseAppEnabledForAccount24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1633,7 +1633,7 @@ try {
 
 
 
-##### OtaUpdatePolicy
+#### OtaUpdatePolicy
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1654,7 +1654,7 @@ try {
 
 
 
-##### PolicyType
+#### PolicyType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1673,7 +1673,7 @@ try {
 
 
 
-##### UpdatePackageInfo
+#### UpdatePackageInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1691,7 +1691,7 @@ try {
 
 
 
-##### Package
+#### Package
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1708,7 +1708,7 @@ try {
 
 
 
-##### PackageDescription
+#### PackageDescription
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1723,7 +1723,7 @@ try {
 
 
 
-##### NotifyDescription
+#### NotifyDescription
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1739,7 +1739,7 @@ try {
 
 
 
-##### UpdateResult
+#### UpdateResult
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1756,7 +1756,7 @@ try {
 
 
 
-##### ErrorInfo
+#### ErrorInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1772,7 +1772,7 @@ try {
 
 
 
-##### PackageType
+#### PackageType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1787,7 +1787,7 @@ try {
 
 
 
-##### UpdateStatus
+#### UpdateStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1806,7 +1806,7 @@ try {
 
 
 
-##### NearLinkProtocol20+
+#### NearLinkProtocol20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1824,7 +1824,7 @@ try {
 
 
 
-##### KeyEventPolicy23+
+#### KeyEventPolicy23+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1842,7 +1842,7 @@ try {
 
 
 
-##### KeyCode23+
+#### KeyCode23+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1864,7 +1864,7 @@ try {
 
 
 
-##### KeyPolicy23+
+#### KeyPolicy23+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1882,7 +1882,7 @@ try {
 
 
 
-##### KeyEvent23+
+#### KeyEvent23+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1902,7 +1902,7 @@ try {
 
 
 
-##### KeyAction23+
+#### KeyAction23+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1921,7 +1921,7 @@ try {
 
 
 
-##### KeyItem23+
+#### KeyItem23+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

@@ -96,10 +96,10 @@ canvas.drawImage(pixelMap, 0, 0);
 绘制效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/s666kQ-MQMO6NCCfALIFYQ/zh-cn_image_0000002581434752.png?HW-CC-KV=V1&HW-CC-Date=20260528T014903Z&HW-CC-Expire=86400&HW-CC-Sign=E784ADFF1E2986111B4ED5FC1CD41C0C70DF96DDC366D2ED7F675E6C815D1EE3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/s666kQ-MQMO6NCCfALIFYQ/zh-cn_image_0000002581434752.png?HW-CC-KV=V1&HW-CC-Date=20260528T030532Z&HW-CC-Expire=86400&HW-CC-Sign=61651D7A63267278992C2BBC640AF64F319973458CE7B53633BF7650902DCEFD)
 
 
 
-##### 示例代码
+#### 示例代码
 
  - [图形绘制（ArkTS）](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/ArkGraphics2D/Drawing/ArkTSGraphicsDraw)

@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { insightIntent } from '@kit.AbilityKit';
 
 
 
-##### ExecuteMode
+#### ExecuteMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -39,7 +39,7 @@ import { insightIntent } from '@kit.AbilityKit';
 
 
 
-##### ExecuteResult
+#### ExecuteResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -57,7 +57,7 @@ import { insightIntent } from '@kit.AbilityKit';
 
 
 
-##### IntentEntity20+
+#### IntentEntity20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -74,7 +74,7 @@ import { insightIntent } from '@kit.AbilityKit';
 
 
 
-##### IntentResult&lt;T&gt;20+
+#### IntentResult&lt;T&gt;20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -90,7 +90,7 @@ import { insightIntent } from '@kit.AbilityKit';
 
 
 
-##### ReturnMode23+
+#### ReturnMode23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

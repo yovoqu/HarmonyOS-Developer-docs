@@ -18,7 +18,7 @@ ImageSource的所有方法均不支持并发调用。
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -28,7 +28,7 @@ import { image } from '@kit.ImageKit';
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@ import { image } from '@kit.ImageKit';
 
 
 
-##### getImageInfo
+#### getImageInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -81,7 +81,7 @@ async function GetImageInfo(imageSourceObj : image.ImageSource) {
 
 
 
-##### getImageInfo
+#### getImageInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -120,7 +120,7 @@ async function GetImageInfo(imageSourceObj : image.ImageSource) {
 
 
 
-##### getImageInfo
+#### getImageInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -165,7 +165,7 @@ async function GetImageInfo(imageSourceObj : image.ImageSource) {
 
 
 
-##### getImageInfoSync12+
+#### getImageInfoSync12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -213,7 +213,7 @@ function GetImageInfoSync(context : Context) {
 
 
 
-##### getImageProperty11+
+#### getImageProperty11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -278,7 +278,7 @@ async function GetImageProperty(imageSourceObj : image.ImageSource) {
 
 
 
-##### getImageProperties12+
+#### getImageProperties12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -334,7 +334,7 @@ async function GetImageProperties(imageSourceObj : image.ImageSource) {
 
 
 
-##### getImagePropertySync20+
+#### getImagePropertySync20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -392,7 +392,7 @@ function GetImagePropertySync(context : Context) {
 
 
 
-##### modifyImageProperty11+
+#### modifyImageProperty11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -456,7 +456,7 @@ async function ModifyImageProperty(imageSourceObj : image.ImageSource) {
 
 
 
-##### modifyImageProperties12+
+#### modifyImageProperties12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -523,7 +523,7 @@ async function ModifyImageProperties(imageSourceObj : image.ImageSource) {
 
 
 
-##### modifyImagePropertiesEnhanced22+
+#### modifyImagePropertiesEnhanced22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -588,7 +588,7 @@ async function ModifyImagePropertiesEnhanced(imageSourceObj : image.ImageSource)
 
 
 
-##### readImageMetadata23+
+#### readImageMetadata23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -653,7 +653,7 @@ async function ReadImageMetadata(imageSourceObj : image.ImageSource) {
 
 
 
-##### writeImageMetadata23+
+#### writeImageMetadata23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -715,7 +715,7 @@ async function WriteImageMetadata(imageSourceObj : image.ImageSource) {
 
 
 
-##### readImageMetadataByType24+
+#### readImageMetadataByType24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -779,7 +779,7 @@ async function ReadImageMetadataByType(imageSource : image.ImageSource, type: im
 
 
 
-##### createImageRawData24+
+#### createImageRawData24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -833,7 +833,7 @@ async function createImageRawData(imageSourceObj: image.ImageSource) {
 
 
 
-##### updateData9+
+#### updateData9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -877,7 +877,7 @@ async function UpdateDatay(imageSourceObj : image.ImageSource) {
 
 
 
-##### updateData9+
+#### updateData9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -917,7 +917,7 @@ async function UpdateDatay(imageSourceObj : image.ImageSource) {
 
 
 
-##### createPicture13+
+#### createPicture13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -974,7 +974,7 @@ async function CreatePicture(imageSourceObj : image.ImageSource) {
 
 
 
-##### createPictureAtIndex20+
+#### createPictureAtIndex20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1033,7 +1033,7 @@ async function CreatePictures(imageSourceObj : image.ImageSource) {
 
 
 
-##### createPixelMap7+
+#### createPixelMap7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1083,7 +1083,7 @@ async function CreatePixelMap(imageSourceObj : image.ImageSource) {
 
 
 
-##### createPixelMap7+
+#### createPixelMap7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1128,7 +1128,7 @@ async function CreatePixelMap(imageSourceObj : image.ImageSource) {
 
 
 
-##### createPixelMap7+
+#### createPixelMap7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1185,7 +1185,7 @@ async function CreatePixelMap(imageSourceObj : image.ImageSource) {
 
 
 
-##### createPixelMapSync12+
+#### createPixelMapSync12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1248,7 +1248,7 @@ function CreatePixelMapSync(context : Context) {
 
 
 
-##### createPixelMapList10+
+#### createPixelMapList10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1323,7 +1323,7 @@ async function CreatePixelMapList(imageSourceObj : image.ImageSource) {
 
 
 
-##### createPixelMapList10+
+#### createPixelMapList10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1385,7 +1385,7 @@ async function CreatePixelMapList(imageSourceObj : image.ImageSource) {
 
 
 
-##### createPixelMapList10+
+#### createPixelMapList10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1456,7 +1456,7 @@ async function CreatePixelMapList(imageSourceObj : image.ImageSource) {
 
 
 
-##### createPixelMapUsingAllocator15+
+#### createPixelMapUsingAllocator15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1529,7 +1529,7 @@ async function CreatePixelMapUsingAllocator(context : Context) {
 
 
 
-##### createPixelMapUsingAllocatorSync15+
+#### createPixelMapUsingAllocatorSync15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1606,7 +1606,7 @@ async function CreatePixelMapUsingAllocator(context : Context) {
 
 
 
-##### getDelayTimeList10+
+#### getDelayTimeList10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1657,7 +1657,7 @@ async function GetDelayTimeList(imageSourceObj : image.ImageSource) {
 
 
 
-##### getDelayTimeList10+
+#### getDelayTimeList10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1706,7 +1706,7 @@ async function GetDelayTimeList(imageSourceObj : image.ImageSource) {
 
 
 
-##### getFrameCount10+
+#### getFrameCount10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1758,7 +1758,7 @@ async function GetFrameCount(imageSourceObj : image.ImageSource) {
 
 
 
-##### getFrameCount10+
+#### getFrameCount10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1808,7 +1808,7 @@ async function GetFrameCount(imageSourceObj : image.ImageSource) {
 
 
 
-##### getDisposalTypeList12+
+#### getDisposalTypeList12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1853,7 +1853,7 @@ async function GetDisposalTypeList(imageSourceObj : image.ImageSource) {
 
 
 
-##### release
+#### release
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1892,7 +1892,7 @@ async function Release(imageSourceObj : image.ImageSource) {
 
 
 
-##### release
+#### release
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1929,7 +1929,7 @@ async function Release(imageSourceObj : image.ImageSource) {
 
 
 
-##### getImageProperty(deprecated)
+#### getImageProperty(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1977,7 +1977,7 @@ async function GetImageProperty(imageSourceObj : image.ImageSource) {
 
 
 
-##### getImageProperty(deprecated)
+#### getImageProperty(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2019,7 +2019,7 @@ async function GetImageProperty(imageSourceObj : image.ImageSource) {
 
 
 
-##### getImageProperty(deprecated)
+#### getImageProperty(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2063,7 +2063,7 @@ async function GetImageProperty(imageSourceObj : image.ImageSource) {
 
 
 
-##### modifyImageProperty(deprecated)
+#### modifyImageProperty(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2114,7 +2114,7 @@ async function ModifyImageProperty(imageSourceObj : image.ImageSource) {
 
 
 
-##### modifyImageProperty(deprecated)
+#### modifyImageProperty(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

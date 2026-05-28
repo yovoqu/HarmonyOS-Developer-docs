@@ -14,7 +14,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { audio } from '@kit.AudioKit';
 
 
 
-##### activateAudioSession12+
+#### activateAudioSession12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -77,7 +77,7 @@ audioSessionManager.activateAudioSession(strategy).then(() => {
 
 
 
-##### deactivateAudioSession12+
+#### deactivateAudioSession12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -117,7 +117,7 @@ audioSessionManager.deactivateAudioSession().then(() => {
 
 
 
-##### isAudioSessionActivated12+
+#### isAudioSessionActivated12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -142,7 +142,7 @@ let isActivated = audioSessionManager.isAudioSessionActivated();
 
 
 
-##### on('audioSessionDeactivated')12+
+#### on('audioSessionDeactivated')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -181,7 +181,7 @@ audioSessionManager.on('audioSessionDeactivated',
 
 
 
-##### off('audioSessionDeactivated')12+
+#### off('audioSessionDeactivated')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -227,7 +227,7 @@ audioSessionManager.off('audioSessionDeactivated', audioSessionDeactivatedCallba
 
 
 
-##### setAudioSessionScene20+
+#### setAudioSessionScene20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -263,7 +263,7 @@ audioSessionManager.setAudioSessionScene(audio.AudioSessionScene.AUDIO_SESSION_S
 
 
 
-##### on('audioSessionStateChanged')20+
+#### on('audioSessionStateChanged')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -302,7 +302,7 @@ audioSessionManager.on('audioSessionStateChanged', (audioSessionStateChangedEven
 
 
 
-##### off('audioSessionStateChanged')20+
+#### off('audioSessionStateChanged')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -348,7 +348,7 @@ audioSessionManager.off('audioSessionStateChanged', audioSessionStateChangedCall
 
 
 
-##### setDefaultOutputDevice20+
+#### setDefaultOutputDevice20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -403,7 +403,7 @@ audioSessionManager.setDefaultOutputDevice(audio.DeviceType.SPEAKER).then(() => 
 
 
 
-##### getDefaultOutputDevice20+
+#### getDefaultOutputDevice20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -438,7 +438,7 @@ let deviceType = audioSessionManager.getDefaultOutputDevice();
 
 
 
-##### on('currentOutputDeviceChanged')20+
+#### on('currentOutputDeviceChanged')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -481,7 +481,7 @@ audioSessionManager.on('currentOutputDeviceChanged', currentOutputDeviceChangedC
 
 
 
-##### off('currentOutputDeviceChanged')20+
+#### off('currentOutputDeviceChanged')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -527,7 +527,7 @@ audioSessionManager.off('currentOutputDeviceChanged', currentOutputDeviceChanged
 
 
 
-##### getAvailableDevices21+
+#### getAvailableDevices21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -577,7 +577,7 @@ try {
 
 
 
-##### on('availableDeviceChange')21+
+#### on('availableDeviceChange')21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -619,7 +619,7 @@ audioSessionManager.on('availableDeviceChange', audio.DeviceUsage.MEDIA_INPUT_DE
 
 
 
-##### off('availableDeviceChange')21+
+#### off('availableDeviceChange')21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -667,7 +667,7 @@ audioSessionManager.off('availableDeviceChange', availableDeviceChangeCallback);
 
 
 
-##### selectMediaInputDevice21+
+#### selectMediaInputDevice21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -729,7 +729,7 @@ try {
 
 
 
-##### getSelectedMediaInputDevice21+
+#### getSelectedMediaInputDevice21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -771,7 +771,7 @@ try {
 
 
 
-##### clearSelectedMediaInputDevice21+
+#### clearSelectedMediaInputDevice21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -811,7 +811,7 @@ audioSessionManager.clearSelectedMediaInputDevice().then(() => {
 
 
 
-##### setBluetoothAndNearlinkPreferredRecordCategory21+
+#### setBluetoothAndNearlinkPreferredRecordCategory21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -864,7 +864,7 @@ audioSessionManager.setBluetoothAndNearlinkPreferredRecordCategory(category).the
 
 
 
-##### getBluetoothAndNearlinkPreferredRecordCategory21+
+#### getBluetoothAndNearlinkPreferredRecordCategory21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -906,7 +906,7 @@ try {
 
 
 
-##### on('currentInputDeviceChanged')21+
+#### on('currentInputDeviceChanged')21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -948,7 +948,7 @@ audioSessionManager.on('currentInputDeviceChanged', currentInputDeviceChangedCal
 
 
 
-##### off('currentInputDeviceChanged')21+
+#### off('currentInputDeviceChanged')21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -993,7 +993,7 @@ audioSessionManager.off('currentInputDeviceChanged', currentInputDeviceChangedCa
 
 
 
-##### enableMuteSuggestionWhenMixWithOthers23+
+#### enableMuteSuggestionWhenMixWithOthers23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1038,7 +1038,7 @@ audio.getAudioManager().getSessionManager().enableMuteSuggestionWhenMixWithOther
 
 
 
-##### setCapturerMuteHint24+
+#### setCapturerMuteHint24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1091,7 +1091,7 @@ audioSessionManager.setCapturerMuteHint(true).then(() => {
 
 
 
-##### isOtherMediaPlaying23+
+#### isOtherMediaPlaying23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1118,7 +1118,7 @@ let isExistence = audioSessionManager.isOtherMediaPlaying();
 
 
 
-##### setAudioSessionBehavior24+
+#### setAudioSessionBehavior24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

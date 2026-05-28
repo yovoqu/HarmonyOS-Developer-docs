@@ -35,7 +35,7 @@ Share Kit（分享服务）提供的[SampleCode示例工程](https://gitcode.com
 
 
 
-##### 基本概念
+#### 基本概念
 
  - 宿主应用
 
@@ -65,7 +65,7 @@ Share Kit（分享服务）提供的[SampleCode示例工程](https://gitcode.com
 
 
 
-##### 运行机制
+#### 运行机制
 
 **图4** 分享运行机制
 
@@ -81,7 +81,7 @@ Share Kit（分享服务）提供的[SampleCode示例工程](https://gitcode.com
 
 
 
-##### 约束与限制
+#### 约束与限制
 
  - 设备限制
 
@@ -104,7 +104,7 @@ Share Kit（分享服务）提供的[SampleCode示例工程](https://gitcode.com
 
 
 
-##### 模拟器支持情况
+#### 模拟器支持情况
 
 本Kit支持模拟器。
 

@@ -11,17 +11,17 @@
 
  
 - **实时预览**：在开发界面UI代码过程中，如果添加或删除了UI组件，您只需**Ctrl+S**进行保存，然后预览器就会立即刷新预览结果。如果修改了组件的属性，则预览器会实时（亚秒级）刷新预览结果，达到极速预览的效果（当前版本极速预览仅支持ArkTS组件。支持部分数据绑定场景，如@State装饰的变量）。实时预览默认开启，如果不需要实时预览，请单击预览器右上角
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/EO3VDRQZTO64B_Wmzbd1Iw/zh-cn_image_0000002571546628.png?HW-CC-KV=V1&HW-CC-Date=20260528T014957Z&HW-CC-Expire=86400&HW-CC-Sign=CB86FF9F5A8A894CEE6310A2A5D067C590653EC64FFABEC7BFCACF1CDE01DE4F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/2bmDROh0Ttmt7lJh3wUicQ/zh-cn_image_0000002571546628.png?HW-CC-KV=V1&HW-CC-Date=20260528T030627Z&HW-CC-Expire=86400&HW-CC-Sign=145D1648A27F9674837A339F0401319AB1896A4671D14EE63D571AE542B86CE7)
 按钮，关闭实时预览功能。
 > [!NOTE]
 > 开发者修改resources/base/profile目录下的配置文件（如main_pages.json/form_config.json），不支持触发实时预览，开发者需要点击重新加载 。
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/of_gk2p6SkGDyzfKby47Gg/zh-cn_image_0000002571386988.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014957Z&HW-CC-Expire=86400&HW-CC-Sign=90A9BC9A84F455E1553382C5DCD5916C3216538801A8B6F39BC589D0D9B07733)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/F6ywziOdQwmFtOiRq5vJZw/zh-cn_image_0000002571386988.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030627Z&HW-CC-Expire=86400&HW-CC-Sign=78B0B773E73100A1013473F625FEDB99A62911E998EDC7CDA670B12D1B2EDA25)
 
 - **动态预览**：在预览器界面，可以在预览器中操作应用/元服务的界面交互动作，如单击、跳转、滑动等，与应用/元服务运行在真机设备上的界面交互体验一致。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/i_wpf_NlSYK9DX0X506_jw/zh-cn_image_0000002571546630.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014957Z&HW-CC-Expire=86400&HW-CC-Sign=E2F9C8B38C08E17A5F4705A3F4912E16CCFE61B5FCE0AFD3B808646409279C93)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/zA9ESe9ySHq7pF5hUdLFhg/zh-cn_image_0000002571546630.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030627Z&HW-CC-Expire=86400&HW-CC-Sign=A0239F795DE83F23200C7BF6E0262A422F240008C89B88C21EF7AC7AC0AB37A2)
 
 
  
@@ -34,5 +34,5 @@
 通过菜单栏，单击**View > Tool Windows > Previewer**打开预览器。
 4. 在编辑窗口右上角的侧边工具栏，单击**Previewer**，打开预览器。
 5. 点击按钮
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/K9KAB_FNSqmKmNCSiFDo3A/zh-cn_image_0000002602066109.png?HW-CC-KV=V1&HW-CC-Date=20260528T014957Z&HW-CC-Expire=86400&HW-CC-Sign=24758E26C06F7F64B1D325F8E4DCEDFC5A7D9530152F849D06135B09B2238067)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/7_7i7ikLRZKuhL47tprGYw/zh-cn_image_0000002602066109.png?HW-CC-KV=V1&HW-CC-Date=20260528T030627Z&HW-CC-Expire=86400&HW-CC-Sign=C10BE98523E01B25D67B4871E12801C8937ABE211A0B8D8F76C7E03610CF2428)
 ，停止预览。

@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance
 **支持设备：** Phone | PC/2in1 | Tablet
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -17,13 +17,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### 文件
+#### 文件
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -34,7 +34,7 @@
  
   
 
-##### 类型定义
+#### 类型定义
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -66,7 +66,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -86,7 +86,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet
  
@@ -193,13 +193,13 @@
  
   
 
-##### 类型定义说明
+#### 类型定义说明
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### GamePerformance_ConfigInfo
+#### GamePerformance_ConfigInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -215,7 +215,7 @@ typedef struct GamePerformance_ConfigInfo GamePerformance_ConfigInfo
  
   
 
-##### GamePerformance_CpuInfo
+#### GamePerformance_CpuInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -231,7 +231,7 @@ typedef struct GamePerformance_CpuInfo GamePerformance_CpuInfo
  
   
 
-##### GamePerformance_CpuLevel
+#### GamePerformance_CpuLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -247,7 +247,7 @@ typedef enum GamePerformance_CpuLevel GamePerformance_CpuLevel
  
   
 
-##### GamePerformance_DdrLevel
+#### GamePerformance_DdrLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -263,7 +263,7 @@ typedef enum GamePerformance_DdrLevel GamePerformance_DdrLevel
  
   
 
-##### GamePerformance_DeviceInfo
+#### GamePerformance_DeviceInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -279,7 +279,7 @@ typedef struct GamePerformance_DeviceInfo GamePerformance_DeviceInfo
  
   
 
-##### GamePerformance_DeviceInfoType
+#### GamePerformance_DeviceInfoType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -295,7 +295,7 @@ typedef enum GamePerformance_DeviceInfoType GamePerformance_DeviceInfoType
  
   
 
-##### GamePerformance_EngineType
+#### GamePerformance_EngineType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -311,7 +311,7 @@ typedef enum GamePerformance_EngineType GamePerformance_EngineType
  
   
 
-##### GamePerformance_ErrorCode
+#### GamePerformance_ErrorCode
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -327,7 +327,7 @@ typedef enum GamePerformance_ErrorCode GamePerformance_ErrorCode
  
   
 
-##### GamePerformance_GameType
+#### GamePerformance_GameType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -343,7 +343,7 @@ typedef enum GamePerformance_GameType GamePerformance_GameType
  
   
 
-##### GamePerformance_GpuInfo
+#### GamePerformance_GpuInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -359,7 +359,7 @@ typedef struct GamePerformance_GpuInfo GamePerformance_GpuInfo
  
   
 
-##### GamePerformance_GpuLevel
+#### GamePerformance_GpuLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -375,7 +375,7 @@ typedef enum GamePerformance_GpuLevel GamePerformance_GpuLevel
  
   
 
-##### GamePerformance_InitParameters
+#### GamePerformance_InitParameters
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -391,7 +391,7 @@ typedef struct GamePerformance_InitParameters GamePerformance_InitParameters
  
   
 
-##### GamePerformance_NetInfo
+#### GamePerformance_NetInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -407,7 +407,7 @@ typedef struct GamePerformance_NetInfo GamePerformance_NetInfo
  
   
 
-##### GamePerformance_NetLoad
+#### GamePerformance_NetLoad
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -423,7 +423,7 @@ typedef enum GamePerformance_NetLoad GamePerformance_NetLoad
  
   
 
-##### GamePerformance_PackageInfo
+#### GamePerformance_PackageInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -439,7 +439,7 @@ typedef struct GamePerformance_PackageInfo GamePerformance_PackageInfo
  
   
 
-##### GamePerformance_PictureQualityLevel
+#### GamePerformance_PictureQualityLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -455,7 +455,7 @@ typedef enum GamePerformance_PictureQualityLevel GamePerformance_PictureQualityL
  
   
 
-##### GamePerformance_PlayerInfo
+#### GamePerformance_PlayerInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -471,7 +471,7 @@ typedef struct GamePerformance_PlayerInfo GamePerformance_PlayerInfo
  
   
 
-##### GamePerformance_SceneImportanceLevel
+#### GamePerformance_SceneImportanceLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -487,7 +487,7 @@ typedef enum GamePerformance_SceneImportanceLevel GamePerformance_SceneImportanc
  
   
 
-##### GamePerformance_SceneInfo
+#### GamePerformance_SceneInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -503,7 +503,7 @@ typedef struct GamePerformance_SceneInfo GamePerformance_SceneInfo
  
   
 
-##### GamePerformance_ThermalInfo
+#### GamePerformance_ThermalInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -519,7 +519,7 @@ typedef struct GamePerformance_ThermalInfo GamePerformance_ThermalInfo
  
   
 
-##### GamePerformance_ThermalInfoQueryParameters
+#### GamePerformance_ThermalInfoQueryParameters
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -535,7 +535,7 @@ typedef struct GamePerformance_ThermalInfoQueryParameters GamePerformance_Therma
  
   
 
-##### GamePerformance_ThermalLevelChangedCallback
+#### GamePerformance_ThermalLevelChangedCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -559,13 +559,13 @@ typedef void(*GamePerformance_ThermalLevelChangedCallback) (GamePerformance_Devi
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### GamePerformance_CpuLevel
+#### GamePerformance_CpuLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -588,7 +588,7 @@ enum GamePerformance_CpuLevel
  
   
 
-##### GamePerformance_DdrLevel
+#### GamePerformance_DdrLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -611,7 +611,7 @@ enum GamePerformance_DdrLevel
  
   
 
-##### GamePerformance_DeviceInfoType
+#### GamePerformance_DeviceInfoType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -634,7 +634,7 @@ enum GamePerformance_DeviceInfoType
  
   
 
-##### GamePerformance_EngineType
+#### GamePerformance_EngineType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -659,7 +659,7 @@ enum GamePerformance_EngineType
  
   
 
-##### GamePerformance_ErrorCode
+#### GamePerformance_ErrorCode
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -685,7 +685,7 @@ enum GamePerformance_ErrorCode
  
   
 
-##### GamePerformance_GameType
+#### GamePerformance_GameType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -711,7 +711,7 @@ enum GamePerformance_GameType
  
   
 
-##### GamePerformance_GpuLevel
+#### GamePerformance_GpuLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -734,7 +734,7 @@ enum GamePerformance_GpuLevel
  
   
 
-##### GamePerformance_NetLoad
+#### GamePerformance_NetLoad
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -757,7 +757,7 @@ enum GamePerformance_NetLoad
  
   
 
-##### GamePerformance_PictureQualityLevel
+#### GamePerformance_PictureQualityLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -782,7 +782,7 @@ enum GamePerformance_PictureQualityLevel
  
   
 
-##### GamePerformance_SceneImportanceLevel
+#### GamePerformance_SceneImportanceLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -807,13 +807,13 @@ enum GamePerformance_SceneImportanceLevel
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### HMS_GamePerformance_ConfigInfo_SetAntiAliasingEnabled()
+#### HMS_GamePerformance_ConfigInfo_SetAntiAliasingEnabled()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -844,7 +844,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_ConfigInfo_SetAntiAliasingEnabled 
  
   
 
-##### HMS_GamePerformance_ConfigInfo_SetCurrentFrameRate()
+#### HMS_GamePerformance_ConfigInfo_SetCurrentFrameRate()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -875,7 +875,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_ConfigInfo_SetCurrentFrameRate (Ga
  
   
 
-##### HMS_GamePerformance_ConfigInfo_SetCurrentPictureQualityLevel()
+#### HMS_GamePerformance_ConfigInfo_SetCurrentPictureQualityLevel()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -906,7 +906,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_ConfigInfo_SetCurrentPictureQualit
  
   
 
-##### HMS_GamePerformance_ConfigInfo_SetCurrentResolution()
+#### HMS_GamePerformance_ConfigInfo_SetCurrentResolution()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -937,7 +937,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_ConfigInfo_SetCurrentResolution (G
  
   
 
-##### HMS_GamePerformance_ConfigInfo_SetHdModeEnabled()
+#### HMS_GamePerformance_ConfigInfo_SetHdModeEnabled()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -968,7 +968,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_ConfigInfo_SetHdModeEnabled (GameP
  
   
 
-##### HMS_GamePerformance_ConfigInfo_SetMaxFrameRate()
+#### HMS_GamePerformance_ConfigInfo_SetMaxFrameRate()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -999,7 +999,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_ConfigInfo_SetMaxFrameRate (GamePe
  
   
 
-##### HMS_GamePerformance_ConfigInfo_SetMaxPictureQualityLevel()
+#### HMS_GamePerformance_ConfigInfo_SetMaxPictureQualityLevel()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1030,7 +1030,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_ConfigInfo_SetMaxPictureQualityLev
  
   
 
-##### HMS_GamePerformance_ConfigInfo_SetMaxResolution()
+#### HMS_GamePerformance_ConfigInfo_SetMaxResolution()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1061,7 +1061,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_ConfigInfo_SetMaxResolution (GameP
  
   
 
-##### HMS_GamePerformance_ConfigInfo_SetMultithreadingEnabled()
+#### HMS_GamePerformance_ConfigInfo_SetMultithreadingEnabled()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1092,7 +1092,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_ConfigInfo_SetMultithreadingEnable
  
   
 
-##### HMS_GamePerformance_ConfigInfo_SetParticleEnabled()
+#### HMS_GamePerformance_ConfigInfo_SetParticleEnabled()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1123,7 +1123,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_ConfigInfo_SetParticleEnabled (Gam
  
   
 
-##### HMS_GamePerformance_ConfigInfo_SetShadowEnabled()
+#### HMS_GamePerformance_ConfigInfo_SetShadowEnabled()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1154,7 +1154,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_ConfigInfo_SetShadowEnabled (GameP
  
   
 
-##### HMS_GamePerformance_CpuInfo_GetCpuLoadLevel()
+#### HMS_GamePerformance_CpuInfo_GetCpuLoadLevel()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1185,7 +1185,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_CpuInfo_GetCpuLoadLevel (GamePerfo
  
   
 
-##### HMS_GamePerformance_CpuInfo_GetSingleThreadLoadLevel()
+#### HMS_GamePerformance_CpuInfo_GetSingleThreadLoadLevel()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1216,7 +1216,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_CpuInfo_GetSingleThreadLoadLevel (
  
   
 
-##### HMS_GamePerformance_CreateConfigInfo()
+#### HMS_GamePerformance_CreateConfigInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1246,7 +1246,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_CreateConfigInfo (GamePerformance_
  
   
 
-##### HMS_GamePerformance_CreateInitParameters()
+#### HMS_GamePerformance_CreateInitParameters()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1276,7 +1276,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_CreateInitParameters (GamePerforma
  
   
 
-##### HMS_GamePerformance_CreateNetInfo()
+#### HMS_GamePerformance_CreateNetInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1306,7 +1306,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_CreateNetInfo (GamePerformance_Net
  
   
 
-##### HMS_GamePerformance_CreatePackageInfo()
+#### HMS_GamePerformance_CreatePackageInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1336,7 +1336,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_CreatePackageInfo (GamePerformance
  
   
 
-##### HMS_GamePerformance_CreatePlayerInfo()
+#### HMS_GamePerformance_CreatePlayerInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1366,7 +1366,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_CreatePlayerInfo (GamePerformance_
  
   
 
-##### HMS_GamePerformance_CreateSceneInfo()
+#### HMS_GamePerformance_CreateSceneInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1396,7 +1396,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_CreateSceneInfo (GamePerformance_S
  
   
 
-##### HMS_GamePerformance_CreateThermalInfoQueryParameters()
+#### HMS_GamePerformance_CreateThermalInfoQueryParameters()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1426,7 +1426,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_CreateThermalInfoQueryParameters (
  
   
 
-##### HMS_GamePerformance_DestroyConfigInfo()
+#### HMS_GamePerformance_DestroyConfigInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1456,7 +1456,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_DestroyConfigInfo (GamePerformance
  
   
 
-##### HMS_GamePerformance_DestroyCpuInfo()
+#### HMS_GamePerformance_DestroyCpuInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1486,7 +1486,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_DestroyCpuInfo (GamePerformance_Cp
  
   
 
-##### HMS_GamePerformance_DestroyDeviceInfo()
+#### HMS_GamePerformance_DestroyDeviceInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1516,7 +1516,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_DestroyDeviceInfo (GamePerformance
  
   
 
-##### HMS_GamePerformance_DestroyGpuInfo()
+#### HMS_GamePerformance_DestroyGpuInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1546,7 +1546,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_DestroyGpuInfo (GamePerformance_Gp
  
   
 
-##### HMS_GamePerformance_DestroyInitParameters()
+#### HMS_GamePerformance_DestroyInitParameters()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1576,7 +1576,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_DestroyInitParameters (GamePerform
  
   
 
-##### HMS_GamePerformance_DestroyNetInfo()
+#### HMS_GamePerformance_DestroyNetInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1606,7 +1606,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_DestroyNetInfo (GamePerformance_Ne
  
   
 
-##### HMS_GamePerformance_DestroyPackageInfo()
+#### HMS_GamePerformance_DestroyPackageInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1636,7 +1636,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_DestroyPackageInfo (GamePerformanc
  
   
 
-##### HMS_GamePerformance_DestroyPlayerInfo()
+#### HMS_GamePerformance_DestroyPlayerInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1666,7 +1666,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_DestroyPlayerInfo (GamePerformance
  
   
 
-##### HMS_GamePerformance_DestroySceneInfo()
+#### HMS_GamePerformance_DestroySceneInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1696,7 +1696,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_DestroySceneInfo (GamePerformance_
  
   
 
-##### HMS_GamePerformance_DestroyThermalInfo()
+#### HMS_GamePerformance_DestroyThermalInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1726,7 +1726,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_DestroyThermalInfo (GamePerformanc
  
   
 
-##### HMS_GamePerformance_DestroyThermalInfoQueryParameters()
+#### HMS_GamePerformance_DestroyThermalInfoQueryParameters()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1756,7 +1756,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_DestroyThermalInfoQueryParameters 
  
   
 
-##### HMS_GamePerformance_DeviceInfo_GetCpuInfo()
+#### HMS_GamePerformance_DeviceInfo_GetCpuInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1787,7 +1787,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_DeviceInfo_GetCpuInfo (GamePerform
  
   
 
-##### HMS_GamePerformance_DeviceInfo_GetGpuInfo()
+#### HMS_GamePerformance_DeviceInfo_GetGpuInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1818,7 +1818,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_DeviceInfo_GetGpuInfo (GamePerform
  
   
 
-##### HMS_GamePerformance_DeviceInfo_GetThermalInfo()
+#### HMS_GamePerformance_DeviceInfo_GetThermalInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1849,7 +1849,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_DeviceInfo_GetThermalInfo (GamePer
  
   
 
-##### HMS_GamePerformance_GpuInfo_GetBandwidthLoadLevel()
+#### HMS_GamePerformance_GpuInfo_GetBandwidthLoadLevel()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1880,7 +1880,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_GpuInfo_GetBandwidthLoadLevel (Gam
  
   
 
-##### HMS_GamePerformance_GpuInfo_GetCurrentFrequency()
+#### HMS_GamePerformance_GpuInfo_GetCurrentFrequency()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1911,7 +1911,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_GpuInfo_GetCurrentFrequency (GameP
  
   
 
-##### HMS_GamePerformance_GpuInfo_GetFragmentLoadLevel()
+#### HMS_GamePerformance_GpuInfo_GetFragmentLoadLevel()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1942,7 +1942,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_GpuInfo_GetFragmentLoadLevel (Game
  
   
 
-##### HMS_GamePerformance_GpuInfo_GetGpuLoadLevel()
+#### HMS_GamePerformance_GpuInfo_GetGpuLoadLevel()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1973,7 +1973,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_GpuInfo_GetGpuLoadLevel (GamePerfo
  
   
 
-##### HMS_GamePerformance_GpuInfo_GetTextureLoadLevel()
+#### HMS_GamePerformance_GpuInfo_GetTextureLoadLevel()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2004,7 +2004,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_GpuInfo_GetTextureLoadLevel (GameP
  
   
 
-##### HMS_GamePerformance_GpuInfo_GetVertexLoadLevel()
+#### HMS_GamePerformance_GpuInfo_GetVertexLoadLevel()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2035,7 +2035,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_GpuInfo_GetVertexLoadLevel (GamePe
  
   
 
-##### HMS_GamePerformance_Init()
+#### HMS_GamePerformance_Init()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2069,7 +2069,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_Init (GamePerformance_InitParamete
  
   
 
-##### HMS_GamePerformance_InitParameters_SetAppVersion()
+#### HMS_GamePerformance_InitParameters_SetAppVersion()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2100,7 +2100,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_InitParameters_SetAppVersion (Game
  
   
 
-##### HMS_GamePerformance_InitParameters_SetBundleName()
+#### HMS_GamePerformance_InitParameters_SetBundleName()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2131,7 +2131,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_InitParameters_SetBundleName (Game
  
   
 
-##### HMS_GamePerformance_NetInfo_SetDownlinkLatency()
+#### HMS_GamePerformance_NetInfo_SetDownlinkLatency()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2162,7 +2162,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_NetInfo_SetDownlinkLatency (GamePe
  
   
 
-##### HMS_GamePerformance_NetInfo_SetNetLoad()
+#### HMS_GamePerformance_NetInfo_SetNetLoad()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2193,7 +2193,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_NetInfo_SetNetLoad (GamePerformanc
  
   
 
-##### HMS_GamePerformance_NetInfo_SetServerLatency()
+#### HMS_GamePerformance_NetInfo_SetServerLatency()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2224,7 +2224,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_NetInfo_SetServerLatency (GamePerf
  
   
 
-##### HMS_GamePerformance_NetInfo_SetTotalLatency()
+#### HMS_GamePerformance_NetInfo_SetTotalLatency()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2255,7 +2255,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_NetInfo_SetTotalLatency (GamePerfo
  
   
 
-##### HMS_GamePerformance_NetInfo_SetUplinkLatency()
+#### HMS_GamePerformance_NetInfo_SetUplinkLatency()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2286,7 +2286,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_NetInfo_SetUplinkLatency (GamePerf
  
   
 
-##### HMS_GamePerformance_PackageInfo_SetAppVersion()
+#### HMS_GamePerformance_PackageInfo_SetAppVersion()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2317,7 +2317,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_PackageInfo_SetAppVersion (GamePer
  
   
 
-##### HMS_GamePerformance_PackageInfo_SetBundleName()
+#### HMS_GamePerformance_PackageInfo_SetBundleName()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2348,7 +2348,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_PackageInfo_SetBundleName (GamePer
  
   
 
-##### HMS_GamePerformance_PackageInfo_SetEngineType()
+#### HMS_GamePerformance_PackageInfo_SetEngineType()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2379,7 +2379,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_PackageInfo_SetEngineType (GamePer
  
   
 
-##### HMS_GamePerformance_PackageInfo_SetEngineVersion()
+#### HMS_GamePerformance_PackageInfo_SetEngineVersion()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2410,7 +2410,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_PackageInfo_SetEngineVersion (Game
  
   
 
-##### HMS_GamePerformance_PackageInfo_SetGameType()
+#### HMS_GamePerformance_PackageInfo_SetGameType()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2441,7 +2441,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_PackageInfo_SetGameType (GamePerfo
  
   
 
-##### HMS_GamePerformance_PackageInfo_SetVulkanSupported()
+#### HMS_GamePerformance_PackageInfo_SetVulkanSupported()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2472,7 +2472,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_PackageInfo_SetVulkanSupported (Ga
  
   
 
-##### HMS_GamePerformance_PlayerInfo_SetGamePlayerId()
+#### HMS_GamePerformance_PlayerInfo_SetGamePlayerId()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2507,7 +2507,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_PlayerInfo_SetGamePlayerId (GamePe
  
   
 
-##### HMS_GamePerformance_PlayerInfo_SetTeamPlayerId()
+#### HMS_GamePerformance_PlayerInfo_SetTeamPlayerId()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2542,7 +2542,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_PlayerInfo_SetTeamPlayerId (GamePe
  
   
 
-##### HMS_GamePerformance_PlayerInfo_SetThirdOpenId()
+#### HMS_GamePerformance_PlayerInfo_SetThirdOpenId()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2577,7 +2577,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_PlayerInfo_SetThirdOpenId (GamePer
  
   
 
-##### HMS_GamePerformance_QueryCpuInfo()
+#### HMS_GamePerformance_QueryCpuInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2607,7 +2607,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_QueryCpuInfo (GamePerformance_CpuI
  
   
 
-##### HMS_GamePerformance_QueryGpuInfo()
+#### HMS_GamePerformance_QueryGpuInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2641,7 +2641,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_QueryGpuInfo (GamePerformance_GpuI
  
   
 
-##### HMS_GamePerformance_QueryThermalInfo()
+#### HMS_GamePerformance_QueryThermalInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2672,7 +2672,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_QueryThermalInfo (GamePerformance_
  
   
 
-##### HMS_GamePerformance_RegisterThermalLevelChangedCallback()
+#### HMS_GamePerformance_RegisterThermalLevelChangedCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2711,7 +2711,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_RegisterThermalLevelChangedCallbac
  
   
 
-##### HMS_GamePerformance_SceneInfo_SetChannelCount()
+#### HMS_GamePerformance_SceneInfo_SetChannelCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2742,7 +2742,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetChannelCount (GamePer
  
   
 
-##### HMS_GamePerformance_SceneInfo_SetCurrentFrameRate()
+#### HMS_GamePerformance_SceneInfo_SetCurrentFrameRate()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2773,7 +2773,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetCurrentFrameRate (Gam
  
   
 
-##### HMS_GamePerformance_SceneInfo_SetDescription()
+#### HMS_GamePerformance_SceneInfo_SetDescription()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2804,7 +2804,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetDescription (GamePerf
  
   
 
-##### HMS_GamePerformance_SceneInfo_SetDrawCallCount()
+#### HMS_GamePerformance_SceneInfo_SetDrawCallCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2835,7 +2835,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetDrawCallCount (GamePe
  
   
 
-##### HMS_GamePerformance_SceneInfo_SetImportanceLevel()
+#### HMS_GamePerformance_SceneInfo_SetImportanceLevel()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2866,7 +2866,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetImportanceLevel (Game
  
   
 
-##### HMS_GamePerformance_SceneInfo_SetKeyThread()
+#### HMS_GamePerformance_SceneInfo_SetKeyThread()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2897,7 +2897,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetKeyThread (GamePerfor
  
   
 
-##### HMS_GamePerformance_SceneInfo_SetMaxFrameRate()
+#### HMS_GamePerformance_SceneInfo_SetMaxFrameRate()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2928,7 +2928,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetMaxFrameRate (GamePer
  
   
 
-##### HMS_GamePerformance_SceneInfo_SetMeshCount()
+#### HMS_GamePerformance_SceneInfo_SetMeshCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2959,7 +2959,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetMeshCount (GamePerfor
  
   
 
-##### HMS_GamePerformance_SceneInfo_SetParticipantCount()
+#### HMS_GamePerformance_SceneInfo_SetParticipantCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2990,7 +2990,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetParticipantCount (Gam
  
   
 
-##### HMS_GamePerformance_SceneInfo_SetRecommendedCpuLevel()
+#### HMS_GamePerformance_SceneInfo_SetRecommendedCpuLevel()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -3021,7 +3021,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetRecommendedCpuLevel (
  
   
 
-##### HMS_GamePerformance_SceneInfo_SetRecommendedDdrLevel()
+#### HMS_GamePerformance_SceneInfo_SetRecommendedDdrLevel()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -3052,7 +3052,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetRecommendedDdrLevel (
  
   
 
-##### HMS_GamePerformance_SceneInfo_SetRecommendedGpuLevel()
+#### HMS_GamePerformance_SceneInfo_SetRecommendedGpuLevel()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -3083,7 +3083,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetRecommendedGpuLevel (
  
   
 
-##### HMS_GamePerformance_SceneInfo_SetSceneFrequency()
+#### HMS_GamePerformance_SceneInfo_SetSceneFrequency()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -3114,7 +3114,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetSceneFrequency (GameP
  
   
 
-##### HMS_GamePerformance_SceneInfo_SetSceneID()
+#### HMS_GamePerformance_SceneInfo_SetSceneID()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -3145,7 +3145,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetSceneID (GamePerforma
  
   
 
-##### HMS_GamePerformance_SceneInfo_SetSceneTime()
+#### HMS_GamePerformance_SceneInfo_SetSceneTime()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -3176,7 +3176,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetSceneTime (GamePerfor
  
   
 
-##### HMS_GamePerformance_SceneInfo_SetShaderCount()
+#### HMS_GamePerformance_SceneInfo_SetShaderCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -3207,7 +3207,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetShaderCount (GamePerf
  
   
 
-##### HMS_GamePerformance_SceneInfo_SetSubDescription()
+#### HMS_GamePerformance_SceneInfo_SetSubDescription()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -3238,7 +3238,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetSubDescription (GameP
  
   
 
-##### HMS_GamePerformance_SceneInfo_SetSubSceneID()
+#### HMS_GamePerformance_SceneInfo_SetSubSceneID()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -3269,7 +3269,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetSubSceneID (GamePerfo
  
   
 
-##### HMS_GamePerformance_SceneInfo_SetTextureCount()
+#### HMS_GamePerformance_SceneInfo_SetTextureCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -3300,7 +3300,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetTextureCount (GamePer
  
   
 
-##### HMS_GamePerformance_SceneInfo_SetTriangleCount()
+#### HMS_GamePerformance_SceneInfo_SetTriangleCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -3331,7 +3331,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetTriangleCount (GamePe
  
   
 
-##### HMS_GamePerformance_SceneInfo_SetVertexCount()
+#### HMS_GamePerformance_SceneInfo_SetVertexCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -3362,7 +3362,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetVertexCount (GamePerf
  
   
 
-##### HMS_GamePerformance_ThermalInfo_GetNowNormalizedCurrent()
+#### HMS_GamePerformance_ThermalInfo_GetNowNormalizedCurrent()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -3395,7 +3395,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_ThermalInfo_GetNowNormalizedCurren
  
   
 
-##### HMS_GamePerformance_ThermalInfo_GetRecommendMaxNormalizedCurrent()
+#### HMS_GamePerformance_ThermalInfo_GetRecommendMaxNormalizedCurrent()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -3428,7 +3428,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_ThermalInfo_GetRecommendMaxNormali
  
   
 
-##### HMS_GamePerformance_ThermalInfo_GetRecommendNormalizedCurrent()
+#### HMS_GamePerformance_ThermalInfo_GetRecommendNormalizedCurrent()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -3461,7 +3461,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_ThermalInfo_GetRecommendNormalized
  
   
 
-##### HMS_GamePerformance_ThermalInfo_GetThermalLevel()
+#### HMS_GamePerformance_ThermalInfo_GetThermalLevel()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -3492,7 +3492,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_ThermalInfo_GetThermalLevel (GameP
  
   
 
-##### HMS_GamePerformance_ThermalInfo_GetThermalMargin()
+#### HMS_GamePerformance_ThermalInfo_GetThermalMargin()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -3523,7 +3523,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_ThermalInfo_GetThermalMargin (Game
  
   
 
-##### HMS_GamePerformance_ThermalInfo_GetThermalTrend()
+#### HMS_GamePerformance_ThermalInfo_GetThermalTrend()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -3554,7 +3554,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_ThermalInfo_GetThermalTrend (GameP
  
   
 
-##### HMS_GamePerformance_ThermalInfoQueryParameters_SetNeedsPrediction()
+#### HMS_GamePerformance_ThermalInfoQueryParameters_SetNeedsPrediction()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -3585,7 +3585,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_ThermalInfoQueryParameters_SetNeed
  
   
 
-##### HMS_GamePerformance_ThermalInfoQueryParameters_SetTargetThermalLevel()
+#### HMS_GamePerformance_ThermalInfoQueryParameters_SetTargetThermalLevel()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -3616,7 +3616,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_ThermalInfoQueryParameters_SetTarg
  
   
 
-##### HMS_GamePerformance_UnregisterAllThermalLevelChangedCallbacks()
+#### HMS_GamePerformance_UnregisterAllThermalLevelChangedCallbacks()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -3639,7 +3639,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_UnregisterAllThermalLevelChangedCa
  
   
 
-##### HMS_GamePerformance_UnregisterThermalLevelChangedCallback()
+#### HMS_GamePerformance_UnregisterThermalLevelChangedCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -3669,7 +3669,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_UnregisterThermalLevelChangedCallb
  
   
 
-##### HMS_GamePerformance_UpdateConfigInfo()
+#### HMS_GamePerformance_UpdateConfigInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -3699,7 +3699,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_UpdateConfigInfo (GamePerformance_
  
   
 
-##### HMS_GamePerformance_UpdateNetInfo()
+#### HMS_GamePerformance_UpdateNetInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -3733,7 +3733,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_UpdateNetInfo (GamePerformance_Net
  
   
 
-##### HMS_GamePerformance_UpdatePackageInfo()
+#### HMS_GamePerformance_UpdatePackageInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -3767,7 +3767,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_UpdatePackageInfo (GamePerformance
  
   
 
-##### HMS_GamePerformance_UpdatePlayerInfo()
+#### HMS_GamePerformance_UpdatePlayerInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -3797,7 +3797,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_UpdatePlayerInfo (GamePerformance_
  
   
 
-##### HMS_GamePerformance_UpdateSceneInfo()
+#### HMS_GamePerformance_UpdateSceneInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

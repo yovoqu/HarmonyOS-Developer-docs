@@ -7,7 +7,7 @@
 以X25519、DH和ECDH协商密钥类型为例，在密钥由HUKS管理的情况下，完成密钥协商。具体的场景介绍及支持的算法规格，请参考[密钥协商支持的算法](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-agreement-overview#支持的算法)。
   
 
-##### 在CMake脚本中链接相关动态库
+#### 在CMake脚本中链接相关动态库
 
 ```text
 target_link_libraries(entry PUBLIC libhuks_ndk.z.so)
@@ -15,7 +15,7 @@ target_link_libraries(entry PUBLIC libhuks_ndk.z.so)
  
   
 
-##### 开发步骤
+#### 开发步骤
 
 **生成密钥**
  
@@ -55,13 +55,13 @@ target_link_libraries(entry PUBLIC libhuks_ndk.z.so)
  
   
 
-##### 开发案例
+#### 开发案例
 
 下面分别以X25519、DH和ECDH密钥为例，进行协商。
  
   
 
-##### X25519非对称密钥协商用例
+#### X25519非对称密钥协商用例
 
 准备X25519密钥协商材料：
  
@@ -320,7 +320,7 @@ napi_value X25519AgreeKey(napi_env env, napi_callback_info info)
  
   
 
-##### DH密钥协商用例
+#### DH密钥协商用例
 
 准备DH密钥协商材料：
  
@@ -609,7 +609,7 @@ napi_value DhAgreeKey(napi_env env, napi_callback_info info)
  
   
 
-##### ECDH密钥协商用例
+#### ECDH密钥协商用例
 
 准备ECDH密钥协商材料：
  

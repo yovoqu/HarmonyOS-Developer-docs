@@ -9,7 +9,7 @@ typedef struct VkPhysicalDevicePresentationPropertiesOHOS {...} VkPhysicalDevice
 ```
   
 
-##### 概述
+#### 概述
 
 包含设备的显示属性的参数。
  
@@ -21,11 +21,11 @@ typedef struct VkPhysicalDevicePresentationPropertiesOHOS {...} VkPhysicalDevice
  
   
 
-##### 汇总
+#### 汇总
 
   
 
-##### 成员变量
+#### 成员变量
  
 | 名称 | 描述 |
 | --- | --- |

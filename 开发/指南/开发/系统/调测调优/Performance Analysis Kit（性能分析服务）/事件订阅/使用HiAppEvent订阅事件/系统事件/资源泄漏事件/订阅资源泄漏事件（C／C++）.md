@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-resourceleak-events-ndk
 
-##### 接口说明
+#### 接口说明
 
 本文介绍如何使用HiAppEvent提供的C/C++接口订阅资源泄漏事件。API接口的具体使用说明（参数使用限制、具体取值范围等）请参考[hiappevent.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hiappevent-h)。
 
@@ -18,11 +18,11 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 
 
-##### 步骤一：新建工程
+#### 步骤一：新建工程
 1. 获取该示例工程依赖的jsoncpp文件，从[三方开源库jsoncpp代码仓](https://github.com/open-source-parsers/jsoncpp)下载源码的压缩包，并按照README的**Amalgamated source**中介绍的操作步骤得到jsoncpp.cpp、json.h和json-forwards.h三个文件。
 
   在DevEco Studio中新建工程，选择“Native C++”工程。目录结构如下：
@@ -75,7 +75,7 @@ target_link_libraries(entry PUBLIC libace_napi.z.so libhilog_ndk.z.so libhiappev
 
 
 
-##### 步骤二：订阅系统事件
+#### 步骤二：订阅系统事件
 1. 订阅系统事件：
 
   
@@ -251,7 +251,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### 步骤三：测试资源泄漏事件
+#### 步骤三：测试资源泄漏事件
 1. 编辑工程中的“entry > src > main > ets > pages > Index.ets”文件，添加按钮并在其 onClick 函数中构造资源泄漏场景，以触发资源泄漏事件。
 
   此处需要使用[hidebug.setAppResourceLimit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hidebug#hidebugsetappresourcelimit12)设置内存限制，造成内存泄漏，同步在“开发者选项”中打开“系统资源泄漏日志”(开关状态变更后需重启设备)。接口示例代码如下：
@@ -307,7 +307,7 @@ Button('pss leak')
 
 
 
-##### 步骤四：移除观察者
+#### 步骤四：移除观察者
 1. 移除事件观察者：
 
   

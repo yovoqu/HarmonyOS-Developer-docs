@@ -19,7 +19,7 @@
 
 
 
-##### 创建Text组件
+#### 创建Text组件
 
 创建文本组件时，无需配置文字颜色、字体大小等样式属性，因为这些属性通过字体引擎接口设置。但仍需设置基础的[ArkUI_NodeAttributeType（通用属性）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-common)，如宽度和高度。如果不指定，组件自动适应文本的宽度和高度。
 
@@ -42,7 +42,7 @@ nodeApi->setAttribute(text, NODE_HEIGHT, &textHeightItem);
 
 
 
-##### 设置段落与文本样式
+#### 设置段落与文本样式
 
  - 设置段落样式
 
@@ -102,7 +102,7 @@ OH_ArkUI_StyledString_PopTextStyle(styledString);
 
 
 
-##### 添加占位
+#### 添加占位
 
 占位保留指定大小的空白区域，此区域不绘制文字，但参与布局测量，影响文字排版。
 
@@ -132,7 +132,7 @@ OH_ArkUI_StyledString_PopTextStyle(styledString);
 
 
 
-##### 文本布局与绘制
+#### 文本布局与绘制
 
  - 文本布局
 
@@ -166,7 +166,7 @@ nodeApi->setAttribute(text, NODE_TEXT_CONTENT_WITH_STYLED_STRING, &styledStringI
 
 
 
-##### 销毁对象
+#### 销毁对象
 
 Text组件不对本文涉及的任何对象的生命周期进行管理，需由开发者自行负责。字体引擎接口均配有相应的销毁方法。
 
@@ -182,7 +182,7 @@ Text组件提供[OH_ArkUI_StyledString_Destroy](https://developer.huawei.com/con
 
 
 
-##### 完整示例
+#### 完整示例
 
 本篇示例仅提供核心接口的调用方法，完整的示例工程请参考[StyledStringNDK](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/ArkUISample/StyledStringNDK)。
 
@@ -269,4 +269,4 @@ void NodeManager::CreateNativeNode()
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/pO9QSbojRTGBa5d2cIyJ7g/zh-cn_image_0000002581434134.png?HW-CC-KV=V1&HW-CC-Date=20260528T014800Z&HW-CC-Expire=86400&HW-CC-Sign=0134B8DDDC3E8D8E4731B2F2E7D132A0A262880ED7FC19325421C6A765513458)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/pO9QSbojRTGBa5d2cIyJ7g/zh-cn_image_0000002581434134.png?HW-CC-KV=V1&HW-CC-Date=20260528T030432Z&HW-CC-Expire=86400&HW-CC-Sign=CF32E9EF21AB2A3F821D698C4B6ACAB88F21DA168123821F976670E5AB04C6ED)

@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-about-v8-trace
 
-##### 简介
+#### 简介
 
 jsvm的trace是jsvm引擎提供的一种用于分析和调试JavaScript代码执行过程的工具。它可以记录并输出关于代码执行的详细信息，包括函数调用、执行时间、内存使用情况等，帮助开发者了解代码的性能、诊断潜在问题，进行优化。
 
@@ -12,17 +12,17 @@ HiSmartPerf目前已经对接了jsvm的compile、runtime、builtin、JS_Executio
 
 
 
-##### 使用方法
+#### 使用方法
 
 
 
-##### 默认状态
+#### 默认状态
 
 jsvm是否采集trace由运行时开关“web.debug.rcs”控制，默认状态下该开关为关闭状态。启动web场景，在hilog中可以观察到有“RCS is off”日志打印输出。
 
 
 
-##### 采集jsvm trace
+#### 采集jsvm trace
 1. 要采集jsvm的trace，需要在启动web场景前，打开“web.debug.rcs”开关。在启动web场景前，执行以下命令：
 
   

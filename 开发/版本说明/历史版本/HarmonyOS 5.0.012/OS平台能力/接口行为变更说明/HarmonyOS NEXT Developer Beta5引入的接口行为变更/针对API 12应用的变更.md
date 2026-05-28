@@ -4,11 +4,11 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/changelogs-targeting-api12-b060
 
-##### ArkData
+#### ArkData
 
  
 
-##### RelationalStore execute，executeSync接口执行不合法SQL语句错误码变更
+#### RelationalStore execute，executeSync接口执行不合法SQL语句错误码变更
 
 **变更原因**
  
@@ -64,11 +64,11 @@ try {
  
  
 
-##### ArkTS
+#### ArkTS
 
  
 
-##### xml.XmlPullParser.parse接口解析实体引用事件的行为变更
+#### xml.XmlPullParser.parse接口解析实体引用事件的行为变更
 
 **变更原因**
  
@@ -152,11 +152,11 @@ key为4（文本事件），value为happy&
  
  
 
-##### ArkUI
+#### ArkUI
 
  
 
-##### FrameNode的isModifiable值为false时，无法通过addComponentContent挂载节点
+#### FrameNode的isModifiable值为false时，无法通过addComponentContent挂载节点
 
 **变更原因**
  
@@ -245,11 +245,11 @@ struct Index {
  
  
 
-##### Device Security Kit
+#### Device Security Kit
 
  
 
-##### 可信应用服务接口增加端云认证服务开通检测
+#### 可信应用服务接口增加端云认证服务开通检测
 
 **变更原因**
  

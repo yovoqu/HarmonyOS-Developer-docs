@@ -9,7 +9,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 ```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
@@ -17,7 +17,7 @@ import { avMusicTemplate } from '@kit.AVSessionKit';
 
 
 
-##### avMusicTemplate.createAVMusicTemplate
+#### avMusicTemplate.createAVMusicTemplate
 
 createAVMusicTemplate(accessType: AVMusicTemplateType): AVMusicTemplate
 

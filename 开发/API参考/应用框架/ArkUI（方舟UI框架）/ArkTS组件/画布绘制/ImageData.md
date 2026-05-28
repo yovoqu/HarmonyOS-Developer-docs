@@ -12,7 +12,7 @@ ImageData对象可以存储canvas渲染的像素数据。
 
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -37,7 +37,7 @@ constructor(width: number, height: number, data?: Uint8ClampedArray)
  
   
 
-##### constructor12+
+#### constructor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -63,7 +63,7 @@ constructor(width: number, height: number, data?: Uint8ClampedArray, unit?: Leng
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -86,7 +86,7 @@ constructor(width: number, height: number, data?: Uint8ClampedArray, unit?: Leng
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -121,4 +121,4 @@ struct Translate {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/SfytEVK6SaKQV3zahLU-jQ/zh-cn_image_0000002611835925.png?HW-CC-KV=V1&HW-CC-Date=20260528T024206Z&HW-CC-Expire=86400&HW-CC-Sign=D28C16C658BC8C37A14AE5C085614BDCE83E48D8AC65F0E22DFACECC04C01948)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/SfytEVK6SaKQV3zahLU-jQ/zh-cn_image_0000002611835925.png?HW-CC-KV=V1&HW-CC-Date=20260528T025539Z&HW-CC-Expire=86400&HW-CC-Sign=344B1C0561510B84268058CD9F877DADF60A20711DB1A92A8A06A06D9189A661)

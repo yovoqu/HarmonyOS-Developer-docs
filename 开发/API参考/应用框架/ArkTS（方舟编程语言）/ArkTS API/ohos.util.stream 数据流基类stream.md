@@ -14,7 +14,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { stream  } from '@kit.ArkTS';
 
 
 
-##### Writable
+#### Writable
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -32,7 +32,7 @@ import { stream  } from '@kit.ArkTS';
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -53,7 +53,7 @@ import { stream  } from '@kit.ArkTS';
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -73,7 +73,7 @@ let writableStream = new stream.Writable();
 
 
 
-##### write
+#### write
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -133,7 +133,7 @@ writableStream.write('test', 'utf8');
 
 
 
-##### end
+#### end
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -196,7 +196,7 @@ writableStream.end('finish', 'utf8', () => {
 
 
 
-##### setDefaultEncoding
+#### setDefaultEncoding
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -251,7 +251,7 @@ console.info("Writable is result", result); // Writable is result true
 
 
 
-##### cork
+#### cork
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -290,7 +290,7 @@ console.info("Writable cork result", result); // Writable cork result true
 
 
 
-##### uncork
+#### uncork
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -335,7 +335,7 @@ writableStream.on('finish', () => {
 
 
 
-##### on
+#### on
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -388,7 +388,7 @@ writable.write('hello', 'utf8', () => {
 
 
 
-##### off
+#### off
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -446,7 +446,7 @@ setTimeout(() => {
 
 
 
-##### doInitialize
+#### doInitialize
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -493,7 +493,7 @@ new MyWritable();
 
 
 
-##### doWrite
+#### doWrite
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -543,7 +543,7 @@ writableStream.write('data', 'utf8');
 
 
 
-##### doWritev
+#### doWritev
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -597,7 +597,7 @@ writableStream.end();
 
 
 
-##### ReadableOptions
+#### ReadableOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -614,7 +614,7 @@ Readable构造函数的选项信息。
 
 
 
-##### Readable
+#### Readable
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -622,7 +622,7 @@ Readable构造函数的选项信息。
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -643,7 +643,7 @@ Readable构造函数的选项信息。
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -663,7 +663,7 @@ let readableStream = new stream.Readable();
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -702,7 +702,7 @@ let readableStream = new stream.Readable(option);
 
 
 
-##### read
+#### read
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -759,7 +759,7 @@ console.info('Readable data is', dataChunk); // Readable data is test
 
 
 
-##### resume
+#### resume
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -797,7 +797,7 @@ console.info("Readable test resume", !readableStream.isPaused()); // 切换流�
 
 
 
-##### pause
+#### pause
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -835,7 +835,7 @@ console.info("Readable test pause", readableStream.isPaused()); // Readable test
 
 
 
-##### setEncoding
+#### setEncoding
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -891,7 +891,7 @@ console.info("Readable result", result); // Readable result true
 
 
 
-##### isPaused
+#### isPaused
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -930,7 +930,7 @@ console.info("Readable isPaused", readableStream.isPaused()); // Readable isPaus
 
 
 
-##### pipe
+#### pipe
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -998,7 +998,7 @@ readable.pipe(writable);
 
 
 
-##### unpipe
+#### unpipe
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1069,7 +1069,7 @@ readable.on('data', () => {
 
 
 
-##### on
+#### on
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1120,7 +1120,7 @@ readable.on('error', () => {
 
 
 
-##### off
+#### off
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1176,7 +1176,7 @@ readable.push('test');
 
 
 
-##### doInitialize
+#### doInitialize
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1224,7 +1224,7 @@ myReadable.on('data', () => {
 
 
 
-##### doRead
+#### doRead
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1272,7 +1272,7 @@ readable.on('data', () => {
 
 
 
-##### push
+#### push
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1319,7 +1319,7 @@ console.info("Readable push test", readable.readableLength); // Readable push te
 
 
 
-##### Duplex
+#### Duplex
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1329,7 +1329,7 @@ Duplex类继承[Readable](#readable)，支持Readable中所有的方法。
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1350,7 +1350,7 @@ Duplex类继承[Readable](#readable)，支持Readable中所有的方法。
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1370,7 +1370,7 @@ let duplex = new stream.Duplex();
 
 
 
-##### write
+#### write
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1434,7 +1434,7 @@ console.info("duplexStream result", result); // duplexStream result true
 
 
 
-##### end
+#### end
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1497,7 +1497,7 @@ duplexStream.end('test', 'utf8', () => {
 
 
 
-##### setDefaultEncoding
+#### setDefaultEncoding
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1555,7 +1555,7 @@ console.info("duplexStream is result", result); // duplexStream is result true
 
 
 
-##### cork
+#### cork
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1584,7 +1584,7 @@ console.info("duplexStream cork result", result); // duplexStream cork result tr
 
 
 
-##### uncork
+#### uncork
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1631,7 +1631,7 @@ console.info("Duplex test uncork", dataWritten); // Duplex test uncork ab
 
 
 
-##### doWrite
+#### doWrite
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1684,7 +1684,7 @@ duplexStream.write('data', 'utf8');
 
 
 
-##### doWritev
+#### doWritev
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1744,7 +1744,7 @@ duplexStream.end();
 
 
 
-##### Transform
+#### Transform
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1752,7 +1752,7 @@ duplexStream.end();
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1772,7 +1772,7 @@ let transform = new stream.Transform();
 
 
 
-##### doTransform
+#### doTransform
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1824,7 +1824,7 @@ tr.write("hello");
 
 
 
-##### doFlush
+#### doFlush
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

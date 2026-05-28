@@ -12,7 +12,7 @@ Web组件返回的SSL错误通知事件的处理对象。示例代码参考[onSs
 
   
 
-##### constructor9+
+#### constructor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ SslErrorHandler的构造函数。
  
   
 
-##### handleCancel9+
+#### handleCancel9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -36,7 +36,7 @@ handleCancel(): void
  
   
 
-##### handleConfirm9+
+#### handleConfirm9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -48,7 +48,7 @@ handleConfirm(): void
  
   
 
-##### handleCancel20+
+#### handleCancel20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

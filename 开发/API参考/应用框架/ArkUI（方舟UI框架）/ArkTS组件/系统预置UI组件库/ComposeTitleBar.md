@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { ComposeTitleBar } from '@kit.ArkUI';
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -30,7 +30,7 @@ import { ComposeTitleBar } from '@kit.ArkUI';
  
   
 
-##### ComposeTitleBar
+#### ComposeTitleBar
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -58,7 +58,7 @@ ComposeTitleBar({item?: ComposeTitleBarMenuItem, title: ResourceStr, subtitle?: 
  
   
 
-##### ComposeTitleBarMenuItem
+#### ComposeTitleBarMenuItem
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -80,7 +80,7 @@ ComposeTitleBar({item?: ComposeTitleBarMenuItem, title: ResourceStr, subtitle?: 
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -88,13 +88,13 @@ ComposeTitleBar({item?: ComposeTitleBarMenuItem, title: ResourceStr, subtitle?: 
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 示例1（简单的标题栏）
+#### 示例1（简单的标题栏）
 
 该示例实现了简单的标题栏，带有返回箭头的标题栏及带有右侧菜单项目列表的标题栏。
  
@@ -177,7 +177,7 @@ struct Index {
  
   
 
-##### 示例2（右侧自定义按钮播报）
+#### 示例2（右侧自定义按钮播报）
 
 从API version 18开始，该示例通过设置标题栏右侧自定义按钮属性accessibilityText、accessibilityDescription、accessibilityLevel自定义屏幕朗读播报文本。
  
@@ -271,12 +271,12 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/nYPpIlB9SkOi5iaxTsBA-w/zh-cn_image_0000002581276322.png?HW-CC-KV=V1&HW-CC-Date=20260528T024156Z&HW-CC-Expire=86400&HW-CC-Sign=AAB47EF0F91FE787051FD69F34B635364F8A89D43E5377EC72A36478572E9C18)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/nYPpIlB9SkOi5iaxTsBA-w/zh-cn_image_0000002581276322.png?HW-CC-KV=V1&HW-CC-Date=20260528T025528Z&HW-CC-Expire=86400&HW-CC-Sign=0260B2584817F6E18D79B79FBEC21BAA23B1FD4E2DB35B6DC19F0BE570631143)
 
  
   
 
-##### 示例3（设置Symbol类型图标）
+#### 示例3（设置Symbol类型图标）
 
 从API version 18开始，该示例通过设置ComposeTitleBarMenuItem的属性symbolStyle，展示了自定义Symbol类型图标。
  
@@ -357,4 +357,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/_Dt3UpODS5K-RFibu7eRoA/zh-cn_image_0000002611756177.png?HW-CC-KV=V1&HW-CC-Date=20260528T024156Z&HW-CC-Expire=86400&HW-CC-Sign=69FD2D8CC7BA87B11B3964218F6782C953A0865E8B323D1B7102A382763D2F20)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/_Dt3UpODS5K-RFibu7eRoA/zh-cn_image_0000002611756177.png?HW-CC-KV=V1&HW-CC-Date=20260528T025528Z&HW-CC-Expire=86400&HW-CC-Sign=A42A812E303F443D986F2897D2E7EB99B5A6BB473806D34B07C9D1699F653EF8)

@@ -12,7 +12,7 @@
 
 
 
-##### console.debug
+#### console.debug
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -48,7 +48,7 @@ console.debug('count:'); // 仅打印message
 
 
 
-##### console.log
+#### console.log
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -84,7 +84,7 @@ console.log('count:'); // 仅打印message
 
 
 
-##### console.info
+#### console.info
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -120,7 +120,7 @@ console.info('count:'); // 仅打印message
 
 
 
-##### console.warn
+#### console.warn
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -156,7 +156,7 @@ console.warn('warn:'); // 仅打印message
 
 
 
-##### console.error
+#### console.error
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -192,7 +192,7 @@ console.error('error:'); // 仅打印message
 
 
 
-##### console.assert10+
+#### console.assert10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -236,7 +236,7 @@ console.assert();
 
 
 
-##### console.count10+
+#### console.count10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -283,7 +283,7 @@ console.count()
 
 
 
-##### console.countReset10+
+#### console.countReset10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -323,7 +323,7 @@ console.count('abc');
 
 
 
-##### console.dir10+
+#### console.dir10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -365,7 +365,7 @@ console.dir(); // 无打印
 
 
 
-##### console.dirxml10+
+#### console.dirxml10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -398,7 +398,7 @@ console.dirxml('count:');
 
 
 
-##### console.group10+
+#### console.group10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -435,7 +435,7 @@ console.info("level 2");
 
 
 
-##### console.groupCollapsed10+
+#### console.groupCollapsed10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -470,7 +470,7 @@ console.info("level 2");
 
 
 
-##### console.groupEnd10+
+#### console.groupEnd10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -497,7 +497,7 @@ console.info("outer");
 
 
 
-##### console.table10+
+#### console.table10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -541,7 +541,7 @@ console.table({ a: [1, 2, 3, 4, 5], b: 5, c: { e: 5 } });
 
 
 
-##### console.time10+
+#### console.time10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -577,7 +577,7 @@ console.time('abc');
 
 
 
-##### console.timeEnd10+
+#### console.timeEnd10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -615,7 +615,7 @@ console.timeEnd('abc');
 
 
 
-##### console.timeLog10+
+#### console.timeLog10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -656,7 +656,7 @@ console.timeEnd('timer1');
 
 
 
-##### console.trace10+
+#### console.trace10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -688,7 +688,7 @@ console.trace("Show the trace");
 
 
 
-##### console.traceHybridStack12+
+#### console.traceHybridStack12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

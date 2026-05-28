@@ -10,7 +10,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Wearable | lite_wearable
 
@@ -20,7 +20,7 @@ import storage from '@system.storage';
  
   
 
-##### storage.get
+#### storage.get
 
 **支持设备：** Wearable | lite_wearable
 
@@ -122,7 +122,7 @@ export default {
  
   
 
-##### storage.set
+#### storage.set
 
 **支持设备：** Wearable | lite_wearable
 
@@ -223,7 +223,7 @@ export default {
  
   
 
-##### storage.clear
+#### storage.clear
 
 **支持设备：** Wearable | lite_wearable
 
@@ -320,7 +320,7 @@ export default {
  
   
 
-##### storage.get
+#### storage.get
 
 **支持设备：** Wearable | lite_wearable
 
@@ -328,7 +328,7 @@ get(options: GetStorageOptions): void
  
   
 
-##### storage.delete
+#### storage.delete
 
 **支持设备：** Wearable | lite_wearable
 
@@ -427,7 +427,7 @@ export default {
  
   
 
-##### GetStorageOptions
+#### GetStorageOptions
 
 **支持设备：** Wearable | lite_wearable
 
@@ -444,7 +444,7 @@ export default {
  
   
 
-##### SetStorageOptions
+#### SetStorageOptions
 
 **支持设备：** Wearable | lite_wearable
 
@@ -461,7 +461,7 @@ export default {
  
   
 
-##### ClearStorageOptions
+#### ClearStorageOptions
 
 **支持设备：** Wearable | lite_wearable
 
@@ -476,7 +476,7 @@ export default {
  
   
 
-##### DeleteStorageOptions
+#### DeleteStorageOptions
 
 **支持设备：** Wearable | lite_wearable
 

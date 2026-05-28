@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-volume-manager-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -25,13 +25,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -42,7 +42,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -64,13 +64,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_AudioVolumeManager_OnStreamVolumeChangeCallback()
+#### OH_AudioVolumeManager_OnStreamVolumeChangeCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -96,7 +96,7 @@ typedef void (*OH_AudioVolumeManager_OnStreamVolumeChangeCallback)(void *userDat
  
   
 
-##### OH_AudioVolumeManager_OnRingerModeChangeCallback()
+#### OH_AudioVolumeManager_OnRingerModeChangeCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -120,7 +120,7 @@ typedef void (*OH_AudioVolumeManager_OnRingerModeChangeCallback)(void *userData,
  
   
 
-##### OH_AudioManager_GetAudioVolumeManager()
+#### OH_AudioManager_GetAudioVolumeManager()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -150,7 +150,7 @@ OH_AudioCommon_Result OH_AudioManager_GetAudioVolumeManager(OH_AudioVolumeManage
  
   
 
-##### OH_AudioVolumeManager_GetMaxVolumeByUsage()
+#### OH_AudioVolumeManager_GetMaxVolumeByUsage()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -182,7 +182,7 @@ OH_AudioCommon_Result OH_AudioVolumeManager_GetMaxVolumeByUsage(OH_AudioVolumeMa
  
   
 
-##### OH_AudioVolumeManager_GetMinVolumeByUsage()
+#### OH_AudioVolumeManager_GetMinVolumeByUsage()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -214,7 +214,7 @@ OH_AudioCommon_Result OH_AudioVolumeManager_GetMinVolumeByUsage(OH_AudioVolumeMa
  
   
 
-##### OH_AudioVolumeManager_GetVolumeByUsage()
+#### OH_AudioVolumeManager_GetVolumeByUsage()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -246,7 +246,7 @@ OH_AudioCommon_Result OH_AudioVolumeManager_GetVolumeByUsage(OH_AudioVolumeManag
  
   
 
-##### OH_AudioVolumeManager_IsMuteByUsage()
+#### OH_AudioVolumeManager_IsMuteByUsage()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -278,7 +278,7 @@ OH_AudioCommon_Result OH_AudioVolumeManager_IsMuteByUsage(OH_AudioVolumeManager 
  
   
 
-##### OH_AudioVolumeManager_RegisterStreamVolumeChangeCallback()
+#### OH_AudioVolumeManager_RegisterStreamVolumeChangeCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -311,7 +311,7 @@ OH_AudioCommon_Result OH_AudioVolumeManager_RegisterStreamVolumeChangeCallback(O
  
   
 
-##### OH_AudioVolumeManager_UnregisterStreamVolumeChangeCallback()
+#### OH_AudioVolumeManager_UnregisterStreamVolumeChangeCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -342,7 +342,7 @@ OH_AudioCommon_Result OH_AudioVolumeManager_UnregisterStreamVolumeChangeCallback
  
   
 
-##### OH_AudioVolumeManager_GetRingerMode()
+#### OH_AudioVolumeManager_GetRingerMode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -373,7 +373,7 @@ OH_AudioCommon_Result OH_AudioVolumeManager_GetRingerMode(OH_AudioVolumeManager 
  
   
 
-##### OH_AudioVolumeManager_RegisterRingerModeChangeCallback()
+#### OH_AudioVolumeManager_RegisterRingerModeChangeCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -405,7 +405,7 @@ OH_AudioCommon_Result OH_AudioVolumeManager_RegisterRingerModeChangeCallback(OH_
  
   
 
-##### OH_AudioVolumeManager_UnregisterRingerModeChangeCallback()
+#### OH_AudioVolumeManager_UnregisterRingerModeChangeCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

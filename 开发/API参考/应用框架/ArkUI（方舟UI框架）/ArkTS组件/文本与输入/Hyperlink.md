@@ -12,7 +12,7 @@
 
 
 
-##### 需要权限
+#### 需要权限
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -28,7 +28,7 @@
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -48,7 +48,7 @@ Hyperlink(address: string | Resource, content?: string | Resource)
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -56,7 +56,7 @@ Hyperlink(address: string | Resource, content?: string | Resource)
 
 
 
-##### color
+#### color
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -77,7 +77,7 @@ color(value: Color | number | string | Resource)
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -109,4 +109,4 @@ struct HyperlinkExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/TllbxEXuTLiArCbO6MmtFg/zh-cn_image_0000002581435952.png?HW-CC-KV=V1&HW-CC-Date=20260528T024227Z&HW-CC-Expire=86400&HW-CC-Sign=8E02D0DE696369CCA340DB4C36A12CE2C29A16AC907402D24758D0BB5DC52207)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/TllbxEXuTLiArCbO6MmtFg/zh-cn_image_0000002581435952.png?HW-CC-KV=V1&HW-CC-Date=20260528T025601Z&HW-CC-Expire=86400&HW-CC-Sign=D4EEA8203973905D38835BA20729F4B89C9784CA50CF9352BC6021F9EF3BB27F)

@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { policy } from '@kit.NetworkKit';
 
 
 
-##### NetBearType
+#### NetBearType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -39,7 +39,7 @@ type NetBearType = connection.NetBearType
 
 
 
-##### policy.showAppNetPolicySettings22+
+#### policy.showAppNetPolicySettings22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

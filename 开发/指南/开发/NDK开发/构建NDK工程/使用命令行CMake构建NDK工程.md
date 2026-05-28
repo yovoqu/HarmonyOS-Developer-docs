@@ -7,7 +7,7 @@
 在很多复杂应用工程中，C++代码工程是通过CMake等构建系统以命令行方式来编译构建的，接下来介绍如何把已有的CMake工程切换到HarmonyOS工具链中，从而使用命令行CMake构建该工程。
   
 
-##### 获取NDK开发包
+#### 获取NDK开发包
 1. 通过下载command line tools获取NDK开发包。
 
   先下载command line tools并解压完成，NDK开发相关工具位于$command line tools解压目录/sdk/default/openharmony/native路径下。
@@ -17,7 +17,7 @@
  
   
 
-##### 配置环境变量
+#### 配置环境变量
 
 如果只是在DevEco Studio中使用，跳过以下步骤：
  1. 将NDK自带的CMake编译工具添加到环境变量中。
@@ -79,13 +79,13 @@ which cmake
  
   
 
-##### 使用NDK开发包编译Native程序
+#### 使用NDK开发包编译Native程序
 
 应用开发者可以通过NDK开发包快速开发出Native动态库、静态库与可执行文件。NDK开发包提供CMake编译构建工具脚本，下面通过编写一个C/C++ demo工程来演示适配过程。
  
   
 
-##### demo工程内容
+#### demo工程内容
 
 下面是一个CMake的demo工程内容，此工程包含两个目录，include目录包含此库的头文件，src目录包含全部源码；src目录包含两个文件，sum.cpp的算法文件，以及hello.cpp的调用算法的主入口文件，目标是编译成一个可执行程序，以及一个算法动态库。
  
@@ -175,7 +175,7 @@ int sum(int a, int b)
  
   
 
-##### 编译构建demo工程
+#### 编译构建demo工程
 
 **linux 和 mac 系统环境下**
  

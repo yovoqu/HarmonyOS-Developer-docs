@@ -21,7 +21,7 @@ ArkTS卡片开放了使用动画效果的能力，支持[显式动画](https://d
 
 
 
-##### 组件自身动效
+#### 组件自身动效
 
 以下示例代码使用[animation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-animatorproperty)接口实现了按钮旋转的动画效果。
 
@@ -57,7 +57,7 @@ struct AnimationCard {
 
 
 
-##### 组件转场动效
+#### 组件转场动效
 
 以下示例代码使用[transition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-transition-animation-component)接口实现了在卡片内图片出现与消失的动画效果。
 

@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/capi-nativechildprocess-exit-info
 
-##### 场景介绍
+#### 场景介绍
 
 从API version 20开始，支持父进程通过注册回调函数监听子进程，获取子进程异常退出信息，以便父进程做后续优化处理。这里支持监听的子进程必须为[OH_Ability_StartNativeChildProcess](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-child-process-h#oh_ability_startnativechildprocess)、[OH_Ability_StartNativeChildProcessWithConfigs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-child-process-h#oh_ability_startnativechildprocesswithconfigs)或[startNativeChildProcess](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-childprocessmanager#childprocessmanagerstartnativechildprocess13)接口创建的子进程。
 
 
 
-##### 接口说明
+#### 接口说明
 
 | 名称 | 描述 |
 | --- | --- |
@@ -20,7 +20,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 **动态库文件**
 

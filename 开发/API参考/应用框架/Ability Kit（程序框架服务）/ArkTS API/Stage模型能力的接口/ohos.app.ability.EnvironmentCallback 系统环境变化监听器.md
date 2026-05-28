@@ -12,7 +12,7 @@ EnvironmentCallback模块提供对系统环境变化监听回调的能力。
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,13 +22,13 @@ import { EnvironmentCallback } from '@kit.AbilityKit';
  
   
 
-##### EnvironmentCallback
+#### EnvironmentCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### onConfigurationUpdated
+#### onConfigurationUpdated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -53,7 +53,7 @@ onConfigurationUpdated(config: Configuration): void
  
   
 
-##### onMemoryLevel
+#### onMemoryLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -82,7 +82,7 @@ onMemoryLevel(level: AbilityConstant.MemoryLevel): void
  
   
 
-##### EnvironmentCallback使用
+#### EnvironmentCallback使用
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

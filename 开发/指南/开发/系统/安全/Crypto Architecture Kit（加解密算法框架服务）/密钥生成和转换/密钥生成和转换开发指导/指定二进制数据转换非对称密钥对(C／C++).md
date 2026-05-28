@@ -11,7 +11,7 @@
 
 
 
-##### 在CMake脚本中链接相关动态库
+#### 在CMake脚本中链接相关动态库
 
 ```text
 target_link_libraries(entry PUBLIC libohcrypto.so)
@@ -19,7 +19,7 @@ target_link_libraries(entry PUBLIC libohcrypto.so)
 
 
 
-##### 指定二进制数据转换RSA密钥对
+#### 指定二进制数据转换RSA密钥对
 
 对应的算法规格请查看[非对称密钥生成和转换规格：RSA](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-asym-key-generation-conversion-spec#rsa)。
 1. 获取RSA公钥或私钥二进制数据，封装成[Crypto_DataBlob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-cryptocommonapi-crypto-datablob)。
@@ -76,7 +76,7 @@ OH_Crypto_ErrCode doTestDataCovertAsymKey()
 
 
 
-##### 指定二进制数据转换ECC密钥对
+#### 指定二进制数据转换ECC密钥对
 
 对应的算法规格请查看[非对称密钥生成和转换规格：ECC](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-asym-key-generation-conversion-spec#ecc)。
 1. 获取ECC公钥或私钥二进制数据，封装成[Crypto_DataBlob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-cryptocommonapi-crypto-datablob)。
@@ -132,7 +132,7 @@ OH_Crypto_ErrCode doAsymEccCovert()
 
 
 
-##### 指定二进制数据转换SM2密钥对
+#### 指定二进制数据转换SM2密钥对
 
 对应的算法规格请查看[非对称密钥生成和转换规格：SM2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-asym-key-generation-conversion-spec#sm2)。
 1. 获取SM2公钥或私钥二进制数据，封装成[Crypto_DataBlob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-cryptocommonapi-crypto-datablob)。

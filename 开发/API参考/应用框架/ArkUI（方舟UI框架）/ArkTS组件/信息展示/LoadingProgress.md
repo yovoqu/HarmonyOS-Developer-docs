@@ -14,7 +14,7 @@
 
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@
  
   
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -38,7 +38,7 @@ LoadingProgress()
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -50,7 +50,7 @@ LoadingProgress()
  
   
 
-##### color
+#### color
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -73,7 +73,7 @@ color(value: ResourceColor)
  
   
 
-##### enableLoading10+
+#### enableLoading10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -94,7 +94,7 @@ enableLoading(value: boolean)
  
   
 
-##### contentModifier12+
+#### contentModifier12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -115,7 +115,7 @@ contentModifier(modifier: ContentModifier&lt;LoadingProgressConfiguration&gt;)
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -123,7 +123,7 @@ contentModifier(modifier: ContentModifier&lt;LoadingProgressConfiguration&gt;)
  
   
 
-##### LoadingProgressConfiguration12+对象说明
+#### LoadingProgressConfiguration12+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -140,7 +140,7 @@ contentModifier(modifier: ContentModifier&lt;LoadingProgressConfiguration&gt;)
  
   
 
-##### LoadingProgressStyle枚举说明
+#### LoadingProgressStyle枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -161,13 +161,13 @@ contentModifier(modifier: ContentModifier&lt;LoadingProgressConfiguration&gt;)
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 示例1（设置颜色）
+#### 示例1（设置颜色）
 
 该示例通过[color](#color)接口，实现了设置加载动效颜色的功能。
  
@@ -188,12 +188,12 @@ struct LoadingProgressExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/fL3RZpryTKW-KZvLCSI7kA/zh-cn_image_0000002611755983.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024224Z&HW-CC-Expire=86400&HW-CC-Sign=02673C6C36D44F972B2541E1CAEE70171B5C2C81BBA5F27E75B9826B5A585CE6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/fL3RZpryTKW-KZvLCSI7kA/zh-cn_image_0000002611755983.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025557Z&HW-CC-Expire=86400&HW-CC-Sign=CB8559A391DA358024424158BC4B158AA0C6788EE1F7BB8D2FC09E86001A1147)
 
  
   
 
-##### 示例2（设置定制内容区）
+#### 示例2（设置定制内容区）
 
 该示例通过[contentModifier](#contentmodifier12)接口，实现了定制内容区的功能，并通过[enableLoading](#enableloading10)接口实现了通过按钮切换是否显示LoadingProgress的效果。
  
@@ -344,4 +344,4 @@ struct LoadingProgressDemoExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/01/v3/JF12NlhISEWheLTWdBg66A/zh-cn_image_0000002581436044.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024224Z&HW-CC-Expire=86400&HW-CC-Sign=77B4431CCC3272AB7E94E2EE0DACC7A9BAD297B32C57654CF7B6CE3C6F81BCAF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/01/v3/JF12NlhISEWheLTWdBg66A/zh-cn_image_0000002581436044.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025557Z&HW-CC-Expire=86400&HW-CC-Sign=D46CE4A82C463DA8EF967B403D0FF6FF7169CDE757C5471B8BBF5AFF54B71D6F)

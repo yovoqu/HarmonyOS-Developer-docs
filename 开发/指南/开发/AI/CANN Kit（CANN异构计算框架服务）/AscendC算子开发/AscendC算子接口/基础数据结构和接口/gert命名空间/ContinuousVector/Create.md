@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-continuousvector-create
 
-##### 函数功能
+#### 函数功能
 
 创建一个ContinuousVector实例，ContinuousVector不支持动态扩容。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 template<typename T>  static std::unique_ptr<uint8_t[]> Create(size_t capacity, size_t &total_size)
@@ -19,7 +19,7 @@ template<typename T>  static std::unique_ptr<uint8_t[]> Create(const size_t capa
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -30,19 +30,19 @@ template<typename T>  static std::unique_ptr<uint8_t[]> Create(const size_t capa
  
   
 
-##### 返回值
+#### 返回值
 
 指向本实例的指针。
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 size_t capacity = 100U;

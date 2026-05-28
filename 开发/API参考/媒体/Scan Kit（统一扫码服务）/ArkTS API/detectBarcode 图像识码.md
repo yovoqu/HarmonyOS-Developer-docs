@@ -12,7 +12,7 @@
 **起始版本：** 4.1.0(11)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -22,7 +22,7 @@ import { detectBarcode } from '@kit.ScanKit';
  
   
 
-##### InputImage
+#### InputImage
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -66,7 +66,7 @@ photoPicker.select(photoSelectOptions).then((data: photoAccessHelper.PhotoSelect
  
   
 
-##### detectBarcode.decode
+#### detectBarcode.decode
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -141,7 +141,7 @@ photoPicker.select(photoOption).then((data) => {
  
   
 
-##### detectBarcode.decode
+#### detectBarcode.decode
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -212,7 +212,7 @@ photoPicker.select(photoOption).then((data) => {
  
   
 
-##### detectBarcode.decode
+#### detectBarcode.decode
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -280,7 +280,7 @@ photoPicker.select(photoOption).then((data) => {
  
   
 
-##### ByteImage
+#### ByteImage
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -314,7 +314,7 @@ let byteImg: detectBarcode.ByteImage = {
  
   
 
-##### ImageFormat
+#### ImageFormat
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -331,7 +331,7 @@ let byteImg: detectBarcode.ByteImage = {
  
   
 
-##### DetectResult
+#### DetectResult
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -349,7 +349,7 @@ let byteImg: detectBarcode.ByteImage = {
  
   
 
-##### detectBarcode.decodeImage
+#### detectBarcode.decodeImage
 
 **支持设备：** Phone | Tablet | Wearable
 

@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { NavPushPathHelper } from '@kit.ArkUI';
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -30,7 +30,7 @@ import { NavPushPathHelper } from '@kit.ArkUI';
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -38,7 +38,7 @@ import { NavPushPathHelper } from '@kit.ArkUI';
 
 
 
-##### NavPushPathHelper
+#### NavPushPathHelper
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -46,7 +46,7 @@ import { NavPushPathHelper } from '@kit.ArkUI';
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -67,7 +67,7 @@ NavPushPathHelper的构造函数。
 
 
 
-##### pushPath
+#### pushPath
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -106,7 +106,7 @@ pushPath(moduleName: string, info: NavPathInfo, animated?: boolean): Promise&lt;
 
 
 
-##### pushPath
+#### pushPath
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -147,7 +147,7 @@ pushPath(moduleName: string, info: NavPathInfo, options?: NavigationOptions): Pr
 
 
 
-##### pushPathByName
+#### pushPathByName
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -187,7 +187,7 @@ pushPathByName(moduleName: string, name: string, param: Object, animated?: boole
 
 
 
-##### pushPathByName
+#### pushPathByName
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -228,7 +228,7 @@ pushPathByName(moduleName: string, name: string, param: Object, onPop: Callback&
 
 
 
-##### pushDestination
+#### pushDestination
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -271,7 +271,7 @@ pushDestination(moduleName: string, info: NavPathInfo, animated?: boolean): Prom
 
 
 
-##### pushDestination
+#### pushDestination
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -316,7 +316,7 @@ pushDestination(moduleName: string, info: NavPathInfo, options?: NavigationOptio
 
 
 
-##### pushDestinationByName
+#### pushDestinationByName
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -360,7 +360,7 @@ pushDestinationByName(moduleName: string, name: string, param: Object, animated?
 
 
 
-##### pushDestinationByName
+#### pushDestinationByName
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -405,7 +405,7 @@ pushDestinationByName(moduleName: string, name: string, param: Object, onPop: Ca
 
 
 
-##### replacePath
+#### replacePath
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -444,7 +444,7 @@ replacePath(moduleName: string, info: NavPathInfo, animated?: boolean): Promise&
 
 
 
-##### replacePath
+#### replacePath
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -485,7 +485,7 @@ replacePath(moduleName: string, info: NavPathInfo, options?: NavigationOptions):
 
 
 
-##### replacePathByName
+#### replacePathByName
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -525,7 +525,7 @@ replacePathByName(moduleName: string, name: string, param: Object, animated?: bo
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -533,7 +533,7 @@ replacePathByName(moduleName: string, name: string, param: Object, animated?: bo
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -854,4 +854,4 @@ export struct PageTwo {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/AlnOaMcLTOeJfKIHdMEufg/zh-cn_image_0000002581276310.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024205Z&HW-CC-Expire=86400&HW-CC-Sign=CF3BB3749C9F370252156FF8D982350FB19603676973BBF8C5FD67FA13C9CD35)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/AlnOaMcLTOeJfKIHdMEufg/zh-cn_image_0000002581276310.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025538Z&HW-CC-Expire=86400&HW-CC-Sign=451A14F3DDF69951B4965D2B4B5328FBD8EA16B83010883251247BC05ADA7A4E)

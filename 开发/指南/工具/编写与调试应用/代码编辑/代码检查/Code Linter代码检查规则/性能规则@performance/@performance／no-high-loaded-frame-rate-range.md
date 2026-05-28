@@ -7,7 +7,7 @@
 不允许锁定最高帧率运行。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 import { displaySync } from '@kit.ArkGraphics2D';
@@ -40,7 +40,7 @@ sync.setExpectedFrameRateRange({
  
  
 
-##### 反例
+#### 反例
 
 ```text
 import { displaySync } from '@kit.ArkGraphics2D';
@@ -54,7 +54,7 @@ sync.setExpectedFrameRateRange({
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(106,135,89);">plugin:@performance/all</span>

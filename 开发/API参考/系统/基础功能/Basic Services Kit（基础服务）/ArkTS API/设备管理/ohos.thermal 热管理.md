@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import {thermal} from '@kit.BasicServicesKit';
 
 
 
-##### thermal.registerThermalLevelCallback9+
+#### thermal.registerThermalLevelCallback9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -63,7 +63,7 @@ try {
 
 
 
-##### thermal.unregisterThermalLevelCallback9+
+#### thermal.unregisterThermalLevelCallback9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -104,7 +104,7 @@ try {
 
 
 
-##### thermal.getLevel9+
+#### thermal.getLevel9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -130,7 +130,7 @@ console.info('thermal level is: ' + level);
 
 
 
-##### thermal.subscribeThermalLevel(deprecated)
+#### thermal.subscribeThermalLevel(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -161,7 +161,7 @@ thermal.subscribeThermalLevel((err: Error, level: thermal.ThermalLevel) => {
 
 
 
-##### thermal.unsubscribeThermalLevel(deprecated)
+#### thermal.unsubscribeThermalLevel(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -192,7 +192,7 @@ thermal.unsubscribeThermalLevel(() => {
 
 
 
-##### thermal.getThermalLevel(deprecated)
+#### thermal.getThermalLevel(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -222,7 +222,7 @@ console.info('thermal level is: ' + level);
 
 
 
-##### ThermalLevel
+#### ThermalLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

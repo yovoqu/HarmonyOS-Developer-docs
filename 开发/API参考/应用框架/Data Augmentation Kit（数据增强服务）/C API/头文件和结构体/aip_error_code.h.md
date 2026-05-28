@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-aip-error-code
 
-##### 概述
+#### 概述
 
 提供与错误代码相关的接口。
  
@@ -20,11 +20,11 @@
  
   
 
-##### 汇总
+#### 汇总
 
   
 
-##### 类型定义
+#### 类型定义
  
 | 名称 | 描述 |
 | --- | --- |
@@ -33,7 +33,7 @@
  
   
 
-##### 枚举
+#### 枚举
  
 | 名称 | 描述 |
 | --- | --- |

@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-base-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -43,7 +43,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -59,7 +59,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -75,7 +75,7 @@
  
   
 
-##### 变量
+#### 变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -131,13 +131,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### AVPlayerState
+#### AVPlayerState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -168,7 +168,7 @@ enum AVPlayerState
  
   
 
-##### AVPlayerSeekMode
+#### AVPlayerSeekMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -194,7 +194,7 @@ enum AVPlayerSeekMode
  
   
 
-##### AVPlaybackSpeed
+#### AVPlaybackSpeed
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -226,7 +226,7 @@ enum AVPlaybackSpeed
  
   
 
-##### AVPlayerOnInfoType
+#### AVPlayerOnInfoType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -274,7 +274,7 @@ OnInfo类型。
  
   
 
-##### AVPlayerBufferingType
+#### AVPlayerBufferingType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -300,7 +300,7 @@ enum AVPlayerBufferingType
  
   
 
-##### AVPlayerTrackSwitchMode
+#### AVPlayerTrackSwitchMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -323,13 +323,13 @@ enum AVPlayerTrackSwitchMode
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_AVPlayerOnInfo()
+#### OH_AVPlayerOnInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -384,7 +384,7 @@ typedef void (*OH_AVPlayerOnInfo)(OH_AVPlayer *player, AVPlayerOnInfoType type, 
  
   
 
-##### OH_AVPlayerOnInfoCallback()
+#### OH_AVPlayerOnInfoCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -412,7 +412,7 @@ typedef void (*OH_AVPlayerOnInfoCallback)(OH_AVPlayer *player, AVPlayerOnInfoTyp
  
   
 
-##### OH_AVPlayerOnError()
+#### OH_AVPlayerOnError()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -443,7 +443,7 @@ typedef void (*OH_AVPlayerOnError)(OH_AVPlayer *player, int32_t errorCode, const
  
   
 
-##### OH_AVPlayerOnErrorCallback()
+#### OH_AVPlayerOnErrorCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -471,7 +471,7 @@ typedef void (*OH_AVPlayerOnErrorCallback)(OH_AVPlayer *player, int32_t errorCod
  
   
 
-##### OH_AVPlayerOnAmplitudeUpdateCallback()
+#### OH_AVPlayerOnAmplitudeUpdateCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -497,7 +497,7 @@ typedef void (*OH_AVPlayerOnAmplitudeUpdateCallback)(OH_AVPlayer *player, double
  
   
 
-##### OH_AVPlayerOnSeiMessageReceivedCallback()
+#### OH_AVPlayerOnSeiMessageReceivedCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { SegmentButton, SegmentButtonOptions, SegmentButtonItemOptionsArray } fr
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -30,7 +30,7 @@ import { SegmentButton, SegmentButtonOptions, SegmentButtonItemOptionsArray } fr
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -38,7 +38,7 @@ import { SegmentButton, SegmentButtonOptions, SegmentButtonItemOptionsArray } fr
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -46,7 +46,7 @@ import { SegmentButton, SegmentButtonOptions, SegmentButtonItemOptionsArray } fr
 
 
 
-##### SegmentButton
+#### SegmentButton
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -73,7 +73,7 @@ SegmentButton({ options: SegmentButtonOptions, selectedIndexes: number[], onItem
 
 
 
-##### SegmentButtonOptions
+#### SegmentButtonOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -87,7 +87,7 @@ SegmentButton({ options: SegmentButtonOptions, selectedIndexes: number[], onItem
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -122,7 +122,7 @@ SegmentButton({ options: SegmentButtonOptions, selectedIndexes: number[], onItem
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -145,7 +145,7 @@ constructor(options: TabSegmentButtonOptions | CapsuleSegmentButtonOptions)
 
 
 
-##### tab
+#### tab
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -175,7 +175,7 @@ static tab(options: TabSegmentButtonConstructionOptions): SegmentButtonOptions
 
 
 
-##### capsule
+#### capsule
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -205,7 +205,7 @@ static capsule(options: CapsuleSegmentButtonConstructionOptions): SegmentButtonO
 
 
 
-##### DimensionNoPercentage
+#### DimensionNoPercentage
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -230,7 +230,7 @@ type DimensionNoPercentage = PX | VP | FP | LPX | Resource
 
 
 
-##### CommonSegmentButtonOptions
+#### CommonSegmentButtonOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -264,7 +264,7 @@ type DimensionNoPercentage = PX | VP | FP | LPX | Resource
 
 
 
-##### BorderRadiusMode20+
+#### BorderRadiusMode20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -284,7 +284,7 @@ type DimensionNoPercentage = PX | VP | FP | LPX | Resource
 
 
 
-##### TabSegmentButtonConstructionOptions
+#### TabSegmentButtonConstructionOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -305,7 +305,7 @@ type DimensionNoPercentage = PX | VP | FP | LPX | Resource
 
 
 
-##### CapsuleSegmentButtonConstructionOptions
+#### CapsuleSegmentButtonConstructionOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -327,7 +327,7 @@ type DimensionNoPercentage = PX | VP | FP | LPX | Resource
 
 
 
-##### ItemRestriction
+#### ItemRestriction
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -352,7 +352,7 @@ type ItemRestriction&lt;T&gt; = [T, T, T?, T?, T?]
 
 
 
-##### SegmentButtonItemTuple
+#### SegmentButtonItemTuple
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -375,7 +375,7 @@ type SegmentButtonItemTuple = ItemRestriction&lt;SegmentButtonTextItem&gt; | Ite
 
 
 
-##### SegmentButtonItemArray
+#### SegmentButtonItemArray
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -398,7 +398,7 @@ type SegmentButtonItemArray = Array&lt;SegmentButtonTextItem&gt; | Array&lt;Segm
 
 
 
-##### SegmentButtonItemOptionsArray
+#### SegmentButtonItemOptionsArray
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -412,7 +412,7 @@ type SegmentButtonItemArray = Array&lt;SegmentButtonTextItem&gt; | Array&lt;Segm
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -435,7 +435,7 @@ constructor(elements: SegmentButtonItemTuple)
 
 
 
-##### push
+#### push
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -469,7 +469,7 @@ push(...items: SegmentButtonItemArray): number
 
 
 
-##### pop
+#### pop
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -496,7 +496,7 @@ pop(): SegmentButtonItemOptions | undefined
 
 
 
-##### shift
+#### shift
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -523,7 +523,7 @@ shift(): SegmentButtonItemOptions | undefined
 
 
 
-##### unshift
+#### unshift
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -557,7 +557,7 @@ unshift(...items: SegmentButtonItemArray): number
 
 
 
-##### splice
+#### splice
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -593,7 +593,7 @@ splice(start: number, deleteCount: number, ...items: SegmentButtonItemOptions[])
 
 
 
-##### create
+#### create
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -623,7 +623,7 @@ static create(elements: SegmentButtonItemTuple): SegmentButtonItemOptionsArray
 
 
 
-##### TabSegmentButtonOptions
+#### TabSegmentButtonOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -642,7 +642,7 @@ static create(elements: SegmentButtonItemTuple): SegmentButtonItemOptionsArray
 
 
 
-##### CapsuleSegmentButtonOptions
+#### CapsuleSegmentButtonOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -661,7 +661,7 @@ static create(elements: SegmentButtonItemTuple): SegmentButtonItemOptionsArray
 
 
 
-##### SegmentButtonTextItem
+#### SegmentButtonTextItem
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -680,7 +680,7 @@ static create(elements: SegmentButtonItemTuple): SegmentButtonItemOptionsArray
 
 
 
-##### SegmentButtonIconItem
+#### SegmentButtonIconItem
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -706,7 +706,7 @@ static create(elements: SegmentButtonItemTuple): SegmentButtonItemOptionsArray
 
 
 
-##### SegmentButtonIconTextItem
+#### SegmentButtonIconTextItem
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -733,7 +733,7 @@ static create(elements: SegmentButtonItemTuple): SegmentButtonItemOptionsArray
 
 
 
-##### SegmentButtonItemOptions
+#### SegmentButtonItemOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -743,7 +743,7 @@ static create(elements: SegmentButtonItemTuple): SegmentButtonItemOptionsArray
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -764,7 +764,7 @@ static create(elements: SegmentButtonItemTuple): SegmentButtonItemOptionsArray
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -787,7 +787,7 @@ constructor(options: SegmentButtonItemOptionsConstructorOptions)
 
 
 
-##### SegmentButtonItemOptionsConstructorOptions
+#### SegmentButtonItemOptionsConstructorOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -810,13 +810,13 @@ constructor(options: SegmentButtonItemOptionsConstructorOptions)
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1（设置分段按钮的类型）
+#### 示例1（设置分段按钮的类型）
 
 通过配置SegmentButtonOptions的tab和capsule，创建两种不同类型的分段按钮。
 
@@ -913,12 +913,12 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/LGHRfR1PS628LdDI8YCyUg/zh-cn_image_0000002581276344.png?HW-CC-KV=V1&HW-CC-Date=20260528T024154Z&HW-CC-Expire=86400&HW-CC-Sign=6233D2642DCEF6D8E2F8DA725636DFDA7CDDF0FD03610B55BC81A8A1BC3E93B9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/LGHRfR1PS628LdDI8YCyUg/zh-cn_image_0000002581276344.png?HW-CC-KV=V1&HW-CC-Date=20260528T025526Z&HW-CC-Expire=86400&HW-CC-Sign=7B5ED91DDCCFE5DE55A3D2A4669787529F0F57A514C5192D6856AB735325E45C)
 
 
 
 
-##### 示例2（设置分段按钮样式）
+#### 示例2（设置分段按钮样式）
 
 通过配置CommonSegmentButtonOptions，实现自定义分段按钮的文本以及背板样式。
 
@@ -1025,12 +1025,12 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/hkt7V8XmSfmz2rOv0zj3RQ/zh-cn_image_0000002611756201.png?HW-CC-KV=V1&HW-CC-Date=20260528T024154Z&HW-CC-Expire=86400&HW-CC-Sign=F0AB2AEDF624DB61EEFB0E36CB433993C9E1A86548220503DA3F20F2DBA8ADE3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/hkt7V8XmSfmz2rOv0zj3RQ/zh-cn_image_0000002611756201.png?HW-CC-KV=V1&HW-CC-Date=20260528T025526Z&HW-CC-Expire=86400&HW-CC-Sign=745422573A3F69C8EB38EF683A6D14E1A9D7082BB3D10797ADD34BBDCB02A372)
 
 
 
 
-##### 示例3（分段按钮数组处理）
+#### 示例3（分段按钮数组处理）
 
 该示例通过pop、shift、unshift等函数实现分段按钮数组的添加、移除等操作。
 
@@ -1106,12 +1106,12 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/oV1BaecuS56r3p4Jkb1_rQ/zh-cn_image_0000002581436260.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024154Z&HW-CC-Expire=86400&HW-CC-Sign=8C537343BE7DCD52CE005546B477D54AC3F3B8CF47F4D51D286D72A417533F24)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/oV1BaecuS56r3p4Jkb1_rQ/zh-cn_image_0000002581436260.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025526Z&HW-CC-Expire=86400&HW-CC-Sign=3249C6617A04C6B7D92F2262ABA933CB7A71AF63CFBF93E91EC4EF038E1A8568)
 
 
 
 
-##### 示例4（设置镜像效果）
+#### 示例4（设置镜像效果）
 
 该示例通过配置direction属性设置分段按钮的布局方向，实现镜像效果。
 
@@ -1220,12 +1220,12 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/OwV4-k6TSou7E6C-SL1HrQ/zh-cn_image_0000002611836091.png?HW-CC-KV=V1&HW-CC-Date=20260528T024154Z&HW-CC-Expire=86400&HW-CC-Sign=181A7D8ACEA043038ED31711F9E2E78777AB61CBD4630FBD4A1ACB27EEC6E71E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/OwV4-k6TSou7E6C-SL1HrQ/zh-cn_image_0000002611836091.png?HW-CC-KV=V1&HW-CC-Date=20260528T025526Z&HW-CC-Expire=86400&HW-CC-Sign=C8792E311436EF63C9405FCC14713D2006DAA0C1E3189264D3378CBD649D0C12)
 
 
 
 
-##### 示例5（设置无障碍朗读）
+#### 示例5（设置无障碍朗读）
 
 通过配置accessibilityLevel和selectedIconAccessibilityText等属性，实现了分段按钮的无障碍朗读功能。
 
@@ -1372,7 +1372,7 @@ struct Index {
 
 
 
-##### 示例6（设置自定义圆角）
+#### 示例6（设置自定义圆角）
 
 该示例演示了如何为分段按钮组件设置自定义的边框圆角半径。
 
@@ -1416,12 +1416,12 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/OmOZLpE3Rh6MIx5YJzZi6w/zh-cn_image_0000002581276346.png?HW-CC-KV=V1&HW-CC-Date=20260528T024154Z&HW-CC-Expire=86400&HW-CC-Sign=4F62AD237EDB001D0F42909D89F2E0BFDDD30235A691E3107CE59122D21A21FE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/OmOZLpE3Rh6MIx5YJzZi6w/zh-cn_image_0000002581276346.png?HW-CC-KV=V1&HW-CC-Date=20260528T025526Z&HW-CC-Expire=86400&HW-CC-Sign=E8C64C2F22EED6E9E0FBE0418CF06DFA4230ED0BA3A7D670159B921C0ED48BBF)
 
 
 
 
-##### 示例7（开启SegmentButton的属性动画）
+#### 示例7（开启SegmentButton的属性动画）
 
 本示例展示了SegmentButton开启属性动画，即enableStateAnimation设置为true后，修改选中项编号selectedIndexes值会触发按钮切换动画。并且选中项编号相同的两个SegmentButton组件，是否开启属性动画，也会呈现不同的切换动画。
 
@@ -1496,4 +1496,4 @@ struct Index12 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/I7OJ9l9sSHqqeWomWzO3tQ/zh-cn_image_0000002611756203.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024154Z&HW-CC-Expire=86400&HW-CC-Sign=9C2BC173F9CE1846AB4E8A3486F6F1EF52397D9541AFA9E43C249C3F86389BE3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/I7OJ9l9sSHqqeWomWzO3tQ/zh-cn_image_0000002611756203.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025526Z&HW-CC-Expire=86400&HW-CC-Sign=0518B661C2BC980A3B0D217F8884B0A4C586263455BAD3CFA8F2525D34B8121E)

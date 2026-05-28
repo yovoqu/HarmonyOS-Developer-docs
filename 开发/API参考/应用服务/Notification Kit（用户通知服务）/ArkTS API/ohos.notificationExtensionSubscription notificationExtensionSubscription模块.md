@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,7 +23,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 
-##### notificationExtensionSubscription.openSubscriptionSettings
+#### notificationExtensionSubscription.openSubscriptionSettings
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -82,7 +82,7 @@ try {
 
 
 
-##### notificationExtensionSubscription.subscribe
+#### notificationExtensionSubscription.subscribe
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -138,7 +138,7 @@ notificationExtensionSubscription.subscribe(infos).then(() => {
 
 
 
-##### notificationExtensionSubscription.unsubscribe
+#### notificationExtensionSubscription.unsubscribe
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -180,7 +180,7 @@ notificationExtensionSubscription.unsubscribe().then(() => {
 
 
 
-##### notificationExtensionSubscription.getSubscribeInfo
+#### notificationExtensionSubscription.getSubscribeInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -222,7 +222,7 @@ notificationExtensionSubscription.getSubscribeInfo().then((data: notificationExt
 
 
 
-##### notificationExtensionSubscription.isUserGranted
+#### notificationExtensionSubscription.isUserGranted
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -268,7 +268,7 @@ notificationExtensionSubscription.isUserGranted().then((isOpen: boolean) => {
 
 
 
-##### notificationExtensionSubscription.getUserGrantedEnabledBundles
+#### notificationExtensionSubscription.getUserGrantedEnabledBundles
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -310,7 +310,7 @@ notificationExtensionSubscription.getUserGrantedEnabledBundles().then((data: not
 
 
 
-##### NotificationExtensionSubscriptionInfo
+#### NotificationExtensionSubscriptionInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -327,7 +327,7 @@ type NotificationExtensionSubscriptionInfo = _NotificationExtensionSubscriptionI
 
 
 
-##### NotificationInfo
+#### NotificationInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -344,7 +344,7 @@ type NotificationInfo = _NotificationInfo
 
 
 
-##### SubscribeType
+#### SubscribeType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -359,7 +359,7 @@ type NotificationInfo = _NotificationInfo
 
 
 
-##### BundleOption
+#### BundleOption
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -376,7 +376,7 @@ type BundleOption = _BundleOption
 
 
 
-##### GrantedBundleInfo
+#### GrantedBundleInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

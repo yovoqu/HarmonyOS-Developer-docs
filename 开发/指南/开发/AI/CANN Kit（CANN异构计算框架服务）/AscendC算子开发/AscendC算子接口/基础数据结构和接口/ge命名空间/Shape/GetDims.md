@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getdims
 
-##### 函数功能
+#### 函数功能
 
 获取Shape所有维度组成的向量。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 std::vector<int64_t> GetDims() const
@@ -18,13 +18,13 @@ std::vector<int64_t> GetDims() const
  
   
 
-##### 参数说明
+#### 参数说明
 
 无
  
   
 
-##### 返回值
+#### 返回值
  
 | 类型 | 描述 |
 | --- | --- |
@@ -33,12 +33,12 @@ std::vector<int64_t> GetDims() const
  
   
 
-##### 异常处理
+#### 异常处理
 
 无
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

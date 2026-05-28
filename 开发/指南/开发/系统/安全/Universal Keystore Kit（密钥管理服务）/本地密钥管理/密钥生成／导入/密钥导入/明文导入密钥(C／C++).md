@@ -7,7 +7,7 @@
 以明文导入ECC密钥为例。具体的场景介绍及支持的算法规格，请参考[密钥导入支持的算法](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-import-overview#支持的算法)。
 
 
-##### 在CMake脚本中链接相关动态库
+#### 在CMake脚本中链接相关动态库
 
 ```text
 target_link_libraries(entry PUBLIC libhuks_ndk.z.so)
@@ -15,7 +15,7 @@ target_link_libraries(entry PUBLIC libhuks_ndk.z.so)
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 指定密钥别名，密钥别名命名规范参考[密钥生成介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。
 2. 封装密钥属性集和密钥材料。通过[OH_Huks_InitParamSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-param-h#oh_huks_initparamset)、[OH_Huks_AddParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-param-h#oh_huks_addparams)、[OH_Huks_BuildParamSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-param-h#oh_huks_buildparamset)构造密钥属性集paramSet。
 
@@ -26,7 +26,7 @@ target_link_libraries(entry PUBLIC libhuks_ndk.z.so)
 
 
 
-##### 导入AES256密钥
+#### 导入AES256密钥
 
 ```cpp
 /* 以下以明文导入AES密钥为例 */
@@ -96,7 +96,7 @@ napi_value ImportAesKey(napi_env env, napi_callback_info info)
 
 
 
-##### 导入RSA2048密钥对
+#### 导入RSA2048密钥对
 
 ```cpp
 /* 以下以明文导入RSA2048密钥为例 */
@@ -191,7 +191,7 @@ napi_value ImportRsaKey(napi_env env, napi_callback_info info)
 
 
 
-##### 导入X25519密钥公钥
+#### 导入X25519密钥公钥
 
 ```cpp
 /* 以下以明文导入X25519密钥为例 */

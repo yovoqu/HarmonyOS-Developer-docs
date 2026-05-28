@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-valuedepend
 
-##### 函数功能
+#### 函数功能
 
 标识该输入是否为“数据依赖输入”，数据依赖输入是指在Tiling/InferShape等函数实现时依赖该输入的具体数据。该输入数据为host侧数据，开发者在Tiling函数/InferShape函数中可以通过TilingContext类的[GetInputTensor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getinputtensor)/InferShapeContext类的[GetInputTensor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-infershapecontext-getinputtensor)获取这个输入数据。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 OpParamDef &ValueDepend(Option value_depend);
@@ -19,7 +19,7 @@ OpParamDef &ValueDepend(Option value_depend, DependScope scope);
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -29,12 +29,12 @@ OpParamDef &ValueDepend(Option value_depend, DependScope scope);
  
   
 
-##### 返回值
+#### 返回值
 
 [OpParamDef](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-paramtype)算子定义。
  
   
 
-##### 约束说明
+#### 约束说明
 
 仅支持对算子输入配置，且仅支持输入的[DataType](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-ge-datatype)配置为DT_INT64/DT_FLOAT/DT_BOOL。

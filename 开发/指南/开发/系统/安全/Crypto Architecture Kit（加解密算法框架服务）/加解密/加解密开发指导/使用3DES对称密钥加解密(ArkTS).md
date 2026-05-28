@@ -7,7 +7,7 @@
 对应的算法规格请查看[对称密钥加解密算法规格：3DES](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sym-encrypt-decrypt-spec#section3des)。
 
 
-##### 开发步骤
+#### 开发步骤
 
 **加密**
 1. 调用[cryptoFramework.createSymKeyGenerator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatesymkeygenerator)和[SymKeyGenerator.convertKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#convertkey-1)，生成密钥算法为3DES、密钥长度为192位的对称密钥（SymKey）。
@@ -45,7 +45,7 @@
 
   
 
-  ##### 开发示例
+  #### 开发示例
 
   当前示例以ECB分组模式为例，不需要设置加解密参数IV。
 
@@ -154,7 +154,7 @@ function main() {
 
 
 
-##### 设置加解密参数IV
+#### 设置加解密参数IV
 
 下述示例为CBC分组模式，需要设置加解密参数IV。
 

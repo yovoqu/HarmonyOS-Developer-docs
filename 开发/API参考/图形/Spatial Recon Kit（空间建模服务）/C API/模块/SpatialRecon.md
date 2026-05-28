@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-spatialrecon
 
-##### 概述
+#### 概述
 
 提供与3D空间重建任务相关的API，包括空间重建会话管理、多视角与AR帧输入、3DGS（3D Gaussian Splatting）场景建模、任务控制、进度查询、相机参数获取以及三维模型文件导出等能力。
  
@@ -12,7 +12,7 @@
  
   
 
-##### 文件汇总
+#### 文件汇总
  
 | 名称 | 描述 |
 | --- | --- |

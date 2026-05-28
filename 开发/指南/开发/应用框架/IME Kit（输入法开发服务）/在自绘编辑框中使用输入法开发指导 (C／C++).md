@@ -4,19 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-inputmethod-in-custom-edit-box-ndk
 
-##### 场景介绍
+#### 场景介绍
 
 IME Kit支持开发者在自绘编辑框中使用输入法，与输入法应用交互，包括显示、隐藏输入法，接收来自输入法应用的文本编辑操作通知等，本文档介绍开发者如何使用C/C++完成此功能开发。
 
 
 
-##### 接口说明
+#### 接口说明
 
 详细接口说明请参考[InputMethod接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-inputmethod)。
 
 
 
-##### 添加动态链接库
+#### 添加动态链接库
 
 CMakeLists.txt中添加以下lib。
 
@@ -26,7 +26,7 @@ libohinputmethod.so
 
 
 
-##### 引用头文件
+#### 引用头文件
 
 ```text
 #include <inputmethod/inputmethod_controller_capi.h>
@@ -34,7 +34,7 @@ libohinputmethod.so
 
 
 
-##### 绑定输入法
+#### 绑定输入法
 
 开发者需要在输入框获焦时，通过调用接口[OH_InputMethodController_Attach](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-inputmethod-controller-capi-h#oh_inputmethodcontroller_attach)绑定输入法，绑定成功后用户可以通过输入法输入文字。
 1. 创建InputMethod_TextEditorProxy实例，示例代码如下所示：
@@ -71,7 +71,7 @@ if (ret != IME_ERR_OK) {
 
 
 
-##### 显示/隐藏面板功能
+#### 显示/隐藏面板功能
 
 绑定成功后，可以使用获取到的[InputMethod_InputMethodProxy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-inputmethod-inputmethod-inputmethodproxy)对象向输入法发送消息。示例代码如下所示：
 
@@ -92,7 +92,7 @@ if (OH_InputMethodProxy_NotifyConfigurationChange(inputMethodProxy, InputMethod_
 
 
 
-##### 监听输入法应用的请求/通知
+#### 监听输入法应用的请求/通知
 1. 需要先实现对输入法应用发送的请求或通知的响应处理函数，示例代码如下所示：
 
   
@@ -137,7 +137,7 @@ OH_TextEditorProxy_SetFinishTextPreviewFunc(textEditorProxy, FinishTextPreviewFu
 
 
 
-##### 解绑输入法
+#### 解绑输入法
 
 当编辑框失焦，需要结束使用输入法，通过接口[OH_InputMethodController_Detach](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-inputmethod-controller-capi-h#oh_inputmethodcontroller_detach)与输入法框架解绑。
 
@@ -150,7 +150,7 @@ OH_AttachOptions_Destroy(attachOptions);
 
 
 
-##### 完整示例
+#### 完整示例
 
 示例代码展示了绑定输入法、隐藏输入法、解绑输入法的完整流程。
 

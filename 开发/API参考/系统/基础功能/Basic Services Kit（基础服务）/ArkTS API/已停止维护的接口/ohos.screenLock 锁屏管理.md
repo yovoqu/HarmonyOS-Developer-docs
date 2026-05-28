@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import screenLock from '@ohos.screenLock';
  
   
 
-##### screenLock.isScreenLocked(deprecated)
+#### screenLock.isScreenLocked(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -59,7 +59,7 @@ screenLock.isScreenLocked((err: BusinessError, data: Boolean)=>{
  
   
 
-##### screenLock.isScreenLocked(deprecated)
+#### screenLock.isScreenLocked(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -94,7 +94,7 @@ screenLock.isScreenLocked().then((data: Boolean) => {
  
   
 
-##### screenLock.isSecureMode(deprecated)
+#### screenLock.isSecureMode(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -131,7 +131,7 @@ screenLock.isSecureMode((err: BusinessError, data: Boolean)=>{
  
   
 
-##### screenLock.isSecureMode(deprecated)
+#### screenLock.isSecureMode(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -166,7 +166,7 @@ screenLock.isSecureMode().then((data: Boolean) => {
  
   
 
-##### screenLock.unlockScreen(deprecated)
+#### screenLock.unlockScreen(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -203,7 +203,7 @@ screenLock.unlockScreen((err: BusinessError) => {
  
   
 
-##### screenLock.unlockScreen(deprecated)
+#### screenLock.unlockScreen(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

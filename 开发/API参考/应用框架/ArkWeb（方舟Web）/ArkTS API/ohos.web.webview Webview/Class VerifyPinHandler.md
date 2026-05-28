@@ -12,7 +12,7 @@ Web组件返回的PIN码认证用户处理功能对象。示例代码参考[onVe
 
   
 
-##### constructor22+
+#### constructor22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ VerifyPinHandler的构造函数。
  
   
 
-##### confirm22+
+#### confirm22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

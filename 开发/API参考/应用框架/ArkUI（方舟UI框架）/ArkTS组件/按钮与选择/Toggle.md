@@ -12,7 +12,7 @@
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@ Toggle(options: ToggleOptions)
 
 
 
-##### ToggleOptions18+对象说明
+#### ToggleOptions18+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -65,7 +65,7 @@ Toggle的信息。
 
 
 
-##### ToggleType枚举说明
+#### ToggleType枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -90,7 +90,7 @@ Toggle的样式。
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -98,7 +98,7 @@ Toggle的样式。
 
 
 
-##### selectedColor
+#### selectedColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -121,7 +121,7 @@ selectedColor(value: ResourceColor)
 
 
 
-##### switchPointColor
+#### switchPointColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -144,7 +144,7 @@ switchPointColor(color: ResourceColor)
 
 
 
-##### switchStyle12+
+#### switchStyle12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -165,7 +165,7 @@ switchStyle(value: SwitchStyle)
 
 
 
-##### contentModifier12+
+#### contentModifier12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -186,7 +186,7 @@ contentModifier(modifier: ContentModifier&lt;ToggleConfiguration&gt;)
 
 
 
-##### SwitchStyle12+对象说明
+#### SwitchStyle12+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -206,7 +206,7 @@ Switch类型的样式。
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -214,7 +214,7 @@ Switch类型的样式。
 
 
 
-##### onChange
+#### onChange
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -237,7 +237,7 @@ onChange(callback: (isOn: boolean) => void)
 
 
 
-##### ToggleConfiguration12+对象说明
+#### ToggleConfiguration12+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -256,13 +256,13 @@ onChange(callback: (isOn: boolean) => void)
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1（设置开关的样式）
+#### 示例1（设置开关的样式）
 
 该示例通过配置ToggleType设置Toggle的勾选框样式、状态按钮样式及开关样式。
 
@@ -331,12 +331,12 @@ struct ToggleExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/jRb9chQUROW5gRzQHBnPpA/zh-cn_image_0000002611755765.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=CD4389D0FE2667D134F26BDEC6CD568B27A1E71E5EE507D200B4FE6E398640D5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/jRb9chQUROW5gRzQHBnPpA/zh-cn_image_0000002611755765.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=E8CD7F212DA4D32F78FAB5C6631FA52F886FDEB8754B2AC990D9D8308EBCB5D3)
 
 
 
 
-##### 示例2（自定义开关类型的样式）
+#### 示例2（自定义开关类型的样式）
 
 该示例实现了自定义设置Toggle组件Switch样式，包括圆形滑块半径、关闭状态的背景颜色、圆形滑块颜色、滑轨的圆角。
 
@@ -377,12 +377,12 @@ struct ToggleExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/jcEYVX7iQ3eOw13_arZaWw/zh-cn_image_0000002581435828.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=E4A646E1D76D481D0BF767C4A7CBA22628F8FEF86CAEEFE04CAA959CC160549C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/jcEYVX7iQ3eOw13_arZaWw/zh-cn_image_0000002581435828.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=038A034567611DE015314ADE2C294B5342BCE9F2EB169FAFB03CF88292C37319)
 
 
 
 
-##### 示例3（自定义Toggle样式）
+#### 示例3（自定义Toggle样式）
 
 该示例实现自定义Toggle样式，通过按钮切换圆形背景颜色：点击蓝圆按钮，背景变蓝色；点击黄圆按钮，背景变黄色。
 
@@ -437,4 +437,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/Lk_mBM8aQHmF9ZqwhOOrJQ/zh-cn_image_0000002611835659.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=AD740EF2B11C21661036913477310328DF95F70447F0087C5F4F05AF3CF1D67A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/Lk_mBM8aQHmF9ZqwhOOrJQ/zh-cn_image_0000002611835659.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=2D7B5F385F6E2F3070FD69E33BB54256EB35464DD952BFDD1717B5690AE970E6)

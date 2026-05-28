@@ -10,7 +10,7 @@
 
   
 
-##### 1019000001 内部错误
+#### 1019000001 内部错误
 
 **支持设备：** Phone | Tablet
 
@@ -38,7 +38,7 @@ Internal error.
  
   
 
-##### 1019000002 用户未授权
+#### 1019000002 用户未授权
 
 **支持设备：** Phone | Tablet
 
@@ -62,7 +62,7 @@ The user has not authorized the application to access this interface.
  
   
 
-##### 1019000003 用户取消
+#### 1019000003 用户取消
 
 **支持设备：** Phone | Tablet
 
@@ -86,7 +86,7 @@ The user canceled the operation.
  
   
 
-##### 1019000004 策略数量超限
+#### 1019000004 策略数量超限
 
 **支持设备：** Phone | Tablet
 
@@ -110,7 +110,7 @@ The number of strategies exceeds the upper limit.
  
   
 
-##### 1019000005 策略名称重复
+#### 1019000005 策略名称重复
 
 **支持设备：** Phone | Tablet
 
@@ -136,7 +136,7 @@ The strategy name is already existed.
  
   
 
-##### 1019000006 策略不存在
+#### 1019000006 策略不存在
 
 **支持设备：** Phone | Tablet
 
@@ -160,7 +160,7 @@ Nonexistent strategy.
  
   
 
-##### 1019000007 策略重复执行
+#### 1019000007 策略重复执行
 
 **支持设备：** Phone | Tablet
 
@@ -184,7 +184,7 @@ The strategy is already being executed.
  
   
 
-##### 1019000008 策略未执行
+#### 1019000008 策略未执行
 
 **支持设备：** Phone | Tablet
 
@@ -208,7 +208,7 @@ This strategy has not been started yet.
  
   
 
-##### 1019000009 参数检查失败
+#### 1019000009 参数检查失败
 
 **支持设备：** Phone | Tablet
 
@@ -246,7 +246,7 @@ Parameter error. Possible causes:1. Mandatory parameters are left unspecified. 2
  
   
 
-##### 1019000010 该设备不支持此API
+#### 1019000010 该设备不支持此API
 
 **支持设备：** Phone | Tablet
 

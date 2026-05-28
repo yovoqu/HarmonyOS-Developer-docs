@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/changelogs-ux-5101
 
-##### 按钮默认值变更为新增圆角矩形类型
+#### 按钮默认值变更为新增圆角矩形类型
 
 **变更原因**
  
@@ -23,7 +23,7 @@
 变更后：ButtonOptions中type的默认值为ButtonType.ROUNDED_RECTANGLE。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0c/v3/6kxPXYUCT8S4FNe_oQrgUg/zh-cn_image_0000002295507629.png?HW-CC-KV=V1&HW-CC-Date=20260528T014220Z&HW-CC-Expire=86400&HW-CC-Sign=F72CFC139336FF54218CEE737FB08A43A402F26CE17E4E94948B602118E38E86)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0c/v3/6kxPXYUCT8S4FNe_oQrgUg/zh-cn_image_0000002295507629.png?HW-CC-KV=V1&HW-CC-Date=20260528T025847Z&HW-CC-Expire=86400&HW-CC-Sign=384C9E54919E640E9125130E063E539983B4EF31C2E55E8340D93CB95814D97E)
 
  
 **起始API Level**
@@ -69,7 +69,7 @@ struct ButtonExample {
  
  
 
-##### 修复Popup高级组件宽度限制计算错误的问题
+#### 修复Popup高级组件宽度限制计算错误的问题
 
 **变更原因**
  
@@ -102,7 +102,7 @@ Popup高级组件。
  
  
 
-##### 半模态底部样式最大高度默认避让状态栏安全区
+#### 半模态底部样式最大高度默认避让状态栏安全区
 
 **变更原因**
  

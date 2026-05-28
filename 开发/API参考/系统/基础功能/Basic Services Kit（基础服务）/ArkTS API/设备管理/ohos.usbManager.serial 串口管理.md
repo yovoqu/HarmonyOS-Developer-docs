@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** PC/2in1
 
@@ -22,7 +22,7 @@ import { serialManager } from '@kit.BasicServicesKit';
 
 
 
-##### serialManager.getPortList
+#### serialManager.getPortList
 
 **支持设备：** PC/2in1
 
@@ -63,7 +63,7 @@ function getPortList() {
 
 
 
-##### serialManager.hasSerialRight
+#### serialManager.hasSerialRight
 
 **支持设备：** PC/2in1
 
@@ -130,7 +130,7 @@ function hasSerialRight() {
 
 
 
-##### serialManager.requestSerialRight
+#### serialManager.requestSerialRight
 
 **支持设备：** PC/2in1
 
@@ -203,7 +203,7 @@ function requestSerialRight() {
 
 
 
-##### serialManager.open
+#### serialManager.open
 
 **支持设备：** PC/2in1
 
@@ -278,7 +278,7 @@ function open() {
 
 
 
-##### serialManager.getAttribute
+#### serialManager.getAttribute
 
 **支持设备：** PC/2in1
 
@@ -372,7 +372,7 @@ function getAttribute() {
 
 
 
-##### serialManager.setAttribute
+#### serialManager.setAttribute
 
 **支持设备：** PC/2in1
 
@@ -462,7 +462,7 @@ function setAttribute() {
 
 
 
-##### serialManager.read
+#### serialManager.read
 
 **支持设备：** PC/2in1
 
@@ -555,7 +555,7 @@ function read() {
 
 
 
-##### serialManager.readSync
+#### serialManager.readSync
 
 **支持设备：** PC/2in1
 
@@ -649,7 +649,7 @@ function readSync() {
 
 
 
-##### serialManager.write
+#### serialManager.write
 
 **支持设备：** PC/2in1
 
@@ -743,7 +743,7 @@ function write() {
 
 
 
-##### serialManager.writeSync
+#### serialManager.writeSync
 
 **支持设备：** PC/2in1
 
@@ -838,7 +838,7 @@ function writeSync() {
 
 
 
-##### serialManager.close
+#### serialManager.close
 
 **支持设备：** PC/2in1
 
@@ -921,7 +921,7 @@ function close() {
 
 
 
-##### serialManager.cancelSerialRight
+#### serialManager.cancelSerialRight
 
 **支持设备：** PC/2in1
 
@@ -996,7 +996,7 @@ function cancelSerialRight() {
 
 
 
-##### SerialAttribute
+#### SerialAttribute
 
 **支持设备：** PC/2in1
 
@@ -1014,7 +1014,7 @@ function cancelSerialRight() {
 
 
 
-##### SerialPort
+#### SerialPort
 
 **支持设备：** PC/2in1
 
@@ -1030,7 +1030,7 @@ function cancelSerialRight() {
 
 
 
-##### BaudRates
+#### BaudRates
 
 **支持设备：** PC/2in1
 
@@ -1074,7 +1074,7 @@ function cancelSerialRight() {
 
 
 
-##### DataBits
+#### DataBits
 
 **支持设备：** PC/2in1
 
@@ -1092,7 +1092,7 @@ function cancelSerialRight() {
 
 
 
-##### Parity
+#### Parity
 
 **支持设备：** PC/2in1
 
@@ -1111,7 +1111,7 @@ function cancelSerialRight() {
 
 
 
-##### StopBits
+#### StopBits
 
 **支持设备：** PC/2in1
 

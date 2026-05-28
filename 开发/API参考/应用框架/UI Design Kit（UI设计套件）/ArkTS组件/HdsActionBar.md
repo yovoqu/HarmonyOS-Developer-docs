@@ -10,7 +10,7 @@
 **起始版本：** 6.0.0(20)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -20,7 +20,7 @@ import { HdsActionBar } from '@kit.UIDesignKit';
  
   
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -53,7 +53,7 @@ HdsActionBar核心操作组件。
  
   
 
-##### ActionBarButton
+#### ActionBarButton
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -69,7 +69,7 @@ HdsActionBar核心操作组件。
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -105,7 +105,7 @@ ActionBarButton的属性。
  
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -128,7 +128,7 @@ ActionBarButton的构造函数。
  
   
 
-##### ActionBarButtonOptions
+#### ActionBarButtonOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -165,7 +165,7 @@ ActionBarButton的构造函数。
  
   
 
-##### ActionBarStyle
+#### ActionBarStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -181,7 +181,7 @@ ActionBarButton的构造函数。
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -211,7 +211,7 @@ ActionBarStyle的属性。
  
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -234,7 +234,7 @@ ActionBarStyle的构造函数。
  
   
 
-##### ActionBarStyleOptions
+#### ActionBarStyleOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -264,7 +264,7 @@ ActionBarStyle的构造函数。
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

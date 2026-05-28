@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-processing-h
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -23,13 +23,13 @@
 
 
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
 
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -54,13 +54,13 @@
 
 
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
 
 
-##### OH_ImageProcessing_InitializeEnvironment()
+#### OH_ImageProcessing_InitializeEnvironment()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -85,7 +85,7 @@ ImageProcessing_ErrorCode OH_ImageProcessing_InitializeEnvironment(void)
 
 
 
-##### OH_ImageProcessing_DeinitializeEnvironment()
+#### OH_ImageProcessing_DeinitializeEnvironment()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -110,7 +110,7 @@ ImageProcessing_ErrorCode OH_ImageProcessing_DeinitializeEnvironment(void)
 
 
 
-##### OH_ImageProcessing_IsColorSpaceConversionSupported()
+#### OH_ImageProcessing_IsColorSpaceConversionSupported()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -141,7 +141,7 @@ bool OH_ImageProcessing_IsColorSpaceConversionSupported(const ImageProcessing_Co
 
 
 
-##### OH_ImageProcessing_IsCompositionSupported()
+#### OH_ImageProcessing_IsCompositionSupported()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -173,7 +173,7 @@ bool OH_ImageProcessing_IsCompositionSupported(const ImageProcessing_ColorSpaceI
 
 
 
-##### OH_ImageProcessing_IsDecompositionSupported()
+#### OH_ImageProcessing_IsDecompositionSupported()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -205,7 +205,7 @@ bool OH_ImageProcessing_IsDecompositionSupported(const ImageProcessing_ColorSpac
 
 
 
-##### OH_ImageProcessing_IsMetadataGenerationSupported()
+#### OH_ImageProcessing_IsMetadataGenerationSupported()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -235,7 +235,7 @@ bool OH_ImageProcessing_IsMetadataGenerationSupported(const ImageProcessing_Colo
 
 
 
-##### OH_ImageProcessing_Create()
+#### OH_ImageProcessing_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -266,7 +266,7 @@ ImageProcessing_ErrorCode OH_ImageProcessing_Create(OH_ImageProcessing** imagePr
 
 
 
-##### OH_ImageProcessing_Destroy()
+#### OH_ImageProcessing_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -296,7 +296,7 @@ ImageProcessing_ErrorCode OH_ImageProcessing_Destroy(OH_ImageProcessing* imagePr
 
 
 
-##### OH_ImageProcessing_SetParameter()
+#### OH_ImageProcessing_SetParameter()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -327,7 +327,7 @@ ImageProcessing_ErrorCode OH_ImageProcessing_SetParameter(OH_ImageProcessing* im
 
 
 
-##### OH_ImageProcessing_GetParameter()
+#### OH_ImageProcessing_GetParameter()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -358,7 +358,7 @@ ImageProcessing_ErrorCode OH_ImageProcessing_GetParameter(OH_ImageProcessing* im
 
 
 
-##### OH_ImageProcessing_ConvertColorSpace()
+#### OH_ImageProcessing_ConvertColorSpace()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -390,7 +390,7 @@ ImageProcessing_ErrorCode OH_ImageProcessing_ConvertColorSpace(OH_ImageProcessin
 
 
 
-##### OH_ImageProcessing_Compose()
+#### OH_ImageProcessing_Compose()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -423,7 +423,7 @@ ImageProcessing_ErrorCode OH_ImageProcessing_Compose(OH_ImageProcessing* imagePr
 
 
 
-##### OH_ImageProcessing_Decompose()
+#### OH_ImageProcessing_Decompose()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -456,7 +456,7 @@ ImageProcessing_ErrorCode OH_ImageProcessing_Decompose(OH_ImageProcessing* image
 
 
 
-##### OH_ImageProcessing_GenerateMetadata()
+#### OH_ImageProcessing_GenerateMetadata()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -487,7 +487,7 @@ ImageProcessing_ErrorCode OH_ImageProcessing_GenerateMetadata(OH_ImageProcessing
 
 
 
-##### OH_ImageProcessing_EnhanceDetail()
+#### OH_ImageProcessing_EnhanceDetail()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

@@ -12,7 +12,7 @@
 **起始版本：** 5.0.0(12)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { textProcessing, EntityType } from '@kit.NaturalLanguageKit';
 
 
 
-##### WordSegment
+#### WordSegment
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -40,7 +40,7 @@ import { textProcessing, EntityType } from '@kit.NaturalLanguageKit';
 
 
 
-##### EntityConfig
+#### EntityConfig
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -57,7 +57,7 @@ import { textProcessing, EntityType } from '@kit.NaturalLanguageKit';
 
 
 
-##### EntityType
+#### EntityType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -83,7 +83,7 @@ import { textProcessing, EntityType } from '@kit.NaturalLanguageKit';
 
 
 
-##### Entity
+#### Entity
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -103,7 +103,7 @@ import { textProcessing, EntityType } from '@kit.NaturalLanguageKit';
 
 
 
-##### textProcessing.getWordSegment
+#### textProcessing.getWordSegment
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -184,7 +184,7 @@ struct Page {
 
 
 
-##### textProcessing.getEntity
+#### textProcessing.getEntity
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -275,7 +275,7 @@ struct Page {
 
 
 
-##### textProcessing.init
+#### textProcessing.init
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -335,7 +335,7 @@ struct Page {
 
 
 
-##### textProcessing.release
+#### textProcessing.release
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

@@ -13,7 +13,7 @@
 数字信封导入密钥时，如果是导入非对称密钥的密钥对，需要添加[OH_HUKS_TAG_ASYMMETRIC_PUBLIC_KEY_DATA](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-type-h#oh_huks_tag)标签，并将公钥以X.509 DER格式封装填入该标签，且针对非对称密钥仅支持以密钥对形式导入。
 
 
-##### 在CMake脚本中链接相关动态库
+#### 在CMake脚本中链接相关动态库
 
 ```text
 target_link_libraries(entry PUBLIC libhuks_ndk.z.so)
@@ -21,7 +21,7 @@ target_link_libraries(entry PUBLIC libhuks_ndk.z.so)
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 业务方设备（设备A）生成SM4密钥，cipherSm4。
 2. 设备A使用生成的SM4密钥，以ECB/NoPadding模式对导入的密钥importKey进行加密，得到加密后的密钥为enImportKey=Encrypt(cipherSm4, importKey)。
 3. 密钥导入方（设备B）导出SM2公钥，设备A接收该密钥。
@@ -35,7 +35,7 @@ target_link_libraries(entry PUBLIC libhuks_ndk.z.so)
 
 
 
-##### RSA导入示例
+#### RSA导入示例
 
 ```text
 #include <string.h>
@@ -241,7 +241,7 @@ static napi_value EnvelopImportKey(napi_env env, napi_callback_info info) {
 
 
 
-##### AES导入示例
+#### AES导入示例
 
 ```text
 #include <string.h>

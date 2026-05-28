@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-styled-string-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -25,13 +25,13 @@
 
 
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -58,7 +58,7 @@
 
 
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -70,7 +70,7 @@
 
 
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -297,13 +297,13 @@
 
 
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### OH_ArkUI_StyledStringKey
+#### OH_ArkUI_StyledStringKey
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -337,7 +337,7 @@ enum OH_ArkUI_StyledStringKey
 
 
 
-##### OH_ArkUI_SuperscriptStyle
+#### OH_ArkUI_SuperscriptStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -360,13 +360,13 @@ enum OH_ArkUI_SuperscriptStyle
 
 
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### OH_ArkUI_StyledString_Create()
+#### OH_ArkUI_StyledString_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -397,7 +397,7 @@ ArkUI_StyledString* OH_ArkUI_StyledString_Create(OH_Drawing_TypographyStyle* sty
 
 
 
-##### OH_ArkUI_StyledString_Destroy()
+#### OH_ArkUI_StyledString_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -420,7 +420,7 @@ void OH_ArkUI_StyledString_Destroy(ArkUI_StyledString* handle)
 
 
 
-##### OH_ArkUI_StyledString_PushTextStyle()
+#### OH_ArkUI_StyledString_PushTextStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -444,7 +444,7 @@ void OH_ArkUI_StyledString_PushTextStyle(ArkUI_StyledString* handle, OH_Drawing_
 
 
 
-##### OH_ArkUI_StyledString_AddText()
+#### OH_ArkUI_StyledString_AddText()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -468,7 +468,7 @@ void OH_ArkUI_StyledString_AddText(ArkUI_StyledString* handle, const char* conte
 
 
 
-##### OH_ArkUI_StyledString_PopTextStyle()
+#### OH_ArkUI_StyledString_PopTextStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -491,7 +491,7 @@ void OH_ArkUI_StyledString_PopTextStyle(ArkUI_StyledString* handle)
 
 
 
-##### OH_ArkUI_StyledString_CreateTypography()
+#### OH_ArkUI_StyledString_CreateTypography()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -521,7 +521,7 @@ OH_Drawing_Typography* OH_ArkUI_StyledString_CreateTypography(ArkUI_StyledString
 
 
 
-##### OH_ArkUI_StyledString_AddPlaceholder()
+#### OH_ArkUI_StyledString_AddPlaceholder()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -545,7 +545,7 @@ void OH_ArkUI_StyledString_AddPlaceholder(ArkUI_StyledString* handle, OH_Drawing
 
 
 
-##### OH_ArkUI_StyledString_Descriptor_Create()
+#### OH_ArkUI_StyledString_Descriptor_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -568,7 +568,7 @@ ArkUI_StyledString_Descriptor* OH_ArkUI_StyledString_Descriptor_Create(void)
 
 
 
-##### OH_ArkUI_StyledString_Descriptor_Destroy()
+#### OH_ArkUI_StyledString_Descriptor_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -591,7 +591,7 @@ void OH_ArkUI_StyledString_Descriptor_Destroy(ArkUI_StyledString_Descriptor* des
 
 
 
-##### OH_ArkUI_UnmarshallStyledStringDescriptor()
+#### OH_ArkUI_UnmarshallStyledStringDescriptor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -623,7 +623,7 @@ int32_t OH_ArkUI_UnmarshallStyledStringDescriptor(uint8_t* buffer, size_t buffer
 
 
 
-##### OH_ArkUI_MarshallStyledStringDescriptor()
+#### OH_ArkUI_MarshallStyledStringDescriptor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -656,7 +656,7 @@ int32_t OH_ArkUI_MarshallStyledStringDescriptor(uint8_t* buffer, size_t bufferSi
 
 
 
-##### OH_ArkUI_ConvertToHtml()
+#### OH_ArkUI_ConvertToHtml()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -686,7 +686,7 @@ const char* OH_ArkUI_ConvertToHtml(ArkUI_StyledString_Descriptor* descriptor)
 
 
 
-##### OH_ArkUI_StyledString_Descriptor_CreateWithString()
+#### OH_ArkUI_StyledString_Descriptor_CreateWithString()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -722,7 +722,7 @@ ArkUI_StyledString_Descriptor* OH_ArkUI_StyledString_Descriptor_CreateWithString
 
 
 
-##### OH_ArkUI_StyledString_Descriptor_CreateWithImageAttachment()
+#### OH_ArkUI_StyledString_Descriptor_CreateWithImageAttachment()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -756,7 +756,7 @@ ArkUI_StyledString_Descriptor* OH_ArkUI_StyledString_Descriptor_CreateWithImageA
 
 
 
-##### OH_ArkUI_StyledString_Descriptor_CreateWithCustomSpan()
+#### OH_ArkUI_StyledString_Descriptor_CreateWithCustomSpan()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -790,7 +790,7 @@ ArkUI_StyledString_Descriptor* OH_ArkUI_StyledString_Descriptor_CreateWithCustom
 
 
 
-##### OH_ArkUI_StyledString_Descriptor_GetLength()
+#### OH_ArkUI_StyledString_Descriptor_GetLength()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -821,7 +821,7 @@ ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_GetLength(const ArkUI_StyledStr
 
 
 
-##### OH_ArkUI_StyledString_Descriptor_GetString()
+#### OH_ArkUI_StyledString_Descriptor_GetString()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -854,7 +854,7 @@ ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_GetString(const ArkUI_StyledStr
 
 
 
-##### OH_ArkUI_StyledString_Descriptor_IsEqual()
+#### OH_ArkUI_StyledString_Descriptor_IsEqual()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -886,7 +886,7 @@ ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_IsEqual(const ArkUI_StyledStrin
 
 
 
-##### OH_ArkUI_StyledString_Descriptor_SubStyledString()
+#### OH_ArkUI_StyledString_Descriptor_SubStyledString()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -919,7 +919,7 @@ ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_SubStyledString(const ArkUI_Sty
 
 
 
-##### OH_ArkUI_StyledString_Descriptor_GetStyles()
+#### OH_ArkUI_StyledString_Descriptor_GetStyles()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -955,7 +955,7 @@ ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_GetStyles(const ArkUI_StyledStr
 
 
 
-##### OH_ArkUI_StyledString_Descriptor_FromHtml()
+#### OH_ArkUI_StyledString_Descriptor_FromHtml()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -986,7 +986,7 @@ ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_FromHtml(ArkUI_StyledString_Des
 
 
 
-##### OH_ArkUI_StyledString_Descriptor_ReplaceString()
+#### OH_ArkUI_StyledString_Descriptor_ReplaceString()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1019,7 +1019,7 @@ ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_ReplaceString(ArkUI_StyledStrin
 
 
 
-##### OH_ArkUI_StyledString_Descriptor_InsertString()
+#### OH_ArkUI_StyledString_Descriptor_InsertString()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1051,7 +1051,7 @@ ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_InsertString(ArkUI_StyledString
 
 
 
-##### OH_ArkUI_StyledString_Descriptor_RemoveString()
+#### OH_ArkUI_StyledString_Descriptor_RemoveString()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1083,7 +1083,7 @@ ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_RemoveString(ArkUI_StyledString
 
 
 
-##### OH_ArkUI_StyledString_Descriptor_ReplaceStyle()
+#### OH_ArkUI_StyledString_Descriptor_ReplaceStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1114,7 +1114,7 @@ ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_ReplaceStyle(ArkUI_StyledString
 
 
 
-##### OH_ArkUI_StyledString_Descriptor_SetStyle()
+#### OH_ArkUI_StyledString_Descriptor_SetStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1145,7 +1145,7 @@ ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_SetStyle(ArkUI_StyledString_Des
 
 
 
-##### OH_ArkUI_StyledString_Descriptor_RemoveStyle()
+#### OH_ArkUI_StyledString_Descriptor_RemoveStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1182,7 +1182,7 @@ ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_RemoveStyle(ArkUI_StyledString_
 
 
 
-##### OH_ArkUI_StyledString_Descriptor_ClearStyles()
+#### OH_ArkUI_StyledString_Descriptor_ClearStyles()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1216,7 +1216,7 @@ ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_ClearStyles(ArkUI_StyledString_
 
 
 
-##### OH_ArkUI_StyledString_Descriptor_ReplaceStyledString()
+#### OH_ArkUI_StyledString_Descriptor_ReplaceStyledString()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1249,7 +1249,7 @@ ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_ReplaceStyledString(ArkUI_Style
 
 
 
-##### OH_ArkUI_StyledString_Descriptor_InsertStyledString()
+#### OH_ArkUI_StyledString_Descriptor_InsertStyledString()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1281,7 +1281,7 @@ ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_InsertStyledString(ArkUI_Styled
 
 
 
-##### OH_ArkUI_StyledString_Descriptor_AppendStyledString()
+#### OH_ArkUI_StyledString_Descriptor_AppendStyledString()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1312,7 +1312,7 @@ ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_AppendStyledString(ArkUI_Styled
 
 
 
-##### OH_ArkUI_StyledString_Descriptor_InvalidateCustomSpan()
+#### OH_ArkUI_StyledString_Descriptor_InvalidateCustomSpan()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1346,7 +1346,7 @@ ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_InvalidateCustomSpan(const ArkU
 
 
 
-##### OH_ArkUI_TextStyle_Create()
+#### OH_ArkUI_TextStyle_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1373,7 +1373,7 @@ OH_ArkUI_TextStyle* OH_ArkUI_TextStyle_Create()
 
 
 
-##### OH_ArkUI_TextStyle_Destroy()
+#### OH_ArkUI_TextStyle_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1396,7 +1396,7 @@ void OH_ArkUI_TextStyle_Destroy(OH_ArkUI_TextStyle* textStyle)
 
 
 
-##### OH_ArkUI_TextStyle_SetFontColor()
+#### OH_ArkUI_TextStyle_SetFontColor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1427,7 +1427,7 @@ ArkUI_ErrorCode OH_ArkUI_TextStyle_SetFontColor(OH_ArkUI_TextStyle* textStyle, u
 
 
 
-##### OH_ArkUI_TextStyle_GetFontColor()
+#### OH_ArkUI_TextStyle_GetFontColor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1458,7 +1458,7 @@ ArkUI_ErrorCode OH_ArkUI_TextStyle_GetFontColor(const OH_ArkUI_TextStyle* textSt
 
 
 
-##### OH_ArkUI_TextStyle_SetFontFamily()
+#### OH_ArkUI_TextStyle_SetFontFamily()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1489,7 +1489,7 @@ ArkUI_ErrorCode OH_ArkUI_TextStyle_SetFontFamily(OH_ArkUI_TextStyle* textStyle, 
 
 
 
-##### OH_ArkUI_TextStyle_GetFontFamily()
+#### OH_ArkUI_TextStyle_GetFontFamily()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1522,7 +1522,7 @@ ArkUI_ErrorCode OH_ArkUI_TextStyle_GetFontFamily(const OH_ArkUI_TextStyle* textS
 
 
 
-##### OH_ArkUI_TextStyle_SetFontSize()
+#### OH_ArkUI_TextStyle_SetFontSize()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1553,7 +1553,7 @@ ArkUI_ErrorCode OH_ArkUI_TextStyle_SetFontSize(OH_ArkUI_TextStyle* textStyle, fl
 
 
 
-##### OH_ArkUI_TextStyle_GetFontSize()
+#### OH_ArkUI_TextStyle_GetFontSize()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1584,7 +1584,7 @@ ArkUI_ErrorCode OH_ArkUI_TextStyle_GetFontSize(const OH_ArkUI_TextStyle* textSty
 
 
 
-##### OH_ArkUI_TextStyle_SetFontWeight()
+#### OH_ArkUI_TextStyle_SetFontWeight()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1615,7 +1615,7 @@ ArkUI_ErrorCode OH_ArkUI_TextStyle_SetFontWeight(OH_ArkUI_TextStyle* textStyle, 
 
 
 
-##### OH_ArkUI_TextStyle_GetFontWeight()
+#### OH_ArkUI_TextStyle_GetFontWeight()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1646,7 +1646,7 @@ ArkUI_ErrorCode OH_ArkUI_TextStyle_GetFontWeight(const OH_ArkUI_TextStyle* textS
 
 
 
-##### OH_ArkUI_TextStyle_SetFontStyle()
+#### OH_ArkUI_TextStyle_SetFontStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1677,7 +1677,7 @@ ArkUI_ErrorCode OH_ArkUI_TextStyle_SetFontStyle(OH_ArkUI_TextStyle* textStyle, A
 
 
 
-##### OH_ArkUI_TextStyle_GetFontStyle()
+#### OH_ArkUI_TextStyle_GetFontStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1708,7 +1708,7 @@ ArkUI_ErrorCode OH_ArkUI_TextStyle_GetFontStyle(const OH_ArkUI_TextStyle* textSt
 
 
 
-##### OH_ArkUI_TextStyle_SetStrokeWidth()
+#### OH_ArkUI_TextStyle_SetStrokeWidth()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1739,7 +1739,7 @@ ArkUI_ErrorCode OH_ArkUI_TextStyle_SetStrokeWidth(OH_ArkUI_TextStyle* textStyle,
 
 
 
-##### OH_ArkUI_TextStyle_GetStrokeWidth()
+#### OH_ArkUI_TextStyle_GetStrokeWidth()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1770,7 +1770,7 @@ ArkUI_ErrorCode OH_ArkUI_TextStyle_GetStrokeWidth(const OH_ArkUI_TextStyle* text
 
 
 
-##### OH_ArkUI_TextStyle_SetStrokeColor()
+#### OH_ArkUI_TextStyle_SetStrokeColor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1801,7 +1801,7 @@ ArkUI_ErrorCode OH_ArkUI_TextStyle_SetStrokeColor(OH_ArkUI_TextStyle* textStyle,
 
 
 
-##### OH_ArkUI_TextStyle_GetStrokeColor()
+#### OH_ArkUI_TextStyle_GetStrokeColor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1832,7 +1832,7 @@ ArkUI_ErrorCode OH_ArkUI_TextStyle_GetStrokeColor(const OH_ArkUI_TextStyle* text
 
 
 
-##### OH_ArkUI_TextStyle_SetSuperscript()
+#### OH_ArkUI_TextStyle_SetSuperscript()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1863,7 +1863,7 @@ ArkUI_ErrorCode OH_ArkUI_TextStyle_SetSuperscript(OH_ArkUI_TextStyle* textStyle,
 
 
 
-##### OH_ArkUI_TextStyle_GetSuperscript()
+#### OH_ArkUI_TextStyle_GetSuperscript()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1894,7 +1894,7 @@ ArkUI_ErrorCode OH_ArkUI_TextStyle_GetSuperscript(const OH_ArkUI_TextStyle* text
 
 
 
-##### OH_ArkUI_SpanStyle_Create()
+#### OH_ArkUI_SpanStyle_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1921,7 +1921,7 @@ OH_ArkUI_SpanStyle* OH_ArkUI_SpanStyle_Create()
 
 
 
-##### OH_ArkUI_SpanStyle_Destroy()
+#### OH_ArkUI_SpanStyle_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1944,7 +1944,7 @@ void OH_ArkUI_SpanStyle_Destroy(OH_ArkUI_SpanStyle* spanStyle)
 
 
 
-##### OH_ArkUI_SpanStyle_GetStyledKey()
+#### OH_ArkUI_SpanStyle_GetStyledKey()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1975,7 +1975,7 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetStyledKey(const OH_ArkUI_SpanStyle* spanSt
 
 
 
-##### OH_ArkUI_SpanStyle_SetStart()
+#### OH_ArkUI_SpanStyle_SetStart()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2006,7 +2006,7 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetStart(OH_ArkUI_SpanStyle* spanStyle, int32
 
 
 
-##### OH_ArkUI_SpanStyle_GetStart()
+#### OH_ArkUI_SpanStyle_GetStart()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2037,7 +2037,7 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetStart(const OH_ArkUI_SpanStyle* spanStyle,
 
 
 
-##### OH_ArkUI_SpanStyle_SetLength()
+#### OH_ArkUI_SpanStyle_SetLength()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2068,7 +2068,7 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetLength(OH_ArkUI_SpanStyle* spanStyle, int3
 
 
 
-##### OH_ArkUI_SpanStyle_GetLength()
+#### OH_ArkUI_SpanStyle_GetLength()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2099,7 +2099,7 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetLength(const OH_ArkUI_SpanStyle* spanStyle
 
 
 
-##### OH_ArkUI_SpanStyle_SetTextStyle()
+#### OH_ArkUI_SpanStyle_SetTextStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2134,7 +2134,7 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetTextStyle(OH_ArkUI_SpanStyle* spanStyle, c
 
 
 
-##### OH_ArkUI_SpanStyle_GetTextStyle()
+#### OH_ArkUI_SpanStyle_GetTextStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2165,7 +2165,7 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetTextStyle(const OH_ArkUI_SpanStyle* spanSt
 
 
 
-##### OH_ArkUI_SpanStyle_SetParagraphStyle()
+#### OH_ArkUI_SpanStyle_SetParagraphStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2200,7 +2200,7 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetParagraphStyle(OH_ArkUI_SpanStyle* spanSty
 
 
 
-##### OH_ArkUI_SpanStyle_GetParagraphStyle()
+#### OH_ArkUI_SpanStyle_GetParagraphStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2231,7 +2231,7 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetParagraphStyle(const OH_ArkUI_SpanStyle* s
 
 
 
-##### OH_ArkUI_SpanStyle_SetGestureStyle()
+#### OH_ArkUI_SpanStyle_SetGestureStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2266,7 +2266,7 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetGestureStyle(OH_ArkUI_SpanStyle* spanStyle
 
 
 
-##### OH_ArkUI_SpanStyle_GetGestureStyle()
+#### OH_ArkUI_SpanStyle_GetGestureStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2297,7 +2297,7 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetGestureStyle(const OH_ArkUI_SpanStyle* spa
 
 
 
-##### OH_ArkUI_SpanStyle_SetTextShadowStyle()
+#### OH_ArkUI_SpanStyle_SetTextShadowStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2332,7 +2332,7 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetTextShadowStyle(OH_ArkUI_SpanStyle* spanSt
 
 
 
-##### OH_ArkUI_SpanStyle_GetTextShadowStyle()
+#### OH_ArkUI_SpanStyle_GetTextShadowStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2363,7 +2363,7 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetTextShadowStyle(const OH_ArkUI_SpanStyle* 
 
 
 
-##### OH_ArkUI_SpanStyle_SetDecorationStyle()
+#### OH_ArkUI_SpanStyle_SetDecorationStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2398,7 +2398,7 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetDecorationStyle(OH_ArkUI_SpanStyle* spanSt
 
 
 
-##### OH_ArkUI_SpanStyle_GetDecorationStyle()
+#### OH_ArkUI_SpanStyle_GetDecorationStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2429,7 +2429,7 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetDecorationStyle(const OH_ArkUI_SpanStyle* 
 
 
 
-##### OH_ArkUI_SpanStyle_SetBaselineOffsetStyle()
+#### OH_ArkUI_SpanStyle_SetBaselineOffsetStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2464,7 +2464,7 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetBaselineOffsetStyle(OH_ArkUI_SpanStyle* sp
 
 
 
-##### OH_ArkUI_SpanStyle_GetBaselineOffsetStyle()
+#### OH_ArkUI_SpanStyle_GetBaselineOffsetStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2495,7 +2495,7 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetBaselineOffsetStyle(const OH_ArkUI_SpanSty
 
 
 
-##### OH_ArkUI_SpanStyle_SetLetterSpacingStyle()
+#### OH_ArkUI_SpanStyle_SetLetterSpacingStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2530,7 +2530,7 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetLetterSpacingStyle(OH_ArkUI_SpanStyle* spa
 
 
 
-##### OH_ArkUI_SpanStyle_GetLetterSpacingStyle()
+#### OH_ArkUI_SpanStyle_GetLetterSpacingStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2561,7 +2561,7 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetLetterSpacingStyle(const OH_ArkUI_SpanStyl
 
 
 
-##### OH_ArkUI_SpanStyle_SetLineHeightStyle()
+#### OH_ArkUI_SpanStyle_SetLineHeightStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2596,7 +2596,7 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetLineHeightStyle(OH_ArkUI_SpanStyle* spanSt
 
 
 
-##### OH_ArkUI_SpanStyle_GetLineHeightStyle()
+#### OH_ArkUI_SpanStyle_GetLineHeightStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2627,7 +2627,7 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetLineHeightStyle(const OH_ArkUI_SpanStyle* 
 
 
 
-##### OH_ArkUI_SpanStyle_SetUrlStyle()
+#### OH_ArkUI_SpanStyle_SetUrlStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2662,7 +2662,7 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetUrlStyle(OH_ArkUI_SpanStyle* spanStyle, co
 
 
 
-##### OH_ArkUI_SpanStyle_GetUrlStyle()
+#### OH_ArkUI_SpanStyle_GetUrlStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2693,7 +2693,7 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetUrlStyle(const OH_ArkUI_SpanStyle* spanSty
 
 
 
-##### OH_ArkUI_SpanStyle_SetBackgroundColorStyle()
+#### OH_ArkUI_SpanStyle_SetBackgroundColorStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2728,7 +2728,7 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetBackgroundColorStyle(OH_ArkUI_SpanStyle* s
 
 
 
-##### OH_ArkUI_SpanStyle_GetBackgroundColorStyle()
+#### OH_ArkUI_SpanStyle_GetBackgroundColorStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2759,7 +2759,7 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetBackgroundColorStyle(const OH_ArkUI_SpanSt
 
 
 
-##### OH_ArkUI_SpanStyle_SetUserDataSpan()
+#### OH_ArkUI_SpanStyle_SetUserDataSpan()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2794,7 +2794,7 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetUserDataSpan(OH_ArkUI_SpanStyle* spanStyle
 
 
 
-##### OH_ArkUI_SpanStyle_GetUserDataSpan()
+#### OH_ArkUI_SpanStyle_GetUserDataSpan()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2825,7 +2825,7 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetUserDataSpan(const OH_ArkUI_SpanStyle* spa
 
 
 
-##### OH_ArkUI_SpanStyle_SetCustomSpan()
+#### OH_ArkUI_SpanStyle_SetCustomSpan()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2860,7 +2860,7 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetCustomSpan(OH_ArkUI_SpanStyle* spanStyle, 
 
 
 
-##### OH_ArkUI_SpanStyle_GetCustomSpan()
+#### OH_ArkUI_SpanStyle_GetCustomSpan()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2891,7 +2891,7 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetCustomSpan(const OH_ArkUI_SpanStyle* spanS
 
 
 
-##### OH_ArkUI_SpanStyle_SetImageAttachment()
+#### OH_ArkUI_SpanStyle_SetImageAttachment()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2926,7 +2926,7 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetImageAttachment(OH_ArkUI_SpanStyle* spanSt
 
 
 
-##### OH_ArkUI_SpanStyle_GetImageAttachment()
+#### OH_ArkUI_SpanStyle_GetImageAttachment()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2957,7 +2957,7 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetImageAttachment(const OH_ArkUI_SpanStyle* 
 
 
 
-##### OH_ArkUI_LeadingMarginSpanDrawInfo_Create()
+#### OH_ArkUI_LeadingMarginSpanDrawInfo_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2984,7 +2984,7 @@ OH_ArkUI_LeadingMarginSpanDrawInfo* OH_ArkUI_LeadingMarginSpanDrawInfo_Create()
 
 
 
-##### OH_ArkUI_LeadingMarginSpanDrawInfo_Destroy()
+#### OH_ArkUI_LeadingMarginSpanDrawInfo_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3007,7 +3007,7 @@ void OH_ArkUI_LeadingMarginSpanDrawInfo_Destroy(OH_ArkUI_LeadingMarginSpanDrawIn
 
 
 
-##### OH_ArkUI_LeadingMarginSpanDrawInfo_SetX()
+#### OH_ArkUI_LeadingMarginSpanDrawInfo_SetX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3038,7 +3038,7 @@ ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_SetX(OH_ArkUI_LeadingMarginSp
 
 
 
-##### OH_ArkUI_LeadingMarginSpanDrawInfo_GetX()
+#### OH_ArkUI_LeadingMarginSpanDrawInfo_GetX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3069,7 +3069,7 @@ ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_GetX(const OH_ArkUI_LeadingMa
 
 
 
-##### OH_ArkUI_LeadingMarginSpanDrawInfo_SetTop()
+#### OH_ArkUI_LeadingMarginSpanDrawInfo_SetTop()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3100,7 +3100,7 @@ ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_SetTop(OH_ArkUI_LeadingMargin
 
 
 
-##### OH_ArkUI_LeadingMarginSpanDrawInfo_GetTop()
+#### OH_ArkUI_LeadingMarginSpanDrawInfo_GetTop()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3131,7 +3131,7 @@ ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_GetTop(const OH_ArkUI_Leading
 
 
 
-##### OH_ArkUI_LeadingMarginSpanDrawInfo_SetBottom()
+#### OH_ArkUI_LeadingMarginSpanDrawInfo_SetBottom()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3162,7 +3162,7 @@ ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_SetBottom(OH_ArkUI_LeadingMar
 
 
 
-##### OH_ArkUI_LeadingMarginSpanDrawInfo_GetBottom()
+#### OH_ArkUI_LeadingMarginSpanDrawInfo_GetBottom()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3193,7 +3193,7 @@ ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_GetBottom(const OH_ArkUI_Lead
 
 
 
-##### OH_ArkUI_LeadingMarginSpanDrawInfo_SetBaseline()
+#### OH_ArkUI_LeadingMarginSpanDrawInfo_SetBaseline()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3224,7 +3224,7 @@ ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_SetBaseline(OH_ArkUI_LeadingM
 
 
 
-##### OH_ArkUI_LeadingMarginSpanDrawInfo_GetBaseline()
+#### OH_ArkUI_LeadingMarginSpanDrawInfo_GetBaseline()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3255,7 +3255,7 @@ ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_GetBaseline(const OH_ArkUI_Le
 
 
 
-##### OH_ArkUI_LeadingMarginSpanDrawInfo_SetTextDirection()
+#### OH_ArkUI_LeadingMarginSpanDrawInfo_SetTextDirection()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3286,7 +3286,7 @@ ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_SetTextDirection(OH_ArkUI_Lea
 
 
 
-##### OH_ArkUI_LeadingMarginSpanDrawInfo_GetTextDirection()
+#### OH_ArkUI_LeadingMarginSpanDrawInfo_GetTextDirection()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3317,7 +3317,7 @@ ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_GetTextDirection(const OH_Ark
 
 
 
-##### OH_ArkUI_LeadingMarginSpanDrawInfo_SetStart()
+#### OH_ArkUI_LeadingMarginSpanDrawInfo_SetStart()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3348,7 +3348,7 @@ ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_SetStart(OH_ArkUI_LeadingMarg
 
 
 
-##### OH_ArkUI_LeadingMarginSpanDrawInfo_GetStart()
+#### OH_ArkUI_LeadingMarginSpanDrawInfo_GetStart()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3379,7 +3379,7 @@ ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_GetStart(const OH_ArkUI_Leadi
 
 
 
-##### OH_ArkUI_LeadingMarginSpanDrawInfo_SetEnd()
+#### OH_ArkUI_LeadingMarginSpanDrawInfo_SetEnd()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3410,7 +3410,7 @@ ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_SetEnd(OH_ArkUI_LeadingMargin
 
 
 
-##### OH_ArkUI_LeadingMarginSpanDrawInfo_GetEnd()
+#### OH_ArkUI_LeadingMarginSpanDrawInfo_GetEnd()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3441,7 +3441,7 @@ ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_GetEnd(const OH_ArkUI_Leading
 
 
 
-##### OH_ArkUI_LeadingMarginSpanDrawInfo_SetFirst()
+#### OH_ArkUI_LeadingMarginSpanDrawInfo_SetFirst()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3472,7 +3472,7 @@ ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_SetFirst(OH_ArkUI_LeadingMarg
 
 
 
-##### OH_ArkUI_LeadingMarginSpanDrawInfo_GetFirst()
+#### OH_ArkUI_LeadingMarginSpanDrawInfo_GetFirst()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3503,7 +3503,7 @@ ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_GetFirst(const OH_ArkUI_Leadi
 
 
 
-##### OH_ArkUI_ParagraphStyle_Create()
+#### OH_ArkUI_ParagraphStyle_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3530,7 +3530,7 @@ OH_ArkUI_ParagraphStyle* OH_ArkUI_ParagraphStyle_Create()
 
 
 
-##### OH_ArkUI_ParagraphStyle_Destroy()
+#### OH_ArkUI_ParagraphStyle_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3553,7 +3553,7 @@ void OH_ArkUI_ParagraphStyle_Destroy(OH_ArkUI_ParagraphStyle* paragraphStyle)
 
 
 
-##### OH_ArkUI_ParagraphStyle_SetTextAlign()
+#### OH_ArkUI_ParagraphStyle_SetTextAlign()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3584,7 +3584,7 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetTextAlign(OH_ArkUI_ParagraphStyle* pa
 
 
 
-##### OH_ArkUI_ParagraphStyle_GetTextAlign()
+#### OH_ArkUI_ParagraphStyle_GetTextAlign()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3615,7 +3615,7 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_GetTextAlign(const OH_ArkUI_ParagraphSty
 
 
 
-##### OH_ArkUI_ParagraphStyle_SetTextIndent()
+#### OH_ArkUI_ParagraphStyle_SetTextIndent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3646,7 +3646,7 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetTextIndent(OH_ArkUI_ParagraphStyle* p
 
 
 
-##### OH_ArkUI_ParagraphStyle_GetTextIndent()
+#### OH_ArkUI_ParagraphStyle_GetTextIndent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3677,7 +3677,7 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_GetTextIndent(const OH_ArkUI_ParagraphSt
 
 
 
-##### OH_ArkUI_ParagraphStyle_SetMaxLines()
+#### OH_ArkUI_ParagraphStyle_SetMaxLines()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3708,7 +3708,7 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetMaxLines(OH_ArkUI_ParagraphStyle* par
 
 
 
-##### OH_ArkUI_ParagraphStyle_GetMaxLines()
+#### OH_ArkUI_ParagraphStyle_GetMaxLines()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3739,7 +3739,7 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_GetMaxLines(const OH_ArkUI_ParagraphStyl
 
 
 
-##### OH_ArkUI_ParagraphStyle_SetOverflow()
+#### OH_ArkUI_ParagraphStyle_SetOverflow()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3770,7 +3770,7 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetOverflow(OH_ArkUI_ParagraphStyle* par
 
 
 
-##### OH_ArkUI_ParagraphStyle_GetOverflow()
+#### OH_ArkUI_ParagraphStyle_GetOverflow()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3801,7 +3801,7 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_GetOverflow(const OH_ArkUI_ParagraphStyl
 
 
 
-##### OH_ArkUI_ParagraphStyle_SetWordBreak()
+#### OH_ArkUI_ParagraphStyle_SetWordBreak()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3832,7 +3832,7 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetWordBreak(OH_ArkUI_ParagraphStyle* pa
 
 
 
-##### OH_ArkUI_ParagraphStyle_GetWordBreak()
+#### OH_ArkUI_ParagraphStyle_GetWordBreak()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3863,7 +3863,7 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_GetWordBreak(const OH_ArkUI_ParagraphSty
 
 
 
-##### OH_ArkUI_ParagraphStyle_SetLeadingMarginPixelMap()
+#### OH_ArkUI_ParagraphStyle_SetLeadingMarginPixelMap()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3894,7 +3894,7 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetLeadingMarginPixelMap(OH_ArkUI_Paragr
 
 
 
-##### OH_ArkUI_ParagraphStyle_GetLeadingMarginPixelMap()
+#### OH_ArkUI_ParagraphStyle_GetLeadingMarginPixelMap()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3925,7 +3925,7 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_GetLeadingMarginPixelMap(const OH_ArkUI_
 
 
 
-##### OH_ArkUI_ParagraphStyle_SetLeadingMarginWidth()
+#### OH_ArkUI_ParagraphStyle_SetLeadingMarginWidth()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3956,7 +3956,7 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetLeadingMarginWidth(OH_ArkUI_Paragraph
 
 
 
-##### OH_ArkUI_ParagraphStyle_GetLeadingMarginWidth()
+#### OH_ArkUI_ParagraphStyle_GetLeadingMarginWidth()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3987,7 +3987,7 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_GetLeadingMarginWidth(const OH_ArkUI_Par
 
 
 
-##### OH_ArkUI_ParagraphStyle_SetLeadingMarginHeight()
+#### OH_ArkUI_ParagraphStyle_SetLeadingMarginHeight()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4018,7 +4018,7 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetLeadingMarginHeight(OH_ArkUI_Paragrap
 
 
 
-##### OH_ArkUI_ParagraphStyle_GetLeadingMarginHeight()
+#### OH_ArkUI_ParagraphStyle_GetLeadingMarginHeight()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4049,7 +4049,7 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_GetLeadingMarginHeight(const OH_ArkUI_Pa
 
 
 
-##### OH_ArkUI_ParagraphStyle_SetParagraphSpacing()
+#### OH_ArkUI_ParagraphStyle_SetParagraphSpacing()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4080,7 +4080,7 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetParagraphSpacing(OH_ArkUI_ParagraphSt
 
 
 
-##### OH_ArkUI_ParagraphStyle_GetParagraphSpacing()
+#### OH_ArkUI_ParagraphStyle_GetParagraphSpacing()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4111,7 +4111,7 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_GetParagraphSpacing(const OH_ArkUI_Parag
 
 
 
-##### OH_ArkUI_ParagraphStyle_SetTextVerticalAlign()
+#### OH_ArkUI_ParagraphStyle_SetTextVerticalAlign()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4142,7 +4142,7 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetTextVerticalAlign(OH_ArkUI_ParagraphS
 
 
 
-##### OH_ArkUI_ParagraphStyle_GetTextVerticalAlign()
+#### OH_ArkUI_ParagraphStyle_GetTextVerticalAlign()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4173,7 +4173,7 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_GetTextVerticalAlign(const OH_ArkUI_Para
 
 
 
-##### OH_ArkUI_ParagraphStyle_RegisterOnDrawLeadingMarginCallback()
+#### OH_ArkUI_ParagraphStyle_RegisterOnDrawLeadingMarginCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4204,7 +4204,7 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_RegisterOnDrawLeadingMarginCallback(OH_A
 
 
 
-##### OH_ArkUI_ParagraphStyle_RegisterOnGetLeadingMarginCallback()
+#### OH_ArkUI_ParagraphStyle_RegisterOnGetLeadingMarginCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4235,7 +4235,7 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_RegisterOnGetLeadingMarginCallback(OH_Ar
 
 
 
-##### OH_ArkUI_ParagraphStyle_SetTextDirection()
+#### OH_ArkUI_ParagraphStyle_SetTextDirection()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4266,7 +4266,7 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetTextDirection(OH_ArkUI_ParagraphStyle
 
 
 
-##### OH_ArkUI_ParagraphStyle_GetTextDirection()
+#### OH_ArkUI_ParagraphStyle_GetTextDirection()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4297,7 +4297,7 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_GetTextDirection(const OH_ArkUI_Paragrap
 
 
 
-##### OH_ArkUI_GestureStyle_Create()
+#### OH_ArkUI_GestureStyle_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4324,7 +4324,7 @@ OH_ArkUI_GestureStyle* OH_ArkUI_GestureStyle_Create()
 
 
 
-##### OH_ArkUI_GestureStyle_Destroy()
+#### OH_ArkUI_GestureStyle_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4347,7 +4347,7 @@ void OH_ArkUI_GestureStyle_Destroy(OH_ArkUI_GestureStyle* gestureStyle)
 
 
 
-##### OH_ArkUI_GestureStyle_RegisterOnClickCallback()
+#### OH_ArkUI_GestureStyle_RegisterOnClickCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4378,7 +4378,7 @@ ArkUI_ErrorCode OH_ArkUI_GestureStyle_RegisterOnClickCallback(OH_ArkUI_GestureSt
 
 
 
-##### OH_ArkUI_GestureStyle_RegisterOnLongPressCallback()
+#### OH_ArkUI_GestureStyle_RegisterOnLongPressCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4409,7 +4409,7 @@ ArkUI_ErrorCode OH_ArkUI_GestureStyle_RegisterOnLongPressCallback(OH_ArkUI_Gestu
 
 
 
-##### OH_ArkUI_GestureStyle_RegisterOnTouchCallback()
+#### OH_ArkUI_GestureStyle_RegisterOnTouchCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4440,7 +4440,7 @@ ArkUI_ErrorCode OH_ArkUI_GestureStyle_RegisterOnTouchCallback(OH_ArkUI_GestureSt
 
 
 
-##### OH_ArkUI_TextShadowStyle_Create()
+#### OH_ArkUI_TextShadowStyle_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4467,7 +4467,7 @@ OH_ArkUI_TextShadowStyle* OH_ArkUI_TextShadowStyle_Create()
 
 
 
-##### OH_ArkUI_TextShadowStyle_Destroy()
+#### OH_ArkUI_TextShadowStyle_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4490,7 +4490,7 @@ void OH_ArkUI_TextShadowStyle_Destroy(OH_ArkUI_TextShadowStyle* textShadowStyle)
 
 
 
-##### OH_ArkUI_TextShadowStyle_SetTextShadow()
+#### OH_ArkUI_TextShadowStyle_SetTextShadow()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4522,7 +4522,7 @@ ArkUI_ErrorCode OH_ArkUI_TextShadowStyle_SetTextShadow(OH_ArkUI_TextShadowStyle*
 
 
 
-##### OH_ArkUI_TextShadowStyle_GetTextShadow()
+#### OH_ArkUI_TextShadowStyle_GetTextShadow()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4555,7 +4555,7 @@ ArkUI_ErrorCode OH_ArkUI_TextShadowStyle_GetTextShadow(const OH_ArkUI_TextShadow
 
 
 
-##### OH_ArkUI_DecorationStyle_Create()
+#### OH_ArkUI_DecorationStyle_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4582,7 +4582,7 @@ OH_ArkUI_DecorationStyle* OH_ArkUI_DecorationStyle_Create()
 
 
 
-##### OH_ArkUI_DecorationStyle_Destroy()
+#### OH_ArkUI_DecorationStyle_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4605,7 +4605,7 @@ void OH_ArkUI_DecorationStyle_Destroy(OH_ArkUI_DecorationStyle* decorationStyle)
 
 
 
-##### OH_ArkUI_DecorationStyle_SetTextDecorationType()
+#### OH_ArkUI_DecorationStyle_SetTextDecorationType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4636,7 +4636,7 @@ ArkUI_ErrorCode OH_ArkUI_DecorationStyle_SetTextDecorationType(OH_ArkUI_Decorati
 
 
 
-##### OH_ArkUI_DecorationStyle_GetTextDecorationType()
+#### OH_ArkUI_DecorationStyle_GetTextDecorationType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4667,7 +4667,7 @@ ArkUI_ErrorCode OH_ArkUI_DecorationStyle_GetTextDecorationType(const OH_ArkUI_De
 
 
 
-##### OH_ArkUI_DecorationStyle_SetColor()
+#### OH_ArkUI_DecorationStyle_SetColor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4698,7 +4698,7 @@ ArkUI_ErrorCode OH_ArkUI_DecorationStyle_SetColor(OH_ArkUI_DecorationStyle* deco
 
 
 
-##### OH_ArkUI_DecorationStyle_GetColor()
+#### OH_ArkUI_DecorationStyle_GetColor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4729,7 +4729,7 @@ ArkUI_ErrorCode OH_ArkUI_DecorationStyle_GetColor(const OH_ArkUI_DecorationStyle
 
 
 
-##### OH_ArkUI_DecorationStyle_SetTextDecorationStyle()
+#### OH_ArkUI_DecorationStyle_SetTextDecorationStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4760,7 +4760,7 @@ ArkUI_ErrorCode OH_ArkUI_DecorationStyle_SetTextDecorationStyle(OH_ArkUI_Decorat
 
 
 
-##### OH_ArkUI_DecorationStyle_GetTextDecorationStyle()
+#### OH_ArkUI_DecorationStyle_GetTextDecorationStyle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4791,7 +4791,7 @@ ArkUI_ErrorCode OH_ArkUI_DecorationStyle_GetTextDecorationStyle(const OH_ArkUI_D
 
 
 
-##### OH_ArkUI_DecorationStyle_SetThicknessScale()
+#### OH_ArkUI_DecorationStyle_SetThicknessScale()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4822,7 +4822,7 @@ ArkUI_ErrorCode OH_ArkUI_DecorationStyle_SetThicknessScale(OH_ArkUI_DecorationSt
 
 
 
-##### OH_ArkUI_DecorationStyle_GetThicknessScale()
+#### OH_ArkUI_DecorationStyle_GetThicknessScale()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4853,7 +4853,7 @@ ArkUI_ErrorCode OH_ArkUI_DecorationStyle_GetThicknessScale(const OH_ArkUI_Decora
 
 
 
-##### OH_ArkUI_DecorationStyle_SetEnableMultiType()
+#### OH_ArkUI_DecorationStyle_SetEnableMultiType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4884,7 +4884,7 @@ ArkUI_ErrorCode OH_ArkUI_DecorationStyle_SetEnableMultiType(OH_ArkUI_DecorationS
 
 
 
-##### OH_ArkUI_DecorationStyle_GetEnableMultiType()
+#### OH_ArkUI_DecorationStyle_GetEnableMultiType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4915,7 +4915,7 @@ ArkUI_ErrorCode OH_ArkUI_DecorationStyle_GetEnableMultiType(const OH_ArkUI_Decor
 
 
 
-##### OH_ArkUI_BaselineOffsetStyle_Create()
+#### OH_ArkUI_BaselineOffsetStyle_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4942,7 +4942,7 @@ OH_ArkUI_BaselineOffsetStyle* OH_ArkUI_BaselineOffsetStyle_Create()
 
 
 
-##### OH_ArkUI_BaselineOffsetStyle_Destroy()
+#### OH_ArkUI_BaselineOffsetStyle_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4965,7 +4965,7 @@ void OH_ArkUI_BaselineOffsetStyle_Destroy(OH_ArkUI_BaselineOffsetStyle* baseline
 
 
 
-##### OH_ArkUI_BaselineOffsetStyle_SetBaselineOffset()
+#### OH_ArkUI_BaselineOffsetStyle_SetBaselineOffset()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4996,7 +4996,7 @@ ArkUI_ErrorCode OH_ArkUI_BaselineOffsetStyle_SetBaselineOffset(OH_ArkUI_Baseline
 
 
 
-##### OH_ArkUI_BaselineOffsetStyle_GetBaselineOffset()
+#### OH_ArkUI_BaselineOffsetStyle_GetBaselineOffset()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5027,7 +5027,7 @@ ArkUI_ErrorCode OH_ArkUI_BaselineOffsetStyle_GetBaselineOffset(const OH_ArkUI_Ba
 
 
 
-##### OH_ArkUI_LetterSpacingStyle_Create()
+#### OH_ArkUI_LetterSpacingStyle_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5054,7 +5054,7 @@ OH_ArkUI_LetterSpacingStyle* OH_ArkUI_LetterSpacingStyle_Create()
 
 
 
-##### OH_ArkUI_LetterSpacingStyle_Destroy()
+#### OH_ArkUI_LetterSpacingStyle_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5077,7 +5077,7 @@ void OH_ArkUI_LetterSpacingStyle_Destroy(OH_ArkUI_LetterSpacingStyle* letterSpac
 
 
 
-##### OH_ArkUI_LetterSpacingStyle_SetLetterSpacing()
+#### OH_ArkUI_LetterSpacingStyle_SetLetterSpacing()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5108,7 +5108,7 @@ ArkUI_ErrorCode OH_ArkUI_LetterSpacingStyle_SetLetterSpacing(OH_ArkUI_LetterSpac
 
 
 
-##### OH_ArkUI_LetterSpacingStyle_GetLetterSpacing()
+#### OH_ArkUI_LetterSpacingStyle_GetLetterSpacing()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5139,7 +5139,7 @@ ArkUI_ErrorCode OH_ArkUI_LetterSpacingStyle_GetLetterSpacing(const OH_ArkUI_Lett
 
 
 
-##### OH_ArkUI_LineHeightStyle_Create()
+#### OH_ArkUI_LineHeightStyle_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5166,7 +5166,7 @@ OH_ArkUI_LineHeightStyle* OH_ArkUI_LineHeightStyle_Create()
 
 
 
-##### OH_ArkUI_LineHeightStyle_Destroy()
+#### OH_ArkUI_LineHeightStyle_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5189,7 +5189,7 @@ void OH_ArkUI_LineHeightStyle_Destroy(OH_ArkUI_LineHeightStyle* lineHeightStyle)
 
 
 
-##### OH_ArkUI_LineHeightStyle_SetLineHeight()
+#### OH_ArkUI_LineHeightStyle_SetLineHeight()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5220,7 +5220,7 @@ ArkUI_ErrorCode OH_ArkUI_LineHeightStyle_SetLineHeight(OH_ArkUI_LineHeightStyle*
 
 
 
-##### OH_ArkUI_LineHeightStyle_GetLineHeight()
+#### OH_ArkUI_LineHeightStyle_GetLineHeight()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5251,7 +5251,7 @@ ArkUI_ErrorCode OH_ArkUI_LineHeightStyle_GetLineHeight(const OH_ArkUI_LineHeight
 
 
 
-##### OH_ArkUI_BackgroundColorStyle_Create()
+#### OH_ArkUI_BackgroundColorStyle_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5278,7 +5278,7 @@ OH_ArkUI_BackgroundColorStyle* OH_ArkUI_BackgroundColorStyle_Create()
 
 
 
-##### OH_ArkUI_BackgroundColorStyle_Destroy()
+#### OH_ArkUI_BackgroundColorStyle_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5301,7 +5301,7 @@ void OH_ArkUI_BackgroundColorStyle_Destroy(OH_ArkUI_BackgroundColorStyle* style)
 
 
 
-##### OH_ArkUI_BackgroundColorStyle_SetColor()
+#### OH_ArkUI_BackgroundColorStyle_SetColor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5332,7 +5332,7 @@ ArkUI_ErrorCode OH_ArkUI_BackgroundColorStyle_SetColor(OH_ArkUI_BackgroundColorS
 
 
 
-##### OH_ArkUI_BackgroundColorStyle_GetColor()
+#### OH_ArkUI_BackgroundColorStyle_GetColor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5363,7 +5363,7 @@ ArkUI_ErrorCode OH_ArkUI_BackgroundColorStyle_GetColor(const OH_ArkUI_Background
 
 
 
-##### OH_ArkUI_BackgroundColorStyle_SetRadius()
+#### OH_ArkUI_BackgroundColorStyle_SetRadius()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5397,7 +5397,7 @@ ArkUI_ErrorCode OH_ArkUI_BackgroundColorStyle_SetRadius(OH_ArkUI_BackgroundColor
 
 
 
-##### OH_ArkUI_BackgroundColorStyle_GetRadius()
+#### OH_ArkUI_BackgroundColorStyle_GetRadius()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5431,7 +5431,7 @@ ArkUI_ErrorCode OH_ArkUI_BackgroundColorStyle_GetRadius(const OH_ArkUI_Backgroun
 
 
 
-##### OH_ArkUI_UrlStyle_Create()
+#### OH_ArkUI_UrlStyle_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5458,7 +5458,7 @@ OH_ArkUI_UrlStyle* OH_ArkUI_UrlStyle_Create()
 
 
 
-##### OH_ArkUI_UrlStyle_Destroy()
+#### OH_ArkUI_UrlStyle_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5481,7 +5481,7 @@ void OH_ArkUI_UrlStyle_Destroy(OH_ArkUI_UrlStyle* style)
 
 
 
-##### OH_ArkUI_UrlStyle_SetUrl()
+#### OH_ArkUI_UrlStyle_SetUrl()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5512,7 +5512,7 @@ ArkUI_ErrorCode OH_ArkUI_UrlStyle_SetUrl(OH_ArkUI_UrlStyle* style, const char* u
 
 
 
-##### OH_ArkUI_UrlStyle_GetUrl()
+#### OH_ArkUI_UrlStyle_GetUrl()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5545,7 +5545,7 @@ ArkUI_ErrorCode OH_ArkUI_UrlStyle_GetUrl(const OH_ArkUI_UrlStyle* style, char* b
 
 
 
-##### OH_ArkUI_UserDataSpan_Create()
+#### OH_ArkUI_UserDataSpan_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5572,7 +5572,7 @@ OH_ArkUI_UserDataSpan* OH_ArkUI_UserDataSpan_Create()
 
 
 
-##### OH_ArkUI_UserDataSpan_Destroy()
+#### OH_ArkUI_UserDataSpan_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5595,7 +5595,7 @@ void OH_ArkUI_UserDataSpan_Destroy(OH_ArkUI_UserDataSpan* userDataSpan)
 
 
 
-##### OH_ArkUI_UserDataSpan_SetUserData()
+#### OH_ArkUI_UserDataSpan_SetUserData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5630,7 +5630,7 @@ ArkUI_ErrorCode OH_ArkUI_UserDataSpan_SetUserData(OH_ArkUI_UserDataSpan* userDat
 
 
 
-##### OH_ArkUI_UserDataSpan_GetUserData()
+#### OH_ArkUI_UserDataSpan_GetUserData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5661,7 +5661,7 @@ ArkUI_ErrorCode OH_ArkUI_UserDataSpan_GetUserData(const OH_ArkUI_UserDataSpan* u
 
 
 
-##### OH_ArkUI_CustomSpan_Create()
+#### OH_ArkUI_CustomSpan_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5688,7 +5688,7 @@ OH_ArkUI_CustomSpan* OH_ArkUI_CustomSpan_Create()
 
 
 
-##### OH_ArkUI_CustomSpan_Destroy()
+#### OH_ArkUI_CustomSpan_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5711,7 +5711,7 @@ void OH_ArkUI_CustomSpan_Destroy(OH_ArkUI_CustomSpan* customSpan)
 
 
 
-##### OH_ArkUI_CustomSpan_RegisterOnMeasureCallback()
+#### OH_ArkUI_CustomSpan_RegisterOnMeasureCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5742,7 +5742,7 @@ ArkUI_ErrorCode OH_ArkUI_CustomSpan_RegisterOnMeasureCallback(OH_ArkUI_CustomSpa
 
 
 
-##### OH_ArkUI_CustomSpan_RegisterOnDrawCallback()
+#### OH_ArkUI_CustomSpan_RegisterOnDrawCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5773,7 +5773,7 @@ ArkUI_ErrorCode OH_ArkUI_CustomSpan_RegisterOnDrawCallback(OH_ArkUI_CustomSpan* 
 
 
 
-##### OH_ArkUI_ImageAttachment_Create()
+#### OH_ArkUI_ImageAttachment_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5800,7 +5800,7 @@ OH_ArkUI_ImageAttachment* OH_ArkUI_ImageAttachment_Create()
 
 
 
-##### OH_ArkUI_ImageAttachment_Destroy()
+#### OH_ArkUI_ImageAttachment_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5823,7 +5823,7 @@ void OH_ArkUI_ImageAttachment_Destroy(OH_ArkUI_ImageAttachment* imageAttachment)
 
 
 
-##### OH_ArkUI_ImageAttachment_SetPixelMap()
+#### OH_ArkUI_ImageAttachment_SetPixelMap()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5858,7 +5858,7 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetPixelMap(OH_ArkUI_ImageAttachment* i
 
 
 
-##### OH_ArkUI_ImageAttachment_GetPixelMap()
+#### OH_ArkUI_ImageAttachment_GetPixelMap()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5889,7 +5889,7 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetPixelMap(const OH_ArkUI_ImageAttachm
 
 
 
-##### OH_ArkUI_ImageAttachment_SetResource()
+#### OH_ArkUI_ImageAttachment_SetResource()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5924,7 +5924,7 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetResource(OH_ArkUI_ImageAttachment* i
 
 
 
-##### OH_ArkUI_ImageAttachment_GetResource()
+#### OH_ArkUI_ImageAttachment_GetResource()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5957,7 +5957,7 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetResource(const OH_ArkUI_ImageAttachm
 
 
 
-##### OH_ArkUI_ImageAttachment_SetSizeWidth()
+#### OH_ArkUI_ImageAttachment_SetSizeWidth()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5988,7 +5988,7 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetSizeWidth(OH_ArkUI_ImageAttachment* 
 
 
 
-##### OH_ArkUI_ImageAttachment_GetSizeWidth()
+#### OH_ArkUI_ImageAttachment_GetSizeWidth()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6019,7 +6019,7 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetSizeWidth(const OH_ArkUI_ImageAttach
 
 
 
-##### OH_ArkUI_ImageAttachment_SetSizeHeight()
+#### OH_ArkUI_ImageAttachment_SetSizeHeight()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6050,7 +6050,7 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetSizeHeight(OH_ArkUI_ImageAttachment*
 
 
 
-##### OH_ArkUI_ImageAttachment_GetSizeHeight()
+#### OH_ArkUI_ImageAttachment_GetSizeHeight()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6081,7 +6081,7 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetSizeHeight(const OH_ArkUI_ImageAttac
 
 
 
-##### OH_ArkUI_ImageAttachment_SetVerticalAlign()
+#### OH_ArkUI_ImageAttachment_SetVerticalAlign()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6112,7 +6112,7 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetVerticalAlign(OH_ArkUI_ImageAttachme
 
 
 
-##### OH_ArkUI_ImageAttachment_GetVerticalAlign()
+#### OH_ArkUI_ImageAttachment_GetVerticalAlign()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6143,7 +6143,7 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetVerticalAlign(const OH_ArkUI_ImageAt
 
 
 
-##### OH_ArkUI_ImageAttachment_SetObjectFit()
+#### OH_ArkUI_ImageAttachment_SetObjectFit()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6174,7 +6174,7 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetObjectFit(OH_ArkUI_ImageAttachment* 
 
 
 
-##### OH_ArkUI_ImageAttachment_GetObjectFit()
+#### OH_ArkUI_ImageAttachment_GetObjectFit()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6205,7 +6205,7 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetObjectFit(const OH_ArkUI_ImageAttach
 
 
 
-##### OH_ArkUI_ImageAttachment_SetMargin()
+#### OH_ArkUI_ImageAttachment_SetMargin()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6236,7 +6236,7 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetMargin(OH_ArkUI_ImageAttachment* ima
 
 
 
-##### OH_ArkUI_ImageAttachment_GetMargin()
+#### OH_ArkUI_ImageAttachment_GetMargin()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6267,7 +6267,7 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetMargin(const OH_ArkUI_ImageAttachmen
 
 
 
-##### OH_ArkUI_ImageAttachment_SetPadding()
+#### OH_ArkUI_ImageAttachment_SetPadding()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6298,7 +6298,7 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetPadding(OH_ArkUI_ImageAttachment* im
 
 
 
-##### OH_ArkUI_ImageAttachment_GetPadding()
+#### OH_ArkUI_ImageAttachment_GetPadding()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6329,7 +6329,7 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetPadding(const OH_ArkUI_ImageAttachme
 
 
 
-##### OH_ArkUI_ImageAttachment_SetBorderRadiuses()
+#### OH_ArkUI_ImageAttachment_SetBorderRadiuses()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6363,7 +6363,7 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetBorderRadiuses(OH_ArkUI_ImageAttachm
 
 
 
-##### OH_ArkUI_ImageAttachment_GetBorderRadiuses()
+#### OH_ArkUI_ImageAttachment_GetBorderRadiuses()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6397,7 +6397,7 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetBorderRadiuses(const OH_ArkUI_ImageA
 
 
 
-##### OH_ArkUI_ImageAttachment_SetColorFilter()
+#### OH_ArkUI_ImageAttachment_SetColorFilter()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6433,7 +6433,7 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetColorFilter(OH_ArkUI_ImageAttachment
 
 
 
-##### OH_ArkUI_ImageAttachment_GetColorFilter()
+#### OH_ArkUI_ImageAttachment_GetColorFilter()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6466,7 +6466,7 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetColorFilter(const OH_ArkUI_ImageAtta
 
 
 
-##### OH_ArkUI_ImageAttachment_SetDrawingColorFilter()
+#### OH_ArkUI_ImageAttachment_SetDrawingColorFilter()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6501,7 +6501,7 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetDrawingColorFilter(OH_ArkUI_ImageAtt
 
 
 
-##### OH_ArkUI_ImageAttachment_GetDrawingColorFilter()
+#### OH_ArkUI_ImageAttachment_GetDrawingColorFilter()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6532,7 +6532,7 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetDrawingColorFilter(const OH_ArkUI_Im
 
 
 
-##### OH_ArkUI_ImageAttachment_SetSyncLoad()
+#### OH_ArkUI_ImageAttachment_SetSyncLoad()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6567,7 +6567,7 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetSyncLoad(OH_ArkUI_ImageAttachment* i
 
 
 
-##### OH_ArkUI_ImageAttachment_GetSyncLoad()
+#### OH_ArkUI_ImageAttachment_GetSyncLoad()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6598,7 +6598,7 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetSyncLoad(const OH_ArkUI_ImageAttachm
 
 
 
-##### OH_ArkUI_ImageAttachment_SetSupportSvg()
+#### OH_ArkUI_ImageAttachment_SetSupportSvg()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6629,7 +6629,7 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetSupportSvg(OH_ArkUI_ImageAttachment*
 
 
 
-##### OH_ArkUI_ImageAttachment_GetSupportSvg()
+#### OH_ArkUI_ImageAttachment_GetSupportSvg()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6660,7 +6660,7 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetSupportSvg(const OH_ArkUI_ImageAttac
 
 
 
-##### OH_ArkUI_TextEditorChangeEvent_GetRangeBefore()
+#### OH_ArkUI_TextEditorChangeEvent_GetRangeBefore()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6692,7 +6692,7 @@ ArkUI_ErrorCode OH_ArkUI_TextEditorChangeEvent_GetRangeBefore(const OH_ArkUI_Tex
 
 
 
-##### OH_ArkUI_TextEditorChangeEvent_GetReplacementStyledString()
+#### OH_ArkUI_TextEditorChangeEvent_GetReplacementStyledString()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6723,7 +6723,7 @@ ArkUI_ErrorCode OH_ArkUI_TextEditorChangeEvent_GetReplacementStyledString(const 
 
 
 
-##### OH_ArkUI_TextEditorChangeEvent_GetPreviewStyledString()
+#### OH_ArkUI_TextEditorChangeEvent_GetPreviewStyledString()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6754,7 +6754,7 @@ ArkUI_ErrorCode OH_ArkUI_TextEditorChangeEvent_GetPreviewStyledString(const OH_A
 
 
 
-##### OH_ArkUI_TextLayoutManager_Dispose()
+#### OH_ArkUI_TextLayoutManager_Dispose()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6777,7 +6777,7 @@ void OH_ArkUI_TextLayoutManager_Dispose(ArkUI_TextLayoutManager* layoutManager)
 
 
 
-##### OH_ArkUI_TextLayoutManager_GetLineCount()
+#### OH_ArkUI_TextLayoutManager_GetLineCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6808,7 +6808,7 @@ ArkUI_ErrorCode OH_ArkUI_TextLayoutManager_GetLineCount(ArkUI_TextLayoutManager*
 
 
 
-##### OH_ArkUI_TextLayoutManager_GetRectsForRange()
+#### OH_ArkUI_TextLayoutManager_GetRectsForRange()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6843,7 +6843,7 @@ ArkUI_ErrorCode OH_ArkUI_TextLayoutManager_GetRectsForRange(ArkUI_TextLayoutMana
 
 
 
-##### OH_ArkUI_TextLayoutManager_GetGlyphPositionAtCoordinate()
+#### OH_ArkUI_TextLayoutManager_GetGlyphPositionAtCoordinate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6876,7 +6876,7 @@ ArkUI_ErrorCode OH_ArkUI_TextLayoutManager_GetGlyphPositionAtCoordinate(ArkUI_Te
 
 
 
-##### OH_ArkUI_TextLayoutManager_GetLineMetrics()
+#### OH_ArkUI_TextLayoutManager_GetLineMetrics()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6908,7 +6908,7 @@ ArkUI_ErrorCode OH_ArkUI_TextLayoutManager_GetLineMetrics(ArkUI_TextLayoutManage
 
 
 
-##### OH_ArkUI_TextLayoutManager_GetCharacterPositionAtCoordinate()
+#### OH_ArkUI_TextLayoutManager_GetCharacterPositionAtCoordinate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6941,7 +6941,7 @@ ArkUI_ErrorCode OH_ArkUI_TextLayoutManager_GetCharacterPositionAtCoordinate(ArkU
 
 
 
-##### OH_ArkUI_TextLayoutManager_GetGlyphRangeForCharacterRange()
+#### OH_ArkUI_TextLayoutManager_GetGlyphRangeForCharacterRange()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -6975,7 +6975,7 @@ OH_Drawing_Range** outActualCharRange);
 
 
 
-##### OH_ArkUI_TextLayoutManager_GetCharacterRangeForGlyphRange()
+#### OH_ArkUI_TextLayoutManager_GetCharacterRangeForGlyphRange()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

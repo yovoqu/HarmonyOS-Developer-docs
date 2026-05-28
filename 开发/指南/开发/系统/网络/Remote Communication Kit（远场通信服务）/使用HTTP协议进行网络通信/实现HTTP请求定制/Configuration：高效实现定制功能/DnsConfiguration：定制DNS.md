@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-customdnsconfig
 
-##### 场景介绍
+#### 场景介绍
 
 在远程通信服务框架中，Remote Communication Kit提供了一套高度可定制的 DNS（Domain Name System）请求规则服务，这一服务允许开发者根据自身需求调整 DNS 查询行为。此外，支持用户自定义 DNS 服务器设置。开发者可根据具体的网络环境或安全需求，选择最适合的 DNS 服务器进行配置。通过这些功能，开发者不仅能够实现网络管理的高效性，还能增强网络的安全性，确保数据传输的稳定与安全。DnsConfiguration中可设置dnsRules、dnsOverHttps。
 
@@ -28,19 +28,19 @@
 
 
 
-##### 约束与限制
+#### 约束与限制
 
 定制DNS能力支持Phone、2in1、Tablet、Wearable设备。并且从5.1.1(19)开始，新增支持TV设备。
 
 
 
-##### 使用示例
+#### 使用示例
 
 下面以定制DNS服务器、重写DNS解析函数两个示例来说明如何进行DNS的定制，从而获取最佳的DNS性能体验。
 
 
 
-##### 定制DNS服务器
+#### 定制DNS服务器
 1. 导入需要的模块。
 
   
@@ -92,7 +92,7 @@ session.fetch(request).then((response: rcp.Response) => {
 
 
 
-##### 定制DNS解析函数
+#### 定制DNS解析函数
 1. 导入需要的模块。
 
   

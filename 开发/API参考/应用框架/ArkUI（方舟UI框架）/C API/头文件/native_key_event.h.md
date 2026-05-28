@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-key-event-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -25,13 +25,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -45,7 +45,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -67,13 +67,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### ArkUI_KeyCode
+#### ArkUI_KeyCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -239,7 +239,7 @@ enum ArkUI_KeyCode
  
   
 
-##### ArkUI_KeyEventType
+#### ArkUI_KeyEventType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -264,7 +264,7 @@ enum ArkUI_KeyEventType
  
   
 
-##### ArkUI_KeySourceType
+#### ArkUI_KeySourceType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -288,7 +288,7 @@ enum ArkUI_KeySourceType
  
   
 
-##### ArkUI_KeyIntension
+#### ArkUI_KeyIntension
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -333,13 +333,13 @@ enum ArkUI_KeyIntension
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_ArkUI_KeyEvent_GetType()
+#### OH_ArkUI_KeyEvent_GetType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -369,7 +369,7 @@ ArkUI_KeyEventType OH_ArkUI_KeyEvent_GetType(const ArkUI_UIInputEvent* event)
  
   
 
-##### OH_ArkUI_KeyEvent_GetKeyCode()
+#### OH_ArkUI_KeyEvent_GetKeyCode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -399,7 +399,7 @@ int32_t OH_ArkUI_KeyEvent_GetKeyCode(const ArkUI_UIInputEvent* event)
  
   
 
-##### OH_ArkUI_KeyEvent_GetKeyText()
+#### OH_ArkUI_KeyEvent_GetKeyText()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -429,7 +429,7 @@ const char *OH_ArkUI_KeyEvent_GetKeyText(const ArkUI_UIInputEvent* event)
  
   
 
-##### OH_ArkUI_KeyEvent_GetKeySource()
+#### OH_ArkUI_KeyEvent_GetKeySource()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -459,7 +459,7 @@ ArkUI_KeySourceType OH_ArkUI_KeyEvent_GetKeySource(const ArkUI_UIInputEvent* eve
  
   
 
-##### OH_ArkUI_KeyEvent_StopPropagation()
+#### OH_ArkUI_KeyEvent_StopPropagation()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -483,7 +483,7 @@ void OH_ArkUI_KeyEvent_StopPropagation(const ArkUI_UIInputEvent* event, bool sto
  
   
 
-##### OH_ArkUI_KeyEvent_GetKeyIntensionCode()
+#### OH_ArkUI_KeyEvent_GetKeyIntensionCode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -513,7 +513,7 @@ ArkUI_KeyIntension OH_ArkUI_KeyEvent_GetKeyIntensionCode(const ArkUI_UIInputEven
  
   
 
-##### OH_ArkUI_KeyEvent_GetUnicode()
+#### OH_ArkUI_KeyEvent_GetUnicode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -543,7 +543,7 @@ uint32_t OH_ArkUI_KeyEvent_GetUnicode(const ArkUI_UIInputEvent* event)
  
   
 
-##### OH_ArkUI_KeyEvent_SetConsumed()
+#### OH_ArkUI_KeyEvent_SetConsumed()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -567,7 +567,7 @@ void OH_ArkUI_KeyEvent_SetConsumed(const ArkUI_UIInputEvent* event, bool isConsu
  
   
 
-##### OH_ArkUI_KeyEvent_Dispatch()
+#### OH_ArkUI_KeyEvent_Dispatch()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -591,7 +591,7 @@ void OH_ArkUI_KeyEvent_Dispatch(ArkUI_NodeHandle node, const ArkUI_UIInputEvent*
  
   
 
-##### OH_ArkUI_KeyEvent_IsNumLockOn()
+#### OH_ArkUI_KeyEvent_IsNumLockOn()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -622,7 +622,7 @@ ArkUI_ErrorCode OH_ArkUI_KeyEvent_IsNumLockOn(const ArkUI_UIInputEvent* event, b
  
   
 
-##### OH_ArkUI_KeyEvent_IsCapsLockOn()
+#### OH_ArkUI_KeyEvent_IsCapsLockOn()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -653,7 +653,7 @@ ArkUI_ErrorCode OH_ArkUI_KeyEvent_IsCapsLockOn(const ArkUI_UIInputEvent* event, 
  
   
 
-##### OH_ArkUI_KeyEvent_IsScrollLockOn()
+#### OH_ArkUI_KeyEvent_IsScrollLockOn()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

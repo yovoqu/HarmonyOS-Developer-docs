@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fileguard-set-kia-watermark
 
-##### 场景介绍
+#### 场景介绍
 
 为应用提供设置KIA文件水印图片能力。
 
 
 
-##### 接口说明
+#### 接口说明
 
 详细接口说明可参考[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard)。
 
@@ -21,7 +21,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 导入模块。
 
   

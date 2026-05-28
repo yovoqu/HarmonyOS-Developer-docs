@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-development-scenarios-for-tabs
 
-##### 概述
+#### 概述
 
  
 在日常开发中，开发者经常遇到使用Tabs作为导航的场景，包括多层嵌套的Tabs、自定义Tabs样式、Tabs数据加载和动态变更显示的Tabs等。
@@ -20,13 +20,13 @@
 
  
 
-##### Tabs显示排版
+#### Tabs显示排版
 
 在Tabs组件的应用场景中，开发者通常会自定义Tabs的布局和样式。本章节将介绍Tabs组件提供的几种常用的布局和样式功能。
  
  
 
-##### Tabs导航样式
+#### Tabs导航样式
 
  
 常见的应用页签导航效果包括底部导航、顶部导航和侧边导航。
@@ -71,7 +71,7 @@ Tabs({
 详情请参见[选项卡 (Tabs)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-tabs)。
  
 
-##### 页签对齐方式
+#### 页签对齐方式
 
  
 当页签数量不足，无法铺满屏幕宽度或高度，或者铺满后影响到UI美观时，Tabs提供了自定义导航条页签对齐方式的API。例如，在应用的二级导航中，如果页签较少，可以考虑将页签居左对齐。
@@ -118,7 +118,7 @@ export default struct InTabsComponent {
 ```
  
 
-##### 自定义页签
+#### 自定义页签
 
  
 对于底部导航栏，通常用于应用主页面的功能区分。为了更好的用户体验，开发者通常会自定义页签样式。开发者可以使用Tabs组件提供的定制页签样式的API，将页签自定义为图标加文字标题的形式，并且在选中和非选中的状态下，提供不同的样式。
@@ -186,7 +186,7 @@ Tabs({
 
  
 
-##### Tabs吸顶
+#### Tabs吸顶
 
  
 在一些二级导航栏页面中，二级页签的内容上方通常会放置一些banner位或其他优先级较高的内容，并且在向上滑动时会退出显示区域。为了提供更好的用户体验，建议在上划的过程中，导航条能够吸附在顶部，便于用户进行内容切换。
@@ -245,7 +245,7 @@ Scroll() {
  
  
 
-##### TabsBar显示效果
+#### TabsBar显示效果
 
  
 在某些UI设计风格中，可能需要为TabBar采用特殊样式，比如首页导航栏的毛玻璃背景效果等。
@@ -349,13 +349,13 @@ export default struct InTabComponent {
 
  
 
-##### Tabs滑动
+#### Tabs滑动
 
 Tabs组件在用户交互方面提供了丰富的特性，其中与滑动动作相关的交互尤为常见。下文将介绍几种与Tabs和滑动动作相关的特性。
  
  
 
-##### 双层Tabs嵌套滑动
+#### 双层Tabs嵌套滑动
 
  
 在应用开发中，开发者经常遇到多层Tabs嵌套使用的场景。如果父子Tabs组件均需滑动切换时，开发者需要对父子Tabs的滑动切换行为进行约束，以避免冲突。通常做法是，让滑动操作优先切换子Tabs页签，当子Tabs页签切换到最后一个后，再触发父Tabs的页签切换。
@@ -450,7 +450,7 @@ Tabs({
 
  
 
-##### 可滚动Tabs页签栏+更多按钮
+#### 可滚动Tabs页签栏+更多按钮
 
  
 可滚动页签栏通常设置在顶部或侧边导航栏，当内容分类较多，屏幕显示区域无法完全展示所有分类页签时，该页签栏允许用户通过滚动来访问隐藏的页签内容。
@@ -508,7 +508,7 @@ Stack({ alignContent: Alignment.TopEnd }) {
 ```
  
 
-##### 禁用TabContent左右滑动
+#### 禁用TabContent左右滑动
 
  
 默认情况下，导航栏支持滑动切换。当存在多级导航栏嵌套或导航栏中的其他组件需要占用滑动动作时，为避免滑动响应冲突，开发者可选择禁用Tabs组件的滑动切换功能。通过将Tabs组件的[scrollable](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#scrollable)属性设置为false，可以禁止通过滑动TabContent来切换页签。同样，若想禁用边缘回弹效果，可将[edgeEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#edgeeffect12)的值设置为EdgeEffect.None。
@@ -530,13 +530,13 @@ build() {
 ```
  
 
-##### Tabs页签加载/更新
+#### Tabs页签加载/更新
 
 在使用Tabs组件进行开发时，特别是当Tabs组件作为二级导航使用时，业务需求往往需要对Tabs的标签页进行更精细的控制。下文将介绍几种定制标签页显示逻辑的场景。
  
  
 
-##### 显示指定页签与预加载
+#### 显示指定页签与预加载
 
  
 Tabs组件的TabContent默认在首次切换到该标签页时加载。如果TabContent中的内容或初始化逻辑较为复杂，加载速度较慢，则会影响标签页切换的流畅性，进而影响用户体验。此时，如果应用能在切换前预加载相应的标签页，将显著提升使用流畅度。
@@ -588,7 +588,7 @@ export default struct InTabsComponent {
 ```
  
 
-##### 切换到指定页签
+#### 切换到指定页签
 
  
 Tabs组件除了自带的滑动切换和点击切换功能外，还提供了两种可编程方式来切换页签。第一种是通过调用TabsController的[changeIndex()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#changeindex)方法，切换到指定的index；第二种是定义一个由@State修饰的变量currentIndex，并将其绑定到Tabs，通过修改currentIndex的值来触发页签切换。
@@ -641,7 +641,7 @@ export default struct SwitchTabComponent {
 此外，Tabs可注册切换前的处理函数，进一步控制切换行为。详情请参见[切换至指定页签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-tabs#切换至指定页签)。
  
 
-##### 增删Tabs页签
+#### 增删Tabs页签
 
  
 在日常的应用开发中，经常需要实现用户自定义选择频道的功能。通常，这些自定义选择的频道会通过Tabs组件来展示，因此需要动态地更新Tabs的页签。本示例设计了一对父子组件来演示这一功能。父组件负责显示页签及其内容，并在页签栏的最右侧设置一个“更多”按钮。点击此按钮会弹出一个窗口，供用户选择需要显示的页签。该弹窗内容由子组件提供，关闭弹窗后，父组件的页签将被更新。
@@ -799,11 +799,11 @@ export default struct SelectTabsComponent {
 
  
 
-##### Tabs切换动效
+#### Tabs切换动效
 
  
 
-##### TabContent切换动画
+#### TabContent切换动画
 
  
 Tabs 自带的页签切换动画为平移动画。若开发者需实现更高级的动画效果，可通过Tabs提供的API实现自定义动画。
@@ -916,13 +916,13 @@ Tabs({
 
  
 
-##### 自定义Tabs页签切换联动
+#### 自定义Tabs页签切换联动
 
  
 在自定义页签样式中，页签的选中和非选中状态显示样式不同时，页签的样式依赖于Tabs组件的切换动作。这种情况下，需要实现Tabs页签的联动，页签切换时，页签样式自动变更。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/tTSpYSo4SRG0H5VuKh750g/zh-cn_image_0000002391492321.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013048Z&HW-CC-Expire=86400&HW-CC-Sign=C6A3B1A9979788910F01B4ECBF0109B42C55227E336CAEE8ED16CA753AD5CB49)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/tTSpYSo4SRG0H5VuKh750g/zh-cn_image_0000002391492321.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024731Z&HW-CC-Expire=86400&HW-CC-Sign=CDF9521C5B0F248D18FB2F9C87AAC658A09398F2560D570D3A122CD27ED158BE)
 
  
 **实现原理**
@@ -973,23 +973,23 @@ export default struct OutTabsComponent {
 ```
  
 
-##### 常见问题
+#### 常见问题
 
  
 
-##### 如何实现页面懒加载效果
+#### 如何实现页面懒加载效果
 
  
 Tabs页面不支持懒加载。 若要实现页面懒加载效果，可以通过自定义TabBar与[Swiper](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-create-looping)组件结合[LazyForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-lazyforeach)来实现页面的懒加载和释放。在使用Tabs组件时，仅保留TabBar，TabContent部分留空，用Swiper组件替代TabContent以显示内容。定义一个数值属性currentIndex，利用[TabsController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#tabscontroller)、[SwiperController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#swipercontroller)及onchange函数，使其同时绑定Tabs组件和Swiper组件，从而实现联动。这是因为Swiper组件内支持LazyForEach组件，而原生Tabs组件不支持。在Swiper中利用LazyForEach显示内容，以实现Tabs的懒加载效果。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/JLNiRdDiSgSb9EFO_NmWiA/zh-cn_image_0000002358052214.png?HW-CC-KV=V1&HW-CC-Date=20260528T013048Z&HW-CC-Expire=86400&HW-CC-Sign=619D087EA8D05486A591D7ABEF8761E459EE6B74D7D6CCFA9FDDA22CD426C300)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/JLNiRdDiSgSb9EFO_NmWiA/zh-cn_image_0000002358052214.png?HW-CC-KV=V1&HW-CC-Date=20260528T024731Z&HW-CC-Expire=86400&HW-CC-Sign=9249FEF9BC79B800A4DA69C049922952C432750A4DF7DDA0B2E53C89EF8C8703)
 
  
 详情请参见[页面懒加载和释放](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#示例13页面懒加载和释放)。
  
 
-##### 示例代码
+#### 示例代码
 
  
 - [Tabs组件应用场景](https://gitcode.com/harmonyos_samples/PureTabs)

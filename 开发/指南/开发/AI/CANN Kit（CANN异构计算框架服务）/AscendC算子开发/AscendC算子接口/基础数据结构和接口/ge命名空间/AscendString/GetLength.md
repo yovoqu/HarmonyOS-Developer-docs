@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getlength
 
-##### 函数功能
+#### 函数功能
 
 获取字符串的长度。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 size_t GetLength() const;
@@ -18,19 +18,19 @@ size_t GetLength() const;
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 参数说明
+#### 参数说明
 
 无
  
   
 
-##### 返回值
+#### 返回值
  
 | 类型 | 描述 |
 | --- | --- |

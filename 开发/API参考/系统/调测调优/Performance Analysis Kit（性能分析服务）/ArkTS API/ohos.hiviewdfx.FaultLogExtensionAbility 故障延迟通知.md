@@ -18,7 +18,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -28,14 +28,14 @@ import { FaultLogExtensionAbility } from '@kit.PerformanceAnalysisKit';
 
 
 
-##### FaultLogExtensionAbility
+#### FaultLogExtensionAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 应用接入故障延迟通知需要通过FaultLogExtensionAbility实现，开发者可以在[onFaultReportReady](#onfaultreportready)中订阅并处理故障事件。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/SDqqCpDVQYGcFMEuBg7A9w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023831Z&HW-CC-Expire=86400&HW-CC-Sign=03DA0C3448827657935F468719CBCB9713EE22B16955134C75639BD4DEEAB168)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/SDqqCpDVQYGcFMEuBg7A9w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025205Z&HW-CC-Expire=86400&HW-CC-Sign=93385731EF02958121699D815BA2FC9950AE23D1F5B13509213F725456F7FBAC)
 
 
  - FaultLogExtensionAbility被拉起后只有很短的时间完成故障处理，建议处理时间不要超过10秒。超时没有处理完成可以在[onDisconnect](#ondisconnect)中保存状态。
@@ -47,7 +47,7 @@ import { FaultLogExtensionAbility } from '@kit.PerformanceAnalysisKit';
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -60,7 +60,7 @@ import { FaultLogExtensionAbility } from '@kit.PerformanceAnalysisKit';
 
 
 
-##### onConnect
+#### onConnect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -82,7 +82,7 @@ export default class MyFaultLogExtension extends FaultLogExtensionAbility {
 
 
 
-##### onDisconnect
+#### onDisconnect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -104,7 +104,7 @@ export default class MyFaultLogExtension extends FaultLogExtensionAbility {
 
 
 
-##### onFaultReportReady
+#### onFaultReportReady
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -139,7 +139,7 @@ export default class MyFaultLogExtension extends FaultLogExtensionAbility {
 
 
 
-##### 附录
+#### 附录
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

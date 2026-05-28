@@ -10,7 +10,7 @@ HdsVisualComponent组件承载复杂视效实现，应用开发者通过HdsVisua
 **起始版本：** 6.0.0(20)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -32,7 +32,7 @@ import { HdsVisualComponent, HdsSceneController, HdsSceneType, hdsEffect } from 
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -40,7 +40,7 @@ import { HdsVisualComponent, HdsSceneController, HdsSceneType, hdsEffect } from 
  
   
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -58,7 +58,7 @@ HdsVisualComponent()
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -66,7 +66,7 @@ HdsVisualComponent()
  
   
 
-##### scene
+#### scene
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -92,7 +92,7 @@ scene(sceneType: HdsSceneType, controller: HdsSceneController, callback?: HdsSce
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -100,7 +100,7 @@ scene(sceneType: HdsSceneType, controller: HdsSceneController, callback?: HdsSce
  
   
 
-##### HdsSceneType
+#### HdsSceneType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -121,7 +121,7 @@ scene(sceneType: HdsSceneType, controller: HdsSceneController, callback?: HdsSce
  
   
 
-##### HdsSceneFinishCallback
+#### HdsSceneFinishCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -139,7 +139,7 @@ type HdsSceneFinishCallback = () => void
  
   
 
-##### HdsSceneController
+#### HdsSceneController
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -155,7 +155,7 @@ type HdsSceneFinishCallback = () => void
  
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -173,7 +173,7 @@ HdsSceneController的构造函数。
  
   
 
-##### start
+#### start
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -189,7 +189,7 @@ start(): void
  
   
 
-##### pause
+#### pause
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -205,7 +205,7 @@ pause(): void
  
   
 
-##### resume
+#### resume
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -221,7 +221,7 @@ resume(): void
  
   
 
-##### stop
+#### stop
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -237,7 +237,7 @@ stop(): void
  
   
 
-##### setSceneParams
+#### setSceneParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -267,7 +267,7 @@ setSceneParams(params: SceneParams): HdsSceneController
  
   
 
-##### SceneParams
+#### SceneParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -288,7 +288,7 @@ type SceneParams = DualEdgeFlowLightWithMaskParam
  
   
 
-##### DualEdgeFlowLightWithMaskParam
+#### DualEdgeFlowLightWithMaskParam
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -309,7 +309,7 @@ type SceneParams = DualEdgeFlowLightWithMaskParam
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -349,4 +349,4 @@ struct EdgeFlowLightVisualComponent {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/osUusgsWT1ylYK4_52m6Mw/zh-cn_image_0000002611756613.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024032Z&HW-CC-Expire=86400&HW-CC-Sign=7BB2E31D3357E6D075C31AD926B085F458211E7D78F8895F8671B9E98AC46056)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/osUusgsWT1ylYK4_52m6Mw/zh-cn_image_0000002611756613.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025406Z&HW-CC-Expire=86400&HW-CC-Sign=94609AEDBA28AA215426127341D3BACC4705BC2341A8FD3CE62BB9DE05F98EFF)

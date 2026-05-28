@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hypium-perf-python-guidelines
 
-##### **概述**
+#### **概述**
 
 DevEco Testing场景化的性能测试服务，基于Hypium自动化测试框架，为开发者提供性能测试能力，支持使用Python编写应用的性能测试脚本。本指南主要讲解性能测试脚本的开发。
  
@@ -14,7 +14,7 @@ Hypium基本API接口功能介绍，请参考指导：[Hypium框架-API使用方
 测试服务执行测试脚本详情介绍，请参考指导：[场景化性能测试](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/specialized-testing#section8642101711299)。
  
 
-##### **环境搭建**
+#### **环境搭建**
 
  
 **1、系统要求**
@@ -76,11 +76,11 @@ pip install perf_analyzer-6.1.0.12b0-py3-none-any.whl perf_collector-6.1.0.12b0-
 3）安装完成后，可前往查看PyCharm-设置-项目-Python解释器中的软件包与已安装版本是否一致。
  
 
-##### **脚本写作&调试**
+#### **脚本写作&调试**
 
  
 
-##### 脚本写作
+#### 脚本写作
 
  
 **1、下载工程模板**
@@ -359,7 +359,7 @@ class BrowseHuaweiVideo(ModelBase):  # 原子用例统一继承ModelBase
 
  
 
-##### 测试框架介绍
+#### 测试框架介绍
 
 **1、功能介绍**
  
@@ -825,7 +825,7 @@ self.driver.touch_perf(BY.text("视频"), tag=watch_tag)
 
  
 
-##### 本地脚本调试
+#### 本地脚本调试
 
  
 **1、****main.py实现**
@@ -930,7 +930,7 @@ action_testsuite.json示例
 
  
 
-##### **性能脚本测试执行**
+#### **性能脚本测试执行**
 
  
 性能脚本本地调试验证成功后，可在DevEco Testing创建性能测试任务，请查看文档：[场景化性能测试-任务创建](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/specialized-testing#section8642101711299)。

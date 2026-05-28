@@ -12,7 +12,7 @@ particleAbility模块提供了操作Data和Service类型的Ability的能力，�
 
 
 
-##### 使用限制
+#### 使用限制
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@ particleAbility模块用来对Data和Service类型的Ability进行操作。
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -30,7 +30,7 @@ import { particleAbility } from '@kit.AbilityKit';
 
 
 
-##### particleAbility.startAbility
+#### particleAbility.startAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -83,7 +83,7 @@ particleAbility.startAbility(
 
 
 
-##### particleAbility.startAbility
+#### particleAbility.startAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -137,7 +137,7 @@ particleAbility.startAbility(
 
 
 
-##### particleAbility.terminateSelf
+#### particleAbility.terminateSelf
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -170,7 +170,7 @@ particleAbility.terminateSelf(
 
 
 
-##### particleAbility.terminateSelf
+#### particleAbility.terminateSelf
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -199,7 +199,7 @@ particleAbility.terminateSelf().then(() => {
 
 
 
-##### particleAbility.acquireDataAbilityHelper
+#### particleAbility.acquireDataAbilityHelper
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -238,7 +238,7 @@ particleAbility.acquireDataAbilityHelper(uri);
 
 
 
-##### particleAbility.startBackgroundRunning(deprecated)
+#### particleAbility.startBackgroundRunning(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -309,7 +309,7 @@ wantAgent.getWantAgent(wantAgentInfo).then((wantAgentObj) => {
 
 
 
-##### particleAbility.startBackgroundRunning(deprecated)
+#### particleAbility.startBackgroundRunning(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -382,7 +382,7 @@ wantAgent.getWantAgent(wantAgentInfo).then((wantAgentObj) => {
 
 
 
-##### particleAbility.cancelBackgroundRunning(deprecated)
+#### particleAbility.cancelBackgroundRunning(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -422,7 +422,7 @@ particleAbility.cancelBackgroundRunning(callback);
 
 
 
-##### particleAbility.cancelBackgroundRunning(deprecated)
+#### particleAbility.cancelBackgroundRunning(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -458,7 +458,7 @@ particleAbility.cancelBackgroundRunning().then(() => {
 
 
 
-##### particleAbility.connectAbility
+#### particleAbility.connectAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -521,7 +521,7 @@ particleAbility.disconnectAbility(connId).then((data) => {
 
 
 
-##### particleAbility.disconnectAbility
+#### particleAbility.disconnectAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -570,7 +570,7 @@ particleAbility.disconnectAbility(connId, (err) => {
 
 
 
-##### particleAbility.disconnectAbility
+#### particleAbility.disconnectAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -628,7 +628,7 @@ particleAbility.disconnectAbility(connId).then(() => {
 
 
 
-##### ErrorCode
+#### ErrorCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

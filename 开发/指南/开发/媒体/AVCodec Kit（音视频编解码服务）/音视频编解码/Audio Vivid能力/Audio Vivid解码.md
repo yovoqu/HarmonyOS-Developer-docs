@@ -17,7 +17,7 @@ Audio Vivid解码当前支持的规格如下表所示。
  
   
 
-##### 在CMake脚本中链接到动态库
+#### 在CMake脚本中链接到动态库
 
 ```text
 target_link_libraries(sample PUBLIC
@@ -28,7 +28,7 @@ libnative_media_acodec.so libnative_media_avdemuxer.so libnative_media_avsource.
  
   
 
-##### 添加头文件
+#### 添加头文件
 
 ```text
 //解封装头文件
@@ -51,7 +51,7 @@ AudioSampleInfo  info;
  
   
 
-##### 定义相关实例
+#### 定义相关实例
 
 **定义CodecBufferInfo**
  
@@ -173,7 +173,7 @@ void SampleCallback::OnNewOutputBuffer(OH_AVCodec *codec, uint32_t index, OH_AVB
  
   
 
-##### 开发步骤
+#### 开发步骤
 1. 创建解码实例。
 
   

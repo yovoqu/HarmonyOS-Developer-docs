@@ -13,7 +13,7 @@
 
   
 
-##### 前置条件
+#### 前置条件
 
 在应用配置文件app.json5中，配置群组ID，如：demo_group_id。群组支持配置多个群组ID。
  
@@ -40,7 +40,7 @@
  
   
 
-##### 新增群组关键资产
+#### 新增群组关键资产
 
 在群组中新增密码为demo_pwd、别名为demo_alias、附属信息为demo_label的关键资产。
  
@@ -72,7 +72,7 @@ static napi_value AddGroupAsset(napi_env env, napi_callback_info info)
  
   
 
-##### 删除群组关键资产
+#### 删除群组关键资产
 
 在群组中删除别名为demo_alias的关键资产。
  
@@ -98,7 +98,7 @@ static napi_value RemoveGroupAsset(napi_env env, napi_callback_info info)
  
   
 
-##### 更新群组关键资产
+#### 更新群组关键资产
 
 在群组中更新别名为demo_alias的关键资产，将关键资产的明文更新为demo_pwd_new，附属信息更新为demo_label_new。
  
@@ -133,7 +133,7 @@ static napi_value UpdateGroupAsset(napi_env env, napi_callback_info info)
  
   
 
-##### 查询单条群组关键资产明文
+#### 查询单条群组关键资产明文
 
 在群组中查询别名为demo_alias的关键资产明文。
  
@@ -170,7 +170,7 @@ static napi_value QueryGroupAssetPlaintext(napi_env env, napi_callback_info info
  
   
 
-##### 查询单条群组关键资产属性
+#### 查询单条群组关键资产属性
 
 查询别名为demo_alias的关键资产属性。
  

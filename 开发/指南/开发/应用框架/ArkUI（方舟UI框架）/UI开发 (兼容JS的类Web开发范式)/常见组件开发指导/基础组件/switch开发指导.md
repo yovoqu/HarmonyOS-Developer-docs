@@ -7,7 +7,7 @@
 switch为开关选择器，切换开启或关闭状态。具体用法请参考[switch](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-switch)。
 
 
-##### 创建switch组件
+#### 创建switch组件
 
 在pages/index目录下的hml文件中创建一个switch组件。
 
@@ -32,7 +32,7 @@ switch为开关选择器，切换开启或关闭状态。具体用法请参考[s
 
 
 
-##### 添加属性和方法
+#### 添加属性和方法
 
 switch组件通过textoff和showtext属性设置文本选中和未选中时的状态。设置checked属性值为true（组件为打开状态）。添加change事件，当组件状态改变时触发，触发后执行switchChange函数获取组件当前状态（关闭/打开）。
 
@@ -89,7 +89,7 @@ export default {
 
 
 
-##### 场景示例
+#### 场景示例
 
 在下面示例中设置开关为打开状态（使用默认收货地址），关闭开关后页面显示选择地址按钮，点击按钮即可改变收货地址。
 
@@ -193,4 +193,4 @@ export default {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/Q5P_FVUASxGvmHx--Uwf7Q/zh-cn_image_0000002611754123.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014754Z&HW-CC-Expire=86400&HW-CC-Sign=73DFA9D41E3ACE006DB5E740289E9E1DBD72CA7C6247F7857FB74CBDDCAEB72D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/Q5P_FVUASxGvmHx--Uwf7Q/zh-cn_image_0000002611754123.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030426Z&HW-CC-Expire=86400&HW-CC-Sign=CF826D9923923FC2C3BFB8380559D0B782768D8046289827930ABF1D046F9E00)

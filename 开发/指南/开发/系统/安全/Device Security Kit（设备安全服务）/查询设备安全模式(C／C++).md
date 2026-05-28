@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurity-securitymode
 
-##### 场景介绍
+#### 场景介绍
 
 Device Security Kit提供了系统安全模式的查询能力。通过调用Device Security Kit的接口，可以判断设备当前的安全模式（包含普通模式、坚盾守护模式），应用可根据设备当前的安全模式提供差异化的服务。
  
@@ -18,7 +18,7 @@ Device Security Kit提供了系统安全模式的查询能力。通过调用Devi
  
   
 
-##### 开发步骤
+#### 开发步骤
 1. 在CMakeLists.txt中导入设备安全模式共享库，并链接该库。
 
   

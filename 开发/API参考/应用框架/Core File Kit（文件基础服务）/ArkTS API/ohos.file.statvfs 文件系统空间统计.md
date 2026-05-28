@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { statfs } from '@kit.CoreFileKit';
  
   
 
-##### statfs.getFreeSize
+#### statfs.getFreeSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -85,7 +85,7 @@ statfs.getFreeSize(path).then((number: number) => {
  
   
 
-##### statfs.getFreeSize
+#### statfs.getFreeSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -144,7 +144,7 @@ statfs.getFreeSize(path, (err: BusinessError, number: number) => {
  
   
 
-##### statfs.getFreeSizeSync10+
+#### statfs.getFreeSizeSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -203,7 +203,7 @@ console.info("getFreeSizeSync succeed, Size: " + number);
  
   
 
-##### statfs.getTotalSize
+#### statfs.getTotalSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -266,7 +266,7 @@ statfs.getTotalSize(path).then((number: number) => {
  
   
 
-##### statfs.getTotalSize
+#### statfs.getTotalSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -325,7 +325,7 @@ statfs.getTotalSize(path, (err: BusinessError, number: number) => {
  
   
 
-##### statfs.getTotalSizeSync10+
+#### statfs.getTotalSizeSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

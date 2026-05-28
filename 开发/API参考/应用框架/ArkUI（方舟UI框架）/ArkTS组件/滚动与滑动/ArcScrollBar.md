@@ -12,7 +12,7 @@
 
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@ ArcScrollBar的构造函数。
  
   
 
-##### ArcScrollBarOptions
+#### ArcScrollBarOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -63,7 +63,7 @@ ArcScrollBar的构造函数参数。
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -108,4 +108,4 @@ struct ArcScrollBarExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/XSyHA23STPWD6bU4ZKfAYg/zh-cn_image_0000002581435790.png?HW-CC-KV=V1&HW-CC-Date=20260528T024214Z&HW-CC-Expire=86400&HW-CC-Sign=A9AFBA2FD2CD02800F6CD6F0B808B84E0F5C7C8E0C16285F92C27DAF61644D35)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/XSyHA23STPWD6bU4ZKfAYg/zh-cn_image_0000002581435790.png?HW-CC-KV=V1&HW-CC-Date=20260528T025548Z&HW-CC-Expire=86400&HW-CC-Sign=20C3A06C24B07C5CFAC92CFC0E1D9BFEDF2966FD2B2919DCA0DA2BA596E8E204)

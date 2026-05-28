@@ -15,7 +15,7 @@ OHAudio音频播放状态变化示意图：
 当音频流处于工作状态（非released状态）时，需要占用系统的音频流资源。由于系统对音频流数量有限制，所以当客户端暂时不使用音频流时，调用OH_AudioRenderer_Release()回收音频资源，做好资源利用，避免后续创建音频流失败。
 
 
-##### 使用入门
+#### 使用入门
 
 开发者要使用OHAudio提供的播放能力，需要添加对应的头文件。
 
@@ -23,7 +23,7 @@ OHAudio音频播放状态变化示意图：
 
 
 
-##### 在 CMake 脚本中链接动态库
+#### 在 CMake 脚本中链接动态库
 
 ```text
 target_link_libraries(sample PUBLIC libohaudio.so)
@@ -31,7 +31,7 @@ target_link_libraries(sample PUBLIC libohaudio.so)
 
 
 
-##### 添加头文件
+#### 添加头文件
 
 开发者通过引入<[native_audiostreambuilder.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostreambuilder-h)>和<[native_audiorenderer.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiorenderer-h)>头文件，使用音频播放相关API。
 
@@ -42,13 +42,13 @@ target_link_libraries(sample PUBLIC libohaudio.so)
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 详细的API说明请参考[OHAudio](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio)。
 
 
 
-##### 音频流构造器
+#### 音频流构造器
 
 OHAudio提供OH_AudioStreamBuilder接口，遵循构造器设计模式，用于构建音频流。开发者需要根据业务场景，指定对应的[OH_AudioStream_Type](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostream-base-h#oh_audiostream_type)。
 
@@ -76,7 +76,7 @@ OH_AudioStreamBuilder_Destroy(builder);
 
 
 
-##### 实现音频播放
+#### 实现音频播放
 1. 创建构造器。
 
   
@@ -176,7 +176,7 @@ OH_AudioStreamBuilder_Destroy(builder);
 
   
 
-  ##### 设置音频流音量
+  #### 设置音频流音量
 
   开发者可使用[OH_AudioRenderer_SetVolume](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiorenderer-h#oh_audiorenderer_setvolume)接口设置当前音频流音量值。
 
@@ -191,7 +191,7 @@ OH_AudioRenderer_SetVolume(audioRenderer, volume);
 
   
 
-  ##### 设置低时延模式
+  #### 设置低时延模式
 
   当设备支持低时延通路且采样率设置为48000Hz时，开发者可以使用低时延模式创建播放器，获得更高质量的音频体验。
 
@@ -214,7 +214,7 @@ OH_AudioStreamBuilder_SetLatencyMode(builder, AUDIOSTREAM_LATENCY_MODE_FAST);
 
 
 
-##### 设置音频声道布局
+#### 设置音频声道布局
 
 播放音频文件时，可以通过设置音频的声道布局信息，指定渲染或播放时的扬声器摆位，使得渲染和播放效果更佳，获得更高质量的音频体验。
 
@@ -232,7 +232,7 @@ OH_AudioStreamBuilder_SetChannelLayout(builder, CH_LAYOUT_STEREO);
 
 
 
-##### 播放Audio Vivid格式音源
+#### 播放Audio Vivid格式音源
 
 播放Audio Vivid（菁彩三维声）格式音频文件时，需要使用与普通播放不同的数据写入回调函数，该回调可以同时写入PCM（脉冲编码调制）数据与元数据。
 
@@ -264,7 +264,7 @@ int32_t MyOnWriteDataWithMetadata_New(
 
 
 
-##### 注意事项
+#### 注意事项
 
 从API version 12开始**不再推荐**使用[OH_AudioRenderer_Callbacks](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio-oh-audiorenderer-callbacks-struct)的方式设置音频回调函数。若必须使用，需要注意在设置音频回调函数时，通过下面两种方式中的任意一种来设置音频回调函数，避免不可预期的行为。
 
@@ -347,6 +347,6 @@ int32_t MyOnInterruptEvent_Legacy(
 
 
 
-##### 示例代码
+#### 示例代码
 
  - [音频低时延录制与播放](https://gitcode.com/HarmonyOS_Samples/audio-native)

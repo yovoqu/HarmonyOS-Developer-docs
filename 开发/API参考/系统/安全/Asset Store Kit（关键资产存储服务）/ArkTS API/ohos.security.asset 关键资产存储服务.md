@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { asset } from '@kit.AssetStoreKit';
 
 
 
-##### asset.add
+#### asset.add
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -96,7 +96,7 @@ asset.add(attr).then(() => {
 
 
 
-##### asset.addSync12+
+#### asset.addSync12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -161,7 +161,7 @@ asset.addSync(attr);
 
 
 
-##### asset.remove
+#### asset.remove
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -226,7 +226,7 @@ asset.remove(query).then(() => {
 
 
 
-##### asset.removeSync12+
+#### asset.removeSync12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -282,7 +282,7 @@ asset.removeSync(query);
 
 
 
-##### asset.update
+#### asset.update
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -352,7 +352,7 @@ asset.update(query, attrsToUpdate).then(() => {
 
 
 
-##### asset.updateSync12+
+#### asset.updateSync12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -413,7 +413,7 @@ asset.updateSync(query, attrsToUpdate);
 
 
 
-##### asset.preQuery
+#### asset.preQuery
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -481,7 +481,7 @@ asset.preQuery(query).then((challenge: Uint8Array) => {
 
 
 
-##### asset.preQuerySync12+
+#### asset.preQuerySync12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -548,7 +548,7 @@ console.info(`Succeeded in pre-querying with sync, the challenge is: `, challeng
 
 
 
-##### asset.query
+#### asset.query
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -625,7 +625,7 @@ asset.query(query).then((res: Array<asset.AssetMap>) => {
 
 
 
-##### asset.querySync12+
+#### asset.querySync12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -701,7 +701,7 @@ console.info(`Succeeded in querying Asset.`);
 
 
 
-##### asset.postQuery
+#### asset.postQuery
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -757,7 +757,7 @@ asset.postQuery(handle).then(() => {
 
 
 
-##### asset.postQuerySync12+
+#### asset.postQuerySync12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -804,7 +804,7 @@ asset.postQuerySync(handle)
 
 
 
-##### asset.querySyncResult20+
+#### asset.querySyncResult20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -857,7 +857,7 @@ asset.querySyncResult(query).then((res: asset.SyncResult) => {
 
 
 
-##### TagType
+#### TagType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -876,7 +876,7 @@ asset.querySyncResult(query).then((res: asset.SyncResult) => {
 
 
 
-##### Tag
+#### Tag
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -926,7 +926,7 @@ asset.querySyncResult(query).then((res: asset.SyncResult) => {
 
 
 
-##### Value
+#### Value
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -947,7 +947,7 @@ type Value = boolean | number | Uint8Array
 
 
 
-##### AssetMap
+#### AssetMap
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -966,7 +966,7 @@ type AssetMap = Map<Tag, Value>
 
 
 
-##### Accessibility
+#### Accessibility
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -985,7 +985,7 @@ type AssetMap = Map<Tag, Value>
 
 
 
-##### AuthType
+#### AuthType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1003,7 +1003,7 @@ type AssetMap = Map<Tag, Value>
 
 
 
-##### SyncType
+#### SyncType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1023,7 +1023,7 @@ type AssetMap = Map<Tag, Value>
 
 
 
-##### ReturnType
+#### ReturnType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1041,7 +1041,7 @@ type AssetMap = Map<Tag, Value>
 
 
 
-##### ConflictResolution
+#### ConflictResolution
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1059,7 +1059,7 @@ type AssetMap = Map<Tag, Value>
 
 
 
-##### OperationType12+
+#### OperationType12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1075,7 +1075,7 @@ type AssetMap = Map<Tag, Value>
 
 
 
-##### WrapType18+
+#### WrapType18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1091,7 +1091,7 @@ type AssetMap = Map<Tag, Value>
 
 
 
-##### SyncResult20+
+#### SyncResult20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1108,7 +1108,7 @@ type AssetMap = Map<Tag, Value>
 
 
 
-##### ErrorCode
+#### ErrorCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

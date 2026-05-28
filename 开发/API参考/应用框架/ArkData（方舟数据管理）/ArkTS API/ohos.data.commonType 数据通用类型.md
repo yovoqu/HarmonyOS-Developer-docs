@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { commonType } from '@kit.ArkData';
 
 
 
-##### AssetStatus
+#### AssetStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -42,7 +42,7 @@ import { commonType } from '@kit.ArkData';
 
 
 
-##### Asset
+#### Asset
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -63,7 +63,7 @@ import { commonType } from '@kit.ArkData';
 
 
 
-##### Assets
+#### Assets
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -80,7 +80,7 @@ type Assets = Array&lt;Asset&gt;
 
 
 
-##### ValueType
+#### ValueType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -103,7 +103,7 @@ type ValueType = null | number | string | boolean | Uint8Array | Asset | Assets
 
 
 
-##### ValuesBucket
+#### ValuesBucket
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

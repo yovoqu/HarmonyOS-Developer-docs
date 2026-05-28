@@ -7,7 +7,7 @@
 [HDR Vivid](https://www.theuwa.com/standard?cate=3)是UWA认证的动态HDR视频标准，在HarmonyOS平台上，开发者能够利用HDR Vivid的特性，开发媒体类应用，为用户呈现高动态范围和广色域的视觉体验。作为新一代高动态范围图像标准，HDR Vivid贯穿内容创作、平台支持和设备显示，为用户带来更宽广的色彩范围、更细腻的层次表现、更显著的明暗对比，以及更智能的动态元数据处理，助力用户领略世界的真实色彩。
   
 
-##### HDR Vivid视频
+#### HDR Vivid视频
 
 应用只需调用媒体领域提供的API，即可接入HarmonyOS的HDR Vivid视频采集、转码和解码显示功能，基于HDR Vivid标准，制作出高质量的视频。
   
@@ -23,7 +23,7 @@
  
   
 
-##### HDR Vivid图片
+#### HDR Vivid图片
 
 应用只需调用媒体领域提供的API，即可接入HarmonyOS的HDR Vivid图片采集、转码和解码显示功能，基于HDR Vivid标准，制作出高质量的图片。
   

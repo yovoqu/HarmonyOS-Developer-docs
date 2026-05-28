@@ -14,7 +14,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 详细的API说明请参考[@ohos.multimedia.camera (相机管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera)。
 1. 导入camera接口，接口中提供了相机相关的属性和方法，导入方法如下。
@@ -77,7 +77,7 @@ function setTorchModeSupported(cameraManager: camera.CameraManager, torchMode: c
 
 
 
-##### 状态监听
+#### 状态监听
 
 在相机应用开发过程中，可以随时监听手电筒状态，包括手电筒打开、手电筒关闭、手电筒不可用、手电筒恢复可用。手电筒状态发生变化，可通过回调函数获取状态的变化。
 

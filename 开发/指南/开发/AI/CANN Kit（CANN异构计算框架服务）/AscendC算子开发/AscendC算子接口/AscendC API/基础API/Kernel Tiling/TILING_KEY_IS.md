@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-tiling-key-is
 
-##### 函数功能
+#### 函数功能
 
 在核函数中判断本次执行时的tiling_key是否等于某个key，从而标识tiling_key==key的一条kernel分支。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 TILING_KEY_IS(key)
@@ -18,7 +18,7 @@ TILING_KEY_IS(key)
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -27,7 +27,7 @@ TILING_KEY_IS(key)
  
   
 
-##### 约束说明
+#### 约束说明
 
 - key必须是非负整数。
 - TILING_KEY_IS运用于if和else if分支，不支持else分支，即用TILING_KEY_IS函数来表征N个分支，必须用N个TILING_KEY_IS(key)来分别表示。
@@ -36,7 +36,7 @@ TILING_KEY_IS(key)
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 extern "C" __global__ __aicore__ void add_custom(__gm__ uint8_t *x, __gm__ uint8_t *y, __gm__ uint8_t *z, __gm__ uint8_t *workspace, __gm__ uint8_t *tiling)

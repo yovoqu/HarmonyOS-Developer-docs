@@ -9,7 +9,7 @@
 以校验证书链为例，完成证书链对象的创建，使用系统预置CA证书对证书链进行校验。
 
 
-##### 开发步骤
+#### 开发步骤
 1. 导入[证书算法库框架模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cert)。
 
   

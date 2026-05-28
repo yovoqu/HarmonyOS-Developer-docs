@@ -14,7 +14,7 @@ SoundPool需要和@ohos.multimedia.media配合使用，需要先通过[media.cre
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -25,7 +25,7 @@ import { audio } from '@kit.AudioKit';
 
 
 
-##### PlayParameters
+#### PlayParameters
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -46,7 +46,7 @@ import { audio } from '@kit.AudioKit';
 
 
 
-##### ErrorType20+
+#### ErrorType20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -62,7 +62,7 @@ import { audio } from '@kit.AudioKit';
 
 
 
-##### ErrorInfo20+
+#### ErrorInfo20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -80,7 +80,7 @@ import { audio } from '@kit.AudioKit';
 
 
 
-##### SoundPool
+#### SoundPool
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -92,7 +92,7 @@ import { audio } from '@kit.AudioKit';
 
 
 
-##### load
+#### load
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -171,7 +171,7 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 
-##### load
+#### load
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -256,7 +256,7 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 
-##### load
+#### load
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -375,7 +375,7 @@ function create(context: Context) {
 
 
 
-##### load
+#### load
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -496,7 +496,7 @@ function create(context: Context) {
 
 
 
-##### play
+#### play
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -569,7 +569,7 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 
-##### play
+#### play
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -634,7 +634,7 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 
-##### play
+#### play
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -712,7 +712,7 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 
-##### stop
+#### stop
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -776,7 +776,7 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 
-##### stop
+#### stop
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -844,7 +844,7 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 
-##### setLoop
+#### setLoop
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -910,7 +910,7 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 
-##### setLoop
+#### setLoop
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -980,7 +980,7 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 
-##### setPriority
+#### setPriority
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1046,7 +1046,7 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 
-##### setPriority
+#### setPriority
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1117,7 +1117,7 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 
-##### setRate
+#### setRate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1183,7 +1183,7 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 
-##### setRate
+#### setRate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1253,7 +1253,7 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 
-##### setVolume
+#### setVolume
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1320,7 +1320,7 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 
-##### setVolume
+#### setVolume
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1391,7 +1391,7 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 
-##### setInterruptMode23+
+#### setInterruptMode23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1438,7 +1438,7 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 
-##### unload
+#### unload
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1502,7 +1502,7 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 
-##### unload
+#### unload
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1571,7 +1571,7 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 
-##### release
+#### release
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1630,7 +1630,7 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 
-##### release
+#### release
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1687,7 +1687,7 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 
-##### on('loadComplete')
+#### on('loadComplete')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1734,7 +1734,7 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 
-##### off('loadComplete')
+#### off('loadComplete')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1778,7 +1778,7 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 
-##### on('playFinishedWithStreamId')18+
+#### on('playFinishedWithStreamId')18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1828,7 +1828,7 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool: me
 
 
 
-##### off('playFinishedWithStreamId')18+
+#### off('playFinishedWithStreamId')18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1871,7 +1871,7 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool: me
 
 
 
-##### on('playFinished')
+#### on('playFinished')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1918,7 +1918,7 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 
-##### off('playFinished')
+#### off('playFinished')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1962,7 +1962,7 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 
-##### on('error')
+#### on('error')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2010,7 +2010,7 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 
-##### off('error')
+#### off('error')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2054,7 +2054,7 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 
-##### on('errorOccurred')20+
+#### on('errorOccurred')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2105,7 +2105,7 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 
-##### off('errorOccurred')20+
+#### off('errorOccurred')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

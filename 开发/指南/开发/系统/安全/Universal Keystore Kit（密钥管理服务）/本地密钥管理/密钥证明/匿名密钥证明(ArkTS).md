@@ -7,7 +7,7 @@
 在使用本功能时，需确保网络通畅。
 
 
-##### 开发步骤
+#### 开发步骤
 1. 指定密钥别名，密钥别名命名规范参考[密钥生成介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。
 2. 初始化参数集。
 
@@ -17,7 +17,7 @@
 
 
 
-##### 开发案例
+#### 开发案例
 
 ```ArkTS
 /*

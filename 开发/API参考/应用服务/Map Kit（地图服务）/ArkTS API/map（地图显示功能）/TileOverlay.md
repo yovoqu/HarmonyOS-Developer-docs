@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-tileoverlay
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -15,7 +15,7 @@ import { map, mapCommon } from '@kit.MapKit';
  
   
 
-##### TileOverlay
+#### TileOverlay
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -47,7 +47,7 @@ let tileOverlay: map.TileOverlay = this.mapController?.addTileOverlay(params);
  
   
 
-##### clearTileCache
+#### clearTileCache
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -71,7 +71,7 @@ tileOverlay.clearTileCache();
  
   
 
-##### setFadeIn
+#### setFadeIn
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -102,7 +102,7 @@ tileOverlay.setFadeIn(false);
  
   
 
-##### setTransparency
+#### setTransparency
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -133,7 +133,7 @@ tileOverlay.setTransparency(0.5);
  
   
 
-##### getFadeIn
+#### getFadeIn
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -164,7 +164,7 @@ let isFadeIn: boolean = tileOverlay.getFadeIn();
  
   
 
-##### getTransparency
+#### getTransparency
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -195,7 +195,7 @@ let transparency: number = tileOverlay.getTransparency();
  
   
 
-##### clearDiskCache
+#### clearDiskCache
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

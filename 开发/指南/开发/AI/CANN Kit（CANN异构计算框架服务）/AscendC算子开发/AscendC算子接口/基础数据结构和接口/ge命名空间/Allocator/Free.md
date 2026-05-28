@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-allocator-free
 
-##### 函数功能
+#### 函数功能
 
 根据指定的MemBlock释放内存到内存池。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 virtual void Free(MemBlock *block) = 0;
@@ -18,7 +18,7 @@ virtual void Free(MemBlock *block) = 0;
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数名 | 输入/输出 | 描述 |
 | --- | --- | --- |
@@ -27,18 +27,18 @@ virtual void Free(MemBlock *block) = 0;
  
   
 
-##### 返回值
+#### 返回值
 
 无
  
   
 
-##### 异常处理
+#### 异常处理
 
 无
  
   
 
-##### 约束说明
+#### 约束说明
 
 虚函数开发者必须实现。

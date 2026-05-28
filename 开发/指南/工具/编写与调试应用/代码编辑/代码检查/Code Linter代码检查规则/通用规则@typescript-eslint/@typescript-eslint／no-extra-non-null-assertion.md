@@ -7,7 +7,7 @@
 不允许多余的非空断言。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 interface BarType1 {
@@ -47,7 +47,7 @@ export function foo1(bar: number | undefined): void {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 interface BarType1 {
@@ -73,7 +73,7 @@ export function foo(bar?: BarType2) {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

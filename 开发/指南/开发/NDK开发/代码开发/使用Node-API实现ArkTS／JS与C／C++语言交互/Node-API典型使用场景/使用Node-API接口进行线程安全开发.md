@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-thread-safety
 
-##### 场景介绍
+#### 场景介绍
 
 [napi_create_threadsafe_function](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/napi#napi_create_threadsafe_function)是Node-API接口之一，用于创建一个线程安全的JavaScript函数。该函数主要用于在多个线程之间共享和调用，避免竞争条件和死锁。包含以下场景：
 
@@ -15,7 +15,7 @@
 
 
 
-##### 使用示例
+#### 使用示例
 1. CMakeLists.txt配置
 
   
@@ -212,14 +212,14 @@ nativeModule.startThread(callback);
 
 
 
-##### 子线程交互场景介绍
+#### 子线程交互场景介绍
 
  - napi_threadsafe_function在主线程和子线程使用并无差异，下面是子线程的使用示例。
 
 
 
 
-##### 基于[Worker](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/worker-introduction)实现的C++子线程与ArkTS子线程交互场景
+#### 基于[Worker](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/worker-introduction)实现的C++子线程与ArkTS子线程交互场景
 1. CMakeLists.txt配置
 
   
@@ -437,7 +437,7 @@ Worker thread received:Start
 
 
 
-##### 基于[Taskpool](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/taskpool-introduction)实现的C++子线程与ArkTS子线程交互场景
+#### 基于[Taskpool](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/taskpool-introduction)实现的C++子线程与ArkTS子线程交互场景
 1. native侧实现代码以及模块注册与“基于Worker实现的C++子线程与ArkTS子线程交互场景”一致，可直接复用。
 2. ArkTS侧示例代码。
 

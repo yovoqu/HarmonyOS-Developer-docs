@@ -32,7 +32,7 @@
 
 
 
-##### 支持的算法与规格
+#### 支持的算法与规格
 
 安全随机数生成，设置硬件熵源之后，使用OpenSSL的RAND_priv_bytes接口生成。
 
@@ -43,7 +43,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 调用[cryptoFramework.createRandom](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreaterandom)，生成随机数实例。
 2. 调用[cryptoFramework.enableHardwareEntropy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#enablehardwareentropy21)，开启硬件熵源。
 3. （可选）设置DataBlob数据，调用[Random.setSeed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#setseed)，为随机数生成器设置种子。

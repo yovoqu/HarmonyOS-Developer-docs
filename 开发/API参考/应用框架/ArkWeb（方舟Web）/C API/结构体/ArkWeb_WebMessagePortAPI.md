@@ -10,7 +10,7 @@ typedef struct {...} ArkWeb_WebMessagePortAPI
 ```
   
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,13 +24,13 @@ Post Message相关的Native API结构体。在调用接口前建议通过[ARKWEB
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -41,7 +41,7 @@ Post Message相关的Native API结构体。在调用接口前建议通过[ARKWEB
  
   
 
-##### 成员函数
+#### 成员函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -54,13 +54,13 @@ Post Message相关的Native API结构体。在调用接口前建议通过[ARKWEB
  
   
 
-##### 成员函数说明
+#### 成员函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### postMessage()
+#### postMessage()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -90,7 +90,7 @@ ArkWeb_ErrorCode (*postMessage)(const ArkWeb_WebMessagePortPtr webMessagePort, c
  
   
 
-##### close()
+#### close()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -112,7 +112,7 @@ void (*close)(const ArkWeb_WebMessagePortPtr webMessagePort, const char* webTag)
  
   
 
-##### setMessageEventHandler()
+#### setMessageEventHandler()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -7,7 +7,7 @@
 强制数组元素和函数中多个参数之间的逗号后面加空格，逗号前不加空格。该规则仅检查.ets文件类型。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 export {bar, arr};
@@ -39,7 +39,7 @@ const arr = ['s1', 's2', 's3', 's4'];
  
  
 
-##### 反例
+#### 反例
 
 ```text
 export {arr};
@@ -50,7 +50,7 @@ const arr = ['s1' ,'s2' ,'s3'];
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">"plugin:@hw-stylistic/recommended"</span>

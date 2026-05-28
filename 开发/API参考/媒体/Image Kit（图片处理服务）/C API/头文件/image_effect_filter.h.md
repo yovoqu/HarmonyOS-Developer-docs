@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-effect-filter-h
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -25,13 +25,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  
@@ -50,7 +50,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  
@@ -63,7 +63,7 @@
  
   
 
-##### 宏定义
+#### 宏定义
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  
@@ -78,7 +78,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  
@@ -127,13 +127,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### ImageEffect_DataType
+#### ImageEffect_DataType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -163,7 +163,7 @@ enum ImageEffect_DataType
  
   
 
-##### ImageEffect_Format
+#### ImageEffect_Format
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -192,7 +192,7 @@ enum ImageEffect_Format
  
   
 
-##### ImageEffect_BufferType
+#### ImageEffect_BufferType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -217,13 +217,13 @@ enum ImageEffect_BufferType
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### OH_EffectFilterInfo_Create()
+#### OH_EffectFilterInfo_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -248,7 +248,7 @@ OH_EffectFilterInfo *OH_EffectFilterInfo_Create()
  
   
 
-##### OH_EffectFilterInfo_SetFilterName()
+#### OH_EffectFilterInfo_SetFilterName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -281,7 +281,7 @@ ImageEffect_ErrorCode OH_EffectFilterInfo_SetFilterName(OH_EffectFilterInfo *inf
  
   
 
-##### OH_EffectFilterInfo_GetFilterName()
+#### OH_EffectFilterInfo_GetFilterName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -314,7 +314,7 @@ ImageEffect_ErrorCode OH_EffectFilterInfo_GetFilterName(OH_EffectFilterInfo *inf
  
   
 
-##### OH_EffectFilterInfo_SetSupportedBufferTypes()
+#### OH_EffectFilterInfo_SetSupportedBufferTypes()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -348,7 +348,7 @@ ImageEffect_ErrorCode OH_EffectFilterInfo_SetSupportedBufferTypes(OH_EffectFilte
  
   
 
-##### OH_EffectFilterInfo_GetSupportedBufferTypes()
+#### OH_EffectFilterInfo_GetSupportedBufferTypes()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -382,7 +382,7 @@ ImageEffect_ErrorCode OH_EffectFilterInfo_GetSupportedBufferTypes(OH_EffectFilte
  
   
 
-##### OH_EffectFilterInfo_SetSupportedFormats()
+#### OH_EffectFilterInfo_SetSupportedFormats()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -416,7 +416,7 @@ ImageEffect_ErrorCode OH_EffectFilterInfo_SetSupportedFormats(OH_EffectFilterInf
  
   
 
-##### OH_EffectFilterInfo_GetSupportedFormats()
+#### OH_EffectFilterInfo_GetSupportedFormats()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -450,7 +450,7 @@ ImageEffect_ErrorCode OH_EffectFilterInfo_GetSupportedFormats(OH_EffectFilterInf
  
   
 
-##### OH_EffectFilterInfo_Release()
+#### OH_EffectFilterInfo_Release()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -482,7 +482,7 @@ ImageEffect_ErrorCode OH_EffectFilterInfo_Release(OH_EffectFilterInfo *info)
  
   
 
-##### OH_EffectBufferInfo_Create()
+#### OH_EffectBufferInfo_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -507,7 +507,7 @@ OH_EffectBufferInfo *OH_EffectBufferInfo_Create()
  
   
 
-##### OH_EffectBufferInfo_SetAddr()
+#### OH_EffectBufferInfo_SetAddr()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -540,7 +540,7 @@ ImageEffect_ErrorCode OH_EffectBufferInfo_SetAddr(OH_EffectBufferInfo *info, voi
  
   
 
-##### OH_EffectBufferInfo_GetAddr()
+#### OH_EffectBufferInfo_GetAddr()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -573,7 +573,7 @@ ImageEffect_ErrorCode OH_EffectBufferInfo_GetAddr(OH_EffectBufferInfo *info, voi
  
   
 
-##### OH_EffectBufferInfo_SetWidth()
+#### OH_EffectBufferInfo_SetWidth()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -606,7 +606,7 @@ ImageEffect_ErrorCode OH_EffectBufferInfo_SetWidth(OH_EffectBufferInfo *info, in
  
   
 
-##### OH_EffectBufferInfo_GetWidth()
+#### OH_EffectBufferInfo_GetWidth()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -639,7 +639,7 @@ ImageEffect_ErrorCode OH_EffectBufferInfo_GetWidth(OH_EffectBufferInfo *info, in
  
   
 
-##### OH_EffectBufferInfo_SetHeight()
+#### OH_EffectBufferInfo_SetHeight()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -672,7 +672,7 @@ ImageEffect_ErrorCode OH_EffectBufferInfo_SetHeight(OH_EffectBufferInfo *info, i
  
   
 
-##### OH_EffectBufferInfo_GetHeight()
+#### OH_EffectBufferInfo_GetHeight()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -705,7 +705,7 @@ ImageEffect_ErrorCode OH_EffectBufferInfo_GetHeight(OH_EffectBufferInfo *info, i
  
   
 
-##### OH_EffectBufferInfo_SetRowSize()
+#### OH_EffectBufferInfo_SetRowSize()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -738,7 +738,7 @@ ImageEffect_ErrorCode OH_EffectBufferInfo_SetRowSize(OH_EffectBufferInfo *info, 
  
   
 
-##### OH_EffectBufferInfo_GetRowSize()
+#### OH_EffectBufferInfo_GetRowSize()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -771,7 +771,7 @@ ImageEffect_ErrorCode OH_EffectBufferInfo_GetRowSize(OH_EffectBufferInfo *info, 
  
   
 
-##### OH_EffectBufferInfo_SetEffectFormat()
+#### OH_EffectBufferInfo_SetEffectFormat()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -804,7 +804,7 @@ ImageEffect_ErrorCode OH_EffectBufferInfo_SetEffectFormat(OH_EffectBufferInfo *i
  
   
 
-##### OH_EffectBufferInfo_GetEffectFormat()
+#### OH_EffectBufferInfo_GetEffectFormat()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -837,7 +837,7 @@ ImageEffect_ErrorCode OH_EffectBufferInfo_GetEffectFormat(OH_EffectBufferInfo *i
  
   
 
-##### OH_EffectBufferInfo_SetTextureId()
+#### OH_EffectBufferInfo_SetTextureId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -870,7 +870,7 @@ ImageEffect_ErrorCode OH_EffectBufferInfo_SetTextureId(OH_EffectBufferInfo *info
  
   
 
-##### OH_EffectBufferInfo_GetTextureId()
+#### OH_EffectBufferInfo_GetTextureId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -903,7 +903,7 @@ ImageEffect_ErrorCode OH_EffectBufferInfo_GetTextureId(OH_EffectBufferInfo *info
  
   
 
-##### OH_EffectBufferInfo_Release()
+#### OH_EffectBufferInfo_Release()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -935,7 +935,7 @@ ImageEffect_ErrorCode OH_EffectBufferInfo_Release(OH_EffectBufferInfo *info)
  
   
 
-##### OH_EffectFilterDelegate_SetValue()
+#### OH_EffectFilterDelegate_SetValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -969,7 +969,7 @@ typedef bool (*OH_EffectFilterDelegate_SetValue)(OH_EffectFilter *filter, const 
  
   
 
-##### OH_EffectFilterDelegate_PushData()
+#### OH_EffectFilterDelegate_PushData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -995,7 +995,7 @@ typedef void (*OH_EffectFilterDelegate_PushData)(OH_EffectFilter *filter, OH_Eff
  
   
 
-##### OH_EffectFilterDelegate_Render()
+#### OH_EffectFilterDelegate_Render()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1029,7 +1029,7 @@ typedef bool (*OH_EffectFilterDelegate_Render)(OH_EffectFilter *filter, OH_Effec
  
   
 
-##### OH_EffectFilterDelegate_Save()
+#### OH_EffectFilterDelegate_Save()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1062,7 +1062,7 @@ typedef bool (*OH_EffectFilterDelegate_Save)(OH_EffectFilter *filter, char **inf
  
   
 
-##### OH_EffectFilterDelegate_Restore()
+#### OH_EffectFilterDelegate_Restore()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1094,7 +1094,7 @@ typedef OH_EffectFilter *(*OH_EffectFilterDelegate_Restore)(const char *info)
  
   
 
-##### OH_EffectFilter_Create()
+#### OH_EffectFilter_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1126,7 +1126,7 @@ OH_EffectFilter *OH_EffectFilter_Create(const char *name)
  
   
 
-##### OH_EffectFilter_SetValue()
+#### OH_EffectFilter_SetValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1160,7 +1160,7 @@ ImageEffect_ErrorCode OH_EffectFilter_SetValue(OH_EffectFilter *filter, const ch
  
   
 
-##### OH_EffectFilter_GetValue()
+#### OH_EffectFilter_GetValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1194,7 +1194,7 @@ ImageEffect_ErrorCode OH_EffectFilter_GetValue(OH_EffectFilter *filter, const ch
  
   
 
-##### OH_EffectFilter_Register()
+#### OH_EffectFilter_Register()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1227,7 +1227,7 @@ ImageEffect_ErrorCode OH_EffectFilter_Register(const OH_EffectFilterInfo *info, 
  
   
 
-##### OH_EffectFilter_LookupFilters()
+#### OH_EffectFilter_LookupFilters()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1259,7 +1259,7 @@ ImageEffect_FilterNames *OH_EffectFilter_LookupFilters(const char *key)
  
   
 
-##### OH_EffectFilter_ReleaseFilterNames()
+#### OH_EffectFilter_ReleaseFilterNames()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1277,7 +1277,7 @@ void OH_EffectFilter_ReleaseFilterNames()
  
   
 
-##### OH_EffectFilter_LookupFilterInfo()
+#### OH_EffectFilter_LookupFilterInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1310,7 +1310,7 @@ ImageEffect_ErrorCode OH_EffectFilter_LookupFilterInfo(const char *name, OH_Effe
  
   
 
-##### OH_EffectFilter_Render()
+#### OH_EffectFilter_Render()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1344,7 +1344,7 @@ ImageEffect_ErrorCode OH_EffectFilter_Render(OH_EffectFilter *filter, OH_Pixelma
  
   
 
-##### OH_EffectFilter_RenderWithTextureId()
+#### OH_EffectFilter_RenderWithTextureId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1379,7 +1379,7 @@ ImageEffect_ErrorCode OH_EffectFilter_RenderWithTextureId(OH_EffectFilter *filte
  
   
 
-##### OH_EffectFilter_Release()
+#### OH_EffectFilter_Release()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1411,7 +1411,7 @@ ImageEffect_ErrorCode OH_EffectFilter_Release(OH_EffectFilter *filter)
  
   
 
-##### OH_EffectBufferInfo_SetTimestamp()
+#### OH_EffectBufferInfo_SetTimestamp()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1444,7 +1444,7 @@ ImageEffect_ErrorCode OH_EffectBufferInfo_SetTimestamp(OH_EffectBufferInfo *info
  
   
 
-##### OH_EffectBufferInfo_GetTimestamp()
+#### OH_EffectBufferInfo_GetTimestamp()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

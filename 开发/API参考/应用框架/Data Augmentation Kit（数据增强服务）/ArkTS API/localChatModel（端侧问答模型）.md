@@ -10,7 +10,7 @@
 **起始版本：** 6.0.0(20)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** PC/2in1
 
@@ -20,7 +20,7 @@ import { localChatModel } from '@kit.DataAugmentationKit';
  
   
 
-##### Config
+#### Config
 
 **支持设备：** PC/2in1
 
@@ -49,7 +49,7 @@ let localConfig: localChatModel.Config = {
  
   
 
-##### QuestionInfo
+#### QuestionInfo
 
 **支持设备：** PC/2in1
 
@@ -80,7 +80,7 @@ let questionInfo: localChatModel.QuestionInfo = {
  
   
 
-##### Answer
+#### Answer
 
 **支持设备：** PC/2in1
 
@@ -113,7 +113,7 @@ let answer: localChatModel.Answer = {
  
   
 
-##### init
+#### init
 
 **支持设备：** PC/2in1
 
@@ -151,7 +151,7 @@ async function init() {
  
   
 
-##### chat
+#### chat
 
 **支持设备：** PC/2in1
 

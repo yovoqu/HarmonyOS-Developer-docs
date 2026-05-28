@@ -4,25 +4,25 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-customtranferconfig
 
-##### 场景介绍
+#### 场景介绍
 
 在远场通信框架中，开发者们利用 TransferConfiguration，可以对 HTTP请求期间的数据传输行为进行精细化管理和定制化调整。TransferConfiguration提供了自动重定向策略、超时时间设定等关键功能的配置选项。通过理解和灵活运用这些属性，开发者可以根据项目需求，实现数据传输策略的个性化定制，从而获得更高效、更可靠的数据传输体验。
  
   
 
-##### 约束与限制
+#### 约束与限制
 
 定制数据传输能力支持Phone、2in1、Tablet、Wearable设备。并且从5.1.1(19)开始，新增支持TV设备。
  
   
 
-##### 使用示例
+#### 使用示例
 
 下面会介绍超时重试场景下TransferConfiguration如何去使用。
  
   
 
-##### 超时重试
+#### 超时重试
 1. 导入需要的模块。
 
   

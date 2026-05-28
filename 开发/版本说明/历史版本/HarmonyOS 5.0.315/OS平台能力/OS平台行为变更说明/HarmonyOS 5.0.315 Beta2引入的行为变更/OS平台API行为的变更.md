@@ -4,11 +4,11 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/changelogs-for-all-apps-5032
 
-##### ArkUI
+#### ArkUI
 
  
 
-##### Image、Text和ListItem组件onDragStart接口默认行为变更
+#### Image、Text和ListItem组件onDragStart接口默认行为变更
 
 **变更原因**
  
@@ -63,7 +63,7 @@ struct SlideExample {
  
  
 
-##### 轴事件支持BEGIN、END及CANCEL类型回调触发
+#### 轴事件支持BEGIN、END及CANCEL类型回调触发
 
 **变更原因**
  
@@ -95,7 +95,7 @@ OH_NativeXComponent_RegisterUIInputEventCallback接口。
  
  
 
-##### TextController的SetStyledString接口支持保存设置的属性字符串信息到调用的TextController中
+#### TextController的SetStyledString接口支持保存设置的属性字符串信息到调用的TextController中
 
 **变更原因**
  
@@ -143,7 +143,7 @@ struct StyledStringExample {
  
  
 
-##### PC/2in1设备上，悬浮窗层级由低于dock栏调整为高于dock栏
+#### PC/2in1设备上，悬浮窗层级由低于dock栏调整为高于dock栏
 
 **变更原因**
  
@@ -173,11 +173,11 @@ struct StyledStringExample {
  
  
 
-##### Call Service Kit
+#### Call Service Kit
 
  
 
-##### 通话应用在前台时不显示通话胶囊
+#### 通话应用在前台时不显示通话胶囊
 
 **变更原因**
  
@@ -216,11 +216,11 @@ voipCall.reportOutgoingCall（上报去电）
  
  
 
-##### Performance Analysis Kit
+#### Performance Analysis Kit
 
  
 
-##### HiAppEvent模块onReceive、OH_HiAppEvent_OnReceive、takeNext接口支持应用分身故障日志订阅隔离
+#### HiAppEvent模块onReceive、OH_HiAppEvent_OnReceive、takeNext接口支持应用分身故障日志订阅隔离
 
 **变更原因**
  

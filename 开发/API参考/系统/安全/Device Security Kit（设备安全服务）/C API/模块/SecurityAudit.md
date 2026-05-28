@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit
 **支持设备：** PC/2in1
 
-##### 概述
+#### 概述
 
 **支持设备：** PC/2in1
 
@@ -17,13 +17,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** PC/2in1
 
   
 
-##### 文件
+#### 文件
 
 **支持设备：** PC/2in1
  
@@ -34,7 +34,7 @@
  
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** PC/2in1
  
@@ -46,7 +46,7 @@
  
   
 
-##### 类型定义
+#### 类型定义
 
 **支持设备：** PC/2in1
  
@@ -59,7 +59,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** PC/2in1
  
@@ -73,7 +73,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** PC/2in1
  
@@ -99,13 +99,13 @@
  
   
 
-##### 类型定义说明
+#### 类型定义说明
 
 **支持设备：** PC/2in1
 
   
 
-##### SecurityAudit_AuthClient
+#### SecurityAudit_AuthClient
 
 **支持设备：** PC/2in1
 
@@ -121,7 +121,7 @@ typedef struct SecurityAudit_AuthClient_Impl SecurityAudit_AuthClient
  
   
 
-##### SecurityAudit_Client
+#### SecurityAudit_Client
 
 **支持设备：** PC/2in1
 
@@ -137,7 +137,7 @@ typedef struct SecurityAudit_Client_Impl SecurityAudit_Client
  
   
 
-##### SecurityAudit_Handler
+#### SecurityAudit_Handler
 
 **支持设备：** PC/2in1
 
@@ -161,13 +161,13 @@ typedef void(* SecurityAudit_Handler) (const SecurityAudit_Event *events, uint64
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** PC/2in1
 
   
 
-##### SecurityAudit_Auth_Event
+#### SecurityAudit_Auth_Event
 
 **支持设备：** PC/2in1
 
@@ -195,7 +195,7 @@ enum SecurityAudit_Auth_Event
  
   
 
-##### SecurityAudit_AuthResult
+#### SecurityAudit_AuthResult
 
 **支持设备：** PC/2in1
 
@@ -217,7 +217,7 @@ enum SecurityAudit_AuthResult
  
   
 
-##### SecurityAudit_FilterType
+#### SecurityAudit_FilterType
 
 **支持设备：** PC/2in1
 
@@ -249,7 +249,7 @@ enum SecurityAudit_FilterType
  
   
 
-##### SecurityAudit_Notify_Event
+#### SecurityAudit_Notify_Event
 
 **支持设备：** PC/2in1
 
@@ -316,13 +316,13 @@ enum SecurityAudit_Notify_Event
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** PC/2in1
 
   
 
-##### HMS_SecurityAudit_AddAuthEventFilter()
+#### HMS_SecurityAudit_AddAuthEventFilter()
 
 **支持设备：** PC/2in1
 
@@ -355,7 +355,7 @@ ohos.permission.kernel.AUTH_AUDIT_EVENT
  
   
 
-##### HMS_SecurityAudit_AddFilter()
+#### HMS_SecurityAudit_AddFilter()
 
 **支持设备：** PC/2in1
 
@@ -388,7 +388,7 @@ ohos.permission.QUERY_AUDIT_EVENT
  
   
 
-##### HMS_SecurityAudit_Auth()
+#### HMS_SecurityAudit_Auth()
 
 **支持设备：** PC/2in1
 
@@ -421,7 +421,7 @@ ohos.permission.kernel.AUTH_AUDIT_EVENT
  
   
 
-##### HMS_SecurityAudit_DeleteAuthClient()
+#### HMS_SecurityAudit_DeleteAuthClient()
 
 **支持设备：** PC/2in1
 
@@ -452,7 +452,7 @@ ohos.permission.kernel.AUTH_AUDIT_EVENT
  
   
 
-##### HMS_SecurityAudit_DeleteClient()
+#### HMS_SecurityAudit_DeleteClient()
 
 **支持设备：** PC/2in1
 
@@ -483,7 +483,7 @@ ohos.permission.QUERY_AUDIT_EVENT
  
   
 
-##### HMS_SecurityAudit_NewAuthClient()
+#### HMS_SecurityAudit_NewAuthClient()
 
 **支持设备：** PC/2in1
 
@@ -515,7 +515,7 @@ ohos.permission.kernel.AUTH_AUDIT_EVENT
  
   
 
-##### HMS_SecurityAudit_NewClient()
+#### HMS_SecurityAudit_NewClient()
 
 **支持设备：** PC/2in1
 
@@ -547,7 +547,7 @@ ohos.permission.QUERY_AUDIT_EVENT
  
   
 
-##### HMS_SecurityAudit_RemoveAuthEventFilter()
+#### HMS_SecurityAudit_RemoveAuthEventFilter()
 
 **支持设备：** PC/2in1
 
@@ -580,7 +580,7 @@ ohos.permission.kernel.AUTH_AUDIT_EVENT
  
   
 
-##### HMS_SecurityAudit_RemoveFilter()
+#### HMS_SecurityAudit_RemoveFilter()
 
 **支持设备：** PC/2in1
 
@@ -613,7 +613,7 @@ ohos.permission.QUERY_AUDIT_EVENT
  
   
 
-##### HMS_SecurityAudit_Subscribe()
+#### HMS_SecurityAudit_Subscribe()
 
 **支持设备：** PC/2in1
 
@@ -646,7 +646,7 @@ ohos.permission.QUERY_AUDIT_EVENT
  
   
 
-##### HMS_SecurityAudit_SubscribeAuthEvent()
+#### HMS_SecurityAudit_SubscribeAuthEvent()
 
 **支持设备：** PC/2in1
 
@@ -679,7 +679,7 @@ ohos.permission.kernel.AUTH_AUDIT_EVENT
  
   
 
-##### HMS_SecurityAudit_Unsubscribe()
+#### HMS_SecurityAudit_Unsubscribe()
 
 **支持设备：** PC/2in1
 
@@ -712,7 +712,7 @@ ohos.permission.QUERY_AUDIT_EVENT
  
   
 
-##### HMS_SecurityAudit_UnsubscribeAuthEvent()
+#### HMS_SecurityAudit_UnsubscribeAuthEvent()
 
 **支持设备：** PC/2in1
 
@@ -745,7 +745,7 @@ ohos.permission.kernel.AUTH_AUDIT_EVENT
  
   
 
-##### HMS_SecurityAudit_QueryAllProcesses()
+#### HMS_SecurityAudit_QueryAllProcesses()
 
 **支持设备：** PC/2in1
 
@@ -776,7 +776,7 @@ ohos.permission.QUERY_AUDIT_EVENT
  
   
 
-##### HMS_SecurityAudit_QueryProcesses()
+#### HMS_SecurityAudit_QueryProcesses()
 
 **支持设备：** PC/2in1
 
@@ -809,7 +809,7 @@ ohos.permission.QUERY_AUDIT_EVENT
  
   
 
-##### HMS_SecurityAudit_AcquireCodeSign()
+#### HMS_SecurityAudit_AcquireCodeSign()
 
 **支持设备：** PC/2in1
 

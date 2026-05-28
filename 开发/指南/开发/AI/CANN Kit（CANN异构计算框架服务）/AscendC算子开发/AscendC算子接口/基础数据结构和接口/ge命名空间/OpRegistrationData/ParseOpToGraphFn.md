@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-parseoptographfn
 
-##### 函数功能
+#### 函数功能
 
 注册实现算子一对多子图映射的函数，即将算子映射为多个算子。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 OpRegistrationData &ParseOpToGraphFn(const ParseOpToGraphFunc &parse_op_to_graph_fn)
@@ -18,7 +18,7 @@ OpRegistrationData &ParseOpToGraphFn(const ParseOpToGraphFunc &parse_op_to_graph
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -27,7 +27,7 @@ OpRegistrationData &ParseOpToGraphFn(const ParseOpToGraphFunc &parse_op_to_graph
  
   
 
-##### 约束说明
+#### 约束说明
 
 实现一对多子图映射时，插件注册时首先需要将原始框架中的算子映射成AI处理器中的PartitionedCall算子，并在[ParseParamsByOperatorFn](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-parseparamsbyoperatorfn)函数中使用“SetAttr”接口设置original_type。
  
@@ -35,7 +35,7 @@ OpRegistrationData &ParseOpToGraphFn(const ParseOpToGraphFunc &parse_op_to_graph
  
   
 
-##### 回调函数ParseOpToGraphFunc
+#### 回调函数ParseOpToGraphFunc
 
 开发者自定义并实现ParseOpToGraphFunc函数，通过IR模型构建方式完成一对多子图的构造。
  
@@ -61,7 +61,7 @@ Status  ParseOpToGraphFunc(const ge::Operator &op, ge::Graph &graph)
  
   
 
-##### 调用示例
+#### 调用示例
 
 以将Add算子转换成Addn+Abs为例。
  

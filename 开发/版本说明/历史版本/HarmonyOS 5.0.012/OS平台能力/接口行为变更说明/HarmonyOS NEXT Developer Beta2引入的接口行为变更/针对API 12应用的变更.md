@@ -4,11 +4,11 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/changelogs-targeting-api12-b031
 
-##### Ability Kit
+#### Ability Kit
 
  
 
-##### restartApp接口变更
+#### restartApp接口变更
 
 **变更原因**
  
@@ -49,11 +49,11 @@ export default class MyAbility extends UIAbility {
  
  
 
-##### ArkData
+#### ArkData
 
  
 
-##### ValueType增加类型
+#### ValueType增加类型
 
 **变更原因**
  
@@ -87,11 +87,11 @@ getValue接口的使用可参考[getValue示例代码](https://developer.huawei.
  
  
 
-##### ArkTS
+#### ArkTS
 
  
 
-##### Sendable容器TypedArray提供的map方法的回调函数声明变更
+#### Sendable容器TypedArray提供的map方法的回调函数声明变更
 
 **变更原因**
  
@@ -181,7 +181,7 @@ let wrongTypeMapped: collections.Uint8Array = uint8.map((value: number) => parse
  
  
 
-##### Sendable语法规则编译检查完善
+#### Sendable语法规则编译检查完善
 
 **变更原因**
  
@@ -285,7 +285,7 @@ Sendable泛型类的类型必须使用Sendable类型。
  
  
 
-##### Sendable赋值语法规则编译检查完善
+#### Sendable赋值语法规则编译检查完善
 
 **访问级别**
  
@@ -455,11 +455,11 @@ ArkTS Sendable语法检查从API 12起启用。
  
  
 
-##### ArkUI
+#### ArkUI
 
  
 
-##### 按下鼠标任意按键移动鼠标情况下不再上报鼠标事件的行为变更
+#### 按下鼠标任意按键移动鼠标情况下不再上报鼠标事件的行为变更
 
 **变更原因**
  
@@ -494,7 +494,7 @@ ArkTS Sendable语法检查从API 12起启用。
  
  
 
-##### 构造@ComponentV2修饰的自定义组件时，增加对常规变量的构造赋值校验
+#### 构造@ComponentV2修饰的自定义组件时，增加对常规变量的构造赋值校验
 
 **变更原因**
  
@@ -554,7 +554,7 @@ V2装饰器从API 12开始提供。
  
  
 
-##### @ohos.arkui.advanced.SubHeader删除SymbolRenderingStrategy和SymbolEffectStrategy
+#### @ohos.arkui.advanced.SubHeader删除SymbolRenderingStrategy和SymbolEffectStrategy
 
 **变更原因**
  
@@ -612,14 +612,14 @@ struct SubHeaderExample {
  
  
 
-##### setWindowSystemBarEnable、setSystemBarEnable不在PC/2in1设备生效
+#### setWindowSystemBarEnable、setSystemBarEnable不在PC/2in1设备生效
 
 **变更原因**
  
 在PC/2in1设备下，全屏状态下的状态栏显示控制由系统布局约束，无需再调用接口去控制状态栏的显示和隐藏。即设置的setWindowSystemBarEnable、setSystemBarEnable在PC/2in1设备上不生效。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a/v3/81FT3xYKQiCTnfds2maD9w/zh-cn_image_0000001993261849.png?HW-CC-KV=V1&HW-CC-Date=20260528T014152Z&HW-CC-Expire=86400&HW-CC-Sign=30D9AB91F91668AC318B266823AE3944E28757440B9F56AB248BE6A2FEE7A226)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a/v3/81FT3xYKQiCTnfds2maD9w/zh-cn_image_0000001993261849.png?HW-CC-KV=V1&HW-CC-Date=20260528T025820Z&HW-CC-Expire=86400&HW-CC-Sign=E58A340B98CB5EC5D77AA4E0E9D19C7A74F5D01CEDABD78E1C9EA2E9D7235CE3)
 
  
 **变更影响**
@@ -650,11 +650,11 @@ setSystemBarEnable
  
  
 
-##### User Authentication Kit
+#### User Authentication Kit
 
  
 
-##### @ohos.useriam.userAuthIcon导出命名变更
+#### @ohos.useriam.userAuthIcon导出命名变更
 
 **变更原因**
  

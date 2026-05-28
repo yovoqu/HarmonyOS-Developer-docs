@@ -12,7 +12,7 @@
 **起始版本：** 5.0.3(15)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** PC/2in1
 
@@ -22,7 +22,7 @@ import { recoveryKey } from '@kit.EnterpriseDataGuardKit';
 
 
 
-##### EnterpriseRecoveryKeyInfo
+#### EnterpriseRecoveryKeyInfo
 
 **支持设备：** PC/2in1
 
@@ -42,7 +42,7 @@ import { recoveryKey } from '@kit.EnterpriseDataGuardKit';
 
 
 
-##### getEnterpriseRecoveryKey
+#### getEnterpriseRecoveryKey
 
 **支持设备：** PC/2in1
 
@@ -113,7 +113,7 @@ async function getEnterpriseRecoveryKey() {
 
 
 
-##### getAuthChallenge
+#### getAuthChallenge
 
 **支持设备：** PC/2in1
 
@@ -161,7 +161,7 @@ recoveryKey.getAuthChallenge().then((challenge: Uint8Array) => {
 
 
 
-##### updateEnterpriseCertificate
+#### updateEnterpriseCertificate
 
 **支持设备：** PC/2in1
 
@@ -223,7 +223,7 @@ recoveryKey.updateEnterpriseCertificate(signature, cert).then((ret: number)=>{
 
 
 
-##### deleteEnterpriseRecoveryKey
+#### deleteEnterpriseRecoveryKey
 
 **支持设备：** PC/2in1
 
@@ -291,7 +291,7 @@ async function deleteEnterpriseRecoveryKey() {
 
 
 
-##### verifyUserIdentityEnterprise
+#### verifyUserIdentityEnterprise
 
 **支持设备：** PC/2in1
 
@@ -363,7 +363,7 @@ async function verifyUserIdentityEnterprise(pinCode: string) {
 
 
 
-##### verifyUserByDialog
+#### verifyUserByDialog
 
 **支持设备：** PC/2in1
 
@@ -430,7 +430,7 @@ async function getEnterpriseRecoveryKeyForPinByDialog() {
 
 
 
-##### getEnterpriseRecoveryKeyForResettingPin
+#### getEnterpriseRecoveryKeyForResettingPin
 
 **支持设备：** PC/2in1
 

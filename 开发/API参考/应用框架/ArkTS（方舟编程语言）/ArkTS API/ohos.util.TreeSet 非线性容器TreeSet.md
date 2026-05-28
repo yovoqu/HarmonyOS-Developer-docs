@@ -21,7 +21,7 @@ TreeSet和[HashSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-refer
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -31,13 +31,13 @@ import { TreeSet } from '@kit.ArkTS';
 
 
 
-##### TreeSet
+#### TreeSet
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -52,7 +52,7 @@ import { TreeSet } from '@kit.ArkTS';
 
 
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -133,7 +133,7 @@ console.info("treeSet: ", ts1.length);
 
 
 
-##### isEmpty
+#### isEmpty
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -171,7 +171,7 @@ console.info("result:", result);  // result: true
 
 
 
-##### has
+#### has
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -217,7 +217,7 @@ console.info("result:", result); // result: true
 
 
 
-##### getFirstValue
+#### getFirstValue
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -257,7 +257,7 @@ console.info("result:", result); // result: sparrow
 
 
 
-##### getLastValue
+#### getLastValue
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -297,7 +297,7 @@ console.info("result:", result); // result: squirrel
 
 
 
-##### add
+#### add
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -343,7 +343,7 @@ console.info("result:", result); // result: true
 
 
 
-##### remove
+#### remove
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -390,7 +390,7 @@ console.info("result:", result); // result: true
 
 
 
-##### getLowerValue
+#### getLowerValue
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -439,7 +439,7 @@ console.info("result:", result); // result: gander
 
 
 
-##### getHigherValue
+#### getHigherValue
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -488,7 +488,7 @@ console.info("result:", result); // result: squirrel
 
 
 
-##### popFirst
+#### popFirst
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -528,7 +528,7 @@ console.info("result:", result); // result: sparrow
 
 
 
-##### popLast
+#### popLast
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -568,7 +568,7 @@ console.info("result:", result); // result: squirrel
 
 
 
-##### clear
+#### clear
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -602,7 +602,7 @@ console.info("result:", result); // result: true
 
 
 
-##### values
+#### values
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -646,7 +646,7 @@ for (let value of values) {
 
 
 
-##### forEach
+#### forEach
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -711,7 +711,7 @@ for(let i = 0; i < 10; i++) {
 
 
 
-##### entries
+#### entries
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -768,7 +768,7 @@ for(let i = 0; i < 10; i++) {
 
 
 
-##### [Symbol.iterator]
+#### [Symbol.iterator]
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

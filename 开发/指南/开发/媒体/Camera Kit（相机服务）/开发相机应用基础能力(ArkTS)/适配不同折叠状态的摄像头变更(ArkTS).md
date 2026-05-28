@@ -19,7 +19,7 @@ Context获取方式请参考：[获取UIAbility的上下文信息](https://devel
 在开发相机应用时，需要先申请相机相关权限，请参考[申请相关权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-preparation)。
 
 
-##### 创建XComponent
+#### 创建XComponent
 
 使用两个[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)分别展示折叠态和展开态，防止切换折叠屏状态亮屏的时候上一个相机还未关闭，残留上一个相机的画面。
 
@@ -69,7 +69,7 @@ Context获取方式请参考：[获取UIAbility的上下文信息](https://devel
 
 
 
-##### 获取设备折叠状态
+#### 获取设备折叠状态
 
 此处提供两种方案供开发者选择。
 
@@ -126,7 +126,7 @@ display.on('foldStatusChange', (foldStatus: display.FoldStatus) => {
 
 
 
-##### 判断是否存在对应位置摄像头
+#### 判断是否存在对应位置摄像头
 
 通过[CameraManager.getSupportedCameras](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#getsupportedcameras)接口可获取到当前设备折叠状态下支持的所有镜头，遍历获取到的结果，通过[CameraPosition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraposition)判断镜头是否存在。
 
@@ -153,13 +153,13 @@ function hasCameraAt(cameraManager: camera.CameraManager, cameraPosition: camera
 
 
 
-##### 摄像头切换逻辑
+#### 摄像头切换逻辑
 
 在监听到折叠状态发生变化时通过设置被[@StorageLink](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-appstorage#storagelink)修饰的foldStatus变量改变，触发reloadXComponent方法重新加载XComponent组件，从而实现相机的切换逻辑。
 
 
 
-##### 完整示例
+#### 完整示例
 
 ```json
 import { camera } from '@kit.CameraKit';

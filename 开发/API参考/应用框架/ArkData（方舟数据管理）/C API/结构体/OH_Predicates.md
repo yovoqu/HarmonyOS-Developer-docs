@@ -10,7 +10,7 @@ typedef struct {...} OH_Predicates
 ```
   
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ typedef struct {...} OH_Predicates
  
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -35,7 +35,7 @@ typedef struct {...} OH_Predicates
  
   
 
-##### 成员函数
+#### 成员函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -69,13 +69,13 @@ typedef struct {...} OH_Predicates
  
   
 
-##### 成员函数说明
+#### 成员函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### equalTo()
+#### equalTo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -107,7 +107,7 @@ OH_Predicates *(*equalTo)(OH_Predicates *predicates, const char *field, OH_VObje
  
   
 
-##### notEqualTo()
+#### notEqualTo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -141,7 +141,7 @@ OH_Predicates *(*notEqualTo)(OH_Predicates *predicates, const char *field, OH_VO
  
   
 
-##### beginWrap()
+#### beginWrap()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -173,7 +173,7 @@ OH_Predicates *(*beginWrap)(OH_Predicates *predicates)
  
   
 
-##### endWrap()
+#### endWrap()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -205,7 +205,7 @@ OH_Predicates *(*endWrap)(OH_Predicates *predicates)
  
   
 
-##### orOperate()
+#### orOperate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -237,7 +237,7 @@ OH_Predicates *(*orOperate)(OH_Predicates *predicates)
  
   
 
-##### andOperate()
+#### andOperate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -269,7 +269,7 @@ OH_Predicates *(*andOperate)(OH_Predicates *predicates)
  
   
 
-##### isNull()
+#### isNull()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -302,7 +302,7 @@ OH_Predicates *(*isNull)(OH_Predicates *predicates, const char *field)
  
   
 
-##### isNotNull()
+#### isNotNull()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -335,7 +335,7 @@ OH_Predicates *(*isNotNull)(OH_Predicates *predicates, const char *field)
  
   
 
-##### like()
+#### like()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -369,7 +369,7 @@ OH_Predicates *(*like)(OH_Predicates *predicates, const char *field, OH_VObject 
  
   
 
-##### between()
+#### between()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -403,7 +403,7 @@ OH_Predicates *(*between)(OH_Predicates *predicates, const char *field, OH_VObje
  
   
 
-##### notBetween()
+#### notBetween()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -437,7 +437,7 @@ OH_Predicates *(*notBetween)(OH_Predicates *predicates, const char *field, OH_VO
  
   
 
-##### greaterThan()
+#### greaterThan()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -471,7 +471,7 @@ OH_Predicates *(*greaterThan)(OH_Predicates *predicates, const char *field, OH_V
  
   
 
-##### lessThan()
+#### lessThan()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -505,7 +505,7 @@ OH_Predicates *(*lessThan)(OH_Predicates *predicates, const char *field, OH_VObj
  
   
 
-##### greaterThanOrEqualTo()
+#### greaterThanOrEqualTo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -539,7 +539,7 @@ OH_Predicates *(*greaterThanOrEqualTo)(OH_Predicates *predicates, const char *fi
  
   
 
-##### lessThanOrEqualTo()
+#### lessThanOrEqualTo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -573,7 +573,7 @@ OH_Predicates *(*lessThanOrEqualTo)(OH_Predicates *predicates, const char *field
  
   
 
-##### orderBy()
+#### orderBy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -607,7 +607,7 @@ OH_Predicates *(*orderBy)(OH_Predicates *predicates, const char *field, OH_Order
  
   
 
-##### distinct()
+#### distinct()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -639,7 +639,7 @@ OH_Predicates *(*distinct)(OH_Predicates *predicates)
  
   
 
-##### limit()
+#### limit()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -672,7 +672,7 @@ OH_Predicates *(*limit)(OH_Predicates *predicates, unsigned int value)
  
   
 
-##### offset()
+#### offset()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -705,7 +705,7 @@ OH_Predicates *(*offset)(OH_Predicates *predicates, unsigned int rowOffset)
  
   
 
-##### groupBy()
+#### groupBy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -739,7 +739,7 @@ OH_Predicates *(*groupBy)(OH_Predicates *predicates, char const *const *fields, 
  
   
 
-##### in()
+#### in()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -773,7 +773,7 @@ OH_Predicates *(*in)(OH_Predicates *predicates, const char *field, OH_VObject *v
  
   
 
-##### notIn()
+#### notIn()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -807,7 +807,7 @@ OH_Predicates *(*notIn)(OH_Predicates *predicates, const char *field, OH_VObject
  
   
 
-##### clear()
+#### clear()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -837,7 +837,7 @@ OH_Predicates *(*clear)(OH_Predicates *predicates)
  
   
 
-##### destroy()
+#### destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

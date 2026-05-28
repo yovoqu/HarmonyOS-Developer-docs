@@ -12,7 +12,7 @@
 **起始版本：** 5.0.1(13)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { remoteDevice } from '@kit.NearLinkKit';
  
   
 
-##### PairingState
+#### PairingState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@ type PairingState = constant.PairingState
  
   
 
-##### ConnectionState
+#### ConnectionState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -60,7 +60,7 @@ type ConnectionState = constant.ConnectionState
  
   
 
-##### DeviceClass
+#### DeviceClass
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -79,7 +79,7 @@ type DeviceClass = constant.DeviceClass
  
   
 
-##### AcbState
+#### AcbState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -98,7 +98,7 @@ type AcbState = constant.AcbState
  
   
 
-##### createRemoteDevice
+#### createRemoteDevice
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -152,7 +152,7 @@ try {
  
   
 
-##### RemoteDevice
+#### RemoteDevice
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -166,7 +166,7 @@ try {
  
   
 
-##### startPairing
+#### startPairing
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -219,7 +219,7 @@ try {
  
   
 
-##### getPairingState
+#### getPairingState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -271,7 +271,7 @@ try {
  
   
 
-##### getDeviceName
+#### getDeviceName
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -323,7 +323,7 @@ try {
  
   
 
-##### getDeviceClass
+#### getDeviceClass
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -375,7 +375,7 @@ try {
  
   
 
-##### getConnectionState
+#### getConnectionState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -427,7 +427,7 @@ try {
  
   
 
-##### getAcbState
+#### getAcbState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -481,7 +481,7 @@ try {
  
   
 
-##### getDeviceInformation
+#### getDeviceInformation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -537,7 +537,7 @@ try {
  
   
 
-##### DeviceInformation
+#### DeviceInformation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

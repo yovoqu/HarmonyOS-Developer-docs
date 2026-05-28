@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-inputsdatadependency
 
-##### 函数功能
+#### 函数功能
 
 设置算子计算依赖第几个输入tensor的值。
  
@@ -12,7 +12,7 @@
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 OpImplRegisterV2 &InputsDataDependency(std::initializer_list<int32_t> inputs);
@@ -20,7 +20,7 @@ OpImplRegisterV2 &InputsDataDependency(std::initializer_list<int32_t> inputs);
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -29,12 +29,12 @@ OpImplRegisterV2 &InputsDataDependency(std::initializer_list<int32_t> inputs);
  
   
 
-##### 返回值
+#### 返回值
 
 返回算子的OpImplRegisterV2 对象，该对象新增设置算子计算依赖第几个输入tensor的值。
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

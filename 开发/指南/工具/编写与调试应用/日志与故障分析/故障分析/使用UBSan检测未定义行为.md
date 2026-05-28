@@ -17,19 +17,19 @@
 该功能从DevEco Studio 5.1.0 Release版本开始支持。
 
 
-##### 使用约束
+#### 使用约束
 
 ASan、TSan、UBSan、HWASan不能同时开启，只能开启其中一个。
 
 
 
-##### 开启UBSan
+#### 开启UBSan
 
 可通过以下两种方式开启UBSan。
 
 
 
-##### 方式一
+#### 方式一
 
 点击**Run > Edit Configurations >** Diagnostics，勾选**Undefined Behavior Sanitizer**开启检测。
 
@@ -39,7 +39,7 @@ ASan、TSan、UBSan、HWASan不能同时开启，只能开启其中一个。
 
 
 
-##### 方式二
+#### 方式二
 
 在需要开启UBSan的模块中，通过添加构建参数开启UBSan检测插桩，在对应模块的模块级build-profile.json5中添加命令参数：      
 ```json
@@ -53,7 +53,7 @@ ASan、TSan、UBSan、HWASan不能同时开启，只能开启其中一个。
 
 
 
-##### 使用UBSan
+#### 使用UBSan
 1. 运行或调试当前应用。
 2. 当检测出未定义行为时，弹出UBSan log信息，点击信息中的链接即可跳转到未定义行为的代码处。日志中的异常检测类型请参考[UBSan异常检测类型](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-ubsan-detection#section124211321406)。       
 > [!NOTE]
@@ -61,4 +61,4 @@ ASan、TSan、UBSan、HWASan不能同时开启，只能开启其中一个。
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2/v3/89BFWmRNSqmP6kTZvavROw/zh-cn_image_0000002602066139.png?HW-CC-KV=V1&HW-CC-Date=20260528T014920Z&HW-CC-Expire=86400&HW-CC-Sign=5E86EEAE4297A1A2B63EFD27BD60EC9F7BD8CC62199FFF88A13471E457AE2DF9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/-y3fTXGtRO-U4_0ec1QYBQ/zh-cn_image_0000002602066139.png?HW-CC-KV=V1&HW-CC-Date=20260528T030548Z&HW-CC-Expire=86400&HW-CC-Sign=8BC27CBD6FDAC9BCEF10593871D214A55F5329DEFCBAF7D4960EB0D0F7D2B313)

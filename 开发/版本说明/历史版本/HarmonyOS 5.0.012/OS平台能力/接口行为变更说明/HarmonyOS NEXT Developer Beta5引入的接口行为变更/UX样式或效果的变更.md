@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/changelogs-ux-b060
 
-##### 移动窗口布局模式瀑布流行为变更
+#### 移动窗口布局模式瀑布流行为变更
 
 **变更原因**
  
@@ -39,7 +39,7 @@ WaterFlow组件布局模式WaterFlowLayoutMode.SLIDING_WINDOW。
  
  
 
-##### 滚动类组件默认最大抛划限速变更
+#### 滚动类组件默认最大抛划限速变更
 
 **变更原因**
  
@@ -107,7 +107,7 @@ struct ListItemExample {
  
  
 
-##### RichEditor收起键盘后，选中区状态变更
+#### RichEditor收起键盘后，选中区状态变更
 
 **变更原因**
  
@@ -120,13 +120,13 @@ UX规格变更
 变更前：RichEditor非用户手动点击收起键盘按钮收起键盘时，触发组件失焦，关闭菜单，复位选中区。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/n1mxykmESumVdWDYleYucg/zh-cn_image_0000002027415465.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014153Z&HW-CC-Expire=86400&HW-CC-Sign=6428926B674D8CBE6E319866FE3F54FC31ADF79CF40E22132BA0F859A56F952E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/n1mxykmESumVdWDYleYucg/zh-cn_image_0000002027415465.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025821Z&HW-CC-Expire=86400&HW-CC-Sign=22FBA17CA237DC2E4808F0236FD76D73193D8B5F38CCDD3DE5C7C3F4F5B3EC3F)
 
  
 变更后：RichEditor非用户手动点击收起键盘按钮收起键盘时，仅小窗模式下触发组件失焦，其他场景不触发组件失焦，不关闭菜单，不复位选中区。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/QQOrnHXuROODzfuSRjMx1Q/zh-cn_image_0000002027334989.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014153Z&HW-CC-Expire=86400&HW-CC-Sign=6E7DD33286A86A2C6D5A7AC14ACABE7222E2C8B0D3173B1A04B13103612FC214)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/QQOrnHXuROODzfuSRjMx1Q/zh-cn_image_0000002027334989.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025821Z&HW-CC-Expire=86400&HW-CC-Sign=1C1CC92F34778D35C4EFED5B19ED7F691B3D878720F9B68775CD8A14139AA1D3)
 
  
 **起始API Level**
@@ -143,7 +143,7 @@ RichEditor组件。
  
  
 
-##### Toast弹窗UX样式变更
+#### Toast弹窗UX样式变更
 
 **变更原因**
  
@@ -198,7 +198,7 @@ UX默认行为变更，无需适配。可以通过[promptAction中ShowToastOptio
  
  
 
-##### 安全控件宽度设定默认行为变更
+#### 安全控件宽度设定默认行为变更
 
 **变更原因**
  
@@ -217,7 +217,7 @@ UX默认行为变更，无需适配。可以通过[promptAction中ShowToastOptio
 在适老化场景，Menu集成保存控件“保存图片”，由于字体的尺寸增大，保存控件的实际布局宽度会大于所设定宽度，可能会出现截断情况。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/UGtBda-FRWGFRbmmf8qHwg/zh-cn_image_0000002027415469.png?HW-CC-KV=V1&HW-CC-Date=20260528T014153Z&HW-CC-Expire=86400&HW-CC-Sign=25C2ACE1CC7FF0C44CD84C02B761E09F7420826FFCA39F9CB53BF0A1F7712ADF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/UGtBda-FRWGFRbmmf8qHwg/zh-cn_image_0000002027415469.png?HW-CC-KV=V1&HW-CC-Date=20260528T025821Z&HW-CC-Expire=86400&HW-CC-Sign=0DEBBE033B0647BCE7EC1C22FA1D4FD91ED8AD0C65E43AE2CA256068365E5FBD)
 
  
 变更后：
@@ -229,7 +229,7 @@ UX默认行为变更，无需适配。可以通过[promptAction中ShowToastOptio
 变更后，在相同的参数条件下，安全控件完整显示的最小宽度超过所设定的宽度，按钮文本信息会自动换行，控件高度会自适应增大，以保证安全控件显示的完整性。换行后，组件的高度增大，如果布局不满足实际要求，需要根据实际需要对安全控件的宽度和高度做调整。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/ByzfPzpXTp-xaE9Uv0DEcg/zh-cn_image_0000002027334993.png?HW-CC-KV=V1&HW-CC-Date=20260528T014153Z&HW-CC-Expire=86400&HW-CC-Sign=514F72D3ACE4BE4798F1298B4B3430B168984B0A23332DF32840846D58E36569)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/ByzfPzpXTp-xaE9Uv0DEcg/zh-cn_image_0000002027334993.png?HW-CC-KV=V1&HW-CC-Date=20260528T025821Z&HW-CC-Expire=86400&HW-CC-Sign=2BA6F1AB48E82DDF47FADA5FE773654061C7A0A762992406C8249C3D56792313)
 
  
 **起始API Level**

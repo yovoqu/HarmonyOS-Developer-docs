@@ -16,7 +16,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -26,7 +26,7 @@ import { componentSnapshot } from '@kit.ArkUI';
 
 
 
-##### componentSnapshot.get(deprecated)
+#### componentSnapshot.get(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -114,7 +114,7 @@ struct SnapshotExample {
 
 
 
-##### componentSnapshot.get(deprecated)
+#### componentSnapshot.get(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -207,7 +207,7 @@ struct SnapshotExample {
 
 
 
-##### componentSnapshot.createFromBuilder(deprecated)
+#### componentSnapshot.createFromBuilder(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -312,12 +312,12 @@ struct OffscreenSnapshotExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/rzseFgKaTiutl6jjcHNaYg/zh-cn_image_0000002611835357.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024113Z&HW-CC-Expire=86400&HW-CC-Sign=E7CA9600F3A860A3592F895CC354795B3D08BE00070A5AC0D50655E71E82B6D8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/rzseFgKaTiutl6jjcHNaYg/zh-cn_image_0000002611835357.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025447Z&HW-CC-Expire=86400&HW-CC-Sign=0383F0ACF07C04555FE4D0BC0E60F259E8B809675F2009DB2ABC7537DC422533)
 
 
 
 
-##### componentSnapshot.createFromBuilder(deprecated)
+#### componentSnapshot.createFromBuilder(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -426,12 +426,12 @@ struct OffscreenSnapshotExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/a47XazCLTQ22NNjtfSZH6Q/zh-cn_image_0000002611835357.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024113Z&HW-CC-Expire=86400&HW-CC-Sign=0D58B9176774134C3FA048339294B46D4CF8F7A52FE44D83C8FA76B325AA470B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/a47XazCLTQ22NNjtfSZH6Q/zh-cn_image_0000002611835357.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025447Z&HW-CC-Expire=86400&HW-CC-Sign=AD511769A9C3F5B036FFD78221E6A816B03F74634F9046968CEA0D096F1507AD)
 
 
 
 
-##### componentSnapshot.getSync12+
+#### componentSnapshot.getSync12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -521,12 +521,12 @@ struct SnapshotExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/UTzoBDUbQj6_ow3l9ico7w/zh-cn_image_0000002581435526.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024113Z&HW-CC-Expire=86400&HW-CC-Sign=57F89CDE2EE7DBBE0FA69614B50D496CF740CAA75DEDB147C54B298F4E997ED6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/UTzoBDUbQj6_ow3l9ico7w/zh-cn_image_0000002581435526.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025447Z&HW-CC-Expire=86400&HW-CC-Sign=6DB7D570A4E8D12019727900594401B8D28A7B972AAD072EA8775656F9169DB3)
 
 
 
 
-##### SnapshotOptions12+
+#### SnapshotOptions12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -543,7 +543,7 @@ struct SnapshotExample {
 
 
 
-##### ColorModeOptions23+
+#### ColorModeOptions23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -607,12 +607,12 @@ struct SnapshotColorModeExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/28woh4uuTOSAe3QxMxVOgw/zh-cn_image_0000002581435526.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024113Z&HW-CC-Expire=86400&HW-CC-Sign=027625D6BBE04EB600ABDBC5520050830198B4F624C4863A97FA98C460562FCF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/28woh4uuTOSAe3QxMxVOgw/zh-cn_image_0000002581435526.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025447Z&HW-CC-Expire=86400&HW-CC-Sign=C775F265D33681D782FC567917F95E4AA92C628266C825BC526A785B5A82A6F8)
 
 
 
 
-##### DynamicRangeModeOptions23+
+#### DynamicRangeModeOptions23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -675,12 +675,12 @@ struct SnapshotDynamicRangeExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/NldmgJ1JQq-iI2LdaGe_-w/zh-cn_image_0000002581435526.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024113Z&HW-CC-Expire=86400&HW-CC-Sign=29D657D329A8E1B77BF69DE46039873540670A06A08EF4B14634DAC1DD310013)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/NldmgJ1JQq-iI2LdaGe_-w/zh-cn_image_0000002581435526.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025447Z&HW-CC-Expire=86400&HW-CC-Sign=FF568C8B31EA79E32EF1DCE4886BABC136464EA027A180B4E7AD34F71AF1E350)
 
 
 
 
-##### SnapshotRegionType15+
+#### SnapshotRegionType15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -700,7 +700,7 @@ type SnapshotRegionType = SnapshotRegion | LocalizedSnapshotRegion
 
 
 
-##### SnapshotRegion15+
+#### SnapshotRegion15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -720,7 +720,7 @@ type SnapshotRegionType = SnapshotRegion | LocalizedSnapshotRegion
 
 
 
-##### LocalizedSnapshotRegion15+
+#### LocalizedSnapshotRegion15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -804,4 +804,4 @@ struct SnapshotExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/S3sMuWhIS6yfSj_6cUbBXw/zh-cn_image_0000002581275608.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024113Z&HW-CC-Expire=86400&HW-CC-Sign=908F36C33D34491FEDE0A743D88043E262C7EF7FDF19922D231DDBB84D73CFA3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/S3sMuWhIS6yfSj_6cUbBXw/zh-cn_image_0000002581275608.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025447Z&HW-CC-Expire=86400&HW-CC-Sign=1B55026DBEEEE6B1438CF0AF23889C553CED0FC6B25B9B54B60247E82676C139)

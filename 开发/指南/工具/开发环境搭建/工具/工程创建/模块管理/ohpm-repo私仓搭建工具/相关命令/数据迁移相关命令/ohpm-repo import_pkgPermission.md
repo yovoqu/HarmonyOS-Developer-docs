@@ -7,13 +7,13 @@
 ohpm-repo 5.4.0版本开始，支持导入包权限数据。
  
 
-##### 前提条件
+#### 前提条件
 
 已成功执行 [export_userinfo 命令](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-repo-export-userinfo)、[import_userinfo 命令](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-repo-import-userinfo)、[batch_download 命令](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-repo-batch-download)、[batch_publish 命令](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-repo-batch-publish)、[export_pkgPermission 命令](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-repo-export-pkgpermission)，确保每个包指定的包文件、用户和组织都存在。
  
  
 
-##### 命令格式
+#### 命令格式
 
 ```text
 ohpm-repo import_pkgPermission <pkg_permission_list> [options]
@@ -21,17 +21,17 @@ ohpm-repo import_pkgPermission <pkg_permission_list> [options]
  
  
 
-##### 功能描述
+#### 功能描述
 
 根据提供的记录着包权限数据的.json文件，向ohpm-repo导入包权限数据。
  
  
 
-##### 参数
+#### 参数
 
  
 
-##### &lt;pkg_permission_list&gt;
+#### &lt;pkg_permission_list&gt;
 
 - 类型： String
 - 必填参数
@@ -41,11 +41,11 @@ ohpm-repo import_pkgPermission <pkg_permission_list> [options]
  
  
 
-##### 选项
+#### 选项
 
  
 
-##### --mode
+#### --mode
 
 - 类型：String
 - 必填参数
@@ -93,7 +93,7 @@ ohpm-repo import_pkgPermission <pkg_permission_list> [options]
  
  
 
-##### 示例
+#### 示例
 
 **以****merge-origin****模式导入包权限**
  

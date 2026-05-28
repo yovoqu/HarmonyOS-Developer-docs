@@ -12,7 +12,7 @@ appRecovery模块提供了应用在故障状态下的恢复能力。
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { appRecovery } from '@kit.AbilityKit';
  
   
 
-##### RestartFlag
+#### RestartFlag
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@ import { appRecovery } from '@kit.AbilityKit';
  
   
 
-##### SaveOccasionFlag
+#### SaveOccasionFlag
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -59,7 +59,7 @@ import { appRecovery } from '@kit.AbilityKit';
  
   
 
-##### SaveModeFlag
+#### SaveModeFlag
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -77,7 +77,7 @@ import { appRecovery } from '@kit.AbilityKit';
  
   
 
-##### appRecovery.enableAppRecovery
+#### appRecovery.enableAppRecovery
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -118,7 +118,7 @@ export default class MyAbilityStage extends AbilityStage {
  
   
 
-##### appRecovery.restartApp
+#### appRecovery.restartApp
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -164,7 +164,7 @@ try {
  
   
 
-##### appRecovery.saveAppState
+#### appRecovery.saveAppState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -207,7 +207,7 @@ try {
  
   
 
-##### appRecovery.saveAppState10+
+#### appRecovery.saveAppState10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -257,7 +257,7 @@ try {
  
   
 
-##### appRecovery.setRestartWant10+
+#### appRecovery.setRestartWant10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

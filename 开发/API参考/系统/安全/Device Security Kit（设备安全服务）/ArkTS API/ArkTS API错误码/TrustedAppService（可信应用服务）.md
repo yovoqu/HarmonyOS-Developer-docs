@@ -10,7 +10,7 @@
 
 
 
-##### 201 权限校验失败
+#### 201 权限校验失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -32,7 +32,7 @@ permission denied.
 
 
 
-##### 401 参数检查失败
+#### 401 参数检查失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -54,7 +54,7 @@ argument is invalid.
 
 
 
-##### 1011500001 无效的算法参数
+#### 1011500001 无效的算法参数
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -76,7 +76,7 @@ algorithm param is invalid.
 
 
 
-##### 1011500002 参数传入不足
+#### 1011500002 参数传入不足
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -98,7 +98,7 @@ algorithm param is missing.
 
 
 
-##### 1011500003 密钥生成失败
+#### 1011500003 密钥生成失败
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -120,7 +120,7 @@ create attestation key failed.
 
 
 
-##### 1011500004 证书创建失败
+#### 1011500004 证书创建失败
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -142,7 +142,7 @@ create anonymous certificate failed.
 
 
 
-##### 1011500005 文件操作失败
+#### 1011500005 文件操作失败
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -164,7 +164,7 @@ operate file failed.
 
 
 
-##### 1011500006 IPC通信失败
+#### 1011500006 IPC通信失败
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -186,7 +186,7 @@ IPC通信失败。
 
 
 
-##### 1011500007 密钥不存在
+#### 1011500007 密钥不存在
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -208,7 +208,7 @@ item not found.
 
 
 
-##### 1011500008 证书校验失败
+#### 1011500008 证书校验失败
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -230,7 +230,7 @@ verify anonymous certificate failed.
 
 
 
-##### 1011500009 证书已过期
+#### 1011500009 证书已过期
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -252,7 +252,7 @@ anonymous certificate has expired.
 
 
 
-##### 1011500010 密钥不匹配
+#### 1011500010 密钥不匹配
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -274,7 +274,7 @@ get attestation key failed.
 
 
 
-##### 1011500011 安全相机初始化失败
+#### 1011500011 安全相机初始化失败
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -296,7 +296,7 @@ initialize secure camera failed.
 
 
 
-##### 1011500012 证明会话上下文异常
+#### 1011500012 证明会话上下文异常
 
 **支持设备：** Phone | Tablet | PC/2in1
 
@@ -318,7 +318,7 @@ attestation context not initialized.
 
 
 
-##### 1011500013 密钥已过期
+#### 1011500013 密钥已过期
 
 **支持设备：** Phone | Tablet | PC/2in1
 
@@ -340,7 +340,7 @@ attestation key has expired.
 
 
 
-##### 1011500014 位置服务不可用
+#### 1011500014 位置服务不可用
 
 **支持设备：** Phone | Tablet
 
@@ -362,7 +362,7 @@ location service is unavailable.
 
 
 
-##### 1011500015 位置信息开关关闭
+#### 1011500015 位置信息开关关闭
 
 **支持设备：** Phone | Tablet
 
@@ -384,7 +384,7 @@ location switch is off.
 
 
 
-##### 1011500016 位置信息获取失败
+#### 1011500016 位置信息获取失败
 
 **支持设备：** Phone | Tablet
 
@@ -406,7 +406,7 @@ get secure location failed.
 
 
 
-##### 1011500017 签名验签失败
+#### 1011500017 签名验签失败
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -428,7 +428,7 @@ signature verification failed.
 
 
 
-##### 1011500018 安全图像处理失败
+#### 1011500018 安全图像处理失败
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

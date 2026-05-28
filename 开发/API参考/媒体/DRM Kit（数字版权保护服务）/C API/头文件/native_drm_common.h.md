@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-drm-common-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -50,7 +50,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -66,7 +66,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -77,7 +77,7 @@
  
   
 
-##### 宏定义
+#### 宏定义
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -110,13 +110,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### DRM_EventType
+#### DRM_EventType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -144,7 +144,7 @@ enum DRM_EventType
  
   
 
-##### DRM_ContentProtectionLevel
+#### DRM_ContentProtectionLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -171,7 +171,7 @@ enum DRM_ContentProtectionLevel
  
   
 
-##### DRM_MediaKeyType
+#### DRM_MediaKeyType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -195,7 +195,7 @@ enum DRM_MediaKeyType
  
   
 
-##### DRM_MediaKeyRequestType
+#### DRM_MediaKeyRequestType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -223,7 +223,7 @@ enum DRM_MediaKeyRequestType
  
   
 
-##### DRM_OfflineMediaKeyStatus
+#### DRM_OfflineMediaKeyStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -248,7 +248,7 @@ enum DRM_OfflineMediaKeyStatus
  
   
 
-##### DRM_CertificateStatus
+#### DRM_CertificateStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -275,13 +275,13 @@ enum DRM_CertificateStatus
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### DRM_MediaKeySystemInfoCallback()
+#### DRM_MediaKeySystemInfoCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

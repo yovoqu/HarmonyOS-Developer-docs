@@ -10,7 +10,7 @@
 
   
 
-##### 1006500001 调用BMS异常
+#### 1006500001 调用BMS异常
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -32,7 +32,7 @@ Failed to invoke the BMS.
  
   
 
-##### 1006500002 重复调用接口，输入相同
+#### 1006500002 重复调用接口，输入相同
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -54,7 +54,7 @@ The interface is called repeatedly with the same input.
  
   
 
-##### 1006500004 服务异常
+#### 1006500004 服务异常
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -72,7 +72,7 @@ SA connection failed.
  
   
 
-##### 1006500006 未与监听接口共同使用
+#### 1006500006 未与监听接口共同使用
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -94,7 +94,7 @@ The interface is not used together with "on".
  
   
 
-##### 1006500007 服务连接失败
+#### 1006500007 服务连接失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -116,7 +116,7 @@ The specified service extension connect failed.
  
   
 
-##### 1006500008 参数写入异常
+#### 1006500008 参数写入异常
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -138,7 +138,7 @@ Write param into container failed.
  
   
 
-##### 1006500009 请求服务异常
+#### 1006500009 请求服务异常
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -160,7 +160,7 @@ Request to service error.
  
   
 
-##### 1006500010 响应参数无法解析
+#### 1006500010 响应参数无法解析
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -182,7 +182,7 @@ Response from service cannot be recognized.
  
   
 
-##### 1009400001 服务异常
+#### 1009400001 服务异常
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -200,7 +200,7 @@ SA connect error.
  
   
 
-##### 1009400002 向服务端请求失败
+#### 1009400002 向服务端请求失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -218,7 +218,7 @@ Request to service error.
  
   
 
-##### 1009400003 网络异常
+#### 1009400003 网络异常
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -236,7 +236,7 @@ Network error.
  
   
 
-##### 1009400004 应用不在前台
+#### 1009400004 应用不在前台
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -254,7 +254,7 @@ The application is not in the foreground.
  
   
 
-##### 1009400005 未同意隐私政策
+#### 1009400005 未同意隐私政策
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -272,7 +272,7 @@ Not agreeing to the privacy agreement.
  
   
 
-##### 1009400006 调用次数超过上限
+#### 1009400006 调用次数超过上限
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -290,7 +290,7 @@ Time limited.
  
   
 
-##### 1009400007 其它错误
+#### 1009400007 其它错误
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -308,7 +308,7 @@ Other error.
  
   
 
-##### 1009400008 on接口参数个数异常
+#### 1009400008 on接口参数个数异常
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -326,7 +326,7 @@ On接口参数个数异常。
  
   
 
-##### 1009400009 on接口参数type校验异常
+#### 1009400009 on接口参数type校验异常
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -344,7 +344,7 @@ On接口参数type校验异常。
  
   
 
-##### 1009400010 on接口参数callback校验异常
+#### 1009400010 on接口参数callback校验异常
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -362,7 +362,7 @@ On接口参数callback校验异常。
  
   
 
-##### 1009400011 on接口参数timeout校验异常
+#### 1009400011 on接口参数timeout校验异常
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -380,7 +380,7 @@ On接口参数timeout校验异常。
  
   
 
-##### 1009400012 off接口参数个数异常
+#### 1009400012 off接口参数个数异常
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -398,7 +398,7 @@ Off接口参数个数异常。
  
   
 
-##### 1009400013 off接口参数type校验异常
+#### 1009400013 off接口参数type校验异常
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -416,7 +416,7 @@ Off接口参数type校验异常。
  
   
 
-##### 1009400014 off接口参数callback校验异常
+#### 1009400014 off接口参数callback校验异常
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -434,7 +434,7 @@ Off接口参数callback校验异常。
  
   
 
-##### 1009300001 Service extension连接失败
+#### 1009300001 Service extension连接失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -456,7 +456,7 @@ Service extension连接失败。
  
   
 
-##### 1009300002 系统内部错误
+#### 1009300002 系统内部错误
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -478,7 +478,7 @@ System internal error.
  
   
 
-##### 1009300003 身份检查错误
+#### 1009300003 身份检查错误
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -501,7 +501,7 @@ The identity check error.
  
   
 
-##### 1009300004 校验签名失败
+#### 1009300004 校验签名失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -525,7 +525,7 @@ The sign check error.
  
   
 
-##### 1009300101 请求缺失adTechId
+#### 1009300101 请求缺失adTechId
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -547,7 +547,7 @@ AdTechId is missing in the request.
  
   
 
-##### 1009300102 请求缺失campaignId
+#### 1009300102 请求缺失campaignId
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -569,7 +569,7 @@ CampaignId is missing in the request.
  
   
 
-##### 1009300103 请求缺失sourceId
+#### 1009300103 请求缺失sourceId
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -591,7 +591,7 @@ SourceId is missing in the request.
  
   
 
-##### 1009300104 请求缺失destinationId
+#### 1009300104 请求缺失destinationId
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -613,7 +613,7 @@ DestinationId is missing in the request.
  
   
 
-##### 1009300105 请求缺失sourceType
+#### 1009300105 请求缺失sourceType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -635,7 +635,7 @@ SourceType is missing in the request.
  
   
 
-##### 1009300106 请求缺失nonce
+#### 1009300106 请求缺失nonce
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -657,7 +657,7 @@ adSourceInfo参数中nonce字段缺失。
  
   
 
-##### 1009300107 请求缺失timestamp
+#### 1009300107 请求缺失timestamp
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -679,7 +679,7 @@ adSourceInfo参数中timestamp字段缺失。
  
   
 
-##### 1009300108 请求缺失signature
+#### 1009300108 请求缺失signature
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -701,7 +701,7 @@ adSourceInfo参数中signature字段缺失。
  
   
 
-##### 1009300109 请求缺失triggerData
+#### 1009300109 请求缺失triggerData
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -723,7 +723,7 @@ PostbackInfo参数中triggerData字段缺失。
  
   
 
-##### 1009300110 请求缺失postbackUrl
+#### 1009300110 请求缺失postbackUrl
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -745,7 +745,7 @@ PostbackInfo参数中postbackUrl字段缺失。
  
   
 
-##### 1009300111 请求缺失adSourceInfo
+#### 1009300111 请求缺失adSourceInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -767,7 +767,7 @@ AdSourceInfo is missing in the request.
  
   
 
-##### 1009300112 请求缺失publickey
+#### 1009300112 请求缺失publickey
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -789,7 +789,7 @@ PublicKey is missing in the request.
  
   
 
-##### 1009300113 请求缺失postbackInfo
+#### 1009300113 请求缺失postbackInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -811,7 +811,7 @@ PostbackInfo is missing in the request.
  
   
 
-##### 1009300114 签名校验失败
+#### 1009300114 签名校验失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -835,7 +835,7 @@ The signature verification failed in the testing environment.
  
   
 
-##### 1009300115 当前adTechId下设置了过多的回传数据
+#### 1009300115 当前adTechId下设置了过多的回传数据
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -857,7 +857,7 @@ Too many postbacks setting to the testing environment.
  
   
 
-##### 1009300116 当前adTechId下没有待回传的数据
+#### 1009300116 当前adTechId下没有待回传的数据
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -879,7 +879,7 @@ adTechId下无待回传的数据。
  
   
 
-##### 1009300117 归因结果回传失败
+#### 1009300117 归因结果回传失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -901,7 +901,7 @@ Failed to send postbacks to the postbackUrl.
  
   
 
-##### 1009300119 网络错误
+#### 1009300119 网络错误
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -923,7 +923,7 @@ Network error.
  
   
 
-##### 1009300120 请求过于频繁
+#### 1009300120 请求过于频繁
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -945,7 +945,7 @@ Request too frequent.
  
   
 
-##### 1006700001 系统内部错误
+#### 1006700001 系统内部错误
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -967,7 +967,7 @@ System internal error.
  
   
 
-##### 1006700002 Service extension连接失败
+#### 1006700002 Service extension连接失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -989,7 +989,7 @@ Service extension连接失败。
  
   
 
-##### 1006700003 未接入隐私管理服务
+#### 1006700003 未接入隐私管理服务
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1011,7 +1011,7 @@ The application does not use privacy manager service.
  
   
 
-##### 1006620001 系统内部错误
+#### 1006620001 系统内部错误
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1033,7 +1033,7 @@ System internal error.
  
   
 
-##### 1006620002 请求服务异常
+#### 1006620002 请求服务异常
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1055,7 +1055,7 @@ Request to service error.
  
   
 
-##### 1006620003 快捷方式ID已经存在
+#### 1006620003 快捷方式ID已经存在
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1077,7 +1077,7 @@ Shortcut id already exists.
  
   
 
-##### 1006620004 快捷方式数量达到上限
+#### 1006620004 快捷方式数量达到上限
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1099,7 +1099,7 @@ The number of shortcuts has reached the maximum.
  
   
 
-##### 1006620005 快捷方式校验失败
+#### 1006620005 快捷方式校验失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1121,7 +1121,7 @@ Shortcut verification failed.
  
   
 
-##### 1006620006 快捷方式未校验或已过期
+#### 1006620006 快捷方式未校验或已过期
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1143,7 +1143,7 @@ The shortcut is not verified or has expired.
  
   
 
-##### 1006620007 用户拒绝添加快捷方式
+#### 1006620007 用户拒绝添加快捷方式
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1165,7 +1165,7 @@ User refused to add shortcut.
  
   
 
-##### 1006620010 快捷方式ID不存在
+#### 1006620010 快捷方式ID不存在
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1187,7 +1187,7 @@ The shortcut ID does not exist.
  
   
 
-##### 1006620011 无效的上下文参数
+#### 1006620011 无效的上下文参数
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1209,7 +1209,7 @@ Invalid context.
  
   
 
-##### 1006620012 无效的快捷方式ID
+#### 1006620012 无效的快捷方式ID
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1231,7 +1231,7 @@ Invalid shortcutId.
  
   
 
-##### 1006620013 用户取消删除快捷方式
+#### 1006620013 用户取消删除快捷方式
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1253,7 +1253,7 @@ The user refused to delete the shortcut.
  
   
 
-##### 1006620014 无效的参数数量
+#### 1006620014 无效的参数数量
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1275,7 +1275,7 @@ Invalid number of parameters.
  
   
 
-##### 1006800001 Service extension连接失败
+#### 1006800001 Service extension连接失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1297,7 +1297,7 @@ Service extension连接失败。
  
   
 
-##### 1006800009 系统内部错误
+#### 1006800009 系统内部错误
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1319,7 +1319,7 @@ System internal error.
  
   
 
-##### 1006800010 无动态图标信息
+#### 1006800010 无动态图标信息
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1341,7 +1341,7 @@ No dynamic icon data.
  
   
 
-##### 1006800011 选择动态图标失败
+#### 1006800011 选择动态图标失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1363,7 +1363,7 @@ Select dynamic icon failed.
  
   
 
-##### 1006800012 恢复默认图标失败
+#### 1006800012 恢复默认图标失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1385,7 +1385,7 @@ Disable dynamic icon failed.
  
   
 
-##### 1006800013 存在主题自定义图标导致选择动态图标失败
+#### 1006800013 存在主题自定义图标导致选择动态图标失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1407,7 +1407,7 @@ Failed to switch to the custom icon because a custom theme icon is currently in 
  
   
 
-##### 1021500001 系统内部错误
+#### 1021500001 系统内部错误
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1429,7 +1429,7 @@ Internal system error.
  
   
 
-##### 1021500002 请求服务异常
+#### 1021500002 请求服务异常
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1451,7 +1451,7 @@ Service request failed.
  
   
 
-##### 1021500003 连接应用市场失败
+#### 1021500003 连接应用市场失败
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1473,7 +1473,7 @@ Failed to connect to AppGallery.
  
   
 
-##### 1021500004 参数写入异常
+#### 1021500004 参数写入异常
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1495,7 +1495,7 @@ Failed to write parameters.
  
   
 
-##### 1021500005 应用上下文无效
+#### 1021500005 应用上下文无效
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1517,7 +1517,7 @@ The app context is invalid.
  
   
 
-##### 1021500006 未登录华为账号
+#### 1021500006 未登录华为账号
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1539,7 +1539,7 @@ The user has not signed in to their HUAWEI ID.
  
   
 
-##### 1021500007 当前版本已评论
+#### 1021500007 当前版本已评论
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1561,7 +1561,7 @@ The user has already commented on the current version.
  
   
 
-##### 1021500008 评分弹窗出现次数达到上限
+#### 1021500008 评分弹窗出现次数达到上限
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1583,7 +1583,7 @@ The number of comments has reached the maximum limit.
  
   
 
-##### 1021500009 当前版本已评分且距上次评分未满一年
+#### 1021500009 当前版本已评分且距上次评分未满一年
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

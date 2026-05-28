@@ -12,7 +12,7 @@ AgentHostProxy用于从[AgentExtensionAbility](https://developer.huawei.com/cons
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,13 +22,13 @@ import { common } from '@kit.AbilityKit';
 
 
 
-##### AgentHostProxy
+#### AgentHostProxy
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### sendData
+#### sendData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -82,7 +82,7 @@ export default class MyAgentExtensionAbility extends AgentExtensionAbility {
 
 
 
-##### authorize
+#### authorize
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

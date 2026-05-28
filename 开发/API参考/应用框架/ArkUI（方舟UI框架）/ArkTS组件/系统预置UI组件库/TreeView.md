@@ -14,7 +14,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { TreeView } from "@kit.ArkUI";
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -32,7 +32,7 @@ import { TreeView } from "@kit.ArkUI";
  
   
 
-##### TreeView
+#### TreeView
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -53,7 +53,7 @@ TreeView({ treeController: TreeController })
  
   
 
-##### TreeController
+#### TreeController
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -67,7 +67,7 @@ TreeView({ treeController: TreeController })
  
   
 
-##### addNode
+#### addNode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -97,7 +97,7 @@ addNode(nodeParam?: NodeParam): TreeController
  
   
 
-##### removeNode
+#### removeNode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -113,7 +113,7 @@ removeNode(): void
  
   
 
-##### modifyNode
+#### modifyNode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -129,7 +129,7 @@ modifyNode(): void
  
   
 
-##### buildDone
+#### buildDone
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -145,7 +145,7 @@ buildDone(): void
  
   
 
-##### refreshNode
+#### refreshNode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -170,7 +170,7 @@ refreshNode(parentId: number, parentSubTitle: ResourceStr, currentSubtitle: Reso
  
   
 
-##### NodeParam
+#### NodeParam
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -196,7 +196,7 @@ refreshNode(parentId: number, parentSubTitle: ResourceStr, currentSubtitle: Reso
  
   
 
-##### TreeListenerManager
+#### TreeListenerManager
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -206,7 +206,7 @@ refreshNode(parentId: number, parentSubTitle: ResourceStr, currentSubtitle: Reso
  
   
 
-##### getInstance
+#### getInstance
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -229,7 +229,7 @@ static getInstance(): TreeListenerManager
  
   
 
-##### getTreeListener
+#### getTreeListener
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -252,7 +252,7 @@ getTreeListener(): TreeListener
  
   
 
-##### TreeListener
+#### TreeListener
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -260,7 +260,7 @@ getTreeListener(): TreeListener
  
   
 
-##### on
+#### on
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -284,7 +284,7 @@ on(type: TreeListenType, callback: (callbackParam: CallbackParam) => void): void
  
   
 
-##### once
+#### once
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -308,7 +308,7 @@ once(type: TreeListenType, callback: (callbackParam: CallbackParam) => void): vo
  
   
 
-##### off
+#### off
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -332,7 +332,7 @@ off(type: TreeListenType, callback?: (callbackParam: CallbackParam) => void): vo
  
   
 
-##### TreeListenType
+#### TreeListenType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -355,7 +355,7 @@ off(type: TreeListenType, callback?: (callbackParam: CallbackParam) => void): vo
  
   
 
-##### CallbackParam
+#### CallbackParam
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -374,7 +374,7 @@ off(type: TreeListenType, callback?: (callbackParam: CallbackParam) => void): vo
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -382,13 +382,13 @@ off(type: TreeListenType, callback?: (callbackParam: CallbackParam) => void): vo
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 示例1（设置简单树视图）
+#### 示例1（设置简单树视图）
 
 通过树视图组件的控制器对树的节点进行新增、删除、重命名，展示新增不同参数节点的实现效果。
  
@@ -509,7 +509,7 @@ struct TreeViewDemo {
  
   
 
-##### 示例2（设置Symbol类型图标）
+#### 示例2（设置Symbol类型图标）
 
 从API version 18开始，该示例通过设置NodeParam的属性symbolIconStyle、symbolEditIconStyle、symbolSelectedIconStyle，展示了自定义Symbol类型图标。
  
@@ -634,4 +634,4 @@ struct TreeViewDemo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/jYbMeeYCS96lnCkvPXliJA/zh-cn_image_0000002581276362.png?HW-CC-KV=V1&HW-CC-Date=20260528T024156Z&HW-CC-Expire=86400&HW-CC-Sign=343184DB1397E6C12B5392CA43E5C3C83857BDFD663CBF1C5C710DCDE42B71AC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/jYbMeeYCS96lnCkvPXliJA/zh-cn_image_0000002581276362.png?HW-CC-KV=V1&HW-CC-Date=20260528T025528Z&HW-CC-Expire=86400&HW-CC-Sign=1FE7572ADB11FA480C8BB1005AB2859104E8D06CB2A25F66D593F88C8C462F73)

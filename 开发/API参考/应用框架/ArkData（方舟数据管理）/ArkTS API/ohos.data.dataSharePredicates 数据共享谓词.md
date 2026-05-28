@@ -19,7 +19,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -29,7 +29,7 @@ import { dataSharePredicates } from '@kit.ArkData';
 
 
 
-##### DataSharePredicates
+#### DataSharePredicates
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -37,7 +37,7 @@ import { dataSharePredicates } from '@kit.ArkData';
 
 
 
-##### equalTo10+
+#### equalTo10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -75,7 +75,7 @@ predicates.equalTo("NAME", "Rose");
 
 
 
-##### and10+
+#### and10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -107,7 +107,7 @@ predicates.equalTo("NAME", "lisi")
 
 
 
-##### orderByAsc10+
+#### orderByAsc10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -144,7 +144,7 @@ predicates.orderByAsc("AGE");
 
 
 
-##### orderByDesc10+
+#### orderByDesc10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -181,7 +181,7 @@ predicates.orderByDesc("AGE");
 
 
 
-##### limit10+
+#### limit10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -219,7 +219,7 @@ predicates.equalTo("NAME", "Rose").limit(10, 3);
 
 
 
-##### in10+
+#### in10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -257,7 +257,7 @@ predicates.in("AGE", [18, 20]);
 
 
 
-##### notEqualTo23+
+#### notEqualTo23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -293,7 +293,7 @@ predicates.notEqualTo("NAME", "Rose");
 
 
 
-##### beginWrap23+
+#### beginWrap23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -326,7 +326,7 @@ predicates.equalTo("NAME", "lisi")
 
 
 
-##### endWrap23+
+#### endWrap23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -359,7 +359,7 @@ predicates.equalTo("NAME", "lisi")
 
 
 
-##### or23+
+#### or23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -389,7 +389,7 @@ predicates.equalTo("NAME", "lisi")
 
 
 
-##### like23+
+#### like23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -425,7 +425,7 @@ predicates.like("NAME", "%os%");
 
 
 
-##### between23+
+#### between23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -462,7 +462,7 @@ predicates.between("AGE", 10, 50);
 
 
 
-##### notBetween23+
+#### notBetween23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -499,7 +499,7 @@ predicates.notBetween("AGE", 10, 50);
 
 
 
-##### greaterThan23+
+#### greaterThan23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -535,7 +535,7 @@ predicates.greaterThan("AGE", 10);
 
 
 
-##### lessThan23+
+#### lessThan23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -571,7 +571,7 @@ predicates.lessThan("AGE", 50);
 
 
 
-##### greaterThanOrEqualTo23+
+#### greaterThanOrEqualTo23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -607,7 +607,7 @@ predicates.greaterThanOrEqualTo("AGE", 10);
 
 
 
-##### lessThanOrEqualTo23+
+#### lessThanOrEqualTo23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -643,7 +643,7 @@ predicates.lessThanOrEqualTo("AGE", 50);
 
 
 
-##### notIn23+
+#### notIn23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

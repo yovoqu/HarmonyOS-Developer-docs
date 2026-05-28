@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2___authenticator_attestation_response
 
-##### 概述
+#### 概述
 
 认证器声明响应。
  
@@ -14,11 +14,11 @@
  
   
 
-##### 汇总
+#### 汇总
 
   
 
-##### 成员变量
+#### 成员变量
  
 | 名称 | 描述 |
 | --- | --- |
@@ -32,11 +32,11 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
   
 
-##### attestationObject
+#### attestationObject
 
 ```text
 Uint8Buff FIDO2_AuthenticatorAttestationResponse::attestationObject
@@ -48,7 +48,7 @@ Uint8Buff FIDO2_AuthenticatorAttestationResponse::attestationObject
  
   
 
-##### authenticatorData
+#### authenticatorData
 
 ```text
 Uint8Buff FIDO2_AuthenticatorAttestationResponse::authenticatorData
@@ -60,7 +60,7 @@ Uint8Buff FIDO2_AuthenticatorAttestationResponse::authenticatorData
  
   
 
-##### clientDataJson
+#### clientDataJson
 
 ```json
 Uint8Buff FIDO2_AuthenticatorAttestationResponse::clientDataJson
@@ -72,7 +72,7 @@ Uint8Buff FIDO2_AuthenticatorAttestationResponse::clientDataJson
  
   
 
-##### publicKey
+#### publicKey
 
 ```text
 Uint8Buff FIDO2_AuthenticatorAttestationResponse::publicKey
@@ -84,7 +84,7 @@ publicKey凭证请求的选项，字节流。
  
   
 
-##### publicKeyAlgorithm
+#### publicKeyAlgorithm
 
 ```text
 FIDO2_Algorithm FIDO2_AuthenticatorAttestationResponse::publicKeyAlgorithm
@@ -96,7 +96,7 @@ FIDO2_Algorithm FIDO2_AuthenticatorAttestationResponse::publicKeyAlgorithm
  
   
 
-##### transports
+#### transports
 
 ```text
 FIDO2_AuthenticatorTransportArray FIDO2_AuthenticatorAttestationResponse::transports

@@ -10,7 +10,7 @@
 **起始版本：** 5.0.0(12)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -20,7 +20,7 @@ import { pdfService, pdfViewManager, PdfView } from '@kit.PDFKit';
  
   
 
-##### PdfView
+#### PdfView
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -43,7 +43,7 @@ import { pdfService, pdfViewManager, PdfView } from '@kit.PDFKit';
  
   
 
-##### build
+#### build
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

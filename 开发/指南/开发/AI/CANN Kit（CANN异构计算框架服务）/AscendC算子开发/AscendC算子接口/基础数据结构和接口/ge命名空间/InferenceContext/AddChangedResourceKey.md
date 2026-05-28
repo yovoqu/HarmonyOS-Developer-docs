@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-addchangedresourcekey
 
-##### 函数功能
+#### 函数功能
 
 在写类型的资源算子（如stack push）推导过程中，若资源shape变化了，调用该接口通知框架。
  
@@ -12,7 +12,7 @@
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 graphStatus AddChangedResourceKey(const ge::AscendString &key)
@@ -20,7 +20,7 @@ graphStatus AddChangedResourceKey(const ge::AscendString &key)
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数名 | 输入/输出 | 描述 |
 | --- | --- | --- |
@@ -29,12 +29,12 @@ graphStatus AddChangedResourceKey(const ge::AscendString &key)
  
   
 
-##### 返回值
+#### 返回值
 
 graphStatus：GRAPH_SUCCESS，代表成功；GRAPH_FAILED，代表失败。
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

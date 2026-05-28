@@ -9,7 +9,7 @@
 该规则仅支持对.ts文件进行检查。通过配置选项，可以支持对.ets文件进行检查。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -22,7 +22,7 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则支持配置以下选项：
  
@@ -50,7 +50,7 @@ type Options = [
  
  
 
-##### 正例
+#### 正例
 
 ```text
 // No return value should be expected (void)
@@ -78,7 +78,7 @@ export { test, fn, arrowFn, Test };
  
  
 
-##### 反例
+#### 反例
 
 ```text
 // Should indicate that no value is returned (void)
@@ -106,7 +106,7 @@ export { test, fn, arrowFn, Test };
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/recommended</span>

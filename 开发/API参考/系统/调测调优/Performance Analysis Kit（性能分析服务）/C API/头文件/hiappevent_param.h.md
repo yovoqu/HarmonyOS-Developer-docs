@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hiappevent-param-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 宏定义
+#### 宏定义
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -52,13 +52,13 @@
  
   
 
-##### 宏定义说明
+#### 宏定义说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### PARAM_USER_ID
+#### PARAM_USER_ID
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -74,7 +74,7 @@
  
   
 
-##### PARAM_DISTRIBUTED_SERVICE_NAME
+#### PARAM_DISTRIBUTED_SERVICE_NAME
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -90,7 +90,7 @@
  
   
 
-##### PARAM_DISTRIBUTED_SERVICE_INSTANCE_ID
+#### PARAM_DISTRIBUTED_SERVICE_INSTANCE_ID
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -106,7 +106,7 @@
  
   
 
-##### MAIN_THREAD_JANK_PARAM_LOG_TYPE
+#### MAIN_THREAD_JANK_PARAM_LOG_TYPE
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -122,7 +122,7 @@
  
   
 
-##### MAIN_THREAD_JANK_PARAM_SAMPLE_INTERVAL
+#### MAIN_THREAD_JANK_PARAM_SAMPLE_INTERVAL
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -138,7 +138,7 @@
  
   
 
-##### MAIN_THREAD_JANK_PARAM_IGNORE_STARTUP_TIME
+#### MAIN_THREAD_JANK_PARAM_IGNORE_STARTUP_TIME
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -154,7 +154,7 @@
  
   
 
-##### MAIN_THREAD_JANK_PARAM_SAMPLE_COUNT
+#### MAIN_THREAD_JANK_PARAM_SAMPLE_COUNT
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -170,7 +170,7 @@
  
   
 
-##### MAIN_THREAD_JANK_PARAM_REPORT_TIMES_PER_APP
+#### MAIN_THREAD_JANK_PARAM_REPORT_TIMES_PER_APP
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -186,7 +186,7 @@
  
   
 
-##### MAIN_THREAD_JANK_PARAM_AUTO_STOP_SAMPLING
+#### MAIN_THREAD_JANK_PARAM_AUTO_STOP_SAMPLING
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -202,7 +202,7 @@
  
   
 
-##### OH_APP_CRASH_PARAM_EXTEND_PC_LR_PRINTING
+#### OH_APP_CRASH_PARAM_EXTEND_PC_LR_PRINTING
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -218,7 +218,7 @@
  
   
 
-##### OH_APP_CRASH_PARAM_LOG_FILE_CUTOFF_SZ_BYTES
+#### OH_APP_CRASH_PARAM_LOG_FILE_CUTOFF_SZ_BYTES
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -234,7 +234,7 @@
  
   
 
-##### OH_APP_CRASH_PARAM_SIMPLIFY_VMA_PRINTING
+#### OH_APP_CRASH_PARAM_SIMPLIFY_VMA_PRINTING
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -250,7 +250,7 @@
  
   
 
-##### OH_APP_CRASH_PARAM_MERGE_CPPCRASH_APP_LOG
+#### OH_APP_CRASH_PARAM_MERGE_CPPCRASH_APP_LOG
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

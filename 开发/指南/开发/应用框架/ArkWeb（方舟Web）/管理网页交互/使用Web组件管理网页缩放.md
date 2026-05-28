@@ -7,11 +7,11 @@
 Web组件支持手势缩放、鼠标滚轮、键盘缩放，以方便用户调整到舒适的显示大小。并对应用提供监听、控制页面缩放比例的功能，以便应用实现个性化的视觉效果。
 
 
-##### 启用/禁用网页缩放
+#### 启用/禁用网页缩放
 
 
 
-##### 启用/禁用网页手势缩放
+#### 启用/禁用网页手势缩放
 
 通过属性[zoomAccess](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#zoomaccess)控制网页缩放功能，当设置为false时，网页不允许手势缩放行为。
 
@@ -42,13 +42,13 @@ struct WebComponent {
 
 
 
-##### 启用/禁用手势强制缩放
+#### 启用/禁用手势强制缩放
 
 通过属性[forceEnableZoom](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#forceenablezoom21)控制网页强制缩放功能，当设置为true时，手势缩放行为不受minimum-scale和maximum-scale以及user-scalable=no的限制。
 
 
 
-##### 启用/禁用网页键盘鼠标缩放
+#### 启用/禁用网页键盘鼠标缩放
 
 ArkWeb默认支持通过Ctrl+按键'-'/'+' 或者 Ctrl+鼠标滚轮进行缩放。应用可以通过拦截键盘事件来阻止按键缩放。
 
@@ -104,7 +104,7 @@ struct WebComponent {
 
 
 
-##### 监听页面缩放比例变化
+#### 监听页面缩放比例变化
 
 应用可以通过[onScaleChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onscalechange9)接口监听页面缩放比例的变化。该接口事件对应手势事件(双指缩放)，event.newScale对应网页属性visualViewport.scale。
 
@@ -129,7 +129,7 @@ struct WebComponent {
 
 
 
-##### 控制网页的缩放比例
+#### 控制网页的缩放比例
 
 应用可以通过设置[initialScale](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#initialscale9)属性设置页面初始缩放比例。
 
@@ -141,7 +141,7 @@ struct WebComponent {
 
 
 
-##### 以固定比例缩放页面
+#### 以固定比例缩放页面
 
 zoomIn将当前网页进行放大，比例为25%；zoomOut将当前网页进行缩小，比例为20%。
 
@@ -180,7 +180,7 @@ struct WebComponent {
 
 
 
-##### 根据输入值控制页面缩放比例:
+#### 根据输入值控制页面缩放比例:
 
 zoom基于当前网页比例进行缩放，入参要求大于0，当入参为1时为默认加载网页的缩放比例，入参小于1为缩小，入参大于1为放大。
 
@@ -217,12 +217,12 @@ struct WebComponent {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/3z13iymIQhKGIgiKkovCDQ/zh-cn_image_0000002611834117.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014742Z&HW-CC-Expire=86400&HW-CC-Sign=20DFB079F48D27312C5FC746CE48990C13FFF261A8DA5F290174000B3EA2956F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/3z13iymIQhKGIgiKkovCDQ/zh-cn_image_0000002611834117.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030413Z&HW-CC-Expire=86400&HW-CC-Sign=BAC04A4B636F57449505C787719C9ABE4D250DB5BAC788EAC6AACC71B0655BB5)
 
 
 
 
-##### 缩放页面到目标比例:
+#### 缩放页面到目标比例:
 
 通过onScaleChange接口，应用可以得知当前网页的缩放比例，配合zoom接口即可实现将页面缩放至指定比例的功能。根据当前页面缩放比例pageFactor和目标比例targetFactor计算zoom入参的公式为：
 
@@ -272,4 +272,4 @@ struct WebComponent {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/tUN1GP1XT8mG-o7b1WjMlA/zh-cn_image_0000002581274372.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014742Z&HW-CC-Expire=86400&HW-CC-Sign=2C5B518FFFF427DC2619379CC6C901237F387FB7D8C9E2A5BE85FFCC1F43150B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/tUN1GP1XT8mG-o7b1WjMlA/zh-cn_image_0000002581274372.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030413Z&HW-CC-Expire=86400&HW-CC-Sign=38B8A5851C0D9A7EC184F37F7F9A6BE6F7D6875E47E047BC4E21D1E943D25F09)

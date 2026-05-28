@@ -7,7 +7,7 @@
 **   
 
 
-##### 概述
+#### 概述
 
 AVRecorder提供了Native API，可以快速实现音频录制，支持m4a、mp3等格式。本文适用于音频录制类应用的开发，针对市场上主流音频录制类应用的常见场景，介绍了在C/C++侧基于AVRecorder如何录制格式化音频，指导开发者实现基础录制。
  
@@ -23,11 +23,11 @@ AVRecorder提供了Native API，可以快速实现音频录制，支持m4a、mp3
  
  
 
-##### 基础录制
+#### 基础录制
 
  
 
-##### 实现原理
+#### 实现原理
 
 除了ArkTS语言版本外，HarmonyOS还提供了C/C++语言版本的AVRecorder录制器，用于在C/C++侧进行音频数据采集、音频编码以及音频文件封装等端到端一体化音频录制。C/C++侧AVRecorder的功能和开发流程与ArkTS侧基本一致。
  
@@ -39,7 +39,7 @@ AVRecorder提供了Native API，可以快速实现音频录制，支持m4a、mp3
  
  
 
-##### 开发步骤
+#### 开发步骤
 
 1.在CMake脚本中链接动态库libavrecorder.so、libnative_media_core.so等。
  
@@ -204,22 +204,22 @@ napi_value AVRecorder::ReleaseAVRecorder(napi_env env, napi_callback_info info) 
  
  
 
-##### 常见问题
+#### 常见问题
 
  
 
-##### 设置静音打断模式
+#### 设置静音打断模式
 
 通过调用[OH_AVRecorder_SetWillMuteWhenInterrupted()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avrecorder-h#oh_avrecorder_setwillmutewheninterrupted)接口设置是否开启静音打断模式。
  
  
 
-##### 设置回声消除
+#### 设置回声消除
 
 通过将[OH_AVRecorder_AudioSourceType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avrecorder-base-h#oh_avrecorder_audiosourcetype)值指定为AVRECORDER_VOICE_COMMUNICATION即可。
  
  
 
-##### 示例代码
+#### 示例代码
 
 - [基于AVRecorder录制音频（C++）](https://gitcode.com/HarmonyOS_Samples/avrecorder-record-formatted-audio-cpp)

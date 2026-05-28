@@ -12,7 +12,7 @@
 音频录制管理类，用于录制音频媒体。在调用AudioRecorder的方法前，需要先通过[createAudioRecorder()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-f#mediacreateaudiorecorderdeprecated) 构建一个AudioRecorder实例。
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { media } from '@kit.MediaKit';
 
 
 
-##### prepare(deprecated)
+#### prepare(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -74,7 +74,7 @@ audioRecorder.prepare(audioRecorderConfig);
 
 
 
-##### start(deprecated)
+#### start(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -99,7 +99,7 @@ audioRecorder.start();
 
 
 
-##### pause(deprecated)
+#### pause(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -124,7 +124,7 @@ audioRecorder.pause();
 
 
 
-##### resume(deprecated)
+#### resume(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -149,7 +149,7 @@ audioRecorder.resume();
 
 
 
-##### stop(deprecated)
+#### stop(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -174,7 +174,7 @@ audioRecorder.stop();
 
 
 
-##### release(deprecated)
+#### release(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -200,7 +200,7 @@ audioRecorder = undefined;
 
 
 
-##### reset(deprecated)
+#### reset(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -227,7 +227,7 @@ audioRecorder.reset();
 
 
 
-##### on('prepare' | 'start' | 'pause' | 'resume' | 'stop' | 'release' | 'reset')(deprecated)
+#### on('prepare' | 'start' | 'pause' | 'resume' | 'stop' | 'release' | 'reset')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -294,7 +294,7 @@ audioRecorder.prepare(audioRecorderConfig)  // 设置录制参数 ，并触发'p
 
 
 
-##### on('error')(deprecated)
+#### on('error')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

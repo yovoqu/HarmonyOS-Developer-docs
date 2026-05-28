@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-preferences-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -40,7 +40,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -73,13 +73,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_PreferencesDataObserver()
+#### OH_PreferencesDataObserver()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -104,7 +104,7 @@ typedef void (*OH_PreferencesDataObserver)(void *context, const OH_PreferencesPa
  
   
 
-##### OH_Preferences_Open()
+#### OH_Preferences_Open()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -137,7 +137,7 @@ OH_Preferences *OH_Preferences_Open(OH_PreferencesOption *option, int *errCode)
  
   
 
-##### OH_Preferences_Close()
+#### OH_Preferences_Close()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -167,7 +167,7 @@ int OH_Preferences_Close(OH_Preferences *preference)
  
   
 
-##### OH_Preferences_GetInt()
+#### OH_Preferences_GetInt()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -199,7 +199,7 @@ int OH_Preferences_GetInt(OH_Preferences *preference, const char *key, int *valu
  
   
 
-##### OH_Preferences_GetBool()
+#### OH_Preferences_GetBool()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -231,7 +231,7 @@ int OH_Preferences_GetBool(OH_Preferences *preference, const char *key, bool *va
  
   
 
-##### OH_Preferences_GetString()
+#### OH_Preferences_GetString()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -264,7 +264,7 @@ int OH_Preferences_GetString(OH_Preferences *preference, const char *key, char *
  
   
 
-##### OH_Preferences_FreeString()
+#### OH_Preferences_FreeString()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -287,7 +287,7 @@ void OH_Preferences_FreeString(char *string)
  
   
 
-##### OH_Preferences_SetInt()
+#### OH_Preferences_SetInt()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -319,7 +319,7 @@ int OH_Preferences_SetInt(OH_Preferences *preference, const char *key, int value
  
   
 
-##### OH_Preferences_SetBool()
+#### OH_Preferences_SetBool()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -351,7 +351,7 @@ int OH_Preferences_SetBool(OH_Preferences *preference, const char *key, bool val
  
   
 
-##### OH_Preferences_SetString()
+#### OH_Preferences_SetString()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -383,7 +383,7 @@ int OH_Preferences_SetString(OH_Preferences *preference, const char *key, const 
  
   
 
-##### OH_Preferences_Delete()
+#### OH_Preferences_Delete()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -414,7 +414,7 @@ int OH_Preferences_Delete(OH_Preferences *preference, const char *key)
  
   
 
-##### OH_Preferences_RegisterDataObserver()
+#### OH_Preferences_RegisterDataObserver()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -448,7 +448,7 @@ int OH_Preferences_RegisterDataObserver(OH_Preferences *preference, void *contex
  
   
 
-##### OH_Preferences_UnregisterDataObserver()
+#### OH_Preferences_UnregisterDataObserver()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -482,7 +482,7 @@ int OH_Preferences_UnregisterDataObserver(OH_Preferences *preference, void *cont
  
   
 
-##### OH_Preferences_IsStorageTypeSupported()
+#### OH_Preferences_IsStorageTypeSupported()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -513,7 +513,7 @@ int OH_Preferences_IsStorageTypeSupported(Preferences_StorageType type, bool *is
  
   
 
-##### OH_Preferences_DeletePreferences()
+#### OH_Preferences_DeletePreferences()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -543,7 +543,7 @@ int OH_Preferences_DeletePreferences(OH_PreferencesOption *option)
  
   
 
-##### OH_Preferences_SetValue()
+#### OH_Preferences_SetValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -575,7 +575,7 @@ int OH_Preferences_SetValue(OH_Preferences *preference, const char *key, OH_Pref
  
   
 
-##### OH_Preferences_GetValue()
+#### OH_Preferences_GetValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -607,7 +607,7 @@ int OH_Preferences_GetValue(OH_Preferences *preference, const char *key, OH_Pref
  
   
 
-##### OH_Preferences_GetAll()
+#### OH_Preferences_GetAll()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -639,7 +639,7 @@ int OH_Preferences_GetAll(OH_Preferences *preference, OH_PreferencesPair **pairs
  
   
 
-##### OH_Preferences_HasKey()
+#### OH_Preferences_HasKey()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -670,7 +670,7 @@ bool OH_Preferences_HasKey(OH_Preferences *preference, const char *key)
  
   
 
-##### OH_Preferences_Flush()
+#### OH_Preferences_Flush()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -700,7 +700,7 @@ int OH_Preferences_Flush(OH_Preferences *preference)
  
   
 
-##### OH_Preferences_ClearCache()
+#### OH_Preferences_ClearCache()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -730,7 +730,7 @@ int OH_Preferences_ClearCache(OH_Preferences *preference)
  
   
 
-##### OH_Preferences_RegisterMultiProcessDataObserver()
+#### OH_Preferences_RegisterMultiProcessDataObserver()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -762,7 +762,7 @@ int OH_Preferences_RegisterMultiProcessDataObserver(OH_Preferences *preference, 
  
   
 
-##### OH_Preferences_UnregisterMultiProcessDataObserver()
+#### OH_Preferences_UnregisterMultiProcessDataObserver()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-calcsize
 
-##### 函数功能
+#### 函数功能
 
 用于计算算子对应的ComputeNodeInfo需要预分配的内存空间大小。
  
@@ -12,7 +12,7 @@ ComputeNodeInfo的内存空间是平铺式的，内存依次存放ComputeNodeInf
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 static ge::graphStatus CalcSize(const size_t ir_inputs_num, const size_t inputs_num, const size_t outputs_num, size_t &total_size);
@@ -21,7 +21,7 @@ static ge::graphStatus CalcSize(const size_t ir_inputs_num, const size_t ir_outp
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -34,7 +34,7 @@ static ge::graphStatus CalcSize(const size_t ir_inputs_num, const size_t ir_outp
  
   
 
-##### 返回值
+#### 返回值
 
 返回值为graphStatus类型（uint32_t），其不同的状态取值说明如下。
   
@@ -46,13 +46,13 @@ static ge::graphStatus CalcSize(const size_t ir_inputs_num, const size_t ir_outp
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 auto ir_input_num = node->GetOpDesc()->GetIrInputs().size();

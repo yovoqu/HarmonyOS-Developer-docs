@@ -12,7 +12,7 @@
 **起始版本：** 4.1.0(11)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { speechRecognizer } from '@kit.CoreSpeechKit';
 
 
 
-##### speechRecognizer.createEngine
+#### speechRecognizer.createEngine
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -96,7 +96,7 @@ struct Page {
 
 
 
-##### speechRecognizer.createEngine
+#### speechRecognizer.createEngine
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -171,7 +171,7 @@ struct Page {
 
 
 
-##### SpeechRecognitionEngine
+#### SpeechRecognitionEngine
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -183,7 +183,7 @@ struct Page {
 
 
 
-##### listLanguages
+#### listLanguages
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -250,7 +250,7 @@ struct Page {
 
 
 
-##### listLanguages
+#### listLanguages
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -320,7 +320,7 @@ struct Page {
 
 
 
-##### setListener
+#### setListener
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -385,7 +385,7 @@ struct Page {
 
 
 
-##### startListening
+#### startListening
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -443,7 +443,7 @@ struct Page {
 
 
 
-##### writeAudio
+#### writeAudio
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -504,7 +504,7 @@ struct Page {
 
 
 
-##### finish
+#### finish
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -578,7 +578,7 @@ struct Page {
 
 
 
-##### cancel
+#### cancel
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -652,7 +652,7 @@ struct Page {
 
 
 
-##### isBusy
+#### isBusy
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -725,7 +725,7 @@ struct Page {
 
 
 
-##### shutdown
+#### shutdown
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -781,7 +781,7 @@ struct Page {
 
 
 
-##### RecognitionListener
+#### RecognitionListener
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -793,7 +793,7 @@ struct Page {
 
 
 
-##### onStart
+#### onStart
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -859,7 +859,7 @@ struct Page {
 
 
 
-##### onEvent
+#### onEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -926,7 +926,7 @@ struct Page {
 
 
 
-##### onResult
+#### onResult
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -992,7 +992,7 @@ struct Page {
 
 
 
-##### onComplete
+#### onComplete
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1058,7 +1058,7 @@ struct Page {
 
 
 
-##### onError
+#### onError
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1125,7 +1125,7 @@ struct Page {
 
 
 
-##### CreateEngineParams
+#### CreateEngineParams
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1144,7 +1144,7 @@ struct Page {
 
 
 
-##### LanguageQuery
+#### LanguageQuery
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1162,7 +1162,7 @@ struct Page {
 
 
 
-##### StartParams
+#### StartParams
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1220,7 +1220,7 @@ struct Page {
 
 
 
-##### AudioInfo
+#### AudioInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1241,7 +1241,7 @@ struct Page {
 
 
 
-##### SpeechRecognitionResult
+#### SpeechRecognitionResult
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

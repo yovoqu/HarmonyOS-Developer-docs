@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getoutputssize
 
-##### 函数功能
+#### 函数功能
 
 获取算子所有Output的个数。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 size_t GetOutputsSize() const;
@@ -18,13 +18,13 @@ size_t GetOutputsSize() const;
  
   
 
-##### 参数说明
+#### 参数说明
 
 无
  
   
 
-##### 返回值
+#### 返回值
  
 | 类型 | 描述 |
 | --- | --- |
@@ -33,6 +33,6 @@ size_t GetOutputsSize() const;
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

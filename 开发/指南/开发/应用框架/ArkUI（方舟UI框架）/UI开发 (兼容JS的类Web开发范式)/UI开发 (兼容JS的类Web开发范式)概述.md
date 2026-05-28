@@ -9,7 +9,7 @@
 请参考[兼容JS的类Web开发范式API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkui-js-full-comp)文档，全面地了解组件，更好地开发应用。
   
 
-##### 整体架构
+#### 整体架构
 
 兼容JS的类Web开发范式的方舟开发框架，包括应用层（Application）、前端框架层（Framework）、引擎层（Engine）和平台适配层（Porting Layer）。
  
@@ -33,7 +33,7 @@
  
   
 
-##### ArkUI.Full与ArkUI.Lite
+#### ArkUI.Full与ArkUI.Lite
 
 兼容JS的类Web开发范式根据功能完整度和适用场景的不同，分为ArkUI.Full和ArkUI.Lite两个版本。ArkUI.Lite是ArkUI.Full的子集，ArkUI.Full包含ArkUI.Lite的所有能力，同时提供更多的组件和功能支持。开发者可根据应用的复杂度和资源需求选择合适的版本。
  

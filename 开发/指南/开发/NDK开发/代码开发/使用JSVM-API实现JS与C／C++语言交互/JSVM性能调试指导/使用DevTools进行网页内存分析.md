@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-about-analyze-memory-usage
 
-##### 开启DevTools
+#### 开启DevTools
 
 DevTools为Chrome浏览器自带工具，[下载](https://www.google.com.hk/intl/en_uk/chrome/)并启动Chrome浏览器后，在需要进行内存分析的页面按下F12或者Shift+Ctrl+I启动DevTools开发者工具。
  
   
 
-##### 获取js堆内存快照
+#### 获取js堆内存快照
 
 在内存界面下选择堆快照，点击获取快照即可对当前页面进行一次内存快照。
  
@@ -24,11 +24,11 @@ DevTools为Chrome浏览器自带工具，[下载](https://www.google.com.hk/intl
  
   
 
-##### 堆快照分析
+#### 堆快照分析
 
   
 
-##### 摘要(Summary)
+#### 摘要(Summary)
 
 摘要展示当前内存快照的概览。其中：
  
@@ -51,7 +51,7 @@ DevTools为Chrome浏览器自带工具，[下载](https://www.google.com.hk/intl
  
   
 
-##### 比较(Comparison)
+#### 比较(Comparison)
 
 在比较(Comparison)中可以将当前快照与另一个快照比较，跟踪对象属性和内存占用的变化。其中：
  
@@ -72,7 +72,7 @@ DevTools为Chrome浏览器自带工具，[下载](https://www.google.com.hk/intl
  
   
 
-##### 控制(Containment)
+#### 控制(Containment)
 
 控制(Containment)提供了一个自上而下的树形界面，该界面允许浏览和探索堆内存中的内容。我们可以用它来分析任意变量的引用情况。
  
@@ -82,7 +82,7 @@ DevTools为Chrome浏览器自带工具，[下载](https://www.google.com.hk/intl
  
   
 
-##### 统计信息(Statistics)
+#### 统计信息(Statistics)
 
 统计信息(Statistics)用一个饼图展示各个类型对象的内存占用比例。
  
@@ -92,7 +92,7 @@ DevTools为Chrome浏览器自带工具，[下载](https://www.google.com.hk/intl
  
   
 
-##### 内存泄漏分析流程
+#### 内存泄漏分析流程
 1. 打开一个可能存在内存泄漏问题的页面并启用DevTools。下图展示的页面来自GitHub上的[memory-leak-simulation](https://github.com/Buchatech/JavaScript-Memory-Leak-Simulation)项目，该网页通过设置全局数组并不断向其推入'memory leak'字符串来模拟内存泄漏场景。
 
   

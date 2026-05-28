@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-transdatato5hd
 
-##### 功能说明
+#### 功能说明
 
 数据格式转换，一般用于将NCHW格式转换成NC1HWC0格式。特别的，也可以用于二维矩阵数据块的转置。完成转置功能时，相比于[Transpose](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-transpose)接口，Transpose仅支持16*16大小的矩阵转置。本接口单次repeat内可处理512Byte的数据（16个datablock），根据数据类型不同，支持不同shape的矩阵转置（比如数据类型为half时，单次repeat可完成16*16大小的矩阵转置），同时还可以支持多次repeat操作。
  
@@ -45,7 +45,7 @@ NCHW格式转换成NC1HWC0格式时，如果是数据类型是float/int32_t/uint
  
   
 
-##### 函数原型
+#### 函数原型
 
 dstLocalList与srcLocalList类型为LocalTensor的数组。
  
@@ -57,7 +57,7 @@ template <typename T>
  
   
 
-##### 参数说明
+#### 参数说明
 
 **表1** 模板参数说明
   
@@ -87,7 +87,7 @@ template <typename T>
  
   
 
-##### 支持的型号
+#### 支持的型号
 
 Kirin9020系列处理器
  
@@ -95,7 +95,7 @@ KirinX90系列处理器
  
   
 
-##### 注意事项
+#### 注意事项
 
 - 进行NCHW格式到NC1HWC0格式的转换时，一般用法是将srcLocalList/dstLocalList中的每个元素配置为每个HW平面的起点。
 - 为了性能更优，int8_t/uint8_t时建议先固定dstHighHalf、srcHighHalf，在HW方向repeat后，再改变dstHighHalf、srcHighHalf。
@@ -111,13 +111,13 @@ KirinX90系列处理器
  
   
 
-##### 返回值
+#### 返回值
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 - NCHW格式转换成NC1HWC0格式调用示例，其中输入数据为half类型，输入NCHW格式为（2, 32, 16, 16），目标格式NC1HWC0为（2, 2, 16, 16, 16）。
 

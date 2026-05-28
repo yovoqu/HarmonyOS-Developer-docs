@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -22,7 +22,7 @@ import { data } from '@kit.TelephonyKit';
 
 
 
-##### data.getDefaultCellularDataSlotId
+#### data.getDefaultCellularDataSlotId
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -56,7 +56,7 @@ data.getDefaultCellularDataSlotId((err: BusinessError, contextData: number) => {
 
 
 
-##### data.getDefaultCellularDataSlotId
+#### data.getDefaultCellularDataSlotId
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -88,7 +88,7 @@ data.getDefaultCellularDataSlotId().then((contextData: number) => {
 
 
 
-##### data.getDefaultCellularDataSlotIdSync9+
+#### data.getDefaultCellularDataSlotIdSync9+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -115,7 +115,7 @@ console.info("Result: "+ data.getDefaultCellularDataSlotIdSync())
 
 
 
-##### data.getCellularDataFlowType
+#### data.getCellularDataFlowType
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -160,7 +160,7 @@ data.getCellularDataFlowType((err: BusinessError, contextData: data.DataFlowType
 
 
 
-##### data.getCellularDataFlowType
+#### data.getCellularDataFlowType
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -203,7 +203,7 @@ data.getCellularDataFlowType().then((contextData: data.DataFlowType) => {
 
 
 
-##### data.getCellularDataState
+#### data.getCellularDataState
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -248,7 +248,7 @@ data.getCellularDataState((err: BusinessError, contextData: data.DataConnectStat
 
 
 
-##### data.getCellularDataState
+#### data.getCellularDataState
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -291,7 +291,7 @@ data.getCellularDataState().then((contextData: data.DataConnectState) => {
 
 
 
-##### data.isCellularDataEnabled
+#### data.isCellularDataEnabled
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -341,7 +341,7 @@ data.isCellularDataEnabled((err: BusinessError, contextData: boolean) => {
 
 
 
-##### data.isCellularDataEnabled
+#### data.isCellularDataEnabled
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -387,7 +387,7 @@ data.isCellularDataEnabled().then((contextData: boolean) => {
 
 
 
-##### data.isCellularDataEnabledSync12+
+#### data.isCellularDataEnabledSync12+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -433,7 +433,7 @@ try {
 
 
 
-##### data.isCellularDataRoamingEnabled
+#### data.isCellularDataRoamingEnabled
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -484,7 +484,7 @@ data.isCellularDataRoamingEnabled(0, (err: BusinessError, contextData: boolean) 
 
 
 
-##### data.isCellularDataRoamingEnabled
+#### data.isCellularDataRoamingEnabled
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -539,7 +539,7 @@ data.isCellularDataRoamingEnabled(0).then((contextData: boolean) => {
 
 
 
-##### data.isCellularDataRoamingEnabledSync12+
+#### data.isCellularDataRoamingEnabledSync12+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -594,7 +594,7 @@ try {
 
 
 
-##### data.getDefaultCellularDataSimId10+
+#### data.getDefaultCellularDataSimId10+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -621,7 +621,7 @@ console.info("Result: "+ data.getDefaultCellularDataSimId());
 
 
 
-##### data.queryAllApns16+
+#### data.queryAllApns16+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -664,7 +664,7 @@ data.queryAllApns().then((apnInfos: Array<data.ApnInfo>) => {
 
 
 
-##### data.queryApnIds16+
+#### data.queryApnIds16+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -722,7 +722,7 @@ data.queryApnIds(apnInfo).then((apnIds: Array<number>) => {
 
 
 
-##### data.setPreferredApn16+
+#### data.setPreferredApn16+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -777,7 +777,7 @@ data.setPreferredApn(apnId).then((result: boolean) => {
 
 
 
-##### data.getActiveApnName20+
+#### data.getActiveApnName20+
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -820,7 +820,7 @@ data.getActiveApnName().then((apn: string) => {
 
 
 
-##### DataFlowType
+#### DataFlowType
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -839,7 +839,7 @@ data.getActiveApnName().then((apn: string) => {
 
 
 
-##### DataConnectState
+#### DataConnectState
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -858,7 +858,7 @@ data.getActiveApnName().then((apn: string) => {
 
 
 
-##### ApnInfo16+
+#### ApnInfo16+
 
 **支持设备：** Phone | Tablet | Wearable
 

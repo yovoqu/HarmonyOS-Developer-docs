@@ -12,7 +12,7 @@
 
 
 
-##### @Entry
+#### @Entry
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -39,7 +39,7 @@ struct Index {
 
 
 
-##### EntryOptions10+
+#### EntryOptions10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

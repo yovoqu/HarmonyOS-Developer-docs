@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { drawing } from '@kit.ArkGraphics2D';
 
 
 
-##### isSubpixel12+
+#### isSubpixel12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -53,7 +53,7 @@ console.info("values=" + font.isSubpixel());
 
 
 
-##### isLinearMetrics12+
+#### isLinearMetrics12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -84,7 +84,7 @@ console.info("values=" + font.isLinearMetrics());
 
 
 
-##### getSkewX12+
+#### getSkewX12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -115,7 +115,7 @@ console.info("values=" + font.getSkewX());
 
 
 
-##### isEmbolden12+
+#### isEmbolden12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -146,7 +146,7 @@ console.info("values=" + font.isEmbolden());
 
 
 
-##### getScaleX12+
+#### getScaleX12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -177,7 +177,7 @@ console.info("values=" + font.getScaleX());
 
 
 
-##### getHinting12+
+#### getHinting12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -207,7 +207,7 @@ console.info("values=" + font.getHinting());
 
 
 
-##### getEdging12+
+#### getEdging12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -237,7 +237,7 @@ console.info("values=" + font.getEdging());
 
 
 
-##### enableSubpixel
+#### enableSubpixel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -276,7 +276,7 @@ font.enableSubpixel(true);
 
 
 
-##### enableEmbolden
+#### enableEmbolden
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -315,7 +315,7 @@ font.enableEmbolden(true);
 
 
 
-##### enableLinearMetrics
+#### enableLinearMetrics
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -354,7 +354,7 @@ font.enableLinearMetrics(true);
 
 
 
-##### setSize
+#### setSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -393,7 +393,7 @@ font.setSize(5);
 
 
 
-##### getSize
+#### getSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -424,7 +424,7 @@ let fontSize = font.getSize();
 
 
 
-##### setTypeface
+#### setTypeface
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -463,7 +463,7 @@ font.setTypeface(new drawing.Typeface());
 
 
 
-##### getTypeface
+#### getTypeface
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -493,7 +493,7 @@ let typeface = font.getTypeface();
 
 
 
-##### getMetrics
+#### getMetrics
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -523,7 +523,7 @@ let metrics = font.getMetrics();
 
 
 
-##### measureText
+#### measureText
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -574,7 +574,7 @@ font.measureText("drawing", drawing.TextEncoding.TEXT_ENCODING_UTF8);
 
 
 
-##### measureSingleCharacter12+
+#### measureSingleCharacter12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -627,7 +627,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### measureSingleCharacterWithFeatures20+
+#### measureSingleCharacterWithFeatures20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -682,7 +682,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### setScaleX12+
+#### setScaleX12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -734,7 +734,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### setSkewX12+
+#### setSkewX12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -786,7 +786,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### setEdging12+
+#### setEdging12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -825,7 +825,7 @@ font.setEdging(drawing.FontEdging.SUBPIXEL_ANTI_ALIAS);
 
 
 
-##### setHinting12+
+#### setHinting12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -864,7 +864,7 @@ font.setHinting(drawing.FontHinting.FULL);
 
 
 
-##### countText12+
+#### countText12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -911,7 +911,7 @@ console.info("count text number: " + resultNumber);
 
 
 
-##### setBaselineSnap12+
+#### setBaselineSnap12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -951,7 +951,7 @@ console.info("drawing font isBaselineSnap: " + font.isBaselineSnap());
 
 
 
-##### isBaselineSnap()12+
+#### isBaselineSnap()12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -983,7 +983,7 @@ console.info("drawing font isBaselineSnap: " + font.isBaselineSnap());
 
 
 
-##### setEmbeddedBitmaps12+
+#### setEmbeddedBitmaps12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1024,7 +1024,7 @@ console.info("draw isEmbeddedBitmaps: " + font.isEmbeddedBitmaps());
 
 
 
-##### isEmbeddedBitmaps()12+
+#### isEmbeddedBitmaps()12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1056,7 +1056,7 @@ console.info("draw isEmbeddedBitmaps: " + font.isEmbeddedBitmaps());
 
 
 
-##### setForceAutoHinting12+
+#### setForceAutoHinting12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1097,7 +1097,7 @@ console.info("drawing isForceAutoHinting:  " + font.isForceAutoHinting());
 
 
 
-##### isForceAutoHinting12+
+#### isForceAutoHinting12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1129,7 +1129,7 @@ console.info("drawing isForceAutoHinting:  " + font.isForceAutoHinting());
 
 
 
-##### getWidths12+
+#### getWidths12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1180,7 +1180,7 @@ for (let index = 0; index < fontWidths.length; index++) {
 
 
 
-##### textToGlyphs12+
+#### textToGlyphs12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1229,7 +1229,7 @@ console.info("drawing text toglyphs OnTestFunction num =  " + glyphs.length );
 
 
 
-##### getBounds18+
+#### getBounds18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1272,7 +1272,7 @@ for (let index = 0; index < fontBounds.length; index++) {
 
 
 
-##### getTextPath18+
+#### getTextPath18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1332,7 +1332,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### createPathForGlyph18+
+#### createPathForGlyph18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1381,7 +1381,7 @@ class DrawingRenderNode extends RenderNode {
 
 
 
-##### setThemeFontFollowed15+
+#### setThemeFontFollowed15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1421,7 +1421,7 @@ console.info("font is theme font followed: " + font.isThemeFontFollowed());
 
 
 
-##### isThemeFontFollowed()15+
+#### isThemeFontFollowed()15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

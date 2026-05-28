@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { ProgressButton } from '@kit.ArkUI';
  
   
 
-##### ProgressButton
+#### ProgressButton
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -47,7 +47,7 @@ ProgressButton({progress: number, content: ResourceStr, progressButtonWidth?: Le
  
   
 
-##### ProgressButtonColorOptions18+
+#### ProgressButtonColorOptions18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -69,7 +69,7 @@ ProgressButton({progress: number, content: ResourceStr, progressButtonWidth?: Le
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -77,13 +77,13 @@ ProgressButton({progress: number, content: ResourceStr, progressButtonWidth?: Le
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 示例1（进度条下载按钮）
+#### 示例1（进度条下载按钮）
 
 该示例实现了一个简单的带加载进度的文本下载按钮。
  
@@ -143,7 +143,7 @@ struct Index {
  
   
 
-##### 示例2（自定义颜色按钮）
+#### 示例2（自定义颜色按钮）
 
 该示例实现了一个简单的自定义颜色的文本下载按钮。
  
@@ -210,7 +210,7 @@ struct Index {
  
   
 
-##### 示例3（自定义圆角按钮）
+#### 示例3（自定义圆角按钮）
 
 该示例实现了一个简单的自定义圆角的文本下载按钮。
  
@@ -266,4 +266,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/8u-saHAfS-ihRKQTIIka5w/zh-cn_image_0000002611836089.png?HW-CC-KV=V1&HW-CC-Date=20260528T024155Z&HW-CC-Expire=86400&HW-CC-Sign=CD26B5E4206B07BA1CE5194C36E8212265CEC68F09DDEE0122D64FB8CD0933E4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/8u-saHAfS-ihRKQTIIka5w/zh-cn_image_0000002611836089.png?HW-CC-KV=V1&HW-CC-Date=20260528T025527Z&HW-CC-Expire=86400&HW-CC-Sign=3B5156CAA1447774E9D5E3542E59A9D0451E45BB906498C979515BAEF461B6A9)

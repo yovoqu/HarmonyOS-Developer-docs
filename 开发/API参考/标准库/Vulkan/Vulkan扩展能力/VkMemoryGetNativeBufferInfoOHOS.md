@@ -9,7 +9,7 @@ typedef struct VkMemoryGetNativeBufferInfoOHOS {...} VkMemoryGetNativeBufferInfo
 ```
   
 
-##### 概述
+#### 概述
 
 用于从Vulkan内存中获取OH_NativeBuffer。
  
@@ -21,11 +21,11 @@ typedef struct VkMemoryGetNativeBufferInfoOHOS {...} VkMemoryGetNativeBufferInfo
  
   
 
-##### 汇总
+#### 汇总
 
   
 
-##### 成员变量
+#### 成员变量
  
 | 名称 | 描述 |
 | --- | --- |

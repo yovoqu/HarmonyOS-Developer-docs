@@ -10,7 +10,7 @@
 
 
 
-##### RecommendationOptions11+
+#### RecommendationOptions11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -26,7 +26,7 @@
 
 
 
-##### BaseSelectOptions
+#### BaseSelectOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -60,7 +60,7 @@
 
 
 
-##### PhotoSelectOptions
+#### PhotoSelectOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -85,7 +85,7 @@ PhotoSelectOptions extends BaseSelectOptions
 
 
 
-##### PhotoSelectResult
+#### PhotoSelectResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -103,7 +103,7 @@ PhotoSelectOptions extends BaseSelectOptions
 
 
 
-##### AutoPlayScene23+
+#### AutoPlayScene23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -121,7 +121,7 @@ PhotoSelectOptions extends BaseSelectOptions
 
 
 
-##### MimeTypeFilter19+
+#### MimeTypeFilter19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -138,7 +138,7 @@ PhotoSelectOptions extends BaseSelectOptions
 
 
 
-##### FileSizeFilter19+
+#### FileSizeFilter19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -157,7 +157,7 @@ PhotoSelectOptions extends BaseSelectOptions
 
 
 
-##### VideoDurationFilter19+
+#### VideoDurationFilter19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -176,7 +176,7 @@ PhotoSelectOptions extends BaseSelectOptions
 
 
 
-##### RecentPhotoOptions20+
+#### RecentPhotoOptions20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -193,7 +193,7 @@ PhotoSelectOptions extends BaseSelectOptions
 
 
 
-##### RecentPhotoInfo20+
+#### RecentPhotoInfo20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -209,7 +209,7 @@ PhotoSelectOptions extends BaseSelectOptions
 
 
 
-##### PhotoViewMimeTypeFileSizeFilter20+
+#### PhotoViewMimeTypeFileSizeFilter20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -227,7 +227,7 @@ PhotoSelectOptions extends BaseSelectOptions
 
 
 
-##### ContextRecoveryInfo21+
+#### ContextRecoveryInfo21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -250,7 +250,7 @@ PhotoPicker退出界面的上下文信息，可以用于下次使用PhotoPicker�
 
 
 
-##### OperationItem22+
+#### OperationItem22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -271,7 +271,7 @@ PhotoPicker退出界面的上下文信息，可以用于下次使用PhotoPicker�
 
 
 
-##### RequestReadPermissionResult23+
+#### RequestReadPermissionResult23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

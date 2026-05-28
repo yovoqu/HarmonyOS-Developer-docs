@@ -10,7 +10,7 @@
 
 
 
-##### PositionArea7+
+#### PositionArea7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -32,7 +32,7 @@
 
 
 
-##### ImageInfo
+#### ImageInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -53,7 +53,7 @@
 
 
 
-##### Size
+#### Size
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -73,7 +73,7 @@
 
 
 
-##### HdrComposeOptions23+
+#### HdrComposeOptions23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -90,7 +90,7 @@ Picture合成HDR时可配置的参数选项。
 
 
 
-##### AuxiliaryPictureInfo13+
+#### AuxiliaryPictureInfo13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -109,7 +109,7 @@ Picture合成HDR时可配置的参数选项。
 
 
 
-##### SourceOptions9+
+#### SourceOptions9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -130,7 +130,7 @@ ImageSource的初始化选项。
 
 
 
-##### InitializationOptions8+
+#### InitializationOptions8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -150,7 +150,7 @@ PixelMap的初始化选项。
 
 
 
-##### DecodingOptions7+
+#### DecodingOptions7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -175,7 +175,7 @@ PixelMap的初始化选项。
 
 
 
-##### DecodingOptionsForPicture13+
+#### DecodingOptionsForPicture13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -192,7 +192,7 @@ PixelMap的初始化选项。
 
 
 
-##### Region8+
+#### Region8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -213,7 +213,7 @@ PixelMap的初始化选项。
 
 
 
-##### PackingOption
+#### PackingOption
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -232,7 +232,7 @@ PixelMap的初始化选项。
 
 
 
-##### PackingOptionsForSequence18+
+#### PackingOptionsForSequence18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -250,7 +250,7 @@ PixelMap的初始化选项。
 
 
 
-##### ImagePropertyOptions11+
+#### ImagePropertyOptions11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -266,7 +266,7 @@ PixelMap的初始化选项。
 
 
 
-##### Component9+
+#### Component9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -284,7 +284,7 @@ PixelMap的初始化选项。
 
 
 
-##### HdrStaticMetadata12+
+#### HdrStaticMetadata12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -306,7 +306,7 @@ PixelMap的初始化选项。
 
 
 
-##### GainmapChannel12+
+#### GainmapChannel12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -325,7 +325,7 @@ Gainmap图单个通道的数据内容，参考ISO 21496-1。
 
 
 
-##### ImageMetadata23+
+#### ImageMetadata23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -346,7 +346,7 @@ Gainmap图单个通道的数据内容，参考ISO 21496-1。
 
 
 
-##### DngMetadata24+
+#### DngMetadata24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -451,7 +451,7 @@ Dng图像元数据类，用于存储图像的元数据。
 
 
 
-##### HdrGainmapMetadata12+
+#### HdrGainmapMetadata12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -472,7 +472,7 @@ Gainmap使用的元数据值，[HdrMetadataKey](https://developer.huawei.com/con
 
 
 
-##### ImageReceiverOptions23+
+#### ImageReceiverOptions23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -490,7 +490,7 @@ ImageReceiver的初始化选项。
 
 
 
-##### ImageBufferData23+
+#### ImageBufferData23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -509,7 +509,7 @@ ImageReceiver的初始化选项。
 
 
 
-##### ImageRawData24+
+#### ImageRawData24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -527,7 +527,7 @@ ImageReceiver的初始化选项。
 
 
 
-##### GetImagePropertyOptions(deprecated)
+#### GetImagePropertyOptions(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

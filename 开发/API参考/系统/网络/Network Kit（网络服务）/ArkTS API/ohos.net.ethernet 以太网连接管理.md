@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -22,7 +22,7 @@ import { ethernet } from '@kit.NetworkKit';
  
   
 
-##### HttpProxy10+
+#### HttpProxy10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -39,7 +39,7 @@ type HttpProxy = connection.HttpProxy
  
   
 
-##### ethernet.getMacAddress14+
+#### ethernet.getMacAddress14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -82,7 +82,7 @@ ethernet.getMacAddress().then((data: Array<ethernet.MacAddressInfo>) => {
  
   
 
-##### MacAddressInfo14+
+#### MacAddressInfo14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

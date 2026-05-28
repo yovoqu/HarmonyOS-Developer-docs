@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-tilingdata-operator
 
-##### 函数功能
+#### 函数功能
 
 向后添加tiling data，若添加超过可容纳的最大长度，则忽略本次操作。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 template<typename T>
@@ -19,7 +19,7 @@ TilingData &operator<<(TilingData &out, const T &data);
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -30,19 +30,19 @@ TilingData &operator<<(TilingData &out, const T &data);
  
   
 
-##### 返回值
+#### 返回值
 
 追加完data的TilingData对象。
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 auto td_buf = TilingData::CreateCap(100U);

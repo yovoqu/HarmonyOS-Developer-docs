@@ -9,7 +9,7 @@
 低时延音频录制是一种通过软硬芯协同设计实现的音频渲染方案。其核心机制是通过减少buffer大小、优化读写数据架构，使该模式下音频录制具有更低的时延。
 
 
-##### 使用前提
+#### 使用前提
 
  - 支持低时延模式的音频输入设备。
  - 可通过[OH_AudioCapturer_GetFastStatus()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiocapturer-h#oh_audiocapturer_getfaststatus)验证当前设备是否支持低时延模式。
@@ -17,13 +17,13 @@
 
 
 
-##### 开发指导
+#### 开发指导
 
 以下各步骤示例为片段代码，可通过示例代码右下方链接获取[完整示例](https://gitcode.com/openharmony/applications_app_samples/blob/master/code/DocsSample/Media/Audio/AudioCapturerSampleC)。
 
 
 
-##### 简介
+#### 简介
 
 为使用低时延模式，开发者需要参考[推荐使用OHAudio开发音频录制功能(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-ohaudio-for-recording)进行音频开发。
 
@@ -31,7 +31,7 @@
 
 
 
-##### 设置低时延模式
+#### 设置低时延模式
 
 开发者通过调用[OH_AudioStreamBuilder_SetLatencyMode()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostreambuilder-h#oh_audiostreambuilder_setlatencymode)，设置[OH_AudioStream_LatencyMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostream-base-h#oh_audiostream_latencymode)来决定音频流使用的模式。
 
@@ -49,11 +49,11 @@ OH_AudioStreamBuilder_SetLatencyMode(builder, latencyMode);
 
 
 
-##### 注意事项
+#### 注意事项
 
 
 
-##### 低时延模式限制
+#### 低时延模式限制
 
 在以下场景中，即使设置了低时延模式，系统仍会使用普通模式。
 
@@ -71,7 +71,7 @@ OH_AudioStreamBuilder_SetLatencyMode(builder, latencyMode);
 
 
 
-##### 使用低时延流的场景
+#### 使用低时延流的场景
 
  - k歌、直播等对时延要求较高的场景，建议使用低时延模式。
  - 普通录音、录像、录屏等没有实时要求的场景，不建议使用低时延模式。
@@ -79,13 +79,13 @@ OH_AudioStreamBuilder_SetLatencyMode(builder, latencyMode);
 
 
 
-##### 确保数据及时读入
+#### 确保数据及时读入
 
 低时延模式下，应用读取数据的频次比普通录制模式高，如果获取数据不及时可能导致杂音等问题。开发者应避免在数据回调线程中做耗时操作，确保数据回调线程可以及时返回。
 
 
 
-##### 数据回调线程
+#### 数据回调线程
 
 音频录制的音频数据需要通过回调接口读入。开发者要实现回调接口，使用[OH_AudioStreamBuilder_SetCapturerReadDataCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostreambuilder-h#oh_audiostreambuilder_setcapturerreaddatacallback)设置回调函数，在设置音频回调函数时，回调函数[OH_AudioCapturer_OnReadDataCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiocapturer-h#oh_audiocapturer_onreaddatacallback)（从API version 12开始支持）用于读取音频数据。
 

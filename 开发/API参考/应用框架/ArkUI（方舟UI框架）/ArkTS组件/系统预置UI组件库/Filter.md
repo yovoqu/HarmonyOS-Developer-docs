@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { Filter } from '@kit.ArkUI';
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -30,7 +30,7 @@ import { Filter } from '@kit.ArkUI';
  
   
 
-##### Filter
+#### Filter
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -57,7 +57,7 @@ Filter({ multiFilters: Array&lt;FilterParams&gt;, additionFilters?: FilterParams
  
   
 
-##### FilterParams
+#### FilterParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -75,7 +75,7 @@ Filter({ multiFilters: Array&lt;FilterParams&gt;, additionFilters?: FilterParams
  
   
 
-##### FilterType
+#### FilterType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -93,7 +93,7 @@ Filter({ multiFilters: Array&lt;FilterParams&gt;, additionFilters?: FilterParams
  
   
 
-##### FilterResult
+#### FilterResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -112,7 +112,7 @@ Filter({ multiFilters: Array&lt;FilterParams&gt;, additionFilters?: FilterParams
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -120,7 +120,7 @@ Filter({ multiFilters: Array&lt;FilterParams&gt;, additionFilters?: FilterParams
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -188,4 +188,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/Cb0QWvSMQ6CkA7nqSPDvbQ/zh-cn_image_0000002581276330.png?HW-CC-KV=V1&HW-CC-Date=20260528T024156Z&HW-CC-Expire=86400&HW-CC-Sign=70298841F0AE412830B2D626938894A7C4D2AB2AF90803CA8EFF28E25D8F6B76)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/Cb0QWvSMQ6CkA7nqSPDvbQ/zh-cn_image_0000002581276330.png?HW-CC-KV=V1&HW-CC-Date=20260528T025529Z&HW-CC-Expire=86400&HW-CC-Sign=B486E6DFD5BB76E5E4F519A38F33A644C99B27C2DF411A86656C74073E7F9F25)

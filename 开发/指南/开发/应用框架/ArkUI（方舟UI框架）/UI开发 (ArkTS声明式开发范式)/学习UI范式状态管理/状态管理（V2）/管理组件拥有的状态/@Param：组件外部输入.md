@@ -13,7 +13,7 @@
 
   
 
-##### 概述
+#### 概述
 
 @Param表示组件从外部传入的状态，使得父子组件之间的数据能够进行同步：
  
@@ -28,7 +28,7 @@
  
   
 
-##### 状态管理V1版本接受外部传入的装饰器的局限性
+#### 状态管理V1版本接受外部传入的装饰器的局限性
 
 状态管理V1存在多种可接受外部传入的装饰器，常用的有[@State](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state)、[@Prop](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-prop)、[@Link](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-link)、[@ObjectLink](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink)。这些装饰器使用有限制且不易区分，不当使用会导致性能问题。
  
@@ -97,7 +97,7 @@ struct Child {
  
   
 
-##### 装饰器说明
+#### 装饰器说明
  
 | @Param变量装饰器 | 说明 |
 | --- | --- |
@@ -110,7 +110,7 @@ struct Child {
  
   
 
-##### 变量传递
+#### 变量传递
  
 | 传递规则 | 说明 |
 | --- | --- |
@@ -121,7 +121,7 @@ struct Child {
  
   
 
-##### 观察变化
+#### 观察变化
 
 使用@Param装饰的变量具有被观测变化的能力。当装饰的变量发生变化时，会触发该变量绑定的UI组件刷新。
  
@@ -404,7 +404,7 @@ struct Child {
  
   
 
-##### 限制条件
+#### 限制条件
 
 @Param装饰器存在以下使用限制：
  
@@ -511,11 +511,11 @@ struct Child {
  
   
 
-##### 使用场景
+#### 使用场景
 
   
 
-##### 从父组件到子组件变量传递与同步
+#### 从父组件到子组件变量传递与同步
 
 @Param能够接受父组件@Local或@Param传递的数据并与之变化同步。
  
@@ -596,7 +596,7 @@ struct SubComponent {
  
   
 
-##### 装饰Array类型变量
+#### 装饰Array类型变量
 
 @Param装饰Array类型变量，可以观察到数据源对Array整体的赋值，以及调用Array的接口push, pop, shift, unshift, splice, copyWithin, fill, reverse, sort带来的变化。
  
@@ -653,7 +653,7 @@ struct Index {
  
   
 
-##### 装饰Date类型变量
+#### 装饰Date类型变量
 
 @Param装饰Date类型变量，可以观察到数据源对Date整体的赋值，以及调用Date的接口setFullYear, setMonth, setDate, setHours, setMinutes, setSeconds, setMilliseconds, setTime, setUTCFullYear, setUTCMonth, setUTCDate, setUTCHours, setUTCMinutes, setUTCSeconds, setUTCMilliseconds带来的变化。
  
@@ -714,7 +714,7 @@ struct Index {
  
   
 
-##### 装饰Map类型变量
+#### 装饰Map类型变量
 
 @Param装饰Map类型变量，可以观察到数据源对Map整体的赋值，以及调用Map的接口set, clear, delete带来的变化。
  
@@ -775,7 +775,7 @@ struct Index {
  
   
 
-##### 装饰Set类型变量
+#### 装饰Set类型变量
 
 @Param装饰Set类型变量，可以观察到数据源对Set整体的赋值，以及调用Set的接口add, clear, delete带来的变化。
  
@@ -832,7 +832,7 @@ struct Index {
  
   
 
-##### 联合类型
+#### 联合类型
 
 @Param支持null、undefined以及联合类型。以下示例中，count类型为number | undefined，点击改变count的类型时，UI会自动刷新。
  

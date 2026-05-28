@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-window-event-filter
 
-##### 场景介绍
+#### 场景介绍
 
 [WindowManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-windowmanager)提供应用窗口的管理能力，可以用于管理多模输入事件。
 
@@ -12,13 +12,13 @@
 
 
 
-##### 过滤多模输入事件
+#### 过滤多模输入事件
 
 使用WindowManager模块提供的能力去拦截按键事件，让按键事件不往应用内部组件分发。
 
 
 
-##### 在CMake脚本中链接动态库
+#### 在CMake脚本中链接动态库
 
 ```text
 target_link_libraries(entry PUBLIC libnative_window_manager.so libohinput.so)
@@ -26,7 +26,7 @@ target_link_libraries(entry PUBLIC libnative_window_manager.so libohinput.so)
 
 
 
-##### 添加头文件
+#### 添加头文件
 
 ```text
 #include "multimodalinput/oh_input_manager.h"
@@ -37,7 +37,7 @@ target_link_libraries(entry PUBLIC libnative_window_manager.so libohinput.so)
 
 
 
-##### 接口使用说明
+#### 接口使用说明
 
 | 接口名 | 描述 |
 | --- | --- |
@@ -53,7 +53,7 @@ target_link_libraries(entry PUBLIC libnative_window_manager.so libohinput.so)
 
 
 
-##### 示例代码
+#### 示例代码
 
 以下示例代码中介绍了如何注册过滤函数和取消过滤函数，以过滤ESC退出按键和数字按键为例。
 
@@ -124,13 +124,13 @@ EXTERN_C_END
 
 
 
-##### 将多模触摸事件注入给目标窗口
+#### 将多模触摸事件注入给目标窗口
 
 使用WindowManager模块提供的能力为指定窗口注入触摸事件，仅支持同进程窗口。此操作不会触发窗口焦点、层级变化或拖拽，事件会直接发送给ArkUI。
 
 
 
-##### 在CMake脚本中链接动态库
+#### 在CMake脚本中链接动态库
 
 ```text
 target_link_libraries(entry PUBLIC libnative_window_manager.so libohinput.so)
@@ -138,7 +138,7 @@ target_link_libraries(entry PUBLIC libnative_window_manager.so libohinput.so)
 
 
 
-##### 添加头文件
+#### 添加头文件
 
 ```text
 #include "multimodalinput/oh_input_manager.h"
@@ -148,7 +148,7 @@ target_link_libraries(entry PUBLIC libnative_window_manager.so libohinput.so)
 
 
 
-##### 接口使用说明
+#### 接口使用说明
 
 | 接口名 | 描述 |
 | --- | --- |
@@ -195,7 +195,7 @@ target_link_libraries(entry PUBLIC libnative_window_manager.so libohinput.so)
 
 
 
-##### 示例代码
+#### 示例代码
 
 以下示例代码介绍了如何将多模触摸事件注入目标窗口，以单次事件注入为例。
 

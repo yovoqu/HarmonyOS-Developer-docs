@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2___public_key_credential_descriptor
 
-##### 概述
+#### 概述
 
 用于注册或认证凭据的参数。
  
@@ -14,11 +14,11 @@
  
   
 
-##### 汇总
+#### 汇总
 
   
 
-##### 成员变量
+#### 成员变量
  
 | 名称 | 描述 |
 | --- | --- |
@@ -29,11 +29,11 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
   
 
-##### id
+#### id
 
 ```text
 Uint8Buff FIDO2_PublicKeyCredentialDescriptor::id
@@ -45,7 +45,7 @@ Uint8Buff FIDO2_PublicKeyCredentialDescriptor::id
  
   
 
-##### transports
+#### transports
 
 ```text
 FIDO2_AuthenticatorTransportArray FIDO2_PublicKeyCredentialDescriptor::transports
@@ -57,7 +57,7 @@ FIDO2_AuthenticatorTransportArray FIDO2_PublicKeyCredentialDescriptor::transport
  
   
 
-##### type
+#### type
 
 ```text
 FIDO2_PublicKeyCredentialType FIDO2_PublicKeyCredentialDescriptor::type

@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { applicationManager } from '@kit.MDMKit';
 
 
 
-##### applicationManager.addDisallowedRunningBundlesSync
+#### applicationManager.addDisallowedRunningBundlesSync
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -84,7 +84,7 @@ try {
 
 
 
-##### applicationManager.removeDisallowedRunningBundlesSync
+#### applicationManager.removeDisallowedRunningBundlesSync
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -145,7 +145,7 @@ try {
 
 
 
-##### applicationManager.getDisallowedRunningBundlesSync
+#### applicationManager.getDisallowedRunningBundlesSync
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -208,7 +208,7 @@ try {
 
 
 
-##### applicationManager.addAllowedRunningBundles21+
+#### applicationManager.addAllowedRunningBundles21+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -274,7 +274,7 @@ try {
 
 
 
-##### applicationManager.removeAllowedRunningBundles21+
+#### applicationManager.removeAllowedRunningBundles21+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -335,7 +335,7 @@ try {
 
 
 
-##### applicationManager.getAllowedRunningBundles21+
+#### applicationManager.getAllowedRunningBundles21+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -397,7 +397,7 @@ try {
 
 
 
-##### applicationManager.addAutoStartApps
+#### applicationManager.addAutoStartApps
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -469,7 +469,7 @@ try {
 
 
 
-##### applicationManager.removeAutoStartApps
+#### applicationManager.removeAutoStartApps
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -536,7 +536,7 @@ try {
 
 
 
-##### applicationManager.removeAutoStartApps20+
+#### applicationManager.removeAutoStartApps20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -604,7 +604,7 @@ try {
 
 
 
-##### applicationManager.getAutoStartApps
+#### applicationManager.getAutoStartApps
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -683,7 +683,7 @@ try {
 
 
 
-##### applicationManager.addAutoStartApps20+
+#### applicationManager.addAutoStartApps20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -759,7 +759,7 @@ try {
 
 
 
-##### applicationManager.getAutoStartApps20+
+#### applicationManager.getAutoStartApps20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -838,7 +838,7 @@ try {
 
 
 
-##### applicationManager.isModifyAutoStartAppsDisallowed20+
+#### applicationManager.isModifyAutoStartAppsDisallowed20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -909,7 +909,7 @@ try {
 
 
 
-##### applicationManager.addKeepAliveApps14+
+#### applicationManager.addKeepAliveApps14+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -981,7 +981,7 @@ try {
 
 
 
-##### applicationManager.addKeepAliveApps20+
+#### applicationManager.addKeepAliveApps20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1054,7 +1054,7 @@ try {
 
 
 
-##### applicationManager.removeKeepAliveApps14+
+#### applicationManager.removeKeepAliveApps14+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1117,7 +1117,7 @@ try {
 
 
 
-##### applicationManager.getKeepAliveApps14+
+#### applicationManager.getKeepAliveApps14+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1182,7 +1182,7 @@ try {
 
 
 
-##### applicationManager.isModifyKeepAliveAppsDisallowed20+
+#### applicationManager.isModifyKeepAliveAppsDisallowed20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1250,7 +1250,7 @@ try {
 
 
 
-##### applicationManager.clearUpApplicationData20+
+#### applicationManager.clearUpApplicationData20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1310,7 +1310,7 @@ try {
 
 
 
-##### applicationManager.setAllowedKioskApps20+
+#### applicationManager.setAllowedKioskApps20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1371,7 +1371,7 @@ try {
 
 
 
-##### applicationManager.getAllowedKioskApps20+
+#### applicationManager.getAllowedKioskApps20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1432,7 +1432,7 @@ try {
 
 
 
-##### applicationManager.isAppKioskAllowed20+
+#### applicationManager.isAppKioskAllowed20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1474,7 +1474,7 @@ try {
 
 
 
-##### applicationManager.setKioskFeatures20+
+#### applicationManager.setKioskFeatures20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1542,7 +1542,7 @@ try {
 
 
 
-##### applicationManager.addUserNonStopApps22+
+#### applicationManager.addUserNonStopApps22+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1615,7 +1615,7 @@ try {
 
 
 
-##### applicationManager.removeUserNonStopApps22+
+#### applicationManager.removeUserNonStopApps22+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1684,7 +1684,7 @@ try {
 
 
 
-##### applicationManager.getUserNonStopApps22+
+#### applicationManager.getUserNonStopApps22+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1747,7 +1747,7 @@ try {
 
 
 
-##### applicationManager.addFreezeExemptedApps22+
+#### applicationManager.addFreezeExemptedApps22+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1818,7 +1818,7 @@ try {
 
 
 
-##### applicationManager.removeFreezeExemptedApps22+
+#### applicationManager.removeFreezeExemptedApps22+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1887,7 +1887,7 @@ try {
 
 
 
-##### applicationManager.getFreezeExemptedApps22+
+#### applicationManager.getFreezeExemptedApps22+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -1950,7 +1950,7 @@ try {
 
 
 
-##### applicationManager.setAbilityDisabled23+
+#### applicationManager.setAbilityDisabled23+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2015,7 +2015,7 @@ try {
 
 
 
-##### applicationManager.isAbilityDisabled23+
+#### applicationManager.isAbilityDisabled23+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2084,7 +2084,7 @@ try {
 
 
 
-##### applicationManager.addDockApp24+
+#### applicationManager.addDockApp24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2160,7 +2160,7 @@ try {
 
 
 
-##### applicationManager.removeDockApp24+
+#### applicationManager.removeDockApp24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2228,7 +2228,7 @@ try {
 
 
 
-##### applicationManager.getDockApps24+
+#### applicationManager.getDockApps24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2304,7 +2304,7 @@ try {
 
 
 
-##### KioskFeature20+
+#### KioskFeature20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -2324,7 +2324,7 @@ Kiosk模式的特征。
 
 
 
-##### DockInfo24+
+#### DockInfo24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { screenshot } from '@kit.ArkUI';
 
 
 
-##### Rect
+#### Rect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -42,7 +42,7 @@ import { screenshot } from '@kit.ArkUI';
 
 
 
-##### CaptureOption14+
+#### CaptureOption14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -58,7 +58,7 @@ import { screenshot } from '@kit.ArkUI';
 
 
 
-##### PickInfo
+#### PickInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -76,7 +76,7 @@ import { screenshot } from '@kit.ArkUI';
 
 
 
-##### screenshot.pick
+#### screenshot.pick
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -128,7 +128,7 @@ try {
 
 
 
-##### screenshot.capture14+
+#### screenshot.capture14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

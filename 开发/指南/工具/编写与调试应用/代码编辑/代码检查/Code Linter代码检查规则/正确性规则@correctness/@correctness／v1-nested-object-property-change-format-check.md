@@ -7,7 +7,7 @@
 建议不要直接修改普通V1状态变量中嵌套对象的属性，应使用@Observed/@ObjectLink来观察嵌套对象的属性更改。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 class Parent {
@@ -116,7 +116,7 @@ struct MyView {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 class Parent {
@@ -193,7 +193,7 @@ struct MyView {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(80,160,79);">plugin:@correctness/all</span>

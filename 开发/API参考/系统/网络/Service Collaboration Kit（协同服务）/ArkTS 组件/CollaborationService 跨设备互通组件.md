@@ -12,7 +12,7 @@
 **起始版本：** 5.0.0(12)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -22,7 +22,7 @@ import { CollaborationServiceStateDialog, createCollaborationServiceMenuItems, C
 
 
 
-##### createCollaborationServiceMenuItems
+#### createCollaborationServiceMenuItems
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -60,7 +60,7 @@ myTestMenu() {
 
 
 
-##### createCollaborationServiceMenuItems
+#### createCollaborationServiceMenuItems
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -99,7 +99,7 @@ myTestMenu() {
 
 
 
-##### createCollaborationServiceMenuItems
+#### createCollaborationServiceMenuItems
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -141,7 +141,7 @@ myTestMenu() {
 
 
 
-##### CollaborationServiceFilter
+#### CollaborationServiceFilter
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -174,7 +174,7 @@ myTestMenu() {
 
 
 
-##### CollaborationDeviceFilterType
+#### CollaborationDeviceFilterType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -206,7 +206,7 @@ myTestMenu() {
 
 
 
-##### CollaborationServiceStateDialog
+#### CollaborationServiceStateDialog
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -224,7 +224,7 @@ myTestMenu() {
 
 
 
-##### onState
+#### onState
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -266,7 +266,7 @@ onState: (stateCode: number, bufferType: string, buffer: ArrayBuffer) => void
 
 
 
-##### build
+#### build
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

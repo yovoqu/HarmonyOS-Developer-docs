@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-resourceleak-events-arkts
 
-##### 接口说明
+#### 接口说明
 
 本文介绍如何使用HiAppEvent提供的ArkTS接口订阅资源泄漏事件。接口的具体使用说明（参数使用限制、具体取值范围等）请参考[@ohos.hiviewdfx.hiAppEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-hiappevent)。
 
 
 
-##### 自定义参数设置接口描述
+#### 自定义参数设置接口描述
 
 | 接口名 | 描述 |
 | --- | --- |
@@ -19,7 +19,7 @@
 
 
 
-##### 自定义配置设置接口描述
+#### 自定义配置设置接口描述
 
 | 接口名 | 描述 |
 | --- | --- |
@@ -28,7 +28,7 @@
 
 
 
-##### 接口描述
+#### 接口描述
 
 | 接口名 | 描述 |
 | --- | --- |
@@ -38,13 +38,13 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 以订阅发生内存泄漏场景生成的资源泄漏事件为例，说明开发步骤。
 
 
 
-##### 步骤一：新建工程
+#### 步骤一：新建工程
 1. 在DevEco Studio中新建工程，选择“Empty Ability”，编辑工程中的“entry > src > main > ets > entryability > EntryAbility.ets”文件，导入依赖模块：
 
   
@@ -118,7 +118,7 @@ hiAppEvent.addWatcher({
 
 
 
-##### 步骤二：订阅资源泄漏事件
+#### 步骤二：订阅资源泄漏事件
 1. 编辑工程中的“entry > src > main > ets > pages > Index.ets”文件，添加按钮并在其onClick函数构造资源泄漏场景，以触发资源泄漏事件。
 
   此处需要使用[hidebug.setAppResourceLimit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hidebug#hidebugsetappresourcelimit12)设置内存限制，造成内存泄漏，同步在“开发者选项”中打开“系统资源泄漏日志”（开关状态变更后需重启设备）。
@@ -202,7 +202,7 @@ HiAppEvent eventInfo.params.page_switch_log="[\"/data/storage/el2/log/page_switc
 
   
 
-  ##### nolog版本订阅js_heap快照
+  #### nolog版本订阅js_heap快照
 
   请应用在收到该订阅事件后，首先从事件的external_log字段中获取堆快照文件存储路径，并将其尽快搬移或上传云，然后再删除原堆快照文件，以避免因应用沙箱路径目录剩余存储空间不足（最大2GB）导致下次堆快照文件无法生成。
 
@@ -214,7 +214,7 @@ HiAppEvent eventInfo.params.page_switch_log="[\"/data/storage/el2/log/page_switc
 
   
 
-  ##### 在AppScope/app.json5文件中配置如下环境变量
+  #### 在AppScope/app.json5文件中配置如下环境变量
 
   
 ```text
@@ -247,7 +247,7 @@ json5配置文件中的value字段内容格式支持键值对集合“key1:value
 
 
 
-##### 调用setEventConfig并传入以下参数
+#### 调用setEventConfig并传入以下参数
 
 ```text
 let configParams: Record<string, hiAppEvent.ParamType> = {

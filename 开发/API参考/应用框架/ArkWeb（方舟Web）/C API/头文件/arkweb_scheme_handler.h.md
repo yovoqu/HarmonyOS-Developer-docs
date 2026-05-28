@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkweb-scheme-handler-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -25,13 +25,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -47,7 +47,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -59,7 +59,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -138,13 +138,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### ArkWeb_CustomSchemeOption
+#### ArkWeb_CustomSchemeOption
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -175,7 +175,7 @@ custom scheme的配置信息。
  
   
 
-##### ArkWeb_ResourceType
+#### ArkWeb_ResourceType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -217,13 +217,13 @@ enum ArkWeb_ResourceType
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### ArkWeb_OnRequestStart()
+#### ArkWeb_OnRequestStart()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -255,7 +255,7 @@ typedef void (*ArkWeb_OnRequestStart)(const ArkWeb_SchemeHandler* schemeHandler,
  
   
 
-##### ArkWeb_OnRequestStop()
+#### ArkWeb_OnRequestStop()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -283,7 +283,7 @@ typedef void (*ArkWeb_OnRequestStop)(const ArkWeb_SchemeHandler* schemeHandler,c
  
   
 
-##### ArkWeb_HttpBodyStreamReadCallback()
+#### ArkWeb_HttpBodyStreamReadCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -310,7 +310,7 @@ typedef void (*ArkWeb_HttpBodyStreamReadCallback)(const ArkWeb_HttpBodyStream* h
  
   
 
-##### ArkWeb_HttpBodyStreamAsyncReadCallback()
+#### ArkWeb_HttpBodyStreamAsyncReadCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -337,7 +337,7 @@ typedef void (*ArkWeb_HttpBodyStreamAsyncReadCallback)(const ArkWeb_HttpBodyStre
  
   
 
-##### ArkWeb_HttpBodyStreamInitCallback()
+#### ArkWeb_HttpBodyStreamInitCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -363,7 +363,7 @@ ArkWeb_HttpBodyStream初始化操作完成时回调函数。
  
   
 
-##### OH_ArkWebRequestHeaderList_Destroy()
+#### OH_ArkWebRequestHeaderList_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -388,7 +388,7 @@ void OH_ArkWebRequestHeaderList_Destroy(ArkWeb_RequestHeaderList* requestHeaderL
  
   
 
-##### OH_ArkWebRequestHeaderList_GetSize()
+#### OH_ArkWebRequestHeaderList_GetSize()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -420,7 +420,7 @@ int32_t OH_ArkWebRequestHeaderList_GetSize(const ArkWeb_RequestHeaderList* reque
  
   
 
-##### OH_ArkWebRequestHeaderList_GetHeader()
+#### OH_ArkWebRequestHeaderList_GetHeader()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -448,7 +448,7 @@ void OH_ArkWebRequestHeaderList_GetHeader(const ArkWeb_RequestHeaderList* reques
  
   
 
-##### OH_ArkWebResourceRequest_SetUserData()
+#### OH_ArkWebResourceRequest_SetUserData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -481,7 +481,7 @@ int32_t OH_ArkWebResourceRequest_SetUserData(ArkWeb_ResourceRequest* resourceReq
  
   
 
-##### OH_ArkWebResourceRequest_GetUserData()
+#### OH_ArkWebResourceRequest_GetUserData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -513,7 +513,7 @@ void* OH_ArkWebResourceRequest_GetUserData(const ArkWeb_ResourceRequest* resourc
  
   
 
-##### OH_ArkWebResourceRequest_GetMethod()
+#### OH_ArkWebResourceRequest_GetMethod()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -539,7 +539,7 @@ void OH_ArkWebResourceRequest_GetMethod(const ArkWeb_ResourceRequest* resourceRe
  
   
 
-##### OH_ArkWebResourceRequest_GetUrl()
+#### OH_ArkWebResourceRequest_GetUrl()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -565,7 +565,7 @@ void OH_ArkWebResourceRequest_GetUrl(const ArkWeb_ResourceRequest* resourceReque
  
   
 
-##### OH_ArkWebResourceRequest_GetHttpBodyStream()
+#### OH_ArkWebResourceRequest_GetHttpBodyStream()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -591,7 +591,7 @@ void OH_ArkWebResourceRequest_GetHttpBodyStream(const ArkWeb_ResourceRequest* re
  
   
 
-##### OH_ArkWebResourceRequest_DestroyHttpBodyStream()
+#### OH_ArkWebResourceRequest_DestroyHttpBodyStream()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -616,7 +616,7 @@ void OH_ArkWebResourceRequest_DestroyHttpBodyStream(ArkWeb_HttpBodyStream* httpB
  
   
 
-##### OH_ArkWebResourceRequest_GetResourceType()
+#### OH_ArkWebResourceRequest_GetResourceType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -648,7 +648,7 @@ int32_t OH_ArkWebResourceRequest_GetResourceType(const ArkWeb_ResourceRequest* r
  
   
 
-##### OH_ArkWebResourceRequest_GetFrameUrl()
+#### OH_ArkWebResourceRequest_GetFrameUrl()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -674,7 +674,7 @@ void OH_ArkWebResourceRequest_GetFrameUrl(const ArkWeb_ResourceRequest* resource
  
   
 
-##### OH_ArkWebHttpBodyStream_SetUserData()
+#### OH_ArkWebHttpBodyStream_SetUserData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -707,7 +707,7 @@ int32_t OH_ArkWebHttpBodyStream_SetUserData(ArkWeb_HttpBodyStream* httpBodyStrea
  
   
 
-##### OH_ArkWebHttpBodyStream_GetUserData()
+#### OH_ArkWebHttpBodyStream_GetUserData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -739,7 +739,7 @@ void* OH_ArkWebHttpBodyStream_GetUserData(const ArkWeb_HttpBodyStream* httpBodyS
  
   
 
-##### OH_ArkWebHttpBodyStream_SetReadCallback()
+#### OH_ArkWebHttpBodyStream_SetReadCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -774,7 +774,7 @@ int32_t OH_ArkWebHttpBodyStream_SetReadCallback(ArkWeb_HttpBodyStream* httpBodyS
  
   
 
-##### OH_ArkWebHttpBodyStream_SetAsyncReadCallback()
+#### OH_ArkWebHttpBodyStream_SetAsyncReadCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -809,7 +809,7 @@ int32_t OH_ArkWebHttpBodyStream_SetAsyncReadCallback(ArkWeb_HttpBodyStream* http
  
   
 
-##### OH_ArkWebHttpBodyStream_Init()
+#### OH_ArkWebHttpBodyStream_Init()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -842,7 +842,7 @@ int32_t OH_ArkWebHttpBodyStream_Init(ArkWeb_HttpBodyStream* httpBodyStream,ArkWe
  
   
 
-##### OH_ArkWebHttpBodyStream_Read()
+#### OH_ArkWebHttpBodyStream_Read()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -869,7 +869,7 @@ void OH_ArkWebHttpBodyStream_Read(const ArkWeb_HttpBodyStream* httpBodyStream, u
  
   
 
-##### OH_ArkWebHttpBodyStream_AsyncRead()
+#### OH_ArkWebHttpBodyStream_AsyncRead()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -896,7 +896,7 @@ void OH_ArkWebHttpBodyStream_AsyncRead(const ArkWeb_HttpBodyStream* httpBodyStre
  
   
 
-##### OH_ArkWebHttpBodyStream_GetSize()
+#### OH_ArkWebHttpBodyStream_GetSize()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -928,7 +928,7 @@ uint64_t OH_ArkWebHttpBodyStream_GetSize(const ArkWeb_HttpBodyStream* httpBodySt
  
   
 
-##### OH_ArkWebHttpBodyStream_GetPosition()
+#### OH_ArkWebHttpBodyStream_GetPosition()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -960,7 +960,7 @@ uint64_t OH_ArkWebHttpBodyStream_GetPosition(const ArkWeb_HttpBodyStream* httpBo
  
   
 
-##### OH_ArkWebHttpBodyStream_IsChunked()
+#### OH_ArkWebHttpBodyStream_IsChunked()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -992,7 +992,7 @@ bool OH_ArkWebHttpBodyStream_IsChunked(const ArkWeb_HttpBodyStream* httpBodyStre
  
   
 
-##### OH_ArkWebHttpBodyStream_IsEof()
+#### OH_ArkWebHttpBodyStream_IsEof()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1024,7 +1024,7 @@ bool OH_ArkWebHttpBodyStream_IsEof(const ArkWeb_HttpBodyStream* httpBodyStream)
  
   
 
-##### OH_ArkWebHttpBodyStream_IsInMemory()
+#### OH_ArkWebHttpBodyStream_IsInMemory()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1056,7 +1056,7 @@ bool OH_ArkWebHttpBodyStream_IsInMemory(const ArkWeb_HttpBodyStream* httpBodyStr
  
   
 
-##### OH_ArkWebResourceRequest_Destroy()
+#### OH_ArkWebResourceRequest_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1088,7 +1088,7 @@ int32_t OH_ArkWebResourceRequest_Destroy(const ArkWeb_ResourceRequest* resourceR
  
   
 
-##### OH_ArkWebResourceRequest_GetReferrer()
+#### OH_ArkWebResourceRequest_GetReferrer()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1114,7 +1114,7 @@ void OH_ArkWebResourceRequest_GetReferrer(const ArkWeb_ResourceRequest* resource
  
   
 
-##### OH_ArkWebResourceRequest_GetRequestHeaders()
+#### OH_ArkWebResourceRequest_GetRequestHeaders()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1140,7 +1140,7 @@ void OH_ArkWebResourceRequest_GetRequestHeaders(const ArkWeb_ResourceRequest* re
  
   
 
-##### OH_ArkWebResourceRequest_IsRedirect()
+#### OH_ArkWebResourceRequest_IsRedirect()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1172,7 +1172,7 @@ bool OH_ArkWebResourceRequest_IsRedirect(const ArkWeb_ResourceRequest* resourceR
  
   
 
-##### OH_ArkWebResourceRequest_IsMainFrame()
+#### OH_ArkWebResourceRequest_IsMainFrame()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1204,7 +1204,7 @@ bool OH_ArkWebResourceRequest_IsMainFrame(const ArkWeb_ResourceRequest* resource
  
   
 
-##### OH_ArkWebResourceRequest_HasGesture()
+#### OH_ArkWebResourceRequest_HasGesture()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1236,7 +1236,7 @@ bool OH_ArkWebResourceRequest_HasGesture(const ArkWeb_ResourceRequest* resourceR
  
   
 
-##### OH_ArkWeb_RegisterCustomSchemes()
+#### OH_ArkWeb_RegisterCustomSchemes()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1269,7 +1269,7 @@ int32_t OH_ArkWeb_RegisterCustomSchemes(const char* scheme, int32_t option)
  
   
 
-##### OH_ArkWebServiceWorker_SetSchemeHandler()
+#### OH_ArkWebServiceWorker_SetSchemeHandler()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1304,7 +1304,7 @@ bool OH_ArkWebServiceWorker_SetSchemeHandler(const char* scheme, ArkWeb_SchemeHa
  
   
 
-##### OH_ArkWeb_SetSchemeHandler()
+#### OH_ArkWeb_SetSchemeHandler()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1340,7 +1340,7 @@ bool OH_ArkWeb_SetSchemeHandler(const char* scheme, const char* webTag, ArkWeb_S
  
   
 
-##### OH_ArkWebServiceWorker_ClearSchemeHandlers()
+#### OH_ArkWebServiceWorker_ClearSchemeHandlers()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1365,7 +1365,7 @@ int32_t OH_ArkWebServiceWorker_ClearSchemeHandlers()
  
   
 
-##### OH_ArkWeb_ClearSchemeHandlers()
+#### OH_ArkWeb_ClearSchemeHandlers()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1397,7 +1397,7 @@ int32_t OH_ArkWeb_ClearSchemeHandlers(const char* webTag)
  
   
 
-##### OH_ArkWeb_CreateSchemeHandler()
+#### OH_ArkWeb_CreateSchemeHandler()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1422,7 +1422,7 @@ void OH_ArkWeb_CreateSchemeHandler(ArkWeb_SchemeHandler** schemeHandler)
  
   
 
-##### OH_ArkWeb_DestroySchemeHandler()
+#### OH_ArkWeb_DestroySchemeHandler()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1447,7 +1447,7 @@ void OH_ArkWeb_DestroySchemeHandler(ArkWeb_SchemeHandler* schemeHandler)
  
   
 
-##### OH_ArkWebSchemeHandler_SetUserData()
+#### OH_ArkWebSchemeHandler_SetUserData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1480,7 +1480,7 @@ int32_t OH_ArkWebSchemeHandler_SetUserData(ArkWeb_SchemeHandler* schemeHandler, 
  
   
 
-##### OH_ArkWebSchemeHandler_GetUserData()
+#### OH_ArkWebSchemeHandler_GetUserData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1512,7 +1512,7 @@ void* OH_ArkWebSchemeHandler_GetUserData(const ArkWeb_SchemeHandler* schemeHandl
  
   
 
-##### OH_ArkWebSchemeHandler_SetOnRequestStart()
+#### OH_ArkWebSchemeHandler_SetOnRequestStart()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1545,7 +1545,7 @@ int32_t OH_ArkWebSchemeHandler_SetOnRequestStart(ArkWeb_SchemeHandler* schemeHan
  
   
 
-##### OH_ArkWebSchemeHandler_SetOnRequestStop()
+#### OH_ArkWebSchemeHandler_SetOnRequestStop()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1578,7 +1578,7 @@ int32_t OH_ArkWebSchemeHandler_SetOnRequestStop(ArkWeb_SchemeHandler* schemeHand
  
   
 
-##### OH_ArkWeb_CreateResponse()
+#### OH_ArkWeb_CreateResponse()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1603,7 +1603,7 @@ void OH_ArkWeb_CreateResponse(ArkWeb_Response** response)
  
   
 
-##### OH_ArkWeb_DestroyResponse()
+#### OH_ArkWeb_DestroyResponse()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1628,7 +1628,7 @@ void OH_ArkWeb_DestroyResponse(ArkWeb_Response* response)
  
   
 
-##### OH_ArkWebResponse_SetUrl()
+#### OH_ArkWebResponse_SetUrl()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1661,7 +1661,7 @@ int32_t OH_ArkWebResponse_SetUrl(ArkWeb_Response* response, const char* url)
  
   
 
-##### OH_ArkWebResponse_GetUrl()
+#### OH_ArkWebResponse_GetUrl()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1687,7 +1687,7 @@ void OH_ArkWebResponse_GetUrl(const ArkWeb_Response* response, char** url)
  
   
 
-##### OH_ArkWebResponse_SetError()
+#### OH_ArkWebResponse_SetError()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1720,7 +1720,7 @@ int32_t OH_ArkWebResponse_SetError(ArkWeb_Response* response, ArkWeb_NetError er
  
   
 
-##### OH_ArkWebResponse_GetError()
+#### OH_ArkWebResponse_GetError()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1752,7 +1752,7 @@ ArkWeb_NetError OH_ArkWebResponse_GetError(const ArkWeb_Response* response)
  
   
 
-##### OH_ArkWebResponse_SetStatus()
+#### OH_ArkWebResponse_SetStatus()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1785,7 +1785,7 @@ int32_t OH_ArkWebResponse_SetStatus(ArkWeb_Response* response, int status)
  
   
 
-##### OH_ArkWebResponse_GetStatus()
+#### OH_ArkWebResponse_GetStatus()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1817,7 +1817,7 @@ int OH_ArkWebResponse_GetStatus(const ArkWeb_Response* response)
  
   
 
-##### OH_ArkWebResponse_SetStatusText()
+#### OH_ArkWebResponse_SetStatusText()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1850,7 +1850,7 @@ int32_t OH_ArkWebResponse_SetStatusText(ArkWeb_Response* response, const char* s
  
   
 
-##### OH_ArkWebResponse_GetStatusText()
+#### OH_ArkWebResponse_GetStatusText()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1876,7 +1876,7 @@ void OH_ArkWebResponse_GetStatusText(const ArkWeb_Response* response, char** sta
  
   
 
-##### OH_ArkWebResponse_SetMimeType()
+#### OH_ArkWebResponse_SetMimeType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1909,7 +1909,7 @@ int32_t OH_ArkWebResponse_SetMimeType(ArkWeb_Response* response, const char* mim
  
   
 
-##### OH_ArkWebResponse_GetMimeType()
+#### OH_ArkWebResponse_GetMimeType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1935,7 +1935,7 @@ void OH_ArkWebResponse_GetMimeType(const ArkWeb_Response* response, char** mimeT
  
   
 
-##### OH_ArkWebResponse_SetCharset()
+#### OH_ArkWebResponse_SetCharset()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1968,7 +1968,7 @@ int32_t OH_ArkWebResponse_SetCharset(ArkWeb_Response* response, const char* char
  
   
 
-##### OH_ArkWebResponse_GetCharset()
+#### OH_ArkWebResponse_GetCharset()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1994,7 +1994,7 @@ void OH_ArkWebResponse_GetCharset(const ArkWeb_Response* response, char** charse
  
   
 
-##### OH_ArkWebResponse_SetHeaderByName()
+#### OH_ArkWebResponse_SetHeaderByName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2029,7 +2029,7 @@ int32_t OH_ArkWebResponse_SetHeaderByName(ArkWeb_Response* response,const char* 
  
   
 
-##### OH_ArkWebResponse_GetHeaderByName()
+#### OH_ArkWebResponse_GetHeaderByName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2056,7 +2056,7 @@ void OH_ArkWebResponse_GetHeaderByName(const ArkWeb_Response* response, const ch
  
   
 
-##### OH_ArkWebResourceHandler_Destroy()
+#### OH_ArkWebResourceHandler_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2088,7 +2088,7 @@ int32_t OH_ArkWebResourceHandler_Destroy(const ArkWeb_ResourceHandler* resourceH
  
   
 
-##### OH_ArkWebResourceHandler_DidReceiveResponse()
+#### OH_ArkWebResourceHandler_DidReceiveResponse()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2121,7 +2121,7 @@ int32_t OH_ArkWebResourceHandler_DidReceiveResponse(const ArkWeb_ResourceHandler
  
   
 
-##### OH_ArkWebResourceHandler_DidReceiveData()
+#### OH_ArkWebResourceHandler_DidReceiveData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2155,7 +2155,7 @@ int32_t OH_ArkWebResourceHandler_DidReceiveData(const ArkWeb_ResourceHandler* re
  
   
 
-##### OH_ArkWebResourceHandler_DidFinish()
+#### OH_ArkWebResourceHandler_DidFinish()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2187,7 +2187,7 @@ int32_t OH_ArkWebResourceHandler_DidFinish(const ArkWeb_ResourceHandler* resourc
  
   
 
-##### OH_ArkWebResourceHandler_DidFailWithError()
+#### OH_ArkWebResourceHandler_DidFailWithError()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2220,7 +2220,7 @@ int32_t OH_ArkWebResourceHandler_DidFailWithError(const ArkWeb_ResourceHandler* 
  
   
 
-##### OH_ArkWebResourceHandler_DidFailWithErrorV2()
+#### OH_ArkWebResourceHandler_DidFailWithErrorV2()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2254,7 +2254,7 @@ int32_t OH_ArkWebResourceHandler_DidFailWithErrorV2(const ArkWeb_ResourceHandler
  
   
 
-##### OH_ArkWeb_ReleaseString()
+#### OH_ArkWeb_ReleaseString()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2279,7 +2279,7 @@ void OH_ArkWeb_ReleaseString(char* string)
  
   
 
-##### OH_ArkWeb_ReleaseByteArray()
+#### OH_ArkWeb_ReleaseByteArray()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

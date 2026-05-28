@@ -9,7 +9,7 @@
 
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -22,13 +22,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/prefer-readonly选项](https://typescript-eslint.nodejs.cn/rules/prefer-readonly/#options)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 export class Container {
@@ -49,7 +49,7 @@ export class Container {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 export class Container {
@@ -74,7 +74,7 @@ export class Container {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

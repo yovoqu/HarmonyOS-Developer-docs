@@ -12,13 +12,13 @@
 
 
 
-##### DatePickerDialog
+#### DatePickerDialog
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### show(deprecated)
+#### show(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -45,7 +45,7 @@ static show(options?: DatePickerDialogOptions)
 
 
 
-##### DatePickerDialogOptions对象说明
+#### DatePickerDialogOptions对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -95,7 +95,7 @@ static show(options?: DatePickerDialogOptions)
 
 
 
-##### LunarSwitchStyle14+对象说明
+#### LunarSwitchStyle14+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -116,7 +116,7 @@ static show(options?: DatePickerDialogOptions)
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -126,7 +126,7 @@ static show(options?: DatePickerDialogOptions)
 
 
 
-##### 示例1（设置显示时间）
+#### 示例1（设置显示时间）
 
 该示例通过showTime、useMilitaryTime、dateTimeOptions设置显示时间。
 
@@ -185,7 +185,7 @@ struct DatePickerDialogExample {
 
 
 
-##### 示例2（自定义样式）
+#### 示例2（自定义样式）
 
 该示例通过配置disappearTextStyle、textStyle、selectedTextStyle、acceptButtonStyle、cancelButtonStyle实现了自定义文本以及按钮样式。
 
@@ -272,7 +272,7 @@ struct DatePickerDialogExample {
 
 
 
-##### 示例3（悬停态弹窗）
+#### 示例3（悬停态弹窗）
 
 该示例展示了在折叠屏悬停态下设置dialog布局区域的效果。
 
@@ -334,7 +334,7 @@ struct DatePickerDialogExample {
 
 
 
-##### 示例4（设置弹窗位置）
+#### 示例4（设置弹窗位置）
 
 该示例通过alignment、offset设置弹窗的位置。
 
@@ -374,7 +374,7 @@ struct DatePickerDialogExample {
 
 
 
-##### 示例5（设置遮蔽区）
+#### 示例5（设置遮蔽区）
 
 该示例通过maskRect设置遮蔽区。
 
@@ -418,7 +418,7 @@ struct DatePickerDialogExample {
 
 
 
-##### 示例6（设置弹窗背板）
+#### 示例6（设置弹窗背板）
 
 该示例通过backgroundColor、backgroundBlurStyle、shadow设置弹窗背板。
 
@@ -459,7 +459,7 @@ struct DatePickerDialogExample {
 
 
 
-##### 示例7（设置公历农历）
+#### 示例7（设置公历农历）
 
 该示例通过lunar、lunarSwitch设置弹窗显示公历或农历。
 
@@ -514,7 +514,7 @@ struct DatePickerDialogExample {
 
 
 
-##### 示例8（设置显示月、日列）
+#### 示例8（设置显示月、日列）
 
 该示例通过配置mode参数实现显示月、日两列。
 
@@ -548,12 +548,12 @@ struct DatePickerDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/s0foZT-FQ4ewXxvXsWgqwA/zh-cn_image_0000002581436192.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024204Z&HW-CC-Expire=86400&HW-CC-Sign=0BE6021BD25675E0AD246BA297C22C6BD76E336B620D491467E446F8913D0523)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/s0foZT-FQ4ewXxvXsWgqwA/zh-cn_image_0000002581436192.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025537Z&HW-CC-Expire=86400&HW-CC-Sign=FA1D577C5A36BD68D4DDA00285EF00389B6DFA72AA2A77D08C6E53E3D3F2AE5A)
 
 
 
 
-##### 示例9（设置循环滚动）
+#### 示例9（设置循环滚动）
 
 从API version 20开始，可以通过配置canLoop参数设置是否循环滚动。
 
@@ -596,12 +596,12 @@ struct DatePickerDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/1Ah_aiKlS7m6VNntEiCF2g/zh-cn_image_0000002611836023.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024204Z&HW-CC-Expire=86400&HW-CC-Sign=F5E944D9C3C973581D7ED7A0F1670B3620378A2F23A0386F30497AF239BFFBFF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/1Ah_aiKlS7m6VNntEiCF2g/zh-cn_image_0000002611836023.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025537Z&HW-CC-Expire=86400&HW-CC-Sign=27EED8C4D4B811AE748812607A956CED62B3172AF0C17717EA95D57410E51440)
 
 
 
 
-##### 示例10（自定义背景模糊效果参数）
+#### 示例10（自定义背景模糊效果参数）
 
 从API version 19开始，可以通过配置[backgroundBlurStyleOptions](#datepickerdialogoptions对象说明)，实现自定义背景模糊效果。
 
@@ -639,12 +639,12 @@ struct DatePickerDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/X3iI5AmXTpG-Qx7hPyde1A/zh-cn_image_0000002581276276.png?HW-CC-KV=V1&HW-CC-Date=20260528T024204Z&HW-CC-Expire=86400&HW-CC-Sign=20D77C5F89A0D3AB39A310AEDEC89EFA2D5A263E7A9DC418A0F002000D3D9649)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/X3iI5AmXTpG-Qx7hPyde1A/zh-cn_image_0000002581276276.png?HW-CC-KV=V1&HW-CC-Date=20260528T025537Z&HW-CC-Expire=86400&HW-CC-Sign=83B236F42AC0A918BEF81459700EF20A1EE7AD91DFCA6CA59C0907F56383379A)
 
 
 
 
-##### 示例11（自定义背景效果参数）
+#### 示例11（自定义背景效果参数）
 
 从API version 19开始，该示例通过配置[backgroundEffect](#datepickerdialogoptions对象说明)，实现自定义背景效果。
 
@@ -684,4 +684,4 @@ struct DatePickerDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/BJadF-AWSa-gkouGu3sMlw/zh-cn_image_0000002611756131.png?HW-CC-KV=V1&HW-CC-Date=20260528T024204Z&HW-CC-Expire=86400&HW-CC-Sign=D8EEDE9DFFF7BD18B9B0C3FE8D8130FF31098CC6DF9D2EAB56B77C2140A23509)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/BJadF-AWSa-gkouGu3sMlw/zh-cn_image_0000002611756131.png?HW-CC-KV=V1&HW-CC-Date=20260528T025537Z&HW-CC-Expire=86400&HW-CC-Sign=CD01486518D7DF81E651B6E417B1B15CC3258ECB91AF759726160FBA5DEEAD4F)

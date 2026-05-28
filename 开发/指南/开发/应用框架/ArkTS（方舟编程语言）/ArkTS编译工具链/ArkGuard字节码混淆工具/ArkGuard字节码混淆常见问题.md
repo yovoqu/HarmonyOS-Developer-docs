@@ -4,11 +4,11 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/bytecode-obfuscation-questions
 
-##### 字节码混淆与源码混淆差异
+#### 字节码混淆与源码混淆差异
 
   
 
-##### 混淆范围差异
+#### 混淆范围差异
 
 **json文件**
  
@@ -16,13 +16,13 @@
  
   
 
-##### 混淆选项差异
+#### 混淆选项差异
 1. 字节码混淆开关，默认关闭，在[开启混淆功能](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/bytecode-obfuscation-guide#开启混淆步骤)后，需要额外在模块目录下obfuscation-rules.txt文件中配置-enable-bytecode-obfuscation 、-enable-bytecode-obfuscation-debugging。
 2. 字节码混淆，不支持以下混淆项-remove-comments。
  
   
 
-##### 混淆后文件结构差异
+#### 混淆后文件结构差异
 
  **目录差异**
  
@@ -106,7 +106,7 @@ nameCache.json文件：
  
   
 
-##### 切换注意点
+#### 切换注意点
 
 **UI组件混淆差异**
  
@@ -193,7 +193,7 @@ callargs2 0x2e, v2, v3
  
   
 
-##### 如何排查功能异常
+#### 如何排查功能异常
 
 **排查功能异常步骤**
  1. 先在obfuscation-rules.txt配置-disable-obfuscation选项用于关闭混淆，确认问题是否由混淆引起。
@@ -219,17 +219,17 @@ callargs2 0x2e, v2, v3
  
   
 
-##### 常规配置问题处理
+#### 常规配置问题处理
 
   
 
-##### 开启enable-bytecode-obfuscation-debugging，没有生成pa文件如何处理
+#### 开启enable-bytecode-obfuscation-debugging，没有生成pa文件如何处理
 
 首先确保Build Mode设置为release，查看根目录下的build-profile.json5中，设置 "compatibleSdkVersionStage": "beta3"，再检查每个module中obfuscation-rules.txt文件里，开启字节码。
  
   
 
-##### 混淆如何查看混淆效果
+#### 混淆如何查看混淆效果
 
 在混淆结束后会将中间产物落盘，因此可以在编译产物build目录中找到混淆后的中间产物以查看混淆效果，同时可以找到混淆生成的名称映射表及系统API白名单文件。
  
@@ -247,7 +247,7 @@ callargs2 0x2e, v2, v3
  
   
 
-##### 编译报错处理
+#### 编译报错处理
 
 **案例一：报错内容为 ERROR: [Class]get different name for method.**
  
@@ -304,11 +304,11 @@ export default struct TmsDialog {
  
   
 
-##### 运行异常处理
+#### 运行异常处理
 
   
 
-##### 开启-enable-property-obfuscation选项可能出现的问题
+#### 开启-enable-property-obfuscation选项可能出现的问题
 
 **案例一：报错内容为 Cannot read property 'xxx' of undefined**
  
@@ -529,7 +529,7 @@ city1
  
   
 
-##### 同时开启-enable-export-obfuscation和-enable-toplevel-obfuscation选项可能出现的问题
+#### 同时开启-enable-export-obfuscation和-enable-toplevel-obfuscation选项可能出现的问题
 
 **当开启这两个选项时，主模块调用其他模块方法时涉及的方法名称混淆情况如下**：
   
@@ -705,7 +705,7 @@ export function FieldType(...types: Function[]): PropertyDecorator {
  
   
 
-##### 未开启-enable-string-property-obfuscation混淆选项，字符串字面量属性名却被混淆，导致字符串字面量属性名的值为undefined
+#### 未开启-enable-string-property-obfuscation混淆选项，字符串字面量属性名却被混淆，导致字符串字面量属性名的值为undefined
 
 ```ts
 // ExportInterface.ts
@@ -732,7 +732,7 @@ person["m"] = 20;
  
   
 
-##### 开启-enable-filename-obfuscation选项后，可能会出现的问题
+#### 开启-enable-filename-obfuscation选项后，可能会出现的问题
 
 **案例一：报错为Error Failed to get a resolved OhmUrl for 'D:code/MyApplication/f12/library1/pages/d.ets' imported by 'undefined'**
  

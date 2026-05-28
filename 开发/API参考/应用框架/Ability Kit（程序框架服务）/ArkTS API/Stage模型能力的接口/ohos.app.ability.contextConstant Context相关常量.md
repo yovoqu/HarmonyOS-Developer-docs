@@ -12,7 +12,7 @@ ContextConstant提供Context相关的枚举，包含文件加密分区等级、U
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { contextConstant } from '@kit.AbilityKit';
  
   
 
-##### AreaMode
+#### AreaMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@ import { contextConstant } from '@kit.AbilityKit';
  
   
 
-##### ProcessMode12+
+#### ProcessMode12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -100,7 +100,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### StartupVisibility12+
+#### StartupVisibility12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -126,7 +126,7 @@ StartupVisibility作为[StartOptions](https://developer.huawei.com/consumer/cn/d
  
   
 
-##### Scenarios20+
+#### Scenarios20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

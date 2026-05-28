@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** PC/2in1
 
@@ -22,7 +22,7 @@ import { Environment } from '@kit.CoreFileKit';
 
 
 
-##### Environment.getUserDownloadDir
+#### Environment.getUserDownloadDir
 
 **支持设备：** PC/2in1
 
@@ -67,7 +67,7 @@ function getUserDownloadDirExample() {
 
 
 
-##### Environment.getUserDesktopDir
+#### Environment.getUserDesktopDir
 
 **支持设备：** PC/2in1
 
@@ -112,7 +112,7 @@ function getUserDesktopDirExample() {
 
 
 
-##### Environment.getUserDocumentDir
+#### Environment.getUserDocumentDir
 
 **支持设备：** PC/2in1
 

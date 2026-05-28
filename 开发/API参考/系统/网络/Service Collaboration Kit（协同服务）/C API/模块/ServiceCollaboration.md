@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/servicecollaboration-capi-module
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -17,13 +17,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### 文件
+#### 文件
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  
@@ -34,7 +34,7 @@
  
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  
@@ -49,7 +49,7 @@
  
   
 
-##### 宏定义
+#### 宏定义
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  
@@ -62,7 +62,7 @@
  
   
 
-##### 类型定义
+#### 类型定义
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  
@@ -81,7 +81,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  
@@ -95,7 +95,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  
@@ -110,13 +110,13 @@
  
   
 
-##### 宏定义说明
+#### 宏定义说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### COLLABORATIONDEVICEINFO_DEVICENETWORKID_MAXLENGTH
+#### COLLABORATIONDEVICEINFO_DEVICENETWORKID_MAXLENGTH
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -132,7 +132,7 @@
  
   
 
-##### COLLABORATIONDEVICEINFO_DEVICENAME_MAXLENGTH
+#### COLLABORATIONDEVICEINFO_DEVICENAME_MAXLENGTH
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -148,7 +148,7 @@
  
   
 
-##### SERVICE_COLLABORATION_URI_MAXLENGTH
+#### SERVICE_COLLABORATION_URI_MAXLENGTH
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -164,13 +164,13 @@
  
   
 
-##### 类型定义说明
+#### 类型定义说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### ServiceCollaboration_CollaborationDeviceInfo
+#### ServiceCollaboration_CollaborationDeviceInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -186,7 +186,7 @@ typedef struct ServiceCollaboration_CollaborationDeviceInfo ServiceCollaboration
  
   
 
-##### ServiceCollaboration_CollaborationDeviceInfoSets
+#### ServiceCollaboration_CollaborationDeviceInfoSets
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -202,7 +202,7 @@ typedef struct ServiceCollaboration_CollaborationDeviceInfoSets ServiceCollabora
  
   
 
-##### ServiceCollaboration_SelectInfo
+#### ServiceCollaboration_SelectInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -218,7 +218,7 @@ typedef struct ServiceCollaboration_SelectInfo ServiceCollaboration_SelectInfo
  
   
 
-##### ServiceCollaborationCallback
+#### ServiceCollaborationCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -234,7 +234,7 @@ typedef struct ServiceCollaborationCallback ServiceCollaborationCallback
  
   
 
-##### ServiceCollaborationFilterType
+#### ServiceCollaborationFilterType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -250,7 +250,7 @@ typedef enum ServiceCollaborationFilterType ServiceCollaborationFilterType
  
   
 
-##### ServiceCollaborationDataType
+#### ServiceCollaborationDataType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -266,7 +266,7 @@ typedef enum ServiceCollaborationDataType ServiceCollaborationDataType
  
   
 
-##### ServiceCollaborationEventCode
+#### ServiceCollaborationEventCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -282,7 +282,7 @@ typedef enum ServiceCollaborationEventCode ServiceCollaborationEventCode
  
   
 
-##### ServiceCollaboration_SelectInfoV2
+#### ServiceCollaboration_SelectInfoV2
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -298,13 +298,13 @@ typedef struct ServiceCollaboration_SelectInfoV2 ServiceCollaboration_SelectInfo
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### ServiceCollaborationFilterType
+#### ServiceCollaborationFilterType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -329,7 +329,7 @@ enum ServiceCollaborationFilterType
  
   
 
-##### CollaborationDeviceFilterType
+#### CollaborationDeviceFilterType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -352,7 +352,7 @@ enum CollaborationDeviceFilterType
  
   
 
-##### ServiceCollaborationDataType
+#### ServiceCollaborationDataType
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -374,7 +374,7 @@ enum ServiceCollaborationDataType
  
   
 
-##### ServiceCollaborationEventCode
+#### ServiceCollaborationEventCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -409,13 +409,13 @@ enum ServiceCollaborationEventCode
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### HMS_ServiceCollaboration_GetCollaborationDeviceInfos
+#### HMS_ServiceCollaboration_GetCollaborationDeviceInfos
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -444,7 +444,7 @@ ServiceCollaboration_CollaborationDeviceInfoSets* HMS_ServiceCollaboration_GetCo
  
   
 
-##### HMS_ServiceCollaboration_GetCollaborationDeviceInfosV2
+#### HMS_ServiceCollaboration_GetCollaborationDeviceInfosV2
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -475,7 +475,7 @@ ServiceCollaboration_CollaborationDeviceInfoSets* HMS_ServiceCollaboration_GetCo
  
   
 
-##### HMS_ServiceCollaboration_StartCollaboration
+#### HMS_ServiceCollaboration_StartCollaboration
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -504,7 +504,7 @@ uint32_t HMS_ServiceCollaboration_StartCollaboration(
  
   
 
-##### HMS_ServiceCollaboration_StopCollaboration
+#### HMS_ServiceCollaboration_StopCollaboration
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -531,7 +531,7 @@ int32_t HMS_ServiceCollaboration_StopCollaboration(uint32_t collaborationId);
  
   
 
-##### HMS_ServiceCollaboration_StartCollaborationV2
+#### HMS_ServiceCollaboration_StartCollaborationV2
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

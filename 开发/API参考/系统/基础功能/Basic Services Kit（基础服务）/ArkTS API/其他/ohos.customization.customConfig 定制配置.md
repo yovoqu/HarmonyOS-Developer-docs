@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { customConfig } from '@kit.BasicServicesKit';
  
   
 
-##### customConfig.getChannelId
+#### customConfig.getChannelId
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -12,19 +12,19 @@ PhotoEditorExtensionAbility继承自[ExtensionAbility](https://developer.huawei.
 
   
 
-##### 实现效果
+#### 实现效果
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV | Wearable
 
 下图为通过PhotoEditorExtensionAbility实现的图片编辑扩展页面示意图，页面的布局与功能可以根据实际需要开发。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/PzQmawiiT8OhtnOtRwbHRw/zh-cn_image_0000002581435520.png?HW-CC-KV=V1&HW-CC-Date=20260528T024301Z&HW-CC-Expire=86400&HW-CC-Sign=37344B13668DF4719087200D6C88311589427ACE8D3E273A32DC80D3362F3E90)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/PzQmawiiT8OhtnOtRwbHRw/zh-cn_image_0000002581435520.png?HW-CC-KV=V1&HW-CC-Date=20260528T025636Z&HW-CC-Expire=86400&HW-CC-Sign=FDF30E3E7B281028D1C099D0B3EF5696F143EC6594788F94AD82C1A3CF531488)
 
  
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV | Wearable
 
@@ -34,13 +34,13 @@ import { PhotoEditorExtensionAbility } from '@kit.AbilityKit';
  
   
 
-##### PhotoEditorExtensionAbility
+#### PhotoEditorExtensionAbility
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV | Wearable
 
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -53,7 +53,7 @@ import { PhotoEditorExtensionAbility } from '@kit.AbilityKit';
  
   
 
-##### onCreate
+#### onCreate
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -81,7 +81,7 @@ export default class ExamplePhotoEditorAbility extends PhotoEditorExtensionAbili
  
   
 
-##### onStartContentEditing
+#### onStartContentEditing
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -118,7 +118,7 @@ export default class ExamplePhotoEditorAbility extends PhotoEditorExtensionAbili
  
   
 
-##### onForeground
+#### onForeground
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -146,7 +146,7 @@ export default class ExamplePhotoEditorAbility extends PhotoEditorExtensionAbili
  
   
 
-##### onBackground
+#### onBackground
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -174,7 +174,7 @@ export default class ExamplePhotoEditorAbility extends PhotoEditorExtensionAbili
  
   
 
-##### onDestroy
+#### onDestroy
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

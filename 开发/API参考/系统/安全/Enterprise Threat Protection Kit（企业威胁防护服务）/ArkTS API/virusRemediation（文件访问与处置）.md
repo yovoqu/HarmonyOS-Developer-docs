@@ -10,7 +10,7 @@
 **起始版本：** 6.1.1(24)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** PC/2in1
 
@@ -20,7 +20,7 @@ import { virusRemediation } from '@kit.EnterpriseThreatProtectionKit';
 
 
 
-##### IsolatedFileInfo
+#### IsolatedFileInfo
 
 **支持设备：** PC/2in1
 
@@ -42,7 +42,7 @@ import { virusRemediation } from '@kit.EnterpriseThreatProtectionKit';
 
 
 
-##### ScanTargetType
+#### ScanTargetType
 
 **支持设备：** PC/2in1
 
@@ -62,7 +62,7 @@ import { virusRemediation } from '@kit.EnterpriseThreatProtectionKit';
 
 
 
-##### ScanCallback
+#### ScanCallback
 
 **支持设备：** PC/2in1
 
@@ -76,7 +76,7 @@ import { virusRemediation } from '@kit.EnterpriseThreatProtectionKit';
 
 
 
-##### onReceive
+#### onReceive
 
 **支持设备：** PC/2in1
 
@@ -109,7 +109,7 @@ let onReceive: (paths: string[]) => void = (files: Array<string>) => {
 
 
 
-##### onComplete
+#### onComplete
 
 **支持设备：** PC/2in1
 
@@ -133,7 +133,7 @@ let onComplete: () => void = () => {
 
 
 
-##### onError
+#### onError
 
 **支持设备：** PC/2in1
 
@@ -165,7 +165,7 @@ let onError: (code: number, message: string) => void = (code: number, message: s
 
 
 
-##### QueryCallback
+#### QueryCallback
 
 **支持设备：** PC/2in1
 
@@ -179,7 +179,7 @@ let onError: (code: number, message: string) => void = (code: number, message: s
 
 
 
-##### onQuery
+#### onQuery
 
 **支持设备：** PC/2in1
 
@@ -212,7 +212,7 @@ let onQuery: (files: virusRemediation.IsolatedFileInfo[]) => void = (files: viru
 
 
 
-##### onComplete
+#### onComplete
 
 **支持设备：** PC/2in1
 
@@ -236,7 +236,7 @@ let onComplete: () => void = () => {
 
 
 
-##### onError
+#### onError
 
 **支持设备：** PC/2in1
 
@@ -268,7 +268,7 @@ let onError: (code: number, message: string) => void = (code: number, message: s
 
 
 
-##### scanBundleFiles
+#### scanBundleFiles
 
 **支持设备：** PC/2in1
 
@@ -339,7 +339,7 @@ function startFileScanTask() {
 
 
 
-##### openFile
+#### openFile
 
 **支持设备：** PC/2in1
 
@@ -402,7 +402,7 @@ function openFilePromise() {
 
 
 
-##### queryIsolatedFiles
+#### queryIsolatedFiles
 
 **支持设备：** PC/2in1
 
@@ -467,7 +467,7 @@ function startQueryTask() {
 
 
 
-##### isolateThreatFile
+#### isolateThreatFile
 
 **支持设备：** PC/2in1
 
@@ -529,7 +529,7 @@ function isolateFilePromise() {
 
 
 
-##### restoreIsolatedFile
+#### restoreIsolatedFile
 
 **支持设备：** PC/2in1
 
@@ -589,7 +589,7 @@ function restoreFilePromise() {
 
 
 
-##### removeIsolatedFile
+#### removeIsolatedFile
 
 **支持设备：** PC/2in1
 

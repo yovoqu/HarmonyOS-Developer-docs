@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-scalargetcountofvalue
 
-##### 功能说明
+#### 功能说明
 
 获取一个uint64_t类型数字的二进制中0或者1的个数。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 template <int countValue>  
@@ -19,7 +19,7 @@ __aicore__ inline int64_t ScalarGetCountOfValue(uint64_t valueIn)
  
   
 
-##### 参数说明
+#### 参数说明
 
 **表1** 参数说明
   
@@ -31,13 +31,13 @@ __aicore__ inline int64_t ScalarGetCountOfValue(uint64_t valueIn)
  
   
 
-##### 返回值
+#### 返回值
 
 valueIn中0或者1的个数。
  
   
 
-##### 支持的型号
+#### 支持的型号
 
 Kirin9020系列处理器
  
@@ -45,13 +45,13 @@ KirinX90系列处理器
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 uint64_t valueIn = 0xffff;

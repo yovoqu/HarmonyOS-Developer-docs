@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___tracing_configuration
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -19,13 +19,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -39,13 +39,13 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### collectTimeInfo
+#### collectTimeInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -59,7 +59,7 @@ bool Rcp_TracingConfiguration::collectTimeInfo
  
   
 
-##### httpEventsHandler
+#### httpEventsHandler
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -73,7 +73,7 @@ Rcp_EventsHandler Rcp_TracingConfiguration::httpEventsHandler
  
   
 
-##### infoToCollect
+#### infoToCollect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -87,7 +87,7 @@ Rcp_InfoToCollect Rcp_TracingConfiguration::infoToCollect
  
   
 
-##### verbose
+#### verbose
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

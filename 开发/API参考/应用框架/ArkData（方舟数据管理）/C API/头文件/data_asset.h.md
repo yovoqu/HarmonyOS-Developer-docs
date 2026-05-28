@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-data-asset-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -25,13 +25,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -42,7 +42,7 @@
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -53,7 +53,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -81,13 +81,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### Data_AssetStatus
+#### Data_AssetStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -114,13 +114,13 @@ enum Data_AssetStatus
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Data_Asset_SetName()
+#### OH_Data_Asset_SetName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -151,7 +151,7 @@ int OH_Data_Asset_SetName(Data_Asset *asset, const char *name)
  
   
 
-##### OH_Data_Asset_SetUri()
+#### OH_Data_Asset_SetUri()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -182,7 +182,7 @@ int OH_Data_Asset_SetUri(Data_Asset *asset, const char *uri)
  
   
 
-##### OH_Data_Asset_SetPath()
+#### OH_Data_Asset_SetPath()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -213,7 +213,7 @@ int OH_Data_Asset_SetPath(Data_Asset *asset, const char *path)
  
   
 
-##### OH_Data_Asset_SetCreateTime()
+#### OH_Data_Asset_SetCreateTime()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -244,7 +244,7 @@ int OH_Data_Asset_SetCreateTime(Data_Asset *asset, int64_t createTime)
  
   
 
-##### OH_Data_Asset_SetModifyTime()
+#### OH_Data_Asset_SetModifyTime()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -275,7 +275,7 @@ int OH_Data_Asset_SetModifyTime(Data_Asset *asset, int64_t modifyTime)
  
   
 
-##### OH_Data_Asset_SetSize()
+#### OH_Data_Asset_SetSize()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -306,7 +306,7 @@ int OH_Data_Asset_SetSize(Data_Asset *asset, size_t size)
  
   
 
-##### OH_Data_Asset_SetStatus()
+#### OH_Data_Asset_SetStatus()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -337,7 +337,7 @@ int OH_Data_Asset_SetStatus(Data_Asset *asset, Data_AssetStatus status)
  
   
 
-##### OH_Data_Asset_GetName()
+#### OH_Data_Asset_GetName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -369,7 +369,7 @@ int OH_Data_Asset_GetName(Data_Asset *asset, char *name, size_t *length)
  
   
 
-##### OH_Data_Asset_GetUri()
+#### OH_Data_Asset_GetUri()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -401,7 +401,7 @@ int OH_Data_Asset_GetUri(Data_Asset *asset, char *uri, size_t *length)
  
   
 
-##### OH_Data_Asset_GetPath()
+#### OH_Data_Asset_GetPath()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -433,7 +433,7 @@ int OH_Data_Asset_GetPath(Data_Asset *asset, char *path, size_t *length)
  
   
 
-##### OH_Data_Asset_GetCreateTime()
+#### OH_Data_Asset_GetCreateTime()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -468,7 +468,7 @@ Data_Asset
  
   
 
-##### OH_Data_Asset_GetModifyTime()
+#### OH_Data_Asset_GetModifyTime()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -499,7 +499,7 @@ int OH_Data_Asset_GetModifyTime(Data_Asset *asset, int64_t *modifyTime)
  
   
 
-##### OH_Data_Asset_GetSize()
+#### OH_Data_Asset_GetSize()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -530,7 +530,7 @@ int OH_Data_Asset_GetSize(Data_Asset *asset, size_t *size)
  
   
 
-##### OH_Data_Asset_GetStatus()
+#### OH_Data_Asset_GetStatus()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -561,7 +561,7 @@ int OH_Data_Asset_GetStatus(Data_Asset *asset, Data_AssetStatus *status)
  
   
 
-##### OH_Data_Asset_CreateOne()
+#### OH_Data_Asset_CreateOne()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -584,7 +584,7 @@ Data_Asset *OH_Data_Asset_CreateOne(void)
  
   
 
-##### OH_Data_Asset_DestroyOne()
+#### OH_Data_Asset_DestroyOne()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -614,7 +614,7 @@ int OH_Data_Asset_DestroyOne(Data_Asset *asset)
  
   
 
-##### OH_Data_Asset_CreateMultiple()
+#### OH_Data_Asset_CreateMultiple()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -644,7 +644,7 @@ Data_Asset **OH_Data_Asset_CreateMultiple(uint32_t count)
  
   
 
-##### OH_Data_Asset_DestroyMultiple()
+#### OH_Data_Asset_DestroyMultiple()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

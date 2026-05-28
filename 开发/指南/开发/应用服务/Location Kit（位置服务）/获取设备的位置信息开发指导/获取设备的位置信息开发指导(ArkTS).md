@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/location-guidelines
 
-##### 场景概述
+#### 场景概述
 
 开发者可以调用HarmonyOS位置相关接口，获取设备实时位置，或者最近的历史位置，以及监听设备的位置变化。
 
@@ -12,7 +12,7 @@
 
 
 
-##### 接口说明
+#### 接口说明
 
 获取设备的位置信息所使用的接口如下，详细说明参见Location Kit API参考：[@ohos.geoLocationManager (位置服务)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-geolocationmanager)。
 
@@ -30,7 +30,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 获取设备的位置信息，需要有位置权限，位置权限申请的方法和步骤见[申请位置权限开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/location-permission-guidelines)。
 2. 导入geoLocationManager模块，所有与基础定位能力相关的功能API，都是通过该模块提供的。
 

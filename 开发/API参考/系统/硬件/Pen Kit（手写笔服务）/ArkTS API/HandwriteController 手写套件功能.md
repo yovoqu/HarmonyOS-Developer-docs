@@ -14,7 +14,7 @@
 **起始版本：** 5.0.0(12)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -37,7 +37,7 @@ import { HandwriteController } from '@kit.Penkit';
 
 
 
-##### load
+#### load
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -73,7 +73,7 @@ load(path: string): void
 
 
 
-##### save
+#### save
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -116,7 +116,7 @@ save(path: string): Promise&lt;void&gt;
 
 
 
-##### onLoad
+#### onLoad
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -148,7 +148,7 @@ onLoad(callback: AsyncCallback&lt;string&gt;): void
 
 
 
-##### getContentRange
+#### getContentRange
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -171,7 +171,7 @@ getContentRange(): Rect
 
 
 
-##### getThumbnail
+#### getThumbnail
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -201,7 +201,7 @@ getThumbnail(rect: Rect): Promise&lt;PixelMap&gt;
 
 
 
-##### Rect
+#### Rect
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -223,7 +223,7 @@ Rect信息参数，表示矩形区域。
 
 
 
-##### scrollTo
+#### scrollTo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -250,7 +250,7 @@ scrollTo(yOffset: number): void
 
 
 
-##### **示例**
+#### **示例**
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

@@ -12,7 +12,7 @@
 滑动选择器组件，类型支持普通选择器、日期选择器、时间选择器、时间日期选择器和多列文本选择器。
   
 
-##### 权限列表
+#### 权限列表
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -28,7 +28,7 @@
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@
  
   
 
-##### 普通选择器
+#### 普通选择器
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -56,7 +56,7 @@
  
   
 
-##### 日期选择器
+#### 日期选择器
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -74,7 +74,7 @@
  
   
 
-##### 时间选择器
+#### 时间选择器
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -90,7 +90,7 @@
  
   
 
-##### 日期时间选择器
+#### 日期时间选择器
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -107,7 +107,7 @@
  
   
 
-##### 多列文本选择器
+#### 多列文本选择器
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -123,7 +123,7 @@
  
   
 
-##### 样式
+#### 样式
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -145,7 +145,7 @@
  
   
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -153,7 +153,7 @@
  
   
 
-##### 普通选择器
+#### 普通选择器
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -165,7 +165,7 @@
  
   
 
-##### 日期选择器
+#### 日期选择器
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -177,7 +177,7 @@
  
   
 
-##### 日期时间选择器
+#### 日期时间选择器
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -189,7 +189,7 @@
  
   
 
-##### 时间选择器
+#### 时间选择器
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -201,7 +201,7 @@
  
   
 
-##### 多列文本选择器
+#### 多列文本选择器
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -214,7 +214,7 @@
  
   
 
-##### 方法
+#### 方法
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -227,7 +227,7 @@
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -387,4 +387,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/3A46uTdzS1q-EvckS8j1sQ/zh-cn_image_0000002581436334.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024102Z&HW-CC-Expire=86400&HW-CC-Sign=EBC22E0EB3A319E6B920335C541DC12C53D58F146EBD7BC1A3C9BE8E6F020E8C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/3A46uTdzS1q-EvckS8j1sQ/zh-cn_image_0000002581436334.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025437Z&HW-CC-Expire=86400&HW-CC-Sign=33CF866AFDB1527A9AC3FA4C26059B3E2CEB644AC880663544876886D5566B76)

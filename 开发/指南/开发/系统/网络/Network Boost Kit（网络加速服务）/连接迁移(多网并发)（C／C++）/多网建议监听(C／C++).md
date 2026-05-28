@@ -7,13 +7,13 @@
 从6.0.2(22)开始，支持多网建议监听。
 
 
-##### 场景介绍
+#### 场景介绍
 
 系统感知到应用可能需要使用多网络加速的场景时，如弱网、网络切换等特定场景，会给出建议。应用通过监听多网络加速的建议，决策发起多网络加速的请求。
 
 
 
-##### 接口说明
+#### 接口说明
 
 具体API说明详见[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/network-boost-c-overview)。
 
@@ -25,7 +25,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 导入Network Boost Kit模块。
 
   

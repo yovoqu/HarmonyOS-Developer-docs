@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-face
 
-##### 约束与限制
+#### 约束与限制
 
 从6.1.0(23)开始，人脸识别与跟踪能力支持部分Phone、部分Tablet设备、TV设备。请参考[硬件要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-preparations#硬件要求)判断设备是否支持人脸识别与跟踪特性（[ARENGINE_FEATURE_TYPE_FACE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_featuretype)）。
 
 
 
-##### 接口说明
+#### 接口说明
 
 以下接口为AR Engine人脸跟踪相关接口，详细接口和说明，请参考[AR Engine API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine)。
 
@@ -42,11 +42,11 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 
 
-##### 创建UI界面
+#### 创建UI界面
 
 创建一个UI界面，使用XComponent组件用于显示相机预览画面，并定时触发每一帧绘制。
 
@@ -119,13 +119,13 @@ struct ARFace {
 
 
 
-##### 引入AR Engine
+#### 引入AR Engine
 
 开发者可参考AR物体摆放章节的[引入AR Engine](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-arworld#引入ar-engine)。
 
 
 
-##### 创建AR会话并配置为开启人脸跟踪模式
+#### 创建AR会话并配置为开启人脸跟踪模式
 
 使用人脸识别与跟踪能力时请使用[HMS_AREngine_ARSession_Create_Human_Perception](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_create_human_perception)创建AR会话。
 
@@ -148,7 +148,7 @@ HMS_AREngine_ARSession_Configure(arSession, arConfig);
 
 
 
-##### 获取当前环境中的人脸信息
+#### 获取当前环境中的人脸信息
 1. 创建一个可追踪对象列表faceList，用于存放人脸跟踪模式下AR Engine运行过程中检测到的所有人脸。
 
   
@@ -184,7 +184,7 @@ for (int i = 0; i < faceListSize; ++i) {
 
 
 
-##### 获取当前人脸的位姿信息
+#### 获取当前人脸的位姿信息
 1. 先通过[HMS_AREngine_ARPose_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arpose_create)接口创建一个[ARPose](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_arpose)对象，然后调用[HMS_AREngine_ARFace_GetCenterPose](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arface_getcenterpose)，获取当前人脸的位姿信息。
 
   

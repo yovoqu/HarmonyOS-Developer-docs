@@ -9,7 +9,7 @@
 该对象可用于后续的加解密等操作。获取的密钥参数属性可用于存储或传输。
 
 
-##### 指定密钥参数生成RSA公钥
+#### 指定密钥参数生成RSA公钥
 
 对应的算法规格请查看[非对称密钥生成和转换规格：RSA](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-asym-key-generation-conversion-spec#rsa)。
 1. 构造[RSACommonParamsSpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#rsacommonparamsspec10)对象，用于指定RSA算法中公私钥包含的公共参数（n）。
@@ -179,7 +179,7 @@ function rsaUsePubKeySpecGetSync() {
 
 
 
-##### 指定密钥参数生成ECC密钥对
+#### 指定密钥参数生成ECC密钥对
 
 对应的算法规格请查看[非对称密钥生成和转换规格：ECC](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-asym-key-generation-conversion-spec#ecc)。
 1. 构造[ECCCommonParamsSpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#ecccommonparamsspec10)对象，用于指定ECC算法中公私钥包含的公共参数。
@@ -402,7 +402,7 @@ function testEccUseCommKeySpecGetSync() {
 
 
 
-##### 根据椭圆曲线名生成SM2密钥对
+#### 根据椭圆曲线名生成SM2密钥对
 
 对应的算法规格请查看[非对称密钥生成和转换规格：SM2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-asym-key-generation-conversion-spec#sm2)。
 1. 构造[ECCCommonParamsSpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#ecccommonparamsspec10)对象，用于指定非对称公共密钥参数。根据[genECCCommonParamsSpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#genecccommonparamsspec11)接口传入相应的NID字符串名称生成相应的非对称公共密钥参数。

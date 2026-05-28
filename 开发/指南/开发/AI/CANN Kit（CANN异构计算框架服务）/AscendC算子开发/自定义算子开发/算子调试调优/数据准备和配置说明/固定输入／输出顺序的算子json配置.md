@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-json-configuration
 
-##### json配置说明
+#### json配置说明
 
 固定输入/输出顺序的算子json配置文件中“inputs”和“outputs”参数按照“**输入/输出规则排布**”，所以要求Kernel入口函数的参数也是按照该规则排布。
  
@@ -97,7 +97,7 @@ extern "C" __global__ __aicore__ void add_custom(GM_ADDR input1, GM_ADDR input2,
  
   
 
-##### 特殊格式输入
+#### 特殊格式输入
 
 - **场景1：支持Scalar格式的输入。**
 

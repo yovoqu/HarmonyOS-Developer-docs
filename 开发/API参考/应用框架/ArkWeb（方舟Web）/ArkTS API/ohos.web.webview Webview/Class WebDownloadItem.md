@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { webview } from '@kit.ArkWeb';
 
 
 
-##### getGuid11+
+#### getGuid11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -92,7 +92,7 @@ struct WebComponent {
 
 
 
-##### getCurrentSpeed11+
+#### getCurrentSpeed11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -162,7 +162,7 @@ struct WebComponent {
 
 
 
-##### getPercentComplete11+
+#### getPercentComplete11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -232,7 +232,7 @@ struct WebComponent {
 
 
 
-##### getTotalBytes11+
+#### getTotalBytes11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -302,7 +302,7 @@ struct WebComponent {
 
 
 
-##### getState11+
+#### getState11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -372,7 +372,7 @@ struct WebComponent {
 
 
 
-##### getLastErrorCode11+
+#### getLastErrorCode11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -443,7 +443,7 @@ struct WebComponent {
 
 
 
-##### getMethod11+
+#### getMethod11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -513,7 +513,7 @@ struct WebComponent {
 
 
 
-##### getMimeType11+
+#### getMimeType11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -583,7 +583,7 @@ struct WebComponent {
 
 
 
-##### getUrl11+
+#### getUrl11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -653,7 +653,7 @@ struct WebComponent {
 
 
 
-##### getSuggestedFileName11+
+#### getSuggestedFileName11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -723,7 +723,7 @@ struct WebComponent {
 
 
 
-##### getReceivedBytes11+
+#### getReceivedBytes11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -794,7 +794,7 @@ struct WebComponent {
 
 
 
-##### getFullPath11+
+#### getFullPath11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -865,7 +865,7 @@ struct WebComponent {
 
 
 
-##### getOriginalUrl24+
+#### getOriginalUrl24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -937,7 +937,7 @@ struct WebComponent {
 
 
 
-##### getReferrerUrl24+
+#### getReferrerUrl24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1009,7 +1009,7 @@ struct WebComponent {
 
 
 
-##### serialize11+
+#### serialize11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1082,7 +1082,7 @@ struct WebComponent {
 
 
 
-##### deserialize11+
+#### deserialize11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1179,7 +1179,7 @@ struct WebComponent {
 
 
 
-##### start11+
+#### start11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1273,7 +1273,7 @@ struct WebComponent {
 
 
 
-##### cancel11+
+#### cancel11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1357,7 +1357,7 @@ struct WebComponent {
 
 
 
-##### pause11+
+#### pause11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1458,7 +1458,7 @@ struct WebComponent {
 
 
 
-##### resume11+
+#### resume11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

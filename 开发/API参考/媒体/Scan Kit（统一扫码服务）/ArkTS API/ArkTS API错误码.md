@@ -10,13 +10,13 @@
 
 
 
-##### 1000500001 内部错误
+#### 1000500001 内部错误
 
 **支持设备：** Phone | Tablet | Wearable | PC/2in1 | TV
 
 
 
-##### 算法异常
+#### 算法异常
 
 **错误信息**
 
@@ -39,7 +39,7 @@
 
 
 
-##### 码图生成失败
+#### 码图生成失败
 
 **错误信息**
 
@@ -59,7 +59,7 @@ Internal error. Failed to create pixelMap.
 
 
 
-##### 图片获取失败
+#### 图片获取失败
 
 **错误信息**
 
@@ -79,7 +79,7 @@ Internal error. Failed to read file.
 
 
 
-##### 获取系统context失败
+#### 获取系统context失败
 
 **错误信息**
 
@@ -101,7 +101,7 @@ Internal error. Failed to read file.
 
 
 
-##### 获取callback失败
+#### 获取callback失败
 
 **错误信息**
 
@@ -121,7 +121,7 @@ Internal error. Get callback failed.
 
 
 
-##### 接口调用顺序错误
+#### 接口调用顺序错误
 
 **错误信息**
 
@@ -144,7 +144,7 @@ Internal error. Get callback failed.
 
 
 
-##### 接口调用不被允许
+#### 接口调用不被允许
 
 **错误信息**
 
@@ -164,7 +164,7 @@ customScan.start的Promise方式中调用了customScan.rescan接口。
 
 
 
-##### 分辨率不匹配
+#### 分辨率不匹配
 
 **错误信息**
 
@@ -184,7 +184,7 @@ Internal error. The width and height of viewControl do not match the width and h
 
 
 
-##### 相机错误
+#### 相机错误
 
 **错误信息**
 
@@ -228,7 +228,7 @@ Internal error. The width and height of viewControl do not match the width and h
 
 
 
-##### 1000500002 用户取消扫码
+#### 1000500002 用户取消扫码
 
 **支持设备：** Phone | Tablet | Wearable
 

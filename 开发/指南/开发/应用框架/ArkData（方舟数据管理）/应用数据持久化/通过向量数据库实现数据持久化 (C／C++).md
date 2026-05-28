@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-vector-store-guidelines
 
-##### 场景介绍
+#### 场景介绍
 
 向量数据库是一种支持存储、管理和检索向量数据的数据库，也支持标量的关系型数据处理。数据类型"floatvector"用来存储数据向量化的结果，从而实现对这些数据的快速检索和相似性搜索‌。
 
@@ -12,7 +12,7 @@
 
 
 
-##### 基本概念
+#### 基本概念
 
  - **结果集**：指用户查询之后的结果集合，可以对数据进行访问。结果集提供了灵活的数据访问方式，可以更方便地拿到用户想要的数据。
  - **floatvector**：该数据类型表示向量数据，例如[1.0, 3.0, 2.4, 5.1, 6.2, 11.7]。
@@ -20,7 +20,7 @@
 
 
 
-##### 约束限制
+#### 约束限制
 
  - 系统默认日志方式是[WAL](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-terminology#wal模式)（Write Ahead Log）模式，系统默认落盘方式是[FULL模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-terminology#full模式)。
  - 数据库中默认有4个读连接和1个写连接，线程获取到空闲读连接时，即可进行读取操作。当没有空闲读连接时，会创建新的读连接。
@@ -31,13 +31,13 @@
 
 
 
-##### 规格限制
+#### 规格限制
 
 详情见[规格限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-persistence-by-vector-store#规格限制)。
 
 
 
-##### 接口说明
+#### 接口说明
 
 详细的接口说明请参考[RDB](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb)。
 
@@ -56,7 +56,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 **添加动态链接库**
 

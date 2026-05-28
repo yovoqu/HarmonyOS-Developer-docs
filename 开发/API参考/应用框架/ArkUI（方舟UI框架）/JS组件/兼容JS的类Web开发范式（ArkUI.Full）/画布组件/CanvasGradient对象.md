@@ -12,7 +12,7 @@
 渐变对象。
   
 
-##### addColorStop
+#### addColorStop
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -54,4 +54,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/aXhYzOI2Sf2oifKJz_3fWQ/zh-cn_image_0000002581276454.png?HW-CC-KV=V1&HW-CC-Date=20260528T024101Z&HW-CC-Expire=86400&HW-CC-Sign=FC6A57DA2B14EC0D7A99F1AEC2B7AD2D2ED79C1AAACF95A291272C5D8B85A705)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/aXhYzOI2Sf2oifKJz_3fWQ/zh-cn_image_0000002581276454.png?HW-CC-KV=V1&HW-CC-Date=20260528T025435Z&HW-CC-Expire=86400&HW-CC-Sign=B5210043EB47E4C4D21F553920FB01A7CCCFCE1B3DFA79CC1C16EDCBE23C1B8F)

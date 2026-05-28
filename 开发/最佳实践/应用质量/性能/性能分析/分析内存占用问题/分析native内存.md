@@ -7,7 +7,7 @@
 本文Native内存指的主要是代码中通过malloc、new、realloc、calloc函数申请的堆内存和通过mmap映射内存地址空间，Native内存是进程内存中占比较高，也是容易出泄漏问题的一种内存。分析Native内存分布与占用问题需要借助工具，以及一些测试，分析技巧。DevEco Studio Profiler插件的Allocation模板，通过对基础库的malloc，free等函数进行插桩记录，可以抓取Native内存分配释放记录，包括大小和堆栈等数据，用以分析native内存的占用问题。
  
 
-##### 日志获取
+#### 日志获取
 
  
 **DevEco堆内存分配/释放抓栈说明**
@@ -50,7 +50,7 @@ DevEco Studio Profiler插件的Allocation模板可以帮助用户分析堆内存
 
  
 
-##### 分析思路
+#### 分析思路
 
  
 在分析DevEco Studio Profiler插件的Allocation分析模板的数据时，通常框选All Heap一栏来分析堆内存数据。All Anonymous VM一栏展示的是匿名内存分配，通常是mmap、 munmap函数申请和释放的内存，这些大都是进程自动进行的，开发人员难以控制。
@@ -82,7 +82,7 @@ DevEco Studio Profiler插件的Allocation模板可以帮助用户分析堆内存
 
  
 
-##### 分析步骤
+#### 分析步骤
 
  
 使用Allocation模板抓到trace之后，可以参考以下分析方式。
@@ -103,7 +103,7 @@ DevEco Studio Profiler插件的Allocation模板可以帮助用户分析堆内存
 
  
 
-##### 常见问题:
+#### 常见问题:
 
  
 问题：为什么抓非[debug版本应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/performance-analysis-kit-terminology#debug版本应用)抓不到数据？

@@ -7,13 +7,13 @@
 从API version 22开始，[OHAudioSuite](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite)给开发者提供音频离线编辑能力，允许在非实时播放场景下对音频数据进行处理，开发者可以组合多个音频节点实现复杂的音频处理流程。
 
 
-##### 开发基础配置
+#### 开发基础配置
 
 开发者使用[OHAudioSuite](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite)提供的离线编辑能力，添加对应的头文件。
 
 
 
-##### 在CMake脚本中链接动态库
+#### 在CMake脚本中链接动态库
 
 ```text
 target_link_libraries(sample PUBLIC libohaudiosuite.so)
@@ -21,7 +21,7 @@ target_link_libraries(sample PUBLIC libohaudiosuite.so)
 
 
 
-##### 添加头文件
+#### 添加头文件
 
 开发者通过引入头文件<[native_audio_suite_base.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-base-h)>和<[native_audio_suite_engine.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h)>，使用音频编创相关API。
 
@@ -32,7 +32,7 @@ target_link_libraries(sample PUBLIC libohaudiosuite.so)
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 详细的API说明请参考：[OHAudioSuite](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite)。
 
@@ -40,19 +40,19 @@ target_link_libraries(sample PUBLIC libohaudiosuite.so)
 
 
 
-##### 指定音频节点类型
+#### 指定音频节点类型
 
 开发者需要根据业务场景，调用[OH_AudioSuiteNodeBuilder_SetNodeType()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_audiosuitenodebuilder_setnodetype)接口，指定对应的[OH_AudioNode_Type](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-base-h#oh_audionode_type)。
 
 
 
-##### 指定音频节点格式
+#### 指定音频节点格式
 
 开发者需要根据业务场景，调用[OH_AudioSuiteNodeBuilder_SetFormat()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_audiosuitenodebuilder_setformat)或者[OH_AudioSuiteEngine_SetAudioFormat()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_audiosuiteengine_setaudioformat)接口，设置音频格式（位深（[OH_Audio_SampleFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-base-h#oh_audio_sampleformat)）、采样率（[OH_Audio_SampleRate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-base-h#oh_audio_samplerate)）、声道数（[OH_AudioChannelLayout](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-channel-layout-h#oh_audiochannellayout)）等）。
 
 
 
-##### 基础离线编辑
+#### 基础离线编辑
 
 使用效果节点（如均衡器效果节点）处理输入的PCM（Pulse Code Modulation）音频数据，输出带有该音效的PCM音频数据。
 
@@ -221,7 +221,7 @@ OH_AudioSuiteEngine_Destroy(audioSuiteEngine);
 
 
 
-##### 音源分离场景
+#### 音源分离场景
 
 使用音源分离节点分离输入的PCM音频数据为人声和背景声，然后通过输出节点分别输出这两路数据。
 
@@ -409,7 +409,7 @@ OH_AudioSuiteEngine_Destroy(audioSuiteEngine);
 
 
 
-##### 混音与级联
+#### 混音与级联
 
 输入多路PCM音频数据，使用混音节点进行混音，输出混音后的PCM音频数据。
 

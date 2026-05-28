@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-vulkan-ohos-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -21,13 +21,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -48,7 +48,7 @@
  
   
 
-##### 枚举
+#### 枚举
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -57,7 +57,7 @@
  
   
 
-##### 宏定义
+#### 宏定义
  
 | 名称 | 描述 |
 | --- | --- |
@@ -74,7 +74,7 @@
  
   
 
-##### 函数
+#### 函数
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -98,13 +98,13 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### VkSwapchainImageUsageFlagBitsOHOS
+#### VkSwapchainImageUsageFlagBitsOHOS
 
 ```text
 enum VkSwapchainImageUsageFlagBitsOHOS
@@ -124,13 +124,13 @@ enum VkSwapchainImageUsageFlagBitsOHOS
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### PFN_vkCreateSurfaceOHOS()
+#### PFN_vkCreateSurfaceOHOS()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -165,7 +165,7 @@ typedef VkResult (VKAPI_PTR *PFN_vkCreateSurfaceOHOS)(VkInstance instance, const
  
   
 
-##### vkCreateSurfaceOHOS()
+#### vkCreateSurfaceOHOS()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -200,7 +200,7 @@ VKAPI_ATTR VkResult VKAPI_CALL vkCreateSurfaceOHOS(VkInstance instance, const Vk
  
   
 
-##### PFN_vkGetNativeBufferPropertiesOHOS()
+#### PFN_vkGetNativeBufferPropertiesOHOS()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -234,7 +234,7 @@ typedef VkResult (VKAPI_PTR *PFN_vkGetNativeBufferPropertiesOHOS)(VkDevice devic
  
   
 
-##### PFN_vkGetMemoryNativeBufferOHOS()
+#### PFN_vkGetMemoryNativeBufferOHOS()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -268,7 +268,7 @@ typedef VkResult (VKAPI_PTR *PFN_vkGetMemoryNativeBufferOHOS)(VkDevice device, c
  
   
 
-##### vkGetNativeBufferPropertiesOHOS()
+#### vkGetNativeBufferPropertiesOHOS()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -302,7 +302,7 @@ VKAPI_ATTR VkResult VKAPI_CALL vkGetNativeBufferPropertiesOHOS(VkDevice device, 
  
   
 
-##### vkGetMemoryNativeBufferOHOS()
+#### vkGetMemoryNativeBufferOHOS()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -336,7 +336,7 @@ VKAPI_ATTR VkResult VKAPI_CALL vkGetMemoryNativeBufferOHOS(VkDevice device, cons
  
   
 
-##### vkGetSwapchainGrallocUsageOHOS()
+#### vkGetSwapchainGrallocUsageOHOS()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -373,7 +373,7 @@ VKAPI_ATTR VkResult VKAPI_CALL vkGetSwapchainGrallocUsageOHOS(VkDevice device, V
  
   
 
-##### VKAPI_PTR *PFN_vkGetSwapchainGrallocUsageOHOS()
+#### VKAPI_PTR *PFN_vkGetSwapchainGrallocUsageOHOS()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -410,7 +410,7 @@ typedef VkResult (VKAPI_PTR *PFN_vkGetSwapchainGrallocUsageOHOS)(VkDevice device
  
   
 
-##### vkAcquireImageOHOS()
+#### vkAcquireImageOHOS()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -448,7 +448,7 @@ VKAPI_ATTR VkResult VKAPI_CALL vkAcquireImageOHOS(VkDevice device, VkImage image
  
   
 
-##### VKAPI_PTR *PFN_vkAcquireImageOHOS()
+#### VKAPI_PTR *PFN_vkAcquireImageOHOS()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -486,7 +486,7 @@ typedef VkResult (VKAPI_PTR *PFN_vkAcquireImageOHOS)(VkDevice device, VkImage im
  
   
 
-##### vkQueueSignalReleaseImageOHOS()
+#### vkQueueSignalReleaseImageOHOS()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -524,7 +524,7 @@ VKAPI_ATTR VkResult VKAPI_CALL vkQueueSignalReleaseImageOHOS(VkQueue queue, uint
  
   
 
-##### VKAPI_PTR *PFN_vkQueueSignalReleaseImageOHOS()
+#### VKAPI_PTR *PFN_vkQueueSignalReleaseImageOHOS()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -562,7 +562,7 @@ typedef VkResult (VKAPI_PTR *PFN_vkQueueSignalReleaseImageOHOS)(VkQueue queue, u
  
   
 
-##### VKAPI_PTR *PFN_vkSetNativeFenceFdOpenHarmony()
+#### VKAPI_PTR *PFN_vkSetNativeFenceFdOpenHarmony()
 
 ```text
 typedef VkResult (VKAPI_PTR *PFN_vkSetNativeFenceFdOpenHarmony)(VkDevice device, int32_t nativeFenceFd, VkSemaphore semaphore, VkFence fence)
@@ -580,7 +580,7 @@ typedef VkResult (VKAPI_PTR *PFN_vkSetNativeFenceFdOpenHarmony)(VkDevice device,
  
   
 
-##### VKAPI_PTR *PFN_vkGetNativeFenceFdOpenHarmony()
+#### VKAPI_PTR *PFN_vkGetNativeFenceFdOpenHarmony()
 
 ```text
 typedef VkResult (VKAPI_PTR *PFN_vkGetNativeFenceFdOpenHarmony)(VkQueue queue, uint32_t waitSemaphoreCount, const VkSemaphore* pWaitSemaphores, VkImage image, int32_t* pNativeFenceFd)
@@ -598,7 +598,7 @@ typedef VkResult (VKAPI_PTR *PFN_vkGetNativeFenceFdOpenHarmony)(VkQueue queue, u
  
   
 
-##### vkSetNativeFenceFdOpenHarmony()
+#### vkSetNativeFenceFdOpenHarmony()
 
 ```text
 VKAPI_ATTR VkResult VKAPI_CALL vkSetNativeFenceFdOpenHarmony(VkDevice device, int32_t nativeFenceFd, VkSemaphore semaphore, VkFence fence)
@@ -616,7 +616,7 @@ VKAPI_ATTR VkResult VKAPI_CALL vkSetNativeFenceFdOpenHarmony(VkDevice device, in
  
   
 
-##### vkGetNativeFenceFdOpenHarmony()
+#### vkGetNativeFenceFdOpenHarmony()
 
 ```text
 VKAPI_ATTR VkResult VKAPI_CALL vkGetNativeFenceFdOpenHarmony(VkQueue queue, uint32_t waitSemaphoreCount, const VkSemaphore* pWaitSemaphores, VkImage image, int32_t* pNativeFenceFd)

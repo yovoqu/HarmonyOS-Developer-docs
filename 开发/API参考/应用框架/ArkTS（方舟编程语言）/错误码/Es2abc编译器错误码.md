@@ -9,7 +9,7 @@
 
 
 
-##### 10705000 语法错误
+#### 10705000 语法错误
 
 **错误信息**
 
@@ -39,7 +39,7 @@ SyntaxError: Concurrent function should only use import variable or local variab
 
 
 
-##### 10706001 规格错误
+#### 10706001 规格错误
 
 **错误信息**
 

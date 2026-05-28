@@ -12,7 +12,7 @@
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,13 +20,13 @@
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### PasteButton
+#### PasteButton
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -42,7 +42,7 @@ PasteButton()
 
 
 
-##### PasteButton
+#### PasteButton
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -65,7 +65,7 @@ PasteButton(options: PasteButtonOptions)
 
 
 
-##### PasteButtonOptions
+#### PasteButtonOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -88,7 +88,7 @@ PasteButton(options: PasteButtonOptions)
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -96,7 +96,7 @@ PasteButton(options: PasteButtonOptions)
 
 
 
-##### PasteIconStyle枚举说明
+#### PasteIconStyle枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -113,7 +113,7 @@ PasteButton(options: PasteButtonOptions)
 
 
 
-##### PasteDescription枚举说明
+#### PasteDescription枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -130,7 +130,7 @@ PasteButton(options: PasteButtonOptions)
 
 
 
-##### PasteButtonOnClickResult枚举说明
+#### PasteButtonOnClickResult枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -148,7 +148,7 @@ PasteButton(options: PasteButtonOptions)
 
 
 
-##### PasteButtonCallback18+
+#### PasteButtonCallback18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -171,7 +171,7 @@ type PasteButtonCallback = (event: ClickEvent, result: PasteButtonOnClickResult,
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -179,7 +179,7 @@ type PasteButtonCallback = (event: ClickEvent, result: PasteButtonOnClickResult,
 
 
 
-##### onClick
+#### onClick
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -200,7 +200,7 @@ onClick(event: PasteButtonCallback)
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -257,4 +257,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/EHNvT6O5SbmGT0cKO1cskQ/zh-cn_image_0000002581436212.png?HW-CC-KV=V1&HW-CC-Date=20260528T024225Z&HW-CC-Expire=86400&HW-CC-Sign=A8438925B29CE93CA768DBFBD18203A0226F003414047EC991A853BD313693E2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/EHNvT6O5SbmGT0cKO1cskQ/zh-cn_image_0000002581436212.png?HW-CC-KV=V1&HW-CC-Date=20260528T025559Z&HW-CC-Expire=86400&HW-CC-Sign=DC63BF8660FC3411C67AE3941598E530F1E920D42EB680A075F15CD5CAE77258)

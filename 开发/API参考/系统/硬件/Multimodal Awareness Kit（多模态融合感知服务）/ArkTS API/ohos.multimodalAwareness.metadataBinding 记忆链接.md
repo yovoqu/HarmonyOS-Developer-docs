@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | Tablet
 
@@ -22,7 +22,7 @@ import { metadataBinding } from '@kit.MultimodalAwarenessKit';
  
   
 
-##### metadataBinding.submitMetadata
+#### metadataBinding.submitMetadata
 
 **支持设备：** Phone | Tablet
 
@@ -65,7 +65,7 @@ try {
  
   
 
-##### metadataBinding.on('operationSubmitMetadata')
+#### metadataBinding.on('operationSubmitMetadata')
 
 **支持设备：** Phone | Tablet
 
@@ -115,7 +115,7 @@ try {
  
   
 
-##### metadataBinding.off('operationSubmitMetadata')
+#### metadataBinding.off('operationSubmitMetadata')
 
 **支持设备：** Phone | Tablet
 

@@ -7,7 +7,7 @@
 ArkGraphics 2D（方舟2D图形服务 ）主要提供图形绘制与显示相关的能力。开发者可以基于一套统一的图形接口进行应用开发，使应用开发更简单、高效。
 
 
-##### 能力范围
+#### 能力范围
 
  - 提供图像处理的一些基本能力，包括对当前图像的亮度调节、模糊化、灰度调节、智能取色等。具体可见[@ohos.effectKit (图像效果)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-effectkit)。
  - 提供管理抽象化色域对象的基础能力，包括色域的创建、色域基础属性的获取等。具体可见[@ohos.graphics.colorSpaceManager (色彩管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-colorspacemanager)与[@ohos.graphics.sendableColorSpaceManager (可共享的色彩管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sendablecolorspacemanager)。
@@ -19,7 +19,7 @@ ArkGraphics 2D（方舟2D图形服务 ）主要提供图形绘制与显示相关
 
 
 
-##### 使用场景
+#### 使用场景
 
  - 图像效果处理：开发者可根据不同的UI效果需要，使用[effectKit模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-effectkit)实现图像的效果处理，以提升用户浏览体验。
  - 设置图像色域：开发者可根据设计需求使用图像文件并设置色域信息，实现图像广色域效果的绘制和显示。
@@ -29,7 +29,7 @@ ArkGraphics 2D（方舟2D图形服务 ）主要提供图形绘制与显示相关
 
 
 
-##### 亮点特征
+#### 亮点特征
 
  - 同个窗口支持多个帧率：支持为同个窗口的不同内容，比如动画或自绘制UI，定制不同的绘制帧率，不同内容之间独立运行。
  - 支持帧率动态配置，兼顾体验与功耗：支持三方框架根据UI场景，动态请求绘制帧率，比如游戏、视频等业务，兼顾流畅体验与功耗体验。
@@ -39,7 +39,7 @@ ArkGraphics 2D（方舟2D图形服务 ）主要提供图形绘制与显示相关
 
 
 
-##### 模拟器支持情况
+#### 模拟器支持情况
 
 本Kit部分能力支持模拟器，且与真机存在能力差异，具体如下。
 

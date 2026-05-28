@@ -10,7 +10,7 @@
 
   
 
-##### MemberType
+#### MemberType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -31,7 +31,7 @@ PhotoAsset的成员类型。
  
   
 
-##### PhotoAssetParams21+
+#### PhotoAssetParams21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -48,7 +48,7 @@ type PhotoAssetParams = Record<string, MemberType>[]
  
   
 
-##### OperationValueType22+
+#### OperationValueType22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

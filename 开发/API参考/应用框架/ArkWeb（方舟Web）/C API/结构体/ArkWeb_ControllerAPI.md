@@ -10,7 +10,7 @@ typedef struct {...} ArkWeb_ControllerAPI
 ```
   
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,13 +24,13 @@ Controller相关的Native API结构体。在调用接口前建议通过[ARKWEB_M
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -41,7 +41,7 @@ Controller相关的Native API结构体。在调用接口前建议通过[ARKWEB_M
  
   
 
-##### 成员函数
+#### 成员函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -62,13 +62,13 @@ Controller相关的Native API结构体。在调用接口前建议通过[ARKWEB_M
  
   
 
-##### 成员函数说明
+#### 成员函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### runJavaScript()
+#### runJavaScript()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -90,7 +90,7 @@ void (*runJavaScript)(const char* webTag, const ArkWeb_JavaScriptObject* javascr
  
   
 
-##### registerJavaScriptProxy()
+#### registerJavaScriptProxy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -112,7 +112,7 @@ void (*registerJavaScriptProxy)(const char* webTag, const ArkWeb_ProxyObject* pr
  
   
 
-##### deleteJavaScriptRegister()
+#### deleteJavaScriptRegister()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -134,7 +134,7 @@ void (*deleteJavaScriptRegister)(const char* webTag, const char* objName)
  
   
 
-##### refresh()
+#### refresh()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -155,7 +155,7 @@ void (*refresh)(const char* webTag)
  
   
 
-##### registerAsyncJavaScriptProxy()
+#### registerAsyncJavaScriptProxy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -177,7 +177,7 @@ void (*registerAsyncJavaScriptProxy)(const char* webTag, const ArkWeb_ProxyObjec
  
   
 
-##### createWebMessagePorts()
+#### createWebMessagePorts()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -206,7 +206,7 @@ ArkWeb_WebMessagePortPtr* (*createWebMessagePorts)(const char* webTag, size_t* s
  
   
 
-##### destroyWebMessagePorts()
+#### destroyWebMessagePorts()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -228,7 +228,7 @@ void (*destroyWebMessagePorts)(ArkWeb_WebMessagePortPtr** ports, size_t size)
  
   
 
-##### postWebMessage()
+#### postWebMessage()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -260,7 +260,7 @@ ArkWeb_ErrorCode (*postWebMessage)(const char* webTag, const char* name, ArkWeb_
  
   
 
-##### getLastJavascriptProxyCallingFrameUrl()
+#### getLastJavascriptProxyCallingFrameUrl()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -283,7 +283,7 @@ const char* (*getLastJavascriptProxyCallingFrameUrl)()
  
   
 
-##### registerJavaScriptProxyEx()
+#### registerJavaScriptProxyEx()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -308,7 +308,7 @@ void (*registerJavaScriptProxyEx)(const char* webTag, const ArkWeb_ProxyObjectWi
  
   
 
-##### registerAsyncJavaScriptProxyEx()
+#### registerAsyncJavaScriptProxyEx()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

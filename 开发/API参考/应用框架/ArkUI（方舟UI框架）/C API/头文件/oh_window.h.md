@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-window-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
 
 
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -70,13 +70,13 @@
 
 
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### OH_WindowManager_SetWindowStatusBarEnabled()
+#### OH_WindowManager_SetWindowStatusBarEnabled()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -114,7 +114,7 @@ int32_t OH_WindowManager_SetWindowStatusBarEnabled(int32_t windowId, bool enable
 
 
 
-##### OH_WindowManager_SetWindowStatusBarColor()
+#### OH_WindowManager_SetWindowStatusBarColor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -151,7 +151,7 @@ int32_t OH_WindowManager_SetWindowStatusBarColor(int32_t windowId, int32_t color
 
 
 
-##### OH_WindowManager_SetWindowNavigationBarEnabled()
+#### OH_WindowManager_SetWindowNavigationBarEnabled()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -183,7 +183,7 @@ int32_t OH_WindowManager_SetWindowNavigationBarEnabled(int32_t windowId, bool en
 
 
 
-##### OH_WindowManager_GetWindowAvoidArea()
+#### OH_WindowManager_GetWindowAvoidArea()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -215,7 +215,7 @@ int32_t OH_WindowManager_GetWindowAvoidArea(int32_t windowId, WindowManager_Avoi
 
 
 
-##### OH_WindowManager_IsWindowShown()
+#### OH_WindowManager_IsWindowShown()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -246,7 +246,7 @@ int32_t OH_WindowManager_IsWindowShown(int32_t windowId, bool* isShow)
 
 
 
-##### OH_WindowManager_ShowWindow()
+#### OH_WindowManager_ShowWindow()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -276,7 +276,7 @@ int32_t OH_WindowManager_ShowWindow(int32_t windowId)
 
 
 
-##### OH_WindowManager_SetWindowTouchable()
+#### OH_WindowManager_SetWindowTouchable()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -307,7 +307,7 @@ int32_t OH_WindowManager_SetWindowTouchable(int32_t windowId, bool isTouchable)
 
 
 
-##### OH_WindowManager_SetWindowFocusable()
+#### OH_WindowManager_SetWindowFocusable()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -338,7 +338,7 @@ int32_t OH_WindowManager_SetWindowFocusable(int32_t windowId, bool isFocusable)
 
 
 
-##### OH_WindowManager_SetWindowBackgroundColor()
+#### OH_WindowManager_SetWindowBackgroundColor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -369,7 +369,7 @@ int32_t OH_WindowManager_SetWindowBackgroundColor(int32_t windowId, const char* 
 
 
 
-##### OH_WindowManager_SetWindowBrightness()
+#### OH_WindowManager_SetWindowBrightness()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -419,7 +419,7 @@ int32_t OH_WindowManager_SetWindowBrightness(int32_t windowId, float brightness)
 
 
 
-##### OH_WindowManager_SetWindowKeepScreenOn()
+#### OH_WindowManager_SetWindowKeepScreenOn()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -450,7 +450,7 @@ int32_t OH_WindowManager_SetWindowKeepScreenOn(int32_t windowId, bool isKeepScre
 
 
 
-##### OH_WindowManager_SetWindowPrivacyMode()
+#### OH_WindowManager_SetWindowPrivacyMode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -483,7 +483,7 @@ int32_t OH_WindowManager_SetWindowPrivacyMode(int32_t windowId, bool isPrivacy)
 
 
 
-##### OH_WindowManager_GetWindowProperties()
+#### OH_WindowManager_GetWindowProperties()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -514,7 +514,7 @@ int32_t OH_WindowManager_GetWindowProperties(int32_t windowId, WindowManager_Win
 
 
 
-##### OH_WindowManager_Snapshot()
+#### OH_WindowManager_Snapshot()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -545,7 +545,7 @@ int32_t OH_WindowManager_Snapshot(int32_t windowId, OH_PixelmapNative* pixelMap)
 
 
 
-##### OH_WindowManager_GetAllWindowLayoutInfoList()
+#### OH_WindowManager_GetAllWindowLayoutInfoList()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -577,7 +577,7 @@ int32_t OH_WindowManager_GetAllWindowLayoutInfoList(int64_t displayId,WindowMana
 
 
 
-##### OH_WindowManager_ReleaseAllWindowLayoutInfoList()
+#### OH_WindowManager_ReleaseAllWindowLayoutInfoList()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -600,7 +600,7 @@ void OH_WindowManager_ReleaseAllWindowLayoutInfoList(WindowManager_Rect* windowL
 
 
 
-##### OH_WindowManager_InjectTouchEvent()
+#### OH_WindowManager_InjectTouchEvent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -633,7 +633,7 @@ int32_t OH_WindowManager_InjectTouchEvent(int32_t windowId, Input_TouchEvent* to
 
 
 
-##### OH_WindowManager_GetAllMainWindowInfo()
+#### OH_WindowManager_GetAllMainWindowInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -668,7 +668,7 @@ int32_t OH_WindowManager_GetAllMainWindowInfo(WindowManager_MainWindowInfo** inf
 
 
 
-##### OH_WindowManager_ReleaseAllMainWindowInfo()
+#### OH_WindowManager_ReleaseAllMainWindowInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -691,7 +691,7 @@ void OH_WindowManager_ReleaseAllMainWindowInfo(WindowManager_MainWindowInfo* inf
 
 
 
-##### OH_WindowManager_WindowSnapshotCallback()
+#### OH_WindowManager_WindowSnapshotCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -715,7 +715,7 @@ typedef void (*OH_WindowManager_WindowSnapshotCallback)(const OH_PixelmapNative*
 
 
 
-##### OH_WindowManager_GetMainWindowSnapshot()
+#### OH_WindowManager_GetMainWindowSnapshot()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -752,7 +752,7 @@ int32_t OH_WindowManager_GetMainWindowSnapshot(int32_t* windowIdList, size_t win
 
 
 
-##### OH_WindowManager_ReleaseMainWindowSnapshot()
+#### OH_WindowManager_ReleaseMainWindowSnapshot()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -775,7 +775,7 @@ void OH_WindowManager_ReleaseMainWindowSnapshot(const OH_PixelmapNative* snapsho
 
 
 
-##### OH_WindowManager_LockCursor()
+#### OH_WindowManager_LockCursor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -808,7 +808,7 @@ int32_t OH_WindowManager_LockCursor(int32_t windowId, bool isCursorFollowMovemen
 
 
 
-##### OH_WindowManager_UnlockCursor()
+#### OH_WindowManager_UnlockCursor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -840,7 +840,7 @@ int32_t OH_WindowManager_UnlockCursor(int32_t windowId)
 
 
 
-##### OH_WindowManager_DensityInfo_GetDefaultDensity()
+#### OH_WindowManager_DensityInfo_GetDefaultDensity()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -871,7 +871,7 @@ int32_t OH_WindowManager_DensityInfo_GetDefaultDensity(const OH_WindowManager_De
 
 
 
-##### OH_WindowManager_DensityInfo_GetSystemDensity()
+#### OH_WindowManager_DensityInfo_GetSystemDensity()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -902,7 +902,7 @@ int32_t OH_WindowManager_DensityInfo_GetSystemDensity(const OH_WindowManager_Den
 
 
 
-##### OH_WindowManager_DensityInfo_GetCustomDensity()
+#### OH_WindowManager_DensityInfo_GetCustomDensity()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -933,7 +933,7 @@ int32_t OH_WindowManager_DensityInfo_GetCustomDensity(const OH_WindowManager_Den
 
 
 
-##### OH_WindowManager_GetDensityInfoCopy()
+#### OH_WindowManager_GetDensityInfoCopy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -969,7 +969,7 @@ int32_t OH_WindowManager_GetDensityInfoCopy(int32_t windowId, const OH_WindowMan
 
 
 
-##### OH_WindowManager_RegisterDensityInfoChangeCallback()
+#### OH_WindowManager_RegisterDensityInfoChangeCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1004,7 +1004,7 @@ int32_t OH_WindowManager_RegisterDensityInfoChangeCallback(int32_t windowId, OH_
 
 
 
-##### OH_WindowManager_UnregisterDensityInfoChangeCallback()
+#### OH_WindowManager_UnregisterDensityInfoChangeCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1037,7 +1037,7 @@ int32_t OH_WindowManager_UnregisterDensityInfoChangeCallback(int32_t windowId, O
 
 
 
-##### OH_WindowManager_DensityInfo_Release()
+#### OH_WindowManager_DensityInfo_Release()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

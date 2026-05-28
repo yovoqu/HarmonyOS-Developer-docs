@@ -11,7 +11,7 @@
 
 
 
-##### 概述
+#### 概述
 
 @Reusable用于装饰自定义组件，表示该自定义组件具有被复用的能力。
 
@@ -32,11 +32,11 @@
 
 
 
-##### 限制条件
+#### 限制条件
 
 
 
-##### 仅用于自定义组件
+#### 仅用于自定义组件
 
 @Reusable装饰器仅用于自定义组件[@Component](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#component)，不可与[@Builder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder)搭配使用。
 
@@ -99,7 +99,7 @@ struct Index {
 
 
 
-##### 状态变量更新限制
+#### 状态变量更新限制
 
 被@Reusable装饰的自定义组件在复用时，会递归调用该自定义组件及其所有子组件的aboutToReuse回调函数。若在子组件的aboutToReuse函数中修改了父组件的状态变量，此次修改将不会生效，请避免此类用法。若需设置父组件的状态变量，可使用setTimeout设置延迟执行，将任务移出组件复用的作用范围，使修改生效。
 
@@ -275,7 +275,7 @@ struct ReuseComponentChild {
 
 
 
-##### 组件结构需一致
+#### 组件结构需一致
 
 被@Reusable装饰的自定义组件在复用前后，应保持组件的结构不变。否则，会在复用过程中创建或销毁子组件，降低复用效率和性能，甚至造成应用行为异常。
 
@@ -481,7 +481,7 @@ struct ReusableChildB {
 
 
 
-##### 不支持ComponentContent
+#### 不支持ComponentContent
 
 ComponentContent不支持传入@Reusable装饰器装饰的自定义组件。
 
@@ -543,17 +543,17 @@ struct Index {
 
 
 
-##### 不建议嵌套使用
+#### 不建议嵌套使用
 
 @Reusable装饰器不建议嵌套使用，会增加内存，降低复用效率，加大维护难度。嵌套使用会导致额外缓存池的生成，各缓存池拥有相同树状结构，复用效率低下。此外，嵌套使用会使生命周期管理复杂，资源和变量共享困难。
 
 
 
-##### 使用场景
+#### 使用场景
 
 
 
-##### 动态布局更新
+#### 动态布局更新
 
 重复创建与移除视图可能引起频繁的布局计算，从而影响帧率。采用组件复用可以避免不必要的视图创建与布局计算，提升性能。
 
@@ -615,7 +615,7 @@ struct Child {
 
 
 
-##### 列表滚动配合LazyForEach使用
+#### 列表滚动配合LazyForEach使用
 
 当应用展示大量数据的列表并进行滚动操作时，频繁创建和销毁列表项视图可能导致卡顿和性能问题。使用列表组件的组件复用机制可以重用已创建的列表项视图，提高滚动流畅度。
 
@@ -699,7 +699,7 @@ export struct CardView {
 
 
 
-##### 列表滚动-if使用场景
+#### 列表滚动-if使用场景
 
 以下示例代码将OneMoment自定义组件标记为复用组件。当List上下滑动时，会触发OneMoment的复用。设置reuseId可为复用组件分配复用组，相同reuseId的组件将在同一复用组中复用。单个复用组件无需设置reuseId。使用reuseId标识复用组件，可避免重复执行if语句的删除和重新创建逻辑，提高复用效率和性能。
 
@@ -837,7 +837,7 @@ export class MyDataSource<T> extends BasicDataSource<T> {
 
 
 
-##### 列表滚动-Foreach使用场景
+#### 列表滚动-Foreach使用场景
 
 使用Foreach创建可复用的自定义组件，由于Foreach渲染控制语法的全展开属性，导致复用组件无法复用。示例中点击update，数据刷新成功，但滑动列表时，ListItemView无法复用。点击clear，再次点击update，ListItemView复用成功，因为一帧内重复创建多个已被销毁的自定义组件。
 
@@ -981,7 +981,7 @@ class ListItemObject {
 
 
 
-##### Grid使用场景
+#### Grid使用场景
 
 示例中使用@Reusable装饰器修饰GridItem中的自定义组件ReusableChildComponent，即表示其具备组件复用的能力。
 
@@ -1078,7 +1078,7 @@ struct ReusableChildComponent {
 
 
 
-##### WaterFlow使用场景
+#### WaterFlow使用场景
 
  - 在WaterFlow滑动场景中，FlowItem及其子组件频繁创建和销毁。可以将FlowItem中的组件封装成自定义组件，并使用@Reusable装饰器修饰，实现组件复用。
 
@@ -1229,7 +1229,7 @@ struct Index {
 
 
 
-##### Swiper使用场景
+#### Swiper使用场景
 
  - 在Swiper滑动场景中，条目中的子组件频繁创建和销毁。可以将这些子组件封装成自定义组件，并使用@Reusable装饰器修饰，以实现组件复用。
 
@@ -1378,7 +1378,7 @@ export class MyDataSource<T> extends BasicDataSource<T> {
 
 
 
-##### 列表滚动-ListItemGroup使用场景
+#### 列表滚动-ListItemGroup使用场景
 
  - 可以视作特殊List滑动场景，将ListItem需要移除重建的子组件封装成自定义组件，并使用@Reusable装饰器修饰，使其具备组件复用能力。
 
@@ -1574,7 +1574,7 @@ class DataSrc2 implements IDataSource {
 
 
 
-##### 多种条目类型使用场景
+#### 多种条目类型使用场景
 
 **标准型**
 

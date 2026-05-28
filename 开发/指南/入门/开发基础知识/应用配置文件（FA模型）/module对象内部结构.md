@@ -96,7 +96,7 @@ module示例：
 ```
 
 
-##### distro对象内部结构
+#### distro对象内部结构
 
 **表2** **distro对象内部结构说明**
 
@@ -121,7 +121,7 @@ distro示例：
 
 
 
-##### metadata对象内部结构
+#### metadata对象内部结构
 
 **表3** **metadata对象内部结构说明**
 
@@ -134,7 +134,7 @@ distro示例：
 
 
 
-##### parameters对象内部结构
+#### parameters对象内部结构
 
 **表4** **parameters对象内部结构说明**
 
@@ -147,7 +147,7 @@ distro示例：
 
 
 
-##### results对象内部结构
+#### results对象内部结构
 
 **表5** **results对象内部结构说明**
 
@@ -160,7 +160,7 @@ distro示例：
 
 
 
-##### customizeData对象的内部结构
+#### customizeData对象的内部结构
 
 **表6** **customizeData对象的内部结构说明**
 
@@ -195,7 +195,7 @@ metadata对象示例：
 
 
 
-##### deviceType标签
+#### deviceType标签
 
 **表7** **deviceType标签配置说明**
 
@@ -215,7 +215,7 @@ metadata对象示例：
 
 
 
-##### abilities对象的内部结构
+#### abilities对象的内部结构
 
 **表8** **abilities对象的内部结构说明**
 
@@ -317,7 +317,7 @@ metadata对象示例：
 
 
 
-##### uriPermission对象的内部结构
+#### uriPermission对象的内部结构
 
 **表9** **uriPermission对象的内部结构说明**
 
@@ -396,7 +396,7 @@ abilities示例：
 
 
 
-##### skills对象的内部结构
+#### skills对象的内部结构
 
 **表10** **skills对象的内部结构说明**
 
@@ -409,7 +409,7 @@ abilities示例：
 
 
 
-##### uris对象的内部结构
+#### uris对象的内部结构
 
 **表11** **uris对象的内部结构说明**
 
@@ -450,7 +450,7 @@ skills示例：
 
 
 
-##### reqPermissions权限申请
+#### reqPermissions权限申请
 
 **表12** **reqPermissions权限申请字段说明**
 
@@ -463,7 +463,7 @@ skills示例：
 
 
 
-##### usedScene对象内部结构
+#### usedScene对象内部结构
 
 **表13** **usedScene对象内部结构说明**
 
@@ -475,7 +475,7 @@ skills示例：
 
 
 
-##### js对象的内部结构
+#### js对象的内部结构
 
 **表14** **js对象的内部结构说明**
 
@@ -490,7 +490,7 @@ skills示例：
 
 
 
-##### window对象的内部结构
+#### window对象的内部结构
 
 **表15** **window对象的内部结构说明**
 
@@ -502,7 +502,7 @@ skills示例：
 
 
 
-##### mode对象的内部结构
+#### mode对象的内部结构
 
 **表16** **mode对象的内部结构说明**
 
@@ -537,7 +537,7 @@ js示例：
 
 
 
-##### shortcuts对象的内部结构
+#### shortcuts对象的内部结构
 
 **表17** **shortcuts对象的内部结构说明**
 
@@ -551,7 +551,7 @@ js示例：
 
 
 
-##### intents对象的内部结构
+#### intents对象的内部结构
 
 **表18** **intents对象的内部结构说明**
 
@@ -580,7 +580,7 @@ shortcuts示例：
 
 
 
-##### forms对象的内部结构
+#### forms对象的内部结构
 
 **表19** **forms对象的内部结构说明**
 
@@ -604,7 +604,7 @@ shortcuts示例：
 
 
 
-##### customizeData对象内部结构
+#### customizeData对象内部结构
 
 **表20** **customizeData对象内部结构说明**
 
@@ -670,7 +670,7 @@ forms示例：
 
 
 
-##### distroFilter对象的内部结构
+#### distroFilter对象的内部结构
 
 **表21** **distroFilter对象的内部结构说明**
 
@@ -685,7 +685,7 @@ forms示例：
 
 
 
-##### apiVersion对象的内部结构
+#### apiVersion对象的内部结构
 
 **表22** **apiVersion对象的内部结构说明**
 
@@ -697,7 +697,7 @@ forms示例：
 
 
 
-##### screenShape对象的内部结构
+#### screenShape对象的内部结构
 
 **表23** **screenShape对象的内部结构说明**
 
@@ -709,7 +709,7 @@ forms示例：
 
 
 
-##### screenWindow对象的内部结构
+#### screenWindow对象的内部结构
 
 **表24** **screenWindow对象的内部结构说明**
 
@@ -721,7 +721,7 @@ forms示例：
 
 
 
-##### screenDensity对象的内部结构
+#### screenDensity对象的内部结构
 
 **表25** **screenDensity对象的内部结构说明**
 
@@ -733,7 +733,7 @@ forms示例：
 
 
 
-##### countryCode对象的内部结构
+#### countryCode对象的内部结构
 
 **表26** **countryCode对象的内部结构说明**
 
@@ -772,7 +772,7 @@ distroFilter示例：
 
 
 
-##### commonEvents对象的内部结构
+#### commonEvents对象的内部结构
 
 **表27** **commonEvents对象的内部结构说明**
 
@@ -806,7 +806,7 @@ commonEvents示例：
 
 
 
-##### testRunner对象的内部结构
+#### testRunner对象的内部结构
 
 **表28** **testRunner对象的内部结构说明**
 

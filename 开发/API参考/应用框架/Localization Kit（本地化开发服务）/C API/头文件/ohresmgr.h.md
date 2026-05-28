@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohresmgr-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -79,13 +79,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_ResourceManager_GetMediaBase64()
+#### OH_ResourceManager_GetMediaBase64()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -119,7 +119,7 @@ ResourceManager_ErrorCode OH_ResourceManager_GetMediaBase64(const NativeResource
  
   
 
-##### OH_ResourceManager_GetMediaBase64Data()
+#### OH_ResourceManager_GetMediaBase64Data()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -153,7 +153,7 @@ ResourceManager_ErrorCode OH_ResourceManager_GetMediaBase64Data(const NativeReso
  
   
 
-##### OH_ResourceManager_GetMediaBase64ByName()
+#### OH_ResourceManager_GetMediaBase64ByName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -187,7 +187,7 @@ ResourceManager_ErrorCode OH_ResourceManager_GetMediaBase64ByName(const NativeRe
  
   
 
-##### OH_ResourceManager_GetMediaBase64DataByName()
+#### OH_ResourceManager_GetMediaBase64DataByName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -221,7 +221,7 @@ ResourceManager_ErrorCode OH_ResourceManager_GetMediaBase64DataByName(const Nati
  
   
 
-##### OH_ResourceManager_GetMedia()
+#### OH_ResourceManager_GetMedia()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -255,7 +255,7 @@ ResourceManager_ErrorCode OH_ResourceManager_GetMedia(const NativeResourceManage
  
   
 
-##### OH_ResourceManager_GetMediaData()
+#### OH_ResourceManager_GetMediaData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -289,7 +289,7 @@ ResourceManager_ErrorCode OH_ResourceManager_GetMediaData(const NativeResourceMa
  
   
 
-##### OH_ResourceManager_GetMediaByName()
+#### OH_ResourceManager_GetMediaByName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -323,7 +323,7 @@ ResourceManager_ErrorCode OH_ResourceManager_GetMediaByName(const NativeResource
  
   
 
-##### OH_ResourceManager_GetMediaDataByName()
+#### OH_ResourceManager_GetMediaDataByName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -357,7 +357,7 @@ ResourceManager_ErrorCode OH_ResourceManager_GetMediaDataByName(const NativeReso
  
   
 
-##### OH_ResourceManager_GetDrawableDescriptor()
+#### OH_ResourceManager_GetDrawableDescriptor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -391,7 +391,7 @@ ResourceManager_ErrorCode OH_ResourceManager_GetDrawableDescriptor(const NativeR
  
   
 
-##### OH_ResourceManager_GetDrawableDescriptorData()
+#### OH_ResourceManager_GetDrawableDescriptorData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -425,7 +425,7 @@ ResourceManager_ErrorCode OH_ResourceManager_GetDrawableDescriptorData(const Nat
  
   
 
-##### OH_ResourceManager_GetDrawableDescriptorByName()
+#### OH_ResourceManager_GetDrawableDescriptorByName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -459,7 +459,7 @@ ResourceManager_ErrorCode OH_ResourceManager_GetDrawableDescriptorByName(const N
  
   
 
-##### OH_ResourceManager_GetDrawableDescriptorDataByName()
+#### OH_ResourceManager_GetDrawableDescriptorDataByName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -493,7 +493,7 @@ ResourceManager_ErrorCode OH_ResourceManager_GetDrawableDescriptorDataByName(con
  
   
 
-##### OH_ResourceManager_GetSymbol()
+#### OH_ResourceManager_GetSymbol()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -525,7 +525,7 @@ ResourceManager_ErrorCode OH_ResourceManager_GetSymbol(const NativeResourceManag
  
   
 
-##### OH_ResourceManager_GetSymbolByName()
+#### OH_ResourceManager_GetSymbolByName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -557,7 +557,7 @@ ResourceManager_ErrorCode OH_ResourceManager_GetSymbolByName(const NativeResourc
  
   
 
-##### OH_ResourceManager_GetLocales()
+#### OH_ResourceManager_GetLocales()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -590,7 +590,7 @@ ResourceManager_ErrorCode OH_ResourceManager_GetLocales(const NativeResourceMana
  
   
 
-##### OH_ResourceManager_GetLocalesData()
+#### OH_ResourceManager_GetLocalesData()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -623,7 +623,7 @@ ResourceManager_ErrorCode OH_ResourceManager_GetLocalesData(const NativeResource
  
   
 
-##### OH_ResourceManager_GetConfiguration()
+#### OH_ResourceManager_GetConfiguration()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -658,7 +658,7 @@ ResourceManager_ErrorCode OH_ResourceManager_GetConfiguration(const NativeResour
  
   
 
-##### OH_ResourceManager_GetResourceConfiguration()
+#### OH_ResourceManager_GetResourceConfiguration()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -689,7 +689,7 @@ ResourceManager_ErrorCode OH_ResourceManager_GetResourceConfiguration(const Nati
  
   
 
-##### OH_ResourceManager_ReleaseConfiguration()
+#### OH_ResourceManager_ReleaseConfiguration()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -719,7 +719,7 @@ ResourceManager_ErrorCode OH_ResourceManager_ReleaseConfiguration(ResourceManage
  
   
 
-##### OH_ResourceManager_GetString()
+#### OH_ResourceManager_GetString()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -752,7 +752,7 @@ ResourceManager_ErrorCode OH_ResourceManager_GetString(const NativeResourceManag
  
   
 
-##### OH_ResourceManager_GetStringByName()
+#### OH_ResourceManager_GetStringByName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -785,7 +785,7 @@ ResourceManager_ErrorCode OH_ResourceManager_GetStringByName(const NativeResourc
  
   
 
-##### OH_ResourceManager_GetStringArray()
+#### OH_ResourceManager_GetStringArray()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -818,7 +818,7 @@ ResourceManager_ErrorCode OH_ResourceManager_GetStringArray(const NativeResource
  
   
 
-##### OH_ResourceManager_GetStringArrayByName()
+#### OH_ResourceManager_GetStringArrayByName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -851,7 +851,7 @@ ResourceManager_ErrorCode OH_ResourceManager_GetStringArrayByName(const NativeRe
  
   
 
-##### OH_ResourceManager_ReleaseStringArray()
+#### OH_ResourceManager_ReleaseStringArray()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -882,7 +882,7 @@ ResourceManager_ErrorCode OH_ResourceManager_ReleaseStringArray(char ***resValue
  
   
 
-##### OH_ResourceManager_GetPluralString()
+#### OH_ResourceManager_GetPluralString()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -919,7 +919,7 @@ ResourceManager_ErrorCode OH_ResourceManager_GetPluralString(const NativeResourc
  
   
 
-##### OH_ResourceManager_GetPluralStringByName()
+#### OH_ResourceManager_GetPluralStringByName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -956,7 +956,7 @@ ResourceManager_ErrorCode OH_ResourceManager_GetPluralStringByName(const NativeR
  
   
 
-##### OH_ResourceManager_GetIntPluralString()
+#### OH_ResourceManager_GetIntPluralString()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -990,7 +990,7 @@ ResourceManager_ErrorCode OH_ResourceManager_GetIntPluralString(const NativeReso
  
   
 
-##### OH_ResourceManager_GetDoublePluralString()
+#### OH_ResourceManager_GetDoublePluralString()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1024,7 +1024,7 @@ ResourceManager_ErrorCode OH_ResourceManager_GetDoublePluralString(const NativeR
  
   
 
-##### OH_ResourceManager_GetIntPluralStringByName()
+#### OH_ResourceManager_GetIntPluralStringByName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1058,7 +1058,7 @@ ResourceManager_ErrorCode OH_ResourceManager_GetIntPluralStringByName(const Nati
  
   
 
-##### OH_ResourceManager_GetDoublePluralStringByName()
+#### OH_ResourceManager_GetDoublePluralStringByName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1092,7 +1092,7 @@ ResourceManager_ErrorCode OH_ResourceManager_GetDoublePluralStringByName(const N
  
   
 
-##### OH_ResourceManager_GetColor()
+#### OH_ResourceManager_GetColor()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1124,7 +1124,7 @@ ResourceManager_ErrorCode OH_ResourceManager_GetColor(const NativeResourceManage
  
   
 
-##### OH_ResourceManager_GetColorByName()
+#### OH_ResourceManager_GetColorByName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1156,7 +1156,7 @@ ResourceManager_ErrorCode OH_ResourceManager_GetColorByName(const NativeResource
  
   
 
-##### OH_ResourceManager_GetInt()
+#### OH_ResourceManager_GetInt()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1188,7 +1188,7 @@ ResourceManager_ErrorCode OH_ResourceManager_GetInt(const NativeResourceManager 
  
   
 
-##### OH_ResourceManager_GetIntByName()
+#### OH_ResourceManager_GetIntByName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1220,7 +1220,7 @@ ResourceManager_ErrorCode OH_ResourceManager_GetIntByName(const NativeResourceMa
  
   
 
-##### OH_ResourceManager_GetFloat()
+#### OH_ResourceManager_GetFloat()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1252,7 +1252,7 @@ ResourceManager_ErrorCode OH_ResourceManager_GetFloat(const NativeResourceManage
  
   
 
-##### OH_ResourceManager_GetFloatByName()
+#### OH_ResourceManager_GetFloatByName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1284,7 +1284,7 @@ ResourceManager_ErrorCode OH_ResourceManager_GetFloatByName(const NativeResource
  
   
 
-##### OH_ResourceManager_GetBool()
+#### OH_ResourceManager_GetBool()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1316,7 +1316,7 @@ ResourceManager_ErrorCode OH_ResourceManager_GetBool(const NativeResourceManager
  
   
 
-##### OH_ResourceManager_GetBoolByName()
+#### OH_ResourceManager_GetBoolByName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1348,7 +1348,7 @@ ResourceManager_ErrorCode OH_ResourceManager_GetBoolByName(const NativeResourceM
  
   
 
-##### OH_ResourceManager_AddResource()
+#### OH_ResourceManager_AddResource()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1379,7 +1379,7 @@ ResourceManager_ErrorCode OH_ResourceManager_AddResource(const NativeResourceMan
  
   
 
-##### OH_ResourceManager_RemoveResource()
+#### OH_ResourceManager_RemoveResource()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

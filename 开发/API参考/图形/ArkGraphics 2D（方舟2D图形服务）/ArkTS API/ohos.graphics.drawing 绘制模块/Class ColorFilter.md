@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { drawing } from '@kit.ArkGraphics2D';
 
 
 
-##### createBlendModeColorFilter
+#### createBlendModeColorFilter
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -67,7 +67,7 @@ let colorFilter = drawing.ColorFilter.createBlendModeColorFilter(color, drawing.
 
 
 
-##### createBlendModeColorFilter18+
+#### createBlendModeColorFilter18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -111,7 +111,7 @@ let colorFilter = drawing.ColorFilter.createBlendModeColorFilter(0xffff0000, dra
 
 
 
-##### createComposeColorFilter
+#### createComposeColorFilter
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -158,7 +158,7 @@ let colorFilter = drawing.ColorFilter.createComposeColorFilter(colorFilter1, col
 
 
 
-##### createLinearToSRGBGamma
+#### createLinearToSRGBGamma
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -185,7 +185,7 @@ let colorFilter = drawing.ColorFilter.createLinearToSRGBGamma();
 
 
 
-##### createSRGBGammaToLinear
+#### createSRGBGammaToLinear
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -212,7 +212,7 @@ let colorFilter = drawing.ColorFilter.createSRGBGammaToLinear();
 
 
 
-##### createLumaColorFilter
+#### createLumaColorFilter
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -239,7 +239,7 @@ let colorFilter = drawing.ColorFilter.createLumaColorFilter();
 
 
 
-##### createMatrixColorFilter12+
+#### createMatrixColorFilter12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -288,7 +288,7 @@ let colorFilter = drawing.ColorFilter.createMatrixColorFilter(matrix);
 
 
 
-##### createLightingColorFilter20+
+#### createLightingColorFilter20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-primitive
 
-##### 简介
+#### 简介
 
 使用Node-API接口，开发人员可以在Node-API模块中与ArkTS对象交互，进行数据转换和获取特定对象。这些操作在不同场景中发挥重要作用，使开发人员能够更灵活地处理ArkTS值和对象。
  
   
 
-##### 基本概念
+#### 基本概念
 
 使用Node-API操作ArkTS对象时，需要了解一些基本概念。
  
@@ -19,7 +19,7 @@
  
   
 
-##### 场景和功能介绍
+#### 场景和功能介绍
 
 以下接口用于从C/C++代码中与ArkTS交互，传递数据并执行操作
   
@@ -38,13 +38,13 @@
  
   
 
-##### 使用示例
+#### 使用示例
 
 Node-API接口开发流程请参考[使用Node-API实现跨语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-process)，本文仅展示接口对应的C++及ArkTS相关代码。
  
   
 
-##### napi_coerce_to_bool
+#### napi_coerce_to_bool
 
 用于将给定的ArkTS value强转成ArkTS boolean值。
  
@@ -93,7 +93,7 @@ hilog.info(0x0000, 'testTag', 'Test Node-API napi_coerce_to_bool:%{public}s', re
  
   
 
-##### napi_coerce_to_number
+#### napi_coerce_to_number
 
 将给定的ArkTS value强转成ArkTS number。
  
@@ -136,7 +136,7 @@ hilog.info(0x0000, 'testTag', 'Test Node-API napi_coerce_to_number:%{public}d', 
  
   
 
-##### napi_coerce_to_object
+#### napi_coerce_to_object
 
 用于将给定的ArkTS value强转成ArkTS Object。
  
@@ -179,7 +179,7 @@ if (typeof value === 'object') {
  
   
 
-##### napi_coerce_to_string
+#### napi_coerce_to_string
 
 用于将给定的ArkTS value强转成ArkTS string。
  
@@ -221,7 +221,7 @@ hilog.info(0x0000, 'testTag', 'Test Node-API napi_coerce_to_string:%{public}s', 
  
   
 
-##### napi_get_boolean
+#### napi_get_boolean
 
 根据给定的C boolean值，获取等价的ArkTS boolean值。
  
@@ -275,7 +275,7 @@ hilog.info(0x0000, 'testTag', 'Test Node-API napi_get_boolean:%{public}s', data)
  
   
 
-##### napi_get_value_bool
+#### napi_get_value_bool
 
 使用此函数将ArkTS中的布尔值转换为等价的C布尔值。
  
@@ -324,7 +324,7 @@ hilog.info(0x0000, 'Node-API', 'get_value_bool_false %{public}s', testNapi.getVa
  
   
 
-##### napi_get_global
+#### napi_get_global
 
 获取全局ArkTS对象。此函数用于获取表示ArkTS全局对象的napi_value，使C/C++模块能与ArkTS运行时的全局对象交互。
  
@@ -359,7 +359,7 @@ hilog.info(0x0000, 'testTag', 'Test Node-API napi_get_global:%{public}s',
  
   
 
-##### napi_get_null
+#### napi_get_null
 
 获取ArkTS中的null值。
  
@@ -391,7 +391,7 @@ hilog.info(0x0000, 'testTag', 'Test Node-API napi_get_null:%{public}s', value);
  
   
 
-##### napi_get_undefined
+#### napi_get_undefined
 
 获取ArkTS中的undefined值。
  

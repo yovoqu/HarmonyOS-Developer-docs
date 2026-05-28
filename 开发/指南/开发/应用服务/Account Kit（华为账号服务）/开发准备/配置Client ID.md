@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-client-id
 
-##### 获取Client ID和APP ID
+#### 获取Client ID和APP ID
 
 在 AppGallery Connect（简称AGC）的[开发与服务](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html#/myProject)中，选择对应的项目和对应的应用，在“常规 > 应用 ”下，找到**应用**的Client ID和APP ID。
  
@@ -14,13 +14,13 @@
  
   
 
-##### 确认是否需要配置Client ID
+#### 确认是否需要配置Client ID
 
 如果上一步获取到的Client ID和APP ID相同，则无需配置Client ID，否则需要按下一步配置Client ID。
  
   
 
-##### 配置Client ID
+#### 配置Client ID
 
 在工程中**entry**模块的module.json5文件中，新增metadata，配置name为client_id，value为上一步获取的Client ID的值，如下所示：
  

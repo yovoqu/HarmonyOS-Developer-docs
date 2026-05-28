@@ -15,7 +15,7 @@ ArkUI分析用于定位由于组件耗时、页面布局、状态变量更新导
 场景4：未正确使用装饰器，如错误使用@Prop传递一个大的对象进行深度拷贝。
  
 
-##### ArkUI Component 泳道：查看组件绘制耗时
+#### ArkUI Component 泳道：查看组件绘制耗时
 
 开发者通过ArkUI Component泳道可以直观感知组件绘制频率、耗时等统计情况。
  1. 在时间轴上拖拽鼠标选定要查看的时间段。
@@ -42,7 +42,7 @@ ArkUI分析用于定位由于组件耗时、页面布局、状态变量更新导
  
  
 
-##### ArkUI State 泳道分析
+#### ArkUI State 泳道分析
 1. 点击ArkUI模板创建session并启动录制，录制过程中触发组件刷新。
 2. 录制结束等待处理数据完成。点击ArkUI State泳道，可在下方数据区查看录制过程中发生的状态变量变化。Summary区域可查看状态变量名称，变化次数，状态变量类型、所属组件和所属类。
 
@@ -63,7 +63,7 @@ ArkUI分析用于定位由于组件耗时、页面布局、状态变量更新导
 4. 定位到可能造成卡顿的状态变量变化时间点，框选对应时间段，选择ArkUI Component泳道查看对应组件刷新时间。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/jghhDXvZR0m-Mf9-6Hqzug/zh-cn_image_0000002571386902.png?HW-CC-KV=V1&HW-CC-Date=20260528T015027Z&HW-CC-Expire=86400&HW-CC-Sign=898B5B735F18F6CFDD7A52821A81F70855F1144C932D931B4910CE45A0B9A980)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/bD5FsTLkRxCebeWIyHeS6A/zh-cn_image_0000002571386902.png?HW-CC-KV=V1&HW-CC-Date=20260528T030658Z&HW-CC-Expire=86400&HW-CC-Sign=6A44F5C585C8704A9EF81CE8861A14AC8B6A21E2F28D1E71584354A5441BDF4D)
 
  
  

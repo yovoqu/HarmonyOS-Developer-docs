@@ -14,7 +14,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -24,7 +24,7 @@ import  { picker } from '@kit.CoreFileKit';
 
 
 
-##### DocumentViewPicker
+#### DocumentViewPicker
 
 **支持设备：** PC/2in1 | Phone | Tablet | TV
 
@@ -34,7 +34,7 @@ import  { picker } from '@kit.CoreFileKit';
 
 
 
-##### constructor12+
+#### constructor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -83,7 +83,7 @@ struct Index {
 
 
 
-##### constructor12+
+#### constructor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -103,7 +103,7 @@ let documentPicker = new picker.DocumentViewPicker(); // 不推荐使用无参�
 
 
 
-##### constructor13+
+#### constructor13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -158,7 +158,7 @@ struct Index {
 
 
 
-##### select
+#### select
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -208,7 +208,7 @@ async function example07(context: common.UIAbilityContext) { // 需确保 contex
 
 
 
-##### select
+#### select
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -254,7 +254,7 @@ async function example08(context: common.UIAbilityContext) { // 需确保 contex
 
 
 
-##### select
+#### select
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -298,7 +298,7 @@ async function example09(context: common.UIAbilityContext) { // 需确保 contex
 
 
 
-##### save
+#### save
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -349,7 +349,7 @@ async function example10(context: common.UIAbilityContext) { // 需确保 contex
 
 
 
-##### save
+#### save
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -396,7 +396,7 @@ async function example11(context: common.UIAbilityContext) { // 需确保 contex
 
 
 
-##### save
+#### save
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -440,7 +440,7 @@ async function example12(context: common.UIAbilityContext) { // 需确保 contex
 
 
 
-##### getSelectedIndex14+
+#### getSelectedIndex14+
 
 **支持设备：** PC/2in1
 
@@ -498,7 +498,7 @@ async function exampleIndex(context: common.UIAbilityContext) { // 需确保 con
 
 
 
-##### AudioViewPicker
+#### AudioViewPicker
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -508,7 +508,7 @@ async function exampleIndex(context: common.UIAbilityContext) { // 需确保 con
 
 
 
-##### constructor12+
+#### constructor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -557,7 +557,7 @@ struct Index {
 
 
 
-##### constructor12+
+#### constructor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -577,7 +577,7 @@ let audioPicker = new picker.AudioViewPicker(); // 不推荐使用无参构造�
 
 
 
-##### select
+#### select
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -627,7 +627,7 @@ async function example13(context: common.UIAbilityContext) { // 需确保 contex
 
 
 
-##### select
+#### select
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -671,7 +671,7 @@ async function example14(context: common.UIAbilityContext) { // 需确保 contex
 
 
 
-##### select
+#### select
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -713,7 +713,7 @@ async function example15(context: common.UIAbilityContext) { // 需确保 contex
 
 
 
-##### save
+#### save
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -764,7 +764,7 @@ async function example16(context: common.UIAbilityContext) { // 需确保 contex
 
 
 
-##### save
+#### save
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -809,7 +809,7 @@ async function example17(context: common.UIAbilityContext) { // 需确保 contex
 
 
 
-##### save
+#### save
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -851,7 +851,7 @@ async function example18(context: common.UIAbilityContext) { // 需确保 contex
 
 
 
-##### DocumentSelectMode11+
+#### DocumentSelectMode11+
 
 **支持设备：** PC/2in1
 
@@ -870,7 +870,7 @@ async function example18(context: common.UIAbilityContext) { // 需确保 contex
 
 
 
-##### DocumentSelectOptions
+#### DocumentSelectOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -891,7 +891,7 @@ async function example18(context: common.UIAbilityContext) { // 需确保 contex
 
 
 
-##### DocumentPickerMode12+
+#### DocumentPickerMode12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -909,7 +909,7 @@ async function example18(context: common.UIAbilityContext) { // 需确保 contex
 
 
 
-##### MergeTypeMode15+
+#### MergeTypeMode15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -932,7 +932,7 @@ async function example18(context: common.UIAbilityContext) { // 需确保 contex
 
 
 
-##### DocumentSaveOptions
+#### DocumentSaveOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -949,7 +949,7 @@ async function example18(context: common.UIAbilityContext) { // 需确保 contex
 
 
 
-##### AudioSelectOptions
+#### AudioSelectOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -966,7 +966,7 @@ async function example18(context: common.UIAbilityContext) { // 需确保 contex
 
 
 
-##### AudioSaveOptions
+#### AudioSaveOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -983,7 +983,7 @@ async function example18(context: common.UIAbilityContext) { // 需确保 contex
 
 
 
-##### PhotoViewPicker(deprecated)
+#### PhotoViewPicker(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -997,7 +997,7 @@ async function example18(context: common.UIAbilityContext) { // 需确保 contex
 
 
 
-##### constructor(deprecated)
+#### constructor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1048,7 +1048,7 @@ struct Index {
 
 
 
-##### constructor(deprecated)
+#### constructor(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1072,7 +1072,7 @@ let photoPicker = new picker.PhotoViewPicker(); // 不推荐使用无参构造�
 
 
 
-##### select(deprecated)
+#### select(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1128,7 +1128,7 @@ async function example01(context: common.UIAbilityContext) { // 需确保 contex
 
 
 
-##### select(deprecated)
+#### select(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1180,7 +1180,7 @@ async function example02(context: common.UIAbilityContext) { // 需确保 contex
 
 
 
-##### select(deprecated)
+#### select(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1228,7 +1228,7 @@ async function example03(context: common.UIAbilityContext) { // 需确保 contex
 
 
 
-##### save(deprecated)
+#### save(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1281,7 +1281,7 @@ async function example04(context: common.UIAbilityContext) { // 需确保 contex
 
 
 
-##### save(deprecated)
+#### save(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1330,7 +1330,7 @@ async function example05(context: common.UIAbilityContext) { // 需确保 contex
 
 
 
-##### save(deprecated)
+#### save(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1376,7 +1376,7 @@ async function example06(context: common.UIAbilityContext) { // 需确保 contex
 
 
 
-##### PhotoViewMIMETypes(deprecated)
+#### PhotoViewMIMETypes(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1399,7 +1399,7 @@ async function example06(context: common.UIAbilityContext) { // 需确保 contex
 
 
 
-##### PhotoSelectOptions(deprecated)
+#### PhotoSelectOptions(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1421,7 +1421,7 @@ async function example06(context: common.UIAbilityContext) { // 需确保 contex
 
 
 
-##### PhotoSelectResult(deprecated)
+#### PhotoSelectResult(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1443,7 +1443,7 @@ async function example06(context: common.UIAbilityContext) { // 需确保 contex
 
 
 
-##### PhotoSaveOptions(deprecated)
+#### PhotoSaveOptions(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

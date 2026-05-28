@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-json
 
-##### 场景介绍
+#### 场景介绍
 
 该库扩展了原生JSON功能，提供了额外的错误处理、循环引用检测、BigInt处理以及对不同输入类型的严格检查。代码中底层依赖于原生JSON.parse和JSON.stringify，但在此基础上加入了多种自定义逻辑并提供额外的has和remove接口，具体可见[@arkts.json](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-json)。
 
@@ -20,11 +20,11 @@ JSON扩展库主要适用于以下场景：
 
 
 
-##### JSON扩展说明
+#### JSON扩展说明
 
 
 
-##### parse
+#### parse
 
 parse(text: string, reviver?: Transformer, options?: ParseOptions): Object | null
 
@@ -42,7 +42,7 @@ parse(text: string, reviver?: Transformer, options?: ParseOptions): Object | nul
 
 
 
-##### stringify
+#### stringify
 
 stringify(value: Object, replacer?: (number | string)[] | null, space?: string | number): string
 
@@ -60,7 +60,7 @@ stringify(value: Object, replacer?: (number | string)[] | null, space?: string |
 
 
 
-##### has
+#### has
 
 has(obj: object, property: string): boolean
 
@@ -76,7 +76,7 @@ has(obj: object, property: string): boolean
 
 
 
-##### remove
+#### remove
 
 remove(obj: object, property: string): void
 
@@ -90,7 +90,7 @@ remove(obj: object, property: string): void
 
 
 
-##### 总结
+#### 总结
 
 | 功能 | 原生JSON | 本库 |
 | --- | --- | --- |
@@ -103,11 +103,11 @@ remove(obj: object, property: string): void
 
 
 
-##### 开发场景
+#### 开发场景
 
 
 
-##### 解析包含嵌套引号的JSON字符串场景
+#### 解析包含嵌套引号的JSON字符串场景
 
 JSON字符串中的嵌套引号会破坏其结构，将导致解析失败。
 
@@ -179,7 +179,7 @@ interface TestStr {
 
 
 
-##### 解析包含大整数的JSON字符串场景
+#### 解析包含大整数的JSON字符串场景
 
 当JSON字符串中存在小于-(2^53-1)或大于(2^53-1)的整数时，解析后数据会出现精度丢失或不正确的情况。该解析场景需要指定BigIntMode，将大整数解析为BigInt。
 
@@ -207,7 +207,7 @@ import { JSON } from '@kit.ArkTS';
 
 
 
-##### 序列化BigInt对象场景
+#### 序列化BigInt对象场景
 
 为弥补原生JSON无法序列化BigInt对象的缺陷，本库提供以下两种JSON序列化方式：
 
@@ -243,7 +243,7 @@ import { JSON } from '@kit.ArkTS';
 
 
 
-##### 序列化浮点数number场景
+#### 序列化浮点数number场景
 
 在JSON序列化中，浮点数处理存在一个特殊行为：当小数部分为零时，为保持数值的简洁表示，序列化结果会自动省略小数部分。这可能导致精度信息丢失，影响需要精确表示浮点数的场景（如金融金额、科学计量）。以下示例提供解决该场景的方法：
 

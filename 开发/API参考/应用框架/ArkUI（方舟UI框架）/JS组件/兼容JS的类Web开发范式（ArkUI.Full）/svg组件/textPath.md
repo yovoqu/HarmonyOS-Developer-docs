@@ -12,7 +12,7 @@
 
   
 
-##### 权限列表
+#### 权限列表
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -28,7 +28,7 @@
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -51,7 +51,7 @@
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -294,7 +294,7 @@ textpath与tspan组合属性动画与效果图
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/sy_g8F4OTlOWhlKLV2iujA/zh-cn_image_0000002581436392.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024106Z&HW-CC-Expire=86400&HW-CC-Sign=1D20DB6B1FA1A539F1EE522B7487D205AA8F55EE02B3EB75A82684D5AF623B7F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/sy_g8F4OTlOWhlKLV2iujA/zh-cn_image_0000002581436392.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025441Z&HW-CC-Expire=86400&HW-CC-Sign=7B106F5884FA4652AFD66395A1D6C2E2B2CBA1836BCCCA1B43822DDD73407EAD)
 
  
 (1) "tspan attribute stroke" 轮廓颜色从红色逐渐转变成绿色。

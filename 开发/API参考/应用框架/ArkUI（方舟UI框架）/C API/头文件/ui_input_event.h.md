@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ui-input-event-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -25,13 +25,13 @@
 
 
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -47,7 +47,7 @@
 
 
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -72,7 +72,7 @@
 
 
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -222,13 +222,13 @@
 
 
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### ArkUI_UIInputEvent_Type
+#### ArkUI_UIInputEvent_Type
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -254,7 +254,7 @@ UI输入事件类型定义。
 
 
 
-##### anonymous1
+#### anonymous1
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -278,7 +278,7 @@ enum anonymous1
 
 
 
-##### anonymous2
+#### anonymous2
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -304,7 +304,7 @@ enum anonymous2
 
 
 
-##### anonymous3
+#### anonymous3
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -329,7 +329,7 @@ enum anonymous3
 
 
 
-##### HitTestMode
+#### HitTestMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -355,7 +355,7 @@ enum HitTestMode
 
 
 
-##### anonymous4
+#### anonymous4
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -380,7 +380,7 @@ enum anonymous4
 
 
 
-##### anonymous5
+#### anonymous5
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -406,7 +406,7 @@ enum anonymous5
 
 
 
-##### ArkUI_ModifierKeyName
+#### ArkUI_ModifierKeyName
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -430,7 +430,7 @@ enum ArkUI_ModifierKeyName
 
 
 
-##### anonymous6
+#### anonymous6
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -469,7 +469,7 @@ enum anonymous6
 
 
 
-##### ArkUI_InteractionHand
+#### ArkUI_InteractionHand
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -492,7 +492,7 @@ enum ArkUI_InteractionHand
 
 
 
-##### anonymous7
+#### anonymous7
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -517,7 +517,7 @@ enum anonymous7
 
 
 
-##### anonymous8
+#### anonymous8
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -540,7 +540,7 @@ enum anonymous8
 
 
 
-##### ArkUI_CoastingAxisEventPhase
+#### ArkUI_CoastingAxisEventPhase
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -564,7 +564,7 @@ enum ArkUI_CoastingAxisEventPhase
 
 
 
-##### ArkUI_TouchTestStrategy
+#### ArkUI_TouchTestStrategy
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -587,7 +587,7 @@ enum ArkUI_TouchTestStrategy
 
 
 
-##### ArkUI_CompetitionStrategy
+#### ArkUI_CompetitionStrategy
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -609,7 +609,7 @@ enum ArkUI_CompetitionStrategy
 
 
 
-##### ArkUI_CrownEvent_Action
+#### ArkUI_CrownEvent_Action
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -632,13 +632,13 @@ enum ArkUI_CrownEvent_Action
 
 
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### OH_ArkUI_UIInputEvent_GetType()
+#### OH_ArkUI_UIInputEvent_GetType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -668,7 +668,7 @@ int32_t OH_ArkUI_UIInputEvent_GetType(const ArkUI_UIInputEvent* event)
 
 
 
-##### OH_ArkUI_UIInputEvent_GetAction()
+#### OH_ArkUI_UIInputEvent_GetAction()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -698,7 +698,7 @@ int32_t OH_ArkUI_UIInputEvent_GetAction(const ArkUI_UIInputEvent* event)
 
 
 
-##### OH_ArkUI_UIInputEvent_GetSourceType()
+#### OH_ArkUI_UIInputEvent_GetSourceType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -728,7 +728,7 @@ int32_t OH_ArkUI_UIInputEvent_GetSourceType(const ArkUI_UIInputEvent* event)
 
 
 
-##### OH_ArkUI_UIInputEvent_GetToolType()
+#### OH_ArkUI_UIInputEvent_GetToolType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -758,7 +758,7 @@ int32_t OH_ArkUI_UIInputEvent_GetToolType(const ArkUI_UIInputEvent* event)
 
 
 
-##### OH_ArkUI_UIInputEvent_GetEventTime()
+#### OH_ArkUI_UIInputEvent_GetEventTime()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -788,7 +788,7 @@ int64_t OH_ArkUI_UIInputEvent_GetEventTime(const ArkUI_UIInputEvent* event)
 
 
 
-##### OH_ArkUI_PointerEvent_GetPointerCount()
+#### OH_ArkUI_PointerEvent_GetPointerCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -818,7 +818,7 @@ uint32_t OH_ArkUI_PointerEvent_GetPointerCount(const ArkUI_UIInputEvent* event)
 
 
 
-##### OH_ArkUI_PointerEvent_GetPointerId()
+#### OH_ArkUI_PointerEvent_GetPointerId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -849,7 +849,7 @@ int32_t OH_ArkUI_PointerEvent_GetPointerId(const ArkUI_UIInputEvent* event, uint
 
 
 
-##### OH_ArkUI_PointerEvent_GetChangedPointerId()
+#### OH_ArkUI_PointerEvent_GetChangedPointerId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -880,7 +880,7 @@ int32_t OH_ArkUI_PointerEvent_GetChangedPointerId(const ArkUI_UIInputEvent* even
 
 
 
-##### OH_ArkUI_PointerEvent_GetX()
+#### OH_ArkUI_PointerEvent_GetX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -910,7 +910,7 @@ float OH_ArkUI_PointerEvent_GetX(const ArkUI_UIInputEvent* event)
 
 
 
-##### OH_ArkUI_PointerEvent_GetXByIndex()
+#### OH_ArkUI_PointerEvent_GetXByIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -941,7 +941,7 @@ float OH_ArkUI_PointerEvent_GetXByIndex(const ArkUI_UIInputEvent* event, uint32_
 
 
 
-##### OH_ArkUI_PointerEvent_GetY()
+#### OH_ArkUI_PointerEvent_GetY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -971,7 +971,7 @@ float OH_ArkUI_PointerEvent_GetY(const ArkUI_UIInputEvent* event)
 
 
 
-##### OH_ArkUI_PointerEvent_GetYByIndex()
+#### OH_ArkUI_PointerEvent_GetYByIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1002,7 +1002,7 @@ float OH_ArkUI_PointerEvent_GetYByIndex(const ArkUI_UIInputEvent* event, uint32_
 
 
 
-##### OH_ArkUI_PointerEvent_GetWindowX()
+#### OH_ArkUI_PointerEvent_GetWindowX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1032,7 +1032,7 @@ float OH_ArkUI_PointerEvent_GetWindowX(const ArkUI_UIInputEvent* event)
 
 
 
-##### OH_ArkUI_PointerEvent_GetWindowXByIndex()
+#### OH_ArkUI_PointerEvent_GetWindowXByIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1063,7 +1063,7 @@ float OH_ArkUI_PointerEvent_GetWindowXByIndex(const ArkUI_UIInputEvent* event, u
 
 
 
-##### OH_ArkUI_PointerEvent_GetWindowY()
+#### OH_ArkUI_PointerEvent_GetWindowY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1093,7 +1093,7 @@ float OH_ArkUI_PointerEvent_GetWindowY(const ArkUI_UIInputEvent* event)
 
 
 
-##### OH_ArkUI_PointerEvent_GetWindowYByIndex()
+#### OH_ArkUI_PointerEvent_GetWindowYByIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1124,7 +1124,7 @@ float OH_ArkUI_PointerEvent_GetWindowYByIndex(const ArkUI_UIInputEvent* event, u
 
 
 
-##### OH_ArkUI_PointerEvent_GetDisplayX()
+#### OH_ArkUI_PointerEvent_GetDisplayX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1154,7 +1154,7 @@ float OH_ArkUI_PointerEvent_GetDisplayX(const ArkUI_UIInputEvent* event)
 
 
 
-##### OH_ArkUI_PointerEvent_GetDisplayXByIndex()
+#### OH_ArkUI_PointerEvent_GetDisplayXByIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1185,7 +1185,7 @@ float OH_ArkUI_PointerEvent_GetDisplayXByIndex(const ArkUI_UIInputEvent* event, 
 
 
 
-##### OH_ArkUI_PointerEvent_GetDisplayY()
+#### OH_ArkUI_PointerEvent_GetDisplayY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1215,7 +1215,7 @@ float OH_ArkUI_PointerEvent_GetDisplayY(const ArkUI_UIInputEvent* event)
 
 
 
-##### OH_ArkUI_PointerEvent_GetDisplayYByIndex()
+#### OH_ArkUI_PointerEvent_GetDisplayYByIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1246,7 +1246,7 @@ float OH_ArkUI_PointerEvent_GetDisplayYByIndex(const ArkUI_UIInputEvent* event, 
 
 
 
-##### OH_ArkUI_PointerEvent_GetGlobalDisplayX()
+#### OH_ArkUI_PointerEvent_GetGlobalDisplayX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1276,7 +1276,7 @@ float OH_ArkUI_PointerEvent_GetGlobalDisplayX(const ArkUI_UIInputEvent* event)
 
 
 
-##### OH_ArkUI_PointerEvent_GetGlobalDisplayXByIndex()
+#### OH_ArkUI_PointerEvent_GetGlobalDisplayXByIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1307,7 +1307,7 @@ float OH_ArkUI_PointerEvent_GetGlobalDisplayXByIndex(const ArkUI_UIInputEvent* e
 
 
 
-##### OH_ArkUI_PointerEvent_GetGlobalDisplayY()
+#### OH_ArkUI_PointerEvent_GetGlobalDisplayY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1337,7 +1337,7 @@ float OH_ArkUI_PointerEvent_GetGlobalDisplayY(const ArkUI_UIInputEvent* event)
 
 
 
-##### OH_ArkUI_PointerEvent_GetGlobalDisplayYByIndex()
+#### OH_ArkUI_PointerEvent_GetGlobalDisplayYByIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1368,7 +1368,7 @@ float OH_ArkUI_PointerEvent_GetGlobalDisplayYByIndex(const ArkUI_UIInputEvent* e
 
 
 
-##### OH_ArkUI_PointerEvent_GetPressure()
+#### OH_ArkUI_PointerEvent_GetPressure()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1399,7 +1399,7 @@ float OH_ArkUI_PointerEvent_GetPressure(const ArkUI_UIInputEvent* event, uint32_
 
 
 
-##### OH_ArkUI_PointerEvent_GetTiltX()
+#### OH_ArkUI_PointerEvent_GetTiltX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1430,7 +1430,7 @@ float OH_ArkUI_PointerEvent_GetTiltX(const ArkUI_UIInputEvent* event, uint32_t p
 
 
 
-##### OH_ArkUI_PointerEvent_GetTiltY()
+#### OH_ArkUI_PointerEvent_GetTiltY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1461,7 +1461,7 @@ float OH_ArkUI_PointerEvent_GetTiltY(const ArkUI_UIInputEvent* event, uint32_t p
 
 
 
-##### OH_ArkUI_PointerEvent_GetRollAngle()
+#### OH_ArkUI_PointerEvent_GetRollAngle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1492,7 +1492,7 @@ int32_t OH_ArkUI_PointerEvent_GetRollAngle(const ArkUI_UIInputEvent* event, doub
 
 
 
-##### OH_ArkUI_PointerEvent_GetTouchAreaWidth()
+#### OH_ArkUI_PointerEvent_GetTouchAreaWidth()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1523,7 +1523,7 @@ float OH_ArkUI_PointerEvent_GetTouchAreaWidth(const ArkUI_UIInputEvent* event, u
 
 
 
-##### OH_ArkUI_PointerEvent_GetTouchAreaHeight()
+#### OH_ArkUI_PointerEvent_GetTouchAreaHeight()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1554,7 +1554,7 @@ float OH_ArkUI_PointerEvent_GetTouchAreaHeight(const ArkUI_UIInputEvent* event, 
 
 
 
-##### OH_ArkUI_PointerEvent_GetInteractionHand()
+#### OH_ArkUI_PointerEvent_GetInteractionHand()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1585,7 +1585,7 @@ int32_t OH_ArkUI_PointerEvent_GetInteractionHand(const ArkUI_UIInputEvent *event
 
 
 
-##### OH_ArkUI_PointerEvent_GetInteractionHandByIndex()
+#### OH_ArkUI_PointerEvent_GetInteractionHandByIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1617,7 +1617,7 @@ int32_t OH_ArkUI_PointerEvent_GetInteractionHandByIndex(const ArkUI_UIInputEvent
 
 
 
-##### OH_ArkUI_PointerEvent_GetHistorySize()
+#### OH_ArkUI_PointerEvent_GetHistorySize()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1647,7 +1647,7 @@ uint32_t OH_ArkUI_PointerEvent_GetHistorySize(const ArkUI_UIInputEvent* event)
 
 
 
-##### OH_ArkUI_PointerEvent_GetHistoryEventTime()
+#### OH_ArkUI_PointerEvent_GetHistoryEventTime()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1678,7 +1678,7 @@ int64_t OH_ArkUI_PointerEvent_GetHistoryEventTime(const ArkUI_UIInputEvent* even
 
 
 
-##### OH_ArkUI_PointerEvent_GetHistoryPointerCount()
+#### OH_ArkUI_PointerEvent_GetHistoryPointerCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1709,7 +1709,7 @@ uint32_t OH_ArkUI_PointerEvent_GetHistoryPointerCount(const ArkUI_UIInputEvent* 
 
 
 
-##### OH_ArkUI_PointerEvent_GetHistoryPointerId()
+#### OH_ArkUI_PointerEvent_GetHistoryPointerId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1741,7 +1741,7 @@ int32_t OH_ArkUI_PointerEvent_GetHistoryPointerId(const ArkUI_UIInputEvent* even
 
 
 
-##### OH_ArkUI_PointerEvent_GetHistoryX()
+#### OH_ArkUI_PointerEvent_GetHistoryX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1773,7 +1773,7 @@ float OH_ArkUI_PointerEvent_GetHistoryX(const ArkUI_UIInputEvent* event, uint32_
 
 
 
-##### OH_ArkUI_PointerEvent_GetHistoryY()
+#### OH_ArkUI_PointerEvent_GetHistoryY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1805,7 +1805,7 @@ float OH_ArkUI_PointerEvent_GetHistoryY(const ArkUI_UIInputEvent* event, uint32_
 
 
 
-##### OH_ArkUI_PointerEvent_GetHistoryWindowX()
+#### OH_ArkUI_PointerEvent_GetHistoryWindowX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1837,7 +1837,7 @@ float OH_ArkUI_PointerEvent_GetHistoryWindowX(const ArkUI_UIInputEvent* event, u
 
 
 
-##### OH_ArkUI_PointerEvent_GetHistoryWindowY()
+#### OH_ArkUI_PointerEvent_GetHistoryWindowY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1869,7 +1869,7 @@ float OH_ArkUI_PointerEvent_GetHistoryWindowY(const ArkUI_UIInputEvent* event, u
 
 
 
-##### OH_ArkUI_PointerEvent_GetHistoryDisplayX()
+#### OH_ArkUI_PointerEvent_GetHistoryDisplayX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1901,7 +1901,7 @@ float OH_ArkUI_PointerEvent_GetHistoryDisplayX(const ArkUI_UIInputEvent* event, 
 
 
 
-##### OH_ArkUI_PointerEvent_GetHistoryDisplayY()
+#### OH_ArkUI_PointerEvent_GetHistoryDisplayY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1933,7 +1933,7 @@ float OH_ArkUI_PointerEvent_GetHistoryDisplayY(const ArkUI_UIInputEvent* event, 
 
 
 
-##### OH_ArkUI_PointerEvent_GetHistoryGlobalDisplayX()
+#### OH_ArkUI_PointerEvent_GetHistoryGlobalDisplayX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1965,7 +1965,7 @@ float OH_ArkUI_PointerEvent_GetHistoryGlobalDisplayX(const ArkUI_UIInputEvent* e
 
 
 
-##### OH_ArkUI_PointerEvent_GetHistoryGlobalDisplayY()
+#### OH_ArkUI_PointerEvent_GetHistoryGlobalDisplayY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1997,7 +1997,7 @@ float OH_ArkUI_PointerEvent_GetHistoryGlobalDisplayY(const ArkUI_UIInputEvent* e
 
 
 
-##### OH_ArkUI_PointerEvent_GetHistoryPressure()
+#### OH_ArkUI_PointerEvent_GetHistoryPressure()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2029,7 +2029,7 @@ float OH_ArkUI_PointerEvent_GetHistoryPressure(const ArkUI_UIInputEvent* event, 
 
 
 
-##### OH_ArkUI_PointerEvent_GetHistoryTiltX()
+#### OH_ArkUI_PointerEvent_GetHistoryTiltX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2061,7 +2061,7 @@ float OH_ArkUI_PointerEvent_GetHistoryTiltX(const ArkUI_UIInputEvent* event, uin
 
 
 
-##### OH_ArkUI_PointerEvent_GetHistoryTiltY()
+#### OH_ArkUI_PointerEvent_GetHistoryTiltY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2093,7 +2093,7 @@ float OH_ArkUI_PointerEvent_GetHistoryTiltY(const ArkUI_UIInputEvent* event, uin
 
 
 
-##### OH_ArkUI_PointerEvent_GetHistoryTouchAreaWidth()
+#### OH_ArkUI_PointerEvent_GetHistoryTouchAreaWidth()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2125,7 +2125,7 @@ float OH_ArkUI_PointerEvent_GetHistoryTouchAreaWidth(const ArkUI_UIInputEvent* e
 
 
 
-##### OH_ArkUI_PointerEvent_GetHistoryTouchAreaHeight()
+#### OH_ArkUI_PointerEvent_GetHistoryTouchAreaHeight()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2157,7 +2157,7 @@ float OH_ArkUI_PointerEvent_GetHistoryTouchAreaHeight(const ArkUI_UIInputEvent* 
 
 
 
-##### OH_ArkUI_AxisEvent_GetVerticalAxisValue()
+#### OH_ArkUI_AxisEvent_GetVerticalAxisValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2187,7 +2187,7 @@ double OH_ArkUI_AxisEvent_GetVerticalAxisValue(const ArkUI_UIInputEvent* event)
 
 
 
-##### OH_ArkUI_AxisEvent_GetHorizontalAxisValue()
+#### OH_ArkUI_AxisEvent_GetHorizontalAxisValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2217,7 +2217,7 @@ double OH_ArkUI_AxisEvent_GetHorizontalAxisValue(const ArkUI_UIInputEvent* event
 
 
 
-##### OH_ArkUI_AxisEvent_GetPinchAxisScaleValue()
+#### OH_ArkUI_AxisEvent_GetPinchAxisScaleValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2247,7 +2247,7 @@ double OH_ArkUI_AxisEvent_GetPinchAxisScaleValue(const ArkUI_UIInputEvent* event
 
 
 
-##### OH_ArkUI_AxisEvent_GetAxisAction()
+#### OH_ArkUI_AxisEvent_GetAxisAction()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2277,7 +2277,7 @@ int32_t OH_ArkUI_AxisEvent_GetAxisAction(const ArkUI_UIInputEvent* event)
 
 
 
-##### OH_ArkUI_AxisEvent_HasAxis()
+#### OH_ArkUI_AxisEvent_HasAxis()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2308,7 +2308,7 @@ int32_t OH_ArkUI_AxisEvent_HasAxis(const ArkUI_UIInputEvent* event, int32_t axis
 
 
 
-##### OH_ArkUI_PointerEvent_SetInterceptHitTestMode()
+#### OH_ArkUI_PointerEvent_SetInterceptHitTestMode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2339,7 +2339,7 @@ int32_t OH_ArkUI_PointerEvent_SetInterceptHitTestMode(const ArkUI_UIInputEvent* 
 
 
 
-##### OH_ArkUI_MouseEvent_GetMouseButton()
+#### OH_ArkUI_MouseEvent_GetMouseButton()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2369,7 +2369,7 @@ int32_t OH_ArkUI_MouseEvent_GetMouseButton(const ArkUI_UIInputEvent* event)
 
 
 
-##### OH_ArkUI_MouseEvent_GetMouseAction()
+#### OH_ArkUI_MouseEvent_GetMouseAction()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2399,7 +2399,7 @@ int32_t OH_ArkUI_MouseEvent_GetMouseAction(const ArkUI_UIInputEvent* event)
 
 
 
-##### OH_ArkUI_PointerEvent_SetStopPropagation()
+#### OH_ArkUI_PointerEvent_SetStopPropagation()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2430,7 +2430,7 @@ int32_t OH_ArkUI_PointerEvent_SetStopPropagation(const ArkUI_UIInputEvent* event
 
 
 
-##### OH_ArkUI_UIInputEvent_GetDeviceId()
+#### OH_ArkUI_UIInputEvent_GetDeviceId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2460,7 +2460,7 @@ int32_t OH_ArkUI_UIInputEvent_GetDeviceId(const ArkUI_UIInputEvent* event)
 
 
 
-##### OH_ArkUI_UIInputEvent_GetPressedKeys()
+#### OH_ArkUI_UIInputEvent_GetPressedKeys()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2492,7 +2492,7 @@ int32_t OH_ArkUI_UIInputEvent_GetPressedKeys(const ArkUI_UIInputEvent* event, in
 
 
 
-##### OH_ArkUI_FocusAxisEvent_GetAxisValue()
+#### OH_ArkUI_FocusAxisEvent_GetAxisValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2523,7 +2523,7 @@ double OH_ArkUI_FocusAxisEvent_GetAxisValue(const ArkUI_UIInputEvent* event, int
 
 
 
-##### OH_ArkUI_FocusAxisEvent_SetStopPropagation()
+#### OH_ArkUI_FocusAxisEvent_SetStopPropagation()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2554,7 +2554,7 @@ int32_t OH_ArkUI_FocusAxisEvent_SetStopPropagation(const ArkUI_UIInputEvent* eve
 
 
 
-##### OH_ArkUI_UIInputEvent_GetModifierKeyStates()
+#### OH_ArkUI_UIInputEvent_GetModifierKeyStates()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2585,7 +2585,7 @@ int32_t OH_ArkUI_UIInputEvent_GetModifierKeyStates(const ArkUI_UIInputEvent* eve
 
 
 
-##### OH_ArkUI_AxisEvent_SetPropagation()
+#### OH_ArkUI_AxisEvent_SetPropagation()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2616,7 +2616,7 @@ int32_t OH_ArkUI_AxisEvent_SetPropagation(const ArkUI_UIInputEvent* event, bool 
 
 
 
-##### OH_ArkUI_AxisEvent_GetScrollStep()
+#### OH_ArkUI_AxisEvent_GetScrollStep()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2646,7 +2646,7 @@ int32_t OH_ArkUI_AxisEvent_GetScrollStep(const ArkUI_UIInputEvent* event)
 
 
 
-##### OH_ArkUI_UIInputEvent_GetEventTargetWidth()
+#### OH_ArkUI_UIInputEvent_GetEventTargetWidth()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2676,7 +2676,7 @@ float OH_ArkUI_UIInputEvent_GetEventTargetWidth(const ArkUI_UIInputEvent* event)
 
 
 
-##### OH_ArkUI_UIInputEvent_GetEventTargetHeight()
+#### OH_ArkUI_UIInputEvent_GetEventTargetHeight()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2706,7 +2706,7 @@ float OH_ArkUI_UIInputEvent_GetEventTargetHeight(const ArkUI_UIInputEvent* event
 
 
 
-##### OH_ArkUI_UIInputEvent_GetEventTargetPositionX()
+#### OH_ArkUI_UIInputEvent_GetEventTargetPositionX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2736,7 +2736,7 @@ float OH_ArkUI_UIInputEvent_GetEventTargetPositionX(const ArkUI_UIInputEvent* ev
 
 
 
-##### OH_ArkUI_UIInputEvent_GetEventTargetPositionY()
+#### OH_ArkUI_UIInputEvent_GetEventTargetPositionY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2766,7 +2766,7 @@ float OH_ArkUI_UIInputEvent_GetEventTargetPositionY(const ArkUI_UIInputEvent* ev
 
 
 
-##### OH_ArkUI_UIInputEvent_GetEventTargetGlobalPositionX()
+#### OH_ArkUI_UIInputEvent_GetEventTargetGlobalPositionX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2796,7 +2796,7 @@ float OH_ArkUI_UIInputEvent_GetEventTargetGlobalPositionX(const ArkUI_UIInputEve
 
 
 
-##### OH_ArkUI_UIInputEvent_GetEventTargetGlobalPositionY()
+#### OH_ArkUI_UIInputEvent_GetEventTargetGlobalPositionY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2826,7 +2826,7 @@ float OH_ArkUI_UIInputEvent_GetEventTargetGlobalPositionY(const ArkUI_UIInputEve
 
 
 
-##### OH_ArkUI_PointerEvent_GetPressedTimeByIndex()
+#### OH_ArkUI_PointerEvent_GetPressedTimeByIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2857,7 +2857,7 @@ int64_t OH_ArkUI_PointerEvent_GetPressedTimeByIndex(const ArkUI_UIInputEvent* ev
 
 
 
-##### OH_ArkUI_MouseEvent_GetRawDeltaX()
+#### OH_ArkUI_MouseEvent_GetRawDeltaX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2887,7 +2887,7 @@ float OH_ArkUI_MouseEvent_GetRawDeltaX(const ArkUI_UIInputEvent* event)
 
 
 
-##### OH_ArkUI_MouseEvent_GetRawDeltaY()
+#### OH_ArkUI_MouseEvent_GetRawDeltaY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2917,7 +2917,7 @@ float OH_ArkUI_MouseEvent_GetRawDeltaY(const ArkUI_UIInputEvent* event)
 
 
 
-##### OH_ArkUI_MouseEvent_GetPressedButtons()
+#### OH_ArkUI_MouseEvent_GetPressedButtons()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2949,7 +2949,7 @@ int32_t OH_ArkUI_MouseEvent_GetPressedButtons(const ArkUI_UIInputEvent* event, i
 
 
 
-##### OH_ArkUI_UIInputEvent_GetTargetDisplayId()
+#### OH_ArkUI_UIInputEvent_GetTargetDisplayId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2979,7 +2979,7 @@ int32_t OH_ArkUI_UIInputEvent_GetTargetDisplayId(const ArkUI_UIInputEvent* event
 
 
 
-##### OH_ArkUI_HoverEvent_IsHovered()
+#### OH_ArkUI_HoverEvent_IsHovered()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3009,7 +3009,7 @@ bool OH_ArkUI_HoverEvent_IsHovered(const ArkUI_UIInputEvent* event)
 
 
 
-##### OH_ArkUI_PointerEvent_CreateClonedEvent()
+#### OH_ArkUI_PointerEvent_CreateClonedEvent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3040,7 +3040,7 @@ int32_t OH_ArkUI_PointerEvent_CreateClonedEvent(const ArkUI_UIInputEvent* event,
 
 
 
-##### OH_ArkUI_PointerEvent_DestroyClonedEvent()
+#### OH_ArkUI_PointerEvent_DestroyClonedEvent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3070,7 +3070,7 @@ int32_t OH_ArkUI_PointerEvent_DestroyClonedEvent(const ArkUI_UIInputEvent* event
 
 
 
-##### OH_ArkUI_PointerEvent_SetClonedEventLocalPosition()
+#### OH_ArkUI_PointerEvent_SetClonedEventLocalPosition()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3102,7 +3102,7 @@ int32_t OH_ArkUI_PointerEvent_SetClonedEventLocalPosition(const ArkUI_UIInputEve
 
 
 
-##### OH_ArkUI_PointerEvent_SetClonedEventLocalPositionByIndex()
+#### OH_ArkUI_PointerEvent_SetClonedEventLocalPositionByIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3135,7 +3135,7 @@ int32_t OH_ArkUI_PointerEvent_SetClonedEventLocalPositionByIndex(const ArkUI_UII
 
 
 
-##### OH_ArkUI_PointerEvent_SetClonedEventActionType()
+#### OH_ArkUI_PointerEvent_SetClonedEventActionType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3166,7 +3166,7 @@ int32_t OH_ArkUI_PointerEvent_SetClonedEventActionType(const ArkUI_UIInputEvent*
 
 
 
-##### OH_ArkUI_PointerEvent_SetClonedEventChangedFingerId()
+#### OH_ArkUI_PointerEvent_SetClonedEventChangedFingerId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3197,7 +3197,7 @@ int32_t OH_ArkUI_PointerEvent_SetClonedEventChangedFingerId(const ArkUI_UIInputE
 
 
 
-##### OH_ArkUI_PointerEvent_SetClonedEventFingerIdByIndex()
+#### OH_ArkUI_PointerEvent_SetClonedEventFingerIdByIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3229,7 +3229,7 @@ int32_t OH_ArkUI_PointerEvent_SetClonedEventFingerIdByIndex(const ArkUI_UIInputE
 
 
 
-##### OH_ArkUI_PointerEvent_PostClonedEvent()
+#### OH_ArkUI_PointerEvent_PostClonedEvent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3260,7 +3260,7 @@ int32_t OH_ArkUI_PointerEvent_PostClonedEvent(ArkUI_NodeHandle node, const ArkUI
 
 
 
-##### OH_ArkUI_PointerEvent_CreateClonedPointerEvent()
+#### OH_ArkUI_PointerEvent_CreateClonedPointerEvent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3291,7 +3291,7 @@ ArkUI_ErrorCode OH_ArkUI_PointerEvent_CreateClonedPointerEvent(const ArkUI_UIInp
 
 
 
-##### OH_ArkUI_PointerEvent_CreatePointerEvent()
+#### OH_ArkUI_PointerEvent_CreatePointerEvent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3322,7 +3322,7 @@ ArkUI_ErrorCode OH_ArkUI_PointerEvent_CreatePointerEvent(ArkUI_UIInputEvent** ev
 
 
 
-##### OH_ArkUI_PointerEvent_DestroyClonedPointerEvent()
+#### OH_ArkUI_PointerEvent_DestroyClonedPointerEvent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3352,7 +3352,7 @@ ArkUI_ErrorCode OH_ArkUI_PointerEvent_DestroyClonedPointerEvent(const ArkUI_UIIn
 
 
 
-##### OH_ArkUI_ClonedEvent_SetActionType()
+#### OH_ArkUI_ClonedEvent_SetActionType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3383,7 +3383,7 @@ ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetActionType(const ArkUI_UIInputEvent* eve
 
 
 
-##### OH_ArkUI_ClonedEvent_SetSourceType()
+#### OH_ArkUI_ClonedEvent_SetSourceType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3414,7 +3414,7 @@ ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetSourceType(const ArkUI_UIInputEvent* eve
 
 
 
-##### OH_ArkUI_ClonedEvent_SetToolType()
+#### OH_ArkUI_ClonedEvent_SetToolType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3445,7 +3445,7 @@ ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetToolType(const ArkUI_UIInputEvent* event
 
 
 
-##### OH_ArkUI_ClonedEvent_SetPressure()
+#### OH_ArkUI_ClonedEvent_SetPressure()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3476,7 +3476,7 @@ ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetPressure(const ArkUI_UIInputEvent* event
 
 
 
-##### OH_ArkUI_ClonedEvent_SetPressureByIndex()
+#### OH_ArkUI_ClonedEvent_SetPressureByIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3508,7 +3508,7 @@ ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetPressureByIndex(const ArkUI_UIInputEvent
 
 
 
-##### OH_ArkUI_ClonedEvent_SetEventTime()
+#### OH_ArkUI_ClonedEvent_SetEventTime()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3539,7 +3539,7 @@ ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetEventTime(const ArkUI_UIInputEvent* even
 
 
 
-##### OH_ArkUI_ClonedEvent_SetDeviceId()
+#### OH_ArkUI_ClonedEvent_SetDeviceId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3570,7 +3570,7 @@ ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetDeviceId(const ArkUI_UIInputEvent* event
 
 
 
-##### OH_ArkUI_ClonedEvent_SetTargetDisplayId()
+#### OH_ArkUI_ClonedEvent_SetTargetDisplayId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3601,7 +3601,7 @@ ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetTargetDisplayId(const ArkUI_UIInputEvent
 
 
 
-##### OH_ArkUI_ClonedEvent_SetChangedFingerId()
+#### OH_ArkUI_ClonedEvent_SetChangedFingerId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3632,7 +3632,7 @@ ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetChangedFingerId(const ArkUI_UIInputEvent
 
 
 
-##### OH_ArkUI_ClonedEvent_SetFingerIdByIndex()
+#### OH_ArkUI_ClonedEvent_SetFingerIdByIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3664,7 +3664,7 @@ ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetFingerIdByIndex(const ArkUI_UIInputEvent
 
 
 
-##### OH_ArkUI_ClonedEvent_SetChangedWindowPosition()
+#### OH_ArkUI_ClonedEvent_SetChangedWindowPosition()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3696,7 +3696,7 @@ ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetChangedWindowPosition(const ArkUI_UIInpu
 
 
 
-##### OH_ArkUI_ClonedEvent_SetWindowPositionByIndex()
+#### OH_ArkUI_ClonedEvent_SetWindowPositionByIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3729,7 +3729,7 @@ ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetWindowPositionByIndex(const ArkUI_UIInpu
 
 
 
-##### OH_ArkUI_ClonedEvent_SetChangedScreenPosition()
+#### OH_ArkUI_ClonedEvent_SetChangedScreenPosition()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3761,7 +3761,7 @@ ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetChangedScreenPosition(const ArkUI_UIInpu
 
 
 
-##### OH_ArkUI_ClonedEvent_SetScreenPositionByIndex()
+#### OH_ArkUI_ClonedEvent_SetScreenPositionByIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3794,7 +3794,7 @@ ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetScreenPositionByIndex(const ArkUI_UIInpu
 
 
 
-##### OH_ArkUI_ClonedEvent_SetChangedGlobalDisplayPosition()
+#### OH_ArkUI_ClonedEvent_SetChangedGlobalDisplayPosition()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3826,7 +3826,7 @@ ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetChangedGlobalDisplayPosition(const ArkUI
 
 
 
-##### OH_ArkUI_ClonedEvent_SetGlobalDisplayPositionByIndex()
+#### OH_ArkUI_ClonedEvent_SetGlobalDisplayPositionByIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3859,7 +3859,7 @@ ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetGlobalDisplayPositionByIndex(const ArkUI
 
 
 
-##### OH_ArkUI_ClonedEvent_SetHandleId()
+#### OH_ArkUI_ClonedEvent_SetHandleId()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3890,7 +3890,7 @@ ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetHandleId(const ArkUI_UIInputEvent* event
 
 
 
-##### OH_ArkUI_ClonedEvent_SetTiltAngle()
+#### OH_ArkUI_ClonedEvent_SetTiltAngle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3922,7 +3922,7 @@ ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetTiltAngle(const ArkUI_UIInputEvent* even
 
 
 
-##### OH_ArkUI_ClonedEvent_SetRollAngle()
+#### OH_ArkUI_ClonedEvent_SetRollAngle()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3953,7 +3953,7 @@ ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetRollAngle(const ArkUI_UIInputEvent* even
 
 
 
-##### OH_ArkUI_ClonedEvent_SetPressedKeys()
+#### OH_ArkUI_ClonedEvent_SetPressedKeys()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3985,7 +3985,7 @@ ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetPressedKeys(const ArkUI_UIInputEvent* ev
 
 
 
-##### OH_ArkUI_ClonedEvent_SetChangedTouchArea()
+#### OH_ArkUI_ClonedEvent_SetChangedTouchArea()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4017,7 +4017,7 @@ ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetChangedTouchArea(const ArkUI_UIInputEven
 
 
 
-##### OH_ArkUI_ClonedEvent_SetTouchAreaByIndex()
+#### OH_ArkUI_ClonedEvent_SetTouchAreaByIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4050,7 +4050,7 @@ ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetTouchAreaByIndex(const ArkUI_UIInputEven
 
 
 
-##### OH_ArkUI_ClonedEvent_SetChangedInteractionHand()
+#### OH_ArkUI_ClonedEvent_SetChangedInteractionHand()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4081,7 +4081,7 @@ ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetChangedInteractionHand(const ArkUI_UIInp
 
 
 
-##### OH_ArkUI_ClonedEvent_SetInteractionHandByIndex()
+#### OH_ArkUI_ClonedEvent_SetInteractionHandByIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4113,7 +4113,7 @@ ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetInteractionHandByIndex(const ArkUI_UIInp
 
 
 
-##### OH_ArkUI_ClonedEvent_SetPressedTimeByIndex()
+#### OH_ArkUI_ClonedEvent_SetPressedTimeByIndex()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4145,7 +4145,7 @@ ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetPressedTimeByIndex(const ArkUI_UIInputEv
 
 
 
-##### OH_ArkUI_ClonedEvent_SetPinchAxisScaleValue()
+#### OH_ArkUI_ClonedEvent_SetPinchAxisScaleValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4176,7 +4176,7 @@ ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetPinchAxisScaleValue(const ArkUI_UIInputE
 
 
 
-##### OH_ArkUI_ClonedEvent_SetHorizontalAxisScaleValue()
+#### OH_ArkUI_ClonedEvent_SetHorizontalAxisScaleValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4207,7 +4207,7 @@ ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetHorizontalAxisScaleValue(const ArkUI_UII
 
 
 
-##### OH_ArkUI_ClonedEvent_SetVerticalAxisScaleValue()
+#### OH_ArkUI_ClonedEvent_SetVerticalAxisScaleValue()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4238,7 +4238,7 @@ ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetVerticalAxisScaleValue(const ArkUI_UIInp
 
 
 
-##### OH_ArkUI_ClonedEvent_SetScrollStep()
+#### OH_ArkUI_ClonedEvent_SetScrollStep()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4269,7 +4269,7 @@ ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetScrollStep(const ArkUI_UIInputEvent* eve
 
 
 
-##### OH_ArkUI_ClonedEvent_SetMouseButton()
+#### OH_ArkUI_ClonedEvent_SetMouseButton()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4300,7 +4300,7 @@ ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetMouseButton(const ArkUI_UIInputEvent* ev
 
 
 
-##### OH_ArkUI_ClonedEvent_SetRawDeltaX()
+#### OH_ArkUI_ClonedEvent_SetRawDeltaX()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4331,7 +4331,7 @@ ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetRawDeltaX(const ArkUI_UIInputEvent* even
 
 
 
-##### OH_ArkUI_ClonedEvent_SetRawDeltaY()
+#### OH_ArkUI_ClonedEvent_SetRawDeltaY()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4362,7 +4362,7 @@ ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetRawDeltaY(const ArkUI_UIInputEvent* even
 
 
 
-##### OH_ArkUI_ClonedEvent_SetPressedButtons()
+#### OH_ArkUI_ClonedEvent_SetPressedButtons()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4394,7 +4394,7 @@ ArkUI_ErrorCode OH_ArkUI_ClonedEvent_SetPressedButtons(const ArkUI_UIInputEvent*
 
 
 
-##### OH_ArkUI_PointerEvent_PostClonedEventWithStrategy()
+#### OH_ArkUI_PointerEvent_PostClonedEventWithStrategy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4426,7 +4426,7 @@ ArkUI_ErrorCode OH_ArkUI_PointerEvent_PostClonedEventWithStrategy(ArkUI_NodeHand
 
 
 
-##### OH_ArkUI_UIInputEvent_GetLatestStatus()
+#### OH_ArkUI_UIInputEvent_GetLatestStatus()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4449,7 +4449,7 @@ ArkUI_ErrorCode OH_ArkUI_UIInputEvent_GetLatestStatus()
 
 
 
-##### OH_ArkUI_UIInputEvent_GetCoastingAxisEvent()
+#### OH_ArkUI_UIInputEvent_GetCoastingAxisEvent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4485,7 +4485,7 @@ ArkUI_CoastingAxisEvent* OH_ArkUI_UIInputEvent_GetCoastingAxisEvent(ArkUI_UIInpu
 
 
 
-##### OH_ArkUI_CoastingAxisEvent_GetEventTime()
+#### OH_ArkUI_CoastingAxisEvent_GetEventTime()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4515,7 +4515,7 @@ int64_t OH_ArkUI_CoastingAxisEvent_GetEventTime(ArkUI_CoastingAxisEvent* event)
 
 
 
-##### OH_ArkUI_CoastingAxisEvent_GetPhase()
+#### OH_ArkUI_CoastingAxisEvent_GetPhase()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4545,7 +4545,7 @@ ArkUI_CoastingAxisEventPhase OH_ArkUI_CoastingAxisEvent_GetPhase(ArkUI_CoastingA
 
 
 
-##### OH_ArkUI_CoastingAxisEvent_GetDeltaY
+#### OH_ArkUI_CoastingAxisEvent_GetDeltaY
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4575,7 +4575,7 @@ float OH_ArkUI_CoastingAxisEvent_GetDeltaY(ArkUI_CoastingAxisEvent* event)
 
 
 
-##### OH_ArkUI_CoastingAxisEvent_GetDeltaX
+#### OH_ArkUI_CoastingAxisEvent_GetDeltaX
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4605,7 +4605,7 @@ float OH_ArkUI_CoastingAxisEvent_GetDeltaX(ArkUI_CoastingAxisEvent* event)
 
 
 
-##### OH_ArkUI_CoastingAxisEvent_SetPropagation()
+#### OH_ArkUI_CoastingAxisEvent_SetPropagation()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4636,7 +4636,7 @@ int32_t OH_ArkUI_CoastingAxisEvent_SetPropagation(ArkUI_CoastingAxisEvent* event
 
 
 
-##### OH_ArkUI_TouchTestInfo_GetTouchTestInfoList
+#### OH_ArkUI_TouchTestInfo_GetTouchTestInfoList
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4669,7 +4669,7 @@ ArkUI_ErrorCode OH_ArkUI_TouchTestInfo_GetTouchTestInfoList(ArkUI_TouchTestInfo*
 
 
 
-##### OH_ArkUI_TouchTestInfoItem_GetX
+#### OH_ArkUI_TouchTestInfoItem_GetX
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4699,7 +4699,7 @@ float OH_ArkUI_TouchTestInfoItem_GetX(const ArkUI_TouchTestInfoItem* info);
 
 
 
-##### OH_ArkUI_TouchTestInfoItem_GetY
+#### OH_ArkUI_TouchTestInfoItem_GetY
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4729,7 +4729,7 @@ float OH_ArkUI_TouchTestInfoItem_GetY(const ArkUI_TouchTestInfoItem* info);
 
 
 
-##### OH_ArkUI_TouchTestInfoItem_GetWindowX
+#### OH_ArkUI_TouchTestInfoItem_GetWindowX
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4759,7 +4759,7 @@ float OH_ArkUI_TouchTestInfoItem_GetWindowX(const ArkUI_TouchTestInfoItem* info)
 
 
 
-##### OH_ArkUI_TouchTestInfoItem_GetWindowY
+#### OH_ArkUI_TouchTestInfoItem_GetWindowY
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4789,7 +4789,7 @@ float OH_ArkUI_TouchTestInfoItem_GetWindowY(const ArkUI_TouchTestInfoItem* info)
 
 
 
-##### OH_ArkUI_TouchTestInfoItem_GetXRelativeToParent
+#### OH_ArkUI_TouchTestInfoItem_GetXRelativeToParent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4819,7 +4819,7 @@ float OH_ArkUI_TouchTestInfoItem_GetXRelativeToParent(const ArkUI_TouchTestInfoI
 
 
 
-##### OH_ArkUI_TouchTestInfoItem_GetYRelativeToParent
+#### OH_ArkUI_TouchTestInfoItem_GetYRelativeToParent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4849,7 +4849,7 @@ float OH_ArkUI_TouchTestInfoItem_GetYRelativeToParent(const ArkUI_TouchTestInfoI
 
 
 
-##### OH_ArkUI_TouchTestInfoItem_GetChildRect
+#### OH_ArkUI_TouchTestInfoItem_GetChildRect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4880,7 +4880,7 @@ ArkUI_ErrorCode OH_ArkUI_TouchTestInfoItem_GetChildRect(const ArkUI_TouchTestInf
 
 
 
-##### OH_ArkUI_TouchTestInfoItem_GetChildId
+#### OH_ArkUI_TouchTestInfoItem_GetChildId
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4913,7 +4913,7 @@ ArkUI_ErrorCode OH_ArkUI_TouchTestInfoItem_GetChildId(const ArkUI_TouchTestInfoI
 
 
 
-##### OH_ArkUI_TouchTestInfo_SetTouchResultStrategy
+#### OH_ArkUI_TouchTestInfo_SetTouchResultStrategy
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4944,7 +4944,7 @@ ArkUI_ErrorCode OH_ArkUI_TouchTestInfo_SetTouchResultStrategy(ArkUI_TouchTestInf
 
 
 
-##### OH_ArkUI_TouchTestInfo_SetTouchResultId
+#### OH_ArkUI_TouchTestInfo_SetTouchResultId
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4975,7 +4975,7 @@ ArkUI_ErrorCode OH_ArkUI_TouchTestInfo_SetTouchResultId(ArkUI_TouchTestInfo* inf
 
 
 
-##### OH_ArkUI_DigitalCrownEvent_GetEventTime()
+#### OH_ArkUI_DigitalCrownEvent_GetEventTime()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5005,7 +5005,7 @@ int64_t OH_ArkUI_DigitalCrownEvent_GetEventTime(const ArkUI_UIInputEvent* event)
 
 
 
-##### OH_ArkUI_DigitalCrownEvent_GetAngularVelocity()
+#### OH_ArkUI_DigitalCrownEvent_GetAngularVelocity()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5035,7 +5035,7 @@ double OH_ArkUI_DigitalCrownEvent_GetAngularVelocity(const ArkUI_UIInputEvent* e
 
 
 
-##### OH_ArkUI_DigitalCrownEvent_GetDegree()
+#### OH_ArkUI_DigitalCrownEvent_GetDegree()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5065,7 +5065,7 @@ double OH_ArkUI_DigitalCrownEvent_GetDegree(const ArkUI_UIInputEvent* event)
 
 
 
-##### OH_ArkUI_DigitalCrownEvent_GetAction()
+#### OH_ArkUI_DigitalCrownEvent_GetAction()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5095,7 +5095,7 @@ ArkUI_CrownEvent_Action OH_ArkUI_DigitalCrownEvent_GetAction(const ArkUI_UIInput
 
 
 
-##### OH_ArkUI_DigitalCrownEvent_SetStopPropagation()
+#### OH_ArkUI_DigitalCrownEvent_SetStopPropagation()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

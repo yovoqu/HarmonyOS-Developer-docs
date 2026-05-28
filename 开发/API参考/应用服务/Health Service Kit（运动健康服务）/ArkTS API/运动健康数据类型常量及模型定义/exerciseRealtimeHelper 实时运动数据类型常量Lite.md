@@ -10,7 +10,7 @@
 **起始版本：** 6.1.1(24)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** lite_wearable
 
@@ -24,7 +24,7 @@ import healthStore  from '@hms.health.store';
  
   
 
-##### 常量
+#### 常量
 
 **支持设备：** lite_wearable
 
@@ -36,7 +36,7 @@ import healthStore  from '@hms.health.store';
  
   
 
-##### 实时运动-公共
+#### 实时运动-公共
 
 **支持设备：** lite_wearable
  
@@ -53,7 +53,7 @@ import healthStore  from '@hms.health.store';
  
   
 
-##### 实时运动-羽毛球
+#### 实时运动-羽毛球
 
 **支持设备：** lite_wearable
  
@@ -73,7 +73,7 @@ import healthStore  from '@hms.health.store';
  
   
 
-##### 实时运动-爬楼
+#### 实时运动-爬楼
 
 **支持设备：** lite_wearable
  
@@ -86,7 +86,7 @@ import healthStore  from '@hms.health.store';
  
   
 
-##### 实时运动-网球
+#### 实时运动-网球
 
 **支持设备：** lite_wearable
  
@@ -100,7 +100,7 @@ import healthStore  from '@hms.health.store';
  
   
 
-##### 实时运动-匹克球
+#### 实时运动-匹克球
 
 **支持设备：** lite_wearable
  
@@ -114,7 +114,7 @@ import healthStore  from '@hms.health.store';
  
   
 
-##### 实时运动-足球
+#### 实时运动-足球
 
 **支持设备：** lite_wearable
  

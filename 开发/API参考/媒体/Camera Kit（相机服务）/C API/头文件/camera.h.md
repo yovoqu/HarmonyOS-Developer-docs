@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
 
 
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -66,7 +66,7 @@
 
 
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -108,7 +108,7 @@
 
 
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -120,13 +120,13 @@
 
 
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### Camera_ErrorCode
+#### Camera_ErrorCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -158,7 +158,7 @@ enum Camera_ErrorCode
 
 
 
-##### Camera_Status
+#### Camera_Status
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -182,7 +182,7 @@ enum Camera_Status
 
 
 
-##### Camera_SceneMode
+#### Camera_SceneMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -205,7 +205,7 @@ enum Camera_SceneMode
 
 
 
-##### Camera_Position
+#### Camera_Position
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -228,7 +228,7 @@ enum Camera_Position
 
 
 
-##### Camera_Type
+#### Camera_Type
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -253,7 +253,7 @@ enum Camera_Type
 
 
 
-##### Camera_Connection
+#### Camera_Connection
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -276,7 +276,7 @@ enum Camera_Connection
 
 
 
-##### OH_Camera_SensorColorFilterArrangement
+#### OH_Camera_SensorColorFilterArrangement
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -300,7 +300,7 @@ enum OH_Camera_SensorColorFilterArrangement
 
 
 
-##### Camera_Format
+#### Camera_Format
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -327,7 +327,7 @@ enum Camera_Format
 
 
 
-##### Camera_FlashMode
+#### Camera_FlashMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -351,7 +351,7 @@ enum Camera_FlashMode
 
 
 
-##### OH_Camera_FlashState
+#### OH_Camera_FlashState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -374,7 +374,7 @@ enum OH_Camera_FlashState
 
 
 
-##### Camera_ExposureMode
+#### Camera_ExposureMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -399,7 +399,7 @@ enum Camera_ExposureMode
 
 
 
-##### OH_Camera_ExposureMeteringMode
+#### OH_Camera_ExposureMeteringMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -422,7 +422,7 @@ enum OH_Camera_ExposureMeteringMode
 
 
 
-##### Camera_FocusMode
+#### Camera_FocusMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -446,7 +446,7 @@ enum Camera_FocusMode
 
 
 
-##### Camera_FocusState
+#### Camera_FocusState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -469,7 +469,7 @@ enum Camera_FocusState
 
 
 
-##### Camera_VideoStabilizationMode
+#### Camera_VideoStabilizationMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -494,7 +494,7 @@ enum Camera_VideoStabilizationMode
 
 
 
-##### Camera_ImageRotation
+#### Camera_ImageRotation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -522,7 +522,7 @@ enum Camera_ImageRotation
 
 
 
-##### Camera_QualityLevel
+#### Camera_QualityLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -545,7 +545,7 @@ enum Camera_QualityLevel
 
 
 
-##### Camera_MetadataObjectType
+#### Camera_MetadataObjectType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -568,7 +568,7 @@ enum Camera_MetadataObjectType
 
 
 
-##### Camera_TorchMode
+#### Camera_TorchMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -594,7 +594,7 @@ enum Camera_TorchMode
 
 
 
-##### Camera_SmoothZoomMode
+#### Camera_SmoothZoomMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -616,7 +616,7 @@ enum Camera_SmoothZoomMode
 
 
 
-##### Camera_SystemPressureLevel
+#### Camera_SystemPressureLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -641,7 +641,7 @@ enum Camera_SystemPressureLevel
 
 
 
-##### Camera_PreconfigType
+#### Camera_PreconfigType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -666,7 +666,7 @@ enum Camera_PreconfigType
 
 
 
-##### Camera_PreconfigRatio
+#### Camera_PreconfigRatio
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -689,7 +689,7 @@ enum Camera_PreconfigRatio
 
 
 
-##### Camera_HostDeviceType
+#### Camera_HostDeviceType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -712,7 +712,7 @@ enum Camera_HostDeviceType
 
 
 
-##### Camera_FoldStatus
+#### Camera_FoldStatus
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -738,7 +738,7 @@ enum Camera_FoldStatus
 
 
 
-##### Camera_QualityPrioritization
+#### Camera_QualityPrioritization
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -760,7 +760,7 @@ enum Camera_QualityPrioritization
 
 
 
-##### Camera_ConcurrentType
+#### Camera_ConcurrentType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -782,7 +782,7 @@ enum Camera_ConcurrentType
 
 
 
-##### Camera_WhiteBalanceMode
+#### Camera_WhiteBalanceMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -809,7 +809,7 @@ enum Camera_WhiteBalanceMode
 
 
 
-##### Camera_ControlCenterEffectType
+#### Camera_ControlCenterEffectType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -832,7 +832,7 @@ enum Camera_ControlCenterEffectType
 
 
 
-##### Camera_PhotoQualityPrioritization
+#### Camera_PhotoQualityPrioritization
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -854,7 +854,7 @@ enum Camera_PhotoQualityPrioritization
 
 
 
-##### OH_Camera_OISMode
+#### OH_Camera_OISMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -877,7 +877,7 @@ enum OH_Camera_OISMode
 
 
 
-##### OH_Camera_OISAxes
+#### OH_Camera_OISAxes
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -899,13 +899,13 @@ enum OH_Camera_OISAxes
 
 
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### OH_Camera_GetCameraManager()
+#### OH_Camera_GetCameraManager()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -935,7 +935,7 @@ Camera_ErrorCode OH_Camera_GetCameraManager(Camera_Manager** cameraManager)
 
 
 
-##### OH_Camera_DeleteCameraManager()
+#### OH_Camera_DeleteCameraManager()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

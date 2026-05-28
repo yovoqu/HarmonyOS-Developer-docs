@@ -12,7 +12,7 @@
 
 
 
-##### getTopOrder18+
+#### getTopOrder18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -97,7 +97,7 @@ struct Index {
 
 
 
-##### getBottomOrder18+
+#### getBottomOrder18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -180,7 +180,7 @@ struct Index {
 
 
 
-##### openToast18+
+#### openToast18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -264,7 +264,7 @@ struct Index {
 
 
 
-##### closeToast18+
+#### closeToast18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -300,7 +300,7 @@ closeToast(toastId: number): void
 
 
 
-##### showToast
+#### showToast
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -364,7 +364,7 @@ struct Index {
 
 
 
-##### showDialog
+#### showDialog
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -445,7 +445,7 @@ struct Index {
 
 
 
-##### showDialog
+#### showDialog
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -525,7 +525,7 @@ struct Index {
 
 
 
-##### showActionMenu11+
+#### showActionMenu11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -603,7 +603,7 @@ struct Index {
 
 
 
-##### showActionMenu
+#### showActionMenu
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -681,7 +681,7 @@ struct Index {
 
 
 
-##### openCustomDialog12+
+#### openCustomDialog12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -819,7 +819,7 @@ struct Index {
 
 
 
-##### openCustomDialog12+
+#### openCustomDialog12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -932,7 +932,7 @@ struct Index {
 
 
 
-##### openCustomDialogWithController18+
+#### openCustomDialogWithController18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1041,7 +1041,7 @@ struct Index {
 
 
 
-##### updateCustomDialog12+
+#### updateCustomDialog12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1147,7 +1147,7 @@ struct Index {
 
 
 
-##### closeCustomDialog12+
+#### closeCustomDialog12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1251,7 +1251,7 @@ struct Index {
 
 
 
-##### closeCustomDialog12+
+#### closeCustomDialog12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1340,7 +1340,7 @@ struct Index {
 
 
 
-##### presentCustomDialog18+
+#### presentCustomDialog18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1460,7 +1460,7 @@ struct Index {
 
 
 
-##### openPopup18+
+#### openPopup18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1593,7 +1593,7 @@ struct Index {
 
 
 
-##### updatePopup18+
+#### updatePopup18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1642,7 +1642,7 @@ updatePopup<T extends Object>(content: ComponentContent&lt;T&gt;, options: Popup
 
 
 
-##### closePopup18+
+#### closePopup18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1685,7 +1685,7 @@ closePopup<T extends Object>(content: ComponentContent&lt;T&gt;): Promise&lt;voi
 
 
 
-##### openMenu18+
+#### openMenu18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1785,7 +1785,7 @@ struct Index {
 
 
 
-##### updateMenu18+
+#### updateMenu18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1888,7 +1888,7 @@ struct Index {
 
 
 
-##### closeMenu18+
+#### closeMenu18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1983,7 +1983,7 @@ struct Index {
 
 
 
-##### showActionMenu(deprecated)
+#### showActionMenu(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

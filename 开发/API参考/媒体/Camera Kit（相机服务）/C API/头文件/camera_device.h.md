@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-device-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -53,13 +53,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_CameraDevice_GetCameraOrientation()
+#### OH_CameraDevice_GetCameraOrientation()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -90,7 +90,7 @@ Camera_ErrorCode OH_CameraDevice_GetCameraOrientation(Camera_Device* camera, uin
  
   
 
-##### OH_CameraDevice_GetHostDeviceName()
+#### OH_CameraDevice_GetHostDeviceName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -121,7 +121,7 @@ Camera_ErrorCode OH_CameraDevice_GetHostDeviceName(Camera_Device* camera, char**
  
   
 
-##### OH_CameraDevice_GetHostDeviceType()
+#### OH_CameraDevice_GetHostDeviceType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -152,7 +152,7 @@ Camera_ErrorCode OH_CameraDevice_GetHostDeviceType(Camera_Device* camera, Camera
  
   
 
-##### OH_CameraDevice_GetLensEquivalentFocalLengths()
+#### OH_CameraDevice_GetLensEquivalentFocalLengths()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -184,7 +184,7 @@ Camera_ErrorCode OH_CameraDevice_GetLensEquivalentFocalLengths(const Camera_Devi
  
   
 
-##### OH_CameraDevice_IsLogicalCamera()
+#### OH_CameraDevice_IsLogicalCamera()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -215,7 +215,7 @@ Camera_ErrorCode OH_CameraDevice_IsLogicalCamera(const Camera_Device* camera, bo
  
   
 
-##### OH_CameraDevice_GetLogicalCameraConstituentCameraDevices()
+#### OH_CameraDevice_GetLogicalCameraConstituentCameraDevices()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -247,7 +247,7 @@ Camera_ErrorCode OH_CameraDevice_GetLogicalCameraConstituentCameraDevices(const 
  
   
 
-##### OH_CameraDevice_DeleteConstituentCameraDevices()
+#### OH_CameraDevice_DeleteConstituentCameraDevices()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -279,7 +279,7 @@ Camera_ErrorCode OH_CameraDevice_DeleteConstituentCameraDevices(const Camera_Dev
  
   
 
-##### OH_CameraDevice_GetLensFocalLength()
+#### OH_CameraDevice_GetLensFocalLength()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -310,7 +310,7 @@ Camera_ErrorCode OH_CameraDevice_GetLensFocalLength(const Camera_Device* camera,
  
   
 
-##### OH_CameraDevice_GetMinimumFocusDistance()
+#### OH_CameraDevice_GetMinimumFocusDistance()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -341,7 +341,7 @@ Camera_ErrorCode OH_CameraDevice_GetMinimumFocusDistance(const Camera_Device* ca
  
   
 
-##### OH_CameraDevice_GetLensDistortion()
+#### OH_CameraDevice_GetLensDistortion()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -373,7 +373,7 @@ Camera_ErrorCode OH_CameraDevice_GetLensDistortion(const Camera_Device* camera, 
  
   
 
-##### OH_CameraDevice_GetIntrinsicCalibration()
+#### OH_CameraDevice_GetIntrinsicCalibration()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -405,7 +405,7 @@ Camera_ErrorCode OH_CameraDevice_GetIntrinsicCalibration(const Camera_Device* ca
  
   
 
-##### OH_CameraDevice_GetSensorPhysicalSize()
+#### OH_CameraDevice_GetSensorPhysicalSize()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -437,7 +437,7 @@ Camera_ErrorCode OH_CameraDevice_GetSensorPhysicalSize(const Camera_Device* came
  
   
 
-##### OH_CameraDevice_GetSensorPixelArraySize()
+#### OH_CameraDevice_GetSensorPixelArraySize()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -469,7 +469,7 @@ Camera_ErrorCode OH_CameraDevice_GetSensorPixelArraySize(const Camera_Device* ca
  
   
 
-##### OH_CameraDevice_GetSensorColorFilterArrangement()
+#### OH_CameraDevice_GetSensorColorFilterArrangement()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

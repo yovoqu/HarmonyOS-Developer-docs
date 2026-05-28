@@ -9,7 +9,7 @@
 二阶IIR滤波器采用直接II型转置结构，支持多通道（如立体声）和多节级联（如高阶滤波器）配置。滤波器支持动态激活/旁路控制，允许运行时灵活调整滤波特性。
 
 
-##### 接口说明
+#### 接口说明
 
 具体API说明详见[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast)。
 
@@ -31,7 +31,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 在CMake脚本中链接相关动态库。
 
   
@@ -54,11 +54,11 @@ target_link_libraries(entry PUBLIC libfast_dsp.so)
 
 
 
-##### 代码示例
+#### 代码示例
 
 
 
-##### 单通道滤波器示例
+#### 单通道滤波器示例
 
 ```text
 #include <cstdio>
@@ -129,7 +129,7 @@ FAST_ErrorCode single_channel_filter_demo() {
 
 
 
-##### 多通道滤波器示例
+#### 多通道滤波器示例
 
 ```text
 #include <cstdio>
@@ -203,7 +203,7 @@ FAST_ErrorCode multi_channel_filter_demo() {
 
 
 
-##### 动态激活滤波器节示例
+#### 动态激活滤波器节示例
 
 ```text
 #include <cstdio>

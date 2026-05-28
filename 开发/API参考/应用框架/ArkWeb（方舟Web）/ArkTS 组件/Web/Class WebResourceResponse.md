@@ -12,7 +12,7 @@ Web组件资源响应对象。示例代码参考[onHttpErrorReceive事件](https
 
   
 
-##### constructor
+#### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ WebResourceResponse的构造函数。
  
   
 
-##### getReasonMessage
+#### getReasonMessage
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -43,7 +43,7 @@ getReasonMessage(): string
  
   
 
-##### getResponseCode
+#### getResponseCode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -62,7 +62,7 @@ getResponseCode(): number
  
   
 
-##### getResponseData
+#### getResponseData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -81,7 +81,7 @@ getResponseData(): string
  
   
 
-##### getResponseEncoding
+#### getResponseEncoding
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -100,7 +100,7 @@ getResponseEncoding(): string
  
   
 
-##### getResponseHeader
+#### getResponseHeader
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -119,7 +119,7 @@ getResponseHeader() : Array&lt;Header&gt;
  
   
 
-##### getResponseMimeType
+#### getResponseMimeType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -138,7 +138,7 @@ getResponseMimeType(): string
  
   
 
-##### getResponseDataEx13+
+#### getResponseDataEx13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -157,7 +157,7 @@ getResponseDataEx(): string | number | ArrayBuffer | Resource | undefined
  
   
 
-##### getResponseIsReady13+
+#### getResponseIsReady13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -176,7 +176,7 @@ getResponseIsReady(): boolean
  
   
 
-##### setResponseData9+
+#### setResponseData9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -195,7 +195,7 @@ setResponseData(data: string | number | Resource | ArrayBuffer): void
  
   
 
-##### setResponseEncoding9+
+#### setResponseEncoding9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -214,7 +214,7 @@ setResponseEncoding(encoding: string): void
  
   
 
-##### setResponseMimeType9+
+#### setResponseMimeType9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -233,7 +233,7 @@ setResponseMimeType(mimeType: string): void
  
   
 
-##### setReasonMessage9+
+#### setReasonMessage9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -252,7 +252,7 @@ setReasonMessage(reason: string): void
  
   
 
-##### setResponseHeader9+
+#### setResponseHeader9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -271,7 +271,7 @@ setResponseHeader(header: Array&lt;Header&gt;): void
  
   
 
-##### setResponseCode9+
+#### setResponseCode9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -290,7 +290,7 @@ setResponseCode(code: number): void
  
   
 
-##### setResponseIsReady9+
+#### setResponseIsReady9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

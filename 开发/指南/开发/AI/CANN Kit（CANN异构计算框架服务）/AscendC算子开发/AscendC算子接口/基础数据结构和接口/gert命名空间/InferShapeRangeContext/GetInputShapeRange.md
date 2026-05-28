@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getinputshaperange
 
-##### 函数功能
+#### 函数功能
 
 根据算子输入索引获取对应的输入shape range指针。这里的输入索引是指算子实例化后实际的索引，不是原型定义中的索引。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 const Range<Shape> *GetInputShapeRange(const size_t index) const;
@@ -18,7 +18,7 @@ const Range<Shape> *GetInputShapeRange(const size_t index) const;
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -27,19 +27,19 @@ const Range<Shape> *GetInputShapeRange(const size_t index) const;
  
   
 
-##### 返回值
+#### 返回值
 
 输入shape range指针，index非法时，返回空指针。
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 const auto infer_shape_range_func = [](gert::InferShapeRangeContext *context) -> graphStatus {

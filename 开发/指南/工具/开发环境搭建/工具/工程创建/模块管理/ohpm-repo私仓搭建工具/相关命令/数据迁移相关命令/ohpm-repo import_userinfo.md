@@ -7,13 +7,13 @@
 导入用户DB数据。
  
 
-##### 前提条件
+#### 前提条件
 
 已成功执行[export_userinfo 命令](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-repo-export-userinfo)。
  
  
 
-##### 命令格式
+#### 命令格式
 
 ```text
 ohpm-repo import_userinfo <zip_file> [options]
@@ -21,17 +21,17 @@ ohpm-repo import_userinfo <zip_file> [options]
  
  
 
-##### 功能描述
+#### 功能描述
 
 根据提供的zip文件导入用户DB数据到ohpm-repo。
  
  
 
-##### 参数
+#### 参数
 
  
 
-##### &lt;zip_file&gt;
+#### &lt;zip_file&gt;
 
 - 类型： String
 - 必填参数
@@ -41,11 +41,11 @@ ohpm-repo import_userinfo <zip_file> [options]
  
  
 
-##### 选项
+#### 选项
 
  
 
-##### clean-db
+#### clean-db
 
 - 默认值：false
 - 类型：Boolean
@@ -55,7 +55,7 @@ ohpm-repo import_userinfo <zip_file> [options]
  
  
 
-##### 示例
+#### 示例
 
 执行以下命令：
  

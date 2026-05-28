@@ -10,7 +10,7 @@
 
 
 
-##### AVFileDescriptor9+
+#### AVFileDescriptor9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -29,7 +29,7 @@
 
 
 
-##### AVDataSrcDescriptor10+
+#### AVDataSrcDescriptor10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -47,7 +47,7 @@
 
 
 
-##### SubtitleInfo12+
+#### SubtitleInfo12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -66,7 +66,7 @@
 
 
 
-##### SeiMessage18+
+#### SeiMessage18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -84,7 +84,7 @@ SEI信息内容，描述SEI信息的负载类型和数据。
 
 
 
-##### MediaDescription8+
+#### MediaDescription8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -133,7 +133,7 @@ media.createAVPlayer((err: BusinessError, player: media.AVPlayer) => {
 
 
 
-##### PlaybackInfo12+
+#### PlaybackInfo12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -148,7 +148,7 @@ media.createAVPlayer((err: BusinessError, player: media.AVPlayer) => {
 
 
 
-##### AVRecorderConfig9+
+#### AVRecorderConfig9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -173,7 +173,7 @@ media.createAVPlayer((err: BusinessError, player: media.AVPlayer) => {
 
 
 
-##### AVRecorderProfile9+
+#### AVRecorderProfile9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -201,7 +201,7 @@ media.createAVPlayer((err: BusinessError, player: media.AVPlayer) => {
 
 
 
-##### 音频参数配置对照表
+#### 音频参数配置对照表
 
 此处提供音频参数配置的对照表，每项的具体释义，可查看下述字段解释。
 
@@ -216,7 +216,7 @@ media.createAVPlayer((err: BusinessError, player: media.AVPlayer) => {
 
 
 
-##### Location
+#### Location
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -232,7 +232,7 @@ media.createAVPlayer((err: BusinessError, player: media.AVPlayer) => {
 
 
 
-##### EncoderInfo11+
+#### EncoderInfo11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -254,7 +254,7 @@ media.createAVPlayer((err: BusinessError, player: media.AVPlayer) => {
 
 
 
-##### Range11+
+#### Range11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -270,7 +270,7 @@ media.createAVPlayer((err: BusinessError, player: media.AVPlayer) => {
 
 
 
-##### AVTranscoderConfig12+
+#### AVTranscoderConfig12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -292,7 +292,7 @@ media.createAVPlayer((err: BusinessError, player: media.AVPlayer) => {
 
 
 
-##### AVMetadata11+
+#### AVMetadata11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -329,7 +329,7 @@ media.createAVPlayer((err: BusinessError, player: media.AVPlayer) => {
 
 
 
-##### AVMetadata.tracks支持的MediaDescriptionKey8+说明
+#### AVMetadata.tracks支持的MediaDescriptionKey8+说明
 
 AVMetadata.tracks支持的[MediaDescriptionKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-e#mediadescriptionkey8)的范围如下：
 
@@ -352,7 +352,7 @@ AVMetadata.tracks支持的[MediaDescriptionKey](https://developer.huawei.com/con
 
 
 
-##### PixelMapParams12+
+#### PixelMapParams12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -368,7 +368,7 @@ AVMetadata.tracks支持的[MediaDescriptionKey](https://developer.huawei.com/con
 
 
 
-##### OutputSize20+
+#### OutputSize20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -384,7 +384,7 @@ AVMetadata.tracks支持的[MediaDescriptionKey](https://developer.huawei.com/con
 
 
 
-##### FrameInfo23+
+#### FrameInfo23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -404,7 +404,7 @@ AVMetadata.tracks支持的[MediaDescriptionKey](https://developer.huawei.com/con
 
 
 
-##### MediaStream19+
+#### MediaStream19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -424,7 +424,7 @@ AVMetadata.tracks支持的[MediaDescriptionKey](https://developer.huawei.com/con
 
 
 
-##### MediaSourceLoader18+
+#### MediaSourceLoader18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -483,7 +483,7 @@ async function setupPlayer() {
 
 
 
-##### PlaybackStrategy12+
+#### PlaybackStrategy12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -509,7 +509,7 @@ async function setupPlayer() {
 
 
 
-##### AVScreenCaptureStrategy20+
+#### AVScreenCaptureStrategy20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -526,7 +526,7 @@ async function setupPlayer() {
 
 
 
-##### AVScreenCaptureRecordConfig12+
+#### AVScreenCaptureRecordConfig12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -551,7 +551,7 @@ async function setupPlayer() {
 
 
 
-##### AVMetricsEvent23+
+#### AVMetricsEvent23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -569,7 +569,7 @@ async function setupPlayer() {
 
 
 
-##### AudioRecorderConfig(deprecated)
+#### AudioRecorderConfig(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getsysworkspaceptr
 
-##### 功能说明
+#### 功能说明
 
 获取系统workspace指针。部分高阶API如Matmul需要使用系统workspace，相关接口需要传入系统workspace指针，此时可以通过该接口获取。使用系统workspace时，host侧开发者需要自行申请系统workspace的空间，其预留空间大小可以通过[GetLibApiWorkSpaceSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getlibapiworkspacesize)接口获取。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 __aicore__ inline __gm__ uint8_t* __gm__ GetSysWorkSpacePtr()
@@ -18,13 +18,13 @@ __aicore__ inline __gm__ uint8_t* __gm__ GetSysWorkSpacePtr()
  
   
 
-##### 参数说明
+#### 参数说明
 
 无
  
   
 
-##### 支持的型号
+#### 支持的型号
 
 Kirin9020系列处理器
  
@@ -32,19 +32,19 @@ KirinX90系列处理器
  
   
 
-##### 注意事项
+#### 注意事项
 
 无
  
   
 
-##### 返回值
+#### 返回值
 
 系统workspace指针。
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 // ...

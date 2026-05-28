@@ -11,7 +11,7 @@ ECC的算法规格请查看[非对称密钥生成和转换规格：ECC](https://
 通过传入字符串参数format，可指定获取的点数据格式。如果获取压缩格式，则指定format为："COMPRESSED"；获取非压缩格式，则指定format为："UNCOMPRESSED"。
 
 
-##### 指定非压缩点数据转换为压缩点数据
+#### 指定非压缩点数据转换为压缩点数据
 1. 指定uint8_t类型的ECC非压缩点数据，调用[OH_CryptoEcPoint_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptoecpoint_create)，构造[OH_CryptoEcPoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-cryptoasymkeyapi-oh-cryptoecpoint)对象，用于生成点数据。
 2. 调用[OH_CryptoEcPoint_Encode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptoecpoint_encode)，获取压缩点数据。
 
@@ -45,7 +45,7 @@ OH_Crypto_ErrCode doTestEccPointUncompressedToCompressed()
 
 
 
-##### 指定压缩点数据获取密钥对象
+#### 指定压缩点数据获取密钥对象
 1. 指定uint8_t类型的ECC压缩点数据，调用[OH_CryptoEcPoint_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptoecpoint_create)，构造[OH_CryptoEcPoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-cryptoasymkeyapi-oh-cryptoecpoint)对象，用于生成点数据。
 2. 调用[OH_CryptoEcPoint_Encode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptoecpoint_encode)，获取非压缩点数据。
 

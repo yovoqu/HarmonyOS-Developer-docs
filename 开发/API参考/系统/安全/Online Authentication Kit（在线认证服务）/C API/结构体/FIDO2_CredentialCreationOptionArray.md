@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2___credential_creation_option_array
 
-##### 概述
+#### 概述
 
 认证凭据的附加参数数组。
  
@@ -14,11 +14,11 @@
  
   
 
-##### 汇总
+#### 汇总
 
   
 
-##### 成员变量
+#### 成员变量
  
 | 名称 | 描述 |
 | --- | --- |
@@ -28,11 +28,11 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
   
 
-##### pubKeyCredParamNum
+#### pubKeyCredParamNum
 
 ```text
 uint32_t FIDO2_CredentialCreationOptionArray::pubKeyCredParamNum
@@ -44,7 +44,7 @@ PubKeyCredParam参数数目。
  
   
 
-##### pubKeyCredParams
+#### pubKeyCredParams
 
 ```text
 FIDO2_PublicKeyCredentialParameters* FIDO2_CredentialCreationOptionArray::pubKeyCredParams

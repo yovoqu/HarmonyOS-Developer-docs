@@ -19,7 +19,7 @@ devicedebug工具向开发者提供对调试应用发送信号的能力，目前
  
   
 
-##### 帮助命令
+#### 帮助命令
 
 ```bash
 devicedebug help
@@ -41,7 +41,7 @@ devicedebug help
  
   
 
-##### 终止进程命令
+#### 终止进程命令
 
 ```bash
 devicedebug kill

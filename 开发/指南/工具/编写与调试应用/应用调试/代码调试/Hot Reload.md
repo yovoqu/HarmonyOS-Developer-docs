@@ -15,7 +15,7 @@ DevEco Studio提供Hot Reload（热重载）能力，支持开发者在真机或
 
 
 
-##### 热重载、热重启、完全重启的区别
+#### 热重载、热重启、完全重启的区别
 
  - **热重载**：不重启应用，可保留应用状态，但整个过程会重新运行入口文件内的逻辑。
  - **热重启**：在运行流程上，与热重载相比，主要区别在于会重启应用，不保留应用状态，支持更广泛的ArkTS代码修改快速生效。一旦执行了热重启，后续热重载流程均会被热重启取代。
@@ -24,7 +24,7 @@ DevEco Studio提供Hot Reload（热重载）能力，支持开发者在真机或
 
 
 
-##### 使用约束
+#### 使用约束
 
 | 修改文件 | 热重载 | 热重启 | 说明 |
 | --- | --- | --- | --- |
@@ -79,7 +79,7 @@ DevEco Studio提供Hot Reload（热重载）能力，支持开发者在真机或
 
 
 
-##### 开启热重启/Apply Changes（可选）
+#### 开启热重启/Apply Changes（可选）
 
 如果需要使用热重启或Apply Changes的能力，先打开对应开关：点击菜单栏**File > Settings**（macOS为**DevEco Studio > Preferences/Settings**）** > ****Build, Execution, Deployment > Hot Reload**，勾选以下选项。
 
@@ -93,7 +93,7 @@ DevEco Studio提供Hot Reload（热重载）能力，支持开发者在真机或
 
 
 
-##### 操作步骤
+#### 操作步骤
 1. 连接真机设备或模拟器。
 2. 在下拉菜单中，将运行/调试配置切换为Hot Reload的配置
 ![](assets/Hot%20Reload/file-20260514133007458-2.png)
@@ -115,14 +115,14 @@ DevEco Studio提供Hot Reload（热重载）能力，支持开发者在真机或
 5. 方式二：通过快捷键方式触发Hot Reload：需要先在菜单栏点击**File > Settings**（macOS为**DevEco Studio > Preferences/Settings**），选择**Tools > Actions on Save**，勾选**Perform hot reload**，点击**OK**完成设置。修改代码后通过快捷键**Ctrl + S**即可触发Hot Reload。         方式二不支持Apply Changes，如需使用Apply Changes功能，请使用方式一。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/dr5EJT5dQ1eCjhgZuB3fiQ/zh-cn_image_0000002571546546.png?HW-CC-KV=V1&HW-CC-Date=20260528T014922Z&HW-CC-Expire=86400&HW-CC-Sign=F8430F740EE4A047042F45D1E93B876E06CE9633B077D7D1DA4C76708C683E10)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/9IVYO9TfQMaPsy4Olw06ZQ/zh-cn_image_0000002571546546.png?HW-CC-KV=V1&HW-CC-Date=20260528T030550Z&HW-CC-Expire=86400&HW-CC-Sign=2C201616217014063EADBAE50ECBF2FCAD99921DA39C1243B13C87B92DFA6C99)
 
 
 6. 点击停止按钮终止运行/调试运行，退出Hot Reload模式。
 
   
 
-  ##### 动态配置签名或应用版本号（可选）
+  #### 动态配置签名或应用版本号（可选）
 
   在多人协作开发场景中，使用Hot Reload能力时，可以在hvigorfile.ts中动态配置签名或应用版本号，避免每个开发者都需要本地修改。该功能从DevEco Studio 6.0.2 Beta1版本开始支持。
 

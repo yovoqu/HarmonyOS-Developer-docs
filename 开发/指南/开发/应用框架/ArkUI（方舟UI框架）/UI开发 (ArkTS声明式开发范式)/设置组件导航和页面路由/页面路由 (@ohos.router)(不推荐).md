@@ -11,7 +11,7 @@
 
 
 
-##### 页面跳转
+#### 页面跳转
 
 页面跳转是开发过程中的一个重要组成部分。在使用应用程序时，通常需要在不同的页面之间跳转，有时还需要将数据从一个页面传递到另一个页面。
 
@@ -229,14 +229,14 @@ private age: number = this.params.info.age; // 获取age属性的值
 
 
 
-##### 页面返回
+#### 页面返回
 
 当用户在一个页面完成操作后，通常需要返回到上一个页面或者指定页面，这就需要用到页面返回功能。在返回的过程中，可能需要将数据传递给目标页面，这就需要用到数据传递功能。
 
 **图2** 页面返回
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/aZpAZdJERra7XDj98ZvXVA/zh-cn_image_0000002611833577.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014814Z&HW-CC-Expire=86400&HW-CC-Sign=78EF06FE29AD003E51B61C528D4C9D7C6D39B0AFB79E58AF06BB04E67BDB7927)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/aZpAZdJERra7XDj98ZvXVA/zh-cn_image_0000002611833577.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030445Z&HW-CC-Expire=86400&HW-CC-Sign=A53E76794DDAB244460D327634CFB4EC3215E0BE9D30F437BF82F5E466E13C93)
 
 
 直接使用router可能导致[UI上下文不明确](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-global-interface#ui上下文不明确)的问题，建议使用getUIContext()获取[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)实例，并使用[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取绑定实例的router。
@@ -329,7 +329,7 @@ struct Home {
 
 
 
-##### 生命周期
+#### 生命周期
 
 [router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router)页面生命周期，即被[@Entry](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#entry)装饰的组件生命周期，提供以下生命周期接口，其中onPageShow和onPageHide的生命周期时序图可参考Router切换Navigation中的[生命周期](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-router-to-navigation#生命周期)：
 
@@ -422,18 +422,18 @@ struct Page {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/gIbcHdPrSsKdgBCWFiVdcA/zh-cn_image_0000002581273830.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014814Z&HW-CC-Expire=86400&HW-CC-Sign=87E56FBA7803B58B094AFCE6E1AD874B3CB5CC4F1E35B553D86F55E06577CF16)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/gIbcHdPrSsKdgBCWFiVdcA/zh-cn_image_0000002581273830.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030445Z&HW-CC-Expire=86400&HW-CC-Sign=B4FEB25631CDDF5E27A18267A993C5C82D480B406507C947CB871FA4638E4DFF)
 
 
 
 
-##### 自定义转场
+#### 自定义转场
 
 router自定义转场可以通过[pageTransition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#pagetransition9)实现，具体参考[页面间转场 (pageTransition)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-page-transition-animation)。
 
 
 
-##### 页面返回前增加一个询问框
+#### 页面返回前增加一个询问框
 
 在开发应用时，为了避免用户误操作或者丢失数据，有时候需要在用户从一个页面返回到另一个页面之前，弹出一个询问框，让用户确认是否要执行这个操作。
 
@@ -442,12 +442,12 @@ router自定义转场可以通过[pageTransition](https://developer.huawei.com/c
 **图3** 页面返回前增加一个询问框
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/2ZquFxDsTASkBumlWdexwg/zh-cn_image_0000002611753685.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014814Z&HW-CC-Expire=86400&HW-CC-Sign=3E1BEE5981381124DC6331F0BD3D173E35CDC4FBBFDEC0D41AD95EBB02408DA5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/2ZquFxDsTASkBumlWdexwg/zh-cn_image_0000002611753685.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030445Z&HW-CC-Expire=86400&HW-CC-Sign=D193C012AC693F432CBA83CBEBE2F624D339D66C4B4B750E9C7C82D9B8536359)
 
 
 
 
-##### 系统默认询问框
+#### 系统默认询问框
 
 为了实现这个功能，可以使用页面路由Router模块提供的两个方法：[showAlertBeforeBackPage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#showalertbeforebackpage)和[back](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#back)来实现这个功能。
 
@@ -492,7 +492,7 @@ message：string类型，表示询问框的内容。
 
 
 
-##### 自定义询问框
+#### 自定义询问框
 
 自定义询问框的方式，可以使用弹窗[showDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#showdialog-1)或者自定义弹窗实现。这样可以让应用界面与系统默认询问框有所区别，提高应用的用户体验度。本文以弹窗为例，介绍如何实现自定义询问框。
 
@@ -549,14 +549,14 @@ onBackClick() {
 
 
 
-##### 命名路由
+#### 命名路由
 
 在开发中为了跳转到共享包[HAR](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/har-package)或者[HSP](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/in-app-hsp)中的页面（即共享包中路由跳转），可以使用[pushNamedRoute](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#pushnamedroute)来实现。
 
 **图4** 命名路由跳转
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/6qW_x4qpS26jX2-6xm4Wrw/zh-cn_image_0000002581433750.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014814Z&HW-CC-Expire=86400&HW-CC-Sign=778D2E3D52E2F4BF23AC9562FA1198D02DDAEA1510664D86CA538552BC074FCB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/6qW_x4qpS26jX2-6xm4Wrw/zh-cn_image_0000002581433750.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030445Z&HW-CC-Expire=86400&HW-CC-Sign=1A31F83DEA9C96700989EBE4B7D45CA9F65B1475E8E6F731F1493FBAB228179E)
 
 
 在想要跳转到的共享包[HAR](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/har-package)或者[HSP](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/in-app-hsp)页面里，给[@Entry](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#entry)修饰的自定义组件EntryOptions命名：

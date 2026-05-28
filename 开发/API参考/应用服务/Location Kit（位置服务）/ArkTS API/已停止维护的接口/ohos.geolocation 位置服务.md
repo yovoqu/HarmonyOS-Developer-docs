@@ -12,7 +12,7 @@
 
 
 
-##### 申请权限
+#### 申请权限
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -47,7 +47,7 @@ API9及之后的版本，需要申请ohos.permission.APPROXIMATELY_LOCATION或�
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -57,7 +57,7 @@ import geolocation from '@ohos.geolocation';
 
 
 
-##### geolocation.on('locationChange')(deprecated)
+#### geolocation.on('locationChange')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -95,7 +95,7 @@ geolocation.on('locationChange', requestInfo, locationChange);
 
 
 
-##### geolocation.off('locationChange')(deprecated)
+#### geolocation.off('locationChange')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -133,7 +133,7 @@ geolocation.off('locationChange', locationChange);
 
 
 
-##### geolocation.on('locationServiceState')(deprecated)
+#### geolocation.on('locationServiceState')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -169,7 +169,7 @@ geolocation.on('locationServiceState', locationServiceState);
 
 
 
-##### geolocation.off('locationServiceState')(deprecated)
+#### geolocation.off('locationServiceState')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -206,7 +206,7 @@ geolocation.off('locationServiceState', locationServiceState);
 
 
 
-##### geolocation.on('cachedGnssLocationsReporting')(deprecated)
+#### geolocation.on('cachedGnssLocationsReporting')(deprecated)
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -244,7 +244,7 @@ geolocation.on('cachedGnssLocationsReporting', requestInfo, cachedLocationsCb);
 
 
 
-##### geolocation.off('cachedGnssLocationsReporting')(deprecated)
+#### geolocation.off('cachedGnssLocationsReporting')(deprecated)
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -282,7 +282,7 @@ geolocation.off('cachedGnssLocationsReporting');
 
 
 
-##### geolocation.on('gnssStatusChange')(deprecated)
+#### geolocation.on('gnssStatusChange')(deprecated)
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -318,7 +318,7 @@ geolocation.on('gnssStatusChange', gnssStatusCb);
 
 
 
-##### geolocation.off('gnssStatusChange')(deprecated)
+#### geolocation.off('gnssStatusChange')(deprecated)
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -355,7 +355,7 @@ geolocation.off('gnssStatusChange', gnssStatusCb);
 
 
 
-##### geolocation.on('nmeaMessageChange')(deprecated)
+#### geolocation.on('nmeaMessageChange')(deprecated)
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -391,7 +391,7 @@ geolocation.on('nmeaMessageChange', nmeaCb );
 
 
 
-##### geolocation.off('nmeaMessageChange')(deprecated)
+#### geolocation.off('nmeaMessageChange')(deprecated)
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -428,7 +428,7 @@ geolocation.off('nmeaMessageChange', nmeaCb);
 
 
 
-##### geolocation.on('fenceStatusChange')(deprecated)
+#### geolocation.on('fenceStatusChange')(deprecated)
 
 **支持设备：** Phone | Tablet
 
@@ -480,7 +480,7 @@ wantAgent.getWantAgent(wantAgentInfo).then((wantAgentObj) => {
 
 
 
-##### geolocation.off('fenceStatusChange')(deprecated)
+#### geolocation.off('fenceStatusChange')(deprecated)
 
 **支持设备：** Phone | Tablet
 
@@ -533,7 +533,7 @@ wantAgent.getWantAgent(wantAgentInfo).then((wantAgentObj) => {
 
 
 
-##### geolocation.getCurrentLocation(deprecated)
+#### geolocation.getCurrentLocation(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -576,7 +576,7 @@ geolocation.getCurrentLocation(requestInfo, locationChange);
 
 
 
-##### geolocation.getCurrentLocation(deprecated)
+#### geolocation.getCurrentLocation(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -617,7 +617,7 @@ geolocation.getCurrentLocation(locationChange);
 
 
 
-##### geolocation.getCurrentLocation(deprecated)
+#### geolocation.getCurrentLocation(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -659,7 +659,7 @@ geolocation.getCurrentLocation(requestInfo).then((result) => {
 
 
 
-##### geolocation.getLastLocation(deprecated)
+#### geolocation.getLastLocation(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -698,7 +698,7 @@ geolocation.getLastLocation((err, data) => {
 
 
 
-##### geolocation.getLastLocation(deprecated)
+#### geolocation.getLastLocation(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -732,7 +732,7 @@ geolocation.getLastLocation().then((result) => {
 
 
 
-##### geolocation.isLocationEnabled(deprecated)
+#### geolocation.isLocationEnabled(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -771,7 +771,7 @@ geolocation.isLocationEnabled((err, data) => {
 
 
 
-##### geolocation.isLocationEnabled(deprecated)
+#### geolocation.isLocationEnabled(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -805,7 +805,7 @@ geolocation.isLocationEnabled().then((result) => {
 
 
 
-##### geolocation.requestEnableLocation(deprecated)
+#### geolocation.requestEnableLocation(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -844,7 +844,7 @@ geolocation.requestEnableLocation((err, data) => {
 
 
 
-##### geolocation.requestEnableLocation(deprecated)
+#### geolocation.requestEnableLocation(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -878,7 +878,7 @@ geolocation.requestEnableLocation().then((result) => {
 
 
 
-##### geolocation.isGeoServiceAvailable(deprecated)
+#### geolocation.isGeoServiceAvailable(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -917,7 +917,7 @@ geolocation.isGeoServiceAvailable((err, data) => {
 
 
 
-##### geolocation.isGeoServiceAvailable(deprecated)
+#### geolocation.isGeoServiceAvailable(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -951,7 +951,7 @@ geolocation.isGeoServiceAvailable().then((result) => {
 
 
 
-##### geolocation.getAddressesFromLocation(deprecated)
+#### geolocation.getAddressesFromLocation(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -992,7 +992,7 @@ geolocation.getAddressesFromLocation(reverseGeocodeRequest, (err, data) => {
 
 
 
-##### geolocation.getAddressesFromLocation(deprecated)
+#### geolocation.getAddressesFromLocation(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1034,7 +1034,7 @@ geolocation.getAddressesFromLocation(reverseGeocodeRequest).then((data) => {
 
 
 
-##### geolocation.getAddressesFromLocationName(deprecated)
+#### geolocation.getAddressesFromLocationName(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1075,7 +1075,7 @@ geolocation.getAddressesFromLocationName(geocodeRequest, (err, data) => {
 
 
 
-##### geolocation.getAddressesFromLocationName(deprecated)
+#### geolocation.getAddressesFromLocationName(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1117,7 +1117,7 @@ geolocation.getAddressesFromLocationName(geocodeRequest).then((result) => {
 
 
 
-##### geolocation.getCachedGnssLocationsSize(deprecated)
+#### geolocation.getCachedGnssLocationsSize(deprecated)
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1156,7 +1156,7 @@ geolocation.getCachedGnssLocationsSize((err, size) => {
 
 
 
-##### geolocation.getCachedGnssLocationsSize(deprecated)
+#### geolocation.getCachedGnssLocationsSize(deprecated)
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1190,7 +1190,7 @@ geolocation.getCachedGnssLocationsSize().then((result) => {
 
 
 
-##### geolocation.flushCachedGnssLocations(deprecated)
+#### geolocation.flushCachedGnssLocations(deprecated)
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1229,7 +1229,7 @@ geolocation.flushCachedGnssLocations((err, result) => {
 
 
 
-##### geolocation.flushCachedGnssLocations(deprecated)
+#### geolocation.flushCachedGnssLocations(deprecated)
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1263,7 +1263,7 @@ geolocation.flushCachedGnssLocations().then((result) => {
 
 
 
-##### geolocation.sendCommand(deprecated)
+#### geolocation.sendCommand(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1304,7 +1304,7 @@ geolocation.sendCommand(requestInfo, (err, result) => {
 
 
 
-##### geolocation.sendCommand(deprecated)
+#### geolocation.sendCommand(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1346,7 +1346,7 @@ geolocation.sendCommand(requestInfo).then((result) => {
 
 
 
-##### ReverseGeoCodeRequest(deprecated)
+#### ReverseGeoCodeRequest(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1370,7 +1370,7 @@ geolocation.sendCommand(requestInfo).then((result) => {
 
 
 
-##### GeoCodeRequest(deprecated)
+#### GeoCodeRequest(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1397,7 +1397,7 @@ geolocation.sendCommand(requestInfo).then((result) => {
 
 
 
-##### GeoAddress(deprecated)
+#### GeoAddress(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1435,7 +1435,7 @@ geolocation.sendCommand(requestInfo).then((result) => {
 
 
 
-##### LocationRequest(deprecated)
+#### LocationRequest(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1460,7 +1460,7 @@ geolocation.sendCommand(requestInfo).then((result) => {
 
 
 
-##### CurrentLocationRequest(deprecated)
+#### CurrentLocationRequest(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1484,7 +1484,7 @@ geolocation.sendCommand(requestInfo).then((result) => {
 
 
 
-##### SatelliteStatusInfo(deprecated)
+#### SatelliteStatusInfo(deprecated)
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1510,7 +1510,7 @@ geolocation.sendCommand(requestInfo).then((result) => {
 
 
 
-##### CachedGnssLocationsRequest(deprecated)
+#### CachedGnssLocationsRequest(deprecated)
 
 **支持设备：** Phone | Tablet | Wearable
 
@@ -1532,7 +1532,7 @@ geolocation.sendCommand(requestInfo).then((result) => {
 
 
 
-##### Geofence(deprecated)
+#### Geofence(deprecated)
 
 **支持设备：** Phone | Tablet
 
@@ -1556,7 +1556,7 @@ GNSS围栏的配置参数。目前只支持圆形围栏。
 
 
 
-##### GeofenceRequest(deprecated)
+#### GeofenceRequest(deprecated)
 
 **支持设备：** Phone | Tablet
 
@@ -1579,7 +1579,7 @@ GNSS围栏的配置参数。目前只支持圆形围栏。
 
 
 
-##### LocationCommand(deprecated)
+#### LocationCommand(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1601,7 +1601,7 @@ GNSS围栏的配置参数。目前只支持圆形围栏。
 
 
 
-##### Location(deprecated)
+#### Location(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1631,7 +1631,7 @@ GNSS围栏的配置参数。目前只支持圆形围栏。
 
 
 
-##### LocationPrivacyType(deprecated)
+#### LocationPrivacyType(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1654,7 +1654,7 @@ GNSS围栏的配置参数。目前只支持圆形围栏。
 
 
 
-##### LocationRequestPriority(deprecated)
+#### LocationRequestPriority(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1678,7 +1678,7 @@ GNSS围栏的配置参数。目前只支持圆形围栏。
 
 
 
-##### LocationRequestScenario(deprecated)
+#### LocationRequestScenario(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1704,7 +1704,7 @@ GNSS围栏的配置参数。目前只支持圆形围栏。
 
 
 
-##### GeoLocationErrorCode(deprecated)
+#### GeoLocationErrorCode(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

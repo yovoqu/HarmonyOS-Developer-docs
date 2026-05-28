@@ -7,7 +7,7 @@
 Device Security Kit（设备安全服务）提供应用设备状态检测（DeviceVerify）、安全检测（SafetyDetect）、可信应用服务（TrustedAppService）、数字盾服务（TrustedAuthentication）、业务风险检测（BusinessRiskIntelligentDetection）、安全审计（SecurityAudit）、反诈选择器（AntifraudPicker）、防窥保护（DlpAntiPeep）、病毒防护服务管理（VirusProtectionServiceManager）和超级隐私模式（SuperPrivacyMode），可以保护应用程序免受安全威胁和保证应用的数据安全。
   
 
-##### 场景介绍
+#### 场景介绍
 
 - 应用设备状态检测（DeviceVerify）场景：对应用在某台设备上的使用状态进行管理和检测，包括判断应用是否在该设备上首次安装，或在该设备上用户是否已获取了优惠券等的状态检测，以支撑业务进行新用户营销活动。
 - 安全检测（SafetyDetect）场景：判断设备环境是否安全，比如是否被越狱、非真实设备等，可基于结果评估如何响应；判断用户访问的URL是否为恶意网址，对于恶意网址，由您评估提示或拦截用户的访问风险。
@@ -23,7 +23,7 @@ Device Security Kit（设备安全服务）提供应用设备状态检测（Devi
  
   
 
-##### 基本概念
+#### 基本概念
 
 - DeviceToken：由Device Security Kit生成并用于标识设备和应用身份的Token。该Token用于应用服务器与Device Security服务器通信，从而获得当前设备的状态。
 - nonce：由开发者生成，并且在系统完整性检测结果中会包含这个nonce值，调用者通过校验这个nonce值来确定检测结果没有被重放攻击。
@@ -34,7 +34,7 @@ Device Security Kit（设备安全服务）提供应用设备状态检测（Devi
  
   
 
-##### 与其他Kit的关系
+#### 与其他Kit的关系
 
 [数字盾服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurity-trustedauth-service)联合[Universal Keystore Kit（密钥管理服务）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-kit)、[User Authentication Kit（用户认证服务）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/user-authentication-kit)共同为金融应用数字盾开发提供可信UI、可信认证、可信签名能力。
  
@@ -46,11 +46,11 @@ Device Security Kit（设备安全服务）提供应用设备状态检测（Devi
  
   
 
-##### 约束与限制
+#### 约束与限制
 
   
 
-##### 支持的国家/地区
+#### 支持的国家/地区
  
 | 场景 | 国家/地区 |
 | --- | --- |
@@ -71,7 +71,7 @@ Device Security Kit（设备安全服务）提供应用设备状态检测（Devi
  
   
 
-##### 支持的设备
+#### 支持的设备
  
 | 场景 | 支持设备 |
 | --- | --- |
@@ -91,6 +91,6 @@ Device Security Kit（设备安全服务）提供应用设备状态检测（Devi
  
   
 
-##### 模拟器支持情况
+#### 模拟器支持情况
 
 本Kit暂不支持模拟器。

@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-mdk-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
 
 
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -42,7 +42,7 @@
 
 
 
-##### 枚举
+#### 枚举
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -54,7 +54,7 @@
 
 
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -70,13 +70,13 @@
 
 
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 图像格式
+#### 图像格式
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -98,7 +98,7 @@ enum anonymous enum
 
 
 
-##### 图像颜色通道类型
+#### 图像颜色通道类型
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -122,13 +122,13 @@ enum anonymous enum
 
 
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### OH_Image_InitImageNative()
+#### OH_Image_InitImageNative()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -163,7 +163,7 @@ ImageNative* OH_Image_InitImageNative(napi_env env, napi_value source)
 
 
 
-##### OH_Image_ClipRect()
+#### OH_Image_ClipRect()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -194,7 +194,7 @@ int32_t OH_Image_ClipRect(const ImageNative* native, struct OhosImageRect* rect)
 
 
 
-##### OH_Image_Size()
+#### OH_Image_Size()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -229,7 +229,7 @@ ImageNative对象所存储的数据是预览流还是拍照流，取决于应用
 
 
 
-##### OH_Image_Format()
+#### OH_Image_Format()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -260,7 +260,7 @@ int32_t OH_Image_Format(const ImageNative* native, int32_t* format)
 
 
 
-##### OH_Image_GetComponent()
+#### OH_Image_GetComponent()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -292,7 +292,7 @@ int32_t OH_Image_GetComponent(const ImageNative* native, int32_t componentType, 
 
 
 
-##### OH_Image_Release()
+#### OH_Image_Release()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -14,7 +14,7 @@ SelectionExtensionContext是[SelectionExtensionAbility](https://developer.huawei
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** PC/2in1
 
@@ -24,7 +24,7 @@ import { SelectionExtensionContext } from '@kit.BasicServicesKit';
 
 
 
-##### SelectionExtensionContext
+#### SelectionExtensionContext
 
 **支持设备：** PC/2in1
 
@@ -34,7 +34,7 @@ import { SelectionExtensionContext } from '@kit.BasicServicesKit';
 
 
 
-##### startAbility
+#### startAbility
 
 **支持设备：** PC/2in1
 

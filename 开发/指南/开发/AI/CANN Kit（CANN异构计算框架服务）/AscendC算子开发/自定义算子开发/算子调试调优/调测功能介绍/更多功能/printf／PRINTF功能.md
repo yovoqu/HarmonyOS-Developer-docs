@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-commissioning-function-printf
 
-##### 功能介绍
+#### 功能介绍
 
 使用工具进行算子调测时，支持printf/PRINTF功能，可以打印Scalar数据。
  
@@ -14,7 +14,7 @@
  
   
 
-##### 使用方法（命令行）
+#### 使用方法（命令行）
 1. 在核函数代码中按需在目标位置加上printf或PRINTF语句，接口说明参见表1，以PRINTF打印为例：
 
   
@@ -33,12 +33,12 @@ ascendebug kernel --backend simulator --dump-mode normal ... {其他simulator调
 3. 查看屏显打印结果，示例如下。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/05Ptx5YrRAaYlQ0GnhWRWw/zh-cn_image_0000002611835177.png?HW-CC-KV=V1&HW-CC-Date=20260528T014301Z&HW-CC-Expire=86400&HW-CC-Sign=631EA74DDA0D9093883F0579D5BC356F069705275DBEEB46EE8FA42B1D3C5D00)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/05Ptx5YrRAaYlQ0GnhWRWw/zh-cn_image_0000002611835177.png?HW-CC-KV=V1&HW-CC-Date=20260528T025930Z&HW-CC-Expire=86400&HW-CC-Sign=9AEA7AA4EAE6959FFA53E709F2C7BFE54C5078E174369B53DDB5391E75BDAC49)
 
  
   
 
-##### 接口说明
+#### 接口说明
 
 printf/PRINTF接口说明如下。
  

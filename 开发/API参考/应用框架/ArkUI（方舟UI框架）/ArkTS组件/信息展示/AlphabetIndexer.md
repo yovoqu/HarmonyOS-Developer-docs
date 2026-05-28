@@ -12,7 +12,7 @@
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -41,7 +41,7 @@ AlphabetIndexer(options: AlphabetIndexerOptions)
 
 
 
-##### AlphabetIndexerOptions18+对象说明
+#### AlphabetIndexerOptions18+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -63,7 +63,7 @@ AlphabetIndexer(options: AlphabetIndexerOptions)
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -77,7 +77,7 @@ AlphabetIndexer(options: AlphabetIndexerOptions)
 
 
 
-##### color
+#### color
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -98,7 +98,7 @@ color(value: ResourceColor)
 
 
 
-##### selectedColor
+#### selectedColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -119,7 +119,7 @@ selectedColor(value: ResourceColor)
 
 
 
-##### popupColor
+#### popupColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -140,7 +140,7 @@ popupColor(value: ResourceColor)
 
 
 
-##### selectedBackgroundColor
+#### selectedBackgroundColor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -161,7 +161,7 @@ selectedBackgroundColor(value: ResourceColor)
 
 
 
-##### popupBackground
+#### popupBackground
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -182,7 +182,7 @@ popupBackground(value: ResourceColor)
 
 
 
-##### usingPopup
+#### usingPopup
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -203,7 +203,7 @@ usingPopup(value: boolean)
 
 
 
-##### selectedFont
+#### selectedFont
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -224,7 +224,7 @@ selectedFont(value: Font)
 
 
 
-##### popupFont
+#### popupFont
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -245,7 +245,7 @@ popupFont(value: Font)
 
 
 
-##### font
+#### font
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -266,7 +266,7 @@ font(value: Font)
 
 
 
-##### itemSize
+#### itemSize
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -287,7 +287,7 @@ itemSize(value: string | number)
 
 
 
-##### alignStyle
+#### alignStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -309,7 +309,7 @@ alignStyle(value: IndexerAlign, offset?: Length)
 
 
 
-##### selected8+
+#### selected8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -332,7 +332,7 @@ selected(index: number)
 
 
 
-##### popupPosition8+
+#### popupPosition8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -353,7 +353,7 @@ popupPosition(value: Position)
 
 
 
-##### popupSelectedColor10+
+#### popupSelectedColor10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -374,7 +374,7 @@ popupSelectedColor(value: ResourceColor)
 
 
 
-##### popupUnselectedColor10+
+#### popupUnselectedColor10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -395,7 +395,7 @@ popupUnselectedColor(value: ResourceColor)
 
 
 
-##### popupItemFont10+
+#### popupItemFont10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -416,7 +416,7 @@ popupItemFont(value: Font)
 
 
 
-##### popupItemBackgroundColor10+
+#### popupItemBackgroundColor10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -437,7 +437,7 @@ popupItemBackgroundColor(value: ResourceColor)
 
 
 
-##### autoCollapse11+
+#### autoCollapse11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -466,7 +466,7 @@ autoCollapse(value: boolean)
 
 
 
-##### popupItemBorderRadius12+
+#### popupItemBorderRadius12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -487,7 +487,7 @@ popupItemBorderRadius(value: number)
 
 
 
-##### itemBorderRadius12+
+#### itemBorderRadius12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -508,7 +508,7 @@ itemBorderRadius(value: number)
 
 
 
-##### popupBackgroundBlurStyle12+
+#### popupBackgroundBlurStyle12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -529,7 +529,7 @@ popupBackgroundBlurStyle(value: BlurStyle)
 
 
 
-##### popupTitleBackground12+
+#### popupTitleBackground12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -550,7 +550,7 @@ popupTitleBackground(value: ResourceColor)
 
 
 
-##### enableHapticFeedback12+
+#### enableHapticFeedback12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -571,7 +571,7 @@ enableHapticFeedback(value: boolean)
 
 
 
-##### IndexerAlign枚举说明
+#### IndexerAlign枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -589,7 +589,7 @@ enableHapticFeedback(value: boolean)
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -597,7 +597,7 @@ enableHapticFeedback(value: boolean)
 
 
 
-##### onSelected(deprecated)
+#### onSelected(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -620,7 +620,7 @@ onSelected(callback: (index: number) => void)
 
 
 
-##### onSelect8+
+#### onSelect8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -641,7 +641,7 @@ onSelect(callback: OnAlphabetIndexerSelectCallback)
 
 
 
-##### onRequestPopupData8+
+#### onRequestPopupData8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -662,7 +662,7 @@ onRequestPopupData(callback: OnAlphabetIndexerRequestPopupDataCallback)
 
 
 
-##### onPopupSelect8+
+#### onPopupSelect8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -683,7 +683,7 @@ onPopupSelect(callback: OnAlphabetIndexerPopupSelectCallback)
 
 
 
-##### OnAlphabetIndexerSelectCallback18+
+#### OnAlphabetIndexerSelectCallback18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -704,7 +704,7 @@ type OnAlphabetIndexerSelectCallback = (index: number) => void
 
 
 
-##### OnAlphabetIndexerPopupSelectCallback18+
+#### OnAlphabetIndexerPopupSelectCallback18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -725,7 +725,7 @@ type OnAlphabetIndexerPopupSelectCallback = (index: number) => void
 
 
 
-##### OnAlphabetIndexerRequestPopupDataCallback18+
+#### OnAlphabetIndexerRequestPopupDataCallback18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -753,13 +753,13 @@ type OnAlphabetIndexerRequestPopupDataCallback = (index: number) => Array&lt;str
 
 
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
-##### 示例1（设置提示弹窗显示文本内容）
+#### 示例1（设置提示弹窗显示文本内容）
 
 通过[onRequestPopupData](#onrequestpopupdata8)事件自定义提示弹窗显示文本内容。
 
@@ -874,12 +874,12 @@ struct AlphabetIndexerSample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/i9o3G2AsTu-fWvKqk8GYgA/zh-cn_image_0000002611835863.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024223Z&HW-CC-Expire=86400&HW-CC-Sign=F7F23BC2FD8BAA3C93B8001446728B53698B8653B9B0467A3D1FB07FE7CCC353)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/i9o3G2AsTu-fWvKqk8GYgA/zh-cn_image_0000002611835863.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025557Z&HW-CC-Expire=86400&HW-CC-Sign=1601CBE9E5B434C4624B586BB39E7C78C94119F40CBDEC258C49D33A5705973E)
 
 
 
 
-##### 示例2（开启自适应折叠模式）
+#### 示例2（开启自适应折叠模式）
 
 通过[autoCollapse](#autocollapse11)属性开启自适应折叠模式。
 
@@ -1020,12 +1020,12 @@ struct AlphabetIndexerSample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/3HLNUmapRAi3nInoQEb3AA/zh-cn_image_0000002581276118.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024223Z&HW-CC-Expire=86400&HW-CC-Sign=7770641A53D0F2F1099D6269D4F9BBAE6C706303C0CEF089345797CFD764D7EF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/3HLNUmapRAi3nInoQEb3AA/zh-cn_image_0000002581276118.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025557Z&HW-CC-Expire=86400&HW-CC-Sign=DF2C085E68AA8A111F432654B7E85DA60978C2D35067F60487DC1F11D52D1B28)
 
 
 
 
-##### 示例3（设置提示弹窗背景模糊材质）
+#### 示例3（设置提示弹窗背景模糊材质）
 
 通过[popupBackgroundBlurStyle](#popupbackgroundblurstyle12)属性实现提示弹窗的背景模糊效果。
 
@@ -1155,4 +1155,4 @@ struct AlphabetIndexerSample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/1rZqsomSQXOi4_bJAYl50Q/zh-cn_image_0000002611755973.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024223Z&HW-CC-Expire=86400&HW-CC-Sign=8FBA2431B2BC415D913D4E4D809957B3DCA8DC3DFF53996B3B2947F718AB9C88)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/1rZqsomSQXOi4_bJAYl50Q/zh-cn_image_0000002611755973.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025557Z&HW-CC-Expire=86400&HW-CC-Sign=EFAA3F4DE44D0D85593ED5677BA6DAF1827FA4719120185B6D85E4BBB63E5B90)

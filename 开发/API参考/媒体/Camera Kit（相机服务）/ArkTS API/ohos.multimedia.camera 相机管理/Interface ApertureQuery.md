@@ -12,7 +12,7 @@
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { camera } from '@kit.CameraKit';
  
   
 
-##### getSupportedPhysicalApertures24+
+#### getSupportedPhysicalApertures24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

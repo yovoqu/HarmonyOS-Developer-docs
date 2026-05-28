@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { fileShare } from '@kit.CoreFileKit';
 
 
 
-##### OperationMode11+
+#### OperationMode11+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -41,7 +41,7 @@ import { fileShare } from '@kit.CoreFileKit';
 
 
 
-##### PolicyErrorCode11+
+#### PolicyErrorCode11+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -59,7 +59,7 @@ import { fileShare } from '@kit.CoreFileKit';
 
 
 
-##### PolicyErrorResult11+
+#### PolicyErrorResult11+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -80,7 +80,7 @@ import { fileShare } from '@kit.CoreFileKit';
 
 
 
-##### PolicyInfo11+
+#### PolicyInfo11+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -96,7 +96,7 @@ import { fileShare } from '@kit.CoreFileKit';
 
 
 
-##### PathPolicyInfo15+
+#### PathPolicyInfo15+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -112,7 +112,7 @@ import { fileShare } from '@kit.CoreFileKit';
 
 
 
-##### PolicyType15+
+#### PolicyType15+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -128,7 +128,7 @@ import { fileShare } from '@kit.CoreFileKit';
 
 
 
-##### fileShare.persistPermission11+
+#### fileShare.persistPermission11+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -211,7 +211,7 @@ async function persistPermissionExample() {
 
 
 
-##### fileShare.revokePermission11+
+#### fileShare.revokePermission11+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -294,7 +294,7 @@ async function revokePermissionExample() {
 
 
 
-##### fileShare.activatePermission11+
+#### fileShare.activatePermission11+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -377,7 +377,7 @@ async function activatePermissionExample() {
 
 
 
-##### fileShare.deactivatePermission11+
+#### fileShare.deactivatePermission11+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -457,7 +457,7 @@ async function deactivatePermissionExample() {
 
 
 
-##### fileShare.checkPersistentPermission12+
+#### fileShare.checkPersistentPermission12+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

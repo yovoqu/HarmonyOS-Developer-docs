@@ -16,7 +16,7 @@
 在FA模型的应用开发过程中，需要在config.json配置文件中对应用的包结构进行声明。
   
 
-##### 配置文件的内部结构
+#### 配置文件的内部结构
 
 config.json由app、deviceConfig和module三个部分组成，缺一不可。
   

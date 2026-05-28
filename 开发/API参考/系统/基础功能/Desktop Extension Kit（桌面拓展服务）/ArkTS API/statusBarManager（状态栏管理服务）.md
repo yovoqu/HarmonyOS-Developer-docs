@@ -10,7 +10,7 @@
 **起始版本：** 5.0.0(12)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** PC/2in1
 
@@ -20,7 +20,7 @@ import { statusBarManager } from '@kit.DeskTopExtensionKit';
  
   
 
-##### StatusBarItem
+#### StatusBarItem
 
 **支持设备：** PC/2in1
 
@@ -40,7 +40,7 @@ import { statusBarManager } from '@kit.DeskTopExtensionKit';
  
   
 
-##### StatusBarIcon
+#### StatusBarIcon
 
 **支持设备：** PC/2in1
 
@@ -58,7 +58,7 @@ import { statusBarManager } from '@kit.DeskTopExtensionKit';
  
   
 
-##### QuickOperation
+#### QuickOperation
 
 **支持设备：** PC/2in1
 
@@ -79,7 +79,7 @@ import { statusBarManager } from '@kit.DeskTopExtensionKit';
  
   
 
-##### StatusBarGroupMenu
+#### StatusBarGroupMenu
 
 **支持设备：** PC/2in1
 
@@ -98,7 +98,7 @@ type StatusBarGroupMenu = StatusBarMenuItem[]
  
   
 
-##### StatusBarMenuItem
+#### StatusBarMenuItem
 
 **支持设备：** PC/2in1
 
@@ -119,7 +119,7 @@ type StatusBarGroupMenu = StatusBarMenuItem[]
  
   
 
-##### StatusBarMenuAction
+#### StatusBarMenuAction
 
 **支持设备：** PC/2in1
 
@@ -139,7 +139,7 @@ type StatusBarGroupMenu = StatusBarMenuItem[]
  
   
 
-##### StatusBarSubMenuItem
+#### StatusBarSubMenuItem
 
 **支持设备：** PC/2in1
 
@@ -159,7 +159,7 @@ type StatusBarGroupMenu = StatusBarMenuItem[]
  
   
 
-##### StatusBarItemIcon
+#### StatusBarItemIcon
 
 **支持设备：** PC/2in1
 
@@ -177,7 +177,7 @@ type StatusBarGroupMenu = StatusBarMenuItem[]
  
   
 
-##### StatusBarMenuItemOptions
+#### StatusBarMenuItemOptions
 
 **支持设备：** PC/2in1
 
@@ -196,7 +196,7 @@ type StatusBarGroupMenu = StatusBarMenuItem[]
  
   
 
-##### statusBarManager.addToStatusBar
+#### statusBarManager.addToStatusBar
 
 **支持设备：** PC/2in1
 
@@ -316,7 +316,7 @@ async function addToStatusBar(context: Context) {
  
   
 
-##### statusBarManager.addToStatusBar
+#### statusBarManager.addToStatusBar
 
 **支持设备：** PC/2in1
 
@@ -444,7 +444,7 @@ async function addToStatusBar(context: Context) {
  
   
 
-##### statusBarManager.removeFromStatusBar
+#### statusBarManager.removeFromStatusBar
 
 **支持设备：** PC/2in1
 
@@ -498,7 +498,7 @@ function removeFromStatusBar(context: Context) {
  
   
 
-##### statusBarManager.removeFromStatusBar
+#### statusBarManager.removeFromStatusBar
 
 **支持设备：** PC/2in1
 
@@ -560,7 +560,7 @@ function removeFromStatusBar(context: Context) {
  
   
 
-##### statusBarManager.updateQuickOperationHeight
+#### statusBarManager.updateQuickOperationHeight
 
 **支持设备：** PC/2in1
 
@@ -615,7 +615,7 @@ function updateQuickOperationHeight(context: Context) {
  
   
 
-##### statusBarManager.updateQuickOperationHeight
+#### statusBarManager.updateQuickOperationHeight
 
 **支持设备：** PC/2in1
 
@@ -678,7 +678,7 @@ function updateQuickOperationHeight(context: Context) {
  
   
 
-##### statusBarManager.updateStatusBarMenu
+#### statusBarManager.updateStatusBarMenu
 
 **支持设备：** PC/2in1
 
@@ -754,7 +754,7 @@ function updateStatusBarMenu(context: Context) {
  
   
 
-##### statusBarManager.updateStatusBarMenu
+#### statusBarManager.updateStatusBarMenu
 
 **支持设备：** PC/2in1
 
@@ -838,7 +838,7 @@ function updateStatusBarMenu(context: Context) {
  
   
 
-##### statusBarManager.updateStatusBarIcon
+#### statusBarManager.updateStatusBarIcon
 
 **支持设备：** PC/2in1
 
@@ -916,7 +916,7 @@ async function updateStatusBarIcon(context: Context) {
  
   
 
-##### statusBarManager.updateStatusBarIcon
+#### statusBarManager.updateStatusBarIcon
 
 **支持设备：** PC/2in1
 
@@ -1002,7 +1002,7 @@ async function updateStatusBarIcon(context: Context) {
  
   
 
-##### statusBarManager.on('statusBarIconClick')
+#### statusBarManager.on('statusBarIconClick')
 
 **支持设备：** PC/2in1
 
@@ -1045,7 +1045,7 @@ statusBarManager.on('statusBarIconClick', this.onStatusBarIconClick);
  
   
 
-##### statusBarManager.off('statusBarIconClick')
+#### statusBarManager.off('statusBarIconClick')
 
 **支持设备：** PC/2in1
 
@@ -1090,7 +1090,7 @@ statusBarManager.off('statusBarIconClick');
  
   
 
-##### statusBarManager.on('rightMenuClick')
+#### statusBarManager.on('rightMenuClick')
 
 **支持设备：** PC/2in1
 
@@ -1128,7 +1128,7 @@ statusBarManager.on('rightMenuClick', this.onRightMenuClick);
  
   
 
-##### statusBarManager.off('rightMenuClick')
+#### statusBarManager.off('rightMenuClick')
 
 **支持设备：** PC/2in1
 
@@ -1169,7 +1169,7 @@ statusBarManager.off('rightMenuClick');
  
   
 
-##### statusBarManager.updateStatusBarHoverTips
+#### statusBarManager.updateStatusBarHoverTips
 
 **支持设备：** PC/2in1
 
@@ -1231,7 +1231,7 @@ async function updateStatusBarHoverTips(context: Context) {
  
   
 
-##### statusBarManager.updateStatusBarMenuItem
+#### statusBarManager.updateStatusBarMenuItem
 
 **支持设备：** PC/2in1
 
@@ -1332,7 +1332,7 @@ async function updateStatusBarMenuItemTest(context: Context) {
  
   
 
-##### statusBarManager.updateStatusBarSubMenuItem
+#### statusBarManager.updateStatusBarSubMenuItem
 
 **支持设备：** PC/2in1
 

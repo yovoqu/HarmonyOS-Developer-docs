@@ -13,7 +13,7 @@
 
 
 
-##### 概述
+#### 概述
 
 装饰器[@Monitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-monitor)如果声明在[@ObservedV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)和[@ComponentV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#componentv2)中，会使得开发者构造出的所有的@ObservedV2和@ComponentV2的实例，都默认有同样的@Monitor的监听回调，且无法取消或删除对应的监听回调。
 
@@ -32,7 +32,7 @@ import { UIUtils } from '@kit.ArkUI';
 
 
 
-##### 使用规则
+#### 使用规则
 
  - addMonitor/clearMonitor可以传入数组一次性给多个状态变量添加或删除回调函数。
 
@@ -266,7 +266,7 @@ struct Page {
 
 
 
-##### 限制条件
+#### 限制条件
 
  - addMonitor/clearMonitor仅支持对@ComponentV2和@ObservedV2装饰（至少有一个@Trace装饰的变量）的实例添加/取消回调，否则会有运行时报错，错误码为130000。
 
@@ -425,7 +425,7 @@ UIUtils.clearMonitor(a, 'a', (mon: IMonitor) => {});
 
 
 
-##### addMonitor监听变化的规则
+#### addMonitor监听变化的规则
 
 addMonitor和装饰器[@Monitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-monitor)监听变化的主要规则大体保持一致，对比如下表：
 
@@ -444,11 +444,11 @@ addMonitor和装饰器[@Monitor](https://developer.huawei.com/consumer/cn/doc/ha
 
 
 
-##### 使用场景
+#### 使用场景
 
 
 
-##### 监听@ObservedV2类中@Trace修饰属性和@ComponentV2组件中状态变量的变化
+#### 监听@ObservedV2类中@Trace修饰属性和@ComponentV2组件中状态变量的变化
 
 在下面的例子中：
 
@@ -520,7 +520,7 @@ struct Page {
 
 
 
-##### 监听数组类型状态变量的下标和length的变化
+#### 监听数组类型状态变量的下标和length的变化
 
 下面的例子展示了对Array数组下标和length的监听。
 
@@ -587,7 +587,7 @@ struct Page {
 
 
 
-##### 独立监听Path
+#### 独立监听Path
 
 @Monitor没有对path独立监听，所以需要依赖开发者正确传入@Monitor入参，[传入非状态变量时会造成被连带监听的情况](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-monitor#正确设置monitor入参)。
 
@@ -634,7 +634,7 @@ struct Index {
 
 
 
-##### 监听变量从可访问到不访问和从不可访问到可访问
+#### 监听变量从可访问到不访问和从不可访问到可访问
 
 [@Monitor不会记录状态变量不可访问时的状态](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-monitor#无法监听变量从可访问变为不可访问和从不可访问变为可访问)，所以其无法监听变量从可访问到不访问和从不可访问到可访问。
 
@@ -688,7 +688,7 @@ struct Page {
 
 
 
-##### 配置同步监听函数
+#### 配置同步监听函数
 
 和@Monitor仅支持异步监听不同，addMonitor可支持配置成同步监听函数，在下面的例子中，点击Text(`User age ${this.user.age}`)，触发两次age的自增，回调两次onChange函数，日志打印如下：
 
@@ -770,7 +770,7 @@ struct Page {
 
 
 
-##### 监听构造函数中同步修改的状态变量的变化
+#### 监听构造函数中同步修改的状态变量的变化
 
 和[@Monitor异步构造](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-monitor#类中monitor对变量监听的生效及失效时间)不同，addMonitor是同步构造的，所以在开发者调用完UIUtils.addMonitor(this, 'message', this.onMessageChange);后就完成了对message添加监听函数this.onMessageChange。在下面的例子中：
 
@@ -825,7 +825,7 @@ struct Page {
 
 
 
-##### 动态取消@ObservedV2/@ComponentV2实例的监听
+#### 动态取消@ObservedV2/@ComponentV2实例的监听
 
 和@Monitor不同，addMonitor/clearMonitor可以对不同的@ObservedV2/@ComponentV2实例动态添加监听函数。例子如下。
 

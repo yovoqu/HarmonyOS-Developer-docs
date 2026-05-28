@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityantivirus
 **支持设备：** PC/2in1
 
-##### 概述
+#### 概述
 
 **支持设备：** PC/2in1
 
@@ -17,13 +17,13 @@ SecurityAntivirus模块用于管理三方病毒防护服务应用。
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** PC/2in1
 
   
 
-##### 文件
+#### 文件
 
 **支持设备：** PC/2in1
  
@@ -34,7 +34,7 @@ SecurityAntivirus模块用于管理三方病毒防护服务应用。
  
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** PC/2in1
  
@@ -45,7 +45,7 @@ SecurityAntivirus模块用于管理三方病毒防护服务应用。
  
   
 
-##### 枚举
+#### 枚举
 
 **支持设备：** PC/2in1
  
@@ -56,7 +56,7 @@ SecurityAntivirus模块用于管理三方病毒防护服务应用。
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** PC/2in1
  
@@ -75,13 +75,13 @@ SecurityAntivirus模块用于管理三方病毒防护服务应用。
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
 
 **支持设备：** PC/2in1
 
   
 
-##### SecurityAntivirus_ErrCode
+#### SecurityAntivirus_ErrCode
 
 **支持设备：** PC/2in1
 
@@ -110,13 +110,13 @@ enum SecurityAntivirus_ErrCode
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** PC/2in1
 
   
 
-##### HMS_SecurityAntivirus_RegisterAntivirus()
+#### HMS_SecurityAntivirus_RegisterAntivirus()
 
 **支持设备：** PC/2in1
 
@@ -147,7 +147,7 @@ ohos.permission.REGISTER_ANTIVIRUS
  
   
 
-##### HMS_SecurityAntivirus_UnregisterAntivirus()
+#### HMS_SecurityAntivirus_UnregisterAntivirus()
 
 **支持设备：** PC/2in1
 
@@ -178,7 +178,7 @@ ohos.permission.REGISTER_ANTIVIRUS
  
   
 
-##### HMS_SecurityAntivirus_UpdateAntivirus()
+#### HMS_SecurityAntivirus_UpdateAntivirus()
 
 **支持设备：** PC/2in1
 
@@ -209,7 +209,7 @@ ohos.permission.REGISTER_ANTIVIRUS
  
   
 
-##### HMS_SecurityAntivirus_QueryAntivirus()
+#### HMS_SecurityAntivirus_QueryAntivirus()
 
 **支持设备：** PC/2in1
 
@@ -241,7 +241,7 @@ ohos.permission.MANAGE_ANTIVIRUS
  
   
 
-##### HMS_SecurityAntivirus_QueryPreinstalledAntivirus()
+#### HMS_SecurityAntivirus_QueryPreinstalledAntivirus()
 
 **支持设备：** PC/2in1
 
@@ -273,7 +273,7 @@ ohos.permission.MANAGE_PREINSTALLED_ANTIVIRUS
  
   
 
-##### HMS_SecurityAntivirus_EnablePreinstalledAntivirus()
+#### HMS_SecurityAntivirus_EnablePreinstalledAntivirus()
 
 **支持设备：** PC/2in1
 
@@ -297,7 +297,7 @@ ohos.permission.MANAGE_PREINSTALLED_ANTIVIRUS
  
   
 
-##### HMS_SecurityAntivirus_DisablePreinstalledAntivirus()
+#### HMS_SecurityAntivirus_DisablePreinstalledAntivirus()
 
 **支持设备：** PC/2in1
 
@@ -321,7 +321,7 @@ ohos.permission.MANAGE_PREINSTALLED_ANTIVIRUS
  
   
 
-##### HMS_SecurityAntivirus_EnablePreinstalledAntivirusByAccount()
+#### HMS_SecurityAntivirus_EnablePreinstalledAntivirusByAccount()
 
 **支持设备：** PC/2in1
 
@@ -352,7 +352,7 @@ ohos.permission.MANAGE_PREINSTALLED_ANTIVIRUS
  
   
 
-##### HMS_SecurityAntivirus_DisablePreinstalledAntivirusByAccount()
+#### HMS_SecurityAntivirus_DisablePreinstalledAntivirusByAccount()
 
 **支持设备：** PC/2in1
 

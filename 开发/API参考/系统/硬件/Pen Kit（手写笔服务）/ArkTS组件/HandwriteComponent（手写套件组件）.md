@@ -14,7 +14,7 @@
 **起始版本：** 5.0.0(12)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -24,7 +24,7 @@ import { HandwriteController,HandwriteComponent, PenHspInfo, PenType } from '@ki
 
 
 
-##### HandwriteComponent
+#### HandwriteComponent
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -54,7 +54,7 @@ import { HandwriteController,HandwriteComponent, PenHspInfo, PenType } from '@ki
 
 
 
-##### build
+#### build
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -70,7 +70,7 @@ struct的默认构造函数，无法直接调用此方法。
 
 
 
-##### InitCallback
+#### InitCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -86,7 +86,7 @@ type InitCallback = () => void
 
 
 
-##### ScaleCallback
+#### ScaleCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -109,7 +109,7 @@ type ScaleCallback = (scale: number) => void
 
 
 
-##### DidScrollCallback
+#### DidScrollCallback
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -132,7 +132,7 @@ type DidScrollCallback = (yOffset: number) => void
 
 
 
-##### PenType
+#### PenType
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -159,7 +159,7 @@ type DidScrollCallback = (yOffset: number) => void
 
 
 
-##### PenHspInfo
+#### PenHspInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-server-error-code
 
-##### 获取用户级凭证/刷新用户级凭证/获取应用级凭证
+#### 获取用户级凭证/刷新用户级凭证/获取应用级凭证
 
 接口URL：https://oauth-login.cloud.huawei.com/oauth2/v3/token
 
@@ -59,7 +59,7 @@
 
 
 
-##### 解析凭证
+#### 解析凭证
 
 接口URL：https://oauth-api.cloud.huawei.com/rest.php?nsp_fmt=JSON&nsp_svc=huawei.oauth2.user.getTokenInfo
 
@@ -94,7 +94,7 @@
 
 
 
-##### 取消用户级凭证授权
+#### 取消用户级凭证授权
 
 接口URL：https://oauth-login.cloud.huawei.com/oauth2/v3/revoke
 
@@ -129,7 +129,7 @@
 
 
 
-##### 获取用户信息
+#### 获取用户信息
 
 接口URL：https://account.cloud.huawei.com/rest.php?nsp_svc=GOpen.User.getInfo
 
@@ -167,7 +167,7 @@
 
 
 
-##### 一键登录获取华为账号绑定号码和UnionID/OpenID
+#### 一键登录获取华为账号绑定号码和UnionID/OpenID
 
 接口URL：https://account-api.cloud.huawei.com/oauth2/v6/quickLogin/getPhoneNumber
 
@@ -204,7 +204,7 @@
 
 
 
-##### 获取用户风险等级
+#### 获取用户风险等级
 
 接口URL：https://account.cloud.huawei.com/user/getuserrisklevel
 
@@ -237,7 +237,7 @@
 
 
 
-##### 获取实名信息
+#### 获取实名信息
 
 接口URL：https://openrealname.cloud.huawei.com/rest.php?nsp_svc=OpenRealName.User.getDetailInfo
 
@@ -275,7 +275,7 @@
 
 
 
-##### 实名信息校验
+#### 实名信息校验
 
 接口URL：https://openrealname.cloud.huawei.com/rest.php?nsp_svc=OpenRealName.User.verifyRealName
 
@@ -314,7 +314,7 @@
 
 
 
-##### 通过OpenID获取UnionID
+#### 通过OpenID获取UnionID
 
 接口URL：https://oauth-login.cloud.huawei.com/rest.php?nsp_svc=huawei.oauth2.app.openIdToUnionId
 
@@ -352,7 +352,7 @@
 
 
 
-##### 通过OpenID或UnionID获取GroupUnionID
+#### 通过OpenID或UnionID获取GroupUnionID
 
 接口URL：https://account-api.cloud.huawei.com/oauth2/v6/groupUnionId/batchGet
 
@@ -382,7 +382,7 @@
 
 
 
-##### 获取OpenID Connect配置公开信息
+#### 获取OpenID Connect配置公开信息
 
 接口URL：https://oauth-login.cloud.huawei.com/.well-known/openid-configuration
 
@@ -403,7 +403,7 @@
 
 
 
-##### 获取验证ID Token的JWT公钥信息
+#### 获取验证ID Token的JWT公钥信息
 
 接口URL：https://oauth-login.cloud.huawei.com/oauth2/v3/certs
 
@@ -424,7 +424,7 @@
 
 
 
-##### 验证ID Token有效性
+#### 验证ID Token有效性
 
 接口URL：https://oauth-login.cloud.huawei.com/oauth2/v3/tokeninfo
 

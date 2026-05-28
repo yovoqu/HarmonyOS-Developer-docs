@@ -7,13 +7,13 @@
 从6.0.2(22)开始，支持多网状态监听。
 
 
-##### 场景介绍
+#### 场景介绍
 
 应用通过监听多网络状态的变化，感知可用网络的变化，从而选择在多网络上传输数据的策略。
 
 
 
-##### 接口说明
+#### 接口说明
 
 具体API说明详见[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/network-boost-c-overview)。
 
@@ -25,7 +25,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 导入Network Boost Kit模块。
 
   

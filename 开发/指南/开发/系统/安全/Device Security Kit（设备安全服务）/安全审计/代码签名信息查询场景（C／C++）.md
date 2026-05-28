@@ -7,19 +7,19 @@
 从6.1.1(24)开始，新增提供文件代码签名信息查询接口，可以获取设备上已签名的文件签名信息。
 
 
-##### 场景介绍
+#### 场景介绍
 
 签名信息包括：应用ID、签发组织证书链、签名摘要、签名时间戳、签名使用的Hash算法。通过[HMS_SecurityAudit_AcquireCodeSign](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#hms_securityaudit_acquirecodesign)接口，应用可以获取代码签名信息，辅助应用判断运行代码的完整性和安全性，从而有效防止恶意软件的运行，提升设备安全防护能力。
 
 
 
-##### 约束和限制
+#### 约束和限制
 1. 当前能力仅支持2in1设备。
 2. 调用[HMS_SecurityAudit_AcquireCodeSign](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#hms_securityaudit_acquirecodesign)接口的应用程序需要具备读取目标代码签名文件的权限。
 
 
 
-##### 业务流程
+#### 业务流程
 
 
 ![](assets/代码签名信息查询场景（C／C++）/file-20260514131138258-0.png)
@@ -31,7 +31,7 @@
 
 
 
-##### 接口说明
+#### 接口说明
 
 接口如下表，更多接口及使用方法请参见[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#hms_securityaudit_acquirecodesign)。
 
@@ -42,7 +42,7 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 在开发准备过程中，需要申请权限：ohos.permission.QUERY_AUDIT_EVENT，只允许清单内的企业类应用申请该权限，申请方式请参考：[申请使用企业类应用可用权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-enterprise-apps)。
 1. 在CMakeLists.txt中导入安全审计共享库，并链接该库。

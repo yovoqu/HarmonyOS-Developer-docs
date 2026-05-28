@@ -12,7 +12,7 @@
 
   
 
-##### setFrameRateRange12+
+#### setFrameRateRange12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -85,7 +85,7 @@ struct Frame {
  
   
 
-##### getFrameRateRange12+
+#### getFrameRateRange12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

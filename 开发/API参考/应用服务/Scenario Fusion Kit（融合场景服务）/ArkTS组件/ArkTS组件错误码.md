@@ -26,7 +26,7 @@
 [REST API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-server-error-code)
   
 
-##### 10004 系统内部异常
+#### 10004 系统内部异常
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -48,7 +48,7 @@ Internal error.
  
   
 
-##### 10006 获取分享数据失败
+#### 10006 获取分享数据失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -70,7 +70,7 @@ Failed to get data.
  
   
 
-##### 10008 调用方非元服务
+#### 10008 调用方非元服务
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

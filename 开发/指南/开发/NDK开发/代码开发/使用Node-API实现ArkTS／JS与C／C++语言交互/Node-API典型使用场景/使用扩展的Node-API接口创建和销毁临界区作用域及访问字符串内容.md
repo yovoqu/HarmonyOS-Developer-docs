@@ -15,7 +15,7 @@ Node-API扩展接口napi_open_critical_scope用于打开临界区作用域，nap
 
   
 
-##### 场景介绍
+#### 场景介绍
 
 调用临界接口前，必须通过napi_open_critical_scope打开临界区作用域，并在临界区作用域内进行调用。
  
@@ -23,7 +23,7 @@ Node-API扩展接口napi_open_critical_scope用于打开临界区作用域，nap
  
   
 
-##### 临界区作用域的打开、关闭及临界接口的使用
+#### 临界区作用域的打开、关闭及临界接口的使用
  
 | 接口 | 描述 | 临界区作用域外执行的状态码 |
 | --- | --- | --- |
@@ -33,7 +33,7 @@ Node-API扩展接口napi_open_critical_scope用于打开临界区作用域，nap
  
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/oxvLtwV2SxKepZ4_x_BTRA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T014533Z&HW-CC-Expire=86400&HW-CC-Sign=0ACF7155FC829F2C35382E8A104A3B2FCFE62BEC70FA126C5B77CDB298191A98)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/oxvLtwV2SxKepZ4_x_BTRA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030204Z&HW-CC-Expire=86400&HW-CC-Sign=B19EA9DC2F65DE5BDF14C14051E5E4CF3CD475F6840CFCC49680EB4FD81DC559)
  
  
 1.当ArkTS String以UTF-16编码存储时，napi_get_buffer_string_utf16_in_critical_scope才能正确获取其内存缓冲区，否则该函数返回错误。
@@ -44,7 +44,7 @@ Node-API扩展接口napi_open_critical_scope用于打开临界区作用域，nap
  
   
 
-##### 示例代码
+#### 示例代码
 
 - 模块注册
 

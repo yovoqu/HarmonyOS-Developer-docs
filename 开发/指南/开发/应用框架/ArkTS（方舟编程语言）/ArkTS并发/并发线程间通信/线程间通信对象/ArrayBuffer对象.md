@@ -23,7 +23,7 @@ ArrayBuffer可以用来表示图片等资源，在应用开发中，处理图片
 以下将通过具体的代码案例分别介绍拷贝和转移两种方式，实现图片跨ArkTS线程传输。
   
 
-##### ArrayBuffer拷贝传输方式
+#### ArrayBuffer拷贝传输方式
 
 在ArkTS中，TaskPool传递ArrayBuffer数据时，默认采用转移方式。通过调用setTransferList()接口，可以指定部分数据的传递方式为转移方式，其他部分数据可以切换为拷贝方式。
  
@@ -101,6 +101,6 @@ struct Index {
  
   
 
-##### ArrayBuffer转移传输方式
+#### ArrayBuffer转移传输方式
 
 在TaskPool中，传递ArrayBuffer数据时，默认使用转移方式，原线程将无法再使用已传输给子线程的ArrayBuffer。 在上文示例的基础上去除task.setTransferList接口调用，即在createImageTask的第二个参数传入true，就可以实现转移方式的传输。

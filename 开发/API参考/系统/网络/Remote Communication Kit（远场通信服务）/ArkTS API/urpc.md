@@ -12,7 +12,7 @@
 **起始版本：** 5.0.1(13)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { urpc } from "@kit.RemoteCommunicationKit";
  
   
 
-##### FlowbufType
+#### FlowbufType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -83,7 +83,7 @@ type FlowbufType =
  
   
 
-##### FlowbufElement&lt;T&gt;
+#### FlowbufElement&lt;T&gt;
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -112,7 +112,7 @@ let version: urpc.FlowbufElement<number> = {type: 'INT8', value: 0, name: ""};
  
   
 
-##### FlowbufArrayElement&lt;T&gt;
+#### FlowbufArrayElement&lt;T&gt;
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -141,7 +141,7 @@ let version: urpc.FlowbufArrayElement<number> = {type: 'ARRAY_INT8', value: [1,2
  
   
 
-##### urpcStubCreate
+#### urpcStubCreate
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -213,7 +213,7 @@ urpc.urpcStubCreate(config, funcList).then((urpcStub: urpc.UrpcStub) => {
  
   
 
-##### UrpcCall
+#### UrpcCall
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -248,7 +248,7 @@ type UrpcCall = (funcName: string, request: object, returnValue: object, config?
  
   
 
-##### UrpcCancel
+#### UrpcCancel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -273,7 +273,7 @@ type UrpcCancel = (callingId?: number | number[]) => void
  
   
 
-##### UrpcDestroy
+#### UrpcDestroy
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -291,7 +291,7 @@ type UrpcDestroy = () => void
  
   
 
-##### UrpcStub
+#### UrpcStub
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -315,7 +315,7 @@ type UrpcDestroy = () => void
  
   
 
-##### UrpcInitConfiguration
+#### UrpcInitConfiguration
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -356,7 +356,7 @@ let config: urpc.UrpcInitConfiguration = {
  
   
 
-##### UrpcMode
+#### UrpcMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -377,7 +377,7 @@ type UrpcMode = 'client'
  
   
 
-##### UrpcConnectConfiguration
+#### UrpcConnectConfiguration
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -420,7 +420,7 @@ let connect: urpc.UrpcConnectConfiguration = {
  
   
 
-##### IpAndPort
+#### IpAndPort
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -451,7 +451,7 @@ let node: urpc.IpAndPort = {
  
   
 
-##### UrpcPromise
+#### UrpcPromise
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -471,7 +471,7 @@ let node: urpc.IpAndPort = {
  
   
 
-##### UrpcProtocol
+#### UrpcProtocol
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -492,7 +492,7 @@ type UrpcProtocol = 'eat'
  
   
 
-##### CallingOption
+#### CallingOption
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

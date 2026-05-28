@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/abilityconnectmanager-guidelines
 
-##### 简介
+#### 简介
 
 自API version 18起，系统新增支持应用跨设备协同连接与通信能力（含数据传输）。该特性通过分布式组件管理框架实现多端应用协作（即多个终端设备上的应用协同完成同一业务场景），成为分布式能力体系的核心功能之一。典型应用场景如智能手表端的拍照控制应用，可远程调用手机端相机功能并实现跨设备的实时双向数据交互。
 
 
 
-##### 能力范围
+#### 能力范围
 
  - 跨设备拉起应用：支持在分布式组网环境下拉起关联应用，实现多端业务协同（需应用适配开发）
  - 跨设备数据交互：实现跨设备数据传输，跨设备数据交互能力随不同应用类型存在差异。具体为系统应用可传输文本、字节流、图片及传输流，三方应用仅支持文本信息。
@@ -18,7 +18,7 @@
 
 
 
-##### 基本概念
+#### 基本概念
 
 在进行应用跨设备连接管理开发前，开发者应了解以下基本概念：
 
@@ -35,7 +35,7 @@
 
 
 
-##### 实现原理
+#### 实现原理
 
 应用跨设备连接管理依托分布式组件管理框架，在分布式组件管理框架上进行了JS对象型的封装，能通过分布式组件管理框架服务建立协同关系并进行应用间的连接，数据的交互能力由系统支持。
 
@@ -47,7 +47,7 @@
 
 
 
-##### 约束与限制
+#### 约束与限制
 
  - 仅限于API version 18及以上版本设备。
  - 双端设备登录同账号的场景下，支持相同或不同bundleName的应用间协同；非同账号场景下，系统侧会校验应用AppID，仅支持相同AppID的应用间协同。
@@ -57,17 +57,17 @@
 
 
 
-##### 环境准备
+#### 环境准备
 
 
 
-##### 环境要求
+#### 环境要求
 
 可登录华为账号的设备A和设备B，设备间需要组网成功（设备组网通过调用[Device Manager](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicemanager-guidelines)的接口实现）。
 
 
 
-##### 搭建环境
+#### 搭建环境
 1. 在PC上安装[DevEco Studio](https://developer.huawei.com/consumer/cn/download/deveco-studio)，要求版本在4.1及以上。
 2. 将public-SDK更新到API 18或以上。
 3. 用USB线缆将任意一台调试设备（设备A或者设备B）连接到PC。
@@ -75,7 +75,7 @@
 
 
 
-##### 检验环境是否搭建成功
+#### 检验环境是否搭建成功
 
 PC上执行shell命令：
 
@@ -88,13 +88,13 @@ hidumper -s 4700 -a "buscenter -l remote_device_info"
 
 
 
-##### 开发指导
+#### 开发指导
 
 应用跨设备连接管理可以通过分布式组件管理框架，拉起对端设备并发送消息。具体案例提供如下。
 
 
 
-##### 接口说明
+#### 接口说明
 
 应用跨设备连接管理接口如下表所示。具体API说明详见API参考：[abilityConnectionManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributed-abilityconnectionmanager)。
 
@@ -115,7 +115,7 @@ hidumper -s 4700 -a "buscenter -l remote_device_info"
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 通过应用跨设备管理模块，设备A拉起并连接设备B上的应用。连接成功后，设备A和设备B通过on接口注册相应事件的回调监听。设备A或设备B通过sendMessage、sendData接口发送消息、字节流。对端通过监听到的回调信息进行后续协同业务。
 
@@ -328,7 +328,7 @@ abilityConnectionManager.destroyAbilityConnectionSession(this.sessionId);
 
 
 
-##### 调测验证
+#### 调测验证
 
 应用侧开发完成后，可在设备A和设备B上安装应用，测试步骤如下：
 1. 点击设备A应用的“连接”按钮，此时设备B上的应用被拉起。
@@ -338,11 +338,11 @@ abilityConnectionManager.destroyAbilityConnectionSession(this.sessionId);
 
 
 
-##### 常见问题
+#### 常见问题
 
 
 
-##### 设备A应用无法拉起设备B应用
+#### 设备A应用无法拉起设备B应用
 
 **可能原因**
 
@@ -365,7 +365,7 @@ hidumper -s 4700 -a "buscenter -l remote_device_info"
 
 
 
-##### 应用锁屏或者退后台一段时间后，正在执行的协同业务被断开
+#### 应用锁屏或者退后台一段时间后，正在执行的协同业务被断开
 
 **可能原因**
 

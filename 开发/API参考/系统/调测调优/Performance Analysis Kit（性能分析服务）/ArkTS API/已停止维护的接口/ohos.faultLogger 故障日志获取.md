@@ -14,7 +14,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { FaultLogger } from '@kit.PerformanceAnalysisKit';
 
 
 
-##### FaultType
+#### FaultType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -42,7 +42,7 @@ import { FaultLogger } from '@kit.PerformanceAnalysisKit';
 
 
 
-##### FaultLogInfo
+#### FaultLogInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -64,7 +64,7 @@ import { FaultLogger } from '@kit.PerformanceAnalysisKit';
 
 
 
-##### FaultLogger.query9+
+#### FaultLogger.query9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -127,7 +127,7 @@ try {
 
 
 
-##### FaultLogger.query9+
+#### FaultLogger.query9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -194,7 +194,7 @@ async function getLog() {
 
 
 
-##### FaultLogger.querySelfFaultLog(deprecated)
+#### FaultLogger.querySelfFaultLog(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -246,7 +246,7 @@ FaultLogger.querySelfFaultLog(FaultLogger.FaultType.JS_CRASH, queryFaultLogCallb
 
 
 
-##### FaultLogger.querySelfFaultLog(deprecated)
+#### FaultLogger.querySelfFaultLog(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

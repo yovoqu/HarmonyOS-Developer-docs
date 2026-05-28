@@ -12,7 +12,7 @@ AbilityStateData是Ability状态信息的数据结构。使用[on](https://devel
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { appManager } from '@kit.AbilityKit';
 
 
 
-##### AbilityStateData
+#### AbilityStateData
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -44,7 +44,7 @@ import { appManager } from '@kit.AbilityKit';
 
 
 
-##### UIAbility状态
+#### UIAbility状态
 
 | 值 | 状态 | 说明 |
 | --- | --- | --- |
@@ -58,7 +58,7 @@ import { appManager } from '@kit.AbilityKit';
 
 
 
-##### ExtensionAbility状态
+#### ExtensionAbility状态
 
 | 值 | 状态 | 说明 |
 | --- | --- | --- |
@@ -71,7 +71,7 @@ import { appManager } from '@kit.AbilityKit';
 
 
 
-##### UIExtensionAbility状态
+#### UIExtensionAbility状态
 
 | 值 | 状态 | 说明 |
 | --- | --- | --- |
@@ -84,7 +84,7 @@ import { appManager } from '@kit.AbilityKit';
 
 
 
-##### Ability状态
+#### Ability状态
 
 | 值 | 状态 | 说明 |
 | --- | --- | --- |
@@ -100,7 +100,7 @@ import { appManager } from '@kit.AbilityKit';
 
 
 
-##### Ability类型
+#### Ability类型
 
 | 值 | 状态 | 说明 |
 | --- | --- | --- |

@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 
-##### BundleInfo
+#### BundleInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -51,7 +51,7 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 
-##### ReqPermissionDetail
+#### ReqPermissionDetail
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -76,7 +76,7 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 
-##### UsedScene
+#### UsedScene
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -94,7 +94,7 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 
-##### SignatureInfo
+#### SignatureInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -114,7 +114,7 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 
-##### AppCloneIdentity14+
+#### AppCloneIdentity14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

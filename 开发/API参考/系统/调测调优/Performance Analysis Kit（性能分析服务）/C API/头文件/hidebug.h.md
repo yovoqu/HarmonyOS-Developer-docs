@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hidebug-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -66,13 +66,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_HiDebug_GetSystemCpuUsage()
+#### OH_HiDebug_GetSystemCpuUsage()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -95,7 +95,7 @@ double OH_HiDebug_GetSystemCpuUsage()
  
   
 
-##### OH_HiDebug_GetAppCpuUsage()
+#### OH_HiDebug_GetAppCpuUsage()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -118,7 +118,7 @@ double OH_HiDebug_GetAppCpuUsage()
  
   
 
-##### OH_HiDebug_GetAppThreadCpuUsage()
+#### OH_HiDebug_GetAppThreadCpuUsage()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -141,7 +141,7 @@ HiDebug_ThreadCpuUsagePtr OH_HiDebug_GetAppThreadCpuUsage()
  
   
 
-##### OH_HiDebug_FreeThreadCpuUsage()
+#### OH_HiDebug_FreeThreadCpuUsage()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -164,7 +164,7 @@ void OH_HiDebug_FreeThreadCpuUsage(HiDebug_ThreadCpuUsagePtr *threadCpuUsage)
  
   
 
-##### OH_HiDebug_GetSystemMemInfo()
+#### OH_HiDebug_GetSystemMemInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -187,7 +187,7 @@ void OH_HiDebug_GetSystemMemInfo(HiDebug_SystemMemInfo *systemMemInfo)
  
   
 
-##### OH_HiDebug_GetAppNativeMemInfo()
+#### OH_HiDebug_GetAppNativeMemInfo()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -210,7 +210,7 @@ void OH_HiDebug_GetAppNativeMemInfo(HiDebug_NativeMemInfo *nativeMemInfo)
  
   
 
-##### OH_HiDebug_GetAppNativeMemInfoWithCache()
+#### OH_HiDebug_GetAppNativeMemInfoWithCache()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -234,7 +234,7 @@ void OH_HiDebug_GetAppNativeMemInfoWithCache(HiDebug_NativeMemInfo *nativeMemInf
  
   
 
-##### OH_HiDebug_GetAppMemoryLimit()
+#### OH_HiDebug_GetAppMemoryLimit()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -257,7 +257,7 @@ void OH_HiDebug_GetAppMemoryLimit(HiDebug_MemoryLimit *memoryLimit)
  
   
 
-##### OH_HiDebug_StartAppTraceCapture()
+#### OH_HiDebug_StartAppTraceCapture()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -291,7 +291,7 @@ HiDebug_ErrorCode OH_HiDebug_StartAppTraceCapture(HiDebug_TraceFlag flag, uint64
  
   
 
-##### OH_HiDebug_StopAppTraceCapture()
+#### OH_HiDebug_StopAppTraceCapture()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -314,7 +314,7 @@ HiDebug_ErrorCode OH_HiDebug_StopAppTraceCapture()
  
   
 
-##### OH_HiDebug_RequestTrace()
+#### OH_HiDebug_RequestTrace()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -345,7 +345,7 @@ HiDebug_ErrorCode OH_HiDebug_RequestTrace(OH_HiDebug_RequestTraceConfig *config,
  
   
 
-##### OH_HiDebug_GetGraphicsMemory()
+#### OH_HiDebug_GetGraphicsMemory()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -375,7 +375,7 @@ HiDebug_ErrorCode OH_HiDebug_GetGraphicsMemory(uint32_t *value)
  
   
 
-##### OH_HiDebug_BacktraceFromFp()
+#### OH_HiDebug_BacktraceFromFp()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -408,7 +408,7 @@ int OH_HiDebug_BacktraceFromFp(HiDebug_Backtrace_Object object, void* startFp, v
  
   
 
-##### OH_HiDebug_SymbolicAddressCallback()
+#### OH_HiDebug_SymbolicAddressCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -433,7 +433,7 @@ typedef void (*OH_HiDebug_SymbolicAddressCallback)(void* pc, void* arg, const Hi
  
   
 
-##### OH_HiDebug_SymbolicAddress()
+#### OH_HiDebug_SymbolicAddress()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -446,7 +446,7 @@ HiDebug_ErrorCode OH_HiDebug_SymbolicAddress(HiDebug_Backtrace_Object object, vo
 通过给定的pc地址获取详细的符号信息，该函数非异步信号安全。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/XGsmcSnlR5eVYx9WDxZOgg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023833Z&HW-CC-Expire=86400&HW-CC-Sign=20BD35C0FED401A2663FC6412710A0F172542B339BC1EE6B318CCFE1517F4B82)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/XGsmcSnlR5eVYx9WDxZOgg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025208Z&HW-CC-Expire=86400&HW-CC-Sign=B9E84BFFAF4D9CD71D79AA5706A1D003977D6D5871AB88587CD4494E5EDC94C8)
  
  
 由于该接口涉及多次IO操作，耗时较长，建议不要在主线程中直接调用。
@@ -474,7 +474,7 @@ HiDebug_ErrorCode OH_HiDebug_SymbolicAddress(HiDebug_Backtrace_Object object, vo
  
   
 
-##### OH_HiDebug_CreateBacktraceObject()
+#### OH_HiDebug_CreateBacktraceObject()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -487,7 +487,7 @@ HiDebug_Backtrace_Object OH_HiDebug_CreateBacktraceObject(void)
 创建一个用于栈回溯及栈解析的对象，该函数非异步信号安全。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/3lARxsUIRdKXgTRQL6VDvg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023833Z&HW-CC-Expire=86400&HW-CC-Sign=CF1E954EF204487051943328F096957BFDC217ABBA22DFDD40A7570A1E620DC8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/3lARxsUIRdKXgTRQL6VDvg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025208Z&HW-CC-Expire=86400&HW-CC-Sign=5251003F0D509451BAB1C2523295A93AB66ADB6BC6212E270EA443FE6B4D027F)
  
  
 由于该接口涉及多次IO操作，耗时较长，建议不要在主线程中直接调用。
@@ -505,7 +505,7 @@ HiDebug_Backtrace_Object OH_HiDebug_CreateBacktraceObject(void)
  
   
 
-##### OH_HiDebug_DestroyBacktraceObject()
+#### OH_HiDebug_DestroyBacktraceObject()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -528,7 +528,7 @@ void OH_HiDebug_DestroyBacktraceObject(HiDebug_Backtrace_Object object)
  
   
 
-##### OH_HiDebug_SetMallocDispatchTable()
+#### OH_HiDebug_SetMallocDispatchTable()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -541,7 +541,7 @@ HiDebug_ErrorCode OH_HiDebug_SetMallocDispatchTable(struct HiDebug_MallocDispatc
 通过设置基础库C库中的MallocDispatch表，将原始内存操作函数（例如：malloc/free/calloc/realloc/mmap/munmap）临时替换为开发者自定义的内存操作函数。MallocDispatch表是基础库C库中封装malloc/calloc/realloc/free等内存操作函数的结构体，HiDebug_MallocDispatch只是MallocDispatch结构体的一部分。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/sRpXNABTQG6hvGQyThhYKA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023833Z&HW-CC-Expire=86400&HW-CC-Sign=BA8527822374C6179F1B96A3024232C96014E9CCF2920001B348C8C311AD73C4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/sRpXNABTQG6hvGQyThhYKA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025208Z&HW-CC-Expire=86400&HW-CC-Sign=AF2044AD2B2EAB30BE8AEBD9909E1D5996CE9A815F2AE8138F2B49631B366AA5)
  
  
 禁止在自定义内存操作函数中直接调用libc标准库中的malloc/free/calloc/realloc/mmap/munmap等内存操作函数，否则会导致死锁。
@@ -568,7 +568,7 @@ HiDebug_ErrorCode OH_HiDebug_SetMallocDispatchTable(struct HiDebug_MallocDispatc
  
   
 
-##### OH_HiDebug_GetDefaultMallocDispatchTable()
+#### OH_HiDebug_GetDefaultMallocDispatchTable()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -591,7 +591,7 @@ HiDebug_MallocDispatch* OH_HiDebug_GetDefaultMallocDispatchTable(void)
  
   
 
-##### OH_HiDebug_RestoreMallocDispatchTable()
+#### OH_HiDebug_RestoreMallocDispatchTable()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -607,7 +607,7 @@ void OH_HiDebug_RestoreMallocDispatchTable(void)
  
   
 
-##### OH_HiDebug_GetGraphicsMemorySummary()
+#### OH_HiDebug_GetGraphicsMemorySummary()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -638,7 +638,7 @@ HiDebug_ErrorCode OH_HiDebug_GetGraphicsMemorySummary(uint32_t interval, HiDebug
  
   
 
-##### OH_HiDebug_ThreadLiteSamplingCallback()
+#### OH_HiDebug_ThreadLiteSamplingCallback()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -661,7 +661,7 @@ typedef void (*OH_HiDebug_ThreadLiteSamplingCallback)(const char* stacks)
  
   
 
-##### OH_HiDebug_RequestThreadLiteSampling()
+#### OH_HiDebug_RequestThreadLiteSampling()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -692,7 +692,7 @@ HiDebug_ErrorCode OH_HiDebug_RequestThreadLiteSampling(HiDebug_ProcessSamplerCon
  
   
 
-##### OH_HiDebug_SetCrashObj()
+#### OH_HiDebug_SetCrashObj()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -723,7 +723,7 @@ uint64_t OH_HiDebug_SetCrashObj(HiDebug_CrashObjType type, void* addr)
  
   
 
-##### OH_HiDebug_ResetCrashObj()
+#### OH_HiDebug_ResetCrashObj()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -746,7 +746,7 @@ void OH_HiDebug_ResetCrashObj(uint64_t crashObj)
  
   
 
-##### OH_HiDebug_StartProfiler()
+#### OH_HiDebug_StartProfiler()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -763,7 +763,7 @@ HiDebug_ErrorCode OH_HiDebug_StartProfiler(OH_HiDebug_ResourceType type, OH_HiDe
 若采集异常，则文件路径为NULL。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/rn9jwydGR6SRl_PINWFIhw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023833Z&HW-CC-Expire=86400&HW-CC-Sign=704ED881068664EDB5D43548489647C66FA5A87C6646A2402607933393396E69)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/rn9jwydGR6SRl_PINWFIhw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025208Z&HW-CC-Expire=86400&HW-CC-Sign=D4C3B2D582A392ADAB38AEC8F2193BF322438DBB1E2A716F1CBA6BE5F364EACA)
  
 1. 当前接口每24小时可调用10次；
 2. 采集资源的目标进程仅支持调用接口进程本身；
@@ -794,7 +794,7 @@ HiDebug_ErrorCode OH_HiDebug_StartProfiler(OH_HiDebug_ResourceType type, OH_HiDe
  
   
 
-##### OH_HiDebug_StopProfiler()
+#### OH_HiDebug_StopProfiler()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

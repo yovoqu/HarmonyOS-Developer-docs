@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { webview } from '@kit.ArkWeb';
 
 
 
-##### didReceiveResponse12+
+#### didReceiveResponse12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -55,7 +55,7 @@ didReceiveResponse(response: WebSchemeHandlerResponse): void
 
 
 
-##### didReceiveResponseBody12+
+#### didReceiveResponseBody12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -88,7 +88,7 @@ didReceiveResponseBody(data: ArrayBuffer): void
 
 
 
-##### didFinish12+
+#### didFinish12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -113,7 +113,7 @@ didFinish(): void
 
 
 
-##### didFail12+
+#### didFail12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -146,7 +146,7 @@ didFail(code: WebNetErrorList): void
 
 
 
-##### didFail20+
+#### didFail20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

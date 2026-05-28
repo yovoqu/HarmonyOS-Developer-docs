@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import Notification from '@ohos.notification';
 
 
 
-##### Notification.publish
+#### Notification.publish
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -71,7 +71,7 @@ Notification.publish(notificationRequest, publishCallback);
 
 
 
-##### Notification.publish
+#### Notification.publish
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -122,7 +122,7 @@ Notification.publish(notificationRequest).then(() => {
 
 
 
-##### Notification.cancel
+#### Notification.cancel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -159,7 +159,7 @@ Notification.cancel(0, "label", cancelCallback);
 
 
 
-##### Notification.cancel
+#### Notification.cancel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -198,7 +198,7 @@ Notification.cancel(0).then(() => {
 
 
 
-##### Notification.cancel
+#### Notification.cancel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -234,7 +234,7 @@ Notification.cancel(0, cancelCallback);
 
 
 
-##### Notification.cancelAll
+#### Notification.cancelAll
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -269,7 +269,7 @@ Notification.cancelAll(cancelAllCallback);
 
 
 
-##### Notification.cancelAll
+#### Notification.cancelAll
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -300,7 +300,7 @@ Notification.cancelAll().then(() => {
 
 
 
-##### Notification.addSlot
+#### Notification.addSlot
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -336,7 +336,7 @@ Notification.addSlot(Notification.SlotType.SOCIAL_COMMUNICATION, addSlotCallBack
 
 
 
-##### Notification.addSlot
+#### Notification.addSlot
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -374,7 +374,7 @@ Notification.addSlot(Notification.SlotType.SOCIAL_COMMUNICATION).then(() => {
 
 
 
-##### Notification.getSlot
+#### Notification.getSlot
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -411,7 +411,7 @@ Notification.getSlot(slotType, getSlotCallback);
 
 
 
-##### Notification.getSlot
+#### Notification.getSlot
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -450,7 +450,7 @@ Notification.getSlot(slotType).then((data) => {
 
 
 
-##### Notification.getSlots
+#### Notification.getSlots
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -485,7 +485,7 @@ Notification.getSlots(getSlotsCallback);
 
 
 
-##### Notification.getSlots
+#### Notification.getSlots
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -516,7 +516,7 @@ Notification.getSlots().then((data) => {
 
 
 
-##### Notification.removeSlot
+#### Notification.removeSlot
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -553,7 +553,7 @@ Notification.removeSlot(slotType, removeSlotCallback);
 
 
 
-##### Notification.removeSlot
+#### Notification.removeSlot
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -592,7 +592,7 @@ Notification.removeSlot(slotType).then(() => {
 
 
 
-##### Notification.removeAllSlots
+#### Notification.removeAllSlots
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -626,7 +626,7 @@ Notification.removeAllSlots(removeAllCallBack);
 
 
 
-##### Notification.removeAllSlots
+#### Notification.removeAllSlots
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -657,7 +657,7 @@ Notification.removeAllSlots().then(() => {
 
 
 
-##### Notification.getActiveNotificationCount
+#### Notification.getActiveNotificationCount
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -692,7 +692,7 @@ Notification.getActiveNotificationCount(getActiveNotificationCountCallback);
 
 
 
-##### Notification.getActiveNotificationCount
+#### Notification.getActiveNotificationCount
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -723,7 +723,7 @@ Notification.getActiveNotificationCount().then((data: number) => {
 
 
 
-##### Notification.getActiveNotifications
+#### Notification.getActiveNotifications
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -759,7 +759,7 @@ Notification.getActiveNotifications(getActiveNotificationsCallback);
 
 
 
-##### Notification.getActiveNotifications
+#### Notification.getActiveNotifications
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -791,7 +791,7 @@ Notification.getActiveNotifications().then((data: NotificationManager.Notificati
 
 
 
-##### Notification.cancelGroup8+
+#### Notification.cancelGroup8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -829,7 +829,7 @@ Notification.cancelGroup(groupName, cancelGroupCallback);
 
 
 
-##### Notification.cancelGroup8+
+#### Notification.cancelGroup8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -868,7 +868,7 @@ Notification.cancelGroup(groupName).then(() => {
 
 
 
-##### Notification.isSupportTemplate8+
+#### Notification.isSupportTemplate8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -905,7 +905,7 @@ Notification.isSupportTemplate(templateName, isSupportTemplateCallback);
 
 
 
-##### Notification.isSupportTemplate8+
+#### Notification.isSupportTemplate8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -944,7 +944,7 @@ Notification.isSupportTemplate(templateName).then((data: boolean) => {
 
 
 
-##### Notification.requestEnableNotification8+
+#### Notification.requestEnableNotification8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -979,7 +979,7 @@ Notification.requestEnableNotification(requestEnableNotificationCallback);
 
 
 
-##### Notification.requestEnableNotification8+
+#### Notification.requestEnableNotification8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1010,7 +1010,7 @@ Notification.requestEnableNotification().then(() => {
 
 
 
-##### Notification.isDistributedEnabled8+
+#### Notification.isDistributedEnabled8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1045,7 +1045,7 @@ Notification.isDistributedEnabled(isDistributedEnabledCallback);
 
 
 
-##### Notification.isDistributedEnabled8+
+#### Notification.isDistributedEnabled8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1076,7 +1076,7 @@ Notification.isDistributedEnabled().then((data: boolean) => {
 
 
 
-##### ContentType
+#### ContentType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1093,7 +1093,7 @@ Notification.isDistributedEnabled().then((data: boolean) => {
 
 
 
-##### SlotLevel
+#### SlotLevel
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1110,7 +1110,7 @@ Notification.isDistributedEnabled().then((data: boolean) => {
 
 
 
-##### BundleOptiondeprecated
+#### BundleOptiondeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1128,7 +1128,7 @@ Notification.isDistributedEnabled().then((data: boolean) => {
 
 
 
-##### NotificationKeydeprecated
+#### NotificationKeydeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1146,7 +1146,7 @@ Notification.isDistributedEnabled().then((data: boolean) => {
 
 
 
-##### SlotType
+#### SlotType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1163,7 +1163,7 @@ Notification.isDistributedEnabled().then((data: boolean) => {
 
 
 
-##### NotificationActionButton
+#### NotificationActionButton
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1181,7 +1181,7 @@ Notification.isDistributedEnabled().then((data: boolean) => {
 
 
 
-##### NotificationBasicContent
+#### NotificationBasicContent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1198,7 +1198,7 @@ Notification.isDistributedEnabled().then((data: boolean) => {
 
 
 
-##### NotificationLongTextContent
+#### NotificationLongTextContent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1218,7 +1218,7 @@ Notification.isDistributedEnabled().then((data: boolean) => {
 
 
 
-##### NotificationMultiLineContent
+#### NotificationMultiLineContent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1238,7 +1238,7 @@ Notification.isDistributedEnabled().then((data: boolean) => {
 
 
 
-##### NotificationPictureContent
+#### NotificationPictureContent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1258,7 +1258,7 @@ Notification.isDistributedEnabled().then((data: boolean) => {
 
 
 
-##### NotificationContent
+#### NotificationContent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1277,7 +1277,7 @@ Notification.isDistributedEnabled().then((data: boolean) => {
 
 
 
-##### NotificationRequest
+#### NotificationRequest
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1324,7 +1324,7 @@ Notification.isDistributedEnabled().then((data: boolean) => {
 
 
 
-##### DistributedOptions8+
+#### DistributedOptions8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1341,7 +1341,7 @@ Notification.isDistributedEnabled().then((data: boolean) => {
 
 
 
-##### NotificationSlot
+#### NotificationSlot
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1367,7 +1367,7 @@ Notification.isDistributedEnabled().then((data: boolean) => {
 
 
 
-##### NotificationTemplate8+
+#### NotificationTemplate8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1383,7 +1383,7 @@ Notification.isDistributedEnabled().then((data: boolean) => {
 
 
 
-##### NotificationUserInput8+
+#### NotificationUserInput8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

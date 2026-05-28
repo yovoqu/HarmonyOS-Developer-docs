@@ -20,7 +20,7 @@
 [ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)
   
 
-##### 1009601001 非法的服务号ID
+#### 1009601001 非法的服务号ID
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -46,7 +46,7 @@ Invalid service account id.
  
   
 
-##### 1009601002 用户未登录华为账号
+#### 1009601002 用户未登录华为账号
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -68,7 +68,7 @@ The user has not logged in with HUAWEI ID.
  
   
 
-##### 1009601003 请求服务号云失败
+#### 1009601003 请求服务号云失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -90,7 +90,7 @@ Request server failed.
  
   
 
-##### 1009601004 网络连接失败
+#### 1009601004 网络连接失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -112,7 +112,7 @@ Network connection error.
  
   
 
-##### 1009601005 其他异常
+#### 1009601005 其他异常
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

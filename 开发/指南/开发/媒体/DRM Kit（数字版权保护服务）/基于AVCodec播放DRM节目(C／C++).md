@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/drm-avcodec-integration
 
-##### 功能介绍
+#### 功能介绍
 
 开发者可以调用DRM Kit的Native API，完成DRM节目播放。
 
@@ -28,7 +28,7 @@
 
 
 
-##### 开发指导
+#### 开发指导
 
 详细的API说明请参考[Drm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drm)。
 
@@ -38,7 +38,7 @@
 
 
 
-##### 在 CMake 脚本中链接动态库
+#### 在 CMake 脚本中链接动态库
 
 ```text
 target_link_libraries(sample PUBLIC libnative_drm.so)
@@ -50,7 +50,7 @@ target_link_libraries(sample PUBLIC libnative_drm.so)
 
 
 
-##### 开发步骤
+#### 开发步骤
 1. 导入DRM Kit接口。
 
   

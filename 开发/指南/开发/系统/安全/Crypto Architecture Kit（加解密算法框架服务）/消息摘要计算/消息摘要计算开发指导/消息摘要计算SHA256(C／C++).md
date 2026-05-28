@@ -7,7 +7,7 @@
 对应的算法规格请查看[消息摘要计算算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-generate-message-digest-overview#支持的算法与规格)。
 
 
-##### 在CMake脚本中链接相关动态库
+#### 在CMake脚本中链接相关动态库
 
 ```text
 target_link_libraries(entry PUBLIC libohcrypto.so)
@@ -15,7 +15,7 @@ target_link_libraries(entry PUBLIC libohcrypto.so)
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 在调用update接口传入数据时，可以[一次性传入所有数据](#摘要算法一次性传入)，也可以把数据人工分段，然后[分段update](#分段摘要算法)。对于同一段数据而言，计算结果没有差异。对于数据量较大的数据，开发者可以根据实际需求选择是否分段传入。
 
@@ -23,7 +23,7 @@ target_link_libraries(entry PUBLIC libohcrypto.so)
 
 
 
-##### 摘要算法（一次性传入）
+#### 摘要算法（一次性传入）
 1. 调用[OH_CryptoDigest_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-digest-h#oh_cryptodigest_create)，指定摘要算法SHA256，生成摘要实例（OH_CryptoDigest）。
 2. 调用[OH_CryptoDigest_Update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-digest-h#oh_cryptodigest_update)，传入自定义消息，进行摘要更新计算。单次update长度没有限制。
 3. 调用[OH_CryptoDigest_Final](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-digest-h#oh_cryptodigest_final)，获取摘要计算结果。
@@ -71,7 +71,7 @@ OH_Crypto_ErrCode doTestSha256Md()
 
 
 
-##### 分段摘要算法
+#### 分段摘要算法
 1. 调用[OH_CryptoDigest_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-digest-h#oh_cryptodigest_create)，指定摘要算法SHA256，生成摘要实例（OH_CryptoDigest）。
 2. 传入自定义消息，将一次传入数据量设置为20字节，多次调用[OH_CryptoDigest_Update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-digest-h#oh_cryptodigest_update)，进行摘要更新计算。
 3. 调用[OH_CryptoDigest_Final](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-digest-h#oh_cryptodigest_final)，获取摘要计算结果。

@@ -14,7 +14,7 @@ EmbeddedComponent用于支持在当前页面嵌入本应用内其他[EmbeddedUIE
 
 
 
-##### 使用约束
+#### 使用约束
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ EmbeddedComponent只能在UIAbility中使用，且被拉起的EmbeddedUIExtensio
 
 
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -32,7 +32,7 @@ EmbeddedComponent只能在UIAbility中使用，且被拉起的EmbeddedUIExtensio
 
 
 
-##### 接口
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -54,7 +54,7 @@ EmbeddedComponent(loader: Want, type: EmbeddedType)
 
 
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -66,7 +66,7 @@ EmbeddedComponent(loader: Want, type: EmbeddedType)
 
 
 
-##### 事件
+#### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -76,7 +76,7 @@ EmbeddedComponent(loader: Want, type: EmbeddedType)
 
 
 
-##### onTerminated
+#### onTerminated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -105,7 +105,7 @@ onTerminated(callback: Callback&lt;TerminationInfo&gt;)
 
 
 
-##### onError
+#### onError
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -134,7 +134,7 @@ onError(callback: ErrorCallback)
 
 
 
-##### TerminationInfo
+#### TerminationInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -152,7 +152,7 @@ onError(callback: ErrorCallback)
 
 
 
-##### 示例（加载EmbeddedComponent）
+#### 示例（加载EmbeddedComponent）
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -305,4 +305,4 @@ struct Extension {
  - 示例图如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/4u_hX-e1TvC9V73I_iPxyg/zh-cn_image_0000002581436156.png?HW-CC-KV=V1&HW-CC-Date=20260528T024221Z&HW-CC-Expire=86400&HW-CC-Sign=A25CD7EFFB5C5C58465D631344156F9DC6D735D3379F0FFF0A16AAE10CBCB1FE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/4u_hX-e1TvC9V73I_iPxyg/zh-cn_image_0000002581436156.png?HW-CC-KV=V1&HW-CC-Date=20260528T025555Z&HW-CC-Expire=86400&HW-CC-Sign=0F5B79481DA364CC3FF6B6C5963255D524F5BAF195FA00576B1164933F8E00DD)

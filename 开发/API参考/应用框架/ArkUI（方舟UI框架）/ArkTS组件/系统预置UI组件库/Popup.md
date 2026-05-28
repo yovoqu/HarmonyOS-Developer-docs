@@ -12,7 +12,7 @@ Popup是用于显示特定样式气泡。
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { Popup, PopupOptions, PopupTextOptions, PopupButtonOptions, PopupIconOpt
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -30,7 +30,7 @@ import { Popup, PopupOptions, PopupTextOptions, PopupButtonOptions, PopupIconOpt
  
   
 
-##### Popup
+#### Popup
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -53,7 +53,7 @@ Popup(options: PopupOptions): void
  
   
 
-##### PopupOptions
+#### PopupOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -77,7 +77,7 @@ PopupOptions定义Popup的具体样式参数。
  
   
 
-##### PopupTextOptions
+#### PopupTextOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -99,7 +99,7 @@ PopupOptions定义Popup的具体样式参数。
  
   
 
-##### PopupButtonOptions
+#### PopupButtonOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -121,7 +121,7 @@ PopupButtonOptions定义按钮的相关属性和事件。
  
   
 
-##### PopupIconOptions
+#### PopupIconOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -144,13 +144,13 @@ PopupIconOptions定义图标的属性。
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 示例1（设置气泡样式）
+#### 示例1（设置气泡样式）
 
 该示例通过配置PopupIconOptions、PopupTextOptions、PopupButtonOptions实现气泡的样式。
  
@@ -224,7 +224,7 @@ struct PopupExample {
  
   
 
-##### 示例 2（设置镜像效果）
+#### 示例 2（设置镜像效果）
 
 该示例通过配置direction参数实现Popup的镜像布局效果。
  
@@ -303,7 +303,7 @@ struct PopupPage {
  
   
 
-##### 示例3（设置自定义宽度）
+#### 示例3（设置自定义宽度）
 
 该示例通过配置maxWidth实现Popup的自定义宽度效果。
  
@@ -369,4 +369,4 @@ struct PopupPage {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/frdhDkyPQRyEulYaOMmFbw/zh-cn_image_0000002581276342.png?HW-CC-KV=V1&HW-CC-Date=20260528T024157Z&HW-CC-Expire=86400&HW-CC-Sign=47153DB0F2DD4F18935EF73DA9EB6E67EE71EDC73227A9DFB3B2BAFED780347A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/frdhDkyPQRyEulYaOMmFbw/zh-cn_image_0000002581276342.png?HW-CC-KV=V1&HW-CC-Date=20260528T025529Z&HW-CC-Expire=86400&HW-CC-Sign=1B44872D4BC077177A830C08E9D1903C0EAF3A91EFB8680EE79A6B17A3B8612D)

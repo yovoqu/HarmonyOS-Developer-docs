@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-setaddr
 
-##### 函数功能
+#### 函数功能
 
 设置tensor地址。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 ge::graphStatus SetAddr(const ConstTensorAddressPtr addr, TensorAddrManager manager)
@@ -18,7 +18,7 @@ ge::graphStatus SetAddr(const ConstTensorAddressPtr addr, TensorAddrManager mana
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
@@ -28,19 +28,19 @@ ge::graphStatus SetAddr(const ConstTensorAddressPtr addr, TensorAddrManager mana
  
   
 
-##### 返回值
+#### 返回值
 
 成功时返回ge::GRAPH_SUCCESS；失败时返回manager管理函数中定义的错误码。
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 auto addr = reinterpret_cast<void *>(0x10);

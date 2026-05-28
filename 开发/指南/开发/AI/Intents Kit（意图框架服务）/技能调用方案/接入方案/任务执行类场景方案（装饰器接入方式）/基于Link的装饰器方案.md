@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/intents-skill-all-rec-decorator-link
 
-##### 概述
+#### 概述
 
 开发者使用@InsightIntentLink装饰器进行基于Link的意图声明，可快速将已实现的Link跳转功能接入意图框架，实现功能页面的拉起。
  
   
 
-##### 约束说明
+#### 约束说明
 
 - @InsightIntentLink装饰器包含通过Link接入意图的所有配置，因此对装饰器所在Class、变量、成员没有要求，但是必须要在被依赖的ets文件中添加装饰器才可以被编译。
 - 支持开发者设置wantParameter，执行Link时，会将该参数附带到want的parameter中。
@@ -19,7 +19,7 @@
  
   
 
-##### 开发示例
+#### 开发示例
 
 以购买电影票意图为例，详细说明如下：
  1. 装饰器的添加位置：装饰器建议添加到处理该Link的Class上，如下所示。
@@ -144,19 +144,19 @@ export class PurchaseMovieTicketsLinkIntent {
 5. 在选中的代码块上右键CodeGenie > Insight Intent，选择适合的装饰器。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/KLgTX_31RL2mwK3_pob6YA/zh-cn_image_0000002611835251.png?HW-CC-KV=V1&HW-CC-Date=20260528T014255Z&HW-CC-Expire=86400&HW-CC-Sign=F5439B35A48D912F1C1F00C28C256D45B56353DBB51141F2EA9DA558DFFCF21E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/KLgTX_31RL2mwK3_pob6YA/zh-cn_image_0000002611835251.png?HW-CC-KV=V1&HW-CC-Date=20260528T025924Z&HW-CC-Expire=86400&HW-CC-Sign=1102B9B915A0F0125912693809D1ABAF9E66D394D18A046DA1659C9BC20D309C)
 
 
 6. 在DevEco CodeGenie对话框中对意图定义、功能和参数等进行描述。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/XWxHPLIXT9auEhsLEDJewQ/zh-cn_image_0000002581275504.png?HW-CC-KV=V1&HW-CC-Date=20260528T014255Z&HW-CC-Expire=86400&HW-CC-Sign=92FB81DF8D099A33C75B296F9D881006A050A46C114E1A9B23CDFDC42886B20C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/XWxHPLIXT9auEhsLEDJewQ/zh-cn_image_0000002581275504.png?HW-CC-KV=V1&HW-CC-Date=20260528T025924Z&HW-CC-Expire=86400&HW-CC-Sign=B96B280BAA9FDBDB55472541B8000D7F52364384A1D3161DDA9A24241C1B8430)
 
 
 7. 回车或者点击发送按钮，即可生成对应的装饰器内容。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/WEJ37ftkTIingYj1ZnDSbQ/zh-cn_image_0000002611755361.png?HW-CC-KV=V1&HW-CC-Date=20260528T014255Z&HW-CC-Expire=86400&HW-CC-Sign=1A4ACA5DFD84D49201478EEE87682FB1F7518D073BE3121EEAC2D02F9EED5EA9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/WEJ37ftkTIingYj1ZnDSbQ/zh-cn_image_0000002611755361.png?HW-CC-KV=V1&HW-CC-Date=20260528T025924Z&HW-CC-Expire=86400&HW-CC-Sign=D148C13314DAF71CF9C7D408463823A11E6450FB6950C2362FC7878DC0C14CA1)
 
 
 8. 将光标放置于要插入装饰器的位置，点击插入图标，即可在对应位置插入装饰器。
@@ -164,10 +164,10 @@ export class PurchaseMovieTicketsLinkIntent {
   插入前：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/-pBBlklxTAKBUhTBIWE_wA/zh-cn_image_0000002581435424.png?HW-CC-KV=V1&HW-CC-Date=20260528T014255Z&HW-CC-Expire=86400&HW-CC-Sign=446215F8F702B21932B02A79DD9462E3E4A9B2317A6FB429E499760A4E0DF754)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/-pBBlklxTAKBUhTBIWE_wA/zh-cn_image_0000002581435424.png?HW-CC-KV=V1&HW-CC-Date=20260528T025924Z&HW-CC-Expire=86400&HW-CC-Sign=DA0ABA6AD1B5FF89E3575AC93263F7B8C49B04C2D55A20A71EFC30ACEE6FACF6)
 
 
   插入后：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/r_tnYwiRR-u4BLgrvLjGnQ/zh-cn_image_0000002611835253.png?HW-CC-KV=V1&HW-CC-Date=20260528T014255Z&HW-CC-Expire=86400&HW-CC-Sign=B6B001C74E27739F568244BEBD8BD215F501CD4FB20C5BFD72BB407CFEAF2B31)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/r_tnYwiRR-u4BLgrvLjGnQ/zh-cn_image_0000002611835253.png?HW-CC-KV=V1&HW-CC-Date=20260528T025924Z&HW-CC-Expire=86400&HW-CC-Sign=907A65BD947DC5B9F3CDDF42D6C520092665A7722A0F0D6B50CB3DCA18D3BCAF)

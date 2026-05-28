@@ -7,7 +7,7 @@
 强制运算符位于代码行末。该规则仅检查.ets文件类型。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 export function test(n1: number, n2: number): void {
@@ -43,13 +43,13 @@ export function test(n1: number, n2: number): void {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 export function test(n1: number, n2: number, n3: number): void {
   if (n1 > n2
     // '||' should be placed at the end of the line.
-|| n1 < n3) {
+    || n1 < n3) {
     console.info('hello');
   }
 }
@@ -57,7 +57,7 @@ export function test(n1: number, n2: number, n3: number): void {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">"plugin:@hw-stylistic/recommended"</span>

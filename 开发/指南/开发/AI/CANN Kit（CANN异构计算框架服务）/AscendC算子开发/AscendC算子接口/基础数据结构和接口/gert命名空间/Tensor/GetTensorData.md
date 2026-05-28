@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-gettensordata
 
-##### 函数功能
+#### 函数功能
 
 获取tensor中的数据，返回只读的TensorData类型对象。
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 const TensorData &GetTensorData() const
@@ -18,13 +18,13 @@ const TensorData &GetTensorData() const
  
   
 
-##### 参数说明
+#### 参数说明
 
 无
  
   
 
-##### 返回值
+#### 返回值
 
 只读的tensor data引用。
  
@@ -32,13 +32,13 @@ const TensorData &GetTensorData() const
  
   
 
-##### 约束说明
+#### 约束说明
 
 无
  
   
 
-##### 调用示例
+#### 调用示例
 
 ```text
 Tensor t = {{}, {}, {}, {}, nullptr};

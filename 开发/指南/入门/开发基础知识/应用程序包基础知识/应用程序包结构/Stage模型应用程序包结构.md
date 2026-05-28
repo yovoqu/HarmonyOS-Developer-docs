@@ -7,7 +7,7 @@
 为了让开发者能对应用程序包在不同阶段的形态有更加清晰的认知，分别对开发态、编译态、发布态的应用程序结构展开介绍。
   
 
-##### 开发态包结构
+#### 开发态包结构
 
 在DevEco Studio上创建项目工程，并尝试创建多个不同类型的Module。根据实际工程中的目录对照本章节进行学习，有助于理解开发态的应用程序结构。
  
@@ -33,7 +33,7 @@
  
   
 
-##### 编译态包结构
+#### 编译态包结构
 
 不同类型的Module编译后会生成对应的HAP、HAR、HSP等文件，编译后可通过DevEco Studio或打包工具打包成APP包，用于上架应用市场。编译HAP和HSP时，会把它们所依赖的HAR直接编译到HAP和HSP中，因此打包成APP包后，编译打包视图中只有.hap和.hsp文件，没有.har文件。开发态视图与编译态视图的对照关系如下：
  
@@ -52,7 +52,7 @@
  
   
 
-##### 发布态包结构
+#### 发布态包结构
 
 每个应用中至少包含一个.hap文件，可能包含若干个.hsp文件、也可能不含，一个应用中的所有.hap与.hsp文件合在一起称为**Bundle**，其对应的bundleName是应用的唯一标识（详见[app.json5配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-configuration-file)中的bundleName标签）。
  
@@ -65,4 +65,4 @@
 **图3** 编译发布与上架部署流程图
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/GQmQ041XS2m0J1m7rrA5aw/zh-cn_image_0000002611753453.png?HW-CC-KV=V1&HW-CC-Date=20260528T014249Z&HW-CC-Expire=86400&HW-CC-Sign=B5FA9501CF7889EFE1FF317345AB69575F6E456C8BC13B43F1858219EEADFE1E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/GQmQ041XS2m0J1m7rrA5aw/zh-cn_image_0000002611753453.png?HW-CC-KV=V1&HW-CC-Date=20260528T025918Z&HW-CC-Expire=86400&HW-CC-Sign=DA2D384882CF1DAD83672F27ED2ED294F00D6200AA845094883D21573B7A31AC)

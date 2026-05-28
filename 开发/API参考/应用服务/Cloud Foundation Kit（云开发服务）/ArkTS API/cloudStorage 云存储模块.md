@@ -10,7 +10,7 @@
 **起始版本：** 5.0.0(12)
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@ import { cloudStorage } from '@kit.CloudFoundationKit';
  
   
 
-##### bucket
+#### bucket
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -75,7 +75,7 @@ let bucket2: cloudStorage.StorageBucket = cloudStorage.bucket('mybucket-duaf5');
  
   
 
-##### StorageBucket
+#### StorageBucket
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -91,7 +91,7 @@ let bucket2: cloudStorage.StorageBucket = cloudStorage.bucket('mybucket-duaf5');
  
   
 
-##### uploadFile
+#### uploadFile
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -179,7 +179,7 @@ bucket.uploadFile(context, {  // context表示应用上下文
  
   
 
-##### uploadFile
+#### uploadFile
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -263,7 +263,7 @@ bucket.uploadFile(context, {  // context表示应用上下文
  
   
 
-##### downloadFile
+#### downloadFile
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -352,7 +352,7 @@ bucket.downloadFile(context, {  // context表示应用上下文
  
   
 
-##### downloadFile
+#### downloadFile
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -437,7 +437,7 @@ bucket.downloadFile(context, {  // context表示应用上下文
  
   
 
-##### getDownloadURL
+#### getDownloadURL
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -501,7 +501,7 @@ bucket.getDownloadURL('cloudPath').then((downloadURL: string) => {
  
   
 
-##### getDownloadURL
+#### getDownloadURL
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -561,7 +561,7 @@ bucket.getDownloadURL('cloudPath', (err: BusinessError, downloadURL: string) => 
  
   
 
-##### deleteFile
+#### deleteFile
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -625,7 +625,7 @@ bucket.deleteFile('cloudPath').then(() => {
  
   
 
-##### deleteFile
+#### deleteFile
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -685,7 +685,7 @@ bucket.deleteFile('cloudPath', (err: BusinessError) => {
  
   
 
-##### list
+#### list
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -757,7 +757,7 @@ bucket.list('some_directory/').then((result: cloudStorage.ListResults) => {
  
   
 
-##### list
+#### list
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -827,7 +827,7 @@ bucket.list('some_directory/', {}, (err: BusinessError, result: cloudStorage.Lis
  
   
 
-##### getMetadata
+#### getMetadata
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -891,7 +891,7 @@ bucket.getMetadata('cloudPath').then((data: cloudStorage.Metadata) => {
  
   
 
-##### getMetadata
+#### getMetadata
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -951,7 +951,7 @@ bucket.getMetadata('cloudPath', (err: BusinessError, data: cloudStorage.Metadata
  
   
 
-##### setMetadata
+#### setMetadata
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1021,7 +1021,7 @@ bucket.setMetadata('cloudPath', {
  
   
 
-##### setMetadata
+#### setMetadata
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1087,7 +1087,7 @@ bucket.setMetadata('cloudPath', {
  
   
 
-##### UploadParams
+#### UploadParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1112,7 +1112,7 @@ bucket.setMetadata('cloudPath', {
  
   
 
-##### DownloadParams
+#### DownloadParams
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1137,7 +1137,7 @@ bucket.setMetadata('cloudPath', {
  
   
 
-##### ListOptions
+#### ListOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1159,7 +1159,7 @@ bucket.setMetadata('cloudPath', {
  
   
 
-##### ListResults
+#### ListResults
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1182,7 +1182,7 @@ bucket.setMetadata('cloudPath', {
  
   
 
-##### MetadataUpdatable
+#### MetadataUpdatable
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1208,7 +1208,7 @@ bucket.setMetadata('cloudPath', {
  
   
 
-##### Metadata
+#### Metadata
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

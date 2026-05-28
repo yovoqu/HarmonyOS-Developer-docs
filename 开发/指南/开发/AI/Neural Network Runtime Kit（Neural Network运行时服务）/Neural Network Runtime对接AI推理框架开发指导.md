@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/neural-network-runtime-guidelines
 
-##### 场景介绍
+#### 场景介绍
 
 Neural Network Runtime作为AI推理引擎和加速芯片的桥梁，为AI推理引擎提供精简的Native接口，满足推理引擎通过加速芯片执行端到端推理的需求。
 
@@ -18,11 +18,11 @@ Neural Network Runtime作为AI推理引擎和加速芯片的桥梁，为AI推理
 
 
 
-##### 环境准备
+#### 环境准备
 
 
 
-##### 环境要求
+#### 环境要求
 
 Neural Network Runtime部件的环境要求如下：
 
@@ -34,20 +34,20 @@ Neural Network Runtime部件的环境要求如下：
 
 
 
-##### 环境搭建
+#### 环境搭建
 1. 使用Ubuntu编译服务器的终端。
 2. 指定native工具链路径来编译代码，可以使用DevEco Studio来下载对应的SDK来进行编译。
 3. DevEco Studio安装目录下的SDK路径可以在DevEco Studio工程界面，点击File > Settings... > 在settings中搜索SDK，下载对应的SDK即可。
 
 
 
-##### 接口说明
+#### 接口说明
 
 以下为Neural Network Runtime开发流程中的常用接口，具体可见[NeuralNetworkRuntime](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-neuralnetworkruntime)。
 
 
 
-##### 结构体
+#### 结构体
 
 | 结构体名称 | 描述 |
 | --- | --- |
@@ -61,7 +61,7 @@ Neural Network Runtime部件的环境要求如下：
 
 
 
-##### 模型构造接口
+#### 模型构造接口
 
 | 接口名称 | 描述 |
 | --- | --- |
@@ -76,7 +76,7 @@ Neural Network Runtime部件的环境要求如下：
 
 
 
-##### 模型编译接口
+#### 模型编译接口
 
 | 接口名称 | 描述 |
 | --- | --- |
@@ -98,7 +98,7 @@ Neural Network Runtime部件的环境要求如下：
 
 
 
-##### 张量描述接口
+#### 张量描述接口
 
 | 接口名称 | 描述 |
 | --- | --- |
@@ -118,7 +118,7 @@ Neural Network Runtime部件的环境要求如下：
 
 
 
-##### 张量接口
+#### 张量接口
 
 | 接口名称 | 描述 |
 | --- | --- |
@@ -135,7 +135,7 @@ Neural Network Runtime部件的环境要求如下：
 
 
 
-##### 执行推理接口
+#### 执行推理接口
 
 | 接口名称 | 描述 |
 | --- | --- |
@@ -155,7 +155,7 @@ Neural Network Runtime部件的环境要求如下：
 
 
 
-##### 设备管理接口
+#### 设备管理接口
 
 | 接口名称 | 描述 |
 | --- | --- |
@@ -166,7 +166,7 @@ Neural Network Runtime部件的环境要求如下：
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 Neural Network Runtime的开发流程主要包含**模型构造**、**模型编译**和**推理执行**三个阶段。以下开发步骤以Add单算子模型为例，介绍调用Neural Network Runtime接口，开发应用的过程。
 1. 创建应用样例文件。
@@ -643,7 +643,7 @@ int main(int argc, char** argv)
 
 
 
-##### 调测验证
+#### 调测验证
 1. 准备应用样例的编译配置文件。
 
   新建一个 CMakeLists.txt 文件，为开发步骤中的应用样例文件 nnrt_example.cpp 添加编译配置。以下提供简单的 CMakeLists.txt 示例：

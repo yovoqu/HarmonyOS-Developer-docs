@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/dataability-configuration
 
-##### URI介绍
+#### URI介绍
 
 DataAbility的提供方和使用方都通过URI（Uniform Resource Identifier）来标识一个具体的数据，例如数据库中的某个表或磁盘上的某个文件。此处的URI仍基于URI通用标准，格式如下：
 
@@ -31,7 +31,7 @@ URI示例：
 
 
 
-##### 部分配置项介绍
+#### 部分配置项介绍
 
 与PageAbility类似，DataAbility的相关配置在config.json配置文件的"module"对象的"abilities"对象中，与PageAbility的区别在于"type"属性及"uri"属性。
 

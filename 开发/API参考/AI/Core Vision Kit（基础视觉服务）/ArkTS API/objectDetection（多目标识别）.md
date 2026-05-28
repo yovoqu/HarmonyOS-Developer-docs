@@ -12,7 +12,7 @@
 **起始版本：** 5.0.0(12)
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -22,7 +22,7 @@ import { visionBase, objectDetection } from '@kit.CoreVisionKit';
 
 
 
-##### VisionObject
+#### VisionObject
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -42,7 +42,7 @@ import { visionBase, objectDetection } from '@kit.CoreVisionKit';
 
 
 
-##### ObjectDetectionResponse
+#### ObjectDetectionResponse
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -59,7 +59,7 @@ import { visionBase, objectDetection } from '@kit.CoreVisionKit';
 
 
 
-##### ObjectDetector
+#### ObjectDetector
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -85,7 +85,7 @@ import { visionBase, objectDetection } from '@kit.CoreVisionKit';
 
 
 
-##### create
+#### create
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -156,7 +156,7 @@ struct Page {
 
 
 
-##### destroy
+#### destroy
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -217,7 +217,7 @@ struct Page {
 
 
 
-##### process
+#### process
 
 **支持设备：** Phone | PC/2in1 | Tablet
 

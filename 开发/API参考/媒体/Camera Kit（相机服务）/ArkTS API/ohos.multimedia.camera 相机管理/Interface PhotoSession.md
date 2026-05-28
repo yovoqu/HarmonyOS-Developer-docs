@@ -16,7 +16,7 @@ PhotoSession继承自[Session](https://developer.huawei.com/consumer/cn/doc/harm
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -26,7 +26,7 @@ import { camera } from '@kit.CameraKit';
 
 
 
-##### canPreconfig12+
+#### canPreconfig12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -81,7 +81,7 @@ function testCanPreconfig(photoSession: camera.PhotoSession, preconfigType: came
 
 
 
-##### preconfig12+
+#### preconfig12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -129,7 +129,7 @@ function testPreconfig(photoSession: camera.PhotoSession, preconfigType: camera.
 
 
 
-##### on('error')11+
+#### on('error')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -169,7 +169,7 @@ function registerSessionError(photoSession: camera.PhotoSession): void {
 
 
 
-##### off('error')11+
+#### off('error')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -199,7 +199,7 @@ function unregisterSessionError(photoSession: camera.PhotoSession): void {
 
 
 
-##### on('focusStateChange')11+
+#### on('focusStateChange')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -243,7 +243,7 @@ function registerFocusStateChange(photoSession: camera.PhotoSession): void {
 
 
 
-##### off('focusStateChange')11+
+#### off('focusStateChange')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -273,7 +273,7 @@ function unregisterFocusStateChange(photoSession: camera.PhotoSession): void {
 
 
 
-##### on('smoothZoomInfoAvailable')11+
+#### on('smoothZoomInfoAvailable')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -317,7 +317,7 @@ function registerSmoothZoomInfo(photoSession: camera.PhotoSession): void {
 
 
 
-##### off('smoothZoomInfoAvailable')11+
+#### off('smoothZoomInfoAvailable')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -347,7 +347,7 @@ function unregisterSmoothZoomInfo(photoSession: camera.PhotoSession): void {
 
 
 
-##### on('autoDeviceSwitchStatusChange')13+
+#### on('autoDeviceSwitchStatusChange')13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -391,7 +391,7 @@ function registerAutoDeviceSwitchStatus(photoSession: camera.PhotoSession): void
 
 
 
-##### off('autoDeviceSwitchStatusChange')13+
+#### off('autoDeviceSwitchStatusChange')13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -421,7 +421,7 @@ function unregisterSmoothZoomInfo(photoSession: camera.PhotoSession): void {
 
 
 
-##### on('systemPressureLevelChange')20+
+#### on('systemPressureLevelChange')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -465,7 +465,7 @@ function registerSystemPressureLevelChangeCallback(photoSession: camera.PhotoSes
 
 
 
-##### off('systemPressureLevelChange')20+
+#### off('systemPressureLevelChange')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -495,7 +495,7 @@ function unregisterSystemPressureLevelChangeCallback(photoSession: camera.PhotoS
 
 
 
-##### on('macroStatusChanged')20+
+#### on('macroStatusChanged')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -535,7 +535,7 @@ function registerMacroStatusChanged(photoSession: camera.PhotoSession): void {
 
 
 
-##### off('macroStatusChanged')20+
+#### off('macroStatusChanged')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -565,7 +565,7 @@ function unregisterMacroStatusChanged(photoSession: camera.PhotoSession): void {
 
 
 
-##### onIsoInfoChange24+
+#### onIsoInfoChange24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -598,7 +598,7 @@ function onIsoInfoChange(photoSession: camera.PhotoSession): void {
 
 
 
-##### offIsoInfoChange24+
+#### offIsoInfoChange24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -629,7 +629,7 @@ function offIsoInfoChange(photoSession: camera.PhotoSession): void {
 
 
 
-##### onExposureInfoChange24+
+#### onExposureInfoChange24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -662,7 +662,7 @@ function onExposureInfoChange(photoSession: camera.PhotoSession): void {
 
 
 
-##### offExposureInfoChange24+
+#### offExposureInfoChange24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -23,7 +23,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 
-##### getAVPlaybackState10+
+#### getAVPlaybackState10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -63,7 +63,7 @@ avCastController.getAVPlaybackState((err: BusinessError, state: avSession.AVPlay
 
 
 
-##### getAVPlaybackState10+
+#### getAVPlaybackState10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -103,7 +103,7 @@ avCastController.getAVPlaybackState().then((state: avSession.AVPlaybackState) =>
 
 
 
-##### getSupportedDecoders19+
+#### getSupportedDecoders19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -146,7 +146,7 @@ avCastController.getSupportedDecoders().then((decoderTypes: avSession.DecoderTyp
 
 
 
-##### getRecommendedResolutionLevel19+
+#### getRecommendedResolutionLevel19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -194,7 +194,7 @@ avCastController.getRecommendedResolutionLevel(decoderType).then((resolutionLeve
 
 
 
-##### getSupportedHdrCapabilities19+
+#### getSupportedHdrCapabilities19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -239,7 +239,7 @@ avCastController.getSupportedHdrCapabilities().then((hdrFormats: hdrCapability.H
 
 
 
-##### getSupportedPlaySpeeds19+
+#### getSupportedPlaySpeeds19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -282,7 +282,7 @@ avCastController.getSupportedPlaySpeeds().then((nums: number[]) => {
 
 
 
-##### sendControlCommand10+
+#### sendControlCommand10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -333,7 +333,7 @@ avCastController.sendControlCommand(avCommand).then(() => {
 
 
 
-##### sendControlCommand10+
+#### sendControlCommand10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -378,7 +378,7 @@ avCastController.sendControlCommand(avCommand, (err: BusinessError) => {
 
 
 
-##### sendCustomData20+
+#### sendCustomData20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -425,7 +425,7 @@ avCastController.sendCustomData({customData : "This is custom data"}).then(() =>
 
 
 
-##### prepare10+
+#### prepare10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -486,7 +486,7 @@ avCastController.prepare(playItem, (err: BusinessError) => {
 
 
 
-##### prepare10+
+#### prepare10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -553,7 +553,7 @@ avCastController.prepare(playItem).then(() => {
 
 
 
-##### start10+
+#### start10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -619,7 +619,7 @@ avCastController.start(playItem, (err: BusinessError) => {
 
 
 
-##### start10+
+#### start10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -690,7 +690,7 @@ avCastController.start(playItem).then(() => {
 
 
 
-##### getCurrentItem10+
+#### getCurrentItem10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -730,7 +730,7 @@ avCastController.getCurrentItem((err: BusinessError, value: avSession.AVQueueIte
 
 
 
-##### getCurrentItem10+
+#### getCurrentItem10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -770,7 +770,7 @@ avCastController.getCurrentItem().then((value: avSession.AVQueueItem) => {
 
 
 
-##### getValidCommands11+
+#### getValidCommands11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -810,7 +810,7 @@ avCastController.getValidCommands((err: BusinessError, state: avSession.AVCastCo
 
 
 
-##### getValidCommands11+
+#### getValidCommands11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -848,7 +848,7 @@ avCastController.getValidCommands().then((state: avSession.AVCastControlCommandT
 
 
 
-##### processMediaKeyResponse12+
+#### processMediaKeyResponse12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -904,7 +904,7 @@ let keyRequestCallback: avSession.KeyRequestCallback = async(assetId: string, re
 
 
 
-##### release11+
+#### release11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -944,7 +944,7 @@ avCastController.release((err: BusinessError) => {
 
 
 
-##### release11+
+#### release11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -984,7 +984,7 @@ avCastController.release().then(() => {
 
 
 
-##### on('playbackStateChange')10+
+#### on('playbackStateChange')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1032,7 +1032,7 @@ avCastController.on('playbackStateChange', playbackFilter, (playbackState: avSes
 
 
 
-##### off('playbackStateChange')10+
+#### off('playbackStateChange')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1070,7 +1070,7 @@ avCastController.off('playbackStateChange');
 
 
 
-##### on('mediaItemChange')10+
+#### on('mediaItemChange')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1112,7 +1112,7 @@ avCastController.on('mediaItemChange', (item: avSession.AVQueueItem) => {
 
 
 
-##### off('mediaItemChange')10+
+#### off('mediaItemChange')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1149,7 +1149,7 @@ avCastController.off('mediaItemChange');
 
 
 
-##### on('playNext')10+
+#### on('playNext')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1191,7 +1191,7 @@ avCastController.on('playNext', () => {
 
 
 
-##### off('playNext')10+
+#### off('playNext')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1228,7 +1228,7 @@ avCastController.off('playNext');
 
 
 
-##### on('playPrevious')10+
+#### on('playPrevious')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1270,7 +1270,7 @@ avCastController.on('playPrevious', () => {
 
 
 
-##### off('playPrevious')10+
+#### off('playPrevious')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1307,7 +1307,7 @@ avCastController.off('playPrevious');
 
 
 
-##### on('requestPlay')11+
+#### on('requestPlay')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1347,7 +1347,7 @@ avCastController.on('requestPlay', (item: avSession.AVQueueItem) => {
 
 
 
-##### off('requestPlay')11+
+#### off('requestPlay')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1383,7 +1383,7 @@ avCastController.off('requestPlay');
 
 
 
-##### on('endOfStream')11+
+#### on('endOfStream')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1423,7 +1423,7 @@ avCastController.on('endOfStream', () => {
 
 
 
-##### off('endOfStream')11+
+#### off('endOfStream')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1459,7 +1459,7 @@ avCastController.off('endOfStream');
 
 
 
-##### on('seekDone')10+
+#### on('seekDone')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1501,7 +1501,7 @@ avCastController.on('seekDone', (pos: number) => {
 
 
 
-##### off('seekDone')10+
+#### off('seekDone')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1538,7 +1538,7 @@ avCastController.off('seekDone');
 
 
 
-##### on('validCommandChange')11+
+#### on('validCommandChange')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1580,7 +1580,7 @@ avCastController.on('validCommandChange', (validCommands: avSession.AVCastContro
 
 
 
-##### off('validCommandChange')11+
+#### off('validCommandChange')11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1617,7 +1617,7 @@ avCastController.off('validCommandChange');
 
 
 
-##### on('videoSizeChange')12+
+#### on('videoSizeChange')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1657,7 +1657,7 @@ avCastController.on('videoSizeChange', (width: number, height: number) => {
 
 
 
-##### off('videoSizeChange')12+
+#### off('videoSizeChange')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1692,7 +1692,7 @@ avCastController.off('videoSizeChange');
 
 
 
-##### on('error')10+
+#### on('error')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1742,7 +1742,7 @@ avCastController.on('error', (error: BusinessError) => {
 
 
 
-##### off('error')10+
+#### off('error')10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1785,7 +1785,7 @@ avCastController.off('error')
 
 
 
-##### on('keyRequest')12+
+#### on('keyRequest')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1828,7 +1828,7 @@ avCastController.on('keyRequest', keyRequestCallback);
 
 
 
-##### off('keyRequest')12+
+#### off('keyRequest')12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1866,7 +1866,7 @@ avCastController.off('keyRequest');
 
 
 
-##### on('castControlGenericError')13+
+#### on('castControlGenericError')13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1923,7 +1923,7 @@ avCastController.on('castControlGenericError', (error: BusinessError) => {
 
 
 
-##### off('castControlGenericError')13+
+#### off('castControlGenericError')13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -1960,7 +1960,7 @@ avCastController.off('castControlGenericError');
 
 
 
-##### on('castControlIoError')13+
+#### on('castControlIoError')13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2020,7 +2020,7 @@ avCastController.on('castControlIoError', (error: BusinessError) => {
 
 
 
-##### off('castControlIoError')13+
+#### off('castControlIoError')13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2057,7 +2057,7 @@ avCastController.off('castControlIoError');
 
 
 
-##### on('castControlParsingError')13+
+#### on('castControlParsingError')13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2105,7 +2105,7 @@ avCastController.on('castControlParsingError', (error: BusinessError) => {
 
 
 
-##### off('castControlParsingError')13+
+#### off('castControlParsingError')13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2142,7 +2142,7 @@ avCastController.off('castControlParsingError');
 
 
 
-##### on('castControlDecodingError')13+
+#### on('castControlDecodingError')13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2191,7 +2191,7 @@ avCastController.on('castControlDecodingError', (error: BusinessError) => {
 
 
 
-##### off('castControlDecodingError')13+
+#### off('castControlDecodingError')13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2228,7 +2228,7 @@ avCastController.off('castControlDecodingError');
 
 
 
-##### on('castControlAudioRendererError')13+
+#### on('castControlAudioRendererError')13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2274,7 +2274,7 @@ avCastController.on('castControlAudioRendererError', (error: BusinessError) => {
 
 
 
-##### off('castControlAudioRendererError')13+
+#### off('castControlAudioRendererError')13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2311,7 +2311,7 @@ avCastController.off('castControlAudioRendererError');
 
 
 
-##### on('castControlDrmError')13+
+#### on('castControlDrmError')13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2364,7 +2364,7 @@ avCastController.on('castControlDrmError', (error: BusinessError) => {
 
 
 
-##### off('castControlDrmError')13+
+#### off('castControlDrmError')13+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2401,7 +2401,7 @@ avCastController.off('castControlDrmError');
 
 
 
-##### on('customDataChange')20+
+#### on('customDataChange')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -2440,7 +2440,7 @@ avCastController.on('customDataChange', (callback) => {
 
 
 
-##### off('customDataChange')20+
+#### off('customDataChange')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { drawing } from '@kit.ArkGraphics2D';
 
 
 
-##### constructor18+
+#### constructor18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -50,7 +50,7 @@ let iter: drawing.PathIterator = new drawing.PathIterator(path);
 
 
 
-##### next18+
+#### next18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -107,7 +107,7 @@ console.info(outputMessage);
 
 
 
-##### peek18+
+#### peek18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -136,7 +136,7 @@ let res = iter.peek();
 
 
 
-##### hasNext18+
+#### hasNext18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

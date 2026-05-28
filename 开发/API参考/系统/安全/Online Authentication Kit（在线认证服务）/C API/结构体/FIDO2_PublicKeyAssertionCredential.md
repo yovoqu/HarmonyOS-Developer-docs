@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2___public_key_assertion_credential
 
-##### 概述
+#### 概述
 
 定义获取认证结果结构体。
  
@@ -14,11 +14,11 @@
  
   
 
-##### 汇总
+#### 汇总
 
   
 
-##### 成员变量
+#### 成员变量
  
 | 名称 | 描述 |
 | --- | --- |
@@ -32,11 +32,11 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
   
 
-##### authenticatorAttachment
+#### authenticatorAttachment
 
 ```text
 FIDO2_AuthenticatorAttachment FIDO2_PublicKeyAssertionCredential::authenticatorAttachment
@@ -48,7 +48,7 @@ FIDO2_AuthenticatorAttachment FIDO2_PublicKeyAssertionCredential::authenticatorA
  
   
 
-##### clientExtensionResults
+#### clientExtensionResults
 
 ```text
 AuthenticationExtensionsClientOutputs FIDO2_PublicKeyAssertionCredential::clientExtensionResults
@@ -60,7 +60,7 @@ AuthenticationExtensionsClientOutputs FIDO2_PublicKeyAssertionCredential::client
  
   
 
-##### id
+#### id
 
 ```text
 const char* FIDO2_PublicKeyAssertionCredential::id
@@ -72,7 +72,7 @@ const char* FIDO2_PublicKeyAssertionCredential::id
  
   
 
-##### rawId
+#### rawId
 
 ```text
 Uint8Buff FIDO2_PublicKeyAssertionCredential::rawId
@@ -84,7 +84,7 @@ Uint8Buff FIDO2_PublicKeyAssertionCredential::rawId
  
   
 
-##### response
+#### response
 
 ```text
 FIDO2_AuthenticatorResponse FIDO2_PublicKeyAssertionCredential::response
@@ -96,7 +96,7 @@ FIDO2_AuthenticatorResponse FIDO2_PublicKeyAssertionCredential::response
  
   
 
-##### type
+#### type
 
 ```text
 const char* FIDO2_PublicKeyAssertionCredential::type

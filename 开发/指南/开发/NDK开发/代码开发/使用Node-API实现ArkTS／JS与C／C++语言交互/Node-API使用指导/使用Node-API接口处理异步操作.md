@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-promise
 
-##### 简介
+#### 简介
 
 使用Node-API接口处理异步操作。异步操作是指需要一定时间才能完成的操作，例如从网络下载数据或读取大型文件。与同步操作不同，异步操作不会阻塞主线程，而是会在后台执行。将异步操作完成后的事件放入任务队列，等待主线程空闲时执行。
  
   
 
-##### 基本概念
+#### 基本概念
 
 Promise是ArkTS中用来处理异步操作的对象，Promise有pending（待定）、fulfilled（已兑现）和rejected（已拒绝）三种状态，Promise的初始状态是pending。resolve函数可以使其状态从pending变为fulfilled（已兑现），reject函数可以使其状态从pending变为rejected（已拒绝），一旦状态变为已兑现或已拒绝，将不能再更改。以下是一些基本概念：
  
@@ -26,7 +26,7 @@ Promise是ArkTS中用来处理异步操作的对象，Promise有pending（待定
  
   
 
-##### 场景和功能介绍
+#### 场景和功能介绍
 
 以下Node-API接口主要用于与ArkTS Promise对象进行交互。它们的使用场景如下：
   
@@ -40,13 +40,13 @@ Promise是ArkTS中用来处理异步操作的对象，Promise有pending（待定
  
   
 
-##### 使用示例
+#### 使用示例
 
 Node-API接口开发流程参考[使用Node-API实现跨语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-process)，本文仅对接口对应C++及ArkTS相关代码进行展示。
  
   
 
-##### napi_is_promise
+#### napi_is_promise
 
 判断给定的napi_value是否表示一个Promise对象。
  
@@ -93,7 +93,7 @@ hilog.info(0x0000, 'Node-API', 'napi_is_promise string %{public}s', testNapi.isP
  
   
 
-##### napi_create_promise
+#### napi_create_promise
 
 napi_create_promise用于创建一个Promise对象。
  
@@ -121,7 +121,7 @@ napi_value NapiPromiseDemo(napi_env env, napi_callback_info info)
  
   
 
-##### napi_resolve_deferred & napi_reject_deferred
+#### napi_resolve_deferred & napi_reject_deferred
 
 使用napi_resolve_deferred对Promise关联的deferred对象进行解析，从挂起状态转换为已兑现状态，或从挂起状态转换为已拒绝状态。
  

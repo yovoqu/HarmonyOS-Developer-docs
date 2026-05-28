@@ -12,7 +12,7 @@
 
   
 
-##### getHeader12+
+#### getHeader12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -35,7 +35,7 @@ getHeader(): Array&lt;WebHeader&gt;
  
   
 
-##### getRequestUrl12+
+#### getRequestUrl12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -58,7 +58,7 @@ getRequestUrl(): string
  
   
 
-##### getRequestMethod12+
+#### getRequestMethod12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -81,7 +81,7 @@ getRequestMethod(): string
  
   
 
-##### getReferrer12+
+#### getReferrer12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -104,7 +104,7 @@ getReferrer(): string
  
   
 
-##### isMainFrame12+
+#### isMainFrame12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -127,7 +127,7 @@ isMainFrame(): boolean
  
   
 
-##### hasGesture12+
+#### hasGesture12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -150,7 +150,7 @@ hasGesture(): boolean
  
   
 
-##### getHttpBodyStream12+
+#### getHttpBodyStream12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -173,7 +173,7 @@ getHttpBodyStream(): WebHttpBodyStream | null
  
   
 
-##### getRequestResourceType12+
+#### getRequestResourceType12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -196,7 +196,7 @@ getRequestResourceType(): WebResourceType
  
   
 
-##### getFrameUrl12+
+#### getFrameUrl12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

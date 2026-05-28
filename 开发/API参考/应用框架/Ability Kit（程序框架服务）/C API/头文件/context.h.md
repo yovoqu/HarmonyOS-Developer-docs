@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-abilityruntime-context-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -41,7 +41,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -64,13 +64,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_AbilityRuntime_Context_GetCacheDir()
+#### OH_AbilityRuntime_Context_GetCacheDir()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -123,7 +123,7 @@ void testGetCacheDir(AbilityRuntime_ContextHandle context)
  
   
 
-##### OH_AbilityRuntime_Context_GetTempDir()
+#### OH_AbilityRuntime_Context_GetTempDir()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -176,7 +176,7 @@ void testGetTempDir(AbilityRuntime_ContextHandle context)
  
   
 
-##### OH_AbilityRuntime_Context_GetFilesDir()
+#### OH_AbilityRuntime_Context_GetFilesDir()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -229,7 +229,7 @@ void testGetFilesDir(AbilityRuntime_ContextHandle context)
  
   
 
-##### OH_AbilityRuntime_Context_GetDatabaseDir()
+#### OH_AbilityRuntime_Context_GetDatabaseDir()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -282,7 +282,7 @@ void testGetDatabaseDir(AbilityRuntime_ContextHandle context)
  
   
 
-##### OH_AbilityRuntime_Context_GetPreferencesDir()
+#### OH_AbilityRuntime_Context_GetPreferencesDir()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -335,7 +335,7 @@ void testGetPreferencesDir(AbilityRuntime_ContextHandle context)
  
   
 
-##### OH_AbilityRuntime_Context_GetBundleCodeDir()
+#### OH_AbilityRuntime_Context_GetBundleCodeDir()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -388,7 +388,7 @@ void testGetBundleCodeDir(AbilityRuntime_ContextHandle context)
  
   
 
-##### OH_AbilityRuntime_Context_GetDistributedFilesDir()
+#### OH_AbilityRuntime_Context_GetDistributedFilesDir()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -441,7 +441,7 @@ void testGetDistributedFilesDir(AbilityRuntime_ContextHandle context)
  
   
 
-##### OH_AbilityRuntime_Context_GetResourceDir()
+#### OH_AbilityRuntime_Context_GetResourceDir()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -494,7 +494,7 @@ void testGetResourceDir(AbilityRuntime_ContextHandle context)
  
   
 
-##### OH_AbilityRuntime_Context_GetCloudFileDir()
+#### OH_AbilityRuntime_Context_GetCloudFileDir()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -547,7 +547,7 @@ void testGetCloudFileDir(AbilityRuntime_ContextHandle context)
  
   
 
-##### OH_AbilityRuntime_Context_GetAreaMode()
+#### OH_AbilityRuntime_Context_GetAreaMode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -597,7 +597,7 @@ void testGetAreaMode(AbilityRuntime_ContextHandle context)
  
   
 
-##### OH_AbilityRuntime_Context_SetAreaMode()
+#### OH_AbilityRuntime_Context_SetAreaMode()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -647,7 +647,7 @@ void testSetAreaMode(AbilityRuntime_ContextHandle context)
  
   
 
-##### OH_AbilityRuntime_Context_GetLogFileDir()
+#### OH_AbilityRuntime_Context_GetLogFileDir()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -700,7 +700,7 @@ void testGetLogFileDir(AbilityRuntime_ContextHandle context)
  
   
 
-##### OH_AbilityRuntime_Context_GetProcessName()
+#### OH_AbilityRuntime_Context_GetProcessName()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

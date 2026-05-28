@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-data-values-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -23,13 +23,13 @@
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 结构体
+#### 结构体
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -40,7 +40,7 @@
  
   
 
-##### 函数
+#### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
@@ -77,13 +77,13 @@
  
   
 
-##### 函数说明
+#### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### OH_Values_Create()
+#### OH_Values_Create()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -106,7 +106,7 @@ OH_Data_Values *OH_Values_Create(void)
  
   
 
-##### OH_Values_Destroy()
+#### OH_Values_Destroy()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -136,7 +136,7 @@ int OH_Values_Destroy(OH_Data_Values *values)
  
   
 
-##### OH_Values_Put()
+#### OH_Values_Put()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -167,7 +167,7 @@ int OH_Values_Put(OH_Data_Values *values, const OH_Data_Value *val)
  
   
 
-##### OH_Values_PutNull()
+#### OH_Values_PutNull()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -197,7 +197,7 @@ int OH_Values_PutNull(OH_Data_Values *values)
  
   
 
-##### OH_Values_PutInt()
+#### OH_Values_PutInt()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -228,7 +228,7 @@ int OH_Values_PutInt(OH_Data_Values *values, int64_t val)
  
   
 
-##### OH_Values_PutReal()
+#### OH_Values_PutReal()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -259,7 +259,7 @@ int OH_Values_PutReal(OH_Data_Values *values, double val)
  
   
 
-##### OH_Values_PutText()
+#### OH_Values_PutText()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -290,7 +290,7 @@ int OH_Values_PutText(OH_Data_Values *values, const char *val)
  
   
 
-##### OH_Values_PutBlob()
+#### OH_Values_PutBlob()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -322,7 +322,7 @@ int OH_Values_PutBlob(OH_Data_Values *values, const unsigned char *val, size_t l
  
   
 
-##### OH_Values_PutAsset()
+#### OH_Values_PutAsset()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -353,7 +353,7 @@ int OH_Values_PutAsset(OH_Data_Values *values, const Data_Asset *val)
  
   
 
-##### OH_Values_PutAssets()
+#### OH_Values_PutAssets()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -385,7 +385,7 @@ int OH_Values_PutAssets(OH_Data_Values *values, const Data_Asset * const * val, 
  
   
 
-##### OH_Values_PutFloatVector()
+#### OH_Values_PutFloatVector()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -417,7 +417,7 @@ int OH_Values_PutFloatVector(OH_Data_Values *values, const float *val, size_t le
  
   
 
-##### OH_Values_PutUnlimitedInt()
+#### OH_Values_PutUnlimitedInt()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -450,7 +450,7 @@ int OH_Values_PutUnlimitedInt(OH_Data_Values *values, int sign, const uint64_t *
  
   
 
-##### OH_Values_Count()
+#### OH_Values_Count()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -481,7 +481,7 @@ int OH_Values_Count(OH_Data_Values *values, size_t *count)
  
   
 
-##### OH_Values_GetType()
+#### OH_Values_GetType()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -513,7 +513,7 @@ int OH_Values_GetType(OH_Data_Values *values, int index, OH_ColumnType *type)
  
   
 
-##### OH_Values_Get()
+#### OH_Values_Get()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -545,7 +545,7 @@ int OH_Values_Get(OH_Data_Values *values, int index, OH_Data_Value **val)
  
   
 
-##### OH_Values_IsNull()
+#### OH_Values_IsNull()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -577,7 +577,7 @@ int OH_Values_IsNull(OH_Data_Values *values, int index, bool *val)
  
   
 
-##### OH_Values_GetInt()
+#### OH_Values_GetInt()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -609,7 +609,7 @@ int OH_Values_GetInt(OH_Data_Values *values, int index, int64_t *val)
  
   
 
-##### OH_Values_GetReal()
+#### OH_Values_GetReal()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -641,7 +641,7 @@ int OH_Values_GetReal(OH_Data_Values *values, int index, double *val)
  
   
 
-##### OH_Values_GetText()
+#### OH_Values_GetText()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -673,7 +673,7 @@ int OH_Values_GetText(OH_Data_Values *values, int index, const char **val)
  
   
 
-##### OH_Values_GetBlob()
+#### OH_Values_GetBlob()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -706,7 +706,7 @@ int OH_Values_GetBlob(OH_Data_Values *values, int index, const uint8_t **val, si
  
   
 
-##### OH_Values_GetAsset()
+#### OH_Values_GetAsset()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -738,7 +738,7 @@ int OH_Values_GetAsset(OH_Data_Values *values, int index, Data_Asset *val)
  
   
 
-##### OH_Values_GetAssetsCount()
+#### OH_Values_GetAssetsCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -770,7 +770,7 @@ int OH_Values_GetAssetsCount(OH_Data_Values *values, int index, size_t *length)
  
   
 
-##### OH_Values_GetAssets()
+#### OH_Values_GetAssets()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -804,7 +804,7 @@ int OH_Values_GetAssets(OH_Data_Values *values, int index, Data_Asset **val, siz
  
   
 
-##### OH_Values_GetFloatVectorCount()
+#### OH_Values_GetFloatVectorCount()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -836,7 +836,7 @@ int OH_Values_GetFloatVectorCount(OH_Data_Values *values, int index, size_t *len
  
   
 
-##### OH_Values_GetFloatVector()
+#### OH_Values_GetFloatVector()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -870,7 +870,7 @@ int OH_Values_GetFloatVector(OH_Data_Values *values, int index, float *val, size
  
   
 
-##### OH_Values_GetUnlimitedIntBand()
+#### OH_Values_GetUnlimitedIntBand()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -902,7 +902,7 @@ int OH_Values_GetUnlimitedIntBand(OH_Data_Values *values, int index, size_t *len
  
   
 
-##### OH_Values_GetUnlimitedInt()
+#### OH_Values_GetUnlimitedInt()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

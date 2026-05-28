@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { webview } from '@kit.ArkWeb';
 
 
 
-##### constructor12+
+#### constructor12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -77,7 +77,7 @@ struct WebComponent {
 
 
 
-##### setUrl12+
+#### setUrl12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -109,7 +109,7 @@ setUrl(url: string): void
 
 
 
-##### setNetErrorCode12+
+#### setNetErrorCode12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -141,7 +141,7 @@ setNetErrorCode(code: WebNetErrorList): void
 
 
 
-##### setStatus12+
+#### setStatus12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -173,7 +173,7 @@ setStatus(code: number): void
 
 
 
-##### setStatusText12+
+#### setStatusText12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -205,7 +205,7 @@ setStatusText(text: string): void
 
 
 
-##### setMimeType12+
+#### setMimeType12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -237,7 +237,7 @@ setMimeType(type: string): void
 
 
 
-##### setEncoding12+
+#### setEncoding12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -269,7 +269,7 @@ setEncoding(encoding: string): void
 
 
 
-##### setHeaderByName12+
+#### setHeaderByName12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -303,7 +303,7 @@ setHeaderByName(name: string, value: string, overwrite: boolean): void
 
 
 
-##### getUrl12+
+#### getUrl12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -328,7 +328,7 @@ getUrl(): string
 
 
 
-##### getNetErrorCode12+
+#### getNetErrorCode12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -351,7 +351,7 @@ getNetErrorCode(): WebNetErrorList
 
 
 
-##### getStatus12+
+#### getStatus12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -374,7 +374,7 @@ getStatus(): number
 
 
 
-##### getStatusText12+
+#### getStatusText12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -397,7 +397,7 @@ getStatusText(): string
 
 
 
-##### getMimeType12+
+#### getMimeType12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -420,7 +420,7 @@ getMimeType(): string
 
 
 
-##### getEncoding12+
+#### getEncoding12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -443,7 +443,7 @@ getEncoding(): string
 
 
 
-##### getHeaderByName12+
+#### getHeaderByName12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

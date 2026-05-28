@@ -7,7 +7,7 @@
 在使用@ohos/gif-drawable库解码gif图片时，建议开启硬解码，提升gif加载性能。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 // @ohos/gif-drawable依赖可以通过'ohpm install @ohos/gif-drawable@2.1.0'下载安装
@@ -68,7 +68,7 @@ struct GifDrawableNoReport0 {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 // @ohos/gif-drawable依赖可以通过'ohpm install @ohos/gif-drawable@2.1.0'下载安装
@@ -111,7 +111,7 @@ struct GifDrawableReport0 {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(106,135,89);">plugin:@performance/</span><span style="color: rgb(4,81,165);">recommended</span>

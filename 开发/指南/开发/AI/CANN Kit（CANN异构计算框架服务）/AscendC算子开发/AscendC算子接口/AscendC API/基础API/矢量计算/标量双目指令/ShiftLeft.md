@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-scalar-binocular-shiftleft
 
-##### 功能说明
+#### 功能说明
 
 源操作数内每个元素做逻辑左移，逻辑左移的位数由输入参数scalar决定。
  
@@ -12,7 +12,7 @@
  
   
 
-##### 函数原型
+#### 函数原型
 
 tensor前n个数据计算：
  
@@ -23,7 +23,7 @@ __aicore__ inline void ShiftLeft(const LocalTensor<T>& dstLocal, const LocalTens
  
   
 
-##### 参数说明
+#### 参数说明
 
 **表1** 模板参数说明
   
@@ -46,13 +46,13 @@ __aicore__ inline void ShiftLeft(const LocalTensor<T>& dstLocal, const LocalTens
  
   
 
-##### 返回值
+#### 返回值
 
 无
  
   
 
-##### 支持的型号
+#### 支持的型号
 
 Kirin9020系列处理器
  
@@ -60,13 +60,13 @@ KirinX90系列处理器
  
   
 
-##### 注意事项
+#### 注意事项
 
 操作数地址偏移对齐要求请参见[通用约束](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-general-constraints)。
  
   
 
-##### 调用示例
+#### 调用示例
 
 本样例中只展示Compute流程中的部分代码。如果开发者需要运行样例代码，请将该代码段拷贝并替换标量双目指令样例模板[更多样例](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-scalar-binocularinstructions)中的Compute函数即可。
  

@@ -10,7 +10,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@ import { window } from '@kit.ArkUI';
 
 
 
-##### window.createWindow9+
+#### window.createWindow9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -97,7 +97,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### window.createWindow9+
+#### window.createWindow9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -177,7 +177,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### window.findWindow9+
+#### window.findWindow9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -226,7 +226,7 @@ try {
 
 
 
-##### window.getLastWindow9+
+#### window.getLastWindow9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -306,7 +306,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### window.getLastWindow9+
+#### window.getLastWindow9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -390,7 +390,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### window.shiftAppWindowFocus11+
+#### window.shiftAppWindowFocus11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -505,7 +505,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### window.shiftAppWindowPointerEvent15+
+#### window.shiftAppWindowPointerEvent15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -587,7 +587,7 @@ struct Index {
 
 
 
-##### window.shiftAppWindowTouchEvent20+
+#### window.shiftAppWindowTouchEvent20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -669,7 +669,7 @@ struct Index {
 
 
 
-##### window.getWindowsByCoordinate14+
+#### window.getWindowsByCoordinate14+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -739,7 +739,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### window.getAllWindowLayoutInfo15+
+#### window.getAllWindowLayoutInfo15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -801,7 +801,7 @@ try {
 
 
 
-##### window.getVisibleWindowInfo18+
+#### window.getVisibleWindowInfo18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -862,7 +862,7 @@ try {
 
 
 
-##### window.getGlobalWindowMode20+
+#### window.getGlobalWindowMode20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -920,7 +920,7 @@ try {
 
 
 
-##### window.setWatermarkImageForAppWindows21+
+#### window.setWatermarkImageForAppWindows21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -989,7 +989,7 @@ image.createPixelMap(color, initializationOptions).then((pixelMap: image.PixelMa
 
 
 
-##### window.setStartWindowBackgroundColor20+
+#### window.setStartWindowBackgroundColor20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1050,7 +1050,7 @@ try {
 
 
 
-##### window.getAllMainWindowInfo21+
+#### window.getAllMainWindowInfo21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1134,7 +1134,7 @@ function reqPermissionsFromUser(permissions: Array<Permissions>, context: common
 
 
 
-##### window.getMainWindowSnapshot21+
+#### window.getMainWindowSnapshot21+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1241,7 +1241,7 @@ function reqPermissionsFromUser(permissions: Array<Permissions>, context: common
 
 
 
-##### window.create(deprecated)
+#### window.create(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1287,7 +1287,7 @@ window.create('test', window.WindowType.TYPE_APP, (err: BusinessError, data) => 
 
 
 
-##### window.create(deprecated)
+#### window.create(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1337,7 +1337,7 @@ promise.then((data) => {
 
 
 
-##### window.create(deprecated)
+#### window.create(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1381,7 +1381,7 @@ window.create(globalThis.getContext(), 'test', window.WindowType.TYPE_SYSTEM_ALE
 
 
 
-##### window.create(deprecated)
+#### window.create(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1428,7 +1428,7 @@ promise.then((data) => {
 
 
 
-##### window.find(deprecated)
+#### window.find(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1469,7 +1469,7 @@ window.find('test', (err: BusinessError, data) => {
 
 
 
-##### window.find(deprecated)
+#### window.find(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1514,7 +1514,7 @@ promise.then((data) => {
 
 
 
-##### window.getTopWindow(deprecated)
+#### window.getTopWindow(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1556,7 +1556,7 @@ window.getTopWindow((err: BusinessError, data) => {
 
 
 
-##### window.getTopWindow(deprecated)
+#### window.getTopWindow(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1596,7 +1596,7 @@ promise.then((data)=> {
 
 
 
-##### window.getTopWindow(deprecated)
+#### window.getTopWindow(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1648,7 +1648,7 @@ export default class EntryAbility extends UIAbility {
 
 
 
-##### window.getTopWindow(deprecated)
+#### window.getTopWindow(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

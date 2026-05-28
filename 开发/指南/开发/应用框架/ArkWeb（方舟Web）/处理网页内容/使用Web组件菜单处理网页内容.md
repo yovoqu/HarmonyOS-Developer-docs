@@ -14,7 +14,7 @@
 
 
 
-##### 文本选中菜单
+#### 文本选中菜单
 
 Web组件的文本选中菜单是一种通过自定义元素实现的上下文交互组件，当用户选中文本时会动态显示，提供复制、分享、标注等语义化操作，具备标准化功能与良好可扩展性，是移动端文本操作的核心功能之一。文本选中菜单在用户长按选中文本或编辑状态下长按出现单手柄时弹出，菜单项横向排列。系统提供默认的菜单实现。应用可通过[editMenuOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#editmenuoptions12)接口对文本选中菜单进行自定义操作。
 1. 通过onCreateMenu方法自定义菜单项，通过操作Array<[TextMenuItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-text-common#textmenuitem12对象说明)>数组可对显示菜单项进行增减操作，在[TextMenuItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-text-common#textmenuitem12对象说明)中定义菜单项名称、图标、ID等内容。
@@ -111,7 +111,7 @@ struct WebComponent {
 
 
 
-##### 上下文菜单
+#### 上下文菜单
 
 上下文菜单是用户通过特定操作（如右键点击或长按富文本）触发的快捷菜单，用于提供与当前操作对象或界面元素相关的功能选项。菜单项纵向排列。系统未提供默认实现，若应用未实现，则不显示上下文菜单。应用需要创建一个[Menu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-menu)组件并与Web组件绑定，在菜单弹出时可通过Web组件的[onContextMenuShow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#oncontextmenushow9)回调接口获取上下文菜单的详细信息，包括点击位置的HTML元素信息及点击位置信息。
 1. [Menu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-menu)组件作为弹出的菜单，包含所有菜单项行为与样式。
@@ -264,7 +264,7 @@ struct WebComponent {
 
 
 
-##### 自定义菜单
+#### 自定义菜单
 
 自定义菜单赋予开发者灵活控制菜单触发时机与视觉呈现的能力，使应用能够根据用户操作场景动态匹配功能入口，显著简化开发过程中的界面适配工作，同时让交互体验更贴近用户直觉。
 
@@ -579,7 +579,7 @@ html示例
 
 
 
-##### Web菜单保存图片
+#### Web菜单保存图片
 1. 创建MenuBuilder组件作为菜单弹窗，使用[SaveButton](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-security-components-savebutton)组件实现图片保存，通过bindContextMenu将MenuBuilder与Web绑定。
 2. 在onContextMenuShow中获取图片url，通过copyLocalPicToDir或copyUrlPicToDir将图片保存至应用沙箱。
 3. 通过photoAccessHelper将应用沙箱中的图片保存至图库。
@@ -735,7 +735,7 @@ struct WebComponent {
 
 
 
-##### Web菜单获取选中文本
+#### Web菜单获取选中文本
 
 Web组件的[editMenuOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#editmenuoptions12)接口中没有提供获取选中文本的方式。开发者可通过[javaScriptProxy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#javascriptproxy)获取到JavaScript的选中文本，实现自定义菜单的逻辑。
 1. 创建SelectClass类，通过[javaScriptProxy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#javascriptproxy)将SelectClass对象注册到Web组件中。
@@ -835,11 +835,11 @@ struct WebComponent {
 
 
 
-##### 常见问题
+#### 常见问题
 
 
 
-##### 如何禁用长按选择时弹出菜单
+#### 如何禁用长按选择时弹出菜单
 
 可通过[editMenuOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#editmenuoptions12)接口将系统默认菜单全部过滤，此时无菜单项，则不会显示菜单。
 
@@ -894,13 +894,13 @@ struct WebComponent {
 
 
 
-##### 出现选区时手柄菜单不显示
+#### 出现选区时手柄菜单不显示
 
 可排查是否通过JavaScript的[selection-api](https://www.w3.org/TR/selection-api/)对选区进行了操作，目前通过这种方式改变选区会导致文本选中菜单不显示。
 
 
 
-##### 如何修改文本选中菜单的样式
+#### 如何修改文本选中菜单的样式
 
 从API version 21开始，应用可通过[bindSelectionMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#bindselectionmenu13)接口，实现自定义文本选中菜单。
 

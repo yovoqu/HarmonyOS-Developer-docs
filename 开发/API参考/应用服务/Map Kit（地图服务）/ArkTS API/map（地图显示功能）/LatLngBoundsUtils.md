@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-latlngboundsutils
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -15,7 +15,7 @@ import { map, mapCommon } from '@kit.MapKit';
  
   
 
-##### LatLngBoundsUtils
+#### LatLngBoundsUtils
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -31,7 +31,7 @@ LatLngBounds工具类。
  
   
 
-##### contains
+#### contains
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -92,7 +92,7 @@ let result: boolean = map.LatLngBoundsUtils.contains(bounds, {
  
   
 
-##### contains
+#### contains
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -161,7 +161,7 @@ let result: boolean = map.LatLngBoundsUtils.contains(src, target);
  
   
 
-##### getCenter
+#### getCenter
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -218,7 +218,7 @@ let center: mapCommon.LatLng = map.LatLngBoundsUtils.getCenter(bounds);
  
   
 
-##### include
+#### include
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-setexpanddimsrule
 
-##### 函数功能
+#### 函数功能
 
 设置补维规则。补维是指在原有shape的基础上，添加一到多个维度。例如原shape[2,2]有两根轴，那么在两根轴中间补两维后的shape为[2,1,1,2]，补维后shape的第0、3根轴被称为原始轴，第1、2根轴被称为补维轴。
  
@@ -27,7 +27,7 @@ GE框架对外提供指定运行时格式（整网的输入输出节点的运行
  
   
 
-##### 函数原型
+#### 函数原型
 
 ```text
 void SetExpandDimsRule(const AscendString &expand_dims_rule);
@@ -35,7 +35,7 @@ void SetExpandDimsRule(const AscendString &expand_dims_rule);
  
   
 
-##### 参数说明
+#### 参数说明
  
 | 参数名 | 输入/输出 | 描述 |
 | --- | --- | --- |
@@ -44,18 +44,18 @@ void SetExpandDimsRule(const AscendString &expand_dims_rule);
  
   
 
-##### 返回值
+#### 返回值
 
 无
  
   
 
-##### 异常处理
+#### 异常处理
 
 无
  
   
 
-##### 约束说明
+#### 约束说明
 
 无

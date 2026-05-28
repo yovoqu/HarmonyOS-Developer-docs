@@ -14,7 +14,7 @@ ManualFocus继承自[ManualFocusQuery](https://developer.huawei.com/consumer/cn/
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -24,7 +24,7 @@ import { camera } from '@kit.CameraKit';
  
   
 
-##### getFocusDistance24+
+#### getFocusDistance24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -73,7 +73,7 @@ function getFocusDistance(photoSession: camera.PhotoSession): number {
  
   
 
-##### setFocusDistance24+
+#### setFocusDistance24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

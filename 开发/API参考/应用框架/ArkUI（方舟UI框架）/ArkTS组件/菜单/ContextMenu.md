@@ -12,7 +12,7 @@
 
   
 
-##### ContextMenu.close(deprecated)
+#### ContextMenu.close(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -30,7 +30,7 @@ static close()
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -80,4 +80,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/BQzOPJreSDi6kVCd_OOGJg/zh-cn_image_0000002611835989.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024229Z&HW-CC-Expire=86400&HW-CC-Sign=EF21D8FDF70576A511192B901A3D622F7E1DB6214581A7DBC3969A85F83C9033)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/BQzOPJreSDi6kVCd_OOGJg/zh-cn_image_0000002611835989.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025602Z&HW-CC-Expire=86400&HW-CC-Sign=E59EACE0405F4A477CA1F036A95071B2FC7F9E944A9C9D7F865BE998730223CB)

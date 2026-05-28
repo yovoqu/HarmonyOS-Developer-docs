@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { drawing } from '@kit.ArkGraphics2D';
 
 
 
-##### createImageLattice12+
+#### createImageLattice12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -77,12 +77,12 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/0xFonG4rSsS2UaI2tU-g0w/zh-cn_image_0000002581277088.png?HW-CC-KV=V1&HW-CC-Date=20260528T024332Z&HW-CC-Expire=86400&HW-CC-Sign=84753CC5433CBC2579C9C1957F4AE7E215DB52E34F98D39ED83267B5DF70FF5F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/0xFonG4rSsS2UaI2tU-g0w/zh-cn_image_0000002581277088.png?HW-CC-KV=V1&HW-CC-Date=20260528T025708Z&HW-CC-Expire=86400&HW-CC-Sign=3862A9AA1AF3E7EDF1B52DEDC787E6AAB62C169A25CDA231B2D60CD59B1829D6)
 
 
 
 
-##### createImageLattice18+
+#### createImageLattice18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

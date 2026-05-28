@@ -12,7 +12,7 @@ wantConstant模块提供want中操作want常数和解释Flags说明的能力。
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import wantConstant from '@ohos.ability.wantConstant';
  
   
 
-##### Action
+#### Action
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -62,7 +62,7 @@ want操作的常数。用于表示要执行的通用操作。
  
   
 
-##### Entity
+#### Entity
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -81,7 +81,7 @@ want实体的常数。用于表示目标Ability额外的类别信息。
  
   
 
-##### Flags
+#### Flags
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

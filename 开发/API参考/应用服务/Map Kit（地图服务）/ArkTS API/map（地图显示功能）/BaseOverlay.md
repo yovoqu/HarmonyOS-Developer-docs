@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-baseoverlay
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -15,7 +15,7 @@ import { map, mapCommon } from '@kit.MapKit';
  
   
 
-##### BaseOverlay
+#### BaseOverlay
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -43,7 +43,7 @@ import { map, mapCommon } from '@kit.MapKit';
  
   
 
-##### getId
+#### getId
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -82,7 +82,7 @@ let id: string = marker.getId();
  
   
 
-##### getZIndex
+#### getZIndex
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -114,7 +114,7 @@ let zIndex: number = marker.getZIndex();
  
   
 
-##### getTag
+#### getTag
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -146,7 +146,7 @@ let tag: Object = marker.getTag();
  
   
 
-##### isVisible
+#### isVisible
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -178,7 +178,7 @@ let isVisible: boolean = marker.isVisible();
  
   
 
-##### remove
+#### remove
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -203,7 +203,7 @@ marker.remove();
  
   
 
-##### setZIndex
+#### setZIndex
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -235,7 +235,7 @@ marker.setZIndex(3);
  
   
 
-##### setTag
+#### setTag
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -268,7 +268,7 @@ marker.setTag(tag);
  
   
 
-##### setVisible
+#### setVisible
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

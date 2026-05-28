@@ -7,7 +7,7 @@
 ohpm-repo 5.4.0版本开始，支持导出包权限数据。
  
 
-##### 命令格式
+#### 命令格式
 
 ```text
 ohpm-repo export_pkgPermission [option]
@@ -15,17 +15,17 @@ ohpm-repo export_pkgPermission [option]
  
  
 
-##### 功能描述
+#### 功能描述
 
 在当前的工作目录中，导出记录包权限的packagePermission_xxx.json文件。
  
  
 
-##### 选项
+#### 选项
 
  
 
-##### --repos
+#### --repos
 
 - 默认值：无
 
@@ -37,7 +37,7 @@ ohpm-repo export_pkgPermission [option]
 在export_pkgPermission命令后面配置--repos &lt;string&gt;，导出ohpm-repo中指定仓库的包权限。多个仓库之间通过英文逗号隔开，例如"export_pkgPermission --repos  one,two"，即导出仓库one和仓库two中的包权限。若未配置此参数，将默认导出ohpm-repo中所有仓库的包权限。
  
 
-##### 示例
+#### 示例
 
 **从ohpm-repo中导出所有仓库的包权限**
  

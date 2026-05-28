@@ -7,13 +7,13 @@
 启动ohpm-repo服务。
  
 
-##### 前提条件
+#### 前提条件
 
 已成功执行[install命令](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-repo-install)，并按要求刷新环境变量。
  
  
 
-##### 命令格式
+#### 命令格式
 
 ```text
 ohpm-repo start
@@ -21,7 +21,7 @@ ohpm-repo start
  
  
 
-##### 功能描述
+#### 功能描述
 
 用于启动ohpm-repo服务，创建一个ohpm-repo实例。
  
@@ -31,7 +31,7 @@ ohpm-repo start
  
  
 
-##### 示例
+#### 示例
 
 执行以下命令：
  
@@ -42,4 +42,4 @@ ohpm-repo start
 结果示例：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/d6lcCYxORtK38c3bIowXrw/zh-cn_image_0000002602064957.png?HW-CC-KV=V1&HW-CC-Date=20260528T015019Z&HW-CC-Expire=86400&HW-CC-Sign=753303CB5FE57D2F7789901C211FEEAA87534A8DC28EB1A0D2F47125FE9DA85A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/C8A69ZlEQC-YXwiM89BtGg/zh-cn_image_0000002602064957.png?HW-CC-KV=V1&HW-CC-Date=20260528T030649Z&HW-CC-Expire=86400&HW-CC-Sign=C747660D9230CC51FFB50CB47853E98629C3A19BF4809595E3B440E9CC675946)

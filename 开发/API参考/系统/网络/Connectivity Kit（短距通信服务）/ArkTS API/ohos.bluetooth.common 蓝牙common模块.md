@@ -12,7 +12,7 @@
 
 
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { common } from '@kit.ConnectivityKit';
 
 
 
-##### BluetoothAddress
+#### BluetoothAddress
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -39,7 +39,7 @@ import { common } from '@kit.ConnectivityKit';
 
 
 
-##### BluetoothAddressType
+#### BluetoothAddressType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -55,7 +55,7 @@ import { common } from '@kit.ConnectivityKit';
 
 
 
-##### BluetoothRawAddressType23+
+#### BluetoothRawAddressType23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

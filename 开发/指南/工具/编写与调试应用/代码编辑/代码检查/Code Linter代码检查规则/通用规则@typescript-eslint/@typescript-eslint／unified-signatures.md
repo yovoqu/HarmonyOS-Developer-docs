@@ -7,7 +7,7 @@
 如果两个重载函数可以用联合类型参数（|）、可选参数（?）或者剩余参数（...）来重构为一个函数，不允许使用重载。
  
 
-##### 规则配置
+#### 规则配置
 
 ```json
 // code-linter.json5
@@ -20,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 详情请参考[@typescript-eslint/unified-signatures选项](https://typescript-eslint.nodejs.cn/rules/unified-signatures/#options)。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 export declare function x(a: number | string): void;
@@ -35,7 +35,7 @@ export declare function y(...a: readonly number[]): void;
  
  
 
-##### 反例
+#### 反例
 
 ```text
 export declare function x(a: number): void;
@@ -47,7 +47,7 @@ export declare function y(...a: readonly number[]): void;
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
 <span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>

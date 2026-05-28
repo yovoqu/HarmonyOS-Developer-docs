@@ -12,7 +12,7 @@ DataAbility谓词用于构造关系型数据库的谓词，提供用于实现不
 
   
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -22,7 +22,7 @@ import { dataAbility } from '@kit.ArkData';
  
   
 
-##### dataAbility.createRdbPredicates
+#### dataAbility.createRdbPredicates
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -58,7 +58,7 @@ let predicates = dataAbility.createRdbPredicates("EMPLOYEE", dataAbilityPredicat
  
   
 
-##### DataAbilityPredicates
+#### DataAbilityPredicates
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -72,7 +72,7 @@ let dataAbilityPredicates = new dataAbility.DataAbilityPredicates()
  
   
 
-##### equalTo
+#### equalTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -107,7 +107,7 @@ dataAbilityPredicates.equalTo("NAME", "lisi")
  
   
 
-##### notEqualTo
+#### notEqualTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -142,7 +142,7 @@ dataAbilityPredicates.notEqualTo("NAME", "lisi")
  
   
 
-##### beginWrap
+#### beginWrap
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -172,7 +172,7 @@ dataAbilityPredicates.equalTo("NAME", "lisi")
  
   
 
-##### endWrap
+#### endWrap
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -202,7 +202,7 @@ dataAbilityPredicates.equalTo("NAME", "lisi")
  
   
 
-##### or
+#### or
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -231,7 +231,7 @@ dataAbilityPredicates.equalTo("NAME", "Lisa")
  
   
 
-##### and
+#### and
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -258,7 +258,7 @@ dataAbilityPredicates.equalTo("NAME", "Lisa")
  
   
 
-##### contains
+#### contains
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -291,7 +291,7 @@ dataAbilityPredicates.contains("NAME", "os")
  
   
 
-##### beginsWith
+#### beginsWith
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -326,7 +326,7 @@ dataAbilityPredicates.beginsWith("NAME", "os")
  
   
 
-##### endsWith
+#### endsWith
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -361,7 +361,7 @@ dataAbilityPredicates.endsWith("NAME", "se")
  
   
 
-##### isNull
+#### isNull
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -393,7 +393,7 @@ dataAbilityPredicates.isNull("NAME")
  
   
 
-##### isNotNull
+#### isNotNull
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -425,7 +425,7 @@ dataAbilityPredicates.isNotNull("NAME")
  
   
 
-##### like
+#### like
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -460,7 +460,7 @@ dataAbilityPredicates.like("NAME", "%os%")
  
   
 
-##### glob
+#### glob
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -499,7 +499,7 @@ dataAbilityPredicates.glob("NAME", "lisa")
  
   
 
-##### between
+#### between
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -533,7 +533,7 @@ dataAbilityPredicates.between("AGE", 10, 50)
  
   
 
-##### notBetween
+#### notBetween
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -567,7 +567,7 @@ dataAbilityPredicates.notBetween("AGE", 10, 50)
  
   
 
-##### greaterThan
+#### greaterThan
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -600,7 +600,7 @@ dataAbilityPredicates.greaterThan("AGE", 18)
  
   
 
-##### lessThan
+#### lessThan
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -633,7 +633,7 @@ dataAbilityPredicates.lessThan("AGE", 20)
  
   
 
-##### greaterThanOrEqualTo
+#### greaterThanOrEqualTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -666,7 +666,7 @@ dataAbilityPredicates.greaterThanOrEqualTo("AGE", 18)
  
   
 
-##### lessThanOrEqualTo
+#### lessThanOrEqualTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -699,7 +699,7 @@ dataAbilityPredicates.lessThanOrEqualTo("AGE", 20)
  
   
 
-##### orderByAsc
+#### orderByAsc
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -732,7 +732,7 @@ dataAbilityPredicates.orderByAsc("NAME").orderByAsc("AGE").orderByAsc("SALARY")
  
   
 
-##### orderByDesc
+#### orderByDesc
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -765,7 +765,7 @@ dataAbilityPredicates.orderByDesc("AGE").orderByDesc("SALARY")
  
   
 
-##### distinct
+#### distinct
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -790,7 +790,7 @@ dataAbilityPredicates.equalTo("NAME", "Rose").distinct()
  
   
 
-##### limitAs
+#### limitAs
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -822,7 +822,7 @@ dataAbilityPredicates.equalTo("NAME", "Rose").limitAs(3)
  
   
 
-##### offsetAs
+#### offsetAs
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -855,7 +855,7 @@ dataAbilityPredicates.equalTo("NAME", "Rose").offsetAs(3).limitAs(3)
  
   
 
-##### groupBy
+#### groupBy
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -887,7 +887,7 @@ dataAbilityPredicates.groupBy(["AGE", "NAME"])
  
   
 
-##### indexedBy
+#### indexedBy
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -958,7 +958,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-##### in
+#### in
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -991,7 +991,7 @@ dataAbilityPredicates.in("AGE", [18, 20])
  
   
 
-##### notIn
+#### notIn
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1024,7 +1024,7 @@ dataAbilityPredicates.notIn("NAME", ["Lisa", "Rose"])
  
   
 
-##### ValueType
+#### ValueType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

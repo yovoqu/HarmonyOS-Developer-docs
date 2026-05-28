@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/file-native-side
 
-##### 概述
+#### 概述
 
 在对文件处理性能要求高的场景中，Native侧访问文件处理数据比在ArkTS侧操作文件（详见[应用文件访问(ArkTS)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-file-access)）有更高的效率和更快的响应，例如处理大文件、复杂的文件操作以及实时通信等低时延场景。根据文件位置的不同，应用在Native侧访问文件可以分为以下两种类型：
  
@@ -16,7 +16,7 @@
  
   
 
-##### 访问应用沙箱文件
+#### 访问应用沙箱文件
 
 应用沙箱（详见[应用沙箱目录](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-sandbox-directory)）是一种以安全防护为目的的隔离机制，避免数据受到恶意路径穿越访问。在这种沙箱的保护机制下，应用可见的目录范围即为“应用沙箱目录”，沙箱中的文件就需要通过沙箱路径去进行访问。Native侧获取沙箱路径的方案有两种：
  
@@ -26,7 +26,7 @@
  
   
 
-##### 方案一：ArkTS侧获取沙箱路径传递给Native侧访问文件
+#### 方案一：ArkTS侧获取沙箱路径传递给Native侧访问文件
 
 **图 1** ArkTS侧获取沙箱路径传递给Native侧访问文件示意图
  
@@ -140,7 +140,7 @@ FileAccess.transferSandboxPath(this.sandboxFilesDir, content);
  
   
 
-##### 方案二：Native侧直接拼接沙箱路径访问文件
+#### 方案二：Native侧直接拼接沙箱路径访问文件
 
 **图 3** Native侧直接拼接沙箱路径访问文件示意图
  
@@ -255,7 +255,7 @@ FileAccess.splicePath(content);
  
   
 
-##### 访问公共目录文件
+#### 访问公共目录文件
 
 系统公共目录下储存的是用户文件（详见[用户文件概述](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/user-file-overview)），应用对用户文件的操作需要提前获取用户授权，或由用户操作完成。可以通过系统预置的文件选择器（FilePicker）（详见[选择文档类文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/select-user-file#选择文档类文件)）实现该能力，目前主要有创建文件、写入和读取三类操作，创建文件（详见[save](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-picker#save))可以直接使用picker，针对Native侧，有如下两种场景：
  
@@ -265,7 +265,7 @@ FileAccess.splicePath(content);
  
   
 
-##### 场景一：写数据到公共目录文件
+#### 场景一：写数据到公共目录文件
 
 **场景描述**
  
@@ -413,7 +413,7 @@ async function WriteFileByPicker(contents: string): Promise<string> {
  
   
 
-##### 场景二：从公共目录文件中读取数据
+#### 场景二：从公共目录文件中读取数据
 
 **场景描述**
  
@@ -552,6 +552,6 @@ async function ReadFileByPicker(): Promise<string> {
  
   
 
-##### 示例代码
+#### 示例代码
 
  [实现Native侧文件访问](https://gitcode.com/harmonyos_samples/NativeFileAccess)

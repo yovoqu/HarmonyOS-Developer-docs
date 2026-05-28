@@ -4,13 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/bgtask-design-formula
 
-##### 接入规范
+#### 接入规范
 
 为维护华为通知生态秩序，保障用户合法权益和良好的使用体验，根据现行法律法规及[《华为开发者服务协议》](https://developer.huawei.com/consumer/cn/doc/start/agreement-0000001052728169)、[《华为APIs使用协议》](https://developer.huawei.com/consumer/cn/doc/20209)、[《应用审核指南》](https://developer.huawei.com/consumer/cn/doc/50104)、[《元服务审核指南》](https://developer.huawei.com/consumer/cn/doc/app/50129)，特制定本规范。所有发布上架到华为应用市场且使用后台任务的HarmonyOS应用、联运应用及元服务（以下简称应用）应当遵守本规范。
  
   
 
-##### 长时任务基本原则
+#### 长时任务基本原则
  
 | 总体原则 | 说明 |
 | --- | --- |
@@ -27,11 +27,11 @@
  
   
 
-##### 违规处罚标准
+#### 违规处罚标准
 
   
 
-##### 违规分类、违规行为及违规处罚标准
+#### 违规分类、违规行为及违规处罚标准
 
 当您的应用存在违规行为时，Background Task Kit会向应用的开发者账号发送违规通知邮件或短信，请您按照邮件或者短信中提供的步骤查看违规处罚详情。
   
@@ -42,7 +42,7 @@
  
   
 
-##### 整改承诺声明
+#### 整改承诺声明
 
 应用提交整改反馈时，需提供**带有该违规应用上架主体公司盖章**的《整改承诺声明》，具体内容如下：
  

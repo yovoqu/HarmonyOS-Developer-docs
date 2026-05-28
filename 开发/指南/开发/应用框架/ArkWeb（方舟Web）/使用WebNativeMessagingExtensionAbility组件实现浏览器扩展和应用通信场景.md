@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-native-messaging
 
-##### 概述
+#### 概述
 
 浏览器的扩展程序（extension）支持与系统上安装的应用交换消息，应用向扩展提供服务，帮助扩展实现一些应用才具备的能力，常见的例子是密码管理器：应用负责存储和加密你的密码信息，以便浏览器扩展程序自动填充网页中的表单字段。
 
@@ -22,17 +22,17 @@
 
 
 
-##### 约束与限制
+#### 约束与限制
 
 
 
-##### 设备限制
+#### 设备限制
 
 对于API版本21-23，WebNativeMessagingExtensionAbility组件仅支持2in1设备；从API版本24开始，增加支持在平板上使用。
 
 
 
-##### 规格限制
+#### 规格限制
 
  - WebNativeMessagingExtensionAbility组件无需额外权限，允许任意三方应用集成使用，但拉起方（浏览器）需申请ACL权限（ohos.permission.WEB_NATIVE_MESSAGING）。此权限仅对浏览器类应用开放。
  - WebNativeMessagingExtensionAbility组件内不支持调用[Window](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window)相关API。
@@ -42,14 +42,14 @@
 
 
 
-##### 运作机制
+#### 运作机制
 
 
 
-##### 整体流程
+#### 整体流程
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/QLfSAX6oSyC4Tfhtpoug5w/zh-cn_image_0000002581434316.png?HW-CC-KV=V1&HW-CC-Date=20260528T014740Z&HW-CC-Expire=86400&HW-CC-Sign=C3F9858E7E9FFF914A889E7D35978CC5CCF6205198FDCE7C9AA02F053CCF0AF2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/QLfSAX6oSyC4Tfhtpoug5w/zh-cn_image_0000002581434316.png?HW-CC-KV=V1&HW-CC-Date=20260528T030411Z&HW-CC-Expire=86400&HW-CC-Sign=F9E611E9F21F265A3653027538BA1128EC73356238A9BF817A75BB0780524B9E)
 
 
  - **流程：**
@@ -67,7 +67,7 @@
 
 
 
-##### dataShare存放应用extension配置信息
+#### dataShare存放应用extension配置信息
 
 应用集成WebNativeMessagingExtensionAbility时，需要通过dataShare能力向浏览器应用提供extension配置。该配置用于浏览器应用判断允许访问的扩展及指定要拉起的WebNativeMessagingExtensionAbility名称。
 
@@ -103,7 +103,7 @@ extension配置通过[dataShare配置项](https://developer.huawei.com/consumer/
 
 
 
-##### WebNativeMessagingExtensionAbility生命周期管理
+#### WebNativeMessagingExtensionAbility生命周期管理
 
  - [onConnectNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-web-webnativemessagingextensionability#onconnectnative)：当浏览器扩展调用一次runtime.connectNative时触发，如果WebNativeMessagingExtensionAbility尚未运行，调用runtime.connectNative会拉起WebNativeMessagingExtensionAbility，并触发该回调。
  - [onDisconnectNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-web-webnativemessagingextensionability#ondisconnectnative)：当浏览器扩展销毁runtime.port时，会触发一次该回调，每条NativeMessaging连接的断开，都会触发一次该回调，当全部连接都断开时，会触发onDestroy的回调后关闭WebNativeMessagingExtensionAbility。
@@ -114,13 +114,13 @@ extension配置通过[dataShare配置项](https://developer.huawei.com/consumer/
 
 
 
-##### 消息格式和限制
+#### 消息格式和限制
 
 NativeMessaging连接使用的具体格式，每个消息都使用 JSON 进行序列化，编码为 UTF-8，并在前面附加 32 位消息长度（采用原生字节顺序）。来自WebNativeMessagingExtensionAbility的单个消息的大小上限为 1 MB，这主要是为了保护浏览器免受行为异常的应用影响。发送到WebNativeMessagingExtensionAbility的消息大小上限为 64 MB。
 
 
 
-##### 实现一个connectNative的扩展（应用开发者）
+#### 实现一个connectNative的扩展（应用开发者）
 
 > [!NOTE]
 > 需按w3c标准配置manifest.json和background.js实现通信。 支持使用chrome.runtime.connectNative或chrome.runtime.sendNativeMessage进行连接。
@@ -220,7 +220,7 @@ function sendNativeMessage() {
 
 
 
-##### 实现一个WebNativeMessagingExtensionAbility（应用开发者）
+#### 实现一个WebNativeMessagingExtensionAbility（应用开发者）
 
 在DevEco Studio工程中手动新建一个WebNativeMessagingExtensionAbility组件，具体步骤如下：
 1. 在工程Module对应的ets目录下，右键选择“New > Directory”，新建一个目录并命名为MyWebNativeMessageExtAbility。
@@ -351,7 +351,7 @@ export default class MyWebNativeMessageExtAbility extends WebNativeMessagingExte
 
 
 
-##### 实现拉起WebNativeMessagingExtensionAbility（浏览器开发者）
+#### 实现拉起WebNativeMessagingExtensionAbility（浏览器开发者）
 
 浏览器负责实现扩展runtime接口，拉起WebNativeMessagingExtensionAbility，建立和管理NativeMessaging连接。需要申请权限：ohos.permission.WEB_NATIVE_MESSAGING。
 1. 当接收到创建NativeMessaging连接时，先通过[应用间配置共享接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-datashare#get20)获取目标应用的extension配置。然后读取WebNativeMessagingExtensionAbility名称和允许访问的扩展列表。最后校验是否允许访问。

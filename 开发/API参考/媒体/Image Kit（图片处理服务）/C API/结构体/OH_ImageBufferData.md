@@ -10,7 +10,7 @@ typedef struct {...} OH_ImageBufferData
 ```
   
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -26,13 +26,13 @@ OH_ImageBufferData是native层封装的图像数据结构体。获取OH_ImageNat
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  

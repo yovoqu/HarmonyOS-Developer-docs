@@ -4,19 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/store-moduleinstall_arkts
 
-##### 场景介绍
+#### 场景介绍
 
 随着HarmonyOS应用的持续发展，应用的功能将越来越丰富，实际上80%的用户使用时长都会集中在20%的特性上，其余的功能可能也仅仅是面向部分用户。为了避免用户首次下载应用耗时过长，及过多占用用户空间，应用市场服务提供按需分发的能力，支持用户按需动态下载自己所需的增强特性。
 
 
 
-##### 基本概念
+#### 基本概念
 
 按需分发：一个应用程序被打包成多个安装包，安装包包含了所有的应用程序代码和静态资源。用户从应用市场下载的应用只包含基本功能的安装包，当用户需要使用增强功能时，相应安装包将会从服务器下载到设备上（应用发布请参考[发布HarmonyOS应用](https://developer.huawei.com/consumer/cn/doc/app/agc-help-release-app-0000002271695230)）。
 
 
 
-##### 业务流程
+#### 业务流程
 
 
 ![](assets/产品特性按需分发(ArkTS)/file-20260514131800555-0.png)
@@ -29,7 +29,7 @@
 
 
 
-##### 约束与限制
+#### 约束与限制
 
  - 应用需要上架应用市场。
  - 产品特性按需分发功能支持Phone、Tablet、PC/2in1设备。并且从5.1.1(19)版本开始，新增支持TV设备。
@@ -38,7 +38,7 @@
 
 
 
-##### 接口说明
+#### 接口说明
 
 产品特性按需分发场景提供以下ArkTS接口，具体API说明详见[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-moduleinstallmanager)。
 
@@ -56,11 +56,11 @@
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 
 
-##### 获取模块安装信息
+#### 获取模块安装信息
 1. 导入moduleInstallManager模块及相关公共模块。
 
   
@@ -88,7 +88,7 @@ const moduleInfo: moduleInstallManager.InstalledModule = moduleInstallManager.ge
 
 
 
-##### 创建按需加载的请求实例
+#### 创建按需加载的请求实例
 1. 导入moduleInstallManager模块及相关公共模块。
 
   
@@ -118,7 +118,7 @@ const myModuleInstallRequest: moduleInstallManager.ModuleInstallRequest = myModu
 
 
 
-##### 请求按需加载模块
+#### 请求按需加载模块
 1. 导入moduleInstallManager模块及相关公共模块。
 
   
@@ -173,7 +173,7 @@ try {
 
 
 
-##### 使用动态模块
+#### 使用动态模块
 
 假如应用A由entry.hap、AModulelib.hsp两个包组成，其中entry是基础包，AModulelib扩展是功能包（创建方式请参考[应用程序包开发与使用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-package-dev)）。通过应用市场下载安装只会下载安装entry包，在entry包里面可以通过[fetchModules](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-moduleinstallmanager#moduleinstallmanagerfetchmodules)接口动态下载AModulelib包，并使用[动态import](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-dynamic-import)技术调用AModulelib里的方法和组件。
 
@@ -390,7 +390,7 @@ struct Index {
 
 
 
-##### 接入调试功能
+#### 接入调试功能
 
 产品特性按需分发为开发者提供接入调试功能，支持开发者在接入过程中进行调试，应用无需上架应用市场。假如应用A由entry.hap、AModulelib.hsp两个包组成，其中entry是基础包，AModulelib是扩展功能包（创建方式请参考[应用程序包开发与使用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hap-package)）。
 1. 使用[调试证书签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing)应用/服务，本地编译构建出entry.hap、AModulelib.hsp，可通过[HDC命令安装](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdc#hdc命令列表)或DevEco Studio直接安装基础包。

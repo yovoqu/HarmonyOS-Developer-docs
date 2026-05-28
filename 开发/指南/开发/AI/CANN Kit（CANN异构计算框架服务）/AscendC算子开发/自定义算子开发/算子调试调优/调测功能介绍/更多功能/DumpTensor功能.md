@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-commissioning-function-dumptensor
 
-##### 功能介绍
+#### 功能介绍
 
 使用工具进行算子调测时，支持DumpTensor功能，默认从Tensor的第0位元素开始打印指定长度的元素值。
  
@@ -14,7 +14,7 @@
  
   
 
-##### 使用方法（命令行）
+#### 使用方法（命令行）
 1. 在核函数代码中按需在目标位置调用DumpTensor接口，接口说明参见表1，样例如下。
 
   
@@ -33,7 +33,7 @@ ascendebug kernel --backend simulator --dump-mode normal ... {其他simulator调
  
   
 
-##### 接口说明
+#### 接口说明
 
 DumpTensor接口说明如下。
  
@@ -104,7 +104,7 @@ DumpTensor(x, 2, 64, shapeInfo);     # dump x的64个元素，且解析按照sha
  
   
 
-##### 产物说明
+#### 产物说明
 
 Dump的Tensor数据存放在${root}/${work_dir}/simulator路径下，其中${root}表示当前操作路径，${work_dir}表示调测工作空间，默认为/debug_workspace/${op_type}目录，${op_type}为算子名。目录结构示例如下。
  

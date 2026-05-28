@@ -12,7 +12,7 @@
 用于绘制矩形、圆角矩形。
   
 
-##### 权限列表
+#### 权限列表
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -20,7 +20,7 @@
  
   
 
-##### 子组件
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -28,7 +28,7 @@
  
   
 
-##### 属性
+#### 属性
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -47,7 +47,7 @@
  
   
 
-##### 示例
+#### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -65,4 +65,4 @@
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/X9PZ-r9lSCO8RVIZXRdsdg/zh-cn_image_0000002611836211.png?HW-CC-KV=V1&HW-CC-Date=20260528T024107Z&HW-CC-Expire=86400&HW-CC-Sign=25782772AF50BE316539AC47643AA337E0AB5103B0F7C939966C446044A91E80)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/X9PZ-r9lSCO8RVIZXRdsdg/zh-cn_image_0000002611836211.png?HW-CC-KV=V1&HW-CC-Date=20260528T025441Z&HW-CC-Expire=86400&HW-CC-Sign=BBFFB3EE48CB4F3669ADC2C0BDB047D8BB3BE25074A7D20A4FC82D1BC7098C94)

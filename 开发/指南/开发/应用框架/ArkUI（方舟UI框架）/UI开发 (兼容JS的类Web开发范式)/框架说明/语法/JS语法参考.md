@@ -7,7 +7,7 @@
 JS文件用来定义HML页面的业务逻辑，支持ECMA规范的JavaScript语言。基于JavaScript语言的动态化能力，可以使应用更加富有表现力，具备更加灵活的设计能力。下面讲述JS文件的编译和运行的支持情况。
 
 
-##### 语法
+#### 语法
 
 支持ES6语法。
 
@@ -33,7 +33,7 @@ import utils from '../../common/utils.js';
 
 
 
-##### 对象
+#### 对象
 
  - 应用对象
 
@@ -107,7 +107,7 @@ export default {
 
 
 
-##### 方法
+#### 方法
 
  - 数据方法
 
@@ -201,7 +201,7 @@ this.$rootElement().scrollTo({ id: 'id', duration: 200, timingFunction: 'ease-in
 
 
 
-##### 获取DOM元素
+#### 获取DOM元素
 1. 通过$refs获取DOM元素
 
   
@@ -277,7 +277,7 @@ export default {
 
 
 
-##### 获取ViewModel
+#### 获取ViewModel
 
 根节点所在页面：
 

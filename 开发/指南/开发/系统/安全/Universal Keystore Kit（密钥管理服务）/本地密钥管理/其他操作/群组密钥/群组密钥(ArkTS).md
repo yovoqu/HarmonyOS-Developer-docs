@@ -11,11 +11,11 @@
 使用群组密钥之前，需要在app.json5文件中配置群组信息，配置方法参考[配置文件示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-configuration-file#配置文件示例)中assetAccessGroups字段的配置方式。
 
 
-##### AES/CBC/PKCS7加解密
+#### AES/CBC/PKCS7加解密
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 **生成密钥**
 1. 指定密钥别名，密钥别名命名规范参考[密钥生成介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。
@@ -45,7 +45,7 @@
 
 
 
-##### 开发示例
+#### 开发示例
 
 ```json
 /*
@@ -281,11 +281,11 @@ async function TestGroupKeyEncryptDecrypt() {
 
 
 
-##### X25519非对称密钥协商
+#### X25519非对称密钥协商
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 **生成密钥**
 
@@ -313,7 +313,7 @@ async function TestGroupKeyEncryptDecrypt() {
 
 
 
-##### 开发示例
+#### 开发示例
 
 ```json
 /*
@@ -557,11 +557,11 @@ async function testAgree() {
 
 
 
-##### PBKDF2派生密钥
+#### PBKDF2派生密钥
 
 
 
-##### 开发步骤
+#### 开发步骤
 
 **生成密钥**
 1. 指定密钥别名，密钥别名命名规范参考[密钥生成介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。
@@ -584,7 +584,7 @@ async function testAgree() {
 
 
 
-##### 开发示例
+#### 开发示例
 
 ```json
 /*

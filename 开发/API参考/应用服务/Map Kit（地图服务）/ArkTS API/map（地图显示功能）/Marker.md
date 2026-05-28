@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-##### 导入模块
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -15,7 +15,7 @@ import { map, mapCommon } from '@kit.MapKit';
  
   
 
-##### Marker
+#### Marker
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -43,7 +43,7 @@ let marker: map.Marker = await this.mapController.addMarker(markerOptions);
  
   
 
-##### getTitle
+#### getTitle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -74,7 +74,7 @@ let title: string = marker.getTitle();
  
   
 
-##### getSnippet
+#### getSnippet
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -105,7 +105,7 @@ let snippet: string = marker.getSnippet();
  
   
 
-##### getAlpha
+#### getAlpha
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -136,7 +136,7 @@ let alpha: number = marker.getAlpha();
  
   
 
-##### getPosition
+#### getPosition
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -167,7 +167,7 @@ let position: mapCommon.LatLng = marker.getPosition();
  
   
 
-##### getRotation
+#### getRotation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -198,7 +198,7 @@ let rotation: number = marker.getRotation();
  
   
 
-##### isClickable
+#### isClickable
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -229,7 +229,7 @@ let isClickable: boolean = marker.isClickable();
  
   
 
-##### isDraggable
+#### isDraggable
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -260,7 +260,7 @@ let isDraggable: boolean = marker.isDraggable();
  
   
 
-##### isFlat
+#### isFlat
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -291,7 +291,7 @@ let isFlat: boolean = marker.isFlat();
  
   
 
-##### setAlpha
+#### setAlpha
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -322,7 +322,7 @@ marker.setAlpha(0.5);
  
   
 
-##### setClickable
+#### setClickable
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -353,7 +353,7 @@ marker.setClickable(true);
  
   
 
-##### setDraggable
+#### setDraggable
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -384,7 +384,7 @@ marker.setDraggable(true);
  
   
 
-##### setFlat
+#### setFlat
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -415,7 +415,7 @@ marker.setFlat(true);
  
   
 
-##### setIcon
+#### setIcon
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -454,7 +454,7 @@ await marker.setIcon('icon/test.png');
  
   
 
-##### setMarkerAnchor
+#### setMarkerAnchor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -490,7 +490,7 @@ marker.setMarkerAnchor(1.0, 1.0);
  
   
 
-##### setPosition
+#### setPosition
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -525,7 +525,7 @@ marker.setPosition(position);
  
   
 
-##### setRotation
+#### setRotation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -556,7 +556,7 @@ marker.setRotation(30);
  
   
 
-##### setTitle
+#### setTitle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -587,7 +587,7 @@ marker.setTitle("title");
  
   
 
-##### setSnippet
+#### setSnippet
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -618,7 +618,7 @@ marker.setSnippet("su");
  
   
 
-##### setInfoWindowAnchor
+#### setInfoWindowAnchor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -650,7 +650,7 @@ marker.setInfoWindowAnchor(0.5, 0.5);
  
   
 
-##### setInfoWindowVisible
+#### setInfoWindowVisible
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -681,7 +681,7 @@ marker.setInfoWindowVisible(true);
  
   
 
-##### isInfoWindowVisible
+#### isInfoWindowVisible
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -712,7 +712,7 @@ let visible: boolean = marker.isInfoWindowVisible();
  
   
 
-##### setAnimation
+#### setAnimation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -757,7 +757,7 @@ marker.setAnimation(animation);
  
   
 
-##### startAnimation
+#### startAnimation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -796,7 +796,7 @@ marker.startAnimation();
  
   
 
-##### clearAnimation
+#### clearAnimation
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -820,7 +820,7 @@ marker.clearAnimation();
  
   
 
-##### getAltitude
+#### getAltitude
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -851,7 +851,7 @@ let altitude: number = marker.getAltitude();
  
   
 
-##### setAltitude
+#### setAltitude
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -882,7 +882,7 @@ marker.setAltitude(500);
  
   
 
-##### setAnnotationVisible
+#### setAnnotationVisible
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -913,7 +913,7 @@ marker.setAnnotationVisible(true);
  
   
 
-##### isAnnotationVisible
+#### isAnnotationVisible
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -944,7 +944,7 @@ let isVisible = marker.isAnnotationVisible();
  
   
 
-##### setPriority
+#### setPriority
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -975,7 +975,7 @@ marker.setPriority(50);
  
   
 
-##### getPriority
+#### getPriority
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1006,7 +1006,7 @@ let priority: number = marker.getPriority();
  
   
 
-##### setIconBuilder
+#### setIconBuilder
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1069,7 +1069,7 @@ try {
  
   
 
-##### setOffset
+#### setOffset
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1101,7 +1101,7 @@ marker.setOffset(20,20);
  
   
 
-##### getOffsetX
+#### getOffsetX
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -1132,7 +1132,7 @@ let X: number = marker.getOffsetX();
  
   
 
-##### getOffsetY
+#### getOffsetY
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

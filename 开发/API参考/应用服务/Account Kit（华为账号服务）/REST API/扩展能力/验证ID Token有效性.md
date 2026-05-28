@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-verify-id-token
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/5PnFNKgnTcSLtfp6pk6sVA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023744Z&HW-CC-Expire=86400&HW-CC-Sign=197A7B725F5294AD1D1FC12769B59EE989AFD7C6A52FC277B3A695BDB54485C1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/5PnFNKgnTcSLtfp6pk6sVA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025117Z&HW-CC-Expire=86400&HW-CC-Sign=F1063DC7B93AA2A922F316CADE4FE06C893212A8E1228CDAA578883EE565C7AC)
 
 
 为了更安全的网络访问，请务必使用TLS1.2协议及规定内的加密套件。若使用协议是TLS1.0、TLS1.1或规定外的加密套件，可能无法正常访问华为账号服务。
@@ -14,13 +14,13 @@
 
 
 
-##### 功能介绍
+#### 功能介绍
 
 应用服务端向华为账号服务器，调用该接口验证ID Token的有效性，并解析ID Token中的信息，只用于调试目的。
 
 
 
-##### 场景描述
+#### 场景描述
 
  - 第三方应用通过ID Token方式进行华为账号登录授权，要解析出用户的ID Token，需要先对ID Token的有效性进行验证，如果本地验证失败，可调用此接口向华为服务器发送验证请求进行调试，验证ID Token的有效性。
  - 如果ID Token是直接调用[获取用户级凭证](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-obtain-user-token)的接口获取的，则不需要验证ID Token的有效性。
@@ -28,7 +28,7 @@
 
 
 
-##### 使用约束
+#### 使用约束
 
  - 需确保调用端网络正常。
  - 由于调用此接口耗时，并且易受网络状况的影响，所以该接口只能用于调试目的。在商用环境需采用本地验证的方式，详见[解析与验证](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-faq-12#解析与验证)。
@@ -36,7 +36,7 @@
 
 
 
-##### 接口原型
+#### 接口原型
 
  - **承载协议：** HTTPS POST
  - **接口方向：** 开发者服务器->华为账号服务器
@@ -50,11 +50,11 @@
 
 
 
-##### 请求参数
+#### 请求参数
 
 
 
-##### Request Header
+#### Request Header
 
 | 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
@@ -63,7 +63,7 @@
 
 
 
-##### Request Body
+#### Request Body
 
 | 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
@@ -72,7 +72,7 @@
 
 
 
-##### 请求示例
+#### 请求示例
 
 请通过POST方式调用，示例如下：
 
@@ -86,11 +86,11 @@ id_token=<id_token>
 
 
 
-##### 响应参数
+#### 响应参数
 
 
 
-##### Response Header
+#### Response Header
 
 | 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
@@ -99,7 +99,7 @@ id_token=<id_token>
 
 
 
-##### Response Body
+#### Response Body
 
 调用成功时，响应消息体返回如下：
 
@@ -121,7 +121,7 @@ id_token=<id_token>
 
 
 
-##### ID Token字段解析
+#### ID Token字段解析
 
 其中部分字段与生成id_token的scope有关，如下为各scope对应字段说明：
 
@@ -166,11 +166,11 @@ scope包含权限项email时，解析的字段映射表如下：
 
 
 
-##### 响应示例
+#### 响应示例
 
 
 
-##### 请求成功时
+#### 请求成功时
 
 ```json
 HTTP/1.1 200 OK
@@ -196,7 +196,7 @@ Content-Type: application/json
 
 
 
-##### 请求失败时
+#### 请求失败时
 
 ```json
 HTTP/1.1 400 Bad Request
@@ -211,7 +211,7 @@ Content-Type: application/json
 
 
 
-##### 示例代码
+#### 示例代码
 
 Java示例代码如下，运行前需要进行[示例代码环境配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-common#示例代码环境配置)（请将此示例代码与工具类CallUtils放于同一路径下，如不在同一路径，请手动添加import）
 
@@ -274,7 +274,7 @@ public class IDTokenAPIDemo {
 
 
 
-##### 错误码
+#### 错误码
 
 | HTTP响应码 | 描述 | 解决方法 |
 | --- | --- | --- |

@@ -7,7 +7,7 @@
 当Web页面的内容高度或宽度超过可视区域时，页面才能滚动。Web页面滚动有多种方式，包括使用外接设备、ArkTS侧接口调用和JS侧接口调用。
 
 
-##### 使用外接设备控制Web页面滚动
+#### 使用外接设备控制Web页面滚动
 
 可以使用以下方式，通过触屏、触摸板和鼠标滚轮控制Web页面滚动。
 
@@ -18,7 +18,7 @@
 
 
 
-##### 调用ArkTS侧接口控制Web页面滚动
+#### 调用ArkTS侧接口控制Web页面滚动
 
  - [scrollTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#scrollto)：在指定时间内，将页面滚动到指定的绝对位置。
 
@@ -38,7 +38,7 @@ this.webController.scrollTo(0, 0);
 
 
 
-##### 调用JS侧接口控制Web页面滚动
+#### 调用JS侧接口控制Web页面滚动
 
  - scrollBy：相对当前滚动位置滚动一定距离（正数向下/右，负数向上/左）。
 
@@ -78,7 +78,7 @@ window.scrollTo(0, 500); // 滚动到某个固定像素位置（如：500px）
 
 
 
-##### 点击状态栏回顶
+#### 点击状态栏回顶
 
 当Web页面处于非顶部状态或向下抛滑时，此时若需返回Web页面顶部，可以使用[backToTop](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#backtotop22)方法，开启后通过点击状态栏，打断抛滑并将Web页面滚动到页面顶部。
 

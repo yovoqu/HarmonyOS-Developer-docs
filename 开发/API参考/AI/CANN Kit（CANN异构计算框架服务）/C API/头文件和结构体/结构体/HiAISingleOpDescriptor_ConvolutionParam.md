@@ -10,7 +10,7 @@ typedef struct HiAISingleOpDescriptor_ConvolutionParam {...} HiAISingleOpDescrip
 ```
   
 
-##### 概述
+#### 概述
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -24,13 +24,13 @@ typedef struct HiAISingleOpDescriptor_ConvolutionParam {...} HiAISingleOpDescrip
  
   
 
-##### 汇总
+#### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### 成员变量
+#### 成员变量
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
  
@@ -46,13 +46,13 @@ typedef struct HiAISingleOpDescriptor_ConvolutionParam {...} HiAISingleOpDescrip
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### convMode
+#### convMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -66,7 +66,7 @@ HiAI_SingleOpConvMode HiAISingleOpDescriptor_ConvolutionParam::convMode
  
   
 
-##### dilations
+#### dilations
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -80,7 +80,7 @@ int64_t HiAISingleOpDescriptor_ConvolutionParam::dilations[2]
  
   
 
-##### groups
+#### groups
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -94,7 +94,7 @@ int64_t HiAISingleOpDescriptor_ConvolutionParam::groups
  
   
 
-##### padMode
+#### padMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -108,7 +108,7 @@ HiAI_SingleOpPadMode HiAISingleOpDescriptor_ConvolutionParam::padMode
  
   
 
-##### pads
+#### pads
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -122,7 +122,7 @@ int64_t HiAISingleOpDescriptor_ConvolutionParam::pads[4]
  
   
 
-##### strides
+#### strides
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 

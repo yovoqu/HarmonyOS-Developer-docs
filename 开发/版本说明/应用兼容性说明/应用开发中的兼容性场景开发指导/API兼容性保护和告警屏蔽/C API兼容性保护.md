@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/c-api-compatibility-warning-elim
 
-##### 通过dlopen加载动态库，调用dlsym接口查询的方式，判断API兼容性
+#### 通过dlopen加载动态库，调用dlsym接口查询的方式，判断API兼容性
 
 示例如下：
  
